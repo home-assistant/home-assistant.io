@@ -5,6 +5,7 @@ logo: lifx.png
 ha_category:
   - Scene
 ha_release: 0.43
+ha_domain: lifx_cloud
 ---
 
 The `lifx_cloud` scene platform allows you to activate the scenes that LIFX smartphone apps store in the LIFX cloud.

@@ -56,7 +56,7 @@ broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_10
 ## Release 0.61.1 - January 16
 
 - Fix zha color probe ([@rcloran] - [#11670]) ([zha docs]) ([light.zha docs])
-- Move several local services to their right domain ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([sensor.mopar docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
+- Move several local services to their right domain ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
 - Rfxtrx fix ([@danielhiversen] - [#11678]) ([rfxtrx docs]) ([binary_sensor.rfxtrx docs])
 - History order bugfix and opt-in option ([@rwa] - [#11686]) ([history docs])
 - Fix purge with MariaDB / MySQL ([@tinloaf] - [#11713])
@@ -155,7 +155,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
    broadlink.learn_command_192_168_0_107 -> switch.broadlink_learn_command_192_168_0_107
    broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_107
    ```
-   ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([sensor.mopar docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
+   ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
 
 
 ## All changes
@@ -196,7 +196,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Upgrade aiohttp_cors to 0.6.0 ([@fabaff] - [#11310]) ([http docs])
 - Upgrade pysnmp to 4.4.3 ([@fabaff] - [#11317]) ([device_tracker.snmp docs]) ([sensor.snmp docs]) ([switch.snmp docs])
 - Upgrade luftdaten to 0.1.3 ([@fabaff] - [#11316]) ([sensor.luftdaten docs])
-- Upgrade yahooweather to 0.10 ([@fabaff] - [#11309]) ([weather.yweather docs])
+- Upgrade yahooweather to 0.10 ([@fabaff] - [#11309])
 - Upgrade distro to 1.2.0 ([@fabaff] - [#11312]) ([updater docs])
 - Upgrade python-digitalocean to 1.13.2 ([@fabaff] - [#11311]) ([digital_ocean docs])
 - Upgrade youtube_dl to 2017.12.23 ([@fabaff] - [#11308]) ([media_extractor docs])
@@ -325,7 +325,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Changed device type of media player and cover to switch ([@Laqoore] - [#11483]) ([google_assistant.smart_home docs])
 - Control ordering of display in history component ([@rwa] - [#11340]) ([history docs])
 - Pr/11430 ([@balloob] - [#11587])
-- Cast return values and add unit tests for the yahoo weather component. ([@cgtobi] - [#10699]) ([weather.yweather docs])
+- Cast return values and add unit tests for the yahoo weather component. ([@cgtobi] - [#10699])
 - add velux roller shutter to tahoma ([@thijsdejong] - [#11586]) ([tahoma docs])
 - Added support for enable/disable motion detection ([@abjorshammar] - [#11583]) ([camera.uvc docs])
 - Avoid returning empty media_image_url string ([@JackWindows] - [#11557]) ([media_player.cast docs])
@@ -760,7 +760,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [switch.transmission docs]: /integrations/transmission
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [tahoma docs]: /integrations/tahoma/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [timer docs]: /integrations/timer/
 [tts.baidu docs]: /integrations/baidu
 [tts.marytts docs]: /integrations/marytts
@@ -768,7 +768,6 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
 [weather.darksky docs]: /integrations/weather.darksky/
 [weather.openweathermap docs]: /integrations/openweathermap#weather
-[weather.yweather docs]: /integrations/yweather
 [websocket_api docs]: /integrations/websocket_api/
 [wemo docs]: /integrations/wemo/
 [zigbee docs]: /integrations/zigbee/
@@ -789,7 +788,6 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [media_player.snapcast docs]: /integrations/snapcast
 [media_player.soundtouch docs]: /integrations/soundtouch
 [rfxtrx docs]: /integrations/rfxtrx/
-[sensor.mopar docs]: /integrations/mopar
 [switch.broadlink docs]: /integrations/broadlink#switch
 [switch.scsgate docs]: /integrations/scsgate#switch
 [zha docs]: /integrations/zha/

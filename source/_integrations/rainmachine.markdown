@@ -1,7 +1,6 @@
 ---
 title: RainMachine
 description: Instructions on how to integrate RainMachine units within Home Assistant.
-logo: rainmachine.png
 ha_category:
   - Irrigation
   - Binary Sensor
@@ -12,6 +11,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: rainmachine
 ---
 
 The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).

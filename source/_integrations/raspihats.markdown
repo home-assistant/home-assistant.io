@@ -1,13 +1,13 @@
 ---
 title: Raspihats
 description: Instructions on how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant.
-logo: raspihats.png
 ha_category:
   - DIY
   - Binary Sensor
   - Switch
 ha_release: 0.45
 ha_iot_class: Local Push
+ha_domain: raspihats
 ---
 
 The `raspihats` integration is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the integration itself.

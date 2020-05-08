@@ -1,7 +1,6 @@
 ---
 title: SimpliSafe
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
-logo: simplisafe.png
 ha_release: 0.81
 ha_category:
   - Alarm
@@ -9,6 +8,7 @@ ha_category:
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
+ha_domain: simplisafe
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -92,3 +92,55 @@ For any property denoting a volume, the following values should be used:
 | `exit_delay_home`      | yes      | The number of seconds to delay triggering when exiting with a "home" state   |
 | `light`                | yes      | Whether the light on the base station should display when armed              |
 | `voice_prompt_volume`  | yes      | The volume of the base station's voice prompts                               |
+
+## Events
+
+### `SIMPLISAFE_EVENT`
+
+`SIMPLISAFE_EVENT` events represent events that appear on the timeline of the SimpliSafe
+web and mobile apps. When received, they come with event data that contains the
+following keys:
+
+* `changed_by`: the PIN that triggered the event (if appropriate)
+* `event_type`: the type of event
+* `info`: a human-friendly string describing the event in more detail
+* `sensor_name`: the sensor that triggered the event (if appropriate)
+* `sensor_serial`: the serial number of the sensor that triggered the event (if appropriate)
+* `sensor_type`: the type of sensor that triggered the event (if appropriate)
+* `system_id`: the system ID to which the event belongs
+* `timestamp`: the UTC datetime at which the event was received
+
+For example, when the system is armed by "remote" means (via the web app, etc.), a
+`SIMPLISAFE_EVENT` event will fire with the following event data:
+
+```python
+{
+    "changed_by": "",
+    "event_type": "armed_home",
+    "info": "System Armed (Home) by Remote Management",
+    "sensor_name": "",
+    "sensor_serial": "",
+    "sensor_type": "remote",
+    "system_id": 123456,
+    "timestamp": datetime.datetime(2020, 2, 13, 23, 1, 13, tzinfo=<UTC>),
+}
+```
+
+`event_type`, being one of the key fields automations might be built from, can have the
+following values:
+
+* `camera_motion_detected`
+* `doorbell_detected`
+* `entry_detected`
+* `motion_detected`
+
+### `SIMPLISAFE_NOTIFICATION`
+
+`SIMPLISAFE_NOTIFICATION` events represent system notifications that would appear in the
+messages section of the SimpliSafe web and mobile apps. When received, they come with
+event data that contains the following keys:
+
+* `category`: The notification category (e.g., `error`)
+* `code`: The SimpliSafe code for the notification
+* `message`: The actual text of the notification
+* `timestamp`: The UTC timestamp of the notification

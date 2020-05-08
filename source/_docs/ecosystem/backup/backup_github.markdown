@@ -50,7 +50,7 @@ Creating a `.gitignore` file in your repository will tell Git which files NOT to
 
 <div class='note'>
 
-  If you are creating the `.gitignore` file on Windows, make sure that you save the file with Unix line endings (i.e. by using an editor like Notepad++).
+  If you are creating the `.gitignore` file on Windows, make sure that you save the file with Unix line endings (i.e., by using an editor like Notepad++).
 
 </div>
 

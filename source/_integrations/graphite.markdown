@@ -5,6 +5,7 @@ logo: graphite.png
 ha_category:
   - History
 ha_release: 0.13
+ha_domain: graphite
 ---
 
 The `graphite` integration records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.

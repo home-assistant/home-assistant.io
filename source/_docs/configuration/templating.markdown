@@ -57,7 +57,7 @@ Extensions allow templates to access all of the Home Assistant specific states a
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value).
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
 
 <div class='note warning'>
 
@@ -175,7 +175,7 @@ The same thing can also be expressed as a filter:
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
 - `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
-- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g. if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
 - Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
 - Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
@@ -345,8 +345,8 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 ### Regular expressions
 
-- Filter `string|regex_match(find, ignorecase=FALSE)` will match the find expression at the beginning of the string using regex.
-- Filter `string|regex_search(find, ignorecase=FALSE)` will match the find expression anywhere in the string using regex.
+- Filter `string|regex_match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
+- Filter `string|regex_search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `string|regex_findall_index(find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
 

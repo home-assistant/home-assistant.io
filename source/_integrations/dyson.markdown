@@ -1,7 +1,6 @@
 ---
 title: Dyson
 description: Instructions on how to integrate Dyson into Home Assistant.
-logo: dyson.png
 ha_category:
   - Hub
   - Climate
@@ -12,6 +11,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.47
 ha_codeowners:
   - '@etheralm'
+ha_domain: dyson
 ---
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.
@@ -51,7 +51,7 @@ password:
   required: true
   type: string
 language:
-  description: "Dyson account language country code. Known working codes: `FR`, `NL`, `GB`, `AU`. Other codes should be supported."
+  description: "Dyson account language country code. Known working codes: `US`, `FR`, `NL`, `GB`, `AU`. Other codes should be supported."
   required: true
   type: string
 devices:

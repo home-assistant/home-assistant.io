@@ -1,7 +1,6 @@
 ---
 title: Sentry
 description: Record errors to Sentry.
-logo: sentry.svg
 ha_category:
   - System Monitor
 ha_iot_class: Cloud Polling
@@ -9,6 +8,7 @@ ha_release: 0.104
 ha_config_flow: true
 ha_codeowners:
   - '@dcramer'
+ha_domain: sentry
 ---
 
 <div class='note warning'>

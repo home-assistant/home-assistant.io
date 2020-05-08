@@ -1,10 +1,10 @@
 ---
 title: "Alarm Panel Card"
 sidebar_label: Alarm Panel
-description: "The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Integrations"
+description: "The Alarm Panel card allows you to Arm and Disarm your alarm control panel integrations."
 ---
 
-The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Integrations.
+The Alarm Panel card allows you to Arm and Disarm your alarm control panel integrations.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>

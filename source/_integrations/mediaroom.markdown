@@ -1,13 +1,13 @@
 ---
 title: Mediaroom
 description: Instructions on how to integrate Mediaroom Set-Top Boxes into Home Assistant.
-logo: mediaroom.png
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.63
 ha_codeowners:
   - '@dgomes'
+ha_domain: mediaroom
 ---
 
 The `mediaroom` integration allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.

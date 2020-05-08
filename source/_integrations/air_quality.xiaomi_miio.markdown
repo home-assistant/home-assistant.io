@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Air Quality Monitor"
 description: "Instructions how to integrate your Xiaomi Mi Air Quality Monitor within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Health
 ha_iot_class: Local Polling
 ha_release: 0.102
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor and reporting the air quality values.
@@ -16,6 +16,8 @@ Currently, the supported features are:
 - Attributes
   - carbon_dioxide_equivalent
   - total_volatile_organic_compounds
+  - temperature
+  - humidity
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
 

@@ -1,11 +1,11 @@
 ---
 title: "Command line Sensor"
 description: "Instructions on how to integrate command line sensors into Home Assistant."
-logo: command_line.png
 ha_category:
   - Utility
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_domain: command_line
 ---
 
 

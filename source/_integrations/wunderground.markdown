@@ -1,11 +1,11 @@
 ---
 title: Weather Underground (WUnderground)
 description: Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant.
-logo: wunderground.png
 ha_category:
   - Weather
 ha_release: 0.27
 ha_iot_class: Cloud Polling
+ha_domain: wunderground
 ---
 
 The `wunderground` platform uses [Weather Underground](https://www.wunderground.com/) as a source for current weather information.

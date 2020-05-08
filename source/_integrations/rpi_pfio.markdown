@@ -1,13 +1,13 @@
 ---
 title: PiFace Digital I/O (PFIO)
 description: Instructions on how to integrate the PiFace Digital I/O module into Home Assistant.
-logo: raspberry-pi.png
 ha_category:
   - DIY
   - Binary Sensor
   - Switch
 ha_release: 0.45
 ha_iot_class: Local Push
+ha_domain: rpi_pfio
 ---
 
 The `rpi_pfio` integration is the base for all related [PiFace Digital I/O (PFIO)](http://www.piface.org.uk/) platforms in Home Assistant. There is no setup needed for the integration itself; for the platforms, please check their corresponding pages.

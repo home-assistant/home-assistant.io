@@ -1,13 +1,13 @@
 ---
 title: remote_rpi_gpio
 description: Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant.
-logo: raspberry-pi.png
 ha_category:
   - DIY
   - Binary Sensor
   - Switch
 ha_release: 0.94
 ha_iot_class: Local Push
+ha_domain: remote_rpi_gpio
 ---
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.

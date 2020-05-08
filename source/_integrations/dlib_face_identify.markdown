@@ -1,10 +1,10 @@
 ---
 title: Dlib Face Identify
 description: Instructions on how to integrate Dlib Face Identify into Home Assistant.
-logo: dlib.png
 ha_category:
   - Image Processing
 ha_release: 0.44
+ha_domain: dlib_face_identify
 ---
 
 The `dlib_face_identify` image processing platform allows you to use the [Dlib](http://www.dlib.net/) through Home Assistant. This platform allow you to identify persons on camera and fire an event with identify persons.

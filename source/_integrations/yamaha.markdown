@@ -1,10 +1,10 @@
 ---
 title: Yamaha Network Receivers
 description: Instructions on how to integrate Yamaha Network Receivers into Home Assistant.
-logo: yamaha.png
 ha_category:
   - Media Player
 ha_release: 0.16
+ha_domain: yamaha
 ---
 
 The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
@@ -56,7 +56,7 @@ zone_names:
 ### Discovery notes
 
 - If the `discovery` integration is enabled, all units on the network
-  will be discovered using UPNP.
+  will be discovered using UPnP.
 - For receivers that support more than one zone, Home Assistant will
   add one media player per zone supported by the player, named "$name
   Zone 2" and "$name Zone 3".

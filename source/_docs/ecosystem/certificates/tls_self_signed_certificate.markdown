@@ -23,8 +23,10 @@ Change to your Home Assistant [configuration directory](/getting-started/configu
 The certificate **must** be `.pem` extension.
 
 ```bash
-openssl req -sha256 -newkey rsa:4096 -nodes -keyout privkey.pem -x509 -days 730 -out fullchain.pem
+openssl req -sha256 -addext "subjectAltName = IP:X.X.X.X" -newkey rsa:4096 -nodes -keyout privkey.pem -x509 -days 730 -out fullchain.pem
 ```
+
+Where the `X.X.X.X` must be replaced with the IP address of your local machine running Home Assistant (e.g., `192.168.1.20`).
 
 For details about the parameters, please check the OpenSSL documentation. Provide the requested information during the generation process.
 
@@ -46,6 +48,14 @@ Non-Hass.io:
 http:
   ssl_certificate: /home/your_user/.homeassistant/fullchain.pem
   ssl_key: /home/your_user/.homeassistant/privkey.pem
+```
+
+Docker:
+
+```yaml
+http:
+  ssl_certificate: /config/fullchain.pem
+  ssl_key: /config/privkey.pem
 ```
 
 A restart of Home Assistant is required for the new certificate to take effect.

@@ -1,7 +1,6 @@
 ---
 title: Kodi
 description: Instructions on how to integrate Kodi into Home Assistant.
-logo: kodi.png
 ha_category:
   - Notifications
   - Media Player
@@ -9,6 +8,7 @@ ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@armills'
+ha_domain: kodi
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
@@ -87,7 +87,7 @@ timeout:
 
 #### Service `kodi.add_to_playlist`
 
-Add music to the default playlist (i.e. playlistid=0).
+Add music to the default playlist (i.e., playlistid=0).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

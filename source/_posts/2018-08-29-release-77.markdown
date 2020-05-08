@@ -193,7 +193,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add recent context ([@balloob] - [#15989])
 - Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
 - Bumped NDMS2 client library to 0.0.4 to get compatible with python 3.5 ([@foxel] - [#16077]) ([device_tracker docs])
-- fritzdect change to current_power_w ([@Danielhiversen] - [#16079]) ([switch.fritzdect docs])
+- fritzdect change to current_power_w ([@Danielhiversen] - [#16079])
 - Update pyhomematic to 0.1.47 ([@danielperna84] - [#16083]) ([homematic docs])
 - Get user after login flow finished ([@awarecan] - [#16047]) ([auth docs])
 - Upgrade pytest to 3.7.2 ([@scop] - [#16091])
@@ -480,7 +480,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sonos docs]: /integrations/sonos/
 [splunk docs]: /integrations/splunk/
 [switch.deconz docs]: /integrations/deconz#switch
-[switch.fritzdect docs]: /integrations/fritzdect
 [switch.konnected docs]: /integrations/konnected#switch
 [switch.wemo docs]: /integrations/wemo
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/

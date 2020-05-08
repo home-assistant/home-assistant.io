@@ -1,13 +1,13 @@
 ---
 title: MySensors
 description: Instructions on how to integrate MySensors sensors into Home Assistant.
-logo: mysensors.png
 ha_category:
   - DIY
 ha_iot_class: Local Push
 ha_release: 0.73
 ha_codeowners:
   - '@MartinHjelmare'
+ha_domain: mysensors
 ---
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
@@ -59,7 +59,7 @@ mysensors:
         type: string
         default: ''
       nodes:
-        description: A mapping of node ids to node settings, e.g. custom name.
+        description: A mapping of node ids to node settings, e.g.,  custom name.
         required: false
         type: map
         keys:
@@ -243,7 +243,7 @@ In MySensors version 2.2 the serial API changed from using `I_HEARTBEAT_RESPONSE
 
 Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from Home Assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
 
-The log should warn you of messages that failed validation or if a child value is missing that is required for a certain child type. Home Assistant will log failed validations of child values at warning level if e.g. one required value type for a platform has been received, but other required value types are missing.
+The log should warn you of messages that failed validation or if a child value is missing that is required for a certain child type. Home Assistant will log failed validations of child values at warning level if e.g.,  one required value type for a platform has been received, but other required value types are missing.
 
 Message validation was introduced in version 0.52 of Home Assistant.
 

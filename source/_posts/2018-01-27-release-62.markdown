@@ -83,7 +83,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enable probot move ([@fabaff] - [#11690])
 - fixed not to include spaces or dots in attribute names ([@olskar] - [#11694]) ([sensor.mold_indicator docs]) (breaking change)
 - Add attributes ([@fabaff] - [#11698]) ([sensor.random docs])
-- Feature/fritzdect errorhandling ([@BastianPoe] - [#11490]) ([switch.fritzdect docs])
+- Feature/fritzdect errorhandling ([@BastianPoe] - [#11490])
 - Tesla bug fix #11598 ([@zabuldon] - [#11707])
 - Update mold_indicator.py ([@olskar] - [#11715]) ([sensor.mold_indicator docs])
 - Override default name for TP-Link devices ([@DanNixon] - [#11710]) ([light.tplink docs]) ([switch.tplink docs])
@@ -468,7 +468,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
 [sensor.yr docs]: /integrations/yr
 [snips docs]: /integrations/snips/
-[switch.fritzdect docs]: /integrations/fritzdect
 [switch.hive docs]: /integrations/hive#switch
 [switch.ihc docs]: /integrations/ihc#switch
 [switch.snmp docs]: /integrations/snmp#switch

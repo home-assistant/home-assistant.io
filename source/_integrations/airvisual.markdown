@@ -1,16 +1,17 @@
 ---
 title: AirVisual
 description: Instructions on how to use AirVisual data within Home Assistant
-logo: airvisual.jpg
 ha_category:
   - Health
 ha_release: 0.53
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@bachya'
+ha_domain: airvisual
+ha_config_flow: true
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality data. Data can be collected via latitude/longitude or by city/state/country. The resulting information creates sensors for the Air Quality Index (AQI), the human-friendly air quality level, and the main pollutant of that area. Sensors that conform to either/both the [U.S. and Chinese air quality standards](https://www.clm.com/publication.cfm?ID=366) can be created.
+The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality data. Data can be collected via latitude/longitude or by city/state/country. The resulting information creates sensors for the Air Quality Index (AQI), the human-friendly air quality level, and the main pollutant of that area. Sensors that conform to either/both the [U.S. and Chinese air quality standards](https://www.clm.com/publication.cfm?ID=366) are created.
 
 This platform requires an AirVisual API key, which can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
@@ -18,7 +19,7 @@ The Community API key is valid for 12 months after which it will expire. You mus
 
 <div class='note warning'>
 
-The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Modification of this (via the `scan_interval` key) to a too-low value may result in your API key being deactivated.
+The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Note that each item in the `geographies` list will consume an API call with each update.
 
 </div>
 
@@ -27,8 +28,7 @@ The "Community" API key is limited to 10,000 calls per month. In order to leave 
 To enable the platform and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-sensor:
-  - platform: airvisual
+airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
 ```
 
@@ -37,74 +37,73 @@ api_key:
   description: Your AirVisual API key.
   required: true
   type: string
-monitored_conditions:
-  description: "The air quality standard(s) to use (`us` for U.S., `cn` for Chinese)."
-  required: true
-  type: list
-  default: ['us', 'cn']
-show_on_map:
-  description: "Whether to show a marker on the map at the specified location."
+geographies:
+  description: A list of geographical locations to monitor
   required: false
-  type: boolean
-  default: true
-scan_interval:
-  description: "The rate in seconds at which AirVisual should be polled for new data."
-  required: false
-  type: integer
-  default: 600
-latitude:
-  description: The latitude of the location to monitor.
-  required: false
-  type: string
-  default: "The latitude defined under the `homeassistant` key in `configuration.yaml`."
-longitude:
-  description: The longitude of the location to monitor.
-  required: false
-  type: string
-  default: "The longitude defined under the `homeassistant` key in `configuration.yaml`."
-city:
-  description: The city to monitor.
-  required: false
-  type: string
-state:
-  description: The state the city belongs to.
-  required: false
-  type: string
-country:
-  description: The country the state belongs to.
-  required: false
-  type: string
+  type: [list, map]
+  keys:
+    latitude:
+      description: The latitude of the location to monitor.
+      required: inclusive
+      type: float
+    longitude:
+      description: The longitude of the location to monitor.
+      required: inclusive
+      type: float
+    city:
+      description: The city to monitor.
+      required: inclusive
+      type: string
+    state:
+      description: The state the city belongs to.
+      required: inclusive
+      type: string
+    country:
+      description: The country the state belongs to.
+      required: inclusive
+      type: string
 {% endconfiguration %}
 
 ## Example Configurations
 
-Configuration using custom Latitude and Longitude:
+No explicit configuration (uses the `latitude` and `longitude` defined within `configuration.yaml`):
 
 ```yaml
-sensor:
-  - platform: airvisual
+airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
-    monitored_conditions:
-      - cn
-    show_on_map: false
-    scan_interval: 300
-    latitude: 42.81212
-    longitude: 108.12422
 ```
 
-Configuration using city, state, and country:
+Configuration using a single custom latitude and longitude:
 
 ```yaml
-sensor:
-  - platform: airvisual
+airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
-    monitored_conditions:
-      - us
-    show_on_map: false
-    scan_interval: 300
-    city: Los Angeles
-    state: California
-    country: USA
+    geographies:
+        latitude: 42.81212
+        longitude: 108.12422
+```
+
+Configuration using multiple custom latitude and longitude pairs:
+
+```yaml
+airvisual:
+    api_key: YOUR_AIRVISUAL_API_KEY
+    geographies:
+        - latitude: 42.81212
+          longitude: 108.12422
+        - latitude: 32.87336
+          longitude: -117.22743
+```
+
+Configuration using a single city, state, and country:
+
+```yaml
+airvisual:
+    api_key: YOUR_AIRVISUAL_API_KEY
+    geographies:
+        city: Los Angeles
+        state: California
+        country: USA
 ```
 
 ## Determining the City/State/Country
@@ -114,20 +113,17 @@ To easily determine the proper values for a particular location, use the [AirVis
 For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the proper configuration would look like this:
 
 ```yaml
-sensor:
-  - platform: airvisual
-    api_key: abc123
-    monitored_conditions:
-      - us
-      - cn
-    city: sao-paulo
-    state: sao-paulo
-    country: brazil
+airvisual:
+    api_key: YOUR_AIRVISUAL_API_KEY
+    geographies:
+        city: sao-paulo
+        state: sao-paulo
+        country: brazil
 ```
 
 ## Sensor Types
 
-When configured, the platform will create three sensors for each configured air quality standard:
+When configured, the platform will create three sensors for each air quality standard:
 
 ### Air Quality Index
 

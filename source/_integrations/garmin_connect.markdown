@@ -1,7 +1,6 @@
 ---
 title: Garmin Connect
 description: Instructions on how to configure the Garmin Connect integration for Home Assistant.
-logo: garmin_connect.png
 ha_category:
   - Health
 ha_iot_class: Cloud Polling
@@ -9,6 +8,7 @@ ha_release: 0.105
 ha_codeowners:
   - '@cyberjunky'
 ha_config_flow: true
+ha_domain: garmin_connect
 ---
 
 The Garmin Connect sensor allows you to expose data from [Garmin Connect](https://connect.garmin.com) to Home Assistant.
@@ -65,9 +65,6 @@ Body Battery Most Recent
 Average SPO2
 Lowest SPO2
 Latest SPO2
-Highest Respiration
-Lowest Respiration
-Latest Respiration
 ```
 
 Disabled by default:
@@ -104,4 +101,17 @@ Moderate Intensity
 Vigorous Intensity
 Intensity Goal
 Latest Respiration Update
+Highest Respiration
+Lowest Respiration
+Latest Respiration
+
+Weight
+BMI
+Body Fat
+Body Water
+Body Mass
+Muscle Mass
+Physique Rating
+Visceral Fat
+Metabolic Age
 ```

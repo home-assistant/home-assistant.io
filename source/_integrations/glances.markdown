@@ -1,7 +1,6 @@
 ---
 title: Glances
 description: Instructions on how to integrate Glances sensors into Home Assistant.
-logo: glances.png
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
@@ -10,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
   - '@engrbm87'
+ha_domain: glances
 ---
 
 The `glances` integration allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
@@ -90,11 +90,12 @@ version:
 
 ## Integration Entities
 
-Glances integration will add the following sensors:
+Glances integration will add the following sensors if available in the platform:
 
-- disk_use_percent: The used disk space in percent.
-- disk_use: The used disk space.
-- disk_free: The free disk space.
+- For each detected disk (or mount point) the following sensors will be created:
+  - disk_use_percent: The used disk space in percent.
+  - disk_use: The used disk space.
+  - disk_free: The free disk space.
 - memory_use_percent: The used memory in percent.
 - memory_use: The used memory.
 - memory_free: The free memory.
@@ -107,9 +108,9 @@ Glances integration will add the following sensors:
 - process_thread: The number of threads.
 - process_sleeping: The number of sleeping processes.
 - cpu_use_percent: The used CPU in percent.
-- cpu_temp: The CPU temperature (may not be available on all platforms).
+- sensor_temp: A temperature sensor for each device that provides temperature (depends on platform).
 - docker_active: The count of active Docker containers.
 - docker_cpu_use: The total CPU usage in percent of Docker containers.
 - docker_memory_use: The total memory used by Docker containers.
 
-Not all platforms are able to provide all metrics. For instance `cpu_temp` requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
+Not all platforms are able to provide all metrics. For instance the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

@@ -1,10 +1,10 @@
 ---
 title: "RFXtrx Cover"
 description: "Instructions on how to integrate RFXtrx covers into Home Assistant."
-logo: rfxtrx.png
 ha_category:
   - Cover
 ha_release: 0.27
+ha_domain: rfxtrx
 ---
 
 The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.

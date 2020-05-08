@@ -1,11 +1,11 @@
 ---
 title: Media Player Classic Home Cinema (MPC-HC)
 description: Instructions on how to integrate MPC-HC into Home Assistant.
-logo: mpchc.png
 ha_category:
   - Media Player
 ha_release: 0.25
 ha_iot_class: Local Polling
+ha_domain: mpchc
 ---
 
 The `mpchc` platform allows you to connect a [Media Player Classic Home Cinema](https://mpc-hc.org/) to Home Assistant. It will allow you to see the current playing item, and respond to changes in the player's state.

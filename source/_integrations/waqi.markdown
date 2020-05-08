@@ -1,13 +1,13 @@
 ---
 title: World Air Quality Index (WAQI)
 description: Instructions on how to setup World Air Quality Index sensor in Home Assistant.
-logo: waqi.png
 ha_category:
   - Health
 ha_release: 0.34
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@andrey-git'
+ha_domain: waqi
 ---
 
 The `waqi` sensor platform will query [World Air Quality Index](https://aqicn.org/city/beijing/) service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as sensor outputs.

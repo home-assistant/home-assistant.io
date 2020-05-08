@@ -1,11 +1,11 @@
 ---
 title: Clementine Music Player
 description: Instructions on how to integrate Clementine Music Player within Home Assistant.
-logo: clementine.png
 ha_category:
   - Media Player
 ha_release: 0.39
 ha_iot_class: Local Polling
+ha_domain: clementine
 ---
 
 The `clementine` platform allows you to control a [Clementine Music Player](https://www.clementine-player.org).

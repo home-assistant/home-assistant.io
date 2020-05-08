@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_release: 0.65
 ha_codeowners:
   - '@rytilahti'
+ha_domain: songpal
 ---
 
 The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.
@@ -19,7 +20,7 @@ If the platform works with your non-listed device, or you encounter bugs, please
 A few notes:
 
 - The quick start-up mode has to be enabled in order to turn the device on.
-- Supports currently only one output terminal, i.e. the volume control works only on the first volume controller as reported by the backend library.
+- Supports currently only one output terminal, i.e., the volume control works only on the first volume controller as reported by the backend library.
 - Some devices, e.g., HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available services!
 

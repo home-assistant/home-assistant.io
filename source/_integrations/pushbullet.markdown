@@ -1,12 +1,12 @@
 ---
 title: Pushbullet
 description: Instructions on how to read user pushes in Home Assistant
-logo: pushbullet.png
 ha_category:
   - Sensor
   - Notifications
 ha_release: 0.44
 ha_iot_class: Cloud Polling
+ha_domain: pushbullet
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -113,20 +113,21 @@ Type | Prefix | Suffix | Example
 Device | `device/` | Device nickname | `device/iphone`
 Channel | `channel/` | Channel tag | `channel/my_home`
 Email | `email/` | Contact's email address | `email/email@example.com`
+SMS | `sms/` | Contact's phone number | `sms/0612345678`
 
 If using targets, your own account's email address functions as 'send to all devices'. All targets are verified (if exists) before sending, except email.
 
 #### Example service payload
 
-```json
-{
-  "message": "A message for many people",
-  "target": [
-    "device/telephone",
-    "email/hello@example.com",
-    "channel/my_home"
-  ]
-}
+```yaml
+
+  message: A message for many people
+  target: 
+    - device/telephone
+    - email/hello@example.com
+    - channel/my_home
+    - sms/0612345678
+
 ```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

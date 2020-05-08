@@ -1,13 +1,13 @@
 ---
 title: PVOutput
 description: Instructions on how to use PVOutput within Home Assistant.
-logo: pvoutput.png
 ha_category:
   - Energy
 ha_release: 0.33
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
+ha_domain: pvoutput
 ---
 
 The `pvoutput` sensor platform consumes information from [PVOutput](https://pvoutput.org/) which were uploaded by your solar photovoltaic (PV) system.

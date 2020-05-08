@@ -8,6 +8,7 @@ ha_release: 0.26
 ha_iot_class: Cloud Polling and Cloud Push
 ha_codeowners:
   - '@robbiet480'
+ha_domain: foursquare
 ---
 
 The `foursquare` integration accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.

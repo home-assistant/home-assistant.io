@@ -1,10 +1,10 @@
 ---
 title: Logentries
 description: Send events to Logentries.
-logo: logentries.png
 ha_category:
   - History
 ha_release: 0.13
+ha_domain: logentries
 ---
 
 The `logentries` integration makes it possible to log all state changes to [Logentries](http://logentries.com/) using Logentries Webhook endpoint.

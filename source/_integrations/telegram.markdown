@@ -1,10 +1,10 @@
 ---
 title: Telegram
 description: Instructions on how to add Telegram notifications to Home Assistant.
-logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.7.5
+ha_domain: telegram
 ---
 
 The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
@@ -14,7 +14,7 @@ The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver not
 The requirements are:
 
 - You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
-- You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_chatbot) and define there your API key and the allowed chat ids to interact with.
+- You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_bot) and define there your API key and the allowed chat ids to interact with.
 - The `chat_id` of an allowed user. 
 
 **Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
@@ -87,7 +87,7 @@ notify:
 ```
 
 Refer to the platforms mentioned in the
-[Telegram chatbot page](/integrations/telegram_chatbot/) for
+[Telegram chatbot page](/integrations/telegram_bot/) for
 `telegram_bot` configuration.
 
 {% configuration %}
@@ -155,7 +155,7 @@ action:
         - file: /tmp/picture.jpg
           caption: Picture Title xy
         - url: http://somebla.ie/video.png
-          caption: I.e. for a Title
+          caption: i.e., for a Title
 ```
 
 {% configuration %}
@@ -231,7 +231,7 @@ action:
         - file: /tmp/video.mp4
           caption: Video Title xy
         - url: http://somebla.ie/video.mp4
-          caption: I.e. for a Title
+          caption: i.e., for a Title
 ```
 
 {% configuration %}
@@ -288,9 +288,9 @@ action:
       document:
         file: /tmp/whatever.odf
         caption: Document Title xy
-    keyboard:
-      - '/command1, /command2'
-      - '/command3, /command4'
+      keyboard:
+        - '/command1, /command2'
+        - '/command3, /command4'
 ```
 
 {% configuration %}

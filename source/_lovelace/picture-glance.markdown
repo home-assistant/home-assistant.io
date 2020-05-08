@@ -1,10 +1,10 @@
 ---
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
-description: "Show an image card and corresponding entity states as icon"
+description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
 ---
 
-Show an image card and corresponding entity states as icon. The entities on the right side allow toggle actions, others show the more-info-dialog.
+The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
@@ -69,109 +69,16 @@ theme:
   type: string
 tap_action:
   required: false
-  description: Action to take on tap
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
 double_tap_action:
   required: false
-  description: Action to take on double tap
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
 {% endconfiguration %}
 
 ## Options For Entities
@@ -182,6 +89,18 @@ If you define entities as objects instead of strings, you can add more customiza
 entity:
   required: true
   description: Home Assistant entity ID.
+  type: string
+attribute:
+  required: false
+  description: Attribute of the entity to display instead of the state
+  type: string
+prefix:
+  required: false
+  description: Prefix to display before the attribute's value
+  type: string
+suffix:
+  required: false
+  description: Suffix to display after the attribute's value
   type: string
 icon:
   required: false
@@ -194,113 +113,16 @@ show_state:
   default: true
 tap_action:
   required: false
-  description: Action to take on tap
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
 double_tap_action:
   required: false
-  description: Action to take on double tap
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    confirmation:
-      required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
-      type: [boolean, map]
-      default: "false"
-{% endconfiguration %}
-
-## Options For Confirmation
-
-If you define confirmation as an object instead of boolean, you can add more customization and configurations:
-{% configuration %}
-text:
-  required: false
-  description: Text to present in the confirmation dialog.
-  type: string
-exemptions:
-  required: false
-  description: "List of `exemption` objects. See below"
-  type: list
 {% endconfiguration %}
 
 ## Options For Exemptions

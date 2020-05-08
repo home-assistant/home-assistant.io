@@ -1,12 +1,12 @@
 ---
 title: Wake on LAN
 description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
-logo: ethernet.png
 ha_category:
   - Network
   - Switch
 ha_release: 0.49
 ha_iot_class: Local Push
+ha_domain: wake_on_lan
 ---
 
 The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.

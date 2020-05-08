@@ -1,7 +1,6 @@
 ---
 title: Life360
 description: Instructions how to use Life360 to track devices in Home Assistant.
-logo: life360.png
 ha_release: 0.95
 ha_config_flow: true
 ha_category:
@@ -9,6 +8,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pnbruckner'
+ha_domain: life360
 ---
 
 The `life360` integration allows you to detect presence using the [unofficial API](#disclaimer) of [Life360](https://www.life360.com/).

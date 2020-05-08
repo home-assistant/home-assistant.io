@@ -151,7 +151,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix no data event triggers ([@armills] - [#10049]) ([automation.event docs])
 - fixing a typo in the old library which broke hub gen2 compatibility ([@sander76] - [#9990])
 - Add fail2ban sensor ([@fronzbot] - [#9975]) ([sensor.fail2ban docs]) (new-platform)
-- Show current program thumbnail as media_image ([@pschmitt] - [#10033]) ([media_player.liveboxplaytv docs])
+- Show current program thumbnail as media_image ([@pschmitt] - [#10033])
 - Add link to docs and update ordering ([@fabaff] - [#10062]) ([duckdns docs])
 - Remove STATE_UNKNOWN ([@fabaff] - [#10064]) ([sensor.glances docs])
 - update library for xiaomi_aqara, change from pyCrypto to cryptography ([@danielhiversen] - [#10066]) ([xiaomi_aqara docs])
@@ -577,7 +577,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mailbox docs]: /integrations/mailbox/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player docs]: /integrations/media_player/
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.monoprice docs]: /integrations/monoprice
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.russound_rnet docs]: /integrations/russound_rnet

@@ -10,13 +10,15 @@ or need to recover your data.
 
 ### Home Assistant (including Supervised)
 
+If you are still logged in to the web interface with your user, then you are in luck. Add a new user as an administrator and give the new user a password you can remember. Then log out, and log in with this new user. You may then delete the old user account. But this way, your configuration will remain, and you don't have to do a new onboarding process.
+
 If you’ve forgotten your user, then deleting the files mentioned above will be necessary to start a new onboarding process.
 
 If you know the user, but not the password and you can access the [Home Assistant console](https://www.home-assistant.io/hassio/commandline/) and use the command below:
 
 Connect a keyboard and monitor to your device.
 
-`ha auth reset --username "<existing_user>" --password "<new_password>"`
+`auth reset --username existing_user --password new_password`
 
 ### Home Assistant Core
 

@@ -1,7 +1,6 @@
 ---
 title: LG webOS Smart TV
 description: Instructions on how to integrate a LG webOS Smart TV within Home Assistant.
-logo: webos.png
 ha_category:
   - Media Player
   - Notifications
@@ -9,6 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
+ha_domain: webostv
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -118,7 +118,7 @@ webostv:
   turn_on_action:
     service: wake_on_lan.send_magic_packet
     data:
-      mac: "B4:E6:2A:1E:11:0F"
+      mac: AA-BB-CC-DD-EE-FF
 
 media_player:
 
@@ -135,9 +135,9 @@ To obtain complete list of available sources currently configured on the TV, onc
 
 The `play_media` service can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
- 1. Channel number *(i.e. '1' or '6')*
- 2. Exact channel name *(i.e. 'France 2' or 'CNN')*
- 3. Substring in channel name *(i.e. 'BFM' in 'BFM TV')*
+ 1. Channel number *(i.e., '1' or '6')*
+ 2. Exact channel name *(i.e., 'France 2' or 'CNN')*
+ 3. Substring in channel name *(i.e., 'BFM' in 'BFM TV')*
 
 ```yaml
 # Example action entry in script to switch to channel number 1
@@ -190,7 +190,7 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
-| `command`              | no       | Endpoint for the command, e.g. `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
+| `command`              | no       | Endpoint for the command, e.g.,  `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
 
 ### Example
 
@@ -209,6 +209,20 @@ script:
         data:
           entity_id:  media_player.lg_webos_smart_tv
           command: "media.controls/rewind"
+```
+
+## Consecutive volume steps delay
+
+In the case where a sound output that only supports relative volume stepping is used, the receiving speaker may have issues dealing with several volume step commands arriving at the same time. Therefore it's possible to configure a time delay so that at least the configured amount of time has elapsed between two consecutive volume steps before the second one is fired. The configured value is in milliseconds.
+
+```yaml
+# Example
+webostv:
+  host: 192.168.0.10
+  name: Living Room TV
+  consecutive_volume_steps_delay: 300
+
+media_player:
 ```
 
 ## Notifications

@@ -5,10 +5,10 @@ ha_category:
   - Sensor
 ha_release: 0.87
 ha_iot_class: Local Push
-logo: energy_meter.png
 ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
+ha_domain: utility_meter
 ---
 
 The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
@@ -18,7 +18,7 @@ From a user perspective, utility meters operate in cycles (usually monthly) for 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
 <div class='note'>
-Sensors created with this integration are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to Home Assistant.
+Sensors created with this integration are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
 </div>
 
 ## Configuration
@@ -46,7 +46,7 @@ offset:
   description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
   default: 0
-  type: time 
+  type: time
   type: integer
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
@@ -67,7 +67,7 @@ offset:
   # At least one of these must be specified:
   days: 1
   hours: 0
-  minutes: 0 
+  minutes: 0
 ```
 
 ## Services
@@ -80,10 +80,19 @@ Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 
+### Service `utility_meter.calibrate`
+
+Calibrate the Utility Meter. Change the value of a given sensor.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
+| `value` | no | Number | Value to calibrate the sensor with | 
+
 ### Service `utility_meter.next_tariff`
 
 Change the current tariff to the next in the list.
-This service must be called by the user for the tariff switching logic to occur (e.g. using an automation)
+This service must be called by the user for the tariff switching logic to occur (e.g.,  using an automation)
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -92,7 +101,7 @@ This service must be called by the user for the tariff switching logic to occur 
 ### Service `utility_meter.select_tariff`
 
 Change the current tariff to the given tariff.
-This service must be called by the user for the tariff switching logic to occur (e.g. using an automation)
+This service must be called by the user for the tariff switching logic to occur (e.g.,  using an automation)
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -153,48 +162,48 @@ When using the [DSMR component](/integrations/dsmr) to get data from the utility
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
-- `sensor.power_consumption_low` for off-peak power
-- `sensor.power_consumption_normal` for peak power
+- `sensor.energy_consumption_tarif_1` for tarif 1 power (for example off-peak)
+- `sensor.energy_consumption_tarif_2` for for tarif 2 power (for example peak)
 - `sensor.gas_consumption` for gas consumption
 
 So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` component.
 
 ```yaml
 utility_meter:
-  daily_power_offpeak:
-    source: sensor.power_consumption_low
+  daily_energy_offpeak:
+    source: sensor.energy_consumption_tarif_1
     cycle: daily
-  daily_power_peak:
-    source: sensor.power_consumption_normal
+  daily_energy_peak:
+    source: sensor.energy_consumption_tarif_2
     cycle: daily
   daily_gas:
     source: sensor.gas_consumption
     cycle: daily
-  monthly_power_offpeak:
-    source: sensor.power_consumption_low
+  monthly_energy_offpeak:
+    source: sensor.energy_consumption_tarif_1
     cycle: monthly
-  monthly_power_peak:
-    source: sensor.power_consumption_normal
+  monthly_energy_peak:
+    source: sensor.energy_consumption_tarif_2
     cycle: monthly
   monthly_gas:
     source: sensor.gas_consumption
     cycle: monthly
 ```
 
-Additionally, you can add template sensors to compute daily and monthly total usage. 
+Additionally, you can add template sensors to compute daily and monthly total usage.
 
 {% raw %}
 ```yaml
 sensor:
   - platform: template
     sensors:
-      daily_power:
-        friendly_name: Daily Power
+      daily_energy:
+        friendly_name: Daily Energy
         unit_of_measurement: kWh
-        value_template: "{{ states('sensor.daily_power_offpeak')|float + states('sensor.daily_power_peak')|float }}"
-      monthly_power:
-        friendly_name: Monthly Power
+        value_template: "{{ states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float }}"
+      monthly_energy:
+        friendly_name: Monthly Energy
         unit_of_measurement: kWh
-        value_template: "{{ states('sensor.monthly_power_offpeak')|float + states('sensor.monthly_power_peak')|float }}"
+        value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
 ```
 {% endraw %}

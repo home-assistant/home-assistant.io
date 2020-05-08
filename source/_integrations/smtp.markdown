@@ -1,12 +1,12 @@
 ---
 title: SMTP
 description: Instructions on how to add e-mail notifications to Home Assistant.
-logo: smtp.png
 ha_category:
   - Notifications
 ha_release: pre 0.7
 ha_codeowners:
   - '@fabaff'
+ha_domain: smtp
 ---
 
 The `smtp` platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
@@ -181,9 +181,7 @@ The optional `html` field makes a custom text/HTML multi-part message, allowing 
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
                 </html>
-
 ```
-Obviously, this kind of complex html email reporting is done much more conveniently using Jinja2 templating from an [AppDaemon app](/docs/ecosystem/appdaemon/tutorial/), for example.
 
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 

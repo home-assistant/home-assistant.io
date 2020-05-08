@@ -8,6 +8,7 @@ ha_release: 0.105
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ocalvo'
+ha_domain: sms
 ---
 
 The `sms` integration allows having a local execution SMS notification via [Gammu](https://wammu.eu/gammu/). This is ideal when the internet is offline or when the power goes out.
@@ -109,7 +110,7 @@ Plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
 
-If the device is still not recognized, remove the parameter -X from the usb_modesiwtch command and reboot again.
+If the device is still not recognized, remove the parameter -X from the usb_modeswitch command and reboot again.
 
 ## More details:
 

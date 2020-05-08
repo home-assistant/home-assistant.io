@@ -15,7 +15,6 @@ The location of the folder differs between operating systems:
 | Docker         | `/config`                  |
 | macOS          | `~/.homeassistant`         |
 | Linux          | `~/.homeassistant`         |
-| Windows        | `%APPDATA%/.homeassistant` |
 
 If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
 
@@ -32,7 +31,7 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 ## Reloading changes
 
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), and [scripts](/integrations/script/) without restarting.
+You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [timers](/integrations/timer/), and [zones](/integrations/zone/) without restarting.
 
 <div class='note warning'>
 

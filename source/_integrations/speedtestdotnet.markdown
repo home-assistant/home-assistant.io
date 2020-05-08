@@ -1,7 +1,6 @@
 ---
 title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
-logo: speedtest.png
 ha_category:
   - System Monitor
   - Sensor
@@ -9,6 +8,7 @@ ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@rohankapoorcom'
+ha_domain: speedtestdotnet
 ---
 
 The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
@@ -21,7 +21,7 @@ Most Speedtest.net servers require TCP port 8080 outbound to function. Without t
 
 ## Configuration
 
-For the `server_id` check the list of [available servers](http://www.speedtestserver.com).
+For the `server_id` check the list of [available servers](https://speedtest.net/speedtest-servers.php).
 
 To add Speedtest.net sensors to your installation, add the following to your `configuration.yaml` file:
 

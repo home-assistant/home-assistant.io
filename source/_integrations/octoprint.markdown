@@ -1,13 +1,13 @@
 ---
 title: OctoPrint
 description: Instructions on how to setup the OctoPrint in Home Assistant.
-logo: octoprint.png
 ha_category:
   - Hub
   - Binary Sensor
   - Sensor
 ha_release: 0.19
 ha_iot_class: Local Polling
+ha_domain: octoprint
 ---
 
 [OctoPrint](https://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.

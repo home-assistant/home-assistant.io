@@ -136,7 +136,7 @@ vacuum:
 - Polymer 2 ([@balloob] - [#8815]) ([group docs])
 - geizhals sensor component ([@JulianKahnert] - [#8458]) ([sensor.geizhals docs]) (new-platform)
 - Xiaomi vacuum as platform of new `vacuum` component derived from ToggleEntity, and services ([@azogue] - [#8623]) (breaking change) (new-platform)
-- Update yweather.py ([@fanthos] - [#8820]) ([weather.yweather docs])
+- Update yweather.py ([@fanthos] - [#8820])
 - Make HA discover sabnzbd and add it to the Configurator ([@Hellowlol] - [#8634]) ([sensor.sabnzbd docs])
 - Fix Dyson sensors if devices are configured without standby monitoring. Fixes #8569 ([@CharlesBlonde] - [#8826]) ([dyson docs]) ([fan.dyson docs]) ([sensor.dyson docs])
 - Block dependencies that depend on enum34 ([@balloob] - [#8698])
@@ -442,7 +442,7 @@ vacuum:
 [switch.rainmachine docs]: /integrations/rainmachine#switch
 [switch.wink docs]: /integrations/wink#switch
 [switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [updater docs]: /integrations/updater/
 [vacuum docs]: /integrations/vacuum/
 [vacuum.demo docs]: /integrations/vacuum.demo/
@@ -450,7 +450,6 @@ vacuum:
 [vacuum.roomba docs]: /integrations/roomba
 [vacuum.xiaomi docs]: /integrations/vacuum.xiaomi_miio/
 [weather.buienradar docs]: /integrations/buienradar
-[weather.yweather docs]: /integrations/yweather
 [weather.zamg docs]: /integrations/zamg#weather
 [wink docs]: /integrations/wink/
 [zwave docs]: /integrations/zwave/

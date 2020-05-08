@@ -1,11 +1,11 @@
 ---
 title: Supervisord
 description: Instructions on how to integrate Supervisord within Home Assistant.
-logo: supervisord.png
 ha_category:
   - System Monitor
 ha_release: '0.20'
 ha_iot_class: Local Polling
+ha_domain: supervisord
 ---
 
 The `supervisord` platform allows you to track the states of [Supervisord](http://supervisord.org/).

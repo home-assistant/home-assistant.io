@@ -1,11 +1,11 @@
 ---
 title: Prezzi Benzina
 description: Instructions on how to integrate PrezziBenzina sensors within Home Assistant.
-logo: prezzibenzina.png
 ha_category:
   - Energy
 ha_release: 0.85
 ha_iot_class: Cloud Polling
+ha_domain: prezzibenzina
 ---
 
 The `prezzibenzina` platform allows you to monitor the fuel prices with [PrezziBenzina.it](https://www.prezzibenzina.it/) from within Home Assistant and setup automations based on the information.

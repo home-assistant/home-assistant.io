@@ -1,87 +1,80 @@
 ---
-title: Panasonic Viera TV
-description: Instructions on how to integrate a Panasonic Viera TV into Home Assistant.
-logo: panasonic.png
+title: Panasonic Viera
+description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.17
 ha_iot_class: Local Polling
+ha_domain: panasonic_viera
+ha_codeowners:
+  - '@joogps'
+ha_config_flow: true
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
-Currently known supported models:
+## Configuration
 
-- TC-P65VT30
-- TX-32AS520E
-- TX-32DSX609
-- TX-49DX650B
-- TX-50DX700B
-- TX-55CX700E
-- TX-55CX680B
-- TX-55EXW584
-- TX-65EXW784
-- TX-L42ET50
-- TX-P42STW50
-- TX-P50GT30Y
-- TX-P50GT60E
-- TH-32ES500
-- TX-42AS650
-- TX55ASW654
+To configure your Panasonic Viera TV, head to the **Configuration > Integrations** page. Click on the plus (+) button to add a new integration.
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
+Once the integration is loaded, with your TV turned on and connected to your local network, enter the IP address of your TV and a name of your choice.
 
-Some Panasonic Viera TVs allow Home Assistant to turn them on, if you specify the MAC address with `mac:`.
+If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
-Note that your TV has to reside in the same network as your Home Assistant instance for this platform to work. If you have multiple network interfaces on your Home Assistant instance, you may need to specify the `broadcast_address`.
+To allow your TV to be turned on or controlled while off, enable `Powered On By Apps` in the TV Settings: **Network > TV Remote App Settings**
 
-To add a TV to your installation, add the following to your `configuration.yaml` file:
+## Manual configuration
+
+If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it. It also allows for some extra settings.
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: panasonic_viera
-    host: 192.168.0.10
+panasonic_viera:
+  host: YOUR_TV_IP
 ```
 
 {% configuration %}
 host:
-  description: The IP of the Panasonic Viera TV, e.g., `192.168.0.10`.
+  description: The IP address of your Panasonic Viera TV, e.g., `192.168.1.10`.
   required: true
+  type: string
+name:
+  description: The name you would like to give to the TV entity.
+  required: false
+  default: Panasonic Viera TV
   type: string
 port:
   description: The port number of your Panasonic Viera TV.
   required: false
   default: 55000
   type: integer
-mac:
-  description: The MAC address of your Panasonic Viera TV, e.g., `AA:BB:CC:DD:99:1A`.
+turn_on_action:
+  description: Defines an action to turn the TV on. If not specified, a power key signal will try to be sent to the TV. Be aware that it might not work properly with some models.
   required: false
-  type: string
-broadcast_address:
-  description: The broadcast address on which to send the Wake-On-Lan packet.
-  required: false
-  default: 255.255.255.255
-  type: string
-app_power:
-  description: Set to `true` if your Panasonic Viera TV supports "Turn on via App".
-  required: false
-  default: false
-  type: boolean
-name:
-  description: The name you would like to give to the Panasonic Viera TV.
-  required: false
-  default: Panasonic Viera TV
-  type: string
+  type: list
 {% endconfiguration %}
+
+When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Configuration > Integrations** to type the PIN code that will be displayed on it and finish the setup.
+
+### Example `turn_on_action`
+
+```yaml
+# Example turn_on_action configuration.yaml entry with Wake-on-LAN
+panasonic_viera:
+  host: YOUR_TV_IP
+  name: Living Room TV
+  turn_on_action:
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: "AA:BB:CC:DD:99:1A"
+```
 
 ### Example `play_media` script
 
-The `play_media` function can be used to open web pages and other media types (images, movies) in the TV web browser.
+The `play_media` function can be used to open web pages and other media types (images, movies) via URLs in the TV web browser.
 
 ```yaml
-# Example play_media script that can be triggered when someone is detected at the door
-#
+# Example play_media script
 script:
   front_door_camera:
     alias: "Show who's at the door"
@@ -93,10 +86,39 @@ script:
         data:
           entity_id: media_player.living_room_tv
           media_content_type: "url"
-          media_content_id: "http://google.com"
+          media_content_id: YOUR_URL
       - delay:
         seconds: 5
       - service: media_player.media_stop
         data:
           entity_id: media_player.living_room_tv
 ```
+
+### Currently known supported models
+
+- TC-P50ST50
+- TC-P55ST50
+- TC-P60S60
+- TC-P65VT30
+- TX-32AS520E
+- TX-32DSX609
+- TX-40DX700B
+- TX-49DX650B
+- TX-50DX700B
+- TX-55CX700E
+- TX-55CX680B
+- TX-55EXW584
+- TX-55EXW604S
+- TX-58DX700B
+- TX-65EXW784
+- TX-L42ET50
+- TX-P42STW50
+- TX-P50GT30Y
+- TX-P50GT60E
+- TH-32ES500
+- TX-42AS650
+- TX55ASW654
+- TX-55FZ802B
+- TX-55ASM655
+
+If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).

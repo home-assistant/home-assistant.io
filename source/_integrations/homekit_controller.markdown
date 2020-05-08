@@ -1,7 +1,6 @@
 ---
 title: HomeKit Controller
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
-logo: apple-homekit.png
 ha_category:
   - Hub
   - Alarm
@@ -15,10 +14,11 @@ ha_category:
   - Fan
   - Health
 ha_release: 0.68
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
+ha_domain: homekit_controller
 ---
 
 The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.
@@ -36,8 +36,8 @@ There is currently support for the following device types within Home Assistant:
 - Cover (HomeKit garage door openers, windows, or window coverings)
 - Light (HomeKit lights)
 - Lock (HomeKit lock)
-- Switch (HomeKit switches)
-- Binary Sensor (HomeKit motion, contact and smoke sensors)
+- Switch (HomeKit switches, outlets and valves)
+- Binary Sensor (HomeKit motion, contact, occupancy and smoke sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
 - Air Quality
@@ -47,11 +47,21 @@ HomeKit IP accessories for these device types may work with some caveats:
 - If the device is Wi-Fi based and has no physical controls or screen then you may need an Apple HomeKit device like an iPhone or iPad to get the accessory onto your Wi-Fi network. For example, for a Koogeek LS1 you must add the accessory to HomeKit on your iOS device, then remove it from the iOS device. This leaves the LS1 in an unpaired state but still on your Wi-Fi. Home Assistant can then find it and pair with it.
 - You need to know the HomeKit PIN. There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 
+HomeKit controller will poll your devices, but it will also automatically enable push updates for accessories that support it.
+
 Home Assistant does not currently support HomeKit BLE.
 
 <div class='note'>
 
   HomeKit Controller might detect some HomeKit devices on your network that are not currently supported by this integration. One such example is HomeKit displays (such as Vizio TVs which have been updated with HomeKit support). These devices might pair with Home Assistant if you go through the pairing process, but no entity will be created, and you won't be able to control these devices with Home Assistant. However, pairing the device with Home Assistant *will* remove the persistent notification generated when Home Assistant finds new devices.
+
+</div>
+
+<div class="note warning">
+
+If you are using the official Home Assistant images or running Home Assistant Core on Docker, HomeKit controller is ready to go out of the box. If you are running Home Assistant in a manual virtual environment or on a NAS without Docker, you may need to install or upgrade dependencies for HomeKit controller to function.
+
+HomeKit controller requires openssl 1.1.0 or later as the HomeKit Accessory Protocol (HAP) uses the `ChaCha20` stream cipher and the `Poly1305` authenticator.
 
 </div>
 
@@ -66,10 +76,6 @@ Devices with screens like thermostats may not have PIN codes in the packaging at
 If your device doesn't have a display and received HomeKit support after it was released, you may not have a pairing code. Dealing with this is manufacturer specific. Some manufacturers allow you to see the pairing code in their iOS app. Others force you to use their app to configure HomeKit and don't let you have the pairing pin - right now you won't be able to use HomeKit Controller with those devices.
 
 If you have lost your PIN code, then you may not be able to pair your accessory. You should contact the manufacturer to see if there is anything you can do.
-
-### My accessory isn't updating straight away
-
-This is normal - HomeKit controller is currently a local polling based integration. It polls your accessory for its latest state once per minute.
 
 ### Home Assistant cannot discover my device
 

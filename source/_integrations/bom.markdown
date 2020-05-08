@@ -1,13 +1,15 @@
 ---
 title: Australian Bureau of Meteorology (BOM)
 description: Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant.
-logo: bom.png
 ha_category:
   - Weather
   - Sensor
   - Camera
 ha_release: 0.36
 ha_iot_class: Cloud Polling
+ha_domain: bom
+ha_codeowners:
+  - '@maddenp'
 ---
 
 The `bom` weather platform uses the [Australian Bureau of Meteorology (BOM)](http://www.bom.gov.au) as a source for current (half-hourly) meteorological data.
@@ -33,7 +35,7 @@ name:
   required: false
   type: string
 station:
-  description: "The station ID string. See the [`sensor.bom` docs](#sensor) for details on how to find the ID of a station."
+  description: "The station ID string. See the [`sensor.bom` documentation](#sensor) for details on how to find the ID of a station."
   required: false
   type: string
   default: The closest station
@@ -122,7 +124,7 @@ camera:
 
 In the event BOM creates a new radar, or a radar's ID changes, you may define a custom `id` along with corresponding `delta` and `frames` values. You may also specify custom `delta` and `frames` values, along with a valid `location`, to override the default values for an existing radar. You may not define `location` and `id` in the same entity; you must specify one or the other. If `id` is specified, then `delta` and `frames` values _must_ be provided. If `location` is specified, `delta` and `frames` _may_ be provided to override the default values.
 
-To find a live radar ID (e.g. for the `Townsville` radar), visit the [BOM website's radars page](http://www.bom.gov.au/australia/radar/), click the link for the radar you are interested in, and note the URL, for example: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e. `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's JavaScript-driven animation. The number of minutes (in seconds) between these times corresponds to the camera's `delta` value, and the number of frames corresponds to the `frames` value. At the time of this writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
+To find a live radar ID (e.g.,  for the `Townsville` radar), visit the [BOM website's radars page](http://www.bom.gov.au/australia/radar/), click the link for the radar you are interested in, and note the URL, for example: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e., `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's JavaScript-driven animation. The number of minutes (in seconds) between these times corresponds to the camera's `delta` value, and the number of frames corresponds to the `frames` value. At the time of this writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
 
 ```yaml
 camera:

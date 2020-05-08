@@ -1,10 +1,10 @@
 ---
 title: "Telegram webhooks"
 description: "Telegram webhooks support"
-logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.42
+ha_domain: telegram_bot
 ---
 
 Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).

@@ -1,12 +1,12 @@
 ---
 title: Signal Messenger
 description: Instructions on how to integrate Signal Messenger within Home Assistant.
-logo: signal_messenger.png
 ha_category:
   - Notifications
 ha_release: 0.104
 ha_codeowners:
   - '@bbernhard'
+ha_domain: signal_messenger
 ---
 
 The `signal_messenger` integration uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
@@ -80,5 +80,6 @@ action:
   data:
     message: "Alarm in the living room!"
     data:
-      attachment: "/tmp/surveillance_camera.jpg"
+      attachments:
+        - "/tmp/surveillance_camera.jpg"
 ```

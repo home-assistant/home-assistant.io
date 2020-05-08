@@ -7,6 +7,7 @@ ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rolfberkenbosch'
+ha_domain: meteoalarm
 ---
 
 The `MeteoAlarm` platform allows one to watch for weather alerts in europe from [MeteoAlarm](https://www.meteoalarm.eu) (EUMETNET). To use this binary sensor, you need the two digits of your country and the province name from  [MeteoAlarm](https://www.meteoalarm.eu). Please note that you need to write the exact details from the website with capitals.

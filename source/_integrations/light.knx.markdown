@@ -1,11 +1,11 @@
 ---
 title: "KNX Light"
 description: "Instructions on how to integrate KNX lights with Home Assistant."
-logo: knx.png
 ha_category:
   - Light
 ha_release: 0.44
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>

@@ -1,11 +1,11 @@
 ---
 title: Pioneer
 description: Instructions on how to integrate a Pioneer Network Receivers into Home Assistant.
-logo: pioneer.png
 ha_category:
   - Media Player
 ha_release: 0.19
 ha_iot_class: Local Polling
+ha_domain: pioneer
 ---
 
 The `pioneer` platform allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.
@@ -39,9 +39,9 @@ timeout:
   required: false
   type: float
 sources:
-  description: A list of mappings from source friendly name to the source code (e.g. `TV:'05'`). Valid source codes depend on the receiver (some known codes can be found below). Codes must be defined as strings (between single or double quotation marks) so that `05` is not implicitly transformed to `5`, which wouldn't be valid source code.
+  description: A list of mappings from source friendly name to the source code (e.g.,  `TV:'05'`). Valid source codes depend on the receiver (some known codes can be found below). Codes must be defined as strings (between single or double quotation marks) so that `05` is not implicitly transformed to `5`, which wouldn't be valid source code.
   required: false
-  default: Empty list (i.e. no source selection will be possible)
+  default: Empty list (i.e., no source selection will be possible)
   type: list
 {% endconfiguration %}
 
@@ -52,7 +52,7 @@ Notes:
 
 ### Source codes
 
-Under these lines, you can find some sample `sources` lists per receiver model. Here we use the source names as shown on the remote as key for each code. However these are for display purposes only, so you could rename inputs to better match your set-up (e.g. `HDMI: '19'` to `Kodi: '19'`.
+Under these lines, you can find some sample `sources` lists per receiver model. Here we use the source names as shown on the remote as key for each code. However these are for display purposes only, so you could rename inputs to better match your set-up (e.g.,  `HDMI: '19'` to `Kodi: '19'`.
 
 Codes must be defined as strings (between single or double quotation marks) so that `05` is not implicitly transformed to `5`, which wouldn't be valid source code.
 
@@ -119,5 +119,26 @@ sources:
   'Media Server': '44'
   'Favorites': '45'
   'MHL': '48'
+  'Game': '49'
+```
+
+#### VSX-528
+
+```yaml
+port: 8102
+sources:
+  'CD': '01'
+  'Tuner': '02'
+  'DVD': '04'
+  'TV': '05'
+  'Sat/Cbl': '06'
+  'DVR/BDR': '15'
+  'iPod/USB': '17'
+  'HDMI/MHL': '48'
+  'BD': '25'
+  'Adapter': '33'
+  'Netradio': '38'
+  'Media Server': '44'
+  'Favorites': '45'
   'Game': '49'
 ```

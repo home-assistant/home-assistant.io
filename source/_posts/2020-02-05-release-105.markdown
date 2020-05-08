@@ -234,9 +234,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   Please ensure your configuration and automations do not use these anymore. - ([@frenck] - [#30831]) ([group docs])
 
-- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834]) ([weblink docs])
+- __Weblink__ *Deprecated* - The weblink integration is now deprecated and pending removal in Home Assistant 0.107.0. This integration only works with the old states UI. - ([@frenck] - [#30834])
 
-- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835]) ([history_graph docs])
+- __History Graph__ *Deprecated* - The `history_graph` integration has been deprecated and pending for removal in Home Assistant 0.107.0. This integration was used for the old states UI. Going ahead, please ensure this configuration option is not used in your configuration. - ([@frenck] - [#30835])
 
 - __Neato__ - This change adds a neato boundary name to the state if it exists, requiring to potentially update automations. - ([@Olen] - [#29915]) ([neato docs])
 
@@ -628,6 +628,22 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [spotify docs]: /integrations/spotify/
 [vizio docs]: /integrations/vizio/
 
+## Release 0.105.5 - February 17
+
+- Upgrade bimmer_connected to 0.7.0 ([@gerard33] - [#31894]) ([bmw_connected_drive docs])
+- Report which data causes JSON serialization error ([@balloob] - [#31901])
+
+[#31489]: https://github.com/home-assistant/home-assistant/pull/31489
+[#31894]: https://github.com/home-assistant/home-assistant/pull/31894
+[#31901]: https://github.com/home-assistant/home-assistant/pull/31901
+[@balloob]: https://github.com/balloob
+[@frenck]: https://github.com/frenck
+[@gerard33]: https://github.com/gerard33
+[abode docs]: /integrations/abode/
+[adguard docs]: /integrations/adguard/
+[airly docs]: /integrations/airly/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+
 ## Beta Fixes
 
 - ZHA dependencies bump ([@Adminiuga] - [#31295]) ([zha docs]) (beta fix)
@@ -739,7 +755,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Removes Cisco Spark integration ([@frenck] - [#30738]) (breaking change)
 - Fix translation from HA playlist to UPnP playlistItem ([@StevenLooman] - [#30743]) ([dlna_dmr docs])
 - Fix 'NewIPAddress' error in component fritz ([@basdelfos] - [#30210]) ([fritz docs]) ([fritzbox_netmonitor docs]) (breaking change)
-- Fix small typo in alarmdotcom component ([@akinomeroglu] - [#30758]) ([alarmdotcom docs])
+- Fix small typo in alarmdotcom component ([@akinomeroglu] - [#30758])
 - Fix supported_features in MQTT fan ([@springstan] - [#28680]) ([mqtt docs]) (breaking change)
 - Add support for the voltage sensor on the greeneye GEM ([@garbled1] - [#30484]) ([greeneye_monitor docs])
 - Add Safe Mode ([@balloob] - [#30723]) ([frontend docs]) ([http docs]) ([safe_mode docs]) (breaking change) (new-integration)
@@ -758,9 +774,9 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Use collection helpers for input_datetime component ([@Adminiuga] - [#30815]) ([input_datetime docs])
 - Handle location API being exhausted ([@balloob] - [#30798])
 - Deprecate states UI options in group integration ([@frenck] - [#30831]) ([group docs]) (breaking change)
-- Deprecate weblink integration ([@frenck] - [#30834]) ([weblink docs]) (breaking change)
+- Deprecate weblink integration ([@frenck] - [#30834]) (breaking change)
 - Deprecate hide_if_away from device_tracker ([@frenck] - [#30833]) ([device_tracker docs]) (breaking change)
-- Deprecate history_graph integration ([@frenck] - [#30835]) ([history_graph docs]) (breaking change)
+- Deprecate history_graph integration ([@frenck] - [#30835]) (breaking change)
 - Remove unused import ([@dshokouhi] - [#30858]) ([ring docs])
 - Bump pyvizio version to 0.1.1 ([@raman325] - [#30867]) ([vizio docs])
 - Update pyatmo to 3.2.2 and add available attribute ([@cgtobi] - [#30882]) ([netatmo docs])
@@ -1397,7 +1413,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [adguard docs]: /integrations/adguard/
 [airly docs]: /integrations/airly/
 [alarmdecoder docs]: /integrations/alarmdecoder/
-[alarmdotcom docs]: /integrations/alarmdotcom/
 [alexa docs]: /integrations/alexa/
 [almond docs]: /integrations/almond/
 [amcrest docs]: /integrations/amcrest/
@@ -1442,7 +1457,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [group docs]: /integrations/group/
 [hassio docs]: /integrations/hassio/
 [hisense_aehw4a1 docs]: /integrations/hisense_aehw4a1/
-[history_graph docs]: /integrations/history_graph/
 [hlk_sw16 docs]: /integrations/hlk_sw16/
 [homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/
@@ -1535,7 +1549,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [versasense docs]: /integrations/versasense/
 [vicare docs]: /integrations/vicare/
 [vizio docs]: /integrations/vizio/
-[weblink docs]: /integrations/weblink/
 [webostv docs]: /integrations/webostv/
 [wemo docs]: /integrations/wemo/
 [withings docs]: /integrations/withings/

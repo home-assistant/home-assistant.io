@@ -1,11 +1,11 @@
 ---
 title: rTorrent
 description: Instructions on how to integrate rTorrent sensors within Home Assistant.
-logo: rtorrent.png
 ha_category:
   - Downloading
 ha_release: 0.81
 ha_iot_class: Local Polling
+ha_domain: rtorrent
 ---
 
 The `rtorrent` platform allows you to monitor your downloads with [rTorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.
@@ -21,6 +21,12 @@ sensor:
       - 'current_status'
       - 'download_speed'
       - 'upload_speed'
+      - 'all_torrents'
+      - 'stopped_torrents'
+      - 'complete_torrents'
+      - 'uploading_torrents'
+      - 'downloading_torrents'
+      - 'active_torrents'
 ```
 
 This sensor requires the rTorrent XML-RPC API exposed on an HTTP interface.
@@ -49,4 +55,16 @@ monitored_variables:
       description: The current download speed.
     upload_speed:
       description: The current upload speed.
+    all_torrents:
+      description: The number of all torrents.
+    stopped_torrents:
+      description: The number of torrents that are stopped.
+    complete_torrents:
+      description: The number of torrents that are fully downloaded.
+    uploading_torrents:
+      description: The number of torrents that are seeding.
+    downloading_torrents:
+      description: The number of torrents that are leeching.
+    active_torrents:
+      description: The number of torrents that are actively ( measurable speed ) leeching, seeding or both.
 {% endconfiguration %}

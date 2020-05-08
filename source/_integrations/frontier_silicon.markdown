@@ -1,11 +1,11 @@
 ---
 title: Frontier Silicon
 description: Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant.
-logo: frontier.png
 ha_category:
   - Media Player
 ha_iot_class: Local Push
 ha_release: '0.40'
+ha_domain: frontier_silicon
 ---
 
 This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the [UNDOK] app.
@@ -14,7 +14,7 @@ This integration provides support for Internet Radios based on the [Frontier Sil
 * Hama: [IR110], [DIR3110]
 * Medion: [Medion Radios]
 * Silvercrest: [SIRD 14 C2]
-* Some models from: Auna, Technisat, Revo, Pinell
+* Some models from: Auna, Technisat, Revo, Pinell, Como Audio
 
 This integration was developed and tested with a Hama [DIR3110] and a Medion [MD 87466].
 
@@ -48,6 +48,11 @@ password:
   description: PIN code of the Internet Radio.
   required: false
   default: 1234
+  type: string
+name:
+  description: Friendly name of the Internet Radio. If present this will override the friendly name reported by the radio itself.
+  required: false
+  default: empty
   type: string
 {% endconfiguration %}
 

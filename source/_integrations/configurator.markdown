@@ -1,13 +1,13 @@
 ---
 title: Configurator
 description: Instructions on how to integrate the configurator in your components.
-logo: home-assistant.png
 ha_category:
   - Other
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
+ha_domain: configurator
 ---
 
 <div class='note'>

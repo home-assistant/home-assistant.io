@@ -1,11 +1,11 @@
 ---
 title: Alert
 description: Instructions on how to setup automatic alerts within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Automation
 ha_release: 0.38
 ha_quality_scale: internal
+ha_domain: alert
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.
@@ -247,8 +247,8 @@ alert:
       - 15
       - 30
       - 60
-    can_acknowledge: True  # Optional, default is True
-    skip_first: True  # Optional, false is the default
+    can_acknowledge: true  # Optional, default is true
+    skip_first: true  # Optional, false is the default
     data:
       inline_keyboard:
         - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'

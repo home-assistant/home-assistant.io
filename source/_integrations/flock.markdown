@@ -1,12 +1,12 @@
 ---
 title: Flock
 description: Instructions on how to add Flock notifications to Home Assistant.
-logo: flock.png
 ha_category:
   - Notifications
 ha_release: 0.71
 ha_codeowners:
   - '@fabaff'
+ha_domain: flock
 ---
 
 The `flock` platform uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.

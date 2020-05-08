@@ -1,11 +1,11 @@
 ---
 title: Bluetooth Tracker
 description: Instructions for integrating Bluetooth tracking within Home Assistant.
-logo: bluetooth.png
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.18
+ha_domain: bluetooth_tracker
 ---
 
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.

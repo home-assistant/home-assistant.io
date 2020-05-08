@@ -678,7 +678,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [switch.zigbee docs]: /integrations/zigbee#switch
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tts docs]: /integrations/tts/
 [twilio docs]: /integrations/twilio/
 [updater docs]: /integrations/updater/

@@ -5,8 +5,8 @@ ha_category:
   - Light
 ha_release: 0.83
 ha_iot_class: Local Push
-logo: home-assistant.png
 ha_quality_scale: internal
+ha_domain: light
 ---
 
 The light switch platform lets you control an existing switch, allowing you

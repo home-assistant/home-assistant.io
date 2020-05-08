@@ -1,7 +1,6 @@
 ---
 title: Broadlink
 description: Instructions on how to integrate Broadlink within Home Assistant.
-logo: broadlink.png
 ha_category:
   - Remote
   - Switch
@@ -11,6 +10,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
+ha_domain: broadlink
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -43,6 +43,10 @@ host:
 mac:
   description: Device MAC address.
   required: true
+  type: string
+type:
+  description: "Device type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `rm_mini3_newblackbean`, `rm_mini3_redbean`, `rm4_mini`, `rm4_pro`, `rm4c_mini`, `rm4c_pro`."
+  required: false
   type: string
 timeout:
   description: Timeout in seconds for the connection to the device.
@@ -174,9 +178,58 @@ script:
             - turn off display
 ```
 
+### Troubleshooting
+
+Many users are experiencing problems with the new Broadlink RM Mini 3 and the entire RM4 series.
+
+Once connected to the cloud, these devices lose their local capabilities and can no longer be controlled by Home Assistant.
+
+To fix the problem, you need to follow these steps:
+- Remove the device from Broadlink App
+- Factory reset the device
+- Add the device to your local network using the app
+- Do not set up a cloud (not now, not ever)
+- Specify the correct device type in the configuration file
+
+Example 1: Set up the new RM Mini 3 using remote platform
+
+```yaml
+# Example configuration.yaml entry
+remote:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+    type: rm_mini3_redbean
+```
+
+Example 2: Set up RM4C Mini using switch platform
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+    type: rm4c_mini
+```
+
+Example 3: Set up RM4 Pro using sensor platform
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: MAC_ADDRESS
+    type: rm4_pro
+    monitored_conditions:
+      - temperature
+      - humidity
+```
+
 ## Sensor
 
-The `broadlink` sensor platform let you monitor data from an RM2 and A1 E-air. There is currently no support for the cloud API.
+The `broadlink` sensor platform let you monitor data from an RM2, RM4 and A1 E-air. There is currently no support for the cloud API.
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -203,6 +256,10 @@ name:
   description: Sensor name.
   required: false
   default: Broadlink sensor
+  type: string
+type:
+  description: "Device type. Choose one from: `a1`, `rm`, `rm2`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm4_mini`, `rm4_pro`, `rm4c_mini`, `rm4c_pro`."
+  required: false
   type: string
 scan_interval:
   description: Time in seconds to fetch data from sensors.
@@ -316,8 +373,8 @@ friendly_name:
   required: false
   type: string
 type:
-  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
-  required: true
+  description: "Device type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `rm_mini3_newblackbean`, `rm_mini3_redbean`, `rm4_mini`, `rm4_pro`, `rm4c_mini`, `rm4c_pro`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
+  required: false
   type: string
 switches:
   description: The array that contains all switches.

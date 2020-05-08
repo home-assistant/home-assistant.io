@@ -1,18 +1,18 @@
 ---
 title: AVM FRITZ!Box Net Monitor
 description: Instructions on how to integrate an AVM FRITZ!Box monitor into Home Assistant.
-logo: avm.png
 ha_category:
   - System Monitor
 ha_release: 0.36
 ha_iot_class: Local Polling
+ha_domain: fritzbox_netmonitor
 ---
 
 The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) routers.
 
 ## Configuration
 
-For this integration to function properly, you need to have "uPnP Statusinformation transfer" activated on the AVM FRITZ!Box. Please make sure you have that enabled.
+For this integration to function properly, you need to have "UPnP Statusinformation transfer" activated on the AVM FRITZ!Box. Please make sure you have that enabled.
 
 To use the FRITZ!Box network monitor in your installation, add the following to your `configuration.yaml` file:
 
@@ -51,7 +51,3 @@ The following statistics will be exposed as attributes.
 |max_byte_rate_down     |Maximum downstream-rate in bytes/s                           |
 
 The sensor's state corresponds to the `is_linked` attribute and is either `online`, `offline`, or `unavailable` (in case connection to the router is lost).
-
-<div class='note info'>
-This integration does not support "FRITZ!Box 6490 Cable" with FritzOS 6.87 installed.
-</div>

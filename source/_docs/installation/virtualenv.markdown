@@ -98,7 +98,7 @@ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@de
 
 - In the future, if you want to start Home Assistant manually again, follow step 2, 3 and 5.
 - It's recommended to run Home Assistant as a dedicated user.
-- If you want Home Assistant to automatically start at boot, check the [autostart docs](/docs/autostart/)
+- If you want Home Assistant to automatically start at boot, check the [autostart documentation](/docs/autostart/)
 
 <div class='info'>
  

@@ -1,10 +1,10 @@
 ---
 title: Pico TTS
 description: Instructions on how to setup Pico Text-to-Speech with Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Text-to-speech
 ha_release: 0.36
+ha_domain: picotts
 ---
 
 The `picotts` text-to-speech platform uses offline pico Text-to-Speech engine to read a text with natural sounding voices.

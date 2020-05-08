@@ -1,7 +1,6 @@
 ---
 title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
-logo: homematic.png
 ha_category:
   - Hub
   - Binary Sensor
@@ -17,6 +16,7 @@ ha_release: 0.23
 ha_codeowners:
   - '@pvizeli'
   - '@danielperna84'
+ha_domain: homematic
 ---
 
 The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
@@ -476,7 +476,7 @@ The `homematic` notification platform enables invoking Homematic devices.
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
-## Configuration
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry

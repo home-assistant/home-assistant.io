@@ -6,11 +6,11 @@ ha_category:
   - Alarm
   - Binary Sensor
 ha_release: 0.47
-logo: vanderbilt_spc.png
 ha_iot_class: Local Push
+ha_domain: spc
 ---
 
-Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door and smoke sensors.
+Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door, smoke and technical sensors.
 
 Integration with SPC is done through a third-party API gateway called [SPC Web Gateway](https://www.lundix.se/smarta-losningar/) which must be installed and configured somewhere on your network.
 
@@ -65,4 +65,6 @@ automation:
 
 The `spc` platform allows you to get data from your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) binary sensors from within Home Assistant.
 
-Check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zone. Currently motion, smoke and door sensors are supported.
+Check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zone. Currently motion, smoke, door and technical sensors are supported.
+
+Hint: In SPC, Technical zones can be used to track (for example) the status of an output. Virtual zones are supported in SPC firmware from 3.11. You can set up a virtual zone as technical, and link it to a mapping key that is controlling an output.

@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Light"
 description: "Instructions on how to setup the Xiaomi light within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Light
 ha_release: "0.50"
 ha_iot_class: Local Push
+ha_domain: xiaomi_aqara
 ---
 
 

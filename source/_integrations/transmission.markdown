@@ -1,7 +1,6 @@
 ---
 title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
-logo: transmission.png
 ha_category:
   - Downloading
   - Switch
@@ -12,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@engrbm87'
   - '@JPHutchins'
+ha_domain: transmission
 ---
 
 The `transmission` integration allows you to monitor your downloads with [Transmission](https://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
@@ -43,7 +43,7 @@ transmission:
 
 {% configuration %}
 host:
-  description: "This is the IP address of your Transmission daemon, e.g., `192.168.1.1`."
+  description: "This is the IP address of your Transmission daemon, e.g., `192.168.1.1` or `https://example.com/transmission/rpc`."
   required: true
   type: string
 port:
@@ -96,6 +96,7 @@ Possible events are:
 
 - transmission_downloaded_torrent
 - transmission_started_torrent
+- transmission_removed_torrent
 
 Inside of the event, there is the name of the torrent that is started or completed, as it is seen in the Transmission User Interface.
 
@@ -123,20 +124,30 @@ Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), mag
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `name`    | no | Name of the configured instance
+| `name`    | yes | Name of the configured instance (Default: "Transmission")
 | `torrent` | no | Torrent to download
+
+### Service `remove_torrent`
+
+Removes a torrent from the client.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `name`    | no | Name of the configured instance (Default: "Transmission")
+| `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
+| `delete_data` | yes | Delete torrent data (Default: false)
 
 
 ## Templating
 
-### Sensor `started_torrents`
+### Attribute `torrent_info`
 
-The state attribute `torrent_info` contains information about the torrents that are currently downloading. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_started_torrents` -> **Attributes**, or by adding a Markdown Card to Lovelace.
+All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_total_torrents` -> **Attributes**, or by adding a Markdown Card to Lovelace.
 
 {% raw %}
 ```yaml
 content: >
-  {% set payload = state_attr('sensor.transmission_started_torrents', 'torrent_info') %}
+  {% set payload = state_attr('sensor.transmission_total_torrents', 'torrent_info') %}
 
   {% for torrent in payload.items() %} {% set name = torrent[0] %} {% set data = torrent[1] %}
   

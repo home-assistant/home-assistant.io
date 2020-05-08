@@ -1,12 +1,12 @@
 ---
 title: PTVSD - Python Tools for Visual Studio Debug Server
 description: Debugging from Visual Studio Code.
-logo: visual-studio.png
 ha_category:
   - Utility
 ha_release: 0.93
 ha_codeowners:
   - '@swamp-ig'
+ha_domain: ptvsd
 ---
 
 The `ptvsd` integration allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.

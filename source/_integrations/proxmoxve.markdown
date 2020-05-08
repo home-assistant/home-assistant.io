@@ -1,13 +1,13 @@
 ---
 title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
-logo: proxmoxve.png
 ha_category:
   - Binary Sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@k4ds3'
+ha_domain: proxmoxve
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
@@ -114,7 +114,7 @@ Before creating the user, we need to create a permissions role for the user.
 * Click `Datacenter`
 * Open `Permissions` and click `Roles`
 * Click the `Create` button above all the existing roles
-* name the new role (e.g. "home-assistant")
+* name the new role (e.g.,  "home-assistant")
 * Click the arrow next to privileges and select `VM.Audit` in the dropdown
 * Click `Create`
 
@@ -125,7 +125,7 @@ Creating a dedicated user for Home Assistant, limited to only the role just crea
 * Click `Datacenter`
 * Open `Permissions` and click `Users`
 * Click `Add`
-* Enter a username (e.g. "hass")
+* Enter a username (e.g.,  "hass")
 * Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 * Set the realm to "Proxmox VE authentication server"
 * Ensure `Enabled` is checked and `Expire` is set to "never"
@@ -138,7 +138,7 @@ To apply the user and role just created, we need to give it permissions
 * Click `Datacenter`
 * Click `Permissions`
 * Open `Add` and click `User Permission`
-* Select "\" for the path
+* Select "/" for the path
 * Select your Home Assistant user (`hass`)
 * Select the Home Assistant role (`home-assistant`)
 * Make sure `Propigate` is checked

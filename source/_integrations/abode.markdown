@@ -1,7 +1,6 @@
 ---
 title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
-logo: abode.jpg
 ha_category:
   - Hub
   - Alarm
@@ -17,6 +16,7 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@shred86'
+ha_domain: abode
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
@@ -26,12 +26,12 @@ Please visit the [Abode website](https://goabode.com/) for further information a
 There is currently support for the following device types within Home Assistant:
 
 - **Alarm Control Panel**: Reports on the current alarm status and can be used to arm and disarm the system.
-- [**Binary Sensor**](/integrations/abode/#binary-sensor): Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors. Also lists all Abode `Quick Actions` that are set up. You can trigger these quick actions by passing the `entity_id` of your quick action binary sensor to the [trigger_quick_action service](/integrations/abode/#trigger_quick_action).
+- **Binary Sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
 - **Camera**: Reports on `Camera` devices and will download and show the latest captured still image.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
-- [**Light**](/integrations/abode/#light): Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
-- [**Switch**](/integrations/abode/#switch): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them (does not work with Abode's CUE automations).
+- **Light**: Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
+- **Switch**: Reports on `Power Switch` and `Water Valve` devices which can be turned on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
 - **Sensor**: Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
 ## Configuration
@@ -92,7 +92,7 @@ Field | Description
 `event_type` | The type of the event.
 `event_utc` | The UTC timestamp of the event.
 `user_name` | The Abode user that triggered the event, if applicable.
-`app_type` | The Abode app that triggered the event (e.g. web app, iOS app, etc.).
+`app_type` | The Abode app that triggered the event (e.g.,  web app, iOS app, etc.).
 `event_by` | The keypad user that triggered the event.
 `date` | The date of the event in the format `MM/DD/YYYY`.
 `time` | The time of the event in the format `HH:MM AM`.
@@ -115,16 +115,16 @@ For a full list of settings and valid values, consult the
 
 ### Service `capture_image`
 
-Request a new still image from your Abode IR camera.
+Request a new still image from your Abode camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras.
 
-### Service `trigger_quick_action`
+### Service `trigger_automation`
 
-Trigger a quick action automation on your Abode system.
+Trigger an automation on your Abode system.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | No | String or list of strings that point at `entity_id`s of binary_sensors that represent your Abode quick actions.
+| `entity_id` | No | String or list of strings that point at `entity_id`s of switches that represent your Abode automations.

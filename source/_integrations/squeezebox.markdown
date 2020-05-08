@@ -1,11 +1,11 @@
 ---
 title: Logitech Squeezebox
 description: Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.
-logo: squeezebox.png
 ha_category:
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_domain: squeezebox
 ---
 
 The `squeezebox` platform allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).

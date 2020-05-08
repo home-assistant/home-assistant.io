@@ -15,7 +15,7 @@ You'll need two key software packages, besides Home Assistant. The first is [Mop
 
 Finally, you also need a player to control Mopidy. Any MPD-compatible player will work, and there are several [Mopidy-only web-based options](https://docs.mopidy.com/en/latest/ext/web/#ext-web) available. On Android, [Remotedy](https://play.google.com/store/apps/details?id=se.anil.remotedy) is particularly nice since you can access multiple Mopidy instances in one place.
 
-Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you're using a web UI for Mopidy, you can add links to each instance in Home Assistant with the [weblink] component.
+Home Assistant will provide device status, and volume control for each room. If you want to play music in all your rooms (on all your clients), access the server instance of Mopidy. If you want to play music only in a specific room, access that specific Mopidy instance. If you're using a web UI for Mopidy, you can add links to each instance in Home Assistant with the weblink component.
 
 <p class='img'>
   <img src='/images/blog/2016-02-snapcast/diagram.png'>
@@ -134,6 +134,5 @@ weblink:
     url: xxxx
 ```
 
-[weblink]: /integrations/weblink/
 [snapcast]: /integrations/snapcast
 [mpd]: /integrations/mpd

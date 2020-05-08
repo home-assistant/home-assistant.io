@@ -1,10 +1,10 @@
 ---
 title: Hunter Douglas PowerView
 description: Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant.
-logo: hunter-douglas-powerview.png
 ha_category:
   - Scene
 ha_release: 0.15
+ha_domain: hunterdouglas_powerview
 ---
 
 Implements the [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.

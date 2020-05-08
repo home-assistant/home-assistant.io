@@ -1,11 +1,11 @@
 ---
 title: Device Tracker
 description: Instructions on how to setup device tracking within Home Assistant.
-logo: home-assistant.png
 ha_category:
   - Presence Detection
 ha_release: 0.7
 ha_quality_scale: internal
+ha_domain: device_tracker
 ---
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
@@ -28,12 +28,12 @@ device_tracker:
 The following optional parameters can be used with any platform:
 
 <div class='note'>
-  Device tracker will only look for global settings under the configuration of the first configured platform. These 3 are the global settings:
+  Device tracker will only look for the following global settings under the configuration of the first configured platform:
 </div>
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
 |----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `interval_seconds`   | 12      | Seconds between each scan for new devices                                                                                                                                                                                                                                                                                                                                                 |
+| `interval_seconds`   | 12      | Seconds between each scan for new devices. This only applies to local device trackers, not applications that push updates. |
 | `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (e.g., the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
 
 <div class='note'>
@@ -62,7 +62,7 @@ Multiple device trackers can be used in parallel, such as [Owntracks](/integrati
 
 <div class='note warning'>
 
-As of 0.94 `known_devices.yaml` is being phased out and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes the mobile app, OwnTracks, GeoFency, GPSLogger, Locative and Huawei LTE.
+As of 0.94 `known_devices.yaml` is being phased out and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes OwnTracks, GeoFency, GPSLogger, Locative and Huawei LTE.
 
 </div>
 

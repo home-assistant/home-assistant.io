@@ -369,7 +369,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.broadlink docs]: /integrations/broadlink#switch
 [switch.rachio docs]: /integrations/rachio#switch
 [switch.rflink docs]: /integrations/switch.rflink/
-[telegram_bot.__init__ docs]: /integrations/telegram_chatbot/
+[telegram_bot.__init__ docs]: /integrations/telegram_bot/
 [telegram_bot.polling docs]: /integrations/telegram_polling
 [telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tellduslive docs]: /integrations/tellduslive/

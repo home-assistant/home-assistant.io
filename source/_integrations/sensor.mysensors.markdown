@@ -1,12 +1,12 @@
 ---
 title: "MySensors Sensor"
 description: "Instructions on how to integrate MySensors sensors into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Sensor
 ha_iot_class: Local Push
 ha_release: 0.7
+ha_domain: mysensors
 ---
 
 Integrates MySensors sensors into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.

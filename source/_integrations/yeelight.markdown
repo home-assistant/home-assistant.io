@@ -1,7 +1,6 @@
 ---
 title: Yeelight
 description: Instructions on how to setup Yeelight Wifi devices within Home Assistant.
-logo: yeelight.png
 ha_category:
   - Light
 ha_release: 0.32
@@ -9,6 +8,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@rytilahti'
   - '@zewelor'
+ha_domain: yeelight
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
@@ -80,7 +80,7 @@ devices:
           required: false
           type: string
         model:
-          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range. Its also used to setup device, if its not available and discovery if disabled, during Home Assistant startup. If model is not specified, it will be guessed, by integration by looking at supported properties, reported by device."
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`, `ceiling13`. The setting is used to enable model specific features f.e. a particular color temperature range. Its also used to setup device, if its not available and discovery if disabled, during Home Assistant startup. If model is not specified, it will be guessed, by integration by looking at supported properties, reported by device."
           required: false
           type: string
 custom_effects:
@@ -150,6 +150,7 @@ This integration is tested to work with the following models. If you have a diff
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
 | `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
+| `ceiling13`     | YLXD01YL     | Yeelight LED Ceiling Light           |
 
 ## Services
 
