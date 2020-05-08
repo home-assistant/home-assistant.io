@@ -40,6 +40,8 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 
 **Ignore new managed/shared users**: Enable to ignore new Plex accounts granted access to the server.
 
+**Ignore Plex Web clients**: Do not create `media_player` entities for Plex Web clients.
+
 
 ### Manual Configuration
 
@@ -60,7 +62,7 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 The `plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls if supported by the device.
 
-By default the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To choose specific users to monitor or ignore, adjust the "*Monitored users*" and "*Ignore new managed/shared users*" options described under [Integration Options](#integration-options).
+By default the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
 ### Service `play_media`
 
