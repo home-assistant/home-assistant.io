@@ -264,9 +264,9 @@ Picture card configuration:
     navigation_path: /lovelace/living_room
 ```
 
-## Tab-icon
+## View icon
 
-If you define a tab-icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip.
+If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip.
 
 #### Example
 
