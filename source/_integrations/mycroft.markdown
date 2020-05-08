@@ -29,4 +29,30 @@ host:
   description: The IP address of your Mycroft instance.
   required: true
   type: string
-{% endconfiguration %}
+{% endconfiguration %}  
+
+## Using notifications
+
+To use Mycroft for sending notifications, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - platform: mycroft
+    name: mycroft
+```  
+
+{% configuration %}
+name:
+  description: Frendly name of your Mycroft instance.
+  required: true
+  type: string
+{% endconfiguration %}  
+
+## Examples
+
+Send a mesage to Mycroft by calling `notify.mycroft` service:
+
+```yaml
+message: "hey"
+```

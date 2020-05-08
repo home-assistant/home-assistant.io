@@ -10,8 +10,6 @@ These below instructions are for an installation of Home Assistant Core running 
 
 Note that Docker command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put put Home Assistant on the host's network, otherwise certain functionality - including mDNS and UPnP - will break. The `-p` command line option or the compose file equivalent `ports:` is not compatible with host networking mode and must not be used.
 
-For an installation of Home Assistant Supervised, which includes Home Assistant's add-on ecosystem, see the instructions for installing [Home Assistant Supervised on a generic Linux host](/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host/).
-
 </div>
 
 ## Platform Installation
