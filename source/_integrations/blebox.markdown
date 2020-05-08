@@ -39,3 +39,15 @@ Currently, this includes support for the following product classes:
 - BleBox gateBox
 
 For now, only a minimum set of features are supported (e.g., no tilt support for shutterBox).
+
+
+
+## Switches
+
+This integration adds the BleBox device as a switch (or multiple switches) in Home Assistant.
+
+
+Currently, this includes support for the following product classes:
+
+- BleBox switchBox
+- BleBox switchBoxD
