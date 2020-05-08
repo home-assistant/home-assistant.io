@@ -8,7 +8,8 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
-ha_release: 0.104
+ha_release: 0.110
+ha_domain: homeconnect
 ---
 
 The Home Connect integration will allow users to integrate their home appliances supporting the Home Connect standard using the [official API](https://developer.home-connect.com).
@@ -33,9 +34,8 @@ Note that it depends on the appliance and on API permissions which of the featur
 - Redirect URI  : `<YOUR_HOME_ASSISTANT_URL>/auth/external/callback`
 
 3. Add the client ID and client secret to your `configuration.yaml` (see below).
-4. Once Home Assistant restarted, go to Configuration>Integrations.
+4. Once Home Assistant restarted, go to Configuration > Integrations.
 5. Select the Home Connect integration.
-
 
 ### Configuration
 
@@ -57,5 +57,3 @@ client_secret:
   required: true
   type: string
 {% endconfiguration %}
-
-### 
