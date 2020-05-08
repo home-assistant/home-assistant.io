@@ -211,6 +211,20 @@ script:
           command: "media.controls/rewind"
 ```
 
+## Consecutive volume steps delay
+
+In the case where a sound output that only supports relative volume stepping is used, the receiving speaker may have issues dealing with several volume step commands arriving at the same time. Therefore it's possible to configure a time delay so that at least the configured amount of time has elapsed between two consecutive volume steps before the second one is fired. The configured value is in milliseconds.
+
+```yaml
+# Example
+webostv:
+  host: 192.168.0.10
+  name: Living Room TV
+  consecutive_volume_steps_delay: 300
+
+media_player:
+```
+
 ## Notifications
 
 The `webostv` notify platform allows you to send notifications to a LG webOS Smart TV.
