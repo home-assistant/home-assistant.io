@@ -46,6 +46,7 @@ After=network-online.target
 [Service]
 Type=simple
 User=%i
+WorkingDirectory=/home/%i/.homeassistant
 ExecStart=/srv/homeassistant/bin/hass -c "/home/%i/.homeassistant"
 
 [Install]
