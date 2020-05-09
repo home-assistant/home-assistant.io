@@ -50,7 +50,7 @@ port:
   default: 8086
 username:
   type: string
-  description: "**1.xx only** The username of the database user. The user needs read/write privileges on the database"
+  description: "**1.xx only** The username of the database user. The user needs read/write privileges on the database."
   required: inclusive
 password:
   type: string
@@ -84,7 +84,7 @@ url:
   type: string
   description: "**2.xx only** URL of your 2.xx installation (e.g. http://localhost:9999)."
   required: false
-  default: https://us-west-2-1.aws.cloud2.influxdata.com
+  default: "https://us-west-2-1.aws.cloud2.influxdata.com"
 token:
   type: string
   description: "**2.xx only** Auth token with WRITE access to your chosen Organization and Bucket. Needed with `api_v2` configuration variable."
@@ -304,7 +304,7 @@ queries:
       required: true
     where:
       type: template
-      description: Defines the data selection clause (the where clause of the query). This supports [templates](https://www.home-assistant.io/docs/configuration/templating/#building-templates).
+      description: Defines the data selection clause (the where clause of the query). This supports [templates](/docs/configuration/templating/#building-templates).
       required: true
     value_template:
       type: template
@@ -354,21 +354,21 @@ sensor:
 api_v2:
   type: boolean
   description: Set to `true` if connecting for 2.xx installations, do not use otherwise.
-  required: inclusive
+  required: true
   default: false
 url:
   type: url
-  description: URL of your 2.xx installation (e.g. http://localhost:9999).
+  description: "URL of your 2.xx installation (e.g. http://localhost:9999)."
   required: false
-  default: https://us-west-2-1.aws.cloud2.influxdata.com
+  default: "https://us-west-2-1.aws.cloud2.influxdata.com"
 token:
   type: string
-  description: Auth token with READ access to your chosen Organization and Bucket. Needed with `api_v2` configuration variable.
-  required: inclusive
+  description: Auth token with READ access to your chosen Organization and Bucket.
+  required: true
 organization:
   type: string
-  description: Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `api_v2` configuration variable.
-  required: inclusive
+  description: "Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}."
+  required: true
 bucket:
   type: string
   description: Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket.
@@ -389,7 +389,7 @@ queries_flux:
       required: false
     range_start:
       type: string
-      description: Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`.
+      description: "Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`."
       required: false
       default: -15m
     range_end:
@@ -399,11 +399,11 @@ queries_flux:
       default: now()
     query:
       type: template
-      description: One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](https://www.home-assistant.io/docs/configuration/templating/#building-templates).
+      description: "One or more flux filters used to get to the data you want. These should limit resultset to one table, or any beyond the first will be ignored. Your query should not begin or end with a pipe (`|>`). This supports [templates](/docs/configuration/templating/#building-templates)."
       required: true
     group_function:
       type: string
-      description: The group function to be used. If provided this will add a filter to the end of your query like this `{group_function}(column: "_value")`. Note that unlike the 1.xx queries, this **does not** default to mean.  You can omit if you wish to use your own aggregator which takes additional/different parameters or want to act on a different column.  If omitted then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table.
+      description: "The group function to be used. If provided this will add a filter to the end of your query like this `{group_function}(column: "_value")`. Note that unlike the 1.xx queries, this **does not** default to mean.  You can omit if you wish to use your own aggregator which takes additional/different parameters or want to act on a different column.  If omitted then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table."
       required: false
     value_template:
       type: template
