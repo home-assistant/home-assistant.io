@@ -3,6 +3,7 @@ title: Universal Powerline Bus (UPB)
 description: Instructions on how to setup Univseral Powerline Bus integration.
 ha_category:
   - Light
+  - Scene
 ha_release: "0.110"
 ha_config_flow: true
 ha_quality_scale: platinum
