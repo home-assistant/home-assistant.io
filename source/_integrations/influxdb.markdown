@@ -70,6 +70,10 @@ verify_ssl:
   description: **1.xx only** Verify SSL certificate for HTTPS request.
   required: false
   default: true
+path:
+  type: string
+  description: **1.xx only** Path to use if your InfuxDB is running behind an reverse proxy.
+  required: false
 api_v2:
   type: boolean
   description: **2.xx only** Set to `true` if connecting to a 2.xx installation, do not use otherwise
