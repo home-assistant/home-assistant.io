@@ -13,7 +13,7 @@ ha_domain: influxdb
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
 
-Additionally, you can now make use of an InfluxDB 2.0 installation in this Integration.  See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database.  Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields apply to only a 1.xx installation or a 2.xx installation.
+Additionally, you can now make use of an InfluxDB 2.0 installation in this Integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields apply to only a 1.xx installation or a 2.xx installation.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -85,7 +85,7 @@ token:
   required: true for 2.xx
 organization:
   type: string
-  description: **2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`.  For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}
+  description: **2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}
   required: true for 2.xx
 bucket:
   type: string
@@ -104,33 +104,33 @@ default_measurement:
   default: uses the entity id of the entity
 override_measurement:
   type: string
-  description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+  description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
   required: false
 exclude:
   type: list
-  description:  Configure which integrations should be excluded from recording to InfluxDB.
+  description: Configure which integrations should be excluded from recording to InfluxDB.
   required: false
   keys:
     entities:
       type: list
-      description:  The list of entity ids to be excluded from recording to InfluxDB.
-      required: false    
+      description: The list of entity ids to be excluded from recording to InfluxDB.
+      required: false
     domains:
       type: list
-      description:  The list of domains to be excluded from recording to InfluxDB.
+      description: The list of domains to be excluded from recording to InfluxDB.
       required: false
 include:
   type: list
-  description:  Configure which integrations should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. Values set by the **exclude** lists will take precedence.
+  description: Configure which integrations should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. Values set by the **exclude** lists will take precedence.
   required: false
   keys:
     entities:
       type: [string, list]
-      description:  The list of entity ids to be included in recording to InfluxDB.
-      required: false    
+      description: The list of entity ids to be included in recording to InfluxDB.
+      required: false 
     domains:
       type: [string, list]
-      description:  The list of domains to be included in recording to InfluxDB.
+      description: The list of domains to be included in recording to InfluxDB.
       required: false
 tags:
   type: [string, list]
@@ -148,7 +148,7 @@ component_config:
   keys:
     override_measurement:
       type: string
-      description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+      description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
 component_config_domain:
   type: string
@@ -157,7 +157,7 @@ component_config_domain:
   keys:
     override_measurement:
       type: string
-      description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+      description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
 component_config_glob: 
   type: string
@@ -166,7 +166,7 @@ component_config_glob:
   keys:
     override_measurement:
       type: string
-      description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+      description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
 {% endconfiguration %}
 
@@ -206,13 +206,13 @@ influxdb:
 influxdb:
   api_v2: true
   token: GENERATED_AUTH_TOKEN
-  organization: RANDOM_16DIGIT_HEX_ID
+  organization: RANDOM_16_DIGIT_HEX_ID
   bucket: BUCKET_NAME
   tags:
-    source: 'HA'
+    source: HA
   tags_attributes:
-  - 'friendly_name'
-  default_measurement: 'units'
+  - friendly_name
+  default_measurement: units
   exclude:
     entities:
     - zone.home
@@ -234,14 +234,14 @@ The `influxdb` sensor allows you to use values from an [InfluxDB](https://influx
 
 ### Configuration for 1.xx Installations
 
-To configure this sensor, you need to define the sensor connection variables and a list of queries to  your `configuration.yaml` file. A sensor will be created for each query:
+To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: influxdb
     queries:
-      - name: mean value of foo
+      - name: "mean value of foo"
         where: '"name" = ''foo'''
         measurement: '"°C"'
 ```
@@ -249,7 +249,7 @@ sensor:
 {% configuration %}
 host:
   type: string
-  description: IP address of your database host, e.g.,  192.168.1.10.
+  description: IP address of your database host, e.g., 192.168.1.10.
   required: false
   default: localhost
 port:
@@ -333,13 +333,15 @@ sensor:
   - platform: influxdb
     api_v2: true
     token: GENERATED_AUTH_TOKEN
-    organization: RANDOM_16DIGIT_HEX_ID
+    organization: RANDOM_16_DIGIT_HEX_ID
     queries_flux:
     - range_start: -1y
-      name: 'Mean humidity reported from past day'
-      query: 'filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity")) |> keep(columns: ["_value"])'
+      name: "Mean humidity reported from past day"
+      query: >
+        filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity")) 
+        |> keep(columns: ["_value"])
       group_function: mean
-      imports:
+      imports: 
       - strings
 ```
 
@@ -359,7 +361,7 @@ token:
   required: true
 organization:
   type: string
-  description: Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`.  For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}
+  description: Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}
   required: true
 bucket:
   type: string
@@ -386,7 +388,7 @@ queries_flux:
       default: -15m
     range_end:
       type: string
-      description: Duration or time value to stop range at.  See `range_start` above for how this is used in query
+      description: Duration or time value to stop range at. See `range_start` above for how this is used in query
       required: false
       default: now()
     query:
@@ -408,7 +410,7 @@ queries_flux:
       default: Home Assistant
     imports:
       type: [string, list]
-      description: Libraries to import in order to execute your query.  Ex. `strings`, `date`, `experimental/query`, etc.
+      description: Libraries to import in order to execute your query. Ex. `strings`, `date`, `experimental/query`, etc.
       required: false
 {% endconfiguration %}
 
@@ -428,17 +430,17 @@ sensor:
   username: home-assistant
   password: password
   queries:
-    - name: last value of foo
+    - name: "last value of foo"
       unit_of_measurement: °C
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
+      value_template: '{% raw %} {{ {% endraw %}value|round(1){% raw %} }} {% endraw %}'
       group_function: last
       where: '"name" = ''foo'''
       measurement: '"°C"'
       field: value
       database: db1
-    - name: Min for last hour
+    - name: "Min for last hour"
       unit_of_measurement: '%'
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
+      value_template: '{% raw %} {{ {% endraw %}value|round(1){% raw %} }} {% endraw %}'
       group_function: min
       where: '"entity_id" = ''salon'' and time > now() - 1h'
       measurement: '"%"'
@@ -453,38 +455,37 @@ sensor:
 - platform: influxdb
   api_v2: true
   token: GENERATED_AUTH_TOKEN
-  organization: RANDOM_16DIGIT_HEX_ID
+  organization: RANDOM_16_DIGIT_HEX_ID
   bucket: BUCKET_NAME
  queries_flux:
  
- # Actual query: from(bucket:"Home Assistant") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "unknown") |> map(fn: (r) => ({ _value: r._time })) |> limit(n: 1)
+ # Actual query: from(bucket:"Home Assistant") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "home") |> map(fn: (r) => ({ _value: r._time })) |> limit(n: 1)
  - range_start: -1d
-   name: 'How long have I been here'
+   name: "How long have I been here"
    query: >
-     filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{{ states('person.me') }}")
+     filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{% raw %} {{ {% endraw %}states('person.me'){% raw %} }} {% endraw %}")
      |> map(fn: (r) => ({ _value: r._time }))
-   value_template: '{{ relative_time(strptime(value, "%Y-%m-%d %H:%M:%S %Z")) }}'
+   value_template: "{% raw %} {{ {% endraw %}relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')){% raw %} }} {% endraw %}"
    
  # Actual query: import "regexp" from(bucket:"Home Assistant") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r.domain == "sensor" and r._field == "value" and regexp.matchRegexpString(r: /_power$/, v: r.entity_id)) |> keep(columns: ["_value", "_time"]) |> sort(columns: ["_time"], desc: false) |> integral(unit: 5s, column: "_value") |> limit(n: 1)
  - range_start: -1d
-   name: 'Cost of my house today across all power sensor'
+   name: "Cost of my house today across all power sensor"
    query: >
      filter(fn: (r) => r.domain == "sensor" and r._field == "value" and regexp.matchRegexpString(r: /_power$/, v: r.entity_id))
      |> keep(columns: ["_value", "_time"])
      |> sort(columns: ["_time"], desc: false)
      |> integral(unit: 5s, column: "_value")
-   imports:
-   - "regexp"
-   value_template: '{{ value | float / 24.0 / 1000.0 * states("sensor.current_cost_per_kwh") | float }}'
+   imports: regexp
+   value_template: "{% raw %} {{ {% endraw %}value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float{% raw %} }} {% endraw %}"
    
  # Actual query: from(bucket:"Glances Bucket") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r._field == "value" and r.entity_id == "glances_cpu_temperature") |> mean(column: "_value")
  - range_start: -1d
-   bucket: 'Glances Bucket'
-   name: 'Average CPU temp today'
+   bucket: Glances Bucket
+   name: "Average CPU temp today"
    query: 'filter(fn: (r) => r._field == "value" and r.entity_id == "glances_cpu_temperature")'
    group_function: mean
 ```
 
 Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags). 
 
-This is a lot more tables compared to 1.xx queries where you essentially had one table per `unit_of_measurement` across all entities.  Not too worry though, you can still create aggregate metrics across multiple sensors.  As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters.  When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
+This is a lot more tables compared to 1.xx queries where you essentially had one table per `unit_of_measurement` across all entities. Not too worry though, you can still create aggregate metrics across multiple sensors. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
