@@ -167,8 +167,6 @@ When reporting issues, please provide the following information in addition to i
 `Configuration` Panel -> `Zigbee Home Automation` -> Pick your Device -> `Zigbee Information`
 
 
-
-
 ### Debug logging
 
 To enable debug logging for ZHA component ard radio libraries, add the following [logger](https://www.home-assistant.io/integrations/logger/) configuration to `configuration.yaml`
