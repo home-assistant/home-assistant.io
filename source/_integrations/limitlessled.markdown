@@ -131,7 +131,7 @@ The `{0}` is replaced by the remote number, and the `{1}` is replaced by the zon
 {% configuration %}
 radio:
   description: Information on how the directly attached radio is directly attached
-  type: dict
+  type: map
   keys:
     type:
       description: Type of radio.  This can only be "lt8900" for now.
