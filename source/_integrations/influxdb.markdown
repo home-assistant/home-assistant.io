@@ -357,7 +357,7 @@ api_v2:
   required: true
   default: false
 url:
-  type: url
+  type: string
   description: "URL of your 2.xx installation (e.g. http://localhost:9999)."
   required: false
   default: "https://us-west-2-1.aws.cloud2.influxdata.com"
