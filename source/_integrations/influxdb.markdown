@@ -79,6 +79,7 @@ api_v2:
   type: boolean
   description: "**2.xx only** Set to `true` if connecting to a 2.xx installation, do not use otherwise."
   required: inclusive
+  default: false
 url:
   type: url
   description: "**2.xx only** URL of your 2.xx installation (e.g. http://localhost:9999)."
@@ -354,6 +355,7 @@ api_v2:
   type: boolean
   description: Set to `true` if connecting for 2.xx installations, do not use otherwise.
   required: inclusive
+  default: false
 url:
   type: url
   description: URL of your 2.xx installation (e.g. http://localhost:9999).
