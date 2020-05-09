@@ -13,46 +13,11 @@ This platform allows you to detect presence by looking at connected devices to a
 
 ## Configuration
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+<div class='note'>
+The Synology SRM integration can only be configured through the user interface since Home Assistant 0.110. The legacy YAML configuration is not supported anymore.
+</div>
 
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: synology_srm
-    host: 192.168.1.254
-    password: YOUR_ADMIN_PASSWORD
-```
-
-{% configuration %}
-host:
-  description: The Synology SRM router host or IP address, e.g., `192.168.1.1` or `router.mydomain.local`
-  required: true
-  type: string
-port:
-  description: The port to connect to the Synology SRM router.
-  required: false
-  default: 8001
-  type: integer
-username:
-  description: The username of a user with administrative privileges.
-  required: false
-  default: admin
-  type: string
-password:
-  description: The password for your given admin account.
-  required: true
-  type: string
-ssl:
-  description: Use HTTPS instead of HTTP to connect.
-  required: false
-  default: true
-  type: boolean
-verify_ssl:
-  description: Enable or disable SSL certificate verification.
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
+The integration can be configured through the user interface at *Configuration* -> *Integrations*. Search for "Synology SRM", fill in the configuration form with your username and password, and then click **Submit**.
 
 It's not possible to create another account in SRM with admin permissions. You'll need to use your admin account (or the one you renamed at creation) for this connection.
 
@@ -60,5 +25,3 @@ List of models known to be supported:
 
 - RT1900ac
 - RT2600ac
-
-See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
