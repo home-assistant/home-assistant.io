@@ -19,6 +19,8 @@ An archive of the extensive API can be found [here](https://github.com/Fantasmos
 
 ## Setup
 
+### Using MiLight Bridge
+
 Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)).
 
 To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
@@ -94,6 +96,117 @@ bridges:
           required: false
           default: false
           type: boolean
+{% endconfiguration %}
+
+### Using Directly Attached 2.4GHz Radio
+
+To use a directly attached radio (no bridge) to control your LimitlessLED bulbs you will need to attach an LT8900 radio over SPI ([this one](https://www.amazon.com/dp/B07L8RXSDF/) for example).  This can be connected to your Home Assistant system either by using a USB-attached SPI adapter or directly via GPIO pins (as is done in this [Raspberry Pi](/images/integrations/limitlessled/lt8900-raspberrypi.png) example.)
+
+To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: limitlessled
+    radio:
+      gpio_pin: 24
+      spi_device: 0
+    remote_format: 'milight_b{}{}'
+    zone_format: 'z{}'
+    remotes:
+    - type: rgbw
+      start: 1
+      count: 1
+      remote_format: 'milight_lr_whitelamp{1}'
+      zone_format: '_z{}'
+      zones: [0, 1, 2, 3]
+    - type: white
+      start: 10
+      count: 2
+      remote_format: 'milight_lr_greylamp_{0}{1}'
+```
+
+The `{0}` is replaced by the remote number, and the `{1}` is replaced by the zone number, formatted as `zone_format` describes.
+
+{% configuration %}
+radio:
+  description: Information on how the directly attached radio is directly attached
+  type: dict
+  keys:
+    type:
+      description: Type of radio.  This can only be "lt8900" for now.
+      required: false
+      default: lt8900
+      type: string
+    spi_bus:
+      description: SPI Bus number
+      required: false
+      default: 0
+      type: integer
+    spi_device:
+      description: SPI Device number on the SPI bus
+      required: false
+      default: 0
+      type: integer
+    gpio_pin:
+      description: GPIO pin that is connected to reset the radio, if no reset is connected it may be difficult to use the radio reliably.
+      required: false
+      type: integer
+remote_format:
+  description: The default format of names to create remotes with, {0} is replaced by the remote number and {1} is replaced by the formatted zone number.
+  required: false
+  default: limitlessled_remote{0}{1}
+  type: string
+zone_format:
+  description: The default format of names for zones, with {0} or {} replaced by the zone number
+  required: false
+  default: _zone{0}
+  type: string
+retries:
+  description: The default number of times to idempotently repeat commands to ensure they reach their destination bulb.
+  required: false
+  default: Varies based on bulb type
+  type: integer
+remotes:
+  description: A list of remotes to instantiate.
+  required: true
+  type: list
+  keys:
+    type:
+      description: Type of group. Choose either `rgbw`, or `white`.
+      required: false
+      default: rgbw
+      type: string
+    zones:
+      description: The list of available zones.
+      required: false
+      default: All the zones, plus the remote (zone 0)
+      type: list
+    start:
+      description: The remote ID to start instantiating remotes at
+      required: false
+      default: 1
+      type: integer
+    count:
+      description: The number of remotes to instantiate
+      required: false
+      default: 1
+      type: integer
+    remote_format:
+      description: The format of names to create remotes with, {0} is replaced by the remote number and {1} is replaced by the formatted zone number.
+      required: false
+      default: limitlessled_remote{0}{1}
+      type: string
+    zone_format:
+      description: The format of names for zones, with {0} or {} replaced by the zone number
+      required: false
+      default: _zone{0}
+      type: string
+    retries:
+      description: The number of times to idempotently repeat commands to ensure they reach their destination bulb.
+      required: false
+      default: Varies based on bulb type
+      type: integer
 {% endconfiguration %}
 
 ### Night Effect
