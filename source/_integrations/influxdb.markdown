@@ -403,7 +403,7 @@ queries_flux:
       required: true
     group_function:
       type: string
-      description: "The group function to be used. If provided this will add a filter to the end of your query like this `{group_function}(column: "_value")`. Note that unlike the 1.xx queries, this **does not** default to mean.  You can omit if you wish to use your own aggregator which takes additional/different parameters or want to act on a different column.  If omitted then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table."
+      description: "The group function to be used. If provided this will add a filter to the end of your query like this `{group_function}(column: \"_value\")`. Note that unlike the 1.xx queries, this **does not** default to mean.  You can omit if you wish to use your own aggregator which takes additional/different parameters or want to act on a different column.  If omitted then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table."
       required: false
     value_template:
       type: template
