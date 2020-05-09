@@ -436,7 +436,7 @@ sensor:
   queries:
     - name: "last value of foo"
       unit_of_measurement: °C
-      value_template: '{% raw %} {{ {% endraw %}value|round(1){% raw %} }} {% endraw %}'
+      value_template: '{% raw %} {{ value|round(1) }} {% endraw %}'
       group_function: last
       where: '"name" = ''foo'''
       measurement: '"°C"'
@@ -444,7 +444,7 @@ sensor:
       database: db1
     - name: "Min for last hour"
       unit_of_measurement: '%'
-      value_template: '{% raw %} {{ {% endraw %}value|round(1){% raw %} }} {% endraw %}'
+      value_template: '{% raw %} {{ value|round(1) }} {% endraw %}'
       group_function: min
       where: '"entity_id" = ''salon'' and time > now() - 1h'
       measurement: '"%"'
@@ -467,9 +467,9 @@ sensor:
  - range_start: -1d
    name: "How long have I been here"
    query: >
-     filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{% raw %} {{ {% endraw %}states('person.me'){% raw %} }} {% endraw %}")
+     filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{% raw %} {{ states('person.me') }} {% endraw %}")
      |> map(fn: (r) => ({ _value: r._time }))
-   value_template: "{% raw %} {{ {% endraw %}relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')){% raw %} }} {% endraw %}"
+   value_template: "{% raw %} {{ relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')) }} {% endraw %}"
    
  # Actual query: import "regexp" from(bucket:"Home Assistant") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r.domain == "sensor" and r._field == "value" and regexp.matchRegexpString(r: /_power$/, v: r.entity_id)) |> keep(columns: ["_value", "_time"]) |> sort(columns: ["_time"], desc: false) |> integral(unit: 5s, column: "_value") |> limit(n: 1)
  - range_start: -1d
@@ -480,7 +480,7 @@ sensor:
      |> sort(columns: ["_time"], desc: false)
      |> integral(unit: 5s, column: "_value")
    imports: regexp
-   value_template: "{% raw %} {{ {% endraw %}value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float{% raw %} }} {% endraw %}"
+   value_template: "{% raw %} {{ value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float }} {% endraw %}"
    
  # Actual query: from(bucket:"Glances Bucket") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r._field == "value" and r.entity_id == "glances_cpu_temperature") |> mean(column: "_value")
  - range_start: -1d
