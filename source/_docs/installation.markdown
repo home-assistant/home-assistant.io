@@ -112,4 +112,10 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>FreeNAS</div>
   </a>
+  <a class='option-card' href='/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host'>
+    <div class='img-container'>
+      <img src='https://brands.home-assistant.io/homeassistant/icon.png' />
+    </div>
+    <div class='title'>Home Assistant Supervised <br> on generic Linux server</div>
+  </a>
 </div>
