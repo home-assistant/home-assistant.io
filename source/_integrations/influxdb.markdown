@@ -216,21 +216,21 @@ influxdb:
   tags:
     source: HA
   tags_attributes:
-  - friendly_name
+    - friendly_name
   default_measurement: units
   exclude:
     entities:
-    - zone.home
+      - zone.home
     domains:
-    - persistent_notification
-    - person
+      - persistent_notification
+      - person
   include:
     domains:
-    - sensor
-    - binary_sensor
-    - sun
+      - sensor
+      - binary_sensor
+      - sun
     entities:
-    - weather.home
+      - weather.home
 ```
 
 ## Sensor
@@ -333,20 +333,20 @@ You will need to construct your queries in this language in sensors for 2.xx ins
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+sensor: 
   - platform: influxdb
     api_v2: true
-    token: GENERATED_AUTH_TOKEN
     organization: RANDOM_16_DIGIT_HEX_ID
-    queries_flux:
-    - range_start: -1y
-      name: "Mean humidity reported from past day"
-      query: >
-        filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity")) 
-        |> keep(columns: ["_value"])
-      group_function: mean
-      imports: 
-      - strings
+    token: GENERATED_AUTH_TOKEN
+    queries_flux: 
+      - group_function: mean
+        imports: 
+          - strings
+        name: "Mean humidity reported from past day"
+        query: >
+          filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity"))  
+          |> keep(columns: ["_value"])\n"
+        range_start: "-1d"
 ```
 
 {% configuration %}
@@ -456,38 +456,32 @@ sensor:
 
 ```yaml
 sensor:
-- platform: influxdb
-  api_v2: true
-  token: GENERATED_AUTH_TOKEN
-  organization: RANDOM_16_DIGIT_HEX_ID
-  bucket: BUCKET_NAME
- queries_flux:
- 
- # Actual query: from(bucket:"Home Assistant") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "home") |> map(fn: (r) => ({ _value: r._time })) |> limit(n: 1)
- - range_start: -1d
-   name: "How long have I been here"
-   query: >
-     filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{% raw %} {{ states('person.me') }} {% endraw %}")
-     |> map(fn: (r) => ({ _value: r._time }))
-   value_template: "{% raw %} {{ relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')) }} {% endraw %}"
-   
- # Actual query: import "regexp" from(bucket:"Home Assistant") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r.domain == "sensor" and r._field == "value" and regexp.matchRegexpString(r: /_power$/, v: r.entity_id)) |> keep(columns: ["_value", "_time"]) |> sort(columns: ["_time"], desc: false) |> integral(unit: 5s, column: "_value") |> limit(n: 1)
- - range_start: -1d
-   name: "Cost of my house today across all power sensor"
-   query: >
-     filter(fn: (r) => r.domain == "sensor" and r._field == "value" and regexp.matchRegexpString(r: /_power$/, v: r.entity_id))
-     |> keep(columns: ["_value", "_time"])
-     |> sort(columns: ["_time"], desc: false)
-     |> integral(unit: 5s, column: "_value")
-   imports: regexp
-   value_template: "{% raw %} {{ value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float }} {% endraw %}"
-   
- # Actual query: from(bucket:"Glances Bucket") |> range(start: -1d, stop: now()) |> filter(fn: (r) => r._field == "value" and r.entity_id == "glances_cpu_temperature") |> mean(column: "_value")
- - range_start: -1d
-   bucket: Glances Bucket
-   name: "Average CPU temp today"
-   query: 'filter(fn: (r) => r._field == "value" and r.entity_id == "glances_cpu_temperature")'
-   group_function: mean
+  - platform: influxdb
+    api_v2: true
+    token: GENERATED_AUTH_TOKEN
+    organization: RANDOM_16_DIGIT_HEX_ID
+    bucket: BUCKET_NAME
+    queries_flux:
+      - range_start: "-1d"
+        name: "How long have I been here"
+        query: >
+          filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{% raw %} {{ states('person.me') }} {% endraw %}")
+          |> map(fn: (r) => ({ _value: r._time }))
+        value_template: "{% raw %} {{ relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')) }} {% endraw %}"
+      - range_start: "-1d"
+        name: "Cost of my house today across all power sensor"
+        query: >
+          filter(fn: (r) => r.domain == "sensor" and r._field == "value" and regexp.matchRegexpString(r: /_power$/, v: r.entity_id))
+          |> keep(columns: ["_value", "_time"])
+          |> sort(columns: ["_time"], desc: false)
+          |> integral(unit: 5s, column: "_value")
+        imports: regexp
+        value_template: "{% raw %} {{ value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float }} {% endraw %}"
+      - range_start: "-1d"
+        bucket: Glances Bucket
+        name: "Average CPU temp today"
+        query: "filter(fn: (r) => r._field == \"value\" and r.entity_id == \"glances_cpu_temperature\")"
+        group_function: mean
 ```
 
 Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags). 
