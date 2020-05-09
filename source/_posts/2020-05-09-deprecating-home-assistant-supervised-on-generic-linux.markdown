@@ -38,8 +38,6 @@ In an effort to reduce Pascal’s constraints we’re per direct no longer suppo
 
 ## Open Source & Community
 
-I know that this blog post will make a small subset of our community angry. There are people that think that they deserve other people’s work, even if it costs them their health. You’re wrong.
-
 Just as with our [recent decision to limit the usage of YAML in some cases](https://www.home-assistant.io/blog/2020/04/14/the-future-of-yaml/), Home Assistant will keep choosing health over features. Open source is not about us having to support every feature anyone on the internet can think of. Open source means that anyone can do that themselves and choose to share this or not.
 
 There are still tons of ways of installing Home Assistant, there are still tons of features and customizations possible.
@@ -65,3 +63,5 @@ Yep, the archived repository is still there. You can also fork it and change thi
 ### I am currently running Home Assistant Supervised. Now what?
 
 Everything will continue to work as-is. Bugs won’t be fixed and you should consider migrating to one of the other methods. If you are migrating to a virtual machine, you can make a snapshot in the Supervisor panel and restore that in your new installation.
+
+[Edit May 9, 16:19] Removed paragraph from Open Source & Community as it was insinuating.
