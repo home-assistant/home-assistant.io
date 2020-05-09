@@ -218,17 +218,6 @@ The following table shows the units of measurement for each attribute:
 
 ### Xiaomi Home app (Xiaomi Aqara Gateway, android?)
 
-<div class='note'>
-
-This method yielded an incorrect token on the 22nd of April, 2020 when used with:
-1. Xiaomi Gateway
-2. Xiaomi Mi Robot Vacuum
-3. Xiaomi IR Remote
-
-Using the alternate method with Mi Home `v5.4.49`, there were 3 different tokens listed for each of the above devices. The token yielded by this method matched the token for the Xiaomi Gateway in the text file. After using the correct token from the Mi Home `v5.4.49` method, the devices started to work again. 
-
-</div>
-
 1. Install the Xiaomi Home app.
 2. Sign In/make an account.
 3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chines characters) under settings -> Region (language can later be set on English).
@@ -238,6 +227,8 @@ Using the alternate method with Mi Home `v5.4.49`, there were 3 different tokens
 7. Tap the version number (Plug-in version 2.77.1 as of January 2020) at the bottom of the screen repeatedly.
 8. You should now see 2 extra options listed in English, this means you enabled developer mode. [if not, try all steps again!].
 9. Under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
+
+Note: If you have multiple devices needing a token, e.g. Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home `v5.4.49`" will provide the correct token. 
 
 ### Alternative methods
 
