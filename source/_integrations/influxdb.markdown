@@ -40,61 +40,61 @@ You will still need to create a database named `home_assistant` via InfluxDB's c
 {% configuration %}
 host:
   type: string
-  description: **1.xx only** IP address of your database host, e.g., 192.168.1.10
+  description: "**1.xx only** IP address of your database host, e.g., 192.168.1.10"
   required: false
   default: localhost
 port:
   type: integer
-  description: **1.xx only** Port to use
+  description: "**1.xx only** Port to use"
   required: false
   default: 8086
 username:
   type: string
-  description: **1.xx only** The username of the database user. The user needs read/write privileges on the database
+  description: "**1.xx only** The username of the database user. The user needs read/write privileges on the database"
   required: false
 password:
   type: string
-  description: **1.xx only** The password for the database user account.
+  description: "**1.xx only** The password for the database user account."
   required: false
 database:
   type: string
-  description: **1.xx only** Name of the database to use. The database must already exist.
+  description: "**1.xx only** Name of the database to use. The database must already exist."
   required: false
   default: home_assistant
 ssl:
   type: boolean
-  description: **1.xx only** Use HTTPS instead of HTTP to connect.
+  description: "**1.xx only** Use HTTPS instead of HTTP to connect."
   required: false
   default: false
 verify_ssl:
   type: boolean
-  description: **1.xx only** Verify SSL certificate for HTTPS request.
+  description: "**1.xx only** Verify SSL certificate for HTTPS request."
   required: false
   default: true
 path:
   type: string
-  description: **1.xx only** Path to use if your InfuxDB is running behind an reverse proxy.
+  description: "**1.xx only** Path to use if your InfuxDB is running behind an reverse proxy."
   required: false
 api_v2:
   type: boolean
-  description: **2.xx only** Set to `true` if connecting to a 2.xx installation, do not use otherwise
+  description: "**2.xx only** Set to `true` if connecting to a 2.xx installation, do not use otherwise."
   required: true for 2.xx
 url:
   type: url
-  description: **2.xx only** URL of your 2.xx installation (e.g. http://localhost:9999)
+  description: "**2.xx only** URL of your 2.xx installation (e.g. http://localhost:9999)."
   required: false
   default: https://us-west-2-1.aws.cloud2.influxdata.com
 token:
   type: string
-  description: **2.xx only** Auth token with WRITE access to your chosen Organization and Bucket
+  description: "**2.xx only** Auth token with WRITE access to your chosen Organization and Bucket."
   required: true for 2.xx
 organization:
   type: string
-  description: **2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}
+  description: "**2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}."
   required: true for 2.xx
 bucket:
   type: string
-  description: **2.xx only** Name of the bucket (not the generated bucket ID) within your Organization to write to
+  description: "**2.xx only** Name of the bucket (not the generated bucket ID) within your Organization to write to."
   required: false
   default: Home Assistant
 max_retries:
@@ -352,24 +352,24 @@ sensor:
 {% configuration %}
 api_v2:
   type: boolean
-  description: Set to `true` if connecting for 2.xx installations, do not use otherwise
+  description: Set to `true` if connecting for 2.xx installations, do not use otherwise.
   required: true
 url:
   type: url
-  description: URL of your 2.xx installation (e.g. http://localhost:9999)
+  description: URL of your 2.xx installation (e.g. http://localhost:9999).
   required: false
   default: https://us-west-2-1.aws.cloud2.influxdata.com
 token:
   type: string
-  description: Auth token with READ access to your chosen Organization and Bucket
+  description: Auth token with READ access to your chosen Organization and Bucket.
   required: true
 organization:
   type: string
-  description: Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}
+  description: Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}.
   required: true
 bucket:
   type: string
-  description: Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket
+  description: Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket.
   required: false
   default: Home Assistant
 queries_flux:
@@ -387,12 +387,12 @@ queries_flux:
       required: false
     range_start:
       type: string
-      description: Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`
+      description: Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`.
       required: false
       default: -15m
     range_end:
       type: string
-      description: Duration or time value to stop range at. See `range_start` above for how this is used in query
+      description: Duration or time value to stop range at. See `range_start` above for how this is used in query.
       required: false
       default: now()
     query:
@@ -405,7 +405,7 @@ queries_flux:
       required: false
     value_template:
       type: template
-      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Note that `value` will be set to the value of the `_value` field in your query output
+      description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Note that `value` will be set to the value of the `_value` field in your query output.
       required: false
     bucket:
       type: string
