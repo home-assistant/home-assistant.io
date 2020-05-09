@@ -51,11 +51,11 @@ port:
 username:
   type: string
   description: "**1.xx only** The username of the database user. The user needs read/write privileges on the database"
-  required: false
+  required: inclusive
 password:
   type: string
-  description: "**1.xx only** The password for the database user account."
-  required: false
+  description: "**1.xx only** The password for the database user account. Needed with `username` configuration variable."
+  required: inclusive
 database:
   type: string
   description: "**1.xx only** Name of the database to use. The database must already exist."
@@ -78,7 +78,7 @@ path:
 api_v2:
   type: boolean
   description: "**2.xx only** Set to `true` if connecting to a 2.xx installation, do not use otherwise."
-  required: true for 2.xx
+  required: inclusive
 url:
   type: url
   description: "**2.xx only** URL of your 2.xx installation (e.g. http://localhost:9999)."
@@ -86,12 +86,12 @@ url:
   default: https://us-west-2-1.aws.cloud2.influxdata.com
 token:
   type: string
-  description: "**2.xx only** Auth token with WRITE access to your chosen Organization and Bucket."
-  required: true for 2.xx
+  description: "**2.xx only** Auth token with WRITE access to your chosen Organization and Bucket. Needed with `api_v2` configuration variable."
+  required: inclusive
 organization:
   type: string
-  description: "**2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}."
-  required: true for 2.xx
+  description: "**2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `api_v2` configuration variable."
+  required: inclusive
 bucket:
   type: string
   description: "**2.xx only** Name of the bucket (not the generated bucket ID) within your Organization to write to."
@@ -353,7 +353,7 @@ sensor:
 api_v2:
   type: boolean
   description: Set to `true` if connecting for 2.xx installations, do not use otherwise.
-  required: true
+  required: inclusive
 url:
   type: url
   description: URL of your 2.xx installation (e.g. http://localhost:9999).
@@ -361,12 +361,12 @@ url:
   default: https://us-west-2-1.aws.cloud2.influxdata.com
 token:
   type: string
-  description: Auth token with READ access to your chosen Organization and Bucket.
-  required: true
+  description: Auth token with READ access to your chosen Organization and Bucket. Needed with `api_v2` configuration variable.
+  required: inclusive
 organization:
   type: string
-  description: Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}.
-  required: true
+  description: Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `api_v2` configuration variable.
+  required: inclusive
 bucket:
   type: string
   description: Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket.
