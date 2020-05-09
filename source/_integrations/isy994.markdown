@@ -75,6 +75,7 @@ restore_light_state:
   description: If disabled (default behavior), lights turned ON from Home Assistant without a `brightness` parameter set, will turn on to the `on_level` set within the physical device. For example, on Insteon devices this would be the same brightness as if the switch/device was turned ON. If this setting is enabled, lights that are turned on from Home Assistant will go to the last known brightness value. Both the `on_level` and `last_brightness` values are available as attributes if needed for device-specific customization.
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
