@@ -155,21 +155,21 @@ Click on **ADD DEVICES** to start a scan for new devices.
 
 Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
-
 ## Troubleshooting
 
 ### Reporting issues
 
 When reporting issues, please provide the following information in addition to information requested by issue template:
+
 1. Debug logs for the issue, see [debug logging](#debug-logging)
 2. Model of Zigbee radio being used
 3. If issue is related to a specific Zigbee device, provide device Zigbee signature. Signature is available at
 `Configuration` Panel -> `Zigbee Home Automation` -> Pick your Device -> `Zigbee Information`
 
-
 ### Debug logging
 
-To enable debug logging for ZHA component ard radio libraries, add the following [logger](https://www.home-assistant.io/integrations/logger/) configuration to `configuration.yaml`
+To enable debug logging for ZHA component ard radio libraries, add the following [logger](https://www.home-assistant.io/integrations/logger/) configuration to `configuration.yaml`:
+
 ```yaml
 logger:
   default: info
@@ -186,7 +186,6 @@ logger:
     zigpy_xbee.api: debug
     zigpy_zigate: debug
 ```
-
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
