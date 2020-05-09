@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.65
 ha_config_flow: true
+ha_quality_scale: gold
 ha_codeowners:
   - '@rytilahti'
   - '@shenxn'
