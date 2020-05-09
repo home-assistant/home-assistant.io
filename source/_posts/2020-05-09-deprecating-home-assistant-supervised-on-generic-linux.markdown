@@ -16,7 +16,7 @@ There are currently three different ways of installing Home Assistant:
 - Home Assistant Supervised: an installation of core + supervisor that are hosted on a generic Linux installation.
 - Home Assistant Core: our Python core application running in a Python virtual environment or a Docker container.
 
-![Different installation methods](images/blog/2020-05-09-deprecating-supervised/installation-options.png)
+![Different installation methods](/images/blog/2020-05-09-deprecating-supervised/installation-options.png)
 
 The benefit of running the Supervisor is that you are able to keep Home Assistant up to date from within Home Assistant, and easily install add-ons that are pre-configured to be able to integrate with Home Assistant.
 
