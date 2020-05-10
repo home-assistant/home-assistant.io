@@ -14,6 +14,7 @@ ha_category:
 ha_release: 0.28
 ha_iot_class: Local Push
 ha_domain: isy994
+ha_config_flow: true
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.
@@ -34,7 +35,9 @@ There is currently support for the following device types within Home Assistant:
 
 Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, cover, fan, lock, and switches can also be created.
 
-To integrate your ISY994 controller with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your ISY994 controller with Home Assistant, Go to the **integrations page** in your configuration and click on new **integration** -> **Universal Devices ISY994**.
+
+You may also configure the integration manually by adding the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,6 +74,11 @@ tls:
   description: This entry should reflect the version of TLS that the ISY controller is using for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not set, it is assumed to be version 1.1. This is the default for most users. ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it is best practice to set this value.
   required: false
   type: string
+restore_light_state:
+  description: If disabled (default behavior), lights turned ON from Home Assistant without a `brightness` parameter set, will turn on to the `on_level` set within the physical device. For example, on Insteon devices this would be the same brightness as if the switch/device was turned ON. If this setting is enabled, lights that are turned on from Home Assistant will go to the last known brightness value. Both the `on_level` and `last_brightness` values are available as attributes if needed for device-specific customization.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
@@ -121,7 +129,7 @@ All `isy994_control` events will have an `entity_id` and `control` parameter in 
 
 All Insteon scenes configured in the ISY994 will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assisstant's `light` component.
 
-Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations; however, these devices cannot be directly controlled (turned on/off) and may report incorrect states. Secondary Keypad buttons may be controlled using ISY Scenes (refer to ISY Documentation for more details).
+Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
 
 ### Creating Custom Devices using ISY Programs
 
