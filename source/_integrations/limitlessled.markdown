@@ -17,6 +17,8 @@ Note: you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same 
 
 An archive of the extensive API can be found [here](https://github.com/Fantasmos/LimitlessLED-DevAPI).
 
+The Home Assistant LimitlessLED component can communicate with LimitlessLED bulbs either via a WiFi which talks WiFi and the 2.4GHz radio protocol the bulbs understand or by talking directly to a 2.4GHz radio that has been directly attached.  To configure the WiFi bridge mode, specify the `bridges` configuration element.  To configure the directly attached radio, specify the `remotes` (and optionally the `radio`) configuration element.
+
 ## Setup
 
 ### Using WiFi Bridge
