@@ -53,6 +53,8 @@ client_secret:
 
 Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cogwheel.
 
+In the dialogue it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with area to be covered and whether to display average or maximum values.
+
 ### Get API and Secret Key
 
 To get your API credentials, you have to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
