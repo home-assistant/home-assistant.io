@@ -1,11 +1,25 @@
 ---
-title: Deprecating Home Assistant Supervised on generic Linux
+title: [On hold] Deprecating Home Assistant Supervised on generic Linux
 description: "Home Assistant Supervised is no longer a supported installation option."
 date: 2020-05-09 00:00:00
 date_formatted: "May 9, 2020"
 author: Paulus Schoutsen
 author_twitter: balloob
 categories: Announcements
+---
+
+**[Update May 10]**
+
+We’ve been overwhelmed with the many reactions. We realize our communication has been poor on this subject, for which I want to apologize. We do not collect data and so can’t always judge the impact of our decisions.
+
+We’re going to put the deprecation plan on hold for now. Anyone running this installation method today can continue running this. We will offer more clear information in the future.
+
+We’re going to investigate how we can maintain the supervised installation on generic Linux.
+
+Furthermore, we are going to make sure that supported installation guides are properly documented.
+
+Paulus
+
 ---
 
 TL;DR: Home Assistant Supervised (also known as Home Assistant on Generic Linux) installation method is no longer supported.
