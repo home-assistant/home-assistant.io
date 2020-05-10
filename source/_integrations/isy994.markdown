@@ -86,7 +86,7 @@ Each Insteon leak sensor will also show up as a single Binary Sensor as opposed 
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
 
-Integer and State Variables from the ISY can be used as sensors by setting the `variable_sensor_string` an adding it as part of the variable name in the ISY. For example, if you have a variable named `HA.my_variable` and a `variable_sensor_string` of `"HA."`, it will be automatically added as a `sensor` in Home Assistant.
+Integer and State Variables from the ISY can be used as sensors by setting the `variable_sensor_string` and adding it as part of the variable name in the ISY. For example, if you have a variable named `HA.my_variable` and a `variable_sensor_string` of `"HA."`, it will be automatically added as a `sensor` in Home Assistant.
 
 ### Handling Insteon or Other ISY Control Events
 
