@@ -4,6 +4,7 @@ description: Instructions on how to setup the ISY994 controller within Home Assi
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Cover
   - Fan
   - Light
@@ -21,6 +22,7 @@ The ISY994 controller is manufactured by [Universal Devices](https://www.univers
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
+- Climate
 - Cover
 - Light
 - Fan
