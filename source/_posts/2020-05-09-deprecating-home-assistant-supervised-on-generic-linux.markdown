@@ -1,5 +1,5 @@
 ---
-title: [On hold] Deprecating Home Assistant Supervised on generic Linux
+title: "[On hold] Deprecating Home Assistant Supervised on generic Linux"
 description: "Home Assistant Supervised is no longer a supported installation option."
 date: 2020-05-09 00:00:00
 date_formatted: "May 9, 2020"
