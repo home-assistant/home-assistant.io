@@ -12,13 +12,13 @@ ha_codeowners:
 
 This integration integrates [BSBLan](https://github.com/fredlcore/bsb_lan) device into Home Assistant.
 
-BSBLan is an device that is made by `Frederik Holst` and `Ulf Diekmann` for documentation and with
+BSBLan is a device that is made by `Frederik Holst` and `Ulf Diekmann` for documentation and with
 the help of many other contributors.
 The board is designed for an Arduino Mega 2560 with an Ethernet-Shield for web-based controlling
 of heating systems such as `Elco Thision`, `Brötje` and similar systems.
 
 It can interface with the heating system over Boiler-System-Bus, Local Process Bus and PPS (Punkt-zu-Punkt Schnittstelle)
-For more information of which system it supports have a look at their [documentation](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
+For more information of which system it supports, have a look at their [documentation](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 
 ## Configuration
 
