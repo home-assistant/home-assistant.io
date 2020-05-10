@@ -60,6 +60,11 @@ sensor_string:
   required: false
   type: string
   default: sensor
+variable_sensor_string:
+  description: This is the string that is used to identify which Integer or State Variables are to be added as sensors. If this string is found in the device name, Home Assistant will assume it is as a sensor.
+  required: false
+  type: string
+  default: sensor
 ignore_string:
   description: Any devices that contain this string in their name (or folder path) will be ignored by Home Assistant. They will not become entities at all and will not fire `control_events`.
   required: false
@@ -80,6 +85,8 @@ An Insteon door/window sensor will show up as a single Binary Sensor rather than
 Each Insteon leak sensor will also show up as a single Binary Sensor as opposed to the two nodes seen in the ISY994. The name of the device will be based on what the parent node is named in the ISY994, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
 
 If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
+
+Integer and State Variables from the ISY can be used as sensors by setting the `variable_sensor_string` an adding it as part of the variable name in the ISY. For example, if you have a variable named `HA.my_variable` and a `variable_sensor_string` of `"HA."`, it will be automatically added as a `sensor` in Home Assistant.
 
 ### Handling Insteon or Other ISY Control Events
 
