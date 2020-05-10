@@ -28,7 +28,7 @@ You can configure specific FFmpeg options through the integration options flow b
 | Option | Description |
 | -------| ----------- |
 | RTSP transport mechanism | RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`. |
-| Extra FFMPEG arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/integrations/ffmpeg). |
+| Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/integrations/ffmpeg). |
 
 ### Supported Sensors
 
