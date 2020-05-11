@@ -42,7 +42,6 @@ tuya:
   username: YOUR_TUYA_USERNAME
   password: YOUR_TUYA_PASSWORD
   country_code: YOUR_ACCOUNT_COUNTRYCODE
-  platform: YOUR_ACCOUNT_PLATFORM
 ```
 
 {% configuration %}
