@@ -15,6 +15,7 @@ The `denonavr` platform allows you to control a [Denon Network Receivers](https:
 
 Known supported devices:
 
+- Denon AVR-X1200W
 - Denon AVR-X1300W
 - Denon AVR-X1500H
 - Denon AVR-X2000
