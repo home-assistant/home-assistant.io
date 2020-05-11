@@ -11,6 +11,7 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Polling
 ha_release: 0.74
+ha_config_flow: true
 ha_domain: tuya
 ---
 
