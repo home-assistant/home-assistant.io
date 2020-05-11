@@ -126,8 +126,8 @@ Creating a dedicated user for Home Assistant, limited to only the role just crea
 * Open `Permissions` and click `Users`
 * Click `Add`
 * Enter a username (e.g.,  "hass")
-* Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 * Set the realm to "Proxmox VE authentication server"
+* Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 * Ensure `Enabled` is checked and `Expire` is set to "never"
 * Click `Add`
 
