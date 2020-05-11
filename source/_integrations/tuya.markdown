@@ -27,13 +27,15 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration via frontend
 
-To add your Tuya devices into your Home Assistant installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tuya**.<br/>
-During configuration, be careful to select the [country code](https://www.countrycode.org/) and the platform corresponding to those used by you in the app.<br/>
-Once configuration flow is completed, the devices configured in your app will be automatically discovered.
+To add your Tuya devices into your Home Assistant installation, go to:
+
+**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tuya**.
+
+During configuration, be careful to select the [country code](https://www.countrycode.org/) and the platform corresponding to those used by you in the app. Once configuration flow is completed, the devices configured in your app will be automatically discovered.
 
 ### Configuration via YAML
 
-YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore.
+_YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore._
 
 To add your Tuya devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
