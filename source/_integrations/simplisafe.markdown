@@ -40,7 +40,7 @@ password:
   required: true
   type: string
 code:
-  description: A code to enable or disable the alarm in the frontend.
+  description: A code to enable or disable the alarm in the frontend. *Under normal operation, the integration doesn’t need a SimpliSafe keypad code.*
   required: false
   type: string
 {% endconfiguration %}
