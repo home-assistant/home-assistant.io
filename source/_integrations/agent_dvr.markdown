@@ -11,14 +11,14 @@ ha_codeowners:
 ha_domain: agent_dvr
 ---
 
-[Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including YOLO integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed under a subscription model.
+[Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including YOLO integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed.
 
 You can add Agent DVR via integrations using the IP address and port of the server, e.g.,: `http://192.168.1.3:8090/`.
 
 
 ## Configuration
 
-For configuration, go to the `Integrations panel` on your Home Assistant instance.
+For configuration, go to the `Integrations panel` on your Home Assistant instance. Click on the + symbol and pick 'Agent DVR' from the list and enter your Agent DVR server address and port. You can then setup your devices using the Home Assistant UI.
 
 <div class='note'>
   Please ensure you are using Agent DVR v2.6.1.0 +
