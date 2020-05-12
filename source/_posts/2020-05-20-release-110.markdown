@@ -30,6 +30,18 @@ We updated the way we load icons, with the ever growing Material Icons set, it w
 We splitted the Material Icons in chunks, so you don't have to load all the icons if you just need one, besides that we no longer store the icons in the DOM but in a database.
 This saves a lot of memory and thus makes Home Assistant leaner and faster!
 
+## Weather card
+
+We got a lot of feedback about the updated weather card of the last release, we listened and added some features.
+You can now theme the colors of the new icons, and you can even completely replace them with an other image. You can also set the attribute you want to show as the secondary info.
+
+Check the [docs](/lovelace/weather-forecast/) for more info
+
+<p class='img'>
+<img src='/images/blog/2020-05-0.110/weather_card.png' alt='Screenshot of the weather card'></a>
+Screenshot of the weather card.
+</p>
+
 ## Calendar panel
 
 Thanks to [@zsarnett] we got a beautiful new calendar panel! It shows you all items of the calendars you select in a month, week or day view.
