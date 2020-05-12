@@ -45,7 +45,6 @@ Optional:
 - `enqueue`: Enqueue only
 - `playlist_id`: Play video with `media_id` from this playlist
 
-
 ```yaml
 'cast_youtube_to_my_chromecast':
   alias: Cast YouTube to My Chromecast
@@ -85,8 +84,6 @@ Optional:
         }'
     service: media_player.play_media
 ```
-
-Support for Netflix and other applications can be added via [Cast Extensions](https://github.com/Eerovil/castextensions)
 
 ## Advanced use
 
