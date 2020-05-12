@@ -24,7 +24,7 @@ You will need your Blink login information (username, which is usually your emai
 
 The preferred method for setting this up is by using the configuration flow. Go to the integrations page in your configuration and click on new integration -> Blink.  When you are prompted for your pin, there are (currently) two possibilities:
 
-1. You are sent an email asking for you to allow Home Assistant to access Blink.  In this case, please enter the string `None` into the pin field and hit `Submit`.
+1. You are sent an email asking for you to allow Home Assistant to access Blink.  In this case, leave the pin field blank and hit `Submit`.
 
 2. You are sent an email containing a 2FA pin.  In this case, please enter the pin and hit `Submit`.
 
