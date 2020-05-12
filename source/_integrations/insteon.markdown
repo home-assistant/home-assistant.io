@@ -288,4 +288,4 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.some_light
-```
+``` 
