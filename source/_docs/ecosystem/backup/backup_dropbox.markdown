@@ -4,7 +4,7 @@ description: "Instructions on how backup your Home Assistant configuration to Dr
 redirect_from: /cookbook/dropboxbackup/
 ---
 
-Backing up and regularly syncing your Home Assistant configuration to [Dropbox](http://dropbox.com) is similar to [GitHub Backup](/docs/ecosystem/backup/backup_github/)
+Backing up and regularly syncing your Home Assistant configuration to [Dropbox](http://dropbox.com).
 
 ## Requirements
 

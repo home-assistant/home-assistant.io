@@ -32,5 +32,3 @@ Just putting a port up is not secure. You should definitely consider encrypting 
 </div>
 
 Protect your communication with a [self-signed certificate](/docs/ecosystem/certificates/tls_self_signed_certificate/) between your client and the Home Assistant instance.
-
-For another way to access your Home Assistant frontend, check out [the instructions how to use Tor](/docs/ecosystem/tor/).

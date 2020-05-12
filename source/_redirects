@@ -2057,8 +2057,11 @@
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 
 # Migrated Community Guides
-/docs/installation/freenas https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158
+/cookbook/githubbackup https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
+/cookbook/tor_configuration https://community.home-assistant.io/t/tor-onion-service-configuration/195171
 /docs/ecosystem/backup/backup_github https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
+/docs/ecosystem/tor https://community.home-assistant.io/t/tor-onion-service-configuration/195171
+/docs/installation/freenas https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158
 
 # Add-ons
 /addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
