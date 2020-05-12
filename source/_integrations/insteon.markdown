@@ -85,77 +85,77 @@ insteon:
 
 {% configuration %}
 port:
-description: The serial or USB port for your device, e.g., `/dev/ttyUSB0` or `COM3`. Required for PLM setup.
-required: false
-type: string
+  description: The serial or USB port for your device, e.g., `/dev/ttyUSB0` or `COM3`. Required for PLM setup.
+  required: false
+  type: string
 host:
-description: The host name or IP address of the Hub. Required with Hub.
-required: false
-type: string
+  description: The host name or IP address of the Hub. Required with Hub.
+  required: false
+  type: string
 ip_port:
-description: The IP port number of the Hub. For Hub model [2245] (i.e., Hub version 2) the default port is 25105. For the Hub model [2242] (i.e., Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
-required: true
-type: integer
+  description: The IP port number of the Hub. For Hub model [2245] (i.e., Hub version 2) the default port is 25105. For the Hub model [2242] (i.e., Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
+  required: true
+  type: integer
 username:
-description: The username to login in to the local Hub. You can find your Hub username on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
-required: false
-type: string
+  description: The username to login in to the local Hub. You can find your Hub username on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
+  required: false
+  type: string
 password:
-description: The password to login in to the local Hub. You can find your Hub password on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
-required: false
-type: string
+  description: The password to login in to the local Hub. You can find your Hub password on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
+  required: false
+  type: string
 hub_version:
-description: The Hub version number where model [2242] is Hub version 1 and model [2245] is Hub version 2. Required for Hub version 1 setup.
-required: false
-default: 2
-type: integer
+  description: The Hub version number where model [2242] is Hub version 1 and model [2245] is Hub version 2. Required for Hub version 1 setup.
+  required: false
+  default: 2
+  type: integer
 device_override:
-description: Override the default device definition.
-required: false
-type: list
-keys:
-address:
-description: is found on the device itself in the form 1A.2B.3C or 1a2b3c.
-required: true
-type: string
-cat:
-description: is found in the back of the device's User Guide in the form of 0x00 - 0xff.
-required: false
-type: integer
-subcat:
-description: is found in the back of the device's User Guide in the form of 0x00 - 0xff.
-required: false
-type: integer
-firmware:
-description: are more advanced options and will typically not be used.
-required: false
-type: string
-product_key:
-description: are more advanced options and will typically not be used.
-required: false
-type: integer
+  description: Override the default device definition.
+  required: false
+  type: list
+  keys:
+    address:
+      description: is found on the device itself in the form 1A.2B.3C or 1a2b3c.
+      required: true
+      type: string
+    cat:
+      description: is found in the back of the device's User Guide in the form of 0x00 - 0xff.
+      required: false
+      type: integer
+    subcat:
+      description: is found in the back of the device's User Guide in the form of 0x00 - 0xff.
+      required: false
+      type: integer
+    firmware:
+      description: are more advanced options and will typically not be used.
+      required: false
+      type: string
+    product_key:
+      description: are more advanced options and will typically not be used.
+      required: false
+      type: integer
 x10_devices:
-description: Define X10 devices to control or respond to.
-required: false
-type: list
-keys:
-housecode:
-description: is the X10 housecode values a - p
-required: true
-type: string
-unitcode:
-description: is the X10 unit code values 1 - 16
-required: true
-type: integer
-platform:
-description: "is the Home Assistant Platform to associate the device with. The following platforms are supported: binary_sensor: Used for on/off devices or keypad buttons that are read-only. light: Used for dimmable X10 devices. switch: Used for On/Off X10 devices."
-required: true
-type: string
-dim_steps:
-description: is the number of dim/bright steps the device supports. Used for dimmable X10 devices only.
-required: false
-default: 22
-type: integer
+  description: Define X10 devices to control or respond to.
+  required: false
+  type: list
+  keys:
+    housecode:
+      description: is the X10 housecode values a - p
+      required: true
+      type: string
+    unitcode:
+      description: is the X10 unit code values 1 - 16
+      required: true
+      type: integer
+    platform:
+      description: "is the Home Assistant Platform to associate the device with. The following platforms are supported: binary_sensor: Used for on/off devices or keypad buttons that are read-only. light: Used for dimmable X10 devices. switch: Used for On/Off X10 devices."
+      required: true
+      type: string
+    dim_steps:
+      description: is the number of dim/bright steps the device supports. Used for dimmable X10 devices only.
+      required: false
+      default: 22
+      type: integer
 {% endconfiguration %}
 
 ### Autodiscovery
