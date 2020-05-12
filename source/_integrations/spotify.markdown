@@ -33,6 +33,10 @@ To create the required Spotify application:
 - Add a **Redirect URI** in one of the following forms:
   - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
   - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
+  
+  You will reuire the following two redirets as well
+  - `http(s)://<your_home_assistant_url_or_local_ip>/api/spotify`
+  - `http(s)://<your_home_assistant_url_or_local_ip>/lovelace/<the id of the tab on HA where the card is stored>`
 - Click **Save** after adding the URI.
 
 If you are using an externally accessible address, you will likely also need to set the `base_url` attribute of the [HTTP Integration](/integrations/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
