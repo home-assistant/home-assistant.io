@@ -30,6 +30,11 @@ show_forecast:
   description: Show next hours/days forecast.
   type: boolean
   default: true
+secondary_info_attribute:
+  required: false
+  description: Which attribute to display under the temperature.
+  type: boolean
+  default: Defaults to Extrema if Available, if not available then Precipitation and if precipitation isn't available then Humidity.
 theme:
   required: false
   description: "Set to any theme within `themes.yaml`"
@@ -40,13 +45,13 @@ Example
 
 ```yaml
 type: weather-forecast
-entity: weather.dark_sky
+entity: weather.openweathermap
 ```
 
 <div class="note">
 
   This card works only with platforms that define a `weather` entity.
   
-  E.g., it works with [Dark Sky](/integrations/weather.darksky/) but not [Dark Sky Sensor](/integrations/darksky)
+  E.g., it works with [OpenWeatherMap](https://www.home-assistant.io/integrations/openweathermap/#weather) but not [OpenWeatherMap Sensor](https://www.home-assistant.io/integrations/openweathermap/#sensor)
 
 </div>

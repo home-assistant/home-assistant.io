@@ -1291,3 +1291,122 @@ Example Event:
     - service: switch.toggle
       entity_id: switch.office_fan
 ```
+
+### Zooz S2 MultiRelay (Zen16)
+
+Contact Zooz to obtain the over the air firmware update instructions and new user manual for the MultiRelay.
+
+Once the firmware is updated, the the new configuration parameters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options:
+
+```xml
+<CommandClass id="112">
+	<Value type="list" genre="config" index="1" label="On Off Status After Power Failure" size="1" min="0" max="4" value="1">
+		<Help>On Off Status After Power Failure.  Default: all relays restore to previous state</Help>
+		<Item label="all relays forced off" value="0"/>
+		<Item label="all relays restore to previous state" value="1"/>
+		<Item label="all relays forced on" value="2"/>
+		<Item label="relays 1/2 restore, 3/4 forced off" value="3"/>
+		<Item label="relays 1/2 restore, 3/4 forced on" value="4"/>
+	</Value>
+	<Value type="list" genre="config" index="2" label="Switch Type for Relay 1 (Sw1)" size="1" min="0" max="3" value="2">
+		<Help>Switch Type for Relay 1 (Sw1).  Choose the wall switch type you want to connect to the Sw1 terminal.  Default: toggle switch (state changes whenever the switch is toggled)</Help>
+		<Item label="momentary switch" value="0"/>
+		<Item label="toggle switch (light on when switch is up/off when down)" value="1"/>
+		<Item label="toggle switch (state changes whenever the switch is toggled)" value="2"/>
+		<Item label="garage door (momentary mode for Z-Wave control)" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="3" label="Switch Type for Relay 2 (Sw2)" size="1" min="0" max="3" value="2">
+		<Help>Switch Type for Relay 2 (Sw2).  Choose the wall switch type you want to connect to the Sw2 terminal.  Default: toggle switch (state changes whenever the switch is toggled)</Help>
+		<Item label="momentary switch" value="0"/>
+		<Item label="toggle switch (light on when switch is up/off when down)" value="1"/>
+		<Item label="toggle switch (state changes whenever the switch is toggled)" value="2"/>
+		<Item label="garage door (momentary mode for Z-Wave control)" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="4" label="Switch Type for Relay 3 (Sw3)" size="1" min="0" max="3" value="2">
+		<Help>Switch Type for Relay 3 (Sw3).  Choose the wall switch type you want to connect to the Sw3 terminal.  Default: toggle switch (state changes whenever the switch is toggled)</Help>
+		<Item label="momentary switch" value="0"/>
+		<Item label="toggle switch (light on when switch is up/off when down)" value="1"/>
+		<Item label="toggle switch (state changes whenever the switch is toggled)" value="2"/>
+		<Item label="garage door (momentary mode for Z-Wave control)" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="5" label="LED Indicator Control" size="1" min="0" max="3" value="0">
+		<Help>LED Indicator Control.  Choose if you want the LED indicator to turn on when any of the relays are on or if all of them are off, or if you want it to remain on or off at all times.  Default: On when all relays are off</Help>
+		<Item label="On when all relays are off" value="0"/>
+		<Item label="On when any relays are on" value="1"/>
+		<Item label="Always Off" value="2"/>
+		<Item label="Always On" value="3"/>
+	</Value>
+	<Value type="int" genre="config" index="6" label="Auto Turn-Off Timer for Relay 1" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-Off Timer for Relay 1.  Sets the time (in minutes) after which you want relay 1 to automatically turn off once it has been turned on.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="7" label="Auto Turn-On Timer for Relay 1" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-On Timer for Relay 1.  Sets the time (in minutes) after which you want relay 1 to automatically turn on once it has been turned off.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="8" label="Auto Turn-Off Timer for Relay 2" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-Off Timer for Relay 2.  Sets the time (in minutes) after which you want relay 2 to automatically turn off once it has been turned on.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="9" label="Auto Turn-On Timer for Relay 2" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-On Timer for Relay 2.  Sets the time (in minutes) after which you want relay 2 to automatically turn on once it has been turned off.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="10" label="Auto Turn-Off Timer for Relay 3" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-Off Timer for Relay 3.  Sets the time (in minutes) after which you want relay 3 to automatically turn off once it has been turned on.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="11" label="Auto Turn-On Timer for Relay 3" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-On Timer for Relay 3.  Sets the time (in minutes) after which you want relay 3 to automatically turn on once it has been turned off.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="list" genre="config" index="12" label="Enable/Disable Manual Control for SW1" size="1" min="0" max="2" value="1">
+		<Help>Enable/Disable Manual Control for SW1.  Default: enabled</Help>
+		<Item label="disabled" value="0"/>
+		<Item label="enabled" value="1"/>
+		<Item label="local control disabled with enable on/off reports" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="13" label="Enable/Disable Manual Control for SW2" size="1" min="0" max="2" value="1">
+		<Help>Enable/Disable Manual Control for SW2.  Default: enabled</Help>
+		<Item label="disabled" value="0"/>
+		<Item label="enabled" value="1"/>
+		<Item label="local control disabled with enable on/off reports" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="14" label="Enable/Disable Manual Control for SW3" size="1" min="0" max="2" value="1">
+		<Help>Enable/Disable Manual Control for SW3.  Default: enabled</Help>
+		<Item label="disabled" value="0"/>
+		<Item label="enabled" value="1"/>
+		<Item label="local control disabled with enable on/off reports" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="15" label="Auto Turn-Off Timer Unit for Relay 1" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-Off time for Relay 1.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="16" label="Auto Turn-On Timer Unit for Relay 1" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-On time for Relay 1.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="17" label="Auto Turn-Off Timer Unit for Relay 2" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-Off time for Relay 2.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="18" label="Auto Turn-On Timer Unit for Relay 2" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-On time for Relay 2.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="19" label="Auto Turn-Off Timer Unit for Relay 3" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-Off time for Relay 3.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="20" label="Auto Turn-On Timer Unit for Relay 3" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-On time for Relay 3.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+</CommandClass>
+```
