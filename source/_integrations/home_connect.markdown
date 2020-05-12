@@ -8,7 +8,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
-ha_release: 0.110
+ha_release: "0.110"
 ha_domain: home_connect
 ---
 
