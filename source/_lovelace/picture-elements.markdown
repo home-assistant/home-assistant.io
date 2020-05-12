@@ -20,8 +20,7 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image.<br/>
-To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
   type: string
 elements:
   required: true
