@@ -24,6 +24,44 @@ Lorem ipsum
 Screenshot of lorem ipsum.
 </p>
 
+## Icons
+
+We updated the way we load icons, with the ever growing Material Icons set, it was necessary to update the way we handle icons to make sure our application stays performant.
+We splitted the Material Icons in chunks, so you don't have to load all the icons if you just need one, besides that we no longer store the icons in the DOM but in a database.
+This saves a lot of memory and thus makes Home Assistant leaner and faster!
+
+## Calendar panel
+
+Thanks to [@zsarnett] we got a beautiful new calendar panel! It shows you all items of the calendars you select in a month, week or day view.
+There is also a calendar card for Lovelace in the making.
+
+<p class='img'>
+<img src='/images/blog/2020-05-0.110/calendar_panel.png' alt='Screenshot of the Calendar panel'></a>
+Screenshot of the Calendar panel.
+</p>
+
+## Supervisor
+
+Have you seen the new supervisor UI? [@ludeeus] did a great job redoing it's UI! It now uses the same tabs as the configuration panel. The addon page is split into multiple tabs, the addon store is cleaned up and you can view all logs in system tab now (requires expert mode).
+
+Some advanced addons are now also marked "expert" and are only visible when you are in expert mode.
+
+<p class='img'>
+<img src='/images/blog/2020-05-0.110/supervisor_panel.png' alt='Screenshot of the Supervisor panel'></a>
+Screenshot of the Supervisor panel.
+</p>
+
+## Integrations grouped and search
+
+[@timmo001] added the possibility to search your integrations, so you can find what you are looking for quickly.
+
+We also grouped the entries by integration now, this means we no longer show multiple cards for the same integration, but show a list of the names if there are multiple entries. If you click the entry it will show that entry in the card. This makes it easier to keep an overview of all your integrations.
+
+<p class='img'>
+<img src='/images/blog/2020-05-0.110/integrations.png' alt='Screenshot of the integrations page'></a>
+Screenshot of the integrations page.
+</p>
+
 ## Other noteworthy changes
 
 - Lorem ipsum
@@ -774,6 +812,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jrester]: https://github.com/jrester
 [@kifeo]: https://github.com/kifeo
 [@liudger]: https://github.com/liudger
+[@ludeeus]: https://github.com/ludeeus
 [@merdok]: https://github.com/merdok
 [@mhorst314]: https://github.com/mhorst314
 [@mlemainque]: https://github.com/mlemainque
@@ -794,6 +833,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@starkillerOG]: https://github.com/starkillerOG
 [@stickpin]: https://github.com/stickpin
 [@thecode]: https://github.com/thecode
+[@timmo001]: https://github.com/timmo001
 [@tschamm]: https://github.com/tschamm
 [@unixko]: https://github.com/unixko
 [@uphillbattle]: https://github.com/uphillbattle
