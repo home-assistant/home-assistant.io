@@ -106,10 +106,4 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>Synology</div>
   </a>
-  <a class='option-card' href='/docs/installation/freenas/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/freenas.png' />
-    </div>
-    <div class='title'>FreeNAS</div>
-  </a>
 </div>
