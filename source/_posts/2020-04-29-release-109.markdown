@@ -530,6 +530,50 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [uvc docs]: /integrations/uvc/
 [websocket_api docs]: /integrations/websocket_api/
 
+## Release 0.109.5 - May 6
+
+- Add retry on empty modbus messages for serial protocol ([@janiversen] - [#34678]) ([modbus docs])
+- Change Modbus switch to use verify_register when defined ([@janiversen] - [#34679]) ([modbus docs])
+- Catch samsungtv timeout exception ([@escoand] - [#35205]) ([samsungtv docs])
+- Broader Notion exception handling ([@bachya] - [#35265]) ([notion docs])
+- UniFi - Support SSID filter of SSIDs from access points with extra configuration ([@Kane610] - [#35295]) ([unifi docs])
+- Fix SMS doing I/O in event loop ([@balloob] - [#35313]) ([sms docs])
+
+[#34678]: https://github.com/home-assistant/core/pull/34678
+[#34679]: https://github.com/home-assistant/core/pull/34679
+[#35205]: https://github.com/home-assistant/core/pull/35205
+[#35265]: https://github.com/home-assistant/core/pull/35265
+[#35295]: https://github.com/home-assistant/core/pull/35295
+[#35313]: https://github.com/home-assistant/core/pull/35313
+[@Kane610]: https://github.com/Kane610
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@escoand]: https://github.com/escoand
+[@janiversen]: https://github.com/janiversen
+[modbus docs]: /integrations/modbus/
+[notion docs]: /integrations/notion/
+[samsungtv docs]: /integrations/samsungtv/
+[sms docs]: /integrations/sms/
+[unifi docs]: /integrations/unifi/
+
+## Release 0.109.6 - May 7
+
+- Fix roomba 980 position report ([@shenxn] - [#35316]) ([roomba docs])
+- Update pymyq to 2.0.2 ([@bdraco] - [#35330]) ([myq docs])
+- Fix Synology DSM discovery can't be ignored ([@Quentame] - [#35331]) ([synology_dsm docs])
+- Remove panasonic_viera from legacy discovery (@joogps - #34909)
+- Fix Islamic prayer sensor timestamp format (@engrbm87 - #35243)
+
+[#35316]: https://github.com/home-assistant/core/pull/35316
+[#35330]: https://github.com/home-assistant/core/pull/35330
+[#35331]: https://github.com/home-assistant/core/pull/35331
+[@Quentame]: https://github.com/Quentame
+[@bdraco]: https://github.com/bdraco
+[@shenxn]: https://github.com/shenxn
+[myq docs]: /integrations/myq/
+[roomba docs]: /integrations/roomba/
+[synology_dsm docs]: /integrations/synology_dsm/
+
 ## All changes
 
 <details>
