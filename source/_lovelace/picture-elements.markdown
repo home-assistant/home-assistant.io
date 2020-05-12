@@ -6,7 +6,7 @@ description: "The Picture Elements card is one of the most versatile types of ca
 
 The Picture Elements card is one of the most versatile types of cards.
 
-The cards allow you to position icons or text and even services! On an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
+The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/lovelace/picture-glance/) with no restrictions!
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_elements.gif' alt='A functional floorplan powered by picture elements'>
@@ -20,7 +20,8 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image.
+  description: The URL of an image.<br/>
+To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
   type: string
 elements:
   required: true
