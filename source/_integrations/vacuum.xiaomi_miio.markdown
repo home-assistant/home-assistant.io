@@ -293,13 +293,11 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 1. Configure the robot with the Mi-Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
 2. Install [BlueStacks](https://www.bluestacks.com).
-3. Set up [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) in BlueStacks and login to synchronize devices.
-4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.
-5. Copy `/data/data/com.xiaomi.smarthome/databases/miio2.db` file to your computer using the Bluestacks Tweakers filesystem tool.
-6. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
-7. Open the DB Browser and load the `miio2.db` from your computer.
-8. Select `Browse Data` tab from the DB Browser and switch to table called `devicerecord`
-9. This will display all the connected devices information with the token.
+3. Set up [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and login to synchronize devices.
+4. Open Filemanager in the `More Apps` menu.
+5. Use `Explore` on the left and navigate to `sdcard/SmartHome/logs/plug_DeviceManager`.
+6. Click on `Export to Windows` in the lower left corner and select any or all files to export to you local disk.
+7. Search for `"token":"<yourTokenHere>"`.
 
 ### Miio command line tool
 

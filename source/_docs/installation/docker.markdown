@@ -8,7 +8,7 @@ redirect_from: /getting-started/installation-docker/
 
 These below instructions are for an installation of Home Assistant Core running in your own Docker environment, which you manage yourself.
 
-Note that Docker command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put put Home Assistant on the host's network, otherwise certain functionality - including mDNS and UPnP - will break. The `-p` command line option or the compose file equivalent `ports:` is not compatible with host networking mode and must not be used.
+Note that Docker command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put Home Assistant on the host's network, otherwise certain functionality - including mDNS and UPnP - will break. The `-p` command line option or the compose file equivalent `ports:` is not compatible with host networking mode and must not be used.
 
 </div>
 
