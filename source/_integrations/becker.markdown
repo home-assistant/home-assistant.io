@@ -21,16 +21,13 @@ The becker cover configuration consist in a new becker platform in your cover co
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: becker
-    device: "/dev/serial/by-id/usb-BECKER-ANTRIEBE_GmbH_CDC_RS232_v125_Centronic-if00"
-    covers:
-      kitchen:
-        friendly_name: "Kitchen Cover"
-        channel: "1"
-      bedroom:
-        friendly_name: "Bedroom Cover"
-        channel: "2"
+becker:
+  device: "/dev/serial/by-id/usb-BECKER-ANTRIEBE_GmbH_CDC_RS232_v125_Centronic-if00"
+  covers:
+    - name: "Kitchen Cover"
+      channel: "1"
+    - name: "Bedroom Cover"
+      channel: "2"
 ```
 
 {% configuration %}
@@ -44,8 +41,8 @@ covers:
   required: true
   type: list
   keys:
-    friendly_name:
-      description: Override the name to use in the frontend.
+    name:
+      description: Name to use for the device.
       required: false
       type: string
     channel:
@@ -58,3 +55,7 @@ covers:
 If a channel consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
 </div>
+
+## Services
+
+This integration introduce a new service *becker.pair" allowing you to pair a cover/shutter with your centronic stick from the UI, scripts or automations
