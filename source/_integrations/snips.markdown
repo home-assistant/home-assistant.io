@@ -9,7 +9,7 @@ ha_domain: snips
 
 <div class='note warning'>
   
-The Snips Console no longer available due to acquisition by Sonos. For more details, read the [announcement on the Snips forum](https://forum.snips.ai/t/important-message-regarding-the-snips-console/4145).
+The Snips Console no longer available due to acquisition by Sonos. For more details, read the [announcement on the Snips forum](http://web.archive.org/web/20200109164247/https://forum.snips.ai/t/important-message-regarding-the-snips-console/4145).
 
 </div>
 
