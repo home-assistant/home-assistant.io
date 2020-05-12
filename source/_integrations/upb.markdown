@@ -24,6 +24,7 @@ The UPB integration requires that an export from the `UPStart` UPB configuration
 ## Events
 
 An event is generated whenever a UPB Link is:
+
 - activated
 - deactivated
 - goes to a new level
@@ -34,6 +35,7 @@ An event is generated whenever a UPB Link is:
 The event is `upb.link_changed`.
 
 The `event_data` contains the following:
+
 - `command`: One of `activated`, `blink`, `deactivated`, `fade_started`,
   `fade_stopped`, or `goto`.
 - `address`: The address of the link reporting the event. The `address`
