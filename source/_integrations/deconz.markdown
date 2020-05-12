@@ -230,145 +230,6 @@ automation:
 
 {% endraw %}
 
-### AppDaemon
-
-#### AppDaemon event helper
-
-Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
-
-Put this in `apps.yaml`:
-{% raw %}
-
-```yaml
-deconz_helper:
-  module: deconz_helper
-  class: DeconzHelper
-```
-
-Put this in `deconz_helper.py`:
-
-```python
-import appdaemon.plugins.hass.hassapi as hass
-import datetime
-from datetime import datetime
-
-
-class DeconzHelper(hass.Hass):
-    def initialize(self) -> None:
-        self.listen_event(self.event_received, "deconz_event")
-
-    def event_received(self, event_name, data, kwargs):
-        event_data = data["event"]
-        event_id = data["id"]
-        event_received = datetime.now()
-
-        self.log(f"Deconz event received from {event_id}. Event was: {event_data}")
-        self.set_state(
-            "sensor.deconz_event",
-            state=event_id,
-            attributes={
-                "event_data": event_data,
-                "event_received": str(event_received),
-            },
-        )
-```
-
-{% endraw %}
-
-Note: the event will not be visible before one event gets sent.
-
-#### AppDaemon remote template
-
-{% raw %}
-
-```yaml
-remote_control:
-  module: remote_control
-  class: RemoteControl
-  event: deconz_event
-  id: dimmer_switch_1
-```
-
-```python
-import appdaemon.plugins.hass.hassapi as hass
-
-
-class RemoteControl(hass.Hass):
-    def initialize(self):
-        if "event" in self.args:
-            self.listen_event(self.handle_event, self.args["event"])
-
-    def handle_event(self, event_name, data, kwargs):
-        if data["id"] == self.args["id"]:
-            self.log(data["event"])
-            if data["event"] == 1002:
-                self.log("Button on")
-            elif data["event"] == 2002:
-                self.log("Button dim up")
-            elif data["event"] == 3002:
-                self.log("Button dim down")
-            elif data["event"] == 4002:
-                self.log("Button off")
-```
-
-{% endraw %}
-
-#### AppDaemon IKEA Tradfri remote template
-
-Community app from [Teachingbirds](https://community.home-assistant.io/u/teachingbirds/summary). This app uses an IKEA Tradfri remote to control Sonos speakers with play/pause, volume up and down, next and previous track.
-
-{% raw %}
-
-```yaml
-sonos_remote_control:
-  module: sonos_remote
-  class: SonosRemote
-  event: deconz_event
-  id: sonos_remote
-  sonos: media_player.sonos
-```
-
-{% endraw %}
-
-{% raw %}
-
-```python
-import appdaemon.plugins.hass.hassapi as hass
-
-
-class SonosRemote(hass.Hass):
-    def initialize(self):
-        self.sonos = self.args["sonos"]
-        if "event" in self.args:
-            self.listen_event(self.handle_event, self.args["event"])
-
-    def handle_event(self, event_name, data, kwargs):
-        if data["id"] == self.args["id"]:
-            if data["event"] == 1002:
-                self.log("Button toggle")
-                self.call_service("media_player/media_play_pause", entity_id=self.sonos)
-
-            elif data["event"] == 2002:
-                self.log("Button volume up")
-                self.call_service("media_player/volume_up", entity_id=self.sonos)
-
-            elif data["event"] == 3002:
-                self.log("Button volume down")
-                self.call_service("media_player/volume_down", entity_id=self.sonos)
-
-            elif data["event"] == 4002:
-                self.log("Button previous")
-                self.call_service(
-                    "media_player/media_previous_track", entity_id=self.sonos
-                )
-
-            elif data["event"] == 5002:
-                self.log("Button next")
-                self.call_service("media_player/media_next_track", entity_id=self.sonos)
-```
-
-{% endraw %}
-
 ## Binary Sensor
 
 The following sensor types are supported:
@@ -508,6 +369,8 @@ The deCONZ Daylight sensor is a special sensor built into the deCONZ software si
 The sensor also has an attribute called "daylight" that has the value `true` when the sensor's state is `golden_hour_1`, `solar_noon`, or `golden_hour_2`, and `false` otherwise.
 
 These states can be used in automations as a trigger (e.g., trigger when a certain phase of daylight starts or ends) or condition (e.g., trigger only if in a certain phase of daylight).
+
+Please note that the deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 
 ## Switch
 

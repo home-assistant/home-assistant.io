@@ -10,7 +10,7 @@ ha_category:
   - Fan
   - Binary Sensor
 ha_release: 0.41
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: lutron_caseta
 ha_codeowners:
   - '@swails'
@@ -38,11 +38,17 @@ Once you have the three necessary files, place them in your configuration direct
 ```yaml
 # Example configuration.yaml entry
 lutron_caseta:
-    host: IP_ADDRESS
+  - host: IP_ADDRESS
     keyfile: caseta.key
     certfile: caseta.crt
     ca_certs: caseta-bridge.crt
 ```
+
+<div class='note'>
+
+Note that multiple hubs can be specified by using multiple configuration blocks, but each of them requires its own `keyfile`, `certfile`, and `ca_certs` to be generated and specified.
+
+</div>
 
 {% configuration %}
   host:
