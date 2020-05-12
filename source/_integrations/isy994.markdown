@@ -152,20 +152,20 @@ Send a command to an ISY Device using its Home Assistant entity ID. Valid comman
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     no   | Name(s) of entities to send the command, e.g., `light.front_porch`. |
-| `command` | no | The command to be sent to the device, e.g. `"fast_on"` |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `command` | no | The command to be sent to the device, e.g., `"fast_on"` |
 
 #### Service `isy994.send_raw_node_command`
 
-Send a "raw" (e.g. `DON`, `DOF`) ISY REST Device Command to a Node using its Home Assistant Entity ID. This is useful for devices that aren't fully supported in Home Assistant yet, such as controls for many NodeServer nodes. Refer to the ISY (or PyISY Python Module) Documentation for details of valid commands.
+Send a "raw" (e.g., `DON`, `DOF`) ISY REST Device Command to a Node using its Home Assistant Entity ID. This is useful for devices that aren't fully supported in Home Assistant yet, such as controls for many NodeServer nodes. Refer to the ISY (or PyISY Python Module) Documentation for details of valid commands.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     no   | Name(s) of entities to send the command, e.g., `light.front_porch`. |
-| `command` | no | The ISY REST Command to be sent to the device, e.g. `"DON"` |
-| `value` | yes | The integer value to be sent with the command, if required by the command, e.g. `255` |
-| `parameters` | yes | A `dict` of parameters to be sent in the query string for controlling colored bulbs or advanced parameters, e.g. `{ GV2: 0, GV3: 0, GV4: 255 }` |
-| `unit_of_measurement` | yes | The ISY Unit of Measurement (UOM) to send with the command, if required, e.g. `67` |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `command` | no | The ISY REST Command to be sent to the device, e.g., `"DON"` |
+| `value` | yes | The integer value to be sent with the command, if required by the command, e.g., `255` |
+| `parameters` | yes | A `dict` of parameters to be sent in the query string for controlling colored bulbs or advanced parameters, e.g., `{ GV2: 0, GV3: 0, GV4: 255 }` |
+| `unit_of_measurement` | yes | The ISY Unit of Measurement (UOM) to send with the command, if required, e.g., `67` |
 
 #### Service `isy994.set_on_level`
 
@@ -173,8 +173,8 @@ Send an ISY set_on_level command to a `light` Node to set the devices' local On 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |     no   | Name(s) of entities to send the command, e.g., `light.front_porch`. |
-| `value` | no | The integer value to set the On Level to in a range of 0-255, e.g. `255` |
+| `entity_id`            |     yes  | Name(s) of entities to send the command, e.g., `light.front_porch`. |
+| `value` | no | The integer value to set the On Level to in a range of 0-255, e.g., `255` |
 
 #### Service `isy994.set_ramp_rate`
 
@@ -183,7 +183,7 @@ Send an ISY set_ramp_rate command to a `light` Node to set the devices' ramp rat
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |     no   | Name(s) of entities to send the command, e.g., `light.front_porch`. |
-| `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g. `28` |
+| `value` | no | The integer index value to set the Ramp Rate to in a range of `0` (9.5 minutes) to `31` (0.1 Seconds), e.g., `28` |
 
 #### Service `isy994.system_query`
 
@@ -191,8 +191,8 @@ Request the ISY Query the connected devices.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `address` | yes | ISY Address to Query. Omitting this requests a system-wide scan (typically recommended by UDI to be scheduled once per day), e.g. `"1A 2B 3C 1"` |
-| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). Omitting this will cause all ISYs to be queried, e.g. `"ISY"` |
+| `address` | yes | ISY Address to Query. Omitting this requests a system-wide scan (typically recommended by UDI to be scheduled once per day), e.g., `"1A 2B 3C 1"` |
+| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console). Omitting this will cause all ISYs to be queried, e.g., `"ISY"` |
 
 #### Service `isy994.set_variable`
 
@@ -200,12 +200,12 @@ Set an ISY variable's current or initial value. Variables can be set by either t
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `value` | no | The integer value to be sent, e.g. `255` |
-| `address` | no | The address of the variable for which to set the value, e.g. `5` |
-| `type` | no | The variable type, 1 = Integer, 2 = State, e.g. `2` |
-| `name` | yes | The name of the variable to set (Optional, use `name` instead of `type` and `address`), e.g. `"my_variable_name"` |
-| `init` | yes | If True, the initial (init) value will be updated instead of the current value, e.g. `false` |
-| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same variable name or address on multiple ISYs, omitting this will run the command on them all, e.g. `"ISY"` |
+| `value` | no | The integer value to be sent, e.g., `255` |
+| `address` | no | The address of the variable for which to set the value, e.g., `5` |
+| `type` | no | The variable type, 1 = Integer, 2 = State, e.g., `2` |
+| `name` | yes | The name of the variable to set (Optional, use `name` instead of `type` and `address`), e.g., `"my_variable_name"` |
+| `init` | yes | If True, the initial (init) value will be updated instead of the current value, e.g., `false` |
+| `isy` | yes | If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same variable name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
 #### Service `isy994.send_program_command`
 
@@ -213,10 +213,10 @@ Send a command to control an ISY program or folder. Valid commands are `run`, `r
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `command` | no | The ISY Program Command to be sent, e.g. `"run"` |
-| `address` | yes | The address of the program to control (optional, use either `address` or `name`), e.g. `"04B1"` |
-| `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g. `"My Program"` |
-| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g. `"ISY"` |
+| `command` | no | The ISY Program Command to be sent, e.g., `"run"` |
+| `address` | yes | The address of the program to control (optional, use either `address` or `name`), e.g., `"04B1"` |
+| `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"` |
+| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
 #### Service `isy994.run_network_resource`
 
@@ -224,9 +224,9 @@ Run a network resource on the ISY.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `address` | yes | The address of the network resource to execute (optional, use either `address` or `name`), e.g. `121` |
-| `name` | yes | The name of the network resource to execute (optional, use either `address` or `name`), e.g. `"Network Resource 1"` |
-| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same resource name or address on multiple ISYs, omitting this will run the command on them all, e.g. `"ISY"` |
+| `address` | yes | The address of the network resource to execute (optional, use either `address` or `name`), e.g., `121` |
+| `name` | yes | The name of the network resource to execute (optional, use either `address` or `name`), e.g., `"Network Resource 1"` |
+| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same resource name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
 
 #### Service `isy994.reload`
 
