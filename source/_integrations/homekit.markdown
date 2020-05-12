@@ -614,6 +614,14 @@ The volume and play/pause controls will show up on the Remote app or Control Cen
 
 Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured correctly. Verify that your stream is directly playable with `ffplay <stream_source>` or [VLC Media Player](https://www.videolan.org/). If you have changed your camera's entity configuration, you may need to [reset the accessory](#resetting-accessories).
 
+#### Cameras streaming is unstable or slow 
+
+If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when via the UI, go to **Configuration** >> **Integrations** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
+
+#### One video stream limit per camera
+
+Currently, cameras are limited to one video stream. Multiple streams are not possible at this time. One workaround is to create a second `HomeKit Bridge` to generate a copy of the camera accessory.
+
 #### Camera audio is not streaming
 
 Make sure `support_audio` is `True` in the camera's entity configuration.
