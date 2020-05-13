@@ -33,11 +33,13 @@
 - topic: hass
   description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command-line tool."
 - topic: Hass.io
-  description: "[Hass.io](/hassio/) is a full UI managed home automation ecosystem that runs Home Assistant, the Hass.io Supervisor and add-ons. It comes pre-installed on HassOS, but can be installed on any Linux system. It leverages Docker, which is managed by the Hass.io Supervisor."
-- topic: Hass.io Supervisor
-  description: "The Hass.io Supervisor is a program that manages a Hass.io installation, taking care of installing and updating Home Assistant, add-ons, itself and, if used, updating the HassOS operating system."
-- topic: HassOS
-  description: "HassOS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Hass.io ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Hass.io Supervisor can keep it up to date, removing the need for you to manage an operating system."
+  description: "[Hass.io](/hassio/) is the previous name for Home Assistant"
+- topic: Home Assistant
+  description: "[Home Assistant](/hassio/) is a full UI managed home automation ecosystem that runs Home Assistant Core, the Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Supervisor."
+- topic: Home Assistant Core
+  description: "[Home Assistant Core](/docs/) is the home automation platform that everybody uses. It can be installed using Home Assistant, Docker, or pip."
+- topic: Home Assistant OS
+  description: "Home Assistant OS, the Home Assistant Operating System, is an embedded, minimalistic, operating system designed to run the Home Assistant ecosystem on single board computers (like the Raspberry Pi) or Virtual Machines. The Supervisor can keep it up to date, removing the need for you to manage an operating system."
 - topic: Integration
   description: "[Integrations](/integrations/) provide the core logic for the functionality in Home Assistant. Like `notify` provides sending notifications."
 - topic: Lovelace
@@ -58,6 +60,8 @@
   description: "[Sensors](/integrations/sensor) return information about a thing, for instance the level of water in a tank."
 - topic: Service
   description: "[Services](/docs/scripts/service-calls/) are called to perform actions."
+- topic: Supervisor
+  description: "The Supervisor is a program that manages a Home Assistant installation, taking care of installing and updating Home Assistant Core, add-ons, itself and, if used, updating the Home Assistant OS."
 - topic: Switch
   description: "[Switches](/integrations/switch) are things that have two states you can select between, such as turning on or off a socket."
 - topic: Template
