@@ -13,6 +13,16 @@ With the `cloudflare` integration, you can keep your Cloudflare records up to da
 
 The integration runs every hour, but can also be started manually by using the service `cloudflare.update_records` under services.
 
+<div class='note warning'>
+Due to a limitation in the Cloudflare API you can not use this integration with any of the folowing TLD's:
+
+- `.cf`
+- `.ga`
+- `.gq`
+- `.ml`
+- `.tk`
+</div>
+
 ## Setup
 
 You can find your global API key in your Cloudflare account settings.
