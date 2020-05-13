@@ -22,16 +22,16 @@ this release!
 In Home Assistant Core [0.109](/blog/2020/04/29/release-109/#weight-loss-for-the-frontend),
 we made the frontend lighter and faster, this release takes it a step further.
 
-The way icons are loaded is updated, with the ever-growing Material Icons set,
+The way icons are loaded is updated. With the ever-growing Material Icons set,
 it was necessary to update the way we handle icons to make sure our application
-stays performing.
+continues performing.
 
 The Material Icons are now split in chunks, so the frontend does not have to
 load all the icons if you just need one; besides that, we no longer store the
 icons in the DOM but in a database.
 
-This saves a lot of memory and thus makes the Home Assistant frontend,
-even more, leaner and faster!
+This saves a lot of memory and thus makes the Home Assistant frontend
+even more leaner and faster!
 
 ## Integrations grouping, searching & custom logos
 
@@ -74,7 +74,7 @@ If you want to give it a shot, you should be comfortable with setting up custom
 add-ons and MQTT. There is no migration from the current Z-Wave integration yet,
 this is still to come.
 
-The plan is to add more platforms in the future and making it super simple to
+The plan is to add more platforms in the future, making it super simple to
 set up the integration. Stay tuned.
 
 There is currently no plan to deprecate the existing Z-Wave integration.
@@ -83,15 +83,15 @@ more stable and more feature-rich experience than the current Z-Wave integration
 
 Thanks go out to the community that has been testing the custom integration
 and provided very valuable data to allow us to catch bugs and support more
-devices. A special thanks to [@cgarwood] and [@marcelveldt] that has been
+devices. A special thanks to [@cgarwood] and [@marcelveldt] who have been
 pioneering building the integration.
 
 ## Every discovered integration can be ignored
 
-On often reported issue/request feature is to allow any discovered item to
+An often reported issue/request feature is to allow any discovered item to
 be ignored. Most integrations supported that already, but some didn't.
 
-As of 0.110, we have a new development rule, requiring an integration to
+As of 0.110, we have a new development rule requiring an integration to
 support ignoring discovered items; and for 0.110, we have upgraded all
 integrations that didn't support it yet!
 
@@ -118,7 +118,7 @@ Screenshot of the Calendar panel.
 
 We got a lot of feedback about the updated weather card of the last release,
 we listened to feedback and added some features. You can now theme the colors
-of the new icons, and you can even completely replace them with an other image.
+of the new icons, and you can even completely replace them with another image.
 
 You can also set the attribute you want to show as the secondary information.
 
@@ -131,7 +131,7 @@ Check the [documentation](/lovelace/weather-forecast/) for more information.
 
 ## Internal & External URLs
 
-There are many cases an integration needs the URL/link to your Home Assistant
+There are many cases where an integration needs the URL/link to your Home Assistant
 instance. For example, to set up a webhook, communicate audio files or camera
 streams to an Amazon Alexa or Google Assistant device.
 
@@ -139,7 +139,7 @@ We used to have a `base_url` setting to deal with those cases, but that wasn't
 always sufficient. Some integrations require specific requirements for that
 setting, which could lead to conflicting or impossible settings.
 
-It often caused not working TTS, streaming issues for camera's or issues with
+It often resulted in broken TTS, streaming issues for camera's or issues with
 casting. This release addresses this issue by introducing two new settings in
 **Configuration** -> **General**.
 
@@ -189,7 +189,7 @@ HomeKit can now be configured and set up from the Home Assistant frontend,
 and even allows you to set up multiple instances! This allows one to bypass the
 maximum amount of devices a single HomeKit gateway supports by adding multiple.
 
-Ready for this? Home Assistant Core 0.110, now has camera support for HomeKit!
+Ready for this? Home Assistant Core 0.110 now has camera support for HomeKit!
 
 And if that wasn't enough already, the integration now sends out entity
 information as HomeKit accessory information. So you can easily find and see
@@ -243,7 +243,7 @@ you've enabled advanced mode on your user profile.
   improvements from 82 seconds before this change and 28 seconds after this
   change. That is a huge improvement!
 
-- The info page in the development tools, now shows more information about
+- The info page in the development tools now shows more information about
   your set up. Including the name for your installation method.
   It will tell you if you run Home Assistant, Home Assistant Supervised or
   Home Assistant Core.
@@ -254,7 +254,7 @@ you've enabled advanced mode on your user profile.
   happens, it will be prevented and write an error message to your log,
   similar to how the I/O detection does it (released in [0.109](/blog/2020/04/29/release-109/#detection-of-blocking-io-in-the-event-loop)).
 
-- The ISY994 got a major upgrade! While it has quitea few breaking changes, it
+- The ISY994 got a major upgrade! While it has quite a few breaking changes, it
   is now available via the UI and many bug are squashed. Thanks [@shbatm]!
 
 ## New Integrations
@@ -282,7 +282,7 @@ you've enabled advanced mode on your user profile.
 - Universal Powerline Bus Scene support ([@gwww] - [#35401]) ([upb docs]) (new-platform)
 - Add Climate Platform Support to ISY994 ([@shbatm] - [#35440]) ([isy994 docs]) (new-platform)
 - ONVIF Event Implementation ([@hunterjm] - [#35406]) ([onvif docs]) (new-platform)
-- support BleBox sensor ([@gadgetmobile] - [#35374]) ([blebox docs]) (new-platform)
+- Support BleBox sensor ([@gadgetmobile] - [#35374]) ([blebox docs]) (new-platform)
 - Add binary sensor platform to zwave_mqtt ([@marcelveldt] - [#35519]) ([zwave_mqtt docs]) (new-platform)
 
 ## Integrations now available to set up from the UI
