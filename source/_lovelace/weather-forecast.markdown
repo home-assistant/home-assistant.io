@@ -58,6 +58,8 @@ entity: weather.openweathermap
 
 ### Advanced
 
+##### Themeable Icons
+
 The default weather icons are themable via a [Theme](https://www.home-assistant.io/integrations/frontend/#themes). Theme variables include: 
 
 ```yaml
@@ -76,6 +78,8 @@ Example theme configuration:
 --weather-icon-sun-color: orange
 --weather-icon-rain-color: purple
 ```
+
+##### Personal Icons
 
 Weather icons can be overwritten with your own personal images via a theme. Theme variables include:
 
