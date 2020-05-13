@@ -10,16 +10,18 @@ ha_domain: zerproc
 
 This integration discovers nearby Zerproc lights and adds them to Home Assistant.
 
-This integration requires pybluez to be installed. On Debian based installs, run
+## Setup
+
+This integration requires `pybluez` to be installed. On Debian based installs, run
 
 ```bash
 sudo apt install bluetooth
 ```
 
-Before you get started with this platform, please note that:
+Before you get started with this integration, please note that:
 
- - This platform is incompatible with Windows
- - This platform requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
+ - Not compatible with Windows
+ - Requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
 ## Configuration
 
@@ -33,7 +35,7 @@ The integration will scan for nearby devices, and is completed if any are found.
 
 ## Rootless Setup
 
-Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and hcitool the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](https://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
+Normally accessing the Bluetooth stack is reserved for `root`, but running programs that are networked as `root` is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and `hcitool` the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](https://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
 sudo apt-get install libcap2-bin
