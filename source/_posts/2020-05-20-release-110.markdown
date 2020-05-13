@@ -196,7 +196,7 @@ information as HomeKit accessory information. So you can easily find and see
 which entity provided the accessory in HomeKit.
 
 <p class='img'>
-<img src='/images/blog/2020-05-0.110/not_condition.png' alt='Screenshot from HomeKit. Left: accessory information, Right: Camera support.'></a>
+<img src='/images/blog/2020-05-0.110/homekit.png' alt='Screenshot from HomeKit. Left: accessory information, Right: Camera support.'></a>
 Screenshot from HomeKit. Left: accessory information, Right: Camera support.
 </p>
 
