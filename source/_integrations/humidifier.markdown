@@ -11,7 +11,7 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 ## Services
 
-### Humidity control services
+### Humidifier services
 
 Available services: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier.turn_on`, `humidifier.turn_off`
 
