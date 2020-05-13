@@ -4,7 +4,7 @@ description: Instructions for integrating Zerproc bluetooth lights within Home A
 ha_category:
   - Light
 ha_iot_class: Local Polling
-ha_release: 0.110
+ha_release: "0.111"
 ha_domain: zerproc
 ---
 
