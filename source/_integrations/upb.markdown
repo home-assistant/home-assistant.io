@@ -45,7 +45,7 @@ The `event_data` contains the following:
   For example for UPB Network number 42 and UPB Link number 24 the
   `address` would be 42_24.
 - `brightness_pct`: The brightness level as a percentage. `brightness_pct` is
-  reported as -1 if the brightness is a default level or brightness is not
+  reported as -1 if the brightness is a default level of brightness is not
   applicable to the link change.
 - `rate`: The rate for link to transition to the new level. `rate` is
   -1 for the default transiton rate.
@@ -65,8 +65,8 @@ Besides the standard services provided by the Home Assistant [Light](/integratio
 
 ### Rate Transition Time
 
-Both standard and custom services that take a `transition` or a `rate` for changing brightness levels take a time in seconds. The UPB
-system only offers a discrete set of transition times. As such the transition time requested is changed to the closest time based on
+Both standard and custom services that take a `transition` or a `rate` for changing brightness levels take time in seconds. The UPB
+system only offers a discrete set of transition times. As such, the transition time requested is changed to the closest time based on
 the table below. Note that this table does not apply to blink rates, only to brightness transition times.
 
 | Request rate >= | Requested rate < | Rate Used |
@@ -94,7 +94,7 @@ Starts a transition of a light to the specified level. Lights that are not dimma
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | UPB light which to start fading operation.
+| `entity_id` | yes | UPB light which to start fading operation.
 | `brightness` | no* | Integer between 0 and 255 for how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
 | `brightness_pct`| no* | Number between 0 and 100 in percentage that specifies how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
 | `rate` | yes | Number that represents the time (in seconds) the light should take to transition to the new state. See section on "Rate Transition Time" for how this time value is interpreted.
@@ -105,7 +105,7 @@ Stop a light when transitioning from one light level to another. Stops either a 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | UPB light which to stop fading operation.
+| `entity_id` | yes | UPB light which to stop fading operation.
 
 ### Service `upb.light_blink`
 
@@ -113,7 +113,7 @@ Start a light blinking.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | UPB light which to blink.
+| `entity_id` | yes | UPB light which to blink.
 | `rate` | no | Number between 0 and 4.25 that represents the time (in seconds) the rate the light blinks. Note the UPB implementation limits the blink rate to no faster than 1/3 of a second.
 
 ### Service `upb.scene_deactivate`
@@ -122,7 +122,7 @@ Deactivate a scene. The term “deactivate” is a general UPB term that usually
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | UPB scene to deactivate.
+| `entity_id` | yes | UPB scene to deactivate.
 
 ### Service `upb.scene_goto`
 
@@ -130,7 +130,7 @@ Starts a transition of a scene to the specified level.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | UPB scene to transition.
+| `entity_id` | yes | UPB scene to transition.
 | `brightness` | no* | Integer between 0 and 255 for how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 255 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
 | `brightness_pct`| no* | Number between 0 and 100 in percentage that specifies how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 100 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
 | `rate` | yes | Number that represents the time (in seconds) the light should take to transition to the new state. See section on "Rate Transition Time" for how this time value is interpreted.
@@ -141,7 +141,7 @@ Starts a transition of a scene to the specified level. Lights within the scene t
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | UPB scene to transition.
+| `entity_id` | yes | UPB scene to transition.
 | `brightness` | no* | Integer between 0 and 255 for how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 255 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
 | `brightness_pct`| no* | Number between 0 and 100 in percentage that specifies how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 100 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
 | `rate` | yes | Number that represents the time (in seconds) the light should take to transition to the new state. See section on "Rate Transition Time" for how this time value is interpreted.
@@ -152,7 +152,7 @@ Stop a scene when transitioning from one light level to another. Stops either a 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | UPB scene which to stop fading operation.
+| `entity_id` | yes | UPB scene which to stop fading operation.
 
 ### Service `upb.scene_blink`
 
@@ -160,5 +160,5 @@ Start a scene blinking.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | UPB scene which to blink.
+| `entity_id` | yes | UPB scene which to blink.
 | `rate` | no | Number between 0 and 4.25 that represents the time (in seconds) the rate the scene blinks. Note the UPB implementation limits the blink rate to no faster than 1/3 of a second.
