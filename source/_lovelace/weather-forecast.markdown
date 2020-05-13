@@ -79,6 +79,8 @@ Example theme configuration:
 --weather-icon-rain-color: purple
 ```
 
+&nbsp;
+
 ##### Personal Icons
 
 Weather icons can be overwritten with your own personal images via a [Theme](https://www.home-assistant.io/integrations/frontend/#themes). Theme variables include:
