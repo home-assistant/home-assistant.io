@@ -220,15 +220,17 @@ Screenshot of an ONVIF camera in Home Assistant.
 Have you seen the new supervisor UI? [@ludeeus] did a great job redoing it's UI!
 It now uses the same tabs as the configuration panel. The add-on page is split
 into multiple tabs, the add-on store is cleaned up and you can view all logs
-in the system tab now (requires expert mode).
+in the system tab now (requires advanced mode).
 
 <p class='img'>
 <img src='/images/blog/2020-05-0.110/supervisor_panel.png' alt='Screenshot of the Supervisor panel'></a>
 Screenshot of the Supervisor panel.
 </p>
 
-Some advanced add-ons are now also marked "expert" and are only visible when
-you've enabled expert mode on your user profile.
+Some add-ons are now also marked "advanced" and are only visible when
+you've enabled advanced mode on your user profile.
+
+[@ludeeus]: https://github.com/ludeeus
 
 ## Other noteworthy changes
 
