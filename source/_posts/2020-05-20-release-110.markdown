@@ -137,7 +137,7 @@ streams to an Amazon Alexa or Google Assistant device.
 
 We used to have a `base_url` setting to deal with those cases, but that wasn't
 always sufficient. Some integrations require specific requirements for that
-setting, which could lead to conflicting settings or impossible settings.
+setting, which could lead to conflicting or impossible settings.
 
 It often caused not working TTS, streaming issues for camera's or issues with
 casting. This release addresses this issue by introducing two new settings in
