@@ -1,9 +1,9 @@
 ---
-title: "Humidity"
+title: "Humidifier"
 description: "Instructions on how to setup humidity control devices within Home Assistant."
 logo: home-assistant.png
 ha_category:
-  - Humidity
+  - Humidifier
 ha_release: "0.110"
 ---
 
