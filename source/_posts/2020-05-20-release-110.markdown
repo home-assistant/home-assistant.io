@@ -14,30 +14,24 @@ og_image: /images/blog/2020-05-0.110/social.png
 <a href='/integrations/#version/0.110'><img src='/images/blog/2020-05-0.110/components.png' style='border: 0;box-shadow: none;'></a>
 
 Let's keep the introduction for the Home Assistant Core 0.110 release short,
-as this releases is stuffed! Starting with 11! new awesome integration added
+as this release is stuffed! Starting with 12! new awesome integrations added
 this release!
-
-## TODO
-
-- Component screenshot
-- Social media image
-- HomeKit improvements and camera support
 
 ## Icons
 
-In Home Assistant Core [0.109](/blog/2020/04/29/release-109/#weight-loss-for-the-frontend)
+In Home Assistant Core [0.109](/blog/2020/04/29/release-109/#weight-loss-for-the-frontend),
 we made the frontend lighter and faster, this release takes it a step further.
 
-The way icons are loaded is updated, with the ever growing Material Icons set,
+The way icons are loaded is updated, with the ever-growing Material Icons set,
 it was necessary to update the way we handle icons to make sure our application
 stays performing.
 
-The Material Icons are now splitted in chunks, so the frontend does not have to
-load all the icons if you just need one, besides that we no longer store the
+The Material Icons are now split in chunks, so the frontend does not have to
+load all the icons if you just need one; besides that, we no longer store the
 icons in the DOM but in a database.
 
-This saves a lot of memory and thus makes the Home Assistant frontend even more
-leaner and faster!
+This saves a lot of memory and thus makes the Home Assistant frontend,
+even more, leaner and faster!
 
 ## Integrations grouping, searching & custom logos
 
@@ -48,7 +42,7 @@ We also grouped the entries by integration now, this means we no longer show
 multiple cards for the same integration, but show a list of the names if there
 are multiple entries.
 
-If you click the entry it will show that entry in the card.
+If you click the entry, it will show that entry in the card.
 This makes it easier to keep an overview of all your integrations.
 
 <p class='img'>
@@ -63,14 +57,16 @@ Oh! We've also made the icons and logos available for custom integrations!
 Screenshot of the HACS integration with its icon shown.
 </p>
 
+[@timmo001]: https://github.com/timmo001
+
 ## Z-Wave over MQTT integration
 
 This release features the new Z-Wave over MQTT integration. It has been in
 testing as a custom integration by the community since last December and is now
 ready for a wider audience.
 
-It is still early days for this integration though; not all platforms and
-devices are supported yet and the set up process has prerequisites that raises
+It is still early days for this integration, though; not all platforms and
+devices are supported yet and the setup process has prerequisites that raise
 the accessibility bar. See our [documentation](/integrations/zwave_mqtt/) for
 the current requirements and instructions.
 
@@ -83,16 +79,16 @@ set up the integration. Stay tuned.
 
 There is currently no plan to deprecate the existing Z-Wave integration.
 But the hope is that the new integration, in the future, will offer a simpler,
-more stable and more feature rich experience than the current Z-Wave integration.
+more stable and more feature-rich experience than the current Z-Wave integration.
 
-Thanks goes out to the community that has been testing the custom integration
+Thanks go out to the community that has been testing the custom integration
 and provided very valuable data to allow us to catch bugs and support more
 devices. A special thanks to [@cgarwood] and [@marcelveldt] that has been
 pioneering building the integration.
 
 ## Every discovered integration can be ignored
 
-On often reported issues / request feature is to allow any discovered item to
+On often reported issue/request feature is to allow any discovered item to
 be ignored. Most integrations supported that already, but some didn't.
 
 As of 0.110, we have a new development rule, requiring an integration to
@@ -140,10 +136,10 @@ instance. For example, to set up a webhook, communicate audio files or camera
 streams to an Amazon Alexa or Google Assistant device.
 
 We used to have a `base_url` setting to deal with those cases, but that wasn't
-always sufficient. Some integrations require specific requirements to that
+always sufficient. Some integrations require specific requirements for that
 setting, which could lead to conflicting settings or impossible settings.
 
-It often caused not working TTS, streaming issue for camera's or issues with
+It often caused not working TTS, streaming issues for camera's or issues with
 casting. This release addresses this issue by introducing two new settings in
 **Configuration** -> **General**.
 
@@ -152,7 +148,7 @@ casting. This release addresses this issue by introducing two new settings in
 Screenshot of the URLs configuration.
 </p>
 
-These settings allows you to override the URLs Home Assistant uses when
+These settings allow you to override the URLs Home Assistant uses when
 communicating on your internal network versus the outside world. Please note,
 that these are overrides. By default, Home Assistant will try to figure this out
 on its own.
@@ -183,6 +179,27 @@ Screenshot of the automation editor with a "not" condition.
 This feature has been added to the automation editor, but is also available
 for writing automations in YAML.
 
+## HomeKit
+
+[@bdraco] has been busy improving HomeKit support for Home Assistant in 0.109,
+but it seems like that didn't stop him even a tiny bit. This release [@xdissent]
+and [@stickpin] jumped on the HomeKit bandwagon as well!
+
+HomeKit can now be configured and set up from the Home Assistant frontend,
+and even allows you to set up multiple instances! This allows one to bypass the
+maximum amount of devices a single HomeKit gateway supports by adding multiple.
+
+Ready for this? Home Assistant Core 0.110, now has camera support for HomeKit!
+
+And if that wasn't enough already, the integration now sends out entity
+information as HomeKit accessory information. So you can easily find and see
+which entity provided the accessory in HomeKit.
+
+<p class='img'>
+<img src='/images/blog/2020-05-0.110/not_condition.png' alt='Screenshot from HomeKit. Left: accessory information, Right: Camera support.'></a>
+Screenshot from HomeKit. Left: accessory information, Right: Camera support.
+</p>
+
 ## ONVIF
 
 The ONVIF integration did get lots of love from [@hunterjm]! ONVIF Profile S
@@ -190,7 +207,7 @@ conformant camera's, can now be set up via the UI!
 
 And that is not all... It now leverages more features of the ONVIF protocol:
 pull point subscriptions. This means that events from ONVIF will now
-show up in Home Assistant as well. So, if you ONVIF compatible camera supports
+show up in Home Assistant as well. So, if your ONVIF compatible camera supports
 things like motion, object or sound detection, those will be available now!
 
 <p class='img'>
@@ -198,16 +215,12 @@ things like motion, object or sound detection, those will be available now!
 Screenshot of an ONVIF camera in Home Assistant.
 </p>
 
-## HomeKit
-
-
-
 ## Supervisor
 
 Have you seen the new supervisor UI? [@ludeeus] did a great job redoing it's UI!
 It now uses the same tabs as the configuration panel. The add-on page is split
 into multiple tabs, the add-on store is cleaned up and you can view all logs
-in system tab now (requires expert mode).
+in the system tab now (requires expert mode).
 
 <p class='img'>
 <img src='/images/blog/2020-05-0.110/supervisor_panel.png' alt='Screenshot of the Supervisor panel'></a>
@@ -222,10 +235,14 @@ you've enabled expert mode on your user profile.
 - It took a while, as many adjustments had to be made.
   This is the first release supporting **Python 3.8** 🎉!
 
-- TODO: Quite a few optimizations that make Home Assistant start up way faster.
+- Quite a few optimizations to make Home Assistant go faster. One of the major
+  changes is that Home Assistant will now set up all configured integration
+  instances in parallel during startup. Some startup speed reported
+  improvements from 82 seconds before this change and 28 seconds after this
+  change. That is a huge improvement!
 
 - The info page in the development tools, now shows more information about
-  your set up. Including the correct name for your installation method.
+  your set up. Including the name for your installation method.
   It will tell you if you run Home Assistant, Home Assistant Supervised or
   Home Assistant Core.
 
@@ -235,8 +252,8 @@ you've enabled expert mode on your user profile.
   happens, it will be prevented and write an error message to your log,
   similar to how the I/O detection does it (released in [0.109](/blog/2020/04/29/release-109/#detection-of-blocking-io-in-the-event-loop)).
 
-- The ISY994 got a major upgrade! While is has quite few breaking changes, it is
-  now available via the UI and many bug are squashed. Thanks [@shbatm]!
+- The ISY994 got a major upgrade! While it has quitea few breaking changes, it
+  is now available via the UI and many bug are squashed. Thanks [@shbatm]!
 
 ## New Integrations
 
@@ -249,6 +266,9 @@ you've enabled expert mode on your user profile.
 - Add Universal Powerline Bus ([@gwww] - [#34692]) ([upb docs]) (new-integration)
 - Add Flick Electric NZ integration ([@ZephireNZ] - [#30696]) ([flickelectric docs]) (new-integration)
 - Add BSBLan Climate integration ([@liudger] - [#32375]) ([bsblan docs]) (new-integration)
+- Add Zerproc integration ([@emlove] - [#35477]) ([zerproc docs]) (new-integration)
+- Add wiffi integration ([@mampfes] - [#30784]) ([wiffi docs]) (new-integration)
+- Add forked_daapd integration ([@uvjustin] - [#31953]) ([forked_daapd docs]) (new-integration)
 
 ## New Platforms
 
@@ -260,12 +280,23 @@ you've enabled expert mode on your user profile.
 - Universal Powerline Bus Scene support ([@gwww] - [#35401]) ([upb docs]) (new-platform)
 - Add Climate Platform Support to ISY994 ([@shbatm] - [#35440]) ([isy994 docs]) (new-platform)
 - ONVIF Event Implementation ([@hunterjm] - [#35406]) ([onvif docs]) (new-platform)
+- support BleBox sensor ([@gadgetmobile] - [#35374]) ([blebox docs]) (new-platform)
+- Add binary sensor platform to zwave_mqtt ([@marcelveldt] - [#35519]) ([zwave_mqtt docs]) (new-platform)
 
 ## Integrations now available to set up from the UI
 
 The following integrations are now available via the Home Assistant UI:
 
-- [Lorem ipsum][ipsum docs], done by [@ipsum]
+- [Blink][blink docs], done by [@fronzbot]
+- [HomeKit][homekit docs], done by [@bdraco]
+- [Hunter Douglas PowerView][hunterdouglas_powerview docs], done by [@bdraco]
+- [Lutron Caséta][lutron_caseta docs], done by [@chrisaljoudi]
+- [Mill][mill docs], done by [@Danielhiversen]
+- [ONVIF][onvif docs], done by [@hunterjm]
+- [Pi-hole][pi_hole docs], done by [@shenxn]
+- [Tibber][tibber docs], done by [@Danielhiversen]
+- [Tuya][tuya docs], done by [@ollo69]
+- [Universal Devices ISY994][isy994 docs], done by [@shbatm]
 
 ## If you need help...
 
@@ -305,7 +336,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   repo by users getting errors that the punctuality attribute was unlike what
   the integration was expecting. - ([@YarmoM] - [#34680]) ([nederlandse_spoorwegen docs])
 
-- **Fortigate** *(Deprecated)* - The fortigate integration will be removed in
+- **Fortigate** *(Deprecated)* - The Fortigate integration will be removed in
   0.112.0 and has a replacement in the FortiOS integration.
 
   Please refer to the fortios integration on how to configure the new
@@ -371,7 +402,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - `radio_type`
 
 - **IMAP Email Content** - The *state* of the `imap_email_content` is replaced
-  when there is no email found. With this change any other thing like an
+  when there is no email found. With this change, any other thing like an
   automation can react to the arrival of an email -
   ([@isk0001y] - [#35123]) ([imap_email_content docs])
 
@@ -404,6 +435,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
   for users running a 0.109.X release. Duplicate entities will be created with
   new entity IDs and old entities will need to be manually removed. -
   ([@jjlawren] - [#34979]) ([webostv docs])
+
+- **Blink** As of May 11, 2020 Blink has removed the old username/password
+  authentication method, which means all current Blink integrations prior to
+  this release are broken.
+  
+  In order to support this change, a 2FA key must be entered before setup
+  can continue. Some users may not have 2FA enabled on their account yet,
+  but you will still receive an email at login asking you to allow the device
+  to continue setting up.
+  
+  Your current YAML configuration will be converted to a UI-based configuration,
+  but the only supported entries are `username`, `password`, and `scan_interval`.
+  All other entries must be removed; otherwise, the integration will not be
+  configured. - ([@fronzbot] - [#35396]) ([blink docs])
 
 - **Universal Devices ISY994** - This migrates ISY994 to PyISY v2 and is now
   available to be added from the Integrations UI. PyISY Version 2 is a
@@ -797,13 +842,51 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Universal Powerline Bus -- Link Events ([@gwww] - [#35526]) ([upb docs])
 - Use common strings for songpal config flow ([@shenxn] - [#35517]) ([songpal docs])
 - Use common strings for ipp config flow ([@ctalkington] - [#35505]) ([ipp docs])
+- Fix zwave_mqtt discovery of switch entities ([@marcelveldt] - [#35533]) ([zwave_mqtt docs])
+- Rewrite Atag ([@MatsNl] - [#35496]) ([atag docs])
+- support BleBox sensor ([@gadgetmobile] - [#35374]) ([blebox docs]) (new-platform)
+- Return fan_speed_list based on SUPPORT_FAN_SPEED. ([@ochlocracy] - [#35347])
+- Meteo-France Vigilance Dependancy Update ([@Imbuzi] - [#35537]) ([meteo_france docs])
+- Add validator for battery scan option ([@guillempages] - [#35506]) ([bluetooth_le_tracker docs])
+- Use common strings for roku config flow ([@ctalkington] - [#35504]) ([roku docs])
+- Update HAP-python to 2.8.4 ([@bdraco] - [#35541]) ([homekit docs])
+- Fix sense doing I/O in the event loop ([@bdraco] - [#35523]) ([sense docs])
+- Add email as common data string ([@balloob] - [#35546])
+- Add temperature device class to Darksky sensors ([@balloob] - [#35544]) ([darksky docs])
+- Use config flow references for data ([@balloob] - [#35529])
+- Add binary sensor platform to zwave_mqtt ([@marcelveldt] - [#35519]) ([zwave_mqtt docs]) (new-platform)
+- Upgrade opengarage library ([@Danielhiversen] - [#35549]) ([opengarage docs])
+- Fix examples in services.yaml for squeezebox component ([@rajlaud] - [#35548]) ([squeezebox docs])
+- Bump bsblan lib to version 0.3.7 ([@liudger] - [#35551]) ([bsblan docs])
+- Ensure homekit_controller recieves zeroconf c# updates ([@bdraco] - [#35545]) ([homekit_controller docs]) ([zeroconf docs])
+- Try to automatically detect zones on first run of Monoprice integration ([@OnFreund] - [#35127]) ([monoprice docs])
+- Implement soundtouch select source ([@jtommi] - [#31669]) ([soundtouch docs])
+- Updated frontend to 20200512.0 ([@bramkragten] - [#35558]) ([frontend docs])
+- Add Zerproc integration ([@emlove] - [#35477]) ([zerproc docs]) (new-integration)
+- Add more system information from Supervisor ([@frenck] - [#35560]) ([hassio docs]) ([updater docs])
+- UniFi - Sites don't declare role on UniFiOS 1.7.0 beta ([@Kane610] - [#35555]) ([unifi docs])
+- Fix synology temperature rounding ([@shenxn] - [#35556]) ([synology_dsm docs])
+- Bump plexapi to 3.6.0 ([@jjlawren] - [#35563]) ([plex docs])
+- Patch aiohttp client session close ([@MartinHjelmare] - [#34769])
+- Fix connection problems in the Broadlink integration ([@felipediel] - [#34670]) ([broadlink docs])
+- Add wiffi integration ([@mampfes] - [#30784]) ([wiffi docs]) (new-integration)
+- Plex discovery on demand ([@jjlawren] - [#35303]) ([plex docs])
+- Add forked_daapd integration ([@uvjustin] - [#31953]) ([forked_daapd docs]) (new-integration)
+- update knx module to xknx 0.11.3 ([@farmio] - [#35154]) ([knx docs])
+- Add config flow to pi_hole integration ([@shenxn] - [#35442]) ([pi_hole docs])
+- Updated frontend to 20200513.0 ([@bramkragten] - [#35574]) ([frontend docs])
+- Add config flow and 2FA support for Blink ([@fronzbot] - [#35396]) ([blink docs]) (breaking-change)
+- Add ssdp discovery for isy994 ([@bdraco] - [#35568]) ([isy994 docs])
 
 </details>
 
 [#29214]: https://github.com/home-assistant/core/pull/29214
 [#30696]: https://github.com/home-assistant/core/pull/30696
+[#30784]: https://github.com/home-assistant/core/pull/30784
 [#31107]: https://github.com/home-assistant/core/pull/31107
+[#31669]: https://github.com/home-assistant/core/pull/31669
 [#31748]: https://github.com/home-assistant/core/pull/31748
+[#31953]: https://github.com/home-assistant/core/pull/31953
 [#32091]: https://github.com/home-assistant/core/pull/32091
 [#32375]: https://github.com/home-assistant/core/pull/32375
 [#32527]: https://github.com/home-assistant/core/pull/32527
@@ -870,6 +953,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#34662]: https://github.com/home-assistant/core/pull/34662
 [#34663]: https://github.com/home-assistant/core/pull/34663
 [#34668]: https://github.com/home-assistant/core/pull/34668
+[#34670]: https://github.com/home-assistant/core/pull/34670
 [#34672]: https://github.com/home-assistant/core/pull/34672
 [#34673]: https://github.com/home-assistant/core/pull/34673
 [#34674]: https://github.com/home-assistant/core/pull/34674
@@ -901,6 +985,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#34753]: https://github.com/home-assistant/core/pull/34753
 [#34755]: https://github.com/home-assistant/core/pull/34755
 [#34758]: https://github.com/home-assistant/core/pull/34758
+[#34769]: https://github.com/home-assistant/core/pull/34769
 [#34775]: https://github.com/home-assistant/core/pull/34775
 [#34783]: https://github.com/home-assistant/core/pull/34783
 [#34786]: https://github.com/home-assistant/core/pull/34786
@@ -981,6 +1066,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35114]: https://github.com/home-assistant/core/pull/35114
 [#35115]: https://github.com/home-assistant/core/pull/35115
 [#35123]: https://github.com/home-assistant/core/pull/35123
+[#35127]: https://github.com/home-assistant/core/pull/35127
 [#35135]: https://github.com/home-assistant/core/pull/35135
 [#35136]: https://github.com/home-assistant/core/pull/35136
 [#35139]: https://github.com/home-assistant/core/pull/35139
@@ -991,6 +1077,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35150]: https://github.com/home-assistant/core/pull/35150
 [#35152]: https://github.com/home-assistant/core/pull/35152
 [#35153]: https://github.com/home-assistant/core/pull/35153
+[#35154]: https://github.com/home-assistant/core/pull/35154
 [#35159]: https://github.com/home-assistant/core/pull/35159
 [#35161]: https://github.com/home-assistant/core/pull/35161
 [#35172]: https://github.com/home-assistant/core/pull/35172
@@ -1025,11 +1112,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35291]: https://github.com/home-assistant/core/pull/35291
 [#35298]: https://github.com/home-assistant/core/pull/35298
 [#35299]: https://github.com/home-assistant/core/pull/35299
+[#35303]: https://github.com/home-assistant/core/pull/35303
 [#35306]: https://github.com/home-assistant/core/pull/35306
 [#35314]: https://github.com/home-assistant/core/pull/35314
 [#35318]: https://github.com/home-assistant/core/pull/35318
 [#35337]: https://github.com/home-assistant/core/pull/35337
 [#35338]: https://github.com/home-assistant/core/pull/35338
+[#35347]: https://github.com/home-assistant/core/pull/35347
 [#35349]: https://github.com/home-assistant/core/pull/35349
 [#35351]: https://github.com/home-assistant/core/pull/35351
 [#35353]: https://github.com/home-assistant/core/pull/35353
@@ -1038,6 +1127,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35361]: https://github.com/home-assistant/core/pull/35361
 [#35362]: https://github.com/home-assistant/core/pull/35362
 [#35369]: https://github.com/home-assistant/core/pull/35369
+[#35374]: https://github.com/home-assistant/core/pull/35374
 [#35375]: https://github.com/home-assistant/core/pull/35375
 [#35376]: https://github.com/home-assistant/core/pull/35376
 [#35379]: https://github.com/home-assistant/core/pull/35379
@@ -1049,6 +1139,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35391]: https://github.com/home-assistant/core/pull/35391
 [#35393]: https://github.com/home-assistant/core/pull/35393
 [#35395]: https://github.com/home-assistant/core/pull/35395
+[#35396]: https://github.com/home-assistant/core/pull/35396
 [#35397]: https://github.com/home-assistant/core/pull/35397
 [#35398]: https://github.com/home-assistant/core/pull/35398
 [#35399]: https://github.com/home-assistant/core/pull/35399
@@ -1073,6 +1164,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35436]: https://github.com/home-assistant/core/pull/35436
 [#35438]: https://github.com/home-assistant/core/pull/35438
 [#35440]: https://github.com/home-assistant/core/pull/35440
+[#35442]: https://github.com/home-assistant/core/pull/35442
 [#35443]: https://github.com/home-assistant/core/pull/35443
 [#35444]: https://github.com/home-assistant/core/pull/35444
 [#35453]: https://github.com/home-assistant/core/pull/35453
@@ -1085,6 +1177,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35473]: https://github.com/home-assistant/core/pull/35473
 [#35474]: https://github.com/home-assistant/core/pull/35474
 [#35476]: https://github.com/home-assistant/core/pull/35476
+[#35477]: https://github.com/home-assistant/core/pull/35477
 [#35482]: https://github.com/home-assistant/core/pull/35482
 [#35483]: https://github.com/home-assistant/core/pull/35483
 [#35484]: https://github.com/home-assistant/core/pull/35484
@@ -1092,18 +1185,40 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35487]: https://github.com/home-assistant/core/pull/35487
 [#35494]: https://github.com/home-assistant/core/pull/35494
 [#35495]: https://github.com/home-assistant/core/pull/35495
+[#35496]: https://github.com/home-assistant/core/pull/35496
 [#35497]: https://github.com/home-assistant/core/pull/35497
 [#35501]: https://github.com/home-assistant/core/pull/35501
 [#35502]: https://github.com/home-assistant/core/pull/35502
+[#35504]: https://github.com/home-assistant/core/pull/35504
 [#35505]: https://github.com/home-assistant/core/pull/35505
+[#35506]: https://github.com/home-assistant/core/pull/35506
 [#35510]: https://github.com/home-assistant/core/pull/35510
 [#35513]: https://github.com/home-assistant/core/pull/35513
 [#35514]: https://github.com/home-assistant/core/pull/35514
 [#35517]: https://github.com/home-assistant/core/pull/35517
 [#35518]: https://github.com/home-assistant/core/pull/35518
+[#35519]: https://github.com/home-assistant/core/pull/35519
 [#35520]: https://github.com/home-assistant/core/pull/35520
 [#35521]: https://github.com/home-assistant/core/pull/35521
+[#35523]: https://github.com/home-assistant/core/pull/35523
 [#35526]: https://github.com/home-assistant/core/pull/35526
+[#35529]: https://github.com/home-assistant/core/pull/35529
+[#35533]: https://github.com/home-assistant/core/pull/35533
+[#35537]: https://github.com/home-assistant/core/pull/35537
+[#35541]: https://github.com/home-assistant/core/pull/35541
+[#35544]: https://github.com/home-assistant/core/pull/35544
+[#35545]: https://github.com/home-assistant/core/pull/35545
+[#35546]: https://github.com/home-assistant/core/pull/35546
+[#35548]: https://github.com/home-assistant/core/pull/35548
+[#35549]: https://github.com/home-assistant/core/pull/35549
+[#35551]: https://github.com/home-assistant/core/pull/35551
+[#35555]: https://github.com/home-assistant/core/pull/35555
+[#35556]: https://github.com/home-assistant/core/pull/35556
+[#35558]: https://github.com/home-assistant/core/pull/35558
+[#35560]: https://github.com/home-assistant/core/pull/35560
+[#35563]: https://github.com/home-assistant/core/pull/35563
+[#35568]: https://github.com/home-assistant/core/pull/35568
+[#35574]: https://github.com/home-assistant/core/pull/35574
 [@2Fake]: https://github.com/2Fake
 [@314eter]: https://github.com/314eter
 [@Adminiuga]: https://github.com/Adminiuga
@@ -1112,6 +1227,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@DavidMStraub]: https://github.com/DavidMStraub
 [@Eerovil]: https://github.com/Eerovil
 [@Geronimo2015]: https://github.com/Geronimo2015
+[@Imbuzi]: https://github.com/Imbuzi
 [@Kane610]: https://github.com/Kane610
 [@LordMike]: https://github.com/LordMike
 [@MartinHjelmare]: https://github.com/MartinHjelmare
@@ -1150,12 +1266,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@dcnielsen90]: https://github.com/dcnielsen90
 [@dmulcahey]: https://github.com/dmulcahey
 [@elupus]: https://github.com/elupus
+[@emlove]: https://github.com/emlove
 [@emontnemery]: https://github.com/emontnemery
 [@fabaff]: https://github.com/fabaff
+[@farmio]: https://github.com/farmio
+[@felipediel]: https://github.com/felipediel
 [@flowolf]: https://github.com/flowolf
 [@fredericvl]: https://github.com/fredericvl
 [@fredrike]: https://github.com/fredrike
 [@frenck]: https://github.com/frenck
+[@fronzbot]: https://github.com/fronzbot
 [@gadgetmobile]: https://github.com/gadgetmobile
 [@gladhorn]: https://github.com/gladhorn
 [@gtdiehl]: https://github.com/gtdiehl
@@ -1170,9 +1290,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jjlawren]: https://github.com/jjlawren
 [@joogps]: https://github.com/joogps
 [@jrester]: https://github.com/jrester
+[@jtommi]: https://github.com/jtommi
 [@kifeo]: https://github.com/kifeo
 [@liudger]: https://github.com/liudger
-[@ludeeus]: https://github.com/ludeeus
+[@mampfes]: https://github.com/mampfes
+[@marcelveldt]: https://github.com/marcelveldt
 [@merdok]: https://github.com/merdok
 [@mhorst314]: https://github.com/mhorst314
 [@mlemainque]: https://github.com/mlemainque
@@ -1193,10 +1315,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@starkillerOG]: https://github.com/starkillerOG
 [@stickpin]: https://github.com/stickpin
 [@thecode]: https://github.com/thecode
-[@timmo001]: https://github.com/timmo001
 [@tschamm]: https://github.com/tschamm
 [@unixko]: https://github.com/unixko
 [@uphillbattle]: https://github.com/uphillbattle
+[@uvjustin]: https://github.com/uvjustin
 [@vangorra]: https://github.com/vangorra
 [@vilppuvuorinen]: https://github.com/vilppuvuorinen
 [@xdissent]: https://github.com/xdissent
@@ -1218,8 +1340,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
 [blebox docs]: /integrations/blebox/
+[blink docs]: /integrations/blink/
 [bluetooth_le_tracker docs]: /integrations/bluetooth_le_tracker/
 [braviatv docs]: /integrations/braviatv/
+[broadlink docs]: /integrations/broadlink/
 [bsblan docs]: /integrations/bsblan/
 [calendar docs]: /integrations/calendar/
 [cast docs]: /integrations/cast/
@@ -1228,6 +1352,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [config docs]: /integrations/config/
 [cover docs]: /integrations/cover/
 [daikin docs]: /integrations/daikin/
+[darksky docs]: /integrations/darksky/
 [deconz docs]: /integrations/deconz/
 [default_config docs]: /integrations/default_config/
 [devolo_home_control docs]: /integrations/devolo_home_control/
@@ -1240,14 +1365,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [enphase_envoy docs]: /integrations/enphase_envoy/
 [esphome docs]: /integrations/esphome/
 [fan docs]: /integrations/fan/
-[flickelectric docs]: /integrations/flickelectric/
+[flickelectric docs]: /integrations/flick_electric/
+[forked_daapd docs]: /integrations/forked_daapd/
 [fortigate docs]: /integrations/fortigate/
 [frontend docs]: /integrations/frontend/
 [google_assistant docs]: /integrations/google_assistant/
+[hassio docs]: /integrations/hassio/
 [home_connect docs]: /integrations/home_connect/
 [homeassistant docs]: /integrations/homeassistant/
-[homeconnect docs]: /integrations/homeconnect/
+[homeconnect docs]: /integrations/home_connect/
 [homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
 [homematic docs]: /integrations/homematic/
 [homematicip_cloud docs]: /integrations/homematicip_cloud/
 [http docs]: /integrations/http/
@@ -1258,6 +1386,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
 [juicenet docs]: /integrations/juicenet/
+[knx docs]: /integrations/knx/
 [kodi docs]: /integrations/kodi/
 [life360 docs]: /integrations/life360/
 [light docs]: /integrations/light/
@@ -1265,6 +1394,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [manual docs]: /integrations/manual/
 [media_extractor docs]: /integrations/media_extractor/
 [melcloud docs]: /integrations/melcloud/
+[meteo_france docs]: /integrations/meteo_france/
 [microsoft_face docs]: /integrations/microsoft_face/
 [mill docs]: /integrations/mill/
 [modbus docs]: /integrations/modbus/
@@ -1282,6 +1412,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [opencv docs]: /integrations/opencv/
 [opengarage docs]: /integrations/opengarage/
 [panasonic_viera docs]: /integrations/panasonic_viera/
+[pi_hole docs]: /integrations/pi_hole/
 [plex docs]: /integrations/plex/
 [point docs]: /integrations/point/
 [powerwall docs]: /integrations/powerwall/
@@ -1299,6 +1430,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [rpi_camera docs]: /integrations/rpi_camera/
 [saj docs]: /integrations/saj/
 [scrape docs]: /integrations/scrape/
+[sense docs]: /integrations/sense/
 [serial docs]: /integrations/serial/
 [seven_segments docs]: /integrations/seven_segments/
 [shell_command docs]: /integrations/shell_command/
@@ -1309,6 +1441,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [snmp docs]: /integrations/snmp/
 [songpal docs]: /integrations/songpal/
 [sonos docs]: /integrations/sonos/
+[soundtouch docs]: /integrations/soundtouch/
 [spotify docs]: /integrations/spotify/
 [squeezebox docs]: /integrations/squeezebox/
 [stream docs]: /integrations/stream/
@@ -1333,10 +1466,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vizio docs]: /integrations/vizio/
 [webhook docs]: /integrations/webhook/
 [webostv docs]: /integrations/webostv/
+[wiffi docs]: /integrations/wiffi/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [xmpp docs]: /integrations/xmpp/
 [yeelight docs]: /integrations/yeelight/
 [zeroconf docs]: /integrations/zeroconf/
+[zerproc docs]: /integrations/zerproc/
 [zha docs]: /integrations/zha/
 [zwave docs]: /integrations/zwave/
 [zwave_mqtt docs]: /integrations/zwave_mqtt/
