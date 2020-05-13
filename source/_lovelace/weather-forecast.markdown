@@ -81,7 +81,7 @@ Example theme configuration:
 
 ##### Personal Icons
 
-Weather icons can be overwritten with your own personal images via a theme. Theme variables include:
+Weather icons can be overwritten with your own personal images via a [Theme](https://www.home-assistant.io/integrations/frontend/#themes). Theme variables include:
 
 ```yaml
 --weather-icon-clear-night
