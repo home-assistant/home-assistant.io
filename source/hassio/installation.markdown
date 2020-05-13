@@ -19,7 +19,7 @@ The following will take you through the steps required to install Home Assistant
      - [Odroid-XU4][odroid-xu4]
      - [Intel-Nuc][intel-nuc]
 
-   - As a virtual appliance:
+   - As a virtual appliance (x86_64/UEFI):
   
      - [VMDK][vmdk] (VMWare Workstation)
      - [VHDX][vhdx]
@@ -35,10 +35,10 @@ The following will take you through the steps required to install Home Assistant
 
 2. Install Home Assistant:
 
-   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
-   - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
+   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
+   - Load the appliance image into your virtual machine software. Allow at least 32 GB of disk space for the virtual machine. Choose 64-bit Linux and UEFI boot. For a KVM-based setup with `virt-manager`, set **Firmware** to `UEFI x86_64: /usr/share/ovmf/x64/OVMF_CODE.fd`.
 
-3. Optional - set up the Wi-Fi or static IP. There are two possible places for that:
+3. Optional - set up the Wi-Fi or a static IP address. There are two possible places for that:
    - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
    - on the Home Assistant SD card's first, bootable partition (labeled `hassio-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
 
