@@ -460,7 +460,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   As part of the update and many bug fixes, some breaking changes were introduced:
 
   <details>
-    <summary>Click see all breaking change for ISY994</summary>
+    <summary>Click see all breaking changes for ISY994</summary>
 
     - Remove ISY Climate Module support: the ISY Climate Module was retired by
       UDI on 3/30/2020: UDI Announcement, support has been removed from the module,
