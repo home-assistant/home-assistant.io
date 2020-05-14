@@ -32,6 +32,8 @@
   description: "[Groups](/integrations/group/) are a way to organize your entities into a single unit."
 - topic: hass
   description: "HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home Assistant. It is also the command-line tool."
+- topic: Home Assistant Core
+  description: Home Assistant Core is a Python program. It can be run on various operating systems and is the basis for Home Assistant. When people are talking about Home Assistant Core they usually refer to a standalone installation method that can be installed using a Virtual Environment or Docker. Home Assistant Core does not use the Home Assistant Supervisor.
 - topic: Home Assistant Supervised (Previously Hass.io)
   description: "[Home Assistant](/hassio/) is a full UI managed home automation ecosystem that runs Home Assistant, the Home Assistant Supervisor and add-ons. It comes pre-installed on Home Assistant OS, but can be installed on any Linux system. It leverages Docker, which is managed by the Home Assistant Supervisor."
 - topic: Home Assistant Supervisor
