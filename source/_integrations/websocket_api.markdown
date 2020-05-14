@@ -25,7 +25,7 @@ It is HIGHLY recommended that you set the `api_password`, especially if you are 
 websocket_api:
 ```
 
-For details to use the WebSocket API, please refer to the [WebSocket API documentation](/developers/websocket_api/) .
+For details to use the WebSocket API, please refer to the [WebSocket API documentation](https://developers.home-assistant.io/docs/api/websocket) .
 
 ## Track current connections
 
