@@ -98,6 +98,7 @@ google_assistant:
       aliases:
         - BRIGHT_LIGHTS
         - ENTRY_LIGHTS
+      structure: STRUCTURE_NAME_IN_GOOGLE_HOME
     light.living_room:
       expose: false
       room: LIVING_ROOM
@@ -171,6 +172,10 @@ entity_config:
           description: Allows for associating this device to a Room in Google Assistant.
           required: false
           type: string
+        structure:
+          description: Allows for associating this device to a Structure in Google Assistant and the Google Home app.
+          required: false
+          type: string
 {% endconfiguration %}
 
 ### Available domains
@@ -213,6 +218,10 @@ There is currently a limitation with this feature that requires a hard-coded set
 ### Room/Area support
 
 Entities that have not been explicitly assigned to rooms but have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
+
+### Structure support
+
+Entities that have not been explicitly assigned to a structure will not be placed into any rooms if multiple structures are defined in the Google Home app.
 
 ### Climate Operation Modes
 
