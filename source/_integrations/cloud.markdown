@@ -26,3 +26,25 @@ Once activated, go to the configuration panel in Home Assistant and create an ac
 ```yaml
 config:
 ```
+### Google Assistant configuration
+Name
+
+Aliases for exposed enities can be added by secifiyin a list of names to the ```aliases:``` attribute.
+
+Room
+```yaml
+# Example configuration.yaml
+google_actions:
+        entity_config:
+            light.bedroom_lamp:
+              name: "Bedroom Lamp"
+              aliases:
+                - "My favourite lamp"
+                - "Bedroom"
+              room: "Bedroom"
+            light.living_room_lamp:
+              name: "Living room Lamp"
+              aliases:
+                - "The fancy lamp"
+              room: "Living room"
+```
