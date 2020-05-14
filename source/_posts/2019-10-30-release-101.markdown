@@ -431,7 +431,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - moved imports to top level ([@Bouni] - [#27500]) ([bbox docs])
 - Move imports in aruba component to top-level ([@thaohtp] - [#27497]) ([aruba docs])
 - moved imports to top level ([@Bouni] - [#27496]) ([aws docs])
-- moved imports to top level ([@Bouni] - [#27495]) ([automatic docs])
+- moved imports to top level ([@Bouni] - [#27495])
 - Add device condition support to the lock integration ([@emontnemery] - [#27488]) ([lock docs])
 - moved imports to top level ([@Bouni] - [#27483]) ([aquostv docs])
 - Move imports in uscis component ([@Quentame] - [#27481]) ([uscis docs])
@@ -1549,7 +1549,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [asterisk_mbox docs]: /integrations/asterisk_mbox/
 [august docs]: /integrations/august/
 [auth docs]: /integrations/auth/
-[automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [awair docs]: /integrations/awair/
 [aws docs]: /integrations/aws/

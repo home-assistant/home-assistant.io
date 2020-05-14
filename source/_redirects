@@ -319,7 +319,6 @@
 /components/device_tracker.actiontec /integrations/actiontec
 /components/device_tracker.aruba /integrations/aruba
 /components/device_tracker.asuswrt /integrations/asuswrt
-/components/device_tracker.automatic /integrations/automatic
 /components/device_tracker.bbox /integrations/bbox
 /components/device_tracker.bluetooth_le_tracker /integrations/bluetooth_le_tracker
 /components/device_tracker.bluetooth_tracker /integrations/bluetooth_tracker
@@ -1131,7 +1130,6 @@
 /components/aurora /integrations/aurora
 /components/aurora_abb_powerone /integrations/aurora_abb_powerone
 /components/auth /integrations/auth
-/components/automatic /integrations/automatic
 /components/automation /integrations/automation
 /components/avea /integrations/avea
 /components/avion /integrations/avion
