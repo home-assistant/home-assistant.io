@@ -610,7 +610,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Upgrade cryptography to 2.9 ([@fabaff] - [#33571])
 - Add support for Mi AirPurifier 3 ([@foxel] - [#31729]) ([xiaomi_miio docs])
 - Fix vertical/horizontal property mixup in melcloud ([@vilppuvuorinen] - [#33580]) ([melcloud docs])
-- Automatic: fix OAuth2 redirect ([@pbeckcom] - [#33581]) ([automatic docs])
+- Automatic: fix OAuth2 redirect ([@pbeckcom] - [#33581])
 - Improve MQTT test coverage and remove dead code ([@emontnemery] - [#33584]) ([mqtt docs])
 - Add Abode entity available property ([@shred86] - [#32923]) ([abode docs])
 - Small cleanup in async_process_ha_core_config ([@emontnemery] - [#33583])
@@ -1687,7 +1687,6 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [asuswrt docs]: /integrations/asuswrt/
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
-[automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
