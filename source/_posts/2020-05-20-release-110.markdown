@@ -59,15 +59,15 @@ Screenshot of the HACS integration with its icon shown.
 
 [@timmo001]: https://github.com/timmo001
 
-## Z-Wave over MQTT integration
+## OpenZWave integration now in beta
 
-This release features the new Z-Wave over MQTT integration. It has been in
-testing as a custom integration by the community since last December and is now
+This release features the new OpenZwave integration. It has been in testing as
+a custom integration by the community since last December and is now
 ready for a wider audience.
 
 It is still early days for this integration, though; not all platforms and
 devices are supported yet and the setup process has prerequisites that raise
-the accessibility bar. See our [documentation](/integrations/zwave_mqtt/) for
+the accessibility bar. See our [documentation](/integrations/ozw/) for
 the current requirements and instructions.
 
 If you want to give it a shot, you should be comfortable with setting up custom
@@ -1476,4 +1476,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zerproc docs]: /integrations/zerproc/
 [zha docs]: /integrations/zha/
 [zwave docs]: /integrations/zwave/
-[zwave_mqtt docs]: /integrations/zwave_mqtt/
+[zwave_mqtt docs]: /integrations/ozw/
