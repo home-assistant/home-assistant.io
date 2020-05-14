@@ -92,9 +92,11 @@ In the popup:
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| `ezsp`  | EmberZNet based radios, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
-| `deconz` | ConBee, ConBee II |
-| `xbee` | Digi XBee Series 2, 2C, 3  |
+| `ezsp`  | Silicon Labs Ember based radios with EmberZNet Zigbee firmware |
+| `deconz` | dresden elektronik ConBee and RaspBee based radios with deCONZ Zigbee firmware |
+| `xbee` | Digi XBee Series 2 and 3 based radios with XBee Zigbee firmware |
+| `ti_cc` | Texas Instruments CC253x/CC26x2/CC13x2 based radios with Z-Stack firmware |
+| `zigate` | ZiGate USB-TTL, PiZiGate, and WiFi based Zigbee radios with ZiGate firmware |
 
 - Press `Submit` to save changes.
 
