@@ -59,8 +59,8 @@ Once Home Assistant starts and you authenticate access, the `blink` integration 
 
 - An `alarm_control_panel` to arm/disarm the whole blink system (note, `alarm_arm_home` is not implemented and will not actually do anything, despite it being an option in the GUI).
 - A `camera` for each camera linked to your Blink sync module.
-- A `sensor` per camera for temperature, wifi strength, and battery status
-- A `binary_sensor` motion detection and camera armed status
+- A `sensor` per camera for temperature and wifi strength
+- A `binary_sensor` motion detection, camera armed status, and battery status
 
 Since the cameras are battery operated, setting the `scan_interval` must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  The cameras can be manually updated via the `trigger_camera` service which will ignore the throttling caused by `scan_interval`.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
