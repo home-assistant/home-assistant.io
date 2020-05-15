@@ -40,7 +40,7 @@ not in the integration configuration.
 
 ## Services
 
-### Service `zwave_mqtt.add_node`
+### Service `ozw.add_node`
 
 This service will set the controller into inclusion mode and should be used to
 add a device (node) to the Z-Wave network. Call the service and then perform
@@ -53,7 +53,7 @@ the ozwdaemon is running, when performing this operation.
 | `secure`               | no       | Add the new node with secure communications. [Secure network key must be set](#secure-network-key). This process will fallback to add_node (unsecure) for unsupported devices. Note that insecure devices can't directly talk to secure devices. |
 | `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                                                                                                                                                               |
 
-### Service `zwave_mqtt.remove_node`
+### Service `ozw.remove_node`
 
 This service will set the controller into exclusion mode and should be used to
 remove a device (node) from the Z-Wave network. Call the service and then
