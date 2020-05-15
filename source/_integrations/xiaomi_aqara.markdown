@@ -56,76 +56,27 @@ Please note, there are two versions of the hub: v1 and v2. v1 can be used with H
 
 Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key (password) from within the app following [this tutorial](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 
-To enable {{ page.title }} in your installation, add the following to your `configuration.yaml` file:
-
-### One Gateway
-
-```yaml
-# You can leave MAC empty if you only have one gateway.
-xiaomi_aqara:
-  discovery_retry: 5
-  gateways:
-    - key: xxxxxxxxxxxxxxxx
-```
-
-For one gateway to avoid errors, don't provide the MAC address.
-
-### Multiple Gateways
-
-```yaml
-# 12 characters MAC can be obtained from the gateway.
-xiaomi_aqara:
-  gateways:
-    - mac: xxxxxxxxxxxx
-      key: xxxxxxxxxxxxxxxx
-    - mac: xxxxxxxxxxxx
-      key: xxxxxxxxxxxxxxxx
-```
-
-### Search for gateways on specific interface
-
-```yaml
-# 12 characters MAC can be obtained from the gateway.
-xiaomi_aqara:
-  interface: '192.168.0.1'
-  gateways:
-    - mac: xxxxxxxxxxxx
-      key: xxxxxxxxxxxxxxxx
-```
+To enable {{ page.title }} in your installation, click Configuration in the sidebar, then click Integrations. Xiaomi Aqara gateways should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your aqara gateway does not show up automatically, click the + icon in the lower right. Then search for "xiaomi_aqara" and enter the setup. Multiple gateways can be configured by simply repeating the setup multiple times.
 
 {% configuration %}
-gateways:
-  description: A list of gateways to set up.
-  required: true
-  type: map
-  keys:
-    mac:
-      description: The MAC address of your gateway. Needs to be formatted without ":". *Optional if only using one gateway.*
-      required: false
-      type: string
-    key:
-      description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
-      required: false
-      type: string
-    host:
-      description: The host/IP address of the gateway. If this parameter is used the multicast discovery of the gateway is skipped.
-      required: false
-      type: string
-    disable:
-      description: Disable the gateway. This is only useful if you don't want to integrate a specific gateway.
-      required: false
-      type: boolean
-      default: false
-discovery_retry:
-  description: Number of times that Home Assistant should try to reconnect to the gateway.
-  required: false
-  type: integer
-  default: 3
 interface:
   description: Which network interface to use.
   required: false
   type: string
   default: any
+key:
+  description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
+  required: false
+  type: string
+discovery_retry:
+  description: Number of times that Home Assistant should try to discover subdevices of the gateway.
+  required: false
+  type: integer
+  default: 3
+name:
+  description: Name of the Gateway
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Services
@@ -269,7 +220,6 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Make sure you have [enabled LAN access](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 - Turn off the firewall on the system where Home Assistant is running.
 - Ensure your router supports multicast as this is a requirement of the Xiaomi Gateway.
-- Try to leave the MAC address `mac:` blank.
 - Try to set `discovery_retry: 10`.
 - Try to disable and then enable LAN access.
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
