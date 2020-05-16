@@ -265,6 +265,34 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
+#### Faster ADB commands
+
+When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the `androidtv.adb_command` service provides a custom target: `LEARN_SENDEVENT`. Its usage is as follows:
+
+1. Call the `androidtv.adb_command` service with the parameter `command: LEARN_SENDEVENT`. 
+2. Within 8 seconds, hit a single button on your Android TV / Fire TV remote. 
+3. After 8 seconds, check the `adb_response` attribute of the media player in Home Assistant. This will be the equivalent command that can be sent via the `androidtv.adb_command` service. 
+
+As an example, a service call in a [script](/docs/scripts) could be changed from this:
+
+```yaml
+# Send the "UP" command (slow)
+- service: androidtv.adb_command
+  data:
+    entity_id: media_player.fire_tv_living_room
+    command: UP
+```
+
+to this:
+
+```yaml
+# Send the "UP" command using `sendevent` (faster)
+- service: androidtv.adb_command
+  data:
+    entity_id: media_player.fire_tv_living_room
+    command: "sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 0 && sendevent /dev/input/event4 0 0 0"
+```
+
 ### `androidtv.download` and `androidtv.upload`
 
 You can use the `androidtv.download` service to download a file from your Android TV / Fire TV device to your Home Assistant instance. 
