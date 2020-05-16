@@ -119,6 +119,7 @@ webostv:
     service: wake_on_lan.send_magic_packet
     data:
       mac: AA-BB-CC-DD-EE-FF
+      broadcast_address: 11.22.33.44
 
 media_player:
 
