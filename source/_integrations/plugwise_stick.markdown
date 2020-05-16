@@ -15,7 +15,7 @@ This integration enables switching of the relay and monitoring of consumed power
 
 <div class='note'>
 
-  Be aware this integration does **not** support the more recent [Plug](https://www.plugwise.com/en_US/products/plug) devices, which can be identified by having a local button as opposed to the old Circles.
+  Be aware this integration does **not** support the more recent [Plug](https://www.plugwise.com/en_US/products/plug) devices, which can be identified by having a local button as opposed to the old Circles which don't have a button at all.
   If you want to control the new Plugwise devices like the Plugwise Anna thermostat and plugs check out the [Plugwise](/integrations/plugwise/) integration.
 
 </div>
@@ -26,8 +26,6 @@ There is currently support for the following Plugwise devices types within Home 
 - Circle+
 - [Circle](https://www.plugwise.com/en_US/products/circle)
 - [Stealth](https://www.plugwise.com/en_US/products/stealth)
-
-The power use of the devices wil 
 
 ## Configuration
 
