@@ -1,6 +1,6 @@
 ---
 title: Universal Powerline Bus (UPB)
-description: Instructions on how to setup Univseral Powerline Bus integration.
+description: Instructions on how to setup Universal Powerline Bus integration.
 ha_category:
   - Light
   - Scene
@@ -23,6 +23,10 @@ To add UPB to your installation, go to **Configuration** >> **Integrations** in 
 
 The UPB integration requires that an export from the `UPStart` UPB configuration program. To create an export, in `UPStart`, click the UPB button in the top left and select **Export to File**. This will create a file with the `.upe` extension. The file must be placed somewhere in your Home Assistant installation, for example, in the configuration directory.
 
+## Device Configuration
+
+Using UPStart, configure each UPB dimmer-switch to report its state when it is manually operated. If you omit this step, manual changes to a dimmer-switch's state (on/off/brightness) will *not* be reported to Home Assistant.
+
 ## Events
 
 An event is generated whenever a UPB Link is:
@@ -34,7 +38,7 @@ An event is generated whenever a UPB Link is:
 - fade is stopped
 - blink is started
 
-The event is `upb.link_changed`.
+The event is `upb.scene_changed`.
 
 The `event_data` contains the following:
 
@@ -48,7 +52,7 @@ The `event_data` contains the following:
   reported as -1 if the brightness is a default level of brightness is not
   applicable to the link change.
 - `rate`: The rate for link to transition to the new level. `rate` is
-  -1 for the default transiton rate.
+  -1 for the default transition rate.
 
 ## Services
 
@@ -162,3 +166,61 @@ Start a scene blinking.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | UPB scene which to blink.
 | `rate` | no | Number between 0 and 4.25 that represents the time (in seconds) the rate the scene blinks. Note the UPB implementation limits the blink rate to no faster than 1/3 of a second.
+
+## Examples
+
+```yaml
+#automation:
+
+- alias: 'Specific scene activated'
+  description: 'Trigger when scene 9 on network 42 is activated'
+  trigger:
+    platform: event
+    event_type: upb.scene_changed
+    event_data:
+      command: activated
+      address: '42_9'
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: 'Scene Activated'
+      message: >
+        Activated scene 9 on network 42: {{trigger.event.data.command}}, {{trigger.event.data.address}}
+
+```
+
+```yaml
+#script:
+ 
+all_lights_on:
+  alias: 'All Lights On'
+  description: 'Activate two UPB scenes named interior_lights and exterior_lights'
+  sequence:
+    - service: scene.turn_on
+      entity_id: 
+        - scene.interior_lights
+        - scene.exterior_lights
+
+all_lights_off:
+  alias: 'All Lights Off'
+  description: 'Deactivate two UPB scenes named interior_lights and exterior_lights'
+  sequence:
+    - service: upb.scene_deactivate
+      entity_id: 
+        - scene.interior_lights
+        - scene.exterior_lights
+
+kitchen_fade_on:
+  alias: 'Kitchen Fade to On'
+  description: 'Turn on kitchen light to 75% over a period of 10 seconds'
+  sequence:
+    - service: upb.light_fade_start
+      data:
+        entity_id: light.kitchen
+        brightness_pct: 75
+        rate: 10
+```
+
+## Notes
+
+- A UPB device does not always report its current state. For example, if you call `upb.light_fade_start` and then, a few seconds later, call `upb.light_fade_stop`, the selected UPB device will not report its new brightness level. However, if you then call `homeassistant.update_entity` it will make the UPB device report its current state to Home Assistant.
