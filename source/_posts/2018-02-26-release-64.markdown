@@ -202,7 +202,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update voluputous ([@balloob] - [#12463]) (breaking change)
 - Map Alexa StepVolume responses to volume_up/down ([@lucasweb78] - [#12467]) ([alexa docs])
 - ONVIF Camera added Error handling and rtsp authentication. ([@matt2005] - [#11129]) ([camera.onvif docs])
-- Bump aioautomatic to 0.6.5 for voluptuous 0.11 ([@armills] - [#12480]) ([device_tracker.automatic docs])
+- Bump aioautomatic to 0.6.5 for voluptuous 0.11 ([@armills] - [#12480])
 - Add example in test how to create list or object in template ([@balloob] - [#12469])
 - KNX/Climate: Fixed platform schema min/max values. ([@Julius2342] - [#12477]) ([climate.knx docs])
 - Prevent error when no internet or DNS is available ([@mjj4791] - [#12486]) ([sensor.buienradar docs]) ([weather.buienradar docs])
@@ -503,7 +503,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.opengarage docs]: /integrations/opengarage
 [deconz docs]: /integrations/deconz/
 [device_tracker.asuswrt docs]: /integrations/asuswrt
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.bmw_connected_drive docs]: /integrations/bmw_connected_drive
 [device_tracker.nmap_tracker docs]: /integrations/nmap_tracker
 [device_tracker.unifi docs]: /integrations/unifi
