@@ -44,6 +44,11 @@ port:
   required: false
   type: integer
   default: 3551
+poll_interval:
+  description: The number of seconds between polling apcupsd.
+  required: false
+  type: integer
+  default: 60
 {% endconfiguration %}
 
 <div class='note'>
