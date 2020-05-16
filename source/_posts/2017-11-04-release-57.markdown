@@ -147,7 +147,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - add irish rail transport sensor ([@ttroy50] - [#9883]) ([sensor.irish_rail_transport docs]) (new-platform)
 - RGB Tradfri simple support ([@matemaciek] - [#9703]) ([light.tradfri docs])
 - Add regression test for entity ID update bug ([@armills] - [#10037])
-- Aioautomatic bump and scope update ([@armills] - [#10043]) ([device_tracker.automatic docs])
+- Aioautomatic bump and scope update ([@armills] - [#10043])
 - Fix no data event triggers ([@armills] - [#10049]) ([automation.event docs])
 - fixing a typo in the old library which broke hub gen2 compatibility ([@sander76] - [#9990])
 - Add fail2ban sensor ([@fronzbot] - [#9975]) ([sensor.fail2ban docs]) (new-platform)
@@ -545,7 +545,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.template docs]: /integrations/cover.template/
 [device_tracker docs]: /integrations/device_tracker/
 [device_tracker.asuswrt docs]: /integrations/asuswrt
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.geofency docs]: /integrations/geofency
 [device_tracker.mikrotik docs]: /integrations/mikrotik
 [device_tracker.owntracks docs]: /integrations/owntracks

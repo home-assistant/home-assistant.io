@@ -50,6 +50,7 @@ ZHA integration uses a hardware independent Zigbee stack implementation with mod
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
   - [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
+  - [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://www.dresden-elektronik.com/product/raspbee-II.html)
   - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
 - EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
@@ -97,11 +98,11 @@ a new pop-up asking for a radio type. In the pop-up:
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| `deconz` | ConBee, ConBee II, RaspBi |
 | `ezsp`  | EmberZNet based radios, HUSBZB-1, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
-| `ti_cc` | Texas Instruments ZNB based radios: CC2531, CC2530 |
-| `xbee` | Digi XBee Series 2, 2C, 3  |
-| `zigate` | ZiGate based radio | 
+| `deconz` | ConBee, ConBee II, RaspBi |
+| `xbee` | Digi XBee Series 2, 2C and 3 based radios with XBee Zigbee firmware |
+| `ti_cc` | Texas Instruments CC253x/CC26x2/CC13x2 based radios with Z-Stack firmware |
+| `zigate` | ZiGate USB-TTL, PiZiGate, and WiFi based Zigbee radios with ZiGate firmware |
 
 - Submit
 
