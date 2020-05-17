@@ -31,38 +31,36 @@ The password can be found on the bottom of your Smile, it should consist of 6 ch
  - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
  - Choose 'System' then 'Networking' and your IP address will be shown.
 
-## Devices
+## Entities
 
-This integration will show all devices present in your Plugwise configuration. In addition you will see a 'Smile' device representing your central Plugwise gateway (i.e. the Smile, Smile P1 or Adam).
+This integration will show all Plugwise devices present in your Plugwise configuration. In addition you will see a 'Smile' device representing your central Plugwise gateway (i.e. the Smile, Smile P1 or Adam).
 
 For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom' these will show up as individual devices. For setups where an auxiliary heater (or heater/cooler) is present there will be an additional device representing it called 'Auxiliary'.
 
-Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway device. Auxiliary Heater(/Cooler) measurements such as 'boiler_temperature' will be assigned to the Auxiliary device.
+Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway device. Auxiliary Heater(/Cooler) measurements such as 'boiler_temperature' will be assigned to the Auxiliary entity.
 
 ## Configuration
 
 To set up this integration, click Configuration in the sidebar and then click Integrations. Add a new integration using the "+" button in the lower right corner and look for 'Plugwise'. Click configure and you will be presented with a dialog requesting the Smile ID or password of your Smile and it's IP address. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
 
-Depending on your `climate` setup a `water_heater` will be added when there is information available about such devices. If you have "plug"s (as in, pluggable switches that come with an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s.
+Depending on your `climate` setup an auxiliary entitiy will be added when there is information available about such Plugwise devices. If you have "plug"s (as in, pluggable switches that come with an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s or `binary_sensor`s.
 
 Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
-### Service
+### Services
 
-#### Update Smile data (custom service)
+#### Update Smile data
 
-Service: `plugwise.update`
-
-This service has no options or parameters. Calling it will refresh all available data from all connected Smiles.
-
-Example:
+Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` service with your Smile entity as the target.
 
 ```yaml
-# Force update for all smiles
+# Example script change the temperature
 script:
-  plugwise_force_update:
+  force_adam_update:
     sequence:
-      - service: plugwise.update
+      - service: homeassistant.update_entity
+        data:
+          entity_id: climate.anna
 ```
 
 #### Set HVAC mode (schedule)
@@ -136,8 +134,7 @@ Adam (zone_control):
  - v3.0
  - v2.3
 
- - Devices supported are Floor, Koen, Lisa, Plug and Tom
- - For Plug remember each plug must have its own, unique, location-name, otherwise it will not show up
+ - Devices supported are Floor, Koen, Lisa, Plug and Tom - note a Koen always comes with a plug (the active part)
 
 Anna (thermostat):
 
@@ -147,5 +144,6 @@ Anna (thermostat):
 
 Smile P1 (DSMR):
 
+ - v4.0
  - v3.3
  - v2.5
