@@ -20,47 +20,15 @@ To set up this integration, click the + icon in the lower right and find Rolelas
 
 Once registration is complete you should see a `cover` and a `sensor` entity for each device. The integration automatically manages the addition/update/removal of any devices connected on the hub including device names unless manually specified in Home Assistant.
 
-If you want to explicitly configure your hub, add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-acmeda:
-  hubs:
-    - host: DEVICE_IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The IP address of the hub (e.g., 192.168.1.10).
-  required: true
-  type: string
-{% endconfiguration %}
-
-## Examples
-
-```yaml
-# Example configuration.yaml entry specifying optional parameters
-acmeda:
-  hubs:
-    - host: 192.168.1.10
-```
 
 ### Multiple hubs
 
 Multiple hubs work transparently with discovery, so you don't have to do anything special to set them up.
 
-```yaml
-# Example configuration.yaml entry
-acmeda:
-  hubs:
-    - host: HUB1_IP_ADDRESS
-    - host: HUB2_IP_ADDRESS
-```
-
 ### Caveats
 
 If the IP address for the hub changes, you will need to re-register it with Home Assistant again. To avoid this, you may set up a DHCP reservation on your router for your hub so that it always has the same IP address.
 
-The integration currently has the following limitations:
- - only covers with basic open/close/stop/position are supported, other cover types that include blade tilt are not yet support.
- - the integration doesn't currently make use of rooms and scenes configured in the hub.
+The integration has the following limitations:
+ - covers with position as well as tilt are not supported.
+ - the integration doesn't make use of rooms and scenes configured in the hub, use the equivalent functionality in Home Assistant instead.
