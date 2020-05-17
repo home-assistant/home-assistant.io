@@ -4,10 +4,12 @@ description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_release: 0.28
 ha_codeowners:
   - '@fabaff'
   - '@johnluetke'
+  - '@shenxn'
 ha_domain: pi_hole
 ---
 
@@ -15,7 +17,7 @@ The `pi_hole` integration allows you to retrieve statistics and interact with a 
 
 ## Configuration
 
-To enable this integration with the default configuration, add the following lines to your `configuration.yaml` file
+To enable this integration, go to the Integrations page inside the configuration panel. You can also use YAML configuration. Add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry

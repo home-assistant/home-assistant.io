@@ -1,6 +1,6 @@
 ---
-title: Zigbee
-description: Instructions on how to integrate a Zigbee network with Home Assistant.
+title: XBee
+description: Instructions on how to integrate a XBee with Home Assistant.
 ha_category:
   - Binary Sensor
   - Light
@@ -8,10 +8,10 @@ ha_category:
   - Switch
 ha_release: 0.12
 ha_iot_class: Local Polling
-ha_domain: zigbee
+ha_domain: xbee
 ---
 
-[Zigbee](https://zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](https://www.digi.com/xbee) as wireless General Purpose Input/Output (GPIO) devices. The integration requires a local Zigbee device to be connected to a serial port. Through this, it will send and receive commands to and from other devices on the Zigbee mesh network.
+[Zigbee](https://zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](https://www.digi.com/xbee) as wireless General Purpose Input/Output (GPIO) devices. The integration requires a local Xbee device to be connected to a serial port. Through this, it will send and receive commands to and from other devices on the Zigbee mesh network.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,21 +24,21 @@ There is currently support for the following device types within Home Assistant:
 
 The local Zigbee device (assuming XBee) must have an up to date Router or Coordinator API firmware installed.
 
-A `zigbee` section must be present in the `configuration.yaml` file and contain the following options as required:
+A `xbee` section must be present in the `configuration.yaml` file and contain the following options as required:
 
 ```yaml
 # Example configuration.yaml entry
-zigbee:
+xbee:
 ```
 
 {% configuration %}
 device:
-  description: The serial port to which the local Zigbee device is connected.
+  description: The serial port to which the local XBee device is connected.
   required: false
   type: string
   default: "`/dev/ttyUSB0`"
 baud:
-  description: The baud rate at which to communicate with the local Zigbee device.
+  description: The baud rate at which to communicate with the local XBee device.
   required: false
   type: integer
   default: 9600
@@ -51,21 +51,21 @@ ls /dev/ttyUSB*
 ```
 
 <div class='note'>
-The port may also appear as /dev/ttyACM* if you're communicating with the Zigbee device through an Arduino.
+The port may also appear as /dev/ttyACM* if you're communicating with the XBee device through an Arduino.
 </div>
 
 ### Example
 
 ```yaml
 # Example configuration.yaml entry
-zigbee:
+xbee:
   device: /dev/ttyACM1
   baud: 115200
 ```
 
 ## Binary Sensor
 
-A `zigbee` binary sensor in this context is a device connected to one of the digital input pins on a [Zigbee](https://zigbee.org/) module. The states reported by such a device are limited to `on` or `off`. By default, a binary sensor is considered `on` when the Zigbee device's digital input pin is held 'high' and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
+A `xbee` binary sensor in this context is a device connected to one of the digital input pins on a XBee module. The states reported by such a device are limited to `on` or `off`. By default, a binary sensor is considered `on` when the XBee device's digital input pin is held 'high' and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
 
 ### Configuration
 
@@ -74,7 +74,7 @@ To enable a digital input pin as binary sensor in your installation, add the fol
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  - platform: zigbee
+  - platform: xbee
     name: Hallway PIR Sensor
     pin: 0
 ```
@@ -89,7 +89,7 @@ pin:
   required: true
   type: integer
 address:
-  description: The long 64-bit address of the remote Zigbee device whose digital input pin you'd like to sample. Do not include this variable if you want to sample the local Zigbee device's pins.
+  description: The long 64-bit address of the remote Zigbee device whose digital input pin you'd like to sample. Do not include this variable if you want to sample the local XBee device's pins.
   required: false
   type: string
 on_state:
@@ -101,14 +101,14 @@ on_state:
 
 ## Light
 
-A Zigbee light in this context is a light connected to one of the digital output pins on a Zigbee module. It can simply be switched on and off. By default, a light is considered `on` when the Zigbee device's digital output is held `high` and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
+A Zigbee light in this context is a light connected to one of the digital output pins on a XBee module. It can simply be switched on and off. By default, a light is considered `on` when the XBee device's digital output is held `high` and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
 
 To configure a digital output pin as light, add the following to your `configuration.yaml` file:
 
 ```yaml
 light:
   - name: Desk Lamp
-    platform: zigbee
+    platform: xbee
     pin: 0
 ```
 
@@ -122,7 +122,7 @@ pin:
   required: true
   type: integer
 address:
-  description: The long 64-bit address of the remote Zigbee device whose digital output pin you would like to switch. Do not include this variable if you want to switch the local Zigbee device's pins.
+  description: The long 64-bit address of the remote Zigbee device whose digital output pin you would like to switch. Do not include this variable if you want to switch the local XBee device's pins.
   required: false
   type: string
 on_state:
@@ -144,7 +144,7 @@ To configure an analog input pin sensor, add the following to your `configuratio
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: zigbee
+  - platform: xbee
     name: My Analog Zigbee Input
     type: analog
     pin: 0
@@ -165,7 +165,7 @@ pin:
   required: false
   type: integer
 address:
-  description: The long 64-bit address of the remote Zigbee device whose pin you would like to sample. Do not include this variable if you want to sample the local Zigbee device's pins.
+  description: The long 64-bit address of the remote Zigbee device whose pin you would like to sample. Do not include this variable if you want to sample the local XBee device's pins.
   required: false
   type: string
 max_volts:
@@ -186,7 +186,7 @@ To configure an analog input pin sensor, add the following to your `configuratio
 ```yaml
 ## Example configuration.yaml entry
 sensor:
-  - platform: zigbee
+  - platform: xbee
     name: My Analog Zigbee Input
     type: analog
     pin: 0
@@ -204,7 +204,7 @@ To configure a temperature sensor device, add the following to your `configurati
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: zigbee
+  - platform: xbee
     name: Living Room Temperature Zigbee
     type: temperature
     address: 0013A20050E752C5
@@ -212,14 +212,14 @@ sensor:
 
 ## Switch
 
-A Zigbee switch in this context is a device connected to one of the digital output pins on a Zigbee module. It can simply be switched on and off. By default, a switch is considered `on` when the Zigbee device's digital output is held `high` and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
+A Zigbee switch in this context is a device connected to one of the digital output pins on a XBee module. It can simply be switched on and off. By default, a switch is considered `on` when the XBee device's digital output is held `high` and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
 
 To configure a digital output pin as switch, add the following to your `configuration.yaml` file:
 
 ```yaml
 switch:
   - name: Pond Fountain
-    platform: zigbee
+    platform: xbee
     pin: 0
     address: 0013A20040791FA2
     on_state: low
@@ -235,7 +235,7 @@ pin:
   required: true
   type: integer
 address:
-  description: The long 64-bit address of the remote Zigbee device whose digital output pin you would like to switch. Do not include this variable if you want to switch the local Zigbee device's pins.
+  description: The long 64-bit address of the remote Zigbee device whose digital output pin you would like to switch. Do not include this variable if you want to switch the local XBee device's pins.
   required: false
   type: string
 on_state:

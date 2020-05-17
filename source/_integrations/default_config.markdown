@@ -23,6 +23,7 @@ This integration is a meta-component and configures a default set of integration
 - [Map](/integrations/map/)
 - [Mobile App Support](/integrations/mobile_app/)
 - [Person](/integrations/person/)
+- [Scene](/integrations/scene/)
 - [Scripts](/integrations/script/)
 - [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/)
 - [Sun](/integrations/sun/)

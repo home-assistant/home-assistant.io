@@ -30,6 +30,11 @@ show_forecast:
   description: Show next hours/days forecast.
   type: boolean
   default: true
+secondary_info_attribute:
+  required: false
+  description: Which attribute to display under the temperature.
+  type: boolean
+  default: Defaults to Extrema if Available, if not available then Precipitation and if precipitation isn't available then Humidity.
 theme:
   required: false
   description: "Set to any theme within `themes.yaml`"
@@ -40,13 +45,69 @@ Example
 
 ```yaml
 type: weather-forecast
-entity: weather.dark_sky
+entity: weather.openweathermap
 ```
 
 <div class="note">
 
   This card works only with platforms that define a `weather` entity.
   
-  E.g., it works with [Dark Sky](/integrations/weather.darksky/) but not [Dark Sky Sensor](/integrations/darksky)
+  E.g., it works with [OpenWeatherMap](https://www.home-assistant.io/integrations/openweathermap/#weather) but not [OpenWeatherMap Sensor](https://www.home-assistant.io/integrations/openweathermap/#sensor)
 
 </div>
+
+### Advanced
+
+##### Themeable Icons
+
+The default weather icons are themable via a [Theme](https://www.home-assistant.io/integrations/frontend/#themes). Theme variables include: 
+
+```yaml
+--weather-icon-cloud-front-color
+--weather-icon-cloud-back-color
+--weather-icon-sun-color
+--weather-icon-rain-color
+--weather-icon-moon-color
+```
+
+Example theme configuration:
+
+```yaml
+--weather-icon-cloud-front-color: white
+--weather-icon-cloud-back-color: blue
+--weather-icon-sun-color: orange
+--weather-icon-rain-color: purple
+```
+
+&nbsp;
+
+##### Personal Icons
+
+Weather icons can be overwritten with your own personal images via a [Theme](https://www.home-assistant.io/integrations/frontend/#themes). Theme variables include:
+
+```yaml
+--weather-icon-clear-night
+--weather-icon-cloudy
+--weather-icon-fog
+--weather-icon-lightning
+--weather-icon-lightning-rainy
+--weather-icon-partlycloudy
+--weather-icon-pouring
+--weather-icon-rainy
+--weather-icon-hail
+--weather-icon-snowy
+--weather-icon-snowy-rainy
+--weather-icon-sunny
+--weather-icon-windy
+--weather-icon-windy-variant
+--weather-icon-exceptional
+
+// If your state is not above, use this format
+--weather-icon-<state>
+```
+
+Example theme configuration:
+
+```yaml
+--weather-icon-sunny: url("local/sunny.png")
+```

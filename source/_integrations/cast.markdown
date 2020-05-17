@@ -30,13 +30,65 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
 ```
 <div class='note'>
 
-Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `base_url` for [the `http` integration](/integrations/http/).
+Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/docs/configuration/basic).
 
 </div>
+
+## Casting other apps
+
+### YouTube
+
+- `app_name`: `youtube`
+- `media_id`: YouTube video ID
+
+Optional:
+- `enqueue`: Enqueue only
+- `playlist_id`: Play video with `media_id` from this playlist
+
+```yaml
+'cast_youtube_to_my_chromecast':
+  alias: Cast YouTube to My Chromecast
+  sequence:
+  - data:
+      entity_id: media_player.my_chromecast
+      media_content_type: cast
+      media_content_id: '
+        {
+          "app_name": "youtube",
+          "media_id": "dQw4w9WgXcQ"
+        }'
+    service: media_player.play_media
+```
+
+### [Supla](https://www.supla.fi/)
+
+Example values to cast the item at https://www.supla.fi/audio/3601824
+
+- `app_name`: `supla`
+- `media_id`: Supla item ID
+
+Optional:
+- `is_live`: Item is a livestream
+
+```yaml
+'cast_supla_to_my_chromecast':
+  alias: Cast supla to My Chromecast
+  sequence:
+  - data:
+      entity_id: media_player.my_chromecast
+      media_content_type: cast
+      media_content_id: '
+        {
+          "app_name": "supla",
+          "media_id": "3601824"
+        }'
+    service: media_player.play_media
+```
 
 ## Advanced use
 
 ### Manual configuration
+
 By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a white list of wanted chrome casts.
 
 ```yaml

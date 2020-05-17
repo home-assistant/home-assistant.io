@@ -1,15 +1,17 @@
 ---
-title: HomeKit
-description: Instructions on how to set up the HomeKit integration in Home Assistant.
+title: HomeKit Bridge
+description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 ha_category:
   - Voice
 ha_release: 0.64
+ha_iot_class: Local Push
 ha_domain: homekit
+ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ---
 
-The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However, if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+The HomeKit Bridge integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
 <div class="note">
 
@@ -28,10 +30,14 @@ It might be necessary to install an additional package:
 
 </div>
 
+To add `HomeKit Bridge` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **HomeKit Bridge**.
+
+If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, `HomeKit Bridge` must be configured via your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry configuring HomeKit
 homekit:
-  filter:
+- filter:
     include_domains:
       - alarm_control_panel
       - light
@@ -56,6 +62,13 @@ homekit:
         - feature: toggle_mute
     switch.bedroom_outlet:
       type: outlet
+    camera.back_porch:
+      support_audio: True
+- name: HASS Bridge 2
+  port: 56332
+  filter:
+    include_domains:
+      - light
 ```
 
 {% configuration %}
@@ -160,6 +173,68 @@ homekit:
                 required: false
                 type: string
                 default: '`switch`'
+              stream_address:
+                description: Only for `camera` entities. The source IP address to use when streaming to RTP clients. If your Home Assistant host has multiple interfaces, selecting a specific IP may be necessary.
+                required: false
+                type: string
+                default: local IP from Home Assistant
+              stream_source:
+                description: Only for `camera` entities. A URL, file or other valid FFmpeg input string to use as the stream source, rather than the default camera source. Required for camera entities that do not natively support streaming (MJPEG). If `-i` is not found in the stream source, it is prepended to construct the FFmpeg input.
+                required: false
+                type: string
+                default: stream source from camera entity
+              support_audio:
+                description: Only for `camera` entities. Whether the camera supports audio. Audio is disabled unless this flag is set to `True`.
+                required: false
+                type: boolean
+                default: '`False`'
+              max_width:
+                description: Only for `camera` entities. Maximum width supported by camera. Used when generating advertised video resolutions.
+                required: false
+                type: integer
+                default: 1920
+              max_height:
+                description: Only for `camera` entities. Maximum height supported by camera. Used when generating advertised video resolutions.
+                required: false
+                type: integer
+                default: 1080
+              max_fps:
+                description: Only for `camera` entities. Maximum fps supported by camera. Used when generating advertised video resolutions.
+                required: false
+                type: integer
+                default: 30
+              audio_map:
+                description: Only for `camera` entities. FFmpeg [stream selection mapping](https://ffmpeg.org/ffmpeg.html#Stream-selection) for the audio-only stream. Selects the first audio stream in the input stream by default. If your input stream has multiple audio streams, this may need to be adjusted.
+                required: false
+                type: string
+                default: '`0:a:0`'
+              video_map:
+                description: Only for `camera` entities. FFmpeg [stream selection mapping](https://ffmpeg.org/ffmpeg.html#Stream-selection) for the video-only stream. Selects the first video stream in the input stream by default. If your input stream has multiple video streams, this may need to be adjusted.
+                required: false
+                type: string
+                default: '`0:v:0`'
+              audio_packet_size:
+                description: Only for `camera` entities. RTP packet size used for streaming audio to HomeKit clients.
+                required: false
+                type: integer
+                default: 188
+              video_packet_size:
+                description: Only for `camera` entities. RTP packet size used for streaming video to HomeKit clients.
+                required: false
+                type: integer
+                default: 1316
+              video_codec:
+                description: Only for `camera` entities. FFmpeg video codec for transcoding. `copy` option reduces CPU load when video source already encoded with `H264` (MPEG4). `h264_omx` option is only available with custom FFmpeg builds and enables GPU Hardware acceleration on Raspberry Pi.
+                required: false
+                type: string
+                default: libx264
+                available options: copy, libx264, h264_omx
+              audio_codec:
+                description: Only for `camera` entities. FFmpeg audio codec for transcoding. `copy` option reduces CPU load when audio source already encoded with `libopus`.
+                required: false
+                type: string
+                default: libopus
+                available options: copy, libopus
 {% endconfiguration %}
 
 ## Setup
@@ -189,7 +264,7 @@ After the setup is completed, you should be able to control your Home Assistant 
 
 ## Move Home Assistant install
 
-If you like to retain your HomeKit pairing through a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.homekit.state` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
+If you like to retain your HomeKit pairing through a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.storage/homekit.*` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
 
 Before you copy it, make sure to stop the old and new Home Assistant instances first entirely, otherwise it won't work.
 
@@ -197,11 +272,11 @@ Before you copy it, make sure to stop the old and new Home Assistant instances f
 
 ### Accessory ID
 
-Currently, this integration uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
+Currently, this integration uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` that does not have a `unique_id`, all configurations for this accessory made in the `Home` app will be lost.
 
 ### Device Limit
 
-The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
+The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 device limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to a bridge configured via `YAML`.
 
 ### Persistence Storage
 
@@ -382,6 +457,7 @@ The following integrations are currently supported:
 | alarm_control_panel | SecuritySystem | All security systems. |
 | automation / input_boolean / remote / scene / script / vacuum | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
+| camera | Camera | All camera devices. **HomeKit Secure Video is not supported at this time.** |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`. |
 | cover | WindowCovering | All covers that support `set_cover_position`. |
@@ -405,22 +481,22 @@ The following integrations are currently supported:
 
 ## Troubleshooting
 
-### Deleting the `.homekit.state` file
+### Resetting when created via YAML
 
-The `.homekit.state` file can be found in the configurations directory. You might need to enable `view hidden files` to see it.
+ 1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
+ 2. **Restart** Home Assistant.
+ 3. The configuration will be automaticlly reimported from YAML.
+ 4. Pair the bridge.
 
- 1. **Stop** Home Assistant
- 2. Delete the `.homekit.state` file
- 3. **Start** Home Assistant
+### Resetting when created via the **Integrations** screen
+
+ 1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
+ 2. Recreate the `HomeKit Bridge` integration in the **Integrations** screen.
+ 3. Pair the bridge.
 
 ### Errors during pairing
 
-If you encounter any issues during pairing, make sure to:
-
- 1. **Stop** Home Assistant
- 2. Delete the `.homekit.state` file
- 3. Edit your configuration (see below)
- 4. **Start** Home Assistant
+If you encounter any issues during pairing, make sure to add the following to your `configuration.yaml`
 
 ```yaml
 logger:
@@ -428,7 +504,15 @@ logger:
   logs:
     homeassistant.components.homekit: debug
     pyhap: debug
+```
 
+Follow the above instructions for `Resetting`
+
+### Minimal Configuration
+
+If pairing still fails after trying the steps in ([Errors during pairing](#errors-during-pairing)), it may be caused by a specific entity.  Try resetting with a minimal configuration:
+
+```yaml
 homekit:
   filter:
     include_entities:
@@ -437,7 +521,7 @@ homekit:
 
 #### PIN doesn't appear as persistent status
 
-You might have paired the `Home Assistant Bridge` already. If not, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)).
+You might have paired the `Home Assistant Bridge` already. If not, follow the above instructions for `Resetting`
 
 #### `Home Assistant Bridge` doesn't appear in the Home App (for pairing)
 
@@ -473,7 +557,7 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 #### Pairing hangs - no error
 
-1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
+1. Make sure that you don't try to add more than 150 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repository, so we can resolve it.
 2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook up to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 #### Duplicate AID found when attempting to add accessory
@@ -498,21 +582,19 @@ To use the HomeKit integration with to different Home Assistant instances on the
 
 Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component:%20homekit)
 
+If you have any iOS 12.x devices signed into your iCloud account, media player entities with `device_class: tv` may trigger this condition. Filtering the entity or signing the iOS 12.x device out of iCloud should resolve the issue after restarting other devices.
+
 #### Accessories are all listed as not responding
 
 See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### Accessory not responding - after restart or update
 
-See [device limit](#device-limit)
+See [resetting accessories](#resetting-accessories)
 
 #### Accessory not responding - randomly
 
 Unfortunately, that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually, the accessory should get back to responding after a few minutes at most.
-
-#### Accessories not responding / behaving unusual - Upgrade from `0.65.x`
-
-To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
 
 #### The linked battery sensor isn't recognized
 
@@ -526,9 +608,29 @@ Media Player entities with `device_class: tv` will show up as Television accesso
 
 The volume and play/pause controls will show up on the Remote app or Control Center. If your TV supports volume control through Home Assistant, you will be able to control the volume using the side volume buttons on the device while having the remote selected on screen.
 
+#### Camera video is not streaming
+
+Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured correctly. Verify that your stream is directly playable with `ffplay <stream_source>` or [VLC Media Player](https://www.videolan.org/). If you have changed your camera's entity configuration, you may need to [reset the accessory](#resetting-accessories).
+
+#### Cameras streaming is unstable or slow 
+
+If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when via the UI, go to **Configuration** >> **Integrations** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
+
+#### One video stream limit per camera
+
+Currently, cameras are limited to one video stream. Multiple streams are not possible at this time. One workaround is to create a second `HomeKit Bridge` to generate a copy of the camera accessory.
+
+#### Camera audio is not streaming
+
+Make sure `support_audio` is `True` in the camera's entity configuration.
+
+#### HomeKit stalls or devices respond slowly with many cameras
+
+HomeKit updates each camera snapshot sequentially when there are multiple cameras on a bridge. The HomeKit update methodology can lead to the app stalling or taking a while to update. To avoid this problem, limit each `HomeKit Bridge` to 6 cameras and create a new `HomeKit Bridge` for additional cameras.
+
 #### Resetting accessories
 
-On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
+You may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
 
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 

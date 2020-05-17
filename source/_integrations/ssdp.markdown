@@ -30,3 +30,5 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Philips Hue](../hue/)
  - [Roku](/integrations/roku/)
  - [Samsung TV](../samsungtv/)
+ - [UPnP](../upnp/)
+ - [Sony Songpal](../songpal/)

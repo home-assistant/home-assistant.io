@@ -42,11 +42,3 @@ tts:
   - platform: google_translate
     language: 'de'
 ```
-
-If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `http` integration as follows:
-
-```yaml
-#Example configuration.yaml entry
-http:
-  base_url: https://example.duckdns.org
-```

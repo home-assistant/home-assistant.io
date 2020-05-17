@@ -7,12 +7,6 @@ ha_domain: image_processing
 
 Image processing enables Home Assistant to process images from [cameras](/integrations/#camera). Only camera entities are supported as sources.
 
-<div class='note'>
-
-If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [HTTP component](/integrations/http/).
-
-</div>
-
 ## ALPR
 
 ALPR entities have a vehicle counter attribute `vehicles` and all found plates are stored in the `plates` attribute.

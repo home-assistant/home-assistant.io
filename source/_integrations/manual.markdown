@@ -45,17 +45,17 @@ code_arm_required:
   type: boolean
   default: true
 delay_time:
-  description: The time in seconds of the pending time before triggering the alarm.
+  description: The time in seconds of the 'pending' state before triggering the alarm.
   required: false
   type: integer
-  default: 0
-pending_time:
-  description: The time in seconds of the pending time before effecting a state change.
+  default: 60
+arming_time:
+  description: The time in seconds of the 'arming' state before effecting a state change.
   required: false
   type: integer
   default: 60
 trigger_time:
-  description: The time in seconds of the trigger time in which the alarm is firing.
+  description: The time in seconds of the 'triggered' state in which the alarm is firing.
   required: false
   type: integer
   default: 120
@@ -73,8 +73,8 @@ armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
       description: State specific setting for **delay_time** (all states except **triggered**)
       required: false
       type: integer
-    pending_time:
-      description: State specific setting for **pending_time** (all states except **disarmed**)
+    arming_time:
+      description: State specific setting for **arming_time** (all states except **disarmed**)
       required: false
       type: integer
     trigger_time:
@@ -86,20 +86,19 @@ armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
 ## State machine
 
 The state machine of the manual alarm integration is complex but powerful. The
-transitions are timed according to three values, **delay_time**, **pending_time**
+transitions are timed according to three values, **delay_time**, **arming_time**
 and **trigger_time**. The values in turn can come from the default configuration
 variable or from a state-specific override.
 
-When the alarm is armed, its state first goes to **pending** for a number
-of seconds equal to the destination state's **pending_time**, and then
-transitions to one of the "armed" states.  Note that **code_template**
-never receives "pending" in the **to_state** variable; instead,
-**to_state** contains the state which the user has requested. However,
-**from_state** *can* contain "pending".
+When the alarm is armed, its state first goes to **arming** for a number
+of seconds equal to the destination state's **arming_time**, and then
+transitions to one of the "armed" states. Note that **code_template**
+never receives "arming" in the **to_state** variable; instead,
+**to_state** contains the state which the user has requested.  However,
+**from_state** *can* contain "arming".
 
 When the alarm is triggered, its state goes to **pending** for a number of
-seconds equal to the previous state's **delay_time** plus the triggered
-state's **pending_time**. Then the alarm transitions to the "triggered"
+seconds equal to the previous state's **delay_time**. Then the alarm transitions to the "triggered"
 states. The code is never checked when triggering the alarm, so the
 **to_state** variable of **code_template** cannot ever contain "triggered"
 either; again, **from_state** *can* contain "triggered".
@@ -110,12 +109,11 @@ it goes back to either the previous state or **disarmed**. If the previous
 state's **trigger_time** is zero, the transition to "triggered" is entirely
 blocked and the alarm remains in the armed state.
 
-Each of the settings is useful in different scenarios. **pending_time** gives
-you some time to leave the building (for "armed" states) or to disarm the alarm
-(for the "triggered" state).
+Each of the settings is useful in different scenarios. **arming_time** gives
+you some time to leave the building (for "armed" states).
 
-**delay_time** can also be used to allow some time to disarm the alarm, but with
-more flexibility. For example, you could specify a delay time for the
+**delay_time** can be used to allow some time to disarm the alarm, with
+flexibility. For example, you could specify a delay time for the
 "armed away" state, in order to avoid triggering the alarm while the
 garage door opens, but not for the "armed home" state.
 
@@ -142,7 +140,7 @@ alarm_control_panel:
     disarmed:
       trigger_time: 0
     armed_home:
-      pending_time: 0
+      arming_time: 0
       delay_time: 0
 ```
 

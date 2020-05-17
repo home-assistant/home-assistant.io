@@ -78,6 +78,22 @@ condition:
           below: 20
 ```
 
+### NOT condition
+
+Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
+
+```yaml
+condition:
+  condition: not
+  conditions:
+    - condition: state
+      entity_id: device_tracker.paulus
+      state: 'home'
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: disarmed
+```
+
 ### Numeric state condition
 
 This type of condition attempts to parse the state of the specified entity as a number, and triggers if the value matches the thresholds.
