@@ -7,7 +7,6 @@
 # Older development pages
 /developers https://developers.home-assistant.io
 /developers/add_new_platform https://developers.home-assistant.io/docs/en/creating_platform_index.html
-/developers/api https://developers.home-assistant.io/docs/en/external_api_rest.html
 /developers/architecture_components https://developers.home-assistant.io/docs/en/architecture_components.html
 /developers/architecture https://developers.home-assistant.io/docs/en/architecture_index.html
 /developers/asyncio_101 https://developers.home-assistant.io/docs/en/asyncio_101.html
