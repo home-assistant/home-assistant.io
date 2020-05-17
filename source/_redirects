@@ -42,11 +42,11 @@
 /developers/documentation/create_page https://developers.home-assistant.io/docs/en/documentation_create_page.html
 /developers/documentation https://developers.home-assistant.io/docs/en/documentation_index.html
 /developers/documentation/standards https://developers.home-assistant.io/docs/en/documentation_standards.html
-/developers/frontend_add_card https://developers.home-assistant.io/docs/en/frontend_add_card.html
-/developers/frontend_add_more_info https://developers.home-assistant.io/docs/en/frontend_add_more_info.html
-/developers/frontend_creating_custom_panels https://developers.home-assistant.io/docs/en/frontend_creating_custom_panels.html
+/developers/frontend_add_card https://developers.home-assistant.io/docs/frontend/extending/adding-state-card
+/developers/frontend_add_more_info https://developers.home-assistant.io/docs/frontend/extending/adding-more-info-dialogs
+/developers/frontend_creating_custom_panels https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels.html
 /developers/frontend_creating_custom_ui https://developers.home-assistant.io/docs/en/frontend_creating_custom_ui.html
-/developers/frontend https://developers.home-assistant.io/docs/en/frontend_index.html
+/developers/frontend https://developers.home-assistant.io/docs/frontend.html
 /developers/hassio/addon_communication https://developers.home-assistant.io/docs/en/hassio_addon_communication.html
 /developers/hassio/addon_config https://developers.home-assistant.io/docs/en/hassio_addon_config.html
 /developers/hassio/addon_development https://developers.home-assistant.io/docs/en/hassio_addon_index.html
