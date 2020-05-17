@@ -48,6 +48,16 @@ camera:
     rtsp_transport: http
 ```
 
+#### [Synology camera](/integrations/synology/) integration
+```yaml
+camera:
+  - platform: synology
+    url: https://192.168.1.202:5001
+    username: quickconnect ID
+    password: quickconnect password
+    verify_ssl: false
+```
+
 ### Streaming Video
 
 If your camera supports it, and the [`stream`](/integrations/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.
