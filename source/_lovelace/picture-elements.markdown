@@ -385,7 +385,7 @@ style:
 {% endconfiguration %}
 
 The process for creating and referencing custom elements is the same as for custom cards.
-Please see the [developer documentation](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
+Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html)
 for more information.
 
 ## How to use the style object
