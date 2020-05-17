@@ -72,7 +72,7 @@
 /developers/platform_example_sensor https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_sensor
 /developers/python_api https://developers.home-assistant.io/docs/en/external_api_rest_python.html
 /developers/releasing https://developers.home-assistant.io/docs/en/releasing.html
-/developers/rest_api https://developers.home-assistant.io/docs/en/external_api_rest.html
+/developers/rest_api https://developers.home-assistant.io/docs/api/rest.html
 /developers/server_sent_events https://developers.home-assistant.io/docs/en/external_api_server_sent_events.html
 /developers/websocket_api https://developers.home-assistant.io/docs/en/external_api_websocket.html
 
