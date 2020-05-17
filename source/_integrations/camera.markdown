@@ -10,16 +10,57 @@ ha_domain: camera
 
 The camera integration allows you to use IP cameras with Home Assistant.
 
+### Configuration
+To enable a camera in your installation, add the the `camera:` integration to your `configuration.yaml` file along with a camera platform. Here's some examples:
+
+#### [Generic camera](/integrations/generic_ip_camera/) integration
+```yaml
+camera:
+  - platform: generic
+    name: Left Gate
+    authentication: digest
+    username: username
+    password: password
+    still_image_url: http://192.168.1.205/cgi-bin/snapshot.cgi
+```
+
+#### [FFmpeg camera](/integrations/camera.ffmpeg/) integration
+This requires both the [`stream`](/integrations/stream) integration and the [`ffmpeg`](/integrations/ffmpeg) integration.
+```yaml
+stream:
+ffmpeg:
+camera:
+  - platform: ffmpeg
+    name: Backyard
+    input: -rtsp_transport tcp -i rtsp://username:password@192.168.1.201:554/cam/realmonitor?channel=1&subtype=00
+```
+
+#### [Onvif camera](/integrations/onvif/) integration
+This requires the [`ffmpeg`](/integrations/ffmpeg) integration.
+```yaml
+ffmpeg:
+camera:
+  - platform: onvif
+    host: 192.168.1.202
+    username: username
+    password: password
+    port: 80
+    rtsp_transport: http
+```
+
 ### Streaming Video
 
 If your camera supports it, and the [`stream`](/integrations/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.
 
-This option will keep the stream alive, and preload the feed on Home Assistant startup. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
+The "Preload stream" option will keep the stream alive, and preload the feed on Home Assistant startup. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
 
 <p class='img'>
   <img src='/images/integrations/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
   Example showing the Preload Stream option in the camera dialog.
 </p>
+
+As of Home Assistant version 0.92 you can now live-stream a camera feed directly in lovelace.
+To do this add either [picture-entity](/lovelace/picture-entity/), [picture-glance](/lovelace/picture-glance/) or [picture-elements](/lovelace/picture-elements/), set `camera_image` to a stream-ready camera entity and set `camera_view` to `live` in one of your Lovelace views.
 
 
 ### Services
