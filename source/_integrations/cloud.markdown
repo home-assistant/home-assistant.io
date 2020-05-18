@@ -21,51 +21,10 @@ This integration is by default enabled, unless you've disabled or removed the [`
 cloud:
 ```
 
+Documentation of further configuration possibilites are located at [NabuCasa](https://www.nabucasa.com/config/)
+
 Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your `configuration.yaml` file.
 
 ```yaml
 config:
 ```
-### Google Assistant configuration
-
-It's possible to enter entity configurations for entities that are exposed to the google assistant, like the example below:
-```yaml
-# Example configuration.yaml
-google_actions:
-        entity_config:
-            light.bedroom_lamp:
-              name: "Bedroom Lamp"
-              aliases:
-                - "My favourite lamp"
-                - "Bedroom"
-              room: "Bedroom"
-            light.living_room_lamp:
-              name: "Living room Lamp"
-              aliases:
-                - "The fancy lamp"
-              room: "Living room"
-```
-{% configuration %}
-entity_config:
-  description: Entity specific configuration for Google Assistant
-  required: false
-  type: map
-  keys:
-    '`<ENTITY_ID>`':
-      description: Entity to configure
-      required: false
-      type: map
-      keys:
-        name:
-          description: Name of the entity to show in Google Assistant
-          required: false
-          type: string
-        aliases:
-          description: Aliases that can also be used to refer to this entity
-          required: false
-          type: list
-        room:
-          description: Allows for associating this device to a Room in Google Assistant.
-          required: false
-          type: string
-{% endconfiguration %}
