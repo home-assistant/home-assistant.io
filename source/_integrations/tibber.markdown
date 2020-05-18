@@ -5,6 +5,7 @@ ha_category:
   - Energy
   - Sensor
   - Notifications
+ha_config_flow: true
 ha_release: 0.8
 ha_iot_class: Cloud Polling
 ha_quality_scale: silver
