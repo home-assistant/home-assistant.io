@@ -2068,6 +2068,8 @@
 /docs/ecosystem/backup/backup_github https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
 /docs/ecosystem/backup/backup_usb https://community.home-assistant.io/t/backup-configuration-to-a-usb-drive/196964
 /docs/ecosystem/caddy https://community.home-assistant.io/t/reverse-proxy-with-caddy/196943
+/docs/ecosystem/certificates https://community.home-assistant.io/tags/c/community-guides/51/remote-access
+/docs/ecosystem/certificates/lets_encrypt https://community.home-assistant.io/t/installing-tls-ssl-using-lets-encrypt/196975
 /docs/ecosystem/certificates/tls_domain_certificate https://community.home-assistant.io/t/certificate-for-ssl-tls-via-domain-ownership/196968
 /docs/ecosystem/certificates/tls_self_signed_certificate https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970
 /docs/ecosystem/haproxy https://community.home-assistant.io/t/reverse-proxy-with-haproxy/196950
