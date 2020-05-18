@@ -5,7 +5,7 @@ ha_category:
   - Hub
   - Cover
 ha_iot_class: Local Push
-ha_release: '0.109'
+ha_release: 0.111
 ha_config_flow: true
 ha_codeowners:
   - '@atmurray'
