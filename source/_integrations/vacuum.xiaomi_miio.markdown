@@ -180,6 +180,16 @@ automation:
           - 26496
 ```
 
+### Service `xiaomi_miio.vacuum_goto`
+
+Go the specified coordinates
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                          |
+| `x_coord`                 |       no | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
+| `y_coord`                 |       no | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
+
 ## Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
