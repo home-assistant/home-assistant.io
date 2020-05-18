@@ -2058,9 +2058,11 @@
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
+/cookbook/dropboxbackup https://community.home-assistant.io/t/backing-up-to-dropbox/196960
 /cookbook/githubbackup https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
 /cookbook/tor_configuration https://community.home-assistant.io/t/tor-onion-service-configuration/195171
 /docs/ecosystem/apache https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
+/docs/ecosystem/backup/backup_dropbox https://community.home-assistant.io/t/backing-up-to-dropbox/196960
 /docs/ecosystem/backup/backup_github https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
 /docs/ecosystem/caddy https://community.home-assistant.io/t/reverse-proxy-with-caddy/196943
 /docs/ecosystem/haproxy https://community.home-assistant.io/t/reverse-proxy-with-haproxy/196950
