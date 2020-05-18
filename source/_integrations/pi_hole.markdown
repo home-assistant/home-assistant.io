@@ -3,6 +3,7 @@ title: Pi-hole
 description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
   - System Monitor
+  - Sensor
   - Switch
 ha_iot_class: Local Polling
 ha_config_flow: true
