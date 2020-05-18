@@ -158,36 +158,36 @@ Full configuration example (excluding forecasted conditions) where location is m
 ```yaml
 # Example configuration.yaml entry
 - platform: buienradar
-    name: 'volkel'
-    # Force 'Meetstation Volkel' to be used:
-    latitude: 51.65
-    longitude: 5.70
-    monitored_conditions:
-      - stationname
-      - barometerfc
-      - barometerfcname
-      - conditioncode
-      - condition
-      - conditiondetailed
-      - conditionexact
-      - symbol
-      - feeltemperature
-      - humidity
-      - temperature
-      - groundtemperature
-      - windspeed
-      - windforce
-      - winddirection
-      - windazimuth
-      - pressure
-      - visibility
-      - windgust
-      - precipitation
-      - irradiance
-      - precipitation_forecast_average
-      - precipitation_forecast_total
-      - rainlast24hour
-      - rainlasthour
+  name: 'volkel'
+  # Force 'Meetstation Volkel' to be used:
+  latitude: 51.65
+  longitude: 5.70
+  monitored_conditions:
+    - stationname
+    - barometerfc
+    - barometerfcname
+    - conditioncode
+    - condition
+    - conditiondetailed
+    - conditionexact
+    - symbol
+    - feeltemperature
+    - humidity
+    - temperature
+    - groundtemperature
+    - windspeed
+    - windforce
+    - winddirection
+    - windazimuth
+    - pressure
+    - visibility
+    - windgust
+    - precipitation
+    - irradiance
+    - precipitation_forecast_average
+    - precipitation_forecast_total
+    - rainlast24hour
+    - rainlasthour
 ```
 
 Configuration example with current condition and (some) forecasted values:

@@ -176,6 +176,7 @@ logger:
     zigpy_xbee.zigbee.application: debug
     zigpy_xbee.api: debug
     zigpy_zigate: debug
+    zhaquirks: debug
 ```
 
 ### Add Philips Hue bulbs that have previously been added to another bridge

@@ -24,7 +24,7 @@ Different families have different functionality and can measure different quanti
 | 12     | [DS2406(TAI-8570)](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | Temperature (pressure when using TAI-8570) |
 | 1D     | [DS2423](https://datasheets.maximintegrated.com/en/ds/DS2423.pdf)            | Counter                         |
 | 22     | [DS1822](https://datasheets.maximintegrated.com/en/ds/DS1822.pdf)            |                                 |
-| 26     | [DS2438/B1-R1-A/S2-R1-A](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)| Temperature, Voltage, Current, (pressure and humidity when using TAI-8570) | 
+| 26     | [DS2438/B1-R1-A/S2-R1-A](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)| Temperature, Voltage, Current, (pressure and humidity when using TAI-8570) |
 | 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature                     |
 | 3B     | [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)            | Temperature                     |
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
@@ -41,7 +41,7 @@ Notes:
 
 ## Interfacing with the 1-wire bus
 
-The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or by using a dedicated interface adapter, for example 
+The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or by using a dedicated interface adapter, for example
 [DS9490R](https://datasheets.maximintegrated.com/en/ds/DS9490-DS9490R.pdf) or adapters based on [DS2482-100](https://datasheets.maximintegrated.com/en/ds/DS2482-100.pdf) that can be directly attached to the IO pins on the Raspberry Pi.
 
 It is also possible for this platform to interface with a remote 1-wire host over a network connection using ofws and owserver.
@@ -49,9 +49,9 @@ It is also possible for this platform to interface with a remote 1-wire host ove
 ## Raspberry Pi set up
 
 In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
-To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
+To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/operating-system/debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
 
-When using the GPIO pins on Raspberry Pi directly as a 1-wire bus, the description above uses two kernel modules. `1w_gpio`, that implements the 1-wire protocol, and `1w_therm`, that understands the DS18B20 (family 28) components inner structure and reports temperature. 
+When using the GPIO pins on Raspberry Pi directly as a 1-wire bus, the description above uses two kernel modules. `1w_gpio`, that implements the 1-wire protocol, and `1w_therm`, that understands the DS18B20 (family 28) components inner structure and reports temperature.
 There is no support for other device types (families) and hence this onewire platform only supports temperature measurements from family 28 devices.
 
 ## Interface adapter setup
@@ -108,7 +108,7 @@ sensor:
 
 ### Entities and attributes
 
-Upon startup of the platform, the 1-wire bus is searched for available 1-wire devices. For each device that this platform handles (see list of supported devices above), the platform adds one sensor for each physical quantity it measures. The name of the sensor is the device ID with the physical quantity it measures appended. 
+Upon startup of the platform, the 1-wire bus is searched for available 1-wire devices. For each device that this platform handles (see list of supported devices above), the platform adds one sensor for each physical quantity it measures. The name of the sensor is the device ID with the physical quantity it measures appended.
 
 `sensor.28.FF5C68521604_temperature`
 
