@@ -2057,8 +2057,10 @@
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 
 # Migrated Community Guides
+/cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
 /cookbook/githubbackup https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
 /cookbook/tor_configuration https://community.home-assistant.io/t/tor-onion-service-configuration/195171
+/docs/ecosystem/apache https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
 /docs/ecosystem/backup/backup_github https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
 /docs/ecosystem/tor https://community.home-assistant.io/t/tor-onion-service-configuration/195171
 /docs/installation/freenas https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158
