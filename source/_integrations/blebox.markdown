@@ -56,3 +56,13 @@ Currently, this includes support for the following product classes:
 
 - BleBox switchBox
 - BleBox switchBoxD
+
+## Lights
+
+This integration adds the BleBox device as a light in Home Assistant.
+
+Currently, the following product classes are supported:
+
+- BleBox dimmerBox
+- BleBox wLightBoxS
+- BleBox wLightBox
