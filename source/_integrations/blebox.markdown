@@ -57,6 +57,14 @@ Currently, this includes support for the following product classes:
 - BleBox switchBox
 - BleBox switchBoxD
 
+## Air Quality
+
+This integration adds the BleBox device as an air quality entity in Home Assistant.
+
+Currently, this includes support for the following product classes:
+
+- BleBox airSensor
+
 ## Lights
 
 This integration adds the BleBox device as a light in Home Assistant.
