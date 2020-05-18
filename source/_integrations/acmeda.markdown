@@ -20,7 +20,6 @@ To set up this integration, click the + icon in the lower right and find Rolelas
 
 Once registration is complete you should see a `cover` and a `sensor` entity for each device. The integration automatically manages the addition/update/removal of any devices connected on the hub including device names unless manually specified in Home Assistant.
 
-
 ### Multiple hubs
 
 Multiple hubs work transparently with discovery, so you don't have to do anything special to set them up.
