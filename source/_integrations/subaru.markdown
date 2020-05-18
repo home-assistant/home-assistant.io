@@ -31,11 +31,11 @@ This integration provides the following platforms:
 ## Configuration
 
 ### Home Assistant UI
-  * The Subaru integration offers configuration through the Home Assitant UI:
+  * The Subaru integration offers configuration through the Home Assistant UI:
     
     **Configuration** -> **Integrations** -> **Add** -> **Subaru**
 
-### configuration.yaml
+### YAML
   * Alternatively, the Subaru integration may be configured through `configuration.yaml`. Add the following to your `configuration.yaml` file:
 
 ```yaml
