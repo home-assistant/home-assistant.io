@@ -373,7 +373,7 @@ The following integrations are currently supported:
 
 ## iOS Remote Widget
 
-Entities exposed as `TelevisionMediaPlayer` will be exposed and are controllable within the Apple Remote widget in
+Entities exposed as `TelevisionMediaPlayer` are controllable within the Apple Remote widget in
 Control Center. Play, pause, volume up and volume down should work out of the box depending on the `supported_features`
 of the entity. However, if your television can be controlled in other ways outside of the `media_player` entity, (i.e.
 service calls to an IR blaster), it is possible to build an automation to take advantage of these events.
