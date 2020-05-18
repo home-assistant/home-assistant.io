@@ -2061,6 +2061,7 @@
 /cookbook/dropboxbackup https://community.home-assistant.io/t/backing-up-to-dropbox/196960
 /cookbook/githubbackup https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
 /cookbook/tls_domain_certificate https://community.home-assistant.io/t/certificate-for-ssl-tls-via-domain-ownership/196968
+/cookbook/tls_self_signed_certificate https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970
 /cookbook/tor_configuration https://community.home-assistant.io/t/tor-onion-service-configuration/195171
 /docs/ecosystem/apache https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
 /docs/ecosystem/backup/backup_dropbox https://community.home-assistant.io/t/backing-up-to-dropbox/196960
@@ -2068,6 +2069,7 @@
 /docs/ecosystem/backup/backup_usb https://community.home-assistant.io/t/backup-configuration-to-a-usb-drive/196964
 /docs/ecosystem/caddy https://community.home-assistant.io/t/reverse-proxy-with-caddy/196943
 /docs/ecosystem/certificates/tls_domain_certificate https://community.home-assistant.io/t/certificate-for-ssl-tls-via-domain-ownership/196968
+/docs/ecosystem/certificates/tls_self_signed_certificate https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970
 /docs/ecosystem/haproxy https://community.home-assistant.io/t/reverse-proxy-with-haproxy/196950
 /docs/ecosystem/nginx https://community.home-assistant.io/t/reverse-proxy-using-nginx/196954
 /docs/ecosystem/nginx_subdomain https://community.home-assistant.io/t/reverse-proxy-with-nginx-using-a-subdomain/196952
