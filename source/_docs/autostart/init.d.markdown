@@ -1,47 +1,42 @@
 ---
-layout: page
 title: "Autostart using init.d"
 description: "Documentation about setting up Home Assistant as a daemon running under init.d."
-release_date: 2016-12-02 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/autostart-init.d/
 ---
 
 Home Assistant can run as a daemon within init.d with the script below.
 
-### {% linkable_title 1. Copy script %}
+## 1. Copy script
 
-Copy either the daemon script or the Python environment scrip at the end of this page to `/etc/init.d/hass-daemon` depending on your installation.
+Copy either the daemon script or the Python environment script at the end of this page to `/etc/init.d/hass-daemon` depending on your installation.
 
 After that, set the script to be executable:
 
 ```bash
-$ sudo chmod +x /etc/init.d/hass-daemon
+sudo chmod +x /etc/init.d/hass-daemon
 ```
 
-### {% linkable_title 2. Select a user. %}
+## 2. Select a user
 
-Create or pick a user that the Home Assistant daemon will run under. Update script to set `RUN_AS` to the username that should be used to execute hass.
+Create or pick a user that the Home Assistant daemon will run under. Update script to set `RUN_AS` to the username that should be used to execute Home Assistant.
 
-### {% linkable_title 3. Change hass executable and other variables if required. %}
+## 3. Change `hass` executable and other variables if required
 
 Some installation environments may require a change in the Home Assistant executable `hass`. Update script to set `HASS_BIN` to the appropriate `hass` executable path. Please also check the other variables for the appropriate value. In general the defaults should work
 
-### {% linkable_title 4. Install this service %}
+## 4. Install this service
 
 ```bash
-$ sudo service hass-daemon install
+sudo service hass-daemon install
 ```
 
-### {% linkable_title 5. Create logrotate rule %}
+## 5. Create logrotate rule
 
 This logrotate script at `/etc/logrotate.d/homeassistant` will create an outage of a few seconds every week at night. If you do not want this add `--log-rotate-days 7` to the `FLAGS` variable in the init script.
 
-```
-/var/log/homeassistant/home-assistant.log
+File `/var/log/homeassistant/home-assistant.log`:
+
+```text
 {
         rotate 7
         daily
@@ -56,17 +51,17 @@ This logrotate script at `/etc/logrotate.d/homeassistant` will create an outage 
 
 ```
 
-### {% linkable_title 6. Restart Machine %}
+### 6. Restart Machine
 
 That's it. Restart your machine and Home Assistant should start automatically.
 
-If HA does not start, check the log file output for errors at `/var/log/homeassistant/home-assistant.log`
+If Home Assistant does not start, check the log file output for errors at `/var/log/homeassistant/home-assistant.log`
 
-### {% linkable_title Extra: Running commands before hass executes %}
+### Extra: Running commands before Home Assistant executes
 
-If any commands need to run before executing hass (like loading a virtual environment), put them in PRE_EXEC. This command must end with a semicolon.
+If any commands need to run before executing Home Assistant (like loading a virtual environment), put them in PRE_EXEC. This command must end with a semicolon.
 
-### {% linkable_title Daemon script %}
+### Daemon script
 
 ```bash
 #!/bin/sh
@@ -84,8 +79,8 @@ If any commands need to run before executing hass (like loading a virtual enviro
 PRE_EXEC=""
 # Typically /usr/bin/hass
 HASS_BIN="hass"
-RUN_AS="USER"
-PID_DIR="/var/run"
+RUN_AS="homeassistant"
+PID_DIR="/var/run/hass"
 PID_FILE="$PID_DIR/hass.pid"
 CONFIG_DIR="/var/opt/homeassistant"
 LOG_DIR="/var/log/homeassistant"
@@ -100,7 +95,7 @@ start() {
     return 1
   fi
   echo -n 'Starting service… ' >&2
-  local CMD="$PRE_EXEC $HASS_BIN $FLAGS;"
+  local CMD="$PRE_EXEC $HASS_BIN $FLAGS"
   su -s /bin/bash -c "$CMD" $RUN_AS
   if [ $? -ne 0 ]; then
     echo "Failed" >&2
@@ -161,7 +156,7 @@ remove_piddir() {
     if [ -e "$PID_FILE" ]; then
       rm -fv "$PID_FILE"
     fi
-    rmdir -fv "$PID_DIR"
+    rmdir -v "$PID_DIR"
   fi
 }
 
@@ -187,7 +182,7 @@ case "$1" in
 esac
 ```
 
-### {% linkable_title Python virtual environment %}
+### Python virtual environment
 
 ```bash
 #!/bin/sh
@@ -220,7 +215,7 @@ start() {
     return 1
   fi
   echo -n 'Starting service… ' >&2
-  local CMD="$PRE_EXEC $HASS_BIN $FLAGS;"
+  local CMD="$PRE_EXEC $HASS_BIN $FLAGS"
   su -s /bin/bash -c "$CMD" $RUN_AS
   if [ $? -ne 0 ]; then
     echo "Failed" >&2
@@ -281,7 +276,7 @@ remove_piddir() {
     if [ -e "$PID_FILE" ]; then
       rm -fv "$PID_FILE"
     fi
-    rmdir -fv "$PID_DIR"
+    rmdir -v "$PID_DIR"
   fi
 }
 

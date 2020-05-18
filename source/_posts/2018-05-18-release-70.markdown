@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.70: Facebox, SpaceAPI, Konnected Alarm System"
 description: "Complete overhaul of our new frontend. "
 date: 2018-05-27 00:01:00
 date_formatted: "May 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -20,7 +18,7 @@ One cool new component in this release is [Konnected][konnected docs] ([product 
 
 Another cool one this release is [Facebox][image_processing.facebox docs]. It will allow you to do local face detection on your camera feeds. Can't wait to hear the cool things people will do with this.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Converted SABnzbd to a component ([@jeradM] - [#12915]) ([sabnzbd docs]) ([sensor.sabnzbd docs]) (breaking change) (new-platform)
 - Add more homematicip cloud components ([@mxworm] - [#14084]) ([homematicip_cloud docs]) ([binary_sensor.homematicip_cloud docs]) ([light.homematicip_cloud docs]) ([switch.homematicip_cloud docs]) (new-platform)
@@ -30,12 +28,12 @@ Another cool one this release is [Facebox][image_processing.facebox docs]. It wi
 - Add Konnected component with support for discovery, binary sensor and switch ([@heythisisnate] - [#13670]) ([konnected docs]) ([binary_sensor.konnected docs]) ([switch.konnected docs]) (new-platform)
 - New Sensor FinTS ([@ChristianKuehnel] - [#14334]) ([sensor.fints docs]) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Allow HomeKit name to be customized ([@schmittx] - [#14159]) ([homekit docs]) (new-feature)
 - Add HomeKit support for fans ([@schmittx] - [#14351]) ([homekit docs]) (new-feature)
 
-## {% linkable_title Release 0.70.1 - May 31 %}
+## Release 0.70.1 - May 31
 
 - Update Hue platform to aiohue 1.5.0, and re-implement logic for duplicate scene names. ([@MizterB] - [#14653]) ([hue docs])
 - Ignore unsupported Sonos favorite lists ([@amelchio] - [#14665]) ([media_player.sonos docs])
@@ -44,16 +42,16 @@ Another cool one this release is [Facebox][image_processing.facebox docs]. It wi
 - Frontend: bug fixes for date time more info, cover icons, slider overflow issue (@c727, @cdce8p, @balloob)
 - Add Simplepush back (#14728)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Converted SABnzbd to a component. Set it up using the new config:
   ```yaml
@@ -65,7 +63,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Removed simplepush.io becayse website is offline and apps are no longer available. ([@c727] - [#14358]) ([notify docs]) (breaking change)
 - DarkSky sensor: Added temperature (apparent) high/low, deprecated max/min ([@nordlead2005] - [#12233]) ([sensor.darksky docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Wait for future mysensors gateway ready ([@MartinHjelmare] - [#14398]) ([mysensors docs]) (beta fix)
 - Homekit style cleanup ([@cdce8p] - [#14556]) ([homekit docs]) (beta fix)
@@ -77,7 +75,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - No longer use backports for ffmpeg ([@balloob] - [#14626]) (beta fix)
 - Allow Hass.io panel dir ([@balloob] - [#14655]) ([hassio docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add unique_id to MQTT switch ([@thepotoo] - [#13719]) ([switch.mqtt docs])
 - zha: Bump to zigpy 0.1.0 ([@rcloran] - [#14305]) ([zha docs])
@@ -348,100 +346,100 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@thepotoo]: https://github.com/thepotoo
 [@tschmidty69]: https://github.com/tschmidty69
 [@w1ll1am23]: https://github.com/w1ll1am23
-[api docs]: /components/api/
-[auth docs]: /components/auth/
-[binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
-[binary_sensor.homematicip_cloud docs]: /components/binary_sensor.homematicip_cloud/
-[binary_sensor.isy994 docs]: /components/binary_sensor.isy994/
-[binary_sensor.konnected docs]: /components/binary_sensor.konnected/
-[binary_sensor.mychevy docs]: /components/binary_sensor.mychevy/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[camera docs]: /components/camera/
-[camera.familyhub docs]: /components/camera.familyhub/
-[camera.generic docs]: /components/camera.generic/
-[climate.mysensors docs]: /components/climate.mysensors/
-[climate.sensibo docs]: /components/climate.sensibo/
-[climate.venstar docs]: /components/climate.venstar/
-[climate.wink docs]: /components/climate.wink/
-[cover.gogogate2 docs]: /components/cover.gogogate2/
-[cover.mysensors docs]: /components/cover.mysensors/
-[cover.tahoma docs]: /components/cover.tahoma/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[eufy docs]: /components/eufy/
-[fan.template docs]: /components/fan.template/
-[feedreader docs]: /components/feedreader/
-[folder_watcher docs]: /components/folder_watcher/
-[frontend docs]: /components/frontend/
-[hassio docs]: /components/hassio/
-[homekit docs]: /components/homekit/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[http docs]: /components/http/
-[image_processing.facebox docs]: /components/image_processing.facebox/
-[insteon_plm docs]: /components/insteon_plm/
-[iota docs]: /components/iota/
-[isy994 docs]: /components/isy994/
-[konnected docs]: /components/konnected/
-[light.flux_led docs]: /components/light.flux_led/
-[light.homematicip_cloud docs]: /components/light.homematicip_cloud/
-[light.limitlessled docs]: /components/light.limitlessled/
-[light.mqtt docs]: /components/light.mqtt/
-[light.mysensors docs]: /components/light.mysensors/
-[light.nanoleaf_aurora docs]: /components/light.nanoleaf_aurora/
-[light.wink docs]: /components/light.wink/
-[media_extractor docs]: /components/media_extractor/
-[media_player.cmus docs]: /components/media_player.cmus/
-[media_player.onkyo docs]: /components/media_player.onkyo/
-[media_player.roku docs]: /components/media_player.roku/
-[media_player.songpal docs]: /components/media_player.songpal/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.universal docs]: /components/media_player.universal/
-[media_player.yamaha docs]: /components/media_player.yamaha/
-[mychevy docs]: /components/mychevy/
-[mysensors docs]: /components/mysensors/
-[notify docs]: /components/notify/
-[qwikswitch docs]: /components/qwikswitch/
-[sabnzbd docs]: /components/sabnzbd/
-[sensor.bmw_connected_drive docs]: /components/sensor.bmw_connected_drive/
-[sensor.bom docs]: /components/sensor.bom/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.darksky docs]: /components/sensor.darksky/
-[sensor.fints docs]: /components/sensor.fints/
-[sensor.hive docs]: /components/sensor.hive/
-[sensor.iota docs]: /components/sensor.iota/
-[sensor.mychevy docs]: /components/sensor.mychevy/
-[sensor.rest docs]: /components/sensor.rest/
-[sensor.sabnzbd docs]: /components/sensor.sabnzbd/
-[sensor.sigfox docs]: /components/sensor.sigfox/
-[sensor.simulated docs]: /components/sensor.simulated/
-[sensor.skybeacon docs]: /components/sensor.skybeacon/
-[sensor.statistics docs]: /components/sensor.statistics/
-[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
-[sensor.zha docs]: /components/sensor.zha/
-[shell_command docs]: /components/shell_command/
-[snips docs]: /components/snips/
-[spaceapi docs]: /components/spaceapi/
-[switch.arest docs]: /components/switch.arest/
-[switch.flux docs]: /components/switch.flux/
-[switch.homematicip_cloud docs]: /components/switch.homematicip_cloud/
-[switch.konnected docs]: /components/switch.konnected/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.mysensors docs]: /components/switch.mysensors/
-[switch.rainmachine docs]: /components/switch.rainmachine/
-[switch.tahoma docs]: /components/switch.tahoma/
-[system_log docs]: /components/system_log/
-[tahoma docs]: /components/tahoma/
-[telegram_bot docs]: /components/telegram_bot/
-[tts docs]: /components/tts/
-[updater docs]: /components/updater/
-[weather.bom docs]: /components/weather.bom/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[api docs]: /integrations/api/
+[auth docs]: /integrations/auth/
+[binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[binary_sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[binary_sensor.isy994 docs]: /integrations/isy994
+[binary_sensor.konnected docs]: /integrations/konnected#binary-sensor
+[binary_sensor.mychevy docs]: /integrations/mychevy
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[binary_sensor.zha docs]: /integrations/zha
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[camera docs]: /integrations/camera/
+[camera.familyhub docs]: /integrations/familyhub
+[camera.generic docs]: /integrations/generic_ip_camera
+[climate.mysensors docs]: /integrations/climate.mysensors/
+[climate.sensibo docs]: /integrations/sensibo
+[climate.venstar docs]: /integrations/venstar
+[climate.wink docs]: /integrations/wink#climate
+[cover.gogogate2 docs]: /integrations/gogogate2
+[cover.mysensors docs]: /integrations/cover.mysensors/
+[cover.tahoma docs]: /integrations/tahoma
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[eufy docs]: /integrations/eufy/
+[fan.template docs]: /integrations/fan.template/
+[feedreader docs]: /integrations/feedreader/
+[folder_watcher docs]: /integrations/folder_watcher/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[image_processing.facebox docs]: /integrations/facebox
+[insteon_plm docs]: /integrations/insteon/
+[iota docs]: /integrations/iota/
+[isy994 docs]: /integrations/isy994/
+[konnected docs]: /integrations/konnected/
+[light.flux_led docs]: /integrations/flux_led
+[light.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[light.limitlessled docs]: /integrations/limitlessled
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.mysensors docs]: /integrations/light.mysensors/
+[light.nanoleaf_aurora docs]: /integrations/nanoleaf/
+[light.wink docs]: /integrations/wink#light
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cmus docs]: /integrations/cmus
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.roku docs]: /integrations/roku#media-player
+[media_player.songpal docs]: /integrations/songpal
+[media_player.sonos docs]: /integrations/sonos
+[media_player.universal docs]: /integrations/universal
+[media_player.yamaha docs]: /integrations/yamaha
+[mychevy docs]: /integrations/mychevy/
+[mysensors docs]: /integrations/mysensors/
+[notify docs]: /integrations/notify/
+[qwikswitch docs]: /integrations/qwikswitch/
+[sabnzbd docs]: /integrations/sabnzbd/
+[sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[sensor.bom docs]: /integrations/bom#sensor
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.darksky docs]: /integrations/darksky
+[sensor.fints docs]: /integrations/fints
+[sensor.hive docs]: /integrations/hive#sensor
+[sensor.iota docs]: /integrations/iota#sensor
+[sensor.mychevy docs]: /integrations/mychevy
+[sensor.rest docs]: /integrations/rest
+[sensor.sabnzbd docs]: /integrations/sabnzbd
+[sensor.sigfox docs]: /integrations/sigfox
+[sensor.simulated docs]: /integrations/simulated
+[sensor.skybeacon docs]: /integrations/skybeacon
+[sensor.statistics docs]: /integrations/statistics
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[sensor.zha docs]: /integrations/zha
+[shell_command docs]: /integrations/shell_command/
+[snips docs]: /integrations/snips/
+[spaceapi docs]: /integrations/spaceapi/
+[switch.arest docs]: /integrations/arest#switch
+[switch.flux docs]: /integrations/flux
+[switch.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[switch.konnected docs]: /integrations/konnected#switch
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.mysensors docs]: /integrations/switch.mysensors/
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.tahoma docs]: /integrations/tahoma
+[system_log docs]: /integrations/system_log/
+[tahoma docs]: /integrations/tahoma/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tts docs]: /integrations/tts/
+[updater docs]: /integrations/updater/
+[weather.bom docs]: /integrations/bom
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/
 [#14653]: https://github.com/home-assistant/home-assistant/pull/14653
 [#14665]: https://github.com/home-assistant/home-assistant/pull/14665
 [#14672]: https://github.com/home-assistant/home-assistant/pull/14672
@@ -450,7 +448,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OttoWinter]: https://github.com/OttoWinter
 [@amelchio]: https://github.com/amelchio
 [@ciotlosm]: https://github.com/ciotlosm
-[climate.nest docs]: /components/climate.nest/
-[cover.mqtt docs]: /components/cover.mqtt/
-[hue docs]: /components/hue/
-[media_player.sonos docs]: /components/media_player.sonos/
+[climate.nest docs]: /integrations/nest#climate
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[hue docs]: /integrations/hue/
+[media_player.sonos docs]: /integrations/sonos

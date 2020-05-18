@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Glance Card"
 sidebar_label: Glance
-description: "The Glance card allows you to see a list of entities at a glance."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "The Glance card is useful to group multiple sensors in a compact overview."
 ---
 
-Glance cards are very compact. Very useful to group together multiple sensors for a quick and easy overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
+The Glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card'>
@@ -32,7 +26,12 @@ title:
   type: string
 show_name:
   required: false
-  description: Show entity names.
+  description: Show entity name.
+  type: boolean
+  default: "true"
+show_icon:
+  required: false
+  description: Show entity icon.
   type: boolean
   default: "true"
 show_state:
@@ -40,14 +39,22 @@ show_state:
   description: Show entity state-text.
   type: boolean
   default: "true"
-column_width:
+theme:
   required: false
-  description: "Column width as CSS length like `100px` or `calc(100% / 7)`."
+  description: "Set to any theme within `themes.yaml`"
   type: string
-  default: 20%
+columns:
+  required: false
+  description: Number of columns to show. If not specified the number will be set automatically.
+  type: integer
+state_color:
+  required: false
+  description: Set to `true` to have icons colored when entity is active
+  type: boolean
+  default: true
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -62,39 +69,60 @@ name:
   type: string
 icon:
   required: false
-  description: Overwrites icon or entity picture.
+  description: Overwrites icon.
   type: string
+image:
+  required: false
+  description: Overwrites entity picture.
+  type: string
+show_last_changed:
+  required: false
+  description: Overwrites the state display with the relative time since last changed.
+  type: boolean
+  default: false
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: true
 tap_action:
   required: false
-  description: "Set to `toggle` or `call-service` for direct actions."
-  type: string
-  default: more-info
-service:
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  type: map
+hold_action:
   required: false
-  description: "For `call-service`, e.g. `media_player.media_play_pause`"
-  type: string
-service_data:
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/).
+  type: map
+double_tap_action:
   required: false
-  description: The service data to use.
-  type: object
-  default: "entity_id: entity_id"
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Options For Exemptions
+
+{% configuration badges %}
+user:
+  required: true
+  description: User id that can see the view tab.
+  type: string
+{% endconfiguration %}
+
+## Examples
 
 Basic example:
 
 ```yaml
-- type: glance
-  title: Glance card sample
-  entities:
-    - binary_sensor.movement_backyard
-    - light.bed_light
-    - binary_sensor.basement_floor_wet
-    - sensor.outside_temperature
-    - light.ceiling_lights
-    - switch.ac
-    - lock.kitchen_door
+type: glance
+title: Glance card sample
+entities:
+  - binary_sensor.movement_backyard
+  - light.bed_light
+  - binary_sensor.basement_floor_wet
+  - sensor.outside_temperature
+  - light.ceiling_lights
+  - switch.ac
+  - lock.kitchen_door
 ```
 
 <p class='img'>
@@ -105,15 +133,18 @@ Screenshot of the glance card with custom title.
 Define entities as objects and apply a custom name:
 
 ```yaml
-- type: glance
-  title: Better names
-  entities:
-    - entity: binary_sensor.movement_backyard
-      name: Movement?
-    - light.bed_light
-    - binary_sensor.basement_floor_wet
-    - sensor.outside_temperature
-    - light.ceiling_lights
-    - switch.ac
-    - lock.kitchen_door
+type: glance
+title: Better names
+entities:
+  - entity: binary_sensor.movement_backyard
+    name: Movement?
+  - light.bed_light
+  - binary_sensor.basement_floor_wet
+  - sensor.outside_temperature
+  - light.ceiling_lights
+  - switch.ac
+  - lock.kitchen_door
+  - entity: switch.wall_plug_switch
+    tap_action:
+      action: toggle
 ```

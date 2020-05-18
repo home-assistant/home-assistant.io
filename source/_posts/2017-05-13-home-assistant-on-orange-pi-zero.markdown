@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant on an Orange Pi Zero"
 description: "Installing Home Assistant on a Orange Pi Zero with armbian."
 date: 2017-05-13 09:00:00
 date_formatted: "May 13, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-05-orangepi/social.png
 ---
@@ -19,7 +17,7 @@ This blog post is about the setup of Home Assistant on an [Orange Pi Zero](http:
 
 <!--more-->
 
-Download the [Armbian](https://www.armbian.com/orange-pi-zero/) and create the SD card with [Etcher](https://etcher.io/). There is no possibility to connect a display to the Orange Pi Zero. This means that you need a wired network setup with DHCP server. After your Orange Pi Zero is running, give it some time, and look for its IP address. The hostname is `orangepizero`.
+Download the [Armbian](https://www.armbian.com/orange-pi-zero/) and create the SD card with [balenaEtcher](https://www.balena.io/etcher). There is no possibility to connect a display to the Orange Pi Zero. This means that you need a wired network setup with DHCP server. After your Orange Pi Zero is running, give it some time, and look for its IP address. The hostname is `orangepizero`.
 
 If you found the IP address then use your SSH client to connect to the Orange Pi Zero. The default password is `1234`.
 

@@ -81,11 +81,6 @@ header .grid {
   font-weight: normal;
   font-size: 14px;
   line-height: 1;
-
-  &.show-search {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 .menu > li > a:hover, .menu > li > a:focus{
@@ -106,24 +101,24 @@ header .grid {
     border-top:    1px solid $navigation-color;
     border-bottom: 4px solid $navigation-color;
   }
-  
+
   .menu, .menu li, .menu li a{
     height: auto;
   }
-  
+
   .menu li a{
     padding: 15px 15px !important;
   }
-  
+
   .menu li a:hover, .menu li a:focus{
     background: $grayLighter;
     box-shadow: inset 5px 0px $navigation-color;
     padding: 15px 15px 15px 25px;
   }
-  
+
   .toggle {
     position: absolute;
-    top: 17px;
+    top: 15px;
     right: 10px;
   }
 
@@ -142,11 +137,11 @@ header .grid {
     color: $white;
     white-space: nowrap;
   }
-  
+
   .toggle:hover::after{
     background: darken($navigation-color, 7%);
   }
-  
+
   #toggle:checked + .toggle::after{
     content: attr(data-close);
   }

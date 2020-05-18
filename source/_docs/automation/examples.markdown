@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation Examples"
 description: "Some automation examples to get you started."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/automation-examples/
 ---
 
@@ -26,13 +20,13 @@ automation:
         event: sunset
         offset: '-01:00:00'
       - platform: state
-        entity_id: group.all_devices
+        entity_id: all
         to: 'home'
     condition:
       # Prefix the first line of each condition configuration
       # with a '-'' to enter multiple
       - condition: state
-        entity_id: group.all_devices
+        entity_id: all
         state: 'home'
       - condition: time
         after: '16:00:00'
@@ -46,11 +40,11 @@ automation:
   - alias: 'Rule 2 - Away Mode'
     trigger:
       platform: state
-      entity_id: group.all_devices
+      entity_id: all
       to: 'not_home'
     action:
       service: light.turn_off
-      entity_id: group.all_lights
+      entity_id: all
 
 # Notify when Paulus leaves the house in the evening
   - alias: 'Leave Home notification'
@@ -69,7 +63,6 @@ automation:
 
 # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
   - alias: 'Xiaomi Cube Action'
-    hide_entity: false
     initial_state: false
     trigger:
       platform: event

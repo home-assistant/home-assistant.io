@@ -1,16 +1,14 @@
 ---
-layout: post
 title: "0.20: Roku, Last.fm, AWS, Twilio"
 description: "New release of Home Assistant is bringing a lot of great goodies for everyone. New media players, template optoins and a lot more."
 date: 2016-05-21 11:06:00 -0700
 date_formatted: "May 21, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
-<img src='/images/supported_brands/roku.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/lastfm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/gpmdp.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/twilio.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_lambda.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_sns.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_sqs.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='/images/supported_brands/roku.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/lastfm.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/gpmdp/icon.png' srcset='https://brands.home-assistant.io/gpmdp/icon@2x.png 2x' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/twilio.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_lambda.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_sns.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_sqs.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 Tons of new supported things in 0.20.
 
@@ -27,7 +25,7 @@ Tons of new supported things in 0.20.
 - Configurator: allow supplying a link to the user ([@mnestor])
 - Media Player: [Roku] now supported ([@bah2830])
 - Sensor: [Last.fm] now supported ([@darookee], [@GreenTurtwig])
-- Notify: Amazon [Lambda], [SNS], [SQS] now supported ([@robbiet480])
+- Notify: Amazon Lambda, SNS, SQS now supported ([@robbiet480])
 - Light: allow human readable colors in turn_on command ([@robbiet480])
 - YAML: new include dir options [`!include_dir_merge_list`] and [`!include_dir_merge_named`] ([@happyleavesaoc])
 - Media Player: [LG Netcast TVs] now supported ([@wokar])
@@ -35,9 +33,9 @@ Tons of new supported things in 0.20.
 - Notify: [Ecobee thermostats] now supported ([@nkgilley])
 - Sensor: [Mold indicator] added ([@xifle])
 - Export to [Logentries] support added ([@omgapuppy])
-- Group more info dialog allows control of group domain if available ([@fignuts])
+- Group more info dialog allows control of group domain if available (@fignuts)
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - Asus WRT will now default to SSH with Telnet being an option
 
@@ -49,7 +47,6 @@ device_tracker:
 
 [@bah2830]: https://github.com/bah2830
 [@darookee]: https://github.com/darookee
-[@fignuts]: https://github.com/fignuts
 [@froz]: https://github.com/froz
 [@GreenTurtwig]: https://github.com/GreenTurtwig
 [@happyleavesaoc]: https://github.com/happyleavesaoc
@@ -69,18 +66,15 @@ device_tracker:
 [`!include_dir_merge_list`]: /topics/splitting_configuration/#advanced-usage
 [`!include_dir_merge_named`]: /topics/splitting_configuration/#advanced-usage
 [`relative_time`]: /topics/templating/#home-assistant-template-extensions
-[Asus WRT]: /components/device_tracker.asuswrt/
-[Ecobee thermostats]: /components/notify.ecobee/
-[Google Play Music Desktop Player]: /components/media_player.gpmdp/
-[Lambda]: /components/notify.aws_lambda/
-[LG Netcast TVs]: /components/media_player.lg_netcast/
-[Logentries]: /components/logentries/
-[mold indicator]: /components/sensor.moldindicator/
-[Nest Protect]: /components/sensor.nest/
-[purge days option]: /components/recorder/
-[Roku]: /components/media_player.roku/
-[SNS]: /components/notify.aws_sns/
-[SQS]: /components/notify.aws_sqs/
-[supervisord]: /components/sensor.supervisord/
-[Twilio SMS]: /components/notify.twilio_sms/
-[Last.fm]: /components/sensor.lastfm/
+[Asus WRT]: /integrations/asuswrt
+[Ecobee thermostats]: /integrations/ecobee
+[Google Play Music Desktop Player]: /integrations/gpmdp
+[LG Netcast TVs]: /integrations/lg_netcast
+[Logentries]: /integrations/logentries/
+[mold indicator]: /integrations/mold_indicator/
+[Nest Protect]: /integrations/nest#sensor
+[purge days option]: /integrations/recorder/
+[Roku]: /integrations/roku#media-player
+[supervisord]: /integrations/supervisord
+[Twilio SMS]: /integrations/twilio_sms
+[Last.fm]: /integrations/lastfm

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Certificate"
 description: "Instructions on how to setup MQTT with a certificate in Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
@@ -20,9 +14,17 @@ mqtt:
   certificate: /home/paulus/dev/addtrustexternalcaroot.crt
 ```
 
-Configuration variables:
-
-- **certificate** (*Optional*): 'auto' or the certificate authority certificate file that is to be treated as trusted by this client. 'auto' uses the bundled certificates. If a file is specified the file should contain the root certificate of the certificate authority that signed your broker's certificate, but may contain multiple certificates. Example: `/home/user/identrust-root.pem`
-- **client_key** (*Optional*): Client key, eg. `/home/user/owntracks/cookie.key`.
-- **client_cert** (*Optional*): Client certificate, eg. `/home/user/owntracks/cookie.crt`.
-
+{% configuration %}
+certificate:
+  description: "'auto' or the certificate authority certificate file that is to be treated as trusted by this client. To enable a secure (TLS) connection to your server you must define the 'certificate' configuration parameter. 'auto' uses the certifite CAs bundled certificates. If a file is specified the file should contain the root certificate of the certificate authority that signed your broker's certificate, but may contain multiple certificates. Example: `/home/user/identrust-root.pem`."
+  required: false
+  type: string
+client_key:
+  description: Client key, e.g., `/home/user/owntracks/cookie.key`.
+  required: false
+  type: string
+client_cert:
+  description: Client certificate, e.g., `/home/user/owntracks/cookie.crt`.
+  required: false
+  type: string
+{% endconfiguration %}

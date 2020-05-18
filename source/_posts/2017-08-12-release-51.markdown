@@ -1,29 +1,29 @@
 ---
-layout: post
 title: "0.51: Massive history speed up, finished automation editor and official vacuum cleaner support"
 description: "Lots of frontend bugs have been squashed, the automation editor now supports all triggers and actions and vacuum cleaners are now an official component."
 date: 2017-08-12 00:11:05
 date_formatted: "August 12, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-08-0.51/components.png
 ---
 
-<a href='/components/#version/0.51'><img src='/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.51'><img src='/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
 
-<p class='note warning'>This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.</p>
+<div class='note warning'>
+This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.
+</div>
 
 Release 0.51 is around the corner and it contains some really great updates.
 
-## {% linkable_title Database speed up %}
+## Database speed up
 
 The first one is more amazing database updates [#8748] by [@OverloadUT]. Every query that has been tested executes in well under 1 second, even on a RPi using MySQL with 6 million rows and around 300 entities. This is true even when you're getting an unrealistically huge date range!
 
 Updating the database will take some time when you start Home Assistant. During that time, the Home Assistant frontend is not accessible. Please let it complete and do not turn Home Assistant off.
 
-## {% linkable_title Frontend update %}
+## Frontend update
 
 We have finished the migration of our frontend to be powered by Polymer 2. This has given us a big speed boost on Safari/iOS devices and has fixed a wide range of bugs.
 
@@ -35,13 +35,13 @@ Another change to the frontend is that we have reorganized the panels. The Z-Wav
 <iframe src="https://www.youtube.com/embed/f3isVVpmiq4" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title Vacuum cleaners %}
+## Vacuum cleaners
 
 As we have seen more vacuum cleaners land in Home Assistant, it was time to create an official component for them. That's why [@azogue] introduced the new vacuum cleaner component in  [#8623]. This allows first class integration of vacuum cleaners in Home Assistant. Out of the box we will have Dyson, Xiamo and Roomba as supported platforms.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
-- Added Lutron Caseta Scene Support ([@809694+kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
+- Added Lutron Caseta Scene Support ([@kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
 - New media_player platform for Russound devices using the RIO protocol ([@wickerwaka] - [#8448]) ([media_player.russound_rio docs]) (new-platform)
 - New component: bluesound ([@thrawnarn] - [#7192]) ([media_player.bluesound docs]) (new-platform)
 - Add mochad light component ([@mtreinish] - [#8476]) ([light.mochad docs]) (new-platform)
@@ -55,11 +55,11 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 - Add new device tracker for Huawei Routers. ([@abmantis] - [#8488]) ([device_tracker.huawei_router docs]) (new-platform)
 - Add Shodan sensor ([@fabaff] - [#8902]) ([sensor.shodan docs]) (new-platform)
 
-## {% linkable_title Release 0.51.1 - August 12 %}
+## Release 0.51.1 - August 12
 
  - Fixed a bug in the automation editor that would break if no conditions available in the config file. ([@balloob])
 
-## {% linkable_title Release 0.51.2 - August 14 %}
+## Release 0.51.2 - August 14
 
 - Fix zwave power_consumption attribute ([@andrey-git] - [#8968]) ([zwave docs])
 - Turn foscam verbose mode off ([@andrey-git] - [#8967]) ([camera.foscam docs])
@@ -71,14 +71,14 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 - Add workaround for broken toggles in Safari  ([@balloob])
 - Fix weblink opening twice ([@azogue])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Efergy sensors: change units from KW to W ([@emlt] - [#8761]) ([sensor.efergy docs]) (breaking change)
 - Xiaomi vacuum is now a platform of new `vacuum` component derived from ToggleEntity, and services ([@azogue] - [#8623]) (breaking change) (new-platform)
@@ -91,11 +91,11 @@ vacuum:
   token: !secret xiaomi_vacuum_robot_token
 ```
 
-## {% linkable_title All changes %}
+## All changes
 
 - Upgrade pushbullet.py to 0.11.0 ([@fabaff] - [#8691]) ([notify.pushbullet docs])
 - Upgrade mypy to 0.521 ([@fabaff] - [#8692])
-- Added Lutron Caseta Scene Support ([@809694+kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
+- Added Lutron Caseta Scene Support ([@kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
 - Remove deprecated host and ssl logic from Kodi ([@armills] - [#8700]) ([media_player.kodi docs])
 - Remove deprecated substitute interfaces ([@armills] - [#8701]) ([binary_sensor docs]) ([media_player docs])
 - Remove deprecated sensor_class config options ([@armills] - [#8702])
@@ -131,12 +131,12 @@ vacuum:
 - Update numpy 1.13.1 ([@pvizeli] - [#8806]) ([image_processing.opencv docs])
 - Upgrade aiohttp to 2.2.4 ([@fabaff] - [#8805])
 - Catch divide by zero errors when a sleep type is 0 ([@mezz64] - [#8809]) ([sensor.eight_sleep docs])
-- InfluxDB component improvements ([@hageltech] - [#8633]) ([influxdb docs])
+- InfluxDB component improvements ([@haimgel] - [#8633]) ([influxdb docs])
 - When Sonos gets a tts source - dont't show an image ([@andrey-git] - [#8777]) ([media_player.sonos docs])
 - Polymer 2 ([@balloob] - [#8815]) ([group docs])
 - geizhals sensor component ([@JulianKahnert] - [#8458]) ([sensor.geizhals docs]) (new-platform)
 - Xiaomi vacuum as platform of new `vacuum` component derived from ToggleEntity, and services ([@azogue] - [#8623]) (breaking change) (new-platform)
-- Update yweather.py ([@fanthos] - [#8820]) ([weather.yweather docs])
+- Update yweather.py ([@fanthos] - [#8820])
 - Make HA discover sabnzbd and add it to the Configurator ([@Hellowlol] - [#8634]) ([sensor.sabnzbd docs])
 - Fix Dyson sensors if devices are configured without standby monitoring. Fixes #8569 ([@CharlesBlonde] - [#8826]) ([dyson docs]) ([fan.dyson docs]) ([sensor.dyson docs])
 - Block dependencies that depend on enum34 ([@balloob] - [#8698])
@@ -177,12 +177,12 @@ vacuum:
 - Allow usage of colorlog 3.0.1 ([@fabaff] - [#8885])
 - Change level ([@fabaff] - [#8883]) ([sensor.statistics docs])
 - Upgrade youtube_dl to 2017.8.6 ([@fabaff] - [#8880]) ([media_extractor docs])
-- Fix media_extractor for some sites ([@Spirit-X] - [#8887]) ([media_extractor docs])
+- Fix media_extractor for some sites ([@AlexxIT] - [#8887]) ([media_extractor docs])
 - Do not call update() in constructor ([@fabaff] - [#8878])
 - Do not call update() in constructor ([@fabaff] - [#8892]) ([binary_sensor.command_line docs]) ([sensor.command_line docs]) ([switch.command_line docs])
 - Changed Pi-hole graphs from stacked bar to line ([@bachya] - [#8896]) ([sensor.pi_hole docs])
 - Add longer text strings to mailbox demo to test string truncation ([@PhracturedBlue] - [#8893]) ([mailbox.demo docs]) ([mailbox.demo.txt docs])
-- added support for setting/getting position of lutron caseta covers ([@809694+kfcook] - [#8898]) ([cover.lutron_caseta docs])
+- added support for setting/getting position of lutron caseta covers ([@kfcook] - [#8898]) ([cover.lutron_caseta docs])
 - Fix for Neato D3 Connected state obtaining ([@karlkar] - [#8817]) ([sensor.neato docs]) ([switch.neato docs])
 - Update simplisafe-python version ([@w1ll1am23] - [#8908]) ([alarm_control_panel.simplisafe docs])
 - LIFX: improve performance of multi-light transitions ([@amelchio] - [#8873]) ([light.lifx docs])
@@ -300,7 +300,7 @@ vacuum:
 [#8925]: https://github.com/home-assistant/home-assistant/pull/8925
 [#8928]: https://github.com/home-assistant/home-assistant/pull/8928
 [#8930]: https://github.com/home-assistant/home-assistant/pull/8930
-[@809694+kfcook]: https://github.com/809694+kfcook
+[@kfcook]: https://github.com/kfcook
 [@CharlesBlonde]: https://github.com/CharlesBlonde
 [@Hellowlol]: https://github.com/Hellowlol
 [@JulianKahnert]: https://github.com/JulianKahnert
@@ -308,7 +308,7 @@ vacuum:
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@OverloadUT]: https://github.com/OverloadUT
 [@PhracturedBlue]: https://github.com/PhracturedBlue
-[@Spirit-X]: https://github.com/Spirit-X
+[@AlexxIT]: https://github.com/AlexxIT
 [@StevenLooman]: https://github.com/StevenLooman
 [@abmantis]: https://github.com/abmantis
 [@alanfischer]: https://github.com/alanfischer
@@ -326,7 +326,7 @@ vacuum:
 [@foxel]: https://github.com/foxel
 [@fronzbot]: https://github.com/fronzbot
 [@gwhiteCL]: https://github.com/gwhiteCL
-[@hageltech]: https://github.com/hageltech
+[@haimgel]: https://github.com/haimgel
 [@jeroenterheerdt]: https://github.com/jeroenterheerdt
 [@karlkar]: https://github.com/karlkar
 [@leppa]: https://github.com/leppa
@@ -353,107 +353,106 @@ vacuum:
 [@viswa-swami]: https://github.com/viswa-swami
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wickerwaka]: https://github.com/wickerwaka
-[alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
-[alexa docs]: /components/alexa/
-[asterisk_mbox docs]: /components/asterisk_mbox/
-[automation docs]: /components/automation/
-[binary_sensor docs]: /components/binary_sensor/
-[binary_sensor.command_line docs]: /components/binary_sensor.command_line/
-[binary_sensor.rest docs]: /components/binary_sensor.rest/
-[binary_sensor.zwave docs]: /components/binary_sensor.zwave/
-[camera.foscam docs]: /components/camera.foscam/
-[climate docs]: /components/climate/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.tado docs]: /components/climate.tado/
-[config.zwave docs]: /components/config.zwave/
-[cover.lutron_caseta docs]: /components/cover.lutron_caseta/
-[cover.rpi_gpio docs]: /components/cover.rpi_gpio/
-[device_tracker.huawei_router docs]: /components/device_tracker.huawei_router/
-[dyson docs]: /components/dyson/
-[emulated_hue docs]: /components/emulated_hue/
-[fan.dyson docs]: /components/fan.dyson/
-[group docs]: /components/group/
-[history docs]: /components/history/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[influxdb docs]: /components/influxdb/
-[insteon_plm docs]: /components/insteon_plm/
-[light.decora_wifi docs]: /components/light.decora_wifi/
-[light.flux_led docs]: /components/light.flux_led/
-[light.lifx docs]: /components/light.lifx/
-[light.mochad docs]: /components/light.mochad/
-[light.osramlightify docs]: /components/light.osramlightify/
-[lock.nuki docs]: /components/lock.nuki/
-[lutron_caseta docs]: /components/lutron_caseta/
-[mailbox.demo docs]: /components/mailbox.demo/
-[mailbox.demo.txt docs]: /components/mailbox.demo.txt/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[media_player.bluesound docs]: /components/media_player.bluesound/
-[media_player.cast docs]: /components/media_player.cast/
-[media_player.directv docs]: /components/media_player.directv/
-[media_player.kodi docs]: /components/media_player.kodi/
-[media_player.mpd docs]: /components/media_player.mpd/
-[media_player.russound_rio docs]: /components/media_player.russound_rio/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.squeezebox docs]: /components/media_player.squeezebox/
-[notify.pushbullet docs]: /components/notify.pushbullet/
-[notify.xmpp docs]: /components/notify.xmpp/
-[recorder docs]: /components/recorder/
-[recorder.migration docs]: /components/recorder.migration/
-[recorder.models docs]: /components/recorder.models/
-[recorder.purge docs]: /components/recorder.purge/
-[recorder.util docs]: /components/recorder.util/
-[remote docs]: /components/remote/
-[remote.apple_tv docs]: /components/remote.apple_tv/
-[remote.demo docs]: /components/remote.demo/
-[remote.harmony docs]: /components/remote.harmony/
-[remote.itach docs]: /components/remote.itach/
-[remote.kira docs]: /components/remote.kira/
-[rflink docs]: /components/rflink/
-[scene.lutron_caseta docs]: /components/scene.lutron_caseta/
-[sensor.asterisk_mbox docs]: /components/sensor.asterisk_mbox/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.command_line docs]: /components/sensor.command_line/
-[sensor.dyson docs]: /components/sensor.dyson/
-[sensor.efergy docs]: /components/sensor.efergy/
-[sensor.eight_sleep docs]: /components/sensor.eight_sleep/
-[sensor.geizhals docs]: /components/sensor.geizhals/
-[sensor.google_wifi docs]: /components/sensor.google_wifi/
-[sensor.lastfm docs]: /components/sensor.lastfm/
-[sensor.neato docs]: /components/sensor.neato/
-[sensor.pi_hole docs]: /components/sensor.pi_hole/
-[sensor.pocketcasts docs]: /components/sensor.pocketcasts/
-[sensor.radarr docs]: /components/sensor.radarr/
-[sensor.rest docs]: /components/sensor.rest/
-[sensor.sabnzbd docs]: /components/sensor.sabnzbd/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.sonarr docs]: /components/sensor.sonarr/
-[sensor.statistics docs]: /components/sensor.statistics/
-[sensor.supervisord docs]: /components/sensor.supervisord/
-[sensor.synologydsm docs]: /components/sensor.synologydsm/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.vasttrafik docs]: /components/sensor.vasttrafik/
-[sensor.yr docs]: /components/sensor.yr/
-[sensor.zamg docs]: /components/sensor.zamg/
-[switch.command_line docs]: /components/switch.command_line/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.neato docs]: /components/switch.neato/
-[switch.rachio docs]: /components/switch.rachio/
-[switch.rainmachine docs]: /components/switch.rainmachine/
-[switch.wink docs]: /components/switch.wink/
-[switch.xiaomi_vacuum docs]: /components/switch.xiaomi_vacuum/
-[telegram_bot docs]: /components/telegram_bot/
-[updater docs]: /components/updater/
-[vacuum docs]: /components/vacuum/
-[vacuum.demo docs]: /components/vacuum.demo/
-[vacuum.dyson docs]: /components/vacuum.dyson/
-[vacuum.roomba docs]: /components/vacuum.roomba/
-[vacuum.xiaomi docs]: /components/vacuum.xiaomi/
-[weather.buienradar docs]: /components/weather.buienradar/
-[weather.yweather docs]: /components/weather.yweather/
-[weather.zamg docs]: /components/weather.zamg/
-[wink docs]: /components/wink/
-[zwave docs]: /components/zwave/
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alexa docs]: /integrations/alexa/
+[asterisk_mbox docs]: /integrations/asterisk_mbox/
+[automation docs]: /integrations/automation/
+[binary_sensor docs]: /integrations/binary_sensor/
+[binary_sensor.command_line docs]: /integrations/command_line
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.zwave docs]: /integrations/zwave
+[camera.foscam docs]: /integrations/foscam
+[climate docs]: /integrations/climate/
+[climate.honeywell docs]: /integrations/honeywell
+[climate.tado docs]: /integrations/tado
+[config.zwave docs]: /integrations/config.zwave/
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[cover.rpi_gpio docs]: /integrations/rpi_gpio#cover
+[device_tracker.huawei_router docs]: /integrations/huawei_router
+[dyson docs]: /integrations/dyson/
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.dyson docs]: /integrations/dyson#fan
+[group docs]: /integrations/group/
+[history docs]: /integrations/history/
+[image_processing.opencv docs]: /integrations/opencv
+[influxdb docs]: /integrations/influxdb/
+[insteon_plm docs]: /integrations/insteon/
+[light.decora_wifi docs]: /integrations/decora_wifi/
+[light.flux_led docs]: /integrations/flux_led
+[light.lifx docs]: /integrations/lifx
+[light.mochad docs]: /integrations/mochad#light
+[light.osramlightify docs]: /integrations/osramlightify
+[lock.nuki docs]: /integrations/nuki
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[mailbox.demo docs]: /integrations/demo/
+[mailbox.demo.txt docs]: /integrations/demo/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.cast docs]: /integrations/cast
+[media_player.directv docs]: /integrations/directv
+[media_player.kodi docs]: /integrations/kodi
+[media_player.mpd docs]: /integrations/mpd
+[media_player.russound_rio docs]: /integrations/russound_rio
+[media_player.sonos docs]: /integrations/sonos
+[media_player.squeezebox docs]: /integrations/squeezebox
+[notify.pushbullet docs]: /integrations/pushbullet
+[notify.xmpp docs]: /integrations/xmpp
+[recorder docs]: /integrations/recorder/
+[recorder.migration docs]: /integrations/recorder.migration/
+[recorder.models docs]: /integrations/recorder.models/
+[recorder.purge docs]: /integrations/recorder.purge/
+[recorder.util docs]: /integrations/recorder.util/
+[remote docs]: /integrations/remote/
+[remote.apple_tv docs]: /integrations/apple_tv#remote
+[remote.demo docs]: /integrations/remote.demo/
+[remote.harmony docs]: /integrations/harmony
+[remote.itach docs]: /integrations/itach
+[remote.kira docs]: /integrations/kira
+[rflink docs]: /integrations/rflink/
+[scene.lutron_caseta docs]: /integrations/lutron#scene_caseta/
+[sensor.asterisk_mbox docs]: /integrations/sensor.asterisk_mbox/
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.command_line docs]: /integrations/sensor.command_line/
+[sensor.dyson docs]: /integrations/dyson#sensor
+[sensor.efergy docs]: /integrations/efergy
+[sensor.eight_sleep docs]: /integrations/eight_sleep
+[sensor.geizhals docs]: /integrations/geizhals
+[sensor.google_wifi docs]: /integrations/google_wifi
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.neato docs]: /integrations/neato/
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.pocketcasts docs]: /integrations/pocketcasts
+[sensor.radarr docs]: /integrations/radarr
+[sensor.rest docs]: /integrations/rest
+[sensor.sabnzbd docs]: /integrations/sabnzbd
+[sensor.shodan docs]: /integrations/shodan
+[sensor.sonarr docs]: /integrations/sonarr
+[sensor.statistics docs]: /integrations/statistics
+[sensor.supervisord docs]: /integrations/supervisord
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.vasttrafik docs]: /integrations/vasttrafik
+[sensor.yr docs]: /integrations/yr
+[sensor.zamg docs]: /integrations/zamg#sensor
+[switch.command_line docs]: /integrations/switch.command_line/
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.neato docs]: /integrations/neato#switch
+[switch.rachio docs]: /integrations/rachio#switch
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.wink docs]: /integrations/wink#switch
+[switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
+[telegram_bot docs]: /integrations/telegram_bot/
+[updater docs]: /integrations/updater/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.demo docs]: /integrations/vacuum.demo/
+[vacuum.dyson docs]: /integrations/dyson#vacuum
+[vacuum.roomba docs]: /integrations/roomba
+[vacuum.xiaomi docs]: /integrations/vacuum.xiaomi_miio/
+[weather.buienradar docs]: /integrations/buienradar
+[weather.zamg docs]: /integrations/zamg#weather
+[wink docs]: /integrations/wink/
+[zwave docs]: /integrations/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "iBeacons: How to track things that can’t track themselves (part II)"
 description: A step by step guide how to tracking dumb devices by using iBeacons.
 date: 2016-05-26 12:06:12 +0100
 date_formatted: "May 26, 2016"
 author: Greg Dowling
 author_twitter: pavoni240
-comments: true
 categories: iBeacons Device-Tracking OwnTracks
 og_image: /images/blog/2016-05-ibeacons/keys_device.png
 ---
@@ -16,7 +14,7 @@ _This post is by Home Assistant contributor [Greg Dowling](https://github.com/pa
 
 In [Part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better) I talked about using iBeacons to improve presence tracking. In part 2 I’ll talk about how to track things like keys that can’t track themselves by using iBeacons.
 
-### {% linkable_title Tracking things using iBeacons %}
+### Tracking things using iBeacons
 In the first part I mentioned that iBeacons just send out *I’m here* packets, and we used this to trigger an update when your phone came close to a fixed beacon.
 
 But beacons don’t have to be fixed.
@@ -36,7 +34,9 @@ So if you put an iBeacon on your keys or in your car - then you can track them.
 
 It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.
 
-<p class='note warning'>OwnTracks currently only supports mobile beacons on iOS.</p>
+<div class='note warning'>
+OwnTracks currently only supports mobile beacons on iOS.
+</div>
 
 You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.
 
@@ -121,24 +121,14 @@ script:
 2. I’ve found that beacons (especially the low power Estimote Nearables) can get disconnected for a few seconds so it’s best to wait a minute or so before deciding that you’ve left your keys behind)
 
 
-### {% linkable_title Using both types of iBeacons at the same time %}
+### Using both types of iBeacons at the same time
 Of course you can use both fixed and mobile beacons at the same time. I want my gates to open when I arrive home in the car - so I use an iBeacon in the car so that I can track the car, and an iBeacon on my drive so that a location update is triggered when I arrive. I've been experimenting with a high power beacon in a waterproof box on my drive which seems to work well to notice when I get home.
 
-<p class='img'>
-  <img  width='300' src='http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Long-Range.jpg'>
-</p>
-Long range / High power beacon
 
-<p class='img'>
-  <img  width='400' src='http://bluesensenetworks.com/wp-content/uploads/2015/02/BlueBar-Beacon-Weatherproof.jpg'>
-</p>
-Waterproof beacon
-
-
-### {% linkable_title Buying Beacons %}
+### Buying Beacons
 This isn’t a buyer's guide, but I just wanted to mention the iBeacons I’ve been using. I think you should be able to use any iBeacon with HA and OwnTracks. You generally can’t buy beacons in your local electronics shop - so I just wanted to briefly mention the two suppliers I’ve used so far.
 
-I’ve bought quite a few iBeacons from a company called [Blue Sense Networks](http://bluesensenetworks.com/). I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.
+I’ve bought quite a few iBeacons from a company called Blue Sense Networks. I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.
 
 All the beacons seem fine - and the long range unit does work over a longer range than my other beacons.
 
@@ -148,12 +138,12 @@ I’ve mainly used these as *devices to track* rather that *location* beacons. E
 
 The larger Blue Sense Network beacons seem to be better at maintaining a connection that the Estimotes - although that might be because I’m reluctant to turn the power to maximum and reduce the gap between sending packets on the Estimotes where I can’t replace the batteries!
 
-### {% linkable_title Conclusion %}
+### Conclusion
 As I said in [part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better), I’ve found iBeacons to be a good way of improving presence detection. I also used them to track devices like my car and my keys that can’t track themselves.
 
 I'm still experimenting, so I hope I can do more with iBeacons. I hope I've encouraged you do so the same. If you do please share your experiences.
 
-### {% linkable_title Notes %}
+### Notes
 
 Please see the [notes at the end of Part 1](/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better/#tips) for documentation information.
 

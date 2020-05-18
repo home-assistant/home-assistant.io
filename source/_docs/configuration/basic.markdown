@@ -1,52 +1,83 @@
 ---
-layout: page
 title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
-date: 2015-03-23 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/basic/
 ---
 
-By default, Home Assistant will try to detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You can overwrite this by adding the following information to your `configuration.yaml`:
+As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You may adjust this during onboarding, or afterwards at Configuration -> General. 
+
+If you prefer YAML, you can add the following information to your `configuration.yaml`:
 
 ```yaml
 homeassistant:
+  name: Home
   latitude: 32.87336
   longitude: 117.22743
   elevation: 430
   unit_system: metric
   time_zone: America/Los_Angeles
-  name: Home
+  external_url: "https://www.example.com"
+  internal_url: "http://homeassistant.local:8123"
+  whitelist_external_dirs:
+    - /usr/var/dumping-ground
+    - /tmp
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: Name of the location where Home Assistant is running.
+  required: false
+  type: string
+latitude:
+  description: Latitude of your location required to calculate the time the sun rises and sets.
+  required: false
+  type: float
+longitude:
+  description: Longitude of your location required to calculate the time the sun rises and sets.
+  required: false
+  type: float
+elevation:
+  description: Altitude above sea level in meters. Impacts weather/sunrise data.
+  required: false
+  type: integer
+unit_system:
+  description: "`metric` for Metric, `imperial` for Imperial. This also sets temperature_unit, Celsius for Metric and Fahrenheit for Imperial"
+  required: false
+  type: string
+temperature_unit:
+  description: "Override temperature unit set by unit_system. `C` for Celsius, `F` for Fahrenheit."
+  required: false
+  type: string
+time_zone:
+  description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
+  required: false
+  type: string
+external_url:
+  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
+  required: false
+  type: string
+internal_url:
+  description: "The URL that Home Assistant is available on from your local network. For example: `http://homeassistant.local:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
+  required: false
+  type: string
+customize:
+  description: "[Customize](/docs/configuration/customizing-devices/) entities."
+  required: false
+  type: string
+customize_domain:
+  description: "[Customize](/docs/configuration/customizing-devices/) all entities in a domain."
+  required: false
+  type: string
+customize_glob:
+  description: "[Customize](/docs/configuration/customizing-devices/) entities matching a pattern."
+  required: false
+  type: string
+whitelist_external_dirs:
+  description: List of folders that can be used as sources for sending files.
+  required: false
+  type: list
+{% endconfiguration %}
 
-- **latitude** (*Optional*): Latitude of your location required to calculate the time the sun rises and sets.
-- **longitude** (*Optional*): Longitude of your location required to calculate the time the sun rises and sets.
-- **elevation** (*Optional*): Altitude above sea level in meters. Impacts weather/sunrise data. 
-- **unit_system** (*Optional*): `metric` for Metric, `imperial` for Imperial.
-- **time_zone** (*Optional*): Pick yours from here: [http://en.wikipedia.org/wiki/List_of_tz_database_time_zones](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
-- **name** (*Optional*): Name of the location where Home Assistant is running.
-- **customize** (*Optional*): [Customize](/docs/configuration/customizing-devices/) entities.
-- **customize_domain** (*Optional*): [Customize](/docs/configuration/customizing-devices/) all entities in a domain.
-- **customize_glob** (*Optional*): [Customize](/docs/configuration/customizing-devices/) entities matching a pattern.
-- **whitelist_external_dirs** (*Optional*): List of folders that can be used as sources for sending files.
+## Reload Core Service
 
-### {% linkable_title Password protecting the web interface %}
-
-First, you'll want to add a password for the Home Assistant web interface. Use your favorite text editor to open `configuration.yaml` and edit the `http` section:
-
-```yaml
-http:
-  api_password: YOUR_PASSWORD
-```
-
-<p class='note warning'>
-If you decide to expose your Home Assistant instance to the internet and forget to set a password, your installation could be accessed by everybody.
-</p>
-
-See the [HTTP component documentation](/components/http/) for more options, such as the use of HTTPS encryption.
-
+Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "Service" tab under Developer Tools, select the `homeassistant.reload_core_config` service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under Configuration > Server Control.

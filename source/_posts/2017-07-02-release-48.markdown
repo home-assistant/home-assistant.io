@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "0.48: Snips.ai, Shiftr.io and a massive History query speed up"
 description: "Build your own local voice assistant with the new Snips.ai component, visualize your data with Shiftr.io and enjoy faster history browsing."
 date: 2017-07-02 00:02:05 +0000
 date_formatted: "July 2, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-07-0.48/components.png
 ---
 
-<a href='/components/#version/0.48'><img src='/images/blog/2017-07-0.48/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.48'><img src='/images/blog/2017-07-0.48/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for a great new release!
 
@@ -26,11 +24,11 @@ zwave:
   new_entity_ids: false
 ```
 
-## {% linkable_title Big speed up in querying the history %}
+## Big speed up in querying the history
 
 Thanks to the work by [@cmsimike] in [#8255] you'll see a significant speed up when using the history view. In his local tests queries went from 1 minute to 90ms! ⚡️
 
-## {% linkable_title Snips.ai component %}
+## Snips.ai component
 
 Snips has contributed a component to integrate with their Snips.ai local voice assistant. This will allow you to hook a speaker and a microphone into your Raspberry Pi and make your own local Amazon Echo quickly. See [the docs][snips docs] for further instructions.
 
@@ -38,7 +36,7 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 
 [issue-polymer]: https://github.com/home-assistant/home-assistant-polymer/issues
 
-## {% linkable_title Release 0.48.1 - July 5 %}
+## Release 0.48.1 - July 5
 
 - Fix arlo sensors. ([@bergemalm] - [#8333]) ([sensor.arlo docs])
 - API POST no longer marks the number zero as invalid ([@azogue] - [#8324]) ([api docs])
@@ -48,7 +46,7 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 - Fix Arlo startup crash (fixes #8288) ([@fabaff] - [#8290]) ([camera.arlo docs])
 - Temporary fix for the client_id generation (fixes #8315) ([@fabaff] - [#8336]) ([mqtt docs])
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
 - Upnp properties ([@dgomes] - [#8067]) ([upnp docs]) ([sensor.upnp docs]) (new-platform)
@@ -67,15 +65,15 @@ Also a shoutout to [@michaelarnauts] for keeping an eye on our Docker build and 
 - Implement templates for covers ([@PhracturedBlue] - [#8100]) ([cover.template docs]) (new-platform)
 - Snips ASR and NLU component ([@michaelfester] - [#8156]) ([snips docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - We have added a new option to whitelist folders that can be used as sources for sending files. You will need to use this option if you are using files with the telegram component. ([@pvizeli] - [#8189]) (breaking change)
 
@@ -89,7 +87,7 @@ homeassistant:
 - Vera battery levels will no longer have the percent sign appended ([@philhawthorne] - [#8069]) ([vera docs]) (breaking change)
 - Notify - SMTP: Added SMTP SSL/TLS support so now you should specify which encryption to use. ([@sn0oz] - [#7960]) ([notify.smtp docs]) (breaking change)
 
-```
+```yaml
 notify:
   - name: mail
     platform: smtp
@@ -120,7 +118,7 @@ light:
         fade: none
 ```
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update numpy 1.13.0 ([@pvizeli] - [#8059]) ([image_processing.opencv docs])
 - No update in MQTT Binary Sensor #7478 ([@pezinek] - [#8057])
@@ -133,8 +131,8 @@ light:
 - Add initial support for Shiftr.io ([@fabaff] - [#7974]) ([shiftr docs]) (new-platform)
 - Add option to set language of openweathermap sensor, and handle updating errors ([@azogue] - [#8046]) ([sensor.openweathermap docs])
 - Bump pyEmby version to account for API changes ([@mezz64] - [#8070]) ([media_player.emby docs])
-- bump ups ([@happyleavesaoc] - [#8075]) ([sensor.ups docs])
-- bump usps version ([@happyleavesaoc] - [#8074]) ([sensor.usps docs])
+- bump ups ([@happyleavesaoc] - [#8075])
+- bump usps version ([@happyleavesaoc] - [#8074])
 - Add to zwave services descriptions ([@andrey-git] - [#8072])
 - Fix attribute entity ([@pvizeli] - [#8066]) (breaking change)
 - Added 'all_plants' group and support for plant groups state. ([@aronsky] - [#8063]) ([group docs]) ([plant docs])
@@ -167,11 +165,11 @@ light:
 - Do not call update() in constructor ([@fabaff] - [#8120]) ([sensor.netdata docs])
 - Change Error Message when Turning off ISY994 Light ([@SConaway] - [#8131]) ([light.isy994 docs])
 - Allow iteration in python_script ([@balloob] - [#8134]) ([python_script docs])
-- Add current balance to hydroquebec sensor ([@titilambert] - [#8138]) ([sensor.hydroquebec docs])
+- Add current balance to hydroquebec sensor ([@titilambert] - [#8138])
 - Decora light: Fix brightness level in UI ([@titilambert] - [#8139]) ([light.decora docs])
 - Add I2c BME280 temperature, humidity and pressure sensor for Raspberry Pi ([@azogue] - [#7989]) ([sensor.bme280 docs]) (new-platform)
 - Upgrade libsoundtouch to prevent Python3.6 errors with enum. #7733 #8103 ([@CharlesBlonde] - [#8143]) ([media_player.soundtouch docs])
-- Adds CPU temp monitoring, and allow startup when endpoint is not yet available. ([@jjmontestl] - [#8093]) ([sensor.glances docs])
+- Adds CPU temp monitoring, and allow startup when endpoint is not yet available. ([@jjmontesl] - [#8093]) ([sensor.glances docs])
 - Add I2c HTU21D temperature and humidity sensor for Raspberry Pi ([@azogue] - [#8049]) ([sensor.htu21d docs]) (new-platform)
 - Add new BH1750 light level sensor ([@azogue] - [#8050]) ([sensor.bh1750 docs]) (new-platform)
 - LimitlessLED: Configurable fade-out behavior ([@SmilyOrg] - [#7369]) ([light.limitlessled docs]) (breaking change)
@@ -232,7 +230,7 @@ light:
 - Use constant and update ordering ([@fabaff] - [#8246]) ([arlo docs]) ([camera.arlo docs])
 - Add PlatformNotReady support for Sensibo ([@andrey-git] - [#8252]) ([climate.sensibo docs])
 - verisure component names ([@persandstrom] - [#8251]) ([binary_sensor.verisure docs]) ([camera.verisure docs]) ([lock.verisure docs]) ([switch.verisure docs])
-- further document add_node_secure ([@kentcalero] - [#8229])
+- further document add_node_secure ([@JudgeDreddKLC] - [#8229])
 - Upgrade libnacl to 1.5.1 ([@fabaff] - [#8259]) ([device_tracker.owntracks docs])
 - Docker cleanup. ([@michaelarnauts] - [#8226])
 - Implement templates for covers ([@PhracturedBlue] - [#8100]) ([cover.template docs]) (new-platform)
@@ -389,10 +387,10 @@ light:
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@jawilson]: https://github.com/jawilson
 [@jeanregisser]: https://github.com/jeanregisser
-[@jjmontestl]: https://github.com/jjmontestl
+[@jjmontesl]: https://github.com/jjmontesl
 [@jshore1296]: https://github.com/jshore1296
 [@karlw00t]: https://github.com/karlw00t
-[@kentcalero]: https://github.com/kentcalero
+[@JudgeDreddKLC]: https://github.com/JudgeDreddKLC
 [@lrmate]: https://github.com/lrmate
 [@lunar-consultancy]: https://github.com/lunar-consultancy
 [@madpilot]: https://github.com/madpilot
@@ -421,103 +419,100 @@ light:
 [@voltagex]: https://github.com/voltagex
 [@wmalgadey]: https://github.com/wmalgadey
 [@ypollart]: https://github.com/ypollart
-[alarm_control_panel.verisure docs]: /components/alarm_control_panel.verisure/
-[alert docs]: /components/alert/
-[arlo docs]: /components/arlo/
-[axis docs]: /components/axis/
-[binary_sensor.arest docs]: /components/binary_sensor.arest/
-[binary_sensor.digital_ocean docs]: /components/binary_sensor.digital_ocean/
-[binary_sensor.modbus docs]: /components/binary_sensor.modbus/
-[binary_sensor.rfxtrx docs]: /components/binary_sensor.rfxtrx/
-[binary_sensor.verisure docs]: /components/binary_sensor.verisure/
-[calendar.google docs]: /components/calendar.google/
-[camera.arlo docs]: /components/camera.arlo/
-[camera.axis docs]: /components/camera.axis/
-[camera.local_file docs]: /components/camera.local_file/
-[camera.verisure docs]: /components/camera.verisure/
-[climate docs]: /components/climate/
-[climate.mysensors docs]: /components/climate.mysensors/
-[climate.radiotherm docs]: /components/climate.radiotherm/
-[climate.sensibo docs]: /components/climate.sensibo/
-[climate.tado docs]: /components/climate.tado/
-[comfoconnect docs]: /components/comfoconnect/
-[cover.knx docs]: /components/cover.knx/
-[cover.template docs]: /components/cover.template/
-[device_tracker.linksys_smart docs]: /components/device_tracker.linksys_smart/
-[device_tracker.mikrotik docs]: /components/device_tracker.mikrotik/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[device_tracker.unifi docs]: /components/device_tracker.unifi/
-[digital_ocean docs]: /components/digital_ocean/
-[fan.comfoconnect docs]: /components/fan.comfoconnect/
-[fan.dyson docs]: /components/fan.dyson/
-[fan.insteon_local docs]: /components/fan.insteon_local/
-[group docs]: /components/group/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[influxdb docs]: /components/influxdb/
-[insteon_hub docs]: /components/insteon_hub/
-[insteon_local docs]: /components/insteon_local/
-[knx docs]: /components/knx/
-[light.decora docs]: /components/light.decora/
-[light.isy994 docs]: /components/light.isy994/
-[light.lifx docs]: /components/light.lifx/
-[light.limitlessled docs]: /components/light.limitlessled/
-[light.vera docs]: /components/light.vera/
-[light.zwave docs]: /components/light.zwave/
-[lock.verisure docs]: /components/lock.verisure/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.emby docs]: /components/media_player.emby/
-[media_player.kodi docs]: /components/media_player.kodi/
-[media_player.mpd docs]: /components/media_player.mpd/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.soundtouch docs]: /components/media_player.soundtouch/
-[mqtt docs]: /components/mqtt/
-[mqtt.discovery docs]: /components/mqtt.discovery/
-[notify.clicksend docs]: /components/notify.clicksend/
-[notify.html5 docs]: /components/notify.html5/
-[notify.smtp docs]: /components/notify.smtp/
-[plant docs]: /components/plant/
-[python_script docs]: /components/python_script/
-[recorder docs]: /components/recorder/
-[recorder.migration docs]: /components/recorder.migration/
-[recorder.models docs]: /components/recorder.models/
-[remote.harmony docs]: /components/remote.harmony/
-[remote.itach docs]: /components/remote.itach/
-[rfxtrx docs]: /components/rfxtrx/
-[sensor.arest docs]: /components/sensor.arest/
-[sensor.bh1750 docs]: /components/sensor.bh1750/
-[sensor.bme280 docs]: /components/sensor.bme280/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.comfoconnect docs]: /components/sensor.comfoconnect/
-[sensor.dyson docs]: /components/sensor.dyson/
-[sensor.glances docs]: /components/sensor.glances/
-[sensor.htu21d docs]: /components/sensor.htu21d/
-[sensor.hydroquebec docs]: /components/sensor.hydroquebec/
-[sensor.knx docs]: /components/sensor.knx/
-[sensor.netdata docs]: /components/sensor.netdata/
-[sensor.openhardwaremonitor docs]: /components/sensor.openhardwaremonitor/
-[sensor.openweathermap docs]: /components/sensor.openweathermap/
-[sensor.pi_hole docs]: /components/sensor.pi_hole/
-[sensor.upnp docs]: /components/sensor.upnp/
-[sensor.ups docs]: /components/sensor.ups/
-[sensor.usps docs]: /components/sensor.usps/
-[sensor.verisure docs]: /components/sensor.verisure/
-[sensor.wunderground docs]: /components/sensor.wunderground/
-[shiftr docs]: /components/shiftr/
-[snips docs]: /components/snips/
-[switch.digital_ocean docs]: /components/switch.digital_ocean/
-[switch.rachio docs]: /components/switch.rachio/
-[switch.verisure docs]: /components/switch.verisure/
-[switch.wake_on_lan docs]: /components/switch.wake_on_lan/
-[tado docs]: /components/tado/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
-[tellduslive docs]: /components/tellduslive/
-[tts docs]: /components/tts/
-[upnp docs]: /components/upnp/
-[vera docs]: /components/vera/
-[verisure docs]: /components/verisure/
-[weather.buienradar docs]: /components/weather.buienradar/
-[zwave docs]: /components/zwave/
+[alarm_control_panel.verisure docs]: /integrations/verisure#alarm-control-panel
+[alert docs]: /integrations/alert/
+[arlo docs]: /integrations/arlo/
+[axis docs]: /integrations/axis/
+[binary_sensor.arest docs]: /integrations/arest#binary-sensor
+[binary_sensor.digital_ocean docs]: /integrations/digital_ocean#binary-sensor
+[binary_sensor.modbus docs]: /integrations/binary_sensor.modbus/
+[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.verisure docs]: /integrations/verisure
+[calendar.google docs]: /integrations/calendar.google/
+[camera.arlo docs]: /integrations/arlo#camera
+[camera.axis docs]: /integrations/axis
+[camera.local_file docs]: /integrations/local_file
+[camera.verisure docs]: /integrations/verisure
+[climate docs]: /integrations/climate/
+[climate.mysensors docs]: /integrations/climate.mysensors/
+[climate.radiotherm docs]: /integrations/radiotherm
+[climate.sensibo docs]: /integrations/sensibo
+[climate.tado docs]: /integrations/tado
+[comfoconnect docs]: /integrations/comfoconnect/
+[cover.knx docs]: /integrations/cover.knx/
+[cover.template docs]: /integrations/cover.template/
+[device_tracker.linksys_smart docs]: /integrations/linksys_smart
+[device_tracker.mikrotik docs]: /integrations/mikrotik
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.unifi docs]: /integrations/unifi
+[digital_ocean docs]: /integrations/digital_ocean/
+[fan.comfoconnect docs]: /integrations/comfoconnect
+[fan.dyson docs]: /integrations/dyson#fan
+[fan.insteon_local docs]: /integrations/insteon/
+[group docs]: /integrations/group/
+[image_processing.opencv docs]: /integrations/opencv
+[influxdb docs]: /integrations/influxdb/
+[insteon_hub docs]: /integrations/insteon/
+[insteon_local docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[light.decora docs]: /integrations/decora
+[light.isy994 docs]: /integrations/isy994
+[light.lifx docs]: /integrations/lifx
+[light.limitlessled docs]: /integrations/limitlessled
+[light.vera docs]: /integrations/vera
+[light.zwave docs]: /integrations/zwave
+[lock.verisure docs]: /integrations/verisure
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.emby docs]: /integrations/emby
+[media_player.kodi docs]: /integrations/kodi
+[media_player.mpd docs]: /integrations/mpd
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.soundtouch docs]: /integrations/soundtouch
+[mqtt docs]: /integrations/mqtt/
+[mqtt.discovery docs]: /docs/mqtt/discovery/
+[notify.clicksend docs]: /integrations/clicksend
+[notify.html5 docs]: /integrations/html5
+[notify.smtp docs]: /integrations/smtp
+[plant docs]: /integrations/plant/
+[python_script docs]: /integrations/python_script/
+[recorder docs]: /integrations/recorder/
+[recorder.migration docs]: /integrations/recorder.migration/
+[recorder.models docs]: /integrations/recorder.models/
+[remote.harmony docs]: /integrations/harmony
+[remote.itach docs]: /integrations/itach
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor.arest docs]: /integrations/arest#sensor
+[sensor.bh1750 docs]: /integrations/bh1750
+[sensor.bme280 docs]: /integrations/bme280
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.comfoconnect docs]: /integrations/comfoconnect
+[sensor.dyson docs]: /integrations/dyson#sensor
+[sensor.glances docs]: /integrations/glances
+[sensor.htu21d docs]: /integrations/htu21d
+[sensor.knx docs]: /integrations/sensor.knx/
+[sensor.netdata docs]: /integrations/netdata
+[sensor.openhardwaremonitor docs]: /integrations/openhardwaremonitor
+[sensor.openweathermap docs]: /integrations/openweathermap#sensor
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.upnp docs]: /integrations/upnp
+[sensor.verisure docs]: /integrations/verisure
+[sensor.wunderground docs]: /integrations/wunderground
+[shiftr docs]: /integrations/shiftr/
+[snips docs]: /integrations/snips/
+[switch.digital_ocean docs]: /integrations/digital_ocean#switch
+[switch.rachio docs]: /integrations/rachio#switch
+[switch.verisure docs]: /integrations/verisure
+[switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
+[tado docs]: /integrations/tado/
+[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
+[tellduslive docs]: /integrations/tellduslive/
+[tts docs]: /integrations/tts/
+[upnp docs]: /integrations/upnp/
+[vera docs]: /integrations/vera/
+[verisure docs]: /integrations/verisure/
+[weather.buienradar docs]: /integrations/buienradar
+[zwave docs]: /integrations/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
@@ -530,9 +525,9 @@ light:
 [#8336]: https://github.com/home-assistant/home-assistant/pull/8336
 [@adrienball]: https://github.com/adrienball
 [@bergemalm]: https://github.com/bergemalm
-[api docs]: /components/api/
-[camera.arlo docs]: /components/camera.arlo/
-[mqtt docs]: /components/mqtt/
-[remote.harmony docs]: /components/remote.harmony/
-[sensor.arlo docs]: /components/sensor.arlo/
-[snips docs]: /components/snips/
+[api docs]: /integrations/api/
+[camera.arlo docs]: /integrations/arlo#camera
+[mqtt docs]: /integrations/mqtt/
+[remote.harmony docs]: /integrations/harmony
+[sensor.arlo docs]: /integrations/arlo#sensor
+[snips docs]: /integrations/snips/

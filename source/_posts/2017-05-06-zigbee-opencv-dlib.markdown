@@ -1,19 +1,17 @@
 ---
-layout: post
-title: "Home Assistant 0.44: ZigBee, OpenCV and DLib"
+title: "Home Assistant 0.44: Zigbee, OpenCV and DLib"
 description: "Speak natively with Zigbee network, detect faces with OpenCV: 0.44 is here."
 date: 2017-05-06 01:04:05 +0000
 date_formatted: "May 6, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-05-0.44/components.png
 ---
 
-<a href='/components/#version/0.44'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.44'><img src='/images/blog/2017-05-0.44/components.png' style='border: 0;box-shadow: none;'></a>
 
-This release brings some great new integrations. The biggest one is the [native ZigBee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
+This release brings some great new integrations. The biggest one is the [native Zigbee integration][zha docs] by [Russell Cloran][@rcloran]. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)
 
 Another great new addition is [OpenCV][opencv docs] by [Teagan Glenn][@teagan42]. So now you'll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new [DLib integration][image_processing.dlib_face_identify docs] added by [Pascal Vizeli][@pvizeli] in this release.
 
@@ -23,13 +21,13 @@ And finally, for users of the config panel in the UI, we have fixed the issue wi
 
 Enjoy!
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title New integrations %}
+## New integrations
 
 - Pushbullet notification sensor ([@jotunacorn] - [#7182]) ([sensor.pushbullet docs])
 - Add https certificate expiry sensor ([@fabfurnari] - [#7272]) ([sensor.cert_expiry docs])
@@ -45,11 +43,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
 - Add support for face recognition with dlib ([@pvizeli] - [#7421]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
 
-## {% linkable_title Release 0.44.2 - May 8 %}
+## Release 0.44.2 - May 8
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
 
-## {% linkable_title Release 0.44.1 - May 7 %}
+## Release 0.44.1 - May 7
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
 - sensor.envirophat: add missing requirement ([@imrehg] - [#7451]) ([sensor.envirophat docs])
@@ -60,7 +58,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Cover: Fixed status reporting for range with non-zero base ([@cribbstechnologies])
 
 <!--more-->
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - Python Open Z-Wave made a release that fixed string processing. This was backwards incompatible. We have updated our code so you'll have to update to the latest Python Open Z-Wave with this release. You can also wait one release, as next release we'll introduce automatic installing of Python Open Z-Wave. ([@keatontaylor] - [#7266]) ([climate.zwave docs]) (breaking change)
 - InfluxDB configuration to blacklist domains has been updated to allow more features. ([@janLo] - [#7264]) (breaking change)
@@ -80,11 +78,11 @@ influxdb:
        - entity.id4
 ```
 
-- The Automatic device tracker has been converted from polling to websocket push. This requires you to make a change in your Automatic account, see [our documentation for instructions][device_tracker.automatic docs]. ([@armills] - [#7404]) ([device_tracker.automatic docs]) (breaking change)
+- The Automatic device tracker has been converted from polling to websocket push. This requires you to make a change in your Automatic account, see our documentation for instructions. ([@armills] - [#7404]) (breaking change)
 - The LimitlessLED color temperatures have been turned around to work like other lights. To maintain previous colors you must adjust the color_temp value in your light.turn_on calls to 654 minus your old value (for example, 280 becomes 374). ([@amelchio] - [#7359]) (breaking change)
 - Joao apps will now require an API key to be set for all commands. ([@nkgilley] - [#7443]) ([joaoapps_join docs]) ([notify.joaoapps_join docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - LIFX light effects ([@amelchio] - [#7145]) ([light.lifx docs])
 - HassIO API v2 ([@pvizeli] - [#7201])
@@ -109,14 +107,14 @@ influxdb:
 - Upgrade speedtest-cli to 1.0.5 ([@fabaff] - [#7215])
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Upgrade aiohttp_cors to 0.5.3 ([@fabaff] - [#7213])
-- Use consts and string formatting ([@fabaff] - [#7243]) ([notify.instapush docs])
+- Use consts and string formatting ([@fabaff] - [#7243]) (notify.instapush docs)
 - Pushed to version 0.4.0 of denonavr which also includes experimental support for Marantz receivers ([@scarface-4711] - [#7250])
 - Add notice regarding submission of analytics ([@craftyguy] - [#7263])
 - Iterating the dictionary directly ([@fabaff] - [#7251])
 - Don't use len(SEQUENCE) as condition value ([@fabaff] - [#7249])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
-- Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
+- Work around bad content-type in Hook api response ([@KlaasH] - [#7267])
 - Rfxtrx upgrade lib 0.18 ([@danielhiversen] - [#7273]) ([rfxtrx docs])
 - WIP: HassIO allow to access to container logs. ([@pvizeli] - [#7271])
 - Update aiolifx ([@amelchio] - [#7279]) ([light.lifx docs])
@@ -138,7 +136,7 @@ influxdb:
 - Fix breaking SSL in test HTML5 ([@balloob] - [#7310]) ([notify.html5 docs])
 - Upgrade pyhomematic, extend device support ([@danielperna84] - [#7303])
 - Issue 7218 update pylgtv to 0.1.7 ([@hmn] - [#7302]) ([media_player.webostv docs]) ([notify.webostv docs])
-- Version bump of aioautomatic ([@armills] - [#7300]) ([device_tracker.automatic docs])
+- Version bump of aioautomatic ([@armills] - [#7300])
 - Upgrade python-telegram-bot to 5.3.1 ([@fabaff] - [#7311]) ([notify.telegram docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs])
 - Disable Open Z-Wave in Docker ([@balloob] - [#7315])
 - LIFX: use white light when setting a specific temperature ([@amelchio] - [#7256]) ([light.lifx docs])
@@ -148,7 +146,7 @@ influxdb:
 - Reduce color_xy_brightness_to_hsv to color_xy_to_hs ([@amelchio] - [#7320]) ([light.hue docs]) ([light.lifx docs])
 - Fix broken docker build ([@turbokongen] - [#7316])
 - Re-enable Open Z-Wave in Dockerfile ([@balloob] - [#7325])
-- Version bump for automatic ([@armills] - [#7329]) ([device_tracker.automatic docs])
+- Version bump for automatic ([@armills] - [#7329])
 - Right fix for Python Open Z-Wave in Docker ([@balloob] - [#7337])
 - Use four-digits year ([@fabaff] - [#7336])
 - Allow multiple recipients for SMTP notify ([@amelchio] - [#7319]) ([notify.smtp docs])
@@ -197,7 +195,7 @@ influxdb:
 - Pilight binary sensor components ([@zeltom] - [#6774]) ([binary_sensor.pilight docs]) (new-platform)
 - applx suggested fix from issue #6573 ([@wokar] - [#7390]) ([sensor.zamg docs])
 - remove charset if set in content type header ([@hmn] - [#7411]) ([media_player docs])
-- Convert automatic device tracker to push updates ([@armills] - [#7404]) ([device_tracker.automatic docs]) (breaking change)
+- Convert automatic device tracker to push updates ([@armills] - [#7404]) (breaking change)
 - light.piglow update ([@imrehg] - [#7408]) ([light.piglow docs])
 - Opencv ([@Teagan42] - [#7261]) ([opencv docs]) ([image_processing.opencv docs]) (new-platform)
 - Fixed extra R in variable name. ([@cyberplant] - [#7418])
@@ -413,91 +411,88 @@ influxdb:
 [@wokar]: https://github.com/wokar
 [@wuub]: https://github.com/wuub
 [@zeltom]: https://github.com/zeltom
-[binary_sensor.alarmdecoder docs]: /components/binary_sensor.alarmdecoder/
-[binary_sensor.eight_sleep docs]: /components/binary_sensor.eight_sleep/
-[binary_sensor.maxcube docs]: /components/binary_sensor.maxcube/
-[binary_sensor.octoprint docs]: /components/binary_sensor.octoprint/
-[binary_sensor.pilight docs]: /components/binary_sensor.pilight/
-[binary_sensor.ping docs]: /components/binary_sensor.ping/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[camera.netatmo docs]: /components/camera.netatmo/
-[climate docs]: /components/climate/
-[climate.ecobee docs]: /components/climate.ecobee/
-[climate.maxcube docs]: /components/climate.maxcube/
-[climate.zwave docs]: /components/climate.zwave/
-[cover.garadget docs]: /components/cover.garadget/
-[cover.opengarage docs]: /components/cover.opengarage/
-[cover.zwave docs]: /components/cover.zwave/
-[device_tracker.automatic docs]: /components/device_tracker.automatic/
-[device_tracker.zha docs]: /components/device_tracker.zha/
-[ecobee docs]: /components/ecobee/
-[eight_sleep docs]: /components/eight_sleep/
-[enocean docs]: /components/enocean/
-[homematic docs]: /components/homematic/
-[image_processing.dlib_face_detect docs]: /components/image_processing.dlib_face_detect/
-[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
-[image_processing.microsoft_face_detect docs]: /components/image_processing.microsoft_face_detect/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[joaoapps_join docs]: /components/joaoapps_join/
-[light docs]: /components/light/
-[light.avion docs]: /components/light.avion/
-[light.blinkt docs]: /components/light.blinkt/
-[light.decora docs]: /components/light.decora/
-[light.flux_led docs]: /components/light.flux_led/
-[light.hue docs]: /components/light.hue/
-[light.lifx docs]: /components/light.lifx/
-[light.osramlightify docs]: /components/light.osramlightify/
-[light.piglow docs]: /components/light.piglow/
-[light.sensehat docs]: /components/light.sensehat/
-[light.tradfri docs]: /components/light.tradfri/
-[light.zha docs]: /components/light.zha/
-[light.zwave docs]: /components/light.zwave/
-[maxcube docs]: /components/maxcube/
-[media_player docs]: /components/media_player/
-[media_player.spotify docs]: /components/media_player.spotify/
-[media_player.webostv docs]: /components/media_player.webostv/
-[mqtt docs]: /components/mqtt/
-[notify.html5 docs]: /components/notify.html5/
-[notify.instapush docs]: /components/notify.instapush/
-[notify.joaoapps_join docs]: /components/notify.joaoapps_join/
-[notify.mailgun docs]: /components/notify.mailgun/
-[notify.matrix docs]: /components/notify.matrix/
-[notify.smtp docs]: /components/notify.smtp/
-[notify.telegram docs]: /components/notify.telegram/
-[notify.webostv docs]: /components/notify.webostv/
-[nuimo_controller docs]: /components/nuimo_controller/
-[octoprint docs]: /components/octoprint/
-[opencv docs]: /components/opencv/
-[plant docs]: /components/plant/
-[recorder docs]: /components/recorder/
-[rfxtrx docs]: /components/rfxtrx/
-[rss_feed_template docs]: /components/rss_feed_template/
-[sensor.cert_expiry docs]: /components/sensor.cert_expiry/
-[sensor.dht docs]: /components/sensor.dht/
-[sensor.eight_sleep docs]: /components/sensor.eight_sleep/
-[sensor.envirophat docs]: /components/sensor.envirophat/
-[sensor.ios docs]: /components/sensor.ios/
-[sensor.lyft docs]: /components/sensor.lyft/
-[sensor.pushbullet docs]: /components/sensor.pushbullet/
-[sensor.speedtest docs]: /components/sensor.speedtest/
-[sensor.thinkingcleaner docs]: /components/sensor.thinkingcleaner/
-[sensor.vera docs]: /components/sensor.vera/
-[sensor.zamg docs]: /components/sensor.zamg/
-[sensor.zha docs]: /components/sensor.zha/
-[switch.flux docs]: /components/switch.flux/
-[switch.hook docs]: /components/switch.hook/
-[switch.thinkingcleaner docs]: /components/switch.thinkingcleaner/
-[switch.wemo docs]: /components/switch.wemo/
-[switch.zha docs]: /components/switch.zha/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
-[updater docs]: /components/updater/
-[vera docs]: /components/vera/
-[wemo docs]: /components/wemo/
-[wink docs]: /components/wink/
-[zha docs]: /components/zha/
+[binary_sensor.alarmdecoder docs]: /integrations/alarmdecoder
+[binary_sensor.eight_sleep docs]: /integrations/eight_sleep
+[binary_sensor.maxcube docs]: /integrations/maxcube
+[binary_sensor.octoprint docs]: /integrations/octoprint#binary-sensor
+[binary_sensor.pilight docs]: /integrations/pilight#binary-sensor
+[binary_sensor.ping docs]: /integrations/ping#binary-sensor
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.zha docs]: /integrations/zha
+[camera.netatmo docs]: /integrations/netatmo#camera
+[climate docs]: /integrations/climate/
+[climate.ecobee docs]: /integrations/ecobee
+[climate.maxcube docs]: /integrations/maxcube
+[climate.zwave docs]: /integrations/zwave#climate
+[cover.garadget docs]: /integrations/garadget
+[cover.opengarage docs]: /integrations/opengarage
+[cover.zwave docs]: /integrations/zwave#cover
+[device_tracker.zha docs]: /integrations/device_tracker.zha/
+[ecobee docs]: /integrations/ecobee/
+[eight_sleep docs]: /integrations/eight_sleep/
+[enocean docs]: /integrations/enocean/
+[homematic docs]: /integrations/homematic/
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
+[image_processing.opencv docs]: /integrations/opencv
+[joaoapps_join docs]: /integrations/joaoapps_join/
+[light docs]: /integrations/light/
+[light.avion docs]: /integrations/avion
+[light.blinkt docs]: /integrations/blinkt
+[light.decora docs]: /integrations/decora
+[light.flux_led docs]: /integrations/flux_led
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.osramlightify docs]: /integrations/osramlightify
+[light.piglow docs]: /integrations/piglow
+[light.sensehat docs]: /integrations/sensehat#light
+[light.tradfri docs]: /integrations/tradfri
+[light.zha docs]: /integrations/zha
+[light.zwave docs]: /integrations/zwave
+[maxcube docs]: /integrations/maxcube/
+[media_player docs]: /integrations/media_player/
+[media_player.spotify docs]: /integrations/spotify
+[media_player.webostv docs]: /integrations/webostv#media-player
+[mqtt docs]: /integrations/mqtt/
+[notify.html5 docs]: /integrations/html5
+[notify.joaoapps_join docs]: /integrations/joaoapps_join
+[notify.mailgun docs]: /integrations/mailgun
+[notify.matrix docs]: /integrations/matrix/#notifications
+[notify.smtp docs]: /integrations/smtp
+[notify.telegram docs]: /integrations/telegram
+[notify.webostv docs]: /integrations/webostv
+[nuimo_controller docs]: /integrations/nuimo_controller/
+[octoprint docs]: /integrations/octoprint/
+[opencv docs]: /integrations/opencv/
+[plant docs]: /integrations/plant/
+[recorder docs]: /integrations/recorder/
+[rfxtrx docs]: /integrations/rfxtrx/
+[rss_feed_template docs]: /integrations/rss_feed_template/
+[sensor.cert_expiry docs]: /integrations/cert_expiry
+[sensor.dht docs]: /integrations/dht
+[sensor.eight_sleep docs]: /integrations/eight_sleep
+[sensor.envirophat docs]: /integrations/envirophat
+[sensor.ios docs]: /integrations/sensor.ios/
+[sensor.lyft docs]: /integrations/lyft
+[sensor.pushbullet docs]: /integrations/pushbullet#sensor
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.thinkingcleaner docs]: /integrations/thinkingcleaner#sensor
+[sensor.vera docs]: /integrations/vera#sensor
+[sensor.zamg docs]: /integrations/zamg#sensor
+[sensor.zha docs]: /integrations/zha
+[switch.flux docs]: /integrations/flux
+[switch.thinkingcleaner docs]: /integrations/thinkingcleaner#switch
+[switch.wemo docs]: /integrations/wemo
+[switch.zha docs]: /integrations/zha
+[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
+[updater docs]: /integrations/updater/
+[vera docs]: /integrations/vera/
+[wemo docs]: /integrations/wemo/
+[wink docs]: /integrations/wink/
+[zha docs]: /integrations/zha/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7062]: https://github.com/home-assistant/home-assistant/pull/7062
@@ -507,6 +502,6 @@ influxdb:
 [@finish06]: https://github.com/finish06
 [@frog32]: https://github.com/frog32
 [@pezinek]: https://github.com/pezinek
-[device_tracker.unifi docs]: /components/device_tracker.unifi/
-[sensor.wunderground docs]: /components/sensor.wunderground/
+[device_tracker.unifi docs]: /integrations/unifi
+[sensor.wunderground docs]: /integrations/wunderground
 [discord]: https://discord.gg/c5DvZ4e

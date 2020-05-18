@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dim (and brighten) lights via a remote"
 description: "The scripts and automations to allow you to use a remote to dim and brighten a light"
-date: 2017-09-06 18:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
@@ -78,7 +72,7 @@ automation:
 
 There are 2 variables that control the speed of the change for the scripts below. The first is the `step`, small steps create a smooth transition. The second is the delay, larger delays will create a slower transition.
 
-To allow flexibility, an [Input Number](/components/input_number/) is used for the step (at the time of writing this, it's not possible to template the delay when the delay uses milliseconds). Two additional [Input Numbers](/components/input_number/) are used to set the minimum and maximum brightness, so that it's easy to tune that (or manage it through an automation).
+To allow flexibility, an [Input Number](/integrations/input_number/) is used for the step (at the time of writing this, it's not possible to template the delay when the delay uses milliseconds). Two additional [Input Numbers](/integrations/input_number/) are used to set the minimum and maximum brightness, so that it's easy to tune that (or manage it through an automation).
 
 ```yaml
 input_number:
@@ -115,7 +109,7 @@ script:
           data_template:
             entity_id: light.YOUR_LIGHT
             brightness: >-
-              {% raw %}{% set current = states.light.YOUR_LIGHT.attributes.brightness|default(0)|int %}
+              {% raw %}{% set current = state_attr('light.YOUR_LIGHT', 'brightness')|default(0)|int %}
               {% set step = states('input_number.light_step')|int %}
               {% set next = current + step %}
               {% if next > states('input_number.light_maximum')|int %}
@@ -124,7 +118,7 @@ script:
               {{ next }}{% endraw %}
 
         - service_template: >
-            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int < states('input_number.light_maximum')|int %}
+            {% raw %}{% if state_attr('light.YOUR_LIGHT', 'brightness')|default(0)|int < states('input_number.light_maximum')|int %}
               script.turn_on
             {% else %}
               script.turn_off
@@ -146,7 +140,7 @@ script:
           data_template:
             entity_id: light.YOUR_LIGHT
             brightness: >-
-              {% raw %}{% set current = states.light.YOUR_LIGHT.attributes.brightness|default(0)|int %}
+              {% raw %}{% set current = state_attr('light.YOUR_LIGHT', 'brightness')|default(0)|int %}
               {% set step = states('input_number.light_step')|int %}
               {% set next = current - step %}
               {% if next < states('input_number.light_minimum')|int %}
@@ -155,7 +149,7 @@ script:
               {{ next }}{% endraw %}
 
         - service_template: >
-            {% raw %}{% if states.light.YOUR_LIGHT.attributes.brightness|default(0)|int > states('input_number.light_minimum')|int %}
+            {% raw %}{% if state_attr('light.YOUR_LIGHT', 'brightness')|default(0)|int > states('input_number.light_minimum')|int %}
               script.turn_on
             {% else %}
               script.turn_off

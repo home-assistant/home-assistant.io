@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change"
 description: "Alexa Flash Briefing API support, Markdown in persistent notifications, a new updater component, Hacktoberfest and breaking Z-Wave changes."
 date: 2016-10-22 13:00:00 -0700
@@ -7,7 +6,6 @@ date_formatted: "October 22, 2016"
 release_date: 2016-10-23 21:57:00 -0700
 author: Robbie Trencheny
 author_twitter: robbie
-comments: true
 categories: Release-Notes
 ---
 
@@ -19,16 +17,16 @@ Every other weekend around here gets a little hectic leading to a big sigh of re
 
 One last thing before we get going though, I should warn you... [@balloob] got a bit lazy this week and let me ([@robbiet480]) step up to the plate again to write the blog post and do the release. I guess I didn't do such a bad job in [0.27][zero-two-seven-release]. You'll never know what surprises I have in store. Now that i've got all that stuff out of the way, let's get started...
 
-## {% linkable_title Stats Update %}
+## Stats Update
 Sadly, no big amazing stats to update you with this time, but we did recently pass 7,000 commits! This release featured submissions from 45 contributors. Hopefully with the new updater component we will be able to give you some really good stats in the 0.32 blog post.
 
-## {% linkable_title Hacktoberfest %}
+## Hacktoberfest
 
 ![Hacktoberfest logo][logo]
 
 October means Hacktoberfest time and our community has really come through with some excellent improvements and additions. As of this writing, we have 194 merged and 41 open pull requests to the [home-assistant repository][hacktoberfest-ha-prs] and 209 merged/28 open pull requests submitted to the [home-assistant.github.io repository][hacktoberfest-site-prs]. If you want to get in on the fun check out our [Hacktoberfest][hacktoberfest-blog] blog post or the [Hacktoberfest website][hacktoberfest-website]. You get an awesome t-shirt for free if you have 4 pull requests merged in the month of October! We even have tasks that a non-developer can easily accomplish with a tiny bit of work. Better hurry up though, only 9 days left and most of the easy tasks are gone!
 
-## {% linkable_title ⚠️ A greatly improved updater component (Please read this!) ⚠️ %}
+## ⚠️ A greatly improved updater component (Please read this!) ⚠️
 
 This release includes an update to our [updater] component. The responsibility of the updater component is to check if a new version is available and notify the user if this is the case.
 
@@ -40,7 +38,7 @@ It used to be that this component would check with [PyPi] (the Python package ma
 
 So to work around these problems, we decided to start hosting the version check service ourselves. Since we had to get some infrastructure spun up anyway, we figured we would take it a step further. Which leads me to this bit of the update (the most important part):
 
-### {% linkable_title What you need to know (the important bit!) %}
+### What you need to know (the important bit!)
 
 Remember how I mentioned that up there in the title that there is some serious business in this release? Well, we also added some basic analytics to the updater component which get sent to the server and stored so that we get a better idea of our user base.
 
@@ -52,7 +50,7 @@ There are two ways to opt-out. The first way is by using the new `opt_out` optio
 
 ```yaml
 updater:
-  reporting: no
+  reporting: false
 ```
 
 You can also disable the updater component entirely by removing `updater:` from your `configuration.yaml` although **we would not suggest you do this** as you would miss any critical updates.
@@ -111,7 +109,7 @@ _This section was updated on October 24 to be more clear about geo-lookups being
 
 Now, back to the fun stuff...
 
-## {% linkable_title Good evening. I'm Ron Burgundy and here's what happening in your world tonight. %}
+## Good evening. I'm Ron Burgundy and here's what happening in your world tonight.
 
 Home Assistant got a crazy idea recently that it couldn't do enough already and wanted to challenge itself even more. I really don't understand how it came up with this kooky idea, but it now thinks that its newest hobby should be a minor career in journalism.
 
@@ -126,7 +124,7 @@ Now I know how to best get to [my real job][runway] (no, Home Assistant is _not_
   You stay classy, San Diego. (It's funny, because balloob lives in San Diego))
 </p>
 
-## {% linkable_title Major breaking Z-Wave changes ahead %}
+## Major breaking Z-Wave changes ahead
 
 A rather nasty Z-Wave [issue][z-wave-issue] was discovered recently by [@lukas-hetzenecker]. There was a somewhat large chance that if you had multiple of the same model Z-Wave device they may both try to use the same entity IDs. To fix the issue the internal Z-Wave index is now appended to the end of all Z-Wave entity IDs.
 
@@ -142,7 +140,7 @@ Your todo list may be a little different from mine, I just wanted to outline the
 
 This is super annoying, I know, especially since we had said in [0.12][zero-one-two-release] that Z-Wave IDs should hopefully never change again, but we are now forced to eat those words. I will state again that Z-Wave IDs shouldn't change in the future but obviously we see how that went. To sum up on this section... sorry but it had to happen.
 
-## {% linkable_title All changes %}
+## All changes
 
 - [Updater] component ([@infamy], [@robbiet480], [@kellerza])
 - Continue to setup other platforms when 1 platform config is invalid ([@kellerza])
@@ -185,7 +183,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 - Notify: [Matrix] support added ([@mweinelt])
 - Device tracker - nmap: Allow specifying multiple inputs for [nmap] ([@hcooper])
 - Device Tracker - snmp: SNMPv3 now supported ([@T3m3z])
-- Notify: [Telstra] SMS now supported ([@nvella])
+- Notify: Telstra SMS now supported ([@nvella])
 - Camera: [Verisure] now supported ([@turbokongen])
 - Support added for [Neato] Connected Robot ([@jabesq])
 - Media player: More options for [Yamaha] AVR ([@ehagan])
@@ -193,24 +191,24 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 - iOS support ([@robbiet480])
 - Minor features and bug fixes by [@mtl010957], [@molobrakos], [@flyte], [@fabaff], [@phardy], [@sander76], [@T3m3z], [@c-w], [@balloob], [@robbiet480], [@StaticCube], [@vittoriom], [@hartmms], [@kirichkov], [@mezz64], [@ishults], [@Danielhiversen] and [@tchellomello].
 
-### {% linkable_title Release 0.31.1 - October 24 %}
+### Release 0.31.1 - October 24
 
  - Identify special character encoding error in YAML files ([@kellerza], [@lwis])
  - iOS app component bug fixes ([@robbiet480])
  - Fix a spelling problem on user-facing error ([@robbiet480])
  - YAML includes will ignore dirs/files prefixed with . ([@lwis])
 
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
  - The [HTTP] component now takes a different format for authenticating IPs
  - Configuration format has changed for [Proximity]
  - The [Arduino] platform are now covered by the configuration check. Please check the documentation to see how.
  - The Z-Wave entity ID change mentioned above
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
-## {% linkable_title Until next time %}
+## Until next time
 
 Thanks for reading all of the above, especially since this week was a pretty long post. We should be back with a new post around November 5th announcing the arrival of 0.32.
 
@@ -264,43 +262,42 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [@vittoriom]: https://github.com/vittoriom
 [@wokar]: https://github.com/wokar
 
-[Arduino]: /components/arduino/
-[APNS]: /components/notify.apns/
-[ARWN]: /components/sensor.arwn/
-[Concord232]: /components/alarm_control_panel.concord232/
-[HTTP]: /components/http/
-[HaveIBeenPwned]: /components/sensor.haveibeenpwned/
-[Matrix]: //components/notify.matrix/
-[Neato]: /components/switch.neato/
-[Pilight]: /components/sensor.pilight/
-[Proximity]: /components/proximity/
+[Arduino]: /integrations/arduino/
+[APNS]: /integrations/apns
+[ARWN]: /integrations/arwn
+[Concord232]: /integrations/concord232#alarm-control-panel
+[HTTP]: /integrations/http/
+[HaveIBeenPwned]: /integrations/haveibeenpwned
+[Matrix]: /integrations/matrix/#notifications
+[Neato]: /integrations/neato#switch
+[Pilight]: /integrations/pilight#sensor
+[Proximity]: /integrations/proximity/
 [PyPi]: https://pypi.python.org/pypi
-[Synology]: /components/camera.synology/
-[Telstra]: /components/notify.telstra/
+[Synology]: /integrations/synology
 [UUID]: https://en.wikipedia.org/wiki/Universally_unique_identifier
-[Verisure]: /components/camera.verisure/
-[WUnderground]: /components/sensor.wunderground/
-[Yamaha]: /components/media_player.yamaha/
-[Zoneminder]: /components/zoneminder/
-[emoncms]: //components/emoncms_history/
-[filtering]: /components/logbook/
-[flash-briefing-docs]: /components/alexa/
+[Verisure]: /integrations/verisure
+[WUnderground]: /integrations/wunderground
+[Yamaha]: /integrations/yamaha
+[Zoneminder]: /integrations/zoneminder/
+[emoncms]: /integrations/emoncms_history/
+[filtering]: /integrations/logbook/
+[flash-briefing-docs]: /integrations/alexa/
 [hacktoberfest-blog]: /blog/2016/10/02/hacktoberfest/
 [hacktoberfest-ha-prs]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
-[hacktoberfest-site-prs]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
+[hacktoberfest-site-prs]: https://github.com/home-assistant/home-assistant.io/labels/Hacktoberfest
 [hacktoberfest-website]: https://hacktoberfest.digitalocean.com/
 [logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
-[min]: /components/sensor.min_max/
-[netatmo-bin]: /components/binary_sensor.netatmo/
-[netatmo-discovery]: /components/netatmo/
-[nmap]: /components/device_tracker.nmap_tracker/
-[pers-notify]: /components/persistent_notification/
+[min]: /integrations/min_max
+[netatmo-bin]: /integrations/netatmo#binary-sensor
+[netatmo-discovery]: /integrations/netatmo/
+[nmap]: /integrations/nmap_tracker
+[pers-notify]: /integrations/persistent_notification/
 [runway]: http://runway.is
-[scrape]: /components/sensor.scrape/
-[updater]: /components/updater/
+[scrape]: /integrations/scrape
+[updater]: /integrations/updater/
 [z-wave-issue]: https://github.com/home-assistant/home-assistant/pull/3759
 [zero-one-two-release]: /blog/2016/01/30/insteon-lifx-twitter-and-zigbee/#backwards-incompatible-changes
 [zero-two-seven-release]: /blog/2016/08/28/notifications-hue-fake-unification/
 [twitter]: https://twitter.com/home_assistant
 [robbie-twitter]: https://twitter.com/robbie
-[blog-orig]: https://github.com/home-assistant/home-assistant.github.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown
+[blog-orig]: https://github.com/home-assistant/home-assistant.io/blob/c937242d154e509d2d84d10c51f654e20556fa21/source/_posts/2016-10-22-flash-briefing-updater-hacktoberfest.markdown

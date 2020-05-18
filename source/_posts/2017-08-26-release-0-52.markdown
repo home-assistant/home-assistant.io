@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "0.52: Scripts editor, Nello.io locks, HipChat and Abode Home Security"
 description: "The summer is not holding development back at all. A brand new release including bug fixes and goodies."
 date: 2017-08-26 00:11:05
 date_formatted: "August 26, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-08-0.52/components.png
 ---
 
-<a href='/components/#version/0.52'><img src='/images/blog/2017-08-0.52/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.52'><img src='/images/blog/2017-08-0.52/components.png' style='border: 0;box-shadow: none;'></a>
 
 Although the summer is in full progress, the development hasn't stalled. This release brings bug fixes, clean ups and another 8 new integrations. On top of that we are also introducing a new [script editor](/docs/scripts/editor/)!
 
@@ -42,27 +40,27 @@ script: !include scripts.yaml
 - Add version sensor ([@fabaff] - [#8912]) ([sensor.version docs]) (new-platform)
 - Nello.io lock support ([@pschmitt] - [#8957]) ([lock.nello docs]) (new-platform)
 - Add HipChat notify service. ([@BioSehnsucht] - [#8918]) ([notify.hipchat docs]) (new-platform)
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 - Adds London_air component ([@robmarkcole] - [#9020]) ([sensor.london_air docs]) (new-platform)
 - Add Abode home security component ([@arsaboo] - [#9030]) ([abode docs]) ([alarm_control_panel.abode docs]) ([binary_sensor.abode docs]) (new-platform)
 - Add support for Prowl notifications. ([@mbrrg] - [#9028]) ([notify.prowl docs]) (new-platform)
 - Add worldtidesinfo sensor component ([@aetolus] - [#8860]) ([sensor.worldtidesinfo docs]) (new-platform)
 
-## {% linkable_title Release 0.52.1 - August 28 %}
+## Release 0.52.1 - August 28
 
 - Close stream request once we end up with proxy ([@foxel] - [#9110])
 - Fix issue #9116 in pushbullet ([@danielhiversen] - [#9128]) ([notify.pushbullet docs])
 - bug fix pushbullet ([@danielhiversen] - [#9139]) ([notify.pushbullet docs])
 - Fix import for foscam ([@sdague] - [#9140]) ([camera.foscam docs])
-- Bump aioautomatic to prevent leaking exceptions ([@armills] - [#9148]) ([device_tracker.automatic docs])
+- Bump aioautomatic to prevent leaking exceptions ([@armills] - [#9148])
 - Wrap state when iterating a domain in templates ([@balloob] - [#9157])
 - Prevent iCloud exceptions in logfile ([@mjj4791] - [#9179]) ([device_tracker.icloud docs])
 - bump ecobee version to fix issue 9190 ([@nkgilley] - [#9191]) ([ecobee docs]) ([climate.ecobee docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
@@ -82,7 +80,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
     retain: true
 ```
 
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 
 ```yaml
 usps:
@@ -94,10 +92,10 @@ usps:
 - eliqonline: The optional channel_id configuration variable of the Eliqonline sensor needs to be a positive integer. ([@molobrakos] - [#9072]) ([sensor.eliqonline docs]) (breaking change)
 - MySensors: Not a breaking change per se but users that have not been following the mysensors [serial API](https://www.mysensors.org/download/serial_api_20) could face dropped messages after this change. Messages are now validated according to the API before being passed along from/to devices. See [0.11 release notes](https://github.com/theolind/pymysensors/releases/tag/0.11) for more info. ([@MartinHjelmare] - [#9069]) ([mysensors docs]) ([binary_sensor.mysensors docs]) ([climate.mysensors docs]) ([cover.mysensors docs]) ([device_tracker.mysensors docs]) ([light.mysensors docs]) ([notify.mysensors docs]) ([sensor.mysensors docs]) ([switch.mysensors docs]) (breaking change)
 - Automatic has disabled password authentication on their API. Home Assistant will now use OAuth2 to authenticate accounts. The following steps must be taken to transition your setup:
-  1) Log in to your Automatic developer account. In the Automatic Developer Apps Manager, specify the OAuth Redirect URL in the developer page. This should be configured to `<home-assistant-url>/api/automatic/callback`. (Example: `http://hassio.local:8123/api/automatic/callback`) Note that this URL only needs to be accessible from the browser you use to perform the authentication.
+  1) Log in to your Automatic developer account. In the Automatic Developer Apps Manager, specify the OAuth Redirect URL in the developer page. This should be configured to `<home-assistant-url>/api/automatic/callback`. (Example: `http://homeassistant.local:8123/api/automatic/callback`) Note that this URL only needs to be accessible from the browser you use to perform the authentication.
   2) Remove username/password from your automatic device tracker configuration in configuration.yaml.
   3) If you have authorized your account for `scope:current_location`, add `current_location: true` to your automatic device tracker configuration in configuration.yaml.
-  4) When you restart Home Assistant, click on the Automatic Configure link in the Configurator card, and follow the instructions to authorize Home Assistant.<br><br>NOTE: Automatic's API is currently not correctly authorizing with refresh tokens, so Step 4 currently needs to be performed after every restart. ([@armills] - [#8962] [#9002]) ([configurator docs]) ([device_tracker.automatic docs]) (breaking change)
+  4) When you restart Home Assistant, click on the Automatic Configure link in the Configurator card, and follow the instructions to authorize Home Assistant.<br><br>NOTE: Automatic's API is currently not correctly authorizing with refresh tokens, so Step 4 currently needs to be performed after every restart. ([@armills] - [#8962] [#9002]) ([configurator docs]) (breaking change)
 
 ## All changes
 
@@ -106,26 +104,26 @@ usps:
 - Fixed cert_expiry sensor to delay firing on HA startup ([@arsaboo] - [#8920]) ([sensor.cert_expiry docs])
 - Remove spaces from Xiami switch attributes ([@syssi] - [#8952]) ([switch.xiaomi docs]) (breaking change)
 - Add service to alarm control panel for night mode arming ([@schmittx] - [#8614]) ([alarm_control_panel docs]) ([alarm_control_panel.totalconnect docs])
-- Add support for Automatic OAuth2 authentication ([@armills] - [#8962]) ([configurator docs]) ([device_tracker.automatic docs]) (breaking change)
+- Add support for Automatic OAuth2 authentication ([@armills] - [#8962]) ([configurator docs]) (breaking change)
 - Nello.io lock support ([@pschmitt] - [#8957]) ([lock.nello docs]) (new-platform)
 - Added continue-on-errors, added value template ([@iamjackg] - [#8971]) ([sensor.snmp docs])
 - Is_allowed_path raise for None path ([@danielhiversen] - [#8953])
 - Fix #8960 - Decora Wi-Fi Switch unable to set brightness ([@tlyakhov] - [#8989]) ([light.decora_wifi docs])
 - Adds port/SSL config options for RainMachine ([@bachya] - [#8986]) ([switch.rainmachine docs])
-- Automatic device tracker remove password ([@armills] - [#9002]) ([device_tracker.automatic docs]) (breaking change)
+- Automatic device tracker remove password ([@armills] - [#9002]) (breaking change)
 - Add scripts editor backend ([@balloob] - [#8993]) ([config docs]) ([script docs]) (new-platform)
 - MQTT Switch - Add configurable availability payload ([@timstanley1985] - [#8934]) ([switch.mqtt docs]) (breaking change)
 - Buienradar newconditions ([@mjj4791] - [#8897]) ([sensor.buienradar docs]) ([weather.buienradar docs])
 - Pushbullet, fix multiple messages sent when url param is set ([@karlkar] - [#9006]) ([notify.pushbullet docs])
 - Update to pyenvisalink 2.2, and remove range validation on zonedump i… ([@Cinntax] - [#8981]) ([envisalink docs])
-- Fix #9010 - Swiss Public Transportation shows departure time in the past ([@michaelhertig] - [#9011]) ([sensor.swiss_public_transport docs])
+- Fix #9010 - Swiss Public Transportation shows departure time in the past ([@hertg] - [#9011]) ([sensor.swiss_public_transport docs])
 - Add HipChat notify service. ([@BioSehnsucht] - [#8918]) ([notify.hipchat docs]) (new-platform)
 - Update onkyo-eiscp to 1.2.3 ([@danieljkemp] - [#9019]) ([media_player.onkyo docs])
 - Check if album image(s) exist in spotify ([@Tommatheussen] - [#9024]) ([media_player.spotify docs])
 - Update ffmpeg to 1.7 to fix severals problems ([@pvizeli] - [#9029])
 - Add state_with_unit property to state objects in templates ([@balloob] - [#9014])
 - Fix Geizhals index issue when not 4 prices available ([@celeroll] - [#9035]) ([sensor.geizhals docs])
-- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs]) (breaking change) (new-platform)
+- Refactor USPS into component with Sensors+Camera ([@mezz64] - [#8679]) (breaking change) (new-platform)
 - Set password after connecting. Fixes #8983 ([@StevenLooman] - [#9039]) ([media_player.mpd docs])
 - Update iOS sensor (battery icon fix and format updates) ([@schmittx] - [#9032])
 - Adds London_air component ([@robmarkcole] - [#9020]) ([sensor.london_air docs]) (new-platform)
@@ -151,9 +149,9 @@ usps:
 - Bump abodepy to 0.7.1 ([@arsaboo] - [#9077]) ([abode docs])
 - async_query returns False if connection to server failed, handle this properly ([@molobrakos] - [#9070]) ([media_player.squeezebox docs])
 - Added insteonplm device_override multiple capabilities ([@teharris1] - [#9078]) ([insteon_plm docs])
-- Upgrade uber_rides to 0.5.1 ([@fabaff] - [#9080]) ([sensor.uber docs])
+- Upgrade uber_rides to 0.5.1 ([@fabaff] - [#9080]) (sensor.uber docs)
 - Upgrade discord.py to 0.16.10 ([@fabaff] - [#9082]) ([notify.discord docs])
-- Fix `device` attribute in fritz_callmonitor.py (fixes #9055) ([@870074+max-te] - [#9081]) ([sensor.fritzbox_callmonitor docs])
+- Fix `device` attribute in fritz_callmonitor.py (fixes #9055) ([@max-te] - [#9081]) ([sensor.fritzbox_callmonitor docs])
 - Upgrade youtube_dl to 2017.8.18 ([@fabaff] - [#9079]) ([media_extractor docs])
 - Remove dash ([@fabaff] - [#9089])
 - Upgrade credstash to 1.13.3 ([@fabaff] - [#9088])
@@ -165,7 +163,7 @@ usps:
 - Add worldtidesinfo sensor component ([@aetolus] - [#8860]) ([sensor.worldtidesinfo docs]) (new-platform)
 - Support changing the bulb color for tplink smartbulbs, fixes #8766 ([@rytilahti] - [#8780]) ([light.tplink docs])
 - bump snapcast version ([@happyleavesaoc] - [#9100]) ([media_player.snapcast docs])
-- bump fedex version ([@happyleavesaoc] - [#9099]) ([sensor.fedex docs])
+- bump fedex version ([@happyleavesaoc] - [#9099])
 - Yeelight fix updates on hsv mode ([@rytilahti] - [#9093]) ([light.yeelight docs])
 - Catch exceptions ([@fabaff] - [#9085]) ([notify.discord docs])
 - Fix issue 8894 with uk_transport component if no next_buses or next_trains ([@robmarkcole] - [#9046]) ([sensor.uk_transport docs])
@@ -256,7 +254,7 @@ usps:
 [#9125]: https://github.com/home-assistant/home-assistant/pull/9125
 [#9126]: https://github.com/home-assistant/home-assistant/pull/9126
 [#9127]: https://github.com/home-assistant/home-assistant/pull/9127
-[@870074+max-te]: https://github.com/870074+max-te
+[@max-te]: https://github.com/max-te
 [@BioSehnsucht]: https://github.com/BioSehnsucht
 [@Cinntax]: https://github.com/Cinntax
 [@LaStrada]: https://github.com/LaStrada
@@ -288,7 +286,7 @@ usps:
 [@mbrrg]: https://github.com/mbrrg
 [@mezz64]: https://github.com/mezz64
 [@michaelarnauts]: https://github.com/michaelarnauts
-[@michaelhertig]: https://github.com/michaelhertig
+[@hertg]: https://github.com/hertg
 [@mjj4791]: https://github.com/mjj4791
 [@molobrakos]: https://github.com/molobrakos
 [@nkgilley]: https://github.com/nkgilley
@@ -303,85 +301,80 @@ usps:
 [@timstanley1985]: https://github.com/timstanley1985
 [@tlyakhov]: https://github.com/tlyakhov
 [@w1ll1am23]: https://github.com/w1ll1am23
-[abode docs]: /components/abode/
-[alarm_control_panel docs]: /components/alarm_control_panel/
-[alarm_control_panel.abode docs]: /components/alarm_control_panel.abode/
-[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
-[alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[binary_sensor.abode docs]: /components/binary_sensor.abode/
-[binary_sensor.mysensors docs]: /components/binary_sensor.mysensors/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
-[camera.usps docs]: /components/camera.usps/
-[climate.mysensors docs]: /components/climate.mysensors/
-[config docs]: /components/config/
-[configurator docs]: /components/configurator/
-[cover.mysensors docs]: /components/cover.mysensors/
-[cover.template docs]: /components/cover.template/
-[device_tracker.automatic docs]: /components/device_tracker.automatic/
-[device_tracker.mysensors docs]: /components/device_tracker.mysensors/
-[ecobee docs]: /components/ecobee/
-[emulated_hue.upnp docs]: /components/emulated_hue.upnp/
-[envisalink docs]: /components/envisalink/
-[fan.isy994 docs]: /components/fan.isy994/
-[image_processing.dlib_face_detect docs]: /components/image_processing.dlib_face_detect/
-[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
-[insteon_plm docs]: /components/insteon_plm/
-[light.decora_wifi docs]: /components/light.decora_wifi/
-[light.flux_led docs]: /components/light.flux_led/
-[light.hue docs]: /components/light.hue/
-[light.lifx docs]: /components/light.lifx/
-[light.mysensors docs]: /components/light.mysensors/
-[light.rpi_gpio_pwm docs]: /components/light.rpi_gpio_pwm/
-[light.tplink docs]: /components/light.tplink/
-[light.yeelight docs]: /components/light.yeelight/
-[lock.nello docs]: /components/lock.nello/
-[media_extractor docs]: /components/media_extractor/
-[media_player.mpd docs]: /components/media_player.mpd/
-[media_player.onkyo docs]: /components/media_player.onkyo/
-[media_player.snapcast docs]: /components/media_player.snapcast/
-[media_player.spotify docs]: /components/media_player.spotify/
-[media_player.squeezebox docs]: /components/media_player.squeezebox/
-[media_player.webostv docs]: /components/media_player.webostv/
-[mysensors docs]: /components/mysensors/
-[notify.discord docs]: /components/notify.discord/
-[notify.hipchat docs]: /components/notify.hipchat/
-[notify.mysensors docs]: /components/notify.mysensors/
-[notify.prowl docs]: /components/notify.prowl/
-[notify.pushbullet docs]: /components/notify.pushbullet/
-[notify.pushover docs]: /components/notify.pushover/
-[notify.sendgrid docs]: /components/notify.sendgrid/
-[notify.slack docs]: /components/notify.slack/
-[octoprint docs]: /components/octoprint/
-[prometheus docs]: /components/prometheus/
-[script docs]: /components/script/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.cert_expiry docs]: /components/sensor.cert_expiry/
-[sensor.eliqonline docs]: /components/sensor.eliqonline/
-[sensor.fedex docs]: /components/sensor.fedex/
-[sensor.fitbit docs]: /components/sensor.fitbit/
-[sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
-[sensor.geizhals docs]: /components/sensor.geizhals/
-[sensor.ios docs]: /components/sensor.ios/
-[sensor.london_air docs]: /components/sensor.london_air/
-[sensor.mysensors docs]: /components/sensor.mysensors/
-[sensor.netdata docs]: /components/sensor.netdata/
-[sensor.octoprint docs]: /components/sensor.octoprint/
-[sensor.snmp docs]: /components/sensor.snmp/
-[sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
-[sensor.uber docs]: /components/sensor.uber/
-[sensor.uk_transport docs]: /components/sensor.uk_transport/
-[sensor.usps docs]: /components/sensor.usps/
-[sensor.version docs]: /components/sensor.version/
-[sensor.worldtidesinfo docs]: /components/sensor.worldtidesinfo/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.mysensors docs]: /components/switch.mysensors/
-[switch.pilight docs]: /components/switch.pilight/
-[switch.rainmachine docs]: /components/switch.rainmachine/
-[switch.xiaomi docs]: /components/switch.xiaomi/
-[usps docs]: /components/usps/
-[weather.buienradar docs]: /components/weather.buienradar/
-[xiaomi docs]: /components/xiaomi/
+[abode docs]: /integrations/abode/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alarm_control_panel.abode docs]: /integrations/abode
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[binary_sensor.abode docs]: /integrations/abode#binary-sensor
+[binary_sensor.mysensors docs]: /integrations/binary_sensor.mysensors/
+[binary_sensor.workday docs]: /integrations/workday
+[climate.mysensors docs]: /integrations/climate.mysensors/
+[config docs]: /integrations/config/
+[configurator docs]: /integrations/configurator/
+[cover.mysensors docs]: /integrations/cover.mysensors/
+[cover.template docs]: /integrations/cover.template/
+[device_tracker.mysensors docs]: /integrations/device_tracker.mysensors/
+[ecobee docs]: /integrations/ecobee/
+[emulated_hue.upnp docs]: /integrations/emulated_hue.upnp/
+[envisalink docs]: /integrations/envisalink/
+[fan.isy994 docs]: /integrations/isy994
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[insteon_plm docs]: /integrations/insteon/
+[light.decora_wifi docs]: /integrations/decora_wifi/
+[light.flux_led docs]: /integrations/flux_led
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.mysensors docs]: /integrations/light.mysensors/
+[light.rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm
+[light.tplink docs]: /integrations/tplink
+[light.yeelight docs]: /integrations/yeelight
+[lock.nello docs]: /integrations/nello
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.mpd docs]: /integrations/mpd
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.snapcast docs]: /integrations/snapcast
+[media_player.spotify docs]: /integrations/spotify
+[media_player.squeezebox docs]: /integrations/squeezebox
+[media_player.webostv docs]: /integrations/webostv#media-player
+[mysensors docs]: /integrations/mysensors/
+[notify.discord docs]: /integrations/discord
+[notify.hipchat docs]: /integrations/hipchat
+[notify.mysensors docs]: /integrations/notify.mysensors/
+[notify.prowl docs]: /integrations/prowl
+[notify.pushbullet docs]: /integrations/pushbullet
+[notify.pushover docs]: /integrations/pushover
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.slack docs]: /integrations/slack
+[octoprint docs]: /integrations/octoprint/
+[prometheus docs]: /integrations/prometheus/
+[script docs]: /integrations/script/
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.cert_expiry docs]: /integrations/cert_expiry
+[sensor.eliqonline docs]: /integrations/eliqonline
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.fritzbox_callmonitor docs]: /integrations/fritzbox#sensor_callmonitor/
+[sensor.geizhals docs]: /integrations/geizhals
+[sensor.ios docs]: /integrations/sensor.ios/
+[sensor.london_air docs]: /integrations/london_air
+[sensor.mysensors docs]: /integrations/sensor.mysensors/
+[sensor.netdata docs]: /integrations/netdata
+[sensor.octoprint docs]: /integrations/octoprint#sensor
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.uk_transport docs]: /integrations/uk_transport
+[sensor.version docs]: /integrations/version
+[sensor.worldtidesinfo docs]: /integrations/worldtidesinfo
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.mysensors docs]: /integrations/switch.mysensors/
+[switch.pilight docs]: /integrations/pilight#switch
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.xiaomi docs]: /integrations/switch.xiaomi_aqara/
+[usps docs]: /integrations/usps/
+[weather.buienradar docs]: /integrations/buienradar
+[xiaomi docs]: /integrations/xiaomi_aqara
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
@@ -395,6 +388,6 @@ usps:
 [#9191]: https://github.com/home-assistant/home-assistant/pull/9191
 [@foxel]: https://github.com/foxel
 [@sdague]: https://github.com/sdague
-[camera.foscam docs]: /components/camera.foscam/
-[climate.ecobee docs]: /components/climate.ecobee/
-[device_tracker.icloud docs]: /components/device_tracker.icloud/
+[camera.foscam docs]: /integrations/foscam
+[climate.ecobee docs]: /integrations/ecobee
+[device_tracker.icloud docs]: /integrations/icloud

@@ -1,125 +1,71 @@
-{% assign components = site.components | sort_natural: 'title' %}
-{% assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/master/homeassistant' %}
 <section class="aside-module grid__item one-whole lap-one-half">
-  {% include edit_github.html %}
 
   <div class='brand-logo-container section'>
-    {% if page.logo %}
+    {%- if page.logo -%}
       <img src='/images/supported_brands/{{ page.logo }}' />
-    {% endif %}
+    {%- else -%}
+      <img src='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
+    {%- endif -%}
   </div>
 
-  {% assign file_parts = page.url | split: '/' | last | split: '.' %}
+  {%- if page.ha_domain -%}
+    <div class="section">
+      <kb-alert-link integration="{{ page.ha_domain }}"></kb-alert-link>
+    </div>
+  {%- endif -%}
 
-  {% if file_parts.size == 2 %}
-    {% assign is_platform = true %}
-    {% assign imp_name = file_parts[1] %}
-    {% assign parent_name = file_parts[0] %}
-    {% assign parent_url = parent_name | prepend: '/components/' | append: '/' %}
-    {% assign parent_component = components | where: 'url', parent_url | first %}
-  {% else %}
-    {% assign is_platform = false %}
-    {% assign imp_name = file_parts | first %}
-  {% endif %}
-
-  {% if page.ha_iot_class %}
+  {%- if page.ha_iot_class -%}
     <div class='section'>
       IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_iot_class }}
     </div>
-  {% endif %}
+  {%- endif -%}
 
-  {% if page.ha_release %}
+  {%- if page.ha_quality_scale -%}
+    <div class='section'>
+      Quality Scale: <a href='/docs/quality_scale/'>
+        {%- if page.ha_quality_scale == 'platinum' -%}
+          🏆 (platinum)
+        {%- elsif page.ha_quality_scale == 'gold' -%}
+          🥇 (gold)
+        {%- elsif page.ha_quality_scale == 'silver' -%}
+          🥈 (silver)
+        {%- elsif page.ha_quality_scale == 'internal' -%}
+          🏠 (internal)
+        {%- endif -%}
+      </a>
+    </div>
+  {%- endif -%}
+
+  {%- if page.ha_release -%}
     <div class='section'>
       Introduced in release: {{ page.ha_release }}
     </div>
-  {% endif %}
+  {%- endif -%}
 
-  {% if is_platform %}
+  {%- if page.ha_config_flow -%}
     <div class='section'>
-      Source:
-      <a href='{{github_main_repo}}{{parent_url}}{{imp_name}}.py'>{{parent_name}}/{{imp_name}}.py</a>
+      This integration is configurable via UI
     </div>
-  {% endif %}
+  {%- endif -%}
 
-  {% if is_platform and parent_name != 'sensor' %}
+  {%- if page.ha_domain -%}
     <div class='section'>
-      This is a platform for
-      <a href='{{parent_component.url}}'>the {{parent_component.title}} component</a>.
+      Source: <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>View on GitHub</a>
     </div>
+  {%- endif -%}
 
-  {% elsif is_platform == false and imp_name != 'ifttt' %}
-
-    {% assign platforms_found = false %}
-    {% for component in components %}
-      {% if component.url != page.url %}
-        {% assign comp_imp_name = component.url | split: '/' | last | split: '.' | first %}
-        {% if comp_imp_name == imp_name %}
-          {% unless platforms_found %}
-            {% assign platforms_found = true %}
-            <h1 class='title delta'>Platforms</h1>
-            <ul class='divided'>
-          {% endunless %}
-          <li><a href='{{component.url}}'>
-            {{component.title}}
-          </a></li>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-
-    {% if platforms_found %}
-      </ul>
-    {% endif %}
-
-  {% endif %}
-
-
-  {% assign related_found = false %}
-  {% for component in components %}
-    {% if component.url != page.url %}
-      {% assign comp_file_parts = component.url | split: '/' | last | split: '.' %}
-      {% if comp_file_parts.size == 2 %}
-        {% assign comp_imp_name = comp_file_parts | last %}
-      {% else %}
-        {% assign comp_imp_name = comp_file_parts | first %}
-      {% endif %}
-
-      {% if comp_imp_name == imp_name %}
-        {% unless related_found %}
-          {% assign related_found = true %}
-          <div class='section'>
-          <h1 class='title delta'>Related components</h1>
-          <ul class='divided'>
-        {% endunless %}
-        <li><a href='{{component.url}}'>
-          {{component.title}}
-        </a></li>
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-
-  {% if related_found %}
-    </ul>
-    </div>
-  {% endif %}
-
-
-
-  {% if page.ha_category %}
+  {%- if page.ha_category.first -%}
     <div class='section'>
-    <h1 class="title delta">Category {{page.ha_category}}</h1>
+    <h1 class="title delta">Categories</h1>
     <ul class='divided'>
-    {% for component in components %}
-      {% if component.ha_category == page.ha_category %}
-        <li>
-          {% if component.url == page.url %}
-            {{component.title}}
-          {% else %}
-            <a href='{{component.url}}'>{{component.title}}</a>
-          {% endif %}
-        </li>
-      {% endif %}
-    {% endfor %}
+    {%- for category in page.ha_category -%}
+      <li>
+        <a href='/integrations/#{{ category | slugify }}'>{{ category }}</a>
+      </li>
+    {%- endfor -%}
     </ul>
     </div>
-  {% endif %}
+  {%- endif -%}
 </section>
+
+<script src="https://alerts.home-assistant.io/ce-alert-link.js"></script>

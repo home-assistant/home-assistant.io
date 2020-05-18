@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OwnTracks with two MQTT brokers"
 description: "Setting up OwnTracks with 2 MQTT brokers bridged for use with the MQTT bridge for SmartThings."
-date: 2016-08-27 10:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Infrastructure
 ---
 
@@ -25,7 +19,7 @@ Two Docker instances for MQTT
  
 All Docker configuration files are on my NAS so the Docker containers can be destroyed without affecting my actual configuration files.
  
-#### Docker setup for the mosquitto internal instance. No authentication for use with the MQTT bridge.
+#### Docker setup for the Mosquitto internal instance. No authentication for use with the MQTT bridge.
 
 ```bash
 $ docker run -ti -p 1883:1883  \
@@ -46,7 +40,7 @@ $ docker run -ti -p 1884:1883  \
     --name mosquitto-ext -d toke/mosquitto
 ```
  
-Here are the config files:
+Here are the configuration files:
 
 `/volume1/data/mosquitto-int/config/mosquitto.conf`
  
@@ -56,7 +50,7 @@ persistence_file mosquitto.db
 try_private true
 address 10.0.0.20:1884
 start_type automatic
-sername test
+username test
 password test
 notifications true
 topic owntracks/# in
@@ -87,9 +81,9 @@ password_file /etc/mosquitto/pwfile
 Create a password for `mosquitto-ext`
  
 ```bash
-$ docker exec -it mosquitto-ext /bin/bash
-$ cd /etc/mosquitto/
-$ mosquitto_passwd -c /etc/mosquitto/pwfile <userID>
+docker exec -it mosquitto-ext /bin/bash
+cd /etc/mosquitto/
+mosquitto_passwd -c /etc/mosquitto/pwfile <userID>
 ```
  
 ### OwnTracks settings for Android

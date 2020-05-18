@@ -1,48 +1,48 @@
 ---
-layout: page
 title: "Z-Wave Controllers"
 description: "Extended instructions how to setup Z-Wave."
-date: 2016-03-24 08:49 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
-## {% linkable_title Supported Z-Wave USB Sticks & Hardware Modules %}
+## Supported Z-Wave USB Sticks & Hardware Modules
 
-You need to have a [supported Z-Wave USB stick or module](https://github.com/OpenZWave/open-zwave/wiki/Controller-Compatibility-List) installed.
+You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be. If yours is a *bridge* device then it won't work with [OpenZWave](http://openzwave.com/), which is what provides Home Assistant's Z-Wave capabilities. USB sticks using the new 700 series Z-Wave platform are not compatible. The following devices have been confirmed to work:
 
-| Device                  | Works on Linux | Works on Windows | Works on OSX |
-|-------------------------|----------------|------------------|--------------|
-| Aeotec Z-Stick          |   &#10003;     |                  |              |
-| Aeotec Z-Stick Series 2 |   &#10003;     |                  |              |
-| Aeotec Z-Stick Series 5 |   &#10003;     |    &#10003;      |   &#10003;   |
-| Pine64 Z-Wave Module    |   &#10003;     |                  |              |
-| Razberry GPIO Module    |   &#10003;     |                  |              |
-| Seluxit ViaSens 100     |                |                  |              |
-| Sigma Designs UZB Stick |                |                  |              |
-| Tricklestar             |                |                  |              |
-| Vision USB Stick        |                |                  |              |
-| ZWave.me UZB1           |   &#10003;     |                  |              |
+<div class='note'>
+  
+There have [been reports](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) of the Aeotec stick not working on the Raspberry Pi 4.
 
-<p class='note'>
-  If you're using Hass.io or running HASS in a Docker container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
-</p>
+</div>
 
-## {% linkable_title Stick Alternatives %}
+- Aeotec Z-Stick Series 5
+- Everspring USB stick - Gen 5
+- GoControl HUSBZB-1 stick
+- Sigma Designs UZB stick
+- Vision USB stick - Gen5
+- Zooz Z-Wave Plus S2 stick ZST10
+- ZWave.me Razberry Board
+- ZWave.me UZB1 stick
+
+We recommend that you purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) controller, to take advantage of the improvements this provides. As OpenZWave doesn't support S2 or Smart Start, there's no need to buy one just for support of these features.
+
+<div class='note'>
+  If you're using Hass.io or running Home Assistant in a Docker container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
+</div>
+
+## Stick Alternatives
 
 The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:
 
- - [Vera](/components/vera/)
- - [Wink](/components/wink/)
+- [Vera](/integrations/vera/)
+- [Wink](/integrations/wink/)
+- [Fibaro](/integrations/fibaro/)
+- [SmartThings](/integrations/smartthings/)
 
-## {% linkable_title Controller Notes %}
+## Controller Notes
 
-### {% linkable_title Aoetec Stick %}
+### Aeotec Stick
 
-By default this will turn on "disco lights", which you can turn off by following the instructions in the [device specific page](/docs/z-wave/device-specific/#aeon-z-stick)
+By default this will turn on "disco lights", which you can turn off by following the instructions in the [device specific page](/docs/z-wave/device-specific/#aeotec-z-stick)
 
-### {% linkable_title Razberry Board %}
+### Razberry Board
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by following the instructions in the [device specific page](/docs/z-wave/device-specific/#razberry-board)

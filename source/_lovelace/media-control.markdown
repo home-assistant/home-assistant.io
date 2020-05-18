@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Media Control Card"
 sidebar_label: Media Control
-description: "The media controller card is used to display Media Player entities on an interface with easy to use controls. "
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "The Media Control card is used to display media player entities on an interface with easy to use controls."
 ---
 
-The media control card is used to display [Media Player](/components/#search/media-player) entities on an interface with easy to use controls.
+The Media Control card is used to display [Media Player](/integrations/#media-player) entities on an interface with easy to use controls.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_mediaplayer.png' alt='Screenshot of the media player control card'>
@@ -28,9 +22,9 @@ entity:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
-- type: media-control
-  entity: media_player.lounge_room
+type: media-control
+entity: media_player.lounge_room
 ```

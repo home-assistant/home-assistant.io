@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "1 year and 22 days ago I had an idea..."
 description: "An Easter gift from Home Assistant for all iOS fans"
 date: 2017-04-15 08:04:05 +0000
 date_formatted: "April 16, 2017"
 author: Robbie Trencheny
 author_twitter: robbie
-comments: true
 categories: Announcements
 ---
 

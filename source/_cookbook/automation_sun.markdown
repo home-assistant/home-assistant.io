@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Examples using the sun"
 description: "Automation examples that use the sun."
-date: 2015-10-08 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Turn on the living room lights 45 minutes before sunset if anyone is at home  %}
+#### Turn on the living room lights 45 minutes before sunset if anyone is at home 
 
 ```yaml
 automation:
@@ -20,14 +14,14 @@ automation:
     offset: "-00:45:00"
   condition:
     condition: state
-    entity_id: group.all_devices
+    entity_id: all
     state: home
   action:
-    service: homeassistant.turn_on
+    service: light.turn_on
     entity_id: group.living_room_lights
 ```
 
-#### {% linkable_title Natural wake up light  %}
+#### Natural wake up light 
 
 _Note, Philips Hue and LIFX are currently the only light platforms that support transitions._
 
@@ -44,9 +38,9 @@ automation:
       transition: 900
 ```
 
-#### {% linkable_title Send sun rise/sun set notifications %}
+#### Send sun rise/sun set notifications
 
-Send notifications through [PushBullet](/components/notify.pushbullet/) when the sun state is changed.
+Send notifications through [PushBullet](/integrations/pushbullet) when the sun state is changed.
 
 ```yaml
 automation:
@@ -70,7 +64,7 @@ automation:
         message: 'The sun is down.'
 ```
 
-#### {% linkable_title Automations for lights and blinds based on solar elevation %}
+#### Automations for lights and blinds based on solar elevation
 
 Solar elevation automations can cope with offsets from sunset / sunrise as the seasons change better than using a time based offsets.
 
@@ -79,7 +73,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{% raw %}{{ state.attributes.elevation }}{% endraw %}'
+    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
     below: 3.5
   action:
     service: scene.turn_on
@@ -89,7 +83,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{% raw %}{{ state.attributes.elevation }}{% endraw %}'
+    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
     below: 1.5
   action:
     service: scene.turn_on
@@ -99,7 +93,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{% raw %}{{ state.attributes.elevation }}{% endraw %}'
+    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
     below: -2.5
   action:
     service: switch.turn_off

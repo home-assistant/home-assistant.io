@@ -1,7 +1,6 @@
 $meta-color: lighten($text-color, 20%);
 
 article {
-
   blockquote {
     @extend .clearfix;
     border-left: 2px solid $primary-color;
@@ -24,16 +23,17 @@ article {
     }
   }
 
-  .pullquote-left::before, .pullquote-right::before {
-    @media only screen and (max-width: $palm-end){
-      border-top:    1px dotted $primary-color;
+  .pullquote-left::before,
+  .pullquote-right::before {
+    @media only screen and (max-width: $palm-end) {
+      border-top: 1px dotted $primary-color;
       border-bottom: 1px dotted $primary-color;
       padding: 0 10px;
       width: 100%;
     }
     border: medium none;
     color: $primary-color;
-    content: "\201C" attr(data-pullquote) "\201D";
+    content: "\201C"attr(data-pullquote) "\201D";
     float: right;
     font-family: $serif;
     font-size: 1.4em;
@@ -42,7 +42,7 @@ article {
     margin: 0.3em 0 1em 1.5em;
     padding: 0;
     position: relative;
-      top: 7px;
+    top: 7px;
     width: 45%;
   }
 
@@ -60,7 +60,9 @@ article {
       a {
         color: $meta-color;
         text-decoration: none;
-        &:hover {text-decoration: underline;}
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -105,7 +107,7 @@ article {
   }
 
   &.post {
-    @media only screen and (max-width: $palm-end){
+    @media only screen and (max-width: $palm-end) {
       .tags {
         clear: both;
         margin-top: 7px;

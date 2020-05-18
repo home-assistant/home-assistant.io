@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "Home Assistant 0.40: Turn any Android phone into an IP Webcam"
 description: "Big startup performance increase and tons of bug fixes for MQTT, Z-Wave."
 date: 2017-03-11 08:04:05 +0000
 date_formatted: "March 11, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-03-0.40/social.png
 ---
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-03-0.40/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-03-0.40/social.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for version 0.40 already! For this version, the main focus was on performance and bug fixes. Big thanks to [@pvizeli] for driving this effort. Startup is now super fast. We have also continued with adding warnings for components and platforms that are slowing down Home Assistant.
 
@@ -31,7 +29,7 @@ MQTT started causing "Out of Memory" errors for some people on a Raspberry Pi. W
 
 ## Turn any Android phone into an IP Camera
 
-With the new support for [IP Webcam](/components/android_ip_webcam/) added by [@robbiet480] and [@pvizeli] you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:
+With the new support for [IP Webcam](/integrations/android_ip_webcam/) added by [@robbiet480] and [@pvizeli] you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:
 
  - Integrate the Android device camera
  - Binary sensor when motion is detected
@@ -69,7 +67,7 @@ twilio:
 ### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-### {% linkable_title Release 0.40.1 - March 16 %}
+### Release 0.40.1 - March 16
 
 - Fix wake_on_lan ping with None as host ([@iamtpage] - [#6532])
 - Don't start the push updater if the Apple TV is 'off' ([@jnewland] - [#6552])
@@ -81,7 +79,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix Osram Lightify colors ([@deisi] - [#6598])
 - Bugfix RFLINK remove group ([@pvizeli] - [#6580])
 
-### {% linkable_title Release 0.40.2 - March 22 %}
+### Release 0.40.2 - March 22
 
 Hot fix release to fix dependency issues. More detailed information about the issue in [this blog post](/blog/2017/03/22/broken-dependencies/).
 
@@ -101,7 +99,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Remove automatically reloading group config ([@balloob])
 - Default config to setup group editor ([@balloob])
 - minor broadlink fix ([@danielhiversen])
-- Update Yeelight Sunflower light platform to 0.0.6 ([@lindsaymarkwawrd])
+- Update Yeelight Sunflower light platform to 0.0.6 (@lindsaymarkwawrd)
 - Some zwave cleanup ([@andrey-git])
 - sensor.speedtest: provide a default icon ([@molobrakos])
 - Test the temperature returned by RM2 ([@aronsky])
@@ -123,13 +121,13 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Config fix ([@balloob])
 - Bugfix mqtt paho client to speend time ([@pvizeli])
 - Properly report features for each hue bulb type ([@jawilson])
-- Local file camera now supports yet inexisting files. ([@jjmontestl])
+- Local file camera now supports yet inexisting files. ([@jjmontesl])
 - light.transition now supports float instead of int in order to be able to perform faster transitions ([@BillyNate])
 - Fix for OSRAM lights connected to hue bridge ([@groth-its])
 - Add support for MAX!Cube thermostats and window shutter sensors ([@BastianPoe])
 - Analog modem callerid support ([@vroomfonde1])
 - [sensor.dnsip] New Sensor: DNS IP ([@danielperna84])
-- Update library version for Yeelight Sunflower lights platform (fix for packaging problem with 0.0.7) ([@lindsaymarkwawrd])
+- Update library version for Yeelight Sunflower lights platform (fix for packaging problem with 0.0.7) (@lindsaymarkwawrd)
 - Prevent duplicate names on Vera devices by appending the device id ([@arjenfvellinga])
 - Add temperature support for MH-Z19 CO2 sensor. ([@andrey-git])
 - improve history_stats accuracy ([@bokub])
@@ -140,14 +138,14 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Frontier silicon ([@zhelev])
 - Bootstrap / Component setup async ([@pvizeli])
 - Convert kpH and mpH to kph and mph ([@ericgingras])
-- Rollback netdisco to 0.8.2 to resolve #6165 ([@jumpkick])
+- Rollback netdisco to 0.8.2 to resolve #6165 ([@deftdawg])
 - Log errors when loading yaml ([@kellerza])
 - Bootstrap tweaks tests ([@balloob])
 - Telegram webhooks new text event ([@scipioni])
 - Cleanup component track_point_in_utc_time usage ([@pvizeli])
 - Discovery fix ([@balloob])
 - Test against 3.6-dev ([@balloob])
-- Bugfix ZigBee / Move from eventbus to dispatcher ([@pvizeli])
+- Bugfix Zigbee / Move from eventbus to dispatcher ([@pvizeli])
 - Bump netdisco to 0.9.1 ([@balloob])
 - sensor.dovado: compute state in update ([@molobrakos])
 - Fix mysensors callback race ([@MartinHjelmare])
@@ -175,7 +173,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Bugfix new async_add_devices function ([@pvizeli])
 - Restore for input_slider ([@pvizeli])
 - Added IPv4 data collector ([@open-homeautomation])
-- Return None instead of raising ValueException from as_timestamp template function. ([@jjmontestl])
+- Return None instead of raising ValueException from as_timestamp template function. ([@jjmontesl])
 - [recorder] Catch more startup errors #6179 ([@kellerza])
 - twilio component ([@happyleavesaoc])
 - Add Z-Wave battery level as a sensor. ([@andrey-git])
@@ -236,7 +234,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Increase upper limit on light transitions ([@amelchio])
 - Bugfix android camera autodiscovery settings ([@pvizeli])
 - Update to Pyunifi2.0 ([@finish06])
-- Insteon lib ([@wardcraigj])
+- Insteon lib ([@craigjmidwinter])
 - Bugfix rpi_rf cleanup ([@pvizeli])
 - Android webcam better error handling / pump library 0.4 ([@pvizeli])
 
@@ -264,7 +262,6 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@danielperna84]: https://github.com/danielperna84
 [@dennisdegreef]: https://github.com/dennisdegreef
 [@dramamoose]: https://github.com/dramamoose
-[@ericgingras]: https://github.com/ericgingras
 [@fabaff]: https://github.com/fabaff
 [@finish06]: https://github.com/finish06
 [@fronzbot]: https://github.com/fronzbot
@@ -273,12 +270,11 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@ishults]: https://github.com/ishults
 [@janLo]: https://github.com/janLo
 [@jawilson]: https://github.com/jawilson
-[@jjmontestl]: https://github.com/jjmontestl
+[@jjmontesl]: https://github.com/jjmontesl
 [@jmvermeulen]: https://github.com/jmvermeulen
 [@joe248]: https://github.com/joe248
-[@jumpkick]: https://github.com/jumpkick
+[@deftdawg]: https://github.com/deftdawg
 [@kellerza]: https://github.com/kellerza
-[@lindsaymarkwawrd]: https://github.com/lindsaymarkwawrd
 [@martinfrancois]: https://github.com/martinfrancois
 [@masarliev]: https://github.com/masarliev
 [@mezz64]: https://github.com/mezz64
@@ -299,7 +295,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@titilambert]: https://github.com/titilambert
 [@valentinalexeev]: https://github.com/valentinalexeev
 [@vroomfonde1]: https://github.com/vroomfonde1
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@zhelev]: https://github.com/zhelev
 [main chat channel]: https://discord.gg/c5DvZ4e
 [@dale3h]: https://github.com/dale3h

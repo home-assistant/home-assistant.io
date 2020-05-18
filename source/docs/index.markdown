@@ -1,22 +1,16 @@
 ---
-layout: page
 title: "Documentation"
 description: "Documentation for Home Assistant"
-date: 2016-10-26 00:46
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
-The documentation covers from beginner to advanced topic around the installation, the setup, the configuration, and the usage of Home Assistant.
+The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.
 
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/hassio/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/home-assistant.png' />
+      <img src='https://brands.home-assistant.io/homeassistant/icon.png' />
     </div>
-    <div class='title'>Hass.io</div>
+    <div class='title'>Installation</div>
   </a>
   <a class='option-card' href='/docs/configuration/'>
     <div class='img-container'>
@@ -26,27 +20,27 @@ The documentation covers from beginner to advanced topic around the installation
   </a>
   <a class='option-card' href='/docs/z-wave/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/z-wave.png' />
+      <img src='https://brands.home-assistant.io/zwave/icon.png' />
     </div>
     <div class='title'>Z-Wave</div>
   </a>
   <a class='option-card' href='/docs/mqtt/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/mqtt.png' />
+      <img src='https://brands.home-assistant.io/mqtt/icon.png' />
     </div>
     <div class='title'>MQTT</div>
   </a>
-  <a class='option-card' href='/docs/ecosystem/hadashboard/'>
+  <a class='option-card' href='/lovelace/'>
     <div class='img-container'>
       <img src='/images/supported_brands/view-dashboard.png' />
     </div>
-    <div class='title'>HADashboard</div>
+    <div class='title'>Lovelace user interface</div>
   </a>
-  <a class='option-card' href='/docs/ecosystem/ios/'>
+  <a class='option-card' href='https://companion.home-assistant.io/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/apple.png' />
+      <img src='https://brands.home-assistant.io/mobile_app/icon.png' />
     </div>
-    <div class='title'>iOS</div>
+    <div class='title'>Android and iOS</div>
   </a>
 </div>
 

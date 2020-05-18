@@ -6,6 +6,8 @@ $primary-color: #049cdb;
   position: relative;
 
   .site-title {
+    display: flex;
+    align-items: center;
     font-weight: normal;
   }
 }
@@ -141,10 +143,9 @@ $primary-color: #049cdb;
     }
   }
 
-  .shirt-promo {
+  .picture-promo {
     display: block;
     padding-top: 30%;
-    background-image: url(/images/merchandise/shirt-frontpage.png);
     background-size: cover;
     background-position: center;
     text-decoration: none;
@@ -211,7 +212,7 @@ dt:hover a.title-link {
 
   &::before {
     position: absolute;
-    top: 2px;
+    top: 5px;
     left: -25px;
     padding-right: 40px;
     font-family: "FontAwesome";
@@ -222,10 +223,14 @@ dt:hover a.title-link {
 }
 
 .ha-title {
+  display: inline-flex;
+  height: 100%;
   white-space: nowrap;
 
   img {
-    width: 40px;
+    border-radius: 3px;
+    width: 36px;
+    margin-right: 10px;
   }
 
   a > * {
@@ -340,15 +345,24 @@ article.post, article.page, article.listing {
     // Future re-design
     // margin: 1.5em 0 1rem;
   }
+
+  details {
+    padding-bottom: 1em;
+  }
 }
 
-p.note {
+p.note, div.note {
   position: relative;
 
   background: #e7f2fa;
 
   padding: 40px 12px 6px 12px;
+  margin-bottom: 24px;
   box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+
+  p {
+    margin-bottom: 0px;
+  }
 
   &::before {
     font-family: "FontAwesome", sans-serif;
@@ -412,6 +426,8 @@ p.note {
   .brand-logo-container {
     text-align: center;
     height: 87px;
+    margin-top: 50px;
+    margin-bottom: 25px;
 
     img {
       max-height: 67px;
@@ -459,7 +475,7 @@ a code {
   color: $primary-color;
 }
 
-twitterwidget {
+twitter-widget {
   margin-left: auto;
   margin-right: auto;
 }
@@ -516,4 +532,32 @@ div.config-vars {
       }
     }
   }
+}
+
+code {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.8em;
+  color: #1990b8;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+  background-color: #fdfdfd;
+  background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
+  background-size: 3em 3em;
+  background-origin: content-box;
+  background-attachment: local;
+
+  border: 1px solid #ddd;
+  border-radius: 0.4em;
+  padding: .1em .4em
 }

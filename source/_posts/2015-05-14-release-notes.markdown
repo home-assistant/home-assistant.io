@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Release notes for May 14, 2015"
 description: "Introducing support for MySensors, InstaPush, Notify My Android, OpenWeatherMap and Jabber."
 date: 2015-05-14 22:25 0000
 date_formatted: "May 14, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -16,9 +14,9 @@ This release includes a significant startup boost for the frontend and a fix for
 
 I would like to give a big shout out to our newest contributor [fabaff](https://github.com/fabaff) for taking the time to improve the documentation.
 
-<p class='note'>
+<div class='note'>
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</p>
+</div>
 
 <!--more-->
 
@@ -40,7 +38,7 @@ homeassistant:
 ```
 
 __MySensors__
-<img src='/images/supported_brands/mysensors.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Andythigpen](https://github.com/andythigpen) and [Theolind](https://github.com/theolind) have added support for the [MySensors platform](http://www.mysensors.org) to Home Assistant.
+<img src='https://brands.home-assistant.io/mysensors/logo.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Andythigpen](https://github.com/andythigpen) and [Theolind](https://github.com/theolind) have added support for the [MySensors platform](http://www.mysensors.org) to Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,13 +67,13 @@ sensor:
 ```
 
 __InstaPush__
-<img src='/images/supported_brands/instapush.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Fabaff](https://github.com/fabaff) has contributed support for [InstaPush](https://instapush.im). This will allow you send messages from Home Assistant to your iOS and Android devices.
+[Fabaff](https://github.com/fabaff) has contributed support for InstaPush. This will allow you send messages from Home Assistant to your iOS and Android devices.
 
 ```yaml
 # Example configuration.yaml entry
 notify:
     platform: instapush
-    # Get those by creating a new application, event, and tracker on https://instapush.im
+    # Get those by creating a new application, event and tracker
     api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
     app_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
     event: ABCDEFGHJKLMNOPQRSTUVXYZ

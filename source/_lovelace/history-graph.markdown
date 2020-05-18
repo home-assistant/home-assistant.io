@@ -1,20 +1,19 @@
 ---
-layout: page
 title: "History Graph Card"
 sidebar_label: History Graph
-description: "History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "The History Graph card allows you to display a graph for each of the entities listed."
 ---
 
-History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config.
+The History Graph card allows you to display a graph for each of the entities listed.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_history_graph.png' alt='Screenshot of the history graph card'>
-Screenshot of the history graph card.
+<img src='/images/lovelace/lovelace_history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
+Screenshot of the history graph card, when the sensor has no `unit_of_measurement` defined.
+</p>
+
+<p class='img'>
+<img src='/images/lovelace/lovelace_history_graph_lines.png' alt='Screenshot of the history graph card for entities with a unit_of_measurement'>
+Screenshot of the history graph card, when the sensor has a `unit_of_measurement` defined.
 </p>
 
 {% configuration %}
@@ -28,7 +27,7 @@ entities:
   type: list
 hours_to_show:
   required: false
-  description: Hours to show.
+  description: Hours to show. Minimum is 1 hour, maximum of 80 hours.
   type: integer
   default: 24
 refresh_interval:
@@ -42,7 +41,7 @@ title:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -57,13 +56,13 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
-- type: history-graph
-  title: 'My Graph'
-  entities:
-    - sensor.outside_temperature
-    - entity: media_player.lounge_room
-      name: Main player
+type: history-graph
+title: 'My Graph'
+entities:
+  - sensor.outside_temperature
+  - entity: media_player.lounge_room
+    name: Main player
 ```

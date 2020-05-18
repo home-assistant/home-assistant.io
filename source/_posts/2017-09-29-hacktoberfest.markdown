@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Participating in Hacktoberfest"
 description: "Home Assistant will be participating in Hacktoberfest to help people to get started with open-source."
 date: 2017-09-29 08:00:00 +0000
 date_formatted: "September 29, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Community
 og_image: /images/blog/2017-09-hacktoberfest/hacktoberfest-2017.png
 ---
@@ -36,9 +34,9 @@ Our participation for [Hacktoberfest 2016][hackt-2016] was a huge success. Join 
 
 [logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
-[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/sign_up/register
+[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/profile
 [issues]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
-[issues-doc]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
+[issues-doc]: https://github.com/home-assistant/home-assistant.io/labels/Hacktoberfest
 [dev-env]: /developers/development_environment/
 [dev-chat]: https://discord.gg/8X8DTH4
 [dev-forum]: https://community.home-assistant.io/c/development

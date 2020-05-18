@@ -1,27 +1,25 @@
 ---
-layout: post
 title: "0.34: New Remote component, Websockets, Sonarr, GPSLogger"
 description: "Major improvements of HomeMatic, Tellstick, the HTTP component, and more."
 date: 2016-12-03 08:04:05 +0000
 date_formatted: "December 3, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-12-0.34/social.png
 ---
 
 Here we go... 0.34. Let's call it the "Santa Claus" release. Rudolph was faster than expected and there's lot's of goodies on the sleigh. Of course, more work on async programming done by [@pvizeli] and [@balloob], new components, new platforms, major improvements, and much more.
 
-### {% linkable_title GPSLogger %}
+### GPSLogger
 
 The work of [@dainok] let's you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
 
-###  {% linkable_title Remote component %}
+###  Remote component
 
 The brand new [`remote`][remote] component made by [@iandday] will simplify the integration of all kinds of remote control units. The first platform for [Harmony][harmony] is included in this release.
 
-### {% linkable_title HomeMatic %}
+### HomeMatic
 
 The [HomeMatic][homematic] component has received some updates worth mentioning:
 
@@ -34,18 +32,18 @@ The [HomeMatic][homematic] component has received some updates worth mentioning:
 
 The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed `set_value` service). However, the benefits and possibilities gained will be worth it.
 
-### {% linkable_title Websocket API %}
+### Websocket API
 
 This release includes a new [websockets][websockets] based API by [@balloob] to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.
 
-## {% linkable_title All changes  %}
+## All changes
 
 - New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
 - Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
 - Sensor: Support for [Sonarr][sonarr] ([@hborawski])
 - Sensor: [World Air Quality Index][waqi] sensor ([@valentinalexeev], [@fabaff])
 - Sensor: Support for [Dutch Smart Meter Requirements][dsmr] ([@aequitas])
-- Switch: [Hook][hook] support by hooksmarthome.com ([@dasos])
+- Switch: Hook support by hooksmarthome.com ([@dasos])
 - Camera: Integration for [Nest cameras][nest-cam] ([@technicalpickles])
 - Light: Support for light effects ([@Diaoul])
 - Sensor: New [Threshold][threshold] sensor ([@fabaff])
@@ -75,7 +73,7 @@ This release includes a new [websockets][websockets] based API by [@balloob] to 
 - Minor and not so minor features and bug fixes by [@turbokongen], [@sdague], [@pvizeli], [@fabaff], [@chapple], [@mweinelt], [@Khabi], [@balloob], [@mnestor], [@kellerza], [@Morrisai],
 [@michaelarnauts], [@tchellomello], [@lwis], [@bjarniivarsson], [@danielperna84], [@LinuxChristian], [@MartinHjelmare], [@dethpickle], [@jnewland], [@lichtteil], [@brandonweeks], [@partofthething], [@mnoorenberghe], [@bah2830], and [@albertoarias].
 
-### {% linkable_title Release 0.34.1 - December 4 %}
+### Release 0.34.1 - December 4
 
 This release has a bunch of bug fixes including a big one: emulated_hue will now work with Google Home! We usually reserve patch releases for small bug fixes but we considered this more impactful bug fix so important that we're including it now instead of having people wait two weeks.
 
@@ -98,21 +96,21 @@ We are working on a better solution for 0.35.
 - Revert TP-Link upgrade to fix issues ([@mweinelt])
 - Fix CORS ([@balloob])
 
-### {% linkable_title Release 0.34.2 - December 5 %}
+### Release 0.34.2 - December 5
 
 - Fix Nest interpreting Celsius as Fahrenheit and converting it ([@balloob])
 - Fix Nest sensor platforms throwing errors ([@technicalpickles])
 - Frontend will now always show persistent_notification and configurator entities even if not part of the active view ([@balloob])
 - Fixed media player cards taking up unnecessary space ([@balloob])
 
-### {% linkable_title Release 0.34.3 - December 6 %}
+### Release 0.34.3 - December 6
 
  - Fix Hook connections ([@dasos])
  - Fix random websocket connections ([@balloob])
  - Fix Google Home sometimes not finding our emulated_hue ([@jawilson])
  - Fix EnOcean config validation ([@rubund])
 
-### {% linkable_title Release 0.34.4 - December 7 %}
+### Release 0.34.4 - December 7
 
  - Fix InfluxDB without authentication ([@balloob])
  - Fix Kodi without authentication ([@balloob])
@@ -120,29 +118,29 @@ We are working on a better solution for 0.35.
  - Fix incorrect ordering of service calls which could cause delays between turning on multiple entities ([@balloob])
  - Fix Nest Climate temperature issues ([@technicalpickles])
 
-### {% linkable_title Release 0.34.5 - December 12 %}
+### Release 0.34.5 - December 12
 
  - Fix Nest sensors doing I/O inside event loop ([@balloob])
- - Fix Nest version bump not triggering re-install ([@R1chardTM])
+ - Fix Nest version bump not triggering re-install ([@EarthlingRich])
  - Fix Nest cameras without activity zones ([@technicalpickles])
  - Fix Plex doing I/O inside event loop ([@balloob])
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
 - The frontend now uses websockets. If you run a server in front of Home Assistant, you will have to update your config (example [nginx][nginx])
 - [Nest][nest] contains changes which will require your attention.
 
-### {% linkable_title If you need help... %}
+### If you need help...
 
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use these communication channels. Thanks.
 
-### {% linkable_title Reporting Issues %}
+### Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
-[@R1chardTM]: https://github.com/R1chardTM
+[@EarthlingRich]: https://github.com/EarthlingRich
 [@armills]: https://github.com/armills
 [@jawilson]: https://github.com/jawilson
 [@rubund]: https://github.com/rubund
@@ -205,27 +203,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vemek]: https://github.com/vemek
 [@vkorn]: https://github.com/vkorn
 
-[amcrest]: /components/camera.amcrest/
-[boradlink]: /components/sensor.broadlink/
-[dsmr]: /components/sensor.dsmr/
-[dunehd]: /components/media_player.dunehd/
-[efergy]: /components/sensor.efergy/
-[filtering]: /components/http/
-[gpslogger]: /components/device_tracker.gpslogger/
-[harmony]: /components/remote.harmony/
-[homematic]: /components/homematic/
-[hook]: /components/switch.hook/
-[nest-cam]: /components/camera.nest/
-[nest]: /components/nest/
+[amcrest]: /integrations/amcrest
+[boradlink]: /integrations/broadlink#sensor
+[dsmr]: /integrations/dsmr
+[dunehd]: /integrations/dunehd
+[efergy]: /integrations/efergy
+[filtering]: /integrations/http/
+[gpslogger]: /integrations/gpslogger
+[harmony]: /integrations/harmony
+[homematic]: /integrations/homematic/
+[nest-cam]: /integrations/nest#camera
+[nest]: /integrations/nest/
 [nginx]: /ecosystem/nginx/
-[nut]: /components/sensor.nut/
-[philips]: /components/media_player.philips_js/
-[remote]: /components/remote/
-[rfxtrx]: /components/rfxtrx/
-[sonarr]: /components/sensor.sonarr/
-[tellstick]: /components/tellstick/
-[temper]: /components/sensor.temper/
-[threshold]: /components/binary_sensor.threshold/
+[nut]: /integrations/nut
+[philips]: /integrations/philips_js
+[remote]: /integrations/remote/
+[rfxtrx]: /integrations/rfxtrx/
+[sonarr]: /integrations/sonarr
+[tellstick]: /integrations/tellstick/
+[temper]: /integrations/temper
+[threshold]: /integrations/threshold
 [websockets]: /developers/websocket_api/
-[waqi]: /components/sensor.waqi/
-
+[waqi]: /integrations/waqi
