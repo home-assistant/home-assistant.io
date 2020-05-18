@@ -2064,6 +2064,7 @@
 /docs/ecosystem/apache https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
 /docs/ecosystem/backup/backup_dropbox https://community.home-assistant.io/t/backing-up-to-dropbox/196960
 /docs/ecosystem/backup/backup_github https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
+/docs/ecosystem/backup/backup_usb https://community.home-assistant.io/t/backup-configuration-to-a-usb-drive/196964
 /docs/ecosystem/caddy https://community.home-assistant.io/t/reverse-proxy-with-caddy/196943
 /docs/ecosystem/haproxy https://community.home-assistant.io/t/reverse-proxy-with-haproxy/196950
 /docs/ecosystem/nginx https://community.home-assistant.io/t/reverse-proxy-using-nginx/196954
