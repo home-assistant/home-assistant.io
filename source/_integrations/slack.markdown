@@ -26,6 +26,7 @@ There is an app credential Verification Token on the Basic Settings of your app.
 </div>
 
 ### Bot posting as its own user
+
 It is also possible to use Slack bots as users. Just create a new bot at https://[YOUR_TEAM].slack.com/apps/build/custom-integration and use the provided token for that. You can add an icon from the frontend for Home Assistant and give the bot a meaningful name.
 
 Don't forget to invite the bot to the room where you want to get the notifications.
@@ -76,7 +77,8 @@ The following attributes can be placed inside `data` for extended functionality.
 | ---------------------- | -------- | ----------- |
 | `file`                   |      yes | Local path of file, photo, etc. to post to Slack.
 | `attachments`            |      yes | Array of [Slack attachments](https://api.slack.com/messaging/composing/layouts#attachments) (legacy). *NOTE*: if using `attachments`, they are shown **in addition** to `message`.
-| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in addition** to `message`.
+| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
+| `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
 
 Example for posting a file from local path:
 
@@ -92,7 +94,7 @@ Please note that `file` is validated against the `whitelist_external_dirs` in th
 Example for using the block framework:
 
 ```yaml
-message: Message that will be added as a comment to the file.
+message: Fallback message in case the blocks don't display anything.
 title: Title of the file.
 data:
   blocks:
@@ -130,11 +132,3 @@ data:
     - title: WHAT A HORRIBLE NIGHT TO HAVE A CURSE.
       image_url: https://i.imgur.com/JEExnsI.gif
 ```
-
-You can also use YAML to send messages from your automations
-
-Please note that both `message` is a required key, but is always shown, so use an empty (`""`) string for `message` if you don't want the extra text.
-
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
-Extra information: You must add the bot to your Slack channel, otherwise you can't send messages in this channel.
