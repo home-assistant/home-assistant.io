@@ -3,6 +3,7 @@ title: Pi-hole
 description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
   - System Monitor
+  - Switch
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.28
@@ -34,8 +35,6 @@ host:
 name:
   description: >
     The name for this Pi-hole. This name will be a part of the sensors created, e.g.,  `name: My Awesome Pi-hole` would result in sensor names beginning with `sensor.my_awesome_pi_hole_`.
-
-    **Note:** If you configure multiple Pi-Holes, each one *must* have a unique name.
   required: false
   type: string
   default: Pi-hole
@@ -99,7 +98,9 @@ pi_hole:
 
 ## Services
 
-The platform provides the following services to interact with your Pi-hole.
+The platform provides the following services to interact with your Pi-hole. Use switch entities when calling the services.
+
+_Note: Switch entity requires `api_key` to be configured._
 
 ### Service `pi_hole.disable`
 
@@ -107,19 +108,5 @@ Disables configured Pi-hole(s) for the specified amount of time.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
+| `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services |
 | `duration` | `True` | timedelta | Time for which Pi-hole should be disabled |
-| `name` | `False` | string | If preset, disables the named Pi-hole, otherwise, disables all configured Pi-holes |
-
-_Note: This service requires `api_key` to be specified in the configuration._
-
-### Service `pi_hole.enable`
-
-Enables configured Pi-holes(s).
-
-| Service data attribute | Required | Type | Description |
-| ---------------------- | -------- | -------- | ----------- |
-| `name` | `False` | string | If preset, enables the named Pi-hole, otherwise, enables all configured Pi-holes |
-
-_Note: This service requires `api_key` to be specified in the configuration._
-
-This integration was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC.
