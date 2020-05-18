@@ -42,11 +42,6 @@ server_port:
   required: false
   type: integer
   default: 8123
-base_url:
-  description: "The URL that Home Assistant is available on the internet. For example: `https://hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app. Note that this setting may only contain a protocol, hostname and port; using a path is *not* currently supported."
-  required: false
-  type: string
-  default: Your local IP address
 ssl_certificate:
   description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
   required: false
@@ -113,6 +108,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 10.0.0.200
+    - 172.30.33.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
 ```

@@ -89,13 +89,13 @@ On your `configuration.yaml` file, edit the `http` component.
 http:
   # For extra security set this to only accept connections on localhost if NGINX is on the same machine
   # server_host: 127.0.0.1
-  # Update this line to be your domain
-  base_url: https://example.com
   use_x_forwarded_for: true
   # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
   # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
   trusted_proxies: <NGINX IP address here, or 127.0.0.1 if hosted on the same machine>
 ```
+
+Go to the Home Assistant UI -> **Configuration** -> **General** and set the external URL to your new URL, for example: `https://examplehome.duckdns.org`. Please note, advanced mode on your user profile must be enabled in order to see the external URL option.
 
 ### NGINX configuration
 
@@ -133,7 +133,7 @@ server {
     listen [::]:443 ssl default_server ipv6only=off; # if your nginx version is >= 1.9.5 you can also add the "http2" flag here
     add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
     # ssl on; # Uncomment if you are using nginx < 1.15.0
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_protocols TLSv1.2;
     ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4";
     ssl_prefer_server_ciphers on;
     ssl_session_cache shared:SSL:10m;

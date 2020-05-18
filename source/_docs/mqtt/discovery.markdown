@@ -230,6 +230,7 @@ Supported abbreviations:
     'temp_lo_stat_t':      'temperature_low_state_topic',
     'temp_stat_tpl':       'temperature_state_template',
     'temp_stat_t':         'temperature_state_topic',
+    'temp_unit':           'temperature_unit',
     'tilt_clsd_val':       'tilt_closed_value',
     'tilt_cmd_t':          'tilt_command_topic',
     'tilt_inv_stat':       'tilt_invert_state',
@@ -266,7 +267,7 @@ Supported abbreviations for device registry configuration:
 
 The following software has built-in support for MQTT discovery:
 
-- [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
+- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)

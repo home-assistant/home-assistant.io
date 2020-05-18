@@ -957,6 +957,8 @@ The following is a list of regions and the corresponding URL for the web-based A
 - Australia: `https://alexa.amazon.com.au`
 - India: `https://alexa.amazon.in`
 - Spain: `https://alexa.amazon.es`
+- France: `https://alexa.amazon.fr`
+- Italy: `https://alexa.amazon.it`
 
 ## Troubleshooting
 

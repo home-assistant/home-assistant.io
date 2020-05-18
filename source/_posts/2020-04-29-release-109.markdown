@@ -348,6 +348,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
   Home Assistant Core 0.111. Configuration is now done through the UI.-
   ([@jjlawren] - [#34546]) ([plex docs])
 
+- **Google Cast** - Connecting to Cast devices now depends on mDNS even when IP
+  addresses of the Cast Devices are manually entered.-
+  ([@emontnemery] - [#33922]) ([cast docs])
+
 ## Farewell to the following
 
 - **Pushetta**
@@ -401,6 +405,175 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [toon docs]: /integrations/toon/
 [webostv docs]: /integrations/webostv/
 
+## Release 0.109.2 - May 1
+
+- Don't attempt to set Vizio is_volume_muted property if Vizio API doesn't provide muted state ([@raman325] - [#34782]) ([vizio docs])
+- Bump brother to 0.1.14 ([@bieniu] - [#34930]) ([brother docs])
+- Fix MQTT debug info for same topic ([@emontnemery] - [#34952]) ([mqtt docs])
+- Fix preservation of homekit fan speed on toggle ([@bdraco] - [#34971])
+- Fix restoring isy994 brightness with no previous state ([@bdraco] - [#34972]) ([isy994 docs])
+- Support num_repeats for roku remote ([@ctalkington] - [#34981]) ([roku docs])
+- Support num_repeats for directv remote ([@ctalkington] - [#34982]) ([directv docs]) ([directv docs])
+- UniFi - Disconnected clients wrongfully marked as wired not created ([@Kane610] - [#34986]) ([unifi docs])
+- Log the rachio webhook url ([@bdraco] - [#34992]) ([rachio docs])
+- Add allow extra to totalconnect config schema ([@austinmroczek] - [#34993]) ([totalconnect docs])
+- Fix roomba not reporting error ([@shenxn] - [#34996]) ([roomba docs])
+- Lint roomba ([@balloob] - [#35000]) ([roomba docs])
+
+[#34782]: https://github.com/home-assistant/core/pull/34782
+[#34930]: https://github.com/home-assistant/core/pull/34930
+[#34952]: https://github.com/home-assistant/core/pull/34952
+[#34971]: https://github.com/home-assistant/core/pull/34971
+[#34972]: https://github.com/home-assistant/core/pull/34972
+[#34981]: https://github.com/home-assistant/core/pull/34981
+[#34982]: https://github.com/home-assistant/core/pull/34982
+[#34986]: https://github.com/home-assistant/core/pull/34986
+[#34992]: https://github.com/home-assistant/core/pull/34992
+[#34993]: https://github.com/home-assistant/core/pull/34993
+[#34996]: https://github.com/home-assistant/core/pull/34996
+[#35000]: https://github.com/home-assistant/core/pull/35000
+[@Kane610]: https://github.com/Kane610
+[@austinmroczek]: https://github.com/austinmroczek
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@ctalkington]: https://github.com/ctalkington
+[@emontnemery]: https://github.com/emontnemery
+[@raman325]: https://github.com/raman325
+[@shenxn]: https://github.com/shenxn
+[brother docs]: /integrations/brother/
+[directv docs]: /integrations/directv/
+[isy994 docs]: /integrations/isy994/
+[mqtt docs]: /integrations/mqtt/
+[rachio docs]: /integrations/rachio/
+[roku docs]: /integrations/roku/
+[roomba docs]: /integrations/roomba/
+[totalconnect docs]: /integrations/totalconnect/
+[unifi docs]: /integrations/unifi/
+[vizio docs]: /integrations/vizio/
+
+## Release 0.109.3 - May 2
+
+- Fix MELCloud temperature unit ([@vilppuvuorinen] - [#35003]) ([melcloud docs]) (breaking change)
+- Fix translation merging for custom components without translations ([@balloob] - [#35032])
+- Fix Canary doing I/O in the event loop ([@bachya] - [#35039]) ([canary docs])
+- Bump hass-nabucasa to 0.34.2 ([@balloob] - [#35046]) ([cloud docs])
+- Bump python-synology to 0.7.4 ([@Quentame] - [#35052]) ([synology_dsm docs])
+- UniFi - Catch controllers running on UniFi OS that don't have a local user configured ([@Kane610] - [#35060]) ([unifi docs])
+- UniFi - Add support for 2.4/5 GHz separated SSIDs ([@Kane610] - [#35062]) ([unifi docs])
+- Bump roombapy to 1.5.2 ([@shenxn] - [#35067]) ([roomba docs])
+- Bump python-synology to 0.8.0 + Fix disk space incorrect sensor type ([@Quentame] - [#35068]) ([synology_dsm docs])
+- Update bravia-tv to 1.0.3 ([@dcnielsen90] - [#35077]) ([braviatv docs])
+- Updated frontend to 20200427.2 ([@bramkragten] - [#35079]) ([frontend docs])
+- Improve stability of homekit media players ([@bdraco] - [#35080]) ([homekit docs])
+
+[#35003]: https://github.com/home-assistant/core/pull/35003
+[#35032]: https://github.com/home-assistant/core/pull/35032
+[#35039]: https://github.com/home-assistant/core/pull/35039
+[#35046]: https://github.com/home-assistant/core/pull/35046
+[#35052]: https://github.com/home-assistant/core/pull/35052
+[#35060]: https://github.com/home-assistant/core/pull/35060
+[#35062]: https://github.com/home-assistant/core/pull/35062
+[#35067]: https://github.com/home-assistant/core/pull/35067
+[#35068]: https://github.com/home-assistant/core/pull/35068
+[#35077]: https://github.com/home-assistant/core/pull/35077
+[#35079]: https://github.com/home-assistant/core/pull/35079
+[#35080]: https://github.com/home-assistant/core/pull/35080
+[@Kane610]: https://github.com/Kane610
+[@Quentame]: https://github.com/Quentame
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dcnielsen90]: https://github.com/dcnielsen90
+[@shenxn]: https://github.com/shenxn
+[@vilppuvuorinen]: https://github.com/vilppuvuorinen
+[braviatv docs]: /integrations/braviatv/
+[canary docs]: /integrations/canary/
+[cloud docs]: /integrations/cloud/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[melcloud docs]: /integrations/melcloud/
+[roomba docs]: /integrations/roomba/
+[synology_dsm docs]: /integrations/synology_dsm/
+[unifi docs]: /integrations/unifi/
+
+## Release 0.109.4 - May 4
+
+- Fix Synology NAS discovered multiple times ([@Quentame] - [#35094]) ([synology_dsm docs])
+- Correct typo Asssitant -> Assistant ([@ludeeus] - [#35117]) ([websocket_api docs])
+- Hue: Guard for when there is no brightness ([@balloob] - [#35151]) ([hue docs])
+- Bump pyiCloud to 0.9.7 + do not warn when pending devices ([@Quentame] - [#35156]) ([icloud docs])
+- Fix Canary KeyError: 'ffmpeg_arguments' ([@frenck] - [#35158]) ([canary docs])
+- Fix UVC doing I/O inside the event loop ([@frenck] - [#35169]) ([uvc docs])
+- Fix utility_meter calibration with float values ([@dgomes] - [#35186]) ([utility_meter docs])
+- Fix Synology DSM sensor to be False or 0 ([@Quentame] - [#35208]) ([synology_dsm docs])
+
+[#35094]: https://github.com/home-assistant/core/pull/35094
+[#35117]: https://github.com/home-assistant/core/pull/35117
+[#35151]: https://github.com/home-assistant/core/pull/35151
+[#35156]: https://github.com/home-assistant/core/pull/35156
+[#35158]: https://github.com/home-assistant/core/pull/35158
+[#35169]: https://github.com/home-assistant/core/pull/35169
+[#35186]: https://github.com/home-assistant/core/pull/35186
+[#35208]: https://github.com/home-assistant/core/pull/35208
+[@Quentame]: https://github.com/Quentame
+[@balloob]: https://github.com/balloob
+[@dgomes]: https://github.com/dgomes
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[canary docs]: /integrations/canary/
+[hue docs]: /integrations/hue/
+[icloud docs]: /integrations/icloud/
+[synology_dsm docs]: /integrations/synology_dsm/
+[utility_meter docs]: /integrations/utility_meter/
+[uvc docs]: /integrations/uvc/
+[websocket_api docs]: /integrations/websocket_api/
+
+## Release 0.109.5 - May 6
+
+- Add retry on empty modbus messages for serial protocol ([@janiversen] - [#34678]) ([modbus docs])
+- Change Modbus switch to use verify_register when defined ([@janiversen] - [#34679]) ([modbus docs])
+- Catch samsungtv timeout exception ([@escoand] - [#35205]) ([samsungtv docs])
+- Broader Notion exception handling ([@bachya] - [#35265]) ([notion docs])
+- UniFi - Support SSID filter of SSIDs from access points with extra configuration ([@Kane610] - [#35295]) ([unifi docs])
+- Fix SMS doing I/O in event loop ([@balloob] - [#35313]) ([sms docs])
+
+[#34678]: https://github.com/home-assistant/core/pull/34678
+[#34679]: https://github.com/home-assistant/core/pull/34679
+[#35205]: https://github.com/home-assistant/core/pull/35205
+[#35265]: https://github.com/home-assistant/core/pull/35265
+[#35295]: https://github.com/home-assistant/core/pull/35295
+[#35313]: https://github.com/home-assistant/core/pull/35313
+[@Kane610]: https://github.com/Kane610
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@escoand]: https://github.com/escoand
+[@janiversen]: https://github.com/janiversen
+[modbus docs]: /integrations/modbus/
+[notion docs]: /integrations/notion/
+[samsungtv docs]: /integrations/samsungtv/
+[sms docs]: /integrations/sms/
+[unifi docs]: /integrations/unifi/
+
+## Release 0.109.6 - May 7
+
+- Fix roomba 980 position report ([@shenxn] - [#35316]) ([roomba docs])
+- Update pymyq to 2.0.2 ([@bdraco] - [#35330]) ([myq docs])
+- Fix Synology DSM discovery can't be ignored ([@Quentame] - [#35331]) ([synology_dsm docs])
+- Remove panasonic_viera from legacy discovery (@joogps - #34909)
+- Fix Islamic prayer sensor timestamp format (@engrbm87 - #35243)
+
+[#35316]: https://github.com/home-assistant/core/pull/35316
+[#35330]: https://github.com/home-assistant/core/pull/35330
+[#35331]: https://github.com/home-assistant/core/pull/35331
+[@Quentame]: https://github.com/Quentame
+[@bdraco]: https://github.com/bdraco
+[@shenxn]: https://github.com/shenxn
+[myq docs]: /integrations/myq/
+[roomba docs]: /integrations/roomba/
+[synology_dsm docs]: /integrations/synology_dsm/
+
 ## All changes
 
 <details>
@@ -437,7 +610,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 - Upgrade cryptography to 2.9 ([@fabaff] - [#33571])
 - Add support for Mi AirPurifier 3 ([@foxel] - [#31729]) ([xiaomi_miio docs])
 - Fix vertical/horizontal property mixup in melcloud ([@vilppuvuorinen] - [#33580]) ([melcloud docs])
-- Automatic: fix OAuth2 redirect ([@pbeckcom] - [#33581]) ([automatic docs])
+- Automatic: fix OAuth2 redirect ([@pbeckcom] - [#33581])
 - Improve MQTT test coverage and remove dead code ([@emontnemery] - [#33584]) ([mqtt docs])
 - Add Abode entity available property ([@shred86] - [#32923]) ([abode docs])
 - Small cleanup in async_process_ha_core_config ([@emontnemery] - [#33583])
@@ -1514,7 +1687,6 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [asuswrt docs]: /integrations/asuswrt/
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
-[automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/

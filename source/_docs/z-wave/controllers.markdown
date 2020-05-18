@@ -15,6 +15,7 @@ There have [been reports](https://www.raspberrypi.org/forums/viewtopic.php?f=28&
 
 - Aeotec Z-Stick Series 5
 - Everspring USB stick - Gen 5
+- GoControl HUSBZB-1 stick
 - Sigma Designs UZB stick
 - Vision USB stick - Gen5
 - Zooz Z-Wave Plus S2 stick ZST10

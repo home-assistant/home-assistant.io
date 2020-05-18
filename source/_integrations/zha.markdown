@@ -41,11 +41,16 @@ Zigbee devices that deviate from or do not fully conform to the standard specifi
 
 The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Shepherd Converters as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
 
-## Known working Zigbee radio modules
+## Compatible hardware
+
+ZHA integration uses a hardware independent Zigbee stack implementation with modular design which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
+
+### Known working Zigbee radio modules
 
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
   - [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
+  - [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://www.dresden-elektronik.com/product/raspbee-II.html)
   - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
 - EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
@@ -54,18 +59,21 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - Telegesis ETRX357USB (Note! This first have to be flashed with other EmberZNet firmware)
   - Telegesis ETRX357USB-LRS (Note! This first have to be flashed with other EmberZNet firmware)
   - Telegesis ETRX357USB-LRS+8M (Note! This first have to be flashed with other EmberZNet firmware)
-- Texas Instruments CC253x, CC26x2R, and CC13x2 based radios (via the [zigpy-cc](https://github.com/sanyatuning/zigpy-cc) library for zigpy)
+- XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
+  - Digi XBee Series 3 (xbee3-24) modules
+  - Digi XBee Series 2C (S2C) modules
+  - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
+
+### Experimental support for additional Zigbee radio modules
+
+- Texas Instruments CC253x, CC26x2R, and CC13x2 based radios (via the [zigpy-cc](https://github.com/zigpy/zigpy-cc) library for zigpy)
   - [CC2531 USB stick hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC2530 + CC2591 USB stick hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC2530 + CC2592 dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC2652R dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC1352P-2 dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
   - [CC2538 + CC2592 dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
-- XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
-  - Digi XBee Series 3 (xbee3-24) modules
-  - Digi XBee Series 2C (S2C) modules
-  - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
-- ZiGate based radios (via the [zigpy-zigate](https://github.com/doudz/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
+- ZiGate based radios (via the [zigpy-zigate](https://github.com/zigpy/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
   - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
   - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
   - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
@@ -79,32 +87,36 @@ Use the plus button in the bottom right to add a new integration called **ZHA**.
 
 In the popup:
 
-- USB Device Path - on a Linux system will be something like `/dev/ttyUSB0` or `/dev/ttyACM0`
-- Radio type - select device type `ezsp`, `deconz`, `ti_cc`, `xbee` or `zigate`
+- Serial Device Path - List of detected serial ports on the system. You need to pick one to which your
+radio is connected
 - Submit
+
+Press `Submit` and the integration will try to detect radio type automatically. If unsuccessful, you will get
+a new pop-up asking for a radio type. In the pop-up:
+
+- Radio Type
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| `ezsp`  | EmberZNet based radios, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
-| `deconz` | ConBee, ConBee II |
-| `xbee` | Digi XBee Series 2, 2C, 3  |
+| `ezsp`  | EmberZNet based radios, HUSBZB-1, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
+| `deconz` | ConBee, ConBee II, RaspBi |
+| `xbee` | Digi XBee Series 2, 2C and 3 based radios with XBee Zigbee firmware |
+| `ti_cc` | Texas Instruments CC253x/CC26x2/CC13x2 based radios with Z-Stack firmware |
+| `zigate` | ZiGate USB-TTL, PiZiGate, and WiFi based Zigbee radios with ZiGate firmware |
 
-- Press `Submit` to save changes.
+- Submit
 
-The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
+Press `Submit` to save radio type and you will get a new form asking for port settings specific for this
+radio type. In the pop-up:
+- Serial device path
+- port speed (not applicable for all radios)
+- data flow control (not applicable for all radios)
 
-## Configuration - Manual
+Most devices need at very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
+device path from `/dev/serial/by-id` folder,
+eg `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`
 
-To configure the component, select ZHA on the Integrations page and provide the path to your Zigbee USB stick.
-
-Or, you can manually configure `zha` section in `configuration.yaml`. The path to the database which will persist your network data is required.
-
-```yaml
-# Example configuration.yaml entry
-zha:
-  usb_path: /dev/ttyUSB2
-  database_path: /home/homeassistant/.homeassistant/zigbee.db
-```
+Press `Submit` The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 If you are use ZiGate, you have to use some special usb_path configuration:
 
@@ -113,20 +125,6 @@ If you are use ZiGate, you have to use some special usb_path configuration:
 - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 
 {% configuration %}
-radio_type:
-  description: One of `deconz`, `ezsp`, `ti_cc`, `xbee` or `zigate`.
-  required: false
-  type: string
-  default: ezsp
-usb_path:
-  description: Path to the serial device for the radio.
-  required: true
-  type: string
-baudrate:
-  description: Baud rate of the serial device.
-  required: false
-  type: integer
-  default: 57600
 database_path:
   description: _Full_ path to the database which will keep persistent network data.
   required: true
@@ -149,6 +147,37 @@ Click on **ADD DEVICES** to start a scan for new devices.
 Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
 ## Troubleshooting
+
+### Reporting issues
+
+When reporting issues, please provide the following information in addition to information requested by issue template:
+
+1. Debug logs for the issue, see [debug logging](#debug-logging)
+2. Model of Zigbee radio being used
+3. If issue is related to a specific Zigbee device, provide device Zigbee signature. Signature is available at
+`Configuration` Panel -> `Zigbee Home Automation` -> Pick your Device -> `Zigbee Information`
+
+### Debug logging
+
+To enable debug logging for ZHA component ard radio libraries, add the following [logger](https://www.home-assistant.io/integrations/logger/) configuration to `configuration.yaml`:
+
+```yaml
+logger:
+  default: info
+  logs:
+    homeassistant.core: debug
+    homeassistant.components.zha: debug
+    bellows.zigbee.application: debug
+    bellows.ezsp: debug
+    zigpy: debug
+    zigpy_cc: debug
+    zigpy_deconz.zigbee.application: debug
+    zigpy_deconz.api: debug
+    zigpy_xbee.zigbee.application: debug
+    zigpy_xbee.api: debug
+    zigpy_zigate: debug
+    zhaquirks: debug
+```
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 

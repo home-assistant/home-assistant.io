@@ -72,7 +72,7 @@
 /developers/platform_example_sensor https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_sensor
 /developers/python_api https://developers.home-assistant.io/docs/en/external_api_rest_python.html
 /developers/releasing https://developers.home-assistant.io/docs/en/releasing.html
-/developers/rest_api https://developers.home-assistant.io/docs/en/external_api_rest.html
+/developers/rest_api https://developers.home-assistant.io/docs/api/rest.html
 /developers/server_sent_events https://developers.home-assistant.io/docs/en/external_api_server_sent_events.html
 /developers/websocket_api https://developers.home-assistant.io/docs/en/external_api_websocket.html
 
@@ -319,7 +319,6 @@
 /components/device_tracker.actiontec /integrations/actiontec
 /components/device_tracker.aruba /integrations/aruba
 /components/device_tracker.asuswrt /integrations/asuswrt
-/components/device_tracker.automatic /integrations/automatic
 /components/device_tracker.bbox /integrations/bbox
 /components/device_tracker.bluetooth_le_tracker /integrations/bluetooth_le_tracker
 /components/device_tracker.bluetooth_tracker /integrations/bluetooth_tracker
@@ -1131,7 +1130,6 @@
 /components/aurora /integrations/aurora
 /components/aurora_abb_powerone /integrations/aurora_abb_powerone
 /components/auth /integrations/auth
-/components/automatic /integrations/automatic
 /components/automation /integrations/automation
 /components/avea /integrations/avea
 /components/avion /integrations/avion
