@@ -76,3 +76,5 @@ If this is not possible, it's necessary to:
 
 - Enable mDNS forwarding between the subnets.
 - Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
+
+Note that this functionality was changed in [release 109](https://www.home-assistant.io/blog/2020/04/29/release-109/) of Home Assistant, making mDNS discovery mandatory.
