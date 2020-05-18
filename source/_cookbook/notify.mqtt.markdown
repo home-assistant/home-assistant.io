@@ -31,7 +31,7 @@ The same will work for automations.
 
 ### REST API
 
-Using the [REST API](/developers/rest_api) to send a message to a given topic.
+Using the [REST API](https://developers.home-assistant.io/docs/api/rest/ to send a message to a given topic.
 
 ```bash
 $ curl -X POST \
