@@ -27,11 +27,8 @@ Once activated, go to the configuration panel in Home Assistant and create an ac
 config:
 ```
 ### Google Assistant configuration
-Name
 
-Aliases for exposed enities can be added by secifiyin a list of names to the ```aliases:``` attribute.
-
-Room
+It's possible to enter entity configurations for entities that are exposed to the google assistant, like the example below:
 ```yaml
 # Example configuration.yaml
 google_actions:
@@ -48,3 +45,27 @@ google_actions:
                 - "The fancy lamp"
               room: "Living room"
 ```
+{% configuration %}
+entity_config:
+  description: Entity specific configuration for Google Assistant
+  required: false
+  type: map
+  keys:
+    '`<ENTITY_ID>`':
+      description: Entity to configure
+      required: false
+      type: map
+      keys:
+        name:
+          description: Name of the entity to show in Google Assistant
+          required: false
+          type: string
+        aliases:
+          description: Aliases that can also be used to refer to this entity
+          required: false
+          type: list
+        room:
+          description: Allows for associating this device to a Room in Google Assistant.
+          required: false
+          type: string
+{% endconfiguration %}
