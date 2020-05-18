@@ -2064,6 +2064,7 @@
 /docs/ecosystem/backup/backup_github https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
 /docs/ecosystem/caddy https://community.home-assistant.io/t/reverse-proxy-with-caddy/196943
 /docs/ecosystem/haproxy https://community.home-assistant.io/t/reverse-proxy-with-haproxy/196950
+/docs/ecosystem/nginx_subdomain https://community.home-assistant.io/t/reverse-proxy-with-nginx-using-a-subdomain/196952
 /docs/ecosystem/tor https://community.home-assistant.io/t/tor-onion-service-configuration/195171
 /docs/installation/freenas https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158
 
