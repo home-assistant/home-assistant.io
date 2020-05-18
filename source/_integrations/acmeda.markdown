@@ -12,13 +12,13 @@ ha_codeowners:
 ha_domain: acmeda
 ---
 
-The Rollease Acmeda Automate integration allows you to control and monitor covers via your Rolelase Acmeda Automate hub. The integration uses an [API](https://pypi.org/project/aiopulse/) to directly communicate with hubs on the local network rather than connecting via the cloud or via RS-485.
+The Rollease Acmeda Automate integration allows you to control and monitor covers via your Rolelase Acmeda Automate hub. The integration uses an [API](https://pypi.org/project/aiopulse/) to directly communicate with hubs on the local network, rather than connecting via the cloud or via RS-485.
 
 Devices are represented as a cover for monitoring and control as well as a sensor for monitoring battery condition.
 
 To set up this integration, click the + icon in the lower right and find Rolelase Acmeda Automate. This will automatically discover any hubs on the local network and register them with Home Assistant. All devices are automatically discovered on the hub and you will have the opportunity to select the area each device is located.
 
-Once registration is complete you should see a `cover` and a `sensor` entity for each device. The integration automatically manages the addition/update/removal of any devices connected on the hub including device names unless manually specified in Home Assistant.
+Once registration is complete, you should see a `cover` and a `sensor` entity for each device. The integration automatically manages the addition/update/removal of any devices connected on the hub including device names unless manually specified in Home Assistant.
 
 ### Multiple hubs
 
@@ -29,5 +29,6 @@ Multiple hubs work transparently with discovery, so you don't have to do anythin
 If the IP address for the hub changes, you will need to re-register it with Home Assistant again. To avoid this, you may set up a DHCP reservation on your router for your hub so that it always has the same IP address.
 
 The integration has the following limitations:
- - covers with position as well as tilt are not supported.
- - the integration doesn't make use of rooms and scenes configured in the hub, use the equivalent functionality in Home Assistant instead.
+
+- covers with position as well as tilt are not supported.
+- the integration doesn't make use of rooms and scenes configured in the hub, use the equivalent functionality in Home Assistant instead.
