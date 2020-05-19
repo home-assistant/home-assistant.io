@@ -2,7 +2,6 @@
 title: STALL WIFFI
 logo: wiffi.png
 description: Support for WIFFI devices from stall.biz, e.g., Weatherman, Rainyman, ...
-featured: true
 ha_category:
   - DIY
 ha_release: "0.110"
