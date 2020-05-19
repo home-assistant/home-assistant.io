@@ -14,16 +14,20 @@ ha_codeowners:
 
 You can enable the Cast integration by going to the Integrations page inside the configuration panel.
 
+## Setup
+
+Support for mDNS discovery in your local network is mandatory. Make sure that your router has this feature enabled. This is even required if you entered the IP addresses of the Cast devices are manually in the configuration as mentioned below.
+
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI, or by calling the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your Lovelace YAML for each view, as outlined in the [views documentation](/lovelace/views/#path). The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
+Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/lovelace/entities/#cast) to your Lovelace UI, or by calling the `cast.show_lovelace_view` service. The service takes the path of a Lovelace view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your Lovelace YAML for each view, as outlined in the [views documentation](/lovelace/views/#path). The `dashboard_path` is the part of the Lovelace UI URL that follows the defined `base_url` Typically "lovelace". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
 
 ```yaml
 'cast_downstairs_on_kitchen':
   alias: Show Downstairs on kitchen
   sequence:
   - data:
-      dashboard_path: lovelace-cast-
+      dashboard_path: lovelace
       entity_id: media_player.kitchen
       view_path: downstairs
     service: cast.show_lovelace_view
@@ -37,6 +41,7 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 ## Advanced use
 
 ### Manual configuration
+
 By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a white list of wanted chrome casts.
 
 ```yaml
@@ -53,7 +58,7 @@ media_player:
   type: list
   keys:
     host:
-      description: IP-address of a Cast device to add to Home Assistant. Use only if you don't want to add all available devices. The device won't be added until discovered through mDNS.
+      description: IP address of a Cast device to add to Home Assistant. Use only if you don't want to add all available devices. The device won't be added until discovered through mDNS.
       required: false
       type: string
     ignore_cec:
@@ -76,3 +81,4 @@ If this is not possible, it's necessary to:
 
 - Enable mDNS forwarding between the subnets.
 - Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
+

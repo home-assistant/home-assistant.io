@@ -2076,6 +2076,9 @@
 /addons/ssh https://github.com/home-assistant/hassio-addons/blob/master/ssh/README.md
 /addons/tellstick https://github.com/home-assistant/hassio-addons/blob/master/tellstick/README.md
 
+# Redirect old /demo to new demo page
+/demo https://demo.home-assistant.io
+
 # Lovelace documentation
 /lovelace/entity-button /lovelace/button
 /lovelace/views /lovelace/dashboards-and-views
