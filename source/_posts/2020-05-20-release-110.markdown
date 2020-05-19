@@ -33,6 +33,9 @@ icons in the DOM but in a database.
 This saves a lot of memory and thus makes the Home Assistant frontend
 even more leaner and faster!
 
+Honestly, it is not just icons... A lot is optimized to make the frontend
+faster this release. It is now snappier than ever!
+
 ## Integrations grouping, searching & custom logos
 
 [@timmo001] added the possibility to search your integrations, so you can find
@@ -148,6 +151,9 @@ casting. This release addresses this issue by introducing two new settings in
 Screenshot of the URLs configuration.
 </p>
 
+If you want to set those via YAML, `homeassistant:` main configuration has now
+a `external_url` and `internal_url` setting.
+
 These settings allow you to override the URLs Home Assistant uses when
 communicating on your internal network versus the outside world. Please note,
 that these are overrides. By default, Home Assistant will try to figure this out
@@ -177,7 +183,24 @@ Screenshot of the automation editor with a "not" condition.
 </p>
 
 This feature has been added to the automation editor, but is also available
-for writing automations in YAML.
+for writing automations in YAML:
+
+```yaml
+# Example automation
+alias: Turn kitchen lights off when alarm is armed.
+trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+condition:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: disarmed
+action:
+  - service: light.turn_off
+    entity_id: light.kitchen
+```
 
 ## HomeKit
 
@@ -188,12 +211,15 @@ and [@stickpin] jumped on the HomeKit bandwagon as well!
 HomeKit can now be configured and set up from the Home Assistant frontend,
 and even allows you to set up multiple instances! This allows one to bypass the
 maximum amount of devices a single HomeKit gateway supports by adding multiple.
+Using multiple, will also allow you to bypass the 1 TV per bridge limit
+on HomeKit.
 
 Ready for this? Home Assistant Core 0.110 now has camera support for HomeKit!
 
-And if that wasn't enough already, the integration now sends out entity
-information as HomeKit accessory information. So you can easily find and see
-which entity provided the accessory in HomeKit.
+And if that wasn't enough already, the HomeKit integration now sends out more
+information as HomeKit accessory information. So besides the entity id, which
+was already present, you can also see which integration (and its name) provided
+the accessory in HomeKit.
 
 <p class='img'>
 <img src='/images/blog/2020-05-0.110/homekit.png' alt='Screenshot from HomeKit. Left: accessory information, Right: Camera support.'></a>
