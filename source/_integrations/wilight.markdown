@@ -1,124 +1,55 @@
 ---
 title: WiLight
 description: Instructions on how to integrate WiLight devices into Home Assistant.
-logo: wilight.png
 ha_category:
-  - Cover
-  - Fan
   - Light
-  - Switch
-ha_release: 0.109
-ha_iot_class: Local Push
+ha_release: 0.110
+ha_config_flow: true
+ha_codeowners:
+  - '@leofig-rj'
 ha_domain: wilight
 ---
 
-The [WiLight](http://www.wilight.com.br) is a family of networkable devices for home automation.
-
+The `wilight` integration is the main integration to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Cover](#cover)
-- [Fan](#fan)
-- [Light](#light)
-- [Switch](#switch)
+- Light (WiLight model I-100 and I-102)
 
-## Cover
-
-This `WiLight` cover platform allow to you control WiLight cover devices.
-
-## Fan
-
-This `WiLight` fan platform allow to you control WiLight ceiling fan devices.
-
-## Light
-
-This `WiLight` light platform allow to you control WiLight light switch devices, on/off, dimmer or color.
-
-## Switch
-
-This `WiLight` switch platform allow to you control WiLight switch devices, for irrigation valves.
-
-### Configuration
-
-To enable it, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-wilight:
-  devices:
-    - id: NUM_SERIAL
-      host: IP_ADDRESS
-      type: TYPE
-      mode: MODE_TYPE
-```
+## Configuration
 
 {% configuration %}
-id:
-  description: "Device serial number. Use the following format: `000000000033`."
-  required: true
-  type: string
-host:
-  description: The hostname/IP address to connect to.
-  required: true
-  type: string
-type:
-  description: "Device type. Choose one from: `0100`, `0102`, `0103`, `0104`, `0105` or `0107`."
-  required: true
-  type: string
-mode:
-  description: "Mode of Device type. Depending on type of Device."
-  required: true
-  type: string
-items:
-  description: Friendly names of 1 to 3 items of WiLight device. If not configured, item name will be `'WL' + WiLight's id + '_{item_index}'`. e.g 'WL000000000033_1'
-  required: false
-  type: map
-  keys:
-    item_1:
-      description: Friendly names of item 1
-      required: false
-      type: string
-    item_2:
-      description: Friendly names of item 2
-      required: false
-      type: string
-    item_3:
-      description: Friendly names of item 3
-      required: false
-      type: string
+  discovery:
+    description: Setting this value to false will prevent the automatic discovery of WiLight devices by the WiLight platform and the discovery platform (static devices will still be discovered)
+    required: false
+    type: boolean
+    default: true
+  static:
+    description: One or more static IP addresses for WiLight to use
+    required: false
+    type: list
 {% endconfiguration %}
 
-
-  | WiLight Model | Type   | Mode     | item_1 type | item_2 type | item_2 type |
-  | ------------- | ------ | -------- | ----------- | ----------- | ----------- |
-  | I-100         | `0100` | 1abcde10 | light       | light       | light       |
-  | I-102         | `0102` | 1ab00010 | light       | light       | light       |
-  | C-103         | `0103` | 10       | cover       | n/a         | n/a         |
-  | V-104         | `0104` | 10       | light       | fan         | n/a         |
-  | R-105         | `0105` | 10       | switch      | switch      | n/a         |
-  | I-107         | `0107` | 00010    | light       | n/a         | n/a         |
-
-  Where:
-
-  - a = item_2 enabled (1) / disabled (0);
-  - b = item_3 enabled (1) / disabled (0);
-  - c = item_1 dimmer (1) / on-off (0);
-  - d = item_2 dimmer (1) / on-off (0);
-  - e = item_3 dimmer (1) / on-off (0).
-
-Example configuration for Model I-102 with item_2 and item_3 enabled:
+Supported devices will be automatically discovered if the optional `discovery` configuration item is omitted or set to true or if the `discovery` integration is enabled. If the `discovery` configuration item is set to false, then automatic discovery of WeMo devices is disabled both for the `wilight` integration and for the `discovery` component. Loading the `wilight` integration with the `discovery` configuration item omitted or set to true will scan the local network for WeMo devices, even if you are not using the `discovery` component.
 
 ```yaml
+# Example configuration.yaml entry with automatic discovery enabled (by omitting the discovery configuration item)
 wilight:
-  devices:
-    - id: '000000000033'
-      host: 192.168.1.5
-      type: '0102'
-      mode: '11100010'
-      # friendly name of items - optional
-      # if not set, item name will be 'WL' + WiLight's id + '_{item_index}'. e.g 'WL000000000033_1'
-      items:
-        item_1: 'Celling light'
-        item_2: 'Door light'
-        item_3: 'Stair light'
+
+# Example configuration.yaml entry with automatic discovery enabled (by explicitly setting the discovery configuration item)
+wilight:
+  discovery: true
 ```
+
+Alternately, WiLight devices that are not discoverable can be statically configured. If you have WiLight devices on subnets other than where Home Assistant is running, or devices in a remote location reachable over a VPN, you will need to configure them manually. Statically configured devices may be used with or without automatic discovery enabled. Example static configuration:
+
+```yaml
+# Example configuration.yaml entry with automatic discovery disabled, and 2 statically configured devices
+wilight:
+  discovery: false
+  static:
+    - 192.168.1.23
+    - 192.168.52.172
+```
+
+Note that if you use static device entries, you may want to set up your router (or whatever runs your DHCP server) to force your WiLight devices to use a static IP address. Check the DHCP section of your router configuration for this ability.
