@@ -357,6 +357,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
   the configuration. You should change your configuration accordingly. -
   ([@jjlawren] - [#34628]) ([cert_expiry docs])
 
+- **Stream** - pyAV >7.0.0 has dropped support for FFmpeg versions <4.0.
+  FFmpeg will need to be updated to at least 4.0 for stream to work.
+  If you run an Home Assistant with the Superviser or Docker, no manual
+  intervention is needed. Alternative installs can check the stream integration
+  documentation for troubleshooting tips. - ([@hunterjm] - [#34648]) ([stream docs])
+
 - **Nederlandse Spoorwegen** - The punctuality attribute has been removed from
   the integration. Ever since NS updated its API a few months ago, its behavior
   with regards to the punctuality has been incoherent, sometimes even missing
@@ -589,7 +595,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Allow flows to know if user is in advanced mode ([@balloob] - [#34629]) ([config docs])
 - Add NOT condition helper ([@frenck] - [#34624])
 - Store integration type in AirVisual config entry ([@bachya] - [#34621]) ([airvisual docs])
-- Fix recording duration flag ([@hunterjm] - [#34648]) ([stream docs])
+- Fix recording duration flag ([@hunterjm] - [#34648]) ([stream docs]) (breaking-change)
 - Fix py38 tests ([@balloob] - [#34658]) ([google_assistant docs]) ([zeroconf docs])
 - Add Signalmessenger group recipients ([@bbernhard] - [#34419]) ([signal_messenger docs])
 - Rename MediaPlayerDevice to MediaPlayerEntity ([@emontnemery] - [#34592])
@@ -905,6 +911,45 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated frontend to 20200513.0 ([@bramkragten] - [#35574]) ([frontend docs])
 - Add config flow and 2FA support for Blink ([@fronzbot] - [#35396]) ([blink docs]) (breaking-change)
 - Add ssdp discovery for isy994 ([@bdraco] - [#35568]) ([isy994 docs])
+- Properly handle incomplete upnp ssdp discovery ([@StevenLooman] - [#35553]) ([upnp docs]) (beta fix)
+- Bump haanna to 0.15.0 ([@bouwew] - [#35579]) ([plugwise docs]) (beta fix)
+- Clean up forked_daapd volume saving/setting in async_play_media ([@uvjustin] - [#35584]) ([forked_daapd docs]) (beta fix)
+- Fix reversed logic in zeroconf homekit pairing check ([@bdraco] - [#35596]) ([zeroconf docs]) (beta fix)
+- Updated frontend to 20200514.0 ([@bramkragten] - [#35598]) ([frontend docs]) (beta fix)
+- Additional checks for ONVIF event capabilities ([@hunterjm] - [#35599]) ([onvif docs]) (beta fix)
+- Fix zwave_mqtt creating the device name ([@marcelveldt] - [#35603]) ([zwave_mqtt docs]) (beta fix)
+- Fix zwave thermostat specific device type ([@zacpotts] - [#35609]) ([zwave docs]) (beta fix)
+- Add check for HTML in translations ([@bramkragten] - [#35615]) ([ambiclimate docs]) ([logi_circle docs]) ([point docs]) ([starline docs]) (beta fix)
+- Upgrade to pysonos 0.0.29 ([@amelchio] - [#35617]) ([sonos docs]) (beta fix)
+- Upgrade huawei-lte-api to 1.4.12 ([@scop] - [#35618]) ([huawei_lte docs]) (beta fix)
+- additional log info and strings fix ([@hunterjm] - [#35622]) ([onvif docs]) (beta fix)
+- Don't remove deprecated ZHA config option yet ([@Adminiuga] - [#35627]) ([zha docs]) (beta fix)
+- Rename zwave_mqtt to ozw ([@frenck] - [#35631]) ([ozw docs]) (beta fix)
+- Updated frontend to 20200514.1 ([@bramkragten] - [#35632]) ([frontend docs]) (beta fix)
+- Bump python-synology to 0.8.1 ([@Quentame] - [#35640]) ([synology_dsm docs]) (beta fix)
+- Prevent discovery of IPP printers lacking identifier ([@ctalkington] - [#35630]) ([ipp docs]) (beta fix)
+- Update Universal Powerline Bus event name ([@gwww] - [#35644]) ([upb docs]) (breaking-change) (beta fix)
+- Bump roombapy to 1.6.1 ([@shenxn] - [#35650]) ([roomba docs]) (beta fix)
+- Fix caldav event for calendar panel ([@bramkragten] - [#35653]) ([caldav docs]) (beta fix)
+- ONVIF: Add check around media capabilities ([@hunterjm] - [#35667]) ([onvif docs]) (beta fix)
+- Updated frontend to 20200515.0 ([@bramkragten] - [#35677]) ([frontend docs]) (beta fix)
+- Change MediaPlayerDevice to MediaPlayerEntity ([@uvjustin] - [#35692]) ([forked_daapd docs]) (beta fix)
+- Fix handling of additional data in core config storage ([@frenck] - [#35660]) (beta fix)
+- Bump up ZHA dependencies ([@Adminiuga] - [#35706]) ([zha docs]) (beta fix)
+- Abort forked-daapd zeroconf flow if version < 27 ([@uvjustin] - [#35709]) ([forked_daapd docs]) (beta fix)
+- Upgrade opengarage lib to 0.1.4 ([@Danielhiversen] - [#35729]) ([opengarage docs]) (beta fix)
+- Ensure homekit version strings conform to spec ([@bdraco] - [#35741]) ([homekit docs]) (beta fix)
+- Update mill manifest to reflect config flow ([@Danielhiversen] - [#35748]) (beta fix)
+- Handle UPS disconnects in NUT ([@bdraco] - [#35758]) ([nut docs]) (beta fix)
+- Fix daikin discovery flow ([@fredrike] - [#35767]) ([daikin docs]) (beta fix)
+- Skip forked_daapd ignored entries with empty entry.data ([@uvjustin] - [#35772]) ([forked_daapd docs]) (beta fix)
+- Bump Atag dependency to 0.3.1.2 ([@MatsNl] - [#35776]) ([atag docs]) (beta fix)
+- Updated frontend to 20200518.0 ([@bramkragten] - [#35785]) ([frontend docs]) (beta fix)
+- Fix ONVIF subscription renewal ([@hunterjm] - [#35792]) ([onvif docs]) (beta fix)
+- Upgrade pysonos to 0.0.30 ([@amelchio] - [#35793]) ([sonos docs]) (beta fix)
+- Change version check in forked-daapd zeroconf step ([@uvjustin] - [#35796]) ([forked_daapd docs]) (beta fix)
+- Bump up ZHA dependencies. ([@Adminiuga] - [#35797]) ([zha docs]) (beta fix)
+- Updated frontend to 20200519.0 ([@bramkragten] - [#35813]) ([frontend docs]) (beta fix)
 
 </details>
 
@@ -1240,6 +1285,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35548]: https://github.com/home-assistant/core/pull/35548
 [#35549]: https://github.com/home-assistant/core/pull/35549
 [#35551]: https://github.com/home-assistant/core/pull/35551
+[#35553]: https://github.com/home-assistant/core/pull/35553
 [#35555]: https://github.com/home-assistant/core/pull/35555
 [#35556]: https://github.com/home-assistant/core/pull/35556
 [#35558]: https://github.com/home-assistant/core/pull/35558
@@ -1247,6 +1293,44 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35563]: https://github.com/home-assistant/core/pull/35563
 [#35568]: https://github.com/home-assistant/core/pull/35568
 [#35574]: https://github.com/home-assistant/core/pull/35574
+[#35579]: https://github.com/home-assistant/core/pull/35579
+[#35584]: https://github.com/home-assistant/core/pull/35584
+[#35596]: https://github.com/home-assistant/core/pull/35596
+[#35598]: https://github.com/home-assistant/core/pull/35598
+[#35599]: https://github.com/home-assistant/core/pull/35599
+[#35603]: https://github.com/home-assistant/core/pull/35603
+[#35609]: https://github.com/home-assistant/core/pull/35609
+[#35615]: https://github.com/home-assistant/core/pull/35615
+[#35617]: https://github.com/home-assistant/core/pull/35617
+[#35618]: https://github.com/home-assistant/core/pull/35618
+[#35622]: https://github.com/home-assistant/core/pull/35622
+[#35627]: https://github.com/home-assistant/core/pull/35627
+[#35630]: https://github.com/home-assistant/core/pull/35630
+[#35631]: https://github.com/home-assistant/core/pull/35631
+[#35632]: https://github.com/home-assistant/core/pull/35632
+[#35640]: https://github.com/home-assistant/core/pull/35640
+[#35644]: https://github.com/home-assistant/core/pull/35644
+[#35650]: https://github.com/home-assistant/core/pull/35650
+[#35653]: https://github.com/home-assistant/core/pull/35653
+[#35660]: https://github.com/home-assistant/core/pull/35660
+[#35667]: https://github.com/home-assistant/core/pull/35667
+[#35677]: https://github.com/home-assistant/core/pull/35677
+[#35692]: https://github.com/home-assistant/core/pull/35692
+[#35706]: https://github.com/home-assistant/core/pull/35706
+[#35709]: https://github.com/home-assistant/core/pull/35709
+[#35729]: https://github.com/home-assistant/core/pull/35729
+[#35741]: https://github.com/home-assistant/core/pull/35741
+[#35748]: https://github.com/home-assistant/core/pull/35748
+[#35758]: https://github.com/home-assistant/core/pull/35758
+[#35767]: https://github.com/home-assistant/core/pull/35767
+[#35772]: https://github.com/home-assistant/core/pull/35772
+[#35776]: https://github.com/home-assistant/core/pull/35776
+[#35785]: https://github.com/home-assistant/core/pull/35785
+[#35792]: https://github.com/home-assistant/core/pull/35792
+[#35793]: https://github.com/home-assistant/core/pull/35793
+[#35796]: https://github.com/home-assistant/core/pull/35796
+[#35797]: https://github.com/home-assistant/core/pull/35797
+[#35813]: https://github.com/home-assistant/core/pull/35813
 [@2Fake]: https://github.com/2Fake
 [@314eter]: https://github.com/314eter
 [@Adminiuga]: https://github.com/Adminiuga
@@ -1277,6 +1361,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@bdraco]: https://github.com/bdraco
 [@benleb]: https://github.com/benleb
 [@bieniu]: https://github.com/bieniu
+[@bouwew]: https://github.com/bouwew
 [@bradkeifer]: https://github.com/bradkeifer
 [@bramkragten]: https://github.com/bramkragten
 [@breiti]: https://github.com/breiti
@@ -1350,6 +1435,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vangorra]: https://github.com/vangorra
 [@vilppuvuorinen]: https://github.com/vilppuvuorinen
 [@xdissent]: https://github.com/xdissent
+[@zacpotts]: https://github.com/zacpotts
 [@ziv1234]: https://github.com/ziv1234
 [@zsarnett]: https://github.com/zsarnett
 [acer_projector docs]: /integrations/acer_projector/
@@ -1360,6 +1446,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alert docs]: /integrations/alert/
 [alexa docs]: /integrations/alexa/
 [alpha_vantage docs]: /integrations/alpha_vantage/
+[ambiclimate docs]: /integrations/ambiclimate/
 [arcam_fmj docs]: /integrations/arcam_fmj/
 [arest docs]: /integrations/arest/
 [atag docs]: /integrations/atag/
@@ -1373,6 +1460,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [bsblan docs]: /integrations/bsblan/
+[caldav docs]: /integrations/caldav/
 [calendar docs]: /integrations/calendar/
 [cast docs]: /integrations/cast/
 [cert_expiry docs]: /integrations/cert_expiry/
@@ -1407,6 +1495,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homematic docs]: /integrations/homematic/
 [homematicip_cloud docs]: /integrations/homematicip_cloud/
 [http docs]: /integrations/http/
+[huawei_lte docs]: /integrations/huawei_lte/
 [hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
 [imap_email_content docs]: /integrations/imap_email_content/
 [influxdb docs]: /integrations/influxdb/
@@ -1418,6 +1507,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [kodi docs]: /integrations/kodi/
 [life360 docs]: /integrations/life360/
 [light docs]: /integrations/light/
+[logi_circle docs]: /integrations/logi_circle/
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [manual docs]: /integrations/manual/
 [media_extractor docs]: /integrations/media_extractor/
@@ -1435,13 +1525,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [netatmo docs]: /integrations/netatmo/
 [notion docs]: /integrations/notion/
 [numato docs]: /integrations/numato/
+[nut docs]: /integrations/nut/
 [nws docs]: /integrations/nws/
 [onvif docs]: /integrations/onvif/
 [opencv docs]: /integrations/opencv/
 [opengarage docs]: /integrations/opengarage/
+[ozw docs]: /integrations/ozw/
 [panasonic_viera docs]: /integrations/panasonic_viera/
 [pi_hole docs]: /integrations/pi_hole/
 [plex docs]: /integrations/plex/
+[plugwise docs]: /integrations/plugwise/
 [point docs]: /integrations/point/
 [powerwall docs]: /integrations/powerwall/
 [proliphix docs]: /integrations/proliphix/
@@ -1472,6 +1565,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [soundtouch docs]: /integrations/soundtouch/
 [spotify docs]: /integrations/spotify/
 [squeezebox docs]: /integrations/squeezebox/
+[starline docs]: /integrations/starline/
 [stream docs]: /integrations/stream/
 [surepetcare docs]: /integrations/surepetcare/
 [switcher_kis docs]: /integrations/switcher_kis/
