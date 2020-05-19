@@ -17,7 +17,7 @@ Note: you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same 
 
 An archive of the extensive API can be found [here](https://github.com/Fantasmos/LimitlessLED-DevAPI).
 
-The Home Assistant LimitlessLED component can communicate with LimitlessLED bulbs either via a WiFi which talks WiFi and the 2.4GHz radio protocol the bulbs understand or by talking directly to a 2.4GHz radio that has been directly attached.  To configure the WiFi bridge mode, specify the `bridges` configuration element.  To configure the directly attached radio, specify the `remotes` (and optionally the `radio`) configuration element.
+The Home Assistant LimitlessLED component can communicate with LimitlessLED bulbs either via a WiFi which talks WiFi and the 2.4GHz radio protocol the bulbs understand or by talking directly to a 2.4GHz radio that has been directly attached.  To configure the WiFi bridge mode, specify the `bridges` configuration element. To configure the directly attached radio, specify the `remotes` (and optionally the `radio`) configuration element.
 
 ## Setup
 
@@ -102,7 +102,7 @@ bridges:
 
 ### Using Directly Attached 2.4GHz Radio
 
-To use a directly attached radio (no bridge) to control your LimitlessLED bulbs you will need to attach an LT8900 radio over SPI ([this one](https://www.amazon.com/dp/B07L8RXSDF/) for example).  This can be connected to your Home Assistant system either by using a USB-attached SPI adapter or directly via GPIO pins (as is done in this [Raspberry Pi](/images/integrations/limitlessled/lt8900-raspberrypi.png) example.)
+To use a directly attached radio (no bridge) to control your LimitlessLED bulbs you will need to attach an LT8900 radio over SPI ([this one](https://www.amazon.com/dp/B07L8RXSDF/) for example). This can be connected to your Home Assistant system either by using a USB-attached SPI adapter or directly via GPIO pins (as is done in this [Raspberry Pi](/images/integrations/limitlessled/lt8900-raspberrypi.png) example).
 
 To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
 
@@ -162,7 +162,7 @@ remote_format:
 zone_format:
   description: The default format of names for zones, with {0} or {} replaced by the zone number
   required: false
-  default: _zone{0}
+  default: "_zone{0}"
   type: string
 retries:
   description: The default number of times to idempotently repeat commands to ensure they reach their destination bulb.
