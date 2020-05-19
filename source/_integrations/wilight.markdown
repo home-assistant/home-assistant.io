@@ -3,7 +3,7 @@ title: WiLight
 description: Instructions on how to integrate WiLight devices into Home Assistant.
 ha_category:
   - Light
-ha_release: 0.110
+ha_release: 0.111
 ha_config_flow: true
 ha_codeowners:
   - '@leofig-rj'
