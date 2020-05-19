@@ -5,15 +5,11 @@ ha_category:
   - DIY
   - Binary Sensor
   - Switch
-ha_release: "0.110"
+ha_release: 0.111
 ha_iot_class: Local Push
-ha_config_flow: false
 ha_codeowners:
   - '@DaAwesomeP'
 ha_domain: firmata
-redirect_from:
-  - /components/binary_sensor.firmata/
-  - /components/switch.firmata/
 ---
 
 [Firmata](https://github.com/firmata/protocol) can be used to add digital inputs and outputs to Home Assistant. Currently, this component supports high/low digital inputs and outputs. This allows for buttons, switches, motion detectors, relay control, etc. The component can currently connect to a Firmata board via serial or serial over USB.
@@ -31,14 +27,14 @@ You will need to upload a [Firmata firmware](https://github.com/firmata/) to you
 
 To integrate an Arduino boards with Home Assistant, add the following section to your `configuration.yaml` file:
 
-
-
 <div class='note warning'>
 Firmata does not store last state accross power cycles. This means that with every powerup the pins are set to off/low and after every initialization they will be set to the default that you have configured in YAML.
 </div>
 
 <div class='note warning'>
-Firmata may cycle pins HIGH/LOW during initialization. If your pins should not be accidentally cycled, you may need to modify your Firmtata sketch or if you are using a relay board use an output pin as VCC. See this issue for details: <a href="https://github.com/firmata/arduino/issues/166" target="_blank">Make initial pin value configurable</a>
+
+Firmata may cycle pins HIGH/LOW during initialization. If your pins should not be accidentally cycled, you may need to modify your Firmtata sketch or if you are using a relay board use an output pin as VCC. See this issue for details: [Make initial pin value configurable](https://github.com/firmata/arduino/issues/166).
+
 </div>
 
 You may configure multiple Firmata boards. Each board has the following options:
