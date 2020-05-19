@@ -395,6 +395,7 @@ automation:
     host: 192.168.1.55
     packet: XXXXXXXX
 ```
+
 ## Troubleshooting
 
 ### Deleting the `.homekit.state` file
