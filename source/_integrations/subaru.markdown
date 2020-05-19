@@ -22,8 +22,8 @@ The `Subaru` integration offers integration with the [Subaru](https://www.mysubu
 This integration provides the following platforms:
 
 - Binary sensors - EV charger connection status.
-- Sensors - such as Outside temperature, odometer, estimated range, and EV information (battery level, range, charging rate).
-- Device tracker - obtain location of your car.
+- Sensors - Such as Outside temperature, odometer, estimated range, and EV information (battery level, range, charging rate).
+- Device tracker - Obtains the location of your car.
 - Lock - Lock and Unlock Doors.
 - Climate - Enables control of HVAC and Remote Engine Start (turn on/off, set target temperature).
 - Switch - Remote actuate Horn, Lights, request Location, and start EV charging.
