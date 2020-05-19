@@ -479,6 +479,31 @@ The following integrations are currently supported:
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 | water_heater | WaterHeater | All `water_heater` devices. |
 
+## iOS Remote Widget
+
+Entities exposed as `TelevisionMediaPlayer` are controllable within the Apple Remote widget in
+Control Center. Play, pause, volume up and volume down should work out of the box depending on the `supported_features`
+of the entity. However, if your television can be controlled in other ways outside of the `media_player` entity, (i.e.
+service calls to an IR blaster), it is possible to build an automation to take advantage of these events.
+
+When a key is pressed within the Control Center Remote widget, the event `homekit_tv_remote_key_pressed` will be fired.
+The key name will be available in the event data in the `key_name` field:
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type: homekit_tv_remote_key_pressed
+    event_data:
+      key_name: arrow_right
+
+  # Send the arrow right key via a broadlink IR blaster
+  action:
+    service: broadlink.send
+    host: 192.168.1.55
+    packet: XXXXXXXX
+```
+
 ## Troubleshooting
 
 ### Resetting when created via YAML
