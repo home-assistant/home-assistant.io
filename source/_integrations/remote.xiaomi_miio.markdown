@@ -183,8 +183,8 @@ After learning the command the base64 string can be found as a notification in O
 
 ### `xiaomi_miio.remote_set_led_on`
 
-Used to turn remote's blue led on.
+Used to turn remote's blue LED on.
 
 ### `xiaomi_miio.remote_set_led_off`
 
-Used to turn remote's blue led off.
+Used to turn remote's blue LED off.
