@@ -67,7 +67,7 @@ switch:
     name: "Living Room Dehumidifer"
     pin: GPIO5
 ```
-If you now press upload again (this time the ESP doesn't need to be connected via USB, as updates [can be done over WiFi](https://esphomelib.com/esphomeyaml/integrations/ota.html)), you will see a switch show up in Home Assistant automatically through [MQTT discovery](/docs/mqtt/discovery/).
+If you now press upload again (this time the ESP doesn't need to be connected via USB, as updates [can be done over WiFi](https://esphome.io/components/ota.html)), you will see a switch show up in Home Assistant automatically through [MQTT discovery](/docs/mqtt/discovery/).
 
 <p class='img'>
   <img
