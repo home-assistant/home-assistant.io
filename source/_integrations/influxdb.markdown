@@ -15,7 +15,6 @@ The `influxdb` integration makes it possible to transfer all state changes to an
 
 Additionally, you can now make use of an InfluxDB 2.0 installation in this Integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields apply to only a 1.xx installation or a 2.xx installation.
 
-
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
@@ -328,6 +327,7 @@ queries:
 {% endconfiguration %}
 
 ### Configuration for 2.xx Installations
+
 2.xx installations of InfluxDB only support queries in their Flux language. While this language was available in 1.xx installations it was not the default and not used in the API so you may not be aware of it. You can learn more about it from their [documentation](https://v2.docs.influxdata.com/v2.0/reference/flux/) or by using the query builder in the UI. 
 
 You will need to construct your queries in this language in sensors for 2.xx installations, it looks like this:
