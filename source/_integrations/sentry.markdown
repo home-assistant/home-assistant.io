@@ -29,6 +29,8 @@ sentry:
   dsn: SENTRY_DSN
 ```
 
+Then navigate to Configuration -> Integrations and add the DSN provided to you by Sentry where prompted.
+
 {% configuration %}
 dsn:
   description: The DSN provided to you by Sentry.
