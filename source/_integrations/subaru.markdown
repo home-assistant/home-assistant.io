@@ -1,14 +1,10 @@
 ---
 title: Subaru 
-description: Instructions on how to integrate Tesla car into Home Assistant.
+description: Instructions on how to integrate Subaru car into Home Assistant.
 ha_category:
   - Car
-  - Binary Sensor
-  - Climate
-  - Presence Detection
   - Lock
   - Sensor
-  - Switch
 ha_release: 0.111
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -17,66 +13,33 @@ ha_codeowners:
 ha_domain: subaru
 ---
 
-The `Subaru` integration offers integration with the [Subaru](https://www.mysubuaru.com) cloud service and provides presence detection as well as sensors such as charger state and temperature.
+The `Subaru` integration connects to the [MySubaru](https://www.mysubuaru.com) cloud service to provide vehicle sensor information as well as the capability to remotely actuate door locks. This integration requires an active subscription to the MySubaru service.
 
 This integration provides the following platforms:
-
-- Binary sensors - EV charger connection status.
-- Sensors - Such as Outside temperature, odometer, estimated range, and EV information (battery level, range, charging rate).
-- Device tracker - Obtains the location of your car.
 - Lock - Lock and Unlock Doors.
-- Climate - Enables control of HVAC and Remote Engine Start (turn on/off, set target temperature).
-- Switch - Remote actuate Horn, Lights, request Location, and start EV charging.
+- Sensors - Such as Outside temperature, odometer, estimated range, and EV information (battery level, range, charging rate).
 
 ## Configuration
 
-### Home Assistant UI
-  * The Subaru integration offers configuration through the Home Assistant UI:
+The Subaru integration offers configuration through the Home Assistant UI:
     
-    **Configuration** -> **Integrations** -> **Add** -> **Subaru**
+**Configuration** -> **Integrations** -> **Add** -> **Subaru**
 
-### YAML
-  * Alternatively, the Subaru integration may be configured through `configuration.yaml`. Add the following to your `configuration.yaml` file:
+When prompted enter the following configuration parameters:
+  * **Email Address:** The email address associated with your MySubaru account.
+  * **Password:** The password associated with your MySubaru account.
+  * **PIN:** The PIN associated with your MySubaru account. 
+      - Note: If your account includes multiple vehicles, the same PIN will need to be used for all vehicles.
 
-```yaml
-# Example configuration.yaml entry
-subaru:
-  username: YOUR_EMAIL_ADDRESS
-  password: YOUR_PASSWORD
-  pin: YOUR_PIN
+First time validation of your credentials may take up to 15 seconds. 
 
-  # Optional parameters
-  scan_interval: 300  # Minimum 60
-  hard_poll_interval: 7200  # Minimum 300
-```
-
-{% configuration %}
-username:
-  description: The email address associated with your MySubaru account.
-  required: true
-  type: string
-password:
-  description: The password associated with your MySubaru account.
-  required: true
-  type: string
-pin:
-  description: The PIN associated with your MySubaru account. If your account includes multiple vehicles, the same PIN will need to be used for all vehicles.
-  required: true
-  type: string
-scan_interval:
-  description: API polling interval in seconds. Minimum value can't be less than 60 (1 minute).
-  required: false
-  type: integer
-  default: 300
-hard_poll_interval:
-  description: Vehicle update (wake-up) polling interval in seconds. Excessively polling the vehicle will drain the battery. Minimum value can't be less than 300 (5 minutes).
-  required: false
-  type: integer
-  default: 7200
-{% endconfiguration %}
 
 ## Options
 
-Subaru options are set via:
+Subaru integration options are set via:
 
 **Configuration** -> **Integrations** -> **Subaru** -> **Options**.
+
+The options are:
+  * **Seconds between API polling *[Default: 300, Minimum: 60]*:** Controls how frequently Home Assistant will poll the MySubaru API for vehicle data they have cached on their servers. This does not invoke a remote service request to your vehicle, and the data may be stale. Your vehicle will still send new information during certain state changes such as being turned off or having a charging cable plugged in.  Excessive API calls will not yield fresh data.
+  * **Seconds between vehicle polling *[Default: 7200, Minimum: 300]*:** Controls how frequently Home Assistant will poll the MySubaru API and invoke a remote service request to be sent to your vehicle to obtain an information update. This involves "waking up" your vehicle and powering on some on-board systems. Performing this action too frequently may drain your battery.
