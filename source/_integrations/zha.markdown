@@ -87,34 +87,36 @@ Use the plus button in the bottom right to add a new integration called **ZHA**.
 
 In the popup:
 
-- USB Device Path - on a Linux system will be something like `/dev/ttyUSB0` or `/dev/ttyACM0`
-- Radio type - select device type `ezsp`, `deconz`, `ti_cc`, `xbee` or `zigate`
+- Serial Device Path - List of detected serial ports on the system. You need to pick one to which your
+radio is connected
 - Submit
+
+Press `Submit` and the integration will try to detect radio type automatically. If unsuccessful, you will get
+a new pop-up asking for a radio type. In the pop-up:
+
+- Radio Type
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| `ezsp`  | Silicon Labs Ember based radios with EmberZNet Zigbee firmware |
+| `ezsp`  | EmberZNet based radios, HUSBZB-1, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
 | `deconz` | dresden elektronik ConBee and RaspBee based radios with deCONZ Zigbee firmware |
-| `xbee` | Digi XBee Series 2 and 3 based radios with XBee Zigbee firmware |
+| `xbee` | Digi XBee Series 2, 2C and 3 based radios with XBee Zigbee firmware |
 | `ti_cc` | Texas Instruments CC253x/CC26x2/CC13x2 based radios with Z-Stack firmware |
 | `zigate` | ZiGate USB-TTL, PiZiGate, and WiFi based Zigbee radios with ZiGate firmware |
 
-- Press `Submit` to save changes.
+- Submit
 
-The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
+Press `Submit` to save radio type and you will get a new form asking for port settings specific for this
+radio type. In the pop-up:
+- Serial device path
+- port speed (not applicable for all radios)
+- data flow control (not applicable for all radios)
 
-## Configuration - Manual
+Most devices need at very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
+device path from `/dev/serial/by-id` folder,
+eg `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`
 
-To configure the component, select ZHA on the Integrations page and provide the path to your Zigbee USB stick.
-
-Or, you can manually configure `zha` section in `configuration.yaml`. The path to the database which will persist your network data is required.
-
-```yaml
-# Example configuration.yaml entry
-zha:
-  usb_path: /dev/ttyUSB2
-  database_path: /home/homeassistant/.homeassistant/zigbee.db
-```
+Press `Submit` The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 If you are use ZiGate, you have to use some special usb_path configuration:
 
@@ -123,20 +125,6 @@ If you are use ZiGate, you have to use some special usb_path configuration:
 - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 
 {% configuration %}
-radio_type:
-  description: One of `deconz`, `ezsp`, `ti_cc`, `xbee` or `zigate`.
-  required: false
-  type: string
-  default: ezsp
-usb_path:
-  description: Path to the serial device for the radio.
-  required: true
-  type: string
-baudrate:
-  description: Baud rate of the serial device.
-  required: false
-  type: integer
-  default: 57600
 database_path:
   description: _Full_ path to the database which will keep persistent network data.
   required: true

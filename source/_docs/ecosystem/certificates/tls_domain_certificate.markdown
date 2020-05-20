@@ -57,7 +57,6 @@ The [`http`](/integrations/http/) section must contain the full path to the need
 
 ```yaml
 http:
-  base_url: https://mydomain.com:8123
   ssl_certificate: /etc/letsencrypt/live/mydomain.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/mydomain.com/privkey.pem
 ```

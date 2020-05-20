@@ -45,8 +45,6 @@ On your `configuration.yaml` file, edit the `http` component.
 http:
   # For extra security set this to only accept connections on localhost if Caddy is on the same machine
   # server_host: 127.0.0.1
-  # Update this line to be your domain
-  base_url: https://example.com
   use_x_forwarded_for: true
   # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
   # Set this to your Caddy machine IP, or localhost if hosted on the same machine.
@@ -57,4 +55,3 @@ http:
 
 You can either start Caddy or [install it as a service](https://github.com/mholt/caddy/wiki/Caddy-as-a-service-examples), pass the Caddyfile path as a `conf` parameter.
 Home Assistant will be listening on port 443 (HTTPS) and all insecure traffic on port 80 will be redirected.
-

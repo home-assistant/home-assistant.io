@@ -80,7 +80,7 @@ devices:
           required: false
           type: string
         model:
-          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`, `ceiling13`. The setting is used to enable model specific features f.e. a particular color temperature range. Its also used to setup device, if its not available and discovery if disabled, during Home Assistant startup. If model is not specified, it will be guessed, by integration by looking at supported properties, reported by device."
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`, `ceiling10`, `ceiling13`. The setting is used to enable model specific features f.e. a particular color temperature range. Its also used to setup device, if its not available and discovery if disabled, during Home Assistant startup. If model is not specified, it will be guessed, by integration by looking at supported properties, reported by device."
           required: false
           type: string
 custom_effects:
@@ -150,6 +150,7 @@ This integration is tested to work with the following models. If you have a diff
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
 | `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
+| `ceiling10`     | YLDL01YL     | Yeelight Meteorite Pendant Light            |
 | `ceiling13`     | YLXD01YL     | Yeelight LED Ceiling Light           |
 
 ## Services

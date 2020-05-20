@@ -333,8 +333,9 @@ Now edit your `configuration.yaml` file to reflect the SSL entries and your base
 http:
   ssl_certificate: /etc/letsencrypt/live/examplehome.duckdns.org/fullchain.pem
   ssl_key: /etc/letsencrypt/live/examplehome.duckdns.org/privkey.pem
-  base_url: examplehome.duckdns.org
 ```
+
+Go to the Home Assistant UI -> **Configuration** -> **General** and set the external URL to your new URL, for example: `https://examplehome.duckdns.org`. Please note, advanced mode on your user profile must be enabled in order to see the external URL option.
 
 You may wish to set up other options for the [HTTP](/integrations/http/) integration at this point, these extra options are beyond the scope of this guide.
 

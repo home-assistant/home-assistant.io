@@ -14,7 +14,7 @@ ha_domain: ifttt
 
 ## Sending events from IFTTT to Home Assistant
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the `base_url` configured for the HTTP integration ([documentation](/integrations/http/#base_url)).
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic).
 
 ### Setting up the integration
 
