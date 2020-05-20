@@ -363,11 +363,6 @@ timeout:
   description: Timeout in seconds for the connection to the device.
   required: false
   type: integer
-retry:
-  description: Retry times for fetch data if failed.
-  required: false
-  type: integer
-  default: 2
 friendly_name:
   description: The name used to display the switch in the frontend.
   required: false
