@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.110: Beta release notes"
-description: "0.110: Beta release notes"
-date: 2020-05-12 00:00:00
+title: "0.110: Speed! OpenZWave beta, HomeKit Cameras, ONVIF, Calendars"
+description: "0.110: Ready for one of the biggest releases in our history? Lots of UI and speed improvements, a calendar panel, OpenZWave beta, HomeKit, ONVIF sensors, ignore everything, NOT conditions, ..."
+date: 2020-05-20 00:00:00
 date_formatted: "May 20, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -13,9 +13,25 @@ og_image: /images/blog/2020-05-0.110/social.png
 
 <a href='/integrations/#version/0.110'><img src='/images/blog/2020-05-0.110/components.png' style='border: 0;box-shadow: none;'></a>
 
-Let's keep the introduction for the Home Assistant Core 0.110 release short,
-as this release is stuffed! Starting with 12! new awesome integrations added
-this release!
+Do you know how excited I am for bringing you Home Assistant Core 0.110?
+
+Would you believe me, if I told you I've been upgrading my personal Home
+Assistant production instance to the latest development version almost
+every day?
+
+Well, better believe it, it is how I started my day for the last 3 weeks. It
+felt like opening new presents and enjoying amazing improvements every day.
+
+Today, we are shipping it all to you, as one big package. 🎁
+
+This is definitely one of the bigger releases of Home Assistant on all levels.
+Speed improvements to both the frontend and backend, lots of usability
+improvements, 12! new awesome integrations and an insane amount of major
+updates to existing ones.
+
+Enjoy the release!
+
+../Frenck
 
 ## Icons
 
@@ -950,6 +966,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change version check in forked-daapd zeroconf step ([@uvjustin] - [#35796]) ([forked_daapd docs]) (beta fix)
 - Bump up ZHA dependencies. ([@Adminiuga] - [#35797]) ([zha docs]) (beta fix)
 - Updated frontend to 20200519.0 ([@bramkragten] - [#35813]) ([frontend docs]) (beta fix)
+- UniFi - Fix disabled entities being enabled after a restart ([@Kane610] - [#35819]) ([unifi docs]) (beta fix)
+
 
 </details>
 
@@ -1331,6 +1349,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#35796]: https://github.com/home-assistant/core/pull/35796
 [#35797]: https://github.com/home-assistant/core/pull/35797
 [#35813]: https://github.com/home-assistant/core/pull/35813
+[#35819]: https://github.com/home-assistant/core/pull/35819
 [@2Fake]: https://github.com/2Fake
 [@314eter]: https://github.com/314eter
 [@Adminiuga]: https://github.com/Adminiuga
