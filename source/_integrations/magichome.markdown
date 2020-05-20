@@ -36,16 +36,6 @@ password:
   description: Your password to log in to MagicHome.
   required: true
   type: string
-company:
-  description: Equipment manufacturer
-  required: false
-  type: string
-  default: ZG001
-platform:
-  description: Equipment network supply platform
-  required: false
-  type: string
-  default: ZG001
 {% endconfiguration %}
 
 ## Service
