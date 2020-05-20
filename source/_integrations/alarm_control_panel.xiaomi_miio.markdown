@@ -5,7 +5,7 @@ logo: xiaomi.png
 ha_category:
   - Alarm
 ha_iot_class: Local Polling
-ha_release: 0.110
+ha_release: "0.110"
 ha_domain: xiaomi_miio
 ---
 
