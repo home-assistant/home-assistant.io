@@ -596,6 +596,8 @@ See [resetting accessories](#resetting-accessories)
 
 Unfortunately, that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually, the accessory should get back to responding after a few minutes at most.
 
+There are reports where the IGMP settings of a router were causing issues. See [HomeKit - No Response](https://community.home-assistant.io/t/homekit-no-response-solved/170981) and [HomeKit “No Response”](https://community.home-assistant.io/t/homekit-no-response/170974) for more information.
+
 #### The linked battery sensor isn't recognized
 
 Try removing the entity from HomeKit and then adding it again. If you are adding this configuration option to an existing entity in HomeKit, any changes you make to this entity's configuration options won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
