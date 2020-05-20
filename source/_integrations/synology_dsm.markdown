@@ -74,17 +74,13 @@ This sensor will wake up your Synology NAS if it's in hibernation mode.
 
 </div>
 
+You can change the scan interal within the configuration options (default is 15 min).
+
 ## Separate User Configuration
 
 Due to the nature of the Synology DSM API, it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
-
-<div class='note warning'>
-
-The Home Assistant integration doesn't support two-factor authentication for Synology DSM accounts. Use a strong, randomly generated password to improve security.
-
-</div>
 
 
 ## Created sensors
