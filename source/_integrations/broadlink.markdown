@@ -430,7 +430,6 @@ switch:
     host: 192.168.1.2
     mac: 'B4:43:0D:CC:0F:58'
     timeout: 15
-    retry: 5
     switches:
       # Will work on most Phillips TVs:
       tv_phillips:
@@ -478,7 +477,6 @@ switch:
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
     type:  sp2
-    retry: 5
     friendly_name: 'Humidifier'
 ```
 
