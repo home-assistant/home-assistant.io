@@ -1,5 +1,5 @@
 ---
-title: devolo_home_control
+title: devolo Home Control
 description: Instructions on how to integrate devolo Home Control with Home Assistant.
 ha_category:
   - Switch

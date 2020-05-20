@@ -12,7 +12,6 @@ ha_iot_class: Local Push
 ha_domain: numato
 ha_codeowners:
   - '@clssn'
-ha_quality_scale: internal
 ---
 
 The `numato` integration is the base for all related GPIO platforms of the
