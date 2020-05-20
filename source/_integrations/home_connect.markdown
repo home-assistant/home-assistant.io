@@ -1,6 +1,6 @@
 ---
-title: "Home Connect"
-description: "Instructions on how to set up the Home Connect integration within Home Assistant."
+title: Home Connect
+description: Instructions on how to set up the Home Connect integration within Home Assistant.
 logo: homeconnect.png
 ha_category:
   - Hub
@@ -8,8 +8,11 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
-ha_release: "0.110"
+ha_release: '0.110'
 ha_domain: home_connect
+ha_codeowners:
+  - '@DavidMStraub'
+ha_config_flow: true
 ---
 
 The Home Connect integration will allow users to integrate their home appliances supporting the Home Connect standard using the [official API](https://developer.home-connect.com).

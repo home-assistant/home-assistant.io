@@ -14,7 +14,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@kane610'
+  - '@Kane610'
 ha_domain: deconz
 ---
 
