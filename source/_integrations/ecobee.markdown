@@ -103,37 +103,17 @@ To use notifications, please see the [getting started with automation page](/get
 
 The ecobee thermostat supports the following key concepts.
 
-The _target temperature_ is the temperature that the device attempts
-to achieve. The target temperature is either determined by the
-currently active climate or it may be overridden by a hold. When the
-thermostat is not in auto mode, there is a single target
-temperature. When the thermostat is in auto HVAC mode, there is a
-pair of target temperatures: the lower target temperature determines
-the lowest desired temperature, while the higher target temperature
-determines the highest desired temperature (the thermostat will switch
-between heating and cooling to keep the temperature within these
-limits).
+The _target temperature_ is the temperature that the device attempts to achieve. The target temperature is either determined by the currently active climate or it may be overridden by a hold. When the
+thermostat is not in auto mode, there is a single target temperature. When the thermostat is in auto HVAC mode, there is a pair of target temperatures: the lower target temperature determines the lowest desired temperature, while the higher target temperature determines the highest desired temperature (the thermostat will switch between heating and cooling to keep the temperature within these limits).
 
-A _climate_ is a predefined or user-defined set of presets that the
-thermostat aims to achieve. The ecobee thermostat provides three predefined
-climates: Home, Away, and Sleep. Ecobee refers to these as _comfort settings_. The user can define additional climates.
+A _climate_ is a predefined or user-defined set of presets that the thermostat aims to achieve. The ecobee thermostat provides three predefined climates: Home, Away, and Sleep. Ecobee refers to these as _comfort settings_. The user can define additional climates.
 
-A _preset_ is an override of the target temperature defined in the
-currently active climate. The temperature targeted in the preset mode may be
-explicitly set (temperature preset), it may be derived from a reference
-climate (home, away, sleep, etc.), or it may be derived from a vacation
-defined by the thermostat. All holds are temporary. Temperature and
-climate holds expire when the thermostat transitions to the next climate
-defined in its program. A vacation hold starts at the beginning of the
+A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (home, away, sleep, etc.), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
 defined vacation period and expires when the vacation period ends.
 
-When in _away preset_, the target temperature is permanently overridden by
-the target temperature defined for the away climate. The away preset is a
-simple way to emulate a vacation mode.
+When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
 
-The _HVAC mode_ of the device is the currently active operational
-modes that the ecobee thermostat provides: heat, auxHeatOnly, cool,
-auto, and off.
+The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, auxHeatOnly, cool, auto, and off.
 
 ## Attributes
 
