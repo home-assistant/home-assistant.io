@@ -4,9 +4,8 @@ description: Instructions on how to setup Universal Powerline Bus integration.
 ha_category:
   - Light
   - Scene
-ha_release: "0.110"
+ha_release: '0.110'
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@gwww'

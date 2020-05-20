@@ -7,7 +7,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@MatthewFlamm'
 ha_domain: nws
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_config_flow: true
 ---
 

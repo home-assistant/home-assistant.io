@@ -1,5 +1,5 @@
 ---
-title: HomeKit Bridge
+title: HomeKit
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 ha_category:
   - Voice
