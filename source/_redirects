@@ -1989,7 +1989,6 @@
 /components/wsdot /integrations/wsdot
 /components/wunderground /integrations/wunderground
 /components/wunderlist /integrations/wunderlist
-/components/wwlln /integrations/wwlln
 /components/x10 /integrations/x10
 /components/xbox_live /integrations/xbox_live
 /components/xeoma /integrations/xeoma
