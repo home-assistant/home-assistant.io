@@ -463,7 +463,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **HTTP** - `base_url` is deprecated and replaced by an `internal_url` and
   `external_url` core configuration setting. -
-  ([@frenck] - [#35224]) ([config docs]) ([http docs])
+  ([@frenck] - [#35224]) ([basic config docs]) ([http docs])
 
 - **Kodi** - Kodi previously reported the media content type for all PVR
   channels as "channel", no matter if it was a TV or a radio channel.
@@ -1513,6 +1513,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
+[basic config docs]: /docs/configuration/basic/
 [blebox docs]: /integrations/blebox/
 [blink docs]: /integrations/blink/
 [bluetooth_le_tracker docs]: /integrations/bluetooth_le_tracker/
