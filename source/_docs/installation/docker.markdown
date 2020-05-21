@@ -246,6 +246,13 @@ To restart Home Assistant when you have changed configuration:
 docker-compose restart
 ```
 
+To update your docker-compose image to the latest version and restart:
+
+```bash
+docker-compose pull
+docker-compose up -d --build homeassistant
+```
+
 ## Exposing Devices
 
 In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your Docker command:
