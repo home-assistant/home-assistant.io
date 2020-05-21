@@ -25,7 +25,9 @@ regenerate: false
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
 
 <p class='note'>
+  
   Support for these integrations is provided by the Home Assistant community. Looking to contribute? Develop a [Home Assistant integration](https://developers.home-assistant.io/docs/creating_component_index).
+
 </p>
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
