@@ -5,7 +5,7 @@ description: "Installation of Home Assistant on your FreeNAS."
 
 [FreeNAS](https://www.freenas.org) is a free and open-source network-attached storage (NAS) software based on FreeBSD and the OpenZFS file system. It is licensed under the terms of the BSD License and runs on commodity x86-64 hardware.
 
-This has been tested on FreeNAS 11.2 and should also work on FreeBSD 11.x as well. These instructions assume you already have a running and accessible jail. For more information on creating a jail read the official FreeNAS User Guide regarding [Jails](https://www.ixsystems.com/documentation/freenas/11.2/jails.html). Once you have the jail available, follow the steps below. Directories used follow standard BSD conventions but can be adjusted as you wish.
+This has been tested on FreeNAS 11.3 and should also work on FreeBSD 11.x as well. These instructions assume you already have a running and accessible jail. For more information on creating a jail read the official FreeNAS User Guide regarding [Jails](https://www.ixsystems.com/documentation/freenas/11.3-RELEASE/jails.html). Once you have the jail available, follow the steps below. Directories used follow standard BSD conventions but can be adjusted as you wish.
 
 Enter the Home Assistant jail. If you don't know which name you have given the jail, you can use the `iocage list` command to check.
 
@@ -310,7 +310,16 @@ service homeassistant restart
 
 ## Updating
 
-Before updating, read the changelog to see what has changed and how it affects your Home Assistant instance. Enter the jail using `iocage exec <jailname>`. Stop the Home Assistant service:
+Before updating, read the changelog to see what has changed and how it affects your Home Assistant instance. Enter the jail using `iocage exec <jailname>`.
+
+Let the built-in update script do all required steps for you:
+
+```bash
+service homeassistant update
+```
+
+You can also update by following these steps manually.
+First, stop the Home Assistant service:
 
 ```bash
 service homeassistant stop
