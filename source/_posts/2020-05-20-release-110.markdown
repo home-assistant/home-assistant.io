@@ -583,6 +583,46 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   </details>
 
+## Release 0.110.1 - May 21
+
+- Fix Delijn sensor naming ([@Emilv2] - [#35789]) ([delijn docs])
+- Handle None received from pyforked-daapd ([@uvjustin] - [#35830]) ([forked_daapd docs])
+- Fix Daikin duplicate entries ([@fredrike] - [#35833]) ([daikin docs])
+- Homekit should skip devices that are missing in device registry ([@bdraco] - [#35857]) ([homekit docs])
+- Updated frontend to 20200519.1 ([@bramkragten] - [#35877]) ([frontend docs])
+- Fix light profiles for HomeMatic lights ([@danielperna84] - [#35882]) ([homematic docs])
+- fix mjpeg issue along with some cameras not returning event capabilities properly ([@hunterjm] - [#35885]) ([onvif docs])
+- Ensure http can startup if homekit fails to load ([@bdraco] - [#35888]) ([logbook docs])
+- Ensure storage write consume the data under the lock ([@bdraco] - [#35889])
+- Fix legacy Hunter Douglas PowerView devices ([@bdraco] - [#35895]) ([hunterdouglas_powerview docs])
+
+[#35789]: https://github.com/home-assistant/core/pull/35789
+[#35830]: https://github.com/home-assistant/core/pull/35830
+[#35833]: https://github.com/home-assistant/core/pull/35833
+[#35857]: https://github.com/home-assistant/core/pull/35857
+[#35877]: https://github.com/home-assistant/core/pull/35877
+[#35882]: https://github.com/home-assistant/core/pull/35882
+[#35885]: https://github.com/home-assistant/core/pull/35885
+[#35888]: https://github.com/home-assistant/core/pull/35888
+[#35889]: https://github.com/home-assistant/core/pull/35889
+[#35895]: https://github.com/home-assistant/core/pull/35895
+[@Emilv2]: https://github.com/Emilv2
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@danielperna84]: https://github.com/danielperna84
+[@fredrike]: https://github.com/fredrike
+[@hunterjm]: https://github.com/hunterjm
+[@uvjustin]: https://github.com/uvjustin
+[daikin docs]: /integrations/daikin/
+[delijn docs]: /integrations/delijn/
+[forked_daapd docs]: /integrations/forked_daapd/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[logbook docs]: /integrations/logbook/
+[onvif docs]: /integrations/onvif/
+
 ## All changes
 
 <details>
