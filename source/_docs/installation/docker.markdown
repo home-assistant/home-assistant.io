@@ -24,7 +24,7 @@ Do not try to combine Docker `restart` policies with host-level process managers
 
 </div>
 
-Add `--restart=always` to your `docker run` command before homeassistant/home-assistant:stable. See [the Docker autostart docs](https://docs.docker.com/config/containers/start-containers-automatically/) for details and more options.
+Add `--restart=always` to your `docker run` command before homeassistant/home-assistant:stable. See [the Docker autostart documentation](https://docs.docker.com/config/containers/start-containers-automatically/) for details and more options.
 
 ### Linux
 
