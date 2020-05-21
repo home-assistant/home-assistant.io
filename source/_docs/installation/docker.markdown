@@ -19,7 +19,21 @@ Installation with Docker is straightforward. Adjust the following command so tha
 ### Linux
 
 ```bash
-docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
+docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable
+```
+
+Updating:
+```bash
+docker pull homeassistant/home-assistant:stable  # if this returns "Image is up to date" then you can stop here
+docker stop home-assistant  # stop the running container
+docker rm home-assistant  # remove it from Docker's list of containers
+docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable  # finally, start a new one
+```
+If you are running your Home Assistant Core Docker as an autostarted service, then you should use the relevant commands to stop it, for example for systemd:
+```bash
+docker pull homeassistant/home-assistant:stable
+systemctl stop home-assistant@USERNAME
+systemctl start home-assistant@USERNAME
 ```
 
 ### Raspberry Pi 3 (Raspberry Pi OS)
