@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: wilight
 ---
 
-The `wilight` integration is the main integration to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.
+The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
