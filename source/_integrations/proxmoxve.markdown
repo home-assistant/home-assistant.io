@@ -56,7 +56,7 @@ username:
   required: true
   type: string
 password:
-  description: The password used to authenticate.
+  description: The password used to authenticate. Can include the realm by appending "@<realm>"
   required: true
   type: string
 realm:
