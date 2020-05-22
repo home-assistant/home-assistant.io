@@ -136,7 +136,7 @@ homekit:
         required: false
         type: map
         keys:
-          '`<ENTITY_ID>`':
+          '`ENTITY_ID`':
             description: Additional options for specific entities.
             required: false
             type: map
@@ -149,6 +149,10 @@ homekit:
                 description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
                 type: string
+              linked_motion_sensor:
+                description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+                required: false
+                type: string                
               low_battery_threshold:
                 description: Minimum battery level before the accessory starts reporting a low battery.
                 required: false
@@ -648,6 +652,10 @@ Currently, cameras are limited to one video stream. Multiple streams are not pos
 #### Camera audio is not streaming
 
 Make sure `support_audio` is `True` in the camera's entity configuration.
+
+#### Camera motion notifications
+
+A motion sensor can be linked via the `linked_motion_sensor` configuration setting to enable motion notifications.
 
 #### HomeKit stalls or devices respond slowly with many cameras
 
