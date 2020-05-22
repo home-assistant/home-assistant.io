@@ -74,7 +74,7 @@ armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
       required: false
       type: integer
     arming_time:
-      description: State specific setting for **arming_time** (all states except **disarmed**)
+      description: State specific setting for **arming_time** (all states except **disarmed** and **triggered**)
       required: false
       type: integer
     trigger_time:
