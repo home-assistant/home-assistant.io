@@ -21,7 +21,7 @@ For OpenWrt version 18.06.x the package uhttpd-mod-ubus should also be installed
 opkg install uhttpd-mod-ubus
 ```
 
-And create a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/user.json`.
+And create on your OpenWRT device a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/user.json`.
 
 ```json
 {
@@ -38,7 +38,7 @@ And create a read-only user to be used by setting up the ACL file `/usr/share/rp
 }
 ```
 
-Restart the services.
+Restart the services. This ACL file needs to be recreated after updating/upgrading your OpenWRT firmware. 
 
 ```bash
 # /etc/init.d/rpcd restart && /etc/init.d/uhttpd restart
