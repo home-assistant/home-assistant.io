@@ -33,9 +33,10 @@ As "Service Data" we want a simple text that is shown as part of the notificatio
 }
 ```
 
-The Automation Editor does not currently support 'data_template' as a "Service Data" entry. For these actions, it will be necessary to edit as YAML. This can be achieved by clicking the menu (3 vertical dots) and selecting "Edit as YAML"
+The Automation Editor does not currently support **data_template** as a "Service Data" entry. For these actions, it will be necessary to edit as YAML. This can be achieved by clicking the menu (3 vertical dots) and selecting "Edit as YAML"
 
-```
+```yaml
+# Example of how to use data_template in the Automation Editor, using "Edit as YAML"
 data_template:
   message: >
     Paulus just changed from {{ trigger.from_state.state }}
