@@ -21,7 +21,7 @@ Home Assistant offers ONVIF integration through **Configuration** -> **Integrati
 </div>
 
 <div class='note'>
-If running Home Asssistant in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager
+If running Home Asssistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
 </div>
 
 ### Configuration Notes
