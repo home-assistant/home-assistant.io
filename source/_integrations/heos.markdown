@@ -154,7 +154,7 @@ To resolve this issue, use the `heos.sign_in` service to sign the controller int
 
 ### System error -9 (12)
 
-```
+```txt
 [homeassistant.components.heos] Unable to retrieve players and sources: System error -9 (12)
 [homeassistant.config_entries] Config entry for heos not ready yet. Retrying in 80 seconds.
 ```
