@@ -39,7 +39,7 @@ available.
 
 For more documentation of the BSBLan device, check the [manual](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 
-**_To see a more detailed listing of the reported systems which are successfully used with BSB-LAN please follow the corresponding link:_**
+To see a more detailed listing of the reported systems which are successfully used with BSB-LAN please follow the corresponding link:
 
 - **[`Brötje`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#311-broetje)**
 - **[`Elco`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#312-elco)**
