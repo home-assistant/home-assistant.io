@@ -151,3 +151,15 @@ If the HEOS controller is not signed in to a HEOS account, HEOS favorites will n
 > IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites: Use the 'heos.sign_in' service to sign-in to a HEOS account
 
 To resolve this issue, use the `heos.sign_in` service to sign the controller into an account as documented above. This only needs to be performed once, as the controller will remain signed in while the account credentials are valid.
+
+### System error -9 (12)
+
+```
+[homeassistant.components.heos] Unable to retrieve players and sources: System error -9 (12)
+[homeassistant.config_entries] Config entry for heos not ready yet. Retrying in 80 seconds.
+```
+
+If you get the above erros, try the following:
+1. Reboot / power cycle your HEOS device. You might need to physically unplug the unit from the wall socket, wait a few seconds, and plug it back in.
+1. Log in your HEOS account through the device. If it's an AVR, login through the on-screen display in the AVR's setup menu.
+1. Remove your HEOS integration from Home Assistant and readd it.
