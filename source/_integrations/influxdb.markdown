@@ -77,14 +77,19 @@ max_retries:
   description: Set this to allow the integration to retry if there was a network error when transmitting data.
   required: false
   default: 0
+measurement_attr:
+  type: string
+  description: State object attribute to use as measurement name. Possible values: `unit_of_measurement` (default), `domain`, `entity_id`
+  required: false
+  default: unit_of_measurement
 default_measurement:
   type: string
-  description: Measurement name to use when an entity doesn't have a unit. 
+  description: Measurement name to use when the measurement_attr state attribute does not exist, e.g. when an entity doesn't have a unit. 
   required: false
   default: uses the entity id of the entity
 override_measurement:
   type: string
-  description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+  description:  Measurement name to use instead of measurement_attr or default measurement. This will store all data points in a single measurement.
   required: false
 exclude:
   type: list
