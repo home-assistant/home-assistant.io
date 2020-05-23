@@ -6,7 +6,7 @@ ha_category:
   - Finance
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 0.106
+ha_release: 0.112
 ha_config_flow: true
 ha_codeowners:
   - '@eifinger'
@@ -16,12 +16,7 @@ The `kraken` integration allows you to monitor exchange rates on [kraken.com](ht
 
 ## Configuration
 
-Set up the integration through **Configuration -> Integrations -> Kraken** or use the following entry in your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-kraken:
-```
+Set up the integration through **Configuration -> Integrations -> Kraken**.
 
 {% configuration %}
 name:
@@ -35,4 +30,4 @@ name:
 
 The integration will create sensors for each tradable pair it finds on kraken.com.
 
-For example the sensor for the pair `ETH` and `EUR` will have the entity_id `sensor.kraken_eth_eur`.
+For example the entity_id for sensors for the pair `ETH` and `EUR` will look like `sensor.kraken_eth_eur_<SENSOR_TYPE>`.
