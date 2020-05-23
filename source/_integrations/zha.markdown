@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Zigbee Home Automation (ZHA) 
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Fan
   - Light
   - Lock
@@ -26,6 +27,7 @@ integration for Home Assistant allows you to connect many off-the-shelf Zigbee b
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
+- Climate (beta)
 - Cover
 - Fan
 - Light
