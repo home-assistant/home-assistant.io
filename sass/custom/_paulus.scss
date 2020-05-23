@@ -422,6 +422,16 @@ p.note, div.note {
 .aside-module {
   .section {
     margin-bottom: 10px;
+
+    ul.section-nav {
+      margin-left: 16px;
+
+      li.toc-entry {
+        ul {
+          margin-left: 16px;
+        }
+      }
+    }
   }
 
   .brand-logo-container {
