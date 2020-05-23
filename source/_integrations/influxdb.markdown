@@ -104,7 +104,7 @@ precision:
   default: ns
 measurement_attr:
   type: string
-  description: State object attribute to use as measurement name. Possible values: `unit_of_measurement` (default), `domain`, `entity_id`
+  description: "State object attribute to use as measurement name. Possible values: `unit_of_measurement`, `domain` or `entity_id`."
   required: false
   default: unit_of_measurement
 default_measurement:
