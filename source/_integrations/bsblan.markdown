@@ -41,8 +41,8 @@ For more documentation of the BSBLan device, check the [manual](https://1coderoo
 
 To see a more detailed listing of the reported systems which are successfully used with BSB-LAN please follow the corresponding link:
 
-- **[`Brötje`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#311-broetje)**
-- **[`Elco`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#312-elco)**
-- **[`Other Manufacturers (e.g. Fujitsu, Atlantic, Weishaupt)`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#313-other-manufacturers)**
+- [`Brötje`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#311-broetje)
+- [`Elco`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#312-elco)
+- [`Other Manufacturers (e.g. Fujitsu, Atlantic, Weishaupt)`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#313-other-manufacturers)
 
 The integration is tested with firmware the stable version `v0.43`.
