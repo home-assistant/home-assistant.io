@@ -11,68 +11,7 @@ ha_codeowners:
 
 The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
-## Configuration
-
-To enable OpenGarage Covers in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-cover:
-  platform: opengarage
-  covers:
-    garage:
-      host: 192.168.1.12
-      device_key: opendoor
-      name: Left Garage Door
-    garage2:
-      protocol: https
-      verify_ssl: false
-      host: garage.example.com
-      port: 443
-      device_key: opendoor
-      name: Right Garage Door
-```
-
-{% configuration %}
-covers:
-  description: List of your doors.
-  required: true
-  type: map
-  keys:
-    identifier:
-      description: Name of the cover as slug. Multiple entries are possible.
-      required: true
-      type: map
-      keys:
-        ssl:
-          description: Use HTTPS instead of HTTP to connect.
-          required: false
-          type: boolean
-          default: false
-        verify_ssl:
-          description: Enable or disable SSL certificate verification. Set to false if you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
-          required: false
-          default: true
-          type: boolean
-        host:
-          description: IP address of device.
-          required: true
-          type: string
-        port:
-          description: HTTP Port.
-          required: false
-          default: 80
-          type: integer
-        device_key:
-          description: Access key to control device.
-          required: true
-          default: opendoor
-          type: string
-        name:
-          description: Name to use in the Frontend. If not provided, it will use name configured in device.
-          required: false
-          type: string
-{% endconfiguration %}
+To add OpenGarage to your installation, go to Configuration >> Integrations in the UI and enable the Mill integration.
 
 **Example with more detail:**
 <p class='img'>
@@ -80,15 +19,6 @@ covers:
 </p>
 
 ```yaml
-# Related configuration.yaml entry
-cover:
-  platform: opengarage
-  covers:
-      garage:
-        host: 192.168.1.12
-        device_key: opendoor
-        name: honda
-
 sensor:
   platform: template
   sensors:
