@@ -123,6 +123,7 @@ The service `keba.set_failsafe` sets the failsafe mode of the charging station. 
 ### Show Text on Display `keba.set_text``
 
 The service `keba.set_text` shows the submitted text on the display of chargers with built-in LED display. `min_time` is the minimum time in seconds the text will be shown if another message is requested. `max_time` is the maximum time to display the message when nothing else is requested. A maximum of 23 characters can be shown. Horizontal scroll is performed autiomatically when needed. Payload example:
+
 ```json
 {
   "text": "Hello!",
