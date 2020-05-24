@@ -74,5 +74,5 @@ Set the latency of a speaker.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of `entity_id`s for which latency will be adjusted.
-| `latency` | yes | Latency in ms.
+| `entity_id` | no | String or list of `entity_id`s for which latency will be adjusted.
+| `latency` | no | Latency in ms.
