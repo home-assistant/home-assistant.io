@@ -17,7 +17,7 @@ This has been tested with an Airsight XC36A camera, but should work with other N
 
 ## Configuration via the frontend
 
-In the settings go to `Integrations`, click on the `+` sign to add an integration and click on **NetWave**.
+In the settings go to **Integrations**, click on the **+** sign to add an integration and click on **NetWave**.
 After completing the configuration flow, the NetWave integration will be available.
 
 ## Configuration via the configuration file
