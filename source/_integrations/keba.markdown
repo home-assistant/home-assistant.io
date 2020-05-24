@@ -18,7 +18,7 @@ This component provides the following platforms:
 - Binary Sensors: Online state, plug state, Charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
-- Services: authorize, deauthorize, set energy target, set maximum allowed current and manually update the states. More details can be found [here](/integrations/keba/#services).
+- Services: authorize, deauthorize, set energy target, set maximum allowed current, show text and manually update the states. More details can be found [here](/integrations/keba/#services).
 
 ## Configuration
 
@@ -117,6 +117,17 @@ The service `keba.set_failsafe` sets the failsafe mode of the charging station. 
   "failsafe_timeout": 30,
   "failsafe_fallback": 6,
   "failsafe_persist": 0
+}
+```
+
+### Show Text on Display `keba.set_text``
+
+The service `keba.set_text` shows the submitted text on the display of chargers with built-in LED display. `min_time` is the minimum time in seconds the text will be shown if another message is requested. `max_time` is the maximum time to display the message when nothing else is requested. A maximum of 23 characters can be shown. Horizontal scroll is performed autiomatically when needed. Payload example:
+```json
+{
+  "text": "Hello!",
+  "min_time": 2,
+  "max_time": 10
 }
 ```
 
