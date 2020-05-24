@@ -24,16 +24,16 @@ The default way to update Home Assistant to the latest release, when available, 
 pip3 install --upgrade homeassistant
 ```
 
-For a Docker container, simply pull the latest one:
+For a Docker container, simply pull the latest stable one:
 
 ```bash
-sudo docker pull homeassistant/home-assistant:latest
+sudo docker pull homeassistant/home-assistant:stable
 ```
 
-For a Raspberry Pi Docker container, simply pull the latest one:
+For a Raspberry Pi Docker container, simply pull the latest stable one:
 
 ```bash
-sudo docker pull homeassistant/raspberrypi3-homeassistant:latest
+sudo docker pull homeassistant/raspberrypi3-homeassistant:stable
 ```
 
 After updating, you must start/restart Home Assistant for the changes to take effect. This means that you will have to restart `hass` itself or the [autostarting](/docs/autostart/) daemon (if applicable). Startup can take a considerable amount of time (i.e., minutes) depending on your device. This is because all requirements are updated as well.
