@@ -10,4 +10,3 @@ Once you get started with Home Assistant you want it to start automatically when
  - [Upstart (Linux)](/docs/autostart/upstart/)
  - [init.d (Linux)](/docs/autostart/init.d/)
  - [macOS](/docs/autostart/macos/)
- - [Synology NAS](/docs/autostart/synology/)
