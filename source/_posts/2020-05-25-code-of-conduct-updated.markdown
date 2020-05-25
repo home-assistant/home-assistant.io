@@ -34,10 +34,10 @@ which has been implemented by over 200,000 open source projects around the world
 They have been updating it to version 2.0, and Home Assistant will now follow
 up on that.
 
-In general, not much has changed compared to what we already had. Mainly wording
-has been improved. The main change would be the addition of enforcement
-guidelines. This helps the Home Assistant members, contributors, moderators, admins
-and maintainers in how to apply enforcements.
+In general, not much has [changed compared to what we already had](https://github.com/home-assistant/home-assistant.io/pull/13588/files).
+Mainly wording has been improved. The main change would be the addition of
+enforcement guidelines. This helps the Home Assistant members, contributors,
+moderators, admins and maintainers in how to apply enforcements.
 
 Moving forward, this updated Code of Conduct will be active for all projects,
 social channels and community communication channels of the Home Assistant
