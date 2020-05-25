@@ -499,7 +499,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
   but the only supported entries are `username`, `password`, and `scan_interval`.
   All other entries must be removed; otherwise, the integration will not be
   configured. - ([@fronzbot] - [#35396]) ([blink docs])
-
+  
+- **Emulated Hue** - Emulated Hue was updated for better compatibility with newer 
+  systems. Existing users may find that they will need to re-pair their system with
+   emulated hue to reconnect devices. - ([@Tho85] - [#35148]) ([emulated_hue docs])
+   
 - **Universal Devices ISY994** - This migrates ISY994 to PyISY v2 and is now
   available to be added from the Integrations UI. PyISY Version 2 is a
   significant update to the original module used to communicate with the ISY.
