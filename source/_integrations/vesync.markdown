@@ -1,8 +1,9 @@
 ---
 title: Etekcity VeSync
-description: Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant.
+description: Instructions on how to set up Etekcity VeSync switches, outlets, and fans within Home Assistant.
 ha_category:
   - Switch
+  - Fan
 ha_release: 0.66
 ha_config_flow: true
 ha_codeowners:
@@ -18,6 +19,7 @@ The devices must be added to the VeSync App before this integration can discover
 The following platforms are supported:
 
 - **switch**
+- **fan**
 
 ## Supported Devices
 
@@ -34,6 +36,10 @@ This integration supports devices controllable by the VeSync App.  The following
 ### Switches
 
 - Etekcity In Wall Smart Switch (EWSL01-USA)
+
+### Fans
+
+- LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
 ## Configuration
 
@@ -75,6 +81,20 @@ VeSync outlets will expose the following details for only the smart outlets. Ene
 | `weekly_energy_total`   | Total energy usage for week starting from Monday 12:01AM in kWh         | 14.74           |
 | `monthly_energy_total`  | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30           |
 | `yearly_energy_total`   | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25          |
+
+## Fan Exposed Attributes
+
+VeSync air purifiers will expose the following details.
+
+| Attribute               | Description                                                             | Example         |
+| ----------------------- | ----------------------------------------------------------------------- | --------------- |
+| `mode`                  | The current mode the device is in.                                      | auto            |
+| `speed`                 | The current speed setting of the device.                                | auto            |
+| `speed_list`            | The available list of speeds supported by the device.                   | high            |
+| `active_time`           | The number of seconds since the device has been in a non-off mode.      | 1598            |
+| `filter_life`           | Remaining precentage of the filter.                                     | 142             |
+| `air_quality`           | The current air quality reading.                                        | excellent       |
+| `screen_status`         | The current status of the screen.                                       | on              |
 
 ## Extracting Attribute data
 
