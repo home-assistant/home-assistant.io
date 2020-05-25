@@ -25,9 +25,9 @@ The "Community" API key is limited to 10,000 calls per month. In order to accomm
 
 For example:
 
-* One instance of the integration: API calls every 5 minutes
-* Two instances of the integration: API calls every 10 minutes
-* etc.
+- One instance of the integration: API calls every 5 minutes
+- Two instances of the integration: API calls every 10 minutes
+- etc.
 
 </div>
 
