@@ -156,6 +156,7 @@ Currently supported devices as device triggers:
 - Aqara Round Switch
 - Aqara Square Switch
 - Aqara Magic Cube
+- Aqara Opple 2/4/6 button Switches
 
 #### Requesting support for new device trigger
 

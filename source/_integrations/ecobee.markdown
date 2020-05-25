@@ -72,15 +72,7 @@ api_key:
   <img src='{{site_root}}/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
-[Restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. In the **Configuration** > **Integrations** menu, hit **Configure** next to the discovered `ecobee` entry, and continue to authorize the App per the Integration menu instructions above.
-
-The first time you (re)run Home Assistant with this integration it will give you a PIN code that you need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by clicking **Add Application** in the **My Apps** section in the sidebar.
-
-The PIN can be found in the Home Assistant portal on the ecobee card or from the `configurator.ecobee` entity in the States developer tool.
-
-- If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this, you can temporarily comment out the `default_view` section or add the `configurator.ecobee` integration to your `default_view` and restart Home Assistant.
-
-Once you enter the PIN on the ecobee site, wait approximately 5 minutes, and then click on the **I have authorized the app** link at the bottom of the ecobee pop-up window. If everything worked correctly, you should now be able to restart Home Assistant again to see the full ecobee card with all of the sensors populated or see the list of sensors in the developer tools. Now you can re-enable your `default_view` (if you had to disable it) and add the ecobee sensors to a group and/or view.
+[Restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. In the **Configuration** > **Integrations** menu, hit **Configure** next to the discovered `ecobee` entry, and continue to authorize the App per the Integration menu instructions above, starting at step 2.
 
 ## Notifications
 
@@ -111,37 +103,17 @@ To use notifications, please see the [getting started with automation page](/get
 
 The ecobee thermostat supports the following key concepts.
 
-The _target temperature_ is the temperature that the device attempts
-to achieve. The target temperature is either determined by the
-currently active climate or it may be overridden by a hold. When the
-thermostat is not in auto mode, there is a single target
-temperature. When the thermostat is in auto HVAC mode, there is a
-pair of target temperatures: the lower target temperature determines
-the lowest desired temperature, while the higher target temperature
-determines the highest desired temperature (the thermostat will switch
-between heating and cooling to keep the temperature within these
-limits).
+The _target temperature_ is the temperature that the device attempts to achieve. The target temperature is either determined by the currently active climate or it may be overridden by a hold. When the
+thermostat is not in auto mode, there is a single target temperature. When the thermostat is in auto HVAC mode, there is a pair of target temperatures: the lower target temperature determines the lowest desired temperature, while the higher target temperature determines the highest desired temperature (the thermostat will switch between heating and cooling to keep the temperature within these limits).
 
-A _climate_ is a predefined or user-defined set of presets that the
-thermostat aims to achieve. The ecobee thermostat provides three predefined
-climates: Home, Away, and Sleep. Ecobee refers to these as _comfort settings_. The user can define additional climates.
+A _climate_ is a predefined or user-defined set of presets that the thermostat aims to achieve. The ecobee thermostat provides three predefined climates: Home, Away, and Sleep. Ecobee refers to these as _comfort settings_. The user can define additional climates.
 
-A _preset_ is an override of the target temperature defined in the
-currently active climate. The temperature targeted in the preset mode may be
-explicitly set (temperature preset), it may be derived from a reference
-climate (home, away, sleep, etc.), or it may be derived from a vacation
-defined by the thermostat. All holds are temporary. Temperature and
-climate holds expire when the thermostat transitions to the next climate
-defined in its program. A vacation hold starts at the beginning of the
+A _preset_ is an override of the target temperature defined in the currently active climate. The temperature targeted in the preset mode may be explicitly set (temperature preset), it may be derived from a reference climate (home, away, sleep, etc.), or it may be derived from a vacation defined by the thermostat. All holds are temporary. Temperature and climate holds expire when the thermostat transitions to the next climate defined in its program. A vacation hold starts at the beginning of the
 defined vacation period and expires when the vacation period ends.
 
-When in _away preset_, the target temperature is permanently overridden by
-the target temperature defined for the away climate. The away preset is a
-simple way to emulate a vacation mode.
+When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
 
-The _HVAC mode_ of the device is the currently active operational
-modes that the ecobee thermostat provides: heat, auxHeatOnly, cool,
-auto, and off.
+The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, auxHeatOnly, cool, auto, and off.
 
 ## Attributes
 

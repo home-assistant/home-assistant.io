@@ -463,7 +463,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **HTTP** - `base_url` is deprecated and replaced by an `internal_url` and
   `external_url` core configuration setting. -
-  ([@frenck] - [#35224]) ([config docs]) ([http docs])
+  ([@frenck] - [#35224]) ([basic config docs]) ([http docs])
 
 - **Kodi** - Kodi previously reported the media content type for all PVR
   channels as "channel", no matter if it was a TV or a radio channel.
@@ -499,7 +499,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
   but the only supported entries are `username`, `password`, and `scan_interval`.
   All other entries must be removed; otherwise, the integration will not be
   configured. - ([@fronzbot] - [#35396]) ([blink docs])
-
+  
+- **Emulated Hue** - Emulated Hue was updated for better compatibility with newer 
+  systems. Existing users may find that they will need to re-pair their system with
+   emulated hue to reconnect devices. - ([@Tho85] - [#35148]) ([emulated_hue docs])
+   
 - **Universal Devices ISY994** - This migrates ISY994 to PyISY v2 and is now
   available to be added from the Integrations UI. PyISY Version 2 is a
   significant update to the original module used to communicate with the ISY.
@@ -582,6 +586,128 @@ Experiencing issues introduced by this release? Please report them in our [issue
     - New Insteon Types for `SWITCHES`: "0.16.", "7.3.255.", "9.10."
 
   </details>
+
+## Release 0.110.1 - May 21
+
+- Fix Delijn sensor naming ([@Emilv2] - [#35789]) ([delijn docs])
+- Handle None received from pyforked-daapd ([@uvjustin] - [#35830]) ([forked_daapd docs])
+- Fix Daikin duplicate entries ([@fredrike] - [#35833]) ([daikin docs])
+- Homekit should skip devices that are missing in device registry ([@bdraco] - [#35857]) ([homekit docs])
+- Updated frontend to 20200519.1 ([@bramkragten] - [#35877]) ([frontend docs])
+- Fix light profiles for HomeMatic lights ([@danielperna84] - [#35882]) ([homematic docs])
+- fix mjpeg issue along with some cameras not returning event capabilities properly ([@hunterjm] - [#35885]) ([onvif docs])
+- Ensure http can startup if homekit fails to load ([@bdraco] - [#35888]) ([logbook docs])
+- Ensure storage write consume the data under the lock ([@bdraco] - [#35889])
+- Fix legacy Hunter Douglas PowerView devices ([@bdraco] - [#35895]) ([hunterdouglas_powerview docs])
+
+[#35789]: https://github.com/home-assistant/core/pull/35789
+[#35830]: https://github.com/home-assistant/core/pull/35830
+[#35833]: https://github.com/home-assistant/core/pull/35833
+[#35857]: https://github.com/home-assistant/core/pull/35857
+[#35877]: https://github.com/home-assistant/core/pull/35877
+[#35882]: https://github.com/home-assistant/core/pull/35882
+[#35885]: https://github.com/home-assistant/core/pull/35885
+[#35888]: https://github.com/home-assistant/core/pull/35888
+[#35889]: https://github.com/home-assistant/core/pull/35889
+[#35895]: https://github.com/home-assistant/core/pull/35895
+[@Emilv2]: https://github.com/Emilv2
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@danielperna84]: https://github.com/danielperna84
+[@fredrike]: https://github.com/fredrike
+[@hunterjm]: https://github.com/hunterjm
+[@uvjustin]: https://github.com/uvjustin
+[daikin docs]: /integrations/daikin/
+[delijn docs]: /integrations/delijn/
+[forked_daapd docs]: /integrations/forked_daapd/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[logbook docs]: /integrations/logbook/
+[onvif docs]: /integrations/onvif/
+
+## Release 0.110.2 - May 24
+
+- Auto-level AirVisual API calls ([@bachya] - [#34903]) ([airvisual docs])
+- Fix service registration supported features check ([@chmielowiec] - [#35718])
+- Fix Prezzibenzina doing I/O in the event loop ([@bachya] - [#35881]) ([prezzibenzina docs])
+- Update rokuecp to 0.4.1 ([@ctalkington] - [#35899]) ([roku docs])
+- Update frontend to 20200519.3 ([@bramkragten] - [#35925]) ([frontend docs])
+- Ensure homekit functions if numpy is unavailable ([@bdraco] - [#35931]) ([homekit docs])
+- Fix ONVIF Transport ([@hunterjm] - [#35932]) ([onvif docs])
+- Fix typo in conf[CONF_SSL] ([@Wohlraj] - [#35946]) ([zabbix docs])
+- Fix Daikin AC integration for AirBase units ([@fredrike] - [#35952]) ([daikin docs])
+- Improve ipp unique id parsing ([@ctalkington] - [#35959]) ([ipp docs])
+- Bump pyAV and close unclosed outputs ([@hunterjm] - [#35960]) ([stream docs])
+- Fix lutron_caseta setup options ([@MartinHjelmare] - [#35974]) ([lutron_caseta docs])
+- Fix device_registry cleanup behavior ([@alengwenus] - [#35977])
+- Bump python-openzwave-mqtt to 1.0.2 ([@MartinHjelmare] - [#35980]) ([ozw docs])
+- Handle StorageError in the Broadlink integration ([@felipediel] - [#35986]) ([broadlink docs])
+- Update frontend to 20200519.4 ([@bramkragten] - [#35987]) ([frontend docs])
+- Fix ONVIF PTZ and profile encoding issues ([@hunterjm] - [#36006]) ([onvif docs])
+- Upgrade hass-nabucasa to 0.34.3 ([@frenck] - [#36025]) ([cloud docs])
+- Migrate rpi_gpio_pwm to extend LightEntity instead of Light ([@soldag] - [#36028]) ([rpi_gpio_pwm docs])
+- Fix shade compatibility with hunter douglas powerview 1.0 hubs ([@bdraco] - [#36040]) ([hunterdouglas_powerview docs])
+- Bump aiohomekit ([@Jc2k] - [#36041]) ([homekit_controller docs])
+- Bump tellduslive version ([@fredrike] - [#36048]) ([tellduslive docs])
+- Fix roku play/pause support ([@ctalkington] - [#35991]) ([roku docs])
+
+[#34903]: https://github.com/home-assistant/core/pull/34903
+[#35718]: https://github.com/home-assistant/core/pull/35718
+[#35881]: https://github.com/home-assistant/core/pull/35881
+[#35899]: https://github.com/home-assistant/core/pull/35899
+[#35925]: https://github.com/home-assistant/core/pull/35925
+[#35931]: https://github.com/home-assistant/core/pull/35931
+[#35932]: https://github.com/home-assistant/core/pull/35932
+[#35946]: https://github.com/home-assistant/core/pull/35946
+[#35952]: https://github.com/home-assistant/core/pull/35952
+[#35959]: https://github.com/home-assistant/core/pull/35959
+[#35960]: https://github.com/home-assistant/core/pull/35960
+[#35974]: https://github.com/home-assistant/core/pull/35974
+[#35977]: https://github.com/home-assistant/core/pull/35977
+[#35980]: https://github.com/home-assistant/core/pull/35980
+[#35986]: https://github.com/home-assistant/core/pull/35986
+[#35987]: https://github.com/home-assistant/core/pull/35987
+[#35991]: https://github.com/home-assistant/core/pull/35991
+[#36006]: https://github.com/home-assistant/core/pull/36006
+[#36025]: https://github.com/home-assistant/core/pull/36025
+[#36028]: https://github.com/home-assistant/core/pull/36028
+[#36040]: https://github.com/home-assistant/core/pull/36040
+[#36041]: https://github.com/home-assistant/core/pull/36041
+[#36048]: https://github.com/home-assistant/core/pull/36048
+[@Jc2k]: https://github.com/Jc2k
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Wohlraj]: https://github.com/Wohlraj
+[@alengwenus]: https://github.com/alengwenus
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@chmielowiec]: https://github.com/chmielowiec
+[@ctalkington]: https://github.com/ctalkington
+[@felipediel]: https://github.com/felipediel
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@hunterjm]: https://github.com/hunterjm
+[@soldag]: https://github.com/soldag
+[airvisual docs]: /integrations/airvisual/
+[broadlink docs]: /integrations/broadlink/
+[cloud docs]: /integrations/cloud/
+[daikin docs]: /integrations/daikin/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[ipp docs]: /integrations/ipp/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[onvif docs]: /integrations/onvif/
+[ozw docs]: /integrations/ozw/
+[prezzibenzina docs]: /integrations/prezzibenzina/
+[roku docs]: /integrations/roku/
+[rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
+[stream docs]: /integrations/stream/
+[tellduslive docs]: /integrations/tellduslive/
+[zabbix docs]: /integrations/zabbix/
 
 ## All changes
 
@@ -1473,6 +1599,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
+[basic config docs]: /docs/configuration/basic/
 [blebox docs]: /integrations/blebox/
 [blink docs]: /integrations/blink/
 [bluetooth_le_tracker docs]: /integrations/bluetooth_le_tracker/
