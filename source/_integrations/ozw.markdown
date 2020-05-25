@@ -19,7 +19,7 @@ This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave
 
 - MQTT server and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
 - The [ozwdaemon](https://github.com/OpenZWave/qt-openzwave) installed and running in your network.
-  For Home Assistant Supervisor there's a [custom add-on](https://github.com/marcelveldt/hassio-addons-repo/tree/master/ozwdaemon).
+  For Home Assistant Supervisor there's a custom add-on [OpenZwave](https://github.com/home-assistant/hassio-addons/tree/master/zwave).
 - Supported Z-Wave dongle compatible with OpenZWave 1.6. See this [list](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules) of controllers. The Z-Wave controller dongle should be connected to the same host as where the ozwdaemon is running.
 
 ## Configuration
