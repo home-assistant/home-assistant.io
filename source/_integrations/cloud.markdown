@@ -21,6 +21,8 @@ This integration is by default enabled, unless you've disabled or removed the [`
 cloud:
 ```
 
+Documentation of further configuration possibilites are located at [NabuCasa](https://www.nabucasa.com/config/)
+
 Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your `configuration.yaml` file.
 
 ```yaml

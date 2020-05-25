@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Zigbee Home Automation (ZHA) 
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Fan
   - Light
   - Lock
@@ -26,6 +27,7 @@ integration for Home Assistant allows you to connect many off-the-shelf Zigbee b
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
+- Climate (beta)
 - Cover
 - Fan
 - Light
@@ -99,7 +101,7 @@ a new pop-up asking for a radio type. In the pop-up:
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
 | `ezsp`  | EmberZNet based radios, HUSBZB-1, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
-| `deconz` | ConBee, ConBee II, RaspBi |
+| `deconz` | dresden elektronik ConBee and RaspBee based radios with deCONZ Zigbee firmware |
 | `xbee` | Digi XBee Series 2, 2C and 3 based radios with XBee Zigbee firmware |
 | `ti_cc` | Texas Instruments CC253x/CC26x2/CC13x2 based radios with Z-Stack firmware |
 | `zigate` | ZiGate USB-TTL, PiZiGate, and WiFi based Zigbee radios with ZiGate firmware |
@@ -176,6 +178,7 @@ logger:
     zigpy_xbee.zigbee.application: debug
     zigpy_xbee.api: debug
     zigpy_zigate: debug
+    zhaquirks: debug
 ```
 
 ### Add Philips Hue bulbs that have previously been added to another bridge

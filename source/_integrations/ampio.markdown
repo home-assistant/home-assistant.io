@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ha_domain: ampio
 ---
 
-The `ampio` air quality platform will query the open data API of [ampio.pl](http://smog1.ampio.pl:3050/) to monitor air quality sensor station.
+The `ampio` air quality platform will query the open data API of [ampio.pl](http://smog.ampio.pl/) to monitor air quality sensor station.
 
 ## Setup
 

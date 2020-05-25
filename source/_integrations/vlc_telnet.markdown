@@ -28,7 +28,7 @@ name:
   description: The name to use in the frontend.
   required: false
   type: string
-pasword:
+password:
   description: The password to control the VLC through the telnet interface.
   required: true
   type: string

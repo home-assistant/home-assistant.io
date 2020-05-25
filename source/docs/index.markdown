@@ -46,4 +46,4 @@ The documentation covers beginner to advanced topics around the installation, se
 
 <br/>
 
-To see what Home Assistant can do, take a look at the [demo page](/demo).
+To see what Home Assistant can do, take a look at the [demo page](https://demo.home-assistant.io).

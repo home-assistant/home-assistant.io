@@ -19,8 +19,17 @@ type:
   description: picture-elements
   type: string
 image:
-  required: true
+  required: false
   description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  type: string
+camera_image:
+  required: false
+  description: A camera entity.
+  type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
   type: string
 elements:
   required: true
@@ -385,7 +394,7 @@ style:
 {% endconfiguration %}
 
 The process for creating and referencing custom elements is the same as for custom cards.
-Please see the [developer documentation](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
+Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html)
 for more information.
 
 ## How to use the style object

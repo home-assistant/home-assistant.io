@@ -23,6 +23,8 @@ homeassistant:
     - /tmp
 ```
 
+NOTE: You will not be able to edit anything in Configuration -> General in the UI if you are using YAML configuration for any of the following: name, latitude, longitute, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url.
+
 {% configuration %}
 name:
   description: Name of the location where Home Assistant is running.
