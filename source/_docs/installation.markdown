@@ -94,10 +94,4 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>macOS</div>
   </a>
-  <a class='option-card' href='/docs/installation/synology/'>
-    <div class='img-container'>
-      <img src='https://brands.home-assistant.io/synology/logo.png' />
-    </div>
-    <div class='title'>Synology</div>
-  </a>
 </div>
