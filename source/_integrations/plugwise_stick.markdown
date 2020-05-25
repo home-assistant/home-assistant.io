@@ -5,7 +5,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Push
-ha_release: 0.110
+ha_release: 0.111
 ha_codeowners:
   - '@brefra'
 ha_domain: plugwise_stick
