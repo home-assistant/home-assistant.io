@@ -191,7 +191,8 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
-| `command`              | no       | Endpoint for the command, e.g.,  `media.controls/rewind`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
+| `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
+| `argument`             | yes      | An optional argument to provide to the endpoint in the format of a json string. Note clicking full example will not work as the curly braces and quotes will be filtered, please manually enter/paste in the json string. |
 
 ### Example
 
@@ -204,12 +205,14 @@ script:
           entity_id:  media_player.lg_webos_smart_tv
           button: "HOME"
 
-  rewind_command:
+  open_google_command:
     sequence:
       - service: webostv.command
         data:
           entity_id:  media_player.lg_webos_smart_tv
-          command: "media.controls/rewind"
+          command: "system.launcher/open"
+          argument: >-
+            {"target": "https://www.google.com"}
 ```
 
 ## Consecutive volume steps delay
