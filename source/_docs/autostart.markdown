@@ -8,5 +8,4 @@ Once you get started with Home Assistant you want it to start automatically when
 
  - [systemd (Linux)](/docs/autostart/systemd/)
  - [Upstart (Linux)](/docs/autostart/upstart/)
- - [init.d (Linux)](/docs/autostart/init.d/)
  - [macOS](/docs/autostart/macos/)

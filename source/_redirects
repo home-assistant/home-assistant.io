@@ -2063,6 +2063,7 @@
 /cookbook/tls_domain_certificate https://community.home-assistant.io/t/certificate-for-ssl-tls-via-domain-ownership/196968
 /cookbook/tls_self_signed_certificate https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970
 /cookbook/tor_configuration https://community.home-assistant.io/t/tor-onion-service-configuration/195171
+/docs/autostart/init.d https://community.home-assistant.io/t/autostart-using-init-d/199494
 /docs/ecosystem/apache https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
 /docs/ecosystem/backup/backup_dropbox https://community.home-assistant.io/t/backing-up-to-dropbox/196960
 /docs/ecosystem/backup/backup_github https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
@@ -2078,6 +2079,7 @@
 /docs/ecosystem/tor https://community.home-assistant.io/t/tor-onion-service-configuration/195171
 /docs/installation/armbian https://community.home-assistant.io/t/home-assistant-core-python-on-armbian/196987
 /docs/installation/freenas https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158
+/getting-started/autostart-init.d https://community.home-assistant.io/t/autostart-using-init-d/199494
 
 # Add-ons
 /addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
