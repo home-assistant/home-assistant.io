@@ -2116,3 +2116,7 @@
 # Lovelace documentation
 /lovelace/entity-button /lovelace/button
 /lovelace/views /lovelace/dashboards-and-views
+
+# Removed documentation
+/docs/installation/hassbian /getting-started
+/getting-started/hassbian /getting-started
