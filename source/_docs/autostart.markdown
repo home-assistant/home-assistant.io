@@ -6,6 +6,5 @@ redirect_from: /getting-started/autostart/
 
 Once you get started with Home Assistant you want it to start automatically when you launch your machine. To help you get started we've compiled a few guides for different systems.
 
- - [systemd (Linux)](/docs/autostart/systemd/)
  - [Upstart (Linux)](/docs/autostart/upstart/)
  - [macOS](/docs/autostart/macos/)
