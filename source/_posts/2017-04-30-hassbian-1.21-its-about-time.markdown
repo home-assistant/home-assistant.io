@@ -39,10 +39,9 @@ With this image there also quite a bit of cleaning of the base system and the sc
 
 To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord-devs].
 
-To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
+To get started with the new image, check out the installation instructions in the getting started section.
 
 [cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
 [hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
-[gs-image]: /docs/installation/hassbian/installation/
 [discord-devs]: https://discord.gg/8X8DTH4
