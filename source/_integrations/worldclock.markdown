@@ -38,9 +38,9 @@ time_format:
   description: The time format.
   required: false
   type: string
-  default: %H:%M
+  default: "%H:%M"
 trim_leading_zero:
-  description: Remove leading zeros e.g. 9:30 PM instead of 09:30 PM
+  description: Remove leading zeros, e.g. 9:30 PM instead of 09:30 PM
   required: false
   type: boolean
   default: false
