@@ -192,7 +192,7 @@ Available services: `button`, `command`
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
 | `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
-| `argument`             | yes      | An optional argument to provide to the endpoint in the format of a json string. Note clicking full example will not work as the curly braces and quotes will be filtered, please manually enter/paste in the json string. |
+| `argument`             | yes      | An optional argument to provide to the endpoint in the format of a JSON string. Note clicking full example will not work as the curly braces and quotes will be filtered, please manually enter/paste in the JSON string. |
 
 ### Example
 
