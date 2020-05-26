@@ -76,12 +76,6 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>Fedora</div>
   </a>
-  <a class='option-card' href='/docs/installation/centos/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/centos.png' />
-    </div>
-    <div class='title'>CentOS/RHEL</div>
-  </a>
   <a class='option-card' href='/docs/installation/macos/'>
     <div class='img-container'>
       <img src='https://brands.home-assistant.io/ios/icon.png' />
