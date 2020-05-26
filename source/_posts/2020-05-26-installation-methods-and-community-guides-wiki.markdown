@@ -63,7 +63,7 @@ What is missing for each of the above-listed are the specific details, e.g., the
 
 Home Assistant is an open-source project and it can be used in any way you want, even if it is not officially supported by the Home Assistant team. We welcome these alternative initiatives and have created a place for our community to provide, share and collectively maintain additional documentation.
 
-We’ve added a new section to our forums called “[Community Guides](https://community.home-assistant.io/c/community-guides/)”. Each post will be automatically turned into a wiki article that other members can help maintain and can be discussed right below the article. This section is not just for installation methods, but ANY guide, how-to or tutorial.
+We’ve added a new section to our forums called “[Community Guides]”. Each post will be automatically turned into a wiki article that other members can help maintain and can be discussed right below the article. This section is not just for installation methods, but ANY guide, how-to or tutorial.
 
 We have ported several guides from the official documentation to the community guides. These guides were already marked as “community provided” guides previously, or are targeted towards extremely specific setups.
 
@@ -76,3 +76,5 @@ Realizing we have not finished up specific details on each installation method, 
 Thanks to the passionate community, you spoke and gave feedback on this. We’ll have more specific details to share in the near future, so stay tuned.
 
 Paulus
+
+[Community Guides]: https://community.home-assistant.io/c/community-guides/
