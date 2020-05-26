@@ -2083,6 +2083,7 @@
 /docs/ecosystem/tor https://community.home-assistant.io/t/tor-onion-service-configuration/195171
 /docs/installation/armbian https://community.home-assistant.io/t/home-assistant-core-python-on-armbian/196987
 /docs/installation/centos https://community.home-assistant.io/t/installing-home-assistant-core-on-centos-rhel/199512
+/docs/installation/fedora https://community.home-assistant.io/t/installing-home-assistant-core-on-fedora/199518
 /docs/installation/freenas https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158
 /ecosystem https://community.home-assistant.io/c/community-guides/51
 /ecosystem/synology https://community.home-assistant.io/t/synology-dsm-reverse-proxy/199502
@@ -2090,7 +2091,6 @@
 /getting-started/autostart-init.d https://community.home-assistant.io/t/autostart-using-init-d/199494
 /getting-started/autostart-macos https://community.home-assistant.io/t/autostart-on-macos/199500
 /getting-started/autostart-systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
-https://community.home-assistant.io/t/installing-home-assistant-core-on-fedora/199518
 
 # Add-ons
 /addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
