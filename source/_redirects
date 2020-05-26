@@ -2064,6 +2064,7 @@
 /cookbook/tls_self_signed_certificate https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970
 /cookbook/tor_configuration https://community.home-assistant.io/t/tor-onion-service-configuration/195171
 /docs/autostart/init.d https://community.home-assistant.io/t/autostart-using-init-d/199494
+/docs/autostart/macos https://community.home-assistant.io/t/autostart-on-macos/199500
 /docs/autostart/systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
 /docs/autostart/upstart https://community.home-assistant.io/t/autostart-using-upstart/199499
 /docs/ecosystem/apache https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2083,6 +2084,7 @@
 /docs/installation/freenas https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158
 /getting-started/autostart https://community.home-assistant.io/t/autostart-using-upstart/199499
 /getting-started/autostart-init.d https://community.home-assistant.io/t/autostart-using-init-d/199494
+/getting-started/autostart-macos https://community.home-assistant.io/t/autostart-on-macos/199500
 /getting-started/autostart-systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
 
 # Add-ons
