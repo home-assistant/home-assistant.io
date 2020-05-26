@@ -33,19 +33,10 @@ On a Debian system, install the Python 3 YAML library by `sudo apt-get install p
 This is a known issue if you're on a Mac using Homebrew to install Python. Please follow [these instructions](https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md#note-on-pip-install---user) to resolve it.
 
 #### No access to the frontend
-In newer Linux distributions (at least Fedora > 22/CentOS 7) the access to a host is very limited. This means that you can't access the Home Assistant frontend that is running on a host outside of the host machine. Windows and macOS machines may also have issues with this.
+
+In newer Linux distributions the access to a host is very limited. This means that you can't access the Home Assistant frontend that is running on a host outside of the host machine.
 
 To fix this you will need to open your machine's firewall for TCP traffic to port 8123. The method for doing this will vary depending on your operating system and the firewall you have installed. Below are some suggestions to try. Google is your friend here.
-
-- [Windows instructions](http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7)
-- [macOS instructions](https://support.apple.com/en-us/HT201642)
-
-For systems with **firewalld** (Fedora, CentOS/RHEL, etc.):
-
-```bash
-sudo firewall-cmd --permanent --add-port=8123/tcp
-sudo firewall-cmd --reload
-```
 
 For UFW systems (Ubuntu, Debian, Raspbian, etc.):
 
@@ -61,9 +52,10 @@ iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
 ```
 
 #### After upgrading, your browser login gets stuck at the "loading data" step
+
 After upgrading to a new version, you may notice your browser gets stuck at the "loading data" login screen. Close the window/tab and go into your browser settings and delete all the cookies for your URL. You can then log back in and it should work. 
 
-Android Chrome 
+Android Chrome
 chrome -> settings -> site settings -> storage -> search for your URL for Home Assistant-> "clear & reset"
 
 #### Not initializing discovery because could not install dependency netdisco

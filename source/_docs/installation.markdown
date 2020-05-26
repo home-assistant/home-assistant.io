@@ -70,12 +70,6 @@ If you use these install methods, we assume that you know how to manage and admi
 These guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform or because required Python packages aren't available for that platform.
 
 <div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/docs/installation/fedora/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/fedora.png' />
-    </div>
-    <div class='title'>Fedora</div>
-  </a>
   <a class='option-card' href='/docs/installation/macos/'>
     <div class='img-container'>
       <img src='https://brands.home-assistant.io/ios/icon.png' />

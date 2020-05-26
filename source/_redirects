@@ -2090,6 +2090,7 @@
 /getting-started/autostart-init.d https://community.home-assistant.io/t/autostart-using-init-d/199494
 /getting-started/autostart-macos https://community.home-assistant.io/t/autostart-on-macos/199500
 /getting-started/autostart-systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
+https://community.home-assistant.io/t/installing-home-assistant-core-on-fedora/199518
 
 # Add-ons
 /addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
