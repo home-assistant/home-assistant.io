@@ -17,11 +17,10 @@ The `beewi_smartclim` sensor platform allows one to monitor room or external tem
 Depending on the operating system you're running, you have to configure the proper Bluetooth backend on your system:
 
 - `beewi_smartclim` will work out of the box as long as the host supports Bluetooth (like the Raspberry Pi does).
-- Using [Home Assistant Core on Docker installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
+- Using [Home Assistant Container installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Home Assistant Core systems:
   - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
   - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth` or    `bluez-deprecated`.
-- Windows and macOS are currently not supported by the `btlewrap` library.
 
 ## Configuration
 
