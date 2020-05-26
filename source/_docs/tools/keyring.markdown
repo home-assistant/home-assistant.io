@@ -32,6 +32,6 @@ Please enter password for encrypted keyring:
 
 <div class='note warning'>
 
-  If you are using the Python Keyring, [autostarting](/getting-started/autostart/) of Home Assistant will no longer work.
+If you are using the Python Keyring, automatic starting of Home Assistant Core will no longer work.
 
 </div>
