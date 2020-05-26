@@ -192,7 +192,7 @@ Available services: `button`, `command`
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
 | `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
-| `argument`             | yes      | An optional argument to provide to the endpoint in the format of a JSON string. Note clicking full example will not work as the curly braces and quotes will be filtered, please manually enter/paste in the JSON string. |
+| `payload`             | yes      | An optional payload to provide to the endpoint in the format of key value pair(s). |
 
 ### Example
 
@@ -211,8 +211,8 @@ script:
         data:
           entity_id:  media_player.lg_webos_smart_tv
           command: "system.launcher/open"
-          argument: >-
-            {"target": "https://www.google.com"}
+          payload:
+            target: https://www.google.com
 ```
 
 ## Consecutive volume steps delay
