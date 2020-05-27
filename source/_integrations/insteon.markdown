@@ -19,6 +19,7 @@ This integration adds "local push" support for INSTEON Modems allowing linked IN
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
+- Climate
 - Cover
 - Fan
 - Light
