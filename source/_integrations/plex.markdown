@@ -169,7 +169,7 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 | Service data attribute | Description                                                                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of a Sonos integration device
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` (Required)</li><li>`album_name`</li><li>`track_name`</li><li>`track_number`</li></ul> |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` (Required)</li><li>`album_name`</li><li>`track_name`</li><li>`track_number`</li><li>`shuffle` (0 or 1)</li></ul> |
 | `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
 
 ##### Examples:
@@ -181,7 +181,7 @@ media_content_id: '{ "library_name": "Music", "artist_name": "Adele", "album_nam
 ```yaml
 entity_id: media_player.sonos_speaker
 media_content_type: MUSIC
-media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder" }'
+media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "shuffle": "1" }'
 ```
 
 ## Notes
