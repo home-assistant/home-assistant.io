@@ -586,6 +586,8 @@ If you have any iOS 12.x devices signed into your iCloud account, media player e
 
 #### Accessories are all listed as not responding
 
+There are some reports where the IGMP settings of a router were causing issues. With the wrong IGMP settings all accessories will stop responding a few minutes after Home Assistant (re)started. To solve this, turn off your router IGMP settings: **IGMP Proxy**, **IGMP Snooping** and **IGMP Fast Leave**.
+
 See [specific entity doesn't work](#specific-entity-doesnt-work)
 
 #### Accessory not responding - after restart or update
@@ -595,8 +597,6 @@ See [resetting accessories](#resetting-accessories)
 #### Accessory not responding - randomly
 
 Unfortunately, that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually, the accessory should get back to responding after a few minutes at most.
-
-There are reports where the IGMP settings of a router were causing issues. See [HomeKit - No Response](https://community.home-assistant.io/t/homekit-no-response-solved/170981) and [HomeKit “No Response”](https://community.home-assistant.io/t/homekit-no-response/170974) for more information.
 
 #### The linked battery sensor isn't recognized
 
