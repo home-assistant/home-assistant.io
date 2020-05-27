@@ -13,6 +13,14 @@ ha_codeowners:
 
 `iammeter` provides real-time readings of single-phase (WEM3080, WEM3162) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com) over Wi-Fi.
 
+demo show:
+
+[http://ha.iammeter.com:18123](http://ha.iammeter.com:18123)
+
+username:iammeter
+
+pwd:iammeter
+
 ## Configuration
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
