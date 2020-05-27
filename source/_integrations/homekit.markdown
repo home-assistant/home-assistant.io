@@ -152,7 +152,7 @@ homekit:
               linked_motion_sensor:
                 description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
-                type: string                
+                type: string
               low_battery_threshold:
                 description: Minimum battery level before the accessory starts reporting a low battery.
                 required: false
