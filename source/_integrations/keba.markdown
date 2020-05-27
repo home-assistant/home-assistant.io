@@ -5,6 +5,7 @@ ha_category:
   - Binary Sensor
   - Lock
   - Sensor
+  - Notifications
 ha_release: 0.98
 ha_codeowners:
   - '@dannerph'
@@ -120,15 +121,42 @@ The service `keba.set_failsafe` sets the failsafe mode of the charging station. 
 }
 ```
 
-### Show Text on Display `keba.set_text``
+## Notifications
 
-The service `keba.set_text` shows the submitted text on the display of chargers with built-in LED display. `min_time` is the minimum time in seconds the text will be shown if another message is requested. `max_time` is the maximum time to display the message when nothing else is requested. A maximum of 23 characters can be shown. Horizontal scroll is performed autiomatically when needed. Payload example:
+Some Keba chargers are equipped with a LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your `configuration.yaml` file:
+
+### Configuration
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: NOTIFIER_NAME
+    platform: keba
+```
+
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: "`notify`"
+  type: string
+{% endconfiguration %}
+
+### Usage
+
+The use of the notify service is [described here](/integrations/notify/).
+
+The `message` part of the event payload is shown on the display. Scrolling is performed if needed. A maximum of 23 characters can be shown.
+
+The optional `data` part may contain specifications of the message duration. `min_time` is the minimum time in seconds the text will be shown if another message is requested. `max_time` is the maximum time to display the message when nothing else is requested. By default the message is shown minimum 2 seconds and maximum 10 seconds.
 
 ```json
 {
-  "text": "Hello!",
-  "min_time": 2,
-  "max_time": 10
+  "message": "Welcome home!",
+  "data": {
+    "min_time": 4,
+    "max_time": 20
+  }
 }
 ```
 
