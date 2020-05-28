@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "New logo for Home Assistant"
 description: "A new logo has arrived for Home Assistant"
 date: 2015-03-08 22:16:10 0000
 date_formatted: March 8, 2015
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Organization
 ---
 

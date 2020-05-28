@@ -1,25 +1,23 @@
 ---
-layout: post
 title: "Visualize your IoT data"
 description: "Export, process, and visualize your Home Assistant data."
 date: 2016-07-19 16:00:00 +0000
 date_formatted: "July 19, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To IoT-Data
 og_image: /images/blog/2016-07-reporting/libreoffice-graph.png
 ---
 
 <img src='/images/blog/2016-07-reporting/mpl-sensor.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
 
-The [history component](/components/history/) is tracking everything that is going on within Home Assistant. This means that you have access to all stored information about your home. Our history is not a full-fledged graphical processing and visualization component as you may know from systems and network monitoring tools. The current limitation is that you only can select a day for a visual output of your information and not a period. Also, there is no possibility to drill down on a specific entity.
+The [history component](/integrations/history/) is tracking everything that is going on within Home Assistant. This means that you have access to all stored information about your home. Our history is not a full-fledged graphical processing and visualization component as you may know from systems and network monitoring tools. The current limitation is that you only can select a day for a visual output of your information and not a period. Also, there is no possibility to drill down on a specific entity.
 
 This blog post will show you ways to export data for reporting, visualization, or further analysis of automation rules.
 
 <!--more-->
 
-In this blog post I use the temperature of the [Aare](https://en.wikipedia.org/wiki/Aare) river close to where I live as a show case. The temperatures were recorded with the [Swiss Hydrological Data sensor](/components/sensor.swiss_hydrological_data/) and the name of the sensor is `sensor.aare`.
+In this blog post I use the temperature of the [Aare](https://en.wikipedia.org/wiki/Aare) river close to where I live as a show case. The temperatures were recorded with the [Swiss Hydrological Data sensor](/integrations/swiss_hydrological_data) and the name of the sensor is `sensor.aare`.
 
 The database is stored at `<path to config dir>/.homeassistant/home-assistant_v2.db` as [SQLite database](https://www.sqlite.org/). In all examples we are going to use the path: `/home/ha/.homeassistant/home-assistant_v2.db`
 

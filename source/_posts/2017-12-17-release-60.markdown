@@ -1,35 +1,33 @@
 ---
-layout: post
 title: "0.60: Beckhoff/TwinCAT, WebDav, Gearbest, iAlarm"
 description: "Use Home Assistant for your production line or track prices and the stock market."
 date: 2017-12-17 02:00:00
 date_formatted: "December 17, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-12-0.60/components.png
 ---
 
-<a href='/components/#version/0.60'><img src='/images/blog/2017-12-0.60/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.60'><img src='/images/blog/2017-12-0.60/components.png' style='border: 0;box-shadow: none;'></a>
 
 The biggest change for 0.60 will be covered in a separate [blog post](/blog/2017/12/17/introducing-home-assistant-cloud/). Thus, we will keep it short here. Just one thing: This is the last release in 2017. We will be back to our bi-weekly release cycle in 2018.
 
 A big "Thank you" to all people who supported us to make this release possible.
 
-## {% linkable_title TwinCAT %}
+## TwinCAT
 With the brand-new [ADS (automation device specification)][ads docs] component by [@stlehmann] allows you to hook Home Assistant into this fieldbus independent interface which is often used between Beckhoff devices running with TwinCAT.
 
-## {% linkable_title WebDav calendar %}
+## WebDav calendar
 Thanks to [@maxlaverse] Home Assistant support now [WebDav calendars][calendar.caldav docs].
 
-## {% linkable_title Tracking prices %}
+## Tracking prices
 With the new [`gearbest` sensor][sensor.gearbest docs] there is now an additional sensor available to track the price of a product.
 
-## {% linkable_title Financial details %}
+## Financial details
 Yahoo! has discontinued their financial service. To fill this gap we have now the [`alpha_vantage` sensor][sensor.alpha_vantage docs] which is intruded in this release and allows you to monitor the stock market.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add iAlarm support ([@RyuzakiKK] - [#10878]) ([alarm_control_panel.ialarm docs]) (new-platform)
 - Add Alpha Vantage sensor ([@fabaff] - [#10873]) ([sensor.alpha_vantage docs]) (new-platform)
@@ -44,7 +42,7 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Add a caldav calendar component ([@maxlaverse] - [#10842]) ([calendar.caldav docs]) (new-platform)
 - Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
 
-## {% linkable_title Release 0.60.1 - January 6 %}
+## Release 0.60.1 - January 6
 
 - Fix async IO in Sesame lock component. ([@veleek] - [#11054]) ([lock.sesame docs])
 - Fix webdav calendar schema ([@maxlaverse] - [#11185]) ([calendar.caldav docs])
@@ -58,20 +56,20 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Fix allday events in custom_calendars ([@maxlaverse] - [#11272]) ([calendar.caldav docs])
 - Fix unpredictable entity names in concord232 binary_sensor ([@rwa] - [#11292]) ([binary_sensor.concord232 docs])
 - Fix leak sensors always showing Unknown until Wet ([@OverloadUT] - [#11313]) ([binary_sensor.isy994 docs])
-- Don't block on sevice call for alexa ([@pvizeli] - [#11358]) ([alexa.smart_home docs])
+- Don't block on service call for alexa ([@pvizeli] - [#11358]) ([alexa.smart_home docs])
 - iOS 10 should be served javascript_version:es5 ([@mnoorenberghe] - [#11387])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Update snips to listen on new mqtt topic and utilize rawValue ([@tschmidty69] - [#11020]) ([snips docs]) (breaking change)
 - Refactor hue to split bridge support from light platform ([@andreacampi] - [#10691]) ([hue docs]) ([light.hue docs]) (breaking change) (new-platform)
@@ -79,7 +77,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - ISY994 sensor improvements ([@OverloadUT] - [#10805]) ([isy994 docs]) ([binary_sensor.isy994 docs]) (breaking change)
 - Homematic next ([@pvizeli] - [#11156]) ([homematic docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update ecobee version to fix stack-trace issue ([@PhracturedBlue] - [#10894]) ([ecobee docs])
 - Pybotvac multi ([@raymccarthy] - [#10843]) ([neato docs])
@@ -108,7 +106,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Meraki AP Device tracker ([@masarliev] - [#10971]) ([device_tracker.meraki docs]) (new-platform)
 - Update tradfri.py ([@pvizeli] - [#10991]) ([light.tradfri docs])
 - webostv: Ensure source exists before use ([@OddBloke] - [#10959]) ([media_player.webostv docs])
-- Ensure Docker script files uses LF line endings to support Docker for Windows. ([@R1chardTM] - [#10067])
+- Ensure Docker script files uses LF line endings to support Docker for Windows. ([@EarthlingRich] - [#10067])
 - Added Vera scenes ([@alanfischer] - [#10424]) ([vera docs]) ([scene.vera docs]) (new-platform)
 - Fix Egardia alarm status shown as unknown after restart ([@jeroenterheerdt] - [#11010]) ([alarm_control_panel.egardia docs])
 - Handle OSError when forcibly turning off media_player.samsungtv ([@lwis] - [#10997]) ([media_player.samsungtv docs])
@@ -123,7 +121,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added force_update for REST sensor ([@foxel] - [#11016]) ([sensor.miflora docs]) ([sensor.mqtt docs]) ([sensor.rest docs])
 - Add support for Logitech UE Smart Radios. ([@GreenTurtwig] - [#10077]) ([media_player.ue_smart_radio docs]) (new-platform)
 - Make notify.html5 depend on config ([@balloob] - [#11052]) ([notify.html5 docs])
-- This change fixes the error `OSError: [WinError 193]` on Windows debuggers (i.e. PyCharm) ([@tringler] - [#11034])
+- This change fixes the error `OSError: [WinError 193]` on Windows debuggers (i.e., PyCharm) ([@tringler] - [#11034])
 - Added support for cover in tellstick ([@perfalk] - [#10858]) ([tellstick docs]) ([cover.tellstick docs]) (new-platform)
 - Add a caldav calendar component ([@maxlaverse] - [#10842]) ([calendar.caldav docs]) (new-platform)
 - Add GPS coords to meraki ([@addelovein] - [#10998]) ([device_tracker.meraki docs])
@@ -144,7 +142,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix incorrect comment. ([@emosenkis] - [#11111])
 - Update Warrant ([@balloob] - [#11101]) ([cloud docs])
 - Fixed typo in automation.py ([@ryanm101] - [#11116]) ([config.automation docs])
-- Add media position properties ([@pschmitt] - [#10076]) ([media_player.liveboxplaytv docs])
+- Add media position properties ([@pschmitt] - [#10076])
 - update pyripple ([@nkgilley] - [#11122]) ([sensor.ripple docs])
 - Skip HASS emulated Hue bridges from detection. ([@andreacampi] - [#11128]) ([hue docs])
 - Always consume the no_throttle keyword argument. ([@andreacampi] - [#11126])
@@ -254,7 +252,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OverloadUT]: https://github.com/OverloadUT
 [@PaulAnnekov]: https://github.com/PaulAnnekov
 [@PhracturedBlue]: https://github.com/PhracturedBlue
-[@R1chardTM]: https://github.com/R1chardTM
+[@EarthlingRich]: https://github.com/EarthlingRich
 [@RiRomain]: https://github.com/RiRomain
 [@RyuzakiKK]: https://github.com/RyuzakiKK
 [@addelovein]: https://github.com/addelovein
@@ -300,78 +298,77 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tschmidty69]: https://github.com/tschmidty69
 [@uchagani]: https://github.com/uchagani
 [@ziotibia81]: https://github.com/ziotibia81
-[ads docs]: /components/ads/
-[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
-[alarm_control_panel.ialarm docs]: /components/alarm_control_panel.ialarm/
-[alarm_control_panel.manual docs]: /components/alarm_control_panel.manual/
-[alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[alarmdecoder docs]: /components/alarmdecoder/
-[apple_tv docs]: /components/apple_tv/
-[binary_sensor docs]: /components/binary_sensor/
-[binary_sensor.ads docs]: /components/binary_sensor.ads/
-[binary_sensor.isy994 docs]: /components/binary_sensor.isy994/
-[calendar.caldav docs]: /components/calendar.caldav/
-[camera.canary docs]: /components/camera.canary/
-[canary docs]: /components/canary/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.tado docs]: /components/climate.tado/
-[cloud docs]: /components/cloud/
-[cloud.const docs]: /components/cloud.const/
-[config.automation docs]: /components/config.automation/
-[cover.tellstick docs]: /components/cover.tellstick/
-[device_tracker docs]: /components/device_tracker/
-[device_tracker.meraki docs]: /components/device_tracker.meraki/
-[ecobee docs]: /components/ecobee/
-[homematic docs]: /components/homematic/
-[hue docs]: /components/hue/
-[isy994 docs]: /components/isy994/
-[keyboard_remote docs]: /components/keyboard_remote/
-[light.ads docs]: /components/light.ads/
-[light.hue docs]: /components/light.hue/
-[light.lifx docs]: /components/light.lifx/
-[light.mochad docs]: /components/light.mochad/
-[light.tplink docs]: /components/light.tplink/
-[light.tradfri docs]: /components/light.tradfri/
-[logbook docs]: /components/logbook/
-[media_extractor docs]: /components/media_extractor/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.ue_smart_radio docs]: /components/media_player.ue_smart_radio/
-[media_player.webostv docs]: /components/media_player.webostv/
-[media_player.yamaha_musiccast docs]: /components/media_player.yamaha_musiccast/
-[media_player.ziggo_mediabox_xl docs]: /components/media_player.ziggo_mediabox_xl/
-[mochad docs]: /components/mochad/
-[neato docs]: /components/neato/
-[notify.html5 docs]: /components/notify.html5/
-[prometheus docs]: /components/prometheus/
-[scene.vera docs]: /components/scene.vera/
-[sensor.ads docs]: /components/sensor.ads/
-[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
-[sensor.canary docs]: /components/sensor.canary/
-[sensor.efergy docs]: /components/sensor.efergy/
-[sensor.eliqonline docs]: /components/sensor.eliqonline/
-[sensor.gearbest docs]: /components/sensor.gearbest/
-[sensor.luftdaten docs]: /components/sensor.luftdaten/
-[sensor.miflora docs]: /components/sensor.miflora/
-[sensor.mqtt docs]: /components/sensor.mqtt/
-[sensor.octoprint docs]: /components/sensor.octoprint/
-[sensor.rest docs]: /components/sensor.rest/
-[sensor.ripple docs]: /components/sensor.ripple/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.tesla docs]: /components/sensor.tesla/
-[sensor.volvooncall docs]: /components/sensor.volvooncall/
-[snips docs]: /components/snips/
-[switch.ads docs]: /components/switch.ads/
-[switch.mochad docs]: /components/switch.mochad/
-[switch.tplink docs]: /components/switch.tplink/
-[tellstick docs]: /components/tellstick/
-[vera docs]: /components/vera/
-[volvooncall docs]: /components/volvooncall/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
+[ads docs]: /integrations/ads/
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[alarm_control_panel.ialarm docs]: /integrations/ialarm
+[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[apple_tv docs]: /integrations/apple_tv/
+[binary_sensor docs]: /integrations/binary_sensor/
+[binary_sensor.ads docs]: /integrations/ads#binary-sensor
+[binary_sensor.isy994 docs]: /integrations/isy994
+[calendar.caldav docs]: /integrations/caldav
+[camera.canary docs]: /integrations/canary#camera
+[canary docs]: /integrations/canary/
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.tado docs]: /integrations/tado
+[cloud docs]: /integrations/cloud/
+[cloud.const docs]: /integrations/cloud/
+[config.automation docs]: /integrations/config.automation/
+[cover.tellstick docs]: /integrations/tellstick#cover
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.meraki docs]: /integrations/meraki
+[ecobee docs]: /integrations/ecobee/
+[homematic docs]: /integrations/homematic/
+[hue docs]: /integrations/hue/
+[isy994 docs]: /integrations/isy994/
+[keyboard_remote docs]: /integrations/keyboard_remote/
+[light.ads docs]: /integrations/ads#light
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.mochad docs]: /integrations/mochad#light
+[light.tplink docs]: /integrations/tplink
+[light.tradfri docs]: /integrations/tradfri
+[logbook docs]: /integrations/logbook/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.sonos docs]: /integrations/sonos
+[media_player.ue_smart_radio docs]: /integrations/ue_smart_radio
+[media_player.webostv docs]: /integrations/webostv#media-player
+[media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[media_player.ziggo_mediabox_xl docs]: /integrations/ziggo_mediabox_xl
+[mochad docs]: /integrations/mochad/
+[neato docs]: /integrations/neato/
+[notify.html5 docs]: /integrations/html5
+[prometheus docs]: /integrations/prometheus/
+[scene.vera docs]: /integrations/vera
+[sensor.ads docs]: /integrations/ads#sensor
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.canary docs]: /integrations/canary#sensor
+[sensor.efergy docs]: /integrations/efergy
+[sensor.eliqonline docs]: /integrations/eliqonline
+[sensor.gearbest docs]: /integrations/gearbest
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.miflora docs]: /integrations/miflora
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.octoprint docs]: /integrations/octoprint#sensor
+[sensor.rest docs]: /integrations/rest
+[sensor.ripple docs]: /integrations/ripple
+[sensor.shodan docs]: /integrations/shodan
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tesla docs]: /integrations/tesla
+[sensor.volvooncall docs]: /integrations/volvooncall
+[snips docs]: /integrations/snips/
+[switch.ads docs]: /integrations/ads#switch
+[switch.mochad docs]: /integrations/mochad#switch
+[switch.tplink docs]: /integrations/tplink
+[tellstick docs]: /integrations/tellstick/
+[vera docs]: /integrations/vera/
+[volvooncall docs]: /integrations/volvooncall/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [#11054]: https://github.com/home-assistant/home-assistant/pull/11054
 [#11185]: https://github.com/home-assistant/home-assistant/pull/11185
 [#11214]: https://github.com/home-assistant/home-assistant/pull/11214
@@ -397,12 +394,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@rwa]: https://github.com/rwa
 [@veleek]: https://github.com/veleek
 [@ziotibia81]: https://github.com/ziotibia81
-[alexa.smart_home docs]: /components/alexa.smart_home/
-[binary_sensor.concord232 docs]: /components/binary_sensor.concord232/
-[binary_sensor.isy994 docs]: /components/binary_sensor.isy994/
-[calendar.caldav docs]: /components/calendar.caldav/
-[homematic docs]: /components/homematic/
-[light.hue docs]: /components/light.hue/
-[lock.sesame docs]: /components/lock.sesame/
-[media_player.webostv docs]: /components/media_player.webostv/
-[switch.modbus docs]: /components/switch.modbus/
+[alexa.smart_home docs]: /integrations/alexa.smart_home/
+[binary_sensor.concord232 docs]: /integrations/concord232#binary-sensor
+[binary_sensor.isy994 docs]: /integrations/isy994
+[calendar.caldav docs]: /integrations/caldav
+[homematic docs]: /integrations/homematic/
+[light.hue docs]: /integrations/hue
+[lock.sesame docs]: /integrations/sesame
+[media_player.webostv docs]: /integrations/webostv#media-player
+[switch.modbus docs]: /integrations/switch.modbus/

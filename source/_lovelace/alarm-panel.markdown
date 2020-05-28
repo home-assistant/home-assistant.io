@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Alarm Panel Card"
 sidebar_label: Alarm Panel
-description: "The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Components"
-date: 2018-10-15 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "The Alarm Panel card allows you to Arm and Disarm your alarm control panel integrations."
 ---
 
-The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Components.
+The Alarm Panel card allows you to Arm and Disarm your alarm control panel integrations.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
@@ -50,9 +44,13 @@ states:
       description: Arm Night
     arm_custom_bypass:
       description: Arm Custom Bypass
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Title Example:
 

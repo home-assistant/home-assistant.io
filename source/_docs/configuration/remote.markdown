@@ -1,23 +1,23 @@
 ---
-layout: page
 title: "Remote access"
 description: "Setting up remote access for Home Assistant."
-date: 2015-03-23 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
+
+<div class='note'>
+Users of <a href="https://www.nabucasa.com">Home Assistant Cloud</a> can use the <a href="https://www.nabucasa.com/config/remote/">Remote UI</a> without requiring any configuration.
+</div>
 
 If you're interested in logging in to Home Assistant while away, you'll have to make your instance remotely accessible.
 
-<p class='note warning'>
-Remember to follow the [securing checklist](/docs/configuration/securing/) before doing this.
-</p>
+<div class='note warning'>
 
-<p class='note'>
+Remember to follow the [securing checklist](/docs/configuration/securing/) before doing this.
+
+</div>
+
+<div class='note'>
 Home Assistant no longer support remote access via IP address since release 0.77, you have to use a domain name.
-</p>
+</div>
 
 The most common approach is to set up port forwarding (for any port) from your router to port 8123 on the computer that is hosting Home Assistant. General instructions on how to do this can be found by searching `<router model> port forwarding instructions`. You can use any free port on your router and forward that to port 8123.
 
@@ -25,10 +25,8 @@ A problem with making a port accessible is that some Internet Service Providers 
 
 If you cannot access your Home Assistant installation remotely, remember to check if your ISP provides you with a dedicated IP, instead of one shared with other users via a [CG-NAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT). This is becoming fairly common nowadays due to the shortage of IPv4 addresses. Some, if not most ISPs will require you to pay an extra fee to be assigned a dedicated IPv4 address.
 
-<p class='note'>
+<div class='note'>
+
 Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation remotely. For details please check the [set up encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) blog post or this [detailed guide](/docs/ecosystem/certificates/lets_encrypt/) to using Let's Encrypt with Home Assistant.
-</p>
 
-Protect your communication with a [self-signed certificate](/docs/ecosystem/certificates/tls_self_signed_certificate/) between your client and the Home Assistant instance.
-
-For another way to access your Home Assistant frontend, check out [the instructions how to use Tor](/docs/ecosystem/tor/).
+</div>

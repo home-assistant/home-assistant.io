@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.16: Embedded MQTT broker, Uber, Yamaha receivers and Growl"
 description: "Home Assistant 0.16 has arrived."
 date: 2016-03-26 0:10:00 -0700
 date_formatted: "March 26, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -30,9 +28,9 @@ Rock on.
  - Discovery: fix uPNP discovery crashing some routers ([@jaharkes])
  - Switch: [Wake on LAN] platform added ([@joopert])
  - Services for thermostats, notify and media player will now validate passed in parameters ([@MartinHjelmare])
- - Switch - [Arduino]: support for default state and negate port functionality ([@tilutza])
+ - Switch - [Arduino]: support for default state and negate port functionality (@tilutza)
  - Switch: [PulseAudio loopback] now supported ([@Cinntax])
- - Sensor: [Uber] now supported ([@robbiet480])
+ - Sensor: Uber now supported ([@robbiet480])
  - Notify: [Growl (GNTP)] now supported ([@robbiet480])
  - Media Player: [Yamaha receivers] now supported ([@aoakeson])
 
@@ -51,22 +49,20 @@ Rock on.
 [@robbiet480]: https://github.com/robbiet480
 [@srcLurker]: https://github.com/srcLurker
 [@stefan-jonasson]: https://github.com/stefan-jonasson
-[@tilutza]: https://github.com/tilutza
-[embedded server]: /components/mqtt/#use-the-embedded-broker
-[Arduino]: /components/switch.arduino/
-[Discovery]: /components/discovery/
-[Growl (GNTP)]: /components/notify.gntp/
-[Hue]: /components/light.hue/
-[input_slider]: /components/input_slider/
-[MessageBird]: /components/notify.message_bird/
-[OwnTracks]: /components/device_tracker.owntracks/
-[PulseAudio loopback]: /components/switch.pulseaudio_loopback/
-[Tellstick]: /components/tellstick/
-[Uber]: /components/sensor.uber/
-[Vera]: /components/vera/
-[Wake on LAN]: /components/switch.wake_on_lan/
-[Z-Wave]: /components/zwave/#services
-[Yamaha receivers]: /components/media_player.yamaha/
+[embedded server]: /integrations/mqtt/#use-the-embedded-broker
+[Arduino]: /integrations/arduino#switch
+[Discovery]: /integrations/discovery/
+[Growl (GNTP)]: /integrations/gntp
+[Hue]: /integrations/hue
+[input_slider]: /integrations/input_number
+[MessageBird]: /integrations/message_bird
+[OwnTracks]: /integrations/owntracks
+[PulseAudio loopback]: /integrations/pulseaudio_loopback
+[Tellstick]: /integrations/tellstick/
+[Vera]: /integrations/vera/
+[Wake on LAN]: /integrations/wake_on_lan#switch
+[Z-Wave]: /integrations/zwave/#services
+[Yamaha receivers]: /integrations/yamaha
 
 ### Breaking changes
  - Automation: support for old deprecated config has been removed

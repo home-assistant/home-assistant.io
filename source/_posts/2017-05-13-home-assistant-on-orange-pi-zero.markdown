@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant on an Orange Pi Zero"
 description: "Installing Home Assistant on a Orange Pi Zero with armbian."
 date: 2017-05-13 09:00:00
 date_formatted: "May 13, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-05-orangepi/social.png
 ---
@@ -130,5 +128,3 @@ ha@orangepizero:~$ cd homeassistant && source bin/activate
 <p class="img">
   <img src="/images/blog/2017-05-orangepi/orange-pi-running.png" />
 </p>
-
-To make it ready for daily usage, don't forget to enable [autostart](/docs/autostart/).

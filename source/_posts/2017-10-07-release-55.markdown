@@ -1,36 +1,34 @@
 ---
-layout: post
 title: "0.55: Tibber, DuckDNS, The Things Network, Owntrack"
 description: "Support for Tibber and the Things Network a long with new Owntracks and DuckDNS features"
 date: 2017-10-07 10:00:00
 date_formatted: "October 7, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-10-0.55/components.png
 ---
 
-<a href='/components/#version/0.55'><img src='/images/blog/2017-10-0.55/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.55'><img src='/images/blog/2017-10-0.55/components.png' style='border: 0;box-shadow: none;'></a>
 
 Beside the improved Wink support which was contributed by [@w1ll1am23], ships this release a wide variety of new components and platforms. The `input_slider` components has received a makeover by [@BioSehnsucht] and is now [`input_number`][input_number docs]. [@tinloaf] added a feature that allows you to enter dates: [`input_datetime`][input_datetime docs]. Both will help you to improve your automation rules.
 
-## {% linkable_title DuckDNS %}
+## DuckDNS
 Using Home Assistant with [DuckDNS](http://www.duckdns.org) for Dynamic DNS (DDNS or DynDNS) is an [old story](/blog/2015/12/13/setup-encryption-using-lets-encrypt/). DuckDNS  is also integrated in [Hass.io](/addons/duckdns/). 0.55 ships a component for non Hass.io users to get a similar feature.
 
-## {% linkable_title Recorder %}
+## Recorder
 The purging of data was [improved][recorder docs]. With `purge_interval` you can schedule regular purges of older events and states. In combination you can specify with `purge_keep_days` the amount of days you want to keep. The new service `recorder.purge` allows you to handle this task when needed.
 
-## {% linkable_title Owntracks %}
+## Owntracks
 [Owntracks](http://owntracks.org/) is an easy way to track your devices. For some times we have the device tracker which depends on [MQTT][device_tracker.owntracks docs] but thanks to a new feature in Owntracks we can now offer support for HTTP. The [new platform][device_tracker.owntracks_http docs] doesn't require a MQTT broker but sends messages directly as HTTP requests to Home Assistant.
 
-## {% linkable_title Tibber %}
+## Tibber
 This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer. This will allow you to make automation for turning off the heater when the electricity price is high or only charge your electric car when the prices are low. We further plan to add support for showing future electricity prices and historic electricity consumption data. Tibber is currently only available in Norway and Sweden
 
-## {% linkable_title The Things Network %}
+## The Things Network
 [The Things Network](https://www.thethingsnetwork.org/) (TTN) is a [LoRaWAN](https://www.thethingsnetwork.org/wiki/LoRaWAN/Home) based network especially designed for IoT devices. With this [integration][thethingsnetwork docs] one can observe the state of devices which are out of range of the local WiFi network as long as they are connected to a TTN gateway.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - GeoRSS sensor ([@exxamalte] - [#9331]) ([sensor.geo_rss_events docs]) (new-platform)
 - Add DuckDNS component ([@balloob] - [#9556]) ([duckdns docs]) (new-platform)
@@ -43,7 +41,7 @@ This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor p
 - Updating clicksendaudio component based on feedback ([@jeroenterheerdt] - [#9692]) ([notify.clicksendaudio docs]) (new-platform)
 - Support for The Things Network ([@fabaff] - [#9627]) ([thethingsnetwork docs]) ([sensor.thethingsnetwork docs]) (new-platform)
 
-## {% linkable_title 0.55.1 - October 15 %}
+## 0.55.1 - October 15
 
 - Fix for TypeError in synology camera ([@snjoetw] - [#9754]) ([camera.synology docs])
 - missing is_closed ( rflink cover fix ) ([@passie] - [#9776]) ([cover.rflink docs])
@@ -51,19 +49,19 @@ This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor p
 - OwnTracks: Fix handler is None checking ([@balloob] - [#9794]) ([device_tracker.owntracks docs])
 - Changed yaml.load into yaml.safe_load ([@GenericStudent] - [#9841]) ([google docs])
 - Bugfix/9811 jinja autoescape ([@GenericStudent] - [#9842])
-- Livebox Play TV bug: fix #9839 ([@pschmitt] - [#9880]) ([media_player.liveboxplaytv docs])
+- Livebox Play TV bug: fix #9839 ([@pschmitt] - [#9880])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
-- history_graph component: If your component used `history.get_significant_states` function then you need to adjust the string `entity_id` parameter has been changed to a list of strings `entity_ids` parameter. ([@andrey-git] - [#9472]) ([history_graph docs]) (breaking change)
+- history_graph component: If your component used `history.get_significant_states` function then you need to adjust the string `entity_id` parameter has been changed to a list of strings `entity_ids` parameter. ([@andrey-git] - [#9472]) (breaking change)
 - UPNP component: The `external_port` configuration option was removed. ([@balloob] - [#9560]) ([upnp docs]) (breaking change)
 - New Wink services: pair new device, rename, delete and add new lock key code. All device attributes that are multi-words are now separated by  "_" and no longer " ". ([@w1ll1am23] - [#9303]) ([wink docs]) ([binary_sensor.wink docs]) ([lock.wink docs]) (breaking change)
 - TP-Link Switch: Attribute names now uses underscores and unnecessary capitalization was removed. ([@djchen] - [#9607]) ([switch.tplink docs]) (breaking change)
@@ -72,12 +70,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - OpenCV image processing: Typo in classifier was fixed. ([@arsaboo] - [#9697]) ([image_processing.opencv docs]) (breaking change)
 - Tradfri Lights: Async support with resource observation. ([@lwis] - [#7815]) ([tradfri docs]) ([light.tradfri docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - flux led lib 0.20 ([@danielhiversen] - [#9533]) ([light.flux_led docs])
 - Update AbodePy to 0.11.8 ([@MisterWil] - [#9537]) ([abode docs])
 - Bump python_openzwave to 0.4.0.35 ([@arsaboo] - [#9542]) ([zwave docs])
-- update usps ([@happyleavesaoc] - [#9540]) ([usps docs]) ([camera.usps docs]) ([sensor.usps docs])
+- update usps ([@happyleavesaoc] - [#9540])
 - Bugfix Homematic hub object ([@pvizeli] - [#9544]) ([homematic docs])
 - Fix a bunch of typos ([@mika] - [#9545])
 - Catch no longer existing process in systemmonitor ([@Tommatheussen] - [#9535]) ([sensor.systemmonitor docs])
@@ -85,7 +83,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add history_graph component ([@andrey-git] - [#9472]) (breaking change)
 - GeoRSS sensor ([@exxamalte] - [#9331]) ([sensor.geo_rss_events docs]) (new-platform)
 - Fixed bug with all switch devices being excluded ([@MisterWil] - [#9555]) ([switch.abode docs])
-- fix usps? ([@happyleavesaoc] - [#9557]) ([usps docs]) ([sensor.usps docs])
+- fix usps? ([@happyleavesaoc] - [#9557])
 - Added support for ARM_NIGHT for manual_mqtt alarm ([@snjoetw] - [#9358]) ([alarm_control_panel.manual_mqtt docs])
 - Various AirVisual bugfixes ([@bachya] - [#9554]) ([sensor.airvisual docs])
 - Updated Arlo cameras with new attributes ([@bachya] - [#9565]) ([arlo docs]) ([camera.arlo docs])
@@ -107,8 +105,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade Sphinx to 1.6.4 ([@fabaff] - [#9584])
 - Bump pyatv to 0.3.5 ([@postlund] - [#9586]) ([apple_tv docs]) ([media_player.apple_tv docs])
 - New Wink services. pair new device, rename, and delete, add new lock key code. Add water heater support ([@w1ll1am23] - [#9303]) ([wink docs]) ([binary_sensor.wink docs]) ([lock.wink docs]) (breaking change)
-- Fixes UPS MyChoice exception ([@bachya] - [#9587]) ([sensor.ups docs])
-- FedEx: Adds "packages" as a unit ([@bachya] - [#9588]) ([sensor.fedex docs])
+- Fixes UPS MyChoice exception ([@bachya] - [#9587])
+- FedEx: Adds "packages" as a unit ([@bachya] - [#9588])
 - Cleanup entity & remove warning ([@pvizeli] - [#9606])
 - Add OwnTracks over HTTP ([@balloob] - [#9582]) ([http docs]) ([device_tracker.owntracks docs]) ([device_tracker.owntracks_http docs]) (new-platform)
 - upgrade python-ecobee-api ([@nkgilley] - [#9612]) ([ecobee docs])
@@ -305,92 +303,86 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tinloaf]: https://github.com/tinloaf
 [@vickyg3]: https://github.com/vickyg3
 [@w1ll1am23]: https://github.com/w1ll1am23
-[abode docs]: /components/abode/
-[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
-[alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
-[alexa.smart_home docs]: /components/alexa/
-[apple_tv docs]: /components/apple_tv/
-[arlo docs]: /components/arlo/
-[binary_sensor.raincloud docs]: /components/binary_sensor.raincloud/
-[binary_sensor.threshold docs]: /components/binary_sensor.threshold/
-[binary_sensor.wink docs]: /components/binary_sensor.wink/
-[camera.arlo docs]: /components/camera.arlo/
-[camera.synology docs]: /components/camera.synology/
-[camera.usps docs]: /components/camera.usps/
-[climate.ecobee docs]: /components/climate.ecobee/
-[climate.mqtt docs]: /components/climate.mqtt/
-[cover.mqtt docs]: /components/cover.mqtt/
-[cover.rflink docs]: /components/cover.rflink/
-[demo docs]: /components/demo/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[device_tracker.owntracks_http docs]: /components/device_tracker.owntracks_http/
-[duckdns docs]: /components/duckdns/
-[ecobee docs]: /components/ecobee/
-[emulated_hue docs]: /components/emulated_hue/
-[google docs]: /components/calendar.google/
-[group docs]: /components/group/
+[abode docs]: /integrations/abode/
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
+[alexa.smart_home docs]: /integrations/alexa/
+[apple_tv docs]: /integrations/apple_tv/
+[arlo docs]: /integrations/arlo/
+[binary_sensor.raincloud docs]: /integrations/raincloud#binary-sensor
+[binary_sensor.threshold docs]: /integrations/threshold
+[binary_sensor.wink docs]: /integrations/wink#binary-sensor
+[camera.arlo docs]: /integrations/arlo#camera
+[camera.synology docs]: /integrations/synology
+[climate.ecobee docs]: /integrations/ecobee
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.rflink docs]: /integrations/cover.rflink/
+[demo docs]: /integrations/demo/
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.owntracks_http docs]: /integrations/owntracks
+[duckdns docs]: /integrations/duckdns/
+[ecobee docs]: /integrations/ecobee/
+[emulated_hue docs]: /integrations/emulated_hue/
+[google docs]: /integrations/calendar.google/
+[group docs]: /integrations/group/
 [hassio docs]: /hassio/
-[history docs]: /components/history/
-[homematic docs]: /components/homematic/
-[http docs]: /components/http/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[influxdb docs]: /components/influxdb/
-[input_datetime docs]: /components/input_datetime/
-[input_number docs]: /components/input_number/
-[light.flux_led docs]: /components/light.flux_led/
-[light.rflink docs]: /components/light.rflink/
-[light.tradfri docs]: /components/light.tradfri/
-[light.yeelight docs]: /components/light.yeelight/
-[lock.wink docs]: /components/lock.wink/
-[media_extractor docs]: /components/media_extractor/
-[media_player.apple_tv docs]: /components/media_player.apple_tv/
-[media_player.webostv docs]: /components/media_player.webostv/
-[media_player.yamaha_musiccast docs]: /components/media_player.yamaha_musiccast/
-[mqtt_statestream docs]: /components/mqtt_statestream/
-[notify.clicksendaudio docs]: /components/notify.clicksendaudio/
-[notify.discord docs]: /components/notify.discord/
-[notify.facebook docs]: /components/notify.facebook/
-[notify.simplepush docs]: /components/notify.simplepush/
-[raincloud docs]: /components/raincloud/
-[raspihats docs]: /components/raspihats/
-[recorder docs]: /components/recorder/
-[remote.itach docs]: /components/remote.itach/
-[rflink docs]: /components/rflink/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.arlo docs]: /components/sensor.arlo/
-[sensor.comed_hourly_pricing docs]: /components/sensor.comed_hourly_pricing/
-[sensor.dsmr docs]: /components/sensor.dsmr/
-[sensor.fedex docs]: /components/sensor.fedex/
-[sensor.geo_rss_events docs]: /components/sensor.geo_rss_events/
-[sensor.google_travel_time docs]: /components/sensor.google_travel_time/
-[sensor.imap docs]: /components/sensor.imap/
-[sensor.lyft docs]: /components/sensor.lyft/
-[sensor.onewire docs]: /components/sensor.onewire/
-[sensor.pvoutput docs]: /components/sensor.pvoutput/
-[sensor.raincloud docs]: /components/sensor.raincloud/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.thethingsnetwork docs]: /components/sensor.thethingsnetwork/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.ups docs]: /components/sensor.ups/
-[sensor.usps docs]: /components/sensor.usps/
-[sensor.vera docs]: /components/sensor.vera/
-[sensor.wunderground docs]: /components/sensor.wunderground/
-[splunk docs]: /components/splunk/
-[switch.abode docs]: /components/switch.abode/
-[switch.raincloud docs]: /components/switch.raincloud/
-[switch.rflink docs]: /components/switch.rflink/
-[switch.tplink docs]: /components/switch.tplink/
-[thethingsnetwork docs]: /components/thethingsnetwork/
-[tradfri docs]: /components/tradfri/
-[upnp docs]: /components/upnp/
-[usps docs]: /components/usps/
-[vacuum.xiaomi docs]: /components/vacuum.xiaomi_miio/
-[wink docs]: /components/wink/
-[zwave docs]: /components/zwave/
+[history docs]: /integrations/history/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.opencv docs]: /integrations/opencv
+[influxdb docs]: /integrations/influxdb/
+[input_datetime docs]: /integrations/input_datetime/
+[input_number docs]: /integrations/input_number/
+[light.flux_led docs]: /integrations/flux_led
+[light.rflink docs]: /integrations/light.rflink/
+[light.tradfri docs]: /integrations/tradfri
+[light.yeelight docs]: /integrations/yeelight
+[lock.wink docs]: /integrations/wink#lock
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.apple_tv docs]: /integrations/apple_tv
+[media_player.webostv docs]: /integrations/webostv#media-player
+[media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[notify.clicksendaudio docs]: /integrations/clicksend_tts/
+[notify.discord docs]: /integrations/discord
+[notify.facebook docs]: /integrations/facebook
+[notify.simplepush docs]: /integrations/simplepush
+[raincloud docs]: /integrations/raincloud/
+[raspihats docs]: /integrations/raspihats/
+[recorder docs]: /integrations/recorder/
+[remote.itach docs]: /integrations/itach
+[rflink docs]: /integrations/rflink/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.arlo docs]: /integrations/arlo#sensor
+[sensor.comed_hourly_pricing docs]: /integrations/comed_hourly_pricing
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.geo_rss_events docs]: /integrations/geo_rss_events
+[sensor.google_travel_time docs]: /integrations/google_travel_time
+[sensor.imap docs]: /integrations/imap
+[sensor.lyft docs]: /integrations/lyft
+[sensor.onewire docs]: /integrations/onewire
+[sensor.pvoutput docs]: /integrations/pvoutput
+[sensor.raincloud docs]: /integrations/raincloud#sensor
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.thethingsnetwork docs]: /integrations/thethingsnetwork#sensor
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.vera docs]: /integrations/vera#sensor
+[sensor.wunderground docs]: /integrations/wunderground
+[splunk docs]: /integrations/splunk/
+[switch.abode docs]: /integrations/abode#switch
+[switch.raincloud docs]: /integrations/raincloud#switch
+[switch.rflink docs]: /integrations/switch.rflink/
+[switch.tplink docs]: /integrations/tplink
+[thethingsnetwork docs]: /integrations/thethingsnetwork/
+[tradfri docs]: /integrations/tradfri/
+[upnp docs]: /integrations/upnp/
+[vacuum.xiaomi docs]: /integrations/vacuum.xiaomi_miio/
+[wink docs]: /integrations/wink/
+[zwave docs]: /integrations/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
-[history_graph docs]: /components/history_graph/
 [#9754]: https://github.com/home-assistant/home-assistant/pull/9754
 [#9776]: https://github.com/home-assistant/home-assistant/pull/9776
 [#9785]: https://github.com/home-assistant/home-assistant/pull/9785
@@ -404,9 +396,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@passie]: https://github.com/passie
 [@pschmitt]: https://github.com/pschmitt
 [@snjoetw]: https://github.com/snjoetw
-[camera.synology docs]: /components/camera.synology/
-[cover.rflink docs]: /components/cover.rflink/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[google docs]: /components/google/
-[light.tradfri docs]: /components/light.tradfri/
-[media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/
+[camera.synology docs]: /integrations/synology
+[cover.rflink docs]: /integrations/cover.rflink/
+[device_tracker.owntracks docs]: /integrations/owntracks
+[google docs]: /integrations/google_translate
+[light.tradfri docs]: /integrations/tradfri

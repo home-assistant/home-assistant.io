@@ -1,23 +1,21 @@
 ---
-layout: post
 title: "0.53: Tesla, Customize editor, and super fast KNX rewrite"
 description: "Also now supports a text input UI component, Mopar and Geofency."
 date: 2017-09-09 00:11:05
 date_formatted: "September 9, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-09-0.53/components.png
 ---
 
-<a href='/components/#version/0.53'><img src='/images/blog/2017-09-0.53/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.53'><img src='/images/blog/2017-09-0.53/components.png' style='border: 0;box-shadow: none;'></a>
 
 The Home Assistant community has been super busy in the last two weeks to bring you this amazing release. 60 different contributors have done over a 100 PRs filled with new features, bug fixes and performance improvements.
 
 9 days away from our 4th birthday, we've just accomplished a couple of great milestones that I would love to share with you. We've hit over 8000 stars 🌟  on GitHub and starting this release we now ship over 800 platforms and components!
 
-## {% linkable_title Customize editor %}
+## Customize editor
 
 Another step in making Home Assistant configurable via the frontend has been contributed by @andrey-git: a customization editor! You are now able to inspect all (possible) customizations of an entity and update them with just a few taps. Want to change the name or icon of an entity? All possible in mere seconds.
 
@@ -38,15 +36,15 @@ homeassistant:
 config:
 ```
 
-## {% linkable_title Tesla %}
+## Tesla
 
 Thanks to the contribution by @zabuldon, you will now be able to control your Tesla car from Home Assistant. You're able to check the temperature inside and outside your car, control your AC and unlock the car.
 
-## {% linkable_title Input text %}
+## Input text
 
 This release introduces a new input component: `input_text` contributed by @BioSehnsucht. With this component you will be able to set free form from the UI and then let that be used by your automations or templates.
 
-## {% linkable_title KNX %}
+## KNX
 
 This release ships a new KNX implementation thanks to @Julius2342. It will instantly show all changed states of KNX devices within Home Assistant. Additionally it brings support for HVAC devices and notification services. It also adds a service for direct communication with the KNX bus. You can connect to KNX/IP routing and tunneling devices. In the background it uses asyncio communication. Check the climate integration in action [here](https://www.youtube.com/watch?v=JI0VJzlGpx4) and see the lights in action below:
 
@@ -54,17 +52,17 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 <iframe src="https://www.youtube.com/embed/Fe3yaflU2XM" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Xiaomi Philips Lights integration ([@syssi] - [#9087]) ([light.xiaomi_philipslight docs]) (new-platform)
 - Mycroft notify/component ([@btotharye] - [#9173]) ([mycroft docs]) ([notify.mycroft docs]) (new-platform)
 - Add counter component ([@fabaff] - [#9146]) ([counter docs]) (new-platform)
 - Support for season sensor ([@w1ll1am23] - [#8958]) ([sensor.season docs]) (new-platform)
-- Abode push events and lock, cover, and switch components ([@1091741+MisterWil] - [#9095]) ([abode docs]) ([alarm_control_panel.abode docs]) ([binary_sensor.abode docs]) ([cover.abode docs]) ([lock.abode docs]) ([switch.abode docs]) (new-platform)
+- Abode push events and lock, cover, and switch components (@[MisterWil] - [#9095]) ([abode docs]) ([alarm_control_panel.abode docs]) ([binary_sensor.abode docs]) ([cover.abode docs]) ([lock.abode docs]) ([switch.abode docs]) (new-platform)
 - Bayesian Binary Sensor ([@jlmcgehee21] - [#8810]) ([binary_sensor.bayesian docs]) (new-platform)
 - Add Tank Utility sensor ([@krismolendyke] - [#9132]) ([sensor.tank_utility docs]) (new-platform)
 - Tesla platform ([@zabuldon] - [#9211]) ([tesla docs]) ([binary_sensor.tesla docs]) ([climate.tesla docs]) ([device_tracker.tesla docs]) ([lock.tesla docs]) ([sensor.tesla docs]) (new-platform)
-- mopar sensor ([@happyleavesaoc] - [#9136]) ([sensor.mopar docs]) (new-platform)
+- mopar sensor ([@happyleavesaoc] - [#9136]) (new-platform)
 - Add Geofency device tracker ([@gunnarhelgason] - [#9106]) ([device_tracker.geofency docs]) (new-platform)
 - Added DWD WarnApp Sensor ([@runningman84] - [#8657]) ([sensor.dwdwarnapp docs]) (new-platform)
 - Add input_text component ([@BioSehnsucht] - [#9112]) ([input_text docs]) (new-platform)
@@ -72,29 +70,29 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 - Stable and asynchronous KNX library. ([@Julius2342] - [#8725]) ([knx docs]) ([binary_sensor.knx docs]) ([climate.knx docs]) ([cover.knx docs]) ([light.knx docs]) ([sensor.knx docs]) ([switch.knx docs]) (new-platform)
 - Adds the AirVisual air quality sensor platform ([@bachya] - [#9320]) ([sensor.airvisual docs]) (new-platform)
 
-## {% linkable_title Release 0.53.1 - September 12 %}
+## Release 0.53.1 - September 12
 
 - Fix Twitter notifications with certain media such as small images ([@MikeChristianson] - [#9354]) ([notify.twitter docs])
 - Added additional string check in Wunderground sensor ([@arsaboo] - [#9380]) ([sensor.wunderground docs])
 - Fixing foscam library dependency/requirements ([@viswa-swami] - [#9387]) ([camera.foscam docs])
 - Fixes for customize editor ([@andrey-git])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - The new customize editor is using the file `customize.yaml` in your config folder. If you are using this file today for other config, make sure to rename it before using the new customize UI editor. ([@andrey-git] - [#9134]) ([config docs]) (breaking change) (new-platform)
 - The frontend component now supports loading custom html files when Home Assistant front end starts  ([@andrey-git] - [#9150]) (breaking change). It could be Javascript, CSS or custom Web Components. Along there was a breaking change in the way Custom UI is used:
   * `custom_ui_state_card` now specifies the exact element name and not a suffix after `state-card`. So if you had `state_card_custom_ui: custom-ui` in your config, you should change it to `state_card_custom_ui: state-card-custom-ui`
   * `custom_ui_state_card` no longer makes the html fetch, you should make it separately:
 
-```
+```yaml
 frontend:
   extra_html_url:
     - /local/custom_ui/state-card-custom-ui.html
@@ -104,14 +102,14 @@ frontend:
 - The Homematic `delay` option has been dropped because it is no longer necessary ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
 - Switch - Dlink: Remove spaces and capital letters from attribute names for consistency ([@emlt] - [#9277]) ([switch.dlink docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Xiaomi Philips Lights integration ([@syssi] - [#9087]) ([light.xiaomi_philipslight docs]) (new-platform)
 - Backend changes for customize config panel. ([@andrey-git] - [#9134]) ([config docs]) (breaking change)
 - Upgrade async_timeout to 1.3.0 ([@fabaff] - [#9156])
 - Remove links to gitter ([@fabaff] - [#9155])
 - Upgrade sphinx-autodoc-typehints to 1.2.3 ([@fabaff] - [#9151])
-- Upgrade uber_rides to 0.5.2 ([@fabaff] - [#9149]) ([sensor.uber docs])
+- Upgrade uber_rides to 0.5.2 ([@fabaff] - [#9149]) (sensor.uber docs)
 - Allow specifying custom html urls to load. ([@andrey-git] - [#9150]) (breaking change)
 - Allow getting number of available states in template ([@balloob] - [#9158])
 - upgrade xiaomi lib to 0.3.1 to supprt water sensor ([@danielhiversen] - [#9168]) ([xiaomi docs])
@@ -131,7 +129,7 @@ frontend:
 - Issue #6893 in rfxtrx ([@danielhiversen] - [#9130]) ([rfxtrx docs])
 - Refactor rfxtrx ([@danielhiversen] - [#9117]) ([rfxtrx docs]) ([cover.rfxtrx docs]) ([light.rfxtrx docs]) ([switch.rfxtrx docs])
 - Upgrade pymysensors to 0.11.1 ([@MartinHjelmare] - [#9212]) ([mysensors docs])
-- Abode push events and lock, cover, and switch components ([@1091741+MisterWil] - [#9095]) ([abode docs]) ([alarm_control_panel.abode docs]) ([binary_sensor.abode docs]) ([cover.abode docs]) ([lock.abode docs]) ([switch.abode docs]) (new-platform)
+- Abode push events and lock, cover, and switch components (@[MisterWil] - [#9095]) ([abode docs]) ([alarm_control_panel.abode docs]) ([binary_sensor.abode docs]) ([cover.abode docs]) ([lock.abode docs]) ([switch.abode docs]) (new-platform)
 - Add cloud auth support ([@balloob] - [#9208])
 - Bayesian Binary Sensor ([@jlmcgehee21] - [#8810]) ([binary_sensor.bayesian docs]) (new-platform)
 - directv: extended discovery via REST api, bug fix ([@sielicki] - [#8800]) ([media_player.directv docs])
@@ -149,7 +147,7 @@ frontend:
 - Allow panels with external URL ([@andrey-git] - [#9214])
 - Use ZCL mandatory attribute to determine ZHA light capabilities ([@jkl1337] - [#9232]) ([light.zha docs])
 - A bugfix for pushbullet ([@danielhiversen] - [#9237]) ([notify.pushbullet docs])
-- mopar sensor ([@happyleavesaoc] - [#9136]) ([sensor.mopar docs]) (new-platform)
+- mopar sensor ([@happyleavesaoc] - [#9136]) (new-platform)
 - Upgrade discord.py to 0.16.11 ([@fabaff] - [#9239]) ([notify.discord docs])
 - Skip automatic events older than latest data ([@armills] - [#9230]) ([device_tracker.automatic docs])
 - title and message was swapped in pushbullet ([@danielhiversen] - [#9241]) ([notify.pushbullet docs])
@@ -177,7 +175,7 @@ frontend:
 - Added intent_type to exception log ([@andreasjacobsen93] - [#9289]) ([snips docs])
 - Handle spotify failing to refresh access_token ([@Tommatheussen] - [#9295]) ([media_player.spotify docs])
 - Core track same state for a period / Allow on platforms ([@pvizeli] - [#9273])
-- Improved Lutron Caseta shade support ([@30200174+upsert] - [#9302]) ([lutron_caseta docs]) ([cover.lutron_caseta docs]) ([light.lutron_caseta docs]) ([switch.lutron_caseta docs])
+- Improved Lutron Caseta shade support ([@upsert] - [#9302]) ([lutron_caseta docs]) ([cover.lutron_caseta docs]) ([light.lutron_caseta docs]) ([switch.lutron_caseta docs])
 - Upgrade mycroftapi to 2.0 ([@btotharye] - [#9309]) ([mycroft docs])
 - Fix for Honeywell Round thermostats ([@dansarginson] - [#9308]) ([climate.honeywell docs])
 - Update jinja to 2.9.6 ([@pvizeli] - [#9306])
@@ -190,9 +188,9 @@ frontend:
 - Add post_pending_state attribute to manual alarm_control_panel ([@snjoetw] - [#9291]) ([alarm_control_panel.manual docs])
 - Add new config variable to MQTT light ([@belyalov] - [#9304]) ([light.mqtt docs])
 - Follow Twitter guidelines for media upload by conforming to the "STATUS" phase, when required, and by providing "media_category" information. These will, for example, allow users to upload videos that exceed the basic 30 second limit. ([@MikeChristianson] - [#9261]) ([notify.twitter docs])
-- Optionally disable ssl certificate validity check. ([@1868995+ohmer1] - [#9181]) ([notify.xmpp docs])
+- Optionally disable ssl certificate validity check. ([@ohmer1] - [#9181]) ([notify.xmpp docs])
 - Version bump dlib to 1.0.0 ([@arsaboo] - [#9316]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
-- Fixed bug with devices not being discovered correctly. ([@1091741+MisterWil] - [#9311]) ([abode docs])
+- Fixed bug with devices not being discovered correctly. ([@MisterWil] - [#9311]) ([abode docs])
 - Platform not ready behavior fixed. ([@syssi] - [#9325]) ([light.xiaomi_philipslight docs])
 - Stable and asynchronous KNX library. ([@Julius2342] - [#8725]) ([knx docs]) ([binary_sensor.knx docs]) ([climate.knx docs]) ([cover.knx docs]) ([light.knx docs]) ([sensor.knx docs]) ([switch.knx docs]) (new-platform)
 - Fix for potential issue with tesla initialization ([@zabuldon] - [#9307]) ([tesla docs])
@@ -293,9 +291,9 @@ frontend:
 [#9325]: https://github.com/home-assistant/home-assistant/pull/9325
 [#9326]: https://github.com/home-assistant/home-assistant/pull/9326
 [#9341]: https://github.com/home-assistant/home-assistant/pull/9341
-[@1091741+MisterWil]: https://github.com/1091741+MisterWil
-[@1868995+ohmer1]: https://github.com/1868995+ohmer1
-[@30200174+upsert]: https://github.com/30200174+upsert
+[@MisterWil]: https://github.com/MisterWil
+[@ohmer1]: https://github.com/ohmer1
+[@upsert]: https://github.com/upsert
 [@BioSehnsucht]: https://github.com/BioSehnsucht
 [@EmitKiwi]: https://github.com/EmitKiwi
 [@Julius2342]: https://github.com/Julius2342
@@ -349,108 +347,104 @@ frontend:
 [@tinloaf]: https://github.com/tinloaf
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zabuldon]: https://github.com/zabuldon
-[abode docs]: /components/abode/
-[alarm_control_panel.abode docs]: /components/alarm_control_panel.abode/
-[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
-[alarm_control_panel.manual docs]: /components/alarm_control_panel.manual/
-[binary_sensor.abode docs]: /components/binary_sensor.abode/
-[binary_sensor.bayesian docs]: /components/binary_sensor.bayesian/
-[binary_sensor.hikvision docs]: /components/binary_sensor.hikvision/
-[binary_sensor.homematic docs]: /components/binary_sensor.homematic/
-[binary_sensor.ring docs]: /components/binary_sensor.ring/
-[binary_sensor.tesla docs]: /components/binary_sensor.tesla/
-[binary_sensor.xiaomi docs]: /components/binary_sensor.xiaomi/
-[binary_sensor.knx docs]: /components/binary_sensor.knx/
-[climate.homematic docs]: /components/climate.homematic/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.tesla docs]: /components/climate.tesla/
-[climate.knx docs]: /components/climate.knx/
-[cloud docs]: /components/cloud/
-[cloud.cloud_api docs]: /components/cloud.cloud_api/
-[cloud.const docs]: /components/cloud.const/
-[cloud.http_api docs]: /components/cloud.http_api/
-[cloud.util docs]: /components/cloud.util/
-[config docs]: /components/config/
-[config.customize docs]: /components/config.customize/
-[counter docs]: /components/counter/
-[cover.abode docs]: /components/cover.abode/
-[cover.homematic docs]: /components/cover.homematic/
-[cover.lutron_caseta docs]: /components/cover.lutron_caseta/
-[cover.rfxtrx docs]: /components/cover.rfxtrx/
-[cover.xiaomi docs]: /components/cover.xiaomi/
-[cover.knx docs]: /components/cover.knx/
-[device_tracker.automatic docs]: /components/device_tracker.automatic/
-[device_tracker.geofency docs]: /components/device_tracker.geofency/
-[device_tracker.tesla docs]: /components/device_tracker.tesla/
-[device_tracker.volvooncall docs]: /components/device_tracker.volvooncall/
-[hdmi_cec docs]: /components/hdmi_cec/
-[homematic docs]: /components/homematic/
-[image_processing.dlib_face_detect docs]: /components/image_processing.dlib_face_detect/
-[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
-[input_text docs]: /components/input_text/
-[insteon_plm docs]: /components/insteon_plm/
-[light.homematic docs]: /components/light.homematic/
-[light.hue docs]: /components/light.hue/
-[light.lutron_caseta docs]: /components/light.lutron_caseta/
-[light.mqtt docs]: /components/light.mqtt/
-[light.xiaomi_philipslight docs]: /components/light.xiaomi_philipslight/
-[light.rfxtrx docs]: /components/light.rfxtrx/
-[light.tradfri docs]: /components/light.tradfri/
-[light.knx docs]: /components/light.knx/
-[light.zha docs]: /components/light.zha/
-[lock.abode docs]: /components/lock.abode/
-[lock.nello docs]: /components/lock.nello/
-[lock.tesla docs]: /components/lock.tesla/
-[lutron_caseta docs]: /components/lutron_caseta/
-[media_extractor docs]: /components/media_extractor/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.directv docs]: /components/media_player.directv/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.spotify docs]: /components/media_player.spotify/
-[media_player.yamaha_musiccast docs]: /components/media_player.yamaha_musiccast/
-[mycroft docs]: /components/mycroft/
-[mysensors docs]: /components/mysensors/
-[notify.discord docs]: /components/notify.discord/
-[notify.mycroft docs]: /components/notify.mycroft/
-[notify.pushbullet docs]: /components/notify.pushbullet/
-[notify.sendgrid docs]: /components/notify.sendgrid/
-[notify.twitter docs]: /components/notify.twitter/
-[notify.xmpp docs]: /components/notify.xmpp/
-[rfxtrx docs]: /components/rfxtrx/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.dht docs]: /components/sensor.dht/
-[sensor.dwdwarnapp docs]: /components/sensor.dwdwarnapp/
-[sensor.fitbit docs]: /components/sensor.fitbit/
-[sensor.homematic docs]: /components/sensor.homematic/
-[sensor.mopar docs]: /components/sensor.mopar/
-[sensor.radarr docs]: /components/sensor.radarr/
-[sensor.season docs]: /components/sensor.season/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.sonarr docs]: /components/sensor.sonarr/
-[sensor.statistics docs]: /components/sensor.statistics/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.tank_utility docs]: /components/sensor.tank_utility/
-[sensor.tesla docs]: /components/sensor.tesla/
-[sensor.uber docs]: /components/sensor.uber/
-[sensor.worldtidesinfo docs]: /components/sensor.worldtidesinfo/
-[sensor.knx docs]: /components/sensor.knx/
-[snips docs]: /components/snips/
-[switch.abode docs]: /components/switch.abode/
-[switch.digitalloggers docs]: /components/switch.digitalloggers/
-[switch.dlink docs]: /components/switch.dlink/
-[switch.homematic docs]: /components/switch.homematic/
-[switch.lutron_caseta docs]: /components/switch.lutron_caseta/
-[switch.rest docs]: /components/switch.rest/
-[switch.rfxtrx docs]: /components/switch.rfxtrx/
-[switch.knx docs]: /components/switch.knx/
-[telegram_bot docs]: /components/telegram_bot/
-[tesla docs]: /components/tesla/
-[tradfri docs]: /components/tradfri/
-[volvooncall docs]: /components/volvooncall/
-[xiaomi docs]: /components/xiaomi/
-[knx docs]: /components/knx/
-[zwave docs]: /components/zwave/
+[abode docs]: /integrations/abode/
+[alarm_control_panel.abode docs]: /integrations/abode
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[alarm_control_panel.manual docs]: /integrations/manual
+[binary_sensor.abode docs]: /integrations/abode#binary-sensor
+[binary_sensor.bayesian docs]: /integrations/bayesian
+[binary_sensor.hikvision docs]: /integrations/hikvision
+[binary_sensor.homematic docs]: /integrations/homematic
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[binary_sensor.tesla docs]: /integrations/tesla
+[binary_sensor.xiaomi docs]: /integrations/binary_sensor.xiaomi_aqara/
+[binary_sensor.knx docs]: /integrations/binary_sensor.knx/
+[climate.homematic docs]: /integrations/homematic
+[climate.honeywell docs]: /integrations/honeywell
+[climate.tesla docs]: /integrations/tesla
+[climate.knx docs]: /integrations/climate.knx/
+[cloud docs]: /integrations/cloud/
+[cloud.cloud_api docs]: /integrations/cloud.cloud_api/
+[cloud.util docs]: /integrations/cloud.util/
+[config docs]: /integrations/config/
+[config.customize docs]: /integrations/config.customize/
+[counter docs]: /integrations/counter/
+[cover.abode docs]: /integrations/abode
+[cover.homematic docs]: /integrations/homematic
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[cover.rfxtrx docs]: /integrations/cover.rfxtrx/
+[cover.xiaomi docs]: /integrations/cover.xiaomi_aqara/
+[cover.knx docs]: /integrations/cover.knx/
+[device_tracker.automatic docs]: /integrations/automatic
+[device_tracker.geofency docs]: /integrations/geofency
+[device_tracker.tesla docs]: /integrations/tesla
+[device_tracker.volvooncall docs]: /integrations/volvooncall
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[homematic docs]: /integrations/homematic/
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[input_text docs]: /integrations/input_text/
+[insteon_plm docs]: /integrations/insteon/
+[light.homematic docs]: /integrations/homematic
+[light.hue docs]: /integrations/hue
+[light.lutron_caseta docs]: /integrations/lutron_caseta/
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.xiaomi_philipslight docs]: /integrations/light.xiaomi_miio/
+[light.rfxtrx docs]: /integrations/light.rfxtrx/
+[light.tradfri docs]: /integrations/tradfri
+[light.knx docs]: /integrations/light.knx/
+[light.zha docs]: /integrations/zha
+[lock.abode docs]: /integrations/abode
+[lock.nello docs]: /integrations/nello
+[lock.tesla docs]: /integrations/tesla
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.directv docs]: /integrations/directv
+[media_player.sonos docs]: /integrations/sonos
+[media_player.spotify docs]: /integrations/spotify
+[media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[mycroft docs]: /integrations/mycroft/
+[mysensors docs]: /integrations/mysensors/
+[notify.discord docs]: /integrations/discord
+[notify.mycroft docs]: /integrations/mycroft
+[notify.pushbullet docs]: /integrations/pushbullet
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.twitter docs]: /integrations/twitter
+[notify.xmpp docs]: /integrations/xmpp
+[rfxtrx docs]: /integrations/rfxtrx/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.dht docs]: /integrations/dht
+[sensor.dwdwarnapp docs]: /integrations/dwd_weather_warnings/
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.homematic docs]: /integrations/homematic
+[sensor.radarr docs]: /integrations/radarr
+[sensor.season docs]: /integrations/season
+[sensor.shodan docs]: /integrations/shodan
+[sensor.sonarr docs]: /integrations/sonarr
+[sensor.statistics docs]: /integrations/statistics
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tank_utility docs]: /integrations/tank_utility
+[sensor.tesla docs]: /integrations/tesla
+[sensor.worldtidesinfo docs]: /integrations/worldtidesinfo
+[sensor.knx docs]: /integrations/sensor.knx/
+[snips docs]: /integrations/snips/
+[switch.abode docs]: /integrations/abode#switch
+[switch.digitalloggers docs]: /integrations/digitalloggers
+[switch.dlink docs]: /integrations/dlink
+[switch.homematic docs]: /integrations/homematic
+[switch.lutron_caseta docs]: /integrations/lutron_caseta/
+[switch.rest docs]: /integrations/switch.rest/
+[switch.rfxtrx docs]: /integrations/switch.rfxtrx/
+[switch.knx docs]: /integrations/switch.knx/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tesla docs]: /integrations/tesla/
+[tradfri docs]: /integrations/tradfri/
+[volvooncall docs]: /integrations/volvooncall/
+[xiaomi docs]: /integrations/xiaomi_aqara
+[knx docs]: /integrations/knx/
+[zwave docs]: /integrations/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
@@ -458,5 +452,5 @@ frontend:
 [#9380]: https://github.com/home-assistant/home-assistant/pull/9380
 [#9387]: https://github.com/home-assistant/home-assistant/pull/9387
 [@viswa-swami]: https://github.com/viswa-swami
-[camera.foscam docs]: /components/camera.foscam/
-[sensor.wunderground docs]: /components/sensor.wunderground/
+[camera.foscam docs]: /integrations/foscam
+[sensor.wunderground docs]: /integrations/wunderground

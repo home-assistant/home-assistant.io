@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.81: new Lovelace cards, LG soundbars, Dyson fans, Elk-M1"
 description: "Epic new release full of goodies build by over a hundred contributors."
 date: 2018-10-26 00:01:00
 date_formatted: "October 26, 2018"
 author: Tinkerer
 author_twitter: Dubh_Ad
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-10-release-81/social.png
 ---
@@ -30,7 +28,7 @@ Other things to be aware of:
 - Template sensors will no longer auto update if we can't find relevant entities in the template. You'll want to review your template sensors and consider adding relevant `entity_id` entries or use the new `homeassistant.update_entity` service.
 - Water heaters get their own platform separate from `climate`, because you're not a fish living inside the hot water tank
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add support for ElkM1 alarm/automation panel ([@gwww] - [#16952]) ([elkm1 docs]) ([alarm_control_panel.elkm1 docs]) (new-platform)
 - Water heater support ([@w1ll1am23] - [#17058]) ([water_heater docs]) (new-platform)
@@ -55,12 +53,12 @@ Other things to be aware of:
 - Add new rtorrent sensor ([@terorie] - [#17421]) ([sensor.rtorrent docs]) (new-platform)
 - Elk-M1 climate ([@gwww] - [#17679]) ([elkm1 docs]) ([climate.elkm1 docs]) (beta fix) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Add LogBook support to HomeKit ([@ehendrix23] - [#17180]) ([homekit docs]) ([logbook docs]) (new-feature)
 - Add water_heater support to HomeKit ([@cdce8p] - [#17614]) ([homekit docs]) (new-feature)
 
-## {% linkable_title Release 0.81.1 - October 27 %}
+## Release 0.81.1 - October 27
 
 - Switch to using Client from twilio.rest rather than the deleted TwilioRestClient ([@rohankapoorcom] - [#17885]) ([twilio docs])
 - Fixes an issue with OpenUV config import failing ([@bachya] - [#17831]) ([openuv docs]) (breaking change)
@@ -74,11 +72,11 @@ Other things to be aware of:
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@rohankapoorcom]: https://github.com/rohankapoorcom
-[lovelace docs]: /components/lovelace/
-[openuv docs]: /components/openuv/
-[twilio docs]: /components/twilio/
+[lovelace docs]: /integrations/lovelace/
+[openuv docs]: /integrations/openuv/
+[twilio docs]: /integrations/twilio/
 
-## {% linkable_title Release 0.81.2 - October 29 %}
+## Release 0.81.2 - October 29
 
 - Fix controller not being stored when setup fails and sequentially fails the retry functionality ([@Kane610] - [#17927]) ([unifi docs])
 - Pass hass_config to load_platform ([@balloob] - [#17952])
@@ -91,12 +89,12 @@ Other things to be aware of:
 [#17984]: https://github.com/home-assistant/home-assistant/pull/17984
 [@Kane610]: https://github.com/Kane610
 [@balloob]: https://github.com/balloob
-[cloud docs]: /components/cloud/
-[unifi docs]: /components/unifi/
+[cloud docs]: /integrations/cloud/
+[unifi docs]: /integrations/unifi/
 
 _0.81.3 was skipped because it broke LL._
 
-## {% linkable_title Release 0.81.4 - November 2 %}
+## Release 0.81.4 - November 2
 
 - fix naming bug ([@helto4real] - [#17976]) ([weather.smhi docs])
 - Konnected: Pass hass_config to load_platform ([@heythisisnate] - [#18027]) ([konnected docs])
@@ -116,32 +114,32 @@ _0.81.3 was skipped because it broke LL._
 [@cdce8p]: https://github.com/cdce8p
 [@helto4real]: https://github.com/helto4real
 [@heythisisnate]: https://github.com/heythisisnate
-[homekit docs]: /components/homekit/
-[konnected docs]: /components/konnected/
-[nest docs]: /components/nest/
-[switch.flux docs]: /components/switch.flux/
-[weather.smhi docs]: /components/weather.smhi/
+[homekit docs]: /integrations/homekit/
+[konnected docs]: /integrations/konnected/
+[nest docs]: /integrations/nest/
+[switch.flux docs]: /integrations/flux
+[weather.smhi docs]: /integrations/smhi
 
-## {% linkable_title Release 0.81.5 - November 3 %}
+## Release 0.81.5 - November 3
 
 - Fix lovelace
 - Remove FFmpeg input tests (@jjlawren - #18131)
 
-## {% linkable_title Release 0.81.6 - November 4 %}
+## Release 0.81.6 - November 4
 
 - Bugfix discovery (delete/mqtt) call for Hass.io  #18159
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - LIFX can now be configured from the integrations page in the config panel and advanced configuration is available through the `lifx:` component configuration. Configuring LIFX via light platform config no longer works. ([@amelchio] - [#17201]) ([lifx docs]) ([light.lifx docs]) (breaking change)
 - Daikin Climate now follows the official operating modes, making it compatible with Google Assistant, Alexa and HomeKit. ([@MatteGary] - [#16913]) ([climate.daikin docs]) (breaking change)
@@ -156,7 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Removing ryobi gdo as API is no longer available. ([@guillaume1410] - [#17637]) (breaking change)
 - The way columns are handled in the glance card has changed ([#1832]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Geo location trigger added ([@exxamalte] - [#16967]) ([automation.zone docs]) (beta fix)
 - Add lovelace websocket get and set card ([@bramkragten] - [#17600]) ([lovelace docs]) (beta fix)
@@ -173,7 +171,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - SMHI weather component not showing correct values in current forecast ([@helto4real] - [#17783]) ([smhi docs]) ([weather.smhi docs]) (beta fix)
 - Fix unloading an entry can leave states around ([@balloob] - [#17786]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Adding myself as melissa owner ([@kennedyshead] - [#17157])
 - Update core, add myself and introduce grouping ([@fabaff] - [#17175])
@@ -261,7 +259,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - The ping command will not detect device in standby as off ([@kennedyshead] - [#17358]) ([media_player.samsungtv docs])
 - Adding source attribute to geo location platforms ([@exxamalte] - [#17339]) ([geo_location docs])
 - Add config entry for SimpliSafe ([@bachya] - [#17148]) ([simplisafe docs]) ([alarm_control_panel.simplisafe docs]) (breaking change)
-- Added option to use a location other than home ([@Solije] - [#17340]) ([sensor.geo_rss_events docs])
+- Added option to use a location other than home ([@TomAFrench] - [#17340]) ([sensor.geo_rss_events docs])
 - Add unique_id for Lightify ([@dshokouhi] - [#17377]) ([light.osramlightify docs])
 - Add unique_id for Neato ([@dshokouhi] - [#17369]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs])
 - Add unique_id for Bloomsky ([@dshokouhi] - [#17383]) ([binary_sensor.bloomsky docs]) ([sensor.bloomsky docs])
@@ -297,7 +295,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fire an event when timer gets out of sync ([@amelchio] - [#17398])
 - Add context to scripts run by template entities ([@balloob] - [#17329]) ([cover.template docs]) ([fan.template docs]) ([light.template docs]) ([lock.template docs]) ([switch.template docs])
 - State is set to UNKNOWN rather than ON in order to make UI have an play/pause button ([@kennedyshead] - [#17357]) ([media_player.samsungtv docs])
-- Re-assign conditions ([@SilvrrGIT] - [#17364]) ([weather.yweather docs])
+- Re-assign conditions ([@SilvrrGIT] - [#17364])
 - Switched to async_fire ([@Julius2342] - [#17472]) ([knx docs])
 - Fix rangefilter ([@nielstron] - [#17473]) ([sensor.filter docs])
 - Cleanup HM Notify platform ([@pvizeli] - [#17355]) ([notify docs])
@@ -613,7 +611,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OttoWinter]: https://github.com/OttoWinter
 [@PhilRW]: https://github.com/PhilRW
 [@SilvrrGIT]: https://github.com/SilvrrGIT
-[@Solije]: https://github.com/Solije
+[@TomAFrench]: https://github.com/TomAFrench
 [@StevenLooman]: https://github.com/StevenLooman
 [@amelchio]: https://github.com/amelchio
 [@arlyon]: https://github.com/arlyon
@@ -689,181 +687,180 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wonderslug]: https://github.com/wonderslug
 [@zhumuht]: https://github.com/zhumuht
-[abode docs]: /components/abode/
-[alarm_control_panel.elkm1 docs]: /components/alarm_control_panel.elkm1/
-[alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[arlo docs]: /components/arlo/
-[august docs]: /components/august/
+[abode docs]: /integrations/abode/
+[alarm_control_panel.elkm1 docs]: /integrations/elkm1
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[arlo docs]: /integrations/arlo/
+[august docs]: /integrations/august/
 [automation.webhook docs]: /docs/automation/trigger/#webhook-trigger
 [automation.zone docs]: /docs/automation/trigger/#zone-trigger
-[binary_sensor.august docs]: /components/binary_sensor.august/
-[binary_sensor.bloomsky docs]: /components/binary_sensor.bloomsky/
-[binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
-[binary_sensor.knx docs]: /components/binary_sensor.knx/
-[binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
-[binary_sensor.octoprint docs]: /components/binary_sensor.octoprint/
-[binary_sensor.opentherm_gw docs]: /components/binary_sensor.opentherm_gw/
-[binary_sensor.rflink docs]: /components/binary_sensor.rflink/
-[binary_sensor.ring docs]: /components/binary_sensor.ring/
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[blink docs]: /components/blink/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[calendar.todoist docs]: /components/calendar.todoist/
-[camera.ffmpeg docs]: /components/camera.ffmpeg/
-[camera.neato docs]: /components/camera.neato/
-[camera.ring docs]: /components/camera.ring/
-[climate docs]: /components/climate/
-[climate.daikin docs]: /components/climate.daikin/
-[climate.dyson docs]: /components/climate.dyson/
-[climate.elkm1 docs]: /components/climate.elkm1/
-[climate.eq3btsmart docs]: /components/climate.eq3btsmart/
-[climate.knx docs]: /components/climate.knx/
-[climate.mill docs]: /components/climate.mill/
-[climate.mqtt docs]: /components/climate.mqtt/
-[climate.opentherm_gw docs]: /components/climate.opentherm_gw/
-[climate.wink docs]: /components/climate.wink/
-[cloud docs]: /components/cloud/
-[config docs]: /components/config/
-[cover.deconz docs]: /components/cover.deconz/
-[cover.knx docs]: /components/cover.knx/
-[cover.mqtt docs]: /components/cover.mqtt/
-[cover.rflink docs]: /components/cover.rflink/
-[cover.ryobi_gdo docs]: /components/cover.ryobi_gdo/
-[cover.template docs]: /components/cover.template/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[dyson docs]: /components/dyson/
-[elkm1 docs]: /components/elkm1/
-[fan.mqtt docs]: /components/fan.mqtt/
-[fan.template docs]: /components/fan.template/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[geo_location docs]: /components/geo_location/
-[goalfeed docs]: /components/goalfeed/
-[group docs]: /components/group/
-[habitica docs]: /components/habitica/
-[homekit docs]: /components/homekit/
-[homematic docs]: /components/homematic/
-[huawei_lte docs]: /components/huawei_lte/
-[ifttt docs]: /components/ifttt/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[insteon docs]: /components/insteon/
-[knx docs]: /components/knx/
-[konnected docs]: /components/konnected/
-[lifx docs]: /components/lifx/
-[light.abode docs]: /components/light.abode/
-[light.flux_led docs]: /components/light.flux_led/
-[light.knx docs]: /components/light.knx/
-[light.lifx docs]: /components/light.lifx/
-[light.limitlessled docs]: /components/light.limitlessled/
-[light.mqtt docs]: /components/light.mqtt/
-[light.opple docs]: /components/light.opple/
-[light.osramlightify docs]: /components/light.osramlightify/
-[light.rflink docs]: /components/light.rflink/
-[light.template docs]: /components/light.template/
-[light.tuya docs]: /components/light.tuya/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.yeelight docs]: /components/light.yeelight/
-[light.zwave docs]: /components/light.zwave/
-[lock.august docs]: /components/lock.august/
-[lock.template docs]: /components/lock.template/
-[logbook docs]: /components/logbook/
-[lovelace docs]: /components/lovelace/
-[media_extractor docs]: /components/media_extractor/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
-[media_player.horizon docs]: /components/media_player.horizon/
-[media_player.lg_soundbar docs]: /components/media_player.lg_soundbar/
-[media_player.mpd docs]: /components/media_player.mpd/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.volumio docs]: /components/media_player.volumio/
-[media_player.webostv docs]: /components/media_player.webostv/
-[media_player.yamaha docs]: /components/media_player.yamaha/
-[mqtt docs]: /components/mqtt/
-[notify docs]: /components/notify/
-[octoprint docs]: /components/octoprint/
-[opentherm_gw docs]: /components/opentherm_gw/
-[openuv docs]: /components/openuv/
-[recswitch docs]: /components/recswitch/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[rflink docs]: /components/rflink/
-[route53 docs]: /components/route53/
-[sabnzbd docs]: /components/sabnzbd/
-[sensor.api_streams docs]: /components/sensor.api_streams/
-[sensor.bloomsky docs]: /components/sensor.bloomsky/
-[sensor.bmw_connected_drive docs]: /components/sensor.bmw_connected_drive/
-[sensor.dnsip docs]: /components/sensor.dnsip/
-[sensor.dsmr docs]: /components/sensor.dsmr/
-[sensor.elkm1 docs]: /components/sensor.elkm1/
-[sensor.fastdotcom docs]: /components/sensor.fastdotcom/
-[sensor.filter docs]: /components/sensor.filter/
-[sensor.fints docs]: /components/sensor.fints/
-[sensor.geo_rss_events docs]: /components/sensor.geo_rss_events/
-[sensor.gitlab_ci docs]: /components/sensor.gitlab_ci/
-[sensor.haveibeenpwned docs]: /components/sensor.haveibeenpwned/
-[sensor.homematic docs]: /components/sensor.homematic/
-[sensor.huawei_lte docs]: /components/sensor.huawei_lte/
-[sensor.jewish_calendar docs]: /components/sensor.jewish_calendar/
-[sensor.knx docs]: /components/sensor.knx/
-[sensor.linky docs]: /components/sensor.linky/
-[sensor.mold_indicator docs]: /components/sensor.mold_indicator/
-[sensor.mqtt docs]: /components/sensor.mqtt/
-[sensor.octoprint docs]: /components/sensor.octoprint/
-[sensor.opentherm_gw docs]: /components/sensor.opentherm_gw/
-[sensor.rflink docs]: /components/sensor.rflink/
-[sensor.ring docs]: /components/sensor.ring/
-[sensor.rmvtransport docs]: /components/sensor.rmvtransport/
-[sensor.rtorrent docs]: /components/sensor.rtorrent/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.speedtest docs]: /components/sensor.speedtest/
-[sensor.syncthru docs]: /components/sensor.syncthru/
-[sensor.template docs]: /components/sensor.template/
-[sensor.thermoworks_smoke docs]: /components/sensor.thermoworks_smoke/
-[sensor.transport_nsw docs]: /components/sensor.transport_nsw/
-[sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
-[sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
-[sensor.zha docs]: /components/sensor.zha/
-[sensor.zoneminder docs]: /components/sensor.zoneminder/
-[sensor.zwave docs]: /components/sensor.zwave/
-[simplisafe docs]: /components/simplisafe/
-[smhi docs]: /components/smhi/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.elkm1 docs]: /components/switch.elkm1/
-[switch.flux docs]: /components/switch.flux/
-[switch.knx docs]: /components/switch.knx/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.neato docs]: /components/switch.neato/
-[switch.netio docs]: /components/switch.netio/
-[switch.recswitch docs]: /components/switch.recswitch/
-[switch.rflink docs]: /components/switch.rflink/
-[switch.switchmate docs]: /components/switch.switchmate/
-[switch.template docs]: /components/switch.template/
-[switch.unifi docs]: /components/switch.unifi/
-[switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[switch.zwave docs]: /components/switch.zwave/
-[telegram_bot docs]: /components/telegram_bot/
-[tts docs]: /components/tts/
-[twilio docs]: /components/twilio/
-[unifi docs]: /components/unifi/
-[upnp docs]: /components/upnp/
-[vacuum.neato docs]: /components/vacuum.neato/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[vera docs]: /components/vera/
-[verisure docs]: /components/verisure/
-[water_heater docs]: /components/water_heater/
-[weather docs]: /components/weather/
-[weather.demo docs]: /components/weather.demo/
-[weather.met docs]: /components/weather.met/
-[weather.smhi docs]: /components/weather.smhi/
-[weather.yweather docs]: /components/weather.yweather/
-[websocket_api docs]: /components/websocket_api/
-[wink docs]: /components/wink/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zha docs]: /components/zha/
-[zoneminder docs]: /components/zoneminder/
-[zwave docs]: /components/zwave/
-[platform_options]: https://www.home-assistant.io/docs/configuration/platform_options/#scan-interval
+[binary_sensor.august docs]: /integrations/august#binary-sensor
+[binary_sensor.bloomsky docs]: /integrations/bloomsky#binary-sensor
+[binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[binary_sensor.knx docs]: /integrations/binary_sensor.knx/
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.octoprint docs]: /integrations/octoprint#binary-sensor
+[binary_sensor.opentherm_gw docs]: /integrations/opentherm_gw#binary-sensors
+[binary_sensor.rflink docs]: /integrations/binary_sensor.rflink/
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[binary_sensor.zha docs]: /integrations/zha
+[blink docs]: /integrations/blink/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[calendar.todoist docs]: /integrations/todoist
+[camera.ffmpeg docs]: /integrations/camera.ffmpeg/
+[camera.neato docs]: /integrations/neato#camera
+[camera.ring docs]: /integrations/ring#camera
+[climate docs]: /integrations/climate/
+[climate.daikin docs]: /integrations/daikin#climate
+[climate.dyson docs]: /integrations/dyson#climate
+[climate.elkm1 docs]: /integrations/elkm1
+[climate.eq3btsmart docs]: /integrations/eq3btsmart
+[climate.knx docs]: /integrations/climate.knx/
+[climate.mill docs]: /integrations/mill
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[climate.opentherm_gw docs]: /integrations/opentherm_gw
+[climate.wink docs]: /integrations/wink#climate
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[cover.deconz docs]: /integrations/deconz#cover
+[cover.knx docs]: /integrations/cover.knx/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.rflink docs]: /integrations/cover.rflink/
+[cover.ryobi_gdo docs]: /integrations/cover.ryobi_gdo/
+[cover.template docs]: /integrations/cover.template/
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[dyson docs]: /integrations/dyson/
+[elkm1 docs]: /integrations/elkm1/
+[fan.mqtt docs]: /integrations/fan.mqtt/
+[fan.template docs]: /integrations/fan.template/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[geo_location docs]: /integrations/geo_location/
+[goalfeed docs]: /integrations/goalfeed/
+[group docs]: /integrations/group/
+[habitica docs]: /integrations/habitica/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[huawei_lte docs]: /integrations/huawei_lte/
+[ifttt docs]: /integrations/ifttt/
+[image_processing.opencv docs]: /integrations/opencv
+[insteon docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[konnected docs]: /integrations/konnected/
+[lifx docs]: /integrations/lifx/
+[light.abode docs]: /integrations/abode#light
+[light.flux_led docs]: /integrations/flux_led
+[light.knx docs]: /integrations/light.knx/
+[light.lifx docs]: /integrations/lifx
+[light.limitlessled docs]: /integrations/limitlessled
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.opple docs]: /integrations/opple
+[light.osramlightify docs]: /integrations/osramlightify
+[light.rflink docs]: /integrations/light.rflink/
+[light.template docs]: /integrations/light.template/
+[light.tuya docs]: /integrations/tuya
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.yeelight docs]: /integrations/yeelight
+[light.zwave docs]: /integrations/zwave
+[lock.august docs]: /integrations/august
+[lock.template docs]: /integrations/lock.template/
+[logbook docs]: /integrations/logbook/
+[lovelace docs]: /integrations/lovelace/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.dlna_dmr docs]: /integrations/dlna_dmr
+[media_player.horizon docs]: /integrations/horizon
+[media_player.lg_soundbar docs]: /integrations/lg_soundbar
+[media_player.mpd docs]: /integrations/mpd
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.volumio docs]: /integrations/volumio
+[media_player.webostv docs]: /integrations/webostv#media-player
+[media_player.yamaha docs]: /integrations/yamaha
+[mqtt docs]: /integrations/mqtt/
+[notify docs]: /integrations/notify/
+[octoprint docs]: /integrations/octoprint/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[openuv docs]: /integrations/openuv/
+[recswitch docs]: /integrations/recswitch/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[rflink docs]: /integrations/rflink/
+[route53 docs]: /integrations/route53/
+[sabnzbd docs]: /integrations/sabnzbd/
+[sensor.api_streams docs]: /integrations/sensor.websocket_api/
+[sensor.bloomsky docs]: /integrations/bloomsky/#sensor
+[sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[sensor.dnsip docs]: /integrations/dnsip
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.elkm1 docs]: /integrations/elkm1
+[sensor.fastdotcom docs]: /integrations/fastdotcom
+[sensor.filter docs]: /integrations/filter
+[sensor.fints docs]: /integrations/fints
+[sensor.geo_rss_events docs]: /integrations/geo_rss_events
+[sensor.gitlab_ci docs]: /integrations/gitlab_ci
+[sensor.haveibeenpwned docs]: /integrations/haveibeenpwned
+[sensor.homematic docs]: /integrations/homematic
+[sensor.huawei_lte docs]: /integrations/huawei_lte#sensor
+[sensor.jewish_calendar docs]: /integrations/jewish_calendar
+[sensor.knx docs]: /integrations/sensor.knx/
+[sensor.linky docs]: /integrations/linky
+[sensor.mold_indicator docs]: /integrations/mold_indicator
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.octoprint docs]: /integrations/octoprint#sensor
+[sensor.opentherm_gw docs]: /integrations/opentherm_gw#sensors
+[sensor.rflink docs]: /integrations/sensor.rflink/
+[sensor.ring docs]: /integrations/ring#sensor
+[sensor.rmvtransport docs]: /integrations/rmvtransport
+[sensor.rtorrent docs]: /integrations/rtorrent
+[sensor.shodan docs]: /integrations/shodan
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.syncthru docs]: /integrations/syncthru
+[sensor.template docs]: /integrations/template
+[sensor.thermoworks_smoke docs]: /integrations/thermoworks_smoke
+[sensor.transport_nsw docs]: /integrations/transport_nsw
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
+[sensor.zha docs]: /integrations/zha
+[sensor.zoneminder docs]: /integrations/zoneminder#sensor
+[sensor.zwave docs]: /integrations/zwave
+[simplisafe docs]: /integrations/simplisafe/
+[smhi docs]: /integrations/smhi/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.elkm1 docs]: /integrations/elkm1
+[switch.flux docs]: /integrations/flux
+[switch.knx docs]: /integrations/switch.knx/
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.neato docs]: /integrations/neato#switch
+[switch.netio docs]: /integrations/netio
+[switch.recswitch docs]: /integrations/recswitch
+[switch.rflink docs]: /integrations/switch.rflink/
+[switch.switchmate docs]: /integrations/switchmate
+[switch.template docs]: /integrations/switch.template/
+[switch.unifi docs]: /integrations/unifi#switch
+[switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[switch.zwave docs]: /integrations/zwave
+[telegram_bot docs]: /integrations/telegram_bot/
+[tts docs]: /integrations/tts/
+[twilio docs]: /integrations/twilio/
+[unifi docs]: /integrations/unifi/
+[upnp docs]: /integrations/upnp/
+[vacuum.neato docs]: /integrations/neato#vacuum
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[vera docs]: /integrations/vera/
+[verisure docs]: /integrations/verisure/
+[water_heater docs]: /integrations/water_heater/
+[weather docs]: /integrations/weather/
+[weather.demo docs]: /integrations/weather.demo/
+[weather.met docs]: /integrations/met
+[weather.smhi docs]: /integrations/smhi
+[websocket_api docs]: /integrations/websocket_api/
+[wink docs]: /integrations/wink/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zoneminder docs]: /integrations/zoneminder/
+[zwave docs]: /integrations/zwave/
+[platform_options]: /docs/configuration/platform_options/#scan-interval

@@ -1,18 +1,12 @@
 ---
-layout: page
 title: "Adding devices to Home Assistant"
 description: "Steps to help you get your devices in Home Assistant."
-date: 2015-09-19 09:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/devices/
 ---
 
-Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component](/components/discovery/) enabled (the default setting).
+Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component](/integrations/discovery/) enabled (the default setting).
 
-See the [components overview page](/components/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
+See the [integrations overview page](/integrations/) to find installation instructions for your devices and services. If you can't find support for your favorite device or service, [consider adding support](/developers/add_new_platform/).
 
 Classification for the available integrations:
 
@@ -21,7 +15,7 @@ Classification for the available integrations:
 
 Usually every entity needs its own entry in the `configuration.yaml` file. There are two styles for multiple entries:
 
-## {% linkable_title Style 1: Collect every entity under the "parent" %}
+## Style 1: Collect every entity under the "parent"
 
 ```yaml
 sensor:
@@ -37,11 +31,9 @@ sensor:
 
 switch:
   - platform: vera
-  - platform: tplink
-    host: IP_ADDRESS
 ```
 
-## {% linkable_title Style 2: List each device separately %}
+## Style 2: List each device separately
 
 You need to append numbers or strings to differentiate the entries, as in the example below. The appended number or string must be unique.
 
@@ -65,11 +57,10 @@ switch 1:
   platform: vera
 
 switch 2:
-  platform: tplink
-  host: IP_ADDRESS
+  platform: vera
 ```
 
-## {% linkable_title Grouping devices %}
+## Grouping devices
 
 Once you have several devices set up, it is time to organize them into groups.
 Each group consists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (<img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" />).
@@ -85,4 +76,4 @@ group:
       - media_player.nexus_player
 ```
 
-For more details please check the [Group](/components/group/) page.
+For more details please check the [Group](/integrations/group/) page.

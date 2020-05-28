@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Browsers"
 description: "Browser Compatibility List"
-date: 2016-06-25 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/browsers/
 ---
 
@@ -16,7 +10,7 @@ If a browser is listed as working but you are still having problems, it is possi
 
 We would appreciate if you help to keep this page up-to-date and add feedback.
 
-## {% linkable_title Microsoft Windows %}
+## Microsoft Windows
 
 | Browser                   | Release        | State      | Comments                 |
 | :------------------------ |:---------------|:-----------|:-------------------------|
@@ -27,13 +21,13 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Iridium]                 | 48.2           | works      |                          |
 | [Opera]                   | 42.0.2393.351  | works      |                          |
 
-## {% linkable_title macOS %}
+## macOS
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
 | [Safari]              |                | works      | Map is fixed since 0.51. |
 
-## {% linkable_title Linux %}
+## Linux
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -53,7 +47,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Chrome]              | 71.0.3578.98   | works      |                          |
 | [Waterfox]            | 56.2.6         | fails      |                          |
 
-## {% linkable_title Android %}
+## Android
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -61,7 +55,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Firefox]             | 46.0.1         | works      | Can also be added to desktop |
 | [Opera]               | 42.0.2246.112628 | works    | Can also be added to desktop |
 
-## {% linkable_title iOS %}
+## iOS
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -70,23 +64,29 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble.
 
+## webOS
+
+| Browser               | Release        | State      | Comments                 |
+| :-------------------- |:---------------|:-----------|:-------------------------|
+| [LG webOS TV Built-in]| 2019-2020      | fails      | loads empty page         |
+
 [Chrome]: https://www.google.com/chrome/
 [Chromium]: https://www.chromium.org/
 [Conkeror]: http://conkeror.org/
 [Edge]: https://www.microsoft.com/en-us/windows/microsoft-edge
-[elinks]: http://elinks.or.cz/ 
+[elinks]: http://elinks.or.cz/
 [Epiphany]: https://wiki.gnome.org/Apps/Web
 [Firefox]: https://www.mozilla.org/en-US/firefox/
-[IE]: http://windows.microsoft.com/en-us/internet-explorer/download-ie
+[IE]: https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads
 [Iridium]: https://iridiumbrowser.de/
 [Konqueror]: https://konqueror.org/
-[Lynx]: http://lynx.browser.org/
-[Midori]: http://midori-browser.org/
-[Opera]: http://www.opera.com/
-[Safari]: http://www.apple.com/safari/
-[surf]: http://surf.suckless.org/
+[Lynx]: https://lynx.browser.org/
+[Midori]: https://www.midori-browser.org/
+[Opera]: https://www.opera.com/
+[Safari]: https://www.apple.com/safari/
+[surf]: https://surf.suckless.org/
 [Tor Browser]: https://www.torproject.org/
-[Uzbl]: http://www.uzbl.org/
+[Uzbl]: https://www.uzbl.org/
 [w3m]: http://w3m.sourceforge.net/
 [Waterfox]: https://www.waterfoxproject.org
-
+[LG webOS TV Built-In]: https://www.lg.com/uk/support/solutions/tv/smart-tv/internet-browsing

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "[Update: resolved, API reinstated and commitment to keep it around] Logitech Harmony removes local API"
 description: "Logitech has disabled the local API of the Harmony Hub with their latest software update. For privacy and speed it is important that home automation devices communicate locally, without data leaving the network."
 date: 2018-12-17 00:01:00
 date_formatted: "December 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 ---
 
@@ -52,7 +50,7 @@ We hope that this was an oversight on their end and that it will be reverted sho
   Thread by member of the Harmony Team.
 </p>
 
-**Update 3 (18 dec):** Twitter user [@ChadBeattie](https://twitter.com/ChadBeattie/status/1074770135121125376) has discovered that there seems to be a second undocumented local API that is being used by the Logitech Harmony iOS app. Home Assistant developer [@ehendrix23] is looking into updating the PyHarmony library to use this. Join #devs_backend on [our chat](https://www.home-assistant.io/join-chat/) if you want to help with development. We can't guarantee that it will work, but if we can get it to work, we will do a hot fix release.
+**Update 3 (18 dec):** Twitter user [@ChadBeattie](https://twitter.com/ChadBeattie/status/1074770135121125376) has discovered that there seems to be a second undocumented local API that is being used by the Logitech Harmony iOS app. Home Assistant developer [@ehendrix23] is looking into updating the PyHarmony library to use this. Join #devs_backend on [our chat](/join-chat/) if you want to help with development. We can't guarantee that it will work, but if we can get it to work, we will do a hot fix release.
 
 [@ehendrix23]: https://github.com/ehendrix23
 
@@ -79,11 +77,11 @@ We will be releasing a hot fix today to migrate our integration to another local
 
 **Update 6 (19 dec):** Home Assistant 0.84.4 has been released with a fix. The Logitech Harmony integration works again (for now?). We switched to their local websocket API.
 
-### {% linkable_title Reverting the software update %}
+### Reverting the software update
 
-<p class='note'>
+<div class='note'>
 If you're using Home Assistant, consider upgrading to 0.84.4 instead of downgrading your hub.
-</p>
+</div>
 
 If you have already updated your Harmony Hub to v4.15.206, you have probably noticed that Home Assistant and other products communicating with the local API have stopped working. Don’t worry, it’s (still?) possible to downgrade to a previous version using the following steps (source: [Reddit 1](https://www.reddit.com/r/homeassistant/comments/a6u6ep/psa_harmony_hub_firmware_v415206_breaksremoves/), [Reddit 2](https://www.reddit.com/r/homeassistant/comments/a6u6ep/psa_harmony_hub_firmware_v415206_breaksremoves/eby89t8/)):
 

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Talk: Automating your home with Home Assistant (OpenIoT Summit)"
 description: "The video of Paulus giving a talk at the OpenIoT Summit at the beginning of April about how to automate your home with Home Assistant."
 date: 2016-05-06 07:09:00 -0700
 date_formatted: "May 6, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Talks Video
 og_image: /images/blog/2016-05-openiot/preview-video.png
 ---

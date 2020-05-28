@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Activating Tasker tasks from Home Assistant using command line switches"
 description: "Step-by-step guide how to start using Tasker on your Android phone with Home Assistant"
 date: 2015-12-10 10:39:41 +0000
 date_formatted: "December 10, 2015"
 author: Rowan Hine
-comments: true
 categories: How-To
 og_image: /images/blog/2015-12-tasker/screenshot-2.png
 ---

@@ -1,22 +1,20 @@
 ---
-layout: post
 title: "Explaining the Updater"
 description: "An update to the recent updater component changes"
 date: 2016-10-25 21:30:00 UTC
 date_formatted: "October 25, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Organization
 ---
 
 On Saturday, we released [Home Assistant 0.31][0.31] which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.
 
 <!--more-->
-## {% linkable_title Why we changed the updater %}
+## Why we changed the updater
 This change was driven by two important factors.
 
-### {% linkable_title Improving the security of the users. %}
+### Improving the security of the users.
 
 As a user, you will be able to be notified if you are running a Home Assistant version that includes components that have known security flaws.
 
@@ -24,7 +22,7 @@ Although we hope to not have to use this feature often, it is important for us t
 
 Please note that this functionality is not done yet but will be available in a future release.
 
-### {% linkable_title Focusing our resources where it matters %}
+### Focusing our resources where it matters
 
 As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:
 
@@ -35,24 +33,19 @@ As developers of Home Assistant, we will be able to see in what kind of environm
 * How popular is our new [Raspberry Pi image][rpi-image]?
 
 
-## {% linkable_title Why we look up your IP address with GeoIP %}
+## Why we look up your IP address with GeoIP
 We store the city so that we can see where our users are from. This information will be used to give us a better insight in where our users are from. This will help us gather data to see if we should for example prioritize internationalization. In addition, we previously had a nasty bug with the `sun` component in which users above a certain latitude were having crashes multiple times a day. Had the updater component been in place we could have targeted a special priority update notification only to them.
 
 As stated in the release blog post, the location information is _not_ provided by your local Home Assistant installation but is instead gathered by comparing your IP address against the [GeoLite2 data created by MaxMind][geolite]. From their documentation:
 
 > IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household.
 
-## {% linkable_title Why is it enabled by default %}
+## Why is it enabled by default
 We decided to have it enabled by default because we consider the information that is gathered not harmful. We understand that not everyone will agree with us and so we have provided [multiple ways to opt out][opt-out].
 
 It is in our short-term planning to add an option to control this to our frontend.
 
-## {% linkable_title Source Code %}
-The source code of our updater AWS Lambda function is now available [here][source].
-
-
 [0.31]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/#comment-2965607849
 [geolite]: https://dev.maxmind.com/geoip/geoip2/geolite2/
-[opt-out]: /components/updater/
+[opt-out]: /integrations/updater/
 [rpi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
-[source]: https://github.com/home-assistant/Analytics-Receiver

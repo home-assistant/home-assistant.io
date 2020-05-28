@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Cloud Update"
 description: "Alexa skill now live in Germany, UK, Canada, Australia and India."
 date: 2018-02-19 01:00:00
 date_formatted: "February 19, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Cloud
 ---
 

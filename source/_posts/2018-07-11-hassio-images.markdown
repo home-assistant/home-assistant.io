@@ -1,19 +1,17 @@
 ---
-layout: post
 title: "New Hass.io images, based on HassOS"
 description: "We have released HassOS, a brand new operating system for the purpose of running Hass.io"
 date: 2018-07-11 00:00:00
 date_formatted: "July 11, 2018"
 author: Pascal Vizeli
 author_twitter: pvizeli
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-07-hassio-images/blogpost.png
 ---
 
 After 4 months of hard work, we are happy to announce our new images for Hass.io, based on HassOS. HassOS is a brand new operating system that we have created specifically for the purpose of running Hass.io. And yes, this supports the Raspberry Pi 3 B+!
 
-## {% linkable_title What is new %}
+## What is new
 
 We have built HassOS on top of the [Buildroot] framework. The focus of the system is to be a very small and highly efficient operating system to run Docker like a hypervisor. It has just enough software installed, to run a supervisor. We have also focused on security, there are, for example, no default passwords and we use [AppArmor] to protect the applications and containers on HassOS.
 
@@ -29,7 +27,7 @@ Key features:
 - Bluetooth support using Bluez
 - Supports lot different hardware
 
-## {% linkable_title Migration %}
+## Migration
 
 The design of HassOS is different from ResinOS. Because of this, we can't provide an OTA update from the old ResinOS system to the new HassOS based system.
 
@@ -46,7 +44,7 @@ You need to perform the following steps to upgrade:
 9. Restore your snapshot via the Hass.io panel.
 10. Done!
 
-## {% linkable_title Future %}
+## Future
 
 HassOS is a wonderful base system and allows us to start working on integrating all kinds of amazing features into Hass.io (and bring them to the UI as well). For example, we are planning on bringing network and Bluetooth configuration possibilities into the UI. The goal is a full featured hub system that allows anybody to use Home Assistant.
 

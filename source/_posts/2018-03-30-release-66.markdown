@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "0.66: VeSync switches, HomematicIP, and a group cover."
 description: "Fabulous release 0.66 has landed! Tons of fixes, improvements and joy."
 date: 2018-03-30 00:01:00
 date_formatted: "March 30, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-03-0.66/components.png
 ---
 
-<a href='/components/#version/0.66'><img src='/images/blog/2018-03-0.66/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.66'><img src='/images/blog/2018-03-0.66/components.png' style='border: 0;box-shadow: none;'></a>
 
 This is the first release with our new release schedule. During the extra week we had a total of 4 beta releases with a total of [26 fixes](https://github.com/home-assistant/home-assistant/milestone/128?closed=1). So this should be the most stable release yet!
 
@@ -36,30 +34,30 @@ A quick note if you are using Philips Hue and a Hue custom component: it will no
 - Add trafikverket_weatherstation sensor platform ([@Qxlkdr] - [#12115]) ([sensor.trafikverket_weatherstation docs]) (new-platform)
 - Security fix & lock for HomeMatic ([@PH89] - [#11980]) ([homematic docs]) ([lock docs]) ([lock.homematic docs]) (breaking change) (new-platform)
 
-## {% linkable_title Release 0.66.1 - April 1 %}
+## Release 0.66.1 - April 1
 
 - Update frontend to fix climate and chart issues ([@NovapaX] & [@c727])
 - Fix mqtt_json color commands ([@armills] - [#13617]) ([light.mqtt_json docs])
 - Add pincode fallback ([@cdce8p] - [#13587]) ([homekit docs])
 - Fix mysensors sensor type lookup ([@MartinHjelmare] - [#13574]) ([sensor.mysensors docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 ## Breaking Changes
 
-- Refactor Hue: If you specify a bridge in your config, the `host` key is now required and needs to be a valid ip address. Option `allow_in_emulated_hue` has been removed. Exclude the lights via the emulated hue config. Due to the internal changes of how the Hue integration works, any Hue custom component will no longer work. ([@balloob] - [#13043]) ([hue docs]) ([light.hue docs]) (breaking change)
+- Refactor Hue: If you specify a bridge in your config, the `host` key is now required and needs to be a valid IP address. Option `allow_in_emulated_hue` has been removed. Exclude the lights via the emulated hue config. Due to the internal changes of how the Hue integration works, any Hue custom component will no longer work. ([@balloob] - [#13043]) ([hue docs]) ([light.hue docs]) (breaking change)
 - Z-Wave: In version 0.47, the opt-in `new_entity_ids` configuration was added to Z-Wave to smooth the transition through the change. Support for old entity IDs is now removed, and the configuration is no longer necessary. If you are migrating from 0.63 or higher, your entity IDs will already be stored in the Entity Registry and no changes are required. If not, entity IDs can now be manually configured using the Entity Registry if necessary. ([@armills] - [#12652]) ([zwave docs]) (breaking change)
 - Spotcrime sensor: This update changes the sensor to require a user supplied API key as a configuration entry. The default key has been removed from the Spotcrime package and has also been modified to accept a user supplied API key.([@jcconnell] - [#12926]) ([sensor.spotcrime docs]) (breaking change)
 - Smappee sensor: Fixed SI units for current consumption. Total consumption should be in kWh. not kW. ([@vandenberghev] - [#13190]) ([sensor.smappee docs]) (breaking change)
 - System monitor sensor: Used and available swap space reported by the system monitor component is now measured in MiB instead of GiB. ([@DanNixon] - [#13148]) ([sensor.systemmonitor docs]) (breaking change)
-- HomeKit: The `pincode` parameter is deprecated, since the `HomeKit` component will now generate one for you and display it as a persistence notification during setup. Additionally the default `port` changed to `51827` to avoid potential conflicts with `homebridge`. Lastly to fix a major bug, we needed to change the way accessory ids are generated. This means that in turn all previous accessory settings will need to be repeated. To avoid future conflicts, it is highly recommended to remove the `Home Assistant Bridge` from the `Home` app and repeat the setup process. ([HomeKit Setup](/components/homekit/#setup)) ([@cdce8p] - [#12997]) ([homekit docs]) (breaking change) (new-platform)
+- HomeKit: The `pincode` parameter is deprecated, since the `HomeKit` component will now generate one for you and display it as a persistence notification during setup. Additionally the default `port` changed to `51827` to avoid potential conflicts with `homebridge`. Lastly to fix a major bug, we needed to change the way accessory ids are generated. This means that in turn all previous accessory settings will need to be repeated. To avoid future conflicts, it is highly recommended to remove the `Home Assistant Bridge` from the `Home` app and repeat the setup process. ([HomeKit Setup](/integrations/homekit/#setup)) ([@cdce8p] - [#12997]) ([homekit docs]) (breaking change) (new-platform)
 - Tibber: The name and the entity id for the Tibber sensor will now be the same as the nickname from the app. Default nick name is the address. So if you have not changed the nickname in the app, everything should be as before. ([@clementhk] - [#13231]) ([sensor.tibber docs]) (breaking change)
 - Darsky sensor: Fix the incorrect unit of measurement for the 'Precip Intensity' and 'Daily Max Precip Intensity' for IS units according to the dark sky api documentation.([@cgtobi] - [#13415]) ([sensor.darksky docs]) (breaking change)
 - HomeMatic: Locks are now under the lock component ([@PH89] - [#11980]) ([homematic docs]) ([lock docs]) ([lock.homematic docs]) (breaking change) (new-platform)
@@ -93,7 +91,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove crazy JSON encoding things that are no longer used ([@balloob] - [#13029]) ([http docs]) ([websocket_api docs])
 - Disable Monkey Patch for 3.6.3+ ([@OttoWinter] - [#13150])
 - Upgrade Sphinx to 1.7.1 ([@fabaff] - [#13127])
-- upgrade tibber libary to 0.4.0 to use aiohttp 3.0 ([@danielhiversen] - [#13164]) ([sensor.tibber docs])
+- upgrade tibber library to 0.4.0 to use aiohttp 3.0 ([@danielhiversen] - [#13164]) ([sensor.tibber docs])
 - Change iglo port to cv.port validator ([@jesserockz] - [#13163]) ([light.iglo docs])
 - deConz rewrite to use async await syntax ([@Kane610] - [#13151]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([scene.deconz docs]) ([sensor.deconz docs])
 - Upgrade holidays to 0.9.4 ([@OttoWinter] - [#13167]) ([binary_sensor.workday docs])
@@ -156,7 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support for security systems controlled by IFTTT ([@maxclaey] - [#12975]) ([alarm_control_panel.ifttt docs]) (new-platform)
 - Add ecobee fan mode ([@uchagani] - [#12732]) ([ecobee docs]) ([climate.ecobee docs])
 - Zigbee fan ([@igorbernstein2] - [#12289]) ([zha docs]) ([fan.zha docs]) (new-platform)
-- Update plex.py ([@chronm] - [#12157]) ([sensor.plex docs])
+- Update plex.py ([@kraddatz] - [#12157]) ([sensor.plex docs])
 - Support MQTT Lock discovery ([@molobrakos] - [#13303]) ([mqtt docs]) ([lock.mqtt docs])
 - Adding a discoverable Samsung Syncthru Printer sensor platform ([@nielstron] - [#13134]) ([sensor.syncthru docs]) (new-platform)
 - Use hue/sat as internal light color interface ([@armills] - [#11288]) ([light docs])
@@ -406,7 +404,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cburgess]: https://github.com/cburgess
 [@cdce8p]: https://github.com/cdce8p
 [@cgtobi]: https://github.com/cgtobi
-[@chronm]: https://github.com/chronm
+[@kraddatz]: https://github.com/kraddatz
 [@clementhk]: https://github.com/clementhk
 [@danielhiversen]: https://github.com/danielhiversen
 [@danielperna84]: https://github.com/danielperna84
@@ -449,123 +447,123 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@uchagani]: https://github.com/uchagani
 [@vandenberghev]: https://github.com/vandenberghev
-[alarm_control_panel.ifttt docs]: /components/alarm_control_panel.ifttt/
-[binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.mysensors docs]: /components/binary_sensor.mysensors/
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[calendar.caldav docs]: /components/calendar.caldav/
-[calendar.google docs]: /components/calendar.google/
-[calendar.todoist docs]: /components/calendar.todoist/
-[camera.onvif docs]: /components/camera.onvif/
-[camera.xeoma docs]: /components/camera.xeoma/
-[climate.ecobee docs]: /components/climate.ecobee/
-[climate.eq3btsmart docs]: /components/climate.eq3btsmart/
-[climate.sensibo docs]: /components/climate.sensibo/
-[cloud docs]: /components/cloud/
-[cover.group docs]: /components/cover.group/
-[cover.template docs]: /components/cover.template/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[doorbird docs]: /components/doorbird/
-[downloader docs]: /components/downloader/
-[ecobee docs]: /components/ecobee/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[fan.zha docs]: /components/fan.zha/
-[hassio docs]: /components/hassio/
-[history docs]: /components/history/
-[homekit docs]: /components/homekit/
-[homematic docs]: /components/homematic/
-[homematicip docs]: /components/homematicip/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[http docs]: /components/http/
-[hue docs]: /components/hue/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[light docs]: /components/light/
-[light.deconz docs]: /components/light.deconz/
-[light.flux_led docs]: /components/light.flux_led/
-[light.hue docs]: /components/light.hue/
-[light.hyperion docs]: /components/light.hyperion/
-[light.iglo docs]: /components/light.iglo/
-[light.limitlessled docs]: /components/light.limitlessled/
-[light.mysensors docs]: /components/light.mysensors/
-[light.mystrom docs]: /components/light.mystrom/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.zha docs]: /components/light.zha/
-[lock docs]: /components/lock/
-[lock.bmw_connected_drive docs]: /components/lock.bmw_connected_drive/
-[lock.homematic docs]: /components/lock.homematic/
-[lock.mqtt docs]: /components/lock.mqtt/
-[logbook docs]: /components/logbook/
-[media_extractor docs]: /components/media_extractor/
-[media_player.bluesound docs]: /components/media_player.bluesound/
-[media_player.cast docs]: /components/media_player.cast/
-[media_player.channels docs]: /components/media_player.channels/
-[media_player.kodi docs]: /components/media_player.kodi/
+[alarm_control_panel.ifttt docs]: /integrations/alarm_control_panel.ifttt/
+[binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.mysensors docs]: /integrations/binary_sensor.mysensors/
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.workday docs]: /integrations/workday
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[calendar.caldav docs]: /integrations/caldav
+[calendar.google docs]: /integrations/calendar.google/
+[calendar.todoist docs]: /integrations/todoist
+[camera.onvif docs]: /integrations/onvif
+[camera.xeoma docs]: /integrations/xeoma
+[climate.ecobee docs]: /integrations/ecobee
+[climate.eq3btsmart docs]: /integrations/eq3btsmart
+[climate.sensibo docs]: /integrations/sensibo
+[cloud docs]: /integrations/cloud/
+[cover.group docs]: /integrations/cover.group/
+[cover.template docs]: /integrations/cover.template/
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[doorbird docs]: /integrations/doorbird/
+[downloader docs]: /integrations/downloader/
+[ecobee docs]: /integrations/ecobee/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[fan.zha docs]: /integrations/zha
+[hassio docs]: /integrations/hassio/
+[history docs]: /integrations/history/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip docs]: /integrations/homematicip/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[hue docs]: /integrations/hue/
+[image_processing.opencv docs]: /integrations/opencv
+[light docs]: /integrations/light/
+[light.deconz docs]: /integrations/deconz#light
+[light.flux_led docs]: /integrations/flux_led
+[light.hue docs]: /integrations/hue
+[light.hyperion docs]: /integrations/hyperion
+[light.iglo docs]: /integrations/iglo
+[light.limitlessled docs]: /integrations/limitlessled
+[light.mysensors docs]: /integrations/light.mysensors/
+[light.mystrom docs]: /integrations/mystrom#light
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.zha docs]: /integrations/zha
+[lock docs]: /integrations/lock/
+[lock.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[lock.homematic docs]: /integrations/homematic
+[lock.mqtt docs]: /integrations/lock.mqtt/
+[logbook docs]: /integrations/logbook/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.cast docs]: /integrations/cast
+[media_player.channels docs]: /integrations/channels
+[media_player.kodi docs]: /integrations/kodi
 [@NovapaX]: https://github.com/NovapaX
-[media_player.mediaroom docs]: /components/media_player.mediaroom/
-[media_player.mpchc docs]: /components/media_player.mpchc/
-[media_player.philips_js docs]: /components/media_player.philips_js/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.songpal docs]: /components/media_player.songpal/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.spotify docs]: /components/media_player.spotify/
-[mqtt docs]: /components/mqtt/
-[mysensors docs]: /components/mysensors/
-[nest docs]: /components/nest/
-[notify docs]: /components/notify/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[scene.deconz docs]: /components/scene.deconz/
-[sensor.bmw_connected_drive docs]: /components/sensor.bmw_connected_drive/
-[sensor.crimereports docs]: /components/sensor.crimereports/
-[sensor.darksky docs]: /components/sensor.darksky/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
-[sensor.eddystone_temperature docs]: /components/sensor.eddystone_temperature/
-[sensor.filter docs]: /components/sensor.filter/
-[sensor.foobot docs]: /components/sensor.foobot/
-[sensor.glances docs]: /components/sensor.glances/
-[sensor.homematic docs]: /components/sensor.homematic/
-[sensor.homematicip docs]: /components/sensor.homematicip/
-[sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
-[sensor.lacrosse docs]: /components/sensor.lacrosse/
-[sensor.mqtt docs]: /components/sensor.mqtt/
-[sensor.mysensors docs]: /components/sensor.mysensors/
-[sensor.plex docs]: /components/sensor.plex/
-[sensor.smappee docs]: /components/sensor.smappee/
-[sensor.spotcrime docs]: /components/sensor.spotcrime/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.syncthru docs]: /components/sensor.syncthru/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.template docs]: /components/sensor.template/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.trafikverket_weatherstation docs]: /components/sensor.trafikverket_weatherstation/
-[sensor.vasttrafik docs]: /components/sensor.vasttrafik/
-[sensor.wunderground docs]: /components/sensor.wunderground/
-[sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
-[spc docs]: /components/spc/
-[switch.doorbird docs]: /components/switch.doorbird/
-[switch.edimax docs]: /components/switch.edimax/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.vesync docs]: /components/switch.vesync/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[switch.zha docs]: /components/switch.zha/
-[telegram_bot docs]: /components/telegram_bot/
-[upcloud docs]: /components/upcloud/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[weather.darksky docs]: /components/weather.darksky/
-[websocket_api docs]: /components/websocket_api/
-[zeroconf docs]: /components/zeroconf/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[media_player.mediaroom docs]: /integrations/mediaroom
+[media_player.mpchc docs]: /integrations/mpchc
+[media_player.philips_js docs]: /integrations/philips_js
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.songpal docs]: /integrations/songpal
+[media_player.sonos docs]: /integrations/sonos
+[media_player.spotify docs]: /integrations/spotify
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[nest docs]: /integrations/nest/
+[notify docs]: /integrations/notify/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[scene.deconz docs]: /integrations/deconz#scene
+[sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[sensor.crimereports docs]: /integrations/crimereports
+[sensor.darksky docs]: /integrations/darksky
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.deutsche_bahn docs]: /integrations/deutsche_bahn
+[sensor.eddystone_temperature docs]: /integrations/eddystone_temperature
+[sensor.filter docs]: /integrations/filter
+[sensor.foobot docs]: /integrations/foobot
+[sensor.glances docs]: /integrations/glances
+[sensor.homematic docs]: /integrations/homematic
+[sensor.homematicip docs]: /integrations/homematicip/
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.lacrosse docs]: /integrations/lacrosse
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.mysensors docs]: /integrations/sensor.mysensors/
+[sensor.plex docs]: /integrations/plex#sensor
+[sensor.smappee docs]: /integrations/sma#sensorsppee/
+[sensor.spotcrime docs]: /integrations/spotcrime
+[sensor.sql docs]: /integrations/sql
+[sensor.syncthru docs]: /integrations/syncthru
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.template docs]: /integrations/template
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation
+[sensor.vasttrafik docs]: /integrations/vasttrafik
+[sensor.wunderground docs]: /integrations/wunderground
+[sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
+[spc docs]: /integrations/spc/
+[switch.doorbird docs]: /integrations/doorbird#switch
+[switch.edimax docs]: /integrations/edimax
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.vesync docs]: /integrations/vesync#switches
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[switch.zha docs]: /integrations/zha
+[telegram_bot docs]: /integrations/telegram_bot/
+[upcloud docs]: /integrations/upcloud/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[weather.darksky docs]: /integrations/weather.darksky/
+[websocket_api docs]: /integrations/websocket_api/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/
 [#13574]: https://github.com/home-assistant/home-assistant/pull/13574
 [#13587]: https://github.com/home-assistant/home-assistant/pull/13587
 [#13617]: https://github.com/home-assistant/home-assistant/pull/13617
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@armills]: https://github.com/armills
 [@cdce8p]: https://github.com/cdce8p
-[homekit docs]: /components/homekit/
-[light.mqtt_json docs]: /components/light.mqtt_json/
-[sensor.mysensors docs]: /components/sensor.mysensors/
+[homekit docs]: /integrations/homekit/
+[light.mqtt_json docs]: /integrations/light.mqtt
+[sensor.mysensors docs]: /integrations/sensor.mysensors/

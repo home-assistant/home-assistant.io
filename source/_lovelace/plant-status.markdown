@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Plant Status Card"
 sidebar_label: Plant Status
-description: "The Plant card gives you an easy way of viewing the status of your plants"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "The Plant Status card is for all the lovely botanists out there."
 ---
 
-A card for all the lovely botanists out there.
+The Plant Status card is for all the lovely botanists out there.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_plant_card.png' alt='Screenshot of the plant status card'>
@@ -31,9 +25,13 @@ name:
   description: Overwrites Friendly Name
   type: string
   default: Entity Name
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: plant-status

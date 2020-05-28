@@ -1,19 +1,17 @@
 ---
-layout: post
 title: "Lovelace UI released!"
 description: "After 8 months of development, we're proud to release our brand new Lovelace UI."
 date: 2019-01-23 00:01:02
 date_formatted: "January 23, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-01-lovelace/demo.png
 ---
 
 Today we're happy to announce that our new Lovelace UI, which has been in beta for the last 8 months, is becoming the new default interface of [Home Assistant 0.86](/blog/2019/01/23/release-86/). With Lovelace we're taking a new approach to building user interfaces for Home Assistant. We're no longer storing the look and feel of your UI in your configuration.yaml, requiring restarts for changes. With Lovelace we're keeping the UI concerns in the UI<sup>1</sup>, unlocking a whole new set of features:
 
- - [24 cards](https://www.home-assistant.io/lovelace/alarm-panel/) to place and configure as you like.
+ - [24 cards](/lovelace/alarm-panel/) to place and configure as you like.
  - UI Editor. A configuration UI to manage your Lovelace UI including live preview when editing cards.
  - Fast. Using a static config allows us to build up the UI once.
  - Customizable.
@@ -34,11 +32,11 @@ For an overview of all the different features, check out the [Lovelace documenta
 
 <sup>1</sup>: If you prefer to write your Lovelace config in YAML, Lovelace also includes an optional [YAML mode](/lovelace/yaml-mode/).
 
-## {% linkable_title Migrating to Lovelace %}
+## Migrating to Lovelace
 
 You have to do… nothing! If not configured, Lovelace will use the same algorithm to built-up the UI as the old UI did.
 
-## {% linkable_title History %}
+## History
 
 With Lovelace we've built a foundation that not only provides a lean and sleek interface, but will also allow us to add many new exciting features in the future. The main difference with the old UI is that we no longer store any UI concerns in the state machine.
 
@@ -58,7 +56,7 @@ To make configuring your UI as easy as possible, Lovelace UI allows (custom) car
 
 Because of the ease to customize and share customizations, we've already seen a big community get created around Lovelace. They are very active in the #lovelace channel on [our chat](/join-chat/), and work is shared on [ShareTheLove.io](https://sharethelove.io/) and the [Lovelace section on Awesome HA](https://www.awesome-ha.com/#lovelace-ui).
 
-## {% linkable_title Credits %}
+## Credits
 
 Lovelace UI has been 8 months in the making and it has been a big undertaking. We've worked hard and are proud of being able to ship this first version. Lovelace UI would not have been possible without the following current and former members of the Lovelace team:
 
@@ -73,7 +71,7 @@ Lovelace UI has been 8 months in the making and it has been a big undertaking. W
 
 I also want to thank the community for adopting this so eagerly, building a ton of helpful tooling and examples and helping one another to create beautiful UIs for their homes.
 
-## {% linkable_title Old UI %}
+## Old UI
 
 The transition to Lovelace should be painless for most users. If you are encountering issues, please [let us know](https://github.com/home-assistant/home-assistant-polymer/issues). For the time being, you will be able to still change back to the old user interface on a per-device basis by going to the info developer tool and following the instructions.
 

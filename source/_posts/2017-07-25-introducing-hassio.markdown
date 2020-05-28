@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Introducing Hass.io"
 description: "The ultimate home automation hub has arrived."
 date: 2017-07-25 00:02:05 +0000
 date_formatted: "July 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/hassio/screenshots/dashboard.png
 ---
@@ -48,27 +46,27 @@ Hass.io has been built by [Pascal Vizeli], the UI has been made by [Paulus Schou
 
 <!--more-->
 
-#### {% linkable_title Will Hass.io be the only way to run Home Assistant? %}
+#### Will Hass.io be the only way to run Home Assistant?
 
 Hass.io is and will always be optional. You can still run Home Assistant wherever you can run Python.
 
-#### {% linkable_title Which devices are supported at launch? %}
+#### Which devices are supported at launch?
 
 Initially we support the Raspberry Pi 1, 2, 3 and Intel NUC. Advanced users can also [install Hass.io on a Linux server][advanced-install].
 
-#### {% linkable_title Can I install packages or scripts on the machine? %}
+#### Can I install packages or scripts on the machine?
 
 No, this is not possible as we're using stateless Docker containers. To install a package you'll have to write a local add-on that interacts with Home Assistant. See [our tutorial][run-local].
 
-#### {% linkable_title Can I restore a snapshot on a different device? %}
+#### Can I restore a snapshot on a different device?
 
 Yes, any Hass.io snapshot can be restored on any device.
 
-#### {% linkable_title The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login? %}
+#### The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login?
 
 This is in the works. We have already implemented [the backend](https://github.com/home-assistant/hassio/pull/41) and plan to release the UI soon.
 
-#### {% linkable_title Is there a roadmap? %}
+#### Is there a roadmap?
 
 We use [Pivotal Tracker] to track things that are in progress and what we might work on.
 
@@ -93,5 +91,4 @@ We use [Pivotal Tracker] to track things that are in progress and what we might 
 [Duck DNS]: /addons/duckdns/
 [advanced-install]: /hassio/installation/#alternative-install-on-generic-linux-server
 [Pivotal Tracker]: https://www.pivotaltracker.com/n/projects/2020851
-[run-local]: /hassio/run_local/
 [Resin.io]: https://resin.io

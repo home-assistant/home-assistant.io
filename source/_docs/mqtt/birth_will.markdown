@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Birth and Last will"
 description: "Instructions on how to setup MQTT birth and last will messages within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
@@ -47,7 +41,7 @@ birth_message:
     retain:
       description: If the published message should have the retain flag on or not.
       required: false
-      default: true
+      default: false
       type: boolean
 will_message:
   description: Will Message
@@ -70,6 +64,6 @@ will_message:
     retain:
       description: If the published message should have the retain flag on or not.
       required: false
-      default: true
+      default: false
       type: boolean
 {% endconfiguration %}

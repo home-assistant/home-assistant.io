@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "0.88: Persons, Command line auth and event subscriptions"
 description: "Happy new release day to all of you! Great features, solid bug fixes and performance gains."
 date: 2019-02-20 00:11:03
 date_formatted: "February 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-02-release-88/components.png
 ---
 
-<a href='/components/#version/0.88'><img src='/images/blog/2019-02-release-88/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.88'><img src='/images/blog/2019-02-release-88/components.png' style='border: 0;box-shadow: none;'></a>
 
 Release 0.88 has landed. It's been a busy two weeks with a ton of cool stuff and improvements.
 
@@ -25,7 +23,7 @@ We also have a new command line auth provider. This will allow you to use a shel
 
 [@andrewsayre] has been working hard on extending the SmartThings support. This release brings sensors and climate devices into the mix. Awesome!
 
-## {% linkable_title Noteworthy breaking changes %}
+## Noteworthy breaking changes
 
 We have tightened config validation, so expect a couple of new warnings. Platform configuration will no longer allow to contain keys that are not supported. This should help with finding typos in your current and future YAML configs. This will currently fallback to a warning and will become a full error in the future.
 
@@ -33,7 +31,7 @@ Note for Lovelace custom card developers: if you relied on the availability of `
 
 Note for custom component developers: We are moving to a new file structure. More information on [our dev blog](https://developers.home-assistant.io/blog/2019/02/19/the-great-migration.html).
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Split googlehome to a component with device tracker platform ([@ludeeus] - [#19971]) ([device_tracker docs]) ([googlehome docs]) (breaking change) (new-platform)
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
@@ -55,7 +53,7 @@ Note for custom component developers: We are moving to a new file structure. Mor
 - Norway air quality ([@Danielhiversen] - [#20683]) (new-platform)
 - Add Lock capability to SmartThings platform ([@bendews] - [#20977]) ([smartthings docs]) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
 - Added HomeKit fan speed based on speed_list ([@nd-net] - [#19767]) ([homekit docs]) (new-feature)
@@ -65,7 +63,7 @@ Note for custom component developers: We are moving to a new file structure. Mor
 - Add quirks info to ZHA device ([@dmulcahey] - [#20923]) ([zha docs]) (new-feature)
 - Added IDs and enabled workarounds for Yale YRD220, YRL220, YRD120 ([@mw-white] - [#20929]) ([zwave docs]) (new-feature)
 
-## {% linkable_title Release 0.88.1 - February 21 %}
+## Release 0.88.1 - February 21
 
 - Fix ZHA bugs ([@dmulcahey] - [#21246]) ([zha docs])
 - Add missing configuration option to plex ([@elupus] - [#21264]) ([media_player.plex docs])
@@ -86,24 +84,51 @@ Note for custom component developers: We are moving to a new file structure. Mor
 [@balloob]: https://github.com/balloob
 [@dmulcahey]: https://github.com/dmulcahey
 [@elupus]: https://github.com/elupus
-[ambient_station docs]: /components/ambient_station/
-[light.yeelight docs]: /components/light.yeelight/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[sensor.imap_email_content docs]: /components/sensor.imap_email_content/
-[zha docs]: /components/zha/
+[ambient_station docs]: /integrations/ambient_station/
+[light.yeelight docs]: /integrations/yeelight
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.samsungtv docs]: /integrations/samsungtv
+[sensor.imap_email_content docs]: /integrations/imap_email_content/
+[zha docs]: /integrations/zha/
 
-## {% linkable_title If you need help... %}
+## Release 0.88.2 - February 27
+
+- Make sure that device trackers is always a list during creation ([@balloob] - [#21193]) ([person docs])
+- Allow custom_effect to be absent from Flux configuration ([@conleydg] - [#21317]) ([light.flux_led docs])
+- Fix person update on create ([@MartinHjelmare] - [#21355]) ([person docs])
+- Scene validator fix ([@yosilevy] - [#21362]) ([scene docs])
+- Improve tolerance of SmartThings Climate platform ([@andrewsayre] - [#21383]) ([smartthings docs])
+- Bump PyXiaomiGateway version to 0.11.2 ([@syssi] - [#21453]) ([xiaomi_aqara docs])
+
+[#21193]: https://github.com/home-assistant/home-assistant/pull/21193
+[#21317]: https://github.com/home-assistant/home-assistant/pull/21317
+[#21355]: https://github.com/home-assistant/home-assistant/pull/21355
+[#21362]: https://github.com/home-assistant/home-assistant/pull/21362
+[#21383]: https://github.com/home-assistant/home-assistant/pull/21383
+[#21453]: https://github.com/home-assistant/home-assistant/pull/21453
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@andrewsayre]: https://github.com/andrewsayre
+[@balloob]: https://github.com/balloob
+[@conleydg]: https://github.com/conleydg
+[@syssi]: https://github.com/syssi
+[@yosilevy]: https://github.com/yosilevy
+[light.flux_led docs]: /integrations/flux_led
+[person docs]: /integrations/person/
+[scene docs]: /integrations/scene/
+[smartthings docs]: /integrations/smartthings/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Split googlehome to a component with device tracker platform ([@ludeeus] - [#19971]) ([device_tracker docs]) ([googlehome docs]) (breaking change) (new-platform)
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
@@ -121,7 +146,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Return None if no GTFS departures found ([@renemarc] - [#20919]) ([sensor.gtfs docs]) (breaking change) (beta fix)
 - Set aioharmony version to 0.1.8 ([@ehendrix23] - [#21213]) ([harmony docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Set ZHA device availability on new join ([@dmulcahey] - [#21066]) ([zha docs]) (beta fix)
 - Set uvloop version consistent with hass.io ([@philhawthorne] - [#21080]) (beta fix)
@@ -139,24 +164,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - SmartThings Component Enhancements/Fixes ([@andrewsayre] - [#21085]) ([smartthings docs]) (beta fix)
 - Fix SmartThings Translation Error ([@andrewsayre] - [#21103]) ([smartthings docs]) (beta fix)
 - Fix track_change error in utility_meter ([@dgomes] - [#21134]) ([utility_meter docs]) (beta fix)
-- Update pyEight for Python 3.7 Compatability ([@mezz64] - [#21161]) ([eight_sleep docs]) (beta fix)
+- Update pyEight for Python 3.7 Compatibility ([@mezz64] - [#21161]) ([eight_sleep docs]) (beta fix)
 - Add power source to device and clean up zha listeners ([@dmulcahey] - [#21174]) ([zha docs]) (beta fix)
 - Fix for #19072 ([@sjabby] - [#21175]) ([light.flux_led docs]) (beta fix)
 - Upgrade aioimaplib for Python 3.7 compatibility ([@amelchio] - [#21197]) ([sensor.imap docs]) (beta fix)
-- ordered by last occurence ([@dgomes] - [#21200]) ([system_log docs]) (beta fix)
+- ordered by last occurrence ([@dgomes] - [#21200]) ([system_log docs]) (beta fix)
 - Set aioharmony version to 0.1.8 ([@ehendrix23] - [#21213]) ([harmony docs]) (breaking change) (beta fix)
 - Push pyads to 3.0.7 ([@carstenschroeder] - [#21216]) ([ads docs]) (beta fix)
 - Refactor ZHA listeners into channels ([@dmulcahey] - [#21196]) ([zha docs]) (beta fix)
 - Fix an Ambient PWS exception when location info is missing ([@bachya] - [#21220]) ([ambient_station docs]) (beta fix)
 - Prevent invalid context from crashing ([@balloob] - [#21231]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Fix typo in config entries doc ([@therve] - [#20619]) ([point docs])
 - Update synology-srm dependency to 0.0.4 ([@aerialls] - [#20625]) ([device_tracker docs])
 - Add precision parameter to dsmr sensor ([@zumitnl] - [#19873]) ([sensor.dsmr docs])
 - Split googlehome to a component with device tracker platform ([@ludeeus] - [#19971]) ([device_tracker docs]) ([googlehome docs]) (breaking change) (new-platform)
-- Move mqtt_mock to tests/components/mqtt/conftest.py ([@awarecan] - [#20621])
+- Move mqtt_mock to tests/integrations/mqtt/conftest.py ([@awarecan] - [#20621])
 - Revert #20611: code in Abode alarm panel ([@arsaboo] - [#20629]) ([alarm_control_panel.abode docs])
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
 - Fix xiaomi default gateway in services ([@therve] - [#20623]) ([xiaomi_aqara docs])
@@ -181,13 +206,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add ZHA binary sensor tests ([@dmulcahey] - [#20711])
 - Add ZHA fan tests ([@dmulcahey] - [#20712])
 - Add ZHA light tests ([@dmulcahey] - [#20713])
-- Add google home alarm sensor ([@eliseomartelli] - [#20709]) ([googlehome docs]) (new-platform)
+- Add google home alarm sensor ([@eliseomartelli] - [#20709]) (googlehome docs) (new-platform)
 - Add missing abbreviations ([@emontnemery] - [#20741]) ([mqtt docs])
 - Update pysmartthings to 0.5.0 ([@andrewsayre] - [#20759]) ([smartthings docs])
 - Use PLATFORM_SCHEMA_BASE as base schema for additional components. ([@emontnemery] - [#20578]) (breaking change)
 - Update flake8 to 3.7.5 ([@Danielhiversen] - [#20761]) ([cast docs]) ([device_tracker docs]) ([isy994 docs])
 - Modifying MTUs acquisition ([@SupremeSports] - [#20654]) ([sensor.ted5000 docs])
-- Fix googlehome alarm sensor platform ([@eliseomartelli] - [#20742]) ([googlehome docs])
+- Fix googlehome alarm sensor platform ([@eliseomartelli] - [#20742]) (googlehome docs)
 - SMHI component: Bugfix - calc precipitation ([@helto4real] - [#20745]) ([smhi docs])
 - Added HomeKit fan speed based on speed_list ([@nd-net] - [#19767]) ([homekit docs]) (new-feature)
 - Reproduce states by letting each component opt in on handling state recovery itself ([@elupus] - [#18700])
@@ -256,7 +281,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update denonavr to 0.7.8 (add various sound modes) ([@scarface-4711] - [#20951]) ([media_player.denonavr docs])
 - Add missing data fields to Ambient PWS ([@bachya] - [#20808]) ([ambient_station docs]) ([sensor.ambient_station docs])
 - HomematicIP fix cover direction ([@mxworm] - [#20901]) ([homematicip_cloud docs])
-- Update pyHS100 to 0.3.4 ([@StefanBCN] - [#20979]) ([light.tplink docs]) ([switch.tplink docs])
+- Update pyHS100 to 0.3.4 ([@stefnb] - [#20979]) ([light.tplink docs]) ([switch.tplink docs])
 - Upgrade slixmpp to 1.4.2 ([@fabaff] - [#20971]) ([notify docs])
 - Upgrade ruamel.yaml to 0.15.87 ([@fabaff] - [#20955])
 - Set cover level using emulated_hue ([@ptc] - [#19594]) ([emulated_hue docs])
@@ -325,11 +350,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - SmartThings Component Enhancements/Fixes ([@andrewsayre] - [#21085]) ([smartthings docs]) (beta fix)
 - Fix SmartThings Translation Error ([@andrewsayre] - [#21103]) ([smartthings docs]) (beta fix)
 - Fix track_change error in utility_meter ([@dgomes] - [#21134]) ([utility_meter docs]) (beta fix)
-- Update pyEight for Python 3.7 Compatability ([@mezz64] - [#21161]) ([eight_sleep docs]) (beta fix)
+- Update pyEight for Python 3.7 Compatibility ([@mezz64] - [#21161]) ([eight_sleep docs]) (beta fix)
 - Add power source to device and clean up zha listeners ([@dmulcahey] - [#21174]) ([zha docs]) (beta fix)
 - Fix for #19072 ([@sjabby] - [#21175]) ([light.flux_led docs]) (beta fix)
 - Upgrade aioimaplib for Python 3.7 compatibility ([@amelchio] - [#21197]) ([sensor.imap docs]) (beta fix)
-- ordered by last occurence ([@dgomes] - [#21200]) ([system_log docs]) (beta fix)
+- ordered by last occurrence ([@dgomes] - [#21200]) ([system_log docs]) (beta fix)
 - Set aioharmony version to 0.1.8 ([@ehendrix23] - [#21213]) ([harmony docs]) (breaking change) (beta fix)
 - Push pyads to 3.0.7 ([@carstenschroeder] - [#21216]) ([ads docs]) (beta fix)
 - Refactor ZHA listeners into channels ([@dmulcahey] - [#21196]) ([zha docs]) (beta fix)
@@ -529,7 +554,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OnFreund]: https://github.com/OnFreund
 [@OttoWinter]: https://github.com/OttoWinter
 [@Sholofly]: https://github.com/Sholofly
-[@StefanBCN]: https://github.com/StefanBCN
+[@stefnb]: https://github.com/stefnb
 [@SukramJ]: https://github.com/SukramJ
 [@SupremeSports]: https://github.com/SupremeSports
 [@VirtualL]: https://github.com/VirtualL
@@ -593,116 +618,115 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wonderslug]: https://github.com/wonderslug
 [@zumitnl]: https://github.com/zumitnl
-[abode docs]: /components/abode/
-[ads docs]: /components/ads/
-[air_quality docs]: /components/air_quality/
-[alarm_control_panel.abode docs]: /components/alarm_control_panel.abode/
-[alarmdecoder docs]: /components/alarmdecoder/
-[ambient_station docs]: /components/ambient_station/
-[amcrest docs]: /components/amcrest/
-[android_ip_webcam docs]: /components/android_ip_webcam/
-[apcupsd docs]: /components/apcupsd/
-[apple_tv docs]: /components/apple_tv/
-[august docs]: /components/august/
-[binary_sensor.bayesian docs]: /components/binary_sensor.bayesian/
-[binary_sensor.modbus docs]: /components/binary_sensor.modbus/
-[blink docs]: /components/blink/
-[cast docs]: /components/cast/
-[climate.coolmaster docs]: /components/climate.coolmaster/
-[climate.flexit docs]: /components/climate.flexit/
-[climate.modbus docs]: /components/climate.modbus/
-[climate.xs1 docs]: /components/climate.xs1/
-[cover.velux docs]: /components/cover.velux/
-[deconz docs]: /components/deconz/
-[default_config docs]: /components/default_config/
-[device_tracker docs]: /components/device_tracker/
-[ebusd docs]: /components/ebusd/
-[eight_sleep docs]: /components/eight_sleep/
-[emulated_hue docs]: /components/emulated_hue/
-[esphome docs]: /components/esphome/
-[fastdotcom docs]: /components/fastdotcom/
-[feedreader docs]: /components/feedreader/
-[freedns docs]: /components/freedns/
-[google_pubsub docs]: /components/google_pubsub/
-[googlehome docs]: /components/googlehome/
-[harmony docs]: /components/harmony/
-[homekit docs]: /components/homekit/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[http docs]: /components/http/
-[hue docs]: /components/hue/
-[ipma docs]: /components/ipma/
-[isy994 docs]: /components/isy994/
-[knx docs]: /components/knx/
-[light.ads docs]: /components/light.ads/
-[light.flux_led docs]: /components/light.flux_led/
-[light.hyperion docs]: /components/light.hyperion/
-[light.knx docs]: /components/light.knx/
-[light.rflink docs]: /components/light.rflink/
-[light.tplink docs]: /components/light.tplink/
-[lock docs]: /components/lock/
-[media_extractor docs]: /components/media_extractor/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.firetv docs]: /components/media_player.firetv/
-[media_player.universal docs]: /components/media_player.universal/
-[media_player.yamaha docs]: /components/media_player.yamaha/
-[modbus docs]: /components/modbus/
-[mqtt docs]: /components/mqtt/
-[mythicbeastsdns docs]: /components/mythicbeastsdns/
-[netatmo docs]: /components/netatmo/
-[netgear_lte docs]: /components/netgear_lte/
-[norway_air docs]: /components/norway_air/
-[notify docs]: /components/notify/
-[onboarding docs]: /components/onboarding/
-[person docs]: /components/person/
-[point docs]: /components/point/
-[python_script docs]: /components/python_script/
-[rflink docs]: /components/rflink/
-[script docs]: /components/script/
-[sensor.ambient_station docs]: /components/sensor.ambient_station/
-[sensor.co2signal docs]: /components/sensor.co2signal/
-[sensor.cpuspeed docs]: /components/sensor.cpuspeed/
-[sensor.darksky docs]: /components/sensor.darksky/
-[sensor.dsmr docs]: /components/sensor.dsmr/
-[sensor.ebusd docs]: /components/sensor.ebusd/
-[sensor.fastdotcom docs]: /components/sensor.fastdotcom/
-[sensor.github docs]: /components/sensor.github/
-[sensor.gtfs docs]: /components/sensor.gtfs/
-[sensor.imap docs]: /components/sensor.imap/
-[sensor.integration docs]: /components/sensor.integration/
-[sensor.jewish_calendar docs]: /components/sensor.jewish_calendar/
-[sensor.miflora docs]: /components/sensor.miflora/
-[sensor.modbus docs]: /components/sensor.modbus/
-[sensor.rejseplanen docs]: /components/sensor.rejseplanen/
-[sensor.speedtest docs]: /components/sensor.speedtest/
-[sensor.speedtestdotnet docs]: /components/sensor.speedtestdotnet/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.ted5000 docs]: /components/sensor.ted5000/
-[sensor.thermoworks_smoke docs]: /components/sensor.thermoworks_smoke/
-[sensor.xs1 docs]: /components/sensor.xs1/
-[smartthings docs]: /components/smartthings/
-[smhi docs]: /components/smhi/
-[speedtestdotnet docs]: /components/speedtestdotnet/
-[spider docs]: /components/spider/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.modbus docs]: /components/switch.modbus/
-[switch.switchmate docs]: /components/switch.switchmate/
-[switch.tplink docs]: /components/switch.tplink/
-[switch.xs1 docs]: /components/switch.xs1/
-[system_health docs]: /components/system_health/
-[system_log docs]: /components/system_log/
-[thethingsnetwork docs]: /components/thethingsnetwork/
-[timer docs]: /components/timer/
-[tplink_lte docs]: /components/tplink_lte/
-[transmission docs]: /components/transmission/
-[unifi docs]: /components/unifi/
-[updater docs]: /components/updater/
-[utility_meter docs]: /components/utility_meter/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[velux docs]: /components/velux/
-[websocket_api docs]: /components/websocket_api/
-[wink docs]: /components/wink/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[xs1 docs]: /components/xs1/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[abode docs]: /integrations/abode/
+[ads docs]: /integrations/ads/
+[air_quality docs]: /integrations/air_quality/
+[alarm_control_panel.abode docs]: /integrations/abode
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[ambient_station docs]: /integrations/ambient_station/
+[amcrest docs]: /integrations/amcrest/
+[android_ip_webcam docs]: /integrations/android_ip_webcam/
+[apcupsd docs]: /integrations/apcupsd/
+[apple_tv docs]: /integrations/apple_tv/
+[august docs]: /integrations/august/
+[binary_sensor.bayesian docs]: /integrations/bayesian
+[binary_sensor.modbus docs]: /integrations/binary_sensor.modbus/
+[blink docs]: /integrations/blink/
+[cast docs]: /integrations/cast/
+[climate.coolmaster docs]: /integrations/coolmaster
+[climate.flexit docs]: /integrations/flexit
+[climate.modbus docs]: /integrations/climate.modbus/
+[climate.xs1 docs]: /integrations/xs1
+[cover.velux docs]: /integrations/velux
+[deconz docs]: /integrations/deconz/
+[default_config docs]: /integrations/default_config/
+[device_tracker docs]: /integrations/device_tracker/
+[ebusd docs]: /integrations/ebusd/
+[eight_sleep docs]: /integrations/eight_sleep/
+[emulated_hue docs]: /integrations/emulated_hue/
+[esphome docs]: /integrations/esphome/
+[fastdotcom docs]: /integrations/fastdotcom/
+[feedreader docs]: /integrations/feedreader/
+[freedns docs]: /integrations/freedns/
+[google_pubsub docs]: /integrations/google_pubsub/
+[harmony docs]: /integrations/harmony/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[hue docs]: /integrations/hue/
+[ipma docs]: /integrations/ipma/
+[isy994 docs]: /integrations/isy994/
+[knx docs]: /integrations/knx/
+[light.ads docs]: /integrations/ads#light
+[light.flux_led docs]: /integrations/flux_led
+[light.hyperion docs]: /integrations/hyperion
+[light.knx docs]: /integrations/light.knx/
+[light.rflink docs]: /integrations/light.rflink/
+[light.tplink docs]: /integrations/tplink
+[lock docs]: /integrations/lock/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.firetv docs]: /integrations/androidtv
+[media_player.universal docs]: /integrations/universal
+[media_player.yamaha docs]: /integrations/yamaha
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[mythicbeastsdns docs]: /integrations/mythicbeastsdns/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[norway_air docs]: /integrations/norway_air/
+[notify docs]: /integrations/notify/
+[onboarding docs]: /integrations/onboarding/
+[person docs]: /integrations/person/
+[point docs]: /integrations/point/
+[python_script docs]: /integrations/python_script/
+[rflink docs]: /integrations/rflink/
+[script docs]: /integrations/script/
+[sensor.ambient_station docs]: /integrations/ambient_station
+[sensor.co2signal docs]: /integrations/co2signal
+[sensor.cpuspeed docs]: /integrations/cpuspeed
+[sensor.darksky docs]: /integrations/darksky
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.ebusd docs]: /integrations/ebusd
+[sensor.fastdotcom docs]: /integrations/fastdotcom
+[sensor.github docs]: /integrations/github
+[sensor.gtfs docs]: /integrations/gtfs
+[sensor.imap docs]: /integrations/imap
+[sensor.integration docs]: /integrations/integration
+[sensor.jewish_calendar docs]: /integrations/jewish_calendar
+[sensor.miflora docs]: /integrations/miflora
+[sensor.modbus docs]: /integrations/sensor.modbus/
+[sensor.rejseplanen docs]: /integrations/rejseplanen
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.speedtestdotnet docs]: /integrations/speedtestdotnet
+[sensor.sql docs]: /integrations/sql
+[sensor.ted5000 docs]: /integrations/ted5000
+[sensor.thermoworks_smoke docs]: /integrations/thermoworks_smoke
+[sensor.xs1 docs]: /integrations/xs1#sensors
+[smartthings docs]: /integrations/smartthings/
+[smhi docs]: /integrations/smhi/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[spider docs]: /integrations/spider/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.modbus docs]: /integrations/switch.modbus/
+[switch.switchmate docs]: /integrations/switchmate
+[switch.tplink docs]: /integrations/tplink
+[switch.xs1 docs]: /integrations/xs1
+[system_health docs]: /integrations/system_health/
+[system_log docs]: /integrations/system_log/
+[thethingsnetwork docs]: /integrations/thethingsnetwork/
+[timer docs]: /integrations/timer/
+[tplink_lte docs]: /integrations/tplink_lte/
+[transmission docs]: /integrations/transmission/
+[unifi docs]: /integrations/unifi/
+[updater docs]: /integrations/updater/
+[utility_meter docs]: /integrations/utility_meter/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[velux docs]: /integrations/velux/
+[websocket_api docs]: /integrations/websocket_api/
+[wink docs]: /integrations/wink/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[xs1 docs]: /integrations/xs1/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

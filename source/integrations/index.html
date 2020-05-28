@@ -1,0 +1,285 @@
+---
+title: "Integrations"
+description: "List of the built-in integrations of Home Assistant."
+sidebar: false
+is_homepage: true
+hide_github_edit: true
+body_id: components-page
+regenerate: false
+---
+
+{%- comment -%}Can't use where to count nil because of https://github.com/jekyll/jekyll/issues/6038{%- endcomment -%}
+{%- assign tot = 0 -%}
+{%- for comp in site.integrations -%}
+{%- if comp.ha_category -%}
+{%- if comp.ha_category.first -%}
+{%- assign tot = tot | plus: comp.ha_category.size -%}
+{%- else -%}
+{%- assign tot = tot | plus: 1 -%}
+{%- endif -%}
+{%- endif %}
+{%- endfor -%}
+
+{%- assign components = site.integrations | sort: 'title' -%}
+{%- assign components_by_version = site.integrations | group_components_by_release -%}
+{%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+
+<p class='note'>
+  Support for these integrations is provided by the Home Assistant community.
+</p>
+<div class="grid">
+  <div class="grid__item one-sixth lap-one-whole palm-one-whole">
+
+    <div class="filter-button-group">
+      <a href='#all' class="btn">All ({{tot}})</a>
+      <a href='#featured' class="btn featured">Featured</a>
+      <div class="version_select">Added in: <select name="versions">
+          <option value="#"></option>
+          {%- for group in components_by_version -%}
+          <optgroup label="{{ group.label }} ({{group.new_components_count}})">
+            {%- for version in group.versions -%}
+            <option value="#version/{{ version.label }}">{{ version.label }} ({{ version.new_components_count }})
+            </option>
+            {%- endfor -%}
+          </optgroup>
+          {%- endfor -%}
+        </select></div>
+      {%- for category in categories -%}
+      {%- assign components_count = components | where: 'ha_category', category | size -%}
+      {%- if category and category != 'Other' and components_count != 0 -%}
+      <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components_count }})</a>
+      {%- endif -%}
+      {%- endfor -%}
+
+      <a href='#other' class="btn">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
+    </div>
+  </div>
+  <div class="grid__item five-sixths lap-one-whole palm-one-whole">
+    <div class="component-search">
+      <form onsubmit="event.preventDefault(); return false">
+        <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." autofocus />
+      </form>
+    </div>
+    <div class="hass-option-cards" id="componentContainer"> </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"></script>
+
+{% raw %}
+<script id="component-template" type="text/x-custom-template">
+  {{#components}}
+  <a href="{{url}}" class="option-card">
+    <div class="img-container">{{{image}}}</div>
+    <div class='title'>{{title}}</div>
+  </a>
+{{/components}}
+{{^components}}
+  <p class='note'>Nothing found!</p>
+{{/components}}
+</script>
+{% endraw %}
+
+<script type="text/javascript">
+// This object contains all components we have
+var allComponents = [
+  {%- for component in components -%}
+    {%- if component.ha_category -%}
+      {%- assign sliced_version = component.ha_release | split: '.' -%}
+      {%- assign minor_version = sliced_version[1]|plus: 0 -%}
+      {%- assign major_version = sliced_version[0]|plus: 0 -%}
+      {% assign categories = "" | split: ',' %}
+      {%- for ha_category in component.ha_category -%}
+        {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
+        {% assign categories = categories | push: category %}
+      {%- endfor -%}
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
+    {% endif -%}
+  {%- endfor -%}
+  false
+];
+allComponents.pop(); // remove placeholder element at the end
+</script>
+
+<script type="text/javascript">
+  (function () {
+    var template = $('#component-template').html();
+    Mustache.parse(template); // make future calls to render faster
+
+    function init() {
+      // do the lowerCase transformation once
+      for (i = 0; i < (allComponents.length); i++) {
+        allComponents[i].titleLC = allComponents[i].title.toLowerCase();
+      }
+
+      // sort the components alphabetically
+      allComponents.sort(function (a, b) {
+        return a.titleLC.localeCompare(b.titleLC);
+      });
+
+      if (location.hash !== '' && location.hash.indexOf('#search/') === 0) {
+        // set default value in search from URL
+        jQuery('.component-search input').val(decodeURIComponent(location.hash).substring(8));
+      }
+
+      // add focus to the search field - even on IE
+      setTimeout(function () {
+        jQuery('.component-search input').focus();
+      }, 1);
+    }
+    init();
+
+    /**
+     * filter all components, based on the location's hash and render them into the component box
+     */
+    function applyFilter() {
+      var logoLazyLoad = new LazyLoad({
+        elements_selector: ".option-card img"
+      });
+      var rendered, i, filter, search;
+      var hash = location.hash || '';
+      var data = {
+        components: [],
+        image: function () {
+          if (this.logo === '') {
+            return '<img src="https://brands.home-assistant.io/_/' + this.domain + '/logo.png" srcset="https://brands.home-assistant.io/_/' + this.domain + '/logo@2x.png 2x">';
+          } else {
+            return '<img data-src="/images/supported_brands/' + this.logo + '">';
+          }
+        }
+      };
+
+      // fade-out css effect on the old elements. This is actually not visible on fast browsers
+      $('#componentContainer').addClass('remove-items');
+
+      if (hash.indexOf('#search/') === -1) {
+        // reset search box when not searching
+        jQuery('.component-search input').val(null);
+      }
+
+      if (hash === '#all') {
+        // shortcut: no need to filter
+        data.components = allComponents;
+      } else {
+        if (hash.indexOf('#search/') === 0) {
+          // search through title and category
+          search = decodeURIComponent(hash).substring(8).toLowerCase();
+          filter = function (comp) {
+            return (comp.titleLC.indexOf(search) !== -1) ||
+              (comp.cat.find(c => c.includes("#")) != undefined);
+          };
+
+        } else if (hash === '#featured' || hash === '') {
+          // only show those with featured = true
+          filter = function (comp) {
+            return comp.featured;
+          };
+
+        } else if (hash.indexOf('#version/') === 0) {
+          // compare against a version
+          search = decodeURIComponent(hash).substring(9).toLowerCase();
+          filter = function (comp) {
+            // compare version string against version js
+            return comp.v === search;
+          };
+
+        } else {
+          // regular filter categories
+          search = hash.substring(1);
+          filter = function (comp) {
+            return comp.cat.includes(search);
+          };
+        }
+
+        // filter all components using the filter function
+        for (i = 0; i < (allComponents.length); i++) {
+          if (filter(allComponents[i])) {
+            data.components.push(allComponents[i]);
+          }
+        }
+      }
+
+      rendered = Mustache.render(template, data);
+
+      // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
+      $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
+      logoLazyLoad.update();
+    }
+
+    /**
+     * update the browser location hash. This enables users to use the browser-history
+     */
+    function updateHash(newHash) {
+      if ('pushState' in history) {
+        history.pushState('', '', newHash);
+      } else {
+        location.hash = newHash;
+      }
+    }
+
+    // update view by filter selection
+    jQuery('.filter-button-group a').click(function () {
+      updateHash(this.getAttribute('href'));
+      applyFilter();
+
+      return false;
+    });
+
+    // update view on select change
+    jQuery('select').change(function () {
+      updateHash(this.value);
+      applyFilter();
+
+      return false;
+    });
+
+    /**
+     * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
+     */
+    function debounce(func, wait, immediate) {
+      var timeout;
+      return function () {
+        var context = this,
+          args = arguments;
+        var later = function () {
+          timeout = null;
+          if (!immediate) {
+            func.apply(context, args);
+          }
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) {
+          func.apply(context, args);
+        }
+      };
+    };
+
+    // update view by search text
+    $('.component-search input').keyup(debounce(function () {
+      var text = $(this).val();
+      // sanitize input
+      text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
+      if (typeof text === "string" && text.length !== 0) {
+        updateHash('#search/' + text);
+        applyFilter();
+      }
+    }, 500));
+
+    window.addEventListener('hashchange', applyFilter);
+    applyFilter();
+  })();
+</script>
+
+<noscript>
+  <ul>
+    {%- for component in components -%}
+    {%- if component.ha_category -%}
+    <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</noscript>

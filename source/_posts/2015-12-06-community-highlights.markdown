@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Community Highlights
 description: Interesting links from the Home Assistant community.
 date: 2015-12-05 23:39:00 0000
 date_formatted: "December 5, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Community Video
 og_image: /images/blog/2015-12-community/hass-alexa.png
 ---

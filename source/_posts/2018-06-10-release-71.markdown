@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "0.71: Lagute LW-12, Iperf3, Hydrawise, Ryobi Garage Doors"
 description: "Enjoy the weekend with this shiny new release."
 date: 2018-06-08 00:01:00
 date_formatted: "June 8, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-06-0.71/components.png
 ---
 
-<a href='/components/#version/0.71'><img src='/images/blog/2018-06-0.71/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.71'><img src='/images/blog/2018-06-0.71/components.png' style='border: 0;box-shadow: none;'></a>
 
 0.71 has arrived. My favorite feature in this release is the conversion of the Nest component from cloud poll to cloud push. Sure, it's still through the cloud but changes are now made available in Home Assistant as soon as they happen. Thanks [@awarecan]!
 
@@ -25,18 +23,18 @@ And in case you missed it, [@OttoWinter] has created [esphomeyaml], which allows
 
 Have a good weekend everyone!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Lagute LW-12 Wifi LED control ([@jaypikay] - [#13307]) ([light.lw12wifi docs]) (new-platform)
 - Add Xiaomi Aqara Lock support ([@SchumyHao] - [#14419]) ([xiaomi_aqara docs]) ([lock.xiaomi_aqara docs]) (new-platform)
 - Add Iperf3 client sensor ([@tchellomello] - [#14213]) ([sensor.iperf3 docs]) (new-platform)
 - Add homematicip cloud climate platform ([@mxworm] - [#14388]) ([homematicip_cloud docs]) ([climate.homematicip_cloud docs]) (new-platform)
 - Add Hydrawise component ([@ptcryan] - [#14055]) ([hydrawise docs]) ([binary_sensor.hydrawise docs]) ([sensor.hydrawise docs]) ([switch.hydrawise docs]) (new-platform)
-- Adding ryobi garage door opener ([@guillaume1410] - [#14618]) ([cover.ryobi_gdo docs]) (new-platform)
+- Adding ryobi garage door opener ([@guillaume1410] - [#14618]) (cover.ryobi_gdo docs) (new-platform)
 - Add sensors and services to RainMachine ([@bachya] - [#14326]) ([rainmachine docs]) ([binary_sensor.rainmachine docs]) ([sensor.rainmachine docs]) ([switch.rainmachine docs]) (new-platform)
 - Add Flock notification platform ([@fabaff] - [#14533]) ([notify docs]) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Add HomeKit support for media players ([@schmittx] - [#14446]) ([homekit docs]) (new-feature)
 - Add HomeKit support for automations ([@schmittx] - [#14595]) ([homekit docs]) (new-feature)
@@ -44,32 +42,32 @@ Have a good weekend everyone!
 - Change nest to cloud push ([@awarecan] - [#14656]) ([nest docs]) ([binary_sensor.nest docs]) ([climate.nest docs]) ([sensor.nest docs]) (new-feature)
 - Add support for outlets in HomeKit ([@schmittx] - [#14628]) ([homekit docs]) (new-feature)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'` (fixes #14535) ([@fabaff] - [#14541]) ([sensor.bom docs]) (breaking change)
 - Removed attribute current_time from Raincloudy sensors to avoid being triggered by recorder component ([@tchellomello] - [#14584]) ([raincloud docs]) ([switch.raincloud docs]) (breaking change)
 - Remove Notify My Android component as it shut down on May 24 ([@cgarwood] - [#14594]) ([notify docs]) (breaking change)
-- CoinMarketCap sensor: It is no longer possible to query a ticker by the name of the currency (i.e. bitcoin). The API instead uses IDs (integers) for these tickers (i.e. bitcoin -> 1). Rounding of decimals is now configurable, because it made no sense to round to 2 decimals if display_currency was set to BTC, some values showed up as 0.00. (#14437) ([@kotlarz] - [#14604]) ([sensor.coinmarketcap docs]) (breaking change)
+- CoinMarketCap sensor: It is no longer possible to query a ticker by the name of the currency (i.e., bitcoin). The API instead uses IDs (integers) for these tickers (i.e., bitcoin -> 1). Rounding of decimals is now configurable, because it made no sense to round to 2 decimals if display_currency was set to BTC, some values showed up as 0.00. (#14437) ([@kotlarz] - [#14604]) ([sensor.coinmarketcap docs]) (breaking change)
 - Give unknown zwave nodes a better name and don't add them to entity registry ([@andrey-git] - [#14353]) ([zwave docs]) (breaking change)
 - The `netdata` sensor was re-worked to support all available details from [Netdata](https://my-netdata.io/). This requires you to adjust the your existing configuration if you use the `netdata` sensor.
  ([@fabaff] - [#14613]) ([sensor.netdata docs]) (breaking change)
 - Disallow automation.trigger without entity_id. Triggering all automations at once is most likely a user mistake but if it is really needed, one can use `entity_id: group.all_automations`. ([@amelchio] - [#14724]) ([automation docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Use hass iconset ([@balloob] - [#14185]) ([config docs]) ([frontend docs]) ([hassio docs]) ([history docs]) ([logbook docs]) (beta fix)
 - Zone - Hass configuration name is optional ([@Kane610] - [#14449]) ([zone docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Upgrade aiohttp to 3.2.1 ([@fabaff] - [#14517])
 - Upgrade youtube_dl to 2018.05.18 ([@fabaff] - [#14519]) ([media_extractor docs])
@@ -109,7 +107,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add homematicip cloud climate platform ([@mxworm] - [#14388]) ([homematicip_cloud docs]) ([climate.homematicip_cloud docs]) (new-platform)
 - Upgrade speedtest-cli to 2.0.2 ([@fabaff] - [#14633]) ([sensor.speedtest docs])
 - Add Hydrawise component ([@ptcryan] - [#14055]) ([hydrawise docs]) ([binary_sensor.hydrawise docs]) ([sensor.hydrawise docs]) ([switch.hydrawise docs]) (new-platform)
-- Adding ryobi garage door opener ([@guillaume1410] - [#14618]) ([cover.ryobi_gdo docs]) (new-platform)
+- Adding ryobi garage door opener ([@guillaume1410] - [#14618]) (cover.ryobi_gdo docs) (new-platform)
 - Add electrical measurement sensor to ZHA ([@dmulcahey] - [#14561]) ([zha docs]) ([sensor.zha docs])
 - Upgrade luftdaten to 0.2.0 ([@fabaff] - [#14620]) ([sensor.luftdaten docs])
 - Upgrade python-nest to 4.0.0 ([@awarecan] - [#14638]) ([nest docs])
@@ -156,7 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added option to block Osram Lightify individual lights in the same way that groups can be ([@austinlg96] - [#14470]) ([light.osramlightify docs])
 - Upgrade directpy to 0.5 ([@Bahnburner] - [#14750]) ([media_player.directv docs])
 - Update syntax of platform random ([@fabaff] - [#14767]) ([binary_sensor.random docs]) ([sensor.random docs])
-- Update postnl api to 1.0.2 ([@iMicknl] - [#14769]) ([sensor.postnl docs])
+- Update postnl api to 1.0.2 ([@iMicknl] - [#14769])
 - Remove swagger file ([@fabaff] - [#14762])
 - Update syntax ([@fabaff] - [#14771]) ([sensor.version docs])
 - Update syntax ([@fabaff] - [#14768]) ([sensor.worldclock docs])
@@ -328,91 +326,89 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tchellomello]: https://github.com/tchellomello
 [@titilambert]: https://github.com/titilambert
 [@treehoof]: https://github.com/treehoof
-[alarm_control_panel.manual docs]: /components/alarm_control_panel.manual/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[api docs]: /components/api/
-[automation docs]: /components/automation/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.envisalink docs]: /components/binary_sensor.envisalink/
-[binary_sensor.hydrawise docs]: /components/binary_sensor.hydrawise/
-[binary_sensor.nest docs]: /components/binary_sensor.nest/
-[binary_sensor.rainmachine docs]: /components/binary_sensor.rainmachine/
-[binary_sensor.random docs]: /components/binary_sensor.random/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[climate.homematicip_cloud docs]: /components/climate.homematicip_cloud/
-[climate.nest docs]: /components/climate.nest/
-[climate.sensibo docs]: /components/climate.sensibo/
-[cloud docs]: /components/cloud/
-[config docs]: /components/config/
-[counter docs]: /components/counter/
-[cover.myq docs]: /components/cover.myq/
-[cover.ryobi_gdo docs]: /components/cover.ryobi_gdo/
-[device_tracker docs]: /components/device_tracker/
-[eufy docs]: /components/eufy/
-[frontend docs]: /components/frontend/
-[hassio docs]: /components/hassio/
-[history docs]: /components/history/
-[homekit docs]: /components/homekit/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[hydrawise docs]: /components/hydrawise/
-[keyboard_remote docs]: /components/keyboard_remote/
-[light.lw12wifi docs]: /components/light.lw12wifi/
-[light.nanoleaf_aurora docs]: /components/light.nanoleaf_aurora/
-[light.osramlightify docs]: /components/light.osramlightify/
-[light.zha docs]: /components/light.zha/
-[linode docs]: /components/linode/
-[lock.xiaomi_aqara docs]: /components/lock.xiaomi_aqara/
-[logbook docs]: /components/logbook/
-[media_extractor docs]: /components/media_extractor/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.directv docs]: /components/media_player.directv/
-[media_player.kodi docs]: /components/media_player.kodi/
-[media_player.philips_js docs]: /components/media_player.philips_js/
-[nest docs]: /components/nest/
-[notify docs]: /components/notify/
-[panel_custom docs]: /components/panel_custom/
-[python_script docs]: /components/python_script/
-[rainbird docs]: /components/rainbird/
-[raincloud docs]: /components/raincloud/
-[rainmachine docs]: /components/rainmachine/
-[sensor.bitcoin docs]: /components/sensor.bitcoin/
-[sensor.bom docs]: /components/sensor.bom/
-[sensor.coinmarketcap docs]: /components/sensor.coinmarketcap/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.gitter docs]: /components/sensor.gitter/
-[sensor.glances docs]: /components/sensor.glances/
-[sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
-[sensor.hydrawise docs]: /components/sensor.hydrawise/
-[sensor.iperf3 docs]: /components/sensor.iperf3/
-[sensor.luftdaten docs]: /components/sensor.luftdaten/
-[sensor.mfi docs]: /components/sensor.mfi/
-[sensor.nest docs]: /components/sensor.nest/
-[sensor.netatmo docs]: /components/sensor.netatmo/
-[sensor.netdata docs]: /components/sensor.netdata/
-[sensor.onewire docs]: /components/sensor.onewire/
-[sensor.postnl docs]: /components/sensor.postnl/
-[sensor.rainmachine docs]: /components/sensor.rainmachine/
-[sensor.random docs]: /components/sensor.random/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.simulated docs]: /components/sensor.simulated/
-[sensor.speedtest docs]: /components/sensor.speedtest/
-[sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
-[sensor.transmission docs]: /components/sensor.transmission/
-[sensor.uptime docs]: /components/sensor.uptime/
-[sensor.version docs]: /components/sensor.version/
-[sensor.worldclock docs]: /components/sensor.worldclock/
-[sensor.zha docs]: /components/sensor.zha/
-[shopping_list docs]: /components/shopping_list/
-[switch.hydrawise docs]: /components/switch.hydrawise/
-[switch.raincloud docs]: /components/switch.raincloud/
-[switch.rainmachine docs]: /components/switch.rainmachine/
-[vera docs]: /components/vera/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zha docs]: /components/zha/
-[zone docs]: /components/zone/
-[zwave docs]: /components/zwave/
+[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[api docs]: /integrations/api/
+[automation docs]: /integrations/automation/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.envisalink docs]: /integrations/envisalink
+[binary_sensor.hydrawise docs]: /integrations/hydrawise#binary-sensor
+[binary_sensor.nest docs]: /integrations/nest#binary-sensor
+[binary_sensor.rainmachine docs]: /integrations/rainmachine
+[binary_sensor.random docs]: /integrations/random#binary-sensor
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[binary_sensor.zha docs]: /integrations/zha
+[climate.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[climate.nest docs]: /integrations/nest#climate
+[climate.sensibo docs]: /integrations/sensibo
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[counter docs]: /integrations/counter/
+[cover.myq docs]: /integrations/myq
+[device_tracker docs]: /integrations/device_tracker/
+[eufy docs]: /integrations/eufy/
+[frontend docs]: /integrations/frontend/
+[hassio docs]: /integrations/hassio/
+[history docs]: /integrations/history/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[hydrawise docs]: /integrations/hydrawise/
+[keyboard_remote docs]: /integrations/keyboard_remote/
+[light.lw12wifi docs]: /integrations/lw12wifi
+[light.nanoleaf_aurora docs]: /integrations/nanoleaf/
+[light.osramlightify docs]: /integrations/osramlightify
+[light.zha docs]: /integrations/zha
+[linode docs]: /integrations/linode/
+[lock.xiaomi_aqara docs]: /integrations/lock.xiaomi_aqara/
+[logbook docs]: /integrations/logbook/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.directv docs]: /integrations/directv
+[media_player.kodi docs]: /integrations/kodi
+[media_player.philips_js docs]: /integrations/philips_js
+[nest docs]: /integrations/nest/
+[notify docs]: /integrations/notify/
+[panel_custom docs]: /integrations/panel_custom/
+[python_script docs]: /integrations/python_script/
+[rainbird docs]: /integrations/rainbird/
+[raincloud docs]: /integrations/raincloud/
+[rainmachine docs]: /integrations/rainmachine/
+[sensor.bitcoin docs]: /integrations/bitcoin
+[sensor.bom docs]: /integrations/bom#sensor
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.gitter docs]: /integrations/gitter
+[sensor.glances docs]: /integrations/glances
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.hydrawise docs]: /integrations/hydrawise#sensor
+[sensor.iperf3 docs]: /integrations/iperf3
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.mfi docs]: /integrations/mfi#sensor
+[sensor.nest docs]: /integrations/nest#sensor
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.netdata docs]: /integrations/netdata
+[sensor.onewire docs]: /integrations/onewire
+[sensor.rainmachine docs]: /integrations/rainmachine
+[sensor.random docs]: /integrations/random#sensor
+[sensor.shodan docs]: /integrations/shodan
+[sensor.simulated docs]: /integrations/simulated
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.transmission docs]: /integrations/transmission
+[sensor.uptime docs]: /integrations/uptime
+[sensor.version docs]: /integrations/version
+[sensor.worldclock docs]: /integrations/worldclock
+[sensor.zha docs]: /integrations/zha
+[shopping_list docs]: /integrations/shopping_list/
+[switch.hydrawise docs]: /integrations/hydrawise#switch
+[switch.raincloud docs]: /integrations/raincloud#switch
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[vera docs]: /integrations/vera/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zone docs]: /integrations/zone/
+[zwave docs]: /integrations/zwave/
 [@OttoWinter]: https://github.com/OttoWinter
 [esphomeyaml]: https://esphomelib.com/esphomeyaml/index.html
 [@c727]: https://github.com/c727

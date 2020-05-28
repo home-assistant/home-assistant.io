@@ -33,33 +33,28 @@ plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
 
-markdown: kramdown
-highlighter: rouge
+markdown: CommonMark
 timezone: UTC
 liquid:
   error_mode: strict
 
-kramdown:
-  input: GFM
-  auto_ids:       false
-  footnote_nr:    1
-  entity_output:  as_char
-  toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo
-  parse_block_html: true
+commonmark:
+  options: ["SMART", "FOOTNOTES", "UNSAFE"]
+  extensions: ["strikethrough", "autolink", "table"]
+
+highlighter: none
 
 plugins:
   - jekyll-redirect-from
   - jekyll-time-to-read
-  - octopress-include-tag
 
-paginate: 10          # Posts per page on the blog index
-paginate_path: "blog/posts/:num"  # Directory base for pagination URLs eg. /posts/2/
-recent_posts: 5       # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+paginate: 10 # Posts per page on the blog index
+paginate_path: "blog/posts/:num" # Directory base for pagination URLs eg. /posts/2/
+recent_posts: 5 # Posts in the sidebar Recent Posts section
+excerpt_link: "Read on &rarr;" # "Continue reading" link text at the bottom of excerpted articles
 excerpt_separator: "<!--more-->"
 
-titlecase: true       # Converts page and post titles to titlecase
+titlecase: true # Converts page and post titles to titlecase
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
@@ -68,7 +63,7 @@ titlecase: true       # Converts page and post titles to titlecase
 # page_asides:
 
 collections:
-  components:
+  integrations:
     output: true
   cookbook:
     output: true
@@ -85,48 +80,15 @@ collections:
 #   3rd Party Settings    #
 # ----------------------- #
 
-# Github repositories
-github_user:
-github_repo_count: 0
-github_show_profile_link: true
-github_skip_forks: true
-
 # Twitter
 twitter_user: balloob
 twitter_tweet_button: true
-
-# Google +1
-google_plus_one: true
-google_plus_one_size: standard
-
-# Pinboard
-pinboard_user:
-pinboard_count: 3
-
-# Delicious
-delicious_user:
-delicious_count: 3
-
-# Disqus Comments
-disqus_short_name: home-assistant
-disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-57927901-1
 
 # Facebook Like
 facebook_like: true
-
-# Liquid template compressor
-compress_html:
-  clippings: []
-  comments: []
-  endings: []
-  ignore:
-    envs: []
-  blanklines: true
-  profile: false
-  startings: []
 
 social:
   visible: false
@@ -138,9 +100,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 88
-current_patch_version: 1
-date_released: 2019-02-22
+current_minor_version: 110
+current_patch_version: 3
+date_released: 2020-05-26
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -148,10 +110,30 @@ date_released: 2019-02-22
 patch_version_notes: ""
 # Minor release (Example #release-0431---april-25):
 
-# Date we moved to Discourse for comments
-# disqus_end_date: 2018-01-26 0:00:00
-# Disqus is adding gross ads, move all comments to discourse.
-disqus_end_date: 2010-01-26 0:00:00
+# Set Front matter defaults
+defaults:
+  # Defaults for all pages
+  - scope:
+      path: ""
+    values:
+      layout: page
+      comments: false
+      footer: true
+      sharing: true
+      sidebar: true
+      featured: false
+  # Defaults for blogs posts
+  - scope:
+      type: posts
+    values:
+      layout: post
+      comments: true
+      footer: true
+      sharing: true
+      sidebar: true
 
-# Support .well-known directory
-include: [".well-known"]
+# Support for files Jekyll will normally exclude
+include:
+  - "_headers"
+  - "_redirects"
+  - ".well-known"

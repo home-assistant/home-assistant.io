@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "State of the Union"
 description: "Paulus speaks about the origin of Home Assistant and where we're heading."
 date: 2018-11-16 00:01:00
 date_formatted: "November 16, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Video
 og_image: /images/blog/2018-11-state-of-the-union/share-the-love.jpg
 ---

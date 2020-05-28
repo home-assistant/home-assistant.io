@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Database"
 description: "Details about the database used by Home Assistant."
-date: 2016-10-10 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /details/database/
 ---
 
-The default database used by Home Assistant is [SQLite](https://www.sqlite.org/), and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/.homeassistant/home-assistant_v2.db`). If you prefer to run a database server (e.g. PostgreSQL), use the [`recorder` component](/components/recorder/).
+Database is used in by Home Assistant as history and tracker only, to store the events and its parameters. The default database used by Home Assistant is [SQLite](https://www.sqlite.org/), and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/.homeassistant/home-assistant_v2.db`). If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder` component](/integrations/recorder/).
 
 To work with the SQLite database manually from the command-line, you will need an [installation](http://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively [DB Browser for SQLite](http://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
 First load your database with `sqlite3`:
@@ -38,7 +32,7 @@ seq  name             file
 0    main             /home/fab/.homeassistant/home-assistant_v2.db
 ```
 
-### {% linkable_title Schema %}
+### Schema
 
 Get all available tables from your current Home Assistant database:
 
@@ -89,7 +83,7 @@ To only show the details about the `states` table (since we are using that one i
 sqlite> SELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = 'states';
 ```
 
-### {% linkable_title Query %}
+### Query
 
 The identification of the available columns in the table is done and we are now able to create a query. Let's list your Top 10 entities:
 
@@ -110,7 +104,7 @@ sensor.solar_angle              10440
 group.all_switches              8018
 ```
 
-### {% linkable_title Delete %}
+### Delete
 
 If you don't want to keep certain entities, you can delete them permanently:
 

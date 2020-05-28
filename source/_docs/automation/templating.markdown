@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation Templating"
 description: "Advanced automation documentation using templating."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/automation-templating/
 ---
 
@@ -37,35 +31,27 @@ automation 2:
       notify.{{ trigger.topic.split('/')[-1] }}
     data_template:
       message: '{{ trigger.payload }}'
-      
+
 automation 3:
   trigger:
-    # Multiple Entities for which you want to perform the same action.
+    # Multiple entities for which you want to perform the same action.
     - platform: state
       entity_id:
         - light.bedroom_closet
-      to: 'on'
-      # Trigger when someone leaves the closet light on for 10 minutes.
-      for: '00:10:00'
-    - platform: state
-      entity_id:
         - light.kiddos_closet
-      to: 'on'
-      for: '00:10:00'
-    - platform: state
-      entity_id:
         - light.linen_closet
       to: 'on'
+      # Trigger when someone leaves one of those lights on for 10 minutes.
       for: '00:10:00'
   action:
     - service: light.turn_off
       data_template:
-        # Whichever entity triggers the automation we want to turn off THAT entity, not the others.
+        # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
 ```
 {% endraw %}
 
-## {% linkable_title Important Template Rules %}
+## Important Template Rules
 
 There are a few very important rules to remember when writing automation templates:
 
@@ -78,19 +64,35 @@ There are a few very important rules to remember when writing automation templat
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
-## {% linkable_title Trigger State Object %}
+It is possible to use `data` and `data_template` concurrently but be aware that `data_template` will overwrite attributes that are provided in both.
 
-Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity could be one of the more common questions. Here are a few ways for the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
+## Trigger State Object
+
+Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
 
 * `trigger.from_state` will return the **previous** [state object](/docs/configuration/state_object/) of the entity.
 * `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.
 * `states[trigger.to_state.domain][trigger.to_state.object_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
 
-## {% linkable_title Available Trigger Data %}
+<div class='note'>
+  
+  Be aware that if you reference a `trigger` state object in templates of automation `action`, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in Developer Tools > Template together with your trigger's definition like:
+
+{%raw%}
+```yaml
+{% set trigger={'to_state':{'state': 'heat'}} %}
+{% set option = trigger.to_state.state %}
+{{ 'on' if option == 'heat' else 'off' }}
+```
+{%endraw%}
+  
+</div>
+
+## Available Trigger Data
 
 The following tables show the available trigger data per platform.
 
-### {% linkable_title event %}
+### Event
 
 | Template variable | Data |
 | ---- | ---- |
@@ -98,7 +100,7 @@ The following tables show the available trigger data per platform.
 | `trigger.event` | Event object that matched.
 | `trigger.event.data` | Optional data
 
-### {% linkable_title mqtt %}
+### MQTT
 
 | Template variable | Data |
 | ---- | ---- |
@@ -108,7 +110,7 @@ The following tables show the available trigger data per platform.
 | `trigger.payload_json` | Dictonary of the JSON parsed payload.
 | `trigger.qos` | QOS of payload.
 
-### {% linkable_title numeric_state %}
+### Numeric State
 
 | Template variable | Data |
 | ---- | ---- |
@@ -118,8 +120,9 @@ The following tables show the available trigger data per platform.
 | `trigger.above` | The above threshold, if any.
 | `trigger.from_state` | The previous [state object] of the entity.
 | `trigger.to_state` | The new [state object] that triggered trigger.
+| `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
-### {% linkable_title state %}
+### State
 
 | Template variable | Data |
 | ---- | ---- |
@@ -129,7 +132,7 @@ The following tables show the available trigger data per platform.
 | `trigger.to_state` | The new [state object] that triggered trigger.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### {% linkable_title sun %}
+### Sun
 
 | Template variable | Data |
 | ---- | ---- |
@@ -137,7 +140,7 @@ The following tables show the available trigger data per platform.
 | `trigger.event` | The event that just happened: `sunset` or `sunrise`.
 | `trigger.offset` | Timedelta object with offset to the event, if any.
 
-### {% linkable_title template %}
+### Template
 
 | Template variable | Data |
 | ---- | ---- |
@@ -145,15 +148,23 @@ The following tables show the available trigger data per platform.
 | `trigger.entity_id` | Entity ID that caused change.
 | `trigger.from_state` | Previous [state object] of entity that caused change.
 | `trigger.to_state` | New [state object] of entity that caused template to change.
+| `trigger.for` | Timedelta object how long state has been to state, if any.
 
-### {% linkable_title time %}
+### Time
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
-### {% linkable_title webhook %}
+### Time Pattern
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `time_pattern`
+| `trigger.now` | DateTime object that triggered the time_pattern trigger.
+
+### Webhook
 
 | Template variable | Data |
 | ---- | ---- |
@@ -162,7 +173,7 @@ The following tables show the available trigger data per platform.
 | `trigger.json` | The JSON data of the request (if it had a JSON content type).
 | `trigger.data` | The form data of the request (if it had a form data content type).
 
-### {% linkable_title zone %}
+### Zone
 
 | Template variable | Data |
 | ---- | ---- |

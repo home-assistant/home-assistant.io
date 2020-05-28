@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Sensor Card"
 sidebar_label: Sensor
-description: "The sensor card gives you information about the sensor state"
-date: 2018-10-07 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "The Sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time."
 ---
 
-The sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time.
+The Sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_sensor.png' alt='Screenshot of the sensor card'>
@@ -58,7 +52,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: sensor

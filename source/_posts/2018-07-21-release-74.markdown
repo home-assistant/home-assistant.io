@@ -1,17 +1,15 @@
 ---
-layout: post
 title: "0.74: Tuya, Cloudflare DNS, Push Camera and Users UI"
 description: "This release builds on top of the previous release, as that is how releases work."
 date: 2018-07-20 00:01:00
 date_formatted: "July 20, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-07-0.74/paulus_guido.jpg
 ---
 
-<a href='/components/#version/0.74'><img src='/images/blog/2018-07-0.74/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.74'><img src='/images/blog/2018-07-0.74/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for Home Assistant 0.74! 🎉
 
@@ -32,38 +30,38 @@ To try it out today, [read these instructions](https://developers.home-assistant
 
 We keep seeing [great examples](https://twitter.com/home_assistant/status/1019579208622845953) of UIs built with Lovelace. Follow us on social media ([FB](https://www.facebook.com/homeassistantio/?ref=bookmarks), [Twitter](https://twitter.com/home_assistant)) where we will keep sharing great examples.
 
-For the Lovelace changes in this release, check out the [changelog](/lovelace/changelog/). To help our development and design teams, we've also introduced a [Lovelace card gallery](https://home-assistant-lovelace-gallery.netlify.com/).
+For the Lovelace changes in this release, check out the [changelog](/lovelace/changelog/). To help our development and design teams, we've also introduced a [Lovelace card gallery](https://www.awesome-ha.com/).
 
 Thanks to [@c727], [@jeradM] and [@ciotlosm] for leading this effort ❤️
 
 I'm happy to announce that this release introduces support for Tuya thanks to [@huangyupeng]. Tuya produces cheap cloud-enabled devices that are sold under a wide variety of brand names across the globe, and now they work with Home Assistant too!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add Tuya component and switch support ([@huangyupeng] - [#15399]) ([tuya docs]) ([switch.tuya docs]) (new-platform)
 - Add Tuya light platform ([@huangyupeng] - [#15444]) ([tuya docs]) ([light.tuya docs]) (new-platform)
-- Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) ([sensor.duke_energy docs]) (new-platform)
+- Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) (new-platform)
 - Added Push Camera ([@dgomes] - [#15151]) ([camera.push docs]) (new-platform)
 - Add Cloudflare DNS component. ([@ludeeus] - [#15388]) ([cloudflare docs]) (new-platform)
 - Add HomematicIP alarm control panel ([@mxworm] - [#15342]) ([alarm_control_panel docs]) ([homematicip_cloud docs]) ([alarm_control_panel.homematicip_cloud docs]) (new-platform)
 
-## {% linkable_title Release 0.74.1 - July 24 %}
+## Release 0.74.1 - July 24
 
 - Bugfix HomeKit name and serial_number ([@cdce8p] - [#15600]) ([homekit docs])
 - Use case insensitive comparison for Sonos model check ([@amelchio] - [#15604]) ([media_player.sonos docs])
 - Frontend component should auto load auth coomponent ([@awarecan] - [#15606]) ([frontend docs])
 - Cast/Sonos: create config entry if manually configured ([@balloob] - [#15630]) ([cast docs]) ([sonos docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Fixer.io has changed their API and now requires an API key. (fixes #14911) ([@fabaff] - [#15279]) ([sensor.fixer docs]) (breaking change)
 - Add support to use HTTPS URLs to SynologyDSM and make it the default ([@tchellomello] - [#15270]) ([sensor.synologydsm docs]) (breaking change)
@@ -71,7 +69,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - LimitlessLED will no longer report `hs_color`/`rgb_color` and `color_temp` simultaneously. ([@amelchio] - [#15298]) ([light.limitlessled docs]) (breaking change)
 - IP Ban: Reset failed login attempts counter when login success ([@awarecan] - [#15564]) ([http docs]) ([websocket_api docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Add current user WS command ([@balloob] - [#15485]) ([auth docs]) ([frontend docs]) (beta fix)
 - Add onboarding support ([@balloob] - [#15492]) ([frontend docs]) ([onboarding docs]) (beta fix)
@@ -86,7 +84,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove relative time from state machine ([@balloob] - [#15560]) ([sensor.netatmo docs]) (beta fix)
 - Reset failed login attempts counter when login success ([@awarecan] - [#15564]) ([http docs]) ([websocket_api docs]) (breaking change) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - deconz: fix light.turn_off with transition ([@lbschenkel] - [#15222]) ([light.deconz docs])
 - Add new RTS device ([@pepeEL] - [#15116]) ([tahoma docs])
@@ -105,7 +103,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added setting cover tilt position in scene ([@kstaniek] - [#15255])
 - Pass tox posargs to pylint ([@scop] - [#15226])
 - Fix Roomba exception ([@arbreng] - [#15262]) ([vacuum.roomba docs])
-- Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) ([sensor.duke_energy docs]) (new-platform)
+- Added support for Duke Energy smart meters ([@w1ll1am23] - [#15165]) (new-platform)
 - Update image_processing async ([@dgomes] - [#15082]) ([image_processing docs])
 - Fix python-miio 0.4 compatibility of the xiaomi miio device tracker ([@serhtt] - [#15244]) ([device_tracker docs])
 - Upgrade keyring to 13.1.0 ([@fabaff] - [#15268])
@@ -143,7 +141,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Improve NetAtmo sensors update logic ([@glpatcern] - [#14866]) ([sensor.netatmo docs])
 - removed unused return ([@ludeeus] - [#15402]) ([cloudflare docs])
 - Fix confused brightness of xiaomi_aqara gateway light ([@amelchio] - [#15314]) ([light.xiaomi_aqara docs])
-- Fix liveboxplaytv empty channel list ([@pschmitt] - [#15404]) ([media_player.liveboxplaytv docs])
+- Fix liveboxplaytv empty channel list ([@pschmitt] - [#15404])
 - Fix credentials lookup ([@balloob] - [#15409])
 - Change Ring binary_sensor frequency polling to avoid rate limit exceeded errors ([@tchellomello] - [#15414]) ([binary_sensor.ring docs])
 - Add Tuya component and switch support ([@huangyupeng] - [#15399]) ([tuya docs]) ([switch.tuya docs]) (new-platform)
@@ -327,87 +325,85 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tchellomello]: https://github.com/tchellomello
 [@teharris1]: https://github.com/teharris1
 [@w1ll1am23]: https://github.com/w1ll1am23
-[alarm_control_panel docs]: /components/alarm_control_panel/
-[alarm_control_panel.homematicip_cloud docs]: /components/alarm_control_panel.homematicip_cloud/
-[alexa docs]: /components/alexa/
-[auth docs]: /components/auth/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.homematicip_cloud docs]: /components/binary_sensor.homematicip_cloud/
-[binary_sensor.ring docs]: /components/binary_sensor.ring/
-[calendar.google docs]: /components/calendar.google/
-[camera.onvif docs]: /components/camera.onvif/
-[camera.push docs]: /components/camera.push/
-[climate.fritzbox docs]: /components/climate.fritzbox/
-[cloudflare docs]: /components/cloudflare/
-[config docs]: /components/config/
-[cover.group docs]: /components/cover.group/
-[cover.lutron_caseta docs]: /components/cover.lutron_caseta/
-[cover.mqtt docs]: /components/cover.mqtt/
-[cover.rflink docs]: /components/cover.rflink/
-[cover.tahoma docs]: /components/cover.tahoma/
-[cover.template docs]: /components/cover.template/
-[cover.velbus docs]: /components/cover.velbus/
-[cover.wink docs]: /components/cover.wink/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[dialogflow docs]: /components/dialogflow/
-[emulated_hue docs]: /components/emulated_hue/
-[enocean docs]: /components/enocean/
-[eufy docs]: /components/eufy/
-[fritzbox docs]: /components/fritzbox/
-[frontend docs]: /components/frontend/
-[google docs]: /components/google/
-[google_assistant docs]: /components/google_assistant/
-[homekit_controller docs]: /components/homekit_controller/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[http docs]: /components/http/
-[image_processing docs]: /components/image_processing/
-[image_processing.facebox docs]: /components/image_processing.facebox/
-[light.deconz docs]: /components/light.deconz/
-[light.eufy docs]: /components/light.eufy/
-[light.flux_led docs]: /components/light.flux_led/
-[light.homematicip_cloud docs]: /components/light.homematicip_cloud/
-[light.limitlessled docs]: /components/light.limitlessled/
-[light.mystrom docs]: /components/light.mystrom/
-[light.tuya docs]: /components/light.tuya/
-[light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
-[light.zwave docs]: /components/light.zwave/
-[media_extractor docs]: /components/media_extractor/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.lg_netcast docs]: /components/media_player.lg_netcast/
-[media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/
-[media_player.philips_js docs]: /components/media_player.philips_js/
-[mysensors docs]: /components/mysensors/
-[onboarding docs]: /components/onboarding/
-[prometheus docs]: /components/prometheus/
-[sensor.arlo docs]: /components/sensor.arlo/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.duke_energy docs]: /components/sensor.duke_energy/
-[sensor.efergy docs]: /components/sensor.efergy/
-[sensor.fixer docs]: /components/sensor.fixer/
-[sensor.gtfs docs]: /components/sensor.gtfs/
-[sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
-[sensor.netatmo docs]: /components/sensor.netatmo/
-[sensor.nut docs]: /components/sensor.nut/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.synologydsm docs]: /components/sensor.synologydsm/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
-[sensor.wirelesstag docs]: /components/sensor.wirelesstag/
-[switch.amcrest docs]: /components/switch.amcrest/
-[switch.enocean docs]: /components/switch.enocean/
-[switch.eufy docs]: /components/switch.eufy/
-[switch.fritzbox docs]: /components/switch.fritzbox/
-[switch.insteon_plm docs]: /components/switch.insteon_plm/
-[switch.tuya docs]: /components/switch.tuya/
-[tahoma docs]: /components/tahoma/
-[tts docs]: /components/tts/
-[tuya docs]: /components/tuya/
-[vacuum.roomba docs]: /components/vacuum.roomba/
-[watson_iot docs]: /components/watson_iot/
-[weather.openweathermap docs]: /components/weather.openweathermap/
-[websocket_api docs]: /components/websocket_api/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alarm_control_panel.homematicip_cloud docs]: /integrations/homematicip_cloud
+[alexa docs]: /integrations/alexa/
+[auth docs]: /integrations/auth/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[calendar.google docs]: /integrations/calendar.google/
+[camera.onvif docs]: /integrations/onvif
+[camera.push docs]: /integrations/push
+[climate.fritzbox docs]: /integrations/fritzbox
+[cloudflare docs]: /integrations/cloudflare/
+[config docs]: /integrations/config/
+[cover.group docs]: /integrations/cover.group/
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.rflink docs]: /integrations/cover.rflink/
+[cover.tahoma docs]: /integrations/tahoma
+[cover.template docs]: /integrations/cover.template/
+[cover.velbus docs]: /integrations/cover.velbus/
+[cover.wink docs]: /integrations/wink#cover
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[dialogflow docs]: /integrations/dialogflow/
+[emulated_hue docs]: /integrations/emulated_hue/
+[enocean docs]: /integrations/enocean/
+[eufy docs]: /integrations/eufy/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google_translate
+[google_assistant docs]: /integrations/google_assistant/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[image_processing docs]: /integrations/image_processing/
+[image_processing.facebox docs]: /integrations/facebox
+[light.deconz docs]: /integrations/deconz#light
+[light.eufy docs]: /integrations/eufy
+[light.flux_led docs]: /integrations/flux_led
+[light.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[light.limitlessled docs]: /integrations/limitlessled
+[light.mystrom docs]: /integrations/mystrom#light
+[light.tuya docs]: /integrations/tuya
+[light.xiaomi_aqara docs]: /integrations/light.xiaomi_aqara/
+[light.zwave docs]: /integrations/zwave
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.lg_netcast docs]: /integrations/lg_netcast
+[media_player.philips_js docs]: /integrations/philips_js
+[mysensors docs]: /integrations/mysensors/
+[onboarding docs]: /integrations/onboarding/
+[prometheus docs]: /integrations/prometheus/
+[sensor.arlo docs]: /integrations/arlo#sensor
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.efergy docs]: /integrations/efergy
+[sensor.fixer docs]: /integrations/fixer
+[sensor.gtfs docs]: /integrations/gtfs
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.nut docs]: /integrations/nut
+[sensor.sql docs]: /integrations/sql
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[sensor.wirelesstag docs]: /integrations/wirelesstag#sensor
+[switch.amcrest docs]: /integrations/amcrest
+[switch.enocean docs]: /integrations/enocean#switch
+[switch.eufy docs]: /integrations/eufy
+[switch.fritzbox docs]: /integrations/fritzbox
+[switch.insteon_plm docs]: /integrations/insteon/
+[switch.tuya docs]: /integrations/tuya
+[tahoma docs]: /integrations/tahoma/
+[tts docs]: /integrations/tts/
+[tuya docs]: /integrations/tuya/
+[vacuum.roomba docs]: /integrations/roomba
+[watson_iot docs]: /integrations/watson_iot/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[websocket_api docs]: /integrations/websocket_api/
 [#15600]: https://github.com/home-assistant/home-assistant/pull/15600
 [#15604]: https://github.com/home-assistant/home-assistant/pull/15604
 [#15606]: https://github.com/home-assistant/home-assistant/pull/15606
@@ -416,8 +412,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@awarecan]: https://github.com/awarecan
 [@balloob]: https://github.com/balloob
 [@cdce8p]: https://github.com/cdce8p
-[cast docs]: /components/cast/
-[frontend docs]: /components/frontend/
-[homekit docs]: /components/homekit/
-[media_player.sonos docs]: /components/media_player.sonos/
-[sonos docs]: /components/sonos/
+[cast docs]: /integrations/cast/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[media_player.sonos docs]: /integrations/sonos
+[sonos docs]: /integrations/sonos/

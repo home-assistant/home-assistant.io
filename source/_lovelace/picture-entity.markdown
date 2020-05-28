@@ -1,16 +1,10 @@
 ---
-layout: page
 title: Picture Entity Card
 sidebar_label: Picture Entity
-description: Displays the entity in form of an image. Instead of images from URL it can also show the picture of `camera` entities.
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
 ---
 
-Displays the entity in form of an image. Instead of images from URL it can also show the picture of `camera` entities.
+The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_entity.gif' alt='Picture entity card'>
@@ -30,6 +24,11 @@ camera_image:
   required: false
   description: "Camera `entity_id` to use. (not required if `entity` is already a camera-entity)."
   type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
+  type: string
 image:
   required: false
   description: URL of an image.
@@ -37,7 +36,11 @@ image:
 state_image:
   required: false
   description: "Map entity states to images (`state: image URL`, check the example below)."
-  type: object
+  type: map
+state_filter:
+  required: false
+  description: '[State-based CSS filters](#how-to-use-state_filter)'
+  type: map
 aspect_ratio:
   required: false
   description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
@@ -56,59 +59,35 @@ show_state:
   description: Shows state in footer.
   type: boolean
   default: true
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
+  type: string
 tap_action:
   required: false
-  description: Action to take on tap
-  type: object
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  type: map
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
-  type: object
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## How to use state_filter
+
+Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
+
+```yaml
+state_filter:
+  "on": brightness(110%) saturate(1.2)
+  "off": brightness(50%) hue-rotate(45deg)
+```
+
+## Examples
 
 Basic example:
 
@@ -127,3 +106,23 @@ state_image:
   "on": /local/bed_light_on.png
   "off": /local/bed_light_off.png
 ```
+
+Displaying a live feed from an FFmpeg camera:
+
+{% raw %}
+
+```yaml
+type: picture-entity
+entity: camera.backdoor
+camera_view: live
+tap_action:
+  action: call-service
+  service: camera.snapshot
+  service_data:
+    entity_id: camera.backdoor
+    filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
+```
+
+{% endraw %}
+
+The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](/docs/configuration/basic/)).

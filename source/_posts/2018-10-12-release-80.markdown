@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.80: Lovelace updates, webhooks, TRÅDFRI switches"
 description: "Hacktoberfest is in full swing and we got a whole boat of new features."
 date: 2018-10-12 00:01:00
 date_formatted: "October 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 ---
@@ -29,7 +27,7 @@ Configuring IFTTT via th integrations panel.
 
 On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Honeywell evohome controllers (EU-based) and if you want to control your pool, you can now do that with the new AquaLogic integration.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - GitLab-CI sensor integration addition. ([@DanielWinks] - [#16561]) ([sensor.gitlab_ci docs]) (new-platform)
 - Add support for Opple light ([@jedmeng] - [#16765]) ([light.opple docs]) (new-platform)
@@ -42,7 +40,7 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 - Add new component fritzbox binary_sensor ([@hthiery] - [#17057]) ([fritzbox docs]) ([binary_sensor.fritzbox docs]) (new-platform)
 - Add a webhook automation trigger ([@balloob] - [#17246]) ([automation.webhook docs]) (beta fix) (new-platform)
 
-## {% linkable_title Release 0.80.1 - October 15 %}
+## Release 0.80.1 - October 15
 
 - Fix automation editor ([@armills])
 - Fix arm/disarm calls. ([@mbrrg] - [#17381]) ([alarm_control_panel.spc docs])
@@ -58,12 +56,12 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@mbrrg]: https://github.com/mbrrg
 [@pvizeli]: https://github.com/pvizeli
 [@quazzie]: https://github.com/quazzie
-[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
-[api docs]: /components/api/
-[hangouts docs]: /components/hangouts/
-[websocket_api docs]: /components/websocket_api/
+[alarm_control_panel.spc docs]: /integrations/spc
+[api docs]: /integrations/api/
+[hangouts docs]: /integrations/hangouts/
+[websocket_api docs]: /integrations/websocket_api/
 
-## {% linkable_title Release 0.80.2 - October 17 %}
+## Release 0.80.2 - October 17
 
 - Lovelace: Fix glance icon not updating
 - Fix: Connection pool of Request object is smaller than optimal value (8) ([@Anonym-tsk] - [#17483]) ([telegram_bot docs])
@@ -76,15 +74,15 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@Anonym-tsk]: https://github.com/Anonym-tsk
 [@balloob]: https://github.com/balloob
 [@fronzbot]: https://github.com/fronzbot
-[alarm_control_panel.blink docs]: /components/alarm_control_panel.blink/
-[binary_sensor.blink docs]: /components/binary_sensor.blink/
-[blink docs]: /components/blink/
-[camera.blink docs]: /components/camera.blink/
-[cloud docs]: /components/cloud/
-[sensor.blink docs]: /components/sensor.blink/
-[telegram_bot docs]: /components/telegram_bot/
+[alarm_control_panel.blink docs]: /integrations/blink
+[binary_sensor.blink docs]: /integrations/blink
+[blink docs]: /integrations/blink/
+[camera.blink docs]: /integrations/blink
+[cloud docs]: /integrations/cloud/
+[sensor.blink docs]: /integrations/blink
+[telegram_bot docs]: /integrations/telegram_bot/
 
-## {% linkable_title Release 0.80.3 - October 18 %}
+## Release 0.80.3 - October 18
 
 - Update hangups to 0.4.6 and fix Issue #16593 hangouts reconnects. ([@hobbypunk90] - [#17518]) ([hangouts docs])
 - Update to async-upnp-client==0.12.5 ([@StevenLooman] - [#17401]) ([upnp docs]) ([media_player.dlna_dmr docs])
@@ -98,26 +96,26 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@StevenLooman]: https://github.com/StevenLooman
 [@balloob]: https://github.com/balloob
 [@hobbypunk90]: https://github.com/hobbypunk90
-[hangouts docs]: https://www.home-assistant.io/components/hangouts/
-[media_player.dlna_dmr docs]: https://www.home-assistant.io/components/media_player.dlna_dmr/
-[media_player.snapcast docs]: https://www.home-assistant.io/components/media_player.snapcast/
-[upnp docs]: https://www.home-assistant.io/components/upnp/
+[hangouts docs]: /integrations/hangouts/
+[media_player.dlna_dmr docs]: /integrations/dlna_dmr
+[media_player.snapcast docs]: /integrations/snapcast
+[upnp docs]: /integrations/upnp/
 
-## {% linkable_title New Features %}
+## New Features
 
 - Add faucet, shower, sprinkler, valve to HomeKit ([@cdce8p] - [#17145]) ([homekit docs]) (new-feature)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Add additional Netatmo public data sensors ([@GP8x] - [#16671]) ([netatmo docs]) ([sensor.netatmo_public docs]) (breaking change)
 - Developers only: we have removed all service helpers (like turn_on method in light coponent), as they werent used. ([@cdce8p] - [#16832], [#16879], [#16863], [#16892], [#16920], [#17038], [#17055], [#16917])
@@ -137,7 +135,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tibber has moved from sensor configuration to component configuration ([@Danielhiversen] - [#17062]) ([notify docs]) ([tibber docs]) ([sensor.tibber docs]) (breaking change) (new-platform)
 - A manually configured Hue component will no longer run a discovery. Set up via config entry if you want to rely on discovery.  ([@balloob] - [#17070]) ([hue docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Fix incorrect yaml in hangouts ([@balloob] - [#17169]) (beta fix)
 - Fix data used for logbook ([@balloob] - [#17172]) ([logbook docs]) (beta fix)
@@ -166,7 +164,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix auth for hass.io ([@pvizeli] - [#17318]) ([hassio docs]) (beta fix)
 - Hass.io auth/sso part2 ([@pvizeli] - [#17324]) ([hassio docs]) (beta fix) (new-platform)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add mode (daily/hourly) to darksky ([@randellhodges] - [#16719]) ([weather docs]) ([weather.darksky docs]) ([weather.openweathermap docs])
 - Extract lovelace to it's own component ([@balloob] - [#16816]) ([frontend docs]) ([lovelace docs])
@@ -287,7 +285,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for Hass.io discovery feature for Add-ons ([@pvizeli] - [#17035]) ([hassio docs])
 - Keep the repeat mode when setting Sonos shuffle mode ([@amelchio] - [#17083]) ([media_player.sonos docs])
 - Smaller steps for Sonos volume up/down ([@amelchio] - [#17080]) ([media_player.sonos docs])
-- Add weather condition code to OpenWeatherMap sensor ([@dbilay] - [#17093]) ([sensor.openweathermap docs])
+- Add weather condition code to OpenWeatherMap sensor ([@dYalib] - [#17093]) ([sensor.openweathermap docs])
 - Adding myself as blink codeowner ([@fronzbot] - [#17096])
 - Change Tile icon to view-grid ([@no2chem] - [#17098]) ([device_tracker docs])
 - Fix jewish calendar sensor with language set to english ([@tsvi] - [#17104]) ([sensor.jewish_calendar docs])
@@ -554,7 +552,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
 [@danielperna84]: https://github.com/danielperna84
-[@dbilay]: https://github.com/dbilay
+[@dYalib]: https://github.com/dYalib
 [@dippysan]: https://github.com/dippysan
 [@emontnemery]: https://github.com/emontnemery
 [@exxamalte]: https://github.com/exxamalte
@@ -590,140 +588,140 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@timmo001]: https://github.com/timmo001
 [@tsvi]: https://github.com/tsvi
 [@zxdavb]: https://github.com/zxdavb
-[alarm_control_panel docs]: /components/alarm_control_panel/
-[alarm_control_panel.blink docs]: /components/alarm_control_panel.blink/
-[alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
-[alarm_control_panel.simplisafe docs]: /components/alarm_control_panel.simplisafe/
-[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
-[alert docs]: /components/alert/
-[aqualogic docs]: /components/aqualogic/
-[auth docs]: /components/auth/
-[automation docs]: /components/automation/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alarm_control_panel.blink docs]: /integrations/blink
+[alarm_control_panel.mqtt docs]: /integrations/alarm_control_panel.mqtt/
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alarm_control_panel.spc docs]: /integrations/spc
+[alert docs]: /integrations/alert/
+[aqualogic docs]: /integrations/aqualogic/
+[auth docs]: /integrations/auth/
+[automation docs]: /integrations/automation/
 [automation.webhook docs]: /docs/automation/trigger/#webhook-trigger
-[binary_sensor.blink docs]: /components/binary_sensor.blink/
-[binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
-[binary_sensor.ffmpeg_motion docs]: /components/binary_sensor.ffmpeg_motion/
-[binary_sensor.ffmpeg_noise docs]: /components/binary_sensor.ffmpeg_noise/
-[binary_sensor.fritzbox docs]: /components/binary_sensor.fritzbox/
-[binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
-[binary_sensor.openuv docs]: /components/binary_sensor.openuv/
-[binary_sensor.ping docs]: /components/binary_sensor.ping/
-[binary_sensor.rachio docs]: /components/binary_sensor.rachio/
-[binary_sensor.spc docs]: /components/binary_sensor.spc/
-[blink docs]: /components/blink/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[camera docs]: /components/camera/
-[camera.blink docs]: /components/camera.blink/
-[camera.mjpeg docs]: /components/camera.mjpeg/
-[camera.mqtt docs]: /components/camera.mqtt/
-[camera.onvif docs]: /components/camera.onvif/
-[climate docs]: /components/climate/
-[climate.evohome docs]: /components/climate.evohome/
-[climate.fritzbox docs]: /components/climate.fritzbox/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.mqtt docs]: /components/climate.mqtt/
-[config docs]: /components/config/
-[counter docs]: /components/counter/
-[cover docs]: /components/cover/
-[cover.mqtt docs]: /components/cover.mqtt/
-[cover.myq docs]: /components/cover.myq/
-[device_sun_light_trigger docs]: /components/device_sun_light_trigger/
-[device_tracker docs]: /components/device_tracker/
-[device_tracker.tile docs]: /components/device_tracker.tile/
-[duckdns docs]: /components/duckdns/
-[emulated_hue docs]: /components/emulated_hue/
-[envisalink docs]: /components/envisalink/
-[evohome docs]: /components/evohome/
-[fan docs]: /components/fan/
-[fan.mqtt docs]: /components/fan.mqtt/
-[ffmpeg docs]: /components/ffmpeg/
-[fritzbox docs]: /components/fritzbox/
-[frontend docs]: /components/frontend/
-[google_assistant docs]: /components/google_assistant/
-[group docs]: /components/group/
-[hangouts docs]: /components/hangouts/
-[hassio docs]: /components/hassio/
-[homekit docs]: /components/homekit/
-[homekit_controller docs]: /components/homekit_controller/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[huawei_lte docs]: /components/huawei_lte/
-[hue docs]: /components/hue/
-[ifttt docs]: /components/ifttt/
-[image_processing docs]: /components/image_processing/
-[input_boolean docs]: /components/input_boolean/
-[input_number docs]: /components/input_number/
-[input_select docs]: /components/input_select/
-[input_text docs]: /components/input_text/
-[keyboard docs]: /components/keyboard/
-[light docs]: /components/light/
-[light.hue docs]: /components/light.hue/
-[light.lifx docs]: /components/light.lifx/
-[light.mqtt docs]: /components/light.mqtt/
-[light.mqtt_json docs]: /components/light.mqtt_json/
-[light.opple docs]: /components/light.opple/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[lock docs]: /components/lock/
-[lock.mqtt docs]: /components/lock.mqtt/
-[logbook docs]: /components/logbook/
-[logger docs]: /components/logger/
-[lovelace docs]: /components/lovelace/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[media_player.samsungtv docs]: /components/media_player.samsungtv/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.soundtouch docs]: /components/media_player.soundtouch/
-[microsoft_face docs]: /components/microsoft_face/
-[mqtt docs]: /components/mqtt/
-[netatmo docs]: /components/netatmo/
-[notify docs]: /components/notify/
-[onboarding docs]: /components/onboarding/
-[openuv docs]: /components/openuv/
-[persistent_notification docs]: /components/persistent_notification/
-[rachio docs]: /components/rachio/
-[remote docs]: /components/remote/
-[scene docs]: /components/scene/
-[script docs]: /components/script/
-[sensor docs]: /components/sensor/
-[sensor.aqualogic docs]: /components/sensor.aqualogic/
-[sensor.blink docs]: /components/sensor.blink/
-[sensor.enphase_envoy docs]: /components/sensor.enphase_envoy/
-[sensor.geo_rss_events docs]: /components/sensor.geo_rss_events/
-[sensor.gitlab_ci docs]: /components/sensor.gitlab_ci/
-[sensor.google_travel_time docs]: /components/sensor.google_travel_time/
-[sensor.jewish_calendar docs]: /components/sensor.jewish_calendar/
-[sensor.miflora docs]: /components/sensor.miflora/
-[sensor.mqtt docs]: /components/sensor.mqtt/
-[sensor.mqtt_room docs]: /components/sensor.mqtt_room/
-[sensor.netatmo_public docs]: /components/sensor.netatmo_public/
-[sensor.openweathermap docs]: /components/sensor.openweathermap/
-[sensor.scrape docs]: /components/sensor.scrape/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
-[sonos docs]: /components/sonos/
-[spc docs]: /components/spc/
-[switch docs]: /components/switch/
-[switch.aqualogic docs]: /components/switch.aqualogic/
-[switch.flux docs]: /components/switch.flux/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.rachio docs]: /components/switch.rachio/
-[switch.rest docs]: /components/switch.rest/
-[switch.tradfri docs]: /components/switch.tradfri/
-[switch.volvooncall docs]: /components/switch.volvooncall/
-[switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
-[telegram_bot docs]: /components/telegram_bot/
-[tibber docs]: /components/tibber/
-[timer docs]: /components/timer/
-[tradfri docs]: /components/tradfri/
-[upnp docs]: /components/upnp/
-[vacuum docs]: /components/vacuum/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[verisure docs]: /components/verisure/
-[weather docs]: /components/weather/
-[weather.darksky docs]: /components/weather.darksky/
-[weather.openweathermap docs]: /components/weather.openweathermap/
-[webhook docs]: /components/webhook/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zoneminder docs]: /components/zoneminder/
-[zwave docs]: /components/zwave/
+[binary_sensor.blink docs]: /integrations/blink
+[binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[binary_sensor.ffmpeg_motion docs]: /integrations/ffmpeg_motion/
+[binary_sensor.ffmpeg_noise docs]: /integrations/ffmpeg_noise/
+[binary_sensor.fritzbox docs]: /integrations/fritzbox
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.openuv docs]: /integrations/openuv
+[binary_sensor.ping docs]: /integrations/ping#binary-sensor
+[binary_sensor.rachio docs]: /integrations/rachio
+[binary_sensor.spc docs]: /integrations/spc#binary-sensor
+[blink docs]: /integrations/blink/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[camera docs]: /integrations/camera/
+[camera.blink docs]: /integrations/blink
+[camera.mjpeg docs]: /integrations/mjpeg
+[camera.mqtt docs]: /integrations/camera.mqtt/
+[camera.onvif docs]: /integrations/onvif
+[climate docs]: /integrations/climate/
+[climate.evohome docs]: /integrations/evohome
+[climate.fritzbox docs]: /integrations/fritzbox
+[climate.honeywell docs]: /integrations/honeywell
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[config docs]: /integrations/config/
+[counter docs]: /integrations/counter/
+[cover docs]: /integrations/cover/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.myq docs]: /integrations/myq
+[device_sun_light_trigger docs]: /integrations/device_sun_light_trigger/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.tile docs]: /integrations/tile
+[duckdns docs]: /integrations/duckdns/
+[emulated_hue docs]: /integrations/emulated_hue/
+[envisalink docs]: /integrations/envisalink/
+[evohome docs]: /integrations/evohome/
+[fan docs]: /integrations/fan/
+[fan.mqtt docs]: /integrations/fan.mqtt/
+[ffmpeg docs]: /integrations/ffmpeg/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[hangouts docs]: /integrations/hangouts/
+[hassio docs]: /integrations/hassio/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[huawei_lte docs]: /integrations/huawei_lte/
+[hue docs]: /integrations/hue/
+[ifttt docs]: /integrations/ifttt/
+[image_processing docs]: /integrations/image_processing/
+[input_boolean docs]: /integrations/input_boolean/
+[input_number docs]: /integrations/input_number/
+[input_select docs]: /integrations/input_select/
+[input_text docs]: /integrations/input_text/
+[keyboard docs]: /integrations/keyboard/
+[light docs]: /integrations/light/
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.mqtt_json docs]: /integrations/light.mqtt
+[light.opple docs]: /integrations/opple
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[lock docs]: /integrations/lock/
+[lock.mqtt docs]: /integrations/lock.mqtt/
+[logbook docs]: /integrations/logbook/
+[logger docs]: /integrations/logger/
+[lovelace docs]: /integrations/lovelace/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.samsungtv docs]: /integrations/samsungtv
+[media_player.sonos docs]: /integrations/sonos
+[media_player.soundtouch docs]: /integrations/soundtouch
+[microsoft_face docs]: /integrations/microsoft_face/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[notify docs]: /integrations/notify/
+[onboarding docs]: /integrations/onboarding/
+[openuv docs]: /integrations/openuv/
+[persistent_notification docs]: /integrations/persistent_notification/
+[rachio docs]: /integrations/rachio/
+[remote docs]: /integrations/remote/
+[scene docs]: /integrations/scene/
+[script docs]: /integrations/script/
+[sensor docs]: /integrations/sensor/
+[sensor.aqualogic docs]: /integrations/aqualogic#sensor
+[sensor.blink docs]: /integrations/blink
+[sensor.enphase_envoy docs]: /integrations/enphase_envoy
+[sensor.geo_rss_events docs]: /integrations/geo_rss_events
+[sensor.gitlab_ci docs]: /integrations/gitlab_ci
+[sensor.google_travel_time docs]: /integrations/google_travel_time
+[sensor.jewish_calendar docs]: /integrations/jewish_calendar
+[sensor.miflora docs]: /integrations/miflora
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.mqtt_room docs]: /integrations/mqtt_room
+[sensor.netatmo_public docs]: /integrations/netatmo/#sensor
+[sensor.openweathermap docs]: /integrations/openweathermap#sensor
+[sensor.scrape docs]: /integrations/scrape
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[sonos docs]: /integrations/sonos/
+[spc docs]: /integrations/spc/
+[switch docs]: /integrations/switch/
+[switch.aqualogic docs]: /integrations/aqualogic#switch
+[switch.flux docs]: /integrations/flux
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.rachio docs]: /integrations/rachio#switch
+[switch.rest docs]: /integrations/switch.rest/
+[switch.tradfri docs]: /integrations/tradfri
+[switch.volvooncall docs]: /integrations/volvooncall
+[switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tibber docs]: /integrations/tibber/
+[timer docs]: /integrations/timer/
+[tradfri docs]: /integrations/tradfri/
+[upnp docs]: /integrations/upnp/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[verisure docs]: /integrations/verisure/
+[weather docs]: /integrations/weather/
+[weather.darksky docs]: /integrations/weather.darksky/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[webhook docs]: /integrations/webhook/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zoneminder docs]: /integrations/zoneminder/
+[zwave docs]: /integrations/zwave/
