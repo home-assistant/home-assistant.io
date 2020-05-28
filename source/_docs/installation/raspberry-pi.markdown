@@ -92,8 +92,6 @@ When you run the `hass` command for the first time, it will download, install an
 
 </div>
 
-If you want to setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant Core](/docs/autostart/).
-
 ### Updating
 
 To update to the latest version of Home Assistant Core follow these simple steps:

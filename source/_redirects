@@ -2056,6 +2056,42 @@
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 
+# Migrated Community Guides
+/cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
+/cookbook/dropboxbackup https://community.home-assistant.io/t/backing-up-to-dropbox/196960
+/cookbook/githubbackup https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
+/cookbook/tls_domain_certificate https://community.home-assistant.io/t/certificate-for-ssl-tls-via-domain-ownership/196968
+/cookbook/tls_self_signed_certificate https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970
+/cookbook/tor_configuration https://community.home-assistant.io/t/tor-onion-service-configuration/195171
+/docs/autostart/init.d https://community.home-assistant.io/t/autostart-using-init-d/199494
+/docs/autostart/macos https://community.home-assistant.io/t/autostart-on-macos/199500
+/docs/autostart/systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
+/docs/autostart/upstart https://community.home-assistant.io/t/autostart-using-upstart/199499
+/docs/ecosystem/apache https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
+/docs/ecosystem/backup/backup_dropbox https://community.home-assistant.io/t/backing-up-to-dropbox/196960
+/docs/ecosystem/backup/backup_github https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
+/docs/ecosystem/backup/backup_usb https://community.home-assistant.io/t/backup-configuration-to-a-usb-drive/196964
+/docs/ecosystem/caddy https://community.home-assistant.io/t/reverse-proxy-with-caddy/196943
+/docs/ecosystem/certificates https://community.home-assistant.io/tags/c/community-guides/51/remote-access
+/docs/ecosystem/certificates/lets_encrypt https://community.home-assistant.io/t/installing-tls-ssl-using-lets-encrypt/196975
+/docs/ecosystem/certificates/tls_domain_certificate https://community.home-assistant.io/t/certificate-for-ssl-tls-via-domain-ownership/196968
+/docs/ecosystem/certificates/tls_self_signed_certificate https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970
+/docs/ecosystem/haproxy https://community.home-assistant.io/t/reverse-proxy-with-haproxy/196950
+/docs/ecosystem/nginx https://community.home-assistant.io/t/reverse-proxy-using-nginx/196954
+/docs/ecosystem/nginx_subdomain https://community.home-assistant.io/t/reverse-proxy-with-nginx-using-a-subdomain/196952
+/docs/ecosystem/synology https://community.home-assistant.io/t/synology-dsm-reverse-proxy/199502
+/docs/ecosystem/tor https://community.home-assistant.io/t/tor-onion-service-configuration/195171
+/docs/installation/armbian https://community.home-assistant.io/t/home-assistant-core-python-on-armbian/196987
+/docs/installation/centos https://community.home-assistant.io/t/installing-home-assistant-core-on-centos-rhel/199512
+/docs/installation/fedora https://community.home-assistant.io/t/installing-home-assistant-core-on-fedora/199518
+/docs/installation/freenas https://community.home-assistant.io/t/installation-of-home-assistant-on-your-freenas/195158
+/ecosystem https://community.home-assistant.io/c/community-guides/51
+/ecosystem/synology https://community.home-assistant.io/t/synology-dsm-reverse-proxy/199502
+/getting-started/autostart https://community.home-assistant.io/t/autostart-using-upstart/199499
+/getting-started/autostart-init.d https://community.home-assistant.io/t/autostart-using-init-d/199494
+/getting-started/autostart-macos https://community.home-assistant.io/t/autostart-on-macos/199500
+/getting-started/autostart-systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
+
 # Add-ons
 /addons/cec_scan https://github.com/home-assistant/hassio-addons/blob/master/cec_scan/README.md
 /addons/check_config https://github.com/home-assistant/hassio-addons/blob/master/check_config/README.md
@@ -2082,3 +2118,10 @@
 # Lovelace documentation
 /lovelace/entity-button /lovelace/button
 /lovelace/views /lovelace/dashboards-and-views
+
+# Removed documentation
+/docs/installation/hassbian /getting-started
+/docs/installation/macos /docs/installation/virtualenv
+/docs/installation/raspberry-pi-all-in-one /getting-started
+/getting-started/hassbian /getting-started
+/getting-started/installation-raspberry-pi-all-in-one /getting-started

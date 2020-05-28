@@ -115,8 +115,6 @@ http:
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
 
-Or use a self signed certificate following the instructions here [Self-signed certificate for SSL/TLS](/docs/ecosystem/certificates/tls_self_signed_certificate/).
-
 ## APIs
 
 On top of the `http` integration is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).

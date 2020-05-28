@@ -3,7 +3,8 @@
     <h1 class="title delta">Topics</h1>
     <ul class="divided sidebar-menu">
       <li>
-        <b>{% active_link /faq/ FAQ %}</b> |
+        <b>{% active_link /faq/ FAQ %}</b>
+        |
         <b>{% active_link /docs/glossary/ Glossary %}</b>
       </li>
       <li>
@@ -110,7 +111,6 @@
         <ul>
           <li>{% active_link /docs/backend/database/ Database %}</li>
           <li>{% active_link /docs/backend/updater/ Updater %}</li>
-          <li>{% active_link /developers/api/ API %}</li>
         </ul>
       </li>
       <li>
@@ -139,14 +139,6 @@
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/security/ Security %}</b>
-        <ul>
-          <li>
-            {% active_link /docs/security/webserver/ Web server fingerprint %}
-          </li>
-        </ul>
-      </li>
-      <li>
         <b>{% active_link /docs/z-wave/ Z-Wave %}</b>
         <ul>
           <li>
@@ -160,18 +152,23 @@
           </li>
           <li>{% active_link /docs/z-wave/controllers/ Controllers %}</li>
           <li>
-            {% active_link /docs/z-wave/devices/ Devices %} and {% active_link
+            {% active_link /docs/z-wave/devices/ Devices %}
+            and
+            {% active_link
             /docs/z-wave/entities/ Entities %}
           </li>
           <li>
-            {% active_link /docs/z-wave/query-stage/ Query Stages %} for devices
+            {% active_link /docs/z-wave/query-stage/ Query Stages %}
+            for devices
           </li>
           <li>
             {% active_link /docs/z-wave/device-specific/ Device Specific %}
             configuration
           </li>
           <li>
-            {% active_link /docs/z-wave/events/ Events %} and {% active_link
+            {% active_link /docs/z-wave/events/ Events %}
+            and
+            {% active_link
             /docs/z-wave/services/ Services %}
           </li>
         </ul>
@@ -190,76 +187,6 @@
           <li>{% active_link /docs/mqtt/testing/ Testing your setup %}</li>
           <li>{% active_link /docs/mqtt/logging/ Logging %}</li>
           <li>{% active_link /docs/mqtt/processing_json/ Processing JSON %}</li>
-        </ul>
-      </li>
-      <li>
-        {% active_link /docs/ecosystem/ Ecosystem %}
-        <ul>
-          <li>
-            {% active_link /docs/autostart/ Autostart %}
-            <ul>
-              <li>
-                {% active_link /docs/autostart/systemd/ systemd (Linux) %}
-              </li>
-              <li>
-                {% active_link /docs/autostart/upstart/ Upstart (Linux) %}
-              </li>
-              <li>{% active_link /docs/autostart/init.d/ init.d (Linux) %}</li>
-              <li>{% active_link /docs/autostart/macos/ macOS %}</li>
-              <li>{% active_link /docs/autostart/synology/ Synology NAS %}</li>
-            </ul>
-          </li>
-          <li>
-            Remote access
-            <ul>
-              <li>{% active_link /docs/ecosystem/apache/ Apache %}</li>
-              <li>{% active_link /docs/ecosystem/caddy/ Caddy Server %}</li>
-              <li>{% active_link /docs/ecosystem/haproxy/ HAProxy %}</li>
-              <li>{% active_link /docs/ecosystem/nginx/ NGINX %}</li>
-              <li>
-                {% active_link /docs/ecosystem/nginx_subdomain/ NGINX with
-                subdomain%}
-              </li>
-              <li>{% active_link /docs/ecosystem/tor/ Tor Onion Service %}</li>
-            </ul>
-          </li>
-          <li>
-            {% active_link /docs/ecosystem/certificates/ Certificates %}
-            <ul>
-              <li>
-                {% active_link
-                /docs/ecosystem/certificates/tls_self_signed_certificate/
-                Self-signed certificate %}
-              </li>
-              <li>
-                {% active_link
-                /docs/ecosystem/certificates/tls_domain_certificate/ Certificate
-                domain owners %}
-              </li>
-              <li>
-                {% active_link /docs/ecosystem/certificates/lets_encrypt/ Let's
-                Encrypt (detailed) %}
-              </li>
-            </ul>
-          </li>
-          <li>
-            Backup
-            <ul>
-              <li>
-                {% active_link /docs/ecosystem/backup/backup_github/ Backup to
-                GitHub %}
-              </li>
-              <li>
-                {% active_link /docs/ecosystem/backup/backup_dropbox/ Backup to
-                Dropbox %}
-              </li>
-              <li>
-                {% active_link /docs/ecosystem/backup/backup_usb/ Backup to USB
-                device %}
-              </li>
-            </ul>
-          </li>
-          <li>{% active_link /docs/ecosystem/synology/ Synology %}</li>
         </ul>
       </li>
     </ul>
