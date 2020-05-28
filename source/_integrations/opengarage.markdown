@@ -11,7 +11,7 @@ ha_codeowners:
 
 The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
-To add OpenGarage to your installation, go to Configuration >> Integrations in the UI and enable the Mill integration.
+To add OpenGarage to your installation, go to **Configuration** >> **Integrations** in the UI and enable the Mill integration.
 
 **Example with more detail:**
 <p class='img'>
