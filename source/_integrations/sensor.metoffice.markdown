@@ -86,6 +86,6 @@ monitored_conditions:
 <div class='note'>
 
 This sensor is an alternative to the [`metoffice`](/integrations/metoffice/) weather platform.
-The weather platform is easier to configure but less customizable.
+The weather platform is easier to configure but less customizable however it also provides a five-day forecast.
 
 </div>

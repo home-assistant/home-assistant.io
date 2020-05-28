@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: metoffice
 ---
 
-The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data.
+The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data and provides the current weather along with the forecast for the next five days.
 
 ## Configuration
 
@@ -44,6 +44,6 @@ longitude:
 <div class='note'>
 
 This platform is an alternative to the [`metoffice`](/integrations/sensor.metoffice/) sensor.
-The weather platform is easier to configure but less customizable.
+The weather platform is easier to configure but less customizable. The sensor however does not provide forecast data.
 
 </div>
