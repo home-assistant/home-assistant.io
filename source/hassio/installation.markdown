@@ -122,8 +122,8 @@ If you would like to test next release before anyone else, you can install the b
 [vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vmdk.gz
 [vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vhdx.gz
 [vdi]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.6/hassos_ova-4.6.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.6/hassos_ova-4.6.ova
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.qcow2.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.7/hassos_ova-4.7.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
