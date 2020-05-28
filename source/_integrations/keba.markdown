@@ -19,7 +19,8 @@ This component provides the following platforms:
 - Binary Sensors: Online state, plug state, Charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
-- Services: authorize, deauthorize, set energy target, set maximum allowed current, show text and manually update the states. More details can be found [here](/integrations/keba/#services).
+- Services: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found [here](/integrations/keba/#services).
+- Notify: Show a text on chargers with a built-in LED display.
 
 ## Configuration
 
@@ -148,16 +149,13 @@ The use of the notify service is [described here](/integrations/notify/).
 
 The `message` part of the event payload is shown on the display. Scrolling is performed if needed. A maximum of 23 characters can be shown.
 
-The optional `data` part may contain specifications of the message duration. `min_time` is the minimum time in seconds the text will be shown if another message is requested. `max_time` is the maximum time to display the message when nothing else is requested. By default the message is shown minimum 2 seconds and maximum 10 seconds.
+The optional `data` part may contain specifications of the message duration. `min_time` is the minimum time in seconds the text will be shown if another message is requested. `max_time` is the maximum time to display the message when nothing else is requested. By default, the message is shown a minimum of 2 seconds and a maximum of 10 seconds.
 
-```json
-{
-  "message": "Welcome home!",
-  "data": {
-    "min_time": 4,
-    "max_time": 20
-  }
-}
+```yaml
+message: "Welcome home"
+data:
+  min_time: 4
+  max_time: 10
 ```
 
 ## Disclaimer
