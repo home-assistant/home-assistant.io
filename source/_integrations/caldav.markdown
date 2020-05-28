@@ -102,9 +102,9 @@ custom_calendars:
       required: true
       description: Regular expression for filtering the events based on the content of their summary, description or location.
       type: string
-period:
+days:
   required: false
-  description: Period of days for the search for upcoming appointments.
+  description: Number of days for the search for upcoming appointments.
   default: 1
   type: integer
 {% endconfiguration %}
