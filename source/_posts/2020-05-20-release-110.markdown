@@ -434,8 +434,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **UPnP** - This integration has been simplified and will always create
   sensors, so port mapping functionality has been removed. -
-  ([@StevenLooman] - [#35191]) ([upnp docs]) 
-  
+  ([@StevenLooman] - [#35191]) ([upnp docs])
+
   Example YAML configuration:
 
   ```yaml
@@ -489,21 +489,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Blink** As of May 11, 2020 Blink has removed the old username/password
   authentication method, which means all current Blink integrations prior to
   this release are broken.
-  
+
   In order to support this change, a 2FA key must be entered before setup
   can continue. Some users may not have 2FA enabled on their account yet,
   but you will still receive an email at login asking you to allow the device
   to continue setting up.
-  
+
   Your current YAML configuration will be converted to a UI-based configuration,
   but the only supported entries are `username`, `password`, and `scan_interval`.
   All other entries must be removed; otherwise, the integration will not be
   configured. - ([@fronzbot] - [#35396]) ([blink docs])
-  
-- **Emulated Hue** - Emulated Hue was updated for better compatibility with newer 
+
+- **Emulated Hue** - Emulated Hue was updated for better compatibility with newer
   systems. Existing users may find that they will need to re-pair their system with
    emulated hue to reconnect devices. - ([@Tho85] - [#35148]) ([emulated_hue docs])
-   
+
 - **Universal Devices ISY994** - This migrates ISY994 to PyISY v2 and is now
   available to be added from the Integrations UI. PyISY Version 2 is a
   significant update to the original module used to communicate with the ISY.
@@ -770,6 +770,58 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [opengarage docs]: /integrations/opengarage/
 [roku docs]: /integrations/roku/
 [velux docs]: /integrations/velux/
+
+## Release 0.110.4 - May 28
+
+- Add ability to ignore heos discovery ([@bdraco] - [#34653]) ([heos docs])
+- Fix Android TV icon when screencap option is disabled ([@JeffLIrion] - [#35710]) ([androidtv docs])
+- Let PAHO MQTT client handle connection to MQTT server ([@emontnemery] - [#35983]) ([mqtt docs])
+- Use a single service browser for zeroconf discovery ([@bdraco] - [#35997]) ([zeroconf docs])
+- Check todoist due date is not None in async_get_events ([@gadgetchnnel] - [#36140]) ([todoist docs])
+- Fix cloud connection within API ([@2Fake] - [#36158]) ([devolo_home_control docs])
+- Revert DSMR not calling entity methods ([@balloob] - [#36179]) ([dsmr docs])
+- Fix empty preset element in ONVIF response ([@hunterjm] - [#36182]) ([onvif docs])
+- Update cast to use shared zeroconf ([@bdraco] - [#35570]) ([cast docs])
+- Bump zeroconf, pychromecast. Log if zeroconf.get_service_info fails. ([@emontnemery] - [#36185]) ([cast docs]) ([zeroconf docs])
+- Fix roku select source with app ids ([@ctalkington] - [#36191]) ([roku docs])
+- Prevent AirVisual from polling ([@bachya] - [#36199]) ([airvisual docs])
+- Fix custom position range ([@emontnemery] - [#36222]) ([mqtt docs])
+- Correct MQTT device trigger reconfiguration with same topic ([@emontnemery] - [#36234]) ([mqtt docs])
+
+[#34653]: https://github.com/home-assistant/core/pull/34653
+[#35570]: https://github.com/home-assistant/core/pull/35570
+[#35710]: https://github.com/home-assistant/core/pull/35710
+[#35983]: https://github.com/home-assistant/core/pull/35983
+[#35997]: https://github.com/home-assistant/core/pull/35997
+[#36140]: https://github.com/home-assistant/core/pull/36140
+[#36158]: https://github.com/home-assistant/core/pull/36158
+[#36179]: https://github.com/home-assistant/core/pull/36179
+[#36182]: https://github.com/home-assistant/core/pull/36182
+[#36185]: https://github.com/home-assistant/core/pull/36185
+[#36191]: https://github.com/home-assistant/core/pull/36191
+[#36199]: https://github.com/home-assistant/core/pull/36199
+[#36222]: https://github.com/home-assistant/core/pull/36222
+[#36234]: https://github.com/home-assistant/core/pull/36234
+[@2Fake]: https://github.com/2Fake
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@ctalkington]: https://github.com/ctalkington
+[@emontnemery]: https://github.com/emontnemery
+[@gadgetchnnel]: https://github.com/gadgetchnnel
+[@hunterjm]: https://github.com/hunterjm
+[airvisual docs]: /integrations/airvisual/
+[androidtv docs]: /integrations/androidtv/
+[cast docs]: /integrations/cast/
+[devolo_home_control docs]: /integrations/devolo_home_control/
+[dsmr docs]: /integrations/dsmr/
+[heos docs]: /integrations/heos/
+[mqtt docs]: /integrations/mqtt/
+[onvif docs]: /integrations/onvif/
+[roku docs]: /integrations/roku/
+[todoist docs]: /integrations/todoist/
+[zeroconf docs]: /integrations/zeroconf/
 
 ## All changes
 
