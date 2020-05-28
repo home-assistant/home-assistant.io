@@ -115,15 +115,15 @@ If you would like to test next release before anyone else, you can install the b
 [pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-3.13.img.gz
 [pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-64-3.13.img.gz
 [tinker]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_tinker-3.13.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-c2-3.13.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.6/hassos_odroid-n2-4.6.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_odroid-xu4-3.13.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-c2-4.8.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-n2-4.8.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-xu4-4.8.img.gz
 [intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_intel-nuc-3.13.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_ova-3.13.vdi.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vdi.gz
 [qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.7/hassos_ova-4.7.ova
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
