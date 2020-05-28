@@ -30,6 +30,8 @@ There is currently support for the following device types within Home Assistant:
 - **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
 - **Switch** - Elk-M1 outputs are represented as `switch` entities.
 
+If you would like your `alarm_control_panel` devices to keep track of the user whose code was last used to change the status of that partition (via the attributes `changed_by` and `changed_by_id`) you must configure your Elk's global setting location 35, “System Log Data Update” transmission, so that the M1 sends the updated partition status whenever it changes. (It may work anyway if you have exactly one area configured and do not have that setting enabled.)
+
 ## Configuration
 
 To add `ElkM1` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Elk-M1 Control**.
