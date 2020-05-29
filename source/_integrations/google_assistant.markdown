@@ -188,10 +188,16 @@ Currently, the following domains are available to be used with Google Assistant,
 - light (on/off/brightness/rgb color/color temp)
 - lock 
 - cover (on/off/set position)
-- media_player (on/off/set volume (via set volume)/source (via set input source))
+- media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
 - climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
+
+<div class='note'>
+
+Some of these devices may not display correctly in the Google Home app, such as media_player, however voice commands will still work.
+
+</div>
 
 ### Secure Devices
 
