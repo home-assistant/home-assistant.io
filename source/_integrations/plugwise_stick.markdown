@@ -15,8 +15,8 @@ This integration enables switching of the relay and monitoring of consumed power
 
 <div class='note'>
 
-  Be aware this integration does **not** support the more recent [Plug](https://www.plugwise.com/en_US/products/plug) devices, which can be identified by having a local button as opposed to the old Circles which don't have a button at all.
-  If you want to control the new Plugwise devices like the Plugwise Anna thermostat and plugs check out the [Plugwise](/integrations/plugwise/) integration.
+Be aware this integration does **not** support the more recent [Plug](https://www.plugwise.com/en_US/products/plug) devices, which can be identified by having a local button as opposed to the old Circles which don't have a button at all.
+  If you want to control the new Plugwise devices like the Plugwise Anna thermostat and plugs, check out the [Plugwise](/integrations/plugwise/) integration.
 
 </div>
 
@@ -29,16 +29,16 @@ There is currently support for the following Plugwise devices types within Home 
 
 ## Configuration
 
-From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
+From the Home Assistant front page, go to **Configuration** and then select **Integrations** from the list.
 Use the plus button in the bottom right to add a new integration called **Plugwise USB-Stick**.
 
-In the set up wizard at the 'USB Device Path' it will list all detected serial ports available to Home Assistant. You need to pick the serialport of the connected Plugwise USB-Stick.
-If required the selection list contains the possibility to manually enter the device path.
+In the setup wizard at the 'USB Device Path', it will list all detected serial ports available to Home Assistant. You need to pick the serial port of the connected Plugwise USB-Stick.
+If required, the selection list contains the possibility to manually enter the device path.
 
 When you press `Submit` and the integration will try to initialize the USB-Stick at the supplied device path. If the connection to the USB-stick is initialized successfully, it will automatically do a discovery of all linked Plugwise nodes stored at the Circle+ device.
 An error will be displayed in the wizard if Home Assistant can't access the USB-stick or the connection fails.
 
-The integration will automatically save the connection by the serial path (eg `/dev/serial/by-id/*`) to keep the connection consistent between system restarts.
+The integration will automatically save the connection by the serial path (e.g., `/dev/serial/by-id/*`) to keep the connection consistent between system restarts.
 
 ## Switches
 
@@ -46,7 +46,7 @@ A `switch` entity will be automatically created for the Circle+, Circle and Stea
 
 ## Sensors
 
-The following `sensor` entities will automatically be created. Some `sensor` entities are less useful and disabled by default. If required these can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
+The following `sensor` entities will automatically be created. Some `sensor` entities are less useful and disabled by default. If required, these can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
 
 - **Ping roundtrip**
   Network roundtrip time (milliseconds).
@@ -61,7 +61,7 @@ The following `sensor` entities will automatically be created. Some `sensor` ent
   Total power consumption during this hour (kWh).
 
 - **Power consumption previous hour**
-  Total power consumption during previous hour (kWh).
+  Total power consumption during the previous hour (kWh).
 
 - **Power consumption today**
   Total power usage from today to the present (kWh).
@@ -73,7 +73,7 @@ The following `sensor` entities will automatically be created. Some `sensor` ent
   Total power production during this hour (kWh).
 
 - **Power production previous hour**
-  Total power production during previous hour (kWh).
+  Total power production during the previous hour (kWh).
 
 ## Known issues
 
@@ -85,8 +85,8 @@ The following Plugwise are not supported:
 - [Sting](https://www.plugwise.com/en_US/products/sting)
 - [Stealth-M](https://www.plugwise.com/en_US/products/stealth-m)
 
-Currently there is no support for linking (or removing) nodes from the Plugwise network. You still need the Plugwise [Source software](https://www.plugwise.com/en_US/source) for that.
+Currently, there is no support for linking (or removing) nodes from the Plugwise network. You still need the Plugwise [Source software](https://www.plugwise.com/en_US/source) for that.
 
-The sensors are automatically refreshed. The used refresh time is based on the number linked devices.
+The sensors are automatically refreshed. The used refresh time is based on the number of linked devices.
 
-When a device is not reachable it will be marked as unavailable. Every hour another attempt is made to check whether the device is available again. If this is the case, the device will be made available again in Home Assistant. After this, the sensors will also be updated again.
+When a device is not reachable, it will be marked as unavailable. Every hour another attempt is made to check whether the device is available again. If this is the case, the device will be made available again in Home Assistant. After this, the sensors will also be updated again.
