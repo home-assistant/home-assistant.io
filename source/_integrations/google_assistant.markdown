@@ -207,15 +207,6 @@ By default these cannot be opened by Google Assistant unless a `secure_devices_p
 
 For the Alarm Control Panel if a code is set it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false` the system will arm without prompting for the pin.
 
-### Media Player Sources
-
-Media Player sources are sent via the Modes trait in Google Assistant.
-There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature [are listed here](https://developers.google.com/actions/reference/smarthome/traits/modes).
-
-#### Example Command
-
-"Hey Google, change input source to TV on Living Room Receiver"
-
 ### Room/Area support
 
 Entities that have not been explicitly assigned to rooms but have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
