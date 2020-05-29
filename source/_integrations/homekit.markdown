@@ -353,7 +353,7 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
 
-You may also need to set `default_interface` to `true` in the `zeroconf` intergration.
+You may also need to set `default_interface` to `true` in the `zeroconf` integration.
 
 To use `advertise_ip`, add the option to your `homekit` configuration:
 
@@ -468,7 +468,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your configuration, see [safe_mode](#safe-mode).
 
-If [safe_mode](#safe-mode) is not successful, you likely need to enable `default_interface: true` in the `zeroconf` intergration configuration and set a unique name such as `name: MyHASS42`.
+If [safe_mode](#safe-mode) is not successful, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
   
 If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
