@@ -99,11 +99,6 @@ homekit:
         required: false
         type: boolean
         default: false
-      zeroconf_default_interface:
-        description: By default, zeroconf will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result HomeKit not being seen on the network. Change this option to `true` if HomeKit cannot be discovered.
-        required: true
-        type: boolean
-        default: false
       advertise_ip:
         description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
         required: false
@@ -358,14 +353,13 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
 
-You may also need to set `zeroconf_default_interface` to `true`.
+You may also need to set `default_interface` to `true` in the `zeroconf` intergration.
 
 To use `advertise_ip`, add the option to your `homekit` configuration:
 
 ```yaml
 homekit:
   advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
-  zeroconf_default_interface: true
 ```
 
 Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
@@ -474,7 +468,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your configuration, see [safe_mode](#safe-mode).
 
-If [safe_mode](#safe-mode) is not successful, you likely need to enable `zeroconf_default_interface: true` and set a unique name such as `name: MyHASS42`.
+If [safe_mode](#safe-mode) is not successful, you likely need to enable `default_interface: true` in the `zeroconf` intergration configuration and set a unique name such as `name: MyHASS42`.
   
 If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
