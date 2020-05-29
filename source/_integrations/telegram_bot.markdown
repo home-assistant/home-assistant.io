@@ -351,7 +351,7 @@ Message editor:
         message: >
           Callback received from {{ trigger.event.data.from_first }}.
           Message id: {{ trigger.event.data.message.message_id }}.
-          Data: {{ trigger.event.data.data | replace("_", "\_") }}
+          Data: {{ trigger.event.data.data|replace("_", "\_") }}
 ```
 
 {% endraw %}
