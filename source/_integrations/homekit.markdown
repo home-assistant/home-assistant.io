@@ -125,7 +125,7 @@ homekit:
         required: false
         type: map
         keys:
-          '`<ENTITY_ID>`':
+          '`ENTITY_ID`':
             description: Additional options for specific entities.
             required: false
             type: map
@@ -136,6 +136,10 @@ homekit:
                 type: string
               linked_battery_sensor:
                 description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+                required: false
+                type: string
+              linked_motion_sensor:
+                description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
                 type: string
               low_battery_threshold:
@@ -468,6 +472,31 @@ The following integrations are currently supported:
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 | water_heater | WaterHeater | All `water_heater` devices. |
 
+## iOS Remote Widget
+
+Entities exposed as `TelevisionMediaPlayer` are controllable within the Apple Remote widget in
+Control Center. Play, pause, volume up and volume down should work out of the box depending on the `supported_features`
+of the entity. However, if your television can be controlled in other ways outside of the `media_player` entity, (i.e.
+service calls to an IR blaster), it is possible to build an automation to take advantage of these events.
+
+When a key is pressed within the Control Center Remote widget, the event `homekit_tv_remote_key_pressed` will be fired.
+The key name will be available in the event data in the `key_name` field:
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type: homekit_tv_remote_key_pressed
+    event_data:
+      key_name: arrow_right
+
+  # Send the arrow right key via a broadlink IR blaster
+  action:
+    service: broadlink.send
+    host: 192.168.1.55
+    packet: XXXXXXXX
+```
+
 ## Troubleshooting
 
 ### Resetting when created via YAML
@@ -612,6 +641,10 @@ Currently, cameras are limited to one video stream. Multiple streams are not pos
 #### Camera audio is not streaming
 
 Make sure `support_audio` is `True` in the camera's entity configuration.
+
+#### Camera motion notifications
+
+A motion sensor can be linked via the `linked_motion_sensor` configuration setting to enable motion notifications.
 
 #### HomeKit stalls or devices respond slowly with many cameras
 

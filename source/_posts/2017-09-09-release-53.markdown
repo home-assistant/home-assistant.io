@@ -149,7 +149,7 @@ frontend:
 - A bugfix for pushbullet ([@danielhiversen] - [#9237]) ([notify.pushbullet docs])
 - mopar sensor ([@happyleavesaoc] - [#9136]) (new-platform)
 - Upgrade discord.py to 0.16.11 ([@fabaff] - [#9239]) ([notify.discord docs])
-- Skip automatic events older than latest data ([@armills] - [#9230]) ([device_tracker.automatic docs])
+- Skip automatic events older than latest data ([@armills] - [#9230])
 - title and message was swapped in pushbullet ([@danielhiversen] - [#9241]) ([notify.pushbullet docs])
 - Fix possible KeyError ([@MartinHjelmare] - [#9242]) ([mysensors docs])
 - WIP: Homematic improvements with new hass interfaces ([@pvizeli] - [#9058]) ([homematic docs]) ([binary_sensor.homematic docs]) ([climate.homematic docs]) ([cover.homematic docs]) ([light.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs]) (breaking change)
@@ -375,7 +375,6 @@ frontend:
 [cover.rfxtrx docs]: /integrations/cover.rfxtrx/
 [cover.xiaomi docs]: /integrations/cover.xiaomi_aqara/
 [cover.knx docs]: /integrations/cover.knx/
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.geofency docs]: /integrations/geofency
 [device_tracker.tesla docs]: /integrations/tesla
 [device_tracker.volvooncall docs]: /integrations/volvooncall

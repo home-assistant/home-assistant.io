@@ -22,22 +22,24 @@ The following device types and data are supported:
   - [Alert TTS Script](#alert-tts-script)
 - [Camera](#camera)
 
-<p class='note'>
-
-  On Raspbian you may need to manually install additional prerequisites with the following command:
-  `sudo apt-get install libatlas-base-dev libopenjp2-7`
-
-</p>
-
 ## Location Selection
 
-Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
+The `weather` and `sensor` platforms automatically determine which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
 
-For each platform, the location to use is determined according to the following hierarchy:
+For these platforms, the location to use is determined according to the following hierarchy:
 
 - Location ID specified in platform configuration (optional)
 - Closest station to latitude/longitude specified in platform configuration (optional)
-- Closest station to latitude/longitude specified in Home Assistant configuration
+- Closest station to latitude/longitude specified in Home Assistant configuration (default)
+
+The `camera` platform dynamically builds imagery using a latitude/longitude as a center point. Radar station IDs are also supported for backwards compatibility.
+
+For this platform, the location to use is determined according to the following hierarchy:
+
+- Station ID specified in platform configuration (optional)
+- Latitude/longitude specified in platform configuration (optional)
+- Latitude/longitude specified in Home Assistant configuration (default)
+
 
 ## Weather
 
@@ -175,23 +177,19 @@ camera:
   - platform: environment_canada
 ```
 
-<p class='note'>
-  On Raspbian you may need to manually install additional prerequisites with the following command:
-  `sudo apt-get install libatlas-base-dev libopenjp2-7`
-</p>
-
-- If no name is given, the camera entity will be named `camera.<station_name>_radar`.
-- The platform automatically determines which radar station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
-    - A specific station ID from [this table](https://en.wikipedia.org/wiki/Canadian_weather_radar_network#List_of_radars). The code must be in the form `XXX` or `CXXXX`, i.e., remove the leading `C` only if the result forms a three-letter code, otherwise, include it. Valid values include `XFT` for Ottawa or `CASBV` for Montreal.
-    - A specific latitude/longitude
+- If no name is given, the camera entity will be named `camera.environment_canada_radar`.
+- The platform dynamically builds imagery based on a latitude/longitude center point. This center point can be specified using:
+    - The latitude/longitude of the Home Assistant installation (default)
+    - A specific latitude/longitude for the platform (optional)
+    - A specific radar station ID from [this table](https://en.wikipedia.org/wiki/Canadian_weather_radar_network#List_of_radars). The code must be in the form `XXX` or `CXXXX`, i.e., remove the leading `C` only if the result forms a three-letter code, otherwise, include it. Valid values include `XFT` for Ottawa or `CASBV` for Montreal. (optional, for backwards compatibility)
 
 {% configuration %}
 latitude:
-  description: Part of a set of coordinates to use when finding the closest radar station.
+  description: Part of a set of coordinates to use as the center point.
   required: inclusive
   type: float
 longitude:
-  description: Part of a set of coordinates to use when finding the closest radar station.
+  description: Part of a set of coordinates to use as the center point.
   required: inclusive
   type: float
 station: 

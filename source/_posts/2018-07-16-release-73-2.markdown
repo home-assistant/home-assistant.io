@@ -16,7 +16,7 @@ After research, the following integrations have been impacted. Although the odds
 
 - [climate.sensibo](/integrations/sensibo)
 - [cloud](/integrations/cloud/) (only short lived tokens impacted)
-- [device_tracker.automatic](/integrations/automatic)
+- device_tracker.automatic
 - [duckdns](/integrations/duckdns/)
 - [freedns](/integrations/freedns/)
 - [google_assistant](/integrations/google_assistant/) (manual setup)
