@@ -41,7 +41,7 @@ sudo apt-get upgrade -y
 Install the dependencies.
 
 ```bash
-sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev
+sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev autoconf
 ```
 
 Add an account for Home Assistant Core called `homeassistant`.
@@ -91,8 +91,6 @@ You can now reach your installation on your Raspberry Pi over the web interface 
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get "site cannot be reached" error when accessing the web interface. This will only happen for the first time, and subsequent restarts will be much faster.
 
 </div>
-
-If you want to setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant Core](/docs/autostart/).
 
 ### Updating
 

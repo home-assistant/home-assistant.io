@@ -363,11 +363,6 @@ timeout:
   description: Timeout in seconds for the connection to the device.
   required: false
   type: integer
-retry:
-  description: Retry times for fetch data if failed.
-  required: false
-  type: integer
-  default: 2
 friendly_name:
   description: The name used to display the switch in the frontend.
   required: false
@@ -435,7 +430,6 @@ switch:
     host: 192.168.1.2
     mac: 'B4:43:0D:CC:0F:58'
     timeout: 15
-    retry: 5
     switches:
       # Will work on most Phillips TVs:
       tv_phillips:
@@ -483,7 +477,6 @@ switch:
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
     type:  sp2
-    retry: 5
     friendly_name: 'Humidifier'
 ```
 

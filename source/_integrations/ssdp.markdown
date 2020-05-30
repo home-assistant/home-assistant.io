@@ -31,3 +31,4 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Roku](/integrations/roku/)
  - [Samsung TV](../samsungtv/)
  - [UPnP](../upnp/)
+ - [Sony Songpal](../songpal/)

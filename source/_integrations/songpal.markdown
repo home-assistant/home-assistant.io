@@ -1,13 +1,15 @@
 ---
 title: Sony Songpal
 description: Instructions on how to integrate Sony Songpal devices into Home Assistant.
-logo: sony.png
 ha_category:
   - Media Player
 ha_iot_class: Local Push
 ha_release: 0.65
+ha_config_flow: true
+ha_quality_scale: gold
 ha_codeowners:
   - '@rytilahti'
+  - '@shenxn'
 ha_domain: songpal
 ---
 
@@ -26,12 +28,11 @@ A few notes:
 
 ## Configuration
 
-The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your `configuration.yaml` file:
+Supported devices will be automatically discovered and can be set up through UI. If you want to manually configure it in YAML configuration, add the following to your `configuration.yaml` file:
 
 ```yaml
-media_player:
-  - platform: songpal
-    name: my soundbar
+songpal:
+  - name: my soundbar
     endpoint: http://IP_ADDRESS:10000/sony
 ```
 
@@ -58,6 +59,6 @@ For a list of available settings and their values use [`songpal sound`](https://
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| `entity_id`            |      yes | Target entity, leave unset for all devices       |
+| `entity_id`            |      yes | Target entity. To target all songpal devices, use `all` |
 | `name`                 |       no | Configuration variable, e.g., `nightmode`         |
 | `value`                |       no | New configuration value, e.g., `on`               |

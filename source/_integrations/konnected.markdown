@@ -98,7 +98,7 @@ Once all zones are configured you'll be presented with the configuration for add
 
 **Blink panel LED on when sending state change:** The desired LED behavior for the panel.
 
-**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API.  If this value is unchecked the panel will default postbacks using `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
+**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API. If this value is unchecked the panel will default postbacks using the URL [configured](/docs/configuration/basic) in Home Assistant. By default, the integration will use the internal URL. However, if you check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`), it will be used instead of the internal URL.
 
 **Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above. This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
 
@@ -132,10 +132,10 @@ access_token:
   required: true
   type: string
 api_host:
-  description: Override the IP address/host (and port number) of Home Assistant that the Konnected device(s) will use to communicate sensor state updates. If omitted, this is defaulted to the value of `base_url` in the `http` component. If you've set `base_url` to an external hostname, then you'll want to set this value back to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`).
+  description: Override the IP address/host (and port number) of Home Assistant that the Konnected device(s) will use to communicate sensor state updates. If omitted, this is defaulted to the value of internal URL from the Home Assistant configuration is used.
   required: false
   type: string
-  default: value of `base_url`
+  default: value of internal URL
 devices:
   description: A list of Konnected devices that you have on your network.
   required: true

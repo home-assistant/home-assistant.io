@@ -529,8 +529,8 @@ Zen27 (Dimmer):
     <Item label="On" value="1" />
     <Item label="Restore" value="2" />
   </Value>
-  <Value type="byte" genre="config" instance="1" index="9" label="Ramp Rate Control" units="seconds" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="99" value="1">
-    <Help>Adjust the physical ramp rate for your dimmer (fade-in / fade-out effect for on / off operation). Values correspond to the number of seconds it take for the dimmer to reach full brightness or turn off when operated manually. This setting is for physical taps only, see parameter 17 to adjust Z-Wave ramp rate.</Help>
+  <Value type="byte" genre="config" instance="1" index="9" label="Ramp Rate Control" units="seconds" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="99" value="1">
+    <Help>Adjust the physical ramp rate for your dimmer (fade-in / fade-out effect for on / off operation). Values correspond to the number of seconds it take for the dimmer to reach full brightness or turn off when operated manually. This setting is for physical taps only, see parameter 17 to adjust Z-Wave ramp rate. Values: 1 – 99 (seconds). 0 – instant on/off. Default: 1</Help>
   </Value>
   <Value type="byte" genre="config" instance="1" index="10" label="Minimum Brightness" units="%" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="1" max="99" value="1">
     <Help>Set the minimum brightness level (in %) for your dimmer. You won&apos;t be able to dim the light below the set value.</Help>
@@ -1290,4 +1290,164 @@ Example Event:
   action:
     - service: switch.toggle
       entity_id: switch.office_fan
+```
+
+### Zooz S2 MultiRelay (Zen16)
+
+Contact Zooz to obtain the over the air firmware update instructions and new user manual for the MultiRelay.
+
+Once the firmware is updated, the the new configuration parameters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options:
+
+```xml
+<CommandClass id="112">
+	<Value type="list" genre="config" index="1" label="On Off Status After Power Failure" size="1" min="0" max="4" value="1">
+		<Help>On Off Status After Power Failure.  Default: all relays restore to previous state</Help>
+		<Item label="all relays forced off" value="0"/>
+		<Item label="all relays restore to previous state" value="1"/>
+		<Item label="all relays forced on" value="2"/>
+		<Item label="relays 1/2 restore, 3/4 forced off" value="3"/>
+		<Item label="relays 1/2 restore, 3/4 forced on" value="4"/>
+	</Value>
+	<Value type="list" genre="config" index="2" label="Switch Type for Relay 1 (Sw1)" size="1" min="0" max="3" value="2">
+		<Help>Switch Type for Relay 1 (Sw1).  Choose the wall switch type you want to connect to the Sw1 terminal.  Default: toggle switch (state changes whenever the switch is toggled)</Help>
+		<Item label="momentary switch" value="0"/>
+		<Item label="toggle switch (light on when switch is up/off when down)" value="1"/>
+		<Item label="toggle switch (state changes whenever the switch is toggled)" value="2"/>
+		<Item label="garage door (momentary mode for Z-Wave control)" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="3" label="Switch Type for Relay 2 (Sw2)" size="1" min="0" max="3" value="2">
+		<Help>Switch Type for Relay 2 (Sw2).  Choose the wall switch type you want to connect to the Sw2 terminal.  Default: toggle switch (state changes whenever the switch is toggled)</Help>
+		<Item label="momentary switch" value="0"/>
+		<Item label="toggle switch (light on when switch is up/off when down)" value="1"/>
+		<Item label="toggle switch (state changes whenever the switch is toggled)" value="2"/>
+		<Item label="garage door (momentary mode for Z-Wave control)" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="4" label="Switch Type for Relay 3 (Sw3)" size="1" min="0" max="3" value="2">
+		<Help>Switch Type for Relay 3 (Sw3).  Choose the wall switch type you want to connect to the Sw3 terminal.  Default: toggle switch (state changes whenever the switch is toggled)</Help>
+		<Item label="momentary switch" value="0"/>
+		<Item label="toggle switch (light on when switch is up/off when down)" value="1"/>
+		<Item label="toggle switch (state changes whenever the switch is toggled)" value="2"/>
+		<Item label="garage door (momentary mode for Z-Wave control)" value="3"/>
+	</Value>
+	<Value type="list" genre="config" index="5" label="LED Indicator Control" size="1" min="0" max="3" value="0">
+		<Help>LED Indicator Control.  Choose if you want the LED indicator to turn on when any of the relays are on or if all of them are off, or if you want it to remain on or off at all times.  Default: On when all relays are off</Help>
+		<Item label="On when all relays are off" value="0"/>
+		<Item label="On when any relays are on" value="1"/>
+		<Item label="Always Off" value="2"/>
+		<Item label="Always On" value="3"/>
+	</Value>
+	<Value type="int" genre="config" index="6" label="Auto Turn-Off Timer for Relay 1" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-Off Timer for Relay 1.  Sets the time (in minutes) after which you want relay 1 to automatically turn off once it has been turned on.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="7" label="Auto Turn-On Timer for Relay 1" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-On Timer for Relay 1.  Sets the time (in minutes) after which you want relay 1 to automatically turn on once it has been turned off.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="8" label="Auto Turn-Off Timer for Relay 2" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-Off Timer for Relay 2.  Sets the time (in minutes) after which you want relay 2 to automatically turn off once it has been turned on.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="9" label="Auto Turn-On Timer for Relay 2" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-On Timer for Relay 2.  Sets the time (in minutes) after which you want relay 2 to automatically turn on once it has been turned off.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="10" label="Auto Turn-Off Timer for Relay 3" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-Off Timer for Relay 3.  Sets the time (in minutes) after which you want relay 3 to automatically turn off once it has been turned on.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="int" genre="config" index="11" label="Auto Turn-On Timer for Relay 3" size="4" min="0" max="65535" value="0" units="minutes">
+		<Help>Auto Turn-On Timer for Relay 3.  Sets the time (in minutes) after which you want relay 3 to automatically turn on once it has been turned off.  Range: 1-65535.  Default: 0 (disabled)</Help>
+	</Value>
+	<Value type="list" genre="config" index="12" label="Enable/Disable Manual Control for SW1" size="1" min="0" max="2" value="1">
+		<Help>Enable/Disable Manual Control for SW1.  Default: enabled</Help>
+		<Item label="disabled" value="0"/>
+		<Item label="enabled" value="1"/>
+		<Item label="local control disabled with enable on/off reports" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="13" label="Enable/Disable Manual Control for SW2" size="1" min="0" max="2" value="1">
+		<Help>Enable/Disable Manual Control for SW2.  Default: enabled</Help>
+		<Item label="disabled" value="0"/>
+		<Item label="enabled" value="1"/>
+		<Item label="local control disabled with enable on/off reports" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="14" label="Enable/Disable Manual Control for SW3" size="1" min="0" max="2" value="1">
+		<Help>Enable/Disable Manual Control for SW3.  Default: enabled</Help>
+		<Item label="disabled" value="0"/>
+		<Item label="enabled" value="1"/>
+		<Item label="local control disabled with enable on/off reports" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="15" label="Auto Turn-Off Timer Unit for Relay 1" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-Off time for Relay 1.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="16" label="Auto Turn-On Timer Unit for Relay 1" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-On time for Relay 1.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="17" label="Auto Turn-Off Timer Unit for Relay 2" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-Off time for Relay 2.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="18" label="Auto Turn-On Timer Unit for Relay 2" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-On time for Relay 2.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="19" label="Auto Turn-Off Timer Unit for Relay 3" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-Off time for Relay 3.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+	<Value type="list" genre="config" index="20" label="Auto Turn-On Timer Unit for Relay 3" size="1" min="0" max="2" value="0">
+		<Help>Choose between second, minutes, and hours as the unit for Auto Turn-On time for Relay 3.  Default: minutes</Help>
+		<Item label="minutes" value="0"/>
+		<Item label="seconds" value="1"/>
+		<Item label="hours" value="2"/>
+	</Value>
+</CommandClass>
+```
+
+### Zooz S2 Outdoor Motion Sensor v2.0 (ZSE29)
+
+The configuration parameters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options:
+
+```xml
+<CommandClass id="112">
+  <Value type="byte" genre="config" index="1" label="Basic Set Report Value Sent to Associated Devices" size="1" min="0" max="99" value="99">
+    <Help> Set the value of basic set report sent to the light associated with the sensor in Group 2 (so the light turns on to the selected brightness level). 99 is the equivalent of full brightness in Z-Wave terms.
+    default: 99
+    </Help>
+  </Value>
+  <Value type="list" genre="config" index="2" label="Enable / Disable Motion Reports" size="1" min="0" max="1" value="1">
+    <Help>Enable or disable motion reports completely. If motion sensor is disabled, the device will not report motion at all to your hub.</Help>
+    <Item label="Disabled" value="0"/>
+    <Item label="Enabled (default)" value="1"/>
+  </Value> 
+  <Value type="byte" genre="config" index="3" label="Motion Sensativity" size="1" min="1" max="10" value="10">
+    <Help>Adjust motion sensitivity where 10 is the most sensative setting.
+    default: 10
+    </Help>
+  </Value>
+  <Value type="short" genre="config" index="4" label="Lux Level Trigger" size="2" min="0" max="900" value="0">
+    <Help>Set lux level trigger with 10 being the lowest reported value. The sensor will report motion to the hub and associated devices only if lux level is below the set value.
+    0 - set manually by lux knob; (default)
+    1 - ignore lux and always report motion;
+    </Help>
+  </Value>
+  <Value type="short" genre="config" index="5" label="Motion Re-trigger Time" size="2" min="0" max="720" value="0" units="seconds">
+    <Help>Set motion re-trigger time for the delay before the sensor reports no motion to the hub and associated devices after detecting the last motion activity.
+    0 - set manually by timer knob; (default)
+    5-720 (seconds) - set customer re-trigger time;
+    </Help>
+  </Value>
+  <Value type="short" genre="config" index="6" label="Lux Reporting Frequency" size="2" min="1" max="1440" value="30" units="minutes">
+    <Help>Set lux reporting frequency to decide how often the snesor will measure and send brightness level data to the hub and associated devices.
+    default: 30 (minutes)
+    </Help>
+  </Value>
+</CommandClass>
 ```
