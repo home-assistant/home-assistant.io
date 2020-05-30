@@ -44,9 +44,9 @@ file.
 
 | Type (`type:`)         | Argument (`arg:`)         |
 | :--------------------- |:--------------------------|
-| disk_use_percent       | Path, e.g. `/`            |
-| disk_use               | Path, e.g. `/`            |
-| disk_free              | Path, e.g. `/`            |
+| disk_use_percent       | Path, e.g., `/`           |
+| disk_use               | Path, e.g., `/`           |
+| disk_free              | Path, e.g., `/`           |
 | memory_use_percent     |                           |
 | memory_use             |                           |
 | memory_free            |                           |
@@ -56,26 +56,26 @@ file.
 | load_1m                |                           |
 | load_5m                |                           |
 | load_15m               |                           |
-| network_in             | Interface, e.g. `eth0`    |
-| network_out            | Interface, e.g. `eth0`    |
-| throughput_network_in  | Interface, e.g. `eth0`    |
-| throughput_network_out | Interface, e.g. `eth0`    |
-| packets_in             | Interface, e.g. `eth0`    |
-| packets_out            | Interface, e.g. `eth0`    |
-| ipv4_address           | Interface, e.g. `eth0`    |
-| ipv6_address           | Interface, e.g. `eth0`    |
+| network_in             | Interface, e.g., `eth0`   |
+| network_out            | Interface, e.g., `eth0`   |
+| throughput_network_in  | Interface, e.g., `eth0`   |
+| throughput_network_out | Interface, e.g., `eth0`   |
+| packets_in             | Interface, e.g., `eth0`   |
+| packets_out            | Interface, e.g., `eth0`   |
+| ipv4_address           | Interface, e.g., `eth0`   |
+| ipv6_address           | Interface, e.g., `eth0`   |
 | processor_use          |                           |
 | processor_temperature  |                           |
-| process                | Binary, e.g. `octave-cli` |
+| process                | Binary, e.g., `octave-cli` |
 | last_boot              |                           |
 
 ## Disk usage
 
-If no path is provided via the optional argument, then the integration defaults to "/" (root).
+If no path is provided via the optional argument, then the integration defaults to '/' (root).
 
 ## Processor temperature
 
-If no hardware sensor data is available (e.g. because the integration runs in a virtualized environment), "N/A" will be set as the value of the sensor. Unit of measure (Celsius vs Fahrenheit) will be chosen based on the system configuration.
+If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), "N/A" will be set as the value of the sensor. The unit of measure (Celsius vs Fahrenheit) will be chosen based on the system configuration.
 
 ## Linux specific
 
