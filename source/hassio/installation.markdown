@@ -118,7 +118,7 @@ If you would like to test next release before anyone else, you can install the b
 [odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-c2-4.8.img.gz
 [odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-n2-4.8.img.gz
 [odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-xu4-4.8.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_intel-nuc-3.13.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_intel-nuc-4.8.img.gz
 [vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vmdk.gz
 [vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vhdx.gz
 [vdi]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vdi.gz

@@ -36,7 +36,7 @@ friendly_name:
   required: false
   type: string
 hidden:
-  description: Set to `true` to hide the entity.
+  description: Set to `true` to hide the entity in the automatically generated Lovelace view.
   required: false
   type: boolean
   default: false
