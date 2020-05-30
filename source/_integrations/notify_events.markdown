@@ -35,14 +35,28 @@ To start getting notifications you need to follow those simple steps:
  
 1. SignUp to [Notify.Events](https://notify.events/) and create a Channel
 2. Add **Home Assistant** source to this channel and get your **token**
-3. Add the following lines to your `configuration.yaml` file:
+3. Add the Notify.Events integration to your installation by adding the following to your `configuration.yaml` file:
+
+```yaml
+notify_events:
+  token: YOUR_TOKEN
+```
+
+{% configuration %}
+token:
+  description: Your channel source token.
+  required: true
+  type: string
+{% endconfiguration %}
+
+Now you can use notify_events integration as a platform for your **notify service**, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
+
 notify:
   - name: NOTIFIER_NAME (e.g. "events")
     platform: notify_events
-    token: YOUR_TOKEN
 ```
 
 {% configuration %}
@@ -51,16 +65,11 @@ name:
   required: false
   type: string
   default: notify
-token:
-  description: Your channel source token.
-  required: true
-  type: string
 {% endconfiguration %}
-
 
 ### That's it!
 
-Now you can use the `notify.NOTIFIER_NAME` service inside your Home Assistant to:
+Now you can use the `notify.events` service inside your Home Assistant to:
 - Send any notifications or alerts
 - Distribute events by `level` and `priority`
 - Attach **files** and **images** (local or remote)
