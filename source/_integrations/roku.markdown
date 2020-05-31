@@ -93,7 +93,7 @@ data:
 
 ## Media Player
 
-When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated. Beginning with Home Assistant Core 0.110, channels can be launched by ```name``` or ```appID``` (in an automation, for example) using a configuration similar to the one below:
+When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated. Channels can be launched by ```name``` using a configuration similar to the one below:
 ```yaml
 action:
 - data:
@@ -102,7 +102,7 @@ action:
   service: media_player.select_source
 ```
 
-Prior to Home Assistant Core 0.110, only the ```appID``` for the channel specific to your Roku can be used for `source:` Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
+Alternatively, the ```appID``` for the channel (specifc to your Roku) can be used for `source:` Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
 
 The API calls are like this:
 
