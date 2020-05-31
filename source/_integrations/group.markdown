@@ -21,6 +21,7 @@ group:
     name: Kitchen
     entities:
       - switch.kitchen_pin_3
+    device_class: plug
   climate:
     name: Climate
     entities:
@@ -49,6 +50,10 @@ all:
   default: false
 icon:
   description: The icon that shows in the front end.
+  required: false
+  type: string
+device_class:
+  description: The device class which the group matches.
   required: false
   type: string
 {% endconfiguration %}
