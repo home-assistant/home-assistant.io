@@ -14,14 +14,14 @@ Whenever an integration or configuration option results in a warning, it will be
 
 When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
 
-If you have incorrect entries in your configuration files you can use the [`check_config`](/docs/tools/check_config/) script to assist in identifying them: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
+If you have incorrect entries in your configuration files you can use the config check command (below) to assist in identifying them. 
 
 ### Problems with the configuration
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file.
 
 - With Home Assistant you can use the [`ha` command](/hassio/commandline/#home-assistant): `ha core check`.
-  - You can test your configuration with Home Assistant Core using the command line with: `hass --script check_config`.
+  - You can test your configuration with Home Assistant Core using the command line with: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
   - On Docker you can use `docker exec home-assistant python -m homeassistant --script check_config --config /config` - where `home-assistant` is the name of the container.
 - The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
 - You can verify your configuration's YAML structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
