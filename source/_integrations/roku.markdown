@@ -102,21 +102,23 @@ action:
   service: media_player.select_source
 ```
 
-Alternatively, the ```appID``` for the channel (specifc to your Roku) can be used for `source:` Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
+Alternatively, the ```appID``` for the channel can be used for `source:` Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
 
 The API calls are like this:
 
 ```txt
-GET http:// ROKU_IP:8060/query/apps
+GET http://ROKU_IP:8060/query/apps
 POST http://ROKU_IP:8060/launch/APP_ID
 
 YouTube example:
 POST http://YOUR_ROKU_IP:8060/launch/837?contentID=YOUR_YOUTUBE_VIDEOS_CONTENT_ID&MediaType=live
 ```
 
+The simplest method of performing the GET request is to open `http://ROKU_IP:8060/query/apps` in your web browser of choice. The Roku will return an XML-formatted list of available channels, including their full name and appID. 
+
 More details can be found on the [Roku dev pages](https://developer.roku.com/docs/developer-program/debugging/external-control-api.md)
 
-To use this in Home Assistant, the format is as follows. Note that `source:` is the appID you discovered in the API call:
+To use this information in Home Assistant, the format is as follows. Note that `source:` is the appID you discovered in the API call:
 
 ```yaml
 action:
