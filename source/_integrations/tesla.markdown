@@ -35,13 +35,14 @@ Home Assistant offers the Tesla integration through **Configuration** -> **Integ
 
 Enter username and password and then continue.
 
-Alternatively, Home Assistant will also load Tesla via the  `configuration.yaml`. Add the following to your `configuration.yaml` file:
+Alternatively, Home Assistant will also load Tesla via the  `configuration.yaml` and update the integration information. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 tesla:
   username: YOUR_EMAIL_ADDRESS
   password: YOUR_PASSWORD
+  verify_ssl: True
 ```
 
 {% configuration %}
@@ -58,6 +59,11 @@ scan_interval:
   required: false
   type: integer
   default: 660
+verify_ssl:
+  description: Whether to verify the SSL certificates.
+  required: false
+  type: boolean
+  default: True
 {% endconfiguration %}
 
 ## Options
