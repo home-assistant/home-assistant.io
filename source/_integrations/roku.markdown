@@ -98,7 +98,7 @@ When the Home Assistant Roku integration is enabled and a Roku device has been c
 action:
 - data:
     entity_id: media_player.roku
-    source: "Amazon Prime"
+    source: "Prime Video"
   service: media_player.select_source
 ```
 
