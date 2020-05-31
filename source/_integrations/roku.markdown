@@ -102,7 +102,7 @@ action:
   service: media_player.select_source
 ```
 
-Alternatively, the ```appID``` for the channel can be used for `source:` Although this information is gathered by the Roku integration, at the moment it is not exposed to the end-user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
+Alternatively, the ```appID``` for the channel can be used for `source:` Although this information is gathered by the Roku integration, at the moment it is not exposed to the end-user. This item might be added in a future release. For now, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
 
 The API calls are like this:
 
