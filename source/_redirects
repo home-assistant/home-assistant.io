@@ -717,7 +717,6 @@
 /components/sensor.fritzbox /integrations/fritzbox#sensor
 /components/sensor.fritzbox_callmonitor /integrations/fritzbox_callmonitor
 /components/sensor.fritzbox_netmonitor /integrations/fritzbox_netmonitor
-/components/sensor.gearbest /integrations/gearbest
 /components/sensor.geizhals /integrations/geizhals
 /components/sensor.geo_rss_events /integrations/geo_rss_events
 /components/sensor.github /integrations/github
@@ -1363,7 +1362,6 @@
 /components/futurenow /integrations/futurenow
 /components/garadget /integrations/garadget
 /components/gc100 /integrations/gc100
-/components/gearbest /integrations/gearbest
 /components/geizhals /integrations/geizhals
 /components/generic_ip_camera /integrations/generic_ip_camera
 /components/generic_thermostat /integrations/generic_thermostat
