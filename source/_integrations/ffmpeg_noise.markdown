@@ -68,5 +68,5 @@ output:
 To experiment with values:
 
 ```bash
-$ ffmpeg -i YOUR_INPUT -vn -filter:a silencedetect=n=-30dB:d=1 -f null -
+ffmpeg -i YOUR_INPUT -vn -filter:a silencedetect=n=-30dB:d=1 -f null -
 ```
