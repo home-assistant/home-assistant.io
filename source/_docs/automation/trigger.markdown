@@ -389,14 +389,14 @@ automation:
     event: enter # or "leave"
 ```
 
-### Device trigger
+### Device triggers
 
-Device triggers encompass a set of events which are defined by an integration. This includes, for example, state changes of sensors as well as button events from remotes.
+Device triggers encompass a set of events that are defined by an integration. This includes, for example, state changes of sensors as well as button events from remotes.
 [MQTT device triggers](/integrations/device_trigger.mqtt/) are set up through autodiscovery.
 
-In contrast to state triggers, device trigger are tied to a device and not necessarily an entity.
+In contrast to state triggers, device triggers are tied to a device and not necessarily an entity.
 To use a device trigger, set up an automation through the browser frontend.
-If you would like to use a device trigger for an automation which is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
+If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
 
 ### Multiple triggers
 
