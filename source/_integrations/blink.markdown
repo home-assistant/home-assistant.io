@@ -90,7 +90,7 @@ Trigger a camera to take a new still image.
 
 | Service Data Attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
-| `entity_id`            | no       | Camera entity to take picture with.    |
+| `entity_id`            | yes      | Camera entity to take picture with.    |
 
 ### `blink.save_video`
 
@@ -136,7 +136,7 @@ alias: Blink Snap Picture
 sequence:
     - service: blink.trigger_camera
       data:
-          entity_id: camera.blink_my_camera
+        entity_id: camera.blink_my_camera
     - delay: 00:00:05  
     - service: blink.blink_update
     - service: camera.snapshot
