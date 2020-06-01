@@ -15,17 +15,17 @@ The following will take you through the steps required to install Home Assistant
      - [Raspberry Pi 4 Model B 64bit][pi4-64]
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2]
-     - [Odroid-N2 (Beta)][odroid-n2]
+     - [Odroid-N2][odroid-n2]
      - [Odroid-XU4][odroid-xu4]
      - [Intel-Nuc][intel-nuc]
 
    - As a virtual appliance (x86_64/UEFI):
   
-     - [VMDK][vmdk] (VMWare Workstation)
+     - [VMDK][vmdk]
      - [VHDX][vhdx]
      - [VDI][vdi]
-     - [QCOW2 (beta)][qcow2]
-     - [OVA (Beta)][Virtual Appliance]
+     - [QCOW2][qcow2]
+     - [OVA][Virtual Appliance]
 
    - Not recommended Hardware:
 
