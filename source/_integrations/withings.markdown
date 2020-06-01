@@ -16,7 +16,16 @@ The `withings` sensor platform consumes data from various health products produc
 
 ## Setup
 
-### Step 1 - Create a Withings Account
+### Step 1 - Setup Home Assistant to be publicly accessible
+
+- Make Home Assistant publicly accessible over HTTPS a fully qualified domain name.
+  - Subscribing to Home Assistant Cloud (https://www.nabucasa.com/) is a simple way of doing this.
+- Configure Home Assistant with the correct external url.
+  - In Home Assistant goto Configuration > General > External URL.
+  - Provide the publicly accessible URL.
+  - If you are using Home Assistant Cloud, enter https://YOUR_NABU_CASA_ID.ui.nabu.casa
+
+### Step 2 - Create a Withings Account
 
 You must have a developer account to distribute the data. [Create a free development account](https://account.withings.com/partner/add_oauth2).
 
@@ -25,12 +34,12 @@ Values for your account:
 - Logo: Any reasonable picture will do.
 - Description: Personal app for collecting my data.
 - Contact Email: Your email address
-- Callback Uri: `https://your-domain-name/auth/external/callback` - Withings will check if this URL is accessible (HTTP HEAD) upon submitting the form. If you are using the Home Assistant Cloud, this URL will look like `https://YOUR_NABU_CASA_ID.ui.nabu.casa/auth/external/callback`.
+- Callback Uri: `https://your-domain-name/auth/external/callback` - Withings will check if this URL is accessible (using HTTP HEAD) upon submitting the form. If you are using the Home Assistant Cloud, this URL will look like `https://YOUR_NABU_CASA_ID.ui.nabu.casa/auth/external/callback`.
 - Company: Home Assistant
 
 Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
 
-### Step 2 - Configure Home Assistant
+### Step 3 - Configure Home Assistant
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,7 +52,7 @@ withings:
 
 Withings supports multiple profiles per account. Each profile has a person's name to help distinguish whose data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish whose data you're looking at.
 
-### Step 3 - Authorize Home Assistant
+### Step 4 - Authorize Home Assistant
 
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
   - Note: In order for "Check Configuration" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Configuration" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
@@ -51,7 +60,7 @@ Withings supports multiple profiles per account. Each profile has a person's nam
 - Go to the integrations page.
 - Add a Withings integration. This will open a new tab/window on the withings site.
 - On the Withings site, choose the profile of the data you want to sync.
-- Authorize the application. Your browser will redirect you to the redirect uri you provided during account setup.
+- Authorize the application. Your browser will redirect you to the redirect uri you provided during Withings account setup.
   - Note: If you get a browser error saying the site is inaccessible, you can modify the
   `http://domain` portion of the URL to something you know is accessible, locally or publicly. For example, `http://localhost:8123`.
   This occurs when the base URL provided by Home Assistant to Withings is not accessible to the outside world.
