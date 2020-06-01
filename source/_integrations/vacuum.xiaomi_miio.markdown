@@ -228,6 +228,8 @@ The following table shows the units of measurement for each attribute:
 8. You should now see 2 extra options listed in English, this means you enabled developer mode. [if not, try all steps again!].
 9. Under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
 
+Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token. 
+
 ### Alternative methods
 
 <div class='note'>
