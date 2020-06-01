@@ -58,13 +58,13 @@ Event `service_executed` is fired by the service handler to indicate the service
 
 Event `automation_reloaded` is fired when automations have been reloaded and thus might have changed.
 
-This event has no addition data.
+This event has no additional data.
 
 ## Event `scene_reloaded`
 
 Event `scene_reloaded` is fired when scenes have been reloaded and thus might have changed.
 
-This event has no addition data.
+This event has no additional data.
 
 ## Event `platform_discovered`
 
