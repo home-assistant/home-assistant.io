@@ -15,17 +15,17 @@ The following will take you through the steps required to install Home Assistant
      - [Raspberry Pi 4 Model B 64bit][pi4-64]
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2]
-     - [Odroid-N2 (Beta)][odroid-n2]
+     - [Odroid-N2][odroid-n2]
      - [Odroid-XU4][odroid-xu4]
      - [Intel-Nuc][intel-nuc]
 
    - As a virtual appliance (x86_64/UEFI):
   
-     - [VMDK][vmdk] (VMWare Workstation)
+     - [VMDK][vmdk]
      - [VHDX][vhdx]
      - [VDI][vdi]
-     - [QCOW2 (beta)][qcow2]
-     - [OVA (Beta)][Virtual Appliance]
+     - [QCOW2][qcow2]
+     - [OVA][Virtual Appliance]
 
    - Not recommended Hardware:
 
@@ -107,14 +107,14 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi0-w-3.13.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi-3.13.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi2-3.13.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi3-3.13.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi3-64-3.13.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-3.13.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-64-3.13.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_tinker-3.13.img.gz
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi0-w-4.8.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi-4.8.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi2-4.8.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi3-4.8.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi3-64-4.8.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi4-4.8.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi4-64-4.8.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_tinker-4.8.img.gz
 [odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-c2-4.8.img.gz
 [odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-n2-4.8.img.gz
 [odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-xu4-4.8.img.gz

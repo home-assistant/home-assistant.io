@@ -88,10 +88,11 @@ If your device isn't responding to this process, possibly because you've factory
 1. Go to the *States* menu under *Developer tools* in the Home Assistant frontend
 2. Click on the name of the `zwave.` entity you want to remove
 3. Make note of the entity's "node_id" value as you will need to re-add the "node_id" attribute and value in step 4.
-4. At the top, edit the JSON attributes to replace `false` with `true` for `"is_failed": false,` so that it reads `"is_failed": true.` Also add the "node_id" value to the number listed in the entity's attribute. The JSON attributes should look something like below:
+4. At the top, edit the JSON attributes to replace `false` with `true` for `"is_failed": false,` so that it reads `"is_failed": true.` Also add the "node_id" value to the number listed in the entity's attribute. The YAML attributes should look something like below:
 
     ```yaml
-    {"node_id":6, "is_failed":true}
+    node_id: 6
+    is_failed: true
     ```
 
 5. Click **Set State**
