@@ -53,7 +53,7 @@ icon:
   required: false
   type: string
 device_class:
-  description: The device class which the group matches.
+  description: The device class which the group matches, list of possible [device classes](/integrations/binary_sensor/#device-class).
   required: false
   type: string
 {% endconfiguration %}
