@@ -1,6 +1,6 @@
 ---
 title: Velux
-description: Instructions on how to integrate Becker Covers via Becker Centronic USB Strick with Home Assistant.
+description: Instructions on how to integrate Becker Covers via Becker Centronic USB Stick with Home Assistant.
 ha_category:
   - Cover
 ha_release: 0.110
@@ -9,7 +9,7 @@ ha_codeowners:
 ha_domain: becker
 ---
 
-Becker Cover Integration for for Home Assistant allows you to control your Becker Covers via a centronic USB Stick
+Becker Cover Integration for Home Assistant allows you to control your Becker Covers via a centronic USB Stick.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -58,4 +58,4 @@ This is a known limitation in YAML, because the device ID will be interpreted as
 
 ## Services
 
-This integration introduce a new service *becker.pair" allowing you to pair a cover/shutter with your centronic stick from the UI, scripts or automations
+This integration introduces a new service `becker.pair` allowing you to pair a cover/shutter with your centronic stick from the UI, scripts or automations.
