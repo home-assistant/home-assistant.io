@@ -90,7 +90,7 @@ Example:
 To create a `LightGroup` named `Ceiling lights` that contains the lights 1, 2, and 3, execute the following command:
 
 ```bash
-$ curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
+curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
 ```
 
 The `<username>` is the string that is used to register Home Assistant with the bridge. You can find it in the `core.config_entries` file in `/PATH-TO-YOUR-CONFIGURATION/.storage/`. `<bridge>` is the IP address or hostname of your Hue bridge.
@@ -98,7 +98,7 @@ The `<username>` is the string that is used to register Home Assistant with the 
 You can find the IDs of your lights by executing the following command:
 
 ```bash
-$ curl http://<bridge>/api/<username>/lights
+curl http://<bridge>/api/<username>/lights
 ```
 
 Home Assistant will automatically detect your new `LightGroup` and add it to the interface.

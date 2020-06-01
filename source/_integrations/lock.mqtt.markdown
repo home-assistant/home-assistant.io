@@ -156,6 +156,7 @@ In this section you will find some real-life examples of how to use this lock.
 The example below shows a full configuration for a MQTT lock.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 lock:
@@ -172,6 +173,7 @@ lock:
     retain: true
     value_template: '{{ value.x }}'
 ```
+
 {% endraw %}
 
 Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something.
@@ -179,6 +181,5 @@ Keep an eye on retaining messages to keep the state as you don't want to unlock 
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your lock manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home-assistant/frontdoor/set -m "LOCK"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/frontdoor/set -m "LOCK"
 ```
-

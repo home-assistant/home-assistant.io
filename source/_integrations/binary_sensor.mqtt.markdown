@@ -149,12 +149,13 @@ To test, you can use the command line tool `mosquitto_pub` shipped with `mosquit
 To set the state of the binary sensor manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"
 ```
 
 The example below shows a full configuration for a binary sensor:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -170,10 +171,13 @@ binary_sensor:
     device_class: opening
     value_template: '{{ value.x }}'
 ```
+
 {% endraw %}
 
 ### Toggle the binary sensor each time a message is received on state_topic
+
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -181,6 +185,7 @@ binary_sensor:
     state_topic: "lab_button/cmnd/POWER"
     value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
 ```
+
 {% endraw %}
 
 ### Get the state of a device with ESPEasy
