@@ -25,7 +25,7 @@ Values for your account:
 - Logo: Any reasonable picture will do.
 - Description: Personal app for collecting my data.
 - Contact Email: Your email address
-- Callback Uri: `https://your-domain-name/auth/external/callback` - Withings will check if this URL is accessible (HTTP HEAD) upon submitting the form. If you are using a recent version of home assistant with Nabu Casa, this URL will look like `https://YOUR_NABU_CASA_ID.ui.nabu.casa/auth/external/callback`.
+- Callback Uri: `https://your-domain-name/auth/external/callback` - Withings will check if this URL is accessible (HTTP HEAD) upon submitting the form. If you are using the Home Assistant Cloud, this URL will look like `https://YOUR_NABU_CASA_ID.ui.nabu.casa/auth/external/callback`.
 - Company: Home Assistant
 
 Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
