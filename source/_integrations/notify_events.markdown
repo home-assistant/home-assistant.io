@@ -27,11 +27,11 @@ This platform allows you to quickly configure the distribution of messages betwe
 - SMS
 - VoiceCall
 
-You can find full supported messenger list [here](https://notify.events/features).
+You can find a full supported messenger list [here](https://notify.events/features).
 
 ## Setting up
 
-To start getting notifications you need to follow those simple steps:
+To start getting notifications, you need to follow those simple steps:
  
 1. SignUp to [Notify.Events](https://notify.events/) and create a Channel
 2. Add **Home Assistant** source to this channel and get your **token**
@@ -98,7 +98,7 @@ The following attributes can be placed inside `data` for extended functionality.
 | Attribute  | Description
 | ---------- | -----------
 | `title`    | Message title.
-| `level`    | For recipients which have differences in the display of messages at different levels, this level will be applied.<br>Available values: `verbose`, `info`, `notice`, `warning`, `error`, `success`.
+| `level`    | For recipients who have differences in the display of messages at different levels, this level will be applied.<br>Available values: `verbose`, `info`, `notice`, `warning`, `error`, `success`.
 | `priority` | For recipients which supports priority, the message will be highlighted accordingly.<br>Available values: `lowest`, `low`, `normal`, `high`, `highest`.
 | `images`   | Array of images to attach (see item properties below).
 | `files`    | Array of files to attach (see item properties below).
