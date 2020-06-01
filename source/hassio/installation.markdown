@@ -107,14 +107,14 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi0-w-3.13.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi-3.13.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi2-3.13.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi3-3.13.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi3-64-3.13.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-3.13.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_rpi4-64-3.13.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/3.13/hassos_tinker-3.13.img.gz
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi0-w-4.8.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi-4.8.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi2-4.8.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi3-4.8.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi3-64-4.8.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi4-4.8.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi4-64-4.8.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_tinker-4.8.img.gz
 [odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-c2-4.8.img.gz
 [odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-n2-4.8.img.gz
 [odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-xu4-4.8.img.gz
