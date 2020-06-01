@@ -1,17 +1,29 @@
 ---
-title: Plugwise Anna
-description: Plugwise Climate integration.
-ha_category: Climate
+title: Plugwise
+description: Plugwise Smile platform integration.
+ha_category: 
+  - Climate
+  - Sensor
+  - Switch
+  - Water_heater
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
-  - '@laetificat'
   - '@CoMPaTech'
   - '@bouwew'
+ha_config_flow: true
 ha_domain: plugwise
 ---
 
-This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
+This enables [Plugwise](https://plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
+The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://plugwise.com/en_US/zone_control) and [P1](https://plugwise.com/en_us/products/smile-p1) Smile products. See below list for more details.
+
+Platforms available - depending on your Smile and setup are include:
+
+ - `binary_sensor`
+ - `climate`
+ - `light`
+ - `sensor`
 
 The password can be found on the bottom of your Smile, it should consist of 6 characters. To find your IP address use the Plugwise App: 
 
@@ -19,75 +31,37 @@ The password can be found on the bottom of your Smile, it should consist of 6 ch
  - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
  - Choose 'System' then 'Networking' and your IP address will be shown.
 
+## Entities
+
+This integration will show all Plugwise devices present in your Plugwise configuration. In addition you will see a 'Smile' device representing your central Plugwise gateway (i.e. the Smile, Smile P1 or Adam).
+
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom' these will show up as individual devices. For setups where an auxiliary heater (or heater/cooler) is present there will be an additional device representing it called 'Auxiliary'.
+
+Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway device. Auxiliary Heater(/Cooler) measurements such as 'boiler_temperature' will be assigned to the Auxiliary entity.
+
 ## Configuration
 
-You have to add the following to your `configuration.yaml` file:
+To set up this integration, click Configuration in the sidebar and then click Integrations. Add a new integration using the "+" button in the lower right corner and look for 'Plugwise'. Click configure and you will be presented with a dialog requesting the Smile ID or password of your Smile and it's IP address. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
+
+Depending on your `climate` setup an auxiliary entitiy will be added when there is information available about such Plugwise devices. If you have "plug"s (as in, pluggable switches that come with an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s or `binary_sensor`s.
+
+Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
+
+### Services
+
+#### Update Smile data
+
+Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` service with your Smile entity as the target.
 
 ```yaml
-# Minimal configuration.yaml entry
-climate:
-  - platform: plugwise
-    password: YOUR_SHORT_IP 
-    host: YOUR_SMILE_LOCAL_IP
+# Example script change the temperature
+script:
+  force_adam_update:
+    sequence:
+      - service: homeassistant.update_entity
+        data:
+          entity_id: climate.anna
 ```
-**Please note**: for a legacy Anna (firmware 1.8.x) an additional line is required, see below, this line is not needed for a more recent Anna (firmware 3.1.x).
-
-{% configuration %}
-password:
-  description: Your Smile ID (located on the bottom of the Smile, not the Anna).
-  required: true
-  type: string
-host:
-  description: The IP address of your Smile. 
-  required: true
-  type: string
-name:
-  description: The name of your thermostat, i.e., "Anna".
-  required: false
-  type: string
-  default: "Plugwise Thermostat"
-username:
-  description: Should you ever need to change this, you can.
-  required: false
-  type: string
-  default: smile
-port:
-  description: When having a custom setup, you can change the port number.
-  required: false
-  type: integer
-  default: 80
-legacy_anna:
-  description: Indicate that the Anna is a legacy unit
-  required: false
-  type: boolean
-  default: false
-min_temp:
-  description: If you want to adjust the lower boundary, the integration will not allow temperatures below the set value.
-  required: false
-  type: integer
-  default: 4
-max_temp:
-  description: If you want to adjust the upper boundary, the integration will not allow temperatures above the set value.
-  required: false
-  type: integer
-  default: 30
-{% endconfiguration %}
-
-### Full configuration example
-
-```yaml
-climate:
-  - platform: plugwise
-    name: YOUR_THERMOSTAT_NAME
-    password: YOUR_SHORT_ID
-    host: YOUR_SMILE_LOCAL_IP
-    port: YOUR_SMILE_PORT_NUMBER
-    legacy_anna: true
-    min_temp: YOUR_MINIMAL_TARGET_TEMPERATURE
-    max_temp: YOUR_MAXIMAL_TARGET_TEMPERATURE
-```
-
-### Service
 
 #### Set HVAC mode (schedule)
 
@@ -101,10 +75,11 @@ Example:
 ```yaml
 # Example script change the temperature
 script:
-  anna_reactive_last_schedule:
+  lisa_reactive_last_schedule:
     sequence:
       - service: climate.set_hvac_mode
         data:
+          entity_id: climate.lisa_bios
           hvac_mode: auto
 ```
 
@@ -128,6 +103,7 @@ script:
     sequence:
       - service: climate.set_temperature
         data:
+          entity_id: climate.anna
           temperature: 19.5
 ```
 
@@ -149,26 +125,25 @@ script:
           preset_mode: asleep
 ```
 
-### Troubleshooting
+### Supported devices
 
-Example of a working configuration excerpt (with debugging enabled):
+The current implementation of the Python module (Plugwise-Smile) includes:
 
-```txt
-[homeassistant.loader] Loaded plugwise from custom_components.plugwise
-[homeassistant.loader] You are using a custom integration for plugwise which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you do experience issues with Home Assistant.
-[custom_components.plugwise.climate] Plugwise: custom component loading (Anna PlugWise climate)
-[homeassistant.components.climate] Setting up climate.plugwise
-[custom_components.plugwise.climate] Init called
-[custom_components.plugwise.climate] Initializing API
-[custom_components.plugwise.climate] platform ready
-[custom_components.plugwise.climate] Update called
-```
+Adam (zone_control):
 
-Example of something going wrong (IP address not set) excerpt is shown below. Correct your configuration and try again. If the errors persist, please share a larger excerpt of your logfile.
+ - v3.0
+ - v2.3
 
-```txt
-1970-01-01 00:00:01 ERROR (MainThread) [homeassistant.components.climate] Error while setting up platform plugwise
-  File "/home/homeassistant/.homeassistant/custom_components/plugwise/climate.py", line 104, in setup_platform
-  File "/home/homeassistant/.homeassistant/custom_components/plugwise/climate.py", line 130, in __init__
-    self._api = Haanna(self._username, self._password, self._host, self._port)
-```
+ - Devices supported are Floor, Koen, Lisa, Plug and Tom - note a Koen always comes with a plug (the active part)
+
+Anna (thermostat):
+
+ - v4.0
+ - v3.1
+ - v1.8
+
+Smile P1 (DSMR):
+
+ - v4.0
+ - v3.3
+ - v2.5
