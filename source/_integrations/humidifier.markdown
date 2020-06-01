@@ -1,7 +1,6 @@
 ---
 title: "Humidifier"
-description: "Instructions on how to setup humidity control devices within Home Assistant."
-logo: home-assistant.png
+description: "Instructions on how to set up humidity control devices within Home Assistant."
 ha_category:
   - Humidifier
 ha_release: "0.111"
@@ -23,7 +22,7 @@ Not all humidifier services may be available for your platform. Be sure to check
 
 ### Service `humidifier.set_mode`
 
-Set mode for humidifier device. This service is only available if the device supports operating in several working modes. The list of available modes and the device functionality in every mode depend on the device itself.
+Set mode for the humidifier device. This service is only available if the device supports operating in several working modes. The list of available modes and the device functionality in every mode depend on the device itself.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -46,7 +45,7 @@ automation:
 
 ### Service `humidifier.set_humidity`
 
-Set target humidity of humidifier device
+Set target humidity of the humidifier device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -69,7 +68,7 @@ automation:
 
 ### Service `humidifier.turn_on`
 
-Turn humidifier device on.
+Turn the humidifier device on.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -77,7 +76,7 @@ Turn humidifier device on.
 
 ### Service `humidifier.turn_off`
 
-Turn humidifier device off.
+Turn the humidifier device off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
