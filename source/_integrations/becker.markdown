@@ -1,5 +1,5 @@
 ---
-title: Velux
+title: Becker
 description: Instructions on how to integrate Becker Covers via Becker Centronic USB Stick with Home Assistant.
 ha_category:
   - Cover
