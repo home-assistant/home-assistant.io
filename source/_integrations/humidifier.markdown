@@ -26,8 +26,8 @@ Set mode for the humidifier device. This service is only available if the device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of humidifier devices to control.
-| `preset_mode` | no | New value of preset mode.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| `preset_mode` | no  | New value of preset mode.
 
 #### Automation example
 
@@ -49,8 +49,8 @@ Set target humidity of the humidifier device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of humidifier devices to control.
-| `humidity` | no | New target humidity for humidifier device
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| `humidity` | no  | New target humidity for humidifier device
 
 #### Automation example
 
@@ -72,7 +72,7 @@ Turn the humidifier device on.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
 
 ### Service `humidifier.turn_off`
 
@@ -80,4 +80,4 @@ Turn the humidifier device off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
