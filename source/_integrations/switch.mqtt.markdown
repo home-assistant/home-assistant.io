@@ -159,6 +159,7 @@ The example below shows a full configuration for a switch.
 # Example configuration.yaml entry
 switch:
   - platform: mqtt
+    unique_id: bedroom_switch
     name: "Bedroom Switch"
     state_topic: "home/bedroom/switch1"
     command_topic: "home/bedroom/switch1/set"
