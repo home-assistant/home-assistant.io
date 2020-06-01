@@ -4,6 +4,8 @@ description: "Instructions on how to set up humidity control devices within Home
 ha_category:
   - Humidifier
 ha_release: "0.111"
+ha_domain: humidifier
+ha_quality_scale: internal
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
