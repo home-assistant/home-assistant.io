@@ -20,7 +20,7 @@ The `withings` sensor platform consumes data from various health products produc
 
 - Make Home Assistant publicly accessible over HTTPS a fully qualified domain name.
   - Subscribing to Home Assistant Cloud (https://www.nabucasa.com/) is a simple way of doing this.
-- Configure Home Assistant with the correct external url.
+- Configure Home Assistant with the correct external URL.
   - In Home Assistant goto Configuration > General > External URL.
   - Provide the publicly accessible URL.
   - If you are using Home Assistant Cloud, enter https://YOUR_NABU_CASA_ID.ui.nabu.casa
