@@ -22,7 +22,7 @@ AfterShip recently started requiring having a credit card on file even if you ar
 
 ## Configuration
 
-To enable this sensor in Home Assistant, go to Configuration / Integration and add the AfterShip integration using your API key.
+To enable this sensor in Home Assistant, go to **Configuration** > **Integration** and add the AfterShip integration using your API key.
 
 ## Service `add_tracking`
 
