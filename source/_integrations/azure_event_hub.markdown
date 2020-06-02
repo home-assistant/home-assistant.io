@@ -21,9 +21,9 @@ You must then create a Shared Access Policy for the Event Hub with 'Send' claims
 
 Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the integration itself.
 
-The alternative approach is to use a connection string, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in a IoT Hub (Event Hub-compatible connection string).
+The alternative approach is to use a connection string, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in an IoT Hub (Event Hub-compatible connection string).
 
-The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the send_interval, with a default of 5 seconds. The other thing to look at is what the max delay you want to use, since this component runs in a asynchronous way there is no guarantee that the sending happens exactly on time, so depending on your semantics you might want messages discarded. The actual check of the time happens with max_delay plus send_interval, so that even with a long send_interval the semantics are the same.
+The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the `send_interval`, with a default of 5 seconds. The other thing to look at is what the maximum delay you want to use, since this component runs in a asynchronous way there is no guarantee that the sending happens exactly on time, so depending on your semantics you might want messages discarded. The actual check of the time happens with `max_delay` plus `send_interval`, so that even with a long `send_interval` the semantics are the same.
 
 ## Configuration
 
@@ -36,19 +36,6 @@ azure_event_hub:
   event_hub_instance_name: EVENT_HUB_INSTANCE_NAME
   event_hub_sas_policy: SAS_POLICY_NAME
   event_hub_sas_key: SAS_KEY
-  send_interval: 5
-  max_delay: 30
-  filter:
-    include_domains:
-    - homeassistant
-    - light
-    - media_player
-
-# Alternative config
-azure_event_hub:
-  event_hub_connection_string: CONNECTION_STRING
-  send_interval: 5
-  max_delay: 30
   filter:
     include_domains:
     - homeassistant
@@ -78,12 +65,12 @@ event_hub_connection_string:
   required: exclusive
   type: string
 send_interval:
-  description: in what interval in seconds should events be sent to the Event Hub
+  description: The interval in seconds should events be sent to the Event Hub.
   required: false
   type: integer
   default: 5
 max_delay:
-  description: after how many seconds should a message be discarded
+  description: The time in seconds after which a message is to be discarded.
   required: false
   type: integer
   default: 30
@@ -119,7 +106,19 @@ Not filtering domains or entities will send every event to Azure Event Hub, thus
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
 </div>
 
-### Using the data in Azure
+### Advanced config
+
+This is what the config will look like when using a connection string directly, instead of the four parameters. It also shows how to set the send_interval and max_delay to something other than the default. This means once every minute the integration will connect to your hub and send messages, but the messages have to be less than 65 seconds old at the time of sending for them to be counted (send_interval + max_delay). 
+
+```yaml
+# Connection string config with non-defaults for send_interval and max_delay
+azure_event_hub:
+  event_hub_connection_string: CONNECTION_STRING
+  send_interval: 60
+  max_delay: 5
+```
+
+## Using the data in Azure
 
 There are a number of ways to stream the data that comes into the Event Hub into storages in Azure, the easiest way is to use the built-in Capture function and this allows you to capture the data in Azure Blob Storage or Azure Data Lake store, [details here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).
 
