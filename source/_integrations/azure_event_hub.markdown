@@ -21,6 +21,10 @@ You must then create a Shared Access Policy for the Event Hub with 'Send' claims
 
 Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the integration itself.
 
+The alternative approach is to use a connection string, this can be retrieved in the same way as the Shared Access Policy and this can also be gotten for a device in a IoT Hub (Event Hub-compatible connection string).
+
+The final thing to consider is how often you want the integration to send messages in a batch to your hub, this is set with the send_interval, with a default of 5 seconds. The other thing to look at is what the max delay you want to use, since this component runs in a asynchronous way there is no guarantee that the sending happens exactly on time, so depending on your semantics you might want messages discarded. The actual check of the time happens with max_delay plus send_interval, so that even with a long send_interval the semantics are the same.
+
 ## Configuration
 
 Add the following lines to your `configuration.yaml` file:
@@ -32,6 +36,19 @@ azure_event_hub:
   event_hub_instance_name: EVENT_HUB_INSTANCE_NAME
   event_hub_sas_policy: SAS_POLICY_NAME
   event_hub_sas_key: SAS_KEY
+  send_interval: 5
+  max_delay: 30
+  filter:
+    include_domains:
+    - homeassistant
+    - light
+    - media_player
+
+# Alternative config
+azure_event_hub:
+  event_hub_connection_string: CONNECTION_STRING
+  send_interval: 5
+  max_delay: 30
   filter:
     include_domains:
     - homeassistant
@@ -42,20 +59,34 @@ azure_event_hub:
 {% configuration %}
 event_hub_namespace:
   description: The name of your Event Hub namespace.
-  required: true
+  required: false
   type: string
 event_hub_instance_name:
   description: The name of your Event Hub instance.
-  required: true
+  required: false
   type: string
 event_hub_sas_policy:
   description: The name of your Shared Access Policy.
-  required: true
+  required: false
   type: string
 event_hub_sas_key:
   description: The key for the Shared Access Policy.
-  required: true
+  required: false
   type: string
+event_hub_connection_string:
+  description: The connection string to your event hub.
+  required: false
+  type: string
+send_interval:
+  description: in what interval in seconds should events be sent to the Event Hub
+  required: false
+  type: int
+  default: 5
+max_delay:
+  description: after how many seconds should a message be discarded
+  required: false
+  type: int
+  default: 30
 filter:
   description: Filter domains and entities for Event Hub.
   required: true
