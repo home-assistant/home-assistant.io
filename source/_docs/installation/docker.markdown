@@ -291,7 +291,8 @@ On Mac, USB devices are [not passed through](https://github.com/docker/for-mac/i
 
 ## Optimizations
 
-Home Assistant running as Docker container is using an alernative memory allocation library [jemalloc](http://jemalloc.net/) for better memory management and Python runtime speedup.
+The Home Assistant Container is using an alternative memory allocation library [jemalloc](http://jemalloc.net/) for better memory management and Python runtime speedup.
 
-As Jemalloc can cause issues on certain hardware, it can be disabled by passing environmenatal variable `DISABLE_JEMALLOC` with non-null value, e.g `-e "JEMALLOC_DISABLE=true"`
-Error message  `<jemalloc>: Unsupported system page size` is one known indicator. 
+As Jemalloc can cause issues on certain hardware, it can be disabled by passing the environment variable `DISABLE_JEMALLOC` with any value: `-e "JEMALLOC_DISABLE=true"`.
+
+The error message `<jemalloc>: Unsupported system page size` is one known indicator. 
