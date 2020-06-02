@@ -35,8 +35,8 @@ As "Service Data" we want a simple text that is shown as part of the notificatio
 
 The Automation Editor does not currently support **data_template** as a "Service Data" entry. For these actions, it will be necessary to edit as YAML. This can be achieved by clicking the menu (3 vertical dots) and selecting "Edit as YAML"
 
+Example of how to use data_template in the Automation Editor, using "Edit as YAML"
 ```yaml
-# Example of how to use data_template in the Automation Editor, using "Edit as YAML"
 data_template:
   message: >
     Paulus just changed from {{ trigger.from_state.state }}
@@ -86,10 +86,11 @@ automation old: !include_dir_merge_list automations
 If you want to migrate your old automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over, you'll have to add an `id`. This can be any string as long as it's unique.
 
 For example, the below automation will be triggered when the sun goes from below the horizon to above the horizon. Then, if the temperature is between 17 and 25 degrees, a light will be turned on.
+Example automations.yaml entry
+- id: my_unique_id < -This is required for editor to work, for automations created with the editor the id will be automatically generated.
 
 ```yaml
-# Example automations.yaml entry
-- id: my_unique_id  # <-- Required for editor to work, for automations created with the editor the id will be automatically generated.
+- id: my_unique_id
   alias: Hello world
   trigger:
   - platform: state 
