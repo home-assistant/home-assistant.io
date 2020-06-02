@@ -92,7 +92,7 @@ VeSync air purifiers will expose the following details.
 | `speed`                 | The current speed setting of the device.                                | auto            |
 | `speed_list`            | The available list of speeds supported by the device.                   | high            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode.      | 1598            |
-| `filter_life`           | Remaining precentage of the filter.                                     | 142             |
+| `filter_life`           | Remaining percentage of the filter.                                     | 142             |
 | `air_quality`           | The current air quality reading.                                        | excellent       |
 | `screen_status`         | The current status of the screen.                                       | on              |
 
