@@ -1,6 +1,6 @@
 ---
-title: DuneHD
-description: Instructions on how to integrate DuneHD media players into Home Assistant.
+title: Dune HD
+description: Instructions on how to integrate Dune HD media players into Home Assistant.
 ha_category:
   - Media Player
 ha_iot_class: Local Polling
