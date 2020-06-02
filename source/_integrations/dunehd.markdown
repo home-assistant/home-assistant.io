@@ -6,6 +6,9 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_domain: dunehd
+ha_config_flow: true
+ha_codeowners:
+  - '@bieniu'
 ---
 
 The `dunehd` media player platform allows you to control a [Dune HD media player](https://dune-hd.com/eng/products/full_hd_media_players) from Home Assistant. Support is based on the official [IP protocol](https://dune-hd.com/support/ip_control/dune_ip_control_overview.txt) published by Dune.
