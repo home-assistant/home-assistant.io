@@ -20,13 +20,13 @@ The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Ada
 
 Platforms available - depending on your Smile and setup are include:
 
- - `climate` (for the Anna and Lisa products)
+ - `climate` (for the Anna and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
 
 Coming soon (not available yet):
 
  - `binary_sensor` (for domestic hot water and secondary heater)
- - `switch` (for plugs)
+ - `switch` (for Plugs)
 
 The password can be found on the bottom of your Smile, it should consist of 6 characters. To find your IP address use the Plugwise App: 
 
@@ -137,8 +137,8 @@ Adam (zone_control):
  - v3.0
  - v2.3
 
- - Devices supported are Floor, Lisa, nd Tom 
- - Koen and Plug support coming soon - note a Koen always comes with a plug (the active part) 
+ - Devices supported are Floor, Lisa, and Tom 
+ - Koen and Plug support coming soon - note a Koen always comes with a Plug (the active part) 
 
 Anna (thermostat):
 
