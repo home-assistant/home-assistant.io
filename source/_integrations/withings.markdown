@@ -34,7 +34,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 
 ### Step 2 - Configure Home Assistant
 
-- Add the Withing configuration yaml.
+- Add the Withing configuration YAML.
     ```yaml
     # Example configuration.yaml entry
     withings:
@@ -52,7 +52,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 ### Step 3 - Authorize Home Assistant
 
 - Add the Withings integration.
-- Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the withings site.
+- Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
   - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
 - Data will synchronize immediately and update every 5 minutes.
 
@@ -66,7 +66,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 - Home Assistant (For create/update of Withings developer account):
     - Publicly accessible.
     - Running on a fully qualified domain name.
-    - Running over HTTPS signed by a globally recognised Certificate Authority. Let's Encrypt will work.
+    - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 - Home Assistant (For adding the integration)
     - Home Assistant's `internal_url` needs to be set to match the `redirect uri` provided for your Withings account.
 
@@ -74,12 +74,12 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 
 - Create developer account with the same steps from the instructions above.
     - The `redirect uri` should look like `https://<MY_DOMAIN_NAME>/auth/external/callback`.
-- Configure Home Assistant's url. This guarantees Withings will receive the proper redirect_uri. When adding the integration, Withings will throw an error if this is not setup correctly.
+- Configure Home Assistant's URL. This guarantees Withings will receive the proper redirect_uri. When adding the integration, Withings will throw an error if this is not setup correctly.
     ```yaml
     homeassistant:
       internal_url: https://<MY_DOMAIN_NAME>
     ```
-- Configure the Withings integration in your configuration yaml (see above).
+- Configure the Withings integration in your configuration YAML (see above).
 - Add the integration (see above).
     - The following only applied if you chose to close off Home Assistant from the public after setting up your Withings account.
     After authorizing finishing authoriation, your browsr will redirect back to `https://<MY_DOMAIN_NAME>/auth/external/callback`. Since that is no longer public,
@@ -114,7 +114,7 @@ profiles:
 
 ## Bonus: Template Sensors to Convert Kilograms to Pounds
 
-In a text editor, replace ```USER_PROFILE_NAME``` in the template sensors below with your withings User Profile Name defined in the Withings integration configuration. 
+In a text editor, replace ```USER_PROFILE_NAME``` in the template sensors below with your Withings User Profile Name defined in the Withings integration configuration. 
 
 
 {% raw %}
