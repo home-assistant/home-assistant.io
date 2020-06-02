@@ -106,9 +106,9 @@ Not filtering domains or entities will send every event to Azure Event Hub, thus
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
 </div>
 
-### Advanced config
+### Advanced configuration
 
-This is what the config will look like when using a connection string directly, instead of the four parameters. It also shows how to set the send_interval and max_delay to something other than the default. This means once every minute the integration will connect to your hub and send messages, but the messages have to be less than 65 seconds old at the time of sending for them to be counted (send_interval + max_delay). 
+This is what the configuration will look like when using a connection string directly, instead of the four parameters. It also shows how to set the send_interval and max_delay to something other than the default. This means once every minute the integration will connect to your hub and send messages, but the messages have to be less than 65 seconds old at the time of sending for them to be counted (send_interval + max_delay). 
 
 ```yaml
 # Connection string config with non-defaults for send_interval and max_delay
