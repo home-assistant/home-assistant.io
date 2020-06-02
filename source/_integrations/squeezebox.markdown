@@ -10,7 +10,7 @@ ha_domain: squeezebox
 
 The Squeezebox integration allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [Squeezelite](https://github.com/ralph-irving/squeezelite), [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).
 
-You can add the Squeezebox integration through the frontend configuration menu. This is the preferred method.
+The preferred method to install the Squeezebox integration is through the "Configuration" panel on the left hand side of the frontend. In the "Configuration" panel, choose "Integrations", click the "+" icon in the lower right-hand corner, and choose "Logitech Squeezebox" from the list of new integrations.
 
 Although using the `configuration.yaml` file to set up this integration is now deprecated, it continues to work:
 
