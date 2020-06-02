@@ -29,6 +29,6 @@ host:
 name:
   description: Name of the device.
   required: false
-  default: DuneHD
+  default: Dune HD
   type: string
 {% endconfiguration %}
