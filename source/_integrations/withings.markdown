@@ -34,7 +34,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 
 ### Step 2 - Configure Home Assistant
 
-- Add the Withing configuration YAML.
+- Add the Withings configuration YAML.
     ```yaml
     # Example configuration.yaml entry
     withings:
