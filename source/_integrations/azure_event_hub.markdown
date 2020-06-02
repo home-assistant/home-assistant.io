@@ -59,33 +59,33 @@ azure_event_hub:
 {% configuration %}
 event_hub_namespace:
   description: The name of your Event Hub namespace.
-  required: false
+  required: exclusive
   type: string
 event_hub_instance_name:
   description: The name of your Event Hub instance.
-  required: false
+  required: exclusive
   type: string
 event_hub_sas_policy:
   description: The name of your Shared Access Policy.
-  required: false
+  required: exclusive
   type: string
 event_hub_sas_key:
   description: The key for the Shared Access Policy.
-  required: false
+  required: exclusive
   type: string
 event_hub_connection_string:
   description: The connection string to your event hub.
-  required: false
+  required: exclusive
   type: string
 send_interval:
   description: in what interval in seconds should events be sent to the Event Hub
   required: false
-  type: int
+  type: integer
   default: 5
 max_delay:
   description: after how many seconds should a message be discarded
   required: false
-  type: int
+  type: integer
   default: 30
 filter:
   description: Filter domains and entities for Event Hub.
