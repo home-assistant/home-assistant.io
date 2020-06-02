@@ -77,7 +77,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 - Configure Home Assistant's URL. This guarantees Withings will receive the proper redirect_uri. When adding the integration, Withings will throw an error if this is not setup correctly.
     ```yaml
     homeassistant:
-      internal_url: https://<MY_DOMAIN_NAME>
+      external_url: https://<MY_DOMAIN_NAME>
     ```
 - Configure the Withings integration in your configuration YAML (see above).
 - Add the integration (see above).
