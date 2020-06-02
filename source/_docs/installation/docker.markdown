@@ -288,3 +288,10 @@ or in a `docker-compose.yml` file:
 On Mac, USB devices are [not passed through](https://github.com/docker/for-mac/issues/900) by default. Follow the instructions in [Using USB with Docker for Mac](https://dev.to/rubberduck/using-usb-with-docker-for-mac-3fdd) by Christopher McClellan if your device is not showing up.
 
 </div>
+
+## Optimizations
+
+Home Assistant running as Docker container is using an alernative memory allocation library [jemalloc](http://jemalloc.net/) for better memory management and Python runtime speedup.
+
+As Jemalloc can cause issues on certain hardware, it can be disabled by passing environmenatal variable `DISABLE_JEMALLOC` with non-null value, e.g `-e "JEMALLOC_DISABLE=true"`
+Error message  `<jemalloc>: Unsupported system page size` is one known indicator. 
