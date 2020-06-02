@@ -83,9 +83,9 @@ Due to the nature of the Synology DSM API, it is required to grant the user admi
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
 
-## Created sensors
+## Sensors
 
-Sensors are:
+Utilisation:
 - `cpu_other_load`: Displays unspecified (that is, not user or system) load in percentage.
 - `cpu_user_load`: Displays user load in percentage.
 - `cpu_system_load`: Displays system load in percentage.
@@ -102,17 +102,26 @@ Sensors are:
 - `memory_total_real`: Displays total size of real memory in MB.
 - `network_up`: Displays total up speed of network interfaces (combines all interfaces).
 - `network_down`: Displays total down speed of network interfaces (combines all interfaces).
-- `disk_name`: Displays the name of the hard disk (creates a new entry for each disk).
-- `disk_device`: Displays the path of the hard disk (creates a new entry for each disk).
-- `disk_smart_status`: Displays the S.M.A.R.T status of the hard disk (creates a new entry for each disk).
-- `disk_status`: Displays the status of the hard disk (creates a new entry for each disk).
-- `disk_exceed_bad_sector_thr`: Displays true / false to indicate if the hard disk exceeded the maximum bad sector threshold (creates a new entry for each disk). (Does not work with DSM 5.x)
-- `disk_below_remain_life_thr`: Displays true / false to indicate if the hard disk dropped below the remain life threshold (creates a new entry for each disk). (Does not work with DSM 5.x)
-- `disk_temp`: Displays the temperature of the hard disk (creates a new entry for each disk, uses the unit_system to display in C or F).
-- `volume_status`: Displays the status of the volume (creates a new entry for each volume).
-- `volume_device_type`: Displays the volume type (RAID, etc) (creates a new entry for each volume).
-- `volume_size_total`: Displays the total size of the volume in GB's (creates a new entry for each volume).
-- `volume_size_used`: Displays the used space on this volume in GB's (creates a new entry for each volume).
-- `volume_percentage_used`: Displays the percentage used for this volume in GB's (creates a new entry for each volume).
-- `volume_disk_temp_avg`: Displays the average temperature of all disks in the volume (creates a new entry for each volume).
-- `volume_disk_temp_max`: Displays the maximum temperature of all disks in the volume (creates a new entry for each volume).
+
+For each disk:
+- `disk_smart_status`: Displays the S.M.A.R.T status of the disk.
+- `disk_status`: Displays the status of the disk.
+- `disk_temp`: Displays the temperature of the disk.
+
+For each volume:
+- `volume_status`: Displays the status of the volume.
+- `volume_size_total`: Displays the total size of the volume in TB's.
+- `volume_size_used`: Displays the used space on this volume in TB's.
+- `volume_percentage_used`: Displays the percentage used for this volume.
+- `volume_disk_temp_avg`: Displays the average temperature of all disks in the volume.
+- `volume_disk_temp_max`: Displays the maximum temperature of all disks in the volume.
+
+
+## Binary sensors
+
+Security:
+- `security_status`: Displays safe to indicate if the NAS is safe.
+
+For each disk:
+- `disk_exceed_bad_sector_thr`: Displays on to indicate if the disk exceeded the maximum bad sector threshold. (Does not work with DSM 5.x)
+- `disk_below_remain_life_thr`: Displays on to indicate if the disk dropped below the remain life threshold. (Does not work with DSM 5.x)
