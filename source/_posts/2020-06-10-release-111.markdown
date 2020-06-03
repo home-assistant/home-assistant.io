@@ -23,7 +23,7 @@ Personally, I'm always looking forward to the new features a new release brings.
 Time to play! This time, however, not so much.
 
 This release is focussed around more stability, fixing, tweaking and tuning.
-Honestly, I think it it really nice!
+Honestly, I think it is really nice!
 
 Most notably, is the change on how Home Assistant loads up the frontend.
 It is available really quick now!
