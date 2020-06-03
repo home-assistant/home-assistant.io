@@ -61,7 +61,7 @@ For advanced users who are NOT using Home Assistant Cloud. This is not intended 
 
 ### Requirements
 
-Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fails, the Withings UI is not always clear about why.
+Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
 - Home Assistant (For create/update of Withings developer account):
     - Publicly accessible.
