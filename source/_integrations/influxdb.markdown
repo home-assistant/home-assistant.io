@@ -13,7 +13,7 @@ ha_domain: influxdb
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
 
-Additionally, you can now make use of an InfluxDB 2.0 installation in this Integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields apply to only a 1.xx installation or a 2.xx installation.
+Additionally, you can now make use of an InfluxDB 2.0 installation in this Integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -37,16 +37,25 @@ influxdb:
 You will still need to create a database named `home_assistant` via InfluxDB's command line interface. For instructions on how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 {% configuration %}
+ssl:
+  type: boolean
+  description: Use HTTPS instead of HTTP to connect. **2.xx - Defaults to `true` for 2.xx, not `false`.**
+  required: false
+  default: false
 host:
   type: string
-  description: "**1.xx only** IP address of your database host, e.g., 192.168.1.10"
+  description: IP address or domain of your database host, e.g., 192.168.1.10. **2.xx - Defaults to 'us-west-2-1.aws.cloud2.influxdata.com' for 2.xx, not 'localhost'.**
   required: false
   default: localhost
 port:
   type: integer
-  description: "**1.xx only** Port to use"
+  description: Port to use. **2.xx - No default port for 2.xx, not 8086.**
   required: false
   default: 8086
+path:
+  type: string
+  description: Path to use if your InfuxDB is running behind an reverse proxy.
+  required: false
 username:
   type: string
   description: "**1.xx only** The username of the database user. The user needs read/write privileges on the database."
@@ -60,30 +69,16 @@ database:
   description: "**1.xx only** Name of the database to use. The database must already exist."
   required: false
   default: home_assistant
-ssl:
-  type: boolean
-  description: "**1.xx only** Use HTTPS instead of HTTP to connect."
-  required: false
-  default: false
 verify_ssl:
   type: boolean
-  description: "**1.xx only** Verify SSL certificate for HTTPS request."
+  description: "**1.xx only** Verify SSL certificate for HTTPS request. Note that when using 2.xx this option is ignored. SSL verification is required, library provides no way to disable it."
   required: false
   default: true
-path:
-  type: string
-  description: "**1.xx only** Path to use if your InfuxDB is running behind an reverse proxy."
-  required: false
 api_v2:
   type: boolean
   description: "**2.xx only** Set to `true` if connecting to a 2.xx installation, do not use otherwise."
   required: inclusive
   default: false
-url:
-  type: string
-  description: "**2.xx only** URL of your 2.xx installation (e.g. http://localhost:9999)."
-  required: false
-  default: "https://us-west-2-1.aws.cloud2.influxdata.com"
 token:
   type: string
   description: "**2.xx only** Auth token with WRITE access to your chosen Organization and Bucket. Needed with `api_v2` configuration variable."
@@ -210,6 +205,9 @@ influxdb:
 ```yaml
 influxdb:
   api_v2: true
+  ssl: false
+  host: localhost
+  port: 9999
   token: GENERATED_AUTH_TOKEN
   organization: RANDOM_16_DIGIT_HEX_ID
   bucket: BUCKET_NAME
@@ -252,6 +250,11 @@ sensor:
 ```
 
 {% configuration %}
+ssl:
+  type: boolean
+  description: Use HTTPS instead of HTTP to connect.
+  required: false
+  default: false
 host:
   type: string
   description: IP address of your database host, e.g., 192.168.1.10.
@@ -262,6 +265,10 @@ port:
   description: Port to use.
   required: false
   default: 8086
+path:
+  type: string
+  description: Path to use if your InfuxDB is running behind an reverse proxy.
+  required: false
 username:
   type: string
   description: The username of the database user.
@@ -270,20 +277,11 @@ password:
   type: string
   description: The password for the database user account.
   required: false
-ssl:
-  type: boolean
-  description: Use HTTPS instead of HTTP to connect.
-  required: false
-  default: false
 verify_ssl:
   type: boolean
   description: Verify SSL certificate for HTTP request.
   required: false
   default: false
-path:
-  type: string
-  description: Path to use if your InfuxDB is running behind an reverse proxy.
-  required: false
 queries:
   type: list
   description: List of queries.
@@ -356,11 +354,24 @@ api_v2:
   description: Set to `true` if connecting for 2.xx installations, do not use otherwise.
   required: true
   default: false
-url:
-  type: string
-  description: "URL of your 2.xx installation (e.g. http://localhost:9999)."
+ssl:
+  type: boolean
+  description: Use HTTPS instead of HTTP to connect.
   required: false
-  default: "https://us-west-2-1.aws.cloud2.influxdata.com"
+  default: true
+host:
+  type: string
+  description: IP address or domain of your database host, e.g., 192.168.1.10.
+  required: false
+  default: us-west-2-1.aws.cloud2.influxdata.com
+port:
+  type: integer
+  description: Port to use.
+  required: false
+path:
+  type: string
+  description: Path to use if your InfuxDB is running behind an reverse proxy.
+  required: false
 token:
   type: string
   description: Auth token with READ access to your chosen Organization and Bucket.
