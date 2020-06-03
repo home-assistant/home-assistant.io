@@ -24,6 +24,17 @@ Lorem ipsum
 Screenshot of lorem ipsum.
 </p>
 
+## Starting the frontend sooner
+
+In this version we start the Home Assistant frontend and API server before all integrations are loaded. 
+This means you can interact with Home Assistant sooner than before, but also that not all entities are available when the frontend is already up.
+
+With this change you no longer have to wait for all integrations to be ready, and you can change or remove the config of an non working integration from the frontend.
+It also makes it easier to check out your logs when something goes wrong.
+
+If you run generated Lovelace, it will still wait for Home Assistant to be completely started.
+If you created your own dashboard, it will show warnings for entities that are not available yet and will update when they become available.
+
 ## Other noteworthy changes
 
 - Lorem ipsum
