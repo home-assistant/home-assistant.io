@@ -108,7 +108,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   ZHA Roller shades, drapes, and tilt-only blinds are now a proper `cover` entity instead of a `switch`.
 
-  Keen vent "dampers" are also now `cover` entities instead of a `light`.
+  Keen vent "dampers" are also now `cover` entities instead of `light`.
 
   ([@Adminiuga] - [#36059], [#36080]) ([zha docs]) 
 
@@ -202,12 +202,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
  - **Removed**
 
-  The integrations below have been removed:
+    The integrations below have been removed:
 
-  * Wunderlist (platform is decommissioned) ([@frenck] - [#36380])
-  * Automatic (platform is decomissioned) ([@bachya] - [#35029])
-  * Gearbest (ADR-0004) ([@frenck] - [#36347])
-  * WWLLN (data source no longer available) ([@bachya] - [#35926])
+    * Wunderlist (platform is decommissioned) ([@frenck] - [#36380])
+    * Automatic (platform is decomissioned) ([@bachya] - [#35029])
+    * Gearbest (ADR-0004) ([@frenck] - [#36347])
+    * WWLLN (data source no longer available) ([@bachya] - [#35926])
 
 ## All changes
 
