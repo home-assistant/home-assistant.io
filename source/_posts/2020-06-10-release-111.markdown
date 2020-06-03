@@ -66,25 +66,148 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Remove Automatic integration ([@bachya] - [#35029]) ([automatic docs]) (breaking-change)
-- Rename zigbee to xbee ([@frenck] - [#35613]) ([xbee docs]) ([zigbee docs]) (breaking-change)
-- Change Insteon backend module to pyinsteon from insteonplm ([@teharris1] - [#35198]) ([insteon docs]) (breaking-change)
-- Avoid creating multiple sqlalchemy sessions in a single history call ([@bdraco] - [#35721]) ([history docs]) ([recorder docs]) (breaking-change)
-- Deprecate Daikin yaml-support ([@fredrike] - [#35768]) ([daikin docs]) (breaking-change)
-- Update environment_canada camera ([@michaeldavie] - [#36010]) ([environment_canada docs]) (breaking-change)
-- Add ZHA roller shadows as cover instead of switch ([@Adminiuga] - [#36059]) ([zha docs]) (breaking-change)
-- Implement Keen vents as zha cover devices ([@Adminiuga] - [#36080]) ([zha docs]) (breaking-change)
-- Remove WWLLN integration ([@bachya] - [#35926]) ([wwlln docs]) (breaking-change)
-- Add device classes to Blink sensors ([@fronzbot] - [#35620]) ([blink docs]) (breaking-change)
-- Improve stability of homekit accessory ids ([@bdraco] - [#35691]) ([homekit docs]) (breaking-change)
-- Make prometheus light state report robust ([@nbarrientos] - [#36134]) ([prometheus docs]) (breaking-change)
-- Remove configuration.yaml support for OpenUV ([@bachya] - [#36148]) ([openuv docs]) (breaking-change)
-- Update plugwise to async and config_flow ([@CoMPaTech] - [#33691]) ([plugwise docs]) (breaking-change) (new-platform)
-- Remove duplicate information in delijn sensor ([@Emilv2] - [#36276]) ([delijn docs]) (breaking-change)
-- Remove gearbest integration (ADR-0004) ([@frenck] - [#36347]) ([gearbest docs]) (breaking-change)
-- Change deCONZ sensor device classes ([@Kane610] - [#36352]) ([deconz docs]) (breaking-change)
-- Refactor Synology entries to allow not fetching the API when it's disabled + add security binary sensor ([@Quentame] - [#35565]) ([synology_dsm docs]) (breaking-change) (new-platform)
-- Remove wunderlist, platform is decommissioned ([@frenck] - [#36380]) ([wunderlist docs]) (breaking-change)
+- **Zigbee**
+
+  The zigbee integration has been renamed to xbee, as it is an integration for XBee devices. This is done to avoid confusion with ZHA, which is the general integration to go to when having Zigbee needs.
+  
+  ([@frenck] - [#35613]) ([xbee docs]) ([zigbee docs]) 
+
+- **Insteon**
+  
+  The backend module for the Insteon integration has changed from `insteonplm` to `pyinsteon`, enabling significant improvements which include:
+
+  * Consistent state status for changes to state outside of Home Assistant (i.e. three-way switches)
+  * Improved insteon scene triggering.
+  * Full coexistance with the Insteon Hub app
+
+  As a result, the entity ID of some entities will be changing. Specifically, the following entity types:
+    * X10 dimmers, switches, and sensors
+    * SmokeBridge sensor
+
+  Additionally, X10 entities for:
+    * x10_all_units_off
+    * x10_all_lights_on
+    * x10_all_lights_off
+
+  No longer appear as entities as they are not needed.
+  
+  ([@teharris1] - [#35198]) ([insteon docs]) 
+
+- **Environment Canada**
+  
+  The radar imagery used is no longer associated with fixed radar stations. As a result:
+
+  * The station and location attributes have been removed
+  * Entity names will change, as they are no longer related to the value of the station attribute
+
+  The integration can still be configured using a station identification code, so existing configurations using this method remain valid.
+  
+  ([@michaeldavie] - [#36010]) ([environment_canada docs])
+
+- **ZHA**
+
+  ZHA Roller shades, drapes, and tilt-only blinds are now a proper `cover` entity instead of a `switch`.
+
+  Keen vent "dampers" are also now `cover` entities instead of a `light`.
+
+  ([@Adminiuga] - [#36059], [#36080]) ([zha docs]) 
+
+
+- **Blink**
+
+  The Blink battery has been moved from the `sensor` platform to the `binary_sensor` platform since it only reports "OK" or "Low" as a status.
+  
+  ([@fronzbot] - [#35620]) ([blink docs])
+
+- **Homekit**
+  
+  To solve a stability problem, HomeKit now uses the entity unique id to generate accessory ids when available. This change allows HomeKit to retain accessory settings when integrations change naming formats or after renaming entities. As a result, some accessories may need a one time reset by calling the `homekit.reset_accessory` service for them to function again.
+
+  Version 0.109 introduced persistent storage for HomeKit accessory ids. When upgrading from 0.108 or earlier, it is highly is recommended to upgrade to 0.110 first to allow the system to store the accessory ids and avoid the need to call the `homekit.reset_accessory` service.
+
+  If the upgrade path skips both 0.109 and 0.110, it may be necessary to unpair and repair the HomeKit Bridge.
+  
+  ([@bdraco] - [#35691]) ([homekit docs])
+
+- **Prometheus**
+  
+  The Prometheus exporter will now report 0 (`STATE_OFF`) as expected, instead of reporting the brightness level when the light is off. You may need to adapt Prometheus data processing.
+  
+  ([@nbarrientos] - [#36134]) ([prometheus docs]) 
+
+
+- **De Lijn**
+  
+  The stopname has been removed from attributes since it is the same as the sensor name.
+  
+  ([@Emilv2] - [#36276]) ([delijn docs]) 
+
+- **deCONZ**
+  Updated binary sensor and sensor device classes to follow official ones.
+
+  Binary sensor device classes:
+
+  * Carbon monoxide changed to gas
+  * Vibration changed to vibration
+  
+  Sensor device classes:
+
+  * Alarm has been removed
+  * Consumption has been removed
+  * Daylight has been removed
+  * Power has been added as power
+
+  ([@Kane610] - [#36352]) ([deconz docs])
+
+- **Synology DSM**
+
+  The following sensors are now binary sensors:
+
+  * disk_exceed_bad_sector_thr
+  * disk_below_remain_life_thr
+
+  The following sensors have been removed:
+
+  * volume type (RAID, SHR ...)
+  * disk name (Drive [X])
+  * disk device (/dev/sd[Y])
+
+  The disk and volume sensors have been replaced: `sensor.synology_status_sda` to `sensor.synology_drive_1_status`, `sensor.synology_average_disk_temp_volume_1` to `sensor.synology_volume_1_average_disk_temp`, etc.
+  
+  ([@Quentame] - [#35565]) ([synology_dsm docs])
+
+- **Plugwise**
+  
+  To improve user friendly configuration and support Adam and P1 devices in addition to Anna's, starting today Plugwise is configured through Configuration -> Integrations instead of updating the configuration file. Please remove the applicable lines from your configuration file (configuration.yaml) before upgrading. After upgrading add each Smile as an integration as described in the documentation. Note that this update also makes slight changes with regard to entity names to handle more than Anna.
+  
+  ([@CoMPaTech] - [#33691]) ([plugwise docs])
+
+- **Daikin AC**
+  
+  Configuration via YAML for the daikin integration is deprecated and will become invalid in release 0.113.0. All configuration should be done via the Integrations tab in the GUI. Users should remove the daikin configuration YAML section before 0.113.0 is released.
+  
+  ([@fredrike] - [#35768]) ([daikin docs])
+
+- **OpenUV**
+  
+  The OpenUV integration can now only be configured via the UI. If you already had OpenUV configured, all you need to do is remove the corresponding lines from configuration.yaml.
+  
+  ([@bachya] - [#36148]) ([openuv docs])
+
+- **History / Recorder**
+
+  The history function `states_to_json` is now a protected function `_states_to_json` and is not expected to be called from outside the module. This is included as a breaking change in case there are custom integrations which potentially make use of this.
+  
+  ([@bdraco] - [#35721]) ([history docs]) ([recorder docs]) 
+
+ - **Removed**
+
+  The integrations below have been removed:
+
+  * Wunderlist (platform is decommissioned) ([@frenck] - [#36380])
+  * Automatic (platform is decomissioned) ([@bachya] - [#35029])
+  * Gearbest (ADR-0004) ([@frenck] - [#36347])
+  * WWLLN (data source no longer available) ([@bachya] - [#35926])
 
 ## All changes
 
