@@ -42,7 +42,7 @@ Instead of waiting a couple of minutes until the Home Assistant frontend
 becomes responsive, it is available really fast now!
 
 However, with this change, Home Assistant no longer waits for all integrations
-to be ready. A result, not all devices and entities are available immediately.
+to be ready. As a result, not all devices and entities are available immediately.
 
 This is actually good! As this means, an integration that got into trouble,
 can no longer prevent the frontend from becoming available. Also, as soon
