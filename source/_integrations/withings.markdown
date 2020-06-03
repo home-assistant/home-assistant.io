@@ -72,7 +72,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 
 ### Steps
 
-- Create developer account with the same steps from the instructions above.
+- Create a developer account with the same steps from the instructions above.
     - The `redirect uri` should look like `https://<MY_DOMAIN_NAME>/auth/external/callback`.
 - Configure Home Assistant's URL. This guarantees Withings will receive the proper redirect_uri. When adding the integration, Withings will throw an error if this is not setup correctly.
     ```yaml
@@ -82,7 +82,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 - Configure the Withings integration in your configuration YAML (see above).
 - Add the integration (see above).
     - The following only applied if you chose to close off Home Assistant from the public after setting up your Withings account.
-    After authorizing finishing authoriation, your browsr will redirect back to `https://<MY_DOMAIN_NAME>/auth/external/callback`. Since that is no longer public,
+    After authorizing finishing authorization, your browser will redirect back to `https://<MY_DOMAIN_NAME>/auth/external/callback`. Since that is no longer public,
     your browser will return an error saying it could not connect. You can get around this by modifying the URL (in the browser) 
     to point to your local address of Home Assistant. So your browser's URL looked like `https://<MY_DOMAIN_NAME>/auth/external/callback` 
     but now change it to something like `https://192.168.1.11:8123/auth/external/callback`.
