@@ -38,7 +38,7 @@ In this version, we start the Home Assistant frontend and API server before all
 integrations are loaded. This means you can interact with Home Assistant
 sooner than before.
 
-Instead of waiting a couple of minutes before the Home Assistant frontend
+Instead of waiting a couple of minutes until the Home Assistant frontend
 becomes responsive, it is available really fast now!
 
 However, with this change, Home Assistant no longer waits for all integrations
