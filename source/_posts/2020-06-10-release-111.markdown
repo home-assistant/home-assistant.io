@@ -76,7 +76,7 @@ Often, an integration has a basic setup and will then load the various platforms
 As of this release, Home Assistant will set up the integration but will
 no longer wait for the platforms to finish setting up. The individual platforms
 will be finished in the background. Allowing the overall startup process to
-continue and this results in a faster startup.
+continue, resulting in a faster startup.
 
 ## Lorem ipsum
 
