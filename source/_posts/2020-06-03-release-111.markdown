@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2020-06-0.111/social.png
 ---
 
-<a href='/integrations/#version/0.111'><img src='/images/blog/2020-06-0.111/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.111'><img src='/images/blog/2020-06-0.111/social.png' style='border: 0;box-shadow: none;'></a>
 
 Home Assistant Core 0.111 is here!
 
