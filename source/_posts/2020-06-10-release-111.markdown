@@ -74,7 +74,7 @@ Often, an integration has a basic setup and will then load the various platforms
 (like lights and switches) after that.
 
 As of this release, Home Assistant will set up the integration but will
-no longer wait for the platforms finishing setting up. The individual platforms
+no longer wait for the platforms to finish setting up. The individual platforms
 will be finished in the background. Allowing the overall startup process to
 continue and this results in a faster startup.
 
