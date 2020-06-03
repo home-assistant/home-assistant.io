@@ -317,7 +317,7 @@ The integrations below have been removed:
 - Upgrade flake8 to 3.8.1, fix findings ([@scop] - [#35578]) ([hunterdouglas_powerview docs]) ([zwave_mqtt docs])
 - Run pre-commit gen_requirements_all on pre-commit config changes ([@scop] - [#35588])
 - Axis - Code improvements ([@Kane610] - [#35592]) ([axis docs])
-- Remove Automatic integration ([@bachya] - [#35029]) ([automatic docs]) (breaking-change)
+- Remove Automatic integration ([@bachya] - [#35029]) (breaking-change)
 - Rename zigbee to xbee ([@frenck] - [#35613]) ([xbee docs]) ([zigbee docs]) (breaking-change)
 - Xiaomi Miio zeroconf discovery ([@starkillerOG] - [#35352]) ([xiaomi_miio docs])
 - Provide yeelight unique_id using ssdp discovery ([@zewelor] - [#35448]) ([yeelight docs])
@@ -397,7 +397,7 @@ The integrations below have been removed:
 - Add roku tv input names to alexa inputs ([@ctalkington] - [#36089]) ([alexa docs])
 - Fallback lg_soundbar sound mode on unknown value ([@teldri] - [#35892]) ([lg_soundbar docs])
 - Report entity IDs for min/max sensor platform ([@Tho85] - [#33806]) ([min_max docs])
-- Remove WWLLN integration ([@bachya] - [#35926]) ([wwlln docs]) (breaking-change)
+- Remove WWLLN integration ([@bachya] - [#35926]) (breaking-change)
 - Clean up vizio translation strings ([@raman325] - [#35725]) ([vizio docs])
 - Add Axis MQTT support ([@Kane610] - [#36015]) ([axis docs])
 - Add lock platform to ozw component ([@mrk-its] - [#36103]) ([ozw docs]) (new-platform)
@@ -475,9 +475,9 @@ The integrations below have been removed:
 - Fix handling of min_size argument in OpenCV component ([@lpomfrey] - [#36335]) ([opencv docs])
 - Version bump pydaikin to 2.1.1 ([@fredrike] - [#36341]) ([daikin docs])
 - Fix ZHA electrical measurement sensor ([@Adminiuga] - [#36327]) ([zha docs])
-- Fix various flapping tests that are missing block_till_done ([@bdraco] - [#36346]) ([generic docs]) ([uvc docs])
+- Fix various flapping tests that are missing block_till_done ([@bdraco] - [#36346]) ([uvc docs])
 - Mark homekit accessories unavailable if the underlying entity is unavailable ([@bdraco] - [#35685]) ([homekit docs])
-- Remove gearbest integration (ADR-0004) ([@frenck] - [#36347]) ([gearbest docs]) (breaking-change)
+- Remove gearbest integration (ADR-0004) ([@frenck] - [#36347]) (breaking-change)
 - Add only unique_id property to yeelightsunflower, not other changes ([@lindsaymarkward] - [#36311]) ([yeelightsunflower docs])
 - Implement google_assistant ModesTrait for input_select ([@ZephireNZ] - [#36313]) ([google_assistant docs])
 - Support Axis stream profile and configuring it through options flow ([@Kane610] - [#36322]) ([axis docs])
@@ -499,7 +499,7 @@ The integrations below have been removed:
 - Refactor Synology entries to allow not fetching the API when it's disabled + add security binary sensor ([@Quentame] - [#35565]) ([synology_dsm docs]) (breaking-change) (new-platform)
 - Update plugwise to async and config_flow binary_sensor part ([@CoMPaTech] - [#36378]) ([plugwise docs]) (new-platform)
 - Update list of voices in Watson TTS service ([@rutkai] - [#36377]) ([watson_tts docs])
-- Remove wunderlist, platform is decommissioned ([@frenck] - [#36380]) ([wunderlist docs]) (breaking-change)
+- Remove wunderlist, platform is decommissioned ([@frenck] - [#36380]) (breaking-change)
 - Add supervisor get addon info helper ([@MartinHjelmare] - [#36260]) ([hassio docs])
 - Axis - Add device class property to binary sensors ([@Kane610] - [#36384]) ([axis docs])
 - Add device_class to Stookalert ([@Mariusthvdb] - [#34638]) ([stookalert docs])
@@ -918,7 +918,6 @@ The integrations below have been removed:
 [arwn docs]: /integrations/arwn/
 [asuswrt docs]: /integrations/asuswrt/
 [atag docs]: /integrations/atag/
-[automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [axis docs]: /integrations/axis/
 [azure_event_hub docs]: /integrations/azure_event_hub/
@@ -947,8 +946,6 @@ The integrations below have been removed:
 [forked_daapd docs]: /integrations/forked_daapd/
 [frontend docs]: /integrations/frontend/
 [garmin_connect docs]: /integrations/garmin_connect/
-[gearbest docs]: /integrations/gearbest/
-[generic docs]: /integrations/generic/
 [gogogate2 docs]: /integrations/gogogate2/
 [google_assistant docs]: /integrations/google_assistant/
 [graphite docs]: /integrations/graphite/
@@ -1034,13 +1031,11 @@ The integrations below have been removed:
 [wiffi docs]: /integrations/wiffi/
 [withings docs]: /integrations/withings/
 [wled docs]: /integrations/wled/
-[wunderlist docs]: /integrations/wunderlist/
-[wwlln docs]: /integrations/wwlln/
 [xbee docs]: /integrations/xbee/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yeelight docs]: /integrations/yeelight/
 [yeelightsunflower docs]: /integrations/yeelightsunflower/
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
-[zigbee docs]: /integrations/zigbee/
+[zigbee docs]: /integrations/xbee/
 [zwave_mqtt docs]: /integrations/ozw/
