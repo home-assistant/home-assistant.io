@@ -68,7 +68,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
     - Running on a fully qualified domain name.
     - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 - Home Assistant (For adding the integration)
-    - Home Assistant's `internal_url` needs to be set to match the `redirect uri` provided for your Withings account.
+    - Home Assistant's `external_url` needs to be set to match the `redirect uri` provided for your Withings account.
 
 ### Steps
 
