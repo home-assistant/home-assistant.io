@@ -15,18 +15,21 @@ og_image: /images/blog/2020-06-0.111/social.png
 
 Home Assistant Core 0.111 is here!
 
-So, lets face it: the previous release (0.110) was just jam packed with
+So, let's face it: the previous release (0.110) was just jam-packed with
 new features, tons of upgrades and a lot of stuff changing. It was pretty
 exciting! It will be hard to top that.
 
 Personally, I'm always looking forward to the new features a new release brings.
-Time to play! This time, however, not so much.
+Time to play! This time, however, not so much to play with. I'm not sad though!
 
 This release is focussed around more stability, fixing, tweaking and tuning.
 Honestly, I think it is really nice!
 
 Most notably, is the change on how Home Assistant loads up the frontend.
-It is available really quick now!
+It is available really quickly now!
+
+It is definitely worth looking at the "All Changes" section this release,
+as many many small changes and fixes have been made.
 
 Enjoy the release!
 
@@ -76,22 +79,13 @@ no longer wait for the platforms to finish setting up. The individual platforms
 will be finished in the background. Allowing the overall startup process to
 continue, resulting in a faster startup.
 
-## Lorem ipsum
-
-Lorem ipsum
-
-<p class='img'>
-<img src='/images/blog/2020-05-0.110/custom_logo.png' alt='Screenshot of lorem ipsum'></a>
-Screenshot of lorem ipsum.
-</p>
-
 ## Other noteworthy changes
 
 - The OpenZwave beta integration is moving forward! Support for climate, fans
   and locks is added this release!
 - [@gadgetmobile] when all out on the Blebox integration, adding support for
   a lot of platforms!
-- Google Assistant now supports using an select helper (aka `input_select`),
+- Google Assistant now supports using a select helper (aka `input_select`),
   amazing work [@ZephireNZ]!
 - [@frenck] added two new built-in Home Assistant events, helpful for
   automations: `automation_reloaded` and `scene_reloaded`. Using this as a
@@ -138,6 +132,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
+- **Frontend**
+
+  The frontend is now available sooner. As a result, not all devices and entities are available immediately.
+  
+  ([@bdraco] - [#36093], [#36264]) ([http docs])
+
 - **Zigbee**
 
   The `zigbee` integration has been renamed to `xbee`, as it is an integration for XBee devices. This is done to avoid confusion with ZHA, which is the general integration to go to when having Zigbee needs. 
@@ -148,9 +148,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
   
   The backend module for the Insteon integration has changed from `insteonplm` to `pyinsteon`, enabling significant improvements which include:
 
-  - Consistent state status for changes to state outside of Home Assistant (i.e. three-way switches)
-  - Improved insteon scene triggering.
-  - Full coexistance with the Insteon Hub app
+  - Consistent state status for changes to state outside of Home Assistant (i.e., three-way switches)
+  - Improved Insteon scene triggering.
+  - Full coexistence with the Insteon Hub app
 
   As a result, the entity ID of some entities will be changing. Specifically, the following entity types:
 
@@ -189,8 +189,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Blink**
 
   The Blink battery has been moved from the `sensor` platform to the `binary_sensor` platform since it only reports "OK" or "Low" as a status.
+  The `blink.trigger_camera` service now takes the `entity_name` as the payload instead of the name of the camera itself.
   
-  ([@fronzbot] - [#35620]) ([blink docs])
+  ([@fronzbot] - [#35620], [#35635]) ([blink docs])
+
 
 - **HomeKit**
 
@@ -200,7 +202,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   If the upgrade path skips both 0.109 and 0.110, it may be necessary to unpair and repair the HomeKit Bridge.
 
-  ([@bdraco] - [#35691]) ([homekit docs])
+  Furthermore, the zeroconf options for HomeKit have been removed. HomeKit now uses a system shared instance for zerconf.
+  If you were previously setting the zeroconf interface choice in HomeKit, you should set the interface choice in the zeroconf integration instead.
+
+  ([@bdraco] - [#35691], [#35687]) ([homekit docs])
 
 - **Prometheus**
 
@@ -215,6 +220,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ([@Emilv2] - [#36276]) ([delijn docs])
 
 - **deCONZ**
+
   Updated binary sensor and sensor device classes to follow official ones.
 
   Binary sensor device classes:
@@ -261,7 +267,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ([@fredrike] - [#35768]) ([daikin docs])
 
 - **OpenUV**
-  
+
   The OpenUV integration can now only be configured via the UI. If you already had OpenUV configured, all you need to do is remove the corresponding lines from your YAML configuration.
 
   ([@bachya] - [#36148]) ([openuv docs])
@@ -271,6 +277,27 @@ Experiencing issues introduced by this release? Please report them in our [issue
   The history function `states_to_json` is now a protected function `_states_to_json` and is not expected to be called from outside the module. This is included as a breaking change in case there are custom integrations which potentially make use of this.
 
   ([@bdraco] - [#35721]) ([history docs]) ([recorder docs])
+
+- **Dune HD**
+
+  The Dune HD is integration is now available for configuration via the UI, your current YAML configuration is important into the UI automatically.
+  The `sources` configuration option has been removed.
+
+  ([@bieniu] - [#36345]) ([dunehd docs])
+
+- **Plex**
+
+  Support for Plex configuration via YAML configuration was deprecated in 0.109 and has now been removed.
+  Existing Plex configuration entries in YAML can be removed without impact, if upgrading from 0.100 or later.
+
+  ([@jjlawren] - [#36388]) ([plex docs])
+
+- **Automations**
+
+  Last triggered timestamp of automations is now set the moment it is triggered.
+  Previously it was set after the action that was part of the trigger was done.
+
+  ([@basnijholt] - [#35671]) ([automation docs])
 
 ## Farewell to the following
 
@@ -418,6 +445,7 @@ The integrations below have been removed:
 - Change devolo HomeControl SwitchDevice to SwitchEntity ([@2Fake] - [#36248]) ([devolo_home_control docs])
 - Revert "Ensure frontend is available if integrations fail to start - Part 1 of 2 (#36093)" ([@pvizeli] - [#36251]) ([hassio docs]) ([http docs]) ([logbook docs]) ([panel_iframe docs]) ([websocket_api docs])
 - Fix weather entity copy and paste error ([@TomBrien] - [#36227]) ([weather docs])
+- Bump plexwebsocket to 0.0.10 ([@jjlawren] - [#36226]) ([plex docs])
 - Migrate translations upload to use Lokalise CLI 2 ([@balloob] - [#36247])
 - Add more alexa doorbell event locales ([@foxy82] - [#36252]) ([alexa docs])
 - s/hass.loop.create_task/asyncio.create_task/g ([@bdraco] - [#36262])
@@ -454,6 +482,7 @@ The integrations below have been removed:
 - Implement google_assistant ModesTrait for input_select ([@ZephireNZ] - [#36313]) ([google_assistant docs])
 - Support Axis stream profile and configuring it through options flow ([@Kane610] - [#36322]) ([axis docs])
 - Fix base_url extract stack ([@balloob] - [#36331]) ([http docs])
+- Prevent race in pychromecast.start_discovery ([@emontnemery] - [#36350]) ([cast docs])
 - deCONZ - Add support for max/min mireds ([@Kane610] - [#36355]) ([deconz docs])
 - Add config reloaded events for automation and scene ([@frenck] - [#34664]) ([automation docs])
 - deCONZ - Don't send off signals to light if already off ([@Kane610] - [#36357]) ([deconz docs])
@@ -502,6 +531,7 @@ The integrations below have been removed:
 - Update pysqueezebox to 0.2.1 ([@rajlaud] - [#35956]) ([squeezebox docs])
 - Fix SP2-CL (0x7544) sensor update ([@felipediel] - [#36242]) ([broadlink docs])
 - Fix Method GetNetworkInterfaces not implemented ([@djpremier] - [#36243]) ([onvif docs])
+- Bumped PyAv to 8.0.2 to fix mac os stream issue ([@pkishino] - [#36396]) ([stream docs])
 - Add non-root dev container user ([@hunterjm] - [#34984])
 - Axis - bump dependency ([@Kane610] - [#36402]) ([axis docs])
 - Update azure_event_hub ([@eavanvalkenburg] - [#31448]) ([azure_event_hub docs])
@@ -513,6 +543,20 @@ The integrations below have been removed:
 - Add config flow to Dune HD ([@bieniu] - [#36345]) ([dunehd docs]) (breaking-change)
 - Update frontend to 20200603.0 ([@bramkragten] - [#36405]) ([frontend docs])
 - Enable handling of 'num_repeats' for itach ([@celestinjr] - [#36362]) ([itach docs])
+- Fix dynamically add/remove WLED strip segments ([@frenck] - [#36407]) ([wled docs])
+- Fix using the async api from sync context ([@bieniu] - [#36408]) ([dunehd docs])
+- Swap title and album name for streams in forked_daapd ([@uvjustin] - [#36381]) ([forked_daapd docs])
+- update renew logic to work better with cameras responding with invalid termination times by extending the duration ([@hunterjm] - [#36393]) ([onvif docs])
+- Add new is_reatime attribute for De Lijn ([@Emilv2] - [#36369]) ([delijn docs])
+- Remove deprecated Plex YAML config ([@jjlawren] - [#36388]) ([plex docs]) (breaking-change)
+- Pass config into NAD constructor ([@gladhorn] - [#34961])
+- Notify user if arming or disarming totalconnect alarm fails ([@austinmroczek] - [#36085]) ([totalconnect docs])
+- Update NAD states only when the device is on ([@gladhorn] - [#34809]) ([nad docs])
+- Cover group considers opening and closing states ([@alengwenus] - [#36203]) ([group docs])
+- Add CalDAV upcoming appointments period option ([@nicx] - [#34584]) ([caldav docs])
+- Update frontend to 20200603.1 ([@bramkragten] - [#36409]) ([frontend docs])
+- Add support for showing text on Keba EV chargers ([@matlimatli] - [#36056]) ([keba docs])
+- Set automation last_triggered earlier ([@basnijholt] - [#35671]) ([automation docs]) (breaking-change)
 
 </details>
 
@@ -530,6 +574,7 @@ The integrations below have been removed:
 [#34375]: https://github.com/home-assistant/core/pull/34375
 [#34430]: https://github.com/home-assistant/core/pull/34430
 [#34572]: https://github.com/home-assistant/core/pull/34572
+[#34584]: https://github.com/home-assistant/core/pull/34584
 [#34625]: https://github.com/home-assistant/core/pull/34625
 [#34627]: https://github.com/home-assistant/core/pull/34627
 [#34638]: https://github.com/home-assistant/core/pull/34638
@@ -537,6 +582,8 @@ The integrations below have been removed:
 [#34704]: https://github.com/home-assistant/core/pull/34704
 [#34709]: https://github.com/home-assistant/core/pull/34709
 [#34774]: https://github.com/home-assistant/core/pull/34774
+[#34809]: https://github.com/home-assistant/core/pull/34809
+[#34961]: https://github.com/home-assistant/core/pull/34961
 [#34969]: https://github.com/home-assistant/core/pull/34969
 [#34984]: https://github.com/home-assistant/core/pull/34984
 [#35029]: https://github.com/home-assistant/core/pull/35029
@@ -582,6 +629,7 @@ The integrations below have been removed:
 [#35659]: https://github.com/home-assistant/core/pull/35659
 [#35663]: https://github.com/home-assistant/core/pull/35663
 [#35665]: https://github.com/home-assistant/core/pull/35665
+[#35671]: https://github.com/home-assistant/core/pull/35671
 [#35675]: https://github.com/home-assistant/core/pull/35675
 [#35678]: https://github.com/home-assistant/core/pull/35678
 [#35682]: https://github.com/home-assistant/core/pull/35682
@@ -638,11 +686,13 @@ The integrations below have been removed:
 [#36010]: https://github.com/home-assistant/core/pull/36010
 [#36015]: https://github.com/home-assistant/core/pull/36015
 [#36016]: https://github.com/home-assistant/core/pull/36016
+[#36056]: https://github.com/home-assistant/core/pull/36056
 [#36059]: https://github.com/home-assistant/core/pull/36059
 [#36074]: https://github.com/home-assistant/core/pull/36074
 [#36078]: https://github.com/home-assistant/core/pull/36078
 [#36080]: https://github.com/home-assistant/core/pull/36080
 [#36082]: https://github.com/home-assistant/core/pull/36082
+[#36085]: https://github.com/home-assistant/core/pull/36085
 [#36088]: https://github.com/home-assistant/core/pull/36088
 [#36089]: https://github.com/home-assistant/core/pull/36089
 [#36091]: https://github.com/home-assistant/core/pull/36091
@@ -661,6 +711,7 @@ The integrations below have been removed:
 [#36194]: https://github.com/home-assistant/core/pull/36194
 [#36198]: https://github.com/home-assistant/core/pull/36198
 [#36202]: https://github.com/home-assistant/core/pull/36202
+[#36203]: https://github.com/home-assistant/core/pull/36203
 [#36205]: https://github.com/home-assistant/core/pull/36205
 [#36207]: https://github.com/home-assistant/core/pull/36207
 [#36208]: https://github.com/home-assistant/core/pull/36208
@@ -669,6 +720,7 @@ The integrations below have been removed:
 [#36217]: https://github.com/home-assistant/core/pull/36217
 [#36218]: https://github.com/home-assistant/core/pull/36218
 [#36219]: https://github.com/home-assistant/core/pull/36219
+[#36226]: https://github.com/home-assistant/core/pull/36226
 [#36227]: https://github.com/home-assistant/core/pull/36227
 [#36229]: https://github.com/home-assistant/core/pull/36229
 [#36232]: https://github.com/home-assistant/core/pull/36232
@@ -720,6 +772,7 @@ The integrations below have been removed:
 [#36346]: https://github.com/home-assistant/core/pull/36346
 [#36347]: https://github.com/home-assistant/core/pull/36347
 [#36348]: https://github.com/home-assistant/core/pull/36348
+[#36350]: https://github.com/home-assistant/core/pull/36350
 [#36352]: https://github.com/home-assistant/core/pull/36352
 [#36355]: https://github.com/home-assistant/core/pull/36355
 [#36356]: https://github.com/home-assistant/core/pull/36356
@@ -730,19 +783,27 @@ The integrations below have been removed:
 [#36362]: https://github.com/home-assistant/core/pull/36362
 [#36366]: https://github.com/home-assistant/core/pull/36366
 [#36368]: https://github.com/home-assistant/core/pull/36368
+[#36369]: https://github.com/home-assistant/core/pull/36369
 [#36377]: https://github.com/home-assistant/core/pull/36377
 [#36378]: https://github.com/home-assistant/core/pull/36378
 [#36379]: https://github.com/home-assistant/core/pull/36379
 [#36380]: https://github.com/home-assistant/core/pull/36380
+[#36381]: https://github.com/home-assistant/core/pull/36381
 [#36383]: https://github.com/home-assistant/core/pull/36383
 [#36384]: https://github.com/home-assistant/core/pull/36384
 [#36385]: https://github.com/home-assistant/core/pull/36385
+[#36388]: https://github.com/home-assistant/core/pull/36388
 [#36389]: https://github.com/home-assistant/core/pull/36389
 [#36391]: https://github.com/home-assistant/core/pull/36391
+[#36393]: https://github.com/home-assistant/core/pull/36393
 [#36394]: https://github.com/home-assistant/core/pull/36394
+[#36396]: https://github.com/home-assistant/core/pull/36396
 [#36398]: https://github.com/home-assistant/core/pull/36398
 [#36402]: https://github.com/home-assistant/core/pull/36402
 [#36405]: https://github.com/home-assistant/core/pull/36405
+[#36407]: https://github.com/home-assistant/core/pull/36407
+[#36408]: https://github.com/home-assistant/core/pull/36408
+[#36409]: https://github.com/home-assistant/core/pull/36409
 [@2Fake]: https://github.com/2Fake
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
@@ -768,6 +829,7 @@ The integrations below have been removed:
 [@alengwenus]: https://github.com/alengwenus
 [@amelchio]: https://github.com/amelchio
 [@atmurray]: https://github.com/atmurray
+[@austinmroczek]: https://github.com/austinmroczek
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@basnijholt]: https://github.com/basnijholt
@@ -815,6 +877,7 @@ The integrations below have been removed:
 [@lpomfrey]: https://github.com/lpomfrey
 [@mampfes]: https://github.com/mampfes
 [@marcelveldt]: https://github.com/marcelveldt
+[@matlimatli]: https://github.com/matlimatli
 [@michaeldavie]: https://github.com/michaeldavie
 [@mlemainque]: https://github.com/mlemainque
 [@mnaggatz]: https://github.com/mnaggatz
@@ -822,8 +885,10 @@ The integrations below have been removed:
 [@mweinelt]: https://github.com/mweinelt
 [@nbarrientos]: https://github.com/nbarrientos
 [@nickw444]: https://github.com/nickw444
+[@nicx]: https://github.com/nicx
 [@odinuge]: https://github.com/odinuge
 [@ohadlevy]: https://github.com/ohadlevy
+[@pkishino]: https://github.com/pkishino
 [@pnbruckner]: https://github.com/pnbruckner
 [@pvizeli]: https://github.com/pvizeli
 [@rajlaud]: https://github.com/rajlaud
@@ -862,8 +927,10 @@ The integrations below have been removed:
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [buienradar docs]: /integrations/buienradar/
+[caldav docs]: /integrations/caldav/
 [camera docs]: /integrations/camera/
 [canary docs]: /integrations/canary/
+[cast docs]: /integrations/cast/
 [circuit docs]: /integrations/circuit/
 [climate docs]: /integrations/climate/
 [cloud docs]: /integrations/cloud/
@@ -885,6 +952,7 @@ The integrations below have been removed:
 [gogogate2 docs]: /integrations/gogogate2/
 [google_assistant docs]: /integrations/google_assistant/
 [graphite docs]: /integrations/graphite/
+[group docs]: /integrations/group/
 [guardian docs]: /integrations/guardian/
 [hassio docs]: /integrations/hassio/
 [history docs]: /integrations/history/
@@ -898,6 +966,7 @@ The integrations below have been removed:
 [insteon docs]: /integrations/insteon/
 [isy994 docs]: /integrations/isy994/
 [itach docs]: /integrations/itach/
+[keba docs]: /integrations/keba/
 [keenetic_ndms2 docs]: /integrations/keenetic_ndms2/
 [kef docs]: /integrations/kef/
 [lcn docs]: /integrations/lcn/
@@ -941,12 +1010,14 @@ The integrations below have been removed:
 [sql docs]: /integrations/sql/
 [squeezebox docs]: /integrations/squeezebox/
 [stookalert docs]: /integrations/stookalert/
+[stream docs]: /integrations/stream/
 [synology_dsm docs]: /integrations/synology_dsm/
 [tado docs]: /integrations/tado/
 [tahoma docs]: /integrations/tahoma/
 [tesla docs]: /integrations/tesla/
 [tibber docs]: /integrations/tibber/
 [todoist docs]: /integrations/todoist/
+[totalconnect docs]: /integrations/totalconnect/
 [transmission docs]: /integrations/transmission/
 [tts docs]: /integrations/tts/
 [unifi docs]: /integrations/unifi/
@@ -972,4 +1043,4 @@ The integrations below have been removed:
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
 [zigbee docs]: /integrations/zigbee/
-[zwave_mqtt docs]: /integrations/zwave_mqtt/
+[zwave_mqtt docs]: /integrations/ozw/
