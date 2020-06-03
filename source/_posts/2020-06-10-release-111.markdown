@@ -70,7 +70,7 @@ While is is loading, every 60 seconds a log message will be shows that we are
 awaiting the integration to be set up.
 
 Another speed improvement is found in the way we load up integrations themselves.
-Often integration have a basic setup and will load the various platforms
+Often, an integration has a basic setup and will then load the various platforms
 (like lights and switches) after that.
 
 As of this release, Home Assistant will set up the integration and but will
