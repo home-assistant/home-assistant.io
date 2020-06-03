@@ -64,10 +64,8 @@ when they become available.
 ## Other startup improvements
 
 Some more tuning to the startup process can be found in things like the logs.
-If an integration takes more time to set up, it will be shown in the logs every 60 seconds, indicating that the integration is still being setup.
-
-While is is loading, every 60 seconds a log message will be shows that we are
-awaiting the integration to be set up.
+If an integration takes more time to set up, it will be shown in the logs every
+60 seconds, indicating that the integration is still being setup.
 
 Another speed improvement is found in the way we load up integrations themselves.
 Often, an integration has a basic setup and will then load the various platforms
@@ -89,9 +87,12 @@ Screenshot of lorem ipsum.
 
 ## Other noteworthy changes
 
+- The OpenZwave beta integration is moving forward! Support for climate, fans
+  and locks is added this release!
 - [@gadgetmobile] when all out on the Blebox integration, adding support for
   a lot of platforms!
-- Google Assistant now supports using an select helper (aka `input_select`), amazing work [@ZephireNZ]!
+- Google Assistant now supports using an select helper (aka `input_select`),
+  amazing work [@ZephireNZ]!
 - [@frenck] added two new built-in Home Assistant events, helpful for
   automations: `automation_reloaded` and `scene_reloaded`. Using this as a
   trigger can be used for, e.g., re-applying a scene when it was changed.
@@ -198,8 +199,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
   Home Assistant Core 0.109 introduced persistent storage for HomeKit accessory ids. When upgrading from 0.108 or earlier, it is highly is recommended to upgrade to 0.110 first to allow the system to store the accessory ids and avoid the need to call the `homekit.reset_accessory` service.
 
   If the upgrade path skips both 0.109 and 0.110, it may be necessary to unpair and repair the HomeKit Bridge.
-
-
 
   ([@bdraco] - [#35691]) ([homekit docs])
 
