@@ -46,7 +46,7 @@ to be ready. As a result, not all devices and entities are available immediately
 
 This is actually good! As this means, an integration that got into trouble,
 can no longer prevent the frontend from becoming available. Also, as soon
-as it is available, you can change or remove the configuration of an non-working
+as it is available, you can change or remove the configuration of a non-working
 integration. Finally, it easier to check out your logs when something
 goes wrong.
 
