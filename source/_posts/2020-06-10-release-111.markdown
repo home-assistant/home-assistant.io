@@ -64,7 +64,7 @@ when they become available.
 ## Other startup improvements
 
 Some more tuning to the startup process can be found in things like the logs.
-If an integration takes more time to set up, it will be shown in the logs.
+If an integration takes more time to set up, it will be shown in the logs every 60 seconds, indicating that the integration is still being setup.
 
 While is is loading, every 60 seconds a log message will be shows that we are
 awaiting the integration to be set up.
