@@ -96,6 +96,7 @@ The integration will trigger an event when a device with the [button](https://sm
   "name": "Scene Button"
 }
 ```
+The triggered event type is smartthings.button
 
 | Attribute      | Description                                                                                                                                                                                                                                |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
