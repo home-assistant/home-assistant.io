@@ -43,6 +43,10 @@ This integration uses the ONVIF pullpoint subscription API to process events int
 
 To help with development of this component, enable `info` level logging for `homeassistant.components.onvif` and create an issue on GitHub for any messages that show _"No registered handler for event"_.
 
+<div class='note'>
+  Some ONVIF events are not able to be represented as Home Assistant entities. In those cases, "onvif_event" will be fired on the Home Assistant event bus. To determine what events are being fired, you can listen for "onvif_event" in "Developer Tools -> Events". If you use the Automation UI, these events will show up as Device Triggers for you to select from.
+</div>
+
 | Topic(s) | Entity Type | Device Class | Description |
 |----------|-------------|--------------|-------------|
 | `tns1:VideoSource/MotionAlarm` | Binary Sensor | Motion | Generic motion alarm. |
@@ -55,6 +59,7 @@ To help with development of this component, enable `info` level logging for `hom
 | `tns1:VideoSource/GlobalSceneChange/AnalyticsService`<br>`tns1:VideoSource/GlobalSceneChange/ImagingService`<br>`tns1:VideoSource/GlobalSceneChange/RecordingService` | Binary Sensor | Problem | Device reports a large portion of the video content changing.  The cause can be tamper actions like camera movement or coverage. |
 | `tns1:RuleEngine/TamperDetector/Tamper` | Binary Sensor | Problem | Tamper Detection. |
 | `tns1:Device/HardwareFailure/StorageFailure` | Binary Sensor | Problem | Storage failure on device. |
+| `tns1:RuleEngine/LineDetector/Crossed` | Event | N/A | Line crossing/Tripwire was triggered. |
 | `tns1:Monitoring/ProcessorUsage` | Sensor | Percent | Device processor usage. |
 | `tns1:Monitoring/OperatingTime/LastReboot` | Sensor | Timestamp | When the device was last rebooted. |
 | `tns1:Monitoring/OperatingTime/LastReset` | Sensor | Timestamp | When the device was last reset. |
