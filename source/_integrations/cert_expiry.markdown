@@ -49,3 +49,4 @@ The Certificate Expiry entities provide extra attributes to represent the state 
 | ---- | ----------- |
 | `is_valid` | If the certificate is able to be validated: `True` / `False`.
 | `error` | A human-readable error description if the certificate is considered invalid, "None" otherwise.
+| `expires_at` | A timestamp indicating the certificate's expiration. Only shown for valid certificates.
