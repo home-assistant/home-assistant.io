@@ -10,7 +10,7 @@ ha_iot_class: Local Push
 ha_domain: aqualogic
 ---
 
-The AquaLogic integration provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.
+The AquaLogic integration provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet or serial adapter connected to the pool controller is required.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,19 +24,32 @@ To add the AquaLogic integration to your installation, add the following to your
 ```yaml
 # Example configuration.yaml entry
 aqualogic:
+  device: socket
   host: IP_ADDRESS
   port: PORT
 ```
 
 {% configuration %}
-host:
-  description: The domain name or IP address of the RS-485 to Ethernet adapter connected to the pool controller, e.g., 192.168.1.1.
-  required: true
+device:
+  description: The type of device used to connect to the pool controller, socket or serial.
+  required: false
   type: string
+  default: socket
+host:
+  description: For socket devices, the domain name or IP address of the RS-485 to Ethernet adapter, e.g., 192.168.1.1.
+  required: false
+  type: string
+  default: localhost
 port:
-  description: The port provided by the RS-485 to Ethernet adapter.
-  required: true
+  description: For socket devices, the port of the RS-485 to Ethernet adapter.
+  required: false
   type: integer
+  default: 23
+path:
+  description: For serial devices, the path to the RS-485 to serial adapter.
+  required: false
+  type: string
+  default: /dev/ttyUSB0
 {% endconfiguration %}
 
 ## Sensor
@@ -91,6 +104,8 @@ switch:
       - filter
 ```
 
+Note that due to the lack of a dedicated hardware interface, switches may not be 100% reliable. The system attempts to monitor and retry switch commands as required, but failures may still occur. Use switches in automations with caution.
+
 {% configuration %}
 monitored_conditions:
   description: List of items you want to monitor/control.
@@ -104,6 +119,8 @@ monitored_conditions:
       description: Controls low speed mode on the filter pump (multi-speed pumps only).
     lights:
       description: Controls the Lights relay.
+    heater_1:
+      description: Controls the heater.
     aux_1:
       description: Controls the Aux 1 relay.
     aux_2:
@@ -118,4 +135,22 @@ monitored_conditions:
       description: Controls the Aux 6 relay.
     aux_7:
       description: Controls the Aux 7 relay.
+    aux_8:
+      description: Controls the Aux 8 relay.
+    aux_9:
+      description: Controls the Aux 9 relay.
+    aux_10:
+      description: Controls the Aux 10 relay.
+    aux_11:
+      description: Controls the Aux 11 relay.
+    aux_12:
+      description: Controls the Aux 12 relay.
+    aux_13:
+      description: Controls the Aux 13 relay.
+    aux_14:
+      description: Controls the Aux 14 relay.
+    valve_3:
+      description: Controls the Valve 3 relay.
+    valve_4:
+      description: Controls the Valve 4 relay.
 {% endconfiguration %}
