@@ -841,6 +841,7 @@ The integrations below have been removed:
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
 [@boralyl]: https://github.com/boralyl
+[@bouwew]: https://github.com/bouwew
 [@braam]: https://github.com/braam
 [@bramkragten]: https://github.com/bramkragten
 [@brg468]: https://github.com/brg468
