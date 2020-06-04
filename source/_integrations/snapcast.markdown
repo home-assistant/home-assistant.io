@@ -3,20 +3,21 @@ title: Snapcast
 description: Instructions on how to integrate Snapcast into Home Assistant.
 ha_category:
   - Media Player
+  - Sensor
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_domain: snapcast
 ---
 
 The `snapcast` platform allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.
+Sensors will be created for every stream existing in Snapcast with their status (playing/idle/unavailable)
 
 To add Snapcast to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: snapcast
-    host: YOUR_IP_ADDRESS
+snapcast:
+  host: YOUR_IP_ADDRESS
 ```
 
 {% configuration %}
@@ -29,6 +30,11 @@ port:
   required: false
   default: 1705
   type: integer
+hide_groups:
+  description: Don't create group entities.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ## Services
