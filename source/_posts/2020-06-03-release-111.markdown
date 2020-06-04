@@ -83,13 +83,16 @@ continue, resulting in a faster startup.
 
 - The OpenZwave beta integration is moving forward! Support for climate, fans
   and locks is added this release!
-- [@gadgetmobile] when all out on the Blebox integration, adding support for
+- [@gadgetmobile] went all out on the Blebox integration, adding support for
   a lot of platforms!
 - Google Assistant now supports using a select helper (aka `input_select`),
   amazing work [@ZephireNZ]!
 - [@frenck] added two new built-in Home Assistant events, helpful for
   automations: `automation_reloaded` and `scene_reloaded`. Using this as a
   trigger can be used for, e.g., re-applying a scene when it was changed.
+- The Plugwise integration has been improved by [@bouwew] and [@CoMPaTech],
+  now supporting not only Anna but also Adam climate environments and adding
+  the P1 DSMR monitor.
 
 ## New Integrations
 
@@ -107,11 +110,8 @@ continue, resulting in a faster startup.
 - Add Blebox climate support ([@gadgetmobile] - [#35373]) ([blebox docs]) (new-platform)
 - Add lock platform to ozw component ([@mrk-its] - [#36103]) ([ozw docs]) (new-platform)
 - Add fan platform to ozw component ([@cgarwood] - [#35249]) ([ozw docs]) (new-platform)
-- Update plugwise to async and config_flow ([@CoMPaTech] - [#33691]) ([plugwise docs]) (breaking-change) (new-platform)
-- Update plugwise to async and config_flow sensor part ([@CoMPaTech] - [#36219]) ([plugwise docs]) (new-platform)
+- Update plugwise to async and config_flow, adding binary_sensor, sensor and switch ([@CoMPaTech], [@bouwew] - [#33691], [#36219], [#36378], [#36383]) ([plugwise docs]) (breaking-change) (new-platform)
 - Refactor Synology entries to allow not fetching the API when it's disabled + add security binary sensor ([@Quentame] - [#35565]) ([synology_dsm docs]) (breaking-change) (new-platform)
-- Update plugwise to async and config_flow binary_sensor part ([@CoMPaTech] - [#36378]) ([plugwise docs]) (new-platform)
-- Update plugwise to async and config_flow switch part ([@CoMPaTech] - [#36383]) ([plugwise docs]) (new-platform)
 - Add climate platform to Insteon ([@teharris1] - [#35763]) ([insteon docs]) (new-platform)
 
 ## Integrations now available to set up from the UI
@@ -120,7 +120,7 @@ The following integrations are now available via the Home Assistant UI:
 
 - [Dune HD][dunehd docs], done by [@bieniu]
 - [Gogogate2][gogogate2 docs], done by [@vangorra]
-- [Plugwise][plugwise docs], done by [@CoMPaTech]
+- [Plugwise][plugwise docs], done by [@CoMPaTech] and [@bouwew]
 
 ## If you need help...
 
@@ -258,7 +258,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   To improve user friendly configuration and support Adam and P1 devices in addition to Anna's, starting today Plugwise is configured through Configuration -> Integrations instead of updating the configuration file. Please remove the applicable lines from your YAML configuration file before upgrading. After upgrading add each Smile as an integration as described in the documentation. Note that this update also makes slight changes with regard to entity names to handle more than Anna.
 
-  ([@CoMPaTech] - [#33691]) ([plugwise docs])
+  ([@CoMPaTech], [@bouwew] - [#33691], [#36219], [#36378], [#36383]) ([plugwise docs])
 
 - **Daikin AC**
 
