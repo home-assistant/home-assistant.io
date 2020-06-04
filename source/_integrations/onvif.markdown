@@ -44,7 +44,7 @@ This integration uses the ONVIF pullpoint subscription API to process events int
 To help with development of this component, enable `info` level logging for `homeassistant.components.onvif` and create an issue on GitHub for any messages that show _"No registered handler for event"_.
 
 <div class='note'>
-  Some ONVIF events are not able to be represented as Home Assistant entities. In those cases, "onvif_event" will be fired on the Home Assistant event bus. To determine what events are being fired, you can listen for "onvif_event" in "Developer Tools -> Events". If you use the Automation UI, these events will show up as Device Triggers for you to select from.
+  Some ONVIF events are not able to be represented as Home Assistant entities. In those cases, "onvif_event" will be fired on the Home Assistant event bus. To determine what events are being fired, you can listen for `onvif_event` in **Developer Tools** -> **Events**. If you use the Automation UI, these events will show up as Device Triggers for you to select from.
 </div>
 
 | Topic(s) | Entity Type | Device Class | Description |
