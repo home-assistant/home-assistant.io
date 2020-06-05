@@ -52,11 +52,11 @@ url_path:
   type: string
 js_url:
   description: The URL that contains the JavaScript of your panel. If used together with `module_url`, will only be served to users that use the ES5 build of the frontend.
-  required: optional
+  required: false
   type: string
 module_url:
   description: The URL that contains the JavaScript module of your panel. Loaded as a JavaScript module instead of a script. If used together with `module_url`, will only be served to users that use the "latest" build of the frontend.
-  required: optional
+  required: false
   type: string
 config:
   description: Configuration to be passed into your web component when being instantiated.
@@ -79,6 +79,6 @@ trust_external_script:
   type: boolean
 webcomponent_path:
   description: "*DEPRECATED* The HTML path to your component. If omitted will default to `<config dir>/panels/<component name>.html` This cannot be used in combination with either `js_url` and `module_url`."
-  required: optional
+  required: false
   type: string
 {% endconfiguration %}
