@@ -27,6 +27,7 @@ There are 2 options in configuring the `cert_expiry` sensor:
 sensor:
   - platform: cert_expiry
     host: home-assistant.io
+    ca_certfile: /ssl/myca.crt
 ```
 
 {% configuration %}
@@ -39,6 +40,10 @@ port:
   required: false
   default: 443
   type: integer
+ca_certfile:
+  description: The file path to a custom CA certificate to check against. If not set its the system root CA certificates are used.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Attributes
@@ -49,3 +54,4 @@ The Certificate Expiry entities provide extra attributes to represent the state 
 | ---- | ----------- |
 | `is_valid` | If the certificate is able to be validated: `True` / `False`.
 | `error` | A human-readable error description if the certificate is considered invalid, "None" otherwise.
+| `ca_certfile` | The path to the custom CA certificate. It's hidden if none is set.
