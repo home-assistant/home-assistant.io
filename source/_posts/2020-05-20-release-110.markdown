@@ -823,6 +823,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [todoist docs]: /integrations/todoist/
 [zeroconf docs]: /integrations/zeroconf/
 
+## Release 0.110.5 - June 5
+
+- Add partial mobile app sensor validation ([#36433] - [@balloob])
+- Fix iOS app crashing on None values in Zeroconf service info ([#36490] - [@frenck])
+- Update myq for latest api changes ([#36469] - [@bdraco])
+
+[#36433]: https://github.com/home-assistant/core/pull/36433
+[#36490]: https://github.com/home-assistant/core/pull/36490
+[#36469]: https://github.com/home-assistant/core/pull/36469
+
 ## All changes
 
 <details>
