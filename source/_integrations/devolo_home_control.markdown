@@ -35,7 +35,6 @@ The integration provides support for the following Z-Wave devices:
 - Fibaro Wall Plug
 - Fibaro Double Relay Switch
 
-
 ## Binary Sensors
 
 The integration provides support for the following Z-Wave devices:
