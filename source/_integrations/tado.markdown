@@ -127,3 +127,28 @@ Find your `home_id` by browsing to `https://my.tado.com/api/v2/me?username=YOUR_
 ```
 
 In this example `12345` is the `home_id` you'll need to configure.
+
+## Services
+
+### Service `tado.set_water_heater_timer`
+
+You can use the service `tado.set_water_heater_timer` to set your water heater to switch on for a set time period. 
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | no       | String, Name of entity e.g., `climate.heating`                         |
+| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
+
+Examples:
+
+```yaml
+# Example script to set a timer for the water heater with no temperature specified
+script:
+  boost_heating:
+    sequence:
+      - service: tado.set_water_heater_timer
+        data:
+          entity_id: "water_heater.hot_water"
+          time_period: "01:30:00"
+```
