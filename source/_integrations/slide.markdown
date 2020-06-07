@@ -1,7 +1,6 @@
 ---
 title: Slide
 description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
-logo: slide.png
 ha_category:
   - Hub
   - Cover
@@ -37,4 +36,9 @@ scan_interval:
   required: false
   default: 30 seconds
   type: integer
+invert_position:
+  description: Invert position percentage.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}

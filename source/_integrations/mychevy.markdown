@@ -1,7 +1,6 @@
 ---
 title: myChevrolet
 description: Instructions on how to integrate Chevy Bolt car into Home Assistant.
-logo: chevy.png
 ha_category:
   - Car
 ha_release: 0.62

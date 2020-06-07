@@ -74,7 +74,7 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-triggered` (only for automations and scripts)."
+  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
   type: string
 format:
   required: false
@@ -113,34 +113,33 @@ double_tap_action:
 
 ## Special Row Elements
 
-### Call Service
+### Button
 
 {% configuration %}
 type:
   required: true
-  description: call-service
+  description: button
   type: string
 name:
   required: true
   description: Main Label.
   type: string
-service:
-  required: true
-  description: "Service like `media_player.media_play_pause`"
-  type: string
-icon:
-  required: false
-  description: "Icon to display (e.g., `mdi:home`)"
-  type: string
-  default: "`mdi:remote`"
 action_name:
   required: false
   description: Button label.
   type: string
   default: "`Run`"
-service_data:
+tap_action:
+  required: true
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  type: map
+hold_action:
   required: false
-  description: The service data to use.
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 

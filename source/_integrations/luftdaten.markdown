@@ -84,7 +84,7 @@ If you set `show_on_map` to `true` then the location attributes are named `latit
 Not all sensors provide all conditions. Also, it's possible that the sensor values are not available all the time. To check what a sensor is publishing use `curl`:
 
 ```bash
-$ curl https://api.luftdaten.info/v1/sensor/[sensorid]/
+curl https://api.luftdaten.info/v1/sensor/[sensorid]/
 ```
 
 ## Full example

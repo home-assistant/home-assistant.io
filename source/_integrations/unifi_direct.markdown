@@ -1,7 +1,6 @@
 ---
 title: Ubiquiti UniFi AP
 description: Instructions on how to use a Unifi WAP as a device tracker.
-logo: ubiquiti.png
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling

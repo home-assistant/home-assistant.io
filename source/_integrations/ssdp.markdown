@@ -28,4 +28,7 @@ The following integrations are automatically discovered by the SSDP integration:
  - [DirecTV](/integrations/directv/)
  - [Huawei LTE](../huawei_lte/)
  - [Philips Hue](../hue/)
+ - [Roku](/integrations/roku/)
  - [Samsung TV](../samsungtv/)
+ - [UPnP](../upnp/)
+ - [Sony Songpal](../songpal/)

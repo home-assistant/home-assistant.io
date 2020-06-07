@@ -1,7 +1,6 @@
 ---
 title: dweet.io
 description: Transfer events to Dweet.io.
-logo: dweet.png
 ha_category:
   - History
   - Sensor
@@ -61,6 +60,7 @@ The `dweet` sensor platform allows you to get details from your devices which ar
 To use Dweet.io sensors in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -68,6 +68,7 @@ sensor:
     device: THING_NAME
     value_template: '{{ value_json.VARIABLE }}'
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -111,7 +112,7 @@ sensor:
 You can easily send dweets from the command-line to test your sensor with `curl`.
 
 ```bash
-$ curl -H 'Content-Type: application/json' -d '{"temperature": 40, "humidity": 65}' https://dweet.io/dweet/for/ha-sensor
+curl -H 'Content-Type: application/json' -d '{"temperature": 40, "humidity": 65}' https://dweet.io/dweet/for/ha-sensor
 ```
 
 will give you a response like the one below:

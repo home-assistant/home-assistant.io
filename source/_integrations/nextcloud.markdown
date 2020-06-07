@@ -16,11 +16,13 @@ The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) in
 
 ## Configuration
 
-This integration requires access to the monitor API of a Nextcloud instance (This is generally an admin user).
+This integration has the following Nextcloud Server prerequisites:
 
-You should also generate an App password from the Nextcloud web UI: **Settings** > **Security** > **Devices & sessions** > **Create new app password**.
+- The user must be in the Nextcloud `admin` group (__*Nextcloud*__ > __*Users*__)
+- The Nextcloud 'Monitoring' app must be installed (__*Nextcloud*__ > __*Apps*__ > 🔍(Search Icon) > __*Monitoring*__ > __*Enable*__)
+- (Recommended) A Nextcloud App password should be generated for use in Home Assistant (__*Nextcloud*__ > __*Settings*__ > __*Personal*__ > __*Security*__ > __*Devices & sessions*__ > __*Create new app password*__)
 
-Once you have generated the App password, add the following to your `configuration.yaml` file:
+To enable the Nextcloud integration, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

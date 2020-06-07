@@ -1,7 +1,6 @@
 ---
 title: ATEN Rack PDU
 description: Instructions on how to integrate ATEN Rack PDUs into Home Assistant.
-logo: aten.png
 ha_category:
   - Switch
 ha_release: 0.103

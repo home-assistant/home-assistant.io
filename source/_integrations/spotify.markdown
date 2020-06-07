@@ -31,11 +31,9 @@ To create the required Spotify application:
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file.
 - Add a **Redirect URI** in one of the following forms:
-  - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>/auth/external/callback`
-  - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>/auth/external/callback`
+  - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
+  - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
 - Click **Save** after adding the URI.
-
-If you are using an externally accessible address, you will likely also need to set the `base_url` attribute of the [HTTP Integration](/integrations/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
 
 ## Configuration
 

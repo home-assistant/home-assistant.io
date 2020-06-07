@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 <div class='note'>
 
-The option option `server_host` should only be used on a Home Assistant Core installation!
+The option `server_host` should only be used on a Home Assistant Core installation!
 
 </div>
 
@@ -42,11 +42,6 @@ server_port:
   required: false
   type: integer
   default: 8123
-base_url:
-  description: "The URL that Home Assistant is available on the internet. For example: `https://hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app. Note that this setting may only contain a protocol, hostname and port; using a path is *not* currently supported."
-  required: false
-  type: string
-  default: Your local IP address
 ssl_certificate:
   description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
   required: false
@@ -113,13 +108,12 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 10.0.0.200
+    - 172.30.33.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
-
-Or use a self signed certificate following the instructions here [Self-signed certificate for SSL/TLS](/docs/ecosystem/certificates/tls_self_signed_certificate/).
 
 ## APIs
 
@@ -164,7 +158,7 @@ If you want to use Home Assistant to host or serve static files then create a di
 
 <div class='note warning'>
 
-  Files served from the `www`/`local` folder, aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+  Files served from the `www` folder (`/local/` url), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
 
 </div>
 

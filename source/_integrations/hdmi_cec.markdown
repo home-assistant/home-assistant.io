@@ -3,7 +3,6 @@ title: HDMI-CEC
 description: Instructions on how to interact with HDMI-CEC via Home Assistant.
 ha_category:
   - Automation
-logo: hdmi.png
 ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: hdmi_cec
@@ -245,5 +244,5 @@ value is ignored.
 
 ## Useful References
 
-* [CEC overview](http://wiki.kwikwai.com/index.php?title=The_HDMI-CEC_bus)
+* [CEC overview](https://kwikwai.com/knowledge-base/the-hdmi-cec-bus/)
 * [CEC-o-matic](http://www.cec-o-matic.com/)

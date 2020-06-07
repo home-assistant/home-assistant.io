@@ -69,7 +69,7 @@ rainmachine:
 ## All changes
 
 - Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
-- Expose the condition code on condition sensors ([@maddox] - [#14011]) ([sensor.yweather docs])
+- Expose the condition code on condition sensors ([@maddox] - [#14011])
 - upgrade rfxtrx lib, dimming support for Lighting3 ([@Danielhiversen] - [#14026]) ([rfxtrx docs])
 - Add Accuracy to Google Location Sharing ([@rdbahm] - [#14039]) ([device_tracker docs])
 - bump gogogate2 version ([@dlbroadfoot] - [#14044]) ([cover.gogogate2 docs])
@@ -461,7 +461,6 @@ rainmachine:
 [sensor.uscis docs]: /integrations/uscis
 [sensor.wunderground docs]: /integrations/wunderground
 [sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
-[sensor.yweather docs]: /integrations/yweather
 [switch.deluge docs]: /integrations/deluge#switch
 [switch.fritzbox docs]: /integrations/fritzbox
 [switch.insteon_plm docs]: /integrations/insteon/

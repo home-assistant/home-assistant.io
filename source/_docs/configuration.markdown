@@ -15,7 +15,6 @@ The location of the folder differs between operating systems:
 | Docker         | `/config`                  |
 | macOS          | `~/.homeassistant`         |
 | Linux          | `~/.homeassistant`         |
-| Windows        | `%APPDATA%/.homeassistant` |
 
 If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
 

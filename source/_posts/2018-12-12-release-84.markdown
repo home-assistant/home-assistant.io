@@ -263,7 +263,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated codeowners ([@fredrike] - [#18746])
 - Add unique_id for tellduslive ([@fredrike] - [#18744]) ([tellduslive docs]) ([sensor.tellduslive docs])
 - Add unique_id for Daikin entities ([@fredrike] - [#18747]) ([daikin docs]) ([climate.daikin docs]) ([sensor.daikin docs])
-- Wunderlist component ([@lasote] - [#18339]) ([wunderlist docs])
+- Wunderlist component ([@lasote] - [#18339])
 - Fix decora_wifi residences ([@trainman419] - [#17228]) ([light.decora_wifi docs])
 - Enable Google Assistant OnOffTrait for climate devices that support them ([@bryanyork] - [#18544]) ([google_assistant docs])
 - Fix typo in log ([@anton-johansson] - [#18751])
@@ -773,5 +773,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [weather.bom docs]: /integrations/bom
 [weather.ipma docs]: /integrations/ipma
 [websocket_api docs]: /integrations/websocket_api/
-[wunderlist docs]: /integrations/wunderlist/
 [zha docs]: /integrations/zha/

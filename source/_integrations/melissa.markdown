@@ -1,7 +1,6 @@
 ---
 title: Melissa
 description: Instructions on how to integrate Melissa Climate into Home Assistant.
-logo: mclimate.png
 ha_category:
   - Hub
   - Climate

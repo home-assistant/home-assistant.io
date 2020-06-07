@@ -1,7 +1,6 @@
 ---
 title: IamMeter
 description: Instructions on how to integrate IAMMETER sensor within Home Assistant.
-logo: iammeter-logo.png
 ha_category:
   - Energy
   - Sensor

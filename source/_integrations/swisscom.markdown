@@ -1,7 +1,6 @@
 ---
 title: Swisscom Internet-Box
 description: Instructions on how to integrate Swisscom Internet-Box into Home Assistant.
-logo: swisscom.png
 ha_category:
   - Presence Detection
 ha_release: 0.32

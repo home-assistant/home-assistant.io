@@ -4,10 +4,12 @@ description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_release: 0.28
 ha_codeowners:
   - '@fabaff'
   - '@johnluetke'
+  - '@shenxn'
 ha_domain: pi_hole
 ---
 
@@ -15,7 +17,7 @@ The `pi_hole` integration allows you to retrieve statistics and interact with a 
 
 ## Configuration
 
-To enable this integration with the default configuration, add the following lines to your `configuration.yaml` file
+To enable this integration, go to the Integrations page inside the configuration panel. You can also use YAML configuration. Add the following lines to your `configuration.yaml` file
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,7 +35,7 @@ name:
   description: >
     The name for this Pi-hole. This name will be a part of the sensors created, e.g.,  `name: My Awesome Pi-hole` would result in sensor names beginning with `sensor.my_awesome_pi_hole_`.
 
-    **Note:** If you configure multiple Pi-Holes, each one *must* have a unique name.
+    **Note:** If you configure multiple Pi-holes, each one *must* have a unique name.
   required: false
   type: string
   default: Pi-hole
@@ -43,13 +45,13 @@ location:
   type: string
   default: admin
 ssl:
-  description: "If `true`, use SSL/TLS to connect to the Pi-Hole system."
+  description: "If `true`, use SSL/TLS to connect to the Pi-hole system."
   required: false
   type: boolean
   default: false
 verify_ssl:
   description: >
-    Verify the SSL/TLS certificate of the system. If your Pi-Hole instance uses a self-signed certificate, you should specify `false`.
+    Verify the SSL/TLS certificate of the system. If your Pi-hole instance uses a self-signed certificate, you should specify `false`.
   required: false
   type: boolean
   default: true
@@ -75,7 +77,7 @@ Multiple Pi-holes:
 pi_hole:
   - host: '192.168.0.2'
   - host: '192.168.0.3'
-    name: 'Secondary Pi-Hole'
+    name: 'Secondary Pi-hole'
 ```
 
 Pi-hole with a self-signed certificate:

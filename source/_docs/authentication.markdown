@@ -95,7 +95,8 @@ You have to use a domain name, not IP address, to remote access Home Assistant o
 
 This is because we only allow an IP address as a client ID when your IP address is an internal network address (e.g., `192.168.0.1`) or loopback address (e.g., `127.0.0.1`).
 
-If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one. On Windows, edit the `C:\Windows\System32\Drivers\etc\hosts` file with administrator privilege, or on Linux the `/etc/hosts` file,  and add following entry:
+If you don't have a valid domain name for your Home Assistant instance, you can modify the `hosts` file on your computer to fake one.
+On Linux edit the `/etc/hosts` file, and add following entry:
 
 ```text
 12.34.56.78 homeassistant.home

@@ -14,7 +14,7 @@ or trigger any other [automation](/integrations/automation/).
 For using the result inside an automation rule, take a look at the
 [component](/integrations/image_processing) page.
 
-### Local installation
+## Local installation
 
 If you want process all data locally, you need version 2.3.1 or higher of the
 `alpr` commandline tool.
@@ -27,7 +27,7 @@ On a Debian system you can use this `cmake` command to build only the command
 line tool:
 
 ```bash
-$ cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE \
+cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE \
   --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 ```
 
@@ -37,7 +37,7 @@ For other operating system please refer to the
 Verify your `alpr` installation with:
 
 ```bash
-$ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
+wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
 
 ### Configuration

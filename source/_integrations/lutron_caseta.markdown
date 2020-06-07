@@ -1,7 +1,6 @@
 ---
-title: Lutron Caseta
+title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
-logo: lutron.png
 ha_category:
   - Hub
   - Cover
@@ -11,10 +10,11 @@ ha_category:
   - Fan
   - Binary Sensor
 ha_release: 0.41
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: lutron_caseta
 ha_codeowners:
   - '@swails'
+ha_config_flow: true
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx) product line of dimmers, switches, shades, and sensors.
@@ -39,11 +39,17 @@ Once you have the three necessary files, place them in your configuration direct
 ```yaml
 # Example configuration.yaml entry
 lutron_caseta:
-    host: IP_ADDRESS
+  - host: IP_ADDRESS
     keyfile: caseta.key
     certfile: caseta.crt
     ca_certs: caseta-bridge.crt
 ```
+
+<div class='note'>
+
+Note that multiple hubs can be specified by using multiple configuration blocks, but each of them requires its own `keyfile`, `certfile`, and `ca_certs` to be generated and specified.
+
+</div>
 
 {% configuration %}
   host:

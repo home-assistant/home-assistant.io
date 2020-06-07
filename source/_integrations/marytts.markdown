@@ -1,7 +1,6 @@
 ---
 title: MaryTTS
 description: Instructions on how to setup MaryTTS with Home Assistant.
-logo: marytts.png
 ha_category:
   - Text-to-speech
 ha_release: 0.43

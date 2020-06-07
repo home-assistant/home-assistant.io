@@ -72,7 +72,7 @@ device_tracker.yaml
 customize.yaml
 ```
 
-`automation.yaml` will hold all the automation integration details. `zones.yaml` will hold the zone integration details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.
+`automation.yaml` will hold all the automation integration details. `zone.yaml` will hold the zone integration details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.
 
 Inside the base configuration file add the following entries:
 
@@ -84,7 +84,44 @@ switch: !include switch.yaml
 device_tracker: !include device_tracker.yaml
 ```
 
-Note that there can only be one `!include:` for each integration so chaining them isn't going to work. If that sounds like Greek, don't worry about it.
+Nesting `!include`s (having an `!include` within a file that is itself `!include`d) isn't going to work. You can, however, have multiple top-level `!include`s for a given integration, if you give a different label to each one:
+
+```yaml
+light:
+- platform: group
+  name: Bedside Lights
+  entities:
+    - light.left_bedside_light
+    - light.right_bedside_light
+
+# define more light groups in a separate file
+light groups: !include light-groups.yaml
+
+# define some light switch mappings in a different file
+light switches: !include light-switches.yaml
+```
+
+where `light-groups.yaml` might look like:
+
+```yaml
+- platform: group
+  name: Outside Lights
+  entities:
+    - light.porch_lights
+    - light.patio_lights
+ ```
+
+with `light-switches.yaml` containing:
+
+```yaml
+- platform: switch
+  name: Patio Lights
+  entity_id: switch.patio_lights
+  
+- platform: switch
+  name: Floor Lamp
+  entity_id: switch.floor_lamp_plug
+```
 
 Alright, so we've got the single integrations and the include statements in the base file, what goes in those extra files?
 

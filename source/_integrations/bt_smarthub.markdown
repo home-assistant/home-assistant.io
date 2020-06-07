@@ -1,7 +1,6 @@
 ---
 title: BT Smart Hub
 description: Instructions on how to integrate BT Smart Hub router into Home Assistant.
-logo: bt.png
 ha_category:
   - Presence Detection
 ha_release: 0.82
@@ -30,6 +29,10 @@ host:
   default: 192.168.1.254
   required: false
   type: string
+smarthub_model:
+  description: The model of your BT Smarthub 1 or 2. If this option is omitted, it will attempt to detect the hub model.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.

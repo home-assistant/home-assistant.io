@@ -1,7 +1,6 @@
 ---
 title: Ripple
 description: Instructions on how to integrate ripple.com data within Home Assistant.
-logo: ripple.png
 ha_category:
   - Finance
 ha_release: 0.47

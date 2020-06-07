@@ -8,7 +8,7 @@ redirect_from: /getting-started/customizing-devices/
 
 You can use the UI to change the `entity_id` and friendly name of supported entities. To do this:
 
-1. Select the entity, either from the frontend or by clicking <img src='/images/frontend/entity_box.png' /> next to the entity in the Developer Tools "States" tab.
+1. Select the entity, either from the frontend or by clicking the info button next to the entity in the Developer Tools "States" tab.
 2. Click on the cog in the right corner of the entity's dialog
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
 4. Select *Save*
@@ -36,7 +36,7 @@ friendly_name:
   required: false
   type: string
 hidden:
-  description: Set to `true` to hide the entity.
+  description: Set to `true` to hide the entity in the automatically generated Lovelace view.
   required: false
   type: boolean
   default: false
@@ -119,12 +119,15 @@ homeassistant:
       icon: mdi:description
     "scene.month_*_colors":
       hidden: true
-      emulated_hue_hidden: false
 ```
 
 ### Reloading customize
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the "Service" tab under Developer Tools, select the `homeassistant.reload_core_config` service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under Configuration > Server Control.
+Home Assistant offers a service to reload the core configuration while Home Assistant is running. This allows you to change your customize section and see your changes being applied without having to restart Home Assistant.
+
+To reload customizations, navigate to Configuration > Server Controls and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+
+Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button. 
 
 <div class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.

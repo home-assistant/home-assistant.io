@@ -1,7 +1,6 @@
 ---
 title: Bizkaibus
 description: Instructions on how to integrate timetable data for traveling on Bizkaibus within Home Assistant.
-logo: bizkaibus.png
 ha_category:
   - Transport
   - Sensor
