@@ -19,6 +19,8 @@ You will need to request access to the Awair API and obtain an access token from
 
 To enable the Awair integration, add your Awair account from the integrations page.
 
+If you previously configured this integration via configuration.yaml, then your configuration will be imported for you. Only the `access_token` key is imported, and all other configuration is ignored.
+
 ## Available Sensors
 
 The integration will fetch data from each device linked to your Awair developer account. The following sensors are supported:
