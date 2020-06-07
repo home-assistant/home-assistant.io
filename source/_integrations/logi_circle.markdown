@@ -17,9 +17,7 @@ The `logi_circle` implementation allows you to integrate your [Logi Circle](http
 ## Requesting API access
 
 <div class='note warning'>
-
-Due to the ongoing situation with COVID-19, Logitech have temporarily stopped processing applications for new API accounts. Existing account should continue to work.
-
+Due to the ongoing situation with COVID-19, Logitech has temporarily stopped processing applications for new API accounts. Existing accounts should continue to work.
 </div>
 
 1. Navigate to the [Circle OAuth2 Client Request Form](https://docs.google.com/forms/d/184FUILJ10rVxotyOQR5DAiu6GcCbK31AZszUdzT1ybs).
