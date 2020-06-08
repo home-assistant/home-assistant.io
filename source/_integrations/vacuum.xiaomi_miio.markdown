@@ -216,7 +216,7 @@ The following table shows the units of measurement for each attribute:
 
 ## Retrieving the Access Token
 
-### Xiaomi Home app (Xiaomi Aqara Gateway, android & ios)
+### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
 
 1. Install the Xiaomi Home app.
 2. Sign In/make an account.
@@ -225,9 +225,9 @@ The following table shows the units of measurement for each attribute:
 5. Then the 3 dots at the top right of the screen.
 6. Then click on about.
 7. Tap the version number (Plug-in version 2.77.1 as of January 2020) at the bottom of the screen repeatedly.
-8. You should now see 2 extra options listed in English (ios still in Chinese), this means you enabled developer mode. [if not, try all steps again!].
-9. android: under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
-ios: Most options are still in Chinese, you need the fourth item from the top.
+8. You should now see 2 extra options listed in English (iOS still in Chinese), this means you enabled developer mode. [if not, try all steps again!].
+9. Android: under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
+iOS: Most options are still in Chinese, you need the fourth item from the top.
 
 Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token. 
 
