@@ -9,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
+  - '@freekode'
 ha_domain: openweathermap
 ---
 
@@ -32,18 +33,17 @@ To add OpenWeatherMap integration go to **Configuration** >> **Integrations** an
 | Latitude             | Latitude for weather forecast and sensor                                                                                                  |
 | Longitude            | Longitude for weather forecast and sensor                                                                                                 |
 | Mode                 | Forecast mode, `hourly` for a three-hour forecast, `daily` for daily forecast, or `freedaily` for a five-day forecast with the free tier. |
-| Monitored Conditions | See info below                                                                                                                            |
 | Language             | Language for receiving data (only for `sensor`)                                                                                           |
 
-## Monitored Conditions
+The integration creates weather entity and also sensors for all available conditions.
 
-In this parameter you can write coma separated conditions. For each condition `sensor` entity will be created with id: 
+For each condition `sensor` entity will be created with id: 
 
 `sensor.<integration name>_<monitored condition>`
 
 Sensor prints information in language which was selected for integration.
 
-All monitored conditions:
+All conditions:
 
 | Condition    | Description                            |
 | :----------- | :------------------------------------- | 
@@ -56,7 +56,8 @@ All monitored conditions:
 | `clouds`       | Description of cloud coverage.       |
 | `rain`         | Rain volume.                         |
 | `snow`         | Snow volume.                         |
-| `weather_code` | Current weather condition code.      |
+| `condition`    | Current weather condition code.      |
+| `weather_code` | Current weather code.                |
 
 <div class='note'>
 
