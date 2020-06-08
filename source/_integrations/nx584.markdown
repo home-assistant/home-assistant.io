@@ -119,7 +119,7 @@ This service will bypass a given zone.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | entity_id of the NX584 Alarm.
+| `entity_id` | yes | entity_id of the NX584 Alarm.
 | `zone` | no | Zone number you want to bypass.
 
 ### Service `unbypass_zone`
@@ -128,5 +128,5 @@ This service will unbypass a given zone.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | entity_id of the NX584 Alarm.
+| `entity_id` | yes | entity_id of the NX584 Alarm.
 | `zone` | no | Zone number you want to unbypass.
