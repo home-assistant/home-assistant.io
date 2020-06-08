@@ -833,6 +833,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#36490]: https://github.com/home-assistant/core/pull/36490
 [#36469]: https://github.com/home-assistant/core/pull/36469
 
+## Release 0.110.6 - June 8
+
+- Fix mobile_app registering/update sensor values with an unknown state. Will unblock iOS app (#36566 - [@frenck])
+
+[#36566]: https://github.com/home-assistant/core/pull/36566
+
 ## All changes
 
 <details>
