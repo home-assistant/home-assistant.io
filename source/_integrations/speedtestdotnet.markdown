@@ -1,5 +1,5 @@
 ---
-title: SpeedTest.net
+title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
 ha_category:
   - System Monitor
