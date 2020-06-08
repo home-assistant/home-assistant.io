@@ -112,6 +112,7 @@ Night Sound and Speech Enhancement modes are only supported when playing from th
 | `entity_id` | no | String or list of `entity_id`s that will have their options set.
 | `night_sound` | yes | Boolean to control Night Sound mode.
 | `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
+| `status_light` | yes | Boolean to control the Status (LED) Light.
 
 ### Service `sonos.play_queue`
 
