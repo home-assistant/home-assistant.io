@@ -47,13 +47,13 @@ name:
   default: ClimaCell
 latitude:
   description: Latitude for the location being tracked.
-  required: false
-  type: latitude
+  required: inclusive
+  type: float
   default: The latitude of your Home Assistant instance
 longitude:
   description: Longitude for the location being tracked.
-  required: false
-  type: longitude
+  required: inclusive
+  type: float
   default: The longitude of your Home Assistant instance
 forecast_frequency:
   description: The kind of forecast you want. Valid options are `hourly`, `daily`, or `disable`. `hourly` will get 90 hours of forecasts by the hour, `daily` will get 14 days of forecasts by the day, and `disable` will disable the retrieval of forecasts entirely.
