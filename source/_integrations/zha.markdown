@@ -98,11 +98,11 @@ a new pop-up asking for a radio type. In the pop-up:
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| `ezsp`  | EmberZNet based radios, HUSBZB-1, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
-| `deconz` | dresden elektronik ConBee and RaspBee based radios with deCONZ Zigbee firmware |
-| `xbee` | Digi XBee Series 2, 2C and 3 based radios with XBee Zigbee firmware |
-| `ti_cc` | Texas Instruments CC253x/CC26x2/CC13x2 based radios with Z-Stack firmware |
-| `zigate` | ZiGate USB-TTL, PiZiGate, and WiFi based Zigbee radios with ZiGate firmware |
+| `ezsp`  | Silicon Labs EmberZNet protocol (ex; Elelabs, HUSBZB-1, Telegesis) |
+| `deconz` | dresden elektronik deCONZ protocol: ConBee I/II, RaspBee I/II |
+| `ti_cc` | Texas Instruments Z-Stack ZNP protocol (ex: CC253x, CC26x2, CC13x2) |
+| `zigate` | ZiGate Serial protocol: PiZiGate, ZiGate USB-TTL, ZiGate WiFi |
+| `xbee` | Digi XBee ZB Coordinator Firmware protocol (Digi XBee Series 2, 2C, 3) |
 
 - Submit
 
