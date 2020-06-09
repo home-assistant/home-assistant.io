@@ -81,6 +81,11 @@ priority:
   required: false
   type: string
   default: warning
+icon_type:
+  description: Defines the nature of notification.
+  required: false
+  type: string
+  default: info
 {% endconfiguration %}
 
 Check out the list of all icons at [https://developer.lametric.com/icons](https://developer.lametric.com/icons). Note that icons always begin with "i" while animations begin with "a". This is part of the name, you can't just use the number!
@@ -98,6 +103,7 @@ notify:
   icon: a7956
   cycles: 3
   priority: info
+  icon_type: none
 ```
 
 ### Changing sounds and icons
@@ -120,6 +126,7 @@ To add a notification sound, icon, cycles, or priority override, it has to be do
         icon: 'i51'
         cycles: 0
         priority: 'critical'
+        icon_type: 'none'
 ```
 
 ### Only notify specific device
