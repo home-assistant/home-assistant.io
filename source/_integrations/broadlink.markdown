@@ -70,7 +70,6 @@ Use the `remote.learn_command` service to learn new commands.
 | `device`               | no       | Name of the device to control.            |
 | `command`              | no       | Names of the commands to learn.           |
 | `alternative`          | yes      | Toggle commands?                          |
-| `timeout`              | yes      | Timeout in seconds to learn each command. |
 
 Example 1: Learn a single command
 
