@@ -839,7 +839,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 [#36566]: https://github.com/home-assistant/core/pull/36566
 
-## Release 0.110.6 - June 8
+## Release 0.110.7 - June 9
 
 - Fix mobile_app missing state in sensor registration ([#36604] - [@frenck])
 
