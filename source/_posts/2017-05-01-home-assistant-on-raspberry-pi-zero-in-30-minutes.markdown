@@ -71,5 +71,5 @@ Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspber
 
 To try it out, go to `http://hassbian:8123` or `http://hassbian.local:8123` if you're using Mac.
 
-For further details about HASSbian, take a look at the [documentation](/docs/installation/hassbian/).
+For further details about HASSbian, take a look at the documentation.
 

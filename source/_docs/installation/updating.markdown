@@ -36,11 +36,12 @@ For a Raspberry Pi Docker container, simply pull the latest stable one:
 sudo docker pull homeassistant/raspberrypi3-homeassistant:stable
 ```
 
-After updating, you must start/restart Home Assistant for the changes to take effect. This means that you will have to restart `hass` itself or the [autostarting](/docs/autostart/) daemon (if applicable). Startup can take a considerable amount of time (i.e., minutes) depending on your device. This is because all requirements are updated as well.
+After updating, you must start/restart Home Assistant for the changes to take effect. This means that you will have to restart `hass` itself.
+Startup can take a considerable amount of time (i.e., minutes) depending on your device. This is because all requirements are updated as well.
 
 [BRUH automation](https://www.bruhautomation.io/) has created [a tutorial video](https://www.youtube.com/watch?v=tuG2rs1Cl2Y) explaining how to upgrade Home Assistant.
 
-#### Run a specific version
+## Run a specific version
 
 In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release:
 
@@ -48,7 +49,7 @@ In the event that a Home Assistant version doesn't play well with your hardware 
 pip3 install homeassistant==0.XX.X
 ```
 
-#### Run the beta version
+## Run the beta version
 
 If you would like to test the next release before anyone else, you can install the beta version released every two weeks:
 
@@ -56,7 +57,7 @@ If you would like to test the next release before anyone else, you can install t
 pip3 install --pre --upgrade homeassistant
 ```
 
-#### Run the development version
+## Run the development version
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
 
@@ -65,10 +66,10 @@ If you want to stay on the bleeding-edge Home Assistant development branch, you 
 </div>
 
 ```bash
-$ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
+pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
 ```
 
-### Update Home Assistant installation
+## Update Home Assistant installation
 
 Best practice for updating a Home Assistant installation:
 

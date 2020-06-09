@@ -163,15 +163,12 @@ entity_id: media_player.samsung_tv
 media_content_id: 590
 media_content_type: channel
 ```
+
 #### Selecting a source
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
 
-### Home Assistant & Home Assistant Core on Docker
-
-No additional actions are required
-
-### Other install methods
+### Home Assistant Core additional requirements
 
 You will need to install the `websocket-client` Python package in your Home Assistant install. This will probably be done with:
 

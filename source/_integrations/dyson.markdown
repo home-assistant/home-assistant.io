@@ -80,7 +80,7 @@ Discovery is not yet supported for any robot vacuum models (Dyson 360 Eye). For 
 To find a devices IP address, you can use your router or `nmap`:
 
 ```bash
-$ nmap -p 1883 XXX.XXX.XXX.XXX/YY --open
+nmap -p 1883 XXX.XXX.XXX.XXX/YY --open
 ```
 
 Where:
@@ -91,7 +91,7 @@ Where:
 For example:
 
 ```bash
-$ nmap -p 1883 192.168.0.0/24 --open
+nmap -p 1883 192.168.0.0/24 --open
 ```
 
 ## Vacuum

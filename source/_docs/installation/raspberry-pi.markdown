@@ -22,7 +22,7 @@ Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
 You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
 
 ```bash
-$ ssh pi@ipaddress
+ssh pi@ipaddress
 ```
 
 Changing the default password is encouraged.
@@ -67,6 +67,7 @@ cd /srv/homeassistant
 python3 -m venv .
 source bin/activate
 ```
+
 Once you have activated the virtual environment (notice the prompt change to `(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $`) you will need to run the following command to install a required Python package.
 
 ```bash
@@ -84,6 +85,7 @@ Start Home Assistant Core for the first time. This will complete the installatio
 ```bash
 hass
 ```
+
 You can now reach your installation on your Raspberry Pi over the web interface on `http://ipaddress:8123`.
 
 <div class='note'>
@@ -92,9 +94,7 @@ When you run the `hass` command for the first time, it will download, install an
 
 </div>
 
-If you want to setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant Core](/docs/autostart/).
-
-### Updating
+## Updating
 
 To update to the latest version of Home Assistant Core follow these simple steps:
 
@@ -106,7 +106,7 @@ pip3 install --upgrade homeassistant
 
 Once the last command executes, restart the Home Assistant Core service to apply the latest updates. Please keep in mind that some updates may take longer to start up than others. If Home Assistant Core fails to start, make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
 
-### Run a specific version
+## Run a specific version
 
 In the event that a Home Assistant Core version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
 
@@ -116,7 +116,7 @@ source /srv/homeassistant/bin/activate
 pip3 install homeassistant==0.XX.X
 ```
 
-### Run the beta version
+## Run the beta version
 
 If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
 
@@ -126,7 +126,7 @@ source /srv/homeassistant/bin/activate
 pip3 install --pre --upgrade homeassistant
 ```
 
-### Run the development version
+## Run the development version
 
 If you want to stay on the bleeding-edge Home Assistant Core development branch, you can upgrade to `dev`.
 
@@ -142,7 +142,7 @@ source /srv/homeassistant/bin/activate
 pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
 ```
 
-### Activating the virtual environment
+## Activating the virtual environment
 
 When instructions tell you to activate the virtual environment, the following commands will do this:
 

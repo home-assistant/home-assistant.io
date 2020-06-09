@@ -180,6 +180,16 @@ automation:
           - 26496
 ```
 
+### Service `xiaomi_miio.vacuum_goto`
+
+Go the specified coordinates
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                          |
+| `x_coord`                 |       no | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
+| `y_coord`                 |       no | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
+
 ## Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
@@ -227,6 +237,8 @@ The following table shows the units of measurement for each attribute:
 7. Tap the version number (Plug-in version 2.77.1 as of January 2020) at the bottom of the screen repeatedly.
 8. You should now see 2 extra options listed in English, this means you enabled developer mode. [if not, try all steps again!].
 9. Under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
+
+Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token. 
 
 ### Alternative methods
 

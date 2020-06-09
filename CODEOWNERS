@@ -136,7 +136,6 @@ source/_integrations/fronius.markdown @nielstron
 source/_integrations/frontend.markdown @home-assistant/frontend
 source/_integrations/garmin_connect.markdown @cyberjunky
 source/_integrations/gdacs.markdown @exxamalte
-source/_integrations/gearbest.markdown @HerrHofrat
 source/_integrations/geniushub.markdown @zxdavb
 source/_integrations/geo_rss_events.markdown @exxamalte
 source/_integrations/geonetnz_quakes.markdown @exxamalte
@@ -448,7 +447,6 @@ source/_integrations/withings.markdown @vangorra
 source/_integrations/wled.markdown @frenck
 source/_integrations/workday.markdown @fabaff
 source/_integrations/worldclock.markdown @fabaff
-source/_integrations/wwlln.markdown @bachya
 source/_integrations/xbox_live.markdown @MartinHjelmare
 source/_integrations/xiaomi_aqara.markdown @danielhiversen @syssi
 source/_integrations/xiaomi_miio.markdown @rytilahti @syssi

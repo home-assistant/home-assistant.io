@@ -19,17 +19,6 @@ The HomeKit Bridge integration allows you to forward entities from Home Assistan
 
 </div>
 
-<div class="note warning">
-
-If you are using the official Home Assistant images or running Home Assistant Core on Docker, HomeKit is ready to go out of the box. If you are running Home Assistant in a manual virtual environment or on a NAS without Docker, you may need to install or upgrade dependencies for HomeKit to function.
-
-HomeKit requires openssl 1.1.0 or later as the HomeKit Accessory Protocol (HAP) uses the `ChaCha20` stream cipher and the `Poly1305` authenticator.
-
-It might be necessary to install an additional package:
-`sudo apt-get install libavahi-compat-libdnssd-dev`
-
-</div>
-
 To add `HomeKit Bridge` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **HomeKit Bridge**.
 
 If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, `HomeKit Bridge` must be configured via your `configuration.yaml` file:
@@ -99,11 +88,6 @@ homekit:
       safe_mode:
         description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
         required: false
-        type: boolean
-        default: false
-      zeroconf_default_interface:
-        description: By default, zeroconf will attempt to bind to all interfaces. For systems running using network isolation or similar, this may result in HomeKit not being seen on the network. Change this option to `true` if HomeKit cannot be discovered.
-        required: true
         type: boolean
         default: false
       advertise_ip:
@@ -433,14 +417,13 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
 
-You may also need to set `zeroconf_default_interface` to `true`.
+You may also need to set `default_interface` to `true` in the `zeroconf` integration.
 
 To use `advertise_ip`, add the option to your `homekit` configuration:
 
 ```yaml
 homekit:
   advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
-  zeroconf_default_interface: true
 ```
 
 Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
@@ -576,7 +559,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your configuration, see [safe_mode](#safe-mode).
 
-If [safe_mode](#safe-mode) is not successful, you likely need to enable `zeroconf_default_interface: true` and set a unique name such as `name: MyHASS42`.
+If [safe_mode](#safe-mode) is not successful, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
   
 If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
