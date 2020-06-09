@@ -24,7 +24,7 @@ Most Speedtest.net servers require TCP port 8080 outbound to function. Without t
 Set up the integration through **Configuration -> Integrations -> SpeedTest.net**. Once configured you can select the server to run the test against from the options menu. You can also change the update interval and optionaly disable auto update.
 
 
-To import the configuration from `configuration.yaml` refer to the below example. Make sure to remove `monitored_condiditions` as they are now automatically added to Home Assistant.
+To import the configuration from `configuration.yaml` refer to the below example.
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,9 +55,9 @@ manual:
 The following sensors are added by the integration:
 
 sensors:
-  - speedtest_ping: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
-  - speedtest_downlod: The download speed (Mbit/s).
-  - speedtest_upload: The upload speed (Mbit/s).
+  - Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
+  - Download sensor: The download speed (Mbit/s).
+  - Upload sensor: The upload speed (Mbit/s).
   
 ### Time period dictionary example
 
