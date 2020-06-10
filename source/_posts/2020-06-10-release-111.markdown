@@ -158,7 +158,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
   The frontend is now available sooner. As a result, not all devices and entities are available immediately.
   
   ([@bdraco] - [#36093], [#36264]) ([http docs])
-
+  
+  Lovelace cards `getCardSize` can now be async, custom cards might need to adapt to this. Check the [dev blog](https://developers.home-assistant.io/blog/2020/06/01/getCardSize) for more info.
+  
 - **Zigbee**
 
   The `zigbee` integration has been renamed to `xbee`, as it is an integration for XBee devices. This is done to avoid confusion with ZHA, which is the general integration to go to when having Zigbee needs.
