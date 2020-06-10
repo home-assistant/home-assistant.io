@@ -21,7 +21,7 @@ Most Speedtest.net servers require TCP port 8080 outbound to function. Without t
 
 ## Configuration
 
-Set up the integration through **Configuration -> Integrations -> SpeedTest.net**. Once configured you can select the server to run the test against, from the options menu. You can also change the update interval and optionally disable auto-update.
+Set up the integration through **Configuration -> Integrations -> Speedtest.net**. Once configured you can select the server to run the test against, from the options menu. You can also change the update interval and optionally disable auto-update.
 
 
 To import the configuration from `configuration.yaml` refer to the below example.
