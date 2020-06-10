@@ -29,6 +29,7 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Huawei LTE](../huawei_lte/)
  - [Philips Hue](../hue/)
  - [Roku](/integrations/roku/)
+ - [Samsung SyncThru Printer](../syncthru/)
  - [Samsung TV](../samsungtv/)
  - [UPnP](../upnp/)
  - [Sony Songpal](../songpal/)

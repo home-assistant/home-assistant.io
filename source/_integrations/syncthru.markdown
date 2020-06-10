@@ -5,6 +5,7 @@ ha_category:
   - System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.66
+ha_config_flow: true
 ha_codeowners:
   - '@nielstron'
 ha_domain: syncthru
@@ -13,30 +14,12 @@ ha_domain: syncthru
 The Samsung SyncThru Printer platform allows you to read current data from your local Samsung printer.
 
 It usually provides information about the device's state, the left amount of ink or toner and the state of paper trays.
-The platform automatically monitors every supported part.
 
-If you wish not to include certain monitored values specify the values that you would like to see in the front-end via the `monitored_conditions` setting.
+### Setup
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: syncthru
-    resource: http://my-printer.address
-    name: My Awesome Printer
-```
+Go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Samsung SyncThru Printer**.
 
-{% configuration %}
-  resource:
-    description: The address for connecting to the printer. Equal to the SyncThru Webservice address.
-    required: true
-    default: false
-    type: string
-  name:
-    description: A user specified name for the printer. Defaults to "Samsung Printer" and the friendly name will be the name of the printer model.
-    required: false
-    default: Samsung Printer
-    type: string
-{% endconfiguration %}
+If your printer is on and you have enabled [SSDP](/../ssdp) discovery, it's likely that the printer is automatically discovered. In that case, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct.
 
 The following information is displayed in separate sensors, if it is available:
 
