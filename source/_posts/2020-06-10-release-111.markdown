@@ -107,7 +107,7 @@ continue, resulting in a faster startup.
   (as the name implies). Previously it was set after the action that was part
   of the trigger was done. We don't expect many issues for this to rise,
   however, it might be affecting very specific use cases. If you use this
-  attribute to prevent an automation to run quickly (our double), this will
+  attribute to prevent an automation to run quickly (or double), this will
   actually improve the situation for you.
 
 [@bouwew]: https://github.com/bouwew
