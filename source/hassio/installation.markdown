@@ -107,23 +107,23 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi0-w-4.8.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi-4.8.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi2-4.8.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi3-4.8.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi3-64-4.8.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi4-4.8.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_rpi4-64-4.8.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_tinker-4.8.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-c2-4.8.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-n2-4.8.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_odroid-xu4-4.8.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_intel-nuc-4.8.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.8/hassos_ova-4.8.ova
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_rpi0-w-4.10.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_rpi-4.10.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_rpi2-4.10.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_rpi3-4.10.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_rpi3-64-4.10.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_rpi4-4.10.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_rpi4-64-4.10.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_tinker-4.10.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_odroid-c2-4.10.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_odroid-n2-4.10.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_odroid-xu4-4.10.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_intel-nuc-4.10.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_ova-4.10.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_ova-4.10.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_ova-4.10.vdi.gz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_ova-4.10.qcow2.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_ova-4.10.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
