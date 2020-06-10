@@ -1,7 +1,7 @@
 ---
 title: Plugwise
 description: Plugwise Smile platform integration.
-ha_category: 
+ha_category:
   - Climate
   - Sensor
   - Switch
