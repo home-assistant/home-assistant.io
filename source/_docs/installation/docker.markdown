@@ -54,23 +54,16 @@ Before proceeding, make sure you have shared out a drive for Docker to mount to.
 <https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes>
 
 ```powershell
-docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
+docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config -p 8123:8123 homeassistant/home-assistant:stable
 ```
 
 It’s easier to understand the trick when put into practice. Here we would like to mount a current working directory (something like `C:\Users\<your login name>\homeassistant` make sure this exists first) into the `homeassistant/home-assistant:stable` image at the `/config` location in the container. We would do that as so:
 
 ```powershell
-docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v //c/Users/<your login name>/homeassistant:/config --net=host homeassistant/home-assistant:stable
+docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v //c/Users/<your login name>/homeassistant:/config -p 8123:8123 homeassistant/home-assistant:stable
 ```
 
-When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
-
-```bash
-netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 connectaddress=10.0.50.2 connectport=8123
-netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
-```
-
-This will let you access your Home Assistant portal from `http://localhost:8123`, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the Docker container.
+Host networking is not supported on Windows so we have to forward the port 8123. This will let you access your Home Assistant portal from `http://localhost:8123`, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the Docker container.
 
 ### Synology NAS
 

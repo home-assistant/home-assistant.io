@@ -5,7 +5,7 @@ date: 2020-05-25 00:00:00
 date_formatted: "May 25, 2020"
 author: Franck Nijhof
 author_twitter: frenck
-categories: Announcements, Organization
+categories: Announcements Organization
 ---
 
 On January 21st, 2017, Home Assistant [announced](/blog/2017/01/21/home-assistant-governance/)

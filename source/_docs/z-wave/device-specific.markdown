@@ -1457,3 +1457,45 @@ The configuration parameters will have to be added to the `zwcfg` file. Replace 
   </Value>
 </CommandClass>
 ```
+
+### Jasco 2 Button Remote (37792/ZW5307)
+
+<!-- from https://products.z-wavealliance.org/products/2930/ -->
+
+Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+
+```xml
+    <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+    </CommandClass>
+```
+
+Below is a table of the action/scenes for the Jasco remote:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button one single tap|1|0
+Button one double tap|1|3
+Button one triple tap|1|4
+Button two single tap|2|0
+Button two double tap|2|3
+Button two triple tap|2|4
+
+Example Event:
+
+```yaml
+- alias: JascoButton1
+  trigger:
+    - event_type: zwave.scene_activated
+      platform: event
+      event_data:
+        node_id: 2
+        scene_id: 1
+        scene_data: 0
+  action:
+    - service: switch.toggle
+      entity_id: switch.office_fan
+```
