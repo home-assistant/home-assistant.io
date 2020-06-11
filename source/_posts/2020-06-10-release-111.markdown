@@ -156,11 +156,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Frontend**
 
   The frontend is now available sooner. As a result, not all devices and entities are available immediately.
-  
+
   ([@bdraco] - [#36093], [#36264]) ([http docs])
-  
+
   Lovelace cards `getCardSize` can now be async, custom cards might need to adapt to this. Check the [dev blog](https://developers.home-assistant.io/blog/2020/06/01/getCardSize) for more info.
-  
+
 - **Zigbee**
 
   The `zigbee` integration has been renamed to `xbee`, as it is an integration for XBee devices. This is done to avoid confusion with ZHA, which is the general integration to go to when having Zigbee needs.
@@ -168,7 +168,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ([@frenck] - [#35613]) ([xbee docs]) ([zigbee docs])
 
 - **Insteon**
-  
+
   The backend module for the Insteon integration has changed from `insteonplm` to `pyinsteon`, enabling significant improvements which include:
 
   - Consistent state status for changes to state outside of Home Assistant (i.e., three-way switches)
@@ -188,7 +188,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   No longer appear as entities as they are not needed.
 
-  ([@teharris1] - [#35198]) ([insteon docs]) 
+  ([@teharris1] - [#35198]) ([insteon docs])
 
 - **Environment Canada**
 
@@ -213,7 +213,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   The Blink battery has been moved from the `sensor` platform to the `binary_sensor` platform since it only reports "OK" or "Low" as a status.
   The `blink.trigger_camera` service now takes the `entity_name` as the payload instead of the name of the camera itself.
-  
+
   ([@fronzbot] - [#35620], [#35635]) ([blink docs])
 
 
@@ -239,7 +239,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **De Lijn**
 
   The stopname has been removed from attributes since it is the same as the sensor name.
-  
+
   ([@Emilv2] - [#36276]) ([delijn docs])
 
 - **deCONZ**
@@ -250,7 +250,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   - Carbon monoxide changed to gas
   - Vibration changed to vibration
-  
+
   Sensor device classes:
 
   - Alarm has been removed
@@ -330,6 +330,32 @@ The integrations below have been removed:
 - Gearbest (ADR-0004) ([@frenck] - [#36347])
 - Wunderlist (platform is decommissioned) ([@frenck] - [#36380])
 - WWLLN (data source no longer available) ([@bachya] - [#35926])
+
+## Release 0.111.1 - June 11
+
+- Fix command line sensors removing quotes with template ([@shenxn] - [#35559]) ([command_line docs])
+- Fix Daikin config flow for zeroconf devices ([@fredrike] - [#36571]) ([daikin docs])
+- Xiaomi Miio gateway: add ip to zeroconf discovery title ([@starkillerOG] - [#36653]) ([xiaomi_miio docs])
+- Update pymyq for latest api requirements ([@bdraco] - [#36666]) ([myq docs])
+- Remove powerwall attributes no longer present in latest firmware ([@bdraco] - [#36667]) ([powerwall docs])
+- Fix packages when config schema is fully deprecated ([@frenck] - [#36674])
+
+[#35559]: https://github.com/home-assistant/core/pull/35559
+[#36571]: https://github.com/home-assistant/core/pull/36571
+[#36653]: https://github.com/home-assistant/core/pull/36653
+[#36666]: https://github.com/home-assistant/core/pull/36666
+[#36667]: https://github.com/home-assistant/core/pull/36667
+[#36674]: https://github.com/home-assistant/core/pull/36674
+[@bdraco]: https://github.com/bdraco
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@shenxn]: https://github.com/shenxn
+[@starkillerOG]: https://github.com/starkillerOG
+[command_line docs]: /integrations/command_line/
+[daikin docs]: /integrations/daikin/
+[myq docs]: /integrations/myq/
+[powerwall docs]: /integrations/powerwall/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
 
 ## All changes
 
