@@ -19,11 +19,11 @@ The following will take you through the steps required to install Home Assistant
 
    - As a virtual appliance (x86_64/UEFI):
   
-     [VMDK][vmdk], [VHDX][vhdx], [VDI][vdi], [QCOW2][qcow2], [OVA][Virtual Appliance]
+     - [VMDK][vmdk], [VHDX][vhdx], [VDI][vdi], [QCOW2][qcow2], [OVA][Virtual Appliance]
 
    - Not recommended hardware:
 
-     [Raspberry Pi][pi1], [Raspberry Pi Zero-W][pi0-w], [Raspberry Pi 2][pi2]
+     - [Raspberry Pi][pi1], [Raspberry Pi Zero-W][pi0-w], [Raspberry Pi 2][pi2]
 
 2. Install Home Assistant:
 
