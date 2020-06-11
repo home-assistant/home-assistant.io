@@ -83,7 +83,7 @@ panel_display:
   default: false
   type: boolean
 autobypass:
-  description: "**Honeywell only.** Set to `true`, to automatically bypass all open zones (sending `6#`). This will require a code to be entered even if `code_arm_required` is set to `false`."
+  description: "**Honeywell only.** Set to `true`, to automatically bypass all open zones (sending `6#`) when arming. This will require a code to be entered even if `code_arm_required` is set to `false`."
   required: false
   default: false
   type: boolean
