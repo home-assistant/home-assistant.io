@@ -21,7 +21,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To add your Spider devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
+To set up this integration, click Configuration in the sidebar and then click Integrations. Add a new integration using the "+" button in the lower right corner and look for 'Itho Daalderop Spider'. Click configure and you will be presented with a dialog requesting the username and password of your Spider account information. After you click submit, it will automatically retrieve your thermostats and power plugs from mijn.ithodaalderop.nl.
+
+If you'd like to continue using YAML until it is fully removed, you can use the following example:
 
 ```yaml
 spider:
