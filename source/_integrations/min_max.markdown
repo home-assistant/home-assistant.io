@@ -11,9 +11,9 @@ ha_codeowners:
 ha_domain: min_max
 ---
 
-The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last) and the mean of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
+The `min_max` sensor platform consumes the state from other sensors to determine the minimum, maximum, latest (last), mean and median of the collected states. The sensor will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
 
-This sensor is an alternative to the [template sensor](/integrations/template)'s `value_template:` to get the average of multiple sensors.
+This sensor is an alternative to the [template sensor](/integrations/template)'s `value_template:` to get the average or the median of multiple sensors.
 
 {% raw %}
 ```yaml
@@ -46,7 +46,7 @@ entity_ids:
   required: true
   type: [list, string]
 type:
-  description: "The type of sensor: `min`, `max`, `last` or `mean`."
+  description: "The type of sensor: `min`, `max`, `last`, `mean` or `median`."
   required: false
   default: max
   type: string
@@ -55,7 +55,7 @@ name:
   required: false
   type: string
 round_digits:
-  description: Round mean value to specified number of digits.
+  description: Round mean or median value to specified number of digits.
   required: false
   type: integer
   default: 2
