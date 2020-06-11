@@ -35,7 +35,7 @@ To use this platform, you need to setup your alarm system to communicate using t
 1. Click add integration and search for `sia`
 1. After clicking the add button in the Integration pane, you fill in the below fields.
 
-## Config flow fields
+## Configuration flow fields
 
 {% configuration %}
 port:
@@ -63,14 +63,14 @@ zones:
 additional_account:
   description: Used to ask if a additional account needs to be included, if so will open a dialog for the next account, after checking the current input.
   required: false
-  type: bool
+  type: boolean
   default: false
 {% endconfiguration %}
 
 ASCII characters are 0-9 and ABCDEF, so a account is something like `346EB` and the encryption key has the same characters but needs to be 16 characters in length.
 
 ### Note on monitoring multiple alarm systems
-If you have multiple accounts (alarm systems) that you want to monitor you can choose to have all communicating with the same port, in that case, use the additional accounts checkbox in the config to setup the next account and keep doing that until you have them all. You can also choose to have both running on a different port, in that case setup the component twice with the different ports.
+If you have multiple accounts (alarm systems) that you want to monitor you can choose to have all communicating with the same port, in that case, use the additional accounts checkbox in the dialog to setup the next account and keep doing that until you have them all. You can also choose to have both running on a different port, in that case setup the component twice with the different ports.
 
 ### Port usage
 The port used with this component must be a port no other processes use on the machine your HA instance is running. If you have a complex network setup or want to monitor alarm systems at other locations you will most likely have to open firewalls and/or create network routes for that purpose, the integration will just listen for messages coming into that port, and will not proactively send, only responding with a acknowledgement to the alarm system.
