@@ -5,7 +5,7 @@ ha_category:
   - Climate
   - Sensor
   - Switch
-  - Water_heater
+  - Water Heater
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
