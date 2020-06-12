@@ -19,13 +19,12 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-  - platform: rehau
-    host: IP_ADDRESS
+rehau:
+  host: IP_ADDRESS
 ```
 
 <div class='note warning'>
-For security reasons, this integration is not compatible (yet) with the cloud version of Rehau Nea Smart Manager. Please use the local IP of your Nea Smart Manager.
+For security reasons, this integration is not compatible with the cloud version of Rehau Nea Smart Manager. Please use the local IP of your Nea Smart Manager.
 </div>
 
 {% configuration %}
