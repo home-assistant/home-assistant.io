@@ -30,7 +30,7 @@ climate:
 
 {% configuration %}
 username:
-  description: Email address of an account with access the TCC website
+  description: Email address of an account with access to the TCC website.
   required: true
   type: string
 password:
@@ -48,11 +48,11 @@ away_heat_temperature:
   default: 61
   type: integer
 thermostat:
-  description: ID of thermostat to restrict intgration to
+  description: ID of thermostat to restrict the integration to.
   required: false
   type: string
 location:
-  description: ID of location to restrict intgration to
+  description: ID of location to restrict the integration to.
   required: false
   type: string
 {% endconfiguration %}
