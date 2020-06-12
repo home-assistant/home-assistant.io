@@ -37,6 +37,10 @@ influxdb:
 You will still need to create a database named `home_assistant` via InfluxDB's command line interface. For instructions on how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 {% configuration %}
+api_version:
+  type: string
+  description: API version to use.  Valid values are `1` or `2`
+  default: "1"
 ssl:
   type: boolean
   description: Use HTTPS instead of HTTP to connect. **2.xx - Defaults to `true` for 2.xx, not `false`.**
@@ -74,18 +78,13 @@ verify_ssl:
   description: "**1.xx only** Verify SSL certificate for HTTPS request. Note that when using 2.xx this option is ignored. SSL verification is required, library provides no way to disable it."
   required: false
   default: true
-api_v2:
-  type: boolean
-  description: "**2.xx only** Set to `true` if connecting to a 2.xx installation, do not use otherwise."
-  required: inclusive
-  default: false
 token:
   type: string
-  description: "**2.xx only** Auth token with WRITE access to your chosen Organization and Bucket. Needed with `api_v2` configuration variable."
+  description: "**2.xx only** Auth token with WRITE access to your chosen Organization and Bucket. Needed with `organization` configuration variable."
   required: inclusive
 organization:
   type: string
-  description: "**2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `api_v2` configuration variable."
+  description: "**2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `token` configuration variable."
   required: inclusive
 bucket:
   type: string
@@ -204,7 +203,7 @@ influxdb:
 
 ```yaml
 influxdb:
-  api_v2: true
+  api_version: 2
   ssl: false
   host: localhost
   port: 9999
@@ -250,6 +249,10 @@ sensor:
 ```
 
 {% configuration %}
+api_version:
+  type: string
+  description: API version to use. Enter `1` or don't specify this field for 1.xx installations.
+  default: "1"
 ssl:
   type: boolean
   description: Use HTTPS instead of HTTP to connect.
@@ -334,7 +337,7 @@ You will need to construct your queries in this language in sensors for 2.xx ins
 # Example configuration.yaml entry
 sensor: 
   - platform: influxdb
-    api_v2: true
+    api_version: 2
     organization: RANDOM_16_DIGIT_HEX_ID
     token: GENERATED_AUTH_TOKEN
     queries_flux: 
@@ -349,11 +352,10 @@ sensor:
 ```
 
 {% configuration %}
-api_v2:
-  type: boolean
-  description: Set to `true` if connecting for 2.xx installations, do not use otherwise.
+api_version:
+  type: string
+  description: API version to use. Must enter `2` for 2.xx installations.
   required: true
-  default: false
 ssl:
   type: boolean
   description: Use HTTPS instead of HTTP to connect.
@@ -470,7 +472,7 @@ sensor:
 ```yaml
 sensor:
   - platform: influxdb
-    api_v2: true
+    api_version: 2
     token: GENERATED_AUTH_TOKEN
     organization: RANDOM_16_DIGIT_HEX_ID
     bucket: BUCKET_NAME
