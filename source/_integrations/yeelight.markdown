@@ -80,7 +80,7 @@ devices:
           required: false
           type: string
         model:
-          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`, `ceiling10`, `ceiling13`. The setting is used to enable model specific features f.e. a particular color temperature range. Its also used to setup device, if its not available and discovery if disabled, during Home Assistant startup. If model is not specified, it will be guessed, by integration by looking at supported properties, reported by device."
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`, `ceiling10`, `ceiling13`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
           type: string
 custom_effects:
