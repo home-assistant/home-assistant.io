@@ -127,3 +127,16 @@ Find your `home_id` by browsing to `https://my.tado.com/api/v2/me?username=YOUR_
 ```
 
 In this example `12345` is the `home_id` you'll need to configure.
+
+### Finding your 'home_id' alternative
+
+If the above method returns an unauthorized error. The home_id can also be found using Chrome developer tools whilst logged into https://my.tado.com/webapp take the following steps: 
+
+- select the 'Network' tab
+- filter for 'home'
+- under Name, select 'users'
+- click on 'Response' tab
+
+The home_id appears in the Response for users as "id":12345
+
+In this example `12345` is the `home_id` you'll need to configure.
