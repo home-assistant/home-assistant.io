@@ -209,6 +209,17 @@ The list of apps that are provided by default is statically defined [here](https
 pyvizio --ip=0 get-apps-list
 ```
 
+## Service `vizio.update_setting`
+
+This service allows you to update a setting on a given Vizio device. You will need to know the type of setting and the name of the setting to call this service. The setting types are listed in the `setting_types` property of a Vizio device's state. For a given setting type, the various setting names and their current values are listed in the `<setting_type>_settings` property. You may have to consult the SmartCast device to determine what values are valid.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | The devices to update a setting for. | media_player.vizio_smartcast
+| `setting_type` | no | The type of setting. | audio
+| `setting_name` | no | The name of the setting. | eq
+| `new_value` | no | The new value to set the setting to. | Music
+
 ## Notes and limitations
 
 ### Turning device on
