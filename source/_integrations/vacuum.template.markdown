@@ -191,5 +191,4 @@ vacuum:
               Charging
             {% endif %}
 ```
-
 {% endraw %}
