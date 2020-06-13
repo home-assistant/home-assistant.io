@@ -340,6 +340,46 @@ The integrations below have been removed:
 - Remove powerwall attributes no longer present in latest firmware ([@bdraco] - [#36667]) ([powerwall docs])
 - Fix packages when config schema is fully deprecated ([@frenck] - [#36674])
 
+## Release 0.111.2 - June 13
+
+- Fix nightlight support detection ([@zewelor] - [#36656]) ([yeelight docs])
+- Guard OwnTracks writing state before hass available ([@balloob] - [#36680]) ([owntracks docs])
+- Fix missing options in Plex config entry ([@jjlawren] - [#36683]) ([plex docs])
+- Fix ZHA Metering channel formatting method ([@Adminiuga] - [#36697]) ([zha docs])
+- Fix Daikin discovery ([@fredrike] - [#36704]) ([daikin docs])
+- Fix logbook filtering for described events ([@frenck] - [#36727]) ([logbook docs])
+- Make Axis non-privileged users work again ([@Kane610] - [#36731]) ([axis docs])
+- Fix history timezone with postgres and other dbs ([@bdraco] - [#36746]) ([history docs])
+- Update frontend to 20200603.3 ([@bramkragten] - [#36751]) ([frontend docs])
+
+[#36656]: https://github.com/home-assistant/core/pull/36656
+[#36680]: https://github.com/home-assistant/core/pull/36680
+[#36683]: https://github.com/home-assistant/core/pull/36683
+[#36697]: https://github.com/home-assistant/core/pull/36697
+[#36704]: https://github.com/home-assistant/core/pull/36704
+[#36727]: https://github.com/home-assistant/core/pull/36727
+[#36731]: https://github.com/home-assistant/core/pull/36731
+[#36746]: https://github.com/home-assistant/core/pull/36746
+[#36751]: https://github.com/home-assistant/core/pull/36751
+[@Adminiuga]: https://github.com/Adminiuga
+[@Kane610]: https://github.com/Kane610
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@zewelor]: https://github.com/zewelor
+[axis docs]: /integrations/axis/
+[daikin docs]: /integrations/daikin/
+[frontend docs]: /integrations/frontend/
+[history docs]: /integrations/history/
+[logbook docs]: /integrations/logbook/
+[owntracks docs]: /integrations/owntracks/
+[plex docs]: /integrations/plex/
+[yeelight docs]: /integrations/yeelight/
+[zha docs]: /integrations/zha/
+
 [#35559]: https://github.com/home-assistant/core/pull/35559
 [#36571]: https://github.com/home-assistant/core/pull/36571
 [#36653]: https://github.com/home-assistant/core/pull/36653
