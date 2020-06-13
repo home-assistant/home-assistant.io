@@ -9,13 +9,13 @@ The following will take you through the steps required to install Home Assistant
 
    - As an image for your device:
 
-     - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
-     - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
-     - [Raspberry Pi 4 Model B (excluding 8GB) 32bit][pi4-32] (recommended)
-     - [Raspberry Pi 4 Model B (excluding 8GB) 64bit][pi4-64]
+     - [Raspberry Pi 3 Model B and B+ 32-bit][pi3-32] (recommended)
+     - [Raspberry Pi 3 Model B and B+ 64-bit][pi3-64]
+     - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] (recommended)
+     - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 64-bit][pi4-64]
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
-     - [Intel-Nuc][intel-nuc]
+     - [Intel NUC][intel-nuc]
 
    - As a virtual appliance (x86_64/UEFI):
   
@@ -23,8 +23,7 @@ The following will take you through the steps required to install Home Assistant
 
    - Not yet supported hardware:
 
-     - Raspberry Pi 4 Model B - 8GB
-     - Raspberry Pi 4 Model B - 8GB
+     - Raspberry Pi 4 Model B (8 GB model)
 
    - Not recommended hardware:
 
