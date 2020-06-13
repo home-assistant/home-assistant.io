@@ -89,6 +89,10 @@ monitored_conditions:
       description: The current pump power usage (Hayward VS pumps only).
     status:
       description: The current system status.
+    is_heater_enabled:
+      description: True if the heater is currently on.
+    is_super_chlorinate_enabled:
+      description: True if the super chlorinate function is currently on.
 {% endconfiguration %}
 
 ## Switch
@@ -119,8 +123,12 @@ monitored_conditions:
       description: Controls low speed mode on the filter pump (multi-speed pumps only).
     lights:
       description: Controls the Lights relay.
-    heater_1:
-      description: Controls the heater.
+    pool:
+      description: Controls pool mode.
+    spa:
+      description: Controls spa mode.
+    heater_auto_mode:
+      description: Controls the heater auto mode.
     aux_1:
       description: Controls the Aux 1 relay.
     aux_2:
