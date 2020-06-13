@@ -165,7 +165,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   The `zigbee` integration has been renamed to `xbee`, as it is an integration for XBee devices. This is done to avoid confusion with ZHA, which is the general integration to go to when having Zigbee needs.
 
-  ([@frenck] - [#35613]) ([xbee docs]) ([zigbee docs])
+  ([@frenck] - [#35613]) ([xbee docs]) ([zha docs])
 
 - **Insteon**
 
