@@ -191,13 +191,13 @@ Triple tap on|2|4
 5x tap off|1|6
 5x tap on|2|6
 
-### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v2 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
+### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v3 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
 
 Many Zooz switches that have been sold do not have the latest firmwares. Contact Zooz to obtain the over the air firmware update instructions and new user manual for the switches.
 
 Once the firmware is updated, the the new configuration parameters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options (depending on your model of switch):
 
-Zen21v2 (On/Off Switch):
+Zen21v3 (On/Off Switch):
 
 ```xml
 <CommandClass id="112" name="COMMAND_CLASS_CONFIGURATION" version="1">
