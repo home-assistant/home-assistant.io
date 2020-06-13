@@ -142,6 +142,7 @@ The following integrations are now available via the Home Assistant UI:
 - [Dune HD][dunehd docs], done by [@bieniu]
 - [Gogogate2][gogogate2 docs], done by [@vangorra]
 - [Plugwise][plugwise docs], done by [@CoMPaTech] and [@bouwew]
+- [Sonarr][sonarr docs], done by [@ctalkington]
 
 ## If you need help...
 
