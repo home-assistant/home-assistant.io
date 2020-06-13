@@ -340,6 +340,18 @@ The integrations below have been removed:
 - Remove powerwall attributes no longer present in latest firmware ([@bdraco] - [#36667]) ([powerwall docs])
 - Fix packages when config schema is fully deprecated ([@frenck] - [#36674])
 
+## Release 0.111.2 - June 13
+
+- Fix nightlight support detection (@zewelor - #36656)
+- Guard OwnTracks writing state before hass available (@balloob - #36680)
+- Fix missing options in Plex config entry (@jjlawren - #36683)
+- Fix ZHA Metering channel value formatting (@Adminiuga - #36697)
+- Fix Daikin discovery (@fredrike - #36704)
+- Fix logbook filtering for described events (@frenck - #36727)
+- Make Axis non-privileged users work again (@Kane610 - #36731)
+- Fix history timezone with postgres and other dbs (@bdraco - #36746)
+- Update frontend to 20200603.3 (@bramkragten - #36751)
+
 [#35559]: https://github.com/home-assistant/core/pull/35559
 [#36571]: https://github.com/home-assistant/core/pull/36571
 [#36653]: https://github.com/home-assistant/core/pull/36653
