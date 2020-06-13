@@ -92,11 +92,6 @@ code_arm_required:
   required: false
   default: true
   type: boolean
-alt_night_mode:
-  description: "For Honeywell systems, set to `true` to enable *Night-Stay* mode instead of *Instant* mode for night arming. For DSC systems, set to `true` to enable *No-Entry* mode instead of *Stay* mode for night arming. For both systems, whenever this option is set to `true`, a code will be required for night arming **regardless of the `code_arm_required` setting.** See [Arming Key Sequences](#arming-key-sequences) section below for more information."
-  required: false
-  default: false
-  type: boolean
 zones:
   description: "AlarmDecoder has no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/alarmdecoder) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
   required: false
@@ -150,7 +145,7 @@ The Alarm Decoder integration gives you access to several services for you to co
 
 - `alarm_arm_away`: Arms the alarm in away mode; all faults will trigger the alarm.
 - `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
-- `alarm_arm_night`: Arms the alarm according to the `alt_night_mode` configuration setting.
+- `alarm_arm_night`: Arms the alarm in instant mode; all faults will trigger the alarm. Additionally, the entry delay is turned off on the doors.
 - `alarm_disarm`: Disarms the alarm from any state.
 - `alarmdecoder.alarm_keypress`: Sends a string of characters to the alarm, as if you had touched those keys on a keypad.
 - `alarmdecoder.alarm_toggle_chime`: Toggles the alarm's chime state.
@@ -203,8 +198,7 @@ The tables below show the key press sequences used for arming for the different 
 | ------------------------------------------------------- | --------------------------- |
 | `alarm_arm_home`                                        | `code` + `3`                |
 | `alarm_arm_away`                                        | `code` + `2`                |
-| `alarm_arm_night` (`alt_night_mode` = `false`, default) | `code` + `7`                |
-| `alarm_arm_night` (`alt_night_mode` = `true`)           | `code` + `33`               |
+| `alarm_arm_night`                                       | `code` + `7`                |
 
 #### code_arm_required = false
 
@@ -212,8 +206,7 @@ The tables below show the key press sequences used for arming for the different 
 | ------------------------------------------------------- | --------------------------- |
 | `alarm_arm_home`                                        | `#3`                        |
 | `alarm_arm_away`                                        | `#2`                        |
-| `alarm_arm_night` (`alt_night_mode` = `false`, default) | `#7`                        |
-| `alarm_arm_night` (`alt_night_mode` = `true`)           | `code` + `33`               |
+| `alarm_arm_night`                                       | `#7`                        |
 
 ### DSC
 
@@ -223,8 +216,7 @@ The tables below show the key press sequences used for arming for the different 
 | ------------------------------------------------------- | --------------------------- |
 | `alarm_arm_home`                                        | `code`                      |
 | `alarm_arm_away`                                        | `code`                      |
-| `alarm_arm_night` (`alt_night_mode` = `false`, default) | `code`                      |
-| `alarm_arm_night` (`alt_night_mode` = `true`)           | `*9` + `code`               |
+| `alarm_arm_night`                                       | `code`                      |
 
 #### code_arm_required = false
 
@@ -238,5 +230,5 @@ The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Sta
 | ------------------------------------------------------- | ------------------------------- |
 | `alarm_arm_home`                                        | `chr(4)` + `chr(4)` + `chr(4)`  |
 | `alarm_arm_away`                                        | `chr(5)` + `chr(5)` + `chr(5)`  |
-| `alarm_arm_night` (`alt_night_mode` = `false`, default) | `chr(4)` + `chr(4)` + `chr(4)`  |
-| `alarm_arm_night` (`alt_night_mode` = `true`)           | `*9` + `code`                   |
+| `alarm_arm_night`                                       | `chr(4)` + `chr(4)` + `chr(4)`  |
+
