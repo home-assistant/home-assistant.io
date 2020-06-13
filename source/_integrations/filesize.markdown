@@ -8,7 +8,7 @@ ha_release: 0.64
 ha_domain: filesize
 ---
 
-The `filesize` sensor is for displaying the size in MB of a file.
+The `filesize` sensor is for displaying the size of a file.
 
 <div class='note'>
 
@@ -32,4 +32,18 @@ file_paths:
   description: The absolute path to the file.
   required: true
   type: list
+  
+unit:
+  description: The output unit of measurement for the file sizes.
+  required: false
+  type: string
+  default: MB (Megabytes)
 {% endconfiguration %}
+
+## Valid `unit` values
+SI based units (step size 1000 = 10^3): 
+B, kB, MB, GB, TB, PB, EB, ZB, YB
+
+IEC based units (step size 1024 = 2^10): 
+B, KiB, MiB, GiB, TiB, PiB, EiB, ZiB, YiB
+
