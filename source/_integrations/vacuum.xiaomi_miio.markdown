@@ -358,6 +358,8 @@ Where params specify room numbers, for multiple rooms, params can be specified l
 
 Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans.
 
+Note: if you don't have access to the miio command-line tool, you can try the app_segment_clean command starting from number 16 as this number seems to be the first room.
+
 ```bash
 miio protocol call <ip of the vacuum> get_room_mapping
 ```
