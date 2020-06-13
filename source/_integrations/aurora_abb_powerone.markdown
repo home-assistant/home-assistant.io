@@ -26,6 +26,10 @@ so the value 'unknown' will be displayed during the night.
 
 ## Configuration
 
+Configuration should be done via the user interface. The inverter will need to be on (i.e. in daylight) and connected correctly in order to do the first time setup.  Normally it is sufficient to select the correct serial port and leave the default address `2`.
+
+Configuration via `configuration.yaml` is now deprecated but does still work.
+
 Add the following to your `configuration.yaml` file:
 
 ```yaml
