@@ -165,7 +165,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   The `zigbee` integration has been renamed to `xbee`, as it is an integration for XBee devices. This is done to avoid confusion with ZHA, which is the general integration to go to when having Zigbee needs.
 
-  ([@frenck] - [#35613]) ([xbee docs]) ([zigbee docs])
+  ([@frenck] - [#35613]) ([xbee docs])
 
 - **Insteon**
 
@@ -407,7 +407,7 @@ The integrations below have been removed:
 - Run pre-commit gen_requirements_all on pre-commit config changes ([@scop] - [#35588])
 - Axis - Code improvements ([@Kane610] - [#35592]) ([axis docs])
 - Remove Automatic integration ([@bachya] - [#35029]) (breaking-change)
-- Rename zigbee to xbee ([@frenck] - [#35613]) ([xbee docs]) ([xbee docs]) (breaking-change)
+- Rename zigbee to xbee ([@frenck] - [#35613]) ([xbee docs]) (breaking-change)
 - Xiaomi Miio zeroconf discovery ([@starkillerOG] - [#35352]) ([xiaomi_miio docs])
 - Provide yeelight unique_id using ssdp discovery ([@zewelor] - [#35448]) ([yeelight docs])
 - Add tado zone variable open window detected ([@isk0001y] - [#34969]) ([tado docs])
