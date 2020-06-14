@@ -14,7 +14,7 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 ### Humidifier services
 
-Available services: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier.turn_on`, `humidifier.turn_off`
+Available services: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier.turn_on`, `humidifier.turn_off`, `humidifier.toggle`
 
 <div class='note'>
 
@@ -29,7 +29,7 @@ Set mode for the humidifier device. This service is only available if the device
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
-| `preset_mode` | no  | New value of preset mode.
+| `mode` | no  | New mode.
 
 #### Automation example
 
@@ -79,6 +79,14 @@ Turn the humidifier device on.
 ### Service `humidifier.turn_off`
 
 Turn the humidifier device off.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+
+### Service `humidifier.toggle`
+
+Toggle the humidifier device on/off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
