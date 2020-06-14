@@ -46,4 +46,9 @@ password:
   description: Password to authenticate with the projector.
   required: false
   type: string
+timeout:
+  description: How long to wait for an response from the projector before returning an error.
+  required: false
+  type: positive integer
+  default: 10
 {% endconfiguration %}
