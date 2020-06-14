@@ -16,6 +16,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate) (Heating)
 - [Water Heater](#water-heater) (Domestic Hot Water)
+- [Sensor](#sensor) (Sensor)
 
 ## Configuration
 
@@ -46,7 +47,7 @@ circuit:
   required: false
   type: integer
 heating_type:
-  description: One of `generic`, `gas` or `heatpump`. Specifying the heating_type provides additional attributes specific for the heating system.
+  description: One of `generic`, `gas` or `heatpump`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
   required: false
   type: string
   default: generic
@@ -131,3 +132,7 @@ Sets the target temperature of domestic hot water to the given temperature.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `temperature` | no | New target temperature for water heater
+
+## Sensor
+
+Additional data from ViCare is available as separate sensors. The sensors are automatically created based on the configured `heating_type`.
