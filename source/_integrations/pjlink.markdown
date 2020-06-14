@@ -49,6 +49,6 @@ password:
 timeout:
   description: How long to wait for an response from the projector before returning an error.
   required: false
-  type: positive integer
+  type: integer
   default: 10
 {% endconfiguration %}
