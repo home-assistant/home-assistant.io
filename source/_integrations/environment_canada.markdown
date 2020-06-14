@@ -97,7 +97,7 @@ sensor:
 
 - A sensor will be created for each of the following conditions, with a default name like `sensor.temperature`:     
     - `temperature` - The current temperature, in ºC.
-    - `dewpoint` - The current dewpoint, in ºC.
+    - `dew_point` - The current dewpoint, in ºC.
     - `wind_chill` - The current wind chill, in ºC.
     - `humidex` - The current humidex, in ºC.
     - `pressure` - The current air pressure, in kPa.
@@ -108,14 +108,14 @@ sensor:
     - `icon_code` - A two-digit number corresponding to a condition icon, as specified in these [image to description](https://dd.weather.gc.ca/citypage_weather/docs/Current_Conditions_Icons-Icones_conditions_actuelles.pdf) and [code to description](https://dd.weather.gc.ca/citypage_weather/docs/current_conditions_icon_code_descriptions_e.csv) mappings.
     - `wind_speed` - The current sustained wind speed, in km/h.
     - `wind_gust` - The current wind gust, in km/h.
-    - `wind_dir` - The current cardinal wind direction, e.g.,  "SSW".
+    - `wind_direction` - The current cardinal wind direction, e.g.,  "SSW".
     - `wind_bearing` - The current wind direction in degrees.
-    - `high_temp` - The next forecast high temperature, in ºC.
-    - `low_temp` - The next forecast low temperature, in ºC.
+    - `high_temperature` - The next forecast high temperature, in ºC.
+    - `low_temperature` - The next forecast low temperature, in ºC.
     - `uv_index` - The next forecast UV index.
-    - `pop` - The next forecast probability of precipitation, in %.
-    - `text_summary` - A textual description of the next forecast period, e.g.,  "Tonight. Mainly cloudy. Low -12."
-    - `precip_yesterday` - The total amount of precipitation that fell the previous day.
+    - `chance_of_precip` - The next forecast probability of precipitation, in %.
+    - `forecast` - A textual description of the next forecast period, e.g.,  "Tonight. Mainly cloudy. Low -12."
+    - `precipitation_yesterday` - The total amount of precipitation that fell the previous day.
     - `warnings` - Current warning alerts.
     - `watches` - Current watch alerts.
     - `advisories` - Current advisory alerts.
