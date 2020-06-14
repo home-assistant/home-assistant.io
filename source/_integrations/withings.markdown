@@ -40,7 +40,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
     withings:
       client_id: CLIENT_ID
       client_secret: CONSUMER_SECRET
-      use_webhook: true  # Internet access to Home Assistant required for this option.
+      use_webhook: true
   profiles:
     - USER_PROFILE_NAME
 
