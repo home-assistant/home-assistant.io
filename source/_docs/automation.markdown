@@ -57,5 +57,7 @@ automation:
 ### Delete Automations
 
 When autionmations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
-To delete them completely, go to UI/Developer Tools and find the automation you want to delete under 'Current entities'.
-From there, select the circled i and in the new window at the bottom select 'REMOVE ENTITY'.
+
+To delete them completely, go to UI/Configuration -> Entities and find the automation in the search field or by scrolling down.
+
+Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.
