@@ -25,6 +25,10 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
 - **timestamp**: Datetime object or timestamp string.
+- **current**: Current in A.
+- **energy**: Energy in Wh or kWh.
+- **power_factory**: Power Factor in cos(ϕ) or ϕ.
+- **voltage**: Voltage in V.
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
