@@ -501,7 +501,7 @@ Added a Coronavirus integration to help monitor the ongoing epidemic. [More info
 - Clean up Tahoma smartlock ([@vlebourl] - [#31430]) ([tahoma docs]) (new-platform)
 - Fix issue with Notion dispatcher topic ([@bachya] - [#31441]) ([notion docs])
 - Fix issue with IQVIA dispatcher topic ([@bachya] - [#31440]) ([iqvia docs])
-- Fix issue with WWLLN dispatcher topic ([@bachya] - [#31442]) ([wwlln docs])
+- Fix issue with WWLLN dispatcher topic ([@bachya] - [#31442])
 - Fix issues with Ambient PWS dispatcher topic ([@bachya] - [#31439]) ([ambient_station docs])
 - Add missing await to HMIPC ([@SukramJ] - [#31415]) ([homematicip_cloud docs])
 - Add timeout attribute for send files ([@Konsts] - [#31379]) ([telegram_bot docs])
@@ -1236,7 +1236,6 @@ Added a Coronavirus integration to help monitor the ongoing epidemic. [More info
 [websocket_api docs]: /integrations/websocket_api/
 [wled docs]: /integrations/wled/
 [workday docs]: /integrations/workday/
-[wwlln docs]: /integrations/wwlln/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yeelight docs]: /integrations/yeelight/

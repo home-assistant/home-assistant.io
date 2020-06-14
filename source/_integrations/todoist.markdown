@@ -156,7 +156,7 @@ Here are two example JSON payloads resulting in the same task:
 
 - **priority** (*Optional*): The priority of the task, from 1-4. Again, 1 means least important, and 4 means most important.
 
-- **due_date_string** (*Optional*): When the task should be due, in [natural language](https://support.todoist.com/hc/en-us/articles/205325931-Dates-and-Times). Mutually exclusive with `due_date`
+- **due_date_string** (*Optional*): When the task should be due, in [natural language](https://get.todoist.help/hc/articles/205325931-Dates-and-Times). Mutually exclusive with `due_date`
 
 - **due_date_lang** (*Optional*): When `due_date_string` is set, it is possible to set the language.
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`

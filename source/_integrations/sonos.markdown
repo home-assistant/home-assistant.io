@@ -32,7 +32,7 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | The speakers to snapshot. To target all Sonos devices, use `all`.
+| `entity_id` | yes | The speakers to snapshot. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group, defaults to true.
 
 ### Service `sonos.restore`
@@ -51,7 +51,7 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
+| `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
 
 ### Service `sonos.join`
@@ -77,7 +77,7 @@ Sets a timer that will turn off a speaker by tapering the volume down to 0 after
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s that will have their timers set.
+| `entity_id` | yes | String or list of `entity_id`s that will have their timers set.
 | `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
 
 ### Service `sonos.clear_sleep_timer`
@@ -94,7 +94,7 @@ Update an existing Sonos alarm.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
+| `entity_id` | yes | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 | `alarm_id` | no | Integer that is used in Sonos to refer to your alarm.
 | `time` | yes | Time to set the alarm.
 | `volume` | yes | Float for volume level.
@@ -109,9 +109,10 @@ Night Sound and Speech Enhancement modes are only supported when playing from th
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s that will have their options set.
+| `entity_id` | yes | String or list of `entity_id`s that will have their options set.
 | `night_sound` | yes | Boolean to control Night Sound mode.
 | `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
+| `status_light` | yes | Boolean to control the Status (LED) Light.
 
 ### Service `sonos.play_queue`
 
@@ -121,8 +122,55 @@ Force start playing the queue, allows switching from another stream (such as rad
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
+| `entity_id` | yes | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position of the song in the queue to start playing from, starts at 0.
+
+### Service `sonos.remove_from_queue`
+
+Removes an item from the queue.
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s that will remove an item from the queue. It must be the coordinator if targeting a group.
+| `queue_position` | yes | Position in the queue to remove.
+
+{% raw %}
+
+```yaml
+# Example automation to remove just played song from queue
+alias: Remove last played song from queue
+id: Remove last played song from queue
+trigger:
+  - platform: state
+    entity_id: media_player.kitchen
+  - platform: state
+    entity_id: media_player.bathroom
+  - platform: state
+    entity_id: media_player.move
+condition:
+  condition: and
+  conditions:
+    # Coordinator
+    - condition: template
+      value_template: >
+        {{ state_attr( trigger.entity_id , 'sonos_group')[0] ==  trigger.entity_id }}
+    # Going from queue to queue
+    - condition: template
+      value_template: >
+        {{ 'queue_position' in trigger.from_state.attributes and 'queue_position' in trigger.to_state.attributes }}
+    # Moving forward
+    - condition: template
+      value_template: >
+        {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
+action:
+  - service: sonos.remove_from_queue
+    data_template:
+      entity_id: >
+        {{ trigger.entity_id }}
+      queue_position: >
+        {{ trigger.from_state.attributes.queue_position }}
+```
+
+{% endraw %}
 
 ## Advanced use
 
@@ -149,7 +197,8 @@ sonos:
     interface_addr: 192.0.2.1
 ```
 
-The Sonos speakers will attempt to connect back to Home Assistant to deliver change events (using TCP port 1400). You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
+The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400 but will try the next 100 ports above 1400 if it is in use. You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
+
 ```yaml
 # Example configuration.yaml entry modifying the advertised host address
 sonos:

@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@home-assistant/core'
+  - '@emontnemery'
 ha_domain: mqtt
 ---
 
@@ -28,7 +29,7 @@ mqtt:
   broker: IP_ADDRESS_BROKER
 ```
 
-You can also use the [embedded MQTT broker](/docs/mqtt/broker#embedded-broker). A separate broker is advised for more stability.
+You can also use the [embedded MQTT broker](/docs/mqtt/broker#embedded-broker-deprecated). A separate broker is advised for more stability.
 
 <div class='note warning'>
 As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the broker functionality will be removed in a future release.

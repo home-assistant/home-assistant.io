@@ -543,6 +543,46 @@ These integrations have been removed. The websites for both have changed, causin
 [sonos docs]: /integrations/sonos/
 [vizio docs]: /integrations/vizio/
 
+## Release 0.108.7 - April 21
+
+- Fix setting up multiple UPSes with NUT in 0.108.x ([@bdraco] - [#34427]) ([nut docs])
+- Cloud do checks during setup ([@balloob] - [#33507]) ([cloud docs])
+- Rollback modbus to version 0.107.7 keep new functionality ([@janiversen] - [#34287]) ([modbus docs])
+- Ensure nexia state file is in a writable location ([@bdraco] - [#34325]) ([nexia docs])
+- Modify requirements for CameraStreamController in Alexa ([@ochlocracy] - [#34470]) ([alexa docs])
+- Fix cloud binary_sensor & TTS/STT ([@pvizeli] - [#34505])
+
+[#33507]: https://github.com/home-assistant/core/pull/33507
+[#34287]: https://github.com/home-assistant/core/pull/34287
+[#34325]: https://github.com/home-assistant/core/pull/34325
+[#34427]: https://github.com/home-assistant/core/pull/34427
+[#34470]: https://github.com/home-assistant/core/pull/34470
+[#34505]: https://github.com/home-assistant/core/pull/34505
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@janiversen]: https://github.com/janiversen
+[@ochlocracy]: https://github.com/ochlocracy
+[@pvizeli]: https://github.com/pvizeli
+[alexa docs]: /integrations/alexa/
+[cloud docs]: /integrations/cloud/
+[modbus docs]: /integrations/modbus/
+[nexia docs]: /integrations/nexia/
+[nut docs]: /integrations/nut/
+
+## Release 0.108.8 - April 22
+
+- Bump hass-nabucasa 0.34.1 ([@pvizeli] - [#34480]) ([cloud docs])
+
+[#34480]: https://github.com/home-assistant/core/pull/34480
+[@pvizeli]: https://github.com/pvizeli
+[cloud docs]: /integrations/cloud/
+
+## Release 0.108.9 - April 24
+
+- Fix Google Assistant devices being disconnected from their rooms ([@balloob] - [#34622])
+
+[#34622]: https://github.com/home-assistant/core/pull/34622
+
 ## All changes
 
 <details>

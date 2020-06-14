@@ -21,7 +21,7 @@ ha_codeowners:
 ha_domain: smartthings
 ---
 
- SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
+SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:
 
 1. Controlling SmartThings devices as Home Assistant entities ([see platforms for supported devices and capabilities](#platforms)).
 1. Entities automatically synchronized upon restart of Home Assistant when changed in SmartThings.
@@ -52,7 +52,7 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
 This integration requires an internet accessible incoming webhook to receive push updates from SmartThings. The preferred approach is to subscribe to [Home Assistant Cloud (Nabu Casa)](https://www.nabucasa.com/) and the integration will configure and use a cloudhook automatically. Alternatively, you will have to configure and setup a internet accessible webhook in Home Assistant as described below:
 
 1. Setup [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
-1. Set [`base_url` of the HTTP integration](/integrations/http#base_url) to the URL that Home Assistant is available on the internet (this must start with `https://`).
+1. Set the external URL in the Home Assistant [configuration](/docs/configuration/basic) to the URL that Home Assistant is available on the internet (this must start with `https://`).
 
 ## Setup instructions
 
@@ -282,7 +282,7 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 
 #### Aborted: Home Assistant is not configured correctly to receive updates from SmartThings
 
-This error message occurs when you do not have an active Home Assistant Cloud (Nabu Casa) subscription and the `base_url` is not configured correctly (it must start with `https`). Update your Home Assistant configuration per the prerequisites above, restart, and try again.
+This error message occurs when you do not have an active Home Assistant Cloud (Nabu Casa) subscription and the external URL is not configured correctly (it must start with `https`). Update your Home Assistant configuration per the prerequisites above, and try again.
 
 #### Error: The token must be in the UID/GUID format
 
@@ -306,7 +306,7 @@ This error message occurs when all of the SmartThings locations under the accoun
 
 #### Webhook Troubleshooting Checklist
 
-1. Ensure `base_url` is properly set to the _external address_ that Home Assistant is available to the internet. SmartThings must be able to reach this address.
+1. Ensure external URL is properly set to the _external address_ that Home Assistant is available to the internet. SmartThings must be able to reach this address.
 1. Validate there are no problems with your certificate or SSL configuration by using an online checker, such as [https://www.digicert.com/help/](https://www.digicert.com/help/).
 1. Some reverse proxy configuration settings can interfere with communication from SmartThings.  For example, TLSv1.3 is not supported.  Setting the supported cipher suite too restrictly will prevent handshaking. The following NGINX SSL configuration is known to work:
    ```nginx
@@ -324,9 +324,9 @@ This error message occurs when all of the SmartThings locations under the accoun
    ```
 1. While the error message (above) is being displayed, run the following command from outside your local network to confirm it is responding to the ping lifecycle event:
     ```bash
-    curl -X POST https://{BASE_URL}/api/webhook/{WEBHOOK_ID} -H "Content-Type: application/json; charset=utf-8" -d $'{"lifecycle": "PING", "executionId": "00000000-0000-0000-0000-000000000000", "locale": "en", "version": "1.0.0", "pingData": { "challenge": "00000000-0000-0000-0000-000000000000"}}'
+    curl -X POST https://{EXTERNAL_URL}/api/webhook/{WEBHOOK_ID} -H "Content-Type: application/json; charset=utf-8" -d $'{"lifecycle": "PING", "executionId": "00000000-0000-0000-0000-000000000000", "locale": "en", "version": "1.0.0", "pingData": { "challenge": "00000000-0000-0000-0000-000000000000"}}'
     ```
-    Where `{BASE_URL}` is your external address and `{WEBHOOK_ID}` is the value of `webhook_id` from `.storage/smartthings` in your Home Assistant configuration directory.
+    Where `{EXTERNAL_URL}` is your external address and `{WEBHOOK_ID}` is the value of `webhook_id` from `.storage/smartthings` in your Home Assistant configuration directory.
 
     The expected response is:
     ```bash

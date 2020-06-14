@@ -6,14 +6,14 @@ ha_category:
   - Sensor
 ha_release: 0.13
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@rohankapoorcom'
+  - '@rngrbm87'
 ha_domain: speedtestdotnet
 ---
 
 The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
-
-Enabling this integration will automatically create Speedtest.net sensors for the monitored conditions (below).
 
 By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
 
@@ -21,30 +21,19 @@ Most Speedtest.net servers require TCP port 8080 outbound to function. Without t
 
 ## Configuration
 
-For the `server_id` check the list of [available servers](https://speedtest.net/speedtest-servers.php).
+Set up the integration through **Configuration -> Integrations -> Speedtest.net**. Once configured you can select the server to run the test against, from the options menu. You can also change the update interval and optionally disable auto-update.
 
-To add Speedtest.net sensors to your installation, add the following to your `configuration.yaml` file:
 
-Once per hour, on the hour (default):
+To import the configuration from `configuration.yaml` refer to the below example.
 
 ```yaml
 # Example configuration.yaml entry
 speedtestdotnet:
 ```
 
+For the `server_id` check the list of [available servers](https://speedtest.net/speedtest-servers.php).
+
 {% configuration %}
-monitored_conditions:
-  description: Sensors to display in the frontend.
-  required: false
-  default: All keys
-  type: list
-  keys:
-    ping:
-      description: "Reaction time in ms of your connection (how fast you get a response after you've sent out a request)."
-    download:
-      description: "The download speed (Mbit/s)."
-    upload:
-      description: "The upload speed (Mbit/s)."
 server_id:
   description: Specify the speed test server to perform the test against.
   required: false
@@ -61,6 +50,15 @@ manual:
   default: false
 {% endconfiguration %}
 
+## Integration Sensors
+
+The following sensors are added by the integration:
+
+sensors:
+  - Ping sensor: Reaction time in ms of your connection (how fast you get a response after you’ve sent out a request).
+  - Download sensor: The download speed (Mbit/s).
+  - Upload sensor: The upload speed (Mbit/s).
+  
 ### Time period dictionary example
 
 ```yaml
@@ -85,8 +83,6 @@ action:
 This integration uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
 Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this integration may display.
 
-When Home Assistant first starts up, the values of the speed test sensors will show as `Unknown`. You can use the service `speedtestdotnet.speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test. You can turn on manual mode to disable the scheduled speed tests.
-
 ## Examples
 
 In this section you will find some real-life examples of how to use this component.
@@ -100,10 +96,6 @@ Every half hour of every day:
 speedtestdotnet:
   scan_interval:
     minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
 ```
 
 ### Using as a trigger in an automation
@@ -132,6 +124,5 @@ automation:
 
 - When running on Raspberry Pi the maximum speed is limited by the LAN adapter. The Raspberry Pi 3+ models come with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s.
 - Running this integration can have negative effects on the system's performance as it requires a fair amount of memory.
-- Entries under `monitored_conditions` only control which entities are available in Home Assistant, they do not disable conditions from running.
 - If run frequently, this integration has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
 - While the speedtest is running your network capacity is fully utilized. This may have a negative effect on other devices using the network such as gaming consoles or streaming boxes.

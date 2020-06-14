@@ -54,6 +54,9 @@ the possibility to show the location of the ISS on OpenStreetMap.
 {% raw %}
 ```yaml
 # Example configuration.yaml entry
+  - platform: iss
+    show_on_map: true
+    
 camera:
   - platform: generic
     name: ISS

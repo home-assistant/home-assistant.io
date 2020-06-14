@@ -11,6 +11,7 @@ ha_codeowners:
   - '@cyr-ius'
   - '@shenxn'
 ha_domain: roomba
+ha_config_flow: true
 ---
 
 The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.
@@ -20,7 +21,7 @@ The `roomba` integration allows you to control your [iRobot Roomba](https://www.
 </p>
 
 <div class='note'>
-This platform has been tested and is confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690 or the 960.
+This platform has been tested and is confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690.
 </div>
 
 ## Configuration
@@ -50,11 +51,6 @@ password:
   description: The password for your device.
   required: true
   type: string
-certificate:
-  description: Path to your certificate store.
-  required: false
-  type: string
-  default: /etc/ssl/certs/ca-certificates.crt
 continuous:
   description: Whether to operate in continuous mode.
   required: false

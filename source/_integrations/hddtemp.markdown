@@ -13,7 +13,7 @@ The `hddtemp` sensor platform is using the data provided by [HDDTemp](https://sa
 It required that `hddtemp` is started or running in daemon mode on a local or remote system.
 
 ```bash
-$ hddtemp -dF
+hddtemp -dF
 ```
 
 To setup a HDDTemp to your installation, add the following to your `configuration.yaml` file:

@@ -11,32 +11,42 @@ ha_codeowners:
   - '@starkillerOG'
 ---
 
-The `denonavr` platform allows you to control a [Denon Network Receivers](https://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant. It might be that your device is supported by the [Denon] platform.
+The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
 
 Known supported devices:
 
+- Denon AVR-X1000
+- Denon AVR-X1200W
 - Denon AVR-X1300W
 - Denon AVR-X1500H
 - Denon AVR-X2000
 - Denon AVR-X2100W
+- Denon AVR-X2200W
+- Denon AVR-X2300W
+- Denon AVR-X3400H
 - Denon AVR-X4100W
 - Denon AVR-X4300H
 - Denon AVR-X4500H
 - Denon AVR-1912
 - Denon AVR-2312CI
 - Denon AVR-3311CI
+- Denon AVR-3312
 - Denon AVR-4810
+- Denon AVR-S710W
 - Denon AVR-S750H
 - Marantz M-CR510
 - Marantz M-CR603
-- Marantz M-RC610
+- Marantz M-CR610
 - Marantz SR5008
-- Marantz SR6007 - SR6010
+- Marantz SR6007 - SR6012
 - Marantz NR1504
 - Marantz NR1604
 - Marantz NR1506
+- Marantz NR1607
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
+
+If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit this page on GitHub** link above.
 
 <div class='note warning'>
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
@@ -102,7 +112,8 @@ A few notes:
 
 #### Service `denonavr.get_command`
 
-Generic commands are supported, in particular, any command supported by the telnet protocol can be sent to `/goform/formiPhoneAppDirect.xml`, e.g., `/goform/formiPhoneAppDirect.xml?VSMONI2` to switch HDMI outputs on supported receivers. IR remote codes can also be sent to this endpoint, e.g.,  "/goform/formiPhoneAppDirect.xml?RCKSK0410370" as a mute toggle. A comprehensive list of telnet protocol commands is available at <https://ca.denon.com/ca/product/hometheater/receivers/avrx4400h?docname=AVR-X6400H_X4400H_X3400H_X2400H_X1400H_S930H_S730H_PROTOCOL_V01.xlsx> and a full list of IR codes at <http://www.denon-hifi.nl/uk/product/hometheater/avreceivers/avr3313?docname=AVR3313_IR_CODE_V01.pdf>
+Generic commands are supported, in particular, any command supported by the telnet protocol can be sent to `/goform/formiPhoneAppDirect.xml`, e.g., `/goform/formiPhoneAppDirect.xml?VSMONI2` to switch HDMI outputs on supported receivers. IR remote codes can also be sent to this endpoint, e.g.,  "/goform/formiPhoneAppDirect.xml?RCKSK0410370" as a mute toggle.  
+A comprehensive list of telnet protocol commands is [also available](http://assets.denon.com/_layouts/15/xlviewer.aspx?id=/DocumentMaster/us/AVR-X6400H_X4400H_X3400H_X2400H_X1400H_S930H_S730H_PROTOCOL_V01.xlsx) and so is a [full list of IR codes](http://assets.denon.com/DocumentMaster/UK/AVR3313_IR_CODE_V01.pdf)
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |

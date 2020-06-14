@@ -46,7 +46,7 @@ port:
 The exact number can be determined with the command shown below.
 
 ```bash
-$ ls /dev/ttyACM*
+ls /dev/ttyACM*
 ```
 
 If that's not working, check your `dmesg` or `journalctl -f` output. Keep in mind that Arduino clones are often using a different name for the port (e.g., `/dev/ttyUSB*`).
@@ -58,7 +58,7 @@ A word of caution: The Arduino boards are not storing states. This means that wi
 Add the user who is used to run Home Assistant to the groups to allow access to the serial port.
 
 ```bash
-$ sudo usermod -a -G dialout,lock $USER
+sudo usermod -a -G dialout,lock $USER
 ```
 
 ## Sensor

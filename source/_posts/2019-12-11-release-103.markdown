@@ -799,7 +799,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for hikvision ([@springstan] - [#29417]) ([hikvision docs])
 - Move imports to top for horizon ([@springstan] - [#29419]) ([horizon docs])
 - Move imports to top for hunterdouglas_powerview ([@springstan] - [#29420]) ([hunterdouglas_powerview docs])
-- Move imports to top for gearbest ([@springstan] - [#29432]) ([gearbest docs])
+- Move imports to top for gearbest ([@springstan] - [#29432])
 - Move imports to top for fleetgo ([@springstan] - [#29431]) ([fleetgo docs])
 - Move imports to top for fints ([@springstan] - [#29429]) ([fints docs])
 - Move imports to top for fastdotcom ([@springstan] - [#29428]) ([fastdotcom docs])
@@ -1542,7 +1542,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [freebox docs]: /integrations/freebox/
 [fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
 [frontend docs]: /integrations/frontend/
-[gearbest docs]: /integrations/gearbest/
 [geizhals docs]: /integrations/geizhals/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [geo_json_events docs]: /integrations/geo_json_events/

@@ -14,7 +14,7 @@ This integration provides support for Internet Radios based on the [Frontier Sil
 * Hama: [IR110], [DIR3110]
 * Medion: [Medion Radios]
 * Silvercrest: [SIRD 14 C2]
-* Some models from: Auna, Technisat, Revo, Pinell
+* Some models from: Auna, Technisat, Revo, Pinell, Como Audio
 
 This integration was developed and tested with a Hama [DIR3110] and a Medion [MD 87466].
 

@@ -1,5 +1,5 @@
 ---
-title: Somfy Open API
+title: Somfy
 description: Instructions on how to set up the Somfy hub within Home Assistant.
 ha_category:
   - Hub

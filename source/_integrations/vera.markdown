@@ -14,6 +14,8 @@ ha_category:
 ha_release: pre 0.7
 ha_config_flow: true
 ha_domain: vera
+ha_codeowners:
+  - '@vangorra'
 ---
 
 The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices.
