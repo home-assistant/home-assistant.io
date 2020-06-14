@@ -28,7 +28,6 @@ There is currently support for the following device types within Home Assistant:
 ## Introduction
 
 - **Climate platforms**
-
   - List of climate entities for each Room
   - Animated icons for the Rooms to let you know which rooms are actually being heated (credit @msp1974)
   - Allows setting of temperatures from HA
@@ -36,12 +35,10 @@ There is currently support for the following device types within Home Assistant:
   - Displays icon if radiator is heating (heat flowing) or not
 
 - **Switch platform(s)**
-
   - Allows the switching of various system switches including EcoMode, ComfortMode, AwayMode, Valve Protection and AwayModeAffectsWater
   - Allows the switching of the wiser system smartplugs
 
 - **Sensor Platforms**
-
   - TRV Sensor
     - Each TRV is represented by a Sensor platform. Many attributes are exposed including extensive information about the device, such as WIFI Signal strength, firmware version, battery levels and zigbee information (including if connection to hub is direct or via repeater) etc
   - Room Thermostats Sensors
@@ -59,22 +56,19 @@ There is currently support for the following device types within Home Assistant:
     - Nice to know when the hot water is on/off.
     - Also a service which allows you to modify the state of the hotwater
   - Operation Mode Sensor (aka away sensor)
-    - This sensor returns the away status of the heathub, being either `away` or `normal`.
+    - This sensor returns the away status of the HeatHub, being either `away` or `normal`.
   - Battery Sensors for all the battery devices
 
 - **Services**
-
   - `wiser.boost_heating` : Provides ability to boost the heating in a particular room
-  - `wiser.set_smartplug_mode` : Provides ability to set the mode of a smartplug to either `manual` or `auto`.  Setting the smartplug "state" is done by setting the state of the switch component.
-  - `wiser.copy_schedule`, `wiser.get_schedule` and`wiser.set_schedule` :  Ability to manipulate the schedules for the TRVs
+  - `wiser.set_smartplug_mode` : Provides ability to set the mode of a smartplug to either `manual` or `auto`. Setting the smartplug "state" is done by setting the state of the switch component.
+  - `wiser.copy_schedule`, `wiser.get_schedule` and`wiser.set_schedule` : Ability to manipulate the schedules for the TRVs
   - `wiser.set_hot_water_mode` : Provides ability to turn a hot water **on**/**off** or **auto**. Valid values include `on`, `off` or `auto` Setting it to auto makes it follow the current scheduleService
 
   ![img](../../images/integrations/wiser/uiexample.jpg)
 
 ## Configuration
-
-### PreRequisites
-
+### Prerequisites
 Before you can use the component you need to find the HeatHub secret key, this involves a couple of steps.
 
 - Press the setup button on your HeatHub, the light will start flashing
@@ -87,7 +81,7 @@ Before you can use the component you need to find the HeatHub secret key, this i
 This will return a string which will contain your system secret, save it somewhere and obviously don't share this :-)
 
 - Press the setup button on the HeatHub again and it will go back to normal operations
-- The HeatHub IP Address is found automatically by Home Assistant but if for some reason it isnt you can find Your HEATHUB IP Using your router. On many routers it usually identifies itself as the something like WiserHeatXXXXXX
+- The HeatHub IP Address is found automatically by Home Assistant but if for some reason it isnt you can find Your HeatHub IP Using your router. On many routers it usually identifies itself as the something like WiserHeatXXXXXX
 
 ### Setting up the Wiser Integration
 
@@ -117,11 +111,11 @@ wiser:
   boost_time: 30
 
 ```
-
-- After this  the integration will add a all your TRVs, Sensors. RoomStats etc. to HomeAssistant
-
+- After this  the integration will add a all your TRVs, Sensors. RoomStats etc. to Home Assistant
 
 
+
+# Advanced Topics
 ## Managing Schedules with Home Assistant
 
 ### Getting a Schedule
@@ -272,15 +266,15 @@ This will require you to provide an entity ID of the device to copy from and the
 
 ## Network Topology
 
-You can now determine if the TRV is connected to the heathub directly or via a smartplug repeater.
+You can now determine if the TRV is connected to the HeatHub directly or via a smartplug repeater.
 
 Each TRV sensor now has three special network related attributes
 
 | Attribute        | Meaning                                                      |
 | ---------------- | ------------------------------------------------------------ |
 | `node_id`        | The node Id of the device                                    |
-| `parent_node_id` | If this value is zero (0) then the device is connected direct to the heathub. A non zero value points to the smartplug/repeater for which this device is being routed through. Smartplugs always have this value as zero |
-| `hub_route`      | Calculated convenience attribute which the evaluates to either `direct` or `repeater` based on if the device is connected direct or not to the heathub |
+| `parent_node_id` | If this value is zero (0) then the device is connected direct to the HeatHub. A non zero value points to the smartplug/repeater for which this device is being routed through. Smartplugs always have this value as zero |
+| `hub_route`      | Calculated convenience attribute which the evaluates to either `direct` or `repeater` based on if the device is connected direct or not to the HeatHub |
 
 ## Battery Values
 
@@ -288,4 +282,34 @@ For each battery driven device sensor the following attributes are available `ba
 
 An obvious ideal candidate for a Home Assistant automation to remind you to change the batteries :-)
 
-Note : If you power cycle your HomeHub, with more than a minute or so when it is off, we've noticed that the devices will not have the battery info for a short period of time (maybe 30mins to 1hr) , just wait and the battery values will appear.
+Note : If you power cycle your HeatHub, with more than a minute or so when it is off, we've noticed that the devices will not have the battery info for a short period of time (maybe 30mins to 1hr) , just wait and the battery values will appear.
+
+
+
+{% configuration %}
+host:
+  description: The IP Address of the HeatHub.
+  required: true
+  type: string
+password:
+  description: The password, or secret key, of your HeatHub.
+  required: true
+  type: string
+scan_interval::
+  description: How often (in seconds) the integration should poll the HeatHub for its state.
+  required: false
+  type: integer
+  default: 30
+boost_temp:
+  description: How many degrees (C) would be added to the existing temperature when  the TRV is boosted.
+  required: false
+  type: integer
+  default: 2
+boost_time:
+  description: How long , in minutes, a boost operation on a radiator would last
+  required: false
+  type: integer
+  default: 30
+
+{% endconfiguration %}
+
