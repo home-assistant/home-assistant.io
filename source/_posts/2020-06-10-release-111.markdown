@@ -322,6 +322,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
   Previously it was set after the action that was part of the trigger was done.
 
   ([@basnijholt] - [#35671]) ([automation docs])
+  
+  **Command Line Sensors**
+  
+  The fix for command line sensors removing quotes with template breaks any sensors where the quote has been escaped using a backslash.
+  E.g. to work around the previous bug a quote could be added using \" and this must now be replaced with simply "
+  
+  (@shenxn - #35559) (command_line docs)
 
 ## Farewell to the following
 
