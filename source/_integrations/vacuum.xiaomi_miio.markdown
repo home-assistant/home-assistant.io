@@ -279,7 +279,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 ### iOS
 
 1. Configure the robot with the Mi Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
-2. Using iTunes, create an unencrypted backup of your iPhone.
+2. Using iTunes, create an unencrypted backup of your iPhone. Since macOS 10.15 there is no iTunes app. Use Finder instead - after connecting your iOS device you should see it in left menu of Finder window. 
 3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
 5. Navigate to `com.xiaomi.mihome`.
@@ -367,6 +367,8 @@ vacuum_kitchen:
 Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`.
 
 Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans.
+
+Note: if you don't have access to the miio command-line tool, you can try the app_segment_clean command starting from number 16 as this number seems to be the first room.
 
 ```bash
 miio protocol call <ip of the vacuum> get_room_mapping

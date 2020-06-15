@@ -13,6 +13,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@scop'
+  - '@fphammerle'
 ha_domain: huawei_lte
 ---
 
