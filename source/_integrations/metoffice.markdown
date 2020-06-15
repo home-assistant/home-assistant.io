@@ -16,7 +16,9 @@ The `metoffice` weather platform uses the Met Office's [DataPoint API](https://w
 
 To add the Met Office weather platform to your installation, you'll need to register for a free API key at the link above and then go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Met Office**. Multiple entries can be configured, but a unique set of latitude and longitude must be supplied for each.
 
-A number of weather entities are created for each entry created in the configuration by location: one weather entity with a summary of the 3-hourly forecasts and twelve sensor entities for individual reporting on each of the individual measurements. The time supplied for each forecast is the start time for the forecast.
+A number of weather entities are created for each entry created in the configuration by location: one weather entity with a summary of the selected forecast interval (either 3-hourly, or daily - which is a 12-hour snapshot at midnight and midday) and twelve sensor entities for individual reporting on each of the individual measurements. The weather entity now also holds the forecast data for the next 12 update intervals, depending on the update frequency chosen. The time supplied for each forecast is the start time for the forecast.
+
+The update interval can be updated by going to **Configuration** >> **Integrations** in the UI, and clicking on the **Options** button in your existing **Met Office** integration.
 
 |Entity|Description|Enabled by default|
 |------|-----------|------------------|
