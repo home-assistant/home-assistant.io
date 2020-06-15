@@ -95,11 +95,12 @@ sensor:
   - platform: environment_canada
 ```
 
-- A sensor will be created for each of the following conditions, with a default name like `sensor.temperature`:     
+- A sensor will be created for each of the following conditions, with a default name like `sensor.temperature`:
     - `temperature` - The current temperature, in ºC.
     - `dew_point` - The current dewpoint, in ºC.
     - `wind_chill` - The current wind chill, in ºC.
     - `humidex` - The current humidex, in ºC.
+    - `air_quality_health_index` - The current Air Quality Health Index score
     - `pressure` - The current air pressure, in kPa.
     - `tendency` - The current air pressure tendency, e.g.,  "Rising".
     - `humidity` - The current humidity, in %.
@@ -124,7 +125,7 @@ sensor:
 - The platform automatically determines which weather station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
     - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
     - A specific latitude/longitude
-- In the case of multiple alerts in the same category, the titles and details of each are concatenated together with a pipe (`|`) separator.
+- In the case of multiple alerts in the same category, the titles of each are concatenated together with a pipe (`|`) separator.
 
 {% configuration %}
 latitude:
