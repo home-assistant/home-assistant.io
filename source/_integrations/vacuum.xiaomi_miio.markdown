@@ -190,6 +190,47 @@ Go the specified coordinates
 | `x_coord`                 |       no | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
 | `y_coord`                 |       no | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
 
+### Service `xiaomi_miio.vacuum_clean_segment`
+
+Clean the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving_room_numbers).
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                          | 
+| `segments`                |       no | List of segment numbers or one single segment number. |
+
+Example of `xiaomi_miio.vacuum_clean_segment` use:
+
+Multiple segments:
+```yaml
+automation:
+  - alias: Vaccum kitchen and living room
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        segments: [1,2]
+```
+
+Single segment:
+```yaml
+automation:
+  - alias: Vacuum kitchen
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        segments: 1
+```
+
 ## Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
@@ -364,13 +405,7 @@ vacuum_kitchen:
         params: [18]
 ```
 
-Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`.
-
-Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans.
-
-```bash
-miio protocol call <ip of the vacuum> get_room_mapping
-```
+Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving_room_numbers).
 
 ## Example on how to reset maintenance hours (brushes, filter, sensors)
 
@@ -423,3 +458,13 @@ vacuum_kitchen:
         command: app_zoned_clean
         params: [[23084,26282,27628,29727,1]]
 ```
+## <a name="retrieving_room_numbers" />Retrieving Room numbers
+
+Valid room numbers can be retrieved using miio command-line tool:
+```bash
+miio protocol call <ip of the vacuum> get_room_mapping
+```
+It will only give room numbers and not the room names. To mat the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient. 
+
+It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing. 
+
