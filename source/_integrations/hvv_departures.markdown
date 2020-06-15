@@ -33,6 +33,26 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
 - **offset**: set this if you want to list the departures some minutes in the future, for example, if you live ten minutes away from the station.
 - **use realtime data**: enable this to include delay and cancellation information.
 
+## Elevator sensors
+
+If the selected station has elevators, binary_sensors will be available.
+
+### States
+
+- OK (`off`): The elevator is working.
+- Problem (`on`): The elevator is out of order. See the cause attribute for more information.
+
+### Attributes
+
+| Attribute       | Description                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `cabin_width`   | Width of the elevator cabin                                                                                                                |
+| `cabin_length`  | Length of the elevator cabin                                                                                                               |
+| `door_width`    | Width of the elevator doors                                                                                                                |
+| `elevator_type` | Type of the elevator                                                                                                                       |
+| `button_type`   | Type of the elevator buttons, can be one of the following: <br/><ul><li>`BRAILLE`</li><li>`ACUSTIC`</li><li>`COMBI`</li><li>`UNKNOWN`</li> |
+| `cause`         | If the state of the sensor is `on` ("Problem"), the `cause` attribute may contain further information about the cause                      |
+| `lines`         | List of lines that can be reached using this elevator                                                                                      |
 
 ## How to get the API credentials
 
