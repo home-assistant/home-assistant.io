@@ -13,7 +13,7 @@ ha_domain: influxdb
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
 
-Additionally, you can now make use of an InfluxDB 2.0 installation in this Integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
+Additionally, you can now make use of an InfluxDB 2.0 installation with this Integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -39,21 +39,21 @@ You will still need to create a database named `home_assistant` via InfluxDB's c
 {% configuration %}
 api_version:
   type: string
-  description: API version to use.  Valid values are `1` or `2`
+  description: API version to use.  Valid values are `1` or `2`.
   default: "1"
 ssl:
   type: boolean
-  description: Use HTTPS instead of HTTP to connect. **2.xx - Defaults to `true` for 2.xx, not `false`.**
+  description: Use HTTPS instead of HTTP to connect. 2.xx - Defaults to `true` for 2.xx, not `false`.
   required: false
   default: false
 host:
   type: string
-  description: IP address or domain of your database host, e.g., 192.168.1.10. **2.xx - Defaults to 'us-west-2-1.aws.cloud2.influxdata.com' for 2.xx, not 'localhost'.**
+  description: IP address or domain of your database host, e.g., 192.168.1.10. 2.xx - Defaults to 'us-west-2-1.aws.cloud2.influxdata.com' for 2.xx, not 'localhost'.
   required: false
   default: localhost
 port:
   type: integer
-  description: Port to use. **2.xx - No default port for 2.xx, not 8086.**
+  description: Port to use. 2.xx - No default port for 2.xx, not 8086.
   required: false
   default: 8086
 path:
@@ -62,33 +62,33 @@ path:
   required: false
 username:
   type: string
-  description: "**1.xx only** The username of the database user. The user needs read/write privileges on the database."
+  description: 1.xx only - The username of the database user. The user needs read/write privileges on the database.
   required: inclusive
 password:
   type: string
-  description: "**1.xx only** The password for the database user account. Needed with `username` configuration variable."
+  description: 1.xx only - The password for the database user account. Needed with `username` configuration variable.
   required: inclusive
 database:
   type: string
-  description: "**1.xx only** Name of the database to use. The database must already exist."
+  description: 1.xx only - Name of the database to use. The database must already exist.
   required: false
   default: home_assistant
 verify_ssl:
   type: boolean
-  description: "**1.xx only** Verify SSL certificate for HTTPS request. Note that when using 2.xx this option is ignored. SSL verification is required, library provides no way to disable it."
+  description: 1.xx only - Verify SSL certificate for HTTPS request. For 2.xx SSL verification is required, library provides no way to disable it.
   required: false
   default: true
 token:
   type: string
-  description: "**2.xx only** Auth token with WRITE access to your chosen Organization and Bucket. Needed with `organization` configuration variable."
+  description: 2.xx only - Auth token with WRITE access to your chosen Organization and Bucket. Needed with `organization` configuration variable.
   required: inclusive
 organization:
   type: string
-  description: "**2.xx only** Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `token` configuration variable."
+  description: "2.xx only - Organization ID to write to. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `token` configuration variable."
   required: inclusive
 bucket:
   type: string
-  description: "**2.xx only** Name of the bucket (not the generated bucket ID) within your Organization to write to."
+  description: 2.xx only - Name of the bucket (not the generated bucket ID) within your Organization to write to.
   required: false
   default: Home Assistant
 max_retries:
@@ -234,7 +234,7 @@ influxdb:
 
 The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be use to present statistic about home_assistant sensors if used with the `influxdb` history component. It can also be used with an external data source.
 
-### Configuration for 1.xx Installations
+### Configuration
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
 
@@ -248,24 +248,46 @@ sensor:
         measurement: '"°C"'
 ```
 
+Note that 2.xx installations of InfluxDB only support queries in their Flux language. While this language was available in 1.xx installations it was not the default and not used in the API so you may not be aware of it. You can learn more about it from their [documentation](https://v2.docs.influxdata.com/v2.0/reference/flux/) or by using the query builder in the UI. 
+
+You will need to construct your queries in this language in sensors for 2.xx installations, it looks like this:
+
+```yaml
+# Example configuration.yaml entry
+sensor: 
+  - platform: influxdb
+    api_version: 2
+    organization: RANDOM_16_DIGIT_HEX_ID
+    token: GENERATED_AUTH_TOKEN
+    queries_flux: 
+      - group_function: mean
+        imports: 
+          - strings
+        name: "Mean humidity reported from past day"
+        query: >
+          filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity"))  
+          |> keep(columns: ["_value"])\n"
+        range_start: "-1d"
+```
+
 {% configuration %}
 api_version:
   type: string
-  description: API version to use. Enter `1` or don't specify this field for 1.xx installations.
+  description: API version to use.  Valid values are `1` or `2`.
   default: "1"
 ssl:
   type: boolean
-  description: Use HTTPS instead of HTTP to connect.
+  description: Use HTTPS instead of HTTP to connect. 2.xx - Defaults to `true` for 2.xx, not `false`.
   required: false
   default: false
 host:
   type: string
-  description: IP address of your database host, e.g., 192.168.1.10.
+  description: IP address or domain of your database host, e.g., 192.168.1.10. 2.xx - Defaults to 'us-west-2-1.aws.cloud2.influxdata.com' for 2.xx, not 'localhost'.
   required: false
   default: localhost
 port:
-  type: string
-  description: Port to use.
+  type: integer
+  description: Port to use. 2.xx - No default port for 2.xx, not 8086.
   required: false
   default: 8086
 path:
@@ -274,20 +296,38 @@ path:
   required: false
 username:
   type: string
-  description: The username of the database user.
-  required: false
+  description: 1.xx only - The username of the database user. The user needs read/write privileges on the database.
+  required: inclusive
 password:
   type: string
-  description: The password for the database user account.
+  description: 1.xx only - The password for the database user account. Needed with `username` configuration variable.
+  required: inclusive
+database:
+  type: string
+  description: 1.xx only - Name of the database to use. The database must already exist. Sets the default database for sensors, individual sensors can also read from a different database.
   required: false
+  default: home_assistant
 verify_ssl:
   type: boolean
-  description: Verify SSL certificate for HTTP request.
+  description: 1.xx only - Verify SSL certificate for HTTPS request. For 2.xx SSL verification is required, library provides no way to disable it.
   required: false
-  default: false
+  default: true
+token:
+  type: string
+  description: 2.xx only - Auth token with READ access to your chosen Organization and Bucket. Needed with `organization` configuration variable.
+  required: inclusive
+organization:
+  type: string
+  description: "2.xx only - Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud it looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}. Needed with `token` configuration variable."
+  required: inclusive
+bucket:
+  type: string
+  description: 2.xx only - Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket.
+  required: false
+  default: Home Assistant
 queries:
   type: list
-  description: List of queries.
+  description: 1.xx only - List of InfluxQL queries.
   required: true
   keys:
     name:
@@ -325,71 +365,9 @@ queries:
       description: The field name to select.
       required: true
       default: value
-{% endconfiguration %}
-
-### Configuration for 2.xx Installations
-
-2.xx installations of InfluxDB only support queries in their Flux language. While this language was available in 1.xx installations it was not the default and not used in the API so you may not be aware of it. You can learn more about it from their [documentation](https://v2.docs.influxdata.com/v2.0/reference/flux/) or by using the query builder in the UI. 
-
-You will need to construct your queries in this language in sensors for 2.xx installations, it looks like this:
-
-```yaml
-# Example configuration.yaml entry
-sensor: 
-  - platform: influxdb
-    api_version: 2
-    organization: RANDOM_16_DIGIT_HEX_ID
-    token: GENERATED_AUTH_TOKEN
-    queries_flux: 
-      - group_function: mean
-        imports: 
-          - strings
-        name: "Mean humidity reported from past day"
-        query: >
-          filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity"))  
-          |> keep(columns: ["_value"])\n"
-        range_start: "-1d"
-```
-
-{% configuration %}
-api_version:
-  type: string
-  description: API version to use. Must enter `2` for 2.xx installations.
-  required: true
-ssl:
-  type: boolean
-  description: Use HTTPS instead of HTTP to connect.
-  required: false
-  default: true
-host:
-  type: string
-  description: IP address or domain of your database host, e.g., 192.168.1.10.
-  required: false
-  default: us-west-2-1.aws.cloud2.influxdata.com
-port:
-  type: integer
-  description: Port to use.
-  required: false
-path:
-  type: string
-  description: Path to use if your InfuxDB is running behind an reverse proxy.
-  required: false
-token:
-  type: string
-  description: Auth token with READ access to your chosen Organization and Bucket.
-  required: true
-organization:
-  type: string
-  description: "Organization ID to read from. To obtain this, open the UI of your 2.xx installation, the URL at the top will have it after `/orgs`. For example, in InfluxDB Cloud the URL looks like this: https://us-west-2-1.aws.cloud2.influxdata.com/orgs/{OrganizationID}."
-  required: true
-bucket:
-  type: string
-  description: Name of the bucket (not the generated bucket ID) within your Organization to read from. This sets the default bucket for sensors, individual sensors can also read from a different bucket.
-  required: false
-  default: Home Assistant
 queries_flux:
   type: list
-  description: List of queries in Flux syntax.
+  description: 2.xx only - List of Flux queries.
   required: true
   keys:
     name:
