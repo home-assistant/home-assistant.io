@@ -32,11 +32,11 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 
 There are many ways you can edit `configuration.yaml`. Here are three options to get you started:
 
+The simplest is to use the File Editor add-on. This will allow you to edit your configuration from within Home Assitant itself.
+
+You can also use Samba (you may need to install the Samba add-on) and your favourite file editor.
+
 The most basic is to use SSH to connect to the system (you may need to install the SSH add-on) and then use `nano` (or `vim`) to edit the file.
-
-You can also use Samba (again, you may need to install the Samba add-on) and your favourite file editor.
-
-There's a [Visual Studio Code](https://github.com/hassio-addons/addon-vscode#home-assistant-community-add-on-visual-studio-code) that allows you to edit your configuration within Home Assistant itself.
 
 ## Reloading changes
 
