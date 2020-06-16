@@ -15,7 +15,9 @@ The [KNX](https://www.knx.org) integration for Home Assistant allows you to conn
 The integration requires a local KNX/IP interface or router. Through this, it will establish a connection between Home Assistant and your KNX bus.
 
 <div class='note warning'>
+
 Please note, the `knx` platform does not support KNX Secure.
+
 </div>
 
 There is currently support for the following device types within Home Assistant:
