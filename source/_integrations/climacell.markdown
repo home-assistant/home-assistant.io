@@ -55,7 +55,7 @@ longitude:
   required: inclusive
   type: float
   default: The longitude of your Home Assistant instance
-forecast_frequency:
+forecast_interval:
   description: The kind of forecast you want. Valid options are `hourly`, `daily`, or `disable`. `hourly` will get 90 hours of forecasts by the hour, `daily` will get 14 days of forecasts by the day, and `disable` will disable the retrieval of forecasts entirely.
   required: false
   type: string
@@ -74,6 +74,6 @@ climacell:
     name: MY_CLIMACELL_DEVICE
     latitude: -23.22960
     longitude: -108.27803
-    forecast_frequency: daily
+    forecast_interval: daily
     aqi_country: usa
 ```
