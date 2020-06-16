@@ -33,7 +33,7 @@ Please note, there are two versions of the hub: v1 and v2. v1 can be used with H
 - Gas Leak Detector (reports alarm and density)
 - Gateway (Light, Illumination Sensor, Ringtone play)
 - Intelligent Curtain
-- Motion Sensor (1st and 2nd generation)
+- Motion Sensor (1st and 2nd generation, configuration for hacked Motion Sensor is also available. See https://community.home-assistant.io/t/aqara-motion-sensor-hack-for-5-sec/147959 for informations about the hack) 
 - Plug aka Socket (Zigbee version, reports power consumed, power load, state and if the device is in use)
 - Smoke Detector (reports alarm and density)
 - Temperature and Humidity Sensor (1st and 2nd generation)
@@ -69,6 +69,21 @@ xiaomi_aqara:
 ```
 
 For one gateway to avoid errors, don't provide the MAC address.
+
+### One Gateway with hacked Motion Sensor
+
+```yaml
+# You can leave MAC empty if you only have one gateway.
+xiaomi_aqara:
+  discovery_retry: 5
+  hardware_modified: True
+  no_motion_after_sec: 5
+  gateways:
+    - key: xxxxxxxxxxxxxxxx
+```
+
+For one gateway to avoid errors, don't provide the MAC address.
+NOTE: You can use this feature also to shrink the time it takes to set the sensor back to "Clear/False" even if the sensor is not hacked. Be informed that the Motion Sensor then will only show the next motion after 60 seconds. Moreover the Configuration is applied to all to the Gateway connected Motion Sensors even if they are not hacked.
 
 ### Multiple Gateways
 
@@ -126,6 +141,16 @@ interface:
   required: false
   type: string
   default: any
+hardware_modified:
+  description: If the Motion Sensor hack for "5 Seconds" has been performed set it to True. See https://community.home-assistant.io/t/aqara-motion-sensor-hack-for-5-sec/147959. Can be also set to True if you want to shrink the time it takes to set the sensor back to Clear/False" even if the sensor is not hacked. This will result in a shorter time to set the Motion Sensor back but if the device is not hacked it will take 60 seconds until the Motion Sensor will trigger a motion event again.
+  required: false
+  type: boolean
+  default: False
+no_motion_after_sec:
+  description: Time in seconds when the Sensor should be set to "Clear/Off". Only useful to change when hardware_modified is set to True. The minumum value is 5.
+  required: false
+  type: integer
+  default: 120
 {% endconfiguration %}
 
 ### Services
