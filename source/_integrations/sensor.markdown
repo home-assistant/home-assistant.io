@@ -27,7 +27,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **timestamp**: Datetime object or timestamp string.
 - **current**: Current in A.
 - **energy**: Energy in Wh or kWh.
-- **power_factory**: Power Factor in cos(ϕ) or ϕ.
+- **power_factory**: Power Factor, no unit (min: -1.0, max: 1.0).
 - **voltage**: Voltage in V.
 
 <p class='img'>
