@@ -18,11 +18,12 @@ The inverter was formerly made by PowerOne who got taken over by ABB.
 The TCP/IP method of communicating with inverters is supported by the 
 Python library, but not by this implementation in this integration.
 
-This integration provides a single sensor which reports the live power output
-in watts.
+This integration creates the inverter as a device with two sensors, reporting live power output in Watts and device temperature.
 
 Note the PV inverter will be unresponsive to communications when in darkness, 
-so the value 'unknown' will be displayed during the night.
+so the sensors will report 'Unavailable' during the night.
+
+The RS485 connection can be made using a low cost USB-RS485 converter.  It works using a 2-wire interface but an interface with a separate ground reference may be more reliable.
 
 ## Configuration
 
