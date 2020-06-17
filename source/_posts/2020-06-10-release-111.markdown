@@ -424,6 +424,31 @@ The integrations below have been removed:
 [#36820]: https://github.com/home-assistant/core/pull/36820
 [#36836]: https://github.com/home-assistant/core/pull/36836
 
+## Release 0.111.4 - June 17
+
+- Fix llamalab_automate notify priority ([@fb22] - [#36845]) ([llamalab_automate docs])
+- Bump Axis dependency to fix issue where ports dont initialize ([@Kane610] - [#36860]) ([axis docs])
+- Fix Daikin zeroconf discovery flow error ([@fredrike] - [#36868]) ([daikin docs])
+- Upgrade pymetno ([@Danielhiversen], [@balloob] - [#36880]) ([met docs]) ([norway_air docs])
+- Fix yr HTTP error handling ([@pnbruckner] - [#36889])
+
+[#36889]: https://github.com/home-assistant/core/pull/36889
+[#36845]: https://github.com/home-assistant/core/pull/36845
+[#36860]: https://github.com/home-assistant/core/pull/36860
+[#36868]: https://github.com/home-assistant/core/pull/36868
+[#36880]: https://github.com/home-assistant/core/pull/36880
+[@Kane610]: https://github.com/Kane610
+[@pnbruckner]: https://github.com/pnbruckner
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@balloob]: https://github.com/balloob
+[@fb22]: https://github.com/fb22
+[@fredrike]: https://github.com/fredrike
+[axis docs]: /integrations/axis/
+[daikin docs]: /integrations/daikin/
+[llamalab_automate docs]: /integrations/llamalab_automate/
+[met docs]: /integrations/met/
+[norway_air docs]: /integrations/norway_air/
+
 ## All changes
 
 <details>
