@@ -50,7 +50,6 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 
 - Add the Withings integration.
 - Once authorized, the tab/window will close and the integration page will prompt to enter a profile name.    
-  - Note: It's important you provide the same profile from the previous step. Choosing a different one will result in Home Assistant showing data for one profile but labeling it for another.
 - Data will synchronize immediately and update every 5 minutes.
 
 ## Setup (Advanced)
