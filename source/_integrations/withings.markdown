@@ -56,7 +56,12 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 - Add the Withings integration.
 - Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
   - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
-- Data will synchronize immediately and update every 120 minutes.
+- Data will synchronize immediately and update under the following conditions:
+    - If webhook is enabled
+        - Each time Withings notifies Home Assistant of a data change.
+        - Every 120 minutes.
+    - If webhook is not enabled
+        - Every 10 minutes.
 
 ## Setup (Advanced)
 For advanced users who are NOT using Home Assistant Cloud. This is not intended to be a complete step-by-step guide.
