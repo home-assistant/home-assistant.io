@@ -40,10 +40,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
     withings:
       client_id: CLIENT_ID
       client_secret: CONSUMER_SECRET
-      profiles:
-        - USER_PROFILE_NAME
     ```
-    Withings supports multiple profiles per account. Each profile has a person's name to help distinguish whose data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish whose data you're looking at.
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
     - Note: In order for "Check Configuration" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Configuration" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
 - Restart Home Assistant.
@@ -52,8 +49,8 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 ### Step 3 - Authorize Home Assistant
 
 - Add the Withings integration.
-- Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
-  - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
+- Once authorized, the tab/window will close and the integration page will prompt to enter a profile name.    
+  - Note: It's important you provide the same profile from the previous step. Choosing a different one will result in Home Assistant showing data for one profile but labeling it for another.
 - Data will synchronize immediately and update every 5 minutes.
 
 ## Setup (Advanced)
@@ -94,8 +91,6 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 withings:
     client_id: CLIENT_ID
     client_secret: CONSUMER_SECRET
-    profiles:
-        - USER_PROFILE_NAME
 ```
 {% configuration %}
 client_id:
@@ -106,10 +101,6 @@ client_secret:
   description: The OAuth secret (get from https://account.withings.com/partner/add_oauth2)
   required: true
   type: string
-profiles:
-  description: Withings supports multiple profiles per account. Provide the person's name whom you want Home Assistant entities to will be associated with (just a name, it doesn't have to be perfect). During the authorization step, you will be asked to select this user from the Withings website.
-  required: true
-  type: map
 {% endconfiguration %}
 
 ## Bonus: Template Sensors to Convert Kilograms to Pounds
