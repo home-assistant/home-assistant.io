@@ -415,14 +415,14 @@ The integrations below have been removed:
 [@teharris1]: https://github.com/teharris1
 [@balloob]: https://github.com/balloob
 [@kennedyshead]: https://github.com/kennedyshead
-[#36760]: https://github.com/home-assistant/pull/36760
-[#36769]: https://github.com/home-assistant/pull/36769
-[#36794]: https://github.com/home-assistant/pull/36794
-[#36797]: https://github.com/home-assistant/pull/36797
-[#36807]: https://github.com/home-assistant/pull/36807
-[#36812]: https://github.com/home-assistant/pull/36812
-[#36820]: https://github.com/home-assistant/pull/36820
-[#36836]: https://github.com/home-assistant/pull/36836
+[#36760]: https://github.com/home-assistant/core/pull/36760
+[#36769]: https://github.com/home-assistant/core/pull/36769
+[#36794]: https://github.com/home-assistant/core/pull/36794
+[#36797]: https://github.com/home-assistant/core/pull/36797
+[#36807]: https://github.com/home-assistant/core/pull/36807
+[#36812]: https://github.com/home-assistant/core/pull/36812
+[#36820]: https://github.com/home-assistant/core/pull/36820
+[#36836]: https://github.com/home-assistant/core/pull/36836
 
 ## All changes
 
