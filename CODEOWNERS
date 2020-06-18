@@ -235,6 +235,7 @@ source/_integrations/melissa.markdown @kennedyshead
 source/_integrations/met.markdown @danielhiversen
 source/_integrations/meteo_france.markdown @victorcerutti @oncleben31 @Quentame
 source/_integrations/meteoalarm.markdown @rolfberkenbosch
+source/_integrations/meteoclimatic.markdown @adrianmo
 source/_integrations/miflora.markdown @danielhiversen @ChristianKuehnel
 source/_integrations/mikrotik.markdown @engrbm87
 source/_integrations/mill.markdown @danielhiversen

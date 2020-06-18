@@ -771,6 +771,7 @@
 /components/sensor.lyft /integrations/lyft
 /components/sensor.magicseaweed /integrations/magicseaweed
 /components/sensor.meteo_france /integrations/meteo_france
+/components/sensor.meteoclimatic /integrations/meteoclimatic
 /components/sensor.mfi /integrations/mfi#sensor
 /components/sensor.mhz19 /integrations/mhz19
 /components/sensor.miflora /integrations/miflora
@@ -1071,6 +1072,7 @@
 /components/weather.ipma /integrations/ipma
 /components/weather.met /integrations/met
 /components/weather.meteo_france /integrations/meteo_france
+/components/weather.meteoclimatic /integrations/meteoclimatic
 /components/weather.metoffice /integrations/metoffice
 /components/weather.openweathermap /integrations/openweathermap#weather
 /components/weather.smhi /integrations/smhi
