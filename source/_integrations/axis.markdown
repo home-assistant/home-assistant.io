@@ -42,7 +42,7 @@ The following sensor types are supported:
 
 ## Light
 
-Control brightness and state of IR Led lights connected to device.
+Control brightness and state of IR LED lights connected to device.
 
 ## Switch
 
