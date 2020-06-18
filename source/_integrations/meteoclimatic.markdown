@@ -1,7 +1,7 @@
 ---
 title: Meteoclimatic
 description: Instructions on how to integrate Meteoclimatic within Home Assistant.
-ha_release: '?'
+ha_release: 0.112
 ha_iot_class: Cloud Polling
 ha_category:
   - Sensor
