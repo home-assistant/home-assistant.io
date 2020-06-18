@@ -90,7 +90,7 @@ monitored_conditions:
     watering_time:
       description: The amount of time left if the zone is actively watering. Otherwise the time is 0.
     next_cycle:
-      description: The day and time when the next scheduled automatic watering cycle will start. If the zone is suspended then the value will be `not_scheduled`.
+      description: The day and time when the next scheduled automatic watering cycle will start.
   {% endconfiguration %}
 
 ## Switch
