@@ -2,8 +2,9 @@
 title: Axis
 description: Integration between network devices from Axis Communications with Home Assistant.
 ha_category:
-  - Camera
   - Binary Sensor
+  - Camera
+  - Light
   - Switch
 ha_config_flow: true
 ha_release: 0.45
@@ -38,6 +39,11 @@ The following sensor types are supported:
 - Sound detection
 - Day/night mode
 - Inputs and Supervised Inputs
+
+## Light
+
+Control brightness and state of IR Led lights connected to device.
+To control lights the user needs to be admin or operator.
 
 ## Switch
 
