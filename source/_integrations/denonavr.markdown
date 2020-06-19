@@ -53,28 +53,11 @@ If your model is not on the list then give it a test, if everything works correc
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
 </div>
 
-To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: denonavr
-    host: IP_ADDRESS
-    name: NAME
-    show_all_sources: true
-    timeout: POSITIVE INTEGER
-    zones:
-      - zone: Zone2 / Zone3
-        name: NAME
-```
+To add a Denon Network Receiver to your installation, click Configuration in the sidebar, then click Integrations. Denon and Marantz receivers should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your receiver does not show up automatically, click the + icon in the lower right. Then search for "denonavr" and enter the setup.
 
 {% configuration %}
 host:
   description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
-  required: false
-  type: string
-name:
-  description: Name of the device. If not set, friendlyName of the receiver is used.
   required: false
   type: string
 show_all_sources:
@@ -87,19 +70,16 @@ timeout:
   required: false
   default: 2
   type: integer
-zones:
-  description: List of additional zones to be activated. They are displayed as additional media players with the same functionality Main Zone of the device supports.
+zone1:
+  description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
   required: false
-  type: list
-  keys:
-    zone:
-      description: Zone which should be activated. Valid options are `Zone2` and `Zone3`.
-      required: true
-      type: string
-    name:
-      description: Name of the zone. If not set the name of the main device + zone as a suffix is taken.
-      required: false
-      type: string
+  default: false
+  type: boolean
+zone2:
+  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 A few notes:
