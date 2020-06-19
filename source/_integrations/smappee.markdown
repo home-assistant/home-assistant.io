@@ -32,10 +32,10 @@ Once Home Assistant restarted, go to Configuration > Integrations and select the
 {% configuration %}
 client_id:
   description: Your Smappee API client ID.
-  required: True
+  required: true
   type: string
 client_secret:
   description: Your Smappee API client secret.
-  required: True
+  required: true
   type: string
 {% endconfiguration %}
