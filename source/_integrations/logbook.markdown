@@ -131,3 +131,9 @@ script:
           entity_id: light.kitchen
           domain: light
 ```
+
+<div class='note'>
+
+Sensor entities that have been assigned units (i.e., have a `unit_of_measurement` attribute) are assumed to change frequently and those sensors are automatically excluded from the logbook.
+
+</div>
