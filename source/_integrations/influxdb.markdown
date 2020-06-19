@@ -13,7 +13,7 @@ ha_domain: influxdb
 
 The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
 
-Additionally, you can now make use of an InfluxDB 2.0 installation with this Integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
+Additionally, you can now make use of an InfluxDB 2.0 installation with this integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -34,16 +34,16 @@ The default InfluxDB configuration doesn't enforce authentication. If you have i
 influxdb:
 ```
 
-You will still need to create a database named `home_assistant` via InfluxDB's command line interface. For instructions on how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
+You will still need to create a database named `home_assistant` via InfluxDB's command-line interface. For instructions on how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 {% configuration %}
 api_version:
   type: string
-  description: API version to use.  Valid values are `1` or `2`.
+  description: API version to use. Valid values are `1` or `2`.
   default: "1"
 ssl:
   type: boolean
-  description: Use HTTPS instead of HTTP to connect. 2.xx - Defaults to `true` for 2.xx, not `false`.
+  description: Use HTTPS instead of HTTP to connect. 2.xx - Defaults to `true` for 2.xx, false otherwise `false`.
   required: false
   default: false
 host:
@@ -53,7 +53,7 @@ host:
   default: localhost
 port:
   type: integer
-  description: Port to use. 2.xx - No default port for 2.xx, not 8086.
+  description: Port to use. 2.xx - No default port for 2.xx, otherwise 8086.
   required: false
   default: 8086
 path:
@@ -103,7 +103,7 @@ default_measurement:
   default: uses the entity id of the entity
 override_measurement:
   type: string
-  description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+  description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
   required: false
 exclude:
   type: list
@@ -147,7 +147,7 @@ component_config:
   keys:
     override_measurement:
       type: string
-      description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+      description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
       required: false
 component_config_domain:
   type: string
@@ -156,7 +156,7 @@ component_config_domain:
   keys:
     override_measurement:
       type: string
-      description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+      description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
       required: false
 component_config_glob: 
   type: string
@@ -232,7 +232,7 @@ influxdb:
 
 ## Sensor
 
-The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be use to present statistic about home_assistant sensors if used with the `influxdb` history component. It can also be used with an external data source.
+The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be used to present statistics as Home Assistant sensors, if used with the `influxdb` history component. It can also be used with an external data source.
 
 ### Configuration
 
@@ -248,7 +248,7 @@ sensor:
         measurement: '"°C"'
 ```
 
-Note that 2.xx installations of InfluxDB only support queries in their Flux language. While this language was available in 1.xx installations it was not the default and not used in the API so you may not be aware of it. You can learn more about it from their [documentation](https://v2.docs.influxdata.com/v2.0/reference/flux/) or by using the query builder in the UI. 
+Note that 2.xx installations of InfluxDB only support queries in their Flux language. While this language was available in 1.xx installations, it was not the default and not used in the API so you may not be aware of it. You can learn more about it from their [documentation](https://v2.docs.influxdata.com/v2.0/reference/flux/) or by using the query builder in the UI. 
 
 You will need to construct your queries in this language in sensors for 2.xx installations, it looks like this:
 
@@ -265,7 +265,7 @@ sensor:
           - strings
         name: "Mean humidity reported from past day"
         query: >
-          filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity"))  
+          filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity"))
           |> keep(columns: ["_value"])\n"
         range_start: "-1d"
 ```
@@ -273,11 +273,11 @@ sensor:
 {% configuration %}
 api_version:
   type: string
-  description: API version to use.  Valid values are `1` or `2`.
+  description: API version to use. Valid values are `1` or `2`.
   default: "1"
 ssl:
   type: boolean
-  description: Use HTTPS instead of HTTP to connect. 2.xx - Defaults to `true` for 2.xx, not `false`.
+  description: Use HTTPS instead of HTTP to connect. 2.xx - Defaults to `true` for 2.xx, otherwise `false`.
   required: false
   default: false
 host:
@@ -287,12 +287,12 @@ host:
   default: localhost
 port:
   type: integer
-  description: Port to use. 2.xx - No default port for 2.xx, not 8086.
+  description: Port to use. 2.xx - No default port for 2.xx, otherwise 8086.
   required: false
   default: 8086
 path:
   type: string
-  description: Path to use if your InfuxDB is running behind an reverse proxy.
+  description: Path to use if your InfuxDB is running behind a reverse proxy.
   required: false
 username:
   type: string
@@ -394,7 +394,7 @@ queries_flux:
       required: true
     group_function:
       type: string
-      description: "The group function to be used. If provided this will add a filter to the end of your query like this `{group_function}(column: \"_value\")`. Note that unlike the 1.xx queries, this **does not** default to mean.  You can omit if you wish to use your own aggregator which takes additional/different parameters or want to act on a different column.  If omitted then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table."
+      description: "The group function to be used. If provided, this will add a filter to the end of your query like this `{group_function}(column: \"_value\")`. Note that unlike the 1.xx queries, this **does not** default to mean. You can omit if you wish to use your own aggregator, which takes additional/different parameters or want to act on a different column. If omitted, then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table."
       required: false
     value_template:
       type: template
@@ -424,7 +424,8 @@ The example configuration entry below create two request to your local InfluxDB 
 sensor:
   platform: influxdb
   host: localhost
-  username: home-assistant
+
+username: home-assistant
   password: password
   queries:
     - name: last value of foo
@@ -477,6 +478,6 @@ sensor:
         group_function: mean
 ```
 
-Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags). 
+Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
 
-This is a lot more tables compared to 1.xx queries where you essentially had one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors though. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
+This is a lot more tables compared to 1.xx queries, where you essentially had one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors though. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
