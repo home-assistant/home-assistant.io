@@ -105,10 +105,9 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 ```yaml
 homeassistant:
-    ...
-    whitelist_external_dirs:
-        - '/tmp'
-        - '/path/to/whitelist'
+  whitelist_external_dirs:
+    - '/tmp'
+    - '/path/to/whitelist'
 ```
 
 ### `blink.send_pin`
