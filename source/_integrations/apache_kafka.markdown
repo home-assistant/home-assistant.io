@@ -48,7 +48,7 @@ filter:
       required: false
       type: list
     include_entity_globs:
-      description: Include all entities matching a listed pattern (e.g. `sensor.weather_*`).
+      description: Include all entities matching a listed pattern.
       required: false
       type: list
     include_entities:
@@ -60,7 +60,7 @@ filter:
       required: false
       type: list
     exclude_entity_globs:
-      description: Exclude all entities matching a listed pattern (e.g. `sensor.weather_*`).
+      description: Exclude all entities matching a listed pattern.
       required: false
       type: list
     exclude_entities:
