@@ -41,8 +41,8 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
       client_id: CLIENT_ID
       client_secret: CONSUMER_SECRET
       use_webhook: true
-    profiles:
-      - USER_PROFILE_NAME 
+      profiles:
+        - USER_PROFILE_NAME 
     ```
     Withings supports multiple profiles per account. Each profile has a person's name to help distinguish whose data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish whose data you're looking at.
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
