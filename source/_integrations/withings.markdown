@@ -41,9 +41,8 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
       client_id: CLIENT_ID
       client_secret: CONSUMER_SECRET
       use_webhook: true
-  profiles:
-    - USER_PROFILE_NAME
-
+    profiles:
+      - USER_PROFILE_NAME 
     ```
     Withings supports multiple profiles per account. Each profile has a person's name to help distinguish whose data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish whose data you're looking at.
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
@@ -57,10 +56,10 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 - Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
   - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
 - Data will synchronize immediately and update under the following conditions:
-    - If webhook is enabled
+    - If `use_webhook` is enabled:
         - Each time Withings notifies Home Assistant of a data change.
         - Every 120 minutes.
-    - If webhook is not enabled
+    - If `use_webhook` is not enabled:
         - Every 10 minutes.
 
 ## Setup (Advanced)
@@ -101,7 +100,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 withings:
     client_id: CLIENT_ID
     client_secret: CONSUMER_SECRET
-    use_webhook: true  # Internet access to Home Assistant required for this option.
+    use_webhook: true
     profiles:
         - USER_PROFILE_NAME
 ```
