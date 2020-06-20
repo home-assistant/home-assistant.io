@@ -24,12 +24,16 @@ namespace:
   required: false
   type: string
 filter:
-  description: Filtering directives for the integrations which should be included or excluded from recording.
+  description: Filtering directives for the integrations which should be included or excluded from recording. ([Configure Filter](#configure-filter))
   required: false
   type: list
   keys:
     exclude_entities:
       description: The list of entity ids to be excluded from recording.
+      required: false
+      type: list
+    exclude_entity_globs:
+      description: Exclude all entities matching a listed pattern (e.g. `sensor.weather_*`).
       required: false
       type: list
     exclude_domains:
@@ -38,6 +42,10 @@ filter:
       type: list
     include_entities:
       description: The list of entity ids to be included from recordings. If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
+      required: false
+      type: list
+    include_entity_globs:
+      description: Include all entities matching a listed pattern (e.g. `sensor.weather_*`). If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
       required: false
       type: list
     include_domains:
@@ -83,6 +91,45 @@ component_config_glob:
 
 {% endconfiguration %}
 
+### Configure Filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `Prometheus`, you can use the `filter` parameter.
+
+{% raw %}
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+prometheus:
+  filter:
+    include_domains:
+      - alarm_control_panel
+      - light
+    include_entity_globs:
+      - binary_sensor.*_occupancy
+    exclude_entities:
+      - light.kitchen_light
+```
+
+{% endraw %}
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   - Include domain and/or glob patterns specified
+      - if domain is included, and entity not excluded or match exclude glob pattern, pass
+      - if entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - if domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - if domain is excluded and entity not included, fail
+      - if entity matches exclude glob pattern and entity not included, fail
+      - if entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - if entity is included, pass (as #2 above)
+      - if entity include and exclude, the entity exclude is ignored
+
 ## Full Example
 
 Advanced configuration example:
@@ -103,6 +150,8 @@ prometheus:
   filter:
     include_domains:
       - sensor
+    exclude_entity_globs:
+      - sensor.weather_*
 ```
 
 You can then configure Prometheus to fetch metrics from Home Assistant by adding to its `scrape_configs` configuration.

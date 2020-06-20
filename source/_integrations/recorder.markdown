@@ -63,12 +63,16 @@ recorder:
       default: 1
       type: integer
     exclude:
-      description: Configure which integrations should be excluded from recordings.
+      description: Configure which integrations should be excluded from recordings. ([Configure Filter](#configure-filter))
       required: false
       type: map
       keys:
         domains:
           description: The list of domains to be excluded from recordings.
+          required: false
+          type: list
+        entity_globs:
+          description: Exclude all entities matching a listed pattern from recordings (e.g. `sensor.weather_*`).
           required: false
           type: list
         entities:
@@ -80,7 +84,7 @@ recorder:
           required: false
           type: list
     include:
-      description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
+      description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded. ([Configure Filter](#configure-filter))
       required: false
       type: map
       keys:
@@ -88,11 +92,59 @@ recorder:
           description: The list of domains to be included in the recordings.
           required: false
           type: list
+        entity_globs:
+          description: Include all entities matching a listed pattern from recordings (e.g. `sensor.weather_*`).
+          required: false
+          type: list
         entities:
           description: The list of entity ids to be included in the recordings.
           required: false
           type: list
 {% endconfiguration %}
+
+## Configure Filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `Recorder`, you can use the `include` and `exclude` parameters.
+
+{% raw %}
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+recorder:
+  include:
+    domains:
+      - alarm_control_panel
+      - light
+    entity_globs:
+      - binary_sensor.*_occupancy
+  exclude:
+    entities:
+      - light.kitchen_light
+```
+
+{% endraw %}
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   - Include domain and/or glob patterns specified
+      - if domain is included, and entity not excluded or match exclude glob pattern, pass
+      - if entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - if domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - if domain is excluded and entity not included, fail
+      - if entity matches exclude glob pattern and entity not included, fail
+      - if entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - if entity is included, pass (as #2 above)
+      - if entity include and exclude, the entity exclude is ignored
+
+If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+
+### Common filtering examples
 
 Defining domains and entities to `exclude` (i.e. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
@@ -105,6 +157,8 @@ recorder:
     domains:
       - automation
       - updater
+    entity_globs:
+      - sensor.weather_*
     entities:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
@@ -139,9 +193,9 @@ recorder:
     entities:
       - sensor.last_boot
       - sensor.date
+    entity_globs:
+      - sensor.weather_*
 ```
-
-If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### Service `purge`
 
