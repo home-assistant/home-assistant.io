@@ -29,7 +29,7 @@ Sensors for energy, power and gas consumption, sensors for solar production and
 several binary sensors for things like boiler burner on/off, hot tap water and
 boiler health status.
 
-For the Toon integration to work, you'll need an active Toon subscription with
+For the Toon integration to work, you'll need an active Toon subscription 
 and a Toon API developer account.
 
 There is currently support for the following device types within Home Assistant:
