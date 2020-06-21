@@ -40,13 +40,13 @@ There is currently support for the following device types within Home Assistant:
 
 - **Sensor Platforms**
   - TRV Sensor
-    - Each TRV is represented by a Sensor platform. Many attributes are exposed including extensive information about the device, such as WIFI Signal strength, firmware version, battery levels and zigbee information (including if connection to hub is direct or via repeater) etc
+    - Each TRV is represented by a Sensor platform. Many attributes are exposed including extensive information about the device, such as WIFI Signal strength, firmware version, battery levels and Zigbee information (including if connection to hub is direct or via repeater) etc
   - Room Thermostats Sensors
     - Displayed attributes include battery levels, humidity etc
   - Smartplug displayed as a sensor, firmware etc
     - Service providing ability to turn smartplug on, off or set to auto schedule
   - Heathub sensor
-    - Attributes include zigbee channel , see https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence for information on how zigbee and WIFI co-existence
+    - Attributes include Zigbee channel , see https://support.metageek.com/hc/en-us/articles/203845040-Zigbee-and-WiFi-Coexistence for information on how Zigbee and WIFI co-existence
   - Drayton Wiser Cloud Status Sensor
     - Nice to be able to have automation when things aren't working :-)
   - Heating Relay status Sensor
@@ -81,7 +81,7 @@ Before you can use the component you need to find the HeatHub secret key, this i
 This will return a string which will contain your system secret, save it somewhere and obviously don't share this :-)
 
 - Press the setup button on the HeatHub again and it will go back to normal operations
-- The HeatHub IP Address is found automatically by Home Assistant but if for some reason it isnt you can find Your HeatHub IP Using your router. On many routers it usually identifies itself as the something like WiserHeatXXXXXX
+- The HeatHub IP Address is found automatically by Home Assistant but if for some reason it isn't you can find Your HeatHub IP Using your router. On many routers it usually identifies itself as the something like WiserHeatXXXXXX
 
 ### Setting up the Wiser Integration
 
@@ -93,7 +93,7 @@ This will return a string which will contain your system secret, save it somewhe
 
 - The user interface will request you the following parameters
 
-  - 'ipaddress' is the iP address of the Wiser Heat Hub
+  - 'ipaddress' is the IP address of the Wiser Heat Hub
   - `boost_temp` is the delta temperature the radiator should be set to when boosted, default is 2
   - `boost_time` is the time (in seconds) for which a boost should be active for, default is 30mins
 
@@ -122,11 +122,11 @@ wiser:
 
 Use the service `wiser.get_schedule`
 
-This will require you to provide the entity ID of the wiser device and a file to copy this schedule to. It is recommended to create a directory in your config directory to store these.
+This will require you to provide the entity ID of the wiser device and a file to copy this schedule to. It is recommended to create a directory in your `config` directory to store these.
 
-Note : If you are running HA within a docker container then the directory will be absolute to the container, if you have mapped the config directory to a local directory then all is good but the directory name given to the service must be a docker container address.
+Note : If you are running HA within a Docker container then the directory will be absolute to the container, if you have mapped the `config` directory to a local directory then all is good but the directory name given to the service must be a Docker container address.
 
-E.g. if you specify the filename as `/config/schedule.yaml`then `get_schedule` writes the file into the directory within the container. Providing you have mapped the config directory (using the -v or volumes: in docker-compose) then you can read this from a host directory (e.g. /home/haconfig.
+E.g. if you specify the filename as `/config/schedule.yaml`then `get_schedule` writes the file into the directory within the container. Providing you have mapped the `config` directory (using the -v or volumes: in `docker-compose`) then you can read this from a host directory (e.g. `/home/haconfig`.
 
 ### Setting a Schedule
 
@@ -136,7 +136,7 @@ This will require you to provide the entity ID of the wiser device and a file co
 
 A good place to start is to get a schedule from a device and see the file structure. You can add times and temps within each day as you see fit. As file created using the `wiser.get_schedule` service looks like below:
 
-```
+```yaml
 Name: Dining Room
 Description: Schedule for Dining Room
 Type: Heating
@@ -203,7 +203,7 @@ If you are creating your own file (or editing one you have copied from a wiser d
 
 e.g.
 
-```
+```yaml
 Name: Test Room
 Description: Schedule for Test Room
 Type: Heating
@@ -229,7 +229,7 @@ Weekends:
 
 You can also use a mixture of these special day names and normal days to override a specific day (providing the specific days names are below these special ones!).
 
-```
+```yaml
 Name: Test Room
 Description: Schedule for Test Room
 Type: Heating
