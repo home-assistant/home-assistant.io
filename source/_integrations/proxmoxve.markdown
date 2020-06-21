@@ -35,6 +35,8 @@ proxmoxve:
           - VM_ID
         containers:
           - CONTAINER_ID
+        storage:
+          - STORAGE_NAME
 ```
 
 {% configuration %}
@@ -82,6 +84,10 @@ nodes:
       description: List of the LXC containers to monitor.
       required: false
       type: list
+    storage:
+      description: List of storage nodes to monitor.
+      required: false
+      type: list
 {% endconfiguration %}
 
 Example with multiple VMs and no containers:
@@ -96,6 +102,8 @@ proxmoxve:
         vms:
           - VM_ID_1
           - VM_ID_2
+        storage:
+          - local-lvm
 ```
 
 ## Binary Sensor
@@ -116,7 +124,7 @@ Before creating the user, we need to create a permissions role for the user.
 2. Open `Permissions` and click `Roles`
 3. Click the `Create` button above all the existing roles
 4. name the new role (e.g.,  "home-assistant")
-5. Click the arrow next to privileges and select `VM.Audit` in the dropdown
+5. Click the arrow next to privileges and select `VM.Audit` (to monitor VMs and containers) and/or `Datastore.Audit` (to monitor storage) in the dropdown
 6. Click `Create`
 
 ### Create Home Assistant User
