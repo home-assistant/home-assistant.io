@@ -9,9 +9,9 @@ og_image: /images/blog/2017-10-analog-sensor/analog-sensor.png
 ---
 
 
-This blog post is about building a super simple analog sensor for Home Assistant. The physical sensor will send the data over its virtual serial port as it will be connected over USB. The concept is similar to the [TEMPer USB](/components/sensor.temper/) devices. The attatched sensor type to the microcontroller can be any kind of sensor which gives you an analog signal from brightness over soil moisture to temperature.
+This blog post is about building a super simple analog sensor for Home Assistant. The physical sensor will send the data over its virtual serial port as it will be connected over USB. The concept is similar to the [TEMPer USB](/integrations/temper) devices. The attatched sensor type to the microcontroller can be any kind of sensor which gives you an analog signal from brightness over soil moisture to temperature.
 
-The microcontroller will only transfer the voltage of an analog input pin which will be between 0 and 1024. Home Assistant will use the new [`serial`](/components/sensor.serial/) sensor platform to read the data and perform actions to convert the raw reading into a real measurement. This means that you don't have to adjust the code of your microcontroller if you change the attached sensor type.
+The microcontroller will only transfer the voltage of an analog input pin which will be between 0 and 1024. Home Assistant will use the new [`serial`](/integrations/serial) sensor platform to read the data and perform actions to convert the raw reading into a real measurement. This means that you don't have to adjust the code of your microcontroller if you change the attached sensor type.
 
 <p class='img'>
   <img src='/images/blog/2017-10-analog-sensor/analog-sensor.png' />
@@ -65,7 +65,7 @@ void loop() {
 
 To make it work with other boards simply use [`Serial.begin(115200);`](https://www.arduino.cc/en/Reference/Serial) and [`Serial.println(reading);`](https://www.arduino.cc/en/Serial/Println).
 
-If you connect with a tool like `minicom` to your system's serial port `/dev/ttyACM0`, then you will get the data. To use the sensor with Home Assistant the [`serial`](/components/sensor.serial/) sensor platform needs to be set up. 
+If you connect with a tool like `minicom` to your system's serial port `/dev/ttyACM0`, then you will get the data. To use the sensor with Home Assistant the [`serial`](/integrations/serial) sensor platform needs to be set up. 
 
 ```yaml
 sensor:
@@ -73,7 +73,7 @@ sensor:
     port: /dev/ttyACM0
 ```
 
-The physical sensor reads the current voltage of the pin. A [template sensor](/components/sensor.template/) takes the reading and converts it into a measurement. The data sheet of the sensor unit usually contains details about the involved calculations. 
+The physical sensor reads the current voltage of the pin. A [template sensor](/integrations/template) takes the reading and converts it into a measurement. The data sheet of the sensor unit usually contains details about the involved calculations. 
 
 {% raw %}
 ```yaml

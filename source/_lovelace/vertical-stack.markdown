@@ -1,15 +1,19 @@
 ---
 title: "Vertical Stack Card"
 sidebar_label: Vertical Stack
-description: "The Vertical Stack card allows you to stack multiple cards together"
+description: "The Vertical Stack card allows you to group multiple cards so they always sit in the same column."
 ---
 
-Vertical stack allows you to group multiple cards so they always sit in the same column.
+The Vertical Stack card allows you to group multiple cards so they always sit in the same column.
 
 {% configuration %}
 type:
   required: true
   description: vertical-stack
+  type: string
+title:
+  required: false
+  description: Title of Stack
   type: string
 cards:
   required: true
@@ -23,6 +27,7 @@ Basic example:
 
 ```yaml
 type: vertical-stack
+title: Backyard
 cards:
   - type: picture-entity
     entity: camera.demo_camera

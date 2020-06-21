@@ -43,13 +43,18 @@ NUC i7/i9 | Pure power, you should not have *any* performance issues
 
 ## Recommended
 
-These install options are fully supported by Home Assistant's documentation. For example, if a integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
+These install options are fully supported by Home Assistant's documentation. For example, if an integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
+
+<div class='note'>
+
+The only installation methods that allow you to use Home Assistant Add-ons is using the Home Assistant image. All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+
+</div>
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[Hass.io](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
+[Home Assistant](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
 [Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
-[Hassbian](/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience and either have experience with Linux, or intend to learn
 
 ## Alternative installs
 
@@ -57,66 +62,11 @@ If you use these install methods, we assume that you know how to manage and admi
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.6 or later|Those familiar with their operating system
-[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.6 or later|Developers
+[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.7 or later|Those familiar with their operating system
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.7 or later|Developers
 
 ## Community provided guides
 
-These guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform or because required Python packages aren't available for that platform.
+Additional installation guides can be found on our [Community Forum](https://community.home-assistant.io/tags/c/community-guides/51/installation).
 
-<div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/docs/installation/armbian/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/armbian.png' />
-    </div>
-    <div class='title'>armbian</div>
-  </a>
-  <a class='option-card' href='/docs/installation/archlinux/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/archlinux.png' />
-    </div>
-    <div class='title'>ArchLinux</div>
-  </a>
-  <a class='option-card' href='/docs/installation/fedora/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/fedora.png' />
-    </div>
-    <div class='title'>Fedora</div>
-  </a>
-  <a class='option-card' href='/docs/installation/centos/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/centos.png' />
-    </div>
-    <div class='title'>CentOS/RHEL</div>
-  </a>
-  <a class='option-card' href='/docs/installation/windows/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/windows.png' />
-    </div>
-    <div class='title'>Windows</div>
-  </a>
-  <a class='option-card' href='/docs/installation/macos/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/apple.png' />
-    </div>
-    <div class='title'>macOS</div>
-  </a>
-  <a class='option-card' href='/docs/installation/synology/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/synology.png' />
-    </div>
-    <div class='title'>Synology</div>
-  </a>
-  <a class='option-card' href='/docs/installation/freenas/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/freenas.png' />
-    </div>
-    <div class='title'>FreeNAS</div>
-  </a>
-  <a class='option-card' href='/hassio/installation/#alternative-install-on-a-generic-linux-host'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/home-assistant.png' />
-    </div>
-    <div class='title'>Hass.io <br> on generic Linux server</div>
-  </a>
-</div>
+These Community Guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform.

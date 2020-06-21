@@ -28,7 +28,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 
 ### All changes
 
-<img src='/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/synology.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/garadget.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/yeelight.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/philips.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/nfandroidtv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/currencylayer.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='/images/supported_brands/icloud.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/emby.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/synology.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/garadget.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/yeelight.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/philips.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://brands.home-assistant.io/androidtv/logo.png' srcset='https://brands.home-assistant.io/androidtv/logo@2x.png 2x' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/currencylayer.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/influxdb.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 - Cover: New [garadget] platform ([@JasonCarter80])
 - Media player: New support for [Emby][emby-media] ([@mezz64])
@@ -39,7 +39,7 @@ For a long time we have had a bunch of [weather sensors][weather-sensors] but it
 - Sensor: Monitoring support for [Dovado routers][dovado-sensor] ([@molobrakos])
 - Sensor: Support for monitoring [printers][cups-sensor] ([@fabaff])
 - Add mochad component ([@mtreinish])
-- Notify: Added support for [Android TV/FireTV](/components/notify.nfandroidtv/) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
+- Notify: Added support for [Android TV/FireTV](/integrations/nfandroidtv) - Sensor: New finance platform [CurrencyLayer][currencylayer] ([@arsaboo])
 - Sensor: Support for [InfluxDB sensors][influx-sensor] ([@bestlibre])
 - Sensor: New support [HDDTemp sensors][hddtemp-sensor] ([@fabaff])
 ([@danielperna84])
@@ -104,7 +104,7 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
 
 - [iOS](/ecosystem/ios/)
-- [SceneGen](/ecosystem/scenegen/)
+- SceneGen
 
 ### Breaking changes
 
@@ -159,29 +159,29 @@ Our website has now an additional category called "Ecosystem". This will become 
 [@jnewland]: https://github.com/jnewland
 [@DanielHiversen]: https://github.com/DanielHiversen
 
-[currencylayer]: /components/sensor.currencylayer/
-[mochat]: /components/mochat/
-[firetv]: /components/notify.firetv/
-[Yamaha]: /components/media_player.yamaha/
-[hddtemp-sensor]: /components/sensor.hddtemp/
-[Sonos]: /components/media_player.sonos/
-[weather-sensors]: /components/#weather
-[rpi-camera]: /components/camera.rpi_camera/
-[rest-switch]: /components/switch.rest/
-[emby-media]: /components/media_player.emby/
-[random-sensor]: /components/sensor.random/
-[yeelight]: /components/light.yeelight/
-[influx-sensor]: /components/sensor.influxdb/
-[weather-component]: /components/weather/
-[cups-sensor]: /components/sensor.cups/
-[litejet]: /components/litejet/
-[garadget]: /components/garadget/
-[philips_player]: /components/media_player.philips_js/
-[icloud]: /components/device_tracker.icloud/
-[synologydsm]: /components/sensor.synologydsm/
-[dovado-sensor]: /components/sensor.dovado/
+[currencylayer]: /integrations/currencylayer
+[mochat]: /integrations/mochat/
+[firetv]: /integrations/notify.firetv/
+[Yamaha]: /integrations/yamaha
+[hddtemp-sensor]: /integrations/hddtemp
+[Sonos]: /integrations/sonos
+[weather-sensors]: /integrations/#weather
+[rpi-camera]: /integrations/rpi_camera
+[rest-switch]: /integrations/switch.rest/
+[emby-media]: /integrations/emby
+[random-sensor]: /integrations/random#sensor
+[yeelight]: /integrations/yeelight
+[influx-sensor]: /integrations/influxdb#sensor
+[weather-component]: /integrations/weather/
+[cups-sensor]: /integrations/cups
+[litejet]: /integrations/litejet/
+[garadget]: /integrations/garadget/
+[philips_player]: /integrations/philips_js
+[icloud]: /integrations/icloud
+[synologydsm]: /integrations/synologydsm
+[dovado-sensor]: /integrations/dovado#sensor
 [ios]: /ecosystem/ios/
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
 [req-insteon]: https://github.com/home-assistant/home-assistant/issues/3811
 [updater]: /blog/2016/10/25/explaining-the-updater/
-[thingspeak]: /components/thingspeak/
+[thingspeak]: /integrations/thingspeak/

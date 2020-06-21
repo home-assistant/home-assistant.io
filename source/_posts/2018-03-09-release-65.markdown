@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-03-0.65/entity-registry-name.gif
 ---
 
-<a href='/components/#version/0.65'><img src='/images/blog/2018-03-0.65/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.65'><img src='/images/blog/2018-03-0.65/components.png' style='border: 0;box-shadow: none;'></a>
 
 Release 0.65 has arrived and oh boy, is it awesome. First off, in case you have missed the previous release notes and [announcements](/blog/2017/10/06/deprecating-python-3.4-support/): **Starting with this release, Home Assistant has dropped support for Python 3.4. The minimum supported version is now Python 3.5.3.** If you are on Hass.io or Docker, you'll automatically be running the latest and greatest. If you're on an older Hassbian installation or did your own Linux setup you'll need to upgrade to at least Python 3.5.3.
 
@@ -73,7 +73,7 @@ HomeKit got some more upgrades. We've added support for temperature sensors in F
 
 ## Optional words for the Conversation component
 
-The [conversation component](/components/conversation/) has always been a great introduction to controlling your house by voice. There is no hotword detection or powerful language engine behind it, but it gives a great intro to what is possible. Starting with this release, it will get a little bit more powerful with the introduction of optional words. To mark a word optional, wrap it in square brackets: `Change the light to [the color] {color}`.
+The [conversation component](/integrations/conversation/) has always been a great introduction to controlling your house by voice. There is no hotword detection or powerful language engine behind it, but it gives a great intro to what is possible. Starting with this release, it will get a little bit more powerful with the introduction of optional words. To mark a word optional, wrap it in square brackets: `Change the light to [the color] {color}`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -178,7 +178,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## Breaking Changes
 
-- Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/components/insteon_plm/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
+- Insteon PLM: If you have created platform overrides in your configuration.yaml file to change a your INSTEON device to map to a different Home Assistant platform, that mapping will no longer be in effect. Please see the new device override capabilities in the [insteon_plm documentation](/integrations/insteon/). ([@teharris1] - [#12534]) ([insteon_plm docs]) ([binary_sensor.insteon_plm docs]) ([fan.insteon_plm docs]) ([light.insteon_plm docs]) ([sensor.insteon_plm docs]) ([switch.insteon_plm docs]) (breaking change)
 - AirVisual's air index unit is AQI (Air Quality Index), not PSI (Pressure per Square Inch). ([@chilicheech] - [#12730]) ([sensor.airvisual docs]) (breaking change)
 - TekSavvy Sensor: The sensor entity id for peak upload usage used to be `sensor.teksavvy_on_peak_upload_` this has been changed to `sensor.teksavvy_on_peak_upload`. The `usage` title was shared between and therefore indeterminate between GB and % usage. Therefore % usage entity ID has been changed to `sensor.teksavvy_usage_ratio` ([@mikeodr] - [#12325]) ([sensor.teksavvy docs]) (breaking change)
 - Egardia redesign - generic component and sensor support ([@jeroenterheerdt] - [#11994]) ([egardia docs]) ([alarm_control_panel.egardia docs]) ([binary_sensor.egardia docs]) (breaking change) (new-platform)
@@ -318,7 +318,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - IMAP sensor async/await conversion ([@amelchio] - [#12988]) ([sensor.imap docs])
 - Refactor Google Assistant ([@balloob] - [#12959]) ([google_assistant docs]) ([light docs]) (breaking change)
 - Bump pyEmby version to support aiohttp => 3 ([@mezz64] - [#12986]) ([media_player.emby docs])
-- Update pyalarmdotcom version ([@koolsb] - [#12987]) ([alarm_control_panel.alarmdotcom docs])
+- Update pyalarmdotcom version ([@koolsb] - [#12987])
 - Show the error message when Zabbix fails to log in ([@cyberjacob] - [#12985]) ([zabbix docs])
 - Script/gen_requirements: Ignore package families ([@cdce8p] - [#12963])
 - Fix Sonos group discovery ([@amelchio] - [#12970]) ([media_player.sonos docs])
@@ -540,121 +540,120 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@teharris1]: https://github.com/teharris1
 [@thejta]: https://github.com/thejta
 [@turbokongen]: https://github.com/turbokongen
-[alarm_control_panel.alarmdotcom docs]: /components/alarm_control_panel.alarmdotcom/
-[alarm_control_panel.concord232 docs]: /components/alarm_control_panel.concord232/
-[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
-[api docs]: /components/api/
-[august docs]: /components/august/
-[binary_sensor docs]: /components/binary_sensor/
-[binary_sensor.concord232 docs]: /components/binary_sensor.concord232/
-[binary_sensor.egardia docs]: /components/binary_sensor.egardia/
-[binary_sensor.hikvision docs]: /components/binary_sensor.hikvision/
-[binary_sensor.insteon_plm docs]: /components/binary_sensor.insteon_plm/
-[binary_sensor.isy994 docs]: /components/binary_sensor.isy994/
-[binary_sensor.knx docs]: /components/binary_sensor.knx/
-[binary_sensor.upcloud docs]: /components/binary_sensor.upcloud/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[camera.onvif docs]: /components/camera.onvif/
-[camera.proxy docs]: /components/camera.proxy/
-[camera.rpi_camera docs]: /components/camera.rpi_camera/
-[camera.yi docs]: /components/camera.yi/
-[canary docs]: /components/canary/
-[climate docs]: /components/climate/
-[climate.nest docs]: /components/climate.nest/
-[climate.wink docs]: /components/climate.wink/
-[cloud docs]: /components/cloud/
-[coinbase docs]: /components/coinbase/
-[config docs]: /components/config/
-[conversation docs]: /components/conversation/
-[demo docs]: /components/demo/
-[device_tracker docs]: /components/device_tracker/
-[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
-[device_tracker.icloud docs]: /components/device_tracker.icloud/
-[device_tracker.tesla docs]: /components/device_tracker.tesla/
-[device_tracker.ubus docs]: /components/device_tracker.ubus/
-[egardia docs]: /components/egardia/
-[fan.insteon_plm docs]: /components/insteon/
-[frontend docs]: /components/frontend/
-[google_assistant docs]: /components/google_assistant/
-[group docs]: /components/group/
-[homekit docs]: /components/homekit/
-[http docs]: /components/http/
-[hue docs]: /components/hue/
-[ihc docs]: /components/ihc/
-[influxdb docs]: /components/influxdb/
-[insteon_plm docs]: /components/insteon_plm/
-[knx docs]: /components/knx/
-[light docs]: /components/light/
-[light.demo docs]: /components/light.demo/
-[light.group docs]: /components/light.group/
-[light.group docs]: /components/light.group/
-[light.hue docs]: /components/light.hue/
-[light.hyperion docs]: /components/light.hyperion/
-[light.insteon_plm docs]: /components/insteon/
-[light.knx docs]: /components/light.knx/
-[light.lifx docs]: /components/light.lifx/
-[light.limitlessled docs]: /components/light.limitlessled/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.zha docs]: /components/light.zha/
-[logbook docs]: /components/logbook/
-[media_player.apple_tv docs]: /components/media_player.apple_tv/
-[media_player.cast docs]: /components/media_player.cast/
-[media_player.channels docs]: /components/media_player.channels/
-[media_player.emby docs]: /components/media_player.emby/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.songpal docs]: /components/media_player.songpal/
-[media_player.sonos docs]: /components/media_player.sonos/
-[mqtt docs]: /components/mqtt/
-[notify.html5 docs]: /components/notify.html5/
-[notify.synology_chat docs]: /components/notify.synology_chat/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[rest_command docs]: /components/rest_command/
-[scene docs]: /components/scene/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.citybikes docs]: /components/sensor.citybikes/
-[sensor.filter docs]: /components/sensor.filter/
-[sensor.fitbit docs]: /components/sensor.fitbit/
-[sensor.folder docs]: /components/sensor.folder/
-[sensor.history_stats docs]: /components/sensor.history_stats/
-[sensor.imap docs]: /components/sensor.imap/
-[sensor.insteon_plm docs]: /components/insteon/
-[sensor.luftdaten docs]: /components/sensor.luftdaten/
-[sensor.netatmo docs]: /components/sensor.netatmo/
-[sensor.plex docs]: /components/sensor.plex/
-[sensor.pollen docs]: /components/sensor.pollen/
-[sensor.rest docs]: /components/sensor.rest/
-[sensor.sense docs]: /components/sensor.sense/
-[sensor.serial_pm docs]: /components/sensor.serial_pm/
-[sensor.simulated docs]: /components/sensor.simulated/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.teksavvy docs]: /components/sensor.teksavvy/
-[sensor.tesla docs]: /components/sensor.tesla/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.xbox_live docs]: /components/sensor.xbox_live/
-[sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
-[sensor.zestimate docs]: /components/sensor.zestimate/
-[shopping_list docs]: /components/shopping_list/
-[switch.edimax docs]: /components/switch.edimax/
-[switch.insteon_plm docs]: /components/switch.insteon_plm/
-[switch.rest docs]: /components/switch.rest/
-[switch.tesla docs]: /components/switch.tesla/
-[switch.upcloud docs]: /components/switch.upcloud/
-[switch.volvooncall docs]: /components/switch.volvooncall/
-[switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[switch.zha docs]: /components/switch.zha/
-[telegram_bot.broadcast docs]: /components/telegram_bot.broadcast/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
-[upcloud docs]: /components/upcloud/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[weather docs]: /components/weather/
-[weather.darksky docs]: /components/weather.darksky/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zabbix docs]: /components/zabbix/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[alarm_control_panel.concord232 docs]: /integrations/concord232#alarm-control-panel
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[api docs]: /integrations/api/
+[august docs]: /integrations/august/
+[binary_sensor docs]: /integrations/binary_sensor/
+[binary_sensor.concord232 docs]: /integrations/concord232#binary-sensor
+[binary_sensor.egardia docs]: /integrations/egardia#binary-sensor
+[binary_sensor.hikvision docs]: /integrations/hikvision
+[binary_sensor.insteon_plm docs]: /integrations/insteon/
+[binary_sensor.isy994 docs]: /integrations/isy994
+[binary_sensor.knx docs]: /integrations/binary_sensor.knx/
+[binary_sensor.upcloud docs]: /integrations/upcloud#binary-sensor
+[binary_sensor.zha docs]: /integrations/zha
+[camera.onvif docs]: /integrations/onvif
+[camera.proxy docs]: /integrations/proxy
+[camera.rpi_camera docs]: /integrations/rpi_camera
+[camera.yi docs]: /integrations/yi
+[canary docs]: /integrations/canary/
+[climate docs]: /integrations/climate/
+[climate.nest docs]: /integrations/nest#climate
+[climate.wink docs]: /integrations/wink#climate
+[cloud docs]: /integrations/cloud/
+[coinbase docs]: /integrations/coinbase/
+[config docs]: /integrations/config/
+[conversation docs]: /integrations/conversation/
+[demo docs]: /integrations/demo/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.asuswrt docs]: /integrations/asuswrt
+[device_tracker.icloud docs]: /integrations/icloud
+[device_tracker.tesla docs]: /integrations/tesla
+[device_tracker.ubus docs]: /integrations/ubus
+[egardia docs]: /integrations/egardia/
+[fan.insteon_plm docs]: /integrations/insteon/
+[frontend docs]: /integrations/frontend/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[homekit docs]: /integrations/homekit/
+[http docs]: /integrations/http/
+[hue docs]: /integrations/hue/
+[ihc docs]: /integrations/ihc/
+[influxdb docs]: /integrations/influxdb/
+[insteon_plm docs]: /integrations/insteon/
+[knx docs]: /integrations/knx/
+[light docs]: /integrations/light/
+[light.demo docs]: /integrations/light.demo/
+[light.group docs]: /integrations/light.group/
+[light.group docs]: /integrations/light.group/
+[light.hue docs]: /integrations/hue
+[light.hyperion docs]: /integrations/hyperion
+[light.insteon_plm docs]: /integrations/insteon/
+[light.knx docs]: /integrations/light.knx/
+[light.lifx docs]: /integrations/lifx
+[light.limitlessled docs]: /integrations/limitlessled
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.zha docs]: /integrations/zha
+[logbook docs]: /integrations/logbook/
+[media_player.apple_tv docs]: /integrations/apple_tv
+[media_player.cast docs]: /integrations/cast
+[media_player.channels docs]: /integrations/channels
+[media_player.emby docs]: /integrations/emby
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.songpal docs]: /integrations/songpal
+[media_player.sonos docs]: /integrations/sonos
+[mqtt docs]: /integrations/mqtt/
+[notify.html5 docs]: /integrations/html5
+[notify.synology_chat docs]: /integrations/synology_chat
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[rest_command docs]: /integrations/rest_command/
+[scene docs]: /integrations/scene/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.citybikes docs]: /integrations/citybikes
+[sensor.filter docs]: /integrations/filter
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.folder docs]: /integrations/folder
+[sensor.history_stats docs]: /integrations/history_stats
+[sensor.imap docs]: /integrations/imap
+[sensor.insteon_plm docs]: /integrations/insteon/
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.plex docs]: /integrations/plex#sensor
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.rest docs]: /integrations/rest
+[sensor.sense docs]: /integrations/sense
+[sensor.serial_pm docs]: /integrations/serial_pm/
+[sensor.simulated docs]: /integrations/simulated
+[sensor.sql docs]: /integrations/sql
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.teksavvy docs]: /integrations/teksavvy
+[sensor.tesla docs]: /integrations/tesla
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.xbox_live docs]: /integrations/xbox_live
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[sensor.zestimate docs]: /integrations/zestimate
+[shopping_list docs]: /integrations/shopping_list/
+[switch.edimax docs]: /integrations/edimax
+[switch.insteon_plm docs]: /integrations/insteon/
+[switch.rest docs]: /integrations/switch.rest/
+[switch.tesla docs]: /integrations/tesla
+[switch.upcloud docs]: /integrations/upcloud#switch
+[switch.volvooncall docs]: /integrations/volvooncall
+[switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[switch.zha docs]: /integrations/zha
+[telegram_bot.broadcast docs]: /integrations/telegram_broadcast
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
+[upcloud docs]: /integrations/upcloud/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[weather docs]: /integrations/weather/
+[weather.darksky docs]: /integrations/weather.darksky/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zabbix docs]: /integrations/zabbix/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/
 [#13020]: https://github.com/home-assistant/home-assistant/pull/13020
 [#13024]: https://github.com/home-assistant/home-assistant/pull/13024
 [#13027]: https://github.com/home-assistant/home-assistant/pull/13027
@@ -663,9 +662,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@balloob]: https://github.com/balloob
 [@cdce8p]: https://github.com/cdce8p
 [@kellerza]: https://github.com/kellerza
-[device_tracker docs]: /components/device_tracker/
-[google_assistant docs]: /components/google_assistant/
-[homekit docs]: /components/homekit/
+[device_tracker docs]: /integrations/device_tracker/
+[google_assistant docs]: /integrations/google_assistant/
+[homekit docs]: /integrations/homekit/
 [#12996]: https://github.com/home-assistant/home-assistant/pull/12996
 [#13037]: https://github.com/home-assistant/home-assistant/pull/13037
 [#13038]: https://github.com/home-assistant/home-assistant/pull/13038
@@ -682,13 +681,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@armills]: https://github.com/armills
 [@ptarjan]: https://github.com/ptarjan
 [@syssi]: https://github.com/syssi
-[climate.sensibo docs]: /components/climate.sensibo/
-[light.lifx docs]: /components/light.lifx/
-[light.yeelight docs]: /components/light.yeelight/
-[sensor.sabnzbd docs]: /components/sensor.sabnzbd/
-[sensor.sql docs]: /components/sensor.sql/
-[wink docs]: /components/wink/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
+[climate.sensibo docs]: /integrations/sensibo
+[light.lifx docs]: /integrations/lifx
+[light.yeelight docs]: /integrations/yeelight
+[sensor.sabnzbd docs]: /integrations/sabnzbd
+[sensor.sql docs]: /integrations/sql
+[wink docs]: /integrations/wink/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [#12939]: https://github.com/home-assistant/home-assistant/pull/12939
 [#13058]: https://github.com/home-assistant/home-assistant/pull/13058
 [#13062]: https://github.com/home-assistant/home-assistant/pull/13062
@@ -705,16 +704,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jesserockz]: https://github.com/jesserockz
 [@pavoni]: https://github.com/pavoni
 [@snjoetw]: https://github.com/snjoetw
-[camera.arlo docs]: /components/camera.arlo/
-[camera.synology docs]: /components/camera.synology/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[device_tracker.tado docs]: /components/device_tracker.tado/
-[knx docs]: /components/knx/
-[light.hue docs]: /components/light.hue/
-[light.iglo docs]: /components/light.iglo/
-[media_player.cast docs]: /components/media_player.cast/
-[media_player.kodi docs]: /components/media_player.kodi/
-[vera docs]: /components/vera/
+[camera.arlo docs]: /integrations/arlo#camera
+[camera.synology docs]: /integrations/synology
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[device_tracker.tado docs]: /integrations/tado
+[knx docs]: /integrations/knx/
+[light.hue docs]: /integrations/hue
+[light.iglo docs]: /integrations/iglo
+[media_player.cast docs]: /integrations/cast
+[media_player.kodi docs]: /integrations/kodi
+[vera docs]: /integrations/vera/
 [#13106]: https://github.com/home-assistant/home-assistant/pull/13106
 [#13109]: https://github.com/home-assistant/home-assistant/pull/13109
 [#13114]: https://github.com/home-assistant/home-assistant/pull/13114
@@ -722,11 +721,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@arsaboo]: https://github.com/arsaboo
 [@balloob]: https://github.com/balloob
 [@jeroenterheerdt]: https://github.com/jeroenterheerdt
-[alarm_control_panel.egardia docs]: /components/alarm_control_panel.egardia/
-[arlo docs]: /components/arlo/
-[hue docs]: /components/hue/
-[light.hue docs]: /components/light.hue/
-[switch.wemo docs]: /components/switch.wemo/
+[alarm_control_panel.egardia docs]: /integrations/egardia
+[arlo docs]: /integrations/arlo/
+[hue docs]: /integrations/hue/
+[light.hue docs]: /integrations/hue
+[switch.wemo docs]: /integrations/wemo
 [#13162]: https://github.com/home-assistant/home-assistant/pull/13162
 [#13174]: https://github.com/home-assistant/home-assistant/pull/13174
 [#13195]: https://github.com/home-assistant/home-assistant/pull/13195
@@ -736,10 +735,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@arsaboo]: https://github.com/arsaboo
 [@balloob]: https://github.com/balloob
 [@cdce8p]: https://github.com/cdce8p
-[arlo docs]: /components/arlo/
-[google_assistant docs]: /components/google_assistant/
-[homekit docs]: /components/homekit/
-[media_player.sonos docs]: /components/media_player.sonos/
+[arlo docs]: /integrations/arlo/
+[google_assistant docs]: /integrations/google_assistant/
+[homekit docs]: /integrations/homekit/
+[media_player.sonos docs]: /integrations/sonos
 [#13226]: https://github.com/home-assistant/home-assistant/pull/13226
 [#13237]: https://github.com/home-assistant/home-assistant/pull/13237
 [#13248]: https://github.com/home-assistant/home-assistant/pull/13248
@@ -748,8 +747,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@PhracturedBlue]: https://github.com/PhracturedBlue
 [@amelchio]: https://github.com/amelchio
 [@balloob]: https://github.com/balloob
-[camera.proxy docs]: /components/camera.proxy/
-[device_tracker docs]: /components/device_tracker/
-[google_assistant docs]: /components/google_assistant/
-[light.demo docs]: /components/light.demo/
-[media_player.sonos docs]: /components/media_player.sonos/
+[camera.proxy docs]: /integrations/proxy
+[device_tracker docs]: /integrations/device_tracker/
+[google_assistant docs]: /integrations/google_assistant/
+[light.demo docs]: /integrations/light.demo/
+[media_player.sonos docs]: /integrations/sonos

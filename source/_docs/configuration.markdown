@@ -9,19 +9,18 @@ The web interface can be found at `http://ip.ad.dre.ss:8123/` - for example if y
 
 The location of the folder differs between operating systems:
 
-| OS | Path |
-| -- | ---- |
-| macOS | `~/.homeassistant` |
-| Linux | `~/.homeassistant` |
-| Windows | `%APPDATA%/.homeassistant` |
-| Hass.io | `/config` |
-| Docker | `/config` |
+| OS             | Path                       |
+| -------------- | -------------------------- |
+| Home Assistant | `/config`                  |
+| Docker         | `/config`                  |
+| macOS          | `~/.homeassistant`         |
+| Linux          | `~/.homeassistant`         |
 
-If you want to use a different folder for configuration, use the config command line parameter: `hass --config path/to/config`.
+If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
 
-If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
+If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [`configuration.yaml` examples](/cookbook/#example-configurationyaml).
 
 <div class='note tip'>
 
@@ -32,7 +31,7 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 ## Reloading changes
 
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/components/group/), and [scripts](/components/script/) without restarting.
+You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [timers](/integrations/timer/), and [zones](/integrations/zone/) without restarting.
 
 <div class='note warning'>
 

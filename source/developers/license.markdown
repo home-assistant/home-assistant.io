@@ -5,7 +5,7 @@ description: "The License that all Home Assistant projects are licensed under"
 
 The Home Assistant source code is released under the following license.
 
-```
+```txt
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/

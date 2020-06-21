@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-11-0.58/components.png
 ---
 
-<a href='/components/#version/0.58'><img src='/images/blog/2017-11-0.58/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.58'><img src='/images/blog/2017-11-0.58/components.png' style='border: 0;box-shadow: none;'></a>
 
 <div class='note'>
 The Hass.io release of 0.58 will be delayed by a couple of days because Pascal is moving this weekend.
@@ -23,7 +23,7 @@ Talking about our translators, we now have 445 people with an account to help wi
 
 And because more translations is more better, [@robbiet480] has added the iOS app to Lokalise, our translation management platform. The iOS app is currently supported in 7 different languages.
 
-[Learn more about how to help with translations](/blog/2017/11/05/frontend-translations/)
+[Learn more about how to help with translations](/blog/2017/11/06/frontend-translations/)
 
 ## Frontend improvements continue
 
@@ -31,7 +31,7 @@ Thanks to [@Andrey-git] we now are able to serve the frontend in modern JavaScri
 
 To try it once, add `?latest` to your Home Assistant bookmark. To make it the default on your installation, update your config to look like this:
 
-```
+```yaml
 frontend:
   javascript_version: latest
 ```
@@ -62,9 +62,9 @@ Our about screen that shows the error logs has gained a nice upgrade by [@postlu
 
 ## Release 0.58.1 - November 21
 
-- Fix yweather ([@tinloaf] - [#10661]) ([weather.yweather docs])
+- Fix yweather ([@tinloaf] - [#10661])
 - Properly initialize Harmony remote ([@amelchio] - [#10665]) ([remote.harmony docs])
-- Handle the new version of HydroQuebec website ([@titilambert] - [#10682]) ([sensor.hydroquebec docs])
+- Handle the new version of HydroQuebec website ([@titilambert] - [#10682])
 - Fix for time_date sensor ([@etsinko] - [#10694]) ([sensor.time_date docs])
 - Frontend fixes ([@andrey-git] [@armills] [@balloob])
 
@@ -135,7 +135,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Adapt to new yarl API ([@tinloaf] - [#10527]) ([tts.google docs])
 - Update nederlandse_spoorwegen.py to include platform information ([@hmmbob] - [#10494]) ([sensor.nederlandse_spoorwegen docs])
 - Pin yarl ([@tinloaf] - [#10528])
-- Support configuration of region (no service url neccessary ([@molobrakos] - [#10513]) ([volvooncall docs])
+- Support configuration of region (no service url necessary ([@molobrakos] - [#10513]) ([volvooncall docs])
 - Fix import in tests ([@andrey-git] - [#10525])
 - Update axis.py ([@Kane610] - [#10412]) ([axis docs])
 - Add attribute to show who last un/set alarm (SPC) ([@mbrrg] - [#9906]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs])
@@ -168,7 +168,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add panel build type ([@balloob] - [#10589])
 - Cloud updates ([@balloob] - [#10567])
 - Upgrade youtube_dl to 2017.11.15 ([@fabaff] - [#10592]) ([media_extractor docs])
-- Fix Yahoo Weather icons over SSL ([@OnFreund] - [#10602]) ([sensor.yweather docs])
+- Fix Yahoo Weather icons over SSL ([@OnFreund] - [#10602])
 - Arlo - Fixes for updated library ([@jwillaz] - [#9892]) ([arlo docs]) ([camera.arlo docs]) ([sensor.arlo docs])
 - Do not add panel from system_log ([@postlund] - [#10600]) ([system_log docs])
 - Fix ValueError exception ([@ziotibia81] - [#10596]) ([sensor.modbus docs])
@@ -186,7 +186,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change generic thermostat to control heating on mode change Off -> Auto ([@milanvo] - [#10601]) ([climate.generic_thermostat docs])
 - Improve WUnderground config validation ([@milanvo] - [#10573]) ([sensor.wunderground docs])
 - update hbmqtt to 0.9.1 ([@masarliev] - [#10611])
-- Allow to pass YandexTTS options via sevice call ([@andrey-git] - [#10578]) ([tts docs]) ([tts.yandextts docs])
+- Allow to pass YandexTTS options via service call ([@andrey-git] - [#10578]) ([tts docs]) ([tts.yandextts docs])
 - Snapcast: bump version and enable reconnect. ([@janLo] - [#10626]) ([media_player.snapcast docs])
 - Fix async missing decorators ([@armills] - [#10628])
 - Alexa slot synonym fix ([@devspacenine] - [#10614])
@@ -379,111 +379,109 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@ziotibia81]: https://github.com/ziotibia81
-[abode docs]: /components/abode/
-[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[apple_tv docs]: /components/apple_tv/
-[arlo docs]: /components/arlo/
-[axis docs]: /components/axis/
-[binary_sensor docs]: /components/binary_sensor/
-[binary_sensor.aurora docs]: /components/binary_sensor.aurora/
-[binary_sensor.spc docs]: /components/binary_sensor.spc/
-[binary_sensor.vultr docs]: /components/binary_sensor.vultr/
-[camera.arlo docs]: /components/camera.arlo/
-[climate docs]: /components/climate/
-[climate.eq3btsmart docs]: /components/climate.eq3btsmart/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.homematic docs]: /components/climate.homematic/
-[climate.knx docs]: /components/climate.knx/
-[climate.wink docs]: /components/climate.wink/
-[cloud docs]: /components/cloud/
-[cloud.const docs]: /components/cloud.const/
-[config.zwave docs]: /components/config.zwave/
-[configurator docs]: /components/configurator/
-[counter docs]: /components/counter/
-[cover.mqtt docs]: /components/cover.mqtt/
-[device_tracker docs]: /components/device_tracker/
-[device_tracker.hitron_coda docs]: /components/device_tracker.hitron_coda/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[device_tracker.snmp docs]: /components/device_tracker.snmp/
-[device_tracker.tile docs]: /components/device_tracker.tile/
-[device_tracker.tplink docs]: /components/device_tracker.tplink/
-[device_tracker.upc_connect docs]: /components/device_tracker.upc_connect/
-[downloader docs]: /components/downloader/
-[gc100 docs]: /components/gc100/
-[google_assistant.smart_home docs]: /components/google_assistant
-[hassio docs]: /components/hassio/
-[influxdb docs]: /components/influxdb/
-[input_datetime docs]: /components/input_datetime/
-[knx docs]: /components/knx/
-[lametric docs]: /components/lametric/
-[light docs]: /components/light/
-[light.tradfri docs]: /components/light.tradfri/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[lutron_caseta docs]: /components/lutron_caseta/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[media_player.bluesound docs]: /components/media_player.bluesound/
-[media_player.snapcast docs]: /components/media_player.snapcast/
-[media_player.universal docs]: /components/media_player.universal/
-[media_player.webostv docs]: /components/media_player.webostv/
-[media_player.yamaha_musiccast docs]: /components/media_player.yamaha_musiccast/
-[mqtt docs]: /components/mqtt/
-[mqtt.discovery docs]: /components/mqtt.discovery/
-[mqtt.server docs]: /components/mqtt.server/
-[mqtt_statestream docs]: /components/mqtt_statestream/
-[neato docs]: /components/neato/
-[no_ip docs]: /components/no_ip/
-[notify.apns docs]: /components/notify.apns/
-[notify.free_mobile docs]: /components/notify.free_mobile/
-[notify.html5 docs]: /components/notify.html5/
-[notify.lametric docs]: /components/notify.lametric/
-[notify.simplepush docs]: /components/notify.simplepush/
-[notify.telegram docs]: /components/notify.telegram/
-[python_script docs]: /components/python_script/
-[remote docs]: /components/remote/
-[remote.harmony docs]: /components/remote.harmony/
-[ring docs]: /components/ring/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.arlo docs]: /components/sensor.arlo/
-[sensor.haveibeenpwned docs]: /components/sensor.haveibeenpwned/
-[sensor.lacrosse docs]: /components/sensor.lacrosse/
-[sensor.london_air docs]: /components/sensor.london_air/
-[sensor.modbus docs]: /components/sensor.modbus/
-[sensor.neato docs]: /components/neato/
-[sensor.nederlandse_spoorwegen docs]: /components/sensor.nederlandse_spoorwegen/
-[sensor.pyload docs]: /components/sensor.pyload/
-[sensor.serial docs]: /components/sensor.serial/
-[sensor.snmp docs]: /components/sensor.snmp/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.viaggiatreno docs]: /components/sensor.viaggiatreno/
-[sensor.vultr docs]: /components/sensor.vultr/
-[sensor.wunderground docs]: /components/sensor.wunderground/
-[sensor.yweather docs]: /components/sensor.yweather/
-[sensor.zamg docs]: /components/sensor.zamg/
-[spc docs]: /components/spc/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.hikvisioncam docs]: /components/switch.hikvisioncam/
-[switch.modbus docs]: /components/switch.modbus/
-[switch.neato docs]: /components/switch.neato/
-[switch.snmp docs]: /components/switch.snmp/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[system_log docs]: /components/system_log/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[tradfri docs]: /components/tradfri/
-[tts docs]: /components/tts/
-[tts.google docs]: /components/tts.google/
-[tts.yandextts docs]: /components/tts.yandextts/
-[vacuum.neato docs]: /components/vacuum.neato/
-[verisure docs]: /components/verisure/
-[volvooncall docs]: /components/volvooncall/
-[vultr docs]: /components/vultr/
-[weather docs]: /components/weather/
-[weather.demo docs]: /components/weather.demo/
-[websocket_api docs]: /components/websocket_api/
-[zwave docs]: /components/zwave/
+[abode docs]: /integrations/abode/
+[alarm_control_panel.spc docs]: /integrations/spc
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[apple_tv docs]: /integrations/apple_tv/
+[arlo docs]: /integrations/arlo/
+[axis docs]: /integrations/axis/
+[binary_sensor docs]: /integrations/binary_sensor/
+[binary_sensor.aurora docs]: /integrations/aurora
+[binary_sensor.spc docs]: /integrations/spc#binary-sensor
+[binary_sensor.vultr docs]: /integrations/vultr#binary-sensor
+[camera.arlo docs]: /integrations/arlo#camera
+[climate docs]: /integrations/climate/
+[climate.eq3btsmart docs]: /integrations/eq3btsmart
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.homematic docs]: /integrations/homematic
+[climate.knx docs]: /integrations/climate.knx/
+[climate.wink docs]: /integrations/wink#climate
+[cloud docs]: /integrations/cloud/
+[config.zwave docs]: /integrations/config.zwave/
+[configurator docs]: /integrations/configurator/
+[counter docs]: /integrations/counter/
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.hitron_coda docs]: /integrations/hitron_coda
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.snmp docs]: /integrations/snmp
+[device_tracker.tile docs]: /integrations/tile
+[device_tracker.tplink docs]: /integrations/tplink
+[device_tracker.upc_connect docs]: /integrations/upc_connect
+[downloader docs]: /integrations/downloader/
+[gc100 docs]: /integrations/gc100/
+[google_assistant.smart_home docs]: /integrations/google_assistant
+[hassio docs]: /integrations/hassio/
+[influxdb docs]: /integrations/influxdb/
+[input_datetime docs]: /integrations/input_datetime/
+[knx docs]: /integrations/knx/
+[lametric docs]: /integrations/lametric/
+[light docs]: /integrations/light/
+[light.tradfri docs]: /integrations/tradfri
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.snapcast docs]: /integrations/snapcast
+[media_player.universal docs]: /integrations/universal
+[media_player.webostv docs]: /integrations/webostv#media-player
+[media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[mqtt docs]: /integrations/mqtt/
+[mqtt.discovery docs]: /docs/mqtt/discovery/
+[mqtt.server docs]: /integrations/mqtt.server/
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[neato docs]: /integrations/neato/
+[no_ip docs]: /integrations/no_ip/
+[notify.apns docs]: /integrations/apns
+[notify.free_mobile docs]: /integrations/free_mobile
+[notify.html5 docs]: /integrations/html5
+[notify.lametric docs]: /integrations/lametric
+[notify.simplepush docs]: /integrations/simplepush
+[notify.telegram docs]: /integrations/telegram
+[python_script docs]: /integrations/python_script/
+[remote docs]: /integrations/remote/
+[remote.harmony docs]: /integrations/harmony
+[ring docs]: /integrations/ring/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.arlo docs]: /integrations/arlo#sensor
+[sensor.haveibeenpwned docs]: /integrations/haveibeenpwned
+[sensor.lacrosse docs]: /integrations/lacrosse
+[sensor.london_air docs]: /integrations/london_air
+[sensor.modbus docs]: /integrations/sensor.modbus/
+[sensor.neato docs]: /integrations/neato/
+[sensor.nederlandse_spoorwegen docs]: /integrations/nederlandse_spoorwegen
+[sensor.pyload docs]: /integrations/pyload
+[sensor.serial docs]: /integrations/serial
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.viaggiatreno docs]: /integrations/viaggiatreno
+[sensor.vultr docs]: /integrations/vultr#sensor
+[sensor.wunderground docs]: /integrations/wunderground
+[sensor.zamg docs]: /integrations/zamg#sensor
+[spc docs]: /integrations/spc/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.hikvisioncam docs]: /integrations/hikvisioncam
+[switch.modbus docs]: /integrations/switch.modbus/
+[switch.neato docs]: /integrations/neato#switch
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[system_log docs]: /integrations/system_log/
+[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[tradfri docs]: /integrations/tradfri/
+[tts docs]: /integrations/tts/
+[tts.google docs]: /integrations/google_translate
+[tts.yandextts docs]: /integrations/yandextts
+[vacuum.neato docs]: /integrations/neato#vacuum
+[verisure docs]: /integrations/verisure/
+[volvooncall docs]: /integrations/volvooncall/
+[vultr docs]: /integrations/vultr/
+[weather docs]: /integrations/weather/
+[weather.demo docs]: /integrations/weather.demo/
+[websocket_api docs]: /integrations/websocket_api/
+[zwave docs]: /integrations/zwave/
 [#10661]: https://github.com/home-assistant/home-assistant/pull/10661
 [#10665]: https://github.com/home-assistant/home-assistant/pull/10665
 [#10682]: https://github.com/home-assistant/home-assistant/pull/10682
@@ -492,7 +490,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@etsinko]: https://github.com/etsinko
 [@tinloaf]: https://github.com/tinloaf
 [@titilambert]: https://github.com/titilambert
-[remote.harmony docs]: /components/remote.harmony/
-[sensor.hydroquebec docs]: /components/sensor.hydroquebec/
-[sensor.time_date docs]: /components/sensor.time_date/
-[weather.yweather docs]: /components/weather.yweather/
+[remote.harmony docs]: /integrations/harmony
+[sensor.time_date docs]: /integrations/time_date

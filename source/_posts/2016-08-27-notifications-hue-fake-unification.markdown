@@ -10,7 +10,7 @@ categories: Release-Notes
 
 This week's blog post could only be possibly described by exactly one hashtag:
 
-# #Amazing
+## #Amazing
 
 <sup>or <sup>maybe<sup>#supersized</sup></sup></sup>
 
@@ -47,12 +47,15 @@ Now that we have that great news out of the way, onto this week's release which 
 While this release is **#Amazing**, we had to break a few eggs (now you understand the title reference!) to make a beautiful omelette (using home automation obviously) so some platforms and components have needed to introduce breaking changes. Please make sure to read the [Breaking Changes](#breaking-changes) section below.
 
 ### Hue Bridge Emulation
-Thanks to [@mgbowen] we now have the functionality previously provided by [@blocke]'s [ha-local-echo](https://github.com/blocke/ha-local-echo) [built right into Home Assistant](/components/emulated_hue/)! This means that for those of you with devices that either lack or have a subpar integration with Home Assistant (looking at you Amazon Echo) you can now have a better experience by having your Home Assistant pretend to be a Hue Bridge. Personally, I have used [@auchter]'s [Haaska](https://github.com/auchter/haaska) previously but found that it was slow to respond and sometimes failed entirely. With the new [`emulated_hue`](/components/emulated_hue/) component, you can have local control of entities through Amazon Echo.
+
+Thanks to [@mgbowen] we now have the functionality previously provided by [@blocke]'s [ha-local-echo](https://github.com/blocke/ha-local-echo) [built right into Home Assistant](/integrations/emulated_hue/)! This means that for those of you with devices that either lack or have a subpar integration with Home Assistant (looking at you Amazon Echo) you can now have a better experience by having your Home Assistant pretend to be a Hue Bridge. Personally, I have used [@auchter]'s [Haaska](https://github.com/auchter/haaska) previously but found that it was slow to respond and sometimes failed entirely. With the new [`emulated_hue`](/integrations/emulated_hue/) component, you can have local control of entities through Amazon Echo.
 
 ### Notification improvements
+
 We have some excellent upgrades to the notification system coming to you in 0.27, courtesy of me, [@robbiet480].
 
 #### HTML5 Push Notifications
+
 This release adds support for [HTML5] push notifications on Chrome/Firefox/Opera on both desktop and Android devices. This means that you can send a notification to your phone even when your Home Assistant is not open in your mobile browser. When using Chrome you can even include 2 action buttons so that you can control your Home Assistant from your phone's lock screen, allowing you to do things like sound alarms or unlock your front door, all without leaving the notification. Thanks again to me ([@robbiet480]) and Paulus ([@balloob]) for all the hard work on this!
 
 <p class='img'>
@@ -60,19 +63,23 @@ This release adds support for [HTML5] push notifications on Chrome/Firefox/Opera
 </p>
 
 #### Notification Groups
-Using the new notify `group` platform allows you to cut down a lot of duplicate automation logic by combining multiple notification platforms and `target`s into a single notify service. Check out the [docs](/components/notify.group/) for more info.
 
-#### `target` is no longer needed!
+Using the new notify `group` platform allows you to cut down a lot of duplicate automation logic by combining multiple notification platforms and `target`s into a single notify service. Check out the [documentation](/integrations/notify.group/) for more info.
+
+#### `target` is no longer needed
+
 For platforms that support it, starting with the new HTML5 platform, any `target`s that are available will be exposed as individual services, so no more having to remember which `target`s to use. Please note that the existing services also still exist so you can keep using `target` if you wish.
 
 ### Validate configuration before restarting Home Assistant
+
 Ever restarted Home Assistant to test a configuration change just to find out there is a validation error? Well, not anymore! [@kellerza] has added a command line script that will validate your configuration as if you started Home Assistant.
 
 ```bash
-$ hass --script check_config
+hass --script check_config
 ```
 
 ### Configuration validation
+
 This release includes a big push on making sure all platforms contain proper configuration validation. This should help in getting your configuration right. Thanks to [@fabaff], [@pavoni], [@pvizeli], [@nkgilley] for all the hard work on this, you all rock!
 
 <p class='img'>
@@ -80,12 +87,15 @@ This release includes a big push on making sure all platforms contain proper con
 </p>
 
 ### FFMpeg motion/noise sensing
+
 It's now possible to use [FFMpeg] to monitor a video stream and detect motion thanks to a new binary sensor platform by [@pvizeli].
 
-### Component clean up - Thermostat & HVAC -> Climate. Rollershutter & Garage Door -> Cover.
+### Component clean up - Thermostat & HVAC -> Climate. Rollershutter & Garage Door -> Cover
+
 Due to our wild growth we ended up with a few components that had a lot of overlapping functionality. [@turbokongen] took on the hard job on merging them. Thermostat and HVAC platforms are now combined under the new Climate component. Rollershutter and Garage Door platforms are now combined under the new Cover component. You can easily upgrade by just swapping out the name. For example replace `thermostat` with `climate`. The old components have been deprecated and will be removed in the near future.
 
 ### A new `fan` component
+
 Along with the new `climate` component, [@Teagan42] and I ([@robbiet480]) decided we needed something simpler to just control a fan. Currently it has support for controlling Insteon fans. MQTT support will appear in 0.28.0. I tried to get it implemented before 0.27.0 but spent too long writing this blog post 😢.
 
 ### All changes
@@ -230,40 +240,40 @@ Talk to you soon on Discord and in your pull request comments!
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
 
-[checking]: /components/sensor.dht/
-[FFMpeg]: /components/binary_sensor.ffmpeg/
-[Climate]: /components/climate/
-[NZBGet]: /components/sensor.nzbget/
-[SABnzbd]: /components/sensor.sabnzbd/
-[HP]: /components/sensor.hp_ilo/
-[Fritzbox]: /components/sensor.fritzbox_callmonitor/
-[webos]: /components/media_player.webostv/
-[HTML5]: /components/notify.html5/
-[Gravatar]: /components/device_tracker/
-[Loop]: /components/sensor.loop_energy/
-[cover]: /components/cover/
-[climate]: /components/climate/
-[expose]: /components/light/
-[Automate]: /components/notify.llamalab_automate/
+[checking]: /integrations/dht
+[FFMpeg]: /integrations/ffmpeg_motion
+[Climate]: /integrations/climate/
+[NZBGet]: /integrations/nzbget
+[SABnzbd]: /integrations/sabnzbd
+[HP]: /integrations/hp_ilo
+[Fritzbox]: /integrations/fritzbox#sensor_callmonitor/
+[webos]: /integrations/webostv#media-player
+[HTML5]: /integrations/html5
+[Gravatar]: /integrations/device_tracker/
+[Loop]: /integrations/loopenergy
+[cover]: /integrations/cover/
+[climate]: /integrations/climate/
+[expose]: /integrations/light/
+[Automate]: /integrations/llamalab_automate
 [Secrets]: /topics/secrets/
-[trigger]: /components/alarm_control_panel.manual/
-[CO2]: /components/sensor.mhz19/
-[presence]: /components/sensor.mqtt_room
-[grouping]: /components/notify.group/
-[Wunderground]: /components/sensor.wunderground/
-[monitoring]: /components/binary_sensor.ffmpeg/
-[MJPEG]: /components/camera.mjpeg/
-[Generic]: /components/camera.generic/
-[positions]: /components/cover.zwave/
-[forecast]: /components/sensor.forecast/
-[Bluetooth]: /components/device_tracker.bluetooth_le_tracker/
-[Slack]: /components/notify.slack/
-[template]: /components/camera.generic/
-[Bug]: /components/wink/
-[support]: /components/homematic/
-[node]: /components/zwave/
-[found]: /components/device_tracker.tplink/
-[attachments]: /components/notify.slack/
-[Hue]: /components/emulated_hue/
-[fan]: /components/fan/
-[IMAP]: /components/sensor.imap/
+[trigger]: /integrations/manual
+[CO2]: /integrations/mhz19
+[presence]: /integrations/mqtt_room
+[grouping]: /integrations/notify.group/
+[Wunderground]: /integrations/wunderground
+[monitoring]: /integrations/ffmpeg_motion
+[MJPEG]: /integrations/mjpeg
+[Generic]: /integrations/generic_ip_camera
+[positions]: /integrations/zwave#cover
+[forecast]: /integrations/darksky
+[Bluetooth]: /integrations/bluetooth_le_tracker
+[Slack]: /integrations/slack
+[template]: /integrations/generic
+[Bug]: /integrations/wink/
+[support]: /integrations/homematic/
+[node]: /integrations/zwave/
+[found]: /integrations/tplink
+[attachments]: /integrations/slack
+[Hue]: /integrations/emulated_hue/
+[fan]: /integrations/fan/
+[IMAP]: /integrations/imap

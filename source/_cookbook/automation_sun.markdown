@@ -14,10 +14,10 @@ automation:
     offset: "-00:45:00"
   condition:
     condition: state
-    entity_id: group.all_devices
+    entity_id: all
     state: home
   action:
-    service: homeassistant.turn_on
+    service: light.turn_on
     entity_id: group.living_room_lights
 ```
 
@@ -40,7 +40,7 @@ automation:
 
 #### Send sun rise/sun set notifications
 
-Send notifications through [PushBullet](/components/notify.pushbullet/) when the sun state is changed.
+Send notifications through [PushBullet](/integrations/pushbullet) when the sun state is changed.
 
 ```yaml
 automation:
@@ -73,7 +73,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{% raw %}{{ state.attributes.elevation }}{% endraw %}'
+    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
     below: 3.5
   action:
     service: scene.turn_on
@@ -83,7 +83,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{% raw %}{{ state.attributes.elevation }}{% endraw %}'
+    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
     below: 1.5
   action:
     service: scene.turn_on
@@ -93,7 +93,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: '{% raw %}{{ state.attributes.elevation }}{% endraw %}'
+    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
     below: -2.5
   action:
     service: switch.turn_off

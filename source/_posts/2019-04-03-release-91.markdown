@@ -24,7 +24,7 @@ We're still in the process of updating more cameras to support the stream compon
 
 A BIG shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI](https://www.circleci.com) and [Codecov](https://codecov.io/). CircleCI's advanced caching and code splitting controls has speed up tests significantly. Codecov tracks our code coverage and generates detailed reports for each contribution to see how well it is tested.
 
-And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occassionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
+And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occasionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
 
 ## Notable breaking change
 
@@ -96,16 +96,16 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [@fredrike]: https://github.com/fredrike
 [@hunterjm]: https://github.com/hunterjm
 [@pvizeli]: https://github.com/pvizeli
-[ambient_station docs]: /components/ambient_station/
-[daikin docs]: /components/daikin/
-[foscam docs]: /components/foscam/
-[hassio docs]: /components/hassio/
-[stream docs]: /components/stream/
-[zha docs]: /components/zha/
+[ambient_station docs]: /integrations/ambient_station/
+[daikin docs]: /integrations/daikin/
+[foscam docs]: /integrations/foscam/
+[hassio docs]: /integrations/hassio/
+[stream docs]: /integrations/stream/
+[zha docs]: /integrations/zha/
 
 ## Release 0.91.2 - April 8
 
-- Correctly load Mopar's config ([@rohankapoorcom] - [#22771]) ([mopar docs])
+- Correctly load Mopar's config ([@rohankapoorcom] - [#22771])
 - Fix konnected unique_id computation for switches ([@heythisisnate] - [#22777]) ([konnected docs]) (breaking change)
 - make the custom polling actually request state ([@dmulcahey] - [#22778]) ([zha docs])
 - ZHA Light debug logging. ([@Adminiuga] - [#22776]) ([zha docs])
@@ -148,15 +148,14 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [@rohankapoorcom]: https://github.com/rohankapoorcom
 [@wmalgadey]: https://github.com/wmalgadey
 [@zewelor]: https://github.com/zewelor
-[camera docs]: /components/camera/
-[foscam docs]: /components/foscam/
-[hassio docs]: /components/hassio/
-[konnected docs]: /components/konnected/
-[mobile_app docs]: /components/mobile_app/
-[mopar docs]: /components/mopar/
-[tado docs]: /components/tado/
-[yeelight docs]: /components/yeelight/
-[zha docs]: /components/zha/
+[camera docs]: /integrations/camera/
+[foscam docs]: /integrations/foscam/
+[hassio docs]: /integrations/hassio/
+[konnected docs]: /integrations/konnected/
+[mobile_app docs]: /integrations/mobile_app/
+[tado docs]: /integrations/tado/
+[yeelight docs]: /integrations/yeelight/
+[zha docs]: /integrations/zha/
 
 ## Release 0.91.3 - April 10
 
@@ -172,9 +171,9 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [@AZDane]: https://github.com/AZDane
 [@pvizeli]: https://github.com/pvizeli
 [@robbiet480]: https://github.com/robbiet480
-[concord232 docs]: /components/concord232/
-[hassio docs]: /components/hassio/
-[mobile_app docs]: /components/mobile_app/
+[concord232 docs]: /integrations/concord232/
+[hassio docs]: /integrations/hassio/
+[mobile_app docs]: /integrations/mobile_app/
 
 ## Release 0.91.4 - April 16
 
@@ -182,8 +181,8 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 
 [#23121]: https://github.com/home-assistant/home-assistant/pull/23121
 [@pvizeli]: https://github.com/pvizeli
-[hassio docs]: /components/hassio/
-[http docs]: /components/http/
+[hassio docs]: /integrations/hassio/
+[http docs]: /integrations/http/
 
 ## If you need help...
 
@@ -201,8 +200,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - __iOS__ - Improves the text description of ATTR_BATTERY_STATE_UNPLUGGED from Unplugged to Not Charging as many new iOS devices now use Wireless charging and there is no concept of "Plugging In". This is potentially a breaking change if you have automations making use of "unplugged". ([@FattusMannus] - [#22152]) ([ios docs])
 - __Iliad Italy__ - __Removed__ - This was removed because it uses webscraping.  ([@eliseomartelli] - [#22175])
-- __Netgear lte__ - The previous three components (network, notify, and sensor) now fall under one netgear_lte component. Check the [updated documentation](/components/netgear_lte/) for more information. ([@amelchio] - [#22105]) ([netgear_lte docs])
-- __API streams sensor__ - __Removed__ -  This sensor component was designed to count connected front-end clients. However, it depended on the implementation details of other components, and has therefore been broken since 0.80, so it has been removed. The replacement sensor is now the [websocket_api sensor](/components/websocket_api/), which does basically the same thing apart from the rename. ([@Swamp-Ig] - [#22200]) ([websocket_api docs])
+- __Netgear lte__ - The previous three components (network, notify, and sensor) now fall under one netgear_lte component. Check the [updated documentation](/integrations/netgear_lte/) for more information. ([@amelchio] - [#22105]) ([netgear_lte docs])
+- __API streams sensor__ - __Removed__ -  This sensor component was designed to count connected front-end clients. However, it depended on the implementation details of other components, and has therefore been broken since 0.80, so it has been removed. The replacement sensor is now the [websocket_api sensor](/integrations/websocket_api/), which does basically the same thing apart from the rename. ([@Swamp-Ig] - [#22200]) ([websocket_api docs])
 - __Public Transit (GTFS)__
   * The state for this sensor component was a countdown in minutes. If the next departure was in a few hours, this number became quite large and a tad harder to rapidly calculate mentally (463 minutes anyone?). The sensor's state output has been changed from minutes to an ISO 8601 UTC timestamp, which allows the UI to interpret the state as needed. ([@renemarc] - [#21053]) ([gtfs docs])
   * Sensor updates were running many database queries to populate attributes, on top of the bus schedule queries themselves. This is doubled with two sensors. That led to a lot of slowdowns for everything else when using an SD card! Considering that some data never changes (agency, routes...) and that others like departure times are good until invalidated, now we fetch such metadata at first and then only when relevant changes do occur. GTFS sensor attributes are now named using the standard snake_case format. ([@renemarc] - [#20966]) ([gtfs docs])
@@ -210,9 +209,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Axis__ - Events supplied from component might differ. Events will not be configurable in the beginning but will instead provide a subset set of events supported per device. This will be configurable in a later stage when config entry options are available. Configuration.yaml support for Axis component will be removed in the future so make sure to remove references to Axis component after upgrade. ([@Kane610] - [#18543]) ([axis docs])
 - __HTTP__ - Lower severity level of log messages from http.view ([@thomasloven] - [#21091]) ([http docs])
 - __Dark Sky__ - Dark Sky provides hourly forecasts for various monitored conditions. This change creates new sensors for each hourly forecasted condition with suffix `_<hour>h` while adding the suffix `_<day>d` to the daily forecasted conditions. For example, now a `sensor.dark_sky_summary_<day>d` and `sensor.dark_sky_summary_<hour>h` will be created if the forecast and hourly_forecast parameters are populated. ([@rtclauss] - [#21820]) ([darksky docs])
-- __Konnected__ - This will change the internal unique_id for Konnected switches (i.e. siren, buzzer, generic switch). Users will need to manually remove the orphaned switch entities from the entity registry after updating and re-configure any changes stored in the entity registry (i.e. name and entity_id), as their unique IDs will change. ([@heythisisnate] - [#22389]) ([konnected docs])
+- __Konnected__ - This will change the internal unique_id for Konnected switches (i.e., siren, buzzer, generic switch). Users will need to manually remove the orphaned switch entities from the entity registry after updating and re-configure any changes stored in the entity registry (i.e., name and entity_id), as their unique IDs will change. ([@heythisisnate] - [#22389]) ([konnected docs])
 
-- __Mopar__ - The mopar sensor platform has been broken up into a base component with sensor, switch, and lock platforms. The sensor.mopar_remote_command service has been removed since the functionality has been folded into the new platforms and the new mopar.sound_horn service. Please view the documentation to see the new setup instructions. ([@rohankapoorcom] - [#21526]) ([mopar docs])
+- __Mopar__ - The mopar sensor platform has been broken up into a base component with sensor, switch, and lock platforms. The sensor.mopar_remote_command service has been removed since the functionality has been folded into the new platforms and the new mopar.sound_horn service. Please view the documentation to see the new setup instructions. ([@rohankapoorcom] - [#21526])
 
 ## Beta Fixes
 
@@ -272,7 +271,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tibber, Add price level ([@Danielhiversen] - [#22085]) ([tibber docs])
 - Fix AttributeError traceback with darksky ([@iamtpage] - [#22101]) ([darksky docs])
 - Add service description for services. ([@cgtobi] - [#21897])
-- Handle occassional 502 Bad Gateway from SimpliSafe ([@bachya] - [#22131]) ([simplisafe docs])
+- Handle occasional 502 Bad Gateway from SimpliSafe ([@bachya] - [#22131]) ([simplisafe docs])
 - Loosen field retrieval from Pollen.com ([@bachya] - [#22132]) ([pollen docs])
 - Handle possible exception during Ambient PWS reconnect ([@bachya] - [#22134]) ([ambient_station docs])
 - Additional sensors and fixed icons, attributes and device classes. ([@endor-force] - [#22139]) ([trafikverket_weatherstation docs])
@@ -303,7 +302,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - add ZHA channel name property ([@Adminiuga] - [#22218]) ([zha docs])
 - Handle on/off through TemperatrureSetting trait. ([@Swamp-Ig] - [#21842]) ([google_assistant docs])
 - Change .now() to .utcnow() ([@rdbahm] - [#22233]) ([season docs])
-- Upgrade tibber libary, support solar production ([@Danielhiversen] - [#22261]) ([tibber docs])
+- Upgrade tibber library, support solar production ([@Danielhiversen] - [#22261]) ([tibber docs])
 - Upgrade sqlalchemy to 1.3.0 ([@fabaff] - [#22269]) ([recorder docs]) ([sql docs])
 - Plex: Avoid refreshing by both device and session methods ([@jjlawren] - [#22266]) ([plex docs])
 - Bump androidtv to 0.0.13 ([@JeffLIrion] - [#22279]) ([androidtv docs])
@@ -315,7 +314,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix Prometheus casting issues ([@robbiet480] - [#22282]) ([prometheus docs])
 - Update trait to support auto without ranges. ([@Swamp-Ig] - [#21847]) ([google_assistant docs])
 - Sort code owners alphabetically ([@cgtobi] - [#22304])
-- Update srpenergy library ([@robbiet480] - [#22307]) ([srp_energy docs])
+- Update srpenergy library ([@robbiet480] - [#22307])
 - Switch from using Google Maps API for elevation to Open Elevation API ([@robbiet480] - [#22306])
 - Fix for embedded MQTT server configuration ([@robbiet480] - [#22305]) ([mqtt docs])
 - Upgrade pylast to 3.1.0 ([@fabaff] - [#22302]) ([lastfm docs])
@@ -415,7 +414,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move HKDevice into connection ([@Jc2k] - [#22430]) ([homekit_controller docs])
 - Incoming SMS handling for netgear_lte ([@amelchio] - [#22402]) ([netgear_lte docs])
 - Entur upgrade to v0.2.0: async polling, number of departures, omit non boarding departures ([@hfurubotten] - [#22001]) ([entur_public_transport docs])
-- Mopar split ([@rohankapoorcom] - [#21526]) ([mopar docs]) (breaking change)
+- Mopar split ([@rohankapoorcom] - [#21526]) (breaking change)
 - Fix too-abrubt SimpliSafe data refresh termination on error ([@bachya] - [#22466]) ([simplisafe docs])
 - Great migration notify ([@robbiet480] - [#22406])
 - Print error instead of warning for custom platforms in legacy format ([@balloob] - [#22486])
@@ -733,119 +732,117 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@thomasloven]: https://github.com/thomasloven
 [@uchagani]: https://github.com/uchagani
 [@zewelor]: https://github.com/zewelor
-[alexa docs]: /components/alexa/
-[amazon_polly docs]: /components/amazon_polly/
-[ambient_station docs]: /components/ambient_station/
-[amcrest docs]: /components/amcrest/
-[androidtv docs]: /components/androidtv/
-[api_streams docs]: /components/api_streams/
-[auth docs]: /components/auth/
-[aws docs]: /components/aws/
-[axis docs]: /components/axis/
-[baidu docs]: /components/baidu/
-[buienradar docs]: /components/buienradar/
-[camera docs]: /components/camera/
-[cisco_mobility_express docs]: /components/cisco_mobility_express/
-[config docs]: /components/config/
-[daikin docs]: /components/daikin/
-[darksky docs]: /components/darksky/
-[deconz docs]: /components/deconz/
-[default_config docs]: /components/default_config/
-[demo docs]: /components/demo/
-[discovery docs]: /components/discovery/
-[dlib_face_detect docs]: /components/dlib_face_detect/
-[dlib_face_identify docs]: /components/dlib_face_identify/
-[dlna_dmr docs]: /components/dlna_dmr/
-[ecobee docs]: /components/ecobee/
-[enigma2 docs]: /components/enigma2/
-[entur_public_transport docs]: /components/entur_public_transport/
-[esphome docs]: /components/esphome/
-[familyhub docs]: /components/familyhub/
-[ffmpeg docs]: /components/ffmpeg/
-[foscam docs]: /components/foscam/
-[freebox docs]: /components/freebox/
-[frontend docs]: /components/frontend/
-[generic docs]: /components/generic/
-[generic_thermostat docs]: /components/generic_thermostat/
-[google_assistant docs]: /components/google_assistant/
-[group docs]: /components/group/
-[gtfs docs]: /components/gtfs/
-[hassio docs]: /components/hassio/
-[hlk_sw16 docs]: /components/hlk_sw16/
-[homeassistant docs]: /components/homeassistant/
-[homekit_controller docs]: /components/homekit_controller/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[horizon docs]: /components/horizon/
-[hp_ilo docs]: /components/hp_ilo/
-[http docs]: /components/http/
-[hyperion docs]: /components/hyperion/
-[iliad_italy docs]: /components/iliad_italy/
-[ios docs]: /components/ios/
-[joaoapps_join docs]: /components/joaoapps_join/
-[konnected docs]: /components/konnected/
-[lastfm docs]: /components/lastfm/
-[lcn docs]: /components/lcn/
-[local_file docs]: /components/local_file/
-[logi_circle docs]: /components/logi_circle/
-[manual docs]: /components/manual/
-[manual_mqtt docs]: /components/manual_mqtt/
-[marytts docs]: /components/marytts/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[microsoft docs]: /components/microsoft/
-[mold_indicator docs]: /components/mold_indicator/
-[moon docs]: /components/moon/
-[mopar docs]: /components/mopar/
-[mqtt docs]: /components/mqtt/
-[nanoleaf docs]: /components/nanoleaf/
-[ness_alarm docs]: /components/ness_alarm/
-[netatmo docs]: /components/netatmo/
-[netgear_lte docs]: /components/netgear_lte/
-[nmbs docs]: /components/nmbs/
-[notify docs]: /components/notify/
-[onkyo docs]: /components/onkyo/
-[onvif docs]: /components/onvif/
-[opentherm_gw docs]: /components/opentherm_gw/
-[openweathermap docs]: /components/openweathermap/
-[panasonic_viera docs]: /components/panasonic_viera/
-[panel_custom docs]: /components/panel_custom/
-[panel_iframe docs]: /components/panel_iframe/
-[picotts docs]: /components/picotts/
-[plex docs]: /components/plex/
-[pollen docs]: /components/pollen/
-[prometheus docs]: /components/prometheus/
-[ps4 docs]: /components/ps4/
-[push docs]: /components/push/
-[recorder docs]: /components/recorder/
-[reddit docs]: /components/reddit/
-[rest docs]: /components/rest/
-[ring docs]: /components/ring/
-[season docs]: /components/season/
-[sense docs]: /components/sense/
-[sensibo docs]: /components/sensibo/
-[simplisafe docs]: /components/simplisafe/
-[smartthings docs]: /components/smartthings/
-[solaredge docs]: /components/solaredge/
-[sql docs]: /components/sql/
-[srp_energy docs]: /components/srp_energy/
-[stream docs]: /components/stream/
-[switch docs]: /components/switch/
-[switchbot docs]: /components/switchbot/
-[systemmonitor docs]: /components/systemmonitor/
-[telegram_bot docs]: /components/telegram_bot/
-[tellduslive docs]: /components/tellduslive/
-[tfiac docs]: /components/tfiac/
-[tibber docs]: /components/tibber/
-[time_date docs]: /components/time_date/
-[tplink docs]: /components/tplink/
-[traccar docs]: /components/traccar/
-[trafikverket_weatherstation docs]: /components/trafikverket_weatherstation/
-[upnp docs]: /components/upnp/
-[voicerss docs]: /components/voicerss/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[xiaomi_miio docs]: /components/xiaomi_miio/
-[yandextts docs]: /components/yandextts/
-[yeelight docs]: /components/yeelight/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[alexa docs]: /integrations/alexa/
+[amazon_polly docs]: /integrations/amazon_polly/
+[ambient_station docs]: /integrations/ambient_station/
+[amcrest docs]: /integrations/amcrest/
+[androidtv docs]: /integrations/androidtv/
+[api_streams docs]: /integrations/api_streams/
+[auth docs]: /integrations/auth/
+[aws docs]: /integrations/aws/
+[axis docs]: /integrations/axis/
+[baidu docs]: /integrations/baidu/
+[buienradar docs]: /integrations/buienradar/
+[camera docs]: /integrations/camera/
+[cisco_mobility_express docs]: /integrations/cisco_mobility_express/
+[config docs]: /integrations/config/
+[daikin docs]: /integrations/daikin/
+[darksky docs]: /integrations/darksky/
+[deconz docs]: /integrations/deconz/
+[default_config docs]: /integrations/default_config/
+[demo docs]: /integrations/demo/
+[discovery docs]: /integrations/discovery/
+[dlib_face_detect docs]: /integrations/dlib_face_detect/
+[dlib_face_identify docs]: /integrations/dlib_face_identify/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[ecobee docs]: /integrations/ecobee/
+[enigma2 docs]: /integrations/enigma2/
+[entur_public_transport docs]: /integrations/entur_public_transport/
+[esphome docs]: /integrations/esphome/
+[familyhub docs]: /integrations/familyhub/
+[ffmpeg docs]: /integrations/ffmpeg/
+[foscam docs]: /integrations/foscam/
+[freebox docs]: /integrations/freebox/
+[frontend docs]: /integrations/frontend/
+[generic docs]: /integrations/generic_ip_camera/
+[generic_thermostat docs]: /integrations/generic_thermostat/
+[google_assistant docs]: /integrations/google_assistant/
+[group docs]: /integrations/group/
+[gtfs docs]: /integrations/gtfs/
+[hassio docs]: /integrations/hassio/
+[hlk_sw16 docs]: /integrations/hlk_sw16/
+[homeassistant docs]: /integrations/homeassistant/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[horizon docs]: /integrations/horizon/
+[hp_ilo docs]: /integrations/hp_ilo/
+[http docs]: /integrations/http/
+[hyperion docs]: /integrations/hyperion/
+[iliad_italy docs]: /integrations/iliad_italy/
+[ios docs]: /integrations/ios/
+[joaoapps_join docs]: /integrations/joaoapps_join/
+[konnected docs]: /integrations/konnected/
+[lastfm docs]: /integrations/lastfm/
+[lcn docs]: /integrations/lcn/
+[local_file docs]: /integrations/local_file/
+[logi_circle docs]: /integrations/logi_circle/
+[manual docs]: /integrations/manual/
+[manual_mqtt docs]: /integrations/manual_mqtt/
+[marytts docs]: /integrations/marytts/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[microsoft docs]: /integrations/microsoft/
+[mold_indicator docs]: /integrations/mold_indicator/
+[moon docs]: /integrations/moon/
+[mqtt docs]: /integrations/mqtt/
+[nanoleaf docs]: /integrations/nanoleaf/
+[ness_alarm docs]: /integrations/ness_alarm/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[nmbs docs]: /integrations/nmbs/
+[notify docs]: /integrations/notify/
+[onkyo docs]: /integrations/onkyo/
+[onvif docs]: /integrations/onvif/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[openweathermap docs]: /integrations/openweathermap/
+[panasonic_viera docs]: /integrations/panasonic_viera/
+[panel_custom docs]: /integrations/panel_custom/
+[panel_iframe docs]: /integrations/panel_iframe/
+[picotts docs]: /integrations/picotts/
+[plex docs]: /integrations/plex/
+[pollen docs]: /integrations/iqvia
+[prometheus docs]: /integrations/prometheus/
+[ps4 docs]: /integrations/ps4/
+[push docs]: /integrations/push/
+[recorder docs]: /integrations/recorder/
+[reddit docs]: /integrations/reddit/
+[rest docs]: /integrations/rest/
+[ring docs]: /integrations/ring/
+[season docs]: /integrations/season/
+[sense docs]: /integrations/sense/
+[sensibo docs]: /integrations/sensibo/
+[simplisafe docs]: /integrations/simplisafe/
+[smartthings docs]: /integrations/smartthings/
+[solaredge docs]: /integrations/solaredge/
+[sql docs]: /integrations/sql/
+[stream docs]: /integrations/stream/
+[switch docs]: /integrations/switch/
+[switchbot docs]: /integrations/switchbot/
+[systemmonitor docs]: /integrations/systemmonitor/
+[telegram_bot docs]: /integrations/telegram_bot/
+[tellduslive docs]: /integrations/tellduslive/
+[tfiac docs]: /integrations/tfiac/
+[tibber docs]: /integrations/tibber/
+[time_date docs]: /integrations/time_date/
+[tplink docs]: /integrations/tplink/
+[traccar docs]: /integrations/traccar/
+[trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation/
+[upnp docs]: /integrations/upnp/
+[voicerss docs]: /integrations/voicerss/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yandextts docs]: /integrations/yandextts/
+[yeelight docs]: /integrations/yeelight/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

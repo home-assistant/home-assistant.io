@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-04-0.43/components.png
 ---
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-04-0.43/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-04-0.43/components.png' style='border: 0;box-shadow: none;'></a>
 
 Oooh yeah. It's time for 0.43 and this is going to be a killer release. For the people that have been following on social media, you might have noticed that [we got pretty excited about the new IKEA Trådfri line up][ikea-blog]. And so we are very happy to announce that thanks to the work by [@ggravlingen], [@MartinHjelmare] and myself that this will be the first release to support the IKEA light bulbs. Home Assistant will automatically detect the gateway on your network and after following the instructions, allow you to control your lights.
 
@@ -93,7 +93,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
-- Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
+- Work around bad content-type in Hook api response ([@KlaasH] - [#7267])
 - Recorder: Check for ENTITY_ID key that contains None value ([@balloob] - [#7287]) ([recorder docs])
 
 ## Release 0.43.2 - April 27
@@ -102,8 +102,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Frontend: Fix logbook ui (@balloob)
 - Upgrade pytradfri to 1.1 ([@balloob] - [#7290])
 - Upgrade python-telegram-bot to 5.3.1 ([@fabaff] - [#7311]) ([notify.telegram docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs])
-- Version bump of aioautomatic ([@armills] - [#7300]) ([device_tracker.automatic docs])
-- Version bump for automatic ([@armills] - [#7329]) ([device_tracker.automatic docs])
+- Version bump of aioautomatic ([@armills] - [#7300])
+- Version bump for automatic ([@armills] - [#7329])
 - Fix breaking SSL in test HTML5 ([@balloob] - [#7310]) ([notify.html5 docs])
 - Fix for building Python Open Z-Wave in Docker ([@balloob] - [#7337])
 
@@ -132,15 +132,15 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump pywemo version. ([@pavoni] - [#7004])
 - Fix Synology camera content type ([@balloob] - [#7010]) ([camera.synology docs])
 - Fix two more instances of JSON parsing synology ([@balloob] - [#7014])
-- Bump pyalarmdotcom to support new version of aiohttp ([@Xorso] - [#7021]) ([alarm_control_panel.alarmdotcom docs])
+- Bump pyalarmdotcom to support new version of aiohttp ([@Xorso] - [#7021])
 - Fix US states check (fixes #7015) ([@fabaff] - [#7017])
 - Remove deprecated remote classes ([@balloob] - [#7011]) (breaking change)
 - Replace 'vendor_id' with 'arch' (fixes #7003) ([@fabaff] - [#7023])
 - more tests for slugify ([@micw] - [#7027])
 - Additional ZWave coverage ([@armills] - [#7024]) ([zwave docs])
-- bump ups version ([@happyleavesaoc] - [#7033]) ([sensor.ups docs])
-- update usps version ([@happyleavesaoc] - [#7035]) ([sensor.usps docs])
-- update fedex ([@happyleavesaoc] - [#7034]) ([sensor.fedex docs])
+- bump ups version ([@happyleavesaoc] - [#7033])
+- update usps version ([@happyleavesaoc] - [#7035])
+- update fedex ([@happyleavesaoc] - [#7034])
 - Google TTS can't read percent sign (#6971) ([@pezinek] - [#7030]) ([tts.google docs])
 - Feature/min max improvements ([@micw] - [#6786]) (breaking change)
 - Upgrade psutil to 5.2.2 ([@fabaff] - [#7037]) ([sensor.systemmonitor docs])
@@ -177,7 +177,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update file header, add const for defaults, and update log messages ([@fabaff] - [#7110])
 - Upgrade speedtest-cli to 1.0.4 ([@fabaff] - [#7105]) ([sensor.speedtest docs])
 - Remove globally disabled pylint issue and update docstrings ([@fabaff] - [#7111])
-- Use third-party lib aioautomatic for automatic ([@armills] - [#7126]) ([device_tracker.automatic docs])
+- Use third-party lib aioautomatic for automatic ([@armills] - [#7126])
 - Upgrade chardet to 3.0.2 ([@fabaff] - [#7112])
 - Send stderr of ping tracker to devnull ([@amelchio] - [#7096]) ([device_tracker.ping docs])
 - Upgraded Amcrest module to 1.1.9 to support new firmware versions: ([@tchellomello] - [#7130])
@@ -416,73 +416,69 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@titilambert]: https://github.com/titilambert
 [@turbokongen]: https://github.com/turbokongen
 [@viswa-swami]: https://github.com/viswa-swami
-[alarm_control_panel.alarmdotcom docs]: /components/alarm_control_panel.alarmdotcom/
-[arduino docs]: /components/arduino/
-[automation docs]: /components/automation/
-[binary_sensor.ping docs]: /components/binary_sensor.ping/
-[binary_sensor.wemo docs]: /components/binary_sensor.wemo/
-[camera.foscam docs]: /components/camera.foscam/
-[camera.mqtt docs]: /components/camera.mqtt/
-[camera.neato docs]: /components/camera.neato/
-[camera.synology docs]: /components/camera.synology/
-[climate docs]: /components/climate/
-[device_tracker.automatic docs]: /components/device_tracker.automatic/
-[device_tracker.mysensors docs]: /components/device_tracker.mysensors/
-[device_tracker.ping docs]: /components/device_tracker.ping/
-[hassio docs]: /components/hassio/
-[input_slider docs]: /components/input_slider/
-[light.flux_led docs]: /components/light.flux_led/
-[light.lifx docs]: /components/light.lifx/
-[light.lutron_caseta docs]: /components/light.lutron_caseta/
-[light.mystrom docs]: /components/light.mystrom/
-[light.services.yaml docs]: /components/light.services.yaml/
-[light.tradfri docs]: /components/light.tradfri/
-[light.wemo docs]: /components/light.wemo/
-[light.yeelight docs]: /components/light.yeelight/
-[lutron docs]: /components/lutron/
-[lutron_caseta docs]: /components/lutron_caseta/
-[media_player docs]: /components/media_player/
-[media_player.apple_tv docs]: /components/media_player.apple_tv/
-[media_player.braviatv docs]: /components/media_player.braviatv/
-[media_player.gstreamer docs]: /components/media_player.gstreamer/
-[media_player.kodi docs]: /components/media_player.kodi/
-[media_player.spotify docs]: /components/media_player.spotify/
-[media_player.webostv docs]: /components/media_player.webostv/
-[modbus docs]: /components/modbus/
-[mqtt docs]: /components/mqtt/
-[mysensors docs]: /components/mysensors/
-[neato docs]: /components/neato/
-[notify.kodi docs]: /components/notify.kodi/
-[notify.sendgrid docs]: /components/notify.sendgrid/
-[notify.webostv docs]: /components/notify.webostv/
-[scene.lifx_cloud docs]: /components/scene.lifx_cloud/
-[sensor.cpuspeed docs]: /components/sensor.cpuspeed/
-[sensor.crimereports docs]: /components/sensor.crimereports/
-[sensor.fedex docs]: /components/sensor.fedex/
-[sensor.fido docs]: /components/sensor.fido/
-[sensor.modbus docs]: /components/sensor.modbus/
-[sensor.mvglive docs]: /components/sensor.mvglive/
-[sensor.neato docs]: /components/neato/
-[sensor.opensky docs]: /components/sensor.opensky/
-[sensor.qnap docs]: /components/sensor.qnap/
-[sensor.speedtest docs]: /components/sensor.speedtest/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.ups docs]: /components/sensor.ups/
-[sensor.usps docs]: /components/sensor.usps/
-[sensor.vera docs]: /components/sensor.vera/
-[sun docs]: /components/sun/
-[switch.tplink docs]: /components/switch.tplink/
-[switch.wake_on_lan docs]: /components/switch.wake_on_lan/
-[switch.wemo docs]: /components/switch.wemo/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
-[tts.google docs]: /components/tts.google/
-[tts.marytts docs]: /components/tts.marytts/
-[vera docs]: /components/vera/
-[wemo docs]: /components/wemo/
-[zwave docs]: /components/zwave/
-[zwave.node_entity docs]: /components/zwave.node_entity/
+
+[arduino docs]: /integrations/arduino/
+[automation docs]: /integrations/automation/
+[binary_sensor.ping docs]: /integrations/ping#binary-sensor
+[binary_sensor.wemo docs]: /integrations/wemo
+[camera.foscam docs]: /integrations/foscam
+[camera.mqtt docs]: /integrations/camera.mqtt/
+[camera.neato docs]: /integrations/neato#camera
+[camera.synology docs]: /integrations/synology
+[climate docs]: /integrations/climate/
+[device_tracker.mysensors docs]: /integrations/device_tracker.mysensors/
+[device_tracker.ping docs]: /integrations/ping
+[hassio docs]: /integrations/hassio/
+[input_slider docs]: /integrations/input_number
+[light.flux_led docs]: /integrations/flux_led
+[light.lifx docs]: /integrations/lifx
+[light.lutron_caseta docs]: /integrations/lutron_caseta/
+[light.mystrom docs]: /integrations/mystrom#light
+[light.services.yaml docs]: /integrations/light.services.yaml/
+[light.tradfri docs]: /integrations/tradfri
+[light.wemo docs]: /integrations/wemo
+[light.yeelight docs]: /integrations/yeelight
+[lutron docs]: /integrations/lutron/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[media_player docs]: /integrations/media_player/
+[media_player.apple_tv docs]: /integrations/apple_tv
+[media_player.braviatv docs]: /integrations/braviatv
+[media_player.gstreamer docs]: /integrations/gstreamer
+[media_player.kodi docs]: /integrations/kodi
+[media_player.spotify docs]: /integrations/spotify
+[media_player.webostv docs]: /integrations/webostv#media-player
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[neato docs]: /integrations/neato/
+[notify.kodi docs]: /integrations/kodi
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.webostv docs]: /integrations/webostv
+[scene.lifx_cloud docs]: /integrations/lifx_cloud
+[sensor.cpuspeed docs]: /integrations/cpuspeed
+[sensor.crimereports docs]: /integrations/crimereports
+[sensor.fido docs]: /integrations/fido
+[sensor.modbus docs]: /integrations/sensor.modbus/
+[sensor.mvglive docs]: /integrations/mvglive
+[sensor.neato docs]: /integrations/neato/
+[sensor.opensky docs]: /integrations/opensky
+[sensor.qnap docs]: /integrations/qnap
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.vera docs]: /integrations/vera#sensor
+[sun docs]: /integrations/sun/
+[switch.tplink docs]: /integrations/tplink
+[switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
+[switch.wemo docs]: /integrations/wemo
+[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
+[tts.google docs]: /integrations/google_translate
+[tts.marytts docs]: /integrations/marytts
+[vera docs]: /integrations/vera/
+[wemo docs]: /integrations/wemo/
+[zwave docs]: /integrations/zwave/
+[zwave.node_entity docs]: /integrations/zwave.node_entity/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7204]: https://github.com/home-assistant/home-assistant/pull/7204
@@ -492,13 +488,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7267]: https://github.com/home-assistant/home-assistant/pull/7267
 [#7287]: https://github.com/home-assistant/home-assistant/pull/7287
 [@KlaasH]: https://github.com/KlaasH
-[cover.zwave docs]: /components/cover.zwave/
-[recorder docs]: /components/recorder/
-[switch.hook docs]: /components/switch.hook/
-[switch.wemo docs]: /components/switch.wemo/
-[telegram_bot docs]: /components/telegram_bot/
-[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
-[wemo docs]: /components/wemo/
+[cover.zwave docs]: /integrations/zwave#cover
+[recorder docs]: /integrations/recorder/
+[switch.wemo docs]: /integrations/wemo
+[telegram_bot docs]: /integrations/telegram_bot/
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
+[wemo docs]: /integrations/wemo/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
 [#7290]: https://github.com/home-assistant/home-assistant/pull/7290
@@ -509,9 +504,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7324]: https://github.com/home-assistant/home-assistant/pull/7324
 [#7329]: https://github.com/home-assistant/home-assistant/pull/7329
 [#7337]: https://github.com/home-assistant/home-assistant/pull/7337
-[device_tracker.automatic docs]: /components/device_tracker.automatic/
-[hassio docs]: /components/hassio/
-[notify.html5 docs]: /components/notify.html5/
-[notify.telegram docs]: /components/notify.telegram/
-[telegram_bot.polling docs]: /components/telegram_bot.polling/
+[hassio docs]: /integrations/hassio/
+[notify.html5 docs]: /integrations/html5
+[notify.telegram docs]: /integrations/telegram
+[telegram_bot.polling docs]: /integrations/telegram_polling
 [discord]: https://discord.gg/c5DvZ4e

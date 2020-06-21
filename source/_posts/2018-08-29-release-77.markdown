@@ -56,8 +56,8 @@ You didn't think we would forget about Lovelace, did you? This release include a
 [#16282]: https://github.com/home-assistant/home-assistant/pull/16282
 [@cnrd]: https://github.com/cnrd
 [@syssi]: https://github.com/syssi
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
 
 ## Release 0.77.2 - August 31
 
@@ -75,9 +75,9 @@ You didn't think we would forget about Lovelace, did you? This release include a
 [@amelchio]: https://github.com/amelchio
 [@exxamalte]: https://github.com/exxamalte
 [@lamiskin]: https://github.com/lamiskin
-[feedreader docs]: /components/feedreader/
-[light.lifx docs]: /components/light.lifx/
-[wemo docs]: /components/wemo/
+[feedreader docs]: /integrations/feedreader/
+[light.lifx docs]: /integrations/lifx
+[wemo docs]: /integrations/wemo/
 
 ## Release 0.77.3 - September 3
 
@@ -130,7 +130,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - remove hangouts.users state, simplifies hangouts.conversations ([@hobbypunk90] - [#16191]) ([hangouts docs]) (beta fix)
 - Update aiohttp to version 3.4.0. ([@Swamp-Ig] - [#16198]) (beta fix)
 - Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
-- homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
+- homematic: Make device available again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
 - Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
 - rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix)
 - Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
@@ -142,14 +142,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change log level to error when auth provider failed loading ([@awarecan] - [#16235]) (beta fix)
 - Blow up startup if init auth providers or modules failed ([@awarecan] - [#16240]) (beta fix)
 - Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
-- def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
+- def device should not call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
 ## All changes
 
 - Eph ember support operation modes ([@ttroy50] - [#15820]) ([climate.ephember docs])
 - Fixed race condition in Generic Thermostat ([@aronsky] - [#15784]) ([climate.generic_thermostat docs])
 - Fix magic cube support of the Aqara LAN Protocol V2 ([@syssi] - [#15940]) ([binary_sensor.xiaomi_aqara docs])
-- Upgrade beautifulsoup4 to 4.6.3 ([@fabaff] - [#15946]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs]) ([sensor.sytadin docs])
+- Upgrade beautifulsoup4 to 4.6.3 ([@fabaff] - [#15946]) ([device_tracker docs]) ([sensor.geizhals docs]) ([sensor.scrape docs])
 - Allow wait template to run the remainder of the script ([@lhovo] - [#15836]) (breaking change)
 - Add trusted networks auth provider ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change)
 - Add monitored conditions for Unifi device_tracker ([@cgarwood] - [#15888]) ([device_tracker docs])
@@ -193,7 +193,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add recent context ([@balloob] - [#15989])
 - Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
 - Bumped NDMS2 client library to 0.0.4 to get compatible with python 3.5 ([@foxel] - [#16077]) ([device_tracker docs])
-- fritzdect change to current_power_w ([@Danielhiversen] - [#16079]) ([switch.fritzdect docs])
+- fritzdect change to current_power_w ([@Danielhiversen] - [#16079])
 - Update pyhomematic to 0.1.47 ([@danielperna84] - [#16083]) ([homematic docs])
 - Get user after login flow finished ([@awarecan] - [#16047]) ([auth docs])
 - Upgrade pytest to 3.7.2 ([@scop] - [#16091])
@@ -244,7 +244,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - remove hangouts.users state, simplifies hangouts.conversations ([@hobbypunk90] - [#16191]) ([hangouts docs]) (beta fix)
 - Update aiohttp to version 3.4.0. ([@Swamp-Ig] - [#16198]) (beta fix)
 - Revert changes to platforms using self.device ([@Kane610] - [#16209]) (beta fix)
-- homematic: Make device avilable again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
+- homematic: Make device available again when UNREACH becomes False ([@klada] - [#16202]) ([homematic docs]) (beta fix)
 - Change auth warning ([@balloob] - [#16216]) ([http docs]) (beta fix)
 - rewrite hangouts to use intents instead of commands ([@hobbypunk90] - [#16220]) ([conversation docs]) ([hangouts docs]) (beta fix)
 - Fix device telldus ([@balloob] - [#16224]) ([tellduslive docs]) (beta fix)
@@ -256,7 +256,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change log level to error when auth provider failed loading ([@awarecan] - [#16235]) (beta fix)
 - Blow up startup if init auth providers or modules failed ([@awarecan] - [#16240]) (beta fix)
 - Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
-- def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
+- def device should not call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
 [#14516]: https://github.com/home-assistant/home-assistant/pull/14516
 [#14557]: https://github.com/home-assistant/home-assistant/pull/14557
@@ -415,81 +415,79 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ttroy50]: https://github.com/ttroy50
 [@vrih]: https://github.com/vrih
 [@zhelev]: https://github.com/zhelev
-[alexa docs]: /components/alexa/
-[api docs]: /components/api/
-[auth docs]: /components/auth/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[binary_sensor.wemo docs]: /components/binary_sensor.wemo/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[calendar.google docs]: /components/calendar.google/
-[camera docs]: /components/camera/
-[camera.generic docs]: /components/camera.generic/
-[camera.proxy docs]: /components/camera.proxy/
-[camera.push docs]: /components/camera.push/
-[climate docs]: /components/climate/
-[climate.ephember docs]: /components/climate.ephember/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.knx docs]: /components/climate.knx/
-[climate.maxcube docs]: /components/climate.maxcube/
-[climate.sensibo docs]: /components/climate.sensibo/
-[config docs]: /components/config/
-[conversation docs]: /components/conversation/
-[cover.aladdin_connect docs]: /components/cover.aladdin_connect/
-[cover.brunt docs]: /components/cover.brunt/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[ecovacs docs]: /components/ecovacs/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[hangouts docs]: /components/hangouts/
-[hassio docs]: /components/hassio/
-[homematic docs]: /components/homematic/
-[http docs]: /components/http/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[input_datetime docs]: /components/input_datetime/
-[insteon_local docs]: /components/insteon_local/
-[insteon_plm docs]: /components/insteon_plm/
-[konnected docs]: /components/konnected/
-[light.deconz docs]: /components/light.deconz/
-[light.wemo docs]: /components/light.wemo/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[lock.bmw_connected_drive docs]: /components/lock.bmw_connected_drive/
-[media_extractor docs]: /components/media_extractor/
-[media_player.frontier_silicon docs]: /components/media_player.frontier_silicon/
-[media_player.mpd docs]: /components/media_player.mpd/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.sonos docs]: /components/media_player.sonos/
-[mqtt_eventstream docs]: /components/mqtt_eventstream/
-[mqtt_statestream docs]: /components/mqtt_statestream/
-[notify docs]: /components/notify/
-[openuv docs]: /components/openuv/
-[panel_custom docs]: /components/panel_custom/
-[remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.geizhals docs]: /components/sensor.geizhals/
-[sensor.glances docs]: /components/sensor.glances/
-[sensor.netatmo_public docs]: /components/netatmo/#sensor
-[sensor.noaa_tides docs]: /components/sensor.noaa_tides/
-[sensor.openuv docs]: /components/sensor.openuv/
-[sensor.scrape docs]: /components/sensor.scrape/
-[sensor.shodan docs]: /components/sensor.shodan/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.sytadin docs]: /components/sensor.sytadin/
-[sensor.worldtidesinfo docs]: /components/sensor.worldtidesinfo/
-[sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
-[sonos docs]: /components/sonos/
-[splunk docs]: /components/splunk/
-[switch.deconz docs]: /components/switch.deconz/
-[switch.fritzdect docs]: /components/switch.fritzdect/
-[switch.konnected docs]: /components/switch.konnected/
-[switch.wemo docs]: /components/switch.wemo/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[tellduslive docs]: /components/tellduslive/
-[upnp docs]: /components/upnp/
-[vacuum.ecovacs docs]: /components/vacuum.ecovacs/
-[vacuum.neato docs]: /components/vacuum.neato/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[waterfurnace docs]: /components/waterfurnace/
-[websocket_api docs]: /components/websocket_api/
-[wemo docs]: /components/wemo/
+[alexa docs]: /integrations/alexa/
+[api docs]: /integrations/api/
+[auth docs]: /integrations/auth/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.wemo docs]: /integrations/wemo
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[calendar.google docs]: /integrations/calendar.google/
+[camera docs]: /integrations/camera/
+[camera.generic docs]: /integrations/generic_ip_camera
+[camera.proxy docs]: /integrations/proxy
+[camera.push docs]: /integrations/push
+[climate docs]: /integrations/climate/
+[climate.ephember docs]: /integrations/ephember
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.knx docs]: /integrations/climate.knx/
+[climate.maxcube docs]: /integrations/maxcube
+[climate.sensibo docs]: /integrations/sensibo
+[config docs]: /integrations/config/
+[conversation docs]: /integrations/conversation/
+[cover.aladdin_connect docs]: /integrations/aladdin_connect
+[cover.brunt docs]: /integrations/brunt
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[ecovacs docs]: /integrations/ecovacs/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[hangouts docs]: /integrations/hangouts/
+[hassio docs]: /integrations/hassio/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.opencv docs]: /integrations/opencv
+[input_datetime docs]: /integrations/input_datetime/
+[insteon_local docs]: /integrations/insteon/
+[insteon_plm docs]: /integrations/insteon/
+[konnected docs]: /integrations/konnected/
+[light.deconz docs]: /integrations/deconz#light
+[light.wemo docs]: /integrations/wemo
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[lock.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.frontier_silicon docs]: /integrations/frontier_silicon
+[media_player.mpd docs]: /integrations/mpd
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.sonos docs]: /integrations/sonos
+[mqtt_eventstream docs]: /integrations/mqtt_eventstream/
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[notify docs]: /integrations/notify/
+[openuv docs]: /integrations/openuv/
+[panel_custom docs]: /integrations/panel_custom/
+[remote.xiaomi_miio docs]: /integrations/remote.xiaomi_miio/
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.geizhals docs]: /integrations/geizhals
+[sensor.glances docs]: /integrations/glances
+[sensor.netatmo_public docs]: /integrations/netatmo/#sensor
+[sensor.noaa_tides docs]: /integrations/noaa_tides
+[sensor.openuv docs]: /integrations/openuv
+[sensor.scrape docs]: /integrations/scrape
+[sensor.shodan docs]: /integrations/shodan
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.worldtidesinfo docs]: /integrations/worldtidesinfo
+[sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
+[sonos docs]: /integrations/sonos/
+[splunk docs]: /integrations/splunk/
+[switch.deconz docs]: /integrations/deconz#switch
+[switch.konnected docs]: /integrations/konnected#switch
+[switch.wemo docs]: /integrations/wemo
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[tellduslive docs]: /integrations/tellduslive/
+[upnp docs]: /integrations/upnp/
+[vacuum.ecovacs docs]: /integrations/ecovacs#vacuum
+[vacuum.neato docs]: /integrations/neato#vacuum
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[waterfurnace docs]: /integrations/waterfurnace/
+[websocket_api docs]: /integrations/websocket_api/
+[wemo docs]: /integrations/wemo/

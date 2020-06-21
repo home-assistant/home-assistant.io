@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-07-0.49/components.png
 ---
 
-<a href='/components/#version/0.49'><img src='/images/blog/2017-07-0.49/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.49'><img src='/images/blog/2017-07-0.49/components.png' style='border: 0;box-shadow: none;'></a>
 
 # WE HAVE THEMES 🎨👩‍🎨
 
@@ -127,7 +127,7 @@ amcrest:
 - Fix pylint issue ([@fabaff] - [#8325]) ([snips docs])
 - vsure 1.3.7 ([@persandstrom] - [#8321]) ([verisure docs])
 - Update pyEmby to fix media images ([@mezz64] - [#8331]) ([media_player.emby docs])
-- Partially revert #7931 ([@fabaff] - [#8326]) ([sensor.yweather docs])
+- Partially revert #7931 ([@fabaff] - [#8326])
 - Only allow 'tls_insecure_set()' if cert is present (fixes #8329) ([@fabaff] - [#8337]) ([mqtt docs])
 - Fix issue #8285 ([@Sabesto] - [#8340]) ([modbus docs]) ([binary_sensor.modbus docs]) ([climate.flexit docs]) ([sensor.modbus docs]) ([switch.modbus docs])
 - Bump dlib face_recognition to 0.2.0 ([@pvizeli] - [#8345]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
@@ -373,104 +373,103 @@ amcrest:
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@wmalgadey]: https://github.com/wmalgadey
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[amcrest docs]: /components/amcrest/
-[apcupsd docs]: /components/apcupsd/
-[binary_sensor.hikvision docs]: /components/binary_sensor.hikvision/
-[binary_sensor.modbus docs]: /components/binary_sensor.modbus/
-[binary_sensor.octoprint docs]: /components/binary_sensor.octoprint/
-[binary_sensor.pilight docs]: /components/binary_sensor.pilight/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[camera.amcrest docs]: /components/camera.amcrest/
-[camera.arlo docs]: /components/camera.arlo/
-[climate.flexit docs]: /components/climate.flexit/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.radiotherm docs]: /components/climate.radiotherm/
-[climate.tado docs]: /components/climate.tado/
-[cover.template docs]: /components/cover.template/
-[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
-[device_tracker.linksys_smart docs]: /components/device_tracker.linksys_smart/
-[device_tracker.tplink docs]: /components/device_tracker.tplink/
-[device_tracker.upc_connect docs]: /components/device_tracker.upc_connect/
-[dyson docs]: /components/dyson/
-[fan.dyson docs]: /components/fan.dyson/
-[group docs]: /components/group/
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[amcrest docs]: /integrations/amcrest/
+[apcupsd docs]: /integrations/apcupsd/
+[binary_sensor.hikvision docs]: /integrations/hikvision
+[binary_sensor.modbus docs]: /integrations/binary_sensor.modbus/
+[binary_sensor.octoprint docs]: /integrations/octoprint#binary-sensor
+[binary_sensor.pilight docs]: /integrations/pilight#binary-sensor
+[binary_sensor.zha docs]: /integrations/zha
+[camera.amcrest docs]: /integrations/amcrest
+[camera.arlo docs]: /integrations/arlo#camera
+[climate.flexit docs]: /integrations/flexit
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.radiotherm docs]: /integrations/radiotherm
+[climate.tado docs]: /integrations/tado
+[cover.template docs]: /integrations/cover.template/
+[device_tracker.asuswrt docs]: /integrations/asuswrt
+[device_tracker.linksys_smart docs]: /integrations/linksys_smart
+[device_tracker.tplink docs]: /integrations/tplink
+[device_tracker.upc_connect docs]: /integrations/upc_connect
+[dyson docs]: /integrations/dyson/
+[fan.dyson docs]: /integrations/dyson#fan
+[group docs]: /integrations/group/
 [hassio docs]: /hassio/
-[homematic docs]: /components/homematic/
-[image_processing.dlib_face_detect docs]: /components/image_processing.dlib_face_detect/
-[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
-[knx docs]: /components/knx/
-[lametric docs]: /components/lametric/
-[light.avion docs]: /components/light.avion/
-[light.decora docs]: /components/light.decora/
-[light.hue docs]: /components/light.hue/
-[light.hyperion docs]: /components/light.hyperion/
-[light.knx docs]: /components/light.knx/
-[light.lifx docs]: /components/light.lifx/
-[light.mystrom docs]: /components/light.mystrom/
-[light.rflink docs]: /components/light.rflink/
-[light.zha docs]: /components/light.zha/
-[lutron docs]: /components/lutron/
-[media_extractor docs]: /components/media_extractor/
-[media_player.apple_tv docs]: /components/media_player.apple_tv/
-[media_player.denonavr docs]: /components/media_player.denonavr/
-[media_player.emby docs]: /components/media_player.emby/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.soundtouch docs]: /components/media_player.soundtouch/
-[media_player.spotify docs]: /components/media_player.spotify/
-[media_player.vizio docs]: /components/media_player.vizio/
-[modbus docs]: /components/modbus/
-[mqtt docs]: /components/mqtt/
-[notify docs]: /components/notify/
-[notify.discord docs]: /components/notify.discord/
-[notify.lametric docs]: /components/notify.lametric/
-[notify.slack docs]: /components/notify.slack/
-[notify.twitter docs]: /components/notify.twitter/
-[octoprint docs]: /components/octoprint/
-[prometheus docs]: /components/prometheus/
-[python_script docs]: /components/python_script/
-[recorder docs]: /components/recorder/
-[rflink docs]: /components/rflink/
-[rfxtrx docs]: /components/rfxtrx/
-[scene.velux docs]: /components/scene.velux/
-[sensor.amcrest docs]: /components/sensor.amcrest/
-[sensor.apcupsd docs]: /components/sensor.apcupsd/
-[sensor.arwn docs]: /components/sensor.arwn/
-[sensor.broadlink docs]: /components/sensor.broadlink/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.citybikes docs]: /components/sensor.citybikes/
-[sensor.dht docs]: /components/sensor.dht/
-[sensor.dyson docs]: /components/sensor.dyson/
-[sensor.gtfs docs]: /components/sensor.gtfs/
-[sensor.london_underground docs]: /components/sensor.london_underground/
-[sensor.modbus docs]: /components/sensor.modbus/
-[sensor.octoprint docs]: /components/sensor.octoprint/
-[sensor.openweathermap docs]: /components/sensor.openweathermap/
-[sensor.otp docs]: /components/sensor.otp/
-[sensor.rflink docs]: /components/sensor.rflink/
-[sensor.waqi docs]: /components/sensor.waqi/
-[sensor.yweather docs]: /components/sensor.yweather/
-[sensor.zha docs]: /components/sensor.zha/
-[snips docs]: /components/snips/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.dlink docs]: /components/switch.dlink/
-[switch.modbus docs]: /components/switch.modbus/
-[switch.rachio docs]: /components/switch.rachio/
-[switch.rflink docs]: /components/switch.rflink/
-[switch.xiaomi_vacuum docs]: /components/vacuum.xiaomi_miio/
-[tado docs]: /components/tado/
-[tts docs]: /components/tts/
-[tts.amazon_polly docs]: /components/tts.amazon_polly/
-[upnp docs]: /components/upnp/
-[velux docs]: /components/velux/
-[frontend docs]: /components/frontend/
-[vera docs]: /components/vera/
-[verisure docs]: /components/verisure/
-[wake_on_lan docs]: /components/wake_on_lan/
-[weather.buienradar docs]: /components/weather.buienradar/
-[weather.openweathermap docs]: /components/weather.openweathermap/
-[zha docs]: /components/zha/
-[zha.const docs]: /components/zha.const/
+[homematic docs]: /integrations/homematic/
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[knx docs]: /integrations/knx/
+[lametric docs]: /integrations/lametric/
+[light.avion docs]: /integrations/avion
+[light.decora docs]: /integrations/decora
+[light.hue docs]: /integrations/hue
+[light.hyperion docs]: /integrations/hyperion
+[light.knx docs]: /integrations/light.knx/
+[light.lifx docs]: /integrations/lifx
+[light.mystrom docs]: /integrations/mystrom#light
+[light.rflink docs]: /integrations/light.rflink/
+[light.zha docs]: /integrations/zha
+[lutron docs]: /integrations/lutron/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.apple_tv docs]: /integrations/apple_tv
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.emby docs]: /integrations/emby
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.soundtouch docs]: /integrations/soundtouch
+[media_player.spotify docs]: /integrations/spotify
+[media_player.vizio docs]: /integrations/vizio
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[notify docs]: /integrations/notify/
+[notify.discord docs]: /integrations/discord
+[notify.lametric docs]: /integrations/lametric
+[notify.slack docs]: /integrations/slack
+[notify.twitter docs]: /integrations/twitter
+[octoprint docs]: /integrations/octoprint/
+[prometheus docs]: /integrations/prometheus/
+[python_script docs]: /integrations/python_script/
+[recorder docs]: /integrations/recorder/
+[rflink docs]: /integrations/rflink/
+[rfxtrx docs]: /integrations/rfxtrx/
+[scene.velux docs]: /integrations/velux
+[sensor.amcrest docs]: /integrations/amcrest
+[sensor.apcupsd docs]: /integrations/apcupsd#sensor
+[sensor.arwn docs]: /integrations/arwn
+[sensor.broadlink docs]: /integrations/broadlink#sensor
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.citybikes docs]: /integrations/citybikes
+[sensor.dht docs]: /integrations/dht
+[sensor.dyson docs]: /integrations/dyson#sensor
+[sensor.gtfs docs]: /integrations/gtfs
+[sensor.london_underground docs]: /integrations/london_underground
+[sensor.modbus docs]: /integrations/sensor.modbus/
+[sensor.octoprint docs]: /integrations/octoprint#sensor
+[sensor.openweathermap docs]: /integrations/openweathermap#sensor
+[sensor.otp docs]: /integrations/otp
+[sensor.rflink docs]: /integrations/sensor.rflink/
+[sensor.waqi docs]: /integrations/waqi
+[sensor.zha docs]: /integrations/zha
+[snips docs]: /integrations/snips/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.dlink docs]: /integrations/dlink
+[switch.modbus docs]: /integrations/switch.modbus/
+[switch.rachio docs]: /integrations/rachio#switch
+[switch.rflink docs]: /integrations/switch.rflink/
+[switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
+[tado docs]: /integrations/tado/
+[tts docs]: /integrations/tts/
+[tts.amazon_polly docs]: /integrations/amazon_polly
+[upnp docs]: /integrations/upnp/
+[velux docs]: /integrations/velux/
+[frontend docs]: /integrations/frontend/
+[vera docs]: /integrations/vera/
+[verisure docs]: /integrations/verisure/
+[wake_on_lan docs]: /integrations/wake_on_lan/
+[weather.buienradar docs]: /integrations/buienradar
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[zha docs]: /integrations/zha/
+[zha.const docs]: /integrations/zha.const/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e
@@ -487,8 +486,8 @@ amcrest:
 [@clkao]: https://github.com/clkao
 [@maikelwever]: https://github.com/maikelwever
 [@ypollart]: https://github.com/ypollart
-[binary_sensor.rfxtrx docs]: /components/binary_sensor.rfxtrx/
-[telegram_bot docs]: /components/telegram_bot/
+[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[telegram_bot docs]: /integrations/telegram_bot/
 [#8545]: https://github.com/home-assistant/home-assistant/pull/8545
 [#8571]: https://github.com/home-assistant/home-assistant/pull/8571
 [#8601]: https://github.com/home-assistant/home-assistant/pull/8601
@@ -499,6 +498,6 @@ amcrest:
 [@glance-]: https://github.com/glance-
 [@jawilson]: https://github.com/jawilson
 [@schaal]: https://github.com/schaal
-[device_tracker.ubus docs]: /components/device_tracker.ubus/
-[keyboard_remote docs]: /components/keyboard_remote/
-[switch.flux docs]: /components/switch.flux/
+[device_tracker.ubus docs]: /integrations/ubus
+[keyboard_remote docs]: /integrations/keyboard_remote/
+[switch.flux docs]: /integrations/flux

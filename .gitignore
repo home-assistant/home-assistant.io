@@ -6,6 +6,7 @@
 public
 source/_stash
 source/stylesheets/screen.css
+source/.jekyll-cache/
 vendor
 node_modules
 source/.jekyll-metadata

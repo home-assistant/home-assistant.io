@@ -21,7 +21,7 @@ To allow you to customize your installation further, we have included a tool cal
 
   - Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component that's used with Amazon Echo, Google Home and Mycroft.ai.
  - Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.
- - Install Libcec. Adds local [HDMI CEC support][cec].
+ - Install Libcec. Adds local [HDMI-CEC support][cec].
  - Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.
  - Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.
  - Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it's usage is not recommended if you share your network with others.
@@ -39,10 +39,9 @@ With this image there also quite a bit of cleaning of the base system and the sc
 
 To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord-devs].
 
-To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
+To get started with the new image, check out the installation instructions in the getting started section.
 
-[cec]: /components/hdmi_cec/
+[cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
 [hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
-[gs-image]: /docs/installation/hassbian/installation/
 [discord-devs]: https://discord.gg/8X8DTH4

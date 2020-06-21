@@ -4,11 +4,11 @@ description: "Details about YAML to configure Home Assistant."
 redirect_from: /getting-started/yaml/
 ---
 
-Home Assistant uses the [YAML](http://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
+Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
 
-For each integration that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings.
-The following example entry specifies that you want to use the [notify component](/components/notify) with the [pushbullet platform](/components/notify.pushbullet).
+For integrations that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings. This especially applies to integrations that are not yet available to configure through the UI.
 
+The following example entry assumes that you would like to set up the [notify component](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
 
 ```yaml
 notify:
@@ -30,14 +30,14 @@ You can use the online service [YAMLLint](http://www.yamllint.com/) to check if 
 
 <div class='note'>
 
-Please pay attention on not storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in a [separate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this problem of security.
+Please pay attention to not storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in either a [separate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this security problem.
 
 </div>
 
-Text following a `#` are comments and are ignored by the system.
+Strings of text following a `#` are comments and are ignored by the system.
 
-The next example shows an [input_select](/components/input_select) integration that uses a block collection for the options values.
-The other properties (like name) are specified using mappings. Note that the second line just has `threat:` with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.
+The next example shows an [input_select](/integrations/input_select) integration that uses a block collection for the values of options.
+The other properties (like `name:`) are specified using mappings. Note that the second line just has `threat:` with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.
 
 ```yaml
 input_select:
@@ -62,30 +62,34 @@ sensor:
     state_topic: sensor2/topic
 ```
 
-### Using Environment Variables
+## Including values
 
-You can include values from your system's environment variables with `!env_var`.
+### Environmental variables
+
+On Home Assistant Core installations, you can include values from your system's environment variables with `!env_var`.
+Note that this will only work for Home Assistant Core installations, in a scenario where it is possible to specify these.
+Regular Home Assistant users are recommended to use `!include` statements instead.
 
 ```yaml
-http:
-  api_password: !env_var PASSWORD
+example:
+  password: !env_var PASSWORD
 ```
 
-#### Default Value
+#### Default value
 
 If an environment variable is not set, you can fallback to a default value.
 
 ```yaml
-http:
-  api_password: !env_var PASSWORD default_password
+example:
+  password: !env_var PASSWORD default_password
 ```
 
-### Including Separate Files
+### Including entire files
 
 To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
 
 ```yaml
-lights: !include lights.yaml
+light: !include lights.yaml
 ```
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
@@ -96,14 +100,24 @@ More information about this feature can also be found at [splitting configuratio
 
 If you see the following message:
 
-```
+```txt
 found character '\t' that cannot start any token
 ```
 
-This means that you've mistakenly entered a tab character, instead of spaces. 
+This means that you've mistakenly entered a tab character, instead of spaces.
 
 ### Upper and lower case
 
 Home Assistant is case sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
 
 If you're having trouble, check the case that Home Assistant is reporting in the dev-state menu, under *Developer tools*.
+
+### Booleans 
+
+YAML treats `Y`, `true`, `Yes`, `ON` all as `true` and `n`, `FALSE`, `No`, `off` as `false`. This means that if you want to set the state of an entity to `on` you *must* quote it as `'on'` otherwise it will be translated as setting the state to true. The same applies to `off`.
+
+Not quoting the value may generate an error such as:
+
+```txt
+not a valid value for dictionary value @ data
+```

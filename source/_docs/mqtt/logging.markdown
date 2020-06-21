@@ -4,7 +4,7 @@ description: "Instructions on how to setup MQTT Logging within Home Assistant."
 logo: mqtt.png
 ---
 
-The [logger](/components/logger/) integration allows the logging of received MQTT messages.
+The [logger](/integrations/logger/) integration allows the logging of received MQTT messages.
 
 ```yaml
 # Example configuration.yaml entry

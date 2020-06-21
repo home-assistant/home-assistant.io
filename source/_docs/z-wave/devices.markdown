@@ -4,7 +4,7 @@ description: "What you need to know about Z-Wave devices."
 redirect_from: /getting-started/z-wave-devices/
 ---
 
-## Devices, Nodes, Entities, what?
+## Devices, Nodes, Entities
 
 The *device* is the hardware, and also used when referring to the node and all its entities. There are 3 main types of devices:
 
@@ -20,7 +20,7 @@ The *entity* is an individual integration of the node. It may be a sensor that y
 
 ## Z-Wave, Plus, Security 2
 
-There have been 2 extensions to the Z-Wave protocol. Using these requires that your controller supports these extensions, but devices are backwards compatible.
+There have been 2 extensions to the Z-Wave protocol. Using these requires that your controller supports these extensions, but devices are backward compatible.
 
 ### Z-Wave Plus
 
@@ -33,9 +33,9 @@ The key improvements are:
 
 ### Z-Wave Security 2
 
-From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (March 2018) OpenZWave does not support the S2 framework.
+From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (October 2019) OpenZWave does not support the S2 framework.
 
-## Device power
+## Device Power
 
 Your Z-Wave mesh network is built with the devices that are mains powered (whether directly, or via a USB adapter), these relay traffic for other nodes, building the network. These devices are always awake and you can query them, or send configuration changes, at any time.
 
@@ -59,14 +59,14 @@ Where a device doesn't send updates on status changes to the controller, you can
 
 For example, with `polling_interval=60000` (which is the default) if you have 10 devices that are being polled at every interval, and each polling takes one secound (request/response round trip), then it will take 10 seconds to complete the polling list. This only leaves 50 seconds left for normal traffic. The more devices you poll, and the shorter the interval, the less bandwidth that's available for normal traffic.
 
-Polling needs to be enabled per device, you can control this through the *polling intensity* (interval) of the device. See the [Node Management](/docs/z-wave/control-panel#z-wave-node-management) docs for details.
+Polling needs to be enabled per device, you can control this through the *polling intensity* (interval) of the device. See the [Node Management](/docs/z-wave/control-panel#z-wave-node-management) documentation for details.
 
 ## Central Scene support
 
 The Central Scene command class isn't yet supported in OpenZWave (there is [work in progress](https://github.com/OpenZWave/open-zwave/pull/1125) to provide it it), though Home Assistant has introduced some support with [change 9178](https://github.com/home-assistant/home-assistant/pull/9178) which was part of 0.53 and [documented here](/docs/z-wave/device-specific/#homeseer-switches).
 
-## Is my device supported
+## Supported Devices
 
-You can check to see if OpenZWave supports your particular device by looking at the [OpenZWave github](https://github.com/OpenZWave/open-zwave/tree/master/config). Be aware that being listed here doesn't mean that it will be supported in Home Assistant, since the version of OpenZWave used by Home Assistant will often lag the github by a few months.
+You can check to see if OpenZWave supports your particular device by looking at the [OpenZWave 1.4 GitHub](https://github.com/OpenZWave/open-zwave/tree/1.4/config). Be aware that being listed here doesn't mean that it will be supported in Home Assistant, since the version of OpenZWave used by Home Assistant will often lag the GitHub by a few months.
 
 Even if your device isn't listed there, it's likely that it will still work as expected as long as the device complies with the Z-Wave standards. The OpenZWave wiki describes how [you can add support](https://github.com/OpenZWave/open-zwave/wiki/Adding-Devices) for your device if it isn't listed.

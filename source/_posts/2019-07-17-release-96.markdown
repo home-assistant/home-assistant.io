@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 ---
 
-<a href='/components/#version/0.96'><img src='/images/blog/2019-07-release-96/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.96'><img src='/images/blog/2019-07-release-96/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for Home Assistant 0.96. It's a great release, but we also made some changes, so please pay attention.
 
@@ -99,7 +99,7 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - Add support for aurora ABB Powerone solar photovoltaic inverter ([@davet2001] - [#24809]) ([aurora_abb_powerone docs]) (new-integration)
 - Add support for arcam fmj receivers ([@elupus] - [#24621]) ([arcam_fmj docs]) (new-integration)
 - Add support for Notion Home Monitoring ([@bachya] - [#24634]) ([notion docs]) (new-integration)
-- Add support for World Wide Lightning Location Network ([@bachya] - [#25001]) ([wwlln docs]) (new-integration)
+- Add support for World Wide Lightning Location Network ([@bachya] - [#25001]) (new-integration)
 
 ## New Platforms
 
@@ -138,13 +138,13 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [@pvizeli]: https://github.com/pvizeli
 [@stboch]: https://github.com/stboch
 [@zombielinux]: https://github.com/zombielinux
-[ecobee docs]: /components/ecobee/
-[eq3btsmart docs]: /components/eq3btsmart/
-[netatmo docs]: /components/netatmo/
-[opentherm_gw docs]: /components/opentherm_gw/
-[radiotherm docs]: /components/radiotherm/
-[smartthings docs]: /components/smartthings/
-[zwave docs]: /components/zwave/
+[ecobee docs]: /integrations/ecobee/
+[eq3btsmart docs]: /integrations/eq3btsmart/
+[netatmo docs]: /integrations/netatmo/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[radiotherm docs]: /integrations/radiotherm/
+[smartthings docs]: /integrations/smartthings/
+[zwave docs]: /integrations/zwave/
 
 ## Release 0.96.2 - July 19
 
@@ -163,11 +163,11 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [@pvizeli]: https://github.com/pvizeli
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@zxdavb]: https://github.com/zxdavb
-[fritzbox docs]: /components/fritzbox/
-[homematic docs]: /components/homematic/
-[honeywell docs]: /components/honeywell/
-[plant docs]: /components/plant/
-[wink docs]: /components/wink/
+[fritzbox docs]: /integrations/fritzbox/
+[homematic docs]: /integrations/homematic/
+[honeywell docs]: /integrations/honeywell/
+[plant docs]: /integrations/plant/
+[wink docs]: /integrations/wink/
 
 ## Release 0.96.3 - July 21
 
@@ -209,14 +209,14 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [@fredrike]: https://github.com/fredrike
 [@schmic]: https://github.com/schmic
 [@zxdavb]: https://github.com/zxdavb
-[daikin docs]: /components/daikin/
-[esphome docs]: /components/esphome/
-[geniushub docs]: /components/geniushub/
-[knx docs]: /components/knx/
-[netatmo docs]: /components/netatmo/
-[sensibo docs]: /components/sensibo/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[daikin docs]: /integrations/daikin/
+[esphome docs]: /integrations/esphome/
+[geniushub docs]: /integrations/geniushub/
+[knx docs]: /integrations/knx/
+[netatmo docs]: /integrations/netatmo/
+[sensibo docs]: /integrations/sensibo/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/
 
 ## Release 0.96.4 - July 23
 
@@ -239,11 +239,11 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [@cgtobi]: https://github.com/cgtobi
 [@fredrike]: https://github.com/fredrike
 [@zxdavb]: https://github.com/zxdavb
-[daikin docs]: /components/daikin/
-[evohome docs]: /components/evohome/
-[honeywell docs]: /components/honeywell/
-[netatmo docs]: /components/netatmo/
-[sonos docs]: /components/sonos/
+[daikin docs]: /integrations/daikin/
+[evohome docs]: /integrations/evohome/
+[honeywell docs]: /integrations/honeywell/
+[netatmo docs]: /integrations/netatmo/
+[sonos docs]: /integrations/sonos/
 
 ## Release 0.96.5 - July 25
 
@@ -256,9 +256,9 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [#25472]: https://github.com/home-assistant/home-assistant/pull/25472
 [@balloob]: https://github.com/balloob
 [@zxdavb]: https://github.com/zxdavb
-[geniushub docs]: /components/geniushub/
-[http docs]: /components/http/
-[nest docs]: /components/nest/
+[geniushub docs]: /integrations/geniushub/
+[http docs]: /integrations/http/
+[nest docs]: /integrations/nest/
 
 ## If you need help...
 
@@ -318,7 +318,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
 - Fix Netatmo climate issue when device out of reach ([@cgtobi] - [#25096]) ([netatmo docs]) (beta fix)
 - Add turn on/off to coolmaster ([@OnFreund] - [#25097]) ([coolmaster docs]) (beta fix)
-- Fix window exception in WWLLN ([@bachya] - [#25100]) ([wwlln docs]) (beta fix)
+- Fix window exception in WWLLN ([@bachya] - [#25100]) (beta fix)
 - Fix missing sensor unit in RainMachine ([@bachya] - [#25101]) ([rainmachine docs]) (beta fix)
 - Add climate related services to Homematic IP Cloud ([@SukramJ] - [#25079]) ([homematicip_cloud docs]) (beta fix)
 - Simplify Alexa/Google for new climate turn_on/off ([@balloob] - [#25115]) ([alexa docs]) ([google_assistant docs]) (beta fix)
@@ -345,7 +345,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## All changes
 
-- Fix AttributeError: 'NoneType' object has no attribute 'group' with sytadin component ([@foreign-sub] - [#24652]) ([sytadin docs])
+- Fix AttributeError: 'NoneType' object has no attribute 'group' with sytadin component ([@foreign-sub] - [#24652])
 - braviatv, nmap_tracker: use getmac for getting MAC addresses ([@scop] - [#24628]) ([braviatv docs]) ([braviatv docs]) ([braviatv docs]) ([nmap_tracker docs])
 - Fix downloader_download_failed event not firing for HTTP response errors ([@sfjes] - [#24640]) ([downloader docs])
 - Multiple devices support for opentherm_gw ([@mvn23] - [#22932]) ([opentherm_gw docs]) (breaking change)
@@ -488,7 +488,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix broken test in Python 3.7 ([@balloob] - [#25067])
 - Fix for Sonos debug logging ([@amelchio] - [#25064]) ([sonos docs])
 - Bump up ZHA dependencies. ([@Adminiuga] - [#25062]) ([zha docs])
-- Add support for World Wide Lightning Location Network ([@bachya] - [#25001]) ([wwlln docs]) (new-integration)
+- Add support for World Wide Lightning Location Network ([@bachya] - [#25001]) (new-integration)
 - SMA catch error ([@kellerza] - [#25045]) ([sma docs])
 - Change phrases in the logbook component for persons and binary_sensors ([@Martijn02] - [#25053]) ([logbook docs])
 - Make sure volume level is valid when incrementing/decrementing ([@JeffLIrion] - [#25061]) ([vizio docs])
@@ -506,7 +506,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
 - Fix Netatmo climate issue when device out of reach ([@cgtobi] - [#25096]) ([netatmo docs]) (beta fix)
 - Add turn on/off to coolmaster ([@OnFreund] - [#25097]) ([coolmaster docs]) (beta fix)
-- Fix window exception in WWLLN ([@bachya] - [#25100]) ([wwlln docs]) (beta fix)
+- Fix window exception in WWLLN ([@bachya] - [#25100]) (beta fix)
 - Fix missing sensor unit in RainMachine ([@bachya] - [#25101]) ([rainmachine docs]) (beta fix)
 - Add climate related services to Homematic IP Cloud ([@SukramJ] - [#25079]) ([homematicip_cloud docs]) (beta fix)
 - Simplify Alexa/Google for new climate turn_on/off ([@balloob] - [#25115]) ([alexa docs]) ([google_assistant docs]) (beta fix)
@@ -789,107 +789,105 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@zewelor]: https://github.com/zewelor
 [@zombielinux]: https://github.com/zombielinux
 [@zxdavb]: https://github.com/zxdavb
-[alert docs]: /components/alert/
-[alexa docs]: /components/alexa/
-[ambiclimate docs]: /components/ambiclimate/
-[ambient_station docs]: /components/ambient_station/
-[androidtv docs]: /components/androidtv/
-[arcam_fmj docs]: /components/arcam_fmj/
-[aurora_abb_powerone docs]: /components/aurora_abb_powerone/
-[automation docs]: /components/automation/
-[braviatv docs]: /components/braviatv/
-[cert_expiry docs]: /components/cert_expiry/
-[climate docs]: /components/climate/
-[cloud docs]: /components/cloud/
-[config docs]: /components/config/
-[coolmaster docs]: /components/coolmaster/
-[cups docs]: /components/cups/
-[deutsche_bahn docs]: /components/deutsche_bahn/
-[device_tracker docs]: /components/device_tracker/
-[discord docs]: /components/discord/
-[dlna_dmr docs]: /components/dlna_dmr/
-[downloader docs]: /components/downloader/
-[ecobee docs]: /components/ecobee/
-[enphase_envoy docs]: /components/enphase_envoy/
-[evohome docs]: /components/evohome/
-[fritzbox docs]: /components/fritzbox/
-[frontend docs]: /components/frontend/
-[geniushub docs]: /components/geniushub/
-[geo_json_events docs]: /components/geo_json_events/
-[geo_location docs]: /components/geo_location/
-[glances docs]: /components/glances/
-[google_assistant docs]: /components/google_assistant/
-[google_cloud docs]: /components/google_cloud/
-[hikvision docs]: /components/hikvision/
-[hive docs]: /components/hive/
-[homekit docs]: /components/homekit/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[honeywell docs]: /components/honeywell/
-[input_datetime docs]: /components/input_datetime/
-[insteon docs]: /components/insteon/
-[iqvia docs]: /components/iqvia/
-[jewish_calendar docs]: /components/jewish_calendar/
-[knx docs]: /components/knx/
-[lcn docs]: /components/lcn/
-[life360 docs]: /components/life360/
-[light docs]: /components/light/
-[logbook docs]: /components/logbook/
-[luftdaten docs]: /components/luftdaten/
-[media_extractor docs]: /components/media_extractor/
-[mqtt docs]: /components/mqtt/
-[mysensors docs]: /components/mysensors/
-[nest docs]: /components/nest/
-[netatmo docs]: /components/netatmo/
-[nmap_tracker docs]: /components/nmap_tracker/
-[notion docs]: /components/notion/
-[nsw_rural_fire_service_feed docs]: /components/nsw_rural_fire_service_feed/
-[opencv docs]: /components/opencv/
-[opentherm_gw docs]: /components/opentherm_gw/
-[plant docs]: /components/plant/
-[ps4 docs]: /components/ps4/
-[pushover docs]: /components/pushover/
-[radiotherm docs]: /components/radiotherm/
-[rainmachine docs]: /components/rainmachine/
-[recorder docs]: /components/recorder/
-[reddit docs]: /components/reddit/
-[scrape docs]: /components/scrape/
-[sensibo docs]: /components/sensibo/
-[sensor docs]: /components/sensor/
-[simplisafe docs]: /components/simplisafe/
-[sisyphus docs]: /components/sisyphus/
-[sleepiq docs]: /components/sleepiq/
-[sma docs]: /components/sma/
-[smartthings docs]: /components/smartthings/
-[solax docs]: /components/solax/
-[sonos docs]: /components/sonos/
-[sql docs]: /components/sql/
-[steam_online docs]: /components/steam_online/
-[switch docs]: /components/switch/
-[switchmate docs]: /components/switchmate/
-[syncthru docs]: /components/syncthru/
-[systemmonitor docs]: /components/systemmonitor/
-[sytadin docs]: /components/sytadin/
-[tado docs]: /components/tado/
-[tahoma docs]: /components/tahoma/
-[template docs]: /components/template/
-[tensorflow docs]: /components/tensorflow/
-[toon docs]: /components/toon/
-[trafikverket_train docs]: /components/trafikverket_train/
-[trend docs]: /components/trend/
-[tuya docs]: /components/tuya/
-[twilio_sms docs]: /components/twilio_sms/
-[upnp docs]: /components/upnp/
-[usgs_earthquakes_feed docs]: /components/usgs_earthquakes_feed/
-[vallox docs]: /components/vallox/
-[velbus docs]: /components/velbus/
-[vera docs]: /components/vera/
-[version docs]: /components/version/
-[vizio docs]: /components/vizio/
-[watson_tts docs]: /components/watson_tts/
-[waze_travel_time docs]: /components/waze_travel_time/
-[wwlln docs]: /components/wwlln/
-[yeelight docs]: /components/yeelight/
-[zestimate docs]: /components/zestimate/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[alert docs]: /integrations/alert/
+[alexa docs]: /integrations/alexa/
+[ambiclimate docs]: /integrations/ambiclimate/
+[ambient_station docs]: /integrations/ambient_station/
+[androidtv docs]: /integrations/androidtv/
+[arcam_fmj docs]: /integrations/arcam_fmj/
+[aurora_abb_powerone docs]: /integrations/aurora_abb_powerone/
+[automation docs]: /integrations/automation/
+[braviatv docs]: /integrations/braviatv/
+[cert_expiry docs]: /integrations/cert_expiry/
+[climate docs]: /integrations/climate/
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[coolmaster docs]: /integrations/coolmaster/
+[cups docs]: /integrations/cups/
+[deutsche_bahn docs]: /integrations/deutsche_bahn/
+[device_tracker docs]: /integrations/device_tracker/
+[discord docs]: /integrations/discord/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[downloader docs]: /integrations/downloader/
+[ecobee docs]: /integrations/ecobee/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[evohome docs]: /integrations/evohome/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[geniushub docs]: /integrations/geniushub/
+[geo_json_events docs]: /integrations/geo_json_events/
+[geo_location docs]: /integrations/geo_location/
+[glances docs]: /integrations/glances/
+[google_assistant docs]: /integrations/google_assistant/
+[google_cloud docs]: /integrations/google_cloud/
+[hikvision docs]: /integrations/hikvision/
+[hive docs]: /integrations/hive/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[honeywell docs]: /integrations/honeywell/
+[input_datetime docs]: /integrations/input_datetime/
+[insteon docs]: /integrations/insteon/
+[iqvia docs]: /integrations/iqvia/
+[jewish_calendar docs]: /integrations/jewish_calendar/
+[knx docs]: /integrations/knx/
+[lcn docs]: /integrations/lcn/
+[life360 docs]: /integrations/life360/
+[light docs]: /integrations/light/
+[logbook docs]: /integrations/logbook/
+[luftdaten docs]: /integrations/luftdaten/
+[media_extractor docs]: /integrations/media_extractor/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[nest docs]: /integrations/nest/
+[netatmo docs]: /integrations/netatmo/
+[nmap_tracker docs]: /integrations/nmap_tracker/
+[notion docs]: /integrations/notion/
+[nsw_rural_fire_service_feed docs]: /integrations/nsw_rural_fire_service_feed/
+[opencv docs]: /integrations/opencv/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[plant docs]: /integrations/plant/
+[ps4 docs]: /integrations/ps4/
+[pushover docs]: /integrations/pushover/
+[radiotherm docs]: /integrations/radiotherm/
+[rainmachine docs]: /integrations/rainmachine/
+[recorder docs]: /integrations/recorder/
+[reddit docs]: /integrations/reddit/
+[scrape docs]: /integrations/scrape/
+[sensibo docs]: /integrations/sensibo/
+[sensor docs]: /integrations/sensor/
+[simplisafe docs]: /integrations/simplisafe/
+[sisyphus docs]: /integrations/sisyphus/
+[sleepiq docs]: /integrations/sleepiq/
+[sma docs]: /integrations/sma/
+[smartthings docs]: /integrations/smartthings/
+[solax docs]: /integrations/solax/
+[sonos docs]: /integrations/sonos/
+[sql docs]: /integrations/sql/
+[steam_online docs]: /integrations/steam_online/
+[switch docs]: /integrations/switch/
+[switchmate docs]: /integrations/switchmate/
+[syncthru docs]: /integrations/syncthru/
+[systemmonitor docs]: /integrations/systemmonitor/
+[tado docs]: /integrations/tado/
+[tahoma docs]: /integrations/tahoma/
+[template docs]: /integrations/template/
+[tensorflow docs]: /integrations/tensorflow/
+[toon docs]: /integrations/toon/
+[trafikverket_train docs]: /integrations/trafikverket_train/
+[trend docs]: /integrations/trend/
+[tuya docs]: /integrations/tuya/
+[twilio_sms docs]: /integrations/twilio_sms/
+[upnp docs]: /integrations/upnp/
+[usgs_earthquakes_feed docs]: /integrations/usgs_earthquakes_feed/
+[vallox docs]: /integrations/vallox/
+[velbus docs]: /integrations/velbus/
+[vera docs]: /integrations/vera/
+[version docs]: /integrations/version/
+[vizio docs]: /integrations/vizio/
+[watson_tts docs]: /integrations/watson_tts/
+[waze_travel_time docs]: /integrations/waze_travel_time/
+[yeelight docs]: /integrations/yeelight/
+[zestimate docs]: /integrations/zestimate/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

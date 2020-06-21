@@ -40,7 +40,7 @@ $ docker run -ti -p 1884:1883  \
     --name mosquitto-ext -d toke/mosquitto
 ```
  
-Here are the config files:
+Here are the configuration files:
 
 `/volume1/data/mosquitto-int/config/mosquitto.conf`
  
@@ -81,9 +81,9 @@ password_file /etc/mosquitto/pwfile
 Create a password for `mosquitto-ext`
  
 ```bash
-$ docker exec -it mosquitto-ext /bin/bash
-$ cd /etc/mosquitto/
-$ mosquitto_passwd -c /etc/mosquitto/pwfile <userID>
+docker exec -it mosquitto-ext /bin/bash
+cd /etc/mosquitto/
+mosquitto_passwd -c /etc/mosquitto/pwfile <userID>
 ```
  
 ### OwnTracks settings for Android

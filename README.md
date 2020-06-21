@@ -1,7 +1,7 @@
 [![Discord](https://img.shields.io/discord/330944238910963714.svg)](https://discord.gg/CxqDrfU)
-[![Travis branch](https://img.shields.io/travis/home-assistant/home-assistant.github.io/next.svg)](https://travis-ci.org/home-assistant/home-assistant.github.io)
-[![Krihelimeter](https://img.shields.io/badge/Krihelimeter-unknown-brightgreen.svg)](http://www.krihelinator.xyz)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+[![Deploys by netlify](https://www.netlify.com/img/global/badges/netlify-color-bg.svg)](https://www.netlify.com)
 
 # Home Assistant website
 
@@ -9,11 +9,13 @@ This is the source for the [Home-Assistant.io website](https://home-assistant.io
 
 ## Setup
 
-Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documentation_index.html).
+Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting).
 
 ## Site preview
 
-In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000), use the command as follows:
+In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000), use the following [bundler](
+https://bundler.io/
+) command:
 
 ```bash
 bundle exec rake preview

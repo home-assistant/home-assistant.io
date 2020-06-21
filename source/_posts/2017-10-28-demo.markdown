@@ -21,13 +21,14 @@ The simplest way to show Home Assistant to others is the online demo at [/demo/]
 <!--more-->
 
 ## `--demo-mode` and Demo platform
+
 To be safe for your talk, you don't want to depend on an internet connection. The demo mode [`--demo-mode`](/docs/tools/hass/) allows you to run a demo locally including the latest features. Make sure that you have a backup of your configuration.
 
 ```bash
-$ hass --demo-mode
+hass --demo-mode
 ```
 
-If you already have a `configuration.yaml` file in place then you will get a combination of your setup with all available  [`demo`](/components/demo/) platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:
+If you already have a `configuration.yaml` file in place then you will get a combination of your setup with all available  [`demo`](/integrations/demo/) platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:
 
 ```yaml
 sensor:
@@ -44,7 +45,8 @@ switch:
 </p>
 
 ## `random` platforms
-Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](/components/random/#binary-sensor) platform in addition to the already available [`random` sensor](/components/sensor.random/).
+
+Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](/integrations/random/#binary-sensor) platform in addition to the already available [`random` sensor](/integrations/random#sensor).
 
 By adding those platform to your `configuration.yaml` file, your demo will become more interactive.
 
@@ -66,9 +68,10 @@ binary_sensor:
   Demo with `random` platforms
 </p>
 
-The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/components/#search/template) platforms or the [`input_*`](/components/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
+The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/integrations/#search/template) platforms or the [`input_*`](/integrations/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
 
 {% raw %}
+
 ```yaml
 input_boolean:
   on_off:
@@ -81,9 +84,11 @@ binary_sensor:
         friendly_name: 'Movement'
         device_class: motion
 ```
+
 {% endraw %}
 
 ## MQTT Discovery
+
 This is a section for advanced users as it will require to run a separate script. Instead of adding `demo` platforms to the configuration this setup make use of [MQTT discovery](/docs/mqtt/discovery/) and the [embedded MQTT broker](/docs/mqtt/broker/#embedded-broker). Simply add MQTT to your `configuration.yaml` file with `discovery:`
 
 ```yaml
@@ -101,4 +106,3 @@ Demo is running... -> CTRL + C to shutdown
 It will create sensors, a light, and a switch and update the states as long the script is running. It possible to stop and restart script without losing the entities.
 
 Some users share their slides and other documents in [our assets repository](https://github.com/home-assistant/home-assistant-assets). Also, take a look at that repository if you need a logo for your slides.
-

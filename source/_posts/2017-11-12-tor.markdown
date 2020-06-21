@@ -13,9 +13,9 @@ Routers and gateways provided by broadband internet providers are very often lim
 
 There are a couple of options available to achieve a remote (and secure) accessible Home Assistant instance. However, almost all of them require you to: open one or more ports on your router, expose a public IP address, and require you to reserve a fixed IP in your DHCP server (or set up a static IP address). Examples of these are:
 
-- Combination of [DuckDNS](/components/duckdns/) (or similar), [Let's Encrypt](/docs/ecosystem/certificates/lets_encrypt/) (SSL), DHCP reservation, and forwarding a port to your device running Home Assistant.
-- Setup a VPN, which often requires more hardware and software. Additionally, it also requires port-forwarding, DHCP reservation and most likely [DuckDNS](/components/duckdns/) (or similar).
-- [SSH tunnel-ing](/blog/2017/11/02/secure-shell-tunnel/). Which still requires port-forwarding, DHCP reservation and most likely (yeah, you've guessed it) [DuckDNS](/components/duckdns/) (or similar).
+- Combination of [DuckDNS](/integrations/duckdns/) (or similar), [Let's Encrypt](/docs/ecosystem/certificates/lets_encrypt/) (SSL), DHCP reservation, and forwarding a port to your device running Home Assistant.
+- Setup a VPN, which often requires more hardware and software. Additionally, it also requires port-forwarding, DHCP reservation and most likely [DuckDNS](/integrations/duckdns/) (or similar).
+- [SSH tunnel-ing](/blog/2017/11/02/secure-shell-tunnel/). Which still requires port-forwarding, DHCP reservation and most likely (yeah, you've guessed it) [DuckDNS](/integrations/duckdns/) (or similar).
 
 There is, however, another option available that most people do not realize: [Tor](https://www.torproject.org). [Tor](https://www.torproject.org) offers a capability that they refer to as [Tor's Hidden Services](https://www.torproject.org/docs/hidden-services.html.en), which allows you to securely access your Home Assistant installation *without* the need for all these things. No need to forward and open ports, no need to expose your public IP, no DNS entry, no need for SSL certificates, and you do not have to assign a fixed IP to the device running your Home Assistant.
 
@@ -25,7 +25,7 @@ The most amazing part? It is super easy to set up!
 
 ## Setting up Tor
 
-Our [documentation](/docs/ecosystem/tor/) provides a detailed guide about setting up a [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en). The setup is straight-forward:
+The setup is straight-forward:
 
 1. Install Tor. On a Debian-based system: `$ sudo apt-get install tor`. On Fedora: `$ sudo dnf install tor`
 2. Modify Tor's main configuration file `/etc/tor/torrc` to include the following lines:
@@ -88,7 +88,7 @@ Simply download and install the [Tor Browser](https://www.torproject.org/project
 Some other clients:
 
 - [Orbot](https://guardianproject.info/apps/orbot/) for Android
-- [Orfox](https://play.google.com/store/apps/details?id=info.guardianproject.orfox&hl=nl) for Android
+- ~~[Orfox](https://play.google.com/store/apps/details?id=info.guardianproject.orfox&hl=nl) for Android~~ Orfox for Android has been deprecated. Please use [Tor Browser for Android](https://www.torproject.org/download/#android). More information about the deprecation [here](https://trac.torproject.org/projects/tor/ticket/29955).
 - [Onion Browser](https://mike.tig.as/onionbrowser/) for iOS
 
 ## Cranking up security
@@ -97,4 +97,4 @@ The setup described in this blog post is easy and relatively secure, but anyone 
 
 This "Stealth"-mode adds an extra layer of security to your Hidden Service by only responding to a client that passes a unique secret cookie as it connects. Obviously, this requires additional configuration on the Tor client applications.
 
-Additional information can be found in the [Tor documentation](/docs/ecosystem/tor/) and the [Tor add-on repository](https://github.com/hassio-addons/addon-tor), including how to setup the "Stealth"-mode. The Tor Project itself provides details about a variaty of topics in their  [documentation](https://www.torproject.org/docs/documentation.html.en).
+The Tor Project itself provides details about a variety of topics in their [documentation](https://www.torproject.org/docs/documentation.html.en).

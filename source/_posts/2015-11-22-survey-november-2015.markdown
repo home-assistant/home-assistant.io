@@ -15,13 +15,13 @@ The idea was to anonymously collect some details about the usage of the differen
 <!--more-->
 Thanks to Python, users are running Home Assistant on the most popular Linux distributions and other operating systems including OS X and Microsoft Windows. One quarter of the operating systems are unknown which leads to the assumption that it is possible to run Home Assistant on most of the available operation systems today. We hope that *BSD users have fun too. The Hardware platform of choice seems to be x86_64 and ARM.
 
-Of course most users are running with the [automation](/getting-started/automation/) component otherwise it would make much sense to use Home Assistant. The [sun](/components/sun/) component is used a lot too. We hope that this is not because this component is enabled by default.
+Of course most users are running with the [automation](/getting-started/automation/) component otherwise it would make much sense to use Home Assistant. The [sun](/integrations/sun/) component is used a lot too. We hope that this is not because this component is enabled by default.
 
-The [Alarm control panels](/components/alarm_control_panel/) and the [camera component](/components/camera/) are both used by around one third of the participants of the survey. It's safe to say that they cover a niche, but they will gain momentum when people discover how they can build alarm systems with Home Assistant.
+The [Alarm control panels](/integrations/alarm_control_panel/) and the [camera component](/integrations/camera/) are both used by around one third of the participants of the survey. It's safe to say that they cover a niche, but they will gain momentum when people discover how they can build alarm systems with Home Assistant.
 
-[Philips Hue](/components/light.hue/) is the "winner" in the light category closely followed by [MQTT lights](components/light.mqtt/). [Google Cast](/components/media_player.cast/) and [ Plex](/components/media_player.plex/) are the top media player platforms. [Pushbullet](/components/notify.pushbullet/) is by far the most-used [notification platform](/components/notify/). If you followed the recent efforts to improve this platform it's comprehensible.
+[Philips Hue](/integrations/hue) is the "winner" in the light category closely followed by [MQTT lights](/integrations/light.mqtt/). [Google Cast](/integrations/cast) and [ Plex](/integrations/plex#media-player) are the top media player platforms. [Pushbullet](/integrations/pushbullet) is by far the most-used [notification platform](/integrations/notify/). If you followed the recent efforts to improve this platform it's comprehensible.
 
-It's interesting to see that most of the sensor, switch, and thermostat platforms are used. A lot of people seem to be interested in the weather data provided by the [Forecast sensor](/components/sensor.forecast/). The MQTT sensors and switches are deployed in almost 50% of all Home Assistant setups.
+It's interesting to see that most of the sensor, switch, and thermostat platforms are used. A lot of people seem to be interested in the weather data provided by the [Forecast sensor](/integrations/darksky). The MQTT sensors and switches are deployed in almost 50% of all Home Assistant setups.
 
 
 <p class='img'>

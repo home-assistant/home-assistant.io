@@ -6,6 +6,8 @@ $primary-color: #049cdb;
   position: relative;
 
   .site-title {
+    display: flex;
+    align-items: center;
     font-weight: normal;
   }
 }
@@ -221,10 +223,14 @@ dt:hover a.title-link {
 }
 
 .ha-title {
+  display: inline-flex;
+  height: 100%;
   white-space: nowrap;
 
   img {
-    width: 40px;
+    border-radius: 3px;
+    width: 36px;
+    margin-right: 10px;
   }
 
   a > * {
@@ -338,6 +344,10 @@ article.post, article.page, article.listing {
 
     // Future re-design
     // margin: 1.5em 0 1rem;
+  }
+
+  details {
+    padding-bottom: 1em;
   }
 }
 

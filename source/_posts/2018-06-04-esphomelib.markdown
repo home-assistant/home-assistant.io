@@ -59,7 +59,7 @@ At this point, you can already flash the firmware. To do this, first plug in the
 
 ## Adding some basic functionality
 
-Above configuration is, let’s face it, pretty dull. It really only connects to WiFi and MQTT and sits idle. So let’s add a basic [GPIO switch](https://esphomelib.com/esphomeyaml/components/switch/gpio.html)! The GPIO switch component in esphomelib allows you to control the ON/OFF state of any of the pins on your ESP. For example, if you add this configuration to the bottom of your YAML file, you’re setting up the pin `GPIO5` to be controlled as a switch with the name "Living Room Dehumidifer".
+Above configuration is, let’s face it, pretty dull. It really only connects to WiFi and MQTT and sits idle. So let’s add a basic [GPIO switch](https://esphomelib.com/esphomeyaml/integrations/switch/gpio.html)! The GPIO switch component in esphomelib allows you to control the ON/OFF state of any of the pins on your ESP. For example, if you add this configuration to the bottom of your YAML file, you’re setting up the pin `GPIO5` to be controlled as a switch with the name "Living Room Dehumidifer".
 
 ```yaml
 switch:
@@ -67,14 +67,14 @@ switch:
     name: "Living Room Dehumidifer"
     pin: GPIO5
 ```
-If you now press upload again (this time the ESP doesn't need to be connected via USB, as updates [can be done over WiFi](https://esphomelib.com/esphomeyaml/components/ota.html)), you will see a switch show up in Home Assisstant automatically through [MQTT discovery](/docs/mqtt/discovery/).
+If you now press upload again (this time the ESP doesn't need to be connected via USB, as updates [can be done over WiFi](https://esphome.io/components/ota.html)), you will see a switch show up in Home Assistant automatically through [MQTT discovery](/docs/mqtt/discovery/).
 
 <p class='img'>
   <img
     src='/images/blog/2018-06-esphomelib/switch.png'
     alt='esphomeyamls setup wizard.'>
   How the newly configured switch will show up in Home Assistant if <a href='/docs/mqtt/discovery/'>MQTT
-  discovery</a> is enabled and a <a href='/components/group/'>default view</a> is used.
+  discovery</a> is enabled and a <a href='/integrations/group/'>default view</a> is used.
 </p>
 
 Granted, this functionality would have been pretty simple with other projects too. But once you start adding [lights](https://esphomelib.com/esphomeyaml/index.html#light-components), [covers](https://esphomelib.com/esphomeyaml/index.html#cover-components) and [other sensors](https://esphomelib.com/esphomeyaml/index.html#sensor-components), esphomelib’s modular design really starts to shine.

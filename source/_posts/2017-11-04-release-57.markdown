@@ -35,7 +35,7 @@ Hacktoberfest is obviously about the people contributing to open source. Big tha
 Here are our Hacktoberfest 2017 stats. It's a miracle everyone is still alive:
 
 - Main repo: [273 Pull requests](https://github.com/home-assistant/home-assistant/pulls?utf8=%E2%9C%93&q=merged%3A%3E2017-10-01%20is%3Apr%20label%3AHacktoberfest%20is%3Aclosed%20) were merged out of 307.
-- Docs repo: [295 Pull requests](https://github.com/home-assistant/home-assistant.github.io/pulls?page=1&q=merged%3A%3E2017-10-01+is%3Apr+label%3AHacktoberfest+is%3Aclosed&utf8=%E2%9C%93) merged out of 310.
+- Docs repo: [295 Pull requests](https://github.com/home-assistant/home-assistant.io/pulls?page=1&q=merged%3A%3E2017-10-01+is%3Apr+label%3AHacktoberfest+is%3Aclosed&utf8=%E2%9C%93) merged out of 310.
 - Frontend: [57 pull requests](https://github.com/home-assistant/home-assistant-polymer/pulls?utf8=%E2%9C%93&q=merged%3A%3E2017-10-01%20is%3Apr%20label%3AHacktoberfest%20is%3Aclosed%20) merged.
 
 This means that we processed over 20 Pull requests per day. The result was already visible in 0.56. This release is almost the same. In those releases we were able to add over 40 new integrations.
@@ -58,7 +58,7 @@ Okay, one more highlight before we'll let you check out the changelog. Contribut
 
 ## New Platforms
 
-<a href='/components/#version/0.57'><img src='/images/blog/2017-11-0.57/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.57'><img src='/images/blog/2017-11-0.57/components.png' style='border: 0;box-shadow: none;'></a>
 
 - Introducing Ring Door Bell Camera (including StickUp cameras) and WiFi sensors ([@tchellomello] - [#9962]) ([ring docs]) ([binary_sensor.ring docs]) ([camera.ring docs]) ([sensor.ring docs]) (new-platform)
 - add irish rail transport sensor ([@ttroy50] - [#9883]) ([sensor.irish_rail_transport docs]) (new-platform)
@@ -73,7 +73,7 @@ Okay, one more highlight before we'll let you check out the changelog. Contribut
 - Linode ([@ryanm101] - [#9936]) ([linode docs]) ([binary_sensor.linode docs]) (new-platform)
 - Nederlandse spoorwegen ([@b10m] - [#10136]) ([sensor.nederlandse_spoorwegen docs]) (new-platform)
 - added Yesss SMS platform ([@flowolf] - [#10177]) ([notify.yessssms docs]) (new-platform)
-- Add Sytadin Traffic component ([@gautric] - [#9524]) ([sensor.sytadin docs]) (new-platform)
+- Add Sytadin Traffic component ([@gautric] - [#9524]) (new-platform)
 - Added new Clickatell SMS messaging Notify Platform ([@davlloyd] - [#9775]) ([notify.clickatell docs]) (new-platform)
 - Add Random binary sensor ([@fabaff] - [#10164]) ([binary_sensor.random docs]) (new-platform)
 - Add gc100 platforms and component ([@davegravy] - [#10159]) ([gc100 docs]) ([binary_sensor.gc100 docs]) ([switch.gc100 docs]) (new-platform)
@@ -108,7 +108,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - IKEA TRÅDFRI: We no longer support entering the key in the configuration. ([@lwis] - [#10282]) ([tradfri docs]) (breaking change)
-- API.AI was renamed to [Dialogflow](/components/dialogflow/). This requires to rename the entry in your `configuration.yaml` file from `apiai:` to `dialogflow`. ([@fabaff] - [#10006]) ([dialogflow docs]) (breaking change)
+- API.AI was renamed to [Dialogflow](/integrations/dialogflow/). This requires to rename the entry in your `configuration.yaml` file from `apiai:` to `dialogflow`. ([@fabaff] - [#10006]) ([dialogflow docs]) (breaking change)
 - Wink: Removed support for entering your `username` and `password` in your config. Use the [new authentication method][wink-auth] instead. ([@w1ll1am23] - [#10277]) ([wink docs]) (breaking change)
 - Use feed name assigned in EmonCMS if there is one. This changes the default behavior but still uses configured 'name' if it's set, so it won't break the configuration of people who have customized their feed names in HA config. ([@KlaasH] - [#10021]) ([sensor.emoncms docs]) (breaking change)
 - The `namecheapdns` now uses `password:` instead of `access_token` in the configuration. Also, `host` is now optional which allow people who are not using subdomains to keep their configuration shorter. ([@fabaff] - [#10063]) ([namecheapdns docs]) (breaking change)
@@ -147,11 +147,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - add irish rail transport sensor ([@ttroy50] - [#9883]) ([sensor.irish_rail_transport docs]) (new-platform)
 - RGB Tradfri simple support ([@matemaciek] - [#9703]) ([light.tradfri docs])
 - Add regression test for entity ID update bug ([@armills] - [#10037])
-- Aioautomatic bump and scope update ([@armills] - [#10043]) ([device_tracker.automatic docs])
+- Aioautomatic bump and scope update ([@armills] - [#10043])
 - Fix no data event triggers ([@armills] - [#10049]) ([automation.event docs])
 - fixing a typo in the old library which broke hub gen2 compatibility ([@sander76] - [#9990])
 - Add fail2ban sensor ([@fronzbot] - [#9975]) ([sensor.fail2ban docs]) (new-platform)
-- Show current program thumbnail as media_image ([@pschmitt] - [#10033]) ([media_player.liveboxplaytv docs])
+- Show current program thumbnail as media_image ([@pschmitt] - [#10033])
 - Add link to docs and update ordering ([@fabaff] - [#10062]) ([duckdns docs])
 - Remove STATE_UNKNOWN ([@fabaff] - [#10064]) ([sensor.glances docs])
 - update library for xiaomi_aqara, change from pyCrypto to cryptography ([@danielhiversen] - [#10066]) ([xiaomi_aqara docs])
@@ -210,10 +210,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added capability to pass a filename to the downloader component ([@tchellomello] - [#10059]) ([downloader docs])
 - Limits of the favorite level updated. Values between 0 and 16 will be accepted. ([@syssi] - [#10186]) ([fan.xiaomi_miio docs])
 - added Yesss SMS platform ([@flowolf] - [#10177]) ([notify.yessssms docs]) (new-platform)
-- Add Sytadin Traffic component ([@gautric] - [#9524]) ([sensor.sytadin docs]) (new-platform)
+- Add Sytadin Traffic component ([@gautric] - [#9524]) (new-platform)
 - media_title property now returns current source ([@etsinko] - [#10120]) ([media_player.monoprice docs])
 - Added new Clickatell SMS messaging Notify Platform ([@davlloyd] - [#9775]) ([notify.clickatell docs]) (new-platform)
-- update boto3 to 1.4.7 and botocore to 1.7.34 ([@TopdRob] - [#10121]) (notify.aws_lambda docs) ([notify.aws_sns docs]) ([notify.aws_sqs docs]) ([tts.amazon_polly docs])
+- update boto3 to 1.4.7 and botocore to 1.7.34 ([@TopdRob] - [#10121]) ([tts.amazon_polly docs])
 - Add Random binary sensor ([@fabaff] - [#10164]) ([binary_sensor.random docs]) (new-platform)
 - Add clickatell ([@fabaff] - [#10199])
 - Update CODEOWNERS ([@ggravlingen] - [#10198])
@@ -236,7 +236,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update services.yaml files ([@fabaff] - [#10229])
 - Add priority attribute for hyperion ([@ImEmJay] - [#10102]) ([light.hyperion docs])
 - OwnTracks work. Beacon logic and testcases ([@ehagan] - [#10183]) ([device_tracker.owntracks docs])
-- Sytadin default value must be a list #10233 ([@gautric] - [#10234]) ([sensor.sytadin docs])
+- Sytadin default value must be a list #10233 ([@gautric] - [#10234])
 - Use theme color in loading screen. ([@andrey-git] - [#10248])
 - Move constant to 'const.py' ([@fabaff] - [#10249]) ([sensor.hddtemp docs]) ([sensor.synologydsm docs])
 - Add support for odhcpd DHCP server ([@chemicalstorm] - [#9858]) ([device_tracker.ubus docs])
@@ -520,136 +520,132 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@ypollart]: https://github.com/ypollart
 [@zabuldon]: https://github.com/zabuldon
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[alexa.smart_home docs]: /components/alexa.smart_home/
-[api docs]: /components/api/
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[alexa.smart_home docs]: /integrations/alexa.smart_home/
+[api docs]: /integrations/api/
 [automation.event docs]: /docs/automation/trigger/#event-trigger
 [automation.numeric_state docs]: /docs/automation/trigger/#numeric-state-trigger
-[axis docs]: /components/axis/
-[binary_sensor.axis docs]: /components/binary_sensor.axis/
-[binary_sensor.gc100 docs]: /components/binary_sensor.gc100/
-[binary_sensor.linode docs]: /components/binary_sensor.linode/
-[binary_sensor.random docs]: /components/binary_sensor.random/
-[binary_sensor.rfxtrx docs]: /components/binary_sensor.rfxtrx/
-[binary_sensor.ring docs]: /components/binary_sensor.ring/
-[binary_sensor.tellduslive docs]: /components/binary_sensor.tellduslive/
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[camera docs]: /components/camera/
-[camera.ring docs]: /components/camera.ring/
-[climate.ephember docs]: /components/climate.ephember/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.toon docs]: /components/climate.toon/
-[cloud docs]: /components/cloud/
-[cover.template docs]: /components/cover.template/
-[device_tracker docs]: /components/device_tracker/
-[device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
-[device_tracker.automatic docs]: /components/device_tracker.automatic/
-[device_tracker.geofency docs]: /components/device_tracker.geofency/
-[device_tracker.mikrotik docs]: /components/device_tracker.mikrotik/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[device_tracker.snmp docs]: /components/device_tracker.snmp/
-[device_tracker.ubus docs]: /components/device_tracker.ubus/
-[dialogflow docs]: /components/dialogflow/
-[downloader docs]: /components/downloader/
-[duckdns docs]: /components/duckdns/
-[fan.mqtt docs]: /components/fan.mqtt/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[gc100 docs]: /components/gc100/
-[google_assistant docs]: /components/google_assistant/
-[google_domains docs]: /components/google_domains/
-[hassio docs]: /components/hassio/
-[history docs]: /components/history/
-[http docs]: /components/http/
-[image_processing.openalpr_local docs]: /components/image_processing.openalpr_local/
-[input_number docs]: /components/input_number/
-[input_text docs]: /components/input_text/
-[introduction docs]: /components/introduction/
-[light.hue docs]: /components/light.hue/
-[light.hyperion docs]: /components/light.hyperion/
-[light.mqtt docs]: /components/light.mqtt/
-[light.tradfri docs]: /components/light.tradfri/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.yeelight docs]: /components/light.yeelight/
-[linode docs]: /components/linode/
-[logbook docs]: /components/logbook/
-[mailbox docs]: /components/mailbox/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[media_player.liveboxplaytv docs]: /components/media_player.liveboxplaytv/
-[media_player.monoprice docs]: /components/media_player.monoprice/
-[media_player.plex docs]: /components/media_player.plex/
-[media_player.russound_rnet docs]: /components/media_player.russound_rnet/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.yamaha docs]: /components/media_player.yamaha/
-[mqtt_statestream docs]: /components/mqtt_statestream/
-[namecheapdns docs]: /components/namecheapdns/
-[no_ip docs]: /components/no_ip/
-[notify.aws_sns docs]: /components/notify.aws_sns/
-[notify.aws_sqs docs]: /components/notify.aws_sqs/
-[notify.clickatell docs]: /components/notify.clickatell/
-[notify.sendgrid docs]: /components/notify.sendgrid/
-[notify.yessssms docs]: /components/notify.yessssms/
-[panel_custom docs]: /components/panel_custom/
-[persistent_notification docs]: /components/persistent_notification/
-[plant docs]: /components/plant/
-[raincloud docs]: /components/raincloud/
-[remember_the_milk docs]: /components/remember_the_milk/
-[rfxtrx docs]: /components/rfxtrx/
-[ring docs]: /components/ring/
-[sensor.coinmarketcap docs]: /components/sensor.coinmarketcap/
-[sensor.emoncms docs]: /components/sensor.emoncms/
-[sensor.fail2ban docs]: /components/sensor.fail2ban/
-[sensor.gitter docs]: /components/sensor.gitter/
-[sensor.glances docs]: /components/sensor.glances/
-[sensor.google_travel_time docs]: /components/sensor.google_travel_time/
-[sensor.hddtemp docs]: /components/sensor.hddtemp/
-[sensor.imap docs]: /components/sensor.imap/
-[sensor.irish_rail_transport docs]: /components/sensor.irish_rail_transport/
-[sensor.lastfm docs]: /components/sensor.lastfm/
-[sensor.luftdaten docs]: /components/sensor.luftdaten/
-[sensor.nederlandse_spoorwegen docs]: /components/sensor.nederlandse_spoorwegen/
-[sensor.radarr docs]: /components/sensor.radarr/
-[sensor.rest docs]: /components/sensor.rest/
-[sensor.ring docs]: /components/sensor.ring/
-[sensor.scrape docs]: /components/sensor.scrape/
-[sensor.snmp docs]: /components/sensor.snmp/
-[sensor.sonarr docs]: /components/sensor.sonarr/
-[sensor.speedtest docs]: /components/sensor.speedtest/
-[sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
-[sensor.synologydsm docs]: /components/sensor.synologydsm/
-[sensor.sytadin docs]: /components/sensor.sytadin/
-[sensor.toon docs]: /components/sensor.toon/
-[sensor.uk_transport docs]: /components/sensor.uk_transport/
-[sensor.whois docs]: /components/sensor.whois/
-[shopping_list docs]: /components/shopping_list/
-[switch.deluge docs]: /components/switch.deluge/
-[switch.flux docs]: /components/switch.flux/
-[switch.gc100 docs]: /components/switch.gc100/
-[switch.snmp docs]: /components/switch.snmp/
-[switch.template docs]: /components/switch.template/
-[switch.toon docs]: /components/switch.toon/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[tellduslive docs]: /components/tellduslive/
-[tellstick docs]: /components/tellstick/
-[tesla docs]: /components/tesla/
-[timer docs]: /components/timer/
-[toon docs]: /components/toon/
-[tradfri docs]: /components/tradfri/
-[tts.amazon_polly docs]: /components/tts.amazon_polly/
-[tts.microsoft docs]: /components/tts.microsoft/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[vera docs]: /components/vera/
-[wink docs]: /components/wink/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
+[axis docs]: /integrations/axis/
+[binary_sensor.axis docs]: /integrations/axis#binary-sensor
+[binary_sensor.gc100 docs]: /integrations/gc100#binary-sensor
+[binary_sensor.linode docs]: /integrations/linode#binary-sensor
+[binary_sensor.random docs]: /integrations/random#binary-sensor
+[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[binary_sensor.tellduslive docs]: /integrations/tellduslive
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[camera docs]: /integrations/camera/
+[camera.ring docs]: /integrations/ring#camera
+[climate.ephember docs]: /integrations/ephember
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.honeywell docs]: /integrations/honeywell
+[climate.toon docs]: /integrations/toon#climate
+[cloud docs]: /integrations/cloud/
+[cover.template docs]: /integrations/cover.template/
+[device_tracker docs]: /integrations/device_tracker/
+[device_tracker.asuswrt docs]: /integrations/asuswrt
+[device_tracker.geofency docs]: /integrations/geofency
+[device_tracker.mikrotik docs]: /integrations/mikrotik
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.snmp docs]: /integrations/snmp
+[device_tracker.ubus docs]: /integrations/ubus
+[dialogflow docs]: /integrations/dialogflow/
+[downloader docs]: /integrations/downloader/
+[duckdns docs]: /integrations/duckdns/
+[fan.mqtt docs]: /integrations/fan.mqtt/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[gc100 docs]: /integrations/gc100/
+[google_assistant docs]: /integrations/google_assistant/
+[google_domains docs]: /integrations/google_domains/
+[hassio docs]: /integrations/hassio/
+[history docs]: /integrations/history/
+[http docs]: /integrations/http/
+[image_processing.openalpr_local docs]: /integrations/openalpr_local/
+[input_number docs]: /integrations/input_number/
+[input_text docs]: /integrations/input_text/
+[introduction docs]: /integrations/introduction/
+[light.hue docs]: /integrations/hue
+[light.hyperion docs]: /integrations/hyperion
+[light.mqtt docs]: /integrations/light.mqtt/
+[light.tradfri docs]: /integrations/tradfri
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.yeelight docs]: /integrations/yeelight
+[linode docs]: /integrations/linode/
+[logbook docs]: /integrations/logbook/
+[mailbox docs]: /integrations/mailbox/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.monoprice docs]: /integrations/monoprice
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.russound_rnet docs]: /integrations/russound_rnet
+[media_player.sonos docs]: /integrations/sonos
+[media_player.yamaha docs]: /integrations/yamaha
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[namecheapdns docs]: /integrations/namecheapdns/
+[no_ip docs]: /integrations/no_ip/
+[notify.clickatell docs]: /integrations/clickatell
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.yessssms docs]: /integrations/yessssms
+[panel_custom docs]: /integrations/panel_custom/
+[persistent_notification docs]: /integrations/persistent_notification/
+[plant docs]: /integrations/plant/
+[raincloud docs]: /integrations/raincloud/
+[remember_the_milk docs]: /integrations/remember_the_milk/
+[rfxtrx docs]: /integrations/rfxtrx/
+[ring docs]: /integrations/ring/
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.emoncms docs]: /integrations/emoncms
+[sensor.fail2ban docs]: /integrations/fail2ban
+[sensor.gitter docs]: /integrations/gitter
+[sensor.glances docs]: /integrations/glances
+[sensor.google_travel_time docs]: /integrations/google_travel_time
+[sensor.hddtemp docs]: /integrations/hddtemp
+[sensor.imap docs]: /integrations/imap
+[sensor.irish_rail_transport docs]: /integrations/irish_rail_transport
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.luftdaten docs]: /integrations/luftdaten#sensor
+[sensor.nederlandse_spoorwegen docs]: /integrations/nederlandse_spoorwegen
+[sensor.radarr docs]: /integrations/radarr
+[sensor.rest docs]: /integrations/rest
+[sensor.ring docs]: /integrations/ring#sensor
+[sensor.scrape docs]: /integrations/scrape
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.sonarr docs]: /integrations/sonarr
+[sensor.speedtest docs]: /integrations/speedtestdotnet
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.synologydsm docs]: /integrations/synologydsm
+[sensor.sytadin docs]: /integrations/sytadin
+[sensor.toon docs]: /integrations/toon
+[sensor.uk_transport docs]: /integrations/uk_transport
+[sensor.whois docs]: /integrations/whois
+[shopping_list docs]: /integrations/shopping_list/
+[switch.deluge docs]: /integrations/deluge#switch
+[switch.flux docs]: /integrations/flux
+[switch.gc100 docs]: /integrations/gc100#switch
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.template docs]: /integrations/switch.template/
+[switch.toon docs]: /integrations/toon
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[tellduslive docs]: /integrations/tellduslive/
+[tellstick docs]: /integrations/tellstick/
+[tesla docs]: /integrations/tesla/
+[timer docs]: /integrations/timer/
+[toon docs]: /integrations/toon/
+[tradfri docs]: /integrations/tradfri/
+[tts.amazon_polly docs]: /integrations/amazon_polly
+[tts.microsoft docs]: /integrations/microsoft
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[vera docs]: /integrations/vera/
+[wink docs]: /integrations/wink/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [ikea email]: https://twitter.com/home_assistant/status/925373865802502144
-[wink-auth]: /components/wink/#authenticate-using-developerwinkcomhttpsdeveloperwinkcom
+[wink-auth]: /integrations/wink/#authenticate-using-developerwinkcomhttpsdeveloperwinkcom
 [#10384]: https://github.com/home-assistant/home-assistant/pull/10384
 [#10428]: https://github.com/home-assistant/home-assistant/pull/10428
 [@stefan-jonasson]: https://github.com/stefan-jonasson
 [@tchellomello]: https://github.com/tchellomello
-[binary_sensor.ring docs]: /components/binary_sensor.ring/
-[camera.ring docs]: /components/camera.ring/
-[sensor.ring docs]: /components/sensor.ring/
-[tellstick docs]: /components/tellstick/
+[binary_sensor.ring docs]: /integrations/ring#binary-sensor
+[camera.ring docs]: /integrations/ring#camera
+[sensor.ring docs]: /integrations/ring#sensor
+[tellstick docs]: /integrations/tellstick/

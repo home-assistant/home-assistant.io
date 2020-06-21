@@ -59,5 +59,5 @@ entities:
 
 This is the first release of Home Assistant Cast, and so we focused on the minimum that was worthy of a release. We still have some more things planned:
 
-- Allow starting Home Assistant Cast from Home Assistant itself (not a browser), as part of an automation or script.
+- Allow starting Home Assistant Cast from Home Assistant itself (not a browser), as part of an automation or script. [This is live now since Home Assistant 0.99.](/integrations/cast/#home-assistant-cast)
 - Use Home Assistant Cast as a text-to-speech target (inspired by [lovelace-browser-commander by @thomasloven](https://github.com/thomasloven/lovelace-browser-commander)).

@@ -9,12 +9,12 @@ categories: Release-Notes
 og_image: /images/blog/2017-12-0.59/components.png
 ---
 
-<a href='/components/#version/0.59'><img src='/images/blog/2017-12-0.59/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.59'><img src='/images/blog/2017-12-0.59/components.png' style='border: 0;box-shadow: none;'></a>
 
 We are proud to announce the availability of Home Assistant 0.59. To keep you in the loop: This is the second last release in 2017. We have stuck to our bi-weekly release cycle for another year but we decided that we will take a little break between Christmas and New Year.
 
 ## Dominos Pizza platform
-With the Dominos Pizza integration made by [@craigjmidwinter] your home is now taking care that you don't  starve. In combination with a [Skybell](/components/skybell/) or a [DoorBird](/components/doorbird/) you will know exactly when the pizza is in front of your door.
+With the Dominos Pizza integration made by [@craigjmidwinter] your home is now taking care that you don't  starve. In combination with a [Skybell](/integrations/skybell/) or a [DoorBird](/integrations/doorbird/) you will know exactly when the pizza is in front of your door.
 
 ## Color picker
 [@NovapaX] created a new color picker. While dragging the color badge with your finger, a badge will appear above your finger so you can see the current color.
@@ -61,7 +61,7 @@ If you follow our [twitter feed](https://twitter.com/home_assistant) then you ma
 ## Release 0.59.2 - December 6
 
 - Require FF43 for latest js ([@andrey-git] - [#10941])
-- Fix linksys_ap.py by inheriting DeviceScanner ([@mateuszdrab] - [#10947]) ([device_tracker.linksys_ap docs])
+- Fix linksys_ap.py by inheriting DeviceScanner ([@mateuszdrab] - [#10947])
 - Upgrade tellduslive library version (closes https://github.com/home-assistant/home-assistant/issues/10922) ([@molobrakos] - [#10950]) ([tellduslive docs])
 - Allow chime to work for wink siren/chime ([@w1ll1am23] - [#10961]) ([wink docs])
 - Reload closest store on api menu request ([@craigjmidwinter] - [#10962]) ([dominos docs])
@@ -119,7 +119,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use new DoorBirdPy (v0.1.0) ([@Klikini] - [#10734]) ([doorbird docs])
 - Add fan and reduce I/O calls in radiotherm ([@TD22057] - [#10437]) ([climate.radiotherm docs])
 - New Hive Component / Platforms ([@Rendili] - [#9804]) ([hive docs]) ([climate.hive docs]) ([light.hive docs]) ([sensor.hive docs]) ([switch.hive docs]) (new-platform)
-- Temporarily fix yahoo weather API issue and add unit test. ([@cgtobi] - [#10737]) ([sensor.yweather docs])
+- Temporarily fix yahoo weather API issue and add unit test. ([@cgtobi] - [#10737])
 - Google assistant climate mode fix ([@braddparker] - [#10726]) ([google_assistant.smart_home docs])
 - Protect sensitive information for Amcrest cameras ([@tchellomello] - [#10569]) ([amcrest docs]) ([camera.amcrest docs]) ([sensor.amcrest docs])
 - InfluxDB send retry after IOError ([@janLo] - [#10263]) ([influxdb docs])
@@ -322,92 +322,91 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@zBart]: https://github.com/zBart
 [@zhujisheng]: https://github.com/zhujisheng
-[alarm_control_panel docs]: /components/alarm_control_panel/
-[alarm_control_panel.arlo docs]: /components/alarm_control_panel.arlo/
-[alarm_control_panel.demo docs]: /components/demo/
-[alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
-[amcrest docs]: /components/amcrest/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alarm_control_panel.arlo docs]: /integrations/arlo
+[alarm_control_panel.demo docs]: /integrations/demo/
+[alarm_control_panel.totalconnect docs]: /integrations/totalconnect
+[amcrest docs]: /integrations/amcrest/
 [automation.state docs]: /docs/automation/trigger/#state-trigger
-[binary_sensor docs]: /components/binary_sensor/
-[binary_sensor.homematic docs]: /components/binary_sensor.homematic/
-[camera.amcrest docs]: /components/camera.amcrest/
-[camera.ring docs]: /components/camera.ring/
-[climate docs]: /components/climate/
-[climate.ecobee docs]: /components/climate.ecobee/
-[climate.generic_thermostat docs]: /components/climate.generic_thermostat/
-[climate.hive docs]: /components/climate.hive/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.mqtt docs]: /components/climate.mqtt/
-[climate.radiotherm docs]: /components/climate.radiotherm/
-[climate.sensibo docs]: /components/climate.sensibo/
-[cloud docs]: /components/cloud/
-[config.group docs]: /components/config/
-[configurator docs]: /components/configurator/
-[conversation docs]: /components/conversation/
-[cover.tahoma docs]: /components/cover.tahoma/
-[device_tracker.unifi_direct docs]: /components/device_tracker.unifi_direct/
-[dominos docs]: /components/dominos/
-[doorbird docs]: /components/doorbird/
-[ecobee docs]: /components/ecobee/
-[emulated_hue docs]: /components/emulated_hue/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[google_assistant.http docs]: /components/google_assistant/
-[google_assistant.smart_home docs]: /components/google_assistant
-[hive docs]: /components/hive/
-[homematic docs]: /components/homematic/
-[influxdb docs]: /components/influxdb/
-[knx docs]: /components/knx/
-[light.blinkt docs]: /components/light.blinkt/
-[light.hive docs]: /components/light.hive/
-[light.hue docs]: /components/light.hue/
-[light.tradfri docs]: /components/light.tradfri/
-[light.xiaomi_miio docs]: /components/light.xiaomi_miio/
-[light.yeelight docs]: /components/light.yeelight/
-[media_extractor docs]: /components/media_extractor/
-[media_player.cast docs]: /components/media_player.cast/
-[netatmo docs]: /components/netatmo/
-[notify.lametric docs]: /components/notify.lametric/
-[notify.pushbullet docs]: /components/notify.pushbullet/
-[ring docs]: /components/ring/
-[sensor.amcrest docs]: /components/sensor.amcrest/
-[sensor.currencylayer docs]: /components/sensor.currencylayer/
-[sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
-[sensor.fastdotcom docs]: /components/sensor.fastdotcom/
-[sensor.fritzbox_netmonitor docs]: /components/sensor.fritzbox_netmonitor/
-[sensor.hddtemp docs]: /components/sensor.hddtemp/
-[sensor.hive docs]: /components/sensor.hive/
-[sensor.homematic docs]: /components/sensor.homematic/
-[sensor.sabnzbd docs]: /components/sensor.sabnzbd/
-[sensor.serial docs]: /components/sensor.serial/
-[sensor.tahoma docs]: /components/sensor.tahoma/
-[sensor.tellduslive docs]: /components/sensor.tellduslive/
-[sensor.tellstick docs]: /components/sensor.tellstick/
-[sensor.whois docs]: /components/sensor.whois/
-[sensor.wunderground docs]: /components/sensor.wunderground/
-[sensor.yweather docs]: /components/sensor.yweather/
-[shell_command docs]: /components/shell_command/
-[shopping_list docs]: /components/shopping_list/
-[switch.hive docs]: /components/switch.hive/
-[switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
-[system_log docs]: /components/system_log/
-[tahoma docs]: /components/tahoma/
-[tellduslive docs]: /components/tellduslive/
-[tellstick docs]: /components/tellstick/
-[tradfri docs]: /components/tradfri/
-[tts docs]: /components/tts/
-[tts.baidu docs]: /components/tts.baidu/
-[tts.microsoft docs]: /components/tts.microsoft/
-[updater docs]: /components/updater/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[weather.ecobee docs]: /components/weather.ecobee/
-[zwave docs]: /components/zwave/
+[binary_sensor docs]: /integrations/binary_sensor/
+[binary_sensor.homematic docs]: /integrations/homematic
+[camera.amcrest docs]: /integrations/amcrest
+[camera.ring docs]: /integrations/ring#camera
+[climate docs]: /integrations/climate/
+[climate.ecobee docs]: /integrations/ecobee
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.hive docs]: /integrations/hive#climate
+[climate.honeywell docs]: /integrations/honeywell
+[climate.mqtt docs]: /integrations/climate.mqtt/
+[climate.radiotherm docs]: /integrations/radiotherm
+[climate.sensibo docs]: /integrations/sensibo
+[cloud docs]: /integrations/cloud/
+[config.group docs]: /integrations/config/
+[configurator docs]: /integrations/configurator/
+[conversation docs]: /integrations/conversation/
+[cover.tahoma docs]: /integrations/tahoma
+[device_tracker.unifi_direct docs]: /integrations/unifi_direct/
+[dominos docs]: /integrations/dominos/
+[doorbird docs]: /integrations/doorbird/
+[ecobee docs]: /integrations/ecobee/
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[google_assistant.http docs]: /integrations/google_assistant/
+[google_assistant.smart_home docs]: /integrations/google_assistant
+[hive docs]: /integrations/hive/
+[homematic docs]: /integrations/homematic/
+[influxdb docs]: /integrations/influxdb/
+[knx docs]: /integrations/knx/
+[light.blinkt docs]: /integrations/blinkt
+[light.hive docs]: /integrations/hive#light
+[light.hue docs]: /integrations/hue
+[light.tradfri docs]: /integrations/tradfri
+[light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
+[light.yeelight docs]: /integrations/yeelight
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[netatmo docs]: /integrations/netatmo/
+[notify.lametric docs]: /integrations/lametric
+[notify.pushbullet docs]: /integrations/pushbullet
+[ring docs]: /integrations/ring/
+[sensor.amcrest docs]: /integrations/amcrest
+[sensor.currencylayer docs]: /integrations/currencylayer
+[sensor.deutsche_bahn docs]: /integrations/deutsche_bahn
+[sensor.fastdotcom docs]: /integrations/fastdotcom
+[sensor.fritzbox_netmonitor docs]: /integrations/fritzbox#sensor_netmonitor/
+[sensor.hddtemp docs]: /integrations/hddtemp
+[sensor.hive docs]: /integrations/hive#sensor
+[sensor.homematic docs]: /integrations/homematic
+[sensor.sabnzbd docs]: /integrations/sabnzbd
+[sensor.serial docs]: /integrations/serial
+[sensor.tahoma docs]: /integrations/tahoma
+[sensor.tellduslive docs]: /integrations/tellduslive
+[sensor.tellstick docs]: /integrations/tellstick#sensor
+[sensor.whois docs]: /integrations/whois
+[sensor.wunderground docs]: /integrations/wunderground
+[shell_command docs]: /integrations/shell_command/
+[shopping_list docs]: /integrations/shopping_list/
+[switch.hive docs]: /integrations/hive#switch
+[switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
+[system_log docs]: /integrations/system_log/
+[tahoma docs]: /integrations/tahoma/
+[tellduslive docs]: /integrations/tellduslive/
+[tellstick docs]: /integrations/tellstick/
+[tradfri docs]: /integrations/tradfri/
+[tts docs]: /integrations/tts/
+[tts.baidu docs]: /integrations/baidu
+[tts.microsoft docs]: /integrations/microsoft
+[updater docs]: /integrations/updater/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[weather.ecobee docs]: /integrations/ecobee
+[zwave docs]: /integrations/zwave/
 [#10798]: https://github.com/home-assistant/home-assistant/pull/10798
 [#10923]: https://github.com/home-assistant/home-assistant/pull/10923
 [#10934]: https://github.com/home-assistant/home-assistant/pull/10934
 [#10935]: https://github.com/home-assistant/home-assistant/pull/10935
 [@NovapaX]: https://github.com/NovapaX
 [@wrboyce]: https://github.com/wrboyce
-[notify.nfandroidtv docs]: /components/notify.nfandroidtv/
+[notify.nfandroidtv docs]: /integrations/nfandroidtv
 [#10941]: https://github.com/home-assistant/home-assistant/pull/10941
 [#10947]: https://github.com/home-assistant/home-assistant/pull/10947
 [#10950]: https://github.com/home-assistant/home-assistant/pull/10950
@@ -420,8 +419,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@molobrakos]: https://github.com/molobrakos
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@craigjmidwinter]: https://github.com/craigjmidwinter
-[device_tracker.linksys_ap docs]: /components/device_tracker.linksys_ap/
-[dominos docs]: /components/dominos/
-[media_player.cast docs]: /components/media_player.cast/
-[tellduslive docs]: /components/tellduslive/
-[wink docs]: /components/wink/
+[dominos docs]: /integrations/dominos/
+[media_player.cast docs]: /integrations/cast
+[tellduslive docs]: /integrations/tellduslive/
+[wink docs]: /integrations/wink/

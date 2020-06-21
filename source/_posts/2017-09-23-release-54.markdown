@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2017-09-0.54/components.png
 ---
 
-<a href='/components/#version/0.54'><img src='/images/blog/2017-09-0.54/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.54'><img src='/images/blog/2017-09-0.54/components.png' style='border: 0;box-shadow: none;'></a>
 
 We're approaching the end of September and that means that it was our birthday! We are now officially 4 years old and are getting more amazing with every release. This release too will include some great new stuff and tons of bugfixes. Included is a bug fix by [@fanthos] that should fix the frontend in some browsers. If you had issues with your browser before, make sure to check out this release.
 
@@ -60,7 +60,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Allow multiple observations of same entity ([@jlmcgehee21] - [#9391]) ([binary_sensor.bayesian docs])
 - Break up Alexa per functionality ([@balloob] - [#9400]) ([alexa docs])
 - Upgrade psutil to 5.3.1 ([@fabaff] - [#9403]) ([sensor.systemmonitor docs])
-- fix mopar sensor ([@happyleavesaoc] - [#9389]) ([sensor.mopar docs])
+- fix mopar sensor ([@happyleavesaoc] - [#9389])
 - Support specifying no Apple TVs ([@postlund] - [#9394]) ([apple_tv docs])
 - Update netdisco to 1.2.0 ([@balloob] - [#9408])
 - components/xiaomi: Add initial discovery using NetDisco. ([@pfalcon] - [#9283])
@@ -79,7 +79,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Improve Python script ([@doudz] - [#9417]) ([python_script docs])
 - Add manual alarm_control_panel pending time per state ([@snjoetw] - [#9264]) ([alarm_control_panel.manual docs])
 - Rename xiaomi #9425 ([@danielhiversen] - [#9426]) (breaking change)
-- Bump version of aioautomatic ([@armills] - [#9435]) ([device_tracker.automatic docs])
+- Bump version of aioautomatic ([@armills] - [#9435])
 - Fix russound_rio for python 3.4 ([@wickerwaka] - [#9428]) ([media_player.russound_rio docs])
 - Basic MQTT vacuum support ([@johnboiles] - [#9386]) ([vacuum docs]) ([vacuum.mqtt docs]) (new-platform)
 - Optimaze vacuum mqtt platform ([@pvizeli] - [#9439]) ([vacuum.mqtt docs])
@@ -274,78 +274,76 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@vickyg3]: https://github.com/vickyg3
 [@wickerwaka]: https://github.com/wickerwaka
-[abode docs]: /components/abode/
-[alarm_control_panel.abode docs]: /components/alarm_control_panel.abode/
-[alarm_control_panel.manual docs]: /components/alarm_control_panel.manual/
-[alarm_control_panel.satel_integra docs]: /components/alarm_control_panel.satel_integra/
-[alarm_control_panel.spc docs]: /components/alarm_control_panel.spc/
-[alexa docs]: /components/alexa/
-[api docs]: /components/api/
-[apple_tv docs]: /components/apple_tv/
-[axis docs]: /components/axis/
-[binary_sensor.abode docs]: /components/binary_sensor.abode/
-[binary_sensor.bayesian docs]: /components/binary_sensor.bayesian/
-[binary_sensor.knx docs]: /components/binary_sensor.knx/
-[binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
-[binary_sensor.satel_integra docs]: /components/binary_sensor.satel_integra/
-[binary_sensor.spc docs]: /components/binary_sensor.spc/
-[calendar.todoist docs]: /components/calendar.todoist/
-[camera.abode docs]: /components/camera.abode/
-[camera.axis docs]: /components/camera.axis/
-[camera.doorbird docs]: /components/camera.doorbird/
-[camera.uvc docs]: /components/camera.uvc/
-[climate.knx docs]: /components/climate.knx/
-[config.zwave docs]: /components/config.zwave/
-[cover.abode docs]: /components/cover.abode/
-[cover.knx docs]: /components/cover.knx/
-[device_tracker.aruba docs]: /components/device_tracker.aruba/
-[device_tracker.automatic docs]: /components/device_tracker.automatic/
-[device_tracker.keenetic_ndms2 docs]: /components/device_tracker.keenetic_ndms2/
-[device_tracker.owntracks docs]: /components/device_tracker.owntracks/
-[doorbird docs]: /components/doorbird/
-[emulated_hue docs]: /components/emulated_hue/
-[homematic docs]: /components/homematic/
-[input_boolean docs]: /components/input_boolean/
-[light.abode docs]: /components/light.abode/
-[light.knx docs]: /components/light.knx/
-[light.lifx docs]: /components/light.lifx/
-[light.template docs]: /components/light.template/
-[light.tradfri docs]: /components/light.tradfri/
-[light.xiaomi_philipslight docs]: /components/light.xiaomi_miio/
-[lock.abode docs]: /components/lock.abode/
-[media_player.apple_tv docs]: /components/media_player.apple_tv/
-[media_player.mpd docs]: /components/media_player.mpd/
-[media_player.russound_rio docs]: /components/media_player.russound_rio/
-[media_player.universal docs]: /components/media_player.universal/
-[mqtt_statestream docs]: /components/mqtt_statestream/
-[notify.html5 docs]: /components/notify.html5/
-[notify.xmpp docs]: /components/notify.xmpp/
-[python_script docs]: /components/python_script/
-[satel_integra docs]: /components/satel_integra/
-[sensor.airvisual docs]: /components/sensor.airvisual/
-[sensor.citybikes docs]: /components/sensor.citybikes/
-[sensor.coinmarketcap docs]: /components/sensor.coinmarketcap/
-[sensor.dte_energy_bridge docs]: /components/sensor.dte_energy_bridge/
-[sensor.fitbit docs]: /components/sensor.fitbit/
-[sensor.homematic docs]: /components/sensor.homematic/
-[sensor.knx docs]: /components/sensor.knx/
-[sensor.mopar docs]: /components/sensor.mopar/
-[sensor.onewire docs]: /components/sensor.onewire/
-[sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
-[sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.worxlandroid docs]: /components/sensor.worxlandroid/
-[switch.abode docs]: /components/switch.abode/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.doorbird docs]: /components/switch.doorbird/
-[switch.knx docs]: /components/switch.knx/
-[switch.rest docs]: /components/switch.rest/
-[switch.telnet docs]: /components/switch.telnet/
-[vacuum docs]: /components/vacuum/
-[vacuum.mqtt docs]: /components/vacuum.mqtt/
-[vacuum.xiaomi docs]: /components/vacuum.xiaomi_miio/
-[xiaomi docs]: /components/xiaomi/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zwave docs]: /components/zwave/
+[abode docs]: /integrations/abode/
+[alarm_control_panel.abode docs]: /integrations/abode
+[alarm_control_panel.manual docs]: /integrations/manual
+[alarm_control_panel.satel_integra docs]: /integrations/satel_integra
+[alarm_control_panel.spc docs]: /integrations/spc
+[alexa docs]: /integrations/alexa/
+[api docs]: /integrations/api/
+[apple_tv docs]: /integrations/apple_tv/
+[axis docs]: /integrations/axis/
+[binary_sensor.abode docs]: /integrations/abode#binary-sensor
+[binary_sensor.bayesian docs]: /integrations/bayesian
+[binary_sensor.knx docs]: /integrations/binary_sensor.knx/
+[binary_sensor.mqtt docs]: /integrations/binary_sensor.mqtt/
+[binary_sensor.satel_integra docs]: /integrations/satel_integra
+[binary_sensor.spc docs]: /integrations/spc#binary-sensor
+[calendar.todoist docs]: /integrations/todoist
+[camera.abode docs]: /integrations/abode
+[camera.axis docs]: /integrations/axis
+[camera.doorbird docs]: /integrations/doorbird#camera
+[camera.uvc docs]: /integrations/uvc
+[climate.knx docs]: /integrations/climate.knx/
+[config.zwave docs]: /integrations/config.zwave/
+[cover.abode docs]: /integrations/abode
+[cover.knx docs]: /integrations/cover.knx/
+[device_tracker.aruba docs]: /integrations/aruba
+[device_tracker.keenetic_ndms2 docs]: /integrations/keenetic_ndms2
+[device_tracker.owntracks docs]: /integrations/owntracks
+[doorbird docs]: /integrations/doorbird/
+[emulated_hue docs]: /integrations/emulated_hue/
+[homematic docs]: /integrations/homematic/
+[input_boolean docs]: /integrations/input_boolean/
+[light.abode docs]: /integrations/abode#light
+[light.knx docs]: /integrations/light.knx/
+[light.lifx docs]: /integrations/lifx
+[light.template docs]: /integrations/light.template/
+[light.tradfri docs]: /integrations/tradfri
+[light.xiaomi_philipslight docs]: /integrations/light.xiaomi_miio/
+[lock.abode docs]: /integrations/abode
+[media_player.apple_tv docs]: /integrations/apple_tv
+[media_player.mpd docs]: /integrations/mpd
+[media_player.russound_rio docs]: /integrations/russound_rio
+[media_player.universal docs]: /integrations/universal
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[notify.html5 docs]: /integrations/html5
+[notify.xmpp docs]: /integrations/xmpp
+[python_script docs]: /integrations/python_script/
+[satel_integra docs]: /integrations/satel_integra/
+[sensor.airvisual docs]: /integrations/airvisual
+[sensor.citybikes docs]: /integrations/citybikes
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.dte_energy_bridge docs]: /integrations/dte_energy_bridge
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.homematic docs]: /integrations/homematic
+[sensor.knx docs]: /integrations/sensor.knx/
+[sensor.onewire docs]: /integrations/onewire
+[sensor.swiss_public_transport docs]: /integrations/swiss_public_transport
+[sensor.systemmonitor docs]: /integrations/systemmonitor
+[sensor.worxlandroid docs]: /integrations/worxlandroid
+[switch.abode docs]: /integrations/abode#switch
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.doorbird docs]: /integrations/doorbird#switch
+[switch.knx docs]: /integrations/switch.knx/
+[switch.rest docs]: /integrations/switch.rest/
+[switch.telnet docs]: /integrations/telnet
+[vacuum docs]: /integrations/vacuum/
+[vacuum.mqtt docs]: /integrations/vacuum.mqtt/
+[vacuum.xiaomi docs]: /integrations/vacuum.xiaomi_miio/
+[xiaomi docs]: /integrations/xiaomi_aqara
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zwave docs]: /integrations/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [discord]: https://discord.gg/c5DvZ4e

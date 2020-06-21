@@ -30,6 +30,15 @@ name:
   description: Overwrites friendly name.
   type: string
   default: Name of Entity
+icon:
+  required: false
+  description: Overwrites icon.
+  type: string
+  default: Entity Domain Icon
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`.
+  type: string
 {% endconfiguration %}
 
 ## Examples

@@ -43,9 +43,9 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - [Rflink][rflink] 433Mhz gateway platform and components ([@aequitas])
 - Lock: Support for [Nuki.io][nuki] smart locks ([@pschmitt])
 - Sensor: [QNAP][qnap] Sensor ([@colinodell])
-- Switch: Add support for [FRITZ!DECT][fritz] wireless switches based on fritzhome ([@BastianPoe])
+- Switch: Add support for FRITZ!DECT wireless switches based on fritzhome ([@BastianPoe])
 - Sensor: Add [moon][moon] sensor ([@fabaff])
-- Media player: Support for the [Orange Livebox Play TV][orange] appliance ([@pschmitt])
+- Media player: Support for the Orange Livebox Play TV appliance ([@pschmitt])
 - Media player: [Apple TV][apple-tv] support ([@postlund])
 - MQTT: [MQTT discovery][mqtt-discovery] support ([@balloob], [@fabaff])
 - Notify: [Mailgun][mailgun] notify service ([@pschmitt])
@@ -193,33 +193,31 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@Yannic-HAW]: https://github.com/Yannic-HAW
 
-[alert]: /components/alert/
-[apiai]: /components/apiai/
-[apple-tv]: /components/media_player.apple_tv/
-[arwn]: /components/sensor.arwn/
+[alert]: /integrations/alert/
+[apiai]: /integrations/dialogflow
+[apple-tv]: /integrations/apple_tv
+[arwn]: /integrations/arwn
 [custom-ui]: /developers/frontend_creating_custom_ui/
-[discovery]: /components/discovery/
-[face-detect]: /components/image_processing.microsoft_face_detect/
-[ffmpeg-bin]: /components/binary_sensor.ffmpeg/
-[ffmpeg]: /components/ffmpeg/
+[discovery]: /integrations/discovery/
+[face-detect]: /integrations/microsoft_face_detect
+[ffmpeg-bin]: /integrations/ffmpeg_motion
+[ffmpeg]: /integrations/ffmpeg/
 [filters]: /topics/templating/#home-assistant-template-extensions
-[fritz]: /components/switch.fritzdect/
-[hue]: /components/light.hue/
+[hue]: /integrations/hue
 [light]: /cookbook/custom_ui_by_andrey-git
-[mailgun]: /components/notify.mailgun/
-[media-player]: /components/media_player/
-[moon]: /components/sensor.moon/
-[mqtt-discovery]: /components/mqtt/#discovery
-[nuki]: /components/lock.nuki/
-[openevse]: /components/sensor.openevse/
-[orange]: /components/media_player.liveboxplaytv/
-[owm]: /components/sensor.openweathermap/
+[mailgun]: /integrations/mailgun
+[media-player]: /integrations/media_player/
+[moon]: /integrations/moon
+[mqtt-discovery]: /integrations/mqtt/#discovery
+[nuki]: /integrations/nuki
+[openevse]: /integrations/openevse
+[owm]: /integrations/openweathermap#sensor
 [python-yeelight]: https://gitlab.com/stavros/python-yeelight
-[qnap]: /components/sensor.qnap/
-[rflink]: /components/rflink/
-[systemmonitor]: /components/sensor.systemmonitor/
-[webostv]: /components/media_player.webostv/
-[yeelight]: /components/light.yeelight/
+[qnap]: /integrations/qnap
+[rflink]: /integrations/rflink/
+[systemmonitor]: /integrations/systemmonitor
+[webostv]: /integrations/webostv#media-player
+[yeelight]: /integrations/yeelight
 
 [event-stream-api]: /developers/server_sent_events/
 [forum]: https://community.home-assistant.io/

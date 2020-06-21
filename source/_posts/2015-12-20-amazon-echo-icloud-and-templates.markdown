@@ -30,17 +30,17 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
  - Binary sensor: [REST] platform added ([@fabaff])
  - Sensor: [Torque (OBD2)] platform added ([@happyleavesaoc])
 
-[iCloud]: /components/device_tracker.icloud/
-[Twitch]: /components/sensor.twitch/
+[iCloud]: /integrations/icloud
+[Twitch]: /integrations/twitch
 [Template]: /topics/templating/
-[Heatmiser]: /components/heatmiser/
-[Dweet.io]: /components/sensor.dweet/
-[Alexa/Amazon echo]: /components/alexa/
-[FritzBox]: /components/device_tracker.fritz/
-[Wink]: /components/sensor.wink/
-[ELIQ Online]: /components/sensor.eliqonline/
-[REST]: /components/binary_sensor.rest/
-[Torque (OBD2)]: /components/sensor.torque/
+[Heatmiser]: /integrations/heatmiser/
+[Dweet.io]: /integrations/dweet#sensor
+[Alexa/Amazon echo]: /integrations/alexa/
+[FritzBox]: /integrations/fritz
+[Wink]: /integrations/wink#sensor
+[ELIQ Online]: /integrations/eliqonline
+[REST]: /integrations/binary_sensor.rest/
+[Torque (OBD2)]: /integrations/torque
 [@andylockran]: https://github.com/andylockran
 [@balloob]: https://github.com/balloob
 [@caiuspb]: https://github.com/caiuspb
@@ -81,11 +81,11 @@ Affected components and platforms:
  - binary_sensor: [MQTT][binary_sensor.mqtt]
  - automation: [numeric_state][automation-numeric-state]
 
-[sensor.arest]: /components/sensor.arest/
-[sensor.command]: /components/sensor.command_sensor/
-[sensor.rest]: /components/sensor.rest/
-[sensor.mqtt]: /components/sensor.mqtt/
-[switch.mqtt]: /components/switch.mqtt/
-[light.mqtt]: /components/light.mqtt/
-[binary_sensor.mqtt]: /components/binary_sensor.mqtt/
+[sensor.arest]: /integrations/arest#sensor
+[sensor.command]: /integrations/sensor.command_line/
+[sensor.rest]: /integrations/rest
+[sensor.mqtt]: /integrations/sensor.mqtt/
+[switch.mqtt]: /integrations/switch.mqtt/
+[light.mqtt]: /integrations/light.mqtt/
+[binary_sensor.mqtt]: /integrations/binary_sensor.mqtt/
 [automation-numeric-state]: /getting-started/automation-trigger/#numeric-state-trigger

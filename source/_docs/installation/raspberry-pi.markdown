@@ -1,12 +1,12 @@
 ---
 title: "Manual installation on a Raspberry Pi"
-description: "Instructions to install Home Assistant on a Raspberry Pi running Raspbian Lite."
+description: "Instructions to install Home Assistant Core on a Raspberry Pi running Raspbian Lite."
 redirect_from: /getting-started/installation-raspberry-pi/
 ---
 
-This installation of Home Assistant requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
+This installation of Home Assistant Core requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
 
-You must have Python 3.6 or later installed (including the package `python3-dev`) which is *not* the case for Raspbian Stretch.
+You must have Python 3.7 or later installed (including the package `python3-dev`) which is *not* the case for Raspbian Stretch.
 
 <div class='note'>
 Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well. This guide is also referred to as the "Advanced Guide" for a virtual environment install.
@@ -14,7 +14,7 @@ Although these installation steps specifically mention a Raspberry Pi, you can g
 
 <div class='note warning'>
 
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/documentation/faqs/#pi-power) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
 
 </div>
 
@@ -22,69 +22,71 @@ Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
 You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
 
 ```bash
-$ ssh pi@ipaddress
+ssh pi@ipaddress
 ```
 
 Changing the default password is encouraged.
 
 ```bash
-$ passwd
+passwd
 ```
 
 Update the system.
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get upgrade -y
+sudo apt-get update
+sudo apt-get upgrade -y
 ```
 
 Install the dependencies.
 
 ```bash
-$ sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev
+sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev autoconf
 ```
 
-Add an account for Home Assistant called `homeassistant`.
-Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio,i2c` adds the user to the `dialout`, `gpio` and the `i2c` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
+Add an account for Home Assistant Core called `homeassistant`.
+Since this account is only for running Home Assistant Core the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio,i2c` adds the user to the `dialout`, `gpio` and the `i2c` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
 
 ```bash
-$ sudo useradd -rm homeassistant -G dialout,gpio,i2c
+sudo useradd -rm homeassistant -G dialout,gpio,i2c
 ```
 
-Next we will create a directory for the installation of Home Assistant and change the owner to the `homeassistant` account.
+Next we will create a directory for the installation of Home Assistant Core and change the owner to the `homeassistant` account.
 
 ```bash
-$ cd /srv
-$ sudo mkdir homeassistant
-$ sudo chown homeassistant:homeassistant homeassistant
+cd /srv
+sudo mkdir homeassistant
+sudo chown homeassistant:homeassistant homeassistant
 ```
 
-Next up is to create and change to a virtual environment for Home Assistant. This will be done as the `homeassistant` account.
+Next up is to create and change to a virtual environment for Home Assistant Core. This will be done as the `homeassistant` account.
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ cd /srv/homeassistant
-$ python3 -m venv .
-$ source bin/activate
+sudo -u homeassistant -H -s
+cd /srv/homeassistant
+python3 -m venv .
+source bin/activate
 ```
-Once you have activated the virtual environment (notice the prompt change) you will need to run the following command to install a required python package.
+
+Once you have activated the virtual environment (notice the prompt change to `(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $`) you will need to run the following command to install a required Python package.
 
 ```bash
-(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ python3 -m pip install wheel
+python3 -m pip install wheel
 ```
 
-Once you have installed the required python package it is now time to install Home Assistant!
+Once you have installed the required Python package it is now time to install Home Assistant Core!
 
 ```bash
-(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
+pip3 install homeassistant
 ```
 
-Start Home Assistant for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
+Start Home Assistant Core for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
 
 ```bash
-(homeassistant) $ hass
+hass
 ```
-You can now reach your installation on your Raspberry Pi over the web interface on [http://ipaddress:8123](http://ipaddress:8123).
+
+You can now reach your installation on your Raspberry Pi over the web interface on `http://ipaddress:8123`.
 
 <div class='note'>
 
@@ -92,43 +94,41 @@ When you run the `hass` command for the first time, it will download, install an
 
 </div>
 
-If you want to setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant](/docs/autostart/).
+## Updating
 
-### Updating
-
-To update to the latest version of Home Assistant follow these simple steps:
+To update to the latest version of Home Assistant Core follow these simple steps:
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
-$ pip3 install --upgrade homeassistant
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --upgrade homeassistant
 ```
 
-Once the last command executes, restart the Home Assistant service to apply the latest updates. Please keep in mind that some updates may take longer to start up than others. If Home Assistant fails to start, make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
+Once the last command executes, restart the Home Assistant Core service to apply the latest updates. Please keep in mind that some updates may take longer to start up than others. If Home Assistant Core fails to start, make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
 
-### Run a specific version
+## Run a specific version
 
-In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
+In the event that a Home Assistant Core version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
-$ pip3 install homeassistant==0.XX.X
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install homeassistant==0.XX.X
 ```
 
-### Run the beta version
+## Run the beta version
 
 If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
-$ pip3 install --pre --upgrade homeassistant
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --pre --upgrade homeassistant
 ```
 
-### Run the development version
+## Run the development version
 
-If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
+If you want to stay on the bleeding-edge Home Assistant Core development branch, you can upgrade to `dev`.
 
 <div class='note warning'>
   The "dev" branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
@@ -137,16 +137,16 @@ If you want to stay on the bleeding-edge Home Assistant development branch, you 
 For example:
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
-$ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
+pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
 ```
 
-### Activating the virtual environment
+## Activating the virtual environment
 
 When instructions tell you to activate the virtual environment, the following commands will do this:
 
 ```bash
-$ sudo -u homeassistant -H -s
-$ source /srv/homeassistant/bin/activate
+sudo -u homeassistant -H -s
+source /srv/homeassistant/bin/activate
 ```

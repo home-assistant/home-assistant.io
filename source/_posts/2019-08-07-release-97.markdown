@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2019-08-0.97/components.png
 ---
 
-<a href='/components/#version/0.97'><img src='/images/blog/2019-08-0.97/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.97'><img src='/images/blog/2019-08-0.97/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for Home Assistant 0.97! It has been a very busy release cycle as we have been fine-tuning our development process, which makes it easier to maintain and contribute to Home Assistant in the future.
 
@@ -81,7 +81,7 @@ We wrote about how we use Azure DevOps to automate the development of Home Assis
 
 ## Release 0.97.1 - August 9
 
-A new breaking change was introduced with 0.97.1 to accomodate for the HaveIBeenPwned shutting down v2 of their API on August 18. The integration has been migrated to using v3.
+A new breaking change was introduced with 0.97.1 to accommodate for the HaveIBeenPwned shutting down v2 of their API on August 18. The integration has been migrated to using v3.
 
 - Update HIBP sensor to use API v3 and API Key ([@aetaric] - [#25699]) ([haveibeenpwned docs]) (breaking change)
 - Update Cisco Mobility Express module version ([@fbradyirl] - [#25770]) ([cisco_mobility_express docs])
@@ -96,10 +96,10 @@ A new breaking change was introduced with 0.97.1 to accomodate for the HaveIBeen
 [@aetaric]: https://github.com/aetaric
 [@fbradyirl]: https://github.com/fbradyirl
 [@jjlawren]: https://github.com/jjlawren
-[cisco_mobility_express docs]: /components/cisco_mobility_express/
-[deconz docs]: /components/deconz/
-[haveibeenpwned docs]: /components/haveibeenpwned/
-[unifi docs]: /components/unifi/
+[cisco_mobility_express docs]: /integrations/cisco_mobility_express/
+[deconz docs]: /integrations/deconz/
+[haveibeenpwned docs]: /integrations/haveibeenpwned/
+[unifi docs]: /integrations/unifi/
 
 ## Release 0.97.2 - August 11
 
@@ -125,13 +125,13 @@ A new breaking change was introduced with 0.97.1 to accomodate for the HaveIBeen
 [@cgtobi]: https://github.com/cgtobi
 [@pvizeli]: https://github.com/pvizeli
 [@tombbo]: https://github.com/tombbo
-[knx docs]: /components/knx/
-[netatmo docs]: /components/netatmo/
-[nuki docs]: /components/nuki/
-[smartthings docs]: /components/smartthings/
-[unifi docs]: /components/unifi/
-[vera docs]: /components/vera/
-[wink docs]: /components/wink/
+[knx docs]: /integrations/knx/
+[netatmo docs]: /integrations/netatmo/
+[nuki docs]: /integrations/nuki/
+[smartthings docs]: /integrations/smartthings/
+[unifi docs]: /integrations/unifi/
+[vera docs]: /integrations/vera/
+[wink docs]: /integrations/wink/
 
 ## If you need help...
 
@@ -165,7 +165,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
       language: french
   ```
 
-- **TotalConnect** - Total Connect Client was upgraded to support more than one alarm panel and allow future support for additional sensors. Previous `alarm_control_panel` entries must be removed, and a new totalconnect entry must be added to configuration.yaml. See https://www.home-assistant.io/components/totalconnect/ for configuration details. ([@austinmroczek] - [#24427]) ([totalconnect docs])
+- **TotalConnect** - Total Connect Client was upgraded to support more than one alarm panel and allow future support for additional sensors. Previous `alarm_control_panel` entries must be removed, and a new totalconnect entry must be added to configuration.yaml. See https://www.home-assistant.io/integrations/totalconnect/ for configuration details. ([@austinmroczek] - [#24427]) ([totalconnect docs])
 - **Nuki** - The `lock.nuki_unlatch` service has been removed. It has been replaced by the `lock.open` service. The `lock.nuki_lock_n_go` service has been renamed to `nuki.lock_n_go`. Users that are using the removed or renamed services in automations need to replace them with the new services. ([@franfos] - [#22888]) ([nuki docs])
 - **Snapcast** - This changes adds multiroom support for the snapcast component. It adds 2 services `media_player.snapcast_join` and `media_player.snapcast_unjoin` to group/ungroup a client with another client. Also added source selection support in the snapcast clients as the groups are unusable due to their dynamic nature. ([@lyghtnox] - [#24061]) ([snapcast docs])
 - **Ambient Weather Station** - The `unique_id` for Ambient sensors uses a new formula, meaning that even though they have the same friendly names, new sensors will be created. The integration will automatically perform this migration under the hood, but if you've altered the entity IDs of any Ambient PWS entities, you'll need do the same to the new entities upon creation. Additionally, the `monitored_keys` configuration option is no longer supported in `configuration.yaml`. The integration will now create sensors for all conditions supported by the particular device.
@@ -245,7 +245,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for multiple N26 accounts ([@gorynychzmey] - [#25086]) ([n26 docs]) (breaking change)
 - Bump insteonplm to 0.16.3 ([@teharris1] - [#25108]) ([insteon docs])
 - Use more compatible samsungtv TV key ([@escoand] - [#25083]) ([samsungtv docs])
-- Add additional WWLLN test ([@bachya] - [#25111]) ([wwlln docs])
+- Add additional WWLLN test ([@bachya] - [#25111])
 - Splunk component filter support ([@asleeis] - [#25071]) ([splunk docs])
 - Add more public rain sensors ([@cgtobi] - [#25117]) ([netatmo docs])
 - PS4 handle no connection/ fix spamming of logs when device is off ([@ktnrg45] - [#25091]) ([ps4 docs])
@@ -298,7 +298,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix util.ruamel_yaml type errors ([@scop] - [#25338])
 - Mypy config improvements ([@scop] - [#25340])
 - Update Google Maps Location Tracker to use locationsharinglib==4.0.2 ([@shbatm] - [#25316]) ([google_maps docs]) (breaking change)
-- Automatically expand WWLLN window to 1 hour (if necessary) ([@bachya] - [#25357]) ([wwlln docs])
+- Automatically expand WWLLN window to 1 hour (if necessary) ([@bachya] - [#25357])
 - Type check all helpers ([@scop] - [#25373])
 - Optional and Union simplifications ([@scop] - [#25365])
 - Add add_torrent service to Transmission ([@postlund] - [#25144]) ([transmission docs])
@@ -360,7 +360,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Roombalocate ([@Anglac] - [#25508]) ([roomba docs])
 - deCONZ - cleanup sensor attributes ([@Kane610] - [#25540]) ([deconz docs])
 - Update to buienradar json api; and additional monitored_conditions ([@mjj4791] - [#24463]) ([buienradar docs]) (breaking change)
-- Fix bug with WWLLN update interval ([@bachya] - [#25498]) ([wwlln docs])
+- Fix bug with WWLLN update interval ([@bachya] - [#25498])
 - Fix WinkAC mode API calls to correct methods ([@cameronrmorris] - [#25545]) ([wink docs])
 - Bump env_canada to 0.0.19 ([@michaeldavie] - [#25548]) ([environment_canada docs])
 - Tibber, off peak values ([@Danielhiversen] - [#25320]) ([tibber docs])
@@ -717,129 +717,128 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@xt16johnny]: https://github.com/xt16johnny
 [@yeralin]: https://github.com/yeralin
 [@zxdavb]: https://github.com/zxdavb
-[alarm_control_panel docs]: /components/alarm_control_panel/
-[ambient_station docs]: /components/ambient_station/
-[apache_kafka docs]: /components/apache_kafka/
-[automation docs]: /components/automation/
-[avea docs]: /components/avea/
-[bloomsky docs]: /components/bloomsky/
-[bluetooth_tracker docs]: /components/bluetooth_tracker/
-[buienradar docs]: /components/buienradar/
-[caldav docs]: /components/caldav/
-[calendar docs]: /components/calendar/
-[cisco_mobility_express docs]: /components/cisco_mobility_express/
-[climate docs]: /components/climate/
-[cloud docs]: /components/cloud/
-[counter docs]: /components/counter/
-[cover docs]: /components/cover/
-[daikin docs]: /components/daikin/
-[darksky docs]: /components/darksky/
-[deconz docs]: /components/deconz/
-[delijn docs]: /components/delijn/
-[demo docs]: /components/demo/
-[device_tracker docs]: /components/device_tracker/
-[discord docs]: /components/discord/
-[ecobee docs]: /components/ecobee/
-[elkm1 docs]: /components/elkm1/
-[emulated_hue docs]: /components/emulated_hue/
-[enphase_envoy docs]: /components/enphase_envoy/
-[environment_canada docs]: /components/environment_canada/
-[evohome docs]: /components/evohome/
-[fan docs]: /components/fan/
-[fleetgo docs]: /components/fleetgo/
-[flux_led docs]: /components/flux_led/
-[fortigate docs]: /components/fortigate/
-[fortios docs]: /components/fortios/
-[geniushub docs]: /components/geniushub/
-[google cal docs]: /components/calendar.google/
-[google_assistant docs]: /components/google_assistant/
-[google_maps docs]: /components/google_maps/
-[google_travel_time docs]: /components/google_travel_time/
-[group docs]: /components/group/
-[history docs]: /components/history/
-[hive docs]: /components/hive/
-[homeassistant docs]: /components/homeassistant/
-[homekit docs]: /components/homekit/
-[homekit_controller docs]: /components/homekit_controller/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[hp_ilo docs]: /components/hp_ilo/
-[html5 docs]: /components/html5/
-[http docs]: /components/http/
-[huawei_lte docs]: /components/huawei_lte/
-[image_processing docs]: /components/image_processing/
-[incomfort docs]: /components/incomfort/
-[input_boolean docs]: /components/input_boolean/
-[input_datetime docs]: /components/input_datetime/
-[input_number docs]: /components/input_number/
-[input_select docs]: /components/input_select/
-[input_text docs]: /components/input_text/
-[insteon docs]: /components/insteon/
-[jewish_calendar docs]: /components/jewish_calendar/
-[knx docs]: /components/knx/
-[lcn docs]: /components/lcn/
-[lock docs]: /components/lock/
-[lovelace docs]: /components/lovelace/
-[luci docs]: /components/luci/
-[lutron docs]: /components/lutron/
-[mastodon docs]: /components/mastodon/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[meteo_france docs]: /components/meteo_france/
-[mikrotik docs]: /components/mikrotik/
-[mqtt docs]: /components/mqtt/
-[mvglive docs]: /components/mvglive/
-[n26 docs]: /components/n26/
-[neato docs]: /components/neato/
-[nest docs]: /components/nest/
-[netatmo docs]: /components/netatmo/
-[netgear_lte docs]: /components/netgear_lte/
-[nextbus docs]: /components/nextbus/
-[notion docs]: /components/notion/
-[nuki docs]: /components/nuki/
-[opensensemap docs]: /components/opensensemap/
-[pioneer docs]: /components/pioneer/
-[ps4 docs]: /components/ps4/
-[rainforest_eagle docs]: /components/rainforest_eagle/
-[rejseplanen docs]: /components/rejseplanen/
-[remote docs]: /components/remote/
-[ring docs]: /components/ring/
-[ritassist docs]: /components/ritassist/
-[roku docs]: /components/roku/
-[roomba docs]: /components/roomba/
-[samsungtv docs]: /components/samsungtv/
-[scene docs]: /components/scene/
-[script docs]: /components/script/
-[seventeentrack docs]: /components/seventeentrack/
-[simplisafe docs]: /components/simplisafe/
-[smartthings docs]: /components/smartthings/
-[snapcast docs]: /components/snapcast/
-[solax docs]: /components/solax/
-[somfy docs]: /components/somfy/
-[songpal docs]: /components/songpal/
-[splunk docs]: /components/splunk/
-[spotify docs]: /components/spotify/
-[suez_water docs]: /components/suez_water/
-[switchbot docs]: /components/switchbot/
-[syncthru docs]: /components/syncthru/
-[system_health docs]: /components/system_health/
-[tado docs]: /components/tado/
-[telnet docs]: /components/telnet/
-[tibber docs]: /components/tibber/
-[timer docs]: /components/timer/
-[todoist docs]: /components/todoist/
-[totalconnect docs]: /components/totalconnect/
-[transmission docs]: /components/transmission/
-[twentemilieu docs]: /components/twentemilieu/
-[unifi docs]: /components/unifi/
-[utility_meter docs]: /components/utility_meter/
-[vacuum docs]: /components/vacuum/
-[vallox docs]: /components/vallox/
-[velbus docs]: /components/velbus/
-[venstar docs]: /components/venstar/
-[vesync docs]: /components/vesync/
-[wink docs]: /components/wink/
-[workday docs]: /components/workday/
-[wwlln docs]: /components/wwlln/
-[xiaomi_miio docs]: /components/xiaomi_miio/
-[zha docs]: /components/zha/
-[zwave docs]: /components/zwave/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[ambient_station docs]: /integrations/ambient_station/
+[apache_kafka docs]: /integrations/apache_kafka/
+[automation docs]: /integrations/automation/
+[avea docs]: /integrations/avea/
+[bloomsky docs]: /integrations/bloomsky/
+[bluetooth_tracker docs]: /integrations/bluetooth_tracker/
+[buienradar docs]: /integrations/buienradar/
+[caldav docs]: /integrations/caldav/
+[calendar docs]: /integrations/calendar/
+[cisco_mobility_express docs]: /integrations/cisco_mobility_express/
+[climate docs]: /integrations/climate/
+[cloud docs]: /integrations/cloud/
+[counter docs]: /integrations/counter/
+[cover docs]: /integrations/cover/
+[daikin docs]: /integrations/daikin/
+[darksky docs]: /integrations/darksky/
+[deconz docs]: /integrations/deconz/
+[delijn docs]: /integrations/delijn/
+[demo docs]: /integrations/demo/
+[device_tracker docs]: /integrations/device_tracker/
+[discord docs]: /integrations/discord/
+[ecobee docs]: /integrations/ecobee/
+[elkm1 docs]: /integrations/elkm1/
+[emulated_hue docs]: /integrations/emulated_hue/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[environment_canada docs]: /integrations/environment_canada/
+[evohome docs]: /integrations/evohome/
+[fan docs]: /integrations/fan/
+[fleetgo docs]: /integrations/fleetgo/
+[flux_led docs]: /integrations/flux_led/
+[fortigate docs]: /integrations/fortigate/
+[fortios docs]: /integrations/fortios/
+[geniushub docs]: /integrations/geniushub/
+[google cal docs]: /integrations/calendar.google/
+[google_assistant docs]: /integrations/google_assistant/
+[google_maps docs]: /integrations/google_maps/
+[google_travel_time docs]: /integrations/google_travel_time/
+[group docs]: /integrations/group/
+[history docs]: /integrations/history/
+[hive docs]: /integrations/hive/
+[homeassistant docs]: /integrations/homeassistant/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[hp_ilo docs]: /integrations/hp_ilo/
+[html5 docs]: /integrations/html5/
+[http docs]: /integrations/http/
+[huawei_lte docs]: /integrations/huawei_lte/
+[image_processing docs]: /integrations/image_processing/
+[incomfort docs]: /integrations/incomfort/
+[input_boolean docs]: /integrations/input_boolean/
+[input_datetime docs]: /integrations/input_datetime/
+[input_number docs]: /integrations/input_number/
+[input_select docs]: /integrations/input_select/
+[input_text docs]: /integrations/input_text/
+[insteon docs]: /integrations/insteon/
+[jewish_calendar docs]: /integrations/jewish_calendar/
+[knx docs]: /integrations/knx/
+[lcn docs]: /integrations/lcn/
+[lock docs]: /integrations/lock/
+[lovelace docs]: /integrations/lovelace/
+[luci docs]: /integrations/luci/
+[lutron docs]: /integrations/lutron/
+[mastodon docs]: /integrations/mastodon/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[meteo_france docs]: /integrations/meteo_france/
+[mikrotik docs]: /integrations/mikrotik/
+[mqtt docs]: /integrations/mqtt/
+[mvglive docs]: /integrations/mvglive/
+[n26 docs]: /integrations/n26/
+[neato docs]: /integrations/neato/
+[nest docs]: /integrations/nest/
+[netatmo docs]: /integrations/netatmo/
+[netgear_lte docs]: /integrations/netgear_lte/
+[nextbus docs]: /integrations/nextbus/
+[notion docs]: /integrations/notion/
+[nuki docs]: /integrations/nuki/
+[opensensemap docs]: /integrations/opensensemap/
+[pioneer docs]: /integrations/pioneer/
+[ps4 docs]: /integrations/ps4/
+[rainforest_eagle docs]: /integrations/rainforest_eagle/
+[rejseplanen docs]: /integrations/rejseplanen/
+[remote docs]: /integrations/remote/
+[ring docs]: /integrations/ring/
+[ritassist docs]: /integrations/fleetgo
+[roku docs]: /integrations/roku/
+[roomba docs]: /integrations/roomba/
+[samsungtv docs]: /integrations/samsungtv/
+[scene docs]: /integrations/scene/
+[script docs]: /integrations/script/
+[seventeentrack docs]: /integrations/seventeentrack/
+[simplisafe docs]: /integrations/simplisafe/
+[smartthings docs]: /integrations/smartthings/
+[snapcast docs]: /integrations/snapcast/
+[solax docs]: /integrations/solax/
+[somfy docs]: /integrations/somfy/
+[songpal docs]: /integrations/songpal/
+[splunk docs]: /integrations/splunk/
+[spotify docs]: /integrations/spotify/
+[suez_water docs]: /integrations/suez_water/
+[switchbot docs]: /integrations/switchbot/
+[syncthru docs]: /integrations/syncthru/
+[system_health docs]: /integrations/system_health/
+[tado docs]: /integrations/tado/
+[telnet docs]: /integrations/telnet/
+[tibber docs]: /integrations/tibber/
+[timer docs]: /integrations/timer/
+[todoist docs]: /integrations/todoist/
+[totalconnect docs]: /integrations/totalconnect/
+[transmission docs]: /integrations/transmission/
+[twentemilieu docs]: /integrations/twentemilieu/
+[unifi docs]: /integrations/unifi/
+[utility_meter docs]: /integrations/utility_meter/
+[vacuum docs]: /integrations/vacuum/
+[vallox docs]: /integrations/vallox/
+[velbus docs]: /integrations/velbus/
+[venstar docs]: /integrations/venstar/
+[vesync docs]: /integrations/vesync/
+[wink docs]: /integrations/wink/
+[workday docs]: /integrations/workday/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zha docs]: /integrations/zha/
+[zwave docs]: /integrations/zwave/

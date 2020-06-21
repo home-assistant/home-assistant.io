@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-05-0.69/components.png
 ---
 
-<a href='/components/#version/0.69'><img src='/images/blog/2018-05-0.69/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.69'><img src='/images/blog/2018-05-0.69/components.png' style='border: 0;box-shadow: none;'></a>
 
 Not much time to write a great intro this time as we're hanging out at PyCon! Some fixes for the Hue and Wink colors thanks to [@amelchio]. Initial foundation for users has landed, it's not anywhere near usable. We'll keep hacking on it. Google Assistant for Home Assistant Cloud now supports room hints. This will cause Google Assistant put the devices in the right groups when you link your account.
 
@@ -18,7 +18,7 @@ Not much time to write a great intro this time as we're hanging out at PyCon! So
 - Support Xiaomi Mijia Bluetooth Wireless Temperature and Humidity Sensor ([@ratcashdev] - [#13955]) ([sensor.mitemp_bt docs]) (new-platform)
 - Move RainMachine to component/hub model ([@bachya] - [#14085]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
 - Add Social Blade Sensor ([@meauxt] - [#14060]) ([sensor.socialblade docs]) ([sensor.uscis docs]) (new-platform)
-- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
+- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) (new-platform)
 - Issue/add template fans ([@giangvo] - [#12027]) ([fan.template docs]) (new-platform)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 
@@ -69,7 +69,7 @@ rainmachine:
 ## All changes
 
 - Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
-- Expose the condition code on condition sensors ([@maddox] - [#14011]) ([sensor.yweather docs])
+- Expose the condition code on condition sensors ([@maddox] - [#14011])
 - upgrade rfxtrx lib, dimming support for Lighting3 ([@Danielhiversen] - [#14026]) ([rfxtrx docs])
 - Add Accuracy to Google Location Sharing ([@rdbahm] - [#14039]) ([device_tracker docs])
 - bump gogogate2 version ([@dlbroadfoot] - [#14044]) ([cover.gogogate2 docs])
@@ -145,7 +145,7 @@ rainmachine:
 - Fix Hue color state for missing xy ([@amelchio] - [#14230]) ([light.hue docs])
 - Add support for tracking devices on Netgear access points ([@MatMaul] - [#13331]) ([device_tracker docs])
 - WUnderground unique ids ([@OttoWinter] - [#13311]) ([sensor.wunderground docs])
-- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
+- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) (new-platform)
 - python_openzwave update config service ([@perosb] - [#12060]) ([zwave docs])
 - Add unique_id to zwave node entity ([@andrey-git] - [#14201]) ([zwave docs])
 - Add prereqs for HomeKit Controller ([@marthoc] - [#14172])
@@ -172,7 +172,7 @@ rainmachine:
 - Sensor device classes ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 - deCONZ add new device without restart ([@Kane610] - [#14221]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs])
-- Add alarmdotcom sensor status ([@jnewland] - [#14254]) ([alarm_control_panel.alarmdotcom docs])
+- Add alarmdotcom sensor status ([@jnewland] - [#14254])
 - Add domain to labels and count state changes to Prometheus ([@jnewland] - [#14253]) ([prometheus docs])
 - Add support for max_volume ([@relvacode] - [#13822]) ([media_player.onkyo docs])
 - Refactor ImageProcessingFaceEntity ([@robmarkcole] - [#14296]) ([image_processing docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs])
@@ -371,114 +371,111 @@ rainmachine:
 [@teharris1]: https://github.com/teharris1
 [@thelittlefireman]: https://github.com/thelittlefireman
 [@tinloaf]: https://github.com/tinloaf
-[abode docs]: /components/abode/
-[alarm_control_panel.alarmdotcom docs]: /components/alarm_control_panel.alarmdotcom/
-[auth docs]: /components/auth/
-[binary_sensor docs]: /components/binary_sensor/
-[binary_sensor.deconz docs]: /components/binary_sensor.deconz/
-[binary_sensor.insteon_plm docs]: /components/binary_sensor.insteon_plm/
-[binary_sensor.tapsaff docs]: /components/binary_sensor.tapsaff/
-[binary_sensor.trend docs]: /components/binary_sensor.trend/
-[binary_sensor.workday docs]: /components/binary_sensor.workday/
-[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
-[binary_sensor.zha docs]: /components/binary_sensor.zha/
-[camera docs]: /components/camera/
-[camera.local_file docs]: /components/camera.local_file/
-[cover.gogogate2 docs]: /components/cover.gogogate2/
-[cover.tahoma docs]: /components/cover.tahoma/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[eight_sleep docs]: /components/eight_sleep/
-[emulated_hue docs]: /components/emulated_hue/
-[fan.insteon_plm docs]: /components/insteon/
-[fan.template docs]: /components/fan.template/
-[frontend docs]: /components/frontend/
-[homekit docs]: /components/homekit/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[http docs]: /components/http/
-[image_processing docs]: /components/image_processing/
-[image_processing.demo docs]: /components/image_processing.demo/
-[image_processing.dlib_face_detect docs]: /components/image_processing.dlib_face_detect/
-[image_processing.dlib_face_identify docs]: /components/image_processing.dlib_face_identify/
-[image_processing.microsoft_face_detect docs]: /components/image_processing.microsoft_face_detect/
-[image_processing.microsoft_face_identify docs]: /components/image_processing.microsoft_face_identify/
-[image_processing.opencv docs]: /components/image_processing.opencv/
-[influxdb docs]: /components/influxdb/
-[insteon_plm docs]: /components/insteon_plm/
-[light.deconz docs]: /components/light.deconz/
-[light.flux_led docs]: /components/light.flux_led/
-[light.hue docs]: /components/light.hue/
-[light.insteon_plm docs]: /components/insteon/
-[light.mqtt_json docs]: /components/light.mqtt_json/
-[light.wink docs]: /components/light.wink/
-[light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
-[light.yeelight docs]: /components/light.yeelight/
-[light.zwave docs]: /components/light.zwave/
-[matrix docs]: /components/matrix/
-[maxcube docs]: /components/maxcube/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[media_player.blackbird docs]: /components/media_player.blackbird/
-[media_player.onkyo docs]: /components/media_player.onkyo/
-[media_player.panasonic_viera docs]: /components/media_player.panasonic_viera/
-[media_player.sonos docs]: /components/media_player.sonos/
-[media_player.vizio docs]: /components/media_player.vizio/
-[media_player.volumio docs]: /components/media_player.volumio/
-[media_player.webostv docs]: /components/media_player.webostv/
-[microsoft_face docs]: /components/microsoft_face/
-[mqtt docs]: /components/mqtt/
-[mqtt_statestream docs]: /components/mqtt_statestream/
-[notify docs]: /components/notify/
-[prometheus docs]: /components/prometheus/
-[python_script docs]: /components/python_script/
-[rainmachine docs]: /components/rainmachine/
-[rfxtrx docs]: /components/rfxtrx/
-[scene docs]: /components/scene/
-[scene.deconz docs]: /components/scene.deconz/
-[sensor docs]: /components/sensor/
-[sensor.bom docs]: /components/sensor.bom/
-[sensor.buienradar docs]: /components/sensor.buienradar/
-[sensor.darksky docs]: /components/sensor.darksky/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.deluge docs]: /components/sensor.deluge/
-[sensor.demo docs]: /components/sensor.demo/
-[sensor.domain_expiry docs]: /components/sensor.domain_expiry/
-[sensor.dsmr docs]: /components/sensor.dsmr/
-[sensor.eliqonline docs]: /components/sensor.eliqonline/
-[sensor.filter docs]: /components/sensor.filter/
-[sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
-[sensor.insteon_plm docs]: /components/insteon/
-[sensor.lastfm docs]: /components/sensor.lastfm/
-[sensor.mitemp_bt docs]: /components/sensor.mitemp_bt/
-[sensor.mqtt docs]: /components/sensor.mqtt/
-[sensor.pollen docs]: /components/sensor.pollen/
-[sensor.postnl docs]: /components/sensor.postnl/
-[sensor.qnap docs]: /components/sensor.qnap/
-[sensor.socialblade docs]: /components/sensor.socialblade/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.tahoma docs]: /components/sensor.tahoma/
-[sensor.template docs]: /components/sensor.template/
-[sensor.upnp docs]: /components/sensor.upnp/
-[sensor.uscis docs]: /components/sensor.uscis/
-[sensor.wunderground docs]: /components/sensor.wunderground/
-[sensor.xiaomi_aqara docs]: /components/sensor.xiaomi_aqara/
-[sensor.yweather docs]: /components/sensor.yweather/
-[switch.deluge docs]: /components/switch.deluge/
-[switch.fritzbox docs]: /components/switch.fritzbox/
-[switch.insteon_plm docs]: /components/switch.insteon_plm/
-[switch.mqtt docs]: /components/switch.mqtt/
-[switch.rainmachine docs]: /components/switch.rainmachine/
-[switch.xiaomi_aqara docs]: /components/switch.xiaomi_aqara/
-[system_log docs]: /components/system_log/
-[tahoma docs]: /components/tahoma/
-[upnp docs]: /components/upnp/
-[weather docs]: /components/weather/
-[weather.buienradar docs]: /components/weather.buienradar/
-[weather.darksky docs]: /components/weather.darksky/
-[weather.openweathermap docs]: /components/weather.openweathermap/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[zha docs]: /components/zha/
-[zone docs]: /components/zone/
-[zwave docs]: /components/zwave/
+[abode docs]: /integrations/abode/
+[auth docs]: /integrations/auth/
+[binary_sensor docs]: /integrations/binary_sensor/
+[binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
+[binary_sensor.insteon_plm docs]: /integrations/insteon/
+[binary_sensor.tapsaff docs]: /integrations/tapsaff
+[binary_sensor.trend docs]: /integrations/trend
+[binary_sensor.workday docs]: /integrations/workday
+[binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
+[binary_sensor.zha docs]: /integrations/zha
+[camera docs]: /integrations/camera/
+[camera.local_file docs]: /integrations/local_file
+[cover.gogogate2 docs]: /integrations/gogogate2
+[cover.tahoma docs]: /integrations/tahoma
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[eight_sleep docs]: /integrations/eight_sleep/
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.insteon_plm docs]: /integrations/insteon/
+[fan.template docs]: /integrations/fan.template/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[http docs]: /integrations/http/
+[image_processing docs]: /integrations/image_processing/
+[image_processing.demo docs]: /integrations/image_processing.demo/
+[image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
+[image_processing.microsoft_face_identify docs]: /integrations/microsoft_face_identify
+[image_processing.opencv docs]: /integrations/opencv
+[influxdb docs]: /integrations/influxdb/
+[insteon_plm docs]: /integrations/insteon/
+[light.deconz docs]: /integrations/deconz#light
+[light.flux_led docs]: /integrations/flux_led
+[light.hue docs]: /integrations/hue
+[light.insteon_plm docs]: /integrations/insteon/
+[light.mqtt_json docs]: /integrations/light.mqtt
+[light.wink docs]: /integrations/wink#light
+[light.xiaomi_aqara docs]: /integrations/light.xiaomi_aqara/
+[light.yeelight docs]: /integrations/yeelight
+[light.zwave docs]: /integrations/zwave
+[matrix docs]: /integrations/matrix/
+[maxcube docs]: /integrations/maxcube/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[media_player.blackbird docs]: /integrations/blackbird
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.panasonic_viera docs]: /integrations/panasonic_viera
+[media_player.sonos docs]: /integrations/sonos
+[media_player.vizio docs]: /integrations/vizio
+[media_player.volumio docs]: /integrations/volumio
+[media_player.webostv docs]: /integrations/webostv#media-player
+[microsoft_face docs]: /integrations/microsoft_face/
+[mqtt docs]: /integrations/mqtt/
+[mqtt_statestream docs]: /integrations/mqtt_statestream/
+[notify docs]: /integrations/notify/
+[prometheus docs]: /integrations/prometheus/
+[python_script docs]: /integrations/python_script/
+[rainmachine docs]: /integrations/rainmachine/
+[rfxtrx docs]: /integrations/rfxtrx/
+[scene docs]: /integrations/scene/
+[scene.deconz docs]: /integrations/deconz#scene
+[sensor docs]: /integrations/sensor/
+[sensor.bom docs]: /integrations/bom#sensor
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.darksky docs]: /integrations/darksky
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.deluge docs]: /integrations/deluge#sensor
+[sensor.demo docs]: /integrations/sensor.demo/
+[sensor.domain_expiry docs]: /integrations/sensor.domain_expiry/
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.eliqonline docs]: /integrations/eliqonline
+[sensor.filter docs]: /integrations/filter
+[sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[sensor.insteon_plm docs]: /integrations/insteon/
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.mitemp_bt docs]: /integrations/mitemp_bt
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.pollen docs]: /integrations/iqvia
+[sensor.qnap docs]: /integrations/qnap
+[sensor.socialblade docs]: /integrations/socialblade
+[sensor.sql docs]: /integrations/sql
+[sensor.tahoma docs]: /integrations/tahoma
+[sensor.template docs]: /integrations/template
+[sensor.upnp docs]: /integrations/upnp
+[sensor.uscis docs]: /integrations/uscis
+[sensor.wunderground docs]: /integrations/wunderground
+[sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
+[switch.deluge docs]: /integrations/deluge#switch
+[switch.fritzbox docs]: /integrations/fritzbox
+[switch.insteon_plm docs]: /integrations/insteon/
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.rainmachine docs]: /integrations/rainmachine#switch
+[switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
+[system_log docs]: /integrations/system_log/
+[tahoma docs]: /integrations/tahoma/
+[upnp docs]: /integrations/upnp/
+[weather docs]: /integrations/weather/
+[weather.buienradar docs]: /integrations/buienradar
+[weather.darksky docs]: /integrations/weather.darksky/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[zha docs]: /integrations/zha/
+[zone docs]: /integrations/zone/
+[zwave docs]: /integrations/zwave/

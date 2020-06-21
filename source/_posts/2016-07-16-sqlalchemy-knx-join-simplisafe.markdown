@@ -15,16 +15,16 @@ It's time for Home Assistant 0.24 and it's full of new integration for your Home
 [Roy Hooper][@rhooper] did an amazing job migrating the history support from being tied to SQLite to use the ORM SQLAlchemy instead. This means that you can now use **any** SQL backend for the history. So besides SQLite you can now databases like MySQL or PostgreSQL. However, this does require that you install [SQLAlchemy] and run a command to migrate your existing history over. We tried to make the process as seamless as possible by introducing a new command line script: 
 
 ```bash
-$ pip3 install SQLAlchemy
-$ hass --script db_migrator --config /path/to/config
+pip3 install SQLAlchemy
+hass --script db_migrator --config /path/to/config
 ```
 
 You can omit the `--config` option if you use the default configuration directory. Run the script with `--help` to get more options.
 
-<img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/joaoapps_join.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/knx.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/tp-link.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/joaoapps_join.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/knx/logo.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/tp-link.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Config: Improved support for storing [secrets][secrets] ([@kellerza])
-- Sensor: Support for [Yahoo! Weather][yahoo-weather] ([@pvizeli])
+- Sensor: Support for Yahoo! Weather ([@pvizeli])
 - Add scripts to command line to expose advanced options ([@balloob])
 - Alarm: [SimpliSafe][simplisafe] is now supported ([@w1ll1am23]) 
 - Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
@@ -73,25 +73,24 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [@Danielhiversen]: https://github.com/danielhiversen
 
 
-[apcupsd-sensor]: /components/sensor.apcupsd/
-[Brightness]: /components/light/
+[apcupsd-sensor]: /integrations/apcupsd#sensor
+[Brightness]: /integrations/light/
 [CARTO]: https://carto.com/
-[Google Travel]: /components/sensor.google_travel_time/
+[Google Travel]: /integrations/google_travel_time
 [imap-sensor]: /component/sensor.imap/
-[join-joaoapps]: /components/joaoapps_join/
-[join-notify]: /components/notify.joaoapps_join/
-[KNX]: /components/knx/
+[join-joaoapps]: /integrations/joaoapps_join/
+[join-notify]: /integrations/joaoapps_join
+[KNX]: /integrations/knx/
 [MapQuest]: https://www.mapquest.com/
-[Plex]: /components/media_player.plex/
-[Radiotherm]: /components/radiotherm/
-[recorder]: /components/recorder/
+[Plex]: /integrations/plex#media-player
+[Radiotherm]: /integrations/radiotherm/
+[recorder]: /integrations/recorder/
 [secrets]: /topics/secrets/
-[simplisafe]: /components/alarm_control_panel.simplisafe/
+[simplisafe]: /integrations/simplisafe
 [SQLAlchemy]: http://www.sqlalchemy.org/
-[StatsD]: /components/statsd/
-[Telegram]: /components/notify.telegram/
-[TPLink]: /components/switch.tplink/
-[Verisure]: /components/lock.verisure/
-[yahoo-weather]: /components/sensor.yweather/
-[Z-Wave]: /components/zwave/
-[RFXtrx]: /components/rfxtrx/
+[StatsD]: /integrations/statsd/
+[Telegram]: /integrations/telegram
+[TPLink]: /integrations/tplink
+[Verisure]: /integrations/verisure
+[Z-Wave]: /integrations/zwave/
+[RFXtrx]: /integrations/rfxtrx/

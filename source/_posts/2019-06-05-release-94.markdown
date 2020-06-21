@@ -10,7 +10,7 @@ og_image: /images/blog/2019-06-release-94/google-ui.png
 redirect_from: /blog/2019/05/29/release-94/
 ---
 
-<a href='/components/#version/0.94'><img src='/images/blog/2019-06-release-94/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.94'><img src='/images/blog/2019-06-release-94/components.png' style='border: 0;box-shadow: none;'></a>
 
 It is time for the 0.94 release and there is some seriously good stuff in this release. We're working hard on polishing everything and getting ready for the big Home Assistant 1.0 release. And we're getting closer. So close actually, that this is the first release that can be installed and configured without touching a text editor! Onboard, configure integrations, manage automations and scripts all from the UI.
 
@@ -102,19 +102,19 @@ Because of this, we changed how packages are installed when running Home Assista
 [@Swamp-Ig]: https://github.com/Swamp-Ig
 [@balloob]: https://github.com/balloob
 [@w1ll1am23]: https://github.com/w1ll1am23
-[automation docs]: /components/automation/
-[axis docs]: /components/axis/
-[cloud docs]: /components/cloud/
-[deconz docs]: /components/deconz/
-[discovery docs]: /components/discovery/
-[homekit_controller docs]: /components/homekit_controller/
-[http docs]: /components/http/
-[hue docs]: /components/hue/
-[sun docs]: /components/sun/
-[tado docs]: /components/tado/
-[tradfri docs]: /components/tradfri/
-[wemo docs]: /components/wemo/
-[wink docs]: /components/wink/
+[automation docs]: /integrations/automation/
+[axis docs]: /integrations/axis/
+[cloud docs]: /integrations/cloud/
+[deconz docs]: /integrations/deconz/
+[discovery docs]: /integrations/discovery/
+[homekit_controller docs]: /integrations/homekit_controller/
+[http docs]: /integrations/http/
+[hue docs]: /integrations/hue/
+[sun docs]: /integrations/sun/
+[tado docs]: /integrations/tado/
+[tradfri docs]: /integrations/tradfri/
+[wemo docs]: /integrations/wemo/
+[wink docs]: /integrations/wink/
 
 ## Release 0.94.2 - June 11
 
@@ -135,13 +135,13 @@ Because of this, we changed how packages are installed when running Home Assista
 [@aerialls]: https://github.com/aerialls
 [@andkit]: https://github.com/andkit
 [@balloob]: https://github.com/balloob
-[axis docs]: /components/axis/
-[config docs]: /components/config/
-[deconz docs]: /components/deconz/
-[gpslogger docs]: /components/gpslogger/
-[hassio docs]: /components/hassio/
-[hue docs]: /components/hue/
-[zone docs]: /components/zone/
+[axis docs]: /integrations/axis/
+[config docs]: /integrations/config/
+[deconz docs]: /integrations/deconz/
+[gpslogger docs]: /integrations/gpslogger/
+[hassio docs]: /integrations/hassio/
+[hue docs]: /integrations/hue/
+[zone docs]: /integrations/zone/
 
 ## Release 0.94.3 - June 12
 
@@ -155,9 +155,9 @@ Because of this, we changed how packages are installed when running Home Assista
 [@aidbish]: https://github.com/aidbish
 [@balloob]: https://github.com/balloob
 [@pnbruckner]: https://github.com/pnbruckner
-[cloud docs]: /components/cloud/
-[owntracks docs]: /components/owntracks/
-[watson_tts docs]: /components/watson_tts/
+[cloud docs]: /integrations/cloud/
+[owntracks docs]: /integrations/owntracks/
+[watson_tts docs]: /integrations/watson_tts/
 
 ## Release 0.94.4 - June 19
 
@@ -171,9 +171,9 @@ Because of this, we changed how packages are installed when running Home Assista
 [@OttoWinter]: https://github.com/OttoWinter
 [@Swamp-Ig]: https://github.com/Swamp-Ig
 [@vangorra]: https://github.com/vangorra
-[esphome docs]: /components/esphome/
-[sun docs]: /components/sun/
-[tplink docs]: /components/tplink/
+[esphome docs]: /integrations/esphome/
+[sun docs]: /integrations/sun/
+[tplink docs]: /integrations/tplink/
 
 ## If you need help...
 
@@ -189,7 +189,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Doorbird__ -_Refactored_- This change cleans up the code for the component quite a bit. Schedule manipulation has been removed and HTTP views have been consolidated. The configuration changes should result in an overall easier experience for setting up a Doorbird in HA and allow for new Doorbird events to be utilized without having to update the component as often. No changes for switches or camera integrations of this component. ([@oblogic7] - [#23892]) ([doorbird docs])
 
    Example configuration:
-   ```
+   ```yaml
    doorbird:
      devices:
        - host: 10.10.10.10
@@ -657,91 +657,91 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@wickerwaka]: https://github.com/wickerwaka
 [@zewelor]: https://github.com/zewelor
 [@zxdavb]: https://github.com/zxdavb
-[ambiclimate docs]: /components/ambiclimate/
-[androidtv docs]: /components/androidtv/
-[apns docs]: /components/apns/
-[axis docs]: /components/axis/
-[azure_event_hub docs]: /components/azure_event_hub/
-[broadlink docs]: /components/broadlink/
-[camera docs]: /components/camera/
-[cloud docs]: /components/cloud/
-[config docs]: /components/config/
-[daikin docs]: /components/daikin/
-[darksky docs]: /components/darksky/
-[deconz docs]: /components/deconz/
-[default_config docs]: /components/default_config/
-[demo docs]: /components/demo/
-[device_tracker docs]: /components/device_tracker/
-[discovery docs]: /components/discovery/
-[doorbird docs]: /components/doorbird/
-[dsmr docs]: /components/dsmr/
-[emulated_hue docs]: /components/emulated_hue/
-[enphase_envoy docs]: /components/enphase_envoy/
-[esphome docs]: /components/esphome/
-[fitbit docs]: /components/fitbit/
-[frontend docs]: /components/frontend/
-[geniushub docs]: /components/geniushub/
-[geofency docs]: /components/geofency/
-[google_assistant docs]: /components/google_assistant/
-[gpslogger docs]: /components/gpslogger/
-[hassio docs]: /components/hassio/
-[heos docs]: /components/heos/
-[homekit_controller docs]: /components/homekit_controller/
-[homematic docs]: /components/homematic/
-[homematicip_cloud docs]: /components/homematicip_cloud/
-[html5 docs]: /components/html5/
-[http docs]: /components/http/
-[huawei_lte docs]: /components/huawei_lte/
-[hue docs]: /components/hue/
-[icloud docs]: /components/icloud/
-[incomfort docs]: /components/incomfort/
-[iqvia docs]: /components/iqvia/
-[keenetic_ndms2 docs]: /components/keenetic_ndms2/
-[lcn docs]: /components/lcn/
-[lifx docs]: /components/lifx/
-[locative docs]: /components/locative/
-[loopenergy docs]: /components/loopenergy/
-[lovelace docs]: /components/lovelace/
-[mastodon docs]: /components/mastodon/
-[mcp23017 docs]: /components/mcp23017/
-[media_extractor docs]: /components/media_extractor/
-[media_player docs]: /components/media_player/
-[mobile_app docs]: /components/mobile_app/
-[neato docs]: /components/neato/
-[netatmo docs]: /components/netatmo/
-[netgear docs]: /components/netgear/
-[onboarding docs]: /components/onboarding/
-[opentherm_gw docs]: /components/opentherm_gw/
-[owntracks docs]: /components/owntracks/
-[panel_custom docs]: /components/panel_custom/
-[panel_iframe docs]: /components/panel_iframe/
-[plex docs]: /components/plex/
-[remote_rpi_gpio docs]: /components/remote_rpi_gpio/
-[repetier docs]: /components/repetier/
-[rfxtrx docs]: /components/rfxtrx/
-[russound_rio docs]: /components/russound_rio/
-[script docs]: /components/script/
-[smarthab docs]: /components/smarthab/
-[solax docs]: /components/solax/
-[sonos docs]: /components/sonos/
-[spaceapi docs]: /components/spaceapi/
-[ssdp docs]: /components/ssdp/
-[sun docs]: /components/sun/
-[switcher_kis docs]: /components/switcher_kis/
-[synology_srm docs]: /components/synology_srm/
-[tautulli docs]: /components/tautulli/
-[tplink docs]: /components/tplink/
-[tradfri docs]: /components/tradfri/
-[vasttrafik docs]: /components/vasttrafik/
-[venstar docs]: /components/venstar/
-[verisure docs]: /components/verisure/
-[watson_tts docs]: /components/watson_tts/
-[websocket_api docs]: /components/websocket_api/
-[xiaomi_aqara docs]: /components/xiaomi_aqara/
-[xiaomi_tv docs]: /components/xiaomi_tv/
-[yeelight docs]: /components/yeelight/
-[zeroconf docs]: /components/zeroconf/
-[zestimate docs]: /components/zestimate/
-[zha docs]: /components/zha/
-[zone docs]: /components/zone/
-[zwave docs]: /components/zwave/
+[ambiclimate docs]: /integrations/ambiclimate/
+[androidtv docs]: /integrations/androidtv/
+[apns docs]: /integrations/apns/
+[axis docs]: /integrations/axis/
+[azure_event_hub docs]: /integrations/azure_event_hub/
+[broadlink docs]: /integrations/broadlink/
+[camera docs]: /integrations/camera/
+[cloud docs]: /integrations/cloud/
+[config docs]: /integrations/config/
+[daikin docs]: /integrations/daikin/
+[darksky docs]: /integrations/darksky/
+[deconz docs]: /integrations/deconz/
+[default_config docs]: /integrations/default_config/
+[demo docs]: /integrations/demo/
+[device_tracker docs]: /integrations/device_tracker/
+[discovery docs]: /integrations/discovery/
+[doorbird docs]: /integrations/doorbird/
+[dsmr docs]: /integrations/dsmr/
+[emulated_hue docs]: /integrations/emulated_hue/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[esphome docs]: /integrations/esphome/
+[fitbit docs]: /integrations/fitbit/
+[frontend docs]: /integrations/frontend/
+[geniushub docs]: /integrations/geniushub/
+[geofency docs]: /integrations/geofency/
+[google_assistant docs]: /integrations/google_assistant/
+[gpslogger docs]: /integrations/gpslogger/
+[hassio docs]: /integrations/hassio/
+[heos docs]: /integrations/heos/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[html5 docs]: /integrations/html5/
+[http docs]: /integrations/http/
+[huawei_lte docs]: /integrations/huawei_lte/
+[hue docs]: /integrations/hue/
+[icloud docs]: /integrations/icloud/
+[incomfort docs]: /integrations/incomfort/
+[iqvia docs]: /integrations/iqvia/
+[keenetic_ndms2 docs]: /integrations/keenetic_ndms2/
+[lcn docs]: /integrations/lcn/
+[lifx docs]: /integrations/lifx/
+[locative docs]: /integrations/locative/
+[loopenergy docs]: /integrations/loopenergy/
+[lovelace docs]: /integrations/lovelace/
+[mastodon docs]: /integrations/mastodon/
+[mcp23017 docs]: /integrations/mcp23017/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player docs]: /integrations/media_player/
+[mobile_app docs]: /integrations/mobile_app/
+[neato docs]: /integrations/neato/
+[netatmo docs]: /integrations/netatmo/
+[netgear docs]: /integrations/netgear/
+[onboarding docs]: /integrations/onboarding/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[owntracks docs]: /integrations/owntracks/
+[panel_custom docs]: /integrations/panel_custom/
+[panel_iframe docs]: /integrations/panel_iframe/
+[plex docs]: /integrations/plex/
+[remote_rpi_gpio docs]: /integrations/remote_rpi_gpio/
+[repetier docs]: /integrations/repetier/
+[rfxtrx docs]: /integrations/rfxtrx/
+[russound_rio docs]: /integrations/russound_rio/
+[script docs]: /integrations/script/
+[smarthab docs]: /integrations/smarthab/
+[solax docs]: /integrations/solax/
+[sonos docs]: /integrations/sonos/
+[spaceapi docs]: /integrations/spaceapi/
+[ssdp docs]: /integrations/ssdp/
+[sun docs]: /integrations/sun/
+[switcher_kis docs]: /integrations/switcher_kis/
+[synology_srm docs]: /integrations/synology_srm/
+[tautulli docs]: /integrations/tautulli/
+[tplink docs]: /integrations/tplink/
+[tradfri docs]: /integrations/tradfri/
+[vasttrafik docs]: /integrations/vasttrafik/
+[venstar docs]: /integrations/venstar/
+[verisure docs]: /integrations/verisure/
+[watson_tts docs]: /integrations/watson_tts/
+[websocket_api docs]: /integrations/websocket_api/
+[xiaomi_aqara docs]: /integrations/xiaomi_aqara/
+[xiaomi_tv docs]: /integrations/xiaomi_tv/
+[yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
+[zestimate docs]: /integrations/zestimate/
+[zha docs]: /integrations/zha/
+[zone docs]: /integrations/zone/
+[zwave docs]: /integrations/zwave/

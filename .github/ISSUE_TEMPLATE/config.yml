@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a bug/issue with Home Assistant Core itself
+    url: https://github.com/home-assistant/core/issues
+    about: This is the issue tracker for our website. Please report issues with Home Assistant Core in the main repository.
+  - name: I have a question or need support
+    url: https://www.home-assistant.io/help
+    about: We use GitHub for tracking bugs, check our website for resources on getting help.
+  - name: Feature Request
+    url: https://community.home-assistant.io/c/feature-requests
+    about: Please use our Community Forum for doing feature requests.
+  - name: I'm unsure where to go
+    url: https://www.home-assistant.io/join-chat
+    about: If you are unsure where to go, then joining our chat is recommended; Just ask!

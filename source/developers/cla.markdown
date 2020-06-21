@@ -5,7 +5,7 @@ description: "The Code of Conduct for Home Assistant projects."
 
 # Contributor License Agreement
 
-```
+```txt
 By making a contribution to this project, I certify that:
 
 (a) The contribution was created in whole or in part by me and I

@@ -10,11 +10,11 @@ categories: Release-Notes
 
 Yes, after only nine days comes 0.30. Don't worry, we will try to keep our usual release cycle and not start to release every day.
 
-We guess that you already know: The [Raspberry Pi image][pi-image] is available now. For Hassbian, [@Landrash] has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to receive [feedback][hassbian-forum], [issue report][hassbian-forum], and [suggestions][hassbian-forum] to improve it. 
+We guess that you already know: The [Raspberry Pi image][pi-image] is available now. For Hassbian, [@Landrash] has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to receive [feedback][hassbian-forum], [issue report][hassbian-forum], and [suggestions][hassbian-forum] to improve it.
 
 A large amount of resources of the development are still focusing on the effort to move Home Assistant further to asynchronous programming. It's a labor-intensive task, comes with segmentation faults, and unstable instances when certain combinations of sensors are used. The benefit will be more speed in the near future.
 
-To reduce the run-time of your tests, [@balloob] did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half. 
+To reduce the run-time of your tests, [@balloob] did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half.
 
 ### Documentation
 
@@ -75,7 +75,7 @@ sensor
 - Sensor: [Forecast][darksky] update interval is now configurable ([@KlaasH])
 - Core: Failed login attempts are reported as persistent notifications ([@fabaff])
 - Climate: Temperature convert now available in the Climate object ([@pvizeli])
-- Notify: Update to accept a list ([@robbiet480]) 
+- Notify: Update to accept a list ([@robbiet480])
 - Device tracker: Support for tracking of your [Volvo] ([@molobrakos])
 - Switch: Flux improvements ([@jawilson])
 - InfluxDB: Time-out for connections ([@simonszu])
@@ -90,9 +90,9 @@ sensor
 - Wink: Support for Wink Smoke and CO detectors ([@w1ll1am23])
 - Sensor: [TED5000][ted5000] sensor was included ([@gwendalg])
 - Sensor: Support for [Västtrafik][vasttrafik] public transport ([@persandstrom])
-- Notify: [Pushetta][pushetta] no longer sends message on start up ([@Danielhiversen])
+- Notify: Pushetta no longer sends message on start up ([@Danielhiversen])
 - Sensor: [Forecast.io][forecast] sensor was replaced by [Dark Sky][darksky] ([@fabaff])
-- Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
+- Device Tracker: The `known_device.yaml` file is now validated ([@kellerza])
 - Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
 
 ### Release 0.30.1 - October 8
@@ -107,7 +107,7 @@ sensor
 - Fix some html5 push notification configuration options were discarded after first use ([@T3m3z])
 - Fix Homematic device name with autodiscovery ([@pvizeli])
 - Make 'pin' optional for zigbee device config ([@flyte])
-- Fix when sending a notification to a service with target attached (i.e. `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
+- Fix when sending a notification to a service with target attached (i.e., `notify.html5_unnamed_device_2`) the target was not submitted to the platform as a list causing iteration over every character in the string. ([@robbiet480])
 - Fix for Slack targets ([@fabaff])
 - Fix for Pushover targets ([@Nixon506E])
 
@@ -116,9 +116,9 @@ sensor
 - All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
   - `use_trigger_values` is gone. You have to copy your triggers to conditions and adjust for the correct config.
   - `condition_type` is gone. Use `condition: or` instead.
-  - To specify the type of a condition, use `condition:` instead of `platform:`. 
+  - To specify the type of a condition, use `condition:` instead of `platform:`.
 - The [Forecast.io][forecast] was renamed to [Dark Sky][darksky]. Replace your `- platform: forecast` with `- platform: darksky`.
-- The [aREST][arest] configuration between the [sensor][arest-sensor] and the [switch][arest-switch] platform was aligned. 
+- The [aREST][arest] configuration between the [sensor][arest-sensor] and the [switch][arest-switch] platform was aligned.
 
 ### If you need help...
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
@@ -157,26 +157,24 @@ sensor
 [@Nixon506E]: https://github.com/Nixon506E
 
 [arest]: https://arest.io/
-[arest-sensor]: /components/sensor.arest/
-[arest-switch]: /components/switch.arest/
-[darksky]: /components/sensor.darksky/
-[do-bin-sensor]: /components/binary_sensor.digital_ocean/
-[do-switch]: /components/switch.digital_ocean/
-[forecast]: /components/sensor.forecast/
+[arest-sensor]: /integrations/arest#sensor
+[arest-switch]: /integrations/arest#switch
+[darksky]: /integrations/darksky
+[do-bin-sensor]: /integrations/digital_ocean#binary-sensor
+[do-switch]: /integrations/digital_ocean#switch
+[forecast]: /integrations/darksky
 [forum]: https://community.home-assistant.io/
 [Hacktoberfest]: /blog/2016/10/02/hacktoberfest/
 [hassbian-forum]: https://community.home-assistant.io/c/installation/hassbian
 [mention-bot]: https://github.com/mention-bot
-[mysensors-cover]: /components/cover.mysensors/
-[notebook]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
+[mysensors-cover]: /integrations/cover.mysensors/
+[notebook]: https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/database-statistics.ipynb
 [pi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
-[pushetta]: /components/notify.pushetta/
-[pwrctrl-switch]: /components/switch.anel_pwrctrl/
-[rest-sensor]: /components/sensor.rest/
-[stats-sensor]: /components/sensor.statistics/
-[ted5000]: /components/sensor.ted5000/
-[template-sensor]: /components/sensor.template/
-[trend-sensor]: /components/binary_sensor.trend/
-[vasttrafik]: /components/sensor.vasttrafik/
-[Volvo]: /components/device_tracker.volvooncall/
-
+[pwrctrl-switch]: /integrations/anel_pwrctrl
+[rest-sensor]: /integrations/rest
+[stats-sensor]: /integrations/statistics
+[ted5000]: /integrations/ted5000
+[template-sensor]: /integrations/template
+[trend-sensor]: /integrations/trend
+[vasttrafik]: /integrations/vasttrafik
+[Volvo]: /integrations/volvooncall

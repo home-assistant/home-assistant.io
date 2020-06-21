@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-04-0.68/components.png
 ---
 
-<a href='/components/#version/0.68'><img src='/images/blog/2018-04-0.68/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.68'><img src='/images/blog/2018-04-0.68/components.png' style='border: 0;box-shadow: none;'></a>
 
 Weekend is around the corner and that means that it's time for the next release of Home Assistant. 0.68 brings a ton of great goodies and bug fixes.
 
@@ -114,7 +114,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix bad metrics format for short metrics. ([@michaelkuty] - [#13778]) ([prometheus docs])
 - Update bellows to 0.5.2 ([@rcloran] - [#13800]) ([zha docs])
 - device_tracker.ubus: Handle devices not running DHCP ([@tobygray] - [#13579]) ([device_tracker docs])
-- Update yweather.py ([@wiuwiu] - [#13802]) ([weather.yweather docs])
+- Update yweather.py ([@wiuwiu] - [#13802])
 - Tibber lib update ([@Danielhiversen] - [#13811]) ([sensor.tibber docs])
 - Update pyhomematic to 0.1.41 ([@danielperna84] - [#13814]) ([homematic docs])
 - Add support for Eufy bulbs and switches ([@mjg59] - [#13773]) ([eufy docs]) ([light.eufy docs]) ([switch.eufy docs]) (new-platform)
@@ -135,14 +135,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Adding USCIS component ([@meauxt] - [#13764]) ([sensor.uscis docs]) (new-platform)
 - Avoid unnecessary cast state updates ([@dersger] - [#13770]) ([media_player.cast docs])
 - Prevent vesync doing I/O in event loop ([@balloob] - [#13862]) ([switch.vesync docs]) (beta fix)
-- Update yweather.py ([@TheCellMC] - [#13851]) ([weather.yweather docs])
+- Update yweather.py ([@TheCellMC] - [#13851])
 - add support for Kodi discovery ([@escoand] - [#13790]) ([media_player.kodi docs])
 - Further untangle data entry flow ([@balloob] - [#13855])
 - Missing property decorator added ([@syssi] - [#13889]) ([fan.xiaomi_miio docs]) (beta fix)
 - Fix race condition for component loaded before listening ([@balloob] - [#13887]) ([config docs]) (beta fix)
 - Added snips service descriptions ([@tschmidty69] - [#13883])
 - Add unique_id for BMW ConnectedDrive ([@gerard33] - [#13888]) ([binary_sensor.bmw_connected_drive docs]) ([lock.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs])
-- Revert "Update yweather.py" ([@pvizeli] - [#13900]) ([weather.yweather docs])
+- Revert "Update yweather.py" ([@pvizeli] - [#13900])
 - Eufy colour bulb updates ([@mjg59] - [#13895]) ([eufy docs]) ([light.eufy docs])
 - Fix #13846 Double underscore in bluetooth address ([@aav7fl] - [#13884]) ([device_tracker docs]) (beta fix)
 - Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
@@ -156,7 +156,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for new platform: climate.modbus ([@Kirchoff] - [#12224]) ([climate.modbus docs]) (new-platform)
 - Hive R3 update ([@KJonline] - [#13357]) ([hive docs]) ([binary_sensor.hive docs]) ([climate.hive docs]) ([light.hive docs]) ([sensor.hive docs]) ([switch.hive docs])
 - Updated foobot_async package version ([@reefab] - [#13942]) ([sensor.foobot docs])
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
+- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) (beta fix)
 - Upgrade alpha_vantage to 2.0.0 ([@fabaff] - [#13943]) ([sensor.alpha_vantage docs])
 - Cleanup on exit ([@dgomes] - [#13918]) ([media_player.mediaroom docs])
 - Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
@@ -183,7 +183,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Import operation modes from air humidifier ([@syssi] - [#13908]) ([fan.xiaomi_miio docs]) (beta fix)
 - Upgrade pyqwikswitch to 0.71 ([@kellerza] - [#13920]) ([qwikswitch docs])
 - Upgrade somecomfort to 0.5.2 ([@balloob] - [#13940]) ([climate.honeywell docs]) (beta fix)
-- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) ([sensor.hydroquebec docs]) (beta fix)
+- Update pyhydroquebec to 2.2.2 ([@titilambert] - [#13946]) (beta fix)
 - Revert "Upgrade pyqwikswitch to 0.71 ([@balloob] - [#13920]) ([qwikswitch docs])
 - Bump skybellpy version to 0.1.2 ([@MisterWil] - [#13974]) ([skybell docs])
 - Fix typo an coding style ([@stephanerosi] - [#13970]) ([device_tracker docs])
@@ -407,108 +407,106 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@viorels]: https://github.com/viorels
 [@wiuwiu]: https://github.com/wiuwiu
 [@asafbiton96]: https://github.com/asafbiton96
-[abode docs]: /components/abode/
-[alexa docs]: /components/alexa/
-[binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/
-[binary_sensor.hive docs]: /components/binary_sensor.hive/
-[binary_sensor.maxcube docs]: /components/binary_sensor.maxcube/
-[binary_sensor.qwikswitch docs]: /components/binary_sensor.qwikswitch/
-[bmw_connected_drive docs]: /components/bmw_connected_drive/
-[calendar.google docs]: /components/calendar.google/
-[calendar.todoist docs]: /components/calendar.todoist/
-[climate.fritzbox docs]: /components/climate.fritzbox/
-[climate.hive docs]: /components/climate.hive/
-[climate.honeywell docs]: /components/climate.honeywell/
-[climate.maxcube docs]: /components/climate.maxcube/
-[climate.modbus docs]: /components/climate.modbus/
-[config docs]: /components/config/
-[cover.opengarage docs]: /components/cover.opengarage/
-[cover.tahoma docs]: /components/cover.tahoma/
-[deconz docs]: /components/deconz/
-[device_tracker docs]: /components/device_tracker/
-[ecobee docs]: /components/ecobee/
-[eufy docs]: /components/eufy/
-[fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[fritzbox docs]: /components/fritzbox/
-[google docs]: /components/google/
-[hdmi_cec docs]: /components/hdmi_cec/
-[hive docs]: /components/hive/
-[homekit docs]: /components/homekit/
-[homekit_controller docs]: /components/homekit_controller/
-[homematic docs]: /components/homematic/
-[hue docs]: /components/hue/
-[ihc docs]: /components/ihc/
-[light docs]: /components/light/
-[light.abode docs]: /components/light.abode/
-[light.aurora docs]: /components/light.aurora/
-[light.eufy docs]: /components/light.eufy/
-[light.hive docs]: /components/light.hive/
-[light.homekit_controller docs]: /components/light.homekit_controller/
-[light.hue docs]: /components/light.hue/
-[light.yeelight docs]: /components/light.yeelight/
-[lock.bmw_connected_drive docs]: /components/lock.bmw_connected_drive/
-[lutron_caseta docs]: /components/lutron_caseta/
-[maxcube docs]: /components/maxcube/
-[media_extractor docs]: /components/media_extractor/
-[media_player.blackbird docs]: /components/media_player.blackbird/
-[media_player.bluesound docs]: /components/media_player.bluesound/
-[media_player.cast docs]: /components/media_player.cast/
-[media_player.kodi docs]: /components/media_player.kodi/
-[media_player.mediaroom docs]: /components/media_player.mediaroom/
-[media_player.mpd docs]: /components/media_player.mpd/
-[media_player.onkyo docs]: /components/media_player.onkyo/
-[media_player.squeezebox docs]: /components/media_player.squeezebox/
-[media_player.webostv docs]: /components/media_player.webostv/
-[notify docs]: /components/notify/
-[notify.facebook docs]: /components/notify.facebook/
-[prometheus docs]: /components/prometheus/
-[qwikswitch docs]: /components/qwikswitch/
-[sensor docs]: /components/sensor/
-[sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
-[sensor.bmw_connected_drive docs]: /components/sensor.bmw_connected_drive/
-[sensor.broadlink docs]: /components/sensor.broadlink/
-[sensor.deconz docs]: /components/sensor.deconz/
-[sensor.ebox docs]: /components/sensor.ebox/
-[sensor.ecobee docs]: /components/sensor.ecobee/
-[sensor.eddystone_temperature docs]: /components/sensor.eddystone_temperature/
-[sensor.filter docs]: /components/sensor.filter/
-[sensor.folder docs]: /components/sensor.folder/
-[sensor.foobot docs]: /components/sensor.foobot/
-[sensor.fritzbox_netmonitor docs]: /components/sensor.fritzbox_netmonitor/
-[sensor.hive docs]: /components/sensor.hive/
-[sensor.hydroquebec docs]: /components/sensor.hydroquebec/
-[sensor.linux_battery docs]: /components/sensor.linux_battery/
-[sensor.miflora docs]: /components/sensor.miflora/
-[sensor.mqtt docs]: /components/sensor.mqtt/
-[sensor.nest docs]: /components/sensor.nest/
-[sensor.nut docs]: /components/sensor.nut/
-[sensor.qwikswitch docs]: /components/sensor.qwikswitch/
-[sensor.sht31 docs]: /components/sensor.sht31/
-[sensor.sigfox docs]: /components/sensor.sigfox/
-[sensor.smappee docs]: /components/sensor.smappee/
-[sensor.sql docs]: /components/sensor.sql/
-[sensor.tibber docs]: /components/sensor.tibber/
-[sensor.trafikverket_weatherstation docs]: /components/sensor.trafikverket_weatherstation/
-[sensor.upnp docs]: /components/sensor.upnp/
-[sensor.uscis docs]: /components/sensor.uscis/
-[skybell docs]: /components/skybell/
-[smappee docs]: /components/smappee/
-[snips docs]: /components/snips/
-[switch.broadlink docs]: /components/switch.broadlink/
-[switch.edimax docs]: /components/switch.edimax/
-[switch.eufy docs]: /components/switch.eufy/
-[switch.fritzbox docs]: /components/switch.fritzbox/
-[switch.hive docs]: /components/switch.hive/
-[switch.vesync docs]: /components/switch.vesync/
-[tts docs]: /components/tts/
-[upnp docs]: /components/upnp/
-[vacuum docs]: /components/vacuum/
-[vacuum.dyson docs]: /components/vacuum.dyson/
-[vacuum.neato docs]: /components/vacuum.neato/
-[vacuum.roomba docs]: /components/vacuum.roomba/
-[vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
-[weather.yweather docs]: /components/weather.yweather/
-[zha docs]: /components/zha/
+[abode docs]: /integrations/abode/
+[alexa docs]: /integrations/alexa/
+[binary_sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[binary_sensor.hive docs]: /integrations/hive#binary-sensor
+[binary_sensor.maxcube docs]: /integrations/maxcube
+[binary_sensor.qwikswitch docs]: /integrations/qwikswitch
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[calendar.google docs]: /integrations/calendar.google/
+[calendar.todoist docs]: /integrations/todoist
+[climate.fritzbox docs]: /integrations/fritzbox
+[climate.hive docs]: /integrations/hive#climate
+[climate.honeywell docs]: /integrations/honeywell
+[climate.maxcube docs]: /integrations/maxcube
+[climate.modbus docs]: /integrations/climate.modbus/
+[config docs]: /integrations/config/
+[cover.opengarage docs]: /integrations/opengarage
+[cover.tahoma docs]: /integrations/tahoma
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[ecobee docs]: /integrations/ecobee/
+[eufy docs]: /integrations/eufy/
+[fan.xiaomi_miio docs]: /integrations/fan.xiaomi_miio/
+[fritzbox docs]: /integrations/fritzbox/
+[google docs]: /integrations/google_translate
+[hdmi_cec docs]: /integrations/hdmi_cec/
+[hive docs]: /integrations/hive/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[hue docs]: /integrations/hue/
+[ihc docs]: /integrations/ihc/
+[light docs]: /integrations/light/
+[light.abode docs]: /integrations/abode#light
+[light.aurora docs]: /integrations/light.aurora/
+[light.eufy docs]: /integrations/eufy
+[light.hive docs]: /integrations/hive#light
+[light.homekit_controller docs]: /integrations/homekit_controller
+[light.hue docs]: /integrations/hue
+[light.yeelight docs]: /integrations/yeelight
+[lock.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[maxcube docs]: /integrations/maxcube/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.blackbird docs]: /integrations/blackbird
+[media_player.bluesound docs]: /integrations/bluesound
+[media_player.cast docs]: /integrations/cast
+[media_player.kodi docs]: /integrations/kodi
+[media_player.mediaroom docs]: /integrations/mediaroom
+[media_player.mpd docs]: /integrations/mpd
+[media_player.onkyo docs]: /integrations/onkyo
+[media_player.squeezebox docs]: /integrations/squeezebox
+[media_player.webostv docs]: /integrations/webostv#media-player
+[notify docs]: /integrations/notify/
+[notify.facebook docs]: /integrations/facebook
+[prometheus docs]: /integrations/prometheus/
+[qwikswitch docs]: /integrations/qwikswitch/
+[sensor docs]: /integrations/sensor/
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
+[sensor.broadlink docs]: /integrations/broadlink#sensor
+[sensor.deconz docs]: /integrations/deconz#sensor
+[sensor.ebox docs]: /integrations/ebox
+[sensor.ecobee docs]: /integrations/ecobee
+[sensor.eddystone_temperature docs]: /integrations/eddystone_temperature
+[sensor.filter docs]: /integrations/filter
+[sensor.folder docs]: /integrations/folder
+[sensor.foobot docs]: /integrations/foobot
+[sensor.fritzbox_netmonitor docs]: /integrations/fritzbox#sensor_netmonitor/
+[sensor.hive docs]: /integrations/hive#sensor
+[sensor.linux_battery docs]: /integrations/linux_battery
+[sensor.miflora docs]: /integrations/miflora
+[sensor.mqtt docs]: /integrations/sensor.mqtt/
+[sensor.nest docs]: /integrations/nest#sensor
+[sensor.nut docs]: /integrations/nut
+[sensor.qwikswitch docs]: /integrations/qwikswitch
+[sensor.sht31 docs]: /integrations/sht31
+[sensor.sigfox docs]: /integrations/sigfox
+[sensor.smappee docs]: /integrations/sma#sensorsppee/
+[sensor.sql docs]: /integrations/sql
+[sensor.tibber docs]: /integrations/tibber#sensor
+[sensor.trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation
+[sensor.upnp docs]: /integrations/upnp
+[sensor.uscis docs]: /integrations/uscis
+[skybell docs]: /integrations/skybell/
+[smappee docs]: /integrations/smappee/
+[snips docs]: /integrations/snips/
+[switch.broadlink docs]: /integrations/broadlink#switch
+[switch.edimax docs]: /integrations/edimax
+[switch.eufy docs]: /integrations/eufy
+[switch.fritzbox docs]: /integrations/fritzbox
+[switch.hive docs]: /integrations/hive#switch
+[switch.vesync docs]: /integrations/vesync#switches
+[tts docs]: /integrations/tts/
+[upnp docs]: /integrations/upnp/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.dyson docs]: /integrations/dyson#vacuum
+[vacuum.neato docs]: /integrations/neato#vacuum
+[vacuum.roomba docs]: /integrations/roomba
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[zha docs]: /integrations/zha/
 [#14108]: https://github.com/home-assistant/home-assistant/pull/14108
 [#14113]: https://github.com/home-assistant/home-assistant/pull/14113
 [#14154]: https://github.com/home-assistant/home-assistant/pull/14154
@@ -523,9 +521,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@balloob]: https://github.com/balloob
 [@cdce8p]: https://github.com/cdce8p
 [@mjg59]: https://github.com/mjg59
-[google_assistant docs]: /components/google_assistant/
-[homekit docs]: /components/homekit/
-[homekit_controller docs]: /components/homekit_controller/
-[light.hue docs]: /components/light.hue/
-[light.tplink docs]: /components/light.tplink/
-[media_player.cast docs]: /components/media_player.cast/
+[google_assistant docs]: /integrations/google_assistant/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[light.hue docs]: /integrations/hue
+[light.tplink docs]: /integrations/tplink
+[media_player.cast docs]: /integrations/cast

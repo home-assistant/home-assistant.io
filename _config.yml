@@ -39,8 +39,10 @@ liquid:
   error_mode: strict
 
 commonmark:
-  options: ["SMART", "FOOTNOTES"]
+  options: ["SMART", "FOOTNOTES", "UNSAFE"]
   extensions: ["strikethrough", "autolink", "table"]
+
+highlighter: none
 
 plugins:
   - jekyll-redirect-from
@@ -61,7 +63,7 @@ titlecase: true # Converts page and post titles to titlecase
 # page_asides:
 
 collections:
-  components:
+  integrations:
     output: true
   cookbook:
     output: true
@@ -98,9 +100,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 97
+current_minor_version: 111
 current_patch_version: 2
-date_released: 2019-08-12
+date_released: 2020-06-13
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -132,5 +134,6 @@ defaults:
 
 # Support for files Jekyll will normally exclude
 include:
-  - ".well-known"
+  - "_headers"
   - "_redirects"
+  - ".well-known"

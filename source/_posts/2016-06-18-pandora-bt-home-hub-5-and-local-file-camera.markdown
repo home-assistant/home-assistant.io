@@ -10,7 +10,7 @@ categories: Release-Notes
 
 It's time for the 0.22 release. This was a pretty rough release cycle and we had to issue two hot fixes for our core improvements. But it seems now that all is good and a lot of people have reported that their installs are faster than ever and the occasional quirks no longer occur.
 
-We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We're working on getting to a better solution. For Raspberry Pi, the [All-in-One installer] will take care of everything for you. We're working on updating our [standalone Raspberry Pi installation guide].
+We are aware that our new web stack has caused issues installing Home Assistant on ARM-based platforms. This sadly includes the Raspberry Pi and Synology NAS systems. We're working on getting to a better solution. For Raspberry Pi, the All-in-One installer will take care of everything for you. We're working on updating our [standalone Raspberry Pi installation guide].
 
 There are two cool things that I want to highlight in this release. The first is Pandora support. This is based on the CLI player called pianobar. This means that your machine running Home Assistant can be connected to the speakers and provide your house with tunes.
 
@@ -73,20 +73,19 @@ netatmo:
 [@philk]: https://github.com/philk/
 [@wind-rider]: https://github.com/wind/
 [@fabaff]: https://github.com/fabaff/
-[AsusWRT]: /components/device_tracker.asuswrt/
-[BT Home Hub 5]: /components/device_tracker.bt_home_hub_5/
-[Cast]: /components/media_player.cast/
-[IR switch device]: /components/mysensors/
-[local file]: /components/camera.local_file/
-[Netatmo]: /components/netatmo/
-[Pandora]: /components/media_player.pandora/
-[shell command]: /components/shell_command/
-[Sonos]: /components/media_player.sonos/
-[Wink]: /components/wink/#cover
-[alexa]: /components/alexa/#working-with-scenes
-[Plex sensor]: /components/sensor.plex/
+[AsusWRT]: /integrations/asuswrt
+[BT Home Hub 5]: /integrations/bt_home_hub_5
+[Cast]: /integrations/cast
+[IR switch device]: /integrations/mysensors/
+[local file]: /integrations/local_file
+[Netatmo]: /integrations/netatmo/
+[Pandora]: /integrations/pandora
+[shell command]: /integrations/shell_command/
+[Sonos]: /integrations/sonos
+[Wink]: /integrations/wink/#cover
+[alexa]: /integrations/alexa/#working-with-scenes
+[Plex sensor]: /integrations/plex#sensor
 [Swagger.yaml format]: https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml
-[All-in-One installer]: /getting-started/installation-raspberry-pi-all-in-one/
 [standalone Raspberry Pi installation guide]: /getting-started/installation-raspberry-pi/
-[Voltage sensor]: /components/bloomsky/#sensor
-[SNMP]: /components/sensor.snmp/
+[Voltage sensor]: /integrations/bloomsky/#sensor
+[SNMP]: /integrations/snmp#sensor

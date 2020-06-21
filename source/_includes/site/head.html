@@ -1,8 +1,8 @@
 <!doctype html>
-  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -28,8 +28,8 @@
     <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
     <meta name="twitter:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
 
-    <link href="/stylesheets/prism.css" rel="stylesheet">
-    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="{{ '/stylesheets/prism.css' | cache_buster }}" rel="stylesheet">
+    <link href="{{ '/stylesheets/screen.css' | cache_buster }}" media="screen, projection, print" rel="stylesheet">
     <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
