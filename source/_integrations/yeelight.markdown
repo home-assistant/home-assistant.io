@@ -1,22 +1,26 @@
 ---
-title: "Yeelight Wifi Bulb"
-description: "Instructions on how to setup Yeelight Wifi devices within Home Assistant."
-logo: yeelight.png
+title: Yeelight
+description: Instructions on how to setup Yeelight Wifi devices within Home Assistant.
 ha_category:
   - Light
 ha_release: 0.32
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@rytilahti'
+  - '@zewelor'
+ha_domain: yeelight
 ---
 
-The `yeelight` integration allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
+The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
 
 There is currently support for the following device types within Home Assistant:
 
-- **Light** - The yeelight platform for supporting lights.
-- **Sensor** - The yeelight platform for supporting sensors. Currently only nightlight mode sensor, for ceiling lights.
+- **Light** - The Yeelight platform for supporting lights.
+- **Sensor** - The Yeelight platform for supporting sensors. Currently only nightlight mode sensor, for ceiling lights.
 
-### Example configuration (Automatic)
-After the lights are connected to the WiFi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
+## Example configuration (Automatic)
+
+After the lights are connected to the Wi-Fi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
 
 ```yaml
 # Example customize.yaml entry
@@ -26,7 +30,7 @@ light.yeelight_color2_XXXXXXXXXXXX:
   friendly_name: Downstairs Toilet
 ```
 
-### Example configuration (Manual)
+## Example configuration (Manual)
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
@@ -76,7 +80,7 @@ devices:
           required: false
           type: string
         model:
-          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`, `ceiling10`, `ceiling13`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
           type: string
 custom_effects:
@@ -104,18 +108,19 @@ custom_effects:
            type: list
 {% endconfiguration %}
 
-#### Music mode 
+### Music mode
+
 Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the integration and it tries to keep the connection open, which may not be wanted in all use-cases.
-**Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from HASS the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
+**Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from Home Assistant the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
 
 ### Initial setup
 
 <div class='note'>
 
 Before trying to control your light through Home Assistant, you have to setup your bulb using Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
-In the bulb property, you have to enable "LAN Mode" (previously called "Developer mode"). LAN mode may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
+In the bulb property, you have to enable "LAN Control" (previously called "Developer mode"). LAN Control may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
 Determine your bulb IP (using router, software, ping...).
-Information on how to enable "LAN Mode" can be found [here](https://getyeti.co/posts/how-to-control-yeelight-and-your-smarthome-with-yeti).
+Information on how to enable "LAN Control" can be found [here](https://www.yeelight.com/faqs/lan_control).
 
 </div>
 
@@ -134,10 +139,10 @@ This integration is tested to work with the following models. If you have a diff
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
-| ?          | YLDD04YL     | Lightstrip (Color)
-| `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
+| ?          | YLDD04YL     | Lightstrip (Color)                               |
+| `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - Wi-Fi Version!       |
 | `bslamp1`  | MJCTD02YL    | Xiaomi Mijia Bedside Lamp II                     |
-| `RGBW`     | MJDP02YL     | Mi Led smart Lamp - white and color WIFI Version |
+| `RGBW`     | MJDP02YL     | Mi LED smart Lamp - white and color Wi-Fi Version|
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
 | `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |
@@ -145,8 +150,10 @@ This integration is tested to work with the following models. If you have a diff
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
 | `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
+| `ceiling10`     | YLDL01YL     | Yeelight Meteorite Pendant Light            |
+| `ceiling13`     | YLXD01YL     | Yeelight LED Ceiling Light           |
 
-## Platform Services
+## Services
 
 ### Service `yeelight.set_mode`
 
@@ -200,7 +207,7 @@ Changes the light to the specified color temperature. If the light is off, it wi
 
 ### Service `yeelight.set_color_flow_scene`
 
-Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses different Yeelight api call. If the light was off, it will be turned on. There might be some firmware differences, in handling complex flows, etc.
+Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses different Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences, in handling complex flows, etc.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -258,13 +265,13 @@ This example shows how you can add your custom effects in your configuration. To
 Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
 
 Where the array values are as per the following:
-  - RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being                                                               in milliseconds (minimum of 50) and final brightness to transition to 0-100                                                             (%)
-  - HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in                                                             milliseconds (minimum 50) and final brightness 0-100 (%)
-  - TemperatureTransition: [temp, duration, brightness]     with temp being the final color temperature between 1700 and 6500, duration                                                             in milliseconds (minimum 50) and final brightness to transition to 0-100 (%)
-  - SleepTransition: [duration]                             with duration being in integer for effect time in milliseconds (minimum 50)
+
+- RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being in milliseconds (minimum of 50) and final brightness to transition to 0-100 (%).
+- HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in milliseconds (minimum 50) and final brightness 0-100 (%).
+- TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, duration in milliseconds (minimum 50) and final brightness to transition to 0-100 (%).
+- SleepTransition: [duration] with duration being in integer for effect time in milliseconds (minimum 50).
 
 More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
-
 
 ```yaml
 yeelight:

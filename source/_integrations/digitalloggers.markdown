@@ -1,14 +1,14 @@
 ---
-title: "Digital Loggers Switch"
-description: "Instructions on how to integrate Digital Loggers DIN III relays into Home Assistant."
-logo: digitalloggers.png
+title: Digital Loggers
+description: Instructions on how to integrate Digital Loggers DIN III relays into Home Assistant.
 ha_category:
   - Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_domain: digitalloggers
 ---
 
-The `digitalloggers` switch platform allows you to control the state of your [Digital Loggers](http://www.digital-loggers.com/dinfaqs.html) switches.
+The `digitalloggers` switch platform allows you to control the state of your [Digital Loggers](https://www.digital-loggers.com/dinfaqs.html) switches.
 
 ## Configuration
 

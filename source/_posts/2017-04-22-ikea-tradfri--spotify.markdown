@@ -93,7 +93,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
-- Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
+- Work around bad content-type in Hook api response ([@KlaasH] - [#7267])
 - Recorder: Check for ENTITY_ID key that contains None value ([@balloob] - [#7287]) ([recorder docs])
 
 ## Release 0.43.2 - April 27
@@ -102,8 +102,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Frontend: Fix logbook ui (@balloob)
 - Upgrade pytradfri to 1.1 ([@balloob] - [#7290])
 - Upgrade python-telegram-bot to 5.3.1 ([@fabaff] - [#7311]) ([notify.telegram docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs])
-- Version bump of aioautomatic ([@armills] - [#7300]) ([device_tracker.automatic docs])
-- Version bump for automatic ([@armills] - [#7329]) ([device_tracker.automatic docs])
+- Version bump of aioautomatic ([@armills] - [#7300])
+- Version bump for automatic ([@armills] - [#7329])
 - Fix breaking SSL in test HTML5 ([@balloob] - [#7310]) ([notify.html5 docs])
 - Fix for building Python Open Z-Wave in Docker ([@balloob] - [#7337])
 
@@ -132,7 +132,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump pywemo version. ([@pavoni] - [#7004])
 - Fix Synology camera content type ([@balloob] - [#7010]) ([camera.synology docs])
 - Fix two more instances of JSON parsing synology ([@balloob] - [#7014])
-- Bump pyalarmdotcom to support new version of aiohttp ([@Xorso] - [#7021]) ([alarm_control_panel.alarmdotcom docs])
+- Bump pyalarmdotcom to support new version of aiohttp ([@Xorso] - [#7021])
 - Fix US states check (fixes #7015) ([@fabaff] - [#7017])
 - Remove deprecated remote classes ([@balloob] - [#7011]) (breaking change)
 - Replace 'vendor_id' with 'arch' (fixes #7003) ([@fabaff] - [#7023])
@@ -177,7 +177,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update file header, add const for defaults, and update log messages ([@fabaff] - [#7110])
 - Upgrade speedtest-cli to 1.0.4 ([@fabaff] - [#7105]) ([sensor.speedtest docs])
 - Remove globally disabled pylint issue and update docstrings ([@fabaff] - [#7111])
-- Use third-party lib aioautomatic for automatic ([@armills] - [#7126]) ([device_tracker.automatic docs])
+- Use third-party lib aioautomatic for automatic ([@armills] - [#7126])
 - Upgrade chardet to 3.0.2 ([@fabaff] - [#7112])
 - Send stderr of ping tracker to devnull ([@amelchio] - [#7096]) ([device_tracker.ping docs])
 - Upgraded Amcrest module to 1.1.9 to support new firmware versions: ([@tchellomello] - [#7130])
@@ -417,7 +417,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@viswa-swami]: https://github.com/viswa-swami
 
-[alarm_control_panel.alarmdotcom docs]: /integrations/alarmdotcom
 [arduino docs]: /integrations/arduino/
 [automation docs]: /integrations/automation/
 [binary_sensor.ping docs]: /integrations/ping#binary-sensor
@@ -427,7 +426,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.neato docs]: /integrations/neato#camera
 [camera.synology docs]: /integrations/synology
 [climate docs]: /integrations/climate/
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.mysensors docs]: /integrations/device_tracker.mysensors/
 [device_tracker.ping docs]: /integrations/ping
 [hassio docs]: /integrations/hassio/
@@ -473,8 +471,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
 [switch.wemo docs]: /integrations/wemo
 [telegram_bot docs]: /integrations/telegram_bot/
-[telegram_bot.polling docs]: /integrations/polling
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tts.google docs]: /integrations/google_translate
 [tts.marytts docs]: /integrations/marytts
 [vera docs]: /integrations/vera/
@@ -492,10 +490,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@KlaasH]: https://github.com/KlaasH
 [cover.zwave docs]: /integrations/zwave#cover
 [recorder docs]: /integrations/recorder/
-[switch.hook docs]: /integrations/hook
 [switch.wemo docs]: /integrations/wemo
 [telegram_bot docs]: /integrations/telegram_bot/
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [wemo docs]: /integrations/wemo/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
@@ -507,9 +504,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7324]: https://github.com/home-assistant/home-assistant/pull/7324
 [#7329]: https://github.com/home-assistant/home-assistant/pull/7329
 [#7337]: https://github.com/home-assistant/home-assistant/pull/7337
-[device_tracker.automatic docs]: /integrations/automatic
 [hassio docs]: /integrations/hassio/
 [notify.html5 docs]: /integrations/html5
 [notify.telegram docs]: /integrations/telegram
-[telegram_bot.polling docs]: /integrations/polling
+[telegram_bot.polling docs]: /integrations/telegram_polling
 [discord]: https://discord.gg/c5DvZ4e

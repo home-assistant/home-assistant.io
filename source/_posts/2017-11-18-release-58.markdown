@@ -23,7 +23,7 @@ Talking about our translators, we now have 445 people with an account to help wi
 
 And because more translations is more better, [@robbiet480] has added the iOS app to Lokalise, our translation management platform. The iOS app is currently supported in 7 different languages.
 
-[Learn more about how to help with translations](/blog/2017/11/05/frontend-translations/)
+[Learn more about how to help with translations](/blog/2017/11/06/frontend-translations/)
 
 ## Frontend improvements continue
 
@@ -62,7 +62,7 @@ Our about screen that shows the error logs has gained a nice upgrade by [@postlu
 
 ## Release 0.58.1 - November 21
 
-- Fix yweather ([@tinloaf] - [#10661]) ([weather.yweather docs])
+- Fix yweather ([@tinloaf] - [#10661])
 - Properly initialize Harmony remote ([@amelchio] - [#10665]) ([remote.harmony docs])
 - Handle the new version of HydroQuebec website ([@titilambert] - [#10682])
 - Fix for time_date sensor ([@etsinko] - [#10694]) ([sensor.time_date docs])
@@ -135,7 +135,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Adapt to new yarl API ([@tinloaf] - [#10527]) ([tts.google docs])
 - Update nederlandse_spoorwegen.py to include platform information ([@hmmbob] - [#10494]) ([sensor.nederlandse_spoorwegen docs])
 - Pin yarl ([@tinloaf] - [#10528])
-- Support configuration of region (no service url neccessary ([@molobrakos] - [#10513]) ([volvooncall docs])
+- Support configuration of region (no service url necessary ([@molobrakos] - [#10513]) ([volvooncall docs])
 - Fix import in tests ([@andrey-git] - [#10525])
 - Update axis.py ([@Kane610] - [#10412]) ([axis docs])
 - Add attribute to show who last un/set alarm (SPC) ([@mbrrg] - [#9906]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs])
@@ -168,7 +168,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add panel build type ([@balloob] - [#10589])
 - Cloud updates ([@balloob] - [#10567])
 - Upgrade youtube_dl to 2017.11.15 ([@fabaff] - [#10592]) ([media_extractor docs])
-- Fix Yahoo Weather icons over SSL ([@OnFreund] - [#10602]) ([sensor.yweather docs])
+- Fix Yahoo Weather icons over SSL ([@OnFreund] - [#10602])
 - Arlo - Fixes for updated library ([@jwillaz] - [#9892]) ([arlo docs]) ([camera.arlo docs]) ([sensor.arlo docs])
 - Do not add panel from system_log ([@postlund] - [#10600]) ([system_log docs])
 - Fix ValueError exception ([@ziotibia81] - [#10596]) ([sensor.modbus docs])
@@ -186,7 +186,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change generic thermostat to control heating on mode change Off -> Auto ([@milanvo] - [#10601]) ([climate.generic_thermostat docs])
 - Improve WUnderground config validation ([@milanvo] - [#10573]) ([sensor.wunderground docs])
 - update hbmqtt to 0.9.1 ([@masarliev] - [#10611])
-- Allow to pass YandexTTS options via sevice call ([@andrey-git] - [#10578]) ([tts docs]) ([tts.yandextts docs])
+- Allow to pass YandexTTS options via service call ([@andrey-git] - [#10578]) ([tts docs]) ([tts.yandextts docs])
 - Snapcast: bump version and enable reconnect. ([@janLo] - [#10626]) ([media_player.snapcast docs])
 - Fix async missing decorators ([@armills] - [#10628])
 - Alexa slot synonym fix ([@devspacenine] - [#10614])
@@ -397,7 +397,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.knx docs]: /integrations/climate.knx/
 [climate.wink docs]: /integrations/wink#climate
 [cloud docs]: /integrations/cloud/
-[cloud.const docs]: /integrations/cloud.const/
 [config.zwave docs]: /integrations/config.zwave/
 [configurator docs]: /integrations/configurator/
 [counter docs]: /integrations/counter/
@@ -429,7 +428,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.webostv docs]: /integrations/webostv#media-player
 [media_player.yamaha_musiccast docs]: /integrations/yamaha_musiccast/
 [mqtt docs]: /integrations/mqtt/
-[mqtt.discovery docs]: /integrations/mqtt.discovery/
+[mqtt.discovery docs]: /docs/mqtt/discovery/
 [mqtt.server docs]: /integrations/mqtt.server/
 [mqtt_statestream docs]: /integrations/mqtt_statestream/
 [neato docs]: /integrations/neato/
@@ -460,7 +459,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.viaggiatreno docs]: /integrations/viaggiatreno
 [sensor.vultr docs]: /integrations/vultr#sensor
 [sensor.wunderground docs]: /integrations/wunderground
-[sensor.yweather docs]: /integrations/yweather
 [sensor.zamg docs]: /integrations/zamg#sensor
 [spc docs]: /integrations/spc/
 [switch.broadlink docs]: /integrations/broadlink#switch
@@ -471,7 +469,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [system_log docs]: /integrations/system_log/
 [telegram_bot docs]: /integrations/telegram_bot/
-[telegram_bot.polling docs]: /integrations/polling
+[telegram_bot.polling docs]: /integrations/telegram_polling
 [tradfri docs]: /integrations/tradfri/
 [tts docs]: /integrations/tts/
 [tts.google docs]: /integrations/google_translate
@@ -494,4 +492,3 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@titilambert]: https://github.com/titilambert
 [remote.harmony docs]: /integrations/harmony
 [sensor.time_date docs]: /integrations/time_date
-[weather.yweather docs]: /integrations/yweather

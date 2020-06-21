@@ -1,11 +1,13 @@
 ---
-title: "Swiss Hydrological Data"
-description: "Instructions on how to integrate hydrological data of Swiss waters within Home Assistant."
-logo: swiss-hydrological-data.png
+title: Swiss Hydrological Data
+description: Instructions on how to integrate hydrological data of Swiss waters within Home Assistant.
 ha_category:
   - Environment
 ha_iot_class: Cloud Polling
 ha_release: 0.22
+ha_codeowners:
+  - '@fabaff'
+ha_domain: swiss_hydrological_data
 ---
 
 The `swiss_hydrological_data` sensor will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.
@@ -57,4 +59,4 @@ Sensors are exposing additional values through their attributes for all availabl
   The sensors don't show the latest measurement, but those from the last hour due to the source of data. Some stations also don't provide data for certain measurements.
 </div>
 
-The hydrological measurements are coming from the [Swiss Federal Office for the Environment (Bundesamt für Umwelt - Abt. Hydrologie)](http://www.hydrodaten.admin.ch) and are updated every 10 minutes.
+The hydrological measurements are coming from the [Swiss Federal Office for the Environment (Bundesamt für Umwelt - Abt. Hydrologie)](https://www.hydrodaten.admin.ch/) and are updated every 10 minutes.

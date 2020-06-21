@@ -1,14 +1,16 @@
 ---
-title: "HTTP"
-description: "Offers a web framework to serve files."
-logo: http.png
+title: HTTP
+description: Offers a web framework to serve files.
 ha_category:
   - Other
   - Binary Sensor
   - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: http
 ---
 
 The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
@@ -20,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 <div class='note'>
 
-Don't use option `server_host` on a Hass.io installation!
+The option `server_host` should only be used on a Home Assistant Core installation!
 
 </div>
 
@@ -30,10 +32,6 @@ http:
 ```
 
 {% configuration %}
-api_password:
-  description: "**Deprecated since 0.90 release. Configuration moved to [Legacy API password auth provider](/docs/authentication/providers/#legacy-api-password).** Protect the Home Assistant API with a password - this password can also be used to log in to the frontend. Where your client or other software supports it, you should use [long lasting access token](/docs/authentication/#your-account-profile) instead, as [shown in the REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) and [websocket API](https://developers.home-assistant.io/docs/en/external_api_websocket.html) documentation."
-  required: false
-  type: string
 server_host:
   description: "Only listen to incoming requests on specific IP/host. By default it will accept all IPv4 connections. Use `server_host: ::0` if you want to listen to (and only) IPv6."
   required: false
@@ -44,11 +42,6 @@ server_port:
   required: false
   type: integer
   default: 8123
-base_url:
-  description: "The URL that Home Assistant is available on the internet. For example: `https://hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app. Note that this setting may only contain a protocol, hostname and port; using a path is *not* currently supported."
-  required: false
-  type: string
-  default: Your local IP address
 ssl_certificate:
   description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
   required: false
@@ -62,7 +55,7 @@ ssl_key:
   required: false
   type: string
 cors_allowed_origins:
-  description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin, i.e. `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
+  description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin, i.e., `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
   required: false
   type: [string, list]
 use_x_forwarded_for:
@@ -115,13 +108,12 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 10.0.0.200
+    - 172.30.33.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
-
-Or use a self signed certificate following the instructions here [Self-signed certificate for SSL/TLS](/docs/ecosystem/certificates/tls_self_signed_certificate/).
 
 ## APIs
 
@@ -156,11 +148,17 @@ Please note, that sources from `trusted_networks` won't be banned automatically.
 
 ## Hosting files
 
-If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config` on Hass.io, `.homeassistant` elsewhere). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
+If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
 
 <div class='note'>
 
   If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+
+</div>
+
+<div class='note warning'>
+
+  Files served from the `www` folder (`/local/` url), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
 
 </div>
 
@@ -218,13 +216,17 @@ In this section you'll find some real-life examples of how to use this sensor, b
 
 #### Using Python request module
 
-As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module for the interaction with Home Assistant.
+As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](https://requests.kennethreitz.org/en/latest/) module for the interaction with Home Assistant.
 
 ```python
 response = requests.post(
-        'http://localhost:8123/api/states/binary_sensor.radio',
-        headers={'Authorization': 'Bearer LONG_LIVED_ACCESS_TOKEN', 'content-type': 'application/json'},
-        data=json.dumps({'state': 'on', 'attributes': {'friendly_name': 'Radio'}}))
+    "http://localhost:8123/api/states/binary_sensor.radio",
+    headers={
+        "Authorization": "Bearer LONG_LIVED_ACCESS_TOKEN",
+        "content-type": "application/json",
+    },
+    data=json.dumps({"state": "on", "attributes": {"friendly_name": "Radio"}}),
+)
 print(response.text)
 ```
 

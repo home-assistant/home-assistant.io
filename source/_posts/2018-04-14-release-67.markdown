@@ -148,13 +148,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support color temperature in Homekit ([@morberg] - [#13658]) ([homekit docs])
 - Remove unused CONF_WATCHERS ([@robmarkcole] - [#13678]) ([folder_watcher docs])
 - Add media type separation for video/movie ([@tadly] - [#13612]) (breaking change)
-- Adding configration to disable ip address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
+- Adding configuration to disable IP address as a requirement Fixes: #13399 ([@PlanetJ] - [#13692]) ([device_tracker docs])
 - Tahoma switches ([@ikucuze] - [#13636]) ([tahoma docs]) ([switch.tahoma docs]) (new-platform)
 - Send XY color for non-osram hue bulbs ([@armills] - [#13665]) ([light.hue docs])
 - Update AbodePy version to 0.12.3 ([@MisterWil] - [#13709]) ([abode docs])
 - Enable autodiscovery for mqtt cameras ([@jmtatsch] - [#13697]) ([mqtt docs]) ([camera.mqtt docs])
 - Added ENTITY_ID_FORMAT import and set entity_id in __init__ ([@timmo001] - [#13642]) ([switch.broadlink docs]) (breaking change)
-- Fix #10175 ([@pschmitt] - [#13713]) ([media_player.liveboxplaytv docs])
+- Fix #10175 ([@pschmitt] - [#13713])
 - Add support for Nanoleaf Aurora Light Panels ([@Oro] - [#13456]) ([light.nanoleaf_aurora docs]) (new-platform)
 - Added gogogate2 cover ([@dlbroadfoot] - [#13467])
 - Remove vendor lookup for mac addresses ([@balloob] - [#13788]) ([device_tracker docs])
@@ -367,7 +367,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.yeelight docs]: /integrations/yeelight
 [lock.bmw_connected_drive docs]: /integrations/bmw_connected_drive
 [media_extractor docs]: /integrations/media_extractor/
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.philips_js docs]: /integrations/philips_js
 [media_player.songpal docs]: /integrations/songpal
 [media_player.webostv docs]: /integrations/webostv#media-player

@@ -1,18 +1,19 @@
 ---
-title: "LIFX"
-description: "Instructions on how to integrate LIFX into Home Assistant."
-logo: lifx.png
+title: LIFX
+description: Instructions on how to integrate LIFX into Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.81
+ha_config_flow: true
+ha_domain: lifx
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
 
 _Please note, the `lifx` integration does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
 
-You can configure the LIFX integration by going to the integrations page inside the config panel.
+You can configure the LIFX integration by going to the integrations page inside the configuration panel.
 
 ## Set state
 
@@ -20,13 +21,13 @@ The LIFX bulbs allow a change of color and brightness even when they are turned 
 
 The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own service call that allows color changes without affecting the current power state.
 
-### Service `light.lifx_set_state`
+### Service `lifx.set_state`
 
 Change the light to a new state.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
 | `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
 | `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
@@ -54,7 +55,7 @@ script:
   colorloop_start:
     alias: 'Start colorloop'
     sequence:
-      - service: light.lifx_effect_colorloop
+      - service: lifx.effect_colorloop
         data:
           entity_id: group.livingroom
           brightness: 255
@@ -65,13 +66,13 @@ script:
 
 The available light effects and their options are listed below.
 
-### Service `light.lifx_effect_pulse`
+### Service `lifx.effect_pulse`
 
 Run a flash effect by changing to a color and then back.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `color_name` | A color name such as `red` or `green`.
 | `rgb_color` | A list containing three integers representing the RGB color you want the light to be.
 | `brightness` | Integer between 0 and 255 for how bright the color should be.
@@ -80,13 +81,13 @@ Run a flash effect by changing to a color and then back.
 | `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (light turns off between color changes), `solid`(light does not return to original color between cycles).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### Service `light.lifx_effect_colorloop`
+### Service `lifx.effect_colorloop`
 
 Run an effect with colors looping around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `brightness` | Number between 0 and 255 indicating brightness of the effect. Leave this out to maintain the current brightness of each participating light.
 | `period` | Duration (in seconds) between starting a new color change.
 | `transition` | Duration (in seconds) where lights are actively changing color.
@@ -94,13 +95,13 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### Service `light.lifx_effect_stop`
+### Service `lifx.effect_stop`
 
 Run an effect that does nothing, thereby stopping any other effect that might be running.
 
 | Service data attribute | Description |
 | ---------------------- | ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
+| `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
 
 ## Advanced configuration

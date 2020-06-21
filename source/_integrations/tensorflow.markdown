@@ -1,31 +1,31 @@
 ---
-title: "TensorFlow"
-description: "Detect and recognize objects with TensorFlow."
-logo: tensorflow.png
+title: TensorFlow
+description: Detect and recognize objects with TensorFlow.
 ha_category:
   - Image Processing
 ha_iot_class: Local Polling
 ha_release: 0.82
+ha_domain: tensorflow
 ---
 
 The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
 <div class='note warning'>
 
-  The following packages must be installed on Hassbian/Raspbian before following the setup for the integration to work:
+  The following packages must be installed on Raspbian before following the setup for the integration to work:
   `sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
 
 </div>
 
 ## Setup
 
-You need to install the `tensorflow` Python packages with: `$ pip3 install tensorflow==1.11.0`. The wheel is not available for all platforms. See [the official install guide](https://www.tensorflow.org/install/) for other options. Hass.io is not yet supported but an addon is under development.
+You need to install the `tensorflow` Python packages with: `$ pip3 install tensorflow==1.13.2`. The wheel is not available for all platforms. See [the official install guide](https://www.tensorflow.org/install/) for other options. The required packages are included in Home Assistant Supervised installations but only supported on amd64 architecture.
 
 This integration requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed using the sample script at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3). Alternatively, if you wish to perform the process manually, the process is as follows:
 
 - Clone [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection)
 - Compile protobuf models located in `research/object_detection/protos` with `protoc`
-- Create the following directory structure inside your config directory:
+- Create the following directory structure inside your configuration directory:
 
 ```bash
   |- {config_dir}
@@ -95,10 +95,10 @@ model:
        type: string
        default: tensorflow/object_detection/data/mscoco_label_map.pbtxt
       model_dir:
-        description: Full path to tensorflow models directory.
+        description: Full path to TensorFlow models directory.
         required: false
         type: string
-        default: /tensorflow inside config
+        default: "`/tensorflow` inside configuration"
       area:
         description: Custom detection area. Only objects fully in this box will be reported. Top of image is 0, bottom is 1.  Same left to right.
         required: false
@@ -155,9 +155,9 @@ image_processing:
         - truck
 ```
 
-## Optimising resources
+## Optimizing resources
 
-[Image processing components](/integrations/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
+[Image processing components](/integrations/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
 
 ```yaml
 # Example advanced configuration.yaml entry
@@ -171,7 +171,7 @@ image_processing:
 
 ```yaml
 # Example advanced automations.yaml entry
-- alias: Tensorflow scanning
+- alias: TensorFlow scanning
   trigger:
      - platform: state
        entity_id:

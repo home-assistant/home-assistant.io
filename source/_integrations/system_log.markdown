@@ -1,11 +1,11 @@
 ---
-title: "System Log"
-description: "Summary of errors and warnings in Home Assistant during runtime."
-logo: home-assistant.png
+title: System Log
+description: Summary of errors and warnings in Home Assistant during runtime.
 ha_category:
   - Other
 ha_release: 0.58
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: system_log
 ---
 
 The `system_log` integration stores information about all logged errors and warnings in Home Assistant. All collected information is accessible directly in the frontend, just navigate to the `Info` section under `Developer Tools`. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
@@ -53,7 +53,7 @@ Write a log entry
 Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occurs. The following information is included in each event:
 
 | Field       | Description                                                                 |
-|-------------------------------------------------------------------------------------------|
+|-------------|-----------------------------------------------------------------------------|
 | `level`     | Either `WARNING` or `ERROR` depending on severity.                          |
 | `source`    | File that triggered the error, e.g., `core.py` or `media_player/yamaha.py`. |
 | `exception` | Full stack trace if available, an empty string otherwise.                   |
@@ -140,4 +140,3 @@ automation:
         level: info
 ```
 {% endraw %}
-

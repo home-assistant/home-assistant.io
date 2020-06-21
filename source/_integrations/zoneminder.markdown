@@ -1,7 +1,6 @@
 ---
-title: "ZoneMinder"
-description: "How to integrate ZoneMinder into Home Assistant."
-logo: zoneminder.png
+title: ZoneMinder
+description: How to integrate ZoneMinder into Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
@@ -10,6 +9,9 @@ ha_category:
   - Switch
 ha_release: 0.31
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@rohankapoorcom'
+ha_domain: zoneminder
 ---
 
 The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.

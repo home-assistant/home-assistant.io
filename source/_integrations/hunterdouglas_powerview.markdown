@@ -1,26 +1,58 @@
 ---
-title: "PowerView Scenes"
-description: "Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant."
-logo: hunter-douglas-powerview.png
+title: Hunter Douglas PowerView
+description: Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant.
 ha_category:
+  - Cover
   - Scene
+  - Sensor
 ha_release: 0.15
+ha_domain: hunterdouglas_powerview
+ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
 ---
 
-Implements the [Hunter Douglas PowerView](http://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.
+The `hunterdouglas_powerview` integration allows you to integrate your [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) devices in Home Assistant.
 
-Scenes can be activated using the service `scene.turn_on`.
+There is currently support for the following device types within Home Assistant:
+
+- Cover
+- Scene
+- Sensor
+
+To add `Hunter Douglas PowerView` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Hunter Douglas PowerView**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-scene:
-  platform: hunterdouglas_powerview
-  address: IP_ADDRESS
+hunterdouglas_powerview:
+  - host: IP_ADDRESS
+```
+
+```yaml
+# Example configuration.yaml with multiple hubs
+hunterdouglas_powerview:
+  - host: IP_ADDRESS
+  - host: IP_ADDRESS_2
 ```
 
 {% configuration %}
-address:
+host:
   description: IP address of the PowerView Hub, e.g., 192.168.1.10.
   required: true
   type: string
 {% endconfiguration %}
+
+## Example Automations
+
+``` yaml
+- alias: "blinds closed at night"
+  trigger:
+    platform: time
+    at: "18:00:00"
+  action:
+    - service: scene.turn_on
+      entity_id: scene.10877
+```

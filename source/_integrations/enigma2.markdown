@@ -1,11 +1,14 @@
 ---
-title: "Enigma2 (OpenWebif)"
-description: "Instructions on how to integrate an Enigma2 based box running OpenWebif into Home Assistant."
+title: Enigma2 (OpenWebif)
+description: Instructions on how to integrate an Enigma2 based box running OpenWebif into Home Assistant.
 logo: openwebif.png
 ha_category:
   - Media Player
-ha_release: "0.90"
-ha_iot_class: "Local Polling"
+ha_release: '0.90'
+ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fbradyirl'
+ha_domain: enigma2
 ---
 
 The `enigma2` platform allows you to control a Linux based set-top box which is running [Enigma2](https://github.com/oe-alliance/oe-alliance-enigma2) with the OpenWebif plugin installed.

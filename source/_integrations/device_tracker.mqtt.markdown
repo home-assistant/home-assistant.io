@@ -1,11 +1,11 @@
 ---
 title: "MQTT Device Tracker"
 description: "Instructions on how to use MQTT to track devices in Home Assistant."
-logo: mqtt.png
 ha_category:
   - Presence Detection
 ha_iot_class: Configurable
 ha_release: 0.7.3
+ha_domain: mqtt
 ---
 
 
@@ -33,7 +33,36 @@ qos:
   description: The QoS level of the topic.
   required: false
   type: integer
+payload_home:
+  description: The payload value that represents the 'home' state for the device.
+  required: false
+  type: string
+  default: 'home'
+payload_not_home:
+  description: The payload value that represents the 'not_home' state for the device.
+  required: false
+  type: string
+  default: 'not_home'
+source_type:
+  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
+  required: false
+  type: string
 {% endconfiguration %}
+
+## Complete example configuration
+
+```yaml
+# Complete configuration.yaml entry
+device_tracker:
+  - platform: mqtt
+    devices:
+      paulus_oneplus: 'location/paulus'
+      annetherese_n4: 'location/annetherese'
+    qos: 1
+    payload_home: 'present'
+    payload_not_home: 'not present'
+    source_type: bluetooth
+```
 
 ## Usage
 

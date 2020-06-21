@@ -1,11 +1,11 @@
 ---
 title: "KNX Notify"
 description: "Instructions on how to use the KNX notify with Home Assistant."
-logo: knx.png
 ha_category:
   - Notifications
 ha_release: 0.53
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>
@@ -14,7 +14,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx` notify platform allows you to send notifications to [KNX](http://www.knx.org) devices.
+The `knx` notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices.
 
 ## Configuration
 

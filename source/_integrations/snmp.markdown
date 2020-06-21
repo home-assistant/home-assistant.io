@@ -1,7 +1,6 @@
 ---
-title: "SNMP"
-description: "Instructions on how to integrate SNMP into Home Assistant."
-logo: network-snmp.png
+title: SNMP
+description: Instructions on how to integrate SNMP into Home Assistant.
 ha_category:
   - Network
   - Switch
@@ -9,9 +8,10 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.57
+ha_domain: snmp
 ---
 
-A lot of WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and WiFi registrations.
+A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -34,12 +34,13 @@ The following OID examples pull the current MAC Address table from a router. Thi
 | Aruba | IAP325 on AOS 6.5.4.8 | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
 | BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
 | DD-WRT | unknown version/model | `1.3.6.1.2.1.4.22.1.2` |
-| Mikrotik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
-| Mikrotik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
+| MikroTik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
+| MikroTik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
 | OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
 | OPNSense | 19.1 | `1.3.6.1.2.1.4.22.1.2` |
 | pfSense | 2.2.4 | `1.3.6.1.2.1.4.22.1.2` |
 | Ruckus | ZoneDirector 9.13.3 | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` |
+| TP-Link | Archer VR1600v | `1.3.6.1.2.1.3.1.1.2.16.1` |
 | TP-Link | Archer VR2600v | `1.3.6.1.2.1.3.1.1.2.19.1` |
 | TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
 | Ubiquiti | Edgerouter Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
@@ -82,7 +83,7 @@ baseoid:
   required: true
   type: string
 auth_key:
-  description: A"uthentication key for SNMPv3. Variable `priv_key` must also be set."
+  description: "Authentication key for SNMPv3. Variable `priv_key` must also be set."
   required: inclusive
   type: string
 priv_key:
@@ -328,6 +329,11 @@ command_payload_off:
   description: The value to write to turn off the switch, if different from `payload_off`.
   required: false
   type: string
+vartype:
+  description: The SNMP vartype for the `payload_on` and `payload_off` commands as defined in [RFC1902](https://tools.ietf.org/html/rfc1902.html).
+  required: false
+  type: string  
+  default: 'none'
 {% endconfiguration %}
 
 You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
@@ -350,6 +356,20 @@ Valid values for `priv_protocol`:
 - **aes-cfb-128**
 - **aes-cfb-192**
 - **aes-cfb-256**
+
+Valid values for `vartype`:
+
+- **Counter32**
+- **Counter64**
+- **Gauge32**
+- **Integer32**
+- **Integer**
+- **IpAddress**
+- **ObjectIdentifier**
+- **OctetString**
+- **Opaque**
+- **TimeTicks**
+- **Unsigned32**
 
 Complete examples:
 
@@ -375,4 +395,18 @@ switch:
     baseoid: 1.3.6.1.4.1.19865.1.2.1.4.0
     payload_on: 1
     payload_off: 0
+    
+  - platform: snmp
+    name: Enable PoE on Netgear switch port 2 using SNMP v3
+    host: 192.168.0.4
+    version: '3'
+    username: 'myusername'
+    auth_key: 'myauthkey'
+    auth_protocol: 'hmac-sha'
+    priv_key: 'myprivkey'
+    priv_protocol: 'des'
+    baseoid: 1.3.6.1.4.1.4526.11.15.1.1.1.1.1.2
+    payload_on: 15400
+    payload_off: 3000
+    vartype: Gauge32
 ```

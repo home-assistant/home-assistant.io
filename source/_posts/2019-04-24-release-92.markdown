@@ -351,7 +351,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix manifest codeowners ([@cdce8p] - [#22871]) ([cover docs]) ([demo docs])
 - Added REQUIREMENTS back to Ambient ([@bachya] - [#22875]) ([ambient_station docs])
 - Minor sensor fixes ([@robbiet480] - [#22884]) ([mobile_app docs])
-- add myself as codeowner ([@fbradyirl] - [#22885]) ([cisco_ios docs]) ([cisco_mobility_express docs]) ([cisco_webex_teams docs]) ([ciscospark docs]) ([enigma2 docs]) ([hikvisioncam docs]) ([luci docs])
+- add myself as codeowner ([@fbradyirl] - [#22885]) ([cisco_ios docs]) ([cisco_mobility_express docs]) ([cisco_webex_teams docs]) ([enigma2 docs]) ([hikvisioncam docs]) ([luci docs])
 - Bump pypi module version for enigma2 ([@fbradyirl] - [#22886])
 - Add zwave network key validator ([@cgtobi] - [#22785]) ([zwave docs])
 - force_update=False (not None) ([@akasma74] - [#22867]) ([rflink docs])
@@ -978,7 +978,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cisco_ios docs]: /integrations/cisco_ios/
 [cisco_mobility_express docs]: /integrations/cisco_mobility_express/
 [cisco_webex_teams docs]: /integrations/cisco_webex_teams/
-[ciscospark docs]: /integrations/ciscospark/
 [citybikes docs]: /integrations/citybikes/
 [cloud docs]: /integrations/cloud/
 [command_line docs]: /integrations/command_line/

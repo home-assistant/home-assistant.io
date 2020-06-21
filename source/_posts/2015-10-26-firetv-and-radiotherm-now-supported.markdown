@@ -24,7 +24,7 @@ After two weeks of hard work I'm proud to announce the release of Home Assistant
  - Light: [Hyperion](/integrations/hyperion) now supported (@MakeMeASandwich)
  - Sensor: [aRest](/integrations/arest#sensor) can now also read out pins ([@balloob](https://github.com/balloob))
  - Sensor: [Forecast.io](/integrations/darksky) now supports specifying units in `configuration.yaml` ([@balloob](https://github.com/balloob))
- - Thermostat: [Heat Control](/integrations/thermostat.heat_control/) has been completely rewritten ([@balloob](https://github.com/balloob))
+ - Thermostat: Heat Control has been completely rewritten ([@balloob](https://github.com/balloob))
  - Switch: [Rest](/integrations/switch.rest/) now supported ([@bachp](https://github.com/bachp))
  - Media Player: [Plex](/integrations/plex#media-player) can now be auto discovered and configure itself ([@tomduijf](https://github.com/tomduijf))
  - [Downloader](/integrations/downloader/) will now treat relative paths based on config dir ([@tomduijf](https://github.com/tomduijf))

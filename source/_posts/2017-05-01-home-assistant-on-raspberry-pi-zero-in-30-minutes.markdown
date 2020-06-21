@@ -69,7 +69,7 @@ sudo systemctl start install_homeassistant.service
 
 Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspberry Pi Zero W in 30 minutes.
 
-To try it out, go to [http://hassbian:8123](http://hassbian:8123) or [http://hassbian.local:8123](http://hassbian.local:8123) if you're using Mac.
+To try it out, go to `http://hassbian:8123` or `http://hassbian.local:8123` if you're using Mac.
 
-For further details about HASSbian, take a look at the [documentation](/docs/installation/hassbian/).
+For further details about HASSbian, take a look at the documentation.
 

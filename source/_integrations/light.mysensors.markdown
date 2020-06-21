@@ -1,46 +1,46 @@
 ---
 title: "MySensors Light"
 description: "Instructions on how to integrate MySensors lights into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Light
 ha_release: 0.13
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
-Integrates MySensors lights into Home Assistant. See the [main component] for configuration instructions.
+Integrates MySensors lights into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.
 
 The following actuator types are supported:
 
-##### MySensors version 1.4
+## MySensors version 1.4
 
-S_TYPE   | V_TYPE
----------|--------------
-S_DIMMER | V_DIMMER\*, V_LIGHT\*
+| S_TYPE   | V_TYPE                |
+| -------- | --------------------- |
+| S_DIMMER | V_DIMMER\*, V_LIGHT\* |
 
-##### MySensors version 1.5 and higher
+## MySensors version 1.5 and higher
 
-S_TYPE      | V_TYPE
-------------|-------------
-S_DIMMER    | [V_DIMMER\* or V_PERCENTAGE\*], [V_LIGHT\* or V_STATUS\*]
-S_RGB_LIGHT | V_RGB*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE]
-S_RGBW_LIGHT | V_RGBW*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE]
+| S_TYPE       | V_TYPE                                                         |
+| ------------ | -------------------------------------------------------------- |
+| S_DIMMER     | [V_DIMMER\* or V_PERCENTAGE\*], [V_LIGHT\* or V_STATUS\*]      |
+| S_RGB_LIGHT  | V_RGB*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE]  |
+| S_RGBW_LIGHT | V_RGBW*, [V_LIGHT\* or V_STATUS\*], [V_DIMMER or V_PERCENTAGE] |
 
 V_TYPES with a star (\*) denote V_TYPES that should be sent at sketch startup. For an S_DIMMER, send both a V_DIMMER/V_PERCENTAGE and a V_LIGHT/V_STATUS message.  For an S_RGB_LIGHT, send both a V_RGB and a V_LIGHT/V_STATUS message with a V_DIMMER/V_PERCENTAGE message being optional. Same principal applies for S_RGBW_LIGHT and V_RGBW.
 
 Sketch should acknowledge a command sent from controller with the same type.  If command invokes a change to off state (including a V_PERCENTAGE, V_RGB, or V_RGBW message of zero), only a V_STATUS of zero message should be sent.  See sketches below for examples.
 
-For more information, visit the [serial api] of MySensors.
+For more information, visit the [serial API](https://www.mysensors.org/download) of MySensors.
 
-### MySensors 1.x example sketch
+## MySensors 1.x example sketch
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/dimmer
+ * https://www.mysensors.org/build/dimmer
  */
 
 #include <MySensor.h>
@@ -108,15 +108,15 @@ void incomingMessage(const MyMessage &message) {
 }
 ```
 
-### MySensors 2.x example sketch
+## MySensors 2.x example sketch
 
 ```cpp
 /*
  * Example Dimmable Light
- * Code adapted from http://github.com/mysensors/MySensors/tree/master/examples/DimmableLight
+ * Code adapted from https://github.com/mysensors/MySensors/tree/master/examples/DimmableLight
  *
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
  */
 
@@ -241,6 +241,3 @@ void send_status_message()
   }
 }
 ```
-
-[main component]: /integrations/mysensors/
-[serial api]: http://www.mysensors.org/download

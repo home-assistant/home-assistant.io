@@ -1,14 +1,22 @@
 ---
-title: "VLC"
-description: "Instructions on how to integrate VLC media player into Home Assistant."
-logo: videolan.png
+title: VLC media player
+description: Instructions on how to integrate VLC media player into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_domain: vlc
 ---
 
-The `vlc` platform allows you to control [VLC media player](http://www.videolan.org/vlc/index.html).
+The `vlc` platform allows you to control [VLC media player](https://www.videolan.org/vlc/index.html).
+
+<div class='note'>
+
+The VLC media player integration, is currently only available for installations that are based on the Home Assistant Core in a Python virtual environment.
+
+</div>
+
+## Configuration
 
 To add a VLC media player to your installation, add the following to your `configuration.yaml` file:
 
@@ -45,7 +53,7 @@ media_player:
     arguments: '--alsa-audio-device=hw:1,0'
 ```
 
-##### Additional configuration on macOS
+## Additional configuration on macOS
 
 On macOS `python-vlc` won’t find the VLC plugin directory unless you add this to the user’s `.bash_profile` that is running Home Assistant:
 
@@ -53,14 +61,10 @@ On macOS `python-vlc` won’t find the VLC plugin directory unless you add this 
 export VLC_PLUGIN_PATH=$VLC_PLUGIN_PATH:/Applications/VLC.app/Contents/MacOS/plugins
 ```
 
-##### Additional configuration for Rasperry Pi
+## Additional configuration for Raspberry Pi
 
 You need to add the `homeassistant` user to the `audio` group:
 
 ```bash
 sudo usermod -a -G audio homeassistant
 ```
-
-##### VLC currently not supported with Hass.io
-
-According to the forum topic ["How to add VLC into my Hassio"](http://community.home-assistant.io/t/how-to-add-vlc-into-my-hassio/23000/5), it is not possible to install packages like VLC on Hass.io.

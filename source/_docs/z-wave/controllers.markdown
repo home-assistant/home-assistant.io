@@ -5,7 +5,7 @@ description: "Extended instructions how to setup Z-Wave."
 
 ## Supported Z-Wave USB Sticks & Hardware Modules
 
-You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be. If yours is a *bridge* device then it won't work with [OpenZWave](http://openzwave.com/), which is what provides Home Assistant's Z-Wave capabilities. The following devices have been confirmed to work:
+You need to have a compatible Z-Wave stick or module installed. This needs to be a *static controller*, which most Z-Wave sticks and modules will be. If yours is a *bridge* device then it won't work with [OpenZWave](http://openzwave.com/), which is what provides Home Assistant's Z-Wave capabilities. USB sticks using the new 700 series Z-Wave platform are not compatible. The following devices have been confirmed to work:
 
 <div class='note'>
   
@@ -13,28 +13,29 @@ There have [been reports](https://www.raspberrypi.org/forums/viewtopic.php?f=28&
 
 </div>
 
-* Aeotec Z-Stick Series 5
-* Everspring USB stick - Gen 5
-* Sigma Designs UZB stick
-* Vision USB stick - Gen5
-* Zooz Z-Wave Plus S2 stick ZST10
-* ZWave.me Razberry Board
-* ZWave.me UZB1 stick
+- Aeotec Z-Stick Series 5
+- Everspring USB stick - Gen 5
+- GoControl HUSBZB-1 stick
+- Sigma Designs UZB stick
+- Vision USB stick - Gen5
+- Zooz Z-Wave Plus S2 stick ZST10
+- ZWave.me Razberry Board
+- ZWave.me UZB1 stick
 
 We recommend that you purchase a [Z-Wave Plus](https://z-wavealliance.org/z-wave_plus_certification/) controller, to take advantage of the improvements this provides. As OpenZWave doesn't support S2 or Smart Start, there's no need to buy one just for support of these features.
 
 <div class='note'>
-  If you're using Hass.io or running HASS in a Docker container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
+  If you're using Hass.io or running Home Assistant in a Docker container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
 </div>
 
 ## Stick Alternatives
 
 The alternative to a stick is a hub that supports Z-Wave. Home Assistant supports the following hubs with Z-Wave support:
 
- - [Vera](/integrations/vera/)
- - [Wink](/integrations/wink/)
- - [Fibaro](/integrations/fibaro/)
- - [SmartThings](/integrations/smartthings/)
+- [Vera](/integrations/vera/)
+- [Wink](/integrations/wink/)
+- [Fibaro](/integrations/fibaro/)
+- [SmartThings](/integrations/smartthings/)
 
 ## Controller Notes
 

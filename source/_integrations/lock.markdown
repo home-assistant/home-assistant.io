@@ -1,11 +1,11 @@
 ---
-title: "Locks"
-description: "Instructions on how to setup your locks with Home Assistant."
-logo: home-assistant.png
+title: Lock
+description: Instructions on how to setup your locks with Home Assistant.
 ha_category:
   - Lock
-ha_qa_scale: internal
 ha_release: 0.9
+ha_quality_scale: internal
+ha_domain: lock
 ---
 
 Keeps track which locks are in your environment, their state and allows you to control them.
@@ -61,4 +61,4 @@ Go to the **Developer Tools**, then to **Call Service** in the frontend, and cho
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on specific lock. Else targets all.
+| `entity_id`            |      yes | Only act on specific lock. Use `entity_id: all` to target all.

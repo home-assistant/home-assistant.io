@@ -1,10 +1,10 @@
 ---
-title: "Facebox"
-description: "Detect and recognize faces with Facebox."
-logo: machine-box.png
+title: Facebox
+description: Detect and recognize faces with Facebox.
 ha_category:
   - Image Processing
-ha_release: 0.70
+ha_release: 0.7
+ha_domain: facebox
 ---
 
 The `facebox` image processing platform allows you to detect and recognize faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected, and recognized faces are listed in the `matched_faces` attribute. An `image_processing.detect_face` event is fired for each recognized face, and the event `data` provides the `confidence` of recognition, the `name` of the person, the `image_id` of the image associated with the match, the `bounding_box` that contains the face in the image, and the `entity_id` that processing was performed on.
@@ -18,9 +18,30 @@ MB_KEY="INSERT-YOUR-KEY-HERE"
 
 sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
+
+or using `docker-compose`:
+
+```yaml
+version: '3'
+services:
+  facebox:
+    image: machinebox/facebox
+    container_name: facebox
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      - MB_KEY=${MB_KEY}
+      - MB_FACEBOX_DISABLE_RECOGNITION=false
+```
+
 You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bear in mind that the integration does not encrypt these credentials and this approach does not guarantee security on an unsecured network.
 
-If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` to the `docker run` command.
+After you created an account at [Machinebox](https://machinebox.io/account), you can grab your `MB_KEY` at [your Account page](https://developer.veritone.com/machinebox/overview).
+
+If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` in the `docker run` command.
+
+If your host machine does not support [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) and you experience issues running the `machinebox/facebox` image there is an alternative image without AVX support available at `machinebox/facebox_noavx`(*HINT*: This image is currently not supported by machinebox and should only be used if necessary) 
 
 ## Configuration
 
@@ -90,9 +111,9 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
 ```
 {% endraw %}
 
-## Service `facebox_teach_face`
+## Service `facebox.teach_face`
 
-The service `facebox_teach_face` can be used to teach Facebox faces.
+The service `facebox.teach_face` can be used to teach Facebox faces.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -120,7 +141,7 @@ You can use an automation to receive a notification when you train a face:
   alias: Face taught
   trigger:
   - event_data:
-      service: facebox_teach_face
+      service: facebox.teach_face
     event_type: call_service
     platform: event
   condition: []
@@ -159,4 +180,3 @@ you can create an automation to receive notifications on Facebox errors:
       title: Facebox error
 ```
 {% endraw %}
-

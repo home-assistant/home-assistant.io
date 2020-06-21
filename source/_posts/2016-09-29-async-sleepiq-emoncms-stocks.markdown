@@ -28,7 +28,7 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### Hide automation rules
 
-Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: true`.
+Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend.
 
 ### All changes
 
@@ -172,7 +172,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [Modbus]: /integrations/modbus/
 [Nest]: /integrations/nest/
 [Nuimo]: /integrations/nuimo_controller/
-[OpenALPR]: /integrations/openalpr_local_local
+[OpenALPR]: /integrations/openalpr_local/
 [passwordless]: /integrations/http/
 [Simplepush]: /integrations/simplepush
 [Slack]: /integrations/slack

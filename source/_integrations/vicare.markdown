@@ -1,10 +1,12 @@
 ---
-title: "Viessmann climate controller"
-description: "Instructions how to integrate Viessmann heating devices with Home Assistant"
-logo: viessmann.png
+title: Viessmann ViCare
+description: Instructions how to integrate Viessmann heating devices with Home Assistant
 ha_category: Climate
 ha_release: 0.99
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@oischinger'
+ha_domain: vicare
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
@@ -14,6 +16,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate) (Heating)
 - [Water Heater](#water-heater) (Domestic Hot Water)
+- [Sensor](#sensor) (Sensor)
 
 ## Configuration
 
@@ -43,10 +46,29 @@ circuit:
   description: Heating circuit of your heating device if multiple exist 
   required: false
   type: integer
+heating_type:
+  description: One of `generic`, `gas` or `heatpump`. Specifying the heating_type provides additional attributes and sensors specific for the heating system.
+  required: false
+  type: string
+  default: generic
+scan_interval:
+  description: The update frequency of this component in seconds. See [Viessmann API limits](#viessmann-api-limits)
+  default: 60
+  required: false
+  type: integer
 {% endconfiguration %}
 
 Two components will be created: `climate.vicare_heating` and `water_heater.vicare_water` (for domestic hot water).
 Unless you specify a `circuit` parameter, it will pick up the first heating circuit of your installation.
+
+## Viessmann API limits
+
+Recently Viessmann has introduced a rate limit on their REST API. If you exceed one of the limits below you will be banned for 24 hours:
+
+- Limit 1: 120 calls for a time window of 10 minutes
+- Limit 2: 1450 calls for a time window of 24 hours
+
+The default `scan_interval` of 60 seconds will work within these limits. Note however that any additional requests to the API, e.g., by setting the temperature via the integration but also by interacting with the ViCare app also counts into those limits. It is therefore advised to adjust the scan_interval to your usage scenario.
 
 ## Climate
 
@@ -86,12 +108,13 @@ The `climate.vicare_heating` component has the following mapping of HVAC modes t
 
 #### Service `set_preset_mode`
 
-Sets the preset mode. Supported preset modes are *eco* and *comfort*. These are identical to the respective Viessmann programs and are only temporary. Please consult your heating device manual for more information.
+Sets the preset mode. Supported preset modes are *eco* and *comfort*. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours.
+Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the target temperature to a configurable value. Please consult your heating device manual for more information.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
-| `preset_mode` | no | New value of hold mode.
+| `preset_mode` | no | New value of preset mode.
 
 ## Water Heater
 
@@ -110,4 +133,6 @@ Sets the target temperature of domestic hot water to the given temperature.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `temperature` | no | New target temperature for water heater
 
+## Sensor
 
+Additional data from ViCare is available as separate sensors. The sensors are automatically created based on the configured `heating_type`.

@@ -1,10 +1,10 @@
 ---
-title: "Edimax Switch"
-description: "Instructions on how to integrate Edimax switches into Home Assistant."
-logo: edimax.png
+title: Edimax
+description: Instructions on how to integrate Edimax switches into Home Assistant.
 ha_category:
   - Switch
 ha_release: pre 0.7
+ha_domain: edimax
 ---
 
 This `edimax` switch platform allows you to control the state of your [Edimax](https://www.edimax.com/edimax/merchandise/merchandise_list/data/edimax/global/home_automation_smart_plug/) switches.

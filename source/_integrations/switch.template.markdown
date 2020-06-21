@@ -5,8 +5,8 @@ ha_category:
   - Switch
 ha_release: 0.13
 ha_iot_class: Local Push
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform creates switches that combines components.
@@ -20,6 +20,7 @@ This can simplify the GUI and make it easier to write automations. You can mark 
 To enable Template Switches in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 switch:
@@ -36,6 +37,7 @@ switch:
           data:
             entity_id: switch.skylight_close
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -56,6 +58,11 @@ switch:
         description: Defines a template to set the state of the switch.
         required: true
         type: template
+      availability_template:
+        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        required: false
+        type: template
+        default: true
       turn_on:
         description: Defines an action to run when the switch is turned on.
         required: true
@@ -87,6 +94,7 @@ In this section you find some real-life examples of how to use this switch.
 This example shows a switch that copies another switch.
 
 {% raw %}
+
 ```yaml
 switch:
   - platform: template
@@ -96,12 +104,13 @@ switch:
         turn_on:
           service: switch.turn_on
           data:
-            entity_id: switch.source
+            entity_id: switch.target
         turn_off:
           service: switch.turn_off
           data:
-            entity_id: switch.source
+            entity_id: switch.target
 ```
+
 {% endraw %}
 
 ### Toggle Switch
@@ -109,6 +118,7 @@ switch:
 This example shows a switch that takes its state from a sensor and toggles a switch.
 
 {% raw %}
+
 ```yaml
 switch:
   - platform: template
@@ -125,6 +135,7 @@ switch:
           data:
             entity_id: switch.blind_toggle
 ```
+
 {% endraw %}
 
 ### Sensor and Two Switches
@@ -133,13 +144,14 @@ This example shows a switch that takes its state from a sensor, and uses two
 momentary switches to control a device.
 
 {% raw %}
+
 ```yaml
 switch:
   - platform: template
     switches:
       skylight:
         friendly_name: "Skylight"
-        value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
+        value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           service: switch.turn_on
           data:
@@ -149,6 +161,7 @@ switch:
           data:
             entity_id: switch.skylight_close
 ```
+
 {% endraw %}
 
 ### Change The Icon
@@ -156,6 +169,7 @@ switch:
 This example shows how to change the icon based on the day/night cycle.
 
 {% raw %}
+
 ```yaml
 switch:
   - platform: template
@@ -177,6 +191,7 @@ switch:
             mdi:garage
           {% endif %}
 ```
+
 {% endraw %}
 
 ### Change The Entity Picture
@@ -184,6 +199,7 @@ switch:
 This example shows how to change the entity picture based on the day/night cycle.
 
 {% raw %}
+
 ```yaml
 switch:
   - platform: template
@@ -205,4 +221,5 @@ switch:
             /local/garage-closed.png
           {% endif %}
 ```
+
 {% endraw %}

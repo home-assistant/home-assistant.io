@@ -1,11 +1,11 @@
 ---
-title: "IDTECK Prox Card Reader"
-description: "How to use IDTECK proximity card readers."
-logo: idteck.jpg
+title: IDTECK Proximity Reader
+description: How to use IDTECK proximity card readers.
 ha_category:
   - Other
 ha_release: 0.85
 ha_iot_class: Local Push
+ha_domain: idteck_prox
 ---
 
 [IDTECK](http://www.idteck.com) makes ID systems used to control access and identify users.  This integration works with [Proximity Readers](http://www.idteck.com/en/products/proximity-reader-__-card-%26-tag-__125khz) (RFID card readers). The device is connected to Home Assistant through a serial to ethernet converter (NPort).

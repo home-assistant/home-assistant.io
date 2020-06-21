@@ -71,7 +71,7 @@ For more background on this decision, see [ADR-006](https://github.com/home-assi
 
 With this release we have deprecated integrations that rely on webscraping. These will be removed from Home Assistant in a future release. Our [scrape](/integrations/scrape/) integration will remain part of Home Assistant.
 
-Webscraping is fragile, breaks often requires frequent updates and there have been occassions where websites have banned our users.
+Webscraping is fragile, breaks often requires frequent updates and there have been occasions where websites have banned our users.
 
 Users that rely on these integrations can continue using them as custom components.
 
@@ -371,7 +371,7 @@ anymore. - ([@abmantis] - [#25971])
 - Update sensor.py ([@MatsNl] - [#25825]) ([statistics docs])
 - Add pip-wheel-metadata in .gitignore ([@oncleben31] - [#25832])
 - Fix configuration field name ([@skarcha] - [#25840]) ([plex docs])
-- Allow components with empty list config (i.e. person) in packages ([@kellerza] - [#25827])
+- Allow components with empty list config (i.e., person) in packages ([@kellerza] - [#25827])
 - Make reproduce state use platform instead of rely on function ([@balloob] - [#25856]) ([climate docs]) ([group docs]) ([media_player docs])
 - Type check various base components ([@scop] - [#25878])
 - Fix script/translations_develop launch + clean some unused error i18n ([@Quentame] - [#25459]) ([arcam_fmj docs]) ([heos docs]) ([tellduslive docs]) ([twentemilieu docs]) ([upnp docs]) ([vesync docs]) ([zha docs])
@@ -793,7 +793,6 @@ anymore. - ([@abmantis] - [#25971])
 [dialogflow docs]: /integrations/dialogflow/
 [dsmr docs]: /integrations/dsmr/
 [ecobee docs]: /integrations/ecobee/
-[edp_redy docs]: /integrations/edp_redy/
 [emulated_hue docs]: /integrations/emulated_hue/
 [environment_canada docs]: /integrations/environment_canada/
 [eq3btsmart docs]: /integrations/eq3btsmart/

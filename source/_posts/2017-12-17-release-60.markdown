@@ -22,7 +22,7 @@ With the brand-new [ADS (automation device specification)][ads docs] component b
 Thanks to [@maxlaverse] Home Assistant support now [WebDav calendars][calendar.caldav docs].
 
 ## Tracking prices
-With the new [`gearbest` sensor][sensor.gearbest docs] there is now an additional sensor available to track the price of a product.
+With the new `gearbest` sensor there is now an additional sensor available to track the price of a product.
 
 ## Financial details
 Yahoo! has discontinued their financial service. To fill this gap we have now the [`alpha_vantage` sensor][sensor.alpha_vantage docs] which is intruded in this release and allows you to monitor the stock market.
@@ -32,7 +32,7 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Add iAlarm support ([@RyuzakiKK] - [#10878]) ([alarm_control_panel.ialarm docs]) (new-platform)
 - Add Alpha Vantage sensor ([@fabaff] - [#10873]) ([sensor.alpha_vantage docs]) (new-platform)
 - Add ADS component ([@stlehmann] - [#10142]) ([ads docs]) ([binary_sensor.ads docs]) ([light.ads docs]) ([sensor.ads docs]) ([switch.ads docs]) (new-platform)
-- Gearbest sensor ([@HerrHofrat] - [#10556]) ([sensor.gearbest docs]) (new-platform)
+- Gearbest sensor ([@HerrHofrat] - [#10556]) (new-platform)
 - Add Ziggo Mediabox XL media_player ([@b10m] - [#10514]) ([media_player.ziggo_mediabox_xl docs]) (new-platform)
 - Meraki AP Device tracker ([@masarliev] - [#10971]) ([device_tracker.meraki docs]) (new-platform)
 - Added Vera scenes ([@alanfischer] - [#10424]) ([vera docs]) ([scene.vera docs]) (new-platform)
@@ -56,7 +56,7 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Fix allday events in custom_calendars ([@maxlaverse] - [#11272]) ([calendar.caldav docs])
 - Fix unpredictable entity names in concord232 binary_sensor ([@rwa] - [#11292]) ([binary_sensor.concord232 docs])
 - Fix leak sensors always showing Unknown until Wet ([@OverloadUT] - [#11313]) ([binary_sensor.isy994 docs])
-- Don't block on sevice call for alexa ([@pvizeli] - [#11358]) ([alexa.smart_home docs])
+- Don't block on service call for alexa ([@pvizeli] - [#11358]) ([alexa.smart_home docs])
 - iOS 10 should be served javascript_version:es5 ([@mnoorenberghe] - [#11387])
 
 ## If you need help...
@@ -97,7 +97,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tado ignore invalid devices ([@dasos] - [#10927]) ([climate.tado docs])
 - don't ignore voltage data if sensor data changed ([@PaulAnnekov] - [#10925]) ([xiaomi_aqara docs])
 - Add ADS component ([@stlehmann] - [#10142]) ([ads docs]) ([binary_sensor.ads docs]) ([light.ads docs]) ([sensor.ads docs]) ([switch.ads docs]) (new-platform)
-- Gearbest sensor ([@HerrHofrat] - [#10556]) ([sensor.gearbest docs]) (new-platform)
+- Gearbest sensor ([@HerrHofrat] - [#10556]) (new-platform)
 - Add Ziggo Mediabox XL media_player ([@b10m] - [#10514]) ([media_player.ziggo_mediabox_xl docs]) (new-platform)
 - Generic thermostat initial_operation_mode ([@ziotibia81] - [#10690]) ([climate.generic_thermostat docs])
 - Use new build path for dev translations ([@armills] - [#10937])
@@ -121,7 +121,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added force_update for REST sensor ([@foxel] - [#11016]) ([sensor.miflora docs]) ([sensor.mqtt docs]) ([sensor.rest docs])
 - Add support for Logitech UE Smart Radios. ([@GreenTurtwig] - [#10077]) ([media_player.ue_smart_radio docs]) (new-platform)
 - Make notify.html5 depend on config ([@balloob] - [#11052]) ([notify.html5 docs])
-- This change fixes the error `OSError: [WinError 193]` on Windows debuggers (i.e. PyCharm) ([@tringler] - [#11034])
+- This change fixes the error `OSError: [WinError 193]` on Windows debuggers (i.e., PyCharm) ([@tringler] - [#11034])
 - Added support for cover in tellstick ([@perfalk] - [#10858]) ([tellstick docs]) ([cover.tellstick docs]) (new-platform)
 - Add a caldav calendar component ([@maxlaverse] - [#10842]) ([calendar.caldav docs]) (new-platform)
 - Add GPS coords to meraki ([@addelovein] - [#10998]) ([device_tracker.meraki docs])
@@ -142,7 +142,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix incorrect comment. ([@emosenkis] - [#11111])
 - Update Warrant ([@balloob] - [#11101]) ([cloud docs])
 - Fixed typo in automation.py ([@ryanm101] - [#11116]) ([config.automation docs])
-- Add media position properties ([@pschmitt] - [#10076]) ([media_player.liveboxplaytv docs])
+- Add media position properties ([@pschmitt] - [#10076])
 - update pyripple ([@nkgilley] - [#11122]) ([sensor.ripple docs])
 - Skip HASS emulated Hue bridges from detection. ([@andreacampi] - [#11128]) ([hue docs])
 - Always consume the no_throttle keyword argument. ([@andreacampi] - [#11126])
@@ -315,7 +315,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.generic_thermostat docs]: /integrations/generic_thermostat
 [climate.tado docs]: /integrations/tado
 [cloud docs]: /integrations/cloud/
-[cloud.const docs]: /integrations/cloud.const/
+[cloud.const docs]: /integrations/cloud/
 [config.automation docs]: /integrations/config.automation/
 [cover.tellstick docs]: /integrations/tellstick#cover
 [device_tracker docs]: /integrations/device_tracker/
@@ -334,7 +334,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [logbook docs]: /integrations/logbook/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.denonavr docs]: /integrations/denonavr/
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.samsungtv docs]: /integrations/samsungtv
 [media_player.sonos docs]: /integrations/sonos
 [media_player.ue_smart_radio docs]: /integrations/ue_smart_radio
@@ -351,7 +350,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.canary docs]: /integrations/canary#sensor
 [sensor.efergy docs]: /integrations/efergy
 [sensor.eliqonline docs]: /integrations/eliqonline
-[sensor.gearbest docs]: /integrations/gearbest
 [sensor.luftdaten docs]: /integrations/luftdaten#sensor
 [sensor.miflora docs]: /integrations/miflora
 [sensor.mqtt docs]: /integrations/sensor.mqtt/

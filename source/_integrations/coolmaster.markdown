@@ -1,51 +1,24 @@
 ---
-title: "CoolMasterNet Climate"
-description: "Instructions on how to integrate CoolMasterNet within Home Assistant."
-logo: coolautomation.png
+title: CoolMasterNet
+description: Instructions on how to integrate CoolMasterNet within Home Assistant.
 ha_category:
   - Climate
 ha_release: 0.88
 ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@OnFreund'
+ha_domain: coolmaster
 ---
 
+The `coolmaster` climate platform lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
 
-The `coolmaster` climate platform lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/). To set it up, add the following information to your `configuration.yaml` file:
+## Configuration via the frontend
 
-```yaml
-climate:
-  - platform: coolmaster
-    host: YOUR_COOLMASTER_HOST
-    port: YOUR_COOLMASTER_PORT
-    supported_modes:
-      - heat
-      - cool
-      - dry
-```
+Menu: **Configuration** -> **Integrations**.
 
-{% configuration %}
-host:
-  description: The host address of your CoolMasterNet instance (IP or host name).
-  required: true
-  type: string
-port:
-  description: The port number of your CoolMasterNet instance.
-  required: false
-  type: integer
-  default: 10102
-supported_modes:
-  description: The operation modes supported by your HVAC.
-  required: false
-  type: list
-  default: All modes
-  keys:
-    heat:
-      description: Heat mode.
-    cool:
-      description: Cool mode.
-    heat_cool:
-      description: Heat/Cool mode (CoolMasterNet refers to it as Auto).
-    dry:
-      description: Dry mode.
-    fan_only:
-      description: Fan only mode.
-{% endconfiguration %}
+Click on the `+` sign to add an integration and click on **CoolMasterNet**.
+Select the host and port of your instance, and check the box for the modes
+supported by your HVAC units. The units you have configured in CoolMasterNet
+will be automatically added to Home Assistant as Climate entities and
+matching devices.

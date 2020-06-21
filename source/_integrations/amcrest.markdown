@@ -1,25 +1,25 @@
 ---
-title: "Amcrest IP Camera"
-description: "Instructions on how to integrate Amcrest IP cameras within Home Assistant."
-logo: amcrest.png
+title: Amcrest
+description: Instructions on how to integrate Amcrest (or Dahua) IP cameras within Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
   - Camera
   - Sensor
-  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.49
+ha_codeowners:
+  - '@pnbruckner'
+ha_domain: amcrest
 ---
 
-The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Camera
 - Sensor
-- Switch (deprecated)
 
 ## Configuration
 
@@ -87,8 +87,8 @@ ffmpeg_arguments:
   default: -pred 1
 authentication:
   description: >
-    Defines which authentication method to use only when **stream_source**
-    is **mjpeg**. Currently, *aiohttp* only support *basic*.
+    Defines which authentication method to use only when `stream_source`
+    is `mjpeg`. Currently, `aiohttp` only support `basic`.
   required: false
   type: string
   default: basic
@@ -117,34 +117,12 @@ sensors:
   type: list
   default: None
   keys:
-    motion_detector:
-      description: >
-        Return `true`/`false` when motion is detected.  
-        
-        **Note:** The motion_detector sensor is deprecated and will be removed in a future release.
-        Use **binary_sensors** option **motion_detected** instead.
     sdcard:
       description: Return the SD card usage by reporting the total and used space.
     ptz_preset:
       description: >
         Return the number of PTZ preset positions
         configured for the given camera.
-switches:
-  description: >
-    Switches to display in the frontend.  
-    
-    **Note:** Switches are deprecated and will be removed in a future release.  
-    Use services and attributes instead.  
-    
-    The following switches can be monitored:
-  required: false
-  type: list
-  default: None
-  keys:
-    motion_detection:
-      description: Enable/disable motion detection setting.
-    motion_recording:
-      description: Enable/disable recording on motion detection setting.
 control_light:
   description: >
     Automatically control the camera's indicator light, turning it on if the audio or video streams are enabled, and turning it off if both streams are disabled.
@@ -157,12 +135,12 @@ control_light:
 stream `high` definition video with MJPEG encoding. You may need to use `low`
 resolution stream or the `snapshot` stream source instead.  If the quality seems
 too poor, lower the `Frame Rate (FPS)` and max out the `Bit Rate` settings in
-your camera's configuration manager. If you defined the *stream_source* to
-**mjpeg**, make sure your camera supports *Basic* HTTP authentication.
-Newer Amcrest firmware may not work, then **rtsp** is recommended instead.
+your camera's configuration manager. If you defined the `stream_source` to
+`mjpeg`, make sure your camera supports `Basic` HTTP authentication.
+Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
 
 **Note:** If you set the `stream_source` option to `rtsp`,
-make sure to follow the steps mentioned at [FFMPEG](/integrations/ffmpeg/)
+make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
 documentation to install the `ffmpeg`.
 
 ## Services
@@ -174,7 +152,8 @@ Available services:
 `enable_motion_recording`, `disable_motion_recording`,
 `enable_recording`, `disable_recording`,
 `goto_preset`, `set_color_bw`,
-`start_tour` and `stop_tour`
+`start_tour`, `stop_tour`, and
+`ptz_control`
 
 #### Service `enable_audio`/`disable_audio`
 
@@ -182,7 +161,7 @@ These services enable or disable the camera's audio stream.
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
 #### Service `enable_motion_recording`/`disable_motion_recording`
 
@@ -190,7 +169,7 @@ These services enable or disable the camera to record a clip to its configured s
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
 #### Service `enable_recording`/`disable_recording`
 
@@ -198,7 +177,7 @@ These services enable or disable the camera to continuously record to its config
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
 #### Service `goto_preset`
 
@@ -206,7 +185,7 @@ This service will cause the camera to move to one of the PTZ locations configure
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `preset` | no | Preset number, starting from 1.
 
 #### Service `set_color_bw`
@@ -215,7 +194,7 @@ This service will set the color mode of the camera.
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `color_bw` | no | One of `auto`, `bw` or `color`.
 
 #### Service `start_tour`/`stop_tour`
@@ -224,7 +203,153 @@ These services start or stop the camera's PTZ tour function.
 
 Service data attribute | Optional | Description
 -|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
+
+#### Service `ptz_control`
+
+If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  
+
+Service data attribute | Optional | Description
+-|-|-
+ `entity_id` | no| The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
+ `movement` | no | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down`
+ `travel_time` | yes |Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.
+
+#### Notes
+
+- PTZ zoom capability does not control VariFocal lens adjustments.
+- There can be several seconds of lag before the video (snapshot or live) reflects the camera movement.
+
+### Example card with controls
+
+<p class='img'>
+  <img src='/images/integrations/amcrest/amcrest_ptz.jpg' alt='Screenshot using a picture-elements with PTZ controls.'>
+  Example showing an Amcrest IP2M-841 PT camera with controls for Pan and Tilt.
+</p>
+
+Using the following picture-elements card code, you can display a live video feed from an Amcrest camera with controls for moving or zooming the camera.
+
+```yaml
+type: picture-elements
+entity: camera.lakehouse
+camera_image: camera.lakehouse
+camera_view: live   # or auto for snapshot view
+elements:
+  - type: icon
+    icon: 'mdi:arrow-up'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 25px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: up
+  - type: icon
+    icon: 'mdi:arrow-down'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 25px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: down
+  - type: icon
+    icon: 'mdi:arrow-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 50px
+      bottom: 25px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: left
+  - type: icon
+    icon: 'mdi:arrow-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 0px
+      bottom: 25px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: right
+  - type: icon
+    icon: 'mdi:arrow-top-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 50px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: left_up
+  - type: icon
+    icon: 'mdi:arrow-top-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 0px
+      bottom: 50px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: right_up
+  - type: icon
+    icon: 'mdi:arrow-bottom-left'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 50px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: left_down
+  - type: icon
+    icon: 'mdi:arrow-bottom-right'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      right: 0px
+      bottom: 0px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: right_down
+  - type: icon
+    icon: 'mdi:magnify'
+    style:
+      background: 'rgba(255, 255, 255, 0.25)'
+      bottom: 25px
+      right: 25px
+    tap_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: zoom_in
+    hold_action:
+      action: call-service
+      service: amcrest.ptz_control
+      service_data:
+        entity_id: camera.lakehouse
+        movement: zoom_out
+```
 
 ## Advanced Configuration
 
@@ -254,7 +379,3 @@ amcrest:
 ```
 
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
-
-<div class='note warning'>
-In previous versions, switch devices in setups with multiple cameras, would not have specific entity ID causing them to change randomly after each Home Assistant restart. The current version adds the name of the camera at the end of the switch entity ID, making it more specific and consistent and causes the name option to be required in a multi-camera system. This behavior matches the sensor behavior of the Amcrest component. Because of this, older automations may require updates to the entity ID.
-</div>

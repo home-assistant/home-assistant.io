@@ -1,7 +1,6 @@
 ---
-title: "WirelessTag"
-description: "Instructions on how to integrate your Wireless Tags sensors within Home Assistant."
-logo: wirelesstag.png
+title: Wireless Sensor Tags
+description: Instructions on how to integrate your Wireless Tags sensors within Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
@@ -9,9 +8,10 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Polling and Local Push
 ha_release: 0.68
+ha_domain: wirelesstag
 ---
 
-The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](http://wirelesstag.net) sensors tags in Home Assistant.
+The `wirelesstag` implementation allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -21,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To enable tags set up with your [wirelesstag.net](http://wirelesstag.net) account, add the following to your `configuration.yaml` file:
+To enable tags set up with your [wirelesstag.net](https://wirelesstag.net/) account, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,7 +59,7 @@ Tags Manager supports local push notifications for `http` schema only. So if you
 
 ## Binary Sensor
 
-To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
+To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -101,7 +101,7 @@ monitored_conditions:
 
 ## Sensor
 
-To enable the sensor platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
+To enable the sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -130,7 +130,7 @@ monitored_conditions:
 
 ## Switch
 
-To enable the switch platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
+To enable the switch platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

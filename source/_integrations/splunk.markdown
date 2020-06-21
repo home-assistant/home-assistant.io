@@ -1,13 +1,13 @@
 ---
-title: "Splunk"
-description: "Record events in Splunk."
-logo: splunk.png
+title: Splunk
+description: Record events in Splunk.
 ha_category:
   - History
 ha_release: 0.13
+ha_domain: splunk
 ---
 
-The `splunk` integration makes it possible to log all state changes to an external [Splunk](http://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
+The `splunk` integration makes it possible to log all state changes to an external [Splunk](https://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
 
 ## Configuration
 

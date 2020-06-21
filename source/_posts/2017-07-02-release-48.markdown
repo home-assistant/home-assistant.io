@@ -469,7 +469,7 @@ light:
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.soundtouch docs]: /integrations/soundtouch
 [mqtt docs]: /integrations/mqtt/
-[mqtt.discovery docs]: /integrations/mqtt.discovery/
+[mqtt.discovery docs]: /docs/mqtt/discovery/
 [notify.clicksend docs]: /integrations/clicksend
 [notify.html5 docs]: /integrations/html5
 [notify.smtp docs]: /integrations/smtp
@@ -505,7 +505,7 @@ light:
 [switch.wake_on_lan docs]: /integrations/wake_on_lan#switch
 [tado docs]: /integrations/tado/
 [telegram_bot docs]: /integrations/telegram_bot/
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tellduslive docs]: /integrations/tellduslive/
 [tts docs]: /integrations/tts/
 [upnp docs]: /integrations/upnp/

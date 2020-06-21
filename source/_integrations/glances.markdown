@@ -1,50 +1,50 @@
 ---
-title: "Glances"
-description: "Instructions on how to integrate Glances sensors into Home Assistant."
-logo: glances.png
+title: Glances
+description: Instructions on how to integrate Glances sensors into Home Assistant.
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.7.3
+ha_config_flow: true
+ha_codeowners:
+  - '@fabaff'
+  - '@engrbm87'
+ha_domain: glances
 ---
 
-
-The `glances` sensor platform is consuming the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
+The `glances` integration allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
 
 ## Setup
 
-This sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
-To start a Glances RESTful API server on its default port 61208, the a test the following command can be used:
+These sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
+To start a Glances RESTful API server on its default port 61208 then test you can use the following command:
 
 ```bash
 $ sudo glances -w
 Glances web server started on http://0.0.0.0:61208/
 ```
 
-Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/2`. Don't use `-s` as this will start the XMLRPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
+Check if you are able to access the API located at `http://IP_ADRRESS:61208/api/3`. Don't use `-s` as this will start the XML-RPC server on port 61209. Home Assistant only supports the REST API of GLANCES.
 
 The details about your memory usage is provided as a JSON response. If so, you are good to proceed.
 
 ```bash
-$ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
+$ curl -X GET http://IP_ADDRESS:61208/api/3/mem/free
 {"free": 203943936}
 ```
 
-If this doesn't work, try changing the `2` for `3`, if you have installed the latest version of Glances.
+If this doesn't work, try changing the `3` to `2`, if you don't have the latest version of Glances installed.
 
-For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
+For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).  
 
 ## Configuration
 
-To enable the Glances sensor, add the following lines to your `configuration.yaml`:
+Set up the integration through **Configuration -> Integrations -> Glances**. To import the configuration from `configuration.yaml` remove any previously configured sensors with platform type `glances` and add the following lines:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: glances
-    host: IP_ADDRESS
-    resources:
-      - 'disk_use_percent'
+glances:
+  - host: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -85,51 +85,32 @@ version:
   description: "The version of the Glances API. Supported version: `2` and `3`."
   required: false
   type: integer
-  default: 2
-resources:
-  description: Entries to monitor.
-  required: false
-  type: list
-  default: disk_use
-  keys:
-    disk_use_percent:
-      description: The used disk space in percent.
-    disk_use:
-      description: The used disk space.
-    disk_free:
-      description: The free disk space.
-    memory_use_percent:
-      description: The used memory in percent.
-    memory_use:
-      description: The used memory.
-    memory_free:
-      description: The free memory.
-    swap_use_percent:
-      description: The used swap space in percent.
-    swap_use:
-      description: The used swap space.
-    swap_free:
-      description: The free swap space.
-    processor_load:
-      description: The load.
-    process_running:
-      description: The number of running processes.
-    process_total:
-      description: The total number of processes.
-    process_thread:
-      description: The number of threads.
-    process_sleeping:
-      description: The number of sleeping processes.
-    cpu_use_percent:
-      description: The used CPU in percent.
-    cpu_temp:
-      description: The CPU temperature (may not be available on all platforms).
-    docker_active:
-      description: The count of active Docker containers.
-    docker_cpu_use:
-      description: The total CPU usage in percent of Docker containers.
-    docker_memory_use:
-      description: The total memory used by Docker containers.
+  default: 3
 {% endconfiguration %}
 
-Not all platforms are able to provide all metrics. For instance `cpu_temp` is requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
+## Integration Entities
+
+Glances integration will add the following sensors if available in the platform:
+
+- For each detected disk (or mount point) the following sensors will be created:
+  - disk_use_percent: The used disk space in percent.
+  - disk_use: The used disk space.
+  - disk_free: The free disk space.
+- memory_use_percent: The used memory in percent.
+- memory_use: The used memory.
+- memory_free: The free memory.
+- swap_use_percent: The used swap space in percent.
+- swap_use: The used swap space.
+- swap_free: The free swap space.
+- processor_load: The load.
+- process_running: The number of running processes.
+- process_total: The total number of processes.
+- process_thread: The number of threads.
+- process_sleeping: The number of sleeping processes.
+- cpu_use_percent: The used CPU in percent.
+- sensor_temp: A temperature sensor for each device that provides temperature (depends on platform).
+- docker_active: The count of active Docker containers.
+- docker_cpu_use: The total CPU usage in percent of Docker containers.
+- docker_memory_use: The total memory used by Docker containers.
+
+Not all platforms are able to provide all metrics. For instance the cpu temp sensor requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.

@@ -52,7 +52,7 @@ Note that this example uses the `voicerss` text-to-speech platform. There are ma
 
 ```yaml
 tts:
-  - platform: google
+  - platform: google_translate
 ```
 
 If you want to use this TTS engine, change the line in the example provided to:

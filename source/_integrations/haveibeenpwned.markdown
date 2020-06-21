@@ -1,22 +1,16 @@
 ---
-title: "HaveIBeenPwned Sensor"
-description: "Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant."
-logo: haveibeenpwned.png
+title: HaveIBeenPwned
+description: Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.31
 ha_iot_class: Cloud Polling
+ha_domain: haveibeenpwned
 ---
 
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
 
 ## Configuration
-
-<div class='note warning'>
-
-  The HaveIBeenPwned API is no longer a free API. For more information about this change read the HIBP creator's [blogpost regarding the change](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/).
-
-</div>
 
 In order to use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase one.
 

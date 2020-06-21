@@ -1,15 +1,15 @@
 ---
-title: "IOTA"
-description: "Instructions on how to integrate IOTA wallets with Home Assistant."
-logo: iota.png
+title: IOTA
+description: Instructions on how to integrate IOTA wallets with Home Assistant.
 ha_category:
   - Finance
   - Sensor
 ha_release: 0.62
 ha_iot_class: Cloud Polling
+ha_domain: iota
 ---
 
-[IOTA](http://iota.org/) is a new blockless distributed ledger which is scalable, lightweight and makes it possible to transfer value without any fees.
+[IOTA](https://iota.org/) is a new blockless distributed ledger which is scalable, lightweight and makes it possible to transfer value without any fees.
 
 The `iota` integration displays various details (e.g., the balance, node attributes) of IOTA wallets.
 

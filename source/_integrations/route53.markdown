@@ -1,10 +1,10 @@
 ---
-title: "route53"
-description: "Automatically update your AWS Route53 DNS records."
-logo: route53.png
+title: AWS Route53
+description: Automatically update your AWS Route53 DNS records.
 ha_category:
   - Network
 ha_release: 0.81
+ha_domain: route53
 ---
 
 With the `route53` integration can you keep your AWS Route53 DNS records up to date.
@@ -101,3 +101,9 @@ ttl:
   type: integer
   default: 300
 {% endconfiguration %}
+
+## Services
+
+### Service `route53.update_records`
+
+Use this service to manually trigger an update of the DNS records.

@@ -1,16 +1,18 @@
 ---
-title: "SmartHab"
-description: "Instructions on how to integrate SmartHab devices into Home Assistant"
-logo: smarthab.png
+title: SmartHab
+description: Instructions on how to integrate SmartHab devices into Home Assistant
 ha_release: 0.94
 ha_category:
   - Hub
   - Cover
   - Light
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@outadoc'
+ha_domain: smarthab
 ---
 
-If your home is fitted with [SmartHab](http://www.smarthab.fr/en/home/)'s 
+If your home is fitted with [SmartHab](https://www.smarthab.fr/en/home/)'s 
 devices and you have access to their app-based services, you will be able 
 to control your lights and shutters with the SmartHab integration for Home 
 Assistant.

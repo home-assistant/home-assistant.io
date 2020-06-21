@@ -174,7 +174,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - OwnTracks: Fix handler is None checking ([@balloob] - [#9794]) ([device_tracker.owntracks docs])
 - Changed yaml.load into yaml.safe_load ([@GenericStudent] - [#9841])
 - Bugfix/9811 jinja autoescape ([@GenericStudent] - [#9842])
-- Fix #9839 ([@pschmitt] - [#9880]) ([media_player.liveboxplaytv docs])
+- Fix #9839 ([@pschmitt] - [#9880])
 - Upgrade python-telegram-bot to 8.1.1 ([@azogue] - [#9882]) ([telegram_bot docs])
 - Xknx improvements ([@Julius2342] - [#9871]) ([knx docs]) ([climate.knx docs])
 - zha: Update to bellows 0.4.0 ([@rcloran] - [#9890]) ([zha docs]) ([sensor.zha docs])
@@ -211,7 +211,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update directpy to 0.2 ([@arsaboo] - [#9948])
 - Update enocean to 0.40 ([@arsaboo] - [#9949]) ([enocean docs])
 - Update hikvision to 1.2 ([@arsaboo] - [#9953]) ([switch.hikvisioncam docs])
-- Update fritzhome to 1.0.3 ([@arsaboo] - [#9951]) ([switch.fritzdect docs])
+- Update fritzhome to 1.0.3 ([@arsaboo] - [#9951])
 - Update fritzconnection to 0.6.5 ([@arsaboo] - [#9950]) ([device_tracker.fritz docs]) ([sensor.fritzbox_callmonitor docs]) ([sensor.fritzbox_netmonitor docs])
 - Upgraded pyhomematic ([@danielperna84] - [#9956]) ([homematic docs])
 - Add emeter attributes ([@gollo] - [#9903]) ([light.tplink docs])
@@ -472,7 +472,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.denon docs]: /integrations/denon
 [media_player.denonavr docs]: /integrations/denonavr/
 [media_player.dunehd docs]: /integrations/dunehd
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.monoprice docs]: /integrations/monoprice
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.yamaha docs]: /integrations/yamaha
@@ -520,7 +519,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [shiftr docs]: /integrations/shiftr/
 [skybell docs]: /integrations/skybell/
 [switch.flux docs]: /integrations/flux
-[switch.fritzdect docs]: /integrations/fritzdect
 [switch.hikvisioncam docs]: /integrations/hikvisioncam
 [switch.rainmachine docs]: /integrations/rainmachine#switch
 [switch.skybell docs]: /integrations/skybell#switch

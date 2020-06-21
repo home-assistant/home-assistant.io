@@ -1,10 +1,10 @@
 ---
-title: "Logbook"
-description: "Instructions on how to enable the logbook integration for Home Assistant."
-logo: logbook.png
+title: Logbook
+description: Instructions on how to enable the logbook integration for Home Assistant.
 ha_category:
   - History
 ha_release: 0.7
+ha_domain: logbook
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
@@ -17,8 +17,7 @@ the `recorder` integration for storing the data. This means that if the
 PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.
 
-To enable the logbook in your installation,
-add the following to your `configuration.yaml` file:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,7 +65,6 @@ logbook:
       - sensor.date
     domains:
       - sun
-      - weblink
 ```
 
 In case you just want to see messages from some specific entities or domains use

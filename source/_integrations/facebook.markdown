@@ -1,10 +1,10 @@
 ---
-title: "Facebook Messenger"
-description: "Instructions on how to add Facebook user notifications to Home Assistant."
-logo: facebook.png
+title: Facebook Messenger
+description: Instructions on how to add Facebook user notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.36
+ha_domain: facebook
 ---
 
 The `facebook` notification platform enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
@@ -118,21 +118,4 @@ script:
               - content_type: text
                 title: Blue
                 payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE
-```
-
-You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. Facebook requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all but can be used right away to a selected group of testers of your choice. 
-
-To enable broadcast just use the keyword "BROADCAST" as your target. Only put ONE target BROADCAST as below:
-
-```yaml
-- alias: Facebook Broadcast
-  trigger:
-    platform: sun
-    event: sunset
-  action:
-    service: notify.facebook
-    data:
-      message: Some text you want to send
-      target:
-        - BROADCAST
 ```

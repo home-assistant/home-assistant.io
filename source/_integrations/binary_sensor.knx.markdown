@@ -1,11 +1,11 @@
 ---
 title: "KNX Binary Sensor"
 description: "Instructions on how to setup the KNX binary sensors within Home Assistant."
-logo: knx.png
 ha_category:
   - Binary Sensor
 ha_release: 0.24
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>
@@ -14,7 +14,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.
+The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
 
 Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
 

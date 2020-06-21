@@ -1,10 +1,10 @@
 ---
-title: "VoiceRSS"
-description: "Instructions on how to setup VoiceRSS TTS with Home Assistant."
-logo: voicerss.png
+title: VoiceRSS
+description: Instructions on how to setup VoiceRSS TTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.35
+ha_domain: voicerss
 ---
 
 The `voicerss` text-to-speech platform uses [VoiceRSS](http://www.voicerss.org/) Text-to-Speech engine to read a text with natural sounding voices.

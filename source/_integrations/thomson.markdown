@@ -1,16 +1,15 @@
 ---
-title: "Thomson"
-description: "Instructions on how to integrate Thomson routers into Home Assistant."
-logo: technicolor.png
+title: Thomson
+description: Instructions on how to integrate Thomson routers into Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 0.7
+ha_domain: thomson
 ---
-
 
 Thomson produced networking equipment (under the brand name SpeedTouch) till 2010 and was then renamed to Technicolor.
 
-This platform allows you to detect presence by looking at connected devices to a [Thomson](http://www.technicolor.com) device.
+This platform allows you to detect presence by looking at connected devices to a [Thomson](https://www.technicolor.com/) device.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

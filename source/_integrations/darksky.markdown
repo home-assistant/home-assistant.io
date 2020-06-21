@@ -1,18 +1,26 @@
 ---
-title: "Dark Sky Sensor"
-description: "How to integrate Dark Sky within Home Assistant."
-logo: dark_sky.png
+title: Dark Sky
+description: How to integrate Dark Sky within Home Assistant.
 ha_category:
   - Weather
-ha_release: "0.30"
+ha_release: '0.30'
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@fabaff'
+ha_domain: darksky
 ---
 
-The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
+The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](https://www.openstreetmap.org/).
 
 ## Setup
 
-You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
+<div class='note warning'>
+
+On March 31, 2020 Dark Sky was [acquired by Apple](https://blog.darksky.net/dark-sky-has-a-new-home/) and is no longer allowing new API registrations. The Dark Sky API will continue to function for existing users through the end of 2021, but it is no longer possible to obtain an API key for new users.
+
+</div>
+
+You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
 <div class='note warning'>
 
@@ -66,12 +74,12 @@ language:
 latitude:
   description: Latitude coordinate to monitor weather of (required if **longitude** is specified).
   required: false
-  default: coordinates defined in your `configuration.yaml`
+  default: coordinates from the Home Assistant configuration
   type: float
 longitude:
   description: Longitude coordinate to monitor weather of (required if **latitude** is specified).
   required: false
-  default: coordinates defined in your `configuration.yaml`
+  default: coordinates from the Home Assistant configuration
   type: float
 monitored_conditions:
   description: Conditions to display in the frontend.
@@ -174,7 +182,7 @@ scan_interval:
 
 #### Language options
 
-All language options are described in this table that you can use for the dark sky sensor.
+All language options are described in this table that you can use for the Dark Sky sensor.
 
 |Language|Variable Code|
 |---|---|

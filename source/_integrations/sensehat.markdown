@@ -1,13 +1,13 @@
 ---
-title: "Sense HAT"
-description: "Instructions on how to setup Sense HAT LED lights within Home Assistant."
-logo: sense-hat.png
+title: Sense HAT
+description: Instructions on how to setup Sense HAT LED lights within Home Assistant.
 ha_category:
   - DIY
   - Light
   - Sensor
 ha_iot_class: Assumed State
 ha_release: 0.44
+ha_domain: sensehat
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -141,7 +141,7 @@ group:
     - group.sense_hat
 ```
 
-### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
+### Directions for installing on Raspberry Pi Raspbian Based installation:
 
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
@@ -182,7 +182,7 @@ sudo reboot
 ```
 
 Unfortunately enabling the SenseHAT Sensor integration for a Virtual Environment install of Home Assistant fails with errors.
-_(The Raspberry Pi All-In-One installer and HASSbian both run Home Assistant in an virtual environment)._
+_(The Raspberry Pi All-In-One installer run Home Assistant in an virtual environment)._
 These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 
 This fix has been tested with a clean install of:
@@ -191,6 +191,6 @@ This fix has been tested with a clean install of:
 
 and
 
-* [Home Assistant 0.37.1](/getting-started/installation-raspberry-pi-all-in-one/)
+* Home Assistant 0.37.1
 
 For setting up the Sense HAT's RGB LED matrix as lights within Home Assistant, please see the [Sense HAT light component](#light).

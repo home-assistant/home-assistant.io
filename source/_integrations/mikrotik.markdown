@@ -1,14 +1,17 @@
 ---
-title: "MikroTik"
-description: "Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant."
-logo: mikrotik.png
+title: Mikrotik
+description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
 ha_category:
   - Hub
   - Presence Detection
 ha_release: 0.44
+ha_codeowners:
+  - '@engrbm87'
+ha_config_flow: true
+ha_domain: mikrotik
 ---
 
-The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.
+The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -27,22 +30,28 @@ set api disabled=no port=8728
 
 Web Frontend:
 
-Go to **IP** -> **Services** -> **api** and enable it.
+Go to **IP** -> **Services** -> **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 
-
-To use a MikroTik router in your installation, add the following to your `configuration.yaml` file:
+Home Assistant offers MikroTik integration through **Configuration** -> **Integrations** -> **MikroTik**.
+It also allows importing from the `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mikrotik:
-  - host: IP_ADDRESS
+  - name: Mikrotik
+    host: IP_ADDRESS
     username: ROUTEROS_USERNAME
     password: ROUTEROS_PASSWORD
 ```
 
 {% configuration %}
+name:
+  description: The name of your MikroTik device.
+  required: true
+  default: Mikrotik
+  type: string
 host:
   description: The IP address of your MikroTik device.
   required: true
@@ -55,41 +64,32 @@ password:
   description: The password of the given user account on the MikroTik device.
   required: true
   type: string
-login_method:
-  description: The login method to use on the MikroTik device. The `plain` method is used by default, if you have an older RouterOS Version than 6.43, use `token` as the login method.
-  required: false
-  type: string
-  options: plain, token
-  default: plain
 port:
   description: RouterOS API port.
   required: false
   default: 8728 (or 8729 if SSL is enabled)
   type: integer
-ssl:
+verify_ssl:
   description: Use SSL to connect to the API.
   required: false
   default: false
   type: boolean
-method:
-  description: Override autodetection of device scanning method. Can be `wireless` to use local wireless registration, `capsman` for capsman wireless registration, or `dhcp` for DHCP leases.
-  required: false
-  type: string
 arp_ping:
   description: Use ARP ping with DHCP method for device scanning.
   required: false
   default: false
   type: boolean
+force_dhcp:
+  description: Force use of DHCP server list for devices to be tracked.
+  required: false
+  default: false
+  type: boolean
+detection_time:
+  description: How long since the last seen time before the device is marked away, specified in seconds.
+  required: false
+  default: 300
+  type: integer
 {% endconfiguration %}
-
-<div class='note info'>
-  
-  As of version 6.43 of RouterOS Mikrotik introduced a new login method (plain) in addition to the old login method (token). With Version 6.45.1 the old token login method got deprecated.
-  In order to support both login mechanisms, the new config option `login_method` has been introduced. If this option is not set, the component will try to login with the plain method first and the token method if that fails.
-  That can cause log entries on the router like `login failure for user homeassistant from 192.168.23.10 via api` but doesn't keep the component from working. 
-  To get rid of these entries, set the `login_method` to `plain` for Routers with OS versions > 6.43 or `token` for routers with OS versions < 6.43.
-
-</div>
 
 ## Use a certificate
 
@@ -102,7 +102,7 @@ To use SSL to connect to the API (via `api-ssl` instead of `api` service) furthe
 /ip service enable api-ssl
 ```
 
-Then add `ssl: true` to `mikrotik` device tracker entry in your `configuration.yaml` file.
+Then add `verify_ssl: true` to `mikrotik` device tracker entry in your `configuration.yaml` file.
 
 If everything is working fine you can disable the pure `api` service in RouterOS:
 
@@ -112,33 +112,23 @@ If everything is working fine you can disable the pure `api` service in RouterOS
 
 ## The user privileges in RouterOS
 
-To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API only:
+To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API  and perform ping test only:
 
 ```bash
-/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,!test,!winbox,!password,!web,!sniff,!sensitive,!romon,!dude,!tikapp
+/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,test,!winbox,!password,!web,!sniff,!sensitive,!romon,!dude,!tikapp
 /user add group=homeassistant name=homeassistant
 /user set password="YOUR_PASSWORD" homeassistant
 ```
 
-## Using the additional configuration to the `mikrotik` entry in your `configuration.yaml` file:
+## Using the additional configuration to the `mikrotik` entry in your `configuration.yaml` file
 
 ```yaml
 mikrotik:
   - host: 192.168.88.1
     username: homeassistant
     password: YOUR_PASSWORD
-    ssl: true
+    verify_ssl: true
     arp_ping: true
-    method: dhcp
-    track_devices: true
-
-  - host: 192.168.88.2
-    username: homeassistant
-    password: YOUR_PASSWORD
-    ssl: true
-    port: 8729
-    method: capsman
-    track_devices: true
+    force_dhcp: true
+    detection_time: 30
 ```
-
-See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.

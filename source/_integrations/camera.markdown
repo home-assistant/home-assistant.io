@@ -1,11 +1,11 @@
 ---
-title: "Camera"
-description: "Instructions on how to integrate cameras within Home Assistant."
-logo: home-assistant.png
+title: Camera
+description: Instructions on how to integrate cameras within Home Assistant.
 ha_category:
   - Camera
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
+ha_domain: camera
 ---
 
 The camera integration allows you to use IP cameras with Home Assistant.
@@ -85,7 +85,7 @@ For example, the following action in an automation would take a recording from "
 ```yaml
 action:
   service: camera.record
-  data:
+  data_template:
     entity_id: camera.yourcamera
     filename: '/tmp/{{ entity_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
@@ -134,8 +134,6 @@ Turn on camera. Not all camera models support this service, please consult indiv
 
 A simple way to test if you have set up your `camera` platform correctly, is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose your service from the dropdown menu **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
 
-```json
-{
-  "entity_id": "camera.living_room_camera"
-}
+```yaml
+entity_id: camera.living_room_camera
 ```

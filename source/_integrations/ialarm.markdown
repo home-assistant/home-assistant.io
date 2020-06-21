@@ -1,10 +1,11 @@
 ---
-title: "Antifurto365 iAlarm Control Panel"
-description: "Instructions on how to integrate iAlarms alarms into Home Assistant."
+title: Antifurto365 iAlarm
+description: Instructions on how to integrate iAlarms alarms into Home Assistant.
 logo: antifurto365-ialarm.png
 ha_category:
   - Alarm
-ha_release: "0.60"
+ha_release: '0.60'
+ha_domain: ialarm
 ---
 
 The `ialarm` platform provides connectivity with the [Antifurto365](https://www.antifurtocasa365.it/) iAlarm alarm systems.

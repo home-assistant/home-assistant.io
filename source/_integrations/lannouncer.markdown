@@ -1,13 +1,14 @@
 ---
-title: "Lannouncer"
-description: "Instructions on how to add Lannouncer notifications to Home Assistant."
+title: LANnouncer
+description: Instructions on how to add Lannouncer notifications to Home Assistant.
 logo: lannouncer.png
 ha_category:
   - Notifications
 ha_release: 0.36
+ha_domain: lannouncer
 ---
 
-The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](http://www.keybounce.com/lannouncer/). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
+The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://www.keybounce.com/lannouncer/). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
 
 To enable Lannouncer notifications in your installation, add the following to your `configuration.yaml` file:
 
@@ -42,13 +43,13 @@ You need to install the Lannouncer app and enable the *Network (TCP) Listener* a
 
 Lannouncer uses the default Android TTS voice. You can tweak that in the Android configuration, or you can install a different TTS engine from the Play Store. You might want to raise the volume in the app settings since that depends on the actual hardware device.
 
-More information can be found [here](http://www.keybounce.com/lannouncer/configuring-lannouncer/).
+More information can be found [here](https://www.keybounce.com/lannouncer/configuring-lannouncer/).
 
 ### Sending messages
 
 Lannouncer supports two types of messages.
 
-Spoken messages is the default method (`speak`). You just invoke the `notify` service with the following json and the device will speak out the specified message.
+Spoken messages is the default method (`speak`). You just invoke the `notify` service with the following JSON and the device will speak out the specified message.
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: "EnOcean"
-description: "Connect EnOcean devices to Home Assistant"
+title: EnOcean
+description: Connect EnOcean devices to Home Assistant
 logo: enocean.png
 ha_category:
   - Hub
@@ -10,6 +10,9 @@ ha_category:
   - Switch
 ha_release: 0.21
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@bdurrer'
+ha_domain: enocean
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
@@ -19,7 +22,7 @@ The `enocean` integration adds support for some of these devices. You will need 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor) - Wall switches
-- [Sensor](#sensor) - Power meters, temperature sensors and humidity sensors
+- [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
 
@@ -32,7 +35,7 @@ The following devices have been confirmed to work out of the box:
 - Omnio WS-CH-102-L-rw battery-less wall switch
 - Permundo PSC234 (switch and power monitor)
 - EnOcean STM-330 temperature sensor
-
+- Hoppe SecuSignal window handle from Somfy
 
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). 
 If it does, it will most likely work. 
@@ -63,7 +66,7 @@ This can typically be one of those batteryless wall switches.
 Tested with:
 
 - Eltako FT55 which uses the EnOcean PTM 215 module
-- [TRIO2SYS Wall switches](http://www.trio2sys.fr/index.php/fr/produits-enocean-sans-fil-sans-pile-interoperable/emetteur-sans-fils-sans-pile-interoperable-enocean) which uses the EnOcean PTM210 DB module
+- [TRIO2SYS Wall switches](https://www.trio2sys.fr/index.php/fr/produits-enocean-sans-fil-sans-pile-interoperable/emetteur-sans-fils-sans-pile-interoperable-enocean) which uses the EnOcean PTM210 DB module
 - Omnio WS-CH-102
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
@@ -160,6 +163,7 @@ The EnOcean sensor platform currently supports the following device types:
  * [power sensor](#power-sensor)
  * [humidity sensor](#humidity-sensor)
  * [temperature sensor](#temperature-sensor)
+ * [window handle](#window-handle)
  
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
@@ -188,7 +192,6 @@ device_class:
   default: powersensor
 {% endconfiguration %}
 
-
 ### Power sensor
 
 This has been tested with a Permundo PSC234 switch, but any device sending EEP **A5-12-01** messages will work.
@@ -203,7 +206,6 @@ sensor:
     id: [0x01,0x90,0x84,0x3C]
     device_class: powersensor
 ```
-
 
 ### Humidity sensor
 
@@ -256,29 +258,29 @@ sensor:
 The temperature sensor supports these additional configuration properties.
 
 {% configuration %}
-temp_min:
+min_temp:
   description: The minimal temperature in °C your sensor supports.
   required: false
   type: integer
   default: 0
-temp_max:
+max_temp:
   description: The maximum temperature in °C your sensor supports.
   required: false
   type: integer
   default: 40
-range_min:
-  description: The range value your sensor reports for `temp_min`
+range_from:
+  description: The range value your sensor reports for `min_temp`
   required: false
   type: integer
   default: 255
-range_max:
-  description: The range value your sensor reports for `temp_max`
+range_to:
+  description: The range value your sensor reports for `max_temp`
   required: false
   type: integer
   default: 0
 {% endconfiguration %}
 
-Note that the default configuration values of _range_min_ and _range_max_ are not typos, the range is backwards for most sensors.
+Note that the default configuration values of _range_from_ and _range_to_ are not typos, the range is backwards for most sensors.
 However, some EEPs have a different, inverted range, which goes from 0 to 250. This includes the following EEPs:
 
 - **A5-04-01**
@@ -294,9 +296,32 @@ sensor:
     platform: enocean
     id: [0x01,0x90,0x84,0x3C]
     device_class: temperature
-    range_min: 0
-    range_max: 250
+    range_from: 0
+    range_to: 250
 ```
+
+### Window handle
+
+As of now, the Hoppe SecuSignal window handle from Somfy has been successfully tested. However, any mechanical window handle that follows the EnOcean RPS telegram spec F6 10 00 (Hoppe AG) is supported.
+
+To configure a window handle, add the following code to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry for window handle EEP F6-10-00
+sensor:
+  - name: Living Room Window Handle
+    platform: enocean
+    id: [0xDE,0xAD,0xBE,0xEF]
+    device_class: windowhandle
+```
+
+The configuration does not have any optional parameters.
+
+The window handle sensor can have the following states:
+
+- **closed**: The window handle is in closed position (typically down, or 6 o'clock)
+- **open**: The window handle is in open position (typically left or right, or 3 o'clock or 9 o'clock)
+- **tilt**: The window handle is in tilt position (typically up or 12 o'clock)
 
 ## Switch
 

@@ -1,11 +1,11 @@
 ---
-title: "Snapcast"
-description: "Instructions on how to integrate Snapcast into Home Assistant."
-logo: snapcast.png
+title: Snapcast
+description: Instructions on how to integrate Snapcast into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.13
 ha_iot_class: Local Polling
+ha_domain: snapcast
 ---
 
 The `snapcast` platform allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.
@@ -67,3 +67,12 @@ Remove one or more speakers from their group of speakers.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s to separate from their coordinator speaker.
+
+### Service `snapcast.set_latency`
+
+Set the latency of a speaker.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s for which latency will be adjusted.
+| `latency` | no | Latency in ms.

@@ -1,11 +1,13 @@
 ---
-title: "Yi Home Camera"
-description: "Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant."
-logo: yi.png
+title: Yi Home Cameras
+description: Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant.
 ha_category:
   - Camera
 ha_release: 0.56
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@bachya'
+ha_domain: yi
 ---
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
@@ -21,7 +23,7 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 ### Installing Alternative Firmware
 
-In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
+In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3) or if you have a 2019 version camera [yi-hack-6FUS_4.5.0 GitHub project](https://github.com/roleoroleo/yi-hack-6FUS_4.5.0).
 
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
 
@@ -38,7 +40,7 @@ If you use a version higher than 0.1.4-beta2, you can simply solve the FTP issue
 </div>
 
 <div class='note warning'>
-Hassbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
+Raspbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
 </div>
 
 <div class='note warning'>

@@ -1,14 +1,14 @@
 ---
-title: "IMAP Unread E-mail"
-description: "Instructions on how to integrate IMAP unread email into Home Assistant."
-logo: smtp.png
+title: IMAP
+description: Instructions on how to integrate IMAP unread email into Home Assistant.
 ha_category:
   - Mailbox
 ha_release: 0.25
 ha_iot_class: Cloud Push
+ha_domain: imap
 ---
 
-The `imap` sensor platform is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
+The `imap` integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
 
 ## Configuration
 
@@ -55,6 +55,11 @@ search:
   required: false
   default: UnSeen UnDeleted
   type: string
+charset:
+  description: The character set used for this connection.
+  required: false
+  default: utf-8
+  type: string
 {% endconfiguration %}
 
 ### Configuring IMAP Searches
@@ -68,7 +73,7 @@ By default, this integration will count unread emails. By configuring the search
 #### Full configuration sample with search
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for gmail
 sensor:
   - platform: imap
     server: imap.gmail.com
@@ -76,4 +81,14 @@ sensor:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     search: FROM <sender@email.com>, SUBJECT <subject here>
+
+# Example configuration.yaml entry for Office 365
+sensor:
+  - platform: imap
+    server: outlook.office365.com
+    port: 993
+    username: email@address.com
+    password: password
+    search: FROM <sender@email.com>, SUBJECT <subject here>
+    charset: US-ASCII
 ```

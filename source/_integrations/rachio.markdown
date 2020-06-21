@@ -1,20 +1,23 @@
 ---
-title: "Rachio"
-description: "Instructions on how to use Rachio with Home Assistant."
-logo: rachio.png
+title: Rachio
+description: Instructions on how to use Rachio with Home Assistant.
 ha_category:
   - Irrigation
   - Binary Sensor
   - Switch
 ha_iot_class: Cloud Push
 ha_release: 0.73
+ha_domain: rachio
+ha_codeowners:
+  - '@bdraco'
+ha_config_flow: true
 ---
 
-The `rachio` platform allows you to control your [Rachio irrigation system](http://rachio.com/).
+The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor** - Allows you to view the status of your [Rachio irrigation system](http://rachio.com/).
+- **Binary Sensor** - Allows you to view the status of your [Rachio irrigation system](https://rachio.com/).
 - [**Switch**](#switch)
 
 They will be automatically added if the Rachio integration integration is loaded.
@@ -28,7 +31,9 @@ They will be automatically added if the Rachio integration integration is loaded
 
 ## Configuration
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add `Rachio` go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Rachio**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,10 +45,6 @@ rachio:
 api_key:
   description: The API key for the Rachio account.
   required: true
-  type: string
-hass_url_override:
-  description: If your instance is unaware of its actual web location (`base_url`).
-  required: false
   type: string
 manual_run_mins:
   description: For how long, in minutes, to turn on a station when the switch is enabled.
@@ -73,9 +74,9 @@ panel_iframe:
 
 ## Switch
 
-The `rachio` switch platform allows you to toggle zones connected to your [Rachio irrigation system](http://rachio.com/) on and off.
+The `rachio` switch platform allows you to toggle zones and schedules connected to your [Rachio irrigation system](https://rachio.com/) on and off.
 
-Once configured, a switch will be added for every zone that is enabled on every controller in the account provided, as well as a switch to toggle each controller's standby mode.
+Once configured, a switch will be added for every zone that is enabled on every controller in the account provided and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24 hour rain delay on the device.
 
 ## Examples
 
@@ -92,6 +93,7 @@ irrigation:
   - group.zones_front
   - group.zones_back
   - switch.side_yard
+  - switch.every_day_6am
 
 zones_front:
   name: Front Yard

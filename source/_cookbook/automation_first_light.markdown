@@ -4,7 +4,7 @@ description: "Automation examples that trigger lights in the morning."
 ha_category: Automation Examples
 ---
 
-#### Create an input_boolean in your configuration.yaml 
+#### Create an input_boolean
 
 ```yaml
 input_boolean:
@@ -13,7 +13,7 @@ input_boolean:
     icon: mdi:kettle
 ```
 
-#### The Main Automation 
+#### The Main Automation
 
 ```yaml
 ## These first two control t input_boolean that allows the "first morning action" to occur

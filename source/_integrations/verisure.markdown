@@ -1,7 +1,6 @@
 ---
-title: "Verisure"
-description: "Instructions on how to setup Verisure devices within Home Assistant."
-logo: verisure.png
+title: Verisure
+description: Instructions on how to setup Verisure devices within Home Assistant.
 ha_category:
   - Hub
   - Alarm
@@ -12,6 +11,7 @@ ha_category:
   - Switch
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
+ha_domain: verisure
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
@@ -90,7 +90,7 @@ code_digits:
   type: integer
   default: 4
 giid:
-  description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'.
+  description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run `python verisure.py` EMAIL PASSWORD installations'.
   required: false
   type: string
 {% endconfiguration %}
@@ -117,3 +117,11 @@ automation:
             to {{ trigger.to_state.state }}
             by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
 ```
+
+## Services
+
+| Service | Description |
+| ------- | ----------- |
+| disable_autolock | Disables autolock function for a specific lock. |
+| enable_autolock | Enables autolock function for a specific lock. |
+| smartcam_capture | Capture a new image from a specific smartcam. |

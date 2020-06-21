@@ -1,7 +1,8 @@
 ---
-title: "Air Quality"
-description: "Instructions on how to add air quality sensors with Home Assistant"
+title: Air Quality
+description: Instructions on how to add air quality sensors with Home Assistant
 ha_release: 0.85
+ha_domain: air_quality
 ---
 
 The `air_quality` gather information about the air quality and pollution details.
@@ -19,4 +20,3 @@ The platforms cover the following levels (if they are available):
 - The N2O (nitrogen oxide) level.
 - The NO (nitrogen monoxide) level.
 - The NO2 (nitrogen dioxide) level.
-

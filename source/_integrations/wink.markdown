@@ -1,7 +1,6 @@
 ---
-title: "Wink"
-description: "Instructions on how to set up the Wink hub within Home Assistant."
-logo: wink.png
+title: Wink
+description: Instructions on how to set up the Wink hub within Home Assistant.
 ha_category:
   - Hub
   - Alarm
@@ -15,12 +14,13 @@ ha_category:
   - Sensor
   - Switch
   - Water Heater
-featured: true
+featured: false
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
+ha_domain: wink
 ---
 
-[Wink](http://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
+[Wink](https://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
 
 <blockquote>
   Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.
@@ -52,7 +52,9 @@ Wink requests three pieces of information from the user when they sign up for a 
 2. `Website:` The external address of your Home Assistant instance. If not externally accessible you can use your email address.
 3. `Redirect URI:` This should be `http://192.168.1.5:8123/auth/wink/callback` replacing the IP with the internal IP of your Home Assistant box.
 
-No settings are required in the `configuration.yaml` other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
+No settings are required in the `configuration.yaml` other than `wink:`.
+
+After adding `wink:` to your `configuration.yaml` and restarting Home Assistant you will see a persistent notification on the frontend with a `CONFIGURE` button that will guide you through the setup via the frontend configurator.
 
 <div class='note'>
 When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
@@ -128,25 +130,25 @@ You can use the service wink/refresh_state_from_wink to pull the most recent sta
 
 ## Service `pull_newly_added_devices_from_wink`
 
-You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.
+You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home Assistant. Any new devices will also be added if Home Assistant is restarted.
 
 ## Service `delete_wink_device`
 
 You can use the service wink/delete_wink_device to remove/unpair a device from Wink.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that points at the `entity_id` of device to delete.
+| Service data attribute | Optional | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `entity_id`            | no       | String that points at the `entity_id` of device to delete. |
 
 ## Service `pair_new_device`
 
 You can use the service wink/pair_new_device to pair a new device to your Wink hub/relay
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `hub_name` | no | The name of the hub to pair a new device to.
-| `pairing_mode` | no | One of the following [zigbee, zwave, zwave_exclusion, zwave_network_rediscovery, lutron, bluetooth, kidde]
-| `kidde_radio_code` | conditional | A string of 8 1s and 0s one for each dip switch on the kidde device left --> right = 1 --> 8 (Required if pairing_mode = kidde)
+| Service data attribute | Optional    | Description                                                                                                                     |
+| ---------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `hub_name`             | no          | The name of the hub to pair a new device to.                                                                                    |
+| `pairing_mode`         | no          | One of the following [zigbee, zwave, zwave_exclusion, zwave_network_rediscovery, lutron, bluetooth, kidde]                      |
+| `kidde_radio_code`     | conditional | A string of 8 1s and 0s one for each dip switch on the kidde device left --> right = 1 --> 8 (Required if pairing_mode = kidde) |
 
 <div class='note'>
 Calling service wink/pull_newly_added_wink_devices after a device is paired will add that new device to Home Assistant. The device will also show up on the next restart of Home Assistant.
@@ -156,10 +158,10 @@ Calling service wink/pull_newly_added_wink_devices after a device is paired will
 
 You can use the service wink/rename_wink_device to change the name of a device.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String that points at the `entity_id` of device to rename.
-| `name` | no | The name to change it to.
+| Service data attribute | Optional | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `entity_id`            | no       | String that points at the `entity_id` of device to rename. |
+| `name`                 | no       | The name to change it to.                                  |
 
 <div class='note'>
 Home Assistant entity_ids for Wink devices are based on the Wink device's name. Calling this service will not change the entity_id of the device until Home Assistant is restarted.
@@ -179,10 +181,10 @@ The Wink hub, by default, can only be accessed via the cloud. This means it requ
 
 You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shutting off.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `auto_shutoff` | no | Int. One of [None, -1, 30, 60, 120] (None and -1 are forever. Use None for gocontrol, and -1 for Dome)
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren.
+| Service data attribute | Optional | Description                                                                                            |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `auto_shutoff`         | no       | Int. One of [None, -1, 30, 60, 120] (None and -1 are forever. Use None for gocontrol, and -1 for Dome) |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of siren.                                         |
 
 Example:
 
@@ -203,10 +205,10 @@ The following services only work with the Dome siren/chime.
 
 You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `volume` | no | String. One of ["low", "medium", "high"]
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of the siren/chime.
+| Service data attribute | Optional | Description                                                              |
+| ---------------------- | -------- | ------------------------------------------------------------------------ |
+| `volume`               | no       | String. One of ["low", "medium", "high"]                                 |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of the siren/chime. |
 
 Example:
 
@@ -223,10 +225,10 @@ script:
 
 You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `volume` | no | String. One of ["low", "medium", "high"]
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+| Service data attribute | Optional | Description                                                          |
+| ---------------------- | -------- | -------------------------------------------------------------------- |
+| `volume`               | no       | String. One of ["low", "medium", "high"]                             |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of siren/chime. |
 
 Example:
 
@@ -243,10 +245,10 @@ script:
 
 You can use the service wink/enable_chime to set the tone and enable the chime on your Dome siren/chime.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `tone` | no | String. One of ["doorbell", "fur_elise", "doorbell_extended", "alert", "william_tell", "rondo_alla_turca", "police_siren", "evacuation", "beep_beep", "beep", "inactive"]
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+| Service data attribute | Optional | Description                                                                                                                                                               |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tone`                 | no       | String. One of ["doorbell", "fur_elise", "doorbell_extended", "alert", "william_tell", "rondo_alla_turca", "police_siren", "evacuation", "beep_beep", "beep", "inactive"] |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of siren/chime.                                                                                                      |
 
 Example:
 
@@ -263,10 +265,10 @@ script:
 
 You can use the service wink/set_siren_tone to set the tone on your Dome siren. This tone will be used the next time the siren is executed.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `tone` | no | String. One of ["doorbell", "fur_elise", "doorbell_extended", "alert", "william_tell", "rondo_alla_turca", "police_siren", "evacuation", "beep_beep", "beep"]
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+| Service data attribute | Optional | Description                                                                                                                                                   |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tone`                 | no       | String. One of ["doorbell", "fur_elise", "doorbell_extended", "alert", "william_tell", "rondo_alla_turca", "police_siren", "evacuation", "beep_beep", "beep"] |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of siren/chime.                                                                                          |
 
 Example:
 
@@ -283,10 +285,10 @@ script:
 
 You can use the service wink/set_siren_strobe_enabled to enable or disable the strobe when the siren is executed.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `enabled` | no | Boolean. True or False.
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+| Service data attribute | Optional | Description                                                          |
+| ---------------------- | -------- | -------------------------------------------------------------------- |
+| `enabled`              | no       | Boolean. True or False.                                              |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of siren/chime. |
 
 Example:
 
@@ -303,10 +305,10 @@ script:
 
 You can use the service wink/set_chime_strobe_enabled to enable or disable the strobe when the chime is executed.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `enabled` | no | Boolean. True or False.
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of chime/chime.
+| Service data attribute | Optional | Description                                                          |
+| ---------------------- | -------- | -------------------------------------------------------------------- |
+| `enabled`              | no       | Boolean. True or False.                                              |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of chime/chime. |
 
 Example:
 
@@ -323,11 +325,11 @@ script:
 
 You can use the service wink/set_nimbus_dial_state to update an individual dial's value/position and its labels
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of chime/chime.
-| `value` | no | A number, should be between the dials min and max value (See set_nimbus_dial_configuration below)
-| `labels` | yes | A list of strings the first being the value set on the dial's face and the second being the value on the dial face when the Nimbus is pressed
+| Service data attribute | Optional | Description                                                                                                                                   |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | String or list of strings that point at `entity_id`s of chime/chime.                                                                          |
+| `value`                | no       | A number, should be between the dials min and max value (See set_nimbus_dial_configuration below)                                             |
+| `labels`               | yes      | A list of strings the first being the value set on the dial's face and the second being the value on the dial face when the Nimbus is pressed |
 
 Example:
 
@@ -348,16 +350,16 @@ script:
 
 You can use the service wink/set_nimbus_dial_configuration to update an individual dial's configuration.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of chime/chime.
-| `rotation` | yes | One of "cw" or "ccw" the direction the dial hand should rotate.
-| `ticks` | yes | A positive number, the number of times the hand should move.
-| `scale` | yes | One of "linear" or "log" How the dial should move in response to higher values.
-| `min_value` | yes | A number, the minimum value that the dial can have.
-| `max_value` | yes | A number, the maximum value that the dial can have.
-| `min_position` | yes | A number generally [0-360], the minimum position for the dial's hand.
-| `max_value` | yes | A number generally [0-360], the maximum position for the dial's hand.
+| Service data attribute | Optional | Description                                                                     |
+| ---------------------- | -------- | ------------------------------------------------------------------------------- |
+| `entity_id`            | no       | String or list of strings that point at `entity_id`s of chime/chime.            |
+| `rotation`             | yes      | One of "cw" or "ccw" the direction the dial hand should rotate.                 |
+| `ticks`                | yes      | A positive number, the number of times the hand should move.                    |
+| `scale`                | yes      | One of "linear" or "log" How the dial should move in response to higher values. |
+| `min_value`            | yes      | A number, the minimum value that the dial can have.                             |
+| `max_value`            | yes      | A number, the maximum value that the dial can have.                             |
+| `min_position`         | yes      | A number generally [0-360], the minimum position for the dial's hand.           |
+| `max_value`            | yes      | A number generally [0-360], the maximum position for the dial's hand.           |
 
 Example:
 
@@ -373,7 +375,7 @@ script:
 
 ## Alarm Control Panel
 
-The Wink alarm platform allows you to control your [Wink](http://www.wink.com/) Canary all-in-one security camera.
+The Wink alarm platform allows you to control your [Wink](https://www.wink.com/) Canary all-in-one security camera.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -387,7 +389,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Binary Sensor
 
-The Wink binary sensor platform allows you to get data from your [Wink](http://www.wink.com/) binary sensors.
+The Wink binary sensor platform allows you to get data from your [Wink](https://www.wink.com/) binary sensors.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -398,7 +400,7 @@ The requirement is that you have setup [Wink](/integrations/wink/) from above.
 - Motion sensors
 - Ring Door bells (No hub required)
 - Liquid presence sensors
-- Z-wave lock key codes
+- Z-Wave lock key codes
 - Lutron connected bulb remote buttons
 - Wink Relay buttons and presence detection
 - Wink spotter loudness and vibration (No Wink hub required)
@@ -411,7 +413,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Climate
 
-The Wink climate platform allows you to get data from your [Wink](http://www.wink.com/) thermostats and air conditioners.
+The Wink climate platform allows you to get data from your [Wink](https://www.wink.com/) thermostats and air conditioners.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -433,7 +435,7 @@ The above devices are confirmed to work, but others may work as well.
 
 Wink Cover garage door functionality varies on the product. Home Assistant can open, close, and view state of GoControl/Linear openers. For Chamberlain MyQ-enabled openers, Home Assistant is limited to show current state (open or closed) only using this Wink cover. This restriction was imposed by Chamberlain for third party control. Wink suggests that MyQ customers should contact Chamberlain directly to inquire about expanding permissions.
 
-The [MyQ Cover](/integrations/myq) does provide full functionality for opening and closing Chamberlain MyQ-enabled garage doors. If installed along with the Wink Component, a duplicate garage door entity may exist. In that case, the semi-functional Wink garage door entity can be hidden via customize.yaml.
+The [MyQ Cover](/integrations/myq) does provide full functionality for opening and closing Chamberlain MyQ-enabled garage doors. If installed along with the Wink Component, a duplicate garage door entity may exist. In that case, the semi-functional Wink garage door entity can be hidden via `customize.yaml`.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -451,7 +453,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Fan
 
-The Wink fan platform allows you to control your [Wink](http://www.wink.com/) fans.
+The Wink fan platform allows you to control your [Wink](https://www.wink.com/) fans.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -466,13 +468,13 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Light
 
-The `wink` light platform allows you to use your [Wink](http://www.wink.com/) lights.
+The `wink` light platform allows you to use your [Wink](https://www.wink.com/) lights.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
 ### Supported light devices
 
-- Z-wave switches with dimming
+- Z-Wave switches with dimming
 - Hue
 - Lightify
 - GE link
@@ -484,7 +486,7 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Lock
 
-The Wink lock platform allows you to control your [Wink](http://www.wink.com/) locks.
+The Wink lock platform allows you to control your [Wink](https://www.wink.com/) locks.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -493,20 +495,20 @@ The requirement is that you have setup [Wink](/integrations/wink/) from above.
 - Kwikset
 - Schlage
 - August (No Wink hub required) (August Connect required)
-- Generic Z-wave
+- Generic Z-Wave
 
 <div class='note'>
 The following services have only been confirmed on Schlage locks.
 </div>
 
-### Service `wink_set_lock_alarm_mode`
+### Service `set_lock_alarm_mode`
 
-You can use the service wink/wink_set_lock_alarm_mode to set the alarm mode of your lock.
+You can use the service wink/set_lock_alarm_mode to set the alarm mode of your lock.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `mode` | no | String one of tamper, activity, or forced_entry
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of locks.
+| Service data attribute | Optional | Description                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------- |
+| `mode`                 | no       | String one of tamper, activity, or forced_entry                |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of locks. |
 
 Example:
 
@@ -514,19 +516,19 @@ Example:
 script:
   set_locks_to_tamper:
     sequence:
-      - service: wink.wink_set_lock_alarm_mode
+      - service: wink.set_lock_alarm_mode
         data:
           mode: "tamper"
 ```
 
-### Service `wink_set_lock_alarm_sensitivity`
+### Service `set_lock_alarm_sensitivity`
 
-You can use the service wink/wink_set_lock_alarm_sensitivity to set the alarm sensitivity of your lock.
+You can use the service wink/set_lock_alarm_sensitivity to set the alarm sensitivity of your lock.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `sensitivity` | no | String one of low, medium_low, medium, medium_high, high.
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of locks.
+| Service data attribute | Optional | Description                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------- |
+| `sensitivity`          | no       | String one of low, medium_low, medium, medium_high, high.      |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of locks. |
 
 Example:
 
@@ -534,19 +536,19 @@ Example:
 script:
   set_locks_to_high_sensitivity:
     sequence:
-      - service: wink.wink_set_lock_alarm_sensitivity
+      - service: wink.set_lock_alarm_sensitivity
         data:
           sensitivity: "high"
 ```
 
-### Service `wink_set_lock_alarm_state`
+### Service `set_lock_alarm_state`
 
-You can use the service wink/wink_set_lock_alarm_state to set the alarm state of your lock.
+You can use the service wink/set_lock_alarm_state to set the alarm state of your lock.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `enabled` | no | Boolean enabled or disabled, true or false
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of locks.
+| Service data attribute | Optional | Description                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------- |
+| `enabled`              | no       | Boolean enabled or disabled, true or false                     |  |  |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of locks. |  |  |
 
 Example:
 
@@ -554,19 +556,19 @@ Example:
 script:
   disable_all_locks_alarm:
     sequence:
-      - service: wink.wink_set_lock_alarm_state
+      - service: wink.set_lock_alarm_state
         data:
           enabled: false
 ```
 
-### Service `wink_set_lock_beeper_state`
+### Service `set_lock_beeper_state`
 
-You can use the service wink/wink_set_lock_beeper_state to set the beeper state of your lock.
+You can use the service wink/set_lock_beeper_state to set the beeper state of your lock.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `enabled` | no | Boolean enabled or disabled, true or false
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of locks.
+| Service data attribute | Optional | Description                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------- |
+| `enabled`              | no       | Boolean enabled or disabled, true or false                     |  |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of locks. |  |
 
 Example:
 
@@ -574,19 +576,19 @@ Example:
 script:
   disable_all_locks_beepers:
     sequence:
-      - service: wink.wink_set_lock_beeper_state
+      - service: wink.set_lock_beeper_state
         data:
           enabled: false
 ```
 
-### Service `wink_set_lock_vacation_mode`
+### Service `set_lock_vacation_mode`
 
-You can use the service wink/wink_set_lock_vacation_mode to set the vacation mode of your lock.
+You can use the service wink/set_lock_vacation_mode to set the vacation mode of your lock.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `enabled` | no | Boolean enabled or disabled, true or false
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of locks.
+| Service data attribute | Optional | Description                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------- |
+| `enabled`              | no       | Boolean enabled or disabled, true or false                     |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of locks. |
 
 Example:
 
@@ -594,20 +596,20 @@ Example:
 script:
   enabled_vacation_mode_on_all_locks:
     sequence:
-      - service: wink.wink_set_lock_vacation_mode
+      - service: wink.set_lock_vacation_mode
         data:
           enabled: false
 ```
 
-### Service `wink_add_new_lock_key_code`
+### Service `add_new_lock_key_code`
 
-You can use the service wink/wink_add_new_lock_key_code to add a new user code to your Wink lock.
+You can use the service wink/add_new_lock_key_code to add a new user code to your Wink lock.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of locks.
-| `name` | no | the name of the new key code
-| `code` | no | The new code. Must match length of existing codes.
+| Service data attribute | Optional | Description                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------- |
+| `entity_id`            | no       | String or list of strings that point at `entity_id`s of locks. |
+| `name`                 | no       | the name of the new key code                                   |
+| `code`                 | no       | The new code. Must match length of existing codes.             |
 
 <div class='note'>
 Calling service wink/pull_newly_added_wink_devices will add the new key code to Home Assistant. The device will also show up on the next restart of Home Assistant.
@@ -619,7 +621,7 @@ If supported by your lock, a binary sensor will be created for each user key cod
 
 ## Sensor
 
-The Wink sensor platform allows you to get data from your [Wink](http://www.wink.com/) sensors.
+The Wink sensor platform allows you to get data from your [Wink](https://www.wink.com/) sensors.
 
 The requirement is that you have setup [Wink](/integrations/wink/) from above.
 
@@ -639,14 +641,14 @@ The above devices are confirmed to work, but others may work as well.
 
 ## Switch
 
-The Wink switch platform allows you to control your [Wink](http://www.wink.com/) switches.
+The Wink switch platform allows you to control your [Wink](https://www.wink.com/) switches.
 
 The requirement is that you have set up [Wink](/integrations/wink/) from above.
 
 ## Supported switch devices
 
 - Wink Pivot power genius (No Wink hub required)
-- non-dimming Z-wave in-wall switches (dimming switches show up as lights)
+- non-dimming Z-Wave in-wall switches (dimming switches show up as lights)
 - Wink Relay load controlling switches
 - Rachio sprinkler controller (No Wink hub required)
 - iHome smart plug (No Wink hub required)
@@ -654,7 +656,7 @@ The requirement is that you have set up [Wink](/integrations/wink/) from above.
 
 ## Water heater
 
-The Wink water heater platform allows you to get data from your [Wink](http://www.wink.com/) Water Heaters.
+The Wink water heater platform allows you to get data from your [Wink](https://www.wink.com/) Water Heaters.
 
 The requirement is that you have set up [Wink](/integrations/wink/) from above.
 

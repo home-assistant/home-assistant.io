@@ -1,19 +1,19 @@
 ---
 title: "MySensors Notify"
 description: "Instructions on how to integrate MySensors notifications into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Notifications
 ha_release: 0.36
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
-Integrates MySensors notifications into Home Assistant. See the [main component] for configuration instructions.
+Integrates MySensors notifications into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.
 
 Setting the `target` key in the service call will target the name of the MySensors device in Home Assistant. MySensors device names follow the notation: "[Sketch name] [Node id] [Child id]".
 
-### Automation example
+## Automation example
 
 ```yaml
 ...
@@ -28,18 +28,18 @@ The following sensor types are supported:
 
 ##### MySensors version 2.0 and higher
 
-S_TYPE          | V_TYPE
-----------------|--------------------------
-S_INFO          | V_TEXT
+| S_TYPE | V_TYPE |
+| ------ | ------ |
+| S_INFO | V_TEXT |
 
-For more information, visit the [api] page of MySensors.
+For more information, visit the [API](https://www.mysensors.org/download/) page of MySensors.
 
 ### Example sketch
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  */
 
  #define MY_DEBUG
@@ -91,6 +91,3 @@ For more information, visit the [api] page of MySensors.
    }
  }
 ```
-
-[main component]: /integrations/mysensors/
-[api]: http://www.mysensors.org/download/

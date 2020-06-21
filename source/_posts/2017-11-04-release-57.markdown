@@ -147,11 +147,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - add irish rail transport sensor ([@ttroy50] - [#9883]) ([sensor.irish_rail_transport docs]) (new-platform)
 - RGB Tradfri simple support ([@matemaciek] - [#9703]) ([light.tradfri docs])
 - Add regression test for entity ID update bug ([@armills] - [#10037])
-- Aioautomatic bump and scope update ([@armills] - [#10043]) ([device_tracker.automatic docs])
+- Aioautomatic bump and scope update ([@armills] - [#10043])
 - Fix no data event triggers ([@armills] - [#10049]) ([automation.event docs])
 - fixing a typo in the old library which broke hub gen2 compatibility ([@sander76] - [#9990])
 - Add fail2ban sensor ([@fronzbot] - [#9975]) ([sensor.fail2ban docs]) (new-platform)
-- Show current program thumbnail as media_image ([@pschmitt] - [#10033]) ([media_player.liveboxplaytv docs])
+- Show current program thumbnail as media_image ([@pschmitt] - [#10033])
 - Add link to docs and update ordering ([@fabaff] - [#10062]) ([duckdns docs])
 - Remove STATE_UNKNOWN ([@fabaff] - [#10064]) ([sensor.glances docs])
 - update library for xiaomi_aqara, change from pyCrypto to cryptography ([@danielhiversen] - [#10066]) ([xiaomi_aqara docs])
@@ -213,7 +213,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Sytadin Traffic component ([@gautric] - [#9524]) (new-platform)
 - media_title property now returns current source ([@etsinko] - [#10120]) ([media_player.monoprice docs])
 - Added new Clickatell SMS messaging Notify Platform ([@davlloyd] - [#9775]) ([notify.clickatell docs]) (new-platform)
-- update boto3 to 1.4.7 and botocore to 1.7.34 ([@TopdRob] - [#10121]) (notify.aws_lambda docs) ([notify.aws_sns docs]) (notify.aws_sqs docs) ([tts.amazon_polly docs])
+- update boto3 to 1.4.7 and botocore to 1.7.34 ([@TopdRob] - [#10121]) ([tts.amazon_polly docs])
 - Add Random binary sensor ([@fabaff] - [#10164]) ([binary_sensor.random docs]) (new-platform)
 - Add clickatell ([@fabaff] - [#10199])
 - Update CODEOWNERS ([@ggravlingen] - [#10198])
@@ -545,7 +545,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.template docs]: /integrations/cover.template/
 [device_tracker docs]: /integrations/device_tracker/
 [device_tracker.asuswrt docs]: /integrations/asuswrt
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.geofency docs]: /integrations/geofency
 [device_tracker.mikrotik docs]: /integrations/mikrotik
 [device_tracker.owntracks docs]: /integrations/owntracks
@@ -562,7 +561,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hassio docs]: /integrations/hassio/
 [history docs]: /integrations/history/
 [http docs]: /integrations/http/
-[image_processing.openalpr_local docs]: /integrations/openalpr_local_local
+[image_processing.openalpr_local docs]: /integrations/openalpr_local/
 [input_number docs]: /integrations/input_number/
 [input_text docs]: /integrations/input_text/
 [introduction docs]: /integrations/introduction/
@@ -577,7 +576,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mailbox docs]: /integrations/mailbox/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player docs]: /integrations/media_player/
-[media_player.liveboxplaytv docs]: /integrations/liveboxplaytv
 [media_player.monoprice docs]: /integrations/monoprice
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.russound_rnet docs]: /integrations/russound_rnet
@@ -586,7 +584,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mqtt_statestream docs]: /integrations/mqtt_statestream/
 [namecheapdns docs]: /integrations/namecheapdns/
 [no_ip docs]: /integrations/no_ip/
-[notify.aws_sns docs]: /integrations/notify.aws_sns/
 [notify.clickatell docs]: /integrations/clickatell
 [notify.sendgrid docs]: /integrations/sendgrid
 [notify.yessssms docs]: /integrations/yessssms

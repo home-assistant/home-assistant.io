@@ -4,13 +4,15 @@ description: "How to install Home Assistant in a Python virtual environment."
 redirect_from: /getting-started/installation-virtualenv/
 ---
 
-If you already have Python 3.6 or later installed (we suggest 3.7 or later), you can easily give Home Assistant a spin.
+If you already have Python 3.7 or later installed, you can easily give Home Assistant a spin.
 
-It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.6/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
+It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.7/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
 
 <div class='note'>
 
 This is a generic guide for running Home Assistant under Python. We recommend to use [our recommended installation guides](/docs/installation/#recommended). The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
+
+Before you begin the guide below, ensure that you have a *so-called standard* build environment that includes things like `make`, `gcc`, `python3`, including Python 3 `setuptools` and `pip` modules. Less obvious is the need to install `openssl-dev` (for opensslv.h) and `libffi-dev` (for cffi.h) for things to build later on.
 
 </div>
 
@@ -96,7 +98,6 @@ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@de
 
 - In the future, if you want to start Home Assistant manually again, follow step 2, 3 and 5.
 - It's recommended to run Home Assistant as a dedicated user.
-- If you want Home Assistant to automatically start at boot, check the [autostart docs](/docs/autostart/)
 
 <div class='info'>
  

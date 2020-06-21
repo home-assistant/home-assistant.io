@@ -1,12 +1,12 @@
 ---
-title: TCP Binary Sensor
-description: "Instructions on how to set up TCP within Home Assistant."
-logo: tcp_ip.png
+title: TCP
+description: Instructions on how to set up TCP within Home Assistant.
 ha_category:
   - Binary Sensor
   - Sensor
 ha_release: 0.14
 ha_iot_class: Local Polling
+ha_domain: tcp
 ---
 
 The TCP integration allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.

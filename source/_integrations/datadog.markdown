@@ -1,13 +1,13 @@
 ---
-title: "Datadog"
-description: "Send data and events to Datadog."
-logo: datadog.png
+title: Datadog
+description: Send data and events to Datadog.
 ha_category:
   - History
 ha_release: 0.45
+ha_domain: datadog
 ---
 
-The `datadog` integration sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](http://docs.datadoghq.com/guides/basic_agent_usage/).
+The `datadog` integration sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](https://docs.datadoghq.com/guides/basic_agent_usage/).
 
 Datadog allows you to analyze, monitor, cross-reference and alert upon your data. You can use it to detect statistical anomalies, see graphs across multiple sources in real-time, send critical alerts to Slack, etc.
 

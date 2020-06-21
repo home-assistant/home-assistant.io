@@ -1,14 +1,16 @@
 ---
-title: "Nissan Leaf"
-description: "Instructions for how to integrate Nissan Leaf(s) into Home Assistant."
-logo: nissan.png
+title: Nissan Leaf
+description: Instructions for how to integrate Nissan Leaf(s) into Home Assistant.
 ha_category:
   - Car
 ha_release: 0.89
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@filcole'
+ha_domain: nissan_leaf
 ---
 
-The `nissan_leaf` integration offers integration with the [NissanConnect EV](http://youplus.nissan.co.uk/GB/en/YouPlus/ConnectedServices.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
+The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://youplus.nissan.co.uk/GB/en/YouPlus/ConnectedServices.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
 
 * sensors for the battery status, range and charging status
 * a switch to start and stop the climate control
@@ -39,7 +41,7 @@ region:
   required: true
   type: string
 update_interval:
-  description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g. minutes, hours, days!).
+  description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g.,  minutes, hours, days!).
   required: false
   default: 1 hour
   type: time

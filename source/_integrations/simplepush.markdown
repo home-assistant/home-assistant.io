@@ -1,12 +1,11 @@
 ---
-title: "Simplepush"
-description: "Instructions on how to add Simplepush notifications to Home Assistant."
-logo: simplepush.png
+title: Simplepush
+description: Instructions on how to add Simplepush notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.29
+ha_domain: simplepush
 ---
-
 
 The `simplepush` platform uses [Simplepush](https://simplepush.io/) to delivery notifications from Home Assistant to your Android device. Unlike similar apps the Simplepush app requires no registration.
 
@@ -21,7 +20,7 @@ notify:
 ```
 
 {% configuration %}
-  name: 
+  name:
     description: Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
     required: false
     type: string
@@ -46,7 +45,7 @@ notify:
 To test if the service works, just send a message with `curl` from the command-line.
 
 ```bash
-$ curl 'https://api.simplepush.io/send/device_key/title/message'
+curl 'https://api.simplepush.io/send/device_key/title/message'
 ```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

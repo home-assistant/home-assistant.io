@@ -14,10 +14,10 @@ automation:
     offset: "-00:45:00"
   condition:
     condition: state
-    entity_id: group.all_devices
+    entity_id: all
     state: home
   action:
-    service: homeassistant.turn_on
+    service: light.turn_on
     entity_id: group.living_room_lights
 ```
 

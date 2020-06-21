@@ -1,87 +1,52 @@
 ---
-title: "DirecTV"
-description: "Instructions on how to integrate DirecTV receivers into Home Assistant."
-logo: directv.png
+title: DirecTV
+description: Instructions on how to integrate DirecTV receivers into Home Assistant.
 ha_category:
   - Media Player
+  - Remote
 ha_release: 0.25
 ha_iot_class: Local Polling
+ha_domain: directv
+ha_config_flow: true
+ha_codeowners:
+  - '@ctalkington'
+ha_quality_scale: gold
 ---
 
-Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery integration](/integrations/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
+The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
 
-To ensure that your DirecTV boxes are always found and configured, they should be added into your `configuration.yaml`.
+### Requirements
+
+For proper integration with Home Assistant, your DirecTV device settings should allow "External Access".
+
+This is done via series of settings found via "Menu > Settings & Help > Settings > Whole Home > External Device":
+
+- External Access: Allow
+- Current Program: Allow
+- Recordings: Allow
+
+### Configuration
+
+Go to the integrations page in your configuration and click on new integration -> DirecTV.
+If your DirecTV device is on, it has likely been discovered already and you just have to confirm the detected device.
+
+### YAML Configuration
+
+Manual configuration of your DirecTV device is also possible, add the following to your `configuration.yaml` file:
+
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: directv
+directv:
+  - host: IP_ADDRESS
 ```
 
 {% configuration %}
 host:
-  description: The IP address or the hostname of the device. Use only if you don't want to scan for devices.
-  required: false
-  type: string
-port:
-  description: The port your receiver is using.
-  required: false
-  default: 8080
-  type: integer
-name:
-  description: Use to give a specific name to the device.
-  required: false
-  default: DirecTV Receiver
-  type: string
-device:
-  description: Use to specify a particular receiver in a Genie setup.
-  required: false
+  description: "The hostname or IP of the DirecTV receiver, e.g., `192.168.0.10`."
+  required: true
   type: string
 {% endconfiguration %}
-
-To find valid device IDs, open `http://<IP Address of Genie Server>:8080/info/getLocations` in a web browser. For each Genie slave, you will find a variable `clientAddr` in the response, and this should be used for `device` in `configuration.yaml`
-
-For example, a response such as:
-
-```json
-{
-  "locations": [
-    {
-      "clientAddr": "0",
-      "locationName": "MASTER GENIE SERVER",
-      "tunerBond": true
-    },
-    {
-      "clientAddr": "5009591D6969",
-      "locationName": "SOME SLAVE GENIE"
-    }
-  ],
-  "status": {
-    "code": 200,
-    "commandResult": 0,
-    "msg": "OK.",
-    "query": "/info/getLocations"
-  }
-}
-```
-
-Could be formatted into `configuration.yaml` like so:
-
-```yaml
-media_player:
-  - platform: directv
-    host: 192.168.1.10
-    port: 8080
-    name: Main DirecTV Box
-    device: 0
-  - platform: directv
-    host: 192.168.1.10
-    port: 8080
-    name: Bedroom DirecTV
-    device: 5009591D6969
-```
-
-It is important to notice that the host and port variables for slave/Genie receivers are the same as the master receiver.
 
 ## Services
 
@@ -96,3 +61,66 @@ Available services: turn_on, turn_off, media_play, media_pause, media_stop, medi
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.                                                                                                                       |
 | `media_content_id`     |       no | The channel number to change to.                   |
 | `media_content_type`   |       no | A media type. Has to be `channel`.
+
+## Remote
+
+The DirecTV remote platform allows you to send remote control buttons to a DirecTV receiver. It is automatically set up when a DirecTV receiver is configured.
+
+At the moment, the following buttons are supported:
+
+- `power`
+- `poweron`
+- `poweroff`
+- `format`
+- `pause`
+- `rew`
+- `replay`
+- `stop`
+- `advance`
+- `ffwd`
+- `record`
+- `play`
+- `guide`
+- `active`
+- `list`
+- `exit`
+- `back`
+- `menu`
+- `info`
+- `up`
+- `down`
+- `left`
+- `right`
+- `select`
+- `red`
+- `green`
+- `yellow`
+- `blue`
+- `chanup`
+- `chandown`
+- `prev`
+- `0`
+- `1`
+- `2`
+- `3`
+- `4`
+- `5`
+- `6`
+- `7`
+- `8`
+- `9`
+- `dash`
+- `enter`
+
+A typical service call for press several buttons looks like this.
+
+```yaml
+service: remote.send_command
+data:
+  entity_id: remote.directv_entity
+  command:
+    - left
+    - left
+    - menu
+    - select
+```

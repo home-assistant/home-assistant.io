@@ -1,14 +1,20 @@
 ---
-title: "File size Sensor"
-description: "Component for monitoring the size of a file."
-logo: file.png
+title: File Size
+description: Component for monitoring the size of a file.
 ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.64
+ha_domain: filesize
 ---
 
-The `filesize` sensor for displaying the size in MB of a file. Note that paths must be added to [whitelist_external_dirs](/docs/configuration/basic/).
+The `filesize` sensor is for displaying the size in MB of a file.
+
+<div class='note'>
+
+File paths must also be added to [whitelist_external_dirs](/docs/configuration/basic/) in your `configuration.yaml`.
+
+</div>
 
 ## Configuration
 

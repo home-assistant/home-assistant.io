@@ -1,16 +1,26 @@
 ---
-title: "World Air Quality Index"
-description: "Instructions on how to setup World Air Quality Index sensor in Home Assistant."
-logo: waqi.png
+title: World Air Quality Index (WAQI)
+description: Instructions on how to setup World Air Quality Index sensor in Home Assistant.
 ha_category:
   - Health
 ha_release: 0.34
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@andrey-git'
+ha_domain: waqi
 ---
 
-The `waqi` sensor platform will query [World Air Quality Index](http://aqicn.org) service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as sensor outputs.
+The `waqi` sensor platform will query [World Air Quality Index](https://aqicn.org/city/beijing/) service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as sensor outputs.
 
-This sensor requires an API token. Please obtain one at [AQICN API token](http://aqicn.org/data-platform/token/#/).
+## Setup
+
+This sensor requires an API token. Please obtain one at [AQICN API token](https://aqicn.org/data-platform/token/#/).
+
+The locations field is a search for a location. E.g., "brisbane" or "Brisban" would find Brisbane, Australia and all associated stations in the area.
+
+The format for station fields is exactly from the website, e.g., you would provide the location string "[South Brisbane, Australia](http://aqicn.org/city/australia/queensland/south-brisbane/)" for the linked location.
+
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

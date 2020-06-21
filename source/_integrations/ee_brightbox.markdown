@@ -1,11 +1,11 @@
 ---
-title: "EE Bright Box"
-description: "Instructions on how to integrate EE Bright Box router into Home Assistant."
-logo: ee.png
+title: EE Bright Box
+description: Instructions on how to integrate EE Bright Box router into Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 0.87
 ha_iot_class: Local Polling
+ha_domain: ee_brightbox
 ---
 
 This platform offers presence detection by looking at connected devices to a [EE Bright Box 2](https://ee.co.uk/help/phones-and-device/home-broadband/bright-box-2-wireless-router/bright-box-2-wireless-router) router.

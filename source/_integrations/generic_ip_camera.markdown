@@ -6,6 +6,7 @@ ha_category:
 logo: home-assistant.png
 ha_release: pre 0.7
 ha_iot_class: Configurable
+ha_domain: camera
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
@@ -25,11 +26,11 @@ camera:
 
 {% configuration %}
 still_image_url:
-  description: "The URL your camera serves the image on, e.g., http://192.168.1.21:2112/. Can be a [template](/topics/templating/)."
+  description: "The URL your camera serves the image on, e.g., `http://192.168.1.21:2112/`. Can be a [template](/topics/templating/)."
   required: true
   type: string
 stream_source:
-  description: "The URL your camera serves the live stream on, e.g., rtsp://192.168.1.21:554/."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`."
   required: false
   type: string
 name:
@@ -91,7 +92,7 @@ camera:
     content_type: 'image/svg+xml'
 ```
 
-### Local image with Hass.io
+### Local image
 
 You can show a static image with this platform. Just place the image here: `/config/www/your_image.png`
 
@@ -105,7 +106,7 @@ camera:
 
 ### Sharing a camera feed from one Home Assistant instance to another
 
-If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](/developers/rest_api/#get-apicamera_proxycameraltentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
+If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](https://developers.home-assistant.io/docs/api/rest/#get-apicamera_proxycameraentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
 
 ```yaml
 camera:

@@ -1,12 +1,12 @@
 ---
-title: "Pushbullet Mirrors"
-description: "Instructions on how to read user pushes in Home Assistant"
-logo: pushbullet.png
+title: Pushbullet
+description: Instructions on how to read user pushes in Home Assistant
 ha_category:
   - Sensor
   - Notifications
 ha_release: 0.44
 ha_iot_class: Cloud Polling
+ha_domain: pushbullet
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -113,20 +113,21 @@ Type | Prefix | Suffix | Example
 Device | `device/` | Device nickname | `device/iphone`
 Channel | `channel/` | Channel tag | `channel/my_home`
 Email | `email/` | Contact's email address | `email/email@example.com`
+SMS | `sms/` | Contact's phone number | `sms/0612345678`
 
 If using targets, your own account's email address functions as 'send to all devices'. All targets are verified (if exists) before sending, except email.
 
 #### Example service payload
 
-```json
-{
-  "message": "A message for many people",
-  "target": [
-    "device/telephone",
-    "email/hello@example.com",
-    "channel/my_home"
-  ]
-}
+```yaml
+
+  message: A message for many people
+  target: 
+    - device/telephone
+    - email/hello@example.com
+    - channel/my_home
+    - sms/0612345678
+
 ```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
@@ -143,7 +144,7 @@ action:
       url: google.com
 ```
 
-- **url** (*Required*): Page URL to send with Pushbullet.
+- `url` (*Required*): Page URL to send with Pushbullet.
 
 ### File support
 
@@ -157,7 +158,7 @@ action:
       file: /path/to/my/file
 ```
 
-- **file** (*Required*): File to send with Pushbullet.
+- `file` (*Required*): File to send with Pushbullet.
 
 ### File URL support
 
@@ -171,7 +172,7 @@ action:
       file_url:  https://cdn.pixabay.com/photo/2014/06/03/19/38/test-361512_960_720.jpg
 ```
 
-- **file_url** (*Required*): File to send with Pushbullet.
+- `file_url` (*Required*): File to send with Pushbullet.
 
 ### Single target
 
@@ -184,7 +185,7 @@ action:
       target: device/DEVICE_NAME
 ```
 
-- **target**: Pushbullet device to receive the notification.
+- `target`: Pushbullet device to receive the notification.
 
 <div class='note'>
 

@@ -1,11 +1,11 @@
 ---
-title: "OpenSky Network"
-description: "Instructions on how to integrate OpenSky Network into Home Assistant."
-logo: opensky.png
+title: OpenSky Network
+description: Instructions on how to integrate OpenSky Network into Home Assistant.
 ha_category:
   - Transport
 ha_release: 0.43
 ha_iot_class: Cloud Polling
+ha_domain: opensky
 ---
 
 The `opensky` sensor allows one to track overhead flights in a given region. It uses crowd-sourced data from the [OpenSky Network](https://opensky-network.org/) public API. It will also fire Home Assistant events when flights enter and exit the defined region.
@@ -39,7 +39,7 @@ Both events have three attributes:
 - **callsign**: Callsign of the flight.
 - **altitude**: Altitude of the flight in meters.
 
-To receive notifications of the entering flights, add the following lines to your `configuration.yaml` file:
+To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -49,7 +49,7 @@ automation:
       platform: event
       event_type: opensky_entry
     action:
-      service: notify.ios_YOURIPHONENAME
+      service: notify.mobile_app_<device_name>
       data_template:
         message : 'Flight entry of {{ trigger.event.data.callsign }} '
 ```

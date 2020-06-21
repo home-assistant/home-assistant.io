@@ -1,11 +1,14 @@
 ---
-title: "Plaato Airlock"
-description: "Instructions on how to integrate Plaato Airlock sensors within Home Assistant."
-logo: plaato.png
+title: Plaato Airlock
+description: Instructions on how to integrate Plaato Airlock sensors within Home Assistant.
 ha_release: 0.95
 ha_category:
   - Sensor
 ha_iot_class: Cloud Push
+ha_config_flow: true
+ha_codeowners:
+  - '@JohNan'
+ha_domain: plaato
 ---
 
 This integration sets up integration with [Plaato Airlock](https://www.plaato.io/).

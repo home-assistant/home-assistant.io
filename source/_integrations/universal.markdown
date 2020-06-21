@@ -1,11 +1,11 @@
 ---
-title: "Universal"
-description: "Instructions on how to create a universal media player in Home Assistant."
-logo: home-assistant.png
+title: Universal Media Player
+description: Instructions on how to create a universal media player in Home Assistant.
 ha_category:
   - Media Player
-ha_qa_scale: internal
 ha_release: 0.11
+ha_quality_scale: internal
+ha_domain: universal
 ---
 
 Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.
@@ -76,13 +76,14 @@ When providing `select_source` as a command, it is recommended to also provide t
 
 ## Usage examples
 
-#### Chromecast & Kodi control with switches
+### Chromecast & Kodi control with switches
 
 In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The `turn_on` and `turn_off` commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The `select_source` command will be passed directly to an A/V receiver.
 
 The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the universal media player will change to reflect its status.
 
 {% raw %}
+
 ```yaml
 media_player:
   platform: universal
@@ -129,34 +130,30 @@ media_player:
     source: media_player.receiver|source
     source_list: media_player.receiver|source_list
 ```
+
 {% endraw %}
 
 #### Kodi CEC-TV control
 
-In this example, a [Kodi Media Player](/integrations/kodi) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.
+In this example, a [Kodi Media Player](/integrations/kodi) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi add-on installed, it can turn on and off the attached TV.
 
 We store the state of the attached TV in a hidden [input boolean](/integrations/input_boolean/), so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the universal media player to render its state with a template. We can hide the Kodi Media Player too, and only show the universal one, which now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
 
 Because the input boolean used to store the TV state is only changing when using the Home Assistant `turn_on` and `turn_off` actions, and Kodi could be controlled by so many ways, we also define some automations to update this Input Boolean when needed.
 
-In an Apple HomeKit scene, we can now expose this universal media player as an on/off switch in Homebridge, and, that way, use Siri to turn on and off the TV.
-
 The complete configuration is:
 
 {% raw %}
+
 ```yaml
 homeassistant:
   customize:
     input_boolean.kodi_tv_state:
       hidden: true
-      homebridge_hidden: true
     media_player.kodi:
       hidden: true
-      homebridge_hidden: true
     media_player.kodi_tv:
       friendly_name: Kodi
-      homebridge_name: Kodi
-      homebridge_media_player_switch: on_off
 
 input_boolean:
   kodi_tv_state:
@@ -236,4 +233,5 @@ automation:
   - service: media_player.turn_off
     entity_id: media_player.kodi_tv
 ```
+
 {% endraw %}

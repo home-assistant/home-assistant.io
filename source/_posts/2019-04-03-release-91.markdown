@@ -24,7 +24,7 @@ We're still in the process of updating more cameras to support the stream compon
 
 A BIG shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI](https://www.circleci.com) and [Codecov](https://codecov.io/). CircleCI's advanced caching and code splitting controls has speed up tests significantly. Codecov tracks our code coverage and generates detailed reports for each contribution to see how well it is tested.
 
-And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occassionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
+And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occasionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
 
 ## Notable breaking change
 
@@ -105,7 +105,7 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 
 ## Release 0.91.2 - April 8
 
-- Correctly load Mopar's config ([@rohankapoorcom] - [#22771]) ([mopar docs])
+- Correctly load Mopar's config ([@rohankapoorcom] - [#22771])
 - Fix konnected unique_id computation for switches ([@heythisisnate] - [#22777]) ([konnected docs]) (breaking change)
 - make the custom polling actually request state ([@dmulcahey] - [#22778]) ([zha docs])
 - ZHA Light debug logging. ([@Adminiuga] - [#22776]) ([zha docs])
@@ -153,7 +153,6 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [hassio docs]: /integrations/hassio/
 [konnected docs]: /integrations/konnected/
 [mobile_app docs]: /integrations/mobile_app/
-[mopar docs]: /integrations/mopar/
 [tado docs]: /integrations/tado/
 [yeelight docs]: /integrations/yeelight/
 [zha docs]: /integrations/zha/
@@ -210,9 +209,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Axis__ - Events supplied from component might differ. Events will not be configurable in the beginning but will instead provide a subset set of events supported per device. This will be configurable in a later stage when config entry options are available. Configuration.yaml support for Axis component will be removed in the future so make sure to remove references to Axis component after upgrade. ([@Kane610] - [#18543]) ([axis docs])
 - __HTTP__ - Lower severity level of log messages from http.view ([@thomasloven] - [#21091]) ([http docs])
 - __Dark Sky__ - Dark Sky provides hourly forecasts for various monitored conditions. This change creates new sensors for each hourly forecasted condition with suffix `_<hour>h` while adding the suffix `_<day>d` to the daily forecasted conditions. For example, now a `sensor.dark_sky_summary_<day>d` and `sensor.dark_sky_summary_<hour>h` will be created if the forecast and hourly_forecast parameters are populated. ([@rtclauss] - [#21820]) ([darksky docs])
-- __Konnected__ - This will change the internal unique_id for Konnected switches (i.e. siren, buzzer, generic switch). Users will need to manually remove the orphaned switch entities from the entity registry after updating and re-configure any changes stored in the entity registry (i.e. name and entity_id), as their unique IDs will change. ([@heythisisnate] - [#22389]) ([konnected docs])
+- __Konnected__ - This will change the internal unique_id for Konnected switches (i.e., siren, buzzer, generic switch). Users will need to manually remove the orphaned switch entities from the entity registry after updating and re-configure any changes stored in the entity registry (i.e., name and entity_id), as their unique IDs will change. ([@heythisisnate] - [#22389]) ([konnected docs])
 
-- __Mopar__ - The mopar sensor platform has been broken up into a base component with sensor, switch, and lock platforms. The sensor.mopar_remote_command service has been removed since the functionality has been folded into the new platforms and the new mopar.sound_horn service. Please view the documentation to see the new setup instructions. ([@rohankapoorcom] - [#21526]) ([mopar docs])
+- __Mopar__ - The mopar sensor platform has been broken up into a base component with sensor, switch, and lock platforms. The sensor.mopar_remote_command service has been removed since the functionality has been folded into the new platforms and the new mopar.sound_horn service. Please view the documentation to see the new setup instructions. ([@rohankapoorcom] - [#21526])
 
 ## Beta Fixes
 
@@ -272,7 +271,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tibber, Add price level ([@Danielhiversen] - [#22085]) ([tibber docs])
 - Fix AttributeError traceback with darksky ([@iamtpage] - [#22101]) ([darksky docs])
 - Add service description for services. ([@cgtobi] - [#21897])
-- Handle occassional 502 Bad Gateway from SimpliSafe ([@bachya] - [#22131]) ([simplisafe docs])
+- Handle occasional 502 Bad Gateway from SimpliSafe ([@bachya] - [#22131]) ([simplisafe docs])
 - Loosen field retrieval from Pollen.com ([@bachya] - [#22132]) ([pollen docs])
 - Handle possible exception during Ambient PWS reconnect ([@bachya] - [#22134]) ([ambient_station docs])
 - Additional sensors and fixed icons, attributes and device classes. ([@endor-force] - [#22139]) ([trafikverket_weatherstation docs])
@@ -303,7 +302,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - add ZHA channel name property ([@Adminiuga] - [#22218]) ([zha docs])
 - Handle on/off through TemperatrureSetting trait. ([@Swamp-Ig] - [#21842]) ([google_assistant docs])
 - Change .now() to .utcnow() ([@rdbahm] - [#22233]) ([season docs])
-- Upgrade tibber libary, support solar production ([@Danielhiversen] - [#22261]) ([tibber docs])
+- Upgrade tibber library, support solar production ([@Danielhiversen] - [#22261]) ([tibber docs])
 - Upgrade sqlalchemy to 1.3.0 ([@fabaff] - [#22269]) ([recorder docs]) ([sql docs])
 - Plex: Avoid refreshing by both device and session methods ([@jjlawren] - [#22266]) ([plex docs])
 - Bump androidtv to 0.0.13 ([@JeffLIrion] - [#22279]) ([androidtv docs])
@@ -415,7 +414,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move HKDevice into connection ([@Jc2k] - [#22430]) ([homekit_controller docs])
 - Incoming SMS handling for netgear_lte ([@amelchio] - [#22402]) ([netgear_lte docs])
 - Entur upgrade to v0.2.0: async polling, number of departures, omit non boarding departures ([@hfurubotten] - [#22001]) ([entur_public_transport docs])
-- Mopar split ([@rohankapoorcom] - [#21526]) ([mopar docs]) (breaking change)
+- Mopar split ([@rohankapoorcom] - [#21526]) (breaking change)
 - Fix too-abrubt SimpliSafe data refresh termination on error ([@bachya] - [#22466]) ([simplisafe docs])
 - Great migration notify ([@robbiet480] - [#22406])
 - Print error instead of warning for custom platforms in legacy format ([@balloob] - [#22486])
@@ -795,7 +794,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [microsoft docs]: /integrations/microsoft/
 [mold_indicator docs]: /integrations/mold_indicator/
 [moon docs]: /integrations/moon/
-[mopar docs]: /integrations/mopar/
 [mqtt docs]: /integrations/mqtt/
 [nanoleaf docs]: /integrations/nanoleaf/
 [ness_alarm docs]: /integrations/ness_alarm/

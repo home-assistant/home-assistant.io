@@ -345,6 +345,10 @@ article.post, article.page, article.listing {
     // Future re-design
     // margin: 1.5em 0 1rem;
   }
+
+  details {
+    padding-bottom: 1em;
+  }
 }
 
 p.note, div.note {
@@ -535,7 +539,7 @@ code {
   font-size: 0.8em;
   color: #1990b8;
   word-spacing: normal;
-  word-break: break-word;
+  word-break: normal;
   word-wrap: normal;
 
   -moz-tab-size: 4;

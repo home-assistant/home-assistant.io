@@ -14,10 +14,9 @@ A man in the middle attack is when an attacker is able to inject itself between 
 
 After research, the following integrations have been impacted. Although the odds are extremely small, we still suggest that if you use any of these integrations, to create new API keys or change your password.
 
-- [alarm_control_panel.alarmdotcom](/integrations/alarmdotcom)
 - [climate.sensibo](/integrations/sensibo)
 - [cloud](/integrations/cloud/) (only short lived tokens impacted)
-- [device_tracker.automatic](/integrations/automatic)
+- device_tracker.automatic
 - [duckdns](/integrations/duckdns/)
 - [freedns](/integrations/freedns/)
 - [google_assistant](/integrations/google_assistant/) (manual setup)
@@ -31,9 +30,8 @@ After research, the following integrations have been impacted. Although the odds
 - [notify.prowl](/integrations/prowl)
 - [rest_command](/integrations/rest_command/)
 - [scene.lifx_cloud](/integrations/lifx_cloud)
-- [switch.hook](/integrations/hook)
 - [switch.rest](/integrations/switch.rest/)
-- [telegram_bot.polling](/integrations/polling)
+- [telegram_bot.polling](/integrations/telegram_polling)
 - [tts.voicerss](/integrations/voicerss)
 
 Also impacted, but integrations are read only:

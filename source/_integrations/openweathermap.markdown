@@ -1,22 +1,24 @@
 ---
-title: "OpenWeatherMap"
-description: "Instructions on how to integrate OpenWeatherMap within Home Assistant."
-logo: openweathermap.png
+title: Openweathermap
+description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
 ha_category:
   - Weather
   - Sensor
 ha_release: 0.32
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@fabaff'
+ha_domain: openweathermap
 ---
 
-The `openweathermap` weather platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location.
+The `openweathermap` weather platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Weather](#weather)
 
-You need an API key which is free but requires a [registration](http://home.openweathermap.org/users/sign_up).
+You need an API key, which is free, but requires a [registration](https://home.openweathermap.org/users/sign_up).
 
 ## Weather
 
@@ -31,7 +33,7 @@ weather:
 
 {% configuration %}
 api_key:
-  description: Your API key for [OpenWeatherMap](http://openweathermap.org/).
+  description: Your API key for [OpenWeatherMap](https://openweathermap.org/).
   required: true
   type: string
 name:
@@ -40,7 +42,7 @@ name:
   type: string
   default: OpenWeatherMap
 mode:
-  description: "Can specify `hourly`, `daily` of `freedaily`. Select `hourly` for a three-hour forecast, `daily` for daily forecast or `freedaily` for a five days forecast with the free tier."
+  description: "Can specify `hourly`, `daily`, or `freedaily`. Select `hourly` for a three-hour forecast, `daily` for daily forecast, or `freedaily` for a five-day forecast with the free tier."
   required: false
   type: string
   default: "`hourly`"
@@ -64,9 +66,9 @@ This platform is an alternative to the [`openweathermap`](/integrations/openweat
 
 ## Sensor
 
-The `openweathermap` platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 3h.
+The `openweathermap` platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 3h.
 
-To add OpenWeatherMap sensor to your installation, add the following to your `configuration.yaml` file:
+To include OpenWeatherMap sensor to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -91,9 +93,9 @@ forecast:
   description: Enables the forecast. The default is to display the current conditions.
   required: false
   default: false
-  type: string
+  type: boolean
 language:
-  description: The language in which you want text results to be returned. It's a two-characters string, e.g., `en`, `es`, `ru`, `it`, etc.
+  description: The language in which you want text results to be returned. It's a two-characters string (e.g., `en`, `es`, `ru`, `it`, etc.).
   required: false
   default: en
   type: string
@@ -105,23 +107,23 @@ monitored_conditions:
     weather:
       description: A human-readable text summary.
     temperature:
-      description: The current temperature.
+      description: Current temperature.
     wind_speed:
-      description: The wind speed.
+      description: Wind speed.
     wind_bearing:
-      description: The wind bearing.
+      description: Wind bearing.
     humidity:
-      description: The relative humidity.
+      description: Relative humidity.
     pressure:
-      description: The sea-level air pressure in millibars.
+      description: Sea-level air pressure in millibars.
     clouds:
-      description: Description about cloud coverage.
+      description: Description of cloud coverage.
     rain:
-      description: The rain volume.
+      description: Rain volume.
     snow:
-      description: The snow volume.
+      description: Snow volume.
     weather_code:
-      description: The current weather condition code.
+      description: Current weather condition code.
 {% endconfiguration %}
 
-Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
+Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).

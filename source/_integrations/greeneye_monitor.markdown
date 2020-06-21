@@ -1,15 +1,18 @@
 ---
-title: "GreenEye Monitor"
-description: "Instructions on how to integrate your GreenEye Monitor within Home Assistant."
+title: GreenEye Monitor (GEM)
+description: Instructions on how to integrate your GreenEye Monitor within Home Assistant.
 logo: brultech.png
 ha_category:
   - Hub
   - Sensor
 ha_release: 0.82
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@jkeljo'
+ha_domain: greeneye_monitor
 ---
 
-The [GreenEye Monitor (GEM)](http://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
+The [GreenEye Monitor (GEM)](https://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
 
 Configure your GEM(s) to produce binary-format packets (for example, "Bin32 NET" for a 32-channel GEM with some channels configured for net metering) and send them to an unused port on your Home Assistant machine. (These settings are in the "Packet Send" and "Network" pages of the GEM UI.) Then specify that port and information about your monitor(s) and the data channels you wish to monitor in your `configuration.yaml`:
 
@@ -32,8 +35,13 @@ greeneye_monitor:
           counted_quantity_per_pulse: 1
           time_unit: "min"
       temperature_sensors:
+        temperature_unit: "C"
+        sensors:
+          - number: 1
+            name: back_porch_temperature
+      voltage:
         - number: 1
-          name: back_porch_temperature
+          name: house_volts
 ```
 
 By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/integrations/recorder) integration for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/integrations/influxdb) integration and exclude the GEM sensors from `recorder`.
@@ -70,6 +78,18 @@ monitors:
           required: false
           type: boolean
           default: false
+    voltage:
+      description: Configuration for voltage sensor
+      required: false
+      keys:
+        number:
+          description: A channel number that exists in the GEM. There is only one voltage sensor on current models of the GEM.
+          required: true
+          type: integer
+        name:
+          description: The name that should be used for the voltage sensor in Home Assistant.
+          required: true
+          type: string
     temperature_sensors:
       description: Configuration for temperature sensors
       required: false

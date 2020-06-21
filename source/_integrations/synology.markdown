@@ -1,11 +1,11 @@
 ---
-title: "Synology Camera"
-description: "Instructions on how to integrate Synology Surveillance Station cameras within Home Assistant."
-logo: synology.png
+title: Synology
+description: Instructions on how to integrate Synology Surveillance Station cameras within Home Assistant.
 ha_category:
   - Camera
 ha_release: 0.31
 ha_iot_class: Local Polling
+ha_domain: synology
 ---
 
 The `synology` camera platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.
@@ -25,7 +25,7 @@ To enable your Surveillance Station cameras in your installation, add the follow
 # Minimum configuration.yaml entry
 camera:
   - platform: synology
-    url: IP_ADDRESS_OF_SYNOLOGY_NAS
+    url: FULL_URL_OF_SYNOLOGY_NAS
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```

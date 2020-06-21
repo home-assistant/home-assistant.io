@@ -1,36 +1,38 @@
 ---
-title: "Belkin WeMo"
-description: "Instructions on how to integrate Belkin WeMo devices into Home Assistant."
-logo: belkin_wemo.png
+title: Belkin WeMo
+description: Instructions on how to integrate Belkin WeMo devices into Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
   - Fan
   - Light
   - Switch
-featured: true
 ha_release: pre 0.7
+ha_config_flow: true
+ha_codeowners:
+  - '@sqldiablo'
+ha_domain: wemo
 ---
 
-The `wemo` integration is the main integration to integrate various [Belkin WeMo](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
+The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Fan (Belkin WeMo (Holmes) Smart Humidifier)
-- Light (Belkin WeMo LED lights and [Smart Dimmer Switch](http://www.belkin.com/us/F7C059-Belkin/p/P-F7C059/))
-- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) and includes support for Wemo enabled [Mr. Coffee](http://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.)
+- Light (Belkin WeMo LED lights and [Smart Dimmer Switch](https://www.belkin.com/us/F7C059-Belkin/p/P-F7C059/))
+- Switch ([Belkin WeMo Switches](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) and includes support for WeMo enabled [Mr. Coffee](https://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.)
 
 ## Configuration
 
 {% configuration %}
   discovery:
-    description: Setting this value to false will prevent the automatic discovery of WeMo devices by the wemo platform and the discovery platform (static devices will still be discovered)
+    description: Setting this value to false will prevent the automatic discovery of WeMo devices by the WeMo platform and the discovery platform (static devices will still be discovered)
     required: false
     type: boolean
     default: true
   static:
-    description: One or more static IP adresses for WeMo to use
+    description: One or more static IP addresses for WeMo to use
     required: false
     type: list
 {% endconfiguration %}
@@ -102,5 +104,5 @@ There are several services which can be used for automations and control of the 
 | `toggle` | Calling this service will toggle the humidifier between on and off states.
 | `turn_off` | Calling this service will turn the humidifier off (entity_id is required).
 | `turn_on` | Calling this service will turn the humidifier on and set the speed to the last used speed (defaults to medium, entity_id is required).
-| `wemo_set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
-| `wemo_reset_filter_life` | Calling this service will reset the humdifier's filter life back to 100% (entity_id is a required list of 1 or more entities to reset the filter life on). Call this service when you change the filter on your humidifier.
+| `wemo.set_humidity` | Calling this service will set the desired relative humidity setting on the device (entity_id is a required list of 1 or more entities to set humidity on, and target_humidity is a required float value between 0 and 100 (this value will be rounded down and mapped to one of the valid desired humidity settings of 45, 50, 55, 60, or 100 that are supported by the WeMo humidifier)).
+| `wemo.reset_filter_life` | Calling this service will reset the humdifier's filter life back to 100% (entity_id is a required list of 1 or more entities to reset the filter life on). Call this service when you change the filter on your humidifier.

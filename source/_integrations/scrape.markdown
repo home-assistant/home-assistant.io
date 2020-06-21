@@ -1,11 +1,13 @@
 ---
-title: "Scrape Sensor"
-description: "Instructions on how to integrate Web scrape sensors into Home Assistant."
-logo: home-assistant.png
+title: Scrape
+description: Instructions on how to integrate Web scrape sensors into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.31
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@fabaff'
+ha_domain: scrape
 ---
 
 The `scrape` sensor platform is scraping information from websites. The sensor loads a HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
@@ -43,6 +45,10 @@ name:
   required: false
   default: Web scrape
   type: string
+value_template:
+  description: Defines a template to get the state of the sensor.
+  required: false
+  type: template
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
@@ -123,13 +129,13 @@ sensor:
 
 ### IFTTT status
 
-If you make heavy use of the [IFTTT](/integrations/ifttt/) web service for your automations and are curious about the [status of IFTTT](http://status.ifttt.com/) then you can display the current state of IFTTT in your frontend.
+If you make heavy use of the [IFTTT](/integrations/ifttt/) web service for your automations and are curious about the [status of IFTTT](https://status.ifttt.com/) then you can display the current state of IFTTT in your frontend.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: scrape
-    resource: http://status.ifttt.com/
+    resource: https://status.ifttt.com/
     name: IFTTT status
     select: '.component-status'
 ```

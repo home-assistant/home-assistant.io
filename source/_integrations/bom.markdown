@@ -1,13 +1,15 @@
 ---
-title: "BOM Australia"
-description: "Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant."
-logo: bom.png
+title: Australian Bureau of Meteorology (BOM)
+description: Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant.
 ha_category:
   - Weather
   - Sensor
   - Camera
 ha_release: 0.36
 ha_iot_class: Cloud Polling
+ha_domain: bom
+ha_codeowners:
+  - '@maddenp'
 ---
 
 The `bom` weather platform uses the [Australian Bureau of Meteorology (BOM)](http://www.bom.gov.au) as a source for current (half-hourly) meteorological data.
@@ -33,7 +35,7 @@ name:
   required: false
   type: string
 station:
-  description: "The station ID string. See the [`sensor.bom` docs](#sensor) for details on how to find the ID of a station."
+  description: "The station ID string. See the [`sensor.bom` documentation](#sensor) for details on how to find the ID of a station."
   required: false
   type: string
   default: The closest station
@@ -122,7 +124,7 @@ camera:
 
 In the event BOM creates a new radar, or a radar's ID changes, you may define a custom `id` along with corresponding `delta` and `frames` values. You may also specify custom `delta` and `frames` values, along with a valid `location`, to override the default values for an existing radar. You may not define `location` and `id` in the same entity; you must specify one or the other. If `id` is specified, then `delta` and `frames` values _must_ be provided. If `location` is specified, `delta` and `frames` _may_ be provided to override the default values.
 
-To find a live radar ID (e.g. for the `Townsville` radar), visit the [BOM website's radars page](http://www.bom.gov.au/australia/radar/), click the link for the radar you are interested in, and note the URL, for example: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e. `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's JavaScript-driven animation. The number of minutes (in seconds) between these times corresponds to the camera's `delta` value, and the number of frames corresponds to the `frames` value. At the time of this writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
+To find a live radar ID (e.g.,  for the `Townsville` radar), visit the [BOM website's radars page](http://www.bom.gov.au/australia/radar/), click the link for the radar you are interested in, and note the URL, for example: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e., `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's JavaScript-driven animation. The number of minutes (in seconds) between these times corresponds to the camera's `delta` value, and the number of frames corresponds to the `frames` value. At the time of this writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
 
 ```yaml
 camera:
@@ -204,8 +206,8 @@ sensor:
 To get the station ID for any BOM station:
 - Find your station on these maps: [NSW](http://www.bom.gov.au/nsw/observations/map.shtml), [QLD](http://www.bom.gov.au/qld/observations/map.shtml), [VIC](http://www.bom.gov.au/vic/observations/map.shtml), [WA](http://www.bom.gov.au/wa/observations/map.shtml), [SA](http://www.bom.gov.au/sa/observations/map.shtml), [TAS](http://www.bom.gov.au/tas/observations/map.shtml), [ACT](http://www.bom.gov.au/act/observations/canberramap.shtml), [NT](http://www.bom.gov.au/nt/observations/map.shtml).
  - alternatively, from the [BOM website](http://www.bom.gov.au/), navigate to State -> Observations -> Latest Observations -> Choose the station.
-- The URL will look like: http://www.bom.gov.au/products/IDx60801/[station].shtml
- - For Adelaide, the URL will look like `http://www.bom.gov.au/products/IDS60801/IDS60801.94675.shtml`; the station ID is `IDS60801.94675`.
+- The URL will look like `http://www.bom.gov.au/products/IDx60801/[station].shtml`
+- For Adelaide, the URL will look like `http://www.bom.gov.au/products/IDS60801/IDS60801.94675.shtml`; the station ID is `IDS60801.94675`.
 
 {% configuration %}
 station:

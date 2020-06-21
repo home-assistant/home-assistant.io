@@ -1,11 +1,17 @@
 ---
-title: "Snips"
-description: "Instructions on how to integrate Snips within Home Assistant."
-logo: snips.png
+title: Snips
+description: Instructions on how to integrate Snips within Home Assistant.
 ha_category:
   - Voice
 ha_release: 0.48
+ha_domain: snips
 ---
+
+<div class='note warning'>
+  
+The Snips Console no longer available due to acquisition by Sonos. For more details, read the [announcement on the Snips forum](http://web.archive.org/web/20200109164247/https://forum.snips.ai/t/important-message-regarding-the-snips-console/4145).
+
+</div>
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
@@ -27,7 +33,7 @@ The Snips platform can be installed via the Snips APT/Debian repository.
 sudo apt-get update
 sudo apt-get install -y dirmngr
 sudo bash -c  'echo "deb https://raspbian.snips.ai/$(lsb_release -cs) stable main" > /etc/apt/sources.list.d/snips.list'
-sudo apt-key adv --keyserver pgp.mit.edu --recv-keys D4F50CDCA10A2849
+sudo apt-key adv --fetch-keys https://raspbian.snips.ai/531DD1A7B702B14D.pub
 sudo apt-get update
 sudo apt-get install -y snips-platform-voice
 ```
@@ -81,11 +87,11 @@ sudo systemctl start "snips-*"
 
 Snips is now ready to take voice commands from the microphone. To trigger the listening, simply say
 
-> Hey Snips
+_Hey Snips_
 
 followed by a command, e.g.
 
-> Set the lights to green in the living room
+_Set the lights to green in the living room_
 
 As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant integration subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml` file, as explained below.
 
@@ -135,7 +141,7 @@ Alternatively, MQTT can be configured to bridge messages between servers if usin
 
 In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/integrations/intent_script) component. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
 
-Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips integration in Home Assistant [will try and strip off the username](https://github.com/home-assistant/home-assistant/blob/c664c20165ebeb248b98716cf61e865f274a2dac/homeassistant/integrations/snips.py#L126-L129). Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips integration is trying to match the non-username version of the intent (i.e., just `playmusic`).
+Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips integration in Home Assistant will try and strip off the username. Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips integration is trying to match the non-username version of the intent (i.e., just `playmusic`).
 
 {% raw %}
 ```yaml

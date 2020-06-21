@@ -1,11 +1,11 @@
 ---
-title: "Person"
-description: "Instructions on how to set up people tracking within Home Assistant."
-logo: home-assistant.png
+title: Person
+description: Instructions on how to set up people tracking within Home Assistant.
 ha_category:
   - Presence Detection
-ha_qa_scale: internal
 ha_release: 0.88
+ha_quality_scale: internal
+ha_domain: person
 ---
 
 The person integration allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
@@ -32,7 +32,7 @@ You can manage persons via the UI from the person page inside the configuration 
 
 ## Configuring the `person` integration via the Home Assistant configuration panel
 
-If you prefer to use the configuration panel to configure the `person` integration simply add one line to your `configuration.yaml` file and restart Home Assistant.
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 person:
@@ -87,14 +87,16 @@ person:
       - device_tracker.beacon
 ```
 
+If you change the YAML, you can reload it by calling the `person.reload` service.
+
 ### Customizing the picture for a person
 
 By following the instructions on the [customizing entities](/docs/configuration/customizing-devices#entity_picture) page, you can customize the picture used for a person entity in the `customize:` section of your configuration. For example:
 
 ```yaml
 customize:
-  person.ada6789:
+  person.ada:
     entity_picture: "/local/ada.jpg"
 ```
 
-See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder. 
+See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder.

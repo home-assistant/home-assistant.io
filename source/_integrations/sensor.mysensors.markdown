@@ -1,15 +1,15 @@
 ---
 title: "MySensors Sensor"
 description: "Instructions on how to integrate MySensors sensors into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Sensor
 ha_iot_class: Local Push
 ha_release: 0.7
+ha_domain: mysensors
 ---
 
-Integrates MySensors sensors into Home Assistant. See the [main component] for configuration instructions.
+Integrates MySensors sensors into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.
 
 ## Supported sensor types
 
@@ -17,46 +17,46 @@ The following sensor types are supported:
 
 ### MySensors version 1.4 and higher
 
-S_TYPE             | V_TYPE
--------------------|---------------------------------------
-S_TEMP             | V_TEMP
-S_HUM              | V_HUM
-S_BARO             | V_PRESSURE, V_FORECAST
-S_WIND             | V_WIND, V_GUST, V_DIRECTION
-S_RAIN             | V_RAIN, V_RAINRATE
-S_UV               | V_UV
-S_WEIGHT           | V_WEIGHT, V_IMPEDANCE
-S_POWER            | V_WATT, V_KWH
-S_DISTANCE         | V_DISTANCE
-S_LIGHT_LEVEL      | V_LIGHT_LEVEL
-S_IR               | V_IR_RECEIVE
-S_WATER            | V_FLOW, V_VOLUME
-S_AIR_QUALITY      | V_DUST_LEVEL
-S_CUSTOM           | V_VAR1, V_VAR2, V_VAR3, V_VAR4, V_VAR5
-S_DUST             | V_DUST_LEVEL
-S_SCENE_CONTROLLER | V_SCENE_ON, V_SCENE_OFF
+| S_TYPE             | V_TYPE                                 |
+| ------------------ | -------------------------------------- |
+| S_TEMP             | V_TEMP                                 |
+| S_HUM              | V_HUM                                  |
+| S_BARO             | V_PRESSURE, V_FORECAST                 |
+| S_WIND             | V_WIND, V_GUST, V_DIRECTION            |
+| S_RAIN             | V_RAIN, V_RAINRATE                     |
+| S_UV               | V_UV                                   |
+| S_WEIGHT           | V_WEIGHT, V_IMPEDANCE                  |
+| S_POWER            | V_WATT, V_KWH                          |
+| S_DISTANCE         | V_DISTANCE                             |
+| S_LIGHT_LEVEL      | V_LIGHT_LEVEL                          |
+| S_IR               | V_IR_RECEIVE                           |
+| S_WATER            | V_FLOW, V_VOLUME                       |
+| S_AIR_QUALITY      | V_DUST_LEVEL                           |
+| S_CUSTOM           | V_VAR1, V_VAR2, V_VAR3, V_VAR4, V_VAR5 |
+| S_DUST             | V_DUST_LEVEL                           |
+| S_SCENE_CONTROLLER | V_SCENE_ON, V_SCENE_OFF                |
 
 ### MySensors version 1.5 and higher
 
-S_TYPE         | V_TYPE
----------------|----------------------------------
-S_COLOR_SENSOR | V_RGB
-S_MULTIMETER   | V_VOLTAGE, V_CURRENT, V_IMPEDANCE
-S_SOUND        | V_LEVEL
-S_VIBRATION    | V_LEVEL
-S_MOISTURE     | V_LEVEL
-S_LIGHT_LEVEL  | V_LEVEL
-S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)
-S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)
+| S_TYPE         | V_TYPE                            |
+| -------------- | --------------------------------- |
+| S_COLOR_SENSOR | V_RGB                             |
+| S_MULTIMETER   | V_VOLTAGE, V_CURRENT, V_IMPEDANCE |
+| S_SOUND        | V_LEVEL                           |
+| S_VIBRATION    | V_LEVEL                           |
+| S_MOISTURE     | V_LEVEL                           |
+| S_LIGHT_LEVEL  | V_LEVEL                           |
+| S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)   |
+| S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)   |
 
 ### MySensors version 2.0 and higher
 
-S_TYPE          | V_TYPE
-----------------|--------------------------
-S_INFO          | V_TEXT
-S_GAS           | V_FLOW, V_VOLUME
-S_GPS           | V_POSITION
-S_WATER_QUALITY | V_TEMP, V_PH, V_ORP, V_EC
+| S_TYPE          | V_TYPE                    |
+| --------------- | ------------------------- |
+| S_INFO          | V_TEXT                    |
+| S_GAS           | V_FLOW, V_VOLUME          |
+| S_GPS           | V_POSITION                |
+| S_WATER_QUALITY | V_TEMP, V_PH, V_ORP, V_EC |
 
 ## Custom unit of measurement
 
@@ -64,7 +64,7 @@ Some sensor value types are not specific for a certain sensor type. These do not
 
 By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The string value that is sent for V_UNIT_PREFIX will be used in preference to any other unit of measurement, for the defined sensors. V_UNIT_PREFIX can't be used as a stand-alone sensor value type. Sending a supported value type and value from the tables above is also required. V_UNIT_PREFIX is available with MySensors version 1.5 and later.
 
-For more information, visit the [serial api] of MySensors.
+For more information, visit the [serial API](https://www.mysensors.org/download) of MySensors.
 
 ## Example sketches
 
@@ -72,10 +72,10 @@ For more information, visit the [serial api] of MySensors.
 
 ```cpp
 /**
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/light
+ * https://www.mysensors.org/build/light
  */
 
 #include <SPI.h>
@@ -120,10 +120,10 @@ void loop()
 
 ```cpp
 /**
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/light
+ * https://www.mysensors.org/build/light
  */
 
 #define MY_DEBUG
@@ -179,6 +179,3 @@ void receive(const MyMessage &message) {
   }
 }
 ```
-
-[main component]: /integrations/mysensors/
-[serial api]: http://www.mysensors.org/download

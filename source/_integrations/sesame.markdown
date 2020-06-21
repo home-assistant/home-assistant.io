@@ -1,18 +1,18 @@
 ---
-title: "Sesame Smart Lock"
-description: "Instructions on how to integrate Sesame by CANDY HOUSE into Home Assistant."
-logo: sesame.png
+title: Sesame Smart Lock
+description: Instructions on how to integrate Sesame by CANDY HOUSE into Home Assistant.
 ha_category:
   - Lock
 ha_iot_class: Cloud Polling
 ha_release: 0.47
+ha_domain: sesame
 ---
 
 The `sesame` platform allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.
 
 ## Configuration
 
-Your Sesame needs to be paired with a mobile device running the app in *virtual station* mode, or a standalone [Wi-Fi Access Point](https://candyhouse.co/collections/frontpage/products/wi-fi-access-point).
+Your Sesame needs to be paired with a standalone [Wi-Fi Access Point](https://candyhouse.co/collections/frontpage/products/wi-fi-access-point) purchased separately.
 
 You will also need to generate an API key from [my.candyhouse.co](https://my.candyhouse.co/#/credentials).
 

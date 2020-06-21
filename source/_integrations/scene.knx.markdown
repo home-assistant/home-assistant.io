@@ -1,10 +1,10 @@
 ---
 title: "KNX Scene"
 description: "Instructions on how to integrate KNX Scenes into Home Assistant."
-logo: knx.png
 ha_category:
   - Scene
 ha_release: 0.63
+ha_domain: knx
 ---
 
 <div class='note'>
@@ -13,7 +13,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.
+The `knx` scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes.
 
 ## Configuration
 

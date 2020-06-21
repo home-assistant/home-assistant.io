@@ -1,16 +1,18 @@
 ---
-title: "Integration Sensor"
-description: "Instructions on how to integrate Integration Sensor into Home Assistant."
+title: Integration - Riemann sum integral
+description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
   - Utility
   - Energy
 ha_release: 0.87
 ha_iot_class: Local Push
-logo: integral.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@dgomes'
+ha_domain: integration
 ---
 
-The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
+The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
 
 ## Configuration
 
@@ -25,7 +27,7 @@ sensor:
 
 {% configuration %}
 source:
-  description: The entity ID of the sensor providing numeric readings
+  description: The entity ID of the sensor providing numeric readings.
   required: true
   type: string
 name:
@@ -39,27 +41,27 @@ round:
   default: 3
   type: integer
 unit_prefix:
-  description: Metric unit to prefix the integration result. Available units are k, M, G, T.
+  description: "Metric unit to prefix the integration result. Available units are `k`, `M`, `G` and `T`."
   required: false
   default: None
   type: string
 unit_time:
-  description: SI unit of time to integrate over. Available units are s, min, h, d.
+  description: "SI unit of time to integrate over. Available units are `s`, `min`, `h` and `d`."
   required: false
   default: h
   type: string
 unit:
-  description: Unit of Measurement to be used for the integration.
+  description: Unit of measurement to be used for the integration.
   required: false
   type: string
 method:
-  description: Riemann sum method to be used. Available methods are trapezoidal, left, right.
+  description: Riemann sum method to be used. Available methods are `trapezoidal`, `left` and `right`."
   required: false
   type: string
   default: trapezoidal
 {% endconfiguration %}
 
-If 'unit' is set then 'unit_prefix' and 'unit_time' are ignored.
+In case you have an appliance which produces spikey consumption (like an on/off electrical boiler) you should opt for the `left` method to get accurate readings. If `unit` is set then `unit_prefix` and `unit_time` are ignored.
 
 ## Energy
 

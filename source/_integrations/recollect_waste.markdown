@@ -1,11 +1,11 @@
 ---
-title: Recollect Waste Sensor
-description: "Instructions on how to set up Recollect Waste sensor within Home Assistant."
-logo: recollect-waste.png
+title: ReCollect Waste
+description: Instructions on how to set up Recollect Waste sensor within Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.87
 ha_iot_class: Cloud Polling
+ha_domain: recollect_waste
 ---
 
 The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [Recollect](https://recollect.net/private-waste-haulers/). To use this sensor your city's waste company must be Recollect and you will need to find your place_id and service_id.

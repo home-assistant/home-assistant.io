@@ -1,15 +1,16 @@
 ---
-title: "Emby"
-description: "Instructions on how to integrate Emby into Home Assistant."
-logo: emby.png
+title: Emby
+description: Instructions on how to integrate Emby into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.32
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@mezz64'
+ha_domain: emby
 ---
 
-
-The `emby` platform allows you to control a [Emby](http://emby.media/) multimedia system from Home Assistant.
+The `emby` platform allows you to control a [Emby](https://emby.media/) multimedia system from Home Assistant.
 
 To add Emby to your installation, add the following to your `configuration.yaml` file:
 
@@ -41,9 +42,4 @@ port:
   required: false
   default: 8096 (No SSL),  8920 (SSL)
   type: integer
-auto_hide:
-  description: Automatically hide devices that are unavailable from the Home Assistant Interface.
-  required: false
-  default: false
-  type: boolean
 {% endconfiguration %}

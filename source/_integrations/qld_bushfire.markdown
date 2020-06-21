@@ -1,10 +1,13 @@
 ---
-title: "Queensland Bushfire Alert"
-description: "Instructions on how to integrate the Queensland Bushfire Alert feed into Home Assistant."
+title: Queensland Bushfire Alert
+description: Instructions on how to integrate the Queensland Bushfire Alert feed into Home Assistant.
 logo: geo_location.png
 ha_category: Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.95
+ha_codeowners:
+  - '@exxamalte'
+ha_domain: qld_bushfire
 ---
 
 The `qld_bushfire` platform lets you integrate a 

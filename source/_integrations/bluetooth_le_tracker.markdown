@@ -1,11 +1,11 @@
 ---
-title: "Bluetooth LE Tracker"
-description: "Instructions for integrating bluetooth low-energy tracking within Home Assistant."
-logo: bluetooth.png
+title: Bluetooth LE Tracker
+description: Instructions for integrating bluetooth low-energy tracking within Home Assistant.
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.27
+ha_domain: bluetooth_le_tracker
 ---
 
 This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
@@ -21,7 +21,7 @@ sudo apt install bluetooth
 Before you get started with this platform, please note that:
 
  - This platform is incompatible with Windows
- - This platform requires access to the bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
+ - This platform requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -37,6 +37,16 @@ track_new_devices:
   required: false
   default: false
   type: boolean
+track_battery:
+  description: Whether the integration should try to read the battery status for tracked devices.
+  required: false
+  default: false
+  type: boolean
+track_battery_interval:
+  description: Minimum interval to ask the device for its battery status. The battery status will be checked at most once every interval. If `track_battery` is false, this will be ignored.
+  required: false
+  default: 1 day
+  type: time
 interval_seconds:
   description: Seconds between each scan for new devices.
   required: false
@@ -47,9 +57,11 @@ interval_seconds:
 As some BT LE devices change their MAC address regularly, a new device is only discovered when it has been seen 5 times.
 Some BTLE devices (e.g., fitness trackers) are only visible to the devices that they are paired with. In this case, the BTLE tracker won't see this device.
 
+Enabling the battery tracking might slightly decrease the duration of the battery, but since this is only done at most once a day, this shouldn't be noticeable. Not all devices offer battery status information; if the information is not available, the integration will only try once at startup.
+
 ## Rootless Setup
 
-Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and hcitool the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](http://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
+Normally accessing the Bluetooth stack is reserved for root, but running programs that are networked as root is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and hcitool the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](https://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
 ```bash
 sudo apt-get install libcap2-bin

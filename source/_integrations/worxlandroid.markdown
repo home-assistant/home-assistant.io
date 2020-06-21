@@ -1,11 +1,11 @@
 ---
-title: "Worx Landroid"
-description: "Instructions on how to integrate Worx Landroid WG796E.1 or WG797E as sensors within Home Assistant."
-logo: worx.png
+title: Worx Landroid
+description: Instructions on how to integrate Worx Landroid WG796E.1 or WG797E as sensors within Home Assistant.
 ha_category:
   - DIY
 ha_release: 0.54
 ha_iot_class: Local Polling
+ha_domain: worxlandroid
 ---
 
 The `worxlandroid` sensor platform allows you to get the current state, battery level and error status Worx Landroid WG796E.1 or WG797E.
@@ -22,7 +22,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: The ip address or host name of the mower.
+  description: The IP address or host name of the mower.
   required: true
   type: string
 pin:
@@ -30,7 +30,7 @@ pin:
   required: true
   type: integer
 allow_unreachable:
-  description: This will allow the mower to be outside of wifi range without raising an error.
+  description: This will allow the mower to be outside of Wi-Fi range without raising an error.
   required: false
   type: boolean
   default: true

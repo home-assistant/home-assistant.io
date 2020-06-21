@@ -1,12 +1,14 @@
 ---
-title: "Life360"
-description: "Instructions how to use Life360 to track devices in Home Assistant."
-logo: life360.png
+title: Life360
+description: Instructions how to use Life360 to track devices in Home Assistant.
 ha_release: 0.95
 ha_config_flow: true
 ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@pnbruckner'
+ha_domain: life360
 ---
 
 The `life360` integration allows you to detect presence using the [unofficial API](#disclaimer) of [Life360](https://www.life360.com/).
@@ -17,7 +19,13 @@ You must first [create a Life360 account](https://www.life360.com/websignup).
 
 Then in the Home Assistant user interface (UI), click on Configuration in the left pane, then on Integrations and then on the yellow circle in the lower-right corner to "Set up a new integration." Scroll through the list and click on Life360. Enter your Life360 username and password and click SUBMIT. You can add as many Life360 accounts as you like.
 
-If you would like to set any advanced options, see the following section. You may want to do this before entering your Life360 account information in the UI, or you can change it at any time. Any of the advanced options you want to set from the section below will need to be set manually in your configuration.yaml file. They are not able to be set from the UI. You can also enter your account information in the configuration file (in addition to, or instead of, the UI) if you prefer.
+If you would like to set any advanced options, see the following section. You may want to do this before entering your Life360 account information in the UI, or you can change it at any time. Any of the advanced options you want to set from the section below will need to be set manually in your `configuration.yaml` file. They are not able to be set from the UI. You can also enter your account information in the configuration file (in addition to, or instead of, the UI) if you prefer.
+
+After configuring, it is expected for the Life360 integration page to show "This integration has no devices". You should see a new Life360 device tracker entity showing up on the States page. If it does not:
+
+- Check the [device tracker documentation](/integrations/device_tracker), especially the `new_device_defaults` setting.
+- Check your `known_devices.yaml`; `tracking` should be `true` for your Life360 device.
+- In the Life360 app, Location Sharing should be enabled.
 
 {% configuration %}
 accounts:
@@ -101,18 +109,18 @@ warning_threshold:
 
 ## Additional attributes
 
-Attribute | Description
--|-
-address | Address of the current location, or `none`.
-at_loc_since | Date and time when first at current location (in UTC.)
-battery_charging | Device is charging (`true`/`false`.)
-driving | Device movement indicates driving (`true`/`false`.)
-last_seen | Date and time when Life360 last updated device location (in UTC.)
-moving | Device is moving (`true`/`false`.)
-place | Name of Life360 Place where the device is located, or `none` if not located within one.
-raw_speed | "Raw" speed value provided by Life360 server. (Units unknown.)
-speed | Estimated speed of device (in MPH or KPH depending on Home Assistant's unit system configuration.)
-wifi_on | Device WiFi is turned on (`true`/`false`.)
+| Attribute        | Description                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| address          | Address of the current location, or `none`.                                                        |
+| at_loc_since     | Date and time when first at current location (in UTC.)                                             |
+| battery_charging | Device is charging (`true`/`false`.)                                                               |
+| driving          | Device movement indicates driving (`true`/`false`.)                                                |
+| last_seen        | Date and time when Life360 last updated device location (in UTC.)                                  |
+| moving           | Device is moving (`true`/`false`.)                                                                 |
+| place            | Name of Life360 Place where the device is located, or `none` if not located within one.            |
+| raw_speed        | "Raw" speed value provided by Life360 server. (Units unknown.)                                     |
+| speed            | Estimated speed of device (in MPH or KPH depending on Home Assistant's unit system configuration.) |
+| wifi_on          | Device Wi-Fi is turned on (`true`/`false`.)                                                        |
 
 ## Filtering
 
@@ -134,7 +142,7 @@ Normally Home Assistant device trackers are "Home" when they enter `zone.home`. 
 
 ## Home Assistant Zones & Life360 Places
 
-See [Zone documentation](/integrations/zone/#home-zone) for details about how HA zones are defined. If you'd like to create HA zones from Life360 Places (e.g., to make HA's `zone.home` be identical to Life360's "Home Place"), make sure `logger` is set to `debug`. Then when HA starts the details of all the Places defined in the included Circles will be written to `home-assistant.log` in a format that can be copied into your configuration under `zone:`. E.g., you would see something like this:
+See [Zone documentation](/integrations/zone/#home-zone) for details about how Home Assistant zones are defined. If you'd like to create Home Assistant zones from Life360 Places (e.g., to make Home Assistant's `zone.home` be identical to Life360's "Home Place"), make sure `logger` is set to `debug`. Then when Home Assistant starts the details of all the Places defined in the included Circles will be written to `home-assistant.log` in a format that can be copied into your configuration under `zone:`. E.g., you would see something like this:
 
 ```text
 2019-05-31 12:16:58 DEBUG (SyncWorker_3) [homeassistant.components.life360.device_tracker] My Family Circle: will be included, id=xxxxx
@@ -156,6 +164,7 @@ Therefore, an optional filtering mechanism has been implemented to prevent incon
 ### Typical configuration
 
 {% raw %}
+
 ```yaml
 life360:
   # MPH, assuming imperial units.
@@ -174,11 +183,13 @@ life360:
   warning_threshold: 2
   error_threshold: 3
 ```
+
 {% endraw %}
 
 ### Circle and Member Filtering Example
 
 {% raw %}
+
 ```yaml
 life360:
   # Only track Members that are in these Circles.
@@ -188,22 +199,26 @@ life360:
   members:
     exclude: John Doe
 ```
+
 {% endraw %}
 
 ### Entering accounts in configuration
 
 {% raw %}
+
 ```yaml
 life360:
   accounts:
     - username: LIFE360_USERNAME
       password: LIFE360_PASSWORD
 ```
+
 {% endraw %}
 
 ### Example overdue update automations
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: Life360 Overdue Update
@@ -234,6 +249,7 @@ automation:
             trigger.event.data.entity_id
           }} restored after {{ trigger.event.data.wait }}.
 ```
+
 {% endraw %}
 
 ## Disclaimer

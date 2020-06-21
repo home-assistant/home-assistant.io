@@ -1,13 +1,13 @@
 ---
-title: "BeagleBone Black GPIO"
-description: "Instructions on how to integrate the GPIO capability of a BeagleBone Black into Home Assistant."
-logo: beaglebone-black.png
+title: BeagleBone Black GPIO
+description: Instructions on how to integrate the GPIO capability of a BeagleBone Black into Home Assistant.
 ha_category:
   - DIY
   - Binary Sensor
   - Switch
 ha_release: 0.36
 ha_iot_class: Local Push
+ha_domain: bbb_gpio
 ---
 
 The `bbb_gpio` integration is the base for all [BeagleBone Black](https://beagleboard.org/black) related GPIO platforms in Home Assistant.
@@ -64,7 +64,7 @@ pins:
           default: UP
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
+For more details about the GPIO layout, visit the [article](https://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
 
 ## Switch
 
@@ -112,4 +112,4 @@ pins:
           type: boolean
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
+For more details about the GPIO layout, visit the [article](https://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.

@@ -1,11 +1,13 @@
 ---
-title: "Switcher"
-description: "Controlling your Switcher V2 Water Heater."
-logo: switcher_boiler.png
+title: Switcher
+description: Controlling your Switcher V2 Water Heater.
 ha_category:
   - Switch
 ha_release: 0.93
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@tomerfi'
+ha_domain: switcher_kis
 ---
 
 This `Switcher` integration allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
@@ -22,11 +24,6 @@ To retrieve your device's details, please follow the instructions [here](https:/
   Please note, for the Switcher-V2-Python script to run successfully, you need to configure your device to work locally.
 </div>
 
-<div class='note warning'>
-
-  Please note, on the original script repository, users recently reported difficulties controlling the device after upgrading the firmware to the new 3.0 version.As this integration is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
-
-</div>
 ```yaml
 switcher_kis:
   phone_id: 'REPLACE_WITH_PHONE_ID'
@@ -77,3 +74,14 @@ Meaning the device will turn itself off when reaching the auto-off configuration
 | ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation. | switch.switcher_kis_boiler |
 | `auto_off`    | Yes       | Time period string containing hours and minutes.                                       | "02:30"                    |
+
+### Service: `switcher_kis.turn_on_with_timer`
+
+You can use the `switcher_kis.turn_on_with_timer` service to turn on the switcher device with timer.
+
+Meaning the device will turn itself off when timer ends.
+Note: This does not affect the auto off timer.
+| Service Field | Mandatory | Description                                                                            | Example                    |
+| ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
+| `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation. | switch.switcher_kis_boiler |
+| `timer_minutes`    | Yes       | Integer containing timer minutes (valid range 1 to 90)                                       | 90                    |

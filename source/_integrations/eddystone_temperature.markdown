@@ -1,15 +1,15 @@
 ---
-title: "Eddystone Beacon"
-description: "Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data."
-logo: eddystone.png
+title: Eddystone
+description: Instructions on how to integrate Eddystone beacons with Home Assistant in order to receive temperature data.
 ha_category:
   - DIY
 ha_release: 0.42
 ha_iot_class: Local Polling
+ha_domain: eddystone_temperature
 ---
 
 The `eddystone_temperature` sensor platform reads temperature information from Bluetooth LE advertisements transmitted by [Eddystone](https://en.wikipedia.org/wiki/Eddystone_(Google)) beacons. Your beacons must be configured to transmit UID frames (for identification) and TLM frames (for temperature).
-All beacons that support the Eddystone protocol, have a temperature sensor and can transmit TLM frames are compatible with this platform. For example [Gimbal](https://store.gimbal.com/collections/beacons/), [Estimote](http://estimote.com/) or [kontakt.io](https://kontakt.io/). For more manufacturers see [this overview](https://developers.google.com/beacons/eddystone#beacon_manufacturers) by Google.
+All beacons that support the Eddystone protocol, have a temperature sensor and can transmit TLM frames are compatible with this platform. For example [Gimbal](https://store.gimbal.com/collections/beacons/), [Estimote](https://estimote.com/) or [kontakt.io](https://kontakt.io/). For more manufacturers see [this overview](https://developers.google.com/beacons/eddystone#beacon_manufacturers) by Google.
 
 ## Requirements
 
@@ -19,7 +19,7 @@ As this platform uses `bluez` to scan for Bluetooth LE devices **a Linux OS with
 sudo apt-get install libbluetooth-dev
 ```
 
-Scanning for Bluetooth LE devices also requires special permissions. To grant these to the python executable execute the following:
+Scanning for Bluetooth LE devices also requires special permissions. To grant these to the Python executable execute the following:
 
 ```bash
 sudo apt-get install libcap2-bin

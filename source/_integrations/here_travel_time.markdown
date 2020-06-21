@@ -1,23 +1,29 @@
 ---
-title: "HERE Travel Time"
-description: "Instructions on how to add HERE travel time to Home Assistant."
-logo: HERE_logo.svg
+title: HERE Travel Time
+description: Instructions on how to add HERE travel time to Home Assistant.
 ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: "0.100"
+ha_release: '0.100'
+ha_codeowners:
+  - '@eifinger'
+ha_domain: here_travel_time
 ---
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).
 
 ## Setup
 
-You need to register for an API key by following the instructions [here](https://developer.here.com/documentation/routing/topics/introduction.html?create=Freemium-Basic&keepState=true&step=account).
+You need to register for an API key (REST & XYZ HUB API/CLI) by following the instructions [here](https://developer.here.com/documentation/routing/topics/introduction.html?create=Freemium-Basic&keepState=true&step=account).
 
-HERE offers a Freemium Plan which includes 250.000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). More information can be found [here](https://developer.here.com/faqs#payment-subscription)
+HERE offers a Freemium Plan which includes 250,000 free Transactions per month. For the Routing API, one transaction equals one request with one starting point (no multi stop). More information can be found [here](https://developer.here.com/faqs#payment-subscription)
 
 By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to reenable your account as described [here](https://developer.here.com/faqs)
+
+### Migrate from app_code to api_key
+
+HERE has changed its authentication mechanism. It is no longer possible to use `app_id` and `app_code`. Existing users have to follow the [migration guide](https://developer.here.com/documentation/authentication/dev_guide/topics/api-key-credentials.html) in order to retrieve the now needed `api_key`.
 
 ## Configuration
 
@@ -27,8 +33,7 @@ To enable the sensor, add the following lines to your `configuration.yaml` file:
 # Example entry for configuration.yaml
 sensor:
   - platform: here_travel_time
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
     origin_latitude: "51.222975"
     origin_longitude: "9.267577"
     destination_latitude: "51.257430"
@@ -36,12 +41,8 @@ sensor:
 ```
 
 {% configuration %}
-app_id:
-  description: "Your application's API id (get one by following the instructions above)."
-  required: true
-  type: string
-app_code:
-  description: "Your application's API code (get one by following the instructions above)."
+api_key:
+  description: "Your application's API key (get one by following the instructions above)."
   required: true
   type: string
 origin_latitude:
@@ -74,7 +75,7 @@ name:
   type: string
   default: "HERE Travel Time"
 mode:
-  description: "You can choose between: `bicycle`, `car`, `pedestrian`, `publicTransport`, `publicTransportTimeTable` or `truck`. The default is `car`. For public transport `publicTransportTimetable` is recommended. You can find more information on the modes [here](https://developer.here.com/documentation/routing/topics/transport-modes.html) and on the public modes [here](https://developer.here.com/documentation/routing/topics/public-transport-routing.html)"
+  description: "You can choose between: `bicycle`, `car`, `pedestrian`, `publicTransport`, `publicTransportTimeTable` or `truck`. The default is `car`. For public transport `publicTransportTimeTable` is recommended. You can find more information on the modes [here](https://developer.here.com/documentation/routing/topics/transport-modes.html) and on the public modes [here](https://developer.here.com/documentation/routing/topics/public-transport-routing.html)"
   required: false
   type: string
   default: "car"
@@ -88,6 +89,14 @@ traffic_mode:
   required: false
   type: boolean
   default: false
+arrival:
+  description: "Time when travel is expected to end. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `departure`. Can only be used in combination with `mode: publicTransportTimeTable`"
+  required: false
+  type: time
+departure:
+  description: "Time when travel is expected to end. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `arrival`. If departure is not provided each update of the sensor uses the current date and time." 
+  required: false
+  type: time
 unit_system:
   description: "You can choose between `metric` or `imperial`."
   required: false
@@ -109,15 +118,13 @@ Tracking can be set up to track entities of type `device_tracker`, `zone`, `sens
 sensor:
   # Tracking entity to entity
   - platform: here_travel_time
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
     name: Phone To Home
     origin_entity_id: device_tracker.mobile_phone
     destination_entity_id: zone.home
   # Full config
   - platform: here_travel_time
-    app_id: "YOUR_APP_ID"
-    app_code: "YOUR_APP_CODE"
+    api_key: "YOUR_API_KEY"
     name: Work to Home By Bike
     origin_entity_id: zone.work
     destination_latitude: 59.2842
@@ -126,9 +133,8 @@ sensor:
     route_mode: fastest
     traffic_mode: false
     unit_system: imperial
+    departure: "17:00:00"
     scan_interval: 2678400 # 1 month
-    
-
 ```
 
 ## Entity Tracking

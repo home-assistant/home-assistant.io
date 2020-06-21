@@ -1,40 +1,40 @@
 ---
 title: "MySensors Cover"
 description: "Instructions on how to integrate MySensors covers into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Cover
 ha_release: "0.30"
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
-Integrates MySensors covers into Home Assistant. See the [main component] for configuration instructions.
+Integrates MySensors covers into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.
 
 The following actuator types are supported:
 
-##### MySensors version 1.4
+## MySensors version 1.4
 
-S_TYPE  | V_TYPE
---------|--------------------------------------------
-S_COVER | V_UP, V_DOWN, V_STOP, [V_DIMMER or V_LIGHT]
+| S_TYPE  | V_TYPE                                      |
+| ------- | ------------------------------------------- |
+| S_COVER | V_UP, V_DOWN, V_STOP, [V_DIMMER or V_LIGHT] |
 
-##### MySensors version 1.5 and higher
+## MySensors version 1.5 and higher
 
-S_TYPE  | V_TYPE
---------|-------------------------------------------------
-S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS]
+| S_TYPE  | V_TYPE                                           |
+| ------- | ------------------------------------------------ |
+| S_COVER | V_UP, V_DOWN, V_STOP, [V_PERCENTAGE or V_STATUS] |
 
 All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the exact position of the cover in percent, use V_STATUS (or V_LIGHT) if you don't.
 
-For more information, visit the [serial api] of MySensors.
+For more information, visit the [serial API](https://www.mysensors.org/download/serial_api_20) of MySensors.
 
-### Example sketch
+## Example sketch
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  */
 
 // Enable debug prints to serial monitor
@@ -149,6 +149,3 @@ void receive(const MyMessage &message) {
   }
 }
 ```
-
-[main component]: /integrations/mysensors/
-[serial api]: https://www.mysensors.org/download/serial_api_20

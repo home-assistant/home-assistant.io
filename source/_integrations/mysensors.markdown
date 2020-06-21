@@ -1,16 +1,18 @@
 ---
-title: "MySensors"
-description: "Instructions on how to integrate MySensors sensors into Home Assistant."
-logo: mysensors.png
+title: MySensors
+description: Instructions on how to integrate MySensors sensors into Home Assistant.
 ha_category:
   - DIY
 ha_iot_class: Local Push
 ha_release: 0.73
+ha_codeowners:
+  - '@MartinHjelmare'
+ha_domain: mysensors
 ---
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
 
-### Configuration
+## Configuration
 
 Integrate your Serial, Ethernet (LAN) or MQTT MySensors Gateway by adding the following to your `configuration.yaml` file:
 
@@ -57,7 +59,7 @@ mysensors:
         type: string
         default: ''
       nodes:
-        description: A mapping of node ids to node settings, e.g. custom name.
+        description: A mapping of node ids to node settings, e.g.,  custom name.
         required: false
         type: map
         keys:
@@ -94,7 +96,7 @@ Not all features of MySensors 2.x are supported by Home Assistant yet. As more f
 If you are using an original Arduino as a serial gateway, the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
 
 ```bash
-$ ls /dev/ttyACM*
+ls /dev/ttyACM*
 ```
 
 If you are using the MQTT gateway, you also need to have the [MQTT component](/integrations/mqtt/) configured in Home Assistant. See below for a minimum MQTT configuration:
@@ -153,10 +155,10 @@ Present a MySensors sensor or actuator, by following these steps:
 
 ```cpp
 /*
- * Documentation: http://www.mysensors.org
- * Support Forum: http://forum.mysensors.org
+ * Documentation: https://www.mysensors.org
+ * Support Forum: https://forum.mysensors.org
  *
- * http://www.mysensors.org/build/relay
+ * https://www.mysensors.org/build/relay
  */
 
 #define MY_DEBUG
@@ -241,13 +243,14 @@ In MySensors version 2.2 the serial API changed from using `I_HEARTBEAT_RESPONSE
 
 Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors [serial API](https://www.mysensors.org/download/serial_api_20). If a message doesn't pass validation, it will be dropped and not be passed forward either to or from Home Assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.
 
-The log should warn you of messages that failed validation or if a child value is missing that is required for a certain child type. Home Assistant will log failed validations of child values at warning level if e.g. one required value type for a platform has been received, but other required value types are missing.
+The log should warn you of messages that failed validation or if a child value is missing that is required for a certain child type. Home Assistant will log failed validations of child values at warning level if e.g.,  one required value type for a platform has been received, but other required value types are missing.
 
 Message validation was introduced in version 0.52 of Home Assistant.
 
 ### Debug logging
 
-If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` integration and the `mysensors` package. This will help you see what is going on. Make sure you use these logging settings to collect a log sample if you report an issue about the `mysensors` integration in our github issue tracker.
+If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` integration and the `mysensors` package. This will help you see what is going on. Make sure you use these logging settings to collect a log sample if you report an issue about the `mysensors` integration in our GitHub issue tracker.
+
 ```yaml
 logger:
   default: info
@@ -256,7 +259,6 @@ logger:
     mysensors: debug
 ```
 
-
 Visit the [library API][MySensors library api] of MySensors for more information.
 
-[MySensors library API]: http://www.mysensors.org/download
+[MySensors library API]: https://www.mysensors.org/download

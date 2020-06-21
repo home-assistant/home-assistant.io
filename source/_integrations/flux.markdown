@@ -1,14 +1,14 @@
 ---
-title: "Flux Light Adjustment"
-description: "Instructions on how to have switches call command line commands."
+title: Flux
+description: Instructions on how to have switches call command line commands.
 ha_category:
   - Automation
 ha_release: 0.21
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: flux
 ---
 
-The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night.
+The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
 
 The integration will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
 

@@ -79,7 +79,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 # Waits however many seconds input_number.second_delay is set to
 - delay:
     # Supports milliseconds, seconds, minutes, hours, days
-    seconds: "{{ states('input_number.second_delay') }}"
+    seconds: "{{ states('input_number.second_delay') | int }}"
 ```
 {% endraw %}
 
@@ -107,7 +107,6 @@ Wait until some things are complete. We support at the moment `wait_template` fo
 # Wait for sensor to trigger or 1 minute before continuing to execute.
 - wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
   timeout: '00:01:00'
-  continue_on_timeout: 'true'
 ```
 {% endraw %}
 
@@ -133,7 +132,7 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 ```
 {% endraw %}
 
-You can also get the script to abort after the timeout by using `continue_on_timeout`
+You can also get the script to abort after the timeout by using optional `continue_on_timeout`
 
 {% raw %}
 ```yaml
@@ -143,6 +142,8 @@ You can also get the script to abort after the timeout by using `continue_on_tim
   continue_on_timeout: 'false'
 ```
 {% endraw %}
+
+Without `continue_on_timeout` the script will always continue.  
 
 ### Fire an Event
 

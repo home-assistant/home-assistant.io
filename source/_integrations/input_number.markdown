@@ -1,16 +1,20 @@
 ---
-title: "Input Number"
-description: "Instructions on how to integrate the Input Number integration into Home Assistant."
-logo: home-assistant.png
+title: Input Number
+description: Instructions on how to integrate the Input Number integration into Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.55
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: input_number
 ---
 
 The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
-To enable this input number in your installation, add the following lines to your `configuration.yaml`:
+The preferred way to configure an input number is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Number** option.
+
+Input numbers can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -54,7 +58,7 @@ input_number:
         type: float
         default: The value at shutdown
       step:
-        description: Step value for the slider. Smallest value `0.001`.
+        description: Step value. Smallest value `0.001`.
         required: false
         type: float
         default: 1
@@ -73,9 +77,33 @@ input_number:
         type: icon
 {% endconfiguration %}
 
+### Services
+
+This integration provides the following services to modify the state of the `input_number` and a service to reload the
+configuration without restarting Home Assistant itself.
+
+| Service | Data | Description |
+| ------- | ---- | ----------- |
+| `decrement` | `entity_id(s)`<br>`area_id(s)` | Decrement the value of specific `input_number` entities by `step` 
+| `increment` | `entity_id(s)`<br>`area_id(s)` | Increment the value of specific `input_number` entities by `step`
+| `reload` | | Reload `input_number` configuration |
+| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_number` entities
+
 ### Restore State
 
-This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+If you set a valid value for `initial` this integration will start with state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
+
+### Scenes
+
+To set the value of an input_number in a [Scene](/integrations/scene/):
+
+```yaml
+# Example configuration.yaml entry
+scene:
+  - name: Example Scene
+    entities:
+      input_number.example_number: 13
+```
 
 ## Automation Examples
 

@@ -52,7 +52,7 @@ script: !include scripts.yaml
 - Fix issue #9116 in pushbullet ([@danielhiversen] - [#9128]) ([notify.pushbullet docs])
 - bug fix pushbullet ([@danielhiversen] - [#9139]) ([notify.pushbullet docs])
 - Fix import for foscam ([@sdague] - [#9140]) ([camera.foscam docs])
-- Bump aioautomatic to prevent leaking exceptions ([@armills] - [#9148]) ([device_tracker.automatic docs])
+- Bump aioautomatic to prevent leaking exceptions ([@armills] - [#9148])
 - Wrap state when iterating a domain in templates ([@balloob] - [#9157])
 - Prevent iCloud exceptions in logfile ([@mjj4791] - [#9179]) ([device_tracker.icloud docs])
 - bump ecobee version to fix issue 9190 ([@nkgilley] - [#9191]) ([ecobee docs]) ([climate.ecobee docs])
@@ -92,10 +92,10 @@ usps:
 - eliqonline: The optional channel_id configuration variable of the Eliqonline sensor needs to be a positive integer. ([@molobrakos] - [#9072]) ([sensor.eliqonline docs]) (breaking change)
 - MySensors: Not a breaking change per se but users that have not been following the mysensors [serial API](https://www.mysensors.org/download/serial_api_20) could face dropped messages after this change. Messages are now validated according to the API before being passed along from/to devices. See [0.11 release notes](https://github.com/theolind/pymysensors/releases/tag/0.11) for more info. ([@MartinHjelmare] - [#9069]) ([mysensors docs]) ([binary_sensor.mysensors docs]) ([climate.mysensors docs]) ([cover.mysensors docs]) ([device_tracker.mysensors docs]) ([light.mysensors docs]) ([notify.mysensors docs]) ([sensor.mysensors docs]) ([switch.mysensors docs]) (breaking change)
 - Automatic has disabled password authentication on their API. Home Assistant will now use OAuth2 to authenticate accounts. The following steps must be taken to transition your setup:
-  1) Log in to your Automatic developer account. In the Automatic Developer Apps Manager, specify the OAuth Redirect URL in the developer page. This should be configured to `<home-assistant-url>/api/automatic/callback`. (Example: `http://hassio.local:8123/api/automatic/callback`) Note that this URL only needs to be accessible from the browser you use to perform the authentication.
+  1) Log in to your Automatic developer account. In the Automatic Developer Apps Manager, specify the OAuth Redirect URL in the developer page. This should be configured to `<home-assistant-url>/api/automatic/callback`. (Example: `http://homeassistant.local:8123/api/automatic/callback`) Note that this URL only needs to be accessible from the browser you use to perform the authentication.
   2) Remove username/password from your automatic device tracker configuration in configuration.yaml.
   3) If you have authorized your account for `scope:current_location`, add `current_location: true` to your automatic device tracker configuration in configuration.yaml.
-  4) When you restart Home Assistant, click on the Automatic Configure link in the Configurator card, and follow the instructions to authorize Home Assistant.<br><br>NOTE: Automatic's API is currently not correctly authorizing with refresh tokens, so Step 4 currently needs to be performed after every restart. ([@armills] - [#8962] [#9002]) ([configurator docs]) ([device_tracker.automatic docs]) (breaking change)
+  4) When you restart Home Assistant, click on the Automatic Configure link in the Configurator card, and follow the instructions to authorize Home Assistant.<br><br>NOTE: Automatic's API is currently not correctly authorizing with refresh tokens, so Step 4 currently needs to be performed after every restart. ([@armills] - [#8962] [#9002]) ([configurator docs]) (breaking change)
 
 ## All changes
 
@@ -104,13 +104,13 @@ usps:
 - Fixed cert_expiry sensor to delay firing on HA startup ([@arsaboo] - [#8920]) ([sensor.cert_expiry docs])
 - Remove spaces from Xiami switch attributes ([@syssi] - [#8952]) ([switch.xiaomi docs]) (breaking change)
 - Add service to alarm control panel for night mode arming ([@schmittx] - [#8614]) ([alarm_control_panel docs]) ([alarm_control_panel.totalconnect docs])
-- Add support for Automatic OAuth2 authentication ([@armills] - [#8962]) ([configurator docs]) ([device_tracker.automatic docs]) (breaking change)
+- Add support for Automatic OAuth2 authentication ([@armills] - [#8962]) ([configurator docs]) (breaking change)
 - Nello.io lock support ([@pschmitt] - [#8957]) ([lock.nello docs]) (new-platform)
 - Added continue-on-errors, added value template ([@iamjackg] - [#8971]) ([sensor.snmp docs])
 - Is_allowed_path raise for None path ([@danielhiversen] - [#8953])
 - Fix #8960 - Decora Wi-Fi Switch unable to set brightness ([@tlyakhov] - [#8989]) ([light.decora_wifi docs])
 - Adds port/SSL config options for RainMachine ([@bachya] - [#8986]) ([switch.rainmachine docs])
-- Automatic device tracker remove password ([@armills] - [#9002]) ([device_tracker.automatic docs]) (breaking change)
+- Automatic device tracker remove password ([@armills] - [#9002]) (breaking change)
 - Add scripts editor backend ([@balloob] - [#8993]) ([config docs]) ([script docs]) (new-platform)
 - MQTT Switch - Add configurable availability payload ([@timstanley1985] - [#8934]) ([switch.mqtt docs]) (breaking change)
 - Buienradar newconditions ([@mjj4791] - [#8897]) ([sensor.buienradar docs]) ([weather.buienradar docs])
@@ -315,7 +315,6 @@ usps:
 [configurator docs]: /integrations/configurator/
 [cover.mysensors docs]: /integrations/cover.mysensors/
 [cover.template docs]: /integrations/cover.template/
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.mysensors docs]: /integrations/device_tracker.mysensors/
 [ecobee docs]: /integrations/ecobee/
 [emulated_hue.upnp docs]: /integrations/emulated_hue.upnp/

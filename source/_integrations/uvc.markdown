@@ -1,16 +1,16 @@
 ---
-title: "UniFi Video Camera"
-description: "Instructions on how to integrate UVC cameras within Home Assistant."
-logo: ubiquiti.png
+title: Ubiquiti UniFi Video
+description: Instructions on how to integrate UVC cameras within Home Assistant.
 ha_category:
   - Camera
 ha_release: 0.13
 ha_iot_class: Local Polling
+ha_domain: uvc
 ---
 
 The `uvc` camera platform allows you to integrate [UniFi Video Camera (UVC)](https://www.ubnt.com/products/#unifivideo) into Home Assistant.
 
-The platform connects to the Unifi NVR software and automatically discovers/adds any camera connected to the NVR.
+The platform connects to the UniFi NVR software and automatically discovers/adds any camera connected to the NVR.
 
 ### Setup
 

@@ -1,11 +1,11 @@
 ---
-title: "Xiaomi Cameras"
-description: "Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant."
-logo: xiaomi.png
+title: Xiaomi
+description: Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant.
 ha_category:
   - Camera
 ha_release: 0.72
 ha_iot_class: Local Polling
+ha_domain: xiaomi
 ---
 
 The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant.
@@ -30,7 +30,7 @@ Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. 
 
 <div class='note warning'>
 
-Hassbian users: Don't forget to install `ffmpeg` support on your platform, otherwise, you'll not see video.
+Raspbian users: Don't forget to install `ffmpeg` support on your platform, otherwise, you'll not see video.
 
 </div>
 
@@ -112,7 +112,7 @@ camera:
 ```
 ## Hostname template
 
-The hostname/ip address can be provided either a value or from the existing entity attributes.
+The hostname/IP address can be provided either a value or from the existing entity attributes.
 
 ```yaml
 camera:

@@ -1,7 +1,6 @@
 ---
-title: "LCN"
-description: "Instructions on how to integrate LCN components with Home Assistant."
-logo: lcn.png
+title: LCN
+description: Instructions on how to integrate LCN components with Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
@@ -13,9 +12,12 @@ ha_category:
   - Switch
 ha_release: 0.85
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@alengwenus'
+ha_domain: lcn
 ---
 
-The `lcn` integration for Home Assistant allows you to connect to [LCN](http://www.lcn.eu) hardware devices.
+The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
 
 The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. Alternatively, an LCN-PKE coupler can be used which offers two PCHK licenses.
 With this setup sending and receiving commands to and from LCN modules is possible.
@@ -42,7 +44,7 @@ There is currently support for the following device types within Home Assistant:
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
 You have to specify at least one IP/port with login credentials for a PCHK host.
-Consider to store your credentials in a [secrets.yaml](/docs/configuration/secrets).
+Consider to store your credentials in a [`secrets.yaml`](/docs/configuration/secrets).
 
 ```yaml
 lcn:
@@ -412,7 +414,7 @@ Examples: `a1`, `a5`, `d8`.
 
 ### Binary Sensor
 
-The `lcn` binary sensor platform allows the monitoring of the following [LCN](http://www.lcn.eu) binary data sources:
+The `lcn` binary sensor platform allows the monitoring of the following [LCN](https://www.lcn.eu/) binary data sources:
 
 - Binary hardware sensors
 - Lock state of regulator setpoints
@@ -422,7 +424,7 @@ The binary sensor can be used in automation scripts or in conjunction with `temp
 
 ### Climate
 
-The `lcn` climate platform allows the control of the [LCN](http://www.lcn.eu) climate regulators.
+The `lcn` climate platform allows the control of the [LCN](https://www.lcn.eu/) climate regulators.
 This platform depends on the correct configuration of the module's regulators, which has to be done in the LCN-PRO programming software.
 You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature.
 If the control is set lockable, the regulator can be turned on/off.
@@ -435,7 +437,7 @@ If you intend to leave the regulation to Home Assistant, you should consider usi
 
 ### Cover
 
-The `lcn` cover platform allows the control of [LCN](http://www.lcn.eu) relays and output ports which have been configured as motor controllers.
+The `lcn` cover platform allows the control of [LCN](https://www.lcn.eu/) relays and output ports which have been configured as motor controllers.
 
 Only for the module with firmware earlier than 190C:<br>
 The configuration allows the optional definition of reverse time. This is the time which is waited during the switching of the motor currents.
@@ -450,18 +452,18 @@ Otherwise, the output ports are not mutually interlocked and you run the risk of
 
 ### Light
 
-The `lcn` light platform allows the control of the following [LCN](http://www.lcn.eu) ports:
+The `lcn` light platform allows the control of the following [LCN](https://www.lcn.eu/) ports:
 
 - (Dimmable) output ports
 - Relays
 
 ### Scene
 
-The `lcn` scene platform allows the activation of previously programmed [LCN](http://www.lcn.eu) scenes.
+The `lcn` scene platform allows the activation of previously programmed [LCN](https://www.lcn.eu/) scenes.
 
 ### Sensor
 
-The `lcn` sensor platform allows the monitoring of the following [LCN](http://www.lcn.eu) data sources:
+The `lcn` sensor platform allows the monitoring of the following [LCN](https://www.lcn.eu/) data sources:
 
 - Variables
 - Regulator setpoints
@@ -479,7 +481,7 @@ The sensor can be used in automation scripts or in conjunction with `template` p
 
 ### Switch
 
-The `lcn` switch platform allows the control of the following [LCN](http://www.lcn.eu) ports:
+The `lcn` switch platform allows the control of the following [LCN](https://www.lcn.eu/) ports:
 
 - Output ports
 - Relays
@@ -575,12 +577,12 @@ data:
 
 ### Service `led`
 
-Set the led status.
+Set the LED status.
 
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `state` | No | Led state as string | [LED_STATE](#states) |
+| `state` | No | LED state as string | [LED_STATE](#states) |
 
 Example:
 

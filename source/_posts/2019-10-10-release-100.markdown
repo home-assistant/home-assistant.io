@@ -134,6 +134,56 @@ As always, this release of Home Assistant is accompanied with a new release of t
 - Add basic support for IKEA Fyrtur blinds ([@ggravlingen] - [#26659]) ([tradfri docs]) (new-platform)
 - Centralize rainbird config and add binary sensor platform ([@konikvranik] - [#26393]) ([rainbird docs]) (breaking change) (new-platform)
 
+## Release 0.100.1 - October 10
+
+- Fix build not succeeding [@bramkragten]
+
+## Release 0.100.2 - October 12
+
+- Vangorra withings fix ([@vangorra] - [#27404]) ([withings docs])
+- Bump python-songpal ([@rytilahti] - [#27398]) ([songpal docs])
+- bump songpal to fix attrs usage when using its most recent version ([@rytilahti] - [#27410]) ([songpal docs])
+- iaqualink: set 5s timeout, use cookiejar defaults ([@flz] - [#27426]) ([iaqualink docs])
+- Add mobile_app dependency on cloud ([@uSpike] - [#27470]) ([mobile_app docs])
+- Fix for unknown sensor state ([@marthoc] - [#27542]) ([ecobee docs])
+- Google: catch query not supported ([@balloob] - [#27559]) ([google_assistant docs])
+- Fixing nzbget units display ([@chriscla] - [#27521]) ([nzbget docs])
+
+[#27398]: https://github.com/home-assistant/home-assistant/pull/27398
+[#27404]: https://github.com/home-assistant/home-assistant/pull/27404
+[#27410]: https://github.com/home-assistant/home-assistant/pull/27410
+[#27426]: https://github.com/home-assistant/home-assistant/pull/27426
+[#27470]: https://github.com/home-assistant/home-assistant/pull/27470
+[#27521]: https://github.com/home-assistant/home-assistant/pull/27521
+[#27542]: https://github.com/home-assistant/home-assistant/pull/27542
+[#27559]: https://github.com/home-assistant/home-assistant/pull/27559
+[@balloob]: https://github.com/balloob
+[@chriscla]: https://github.com/chriscla
+[@flz]: https://github.com/flz
+[@marthoc]: https://github.com/marthoc
+[@rytilahti]: https://github.com/rytilahti
+[@uspike]: https://github.com/uSpike
+[@vangorra]: https://github.com/vangorra
+[ecobee docs]: /integrations/ecobee/
+[google_assistant docs]: /integrations/google_assistant/
+[iaqualink docs]: /integrations/iaqualink/
+[mobile_app docs]: /integrations/mobile_app/
+[nzbget docs]: /integrations/nzbget/
+[songpal docs]: /integrations/songpal/
+[withings docs]: /integrations/withings/
+
+## Release 0.100.3 - October 21
+
+- Use URI provided by Plex for local connections ([@jjlawren] - [#27515]) ([plex docs])
+- Update pymyq to 2.0.0 ([@bachya] - [#28069]) ([myq docs])
+
+[#27515]: https://github.com/home-assistant/home-assistant/pull/27515
+[#28069]: https://github.com/home-assistant/home-assistant/pull/28069
+[@bachya]: https://github.com/bachya
+[@jjlawren]: https://github.com/jjlawren
+[myq docs]: /integrations/myq/
+[plex docs]: /integrations/plex/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -184,7 +234,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Ecobee** - Ecobee will now be set up via config flow. Existing users will have their config imported from ecobee.conf via an import flow so it shouldn't break their experience. Users configuring via configuration.yaml will have their api key and options imported into the flow but will still need to finish authorization via the flow (instead of the configurator component as previously).
   The configuration parameter `hold_temp` has been removed, as it was not being used in the climate platform and had no effect on whether the temperature was held indefinitely or not. Users will need to remove the parameter `hold_temp` from configuration.yaml.
-  Ecobee-specific services will now be registered under the ecobee domain rather than the climate domain, and service names will not include the prefix "ecobee\_" (e.g. the service "climate.ecobee_resume_program" will become "ecobee.resume_program"). - ([@marthoc] - [#26634]) ([ecobee docs])
+  Ecobee-specific services will now be registered under the ecobee domain rather than the climate domain, and service names will not include the prefix "ecobee\_" (e.g.,  the service "climate.ecobee_resume_program" will become "ecobee.resume_program"). - ([@marthoc] - [#26634]) ([ecobee docs])
 - **Transmission** - The Transmission integration can now be configured through a config flow via Integrations in the GUI. Once configured all sensors and switches will be created and available for the user.
   `monitored_conditions` has been removed so existing users need to update their configuration in configuration.yaml and remove monitored conditions. The existing configuration will be imported as an entry under Integrations. - ([@engrbm87] - [#26434]) ([transmission docs])
 
@@ -220,16 +270,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Evohome** - Device state attributes keys have been changed to snake_case and, since this a breaking change, the opportunity was taken to revise/simplify the entire device state attributes schema.
   Evohome is a complicated integration, has had major changes in recent times, and is not yet mature - these changes address some bugs and related architectural issues:
 
-  - Modify behavior of set_temperature to mirror that of the vendor's UI (e.g. any target temp changes until next setpoint, unless explicitly set otherwise)
+  - Modify behavior of set_temperature to mirror that of the vendor's UI (e.g.,  any target temp changes until next setpoint, unless explicitly set otherwise)
   - Setpoint datetimes are now correctly converted to local/aware isoformat (internally, and for logging/state attributes)
   - Use snake_case for device state attributes
   - Add a unique_id for each entity (systemId, zoneID, dhwId)
   - Refactoring - remove API wrappers (no longer using private methods)
   - Add away mode for DHW (set to permanent off or Auto, depending)([@zxdavb] - [#26810]) ([evohome docs])
 
-- **OpenTherm** - Move climate entity state to hvac_action attribute to comply with climate 1.0. May break e.g. automations. - ([@mvn23] - [#25931]) ([opentherm_gw docs])
+- **OpenTherm** - Move climate entity state to hvac_action attribute to comply with climate 1.0. May break e.g.,  automations. - ([@mvn23] - [#25931]) ([opentherm_gw docs])
 - **Genius Hub** - Users connecting to a Hub via the v1 API will need to specify a valid MAC address for the hub (see example YAML, below). Those using the v3 API will be unaffected.
-  This change is in preperation for for further changes, so the geniushub entities can be given more appropriate `entity_ids`.
+  This change is in preparation for for further changes, so the geniushub entities can be given more appropriate `entity_ids`.
 
   Some Sensor entities fro GeniusHub Issues have been renamed, and so will get a new entity ID:
 
@@ -323,7 +373,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Type hint additions ([@scop] - [#26765]) ([automation docs]) ([cover docs]) ([frontend docs]) ([http docs]) ([media_player docs]) ([switch docs])
 - Add transport data from maps.yandex.ru api ([@rishatik92] - [#26766]) ([yandex_transport docs])
 - ZHA siren and warning device support ([@dmulcahey] - [#26046]) ([zha docs])
-- Bump aiowwlln to 2.0.2 ([@bachya] - [#26769]) ([wwlln docs])
+- Bump aiowwlln to 2.0.2 ([@bachya] - [#26769])
 - Bump simplisafe-python to 5.0.1 ([@bachya] - [#26775]) ([simplisafe docs])
 - Add integration scaffolding script ([@balloob] - [#26777])
 - Bump HAP-python to 2.6.0 for homekit ([@Jc2k] - [#26783]) ([homekit docs])
@@ -405,7 +455,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add more ebusd Vaillant "bai" sensors ([@sashao] - [#26750]) ([ebusd docs])
 - Add xbox live custom update interval ([@MartinHjelmare] - [#26939]) ([xbox_live docs])
 - Guard against non supported entities ([@balloob] - [#26941]) ([alexa docs])
-- Bump pyowlet to 1.0.3 ([@jaburges] - [#26892]) ([owlet docs])
+- Bump pyowlet to 1.0.3 ([@jaburges] - [#26892])
 - Revert Nest HVAC mode when disabling Eco mode ([@joe248] - [#26934]) ([nest docs])
 - Fix ecobee integration ([@marthoc] - [#26951]) ([ecobee docs])
 - Add CO2 level reading for Kaiterra integration ([@Michsior14] - [#26935]) ([kaiterra docs])
@@ -905,7 +955,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [opentherm_gw docs]: /integrations/opentherm_gw/
 [openuv docs]: /integrations/openuv/
 [otp docs]: /integrations/otp/
-[owlet docs]: /integrations/owlet/
 [persistent_notification docs]: /integrations/persistent_notification/
 [pi_hole docs]: /integrations/pi_hole/
 [plex docs]: /integrations/plex/
@@ -950,7 +999,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wemo docs]: /integrations/wemo/
 [whois docs]: /integrations/whois/
 [withings docs]: /integrations/withings/
-[wwlln docs]: /integrations/wwlln/
 [xbox_live docs]: /integrations/xbox_live/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [yandex_transport docs]: /integrations/yandex_transport/

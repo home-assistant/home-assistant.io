@@ -1,16 +1,19 @@
 ---
-title: "AdGuard Home"
-description: "Instructions on how to integrate AdGuard Home with Home Assistant."
-logo: adguard.png
+title: AdGuard Home
+description: Instructions on how to integrate AdGuard Home with Home Assistant.
 ha_category:
   - Network
   - Sensor
   - Switch
 ha_release: 0.95
 ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@frenck'
+ha_domain: adguard
 ---
 
-AdGuard Home is a network-wide ad-and-tracker blocking DNS server with parental
+AdGuard Home is a network-wide ad- and tracker-blocking DNS server with parental
 control (adult content blocking) capabilities. The `adguard` integration allows
 you to control and monitor your AdGuard Home instance in Home Assistant.
 
@@ -19,7 +22,7 @@ you to control and monitor your AdGuard Home instance in Home Assistant.
 Menu: **Configuration** -> **Integrations**.
 
 Click on the `+` sign to add an integration and click on **AdGuard Home**.
-Follow the configuration flow, after finishing, the AdGuard Home
+After completing the configuration flow, the AdGuard Home
 integration will be available.
 
 ## Sensors
@@ -49,8 +52,8 @@ The integration will create a number of switches:
 These switches allow you to automate things easily. For example, one could
 write an automation to turn off Safe Search after the kids' bedtime.
 
-The "AdGuard Protection" switch, is a master switch. It will turn off and
-bypass all AdGuard feature, regardless if they are switched on or not.
+The "AdGuard Protection" switch is a master switch. It will turn off and
+bypass all AdGuard features, regardless of whether they are switched on or not.
 
 <div class="note">
 Turning off Query Log will result in all sensors not receiving updates anymore.
@@ -63,8 +66,8 @@ These services allow one to manage filter subscriptions in AdGuard Home.
 Using these services in automations could be helpful to block certain
 sites/domains at certain times.
 
-For example, you could create a custom filter list blocking social media sites,
-during the day and release them during the evening, using a simple automation.
+For example, you could create a custom filter list that blocks social media sites
+during the day and releases them during the evening.
 
 ### Service `add_url`
 
@@ -105,7 +108,7 @@ Refresh all filter subscriptions in AdGuard Home.
 
 | Service data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
-| `force`                | Yes      | Force update (bypasses AdGuard Home throttling). |
+| `force`                | Yes      | Force update (bypasses AdGuard Home throttling).  |
 
 By default, `force` is set to `false`. Forcing an update bypasses AdGuard Home's
 throttling logic, so use with care.

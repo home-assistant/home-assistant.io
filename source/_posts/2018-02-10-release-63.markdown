@@ -127,7 +127,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Map media_stop to idle state ([@akloeckner] - [#11819])
 - Adds allergy/disease sensor platform from Pollen.com ([@bachya] - [#11573]) ([sensor.pollen docs]) (new-platform)
 - check_config.py: allow colorlog==3.1. ([@dotlambda] - [#11927])
-- Weblink - Allow relative urls in config ([@ReneNulschDE] - [#11808]) ([weblink docs])
+- Weblink - Allow relative urls in config ([@ReneNulschDE] - [#11808])
 - Panel_Iframe - Allow relative urls in config ([@ReneNulschDE] - [#11832]) ([panel_iframe docs])
 - Python 3.6 invalid escape sequence deprecation fixes ([@scop] - [#11941])
 - tests: Use assertEqual instead of deprecated assertEquals ([@scop] - [#11943])
@@ -188,7 +188,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - added media_stop ([@jodur] - [#12100]) ([media_player.vlc docs])
 - Goalfeed channel ([@craigjmidwinter] - [#12086]) ([goalfeed docs])
 - Update jinja2 to 2.10 ([@arsaboo] - [#12118])
-- Downgrade Sonarr and Radarr 'Host is not avaliable' errors to warnings ([@timmo001] - [#12119]) ([sensor.radarr docs]) ([sensor.sonarr docs])
+- Downgrade Sonarr and Radarr 'Host is not available' errors to warnings ([@timmo001] - [#12119]) ([sensor.radarr docs]) ([sensor.sonarr docs])
 - Fixes away_mode error on startup ([@ciotlosm] - [#12121]) ([climate.generic_thermostat docs])
 - except vol.MultipleInvalid in Broadlink #11795 ([@danielhiversen] - [#12107]) ([sensor.broadlink docs])
 - Adds SUPPORT_TARGET_TEMPERATURE_HIGH and SUPPORT_TARGET_TEMPERATURE_LOW support ([@hawk259] - [#12110]) ([climate.ecobee docs])
@@ -622,7 +622,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wake_on_lan docs]: /integrations/wake_on_lan/
 [waterfurnace docs]: /integrations/waterfurnace/
 [weather.openweathermap docs]: /integrations/openweathermap#weather
-[weblink docs]: /integrations/weblink/
 [websocket_api docs]: /integrations/websocket_api/
 [zha docs]: /integrations/zha/
 [zha.const docs]: /integrations/zha.const/
@@ -651,7 +650,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@citruz]: https://github.com/citruz
 [@sdague]: https://github.com/sdague
 [light.limitlessled docs]: /integrations/limitlessled
-[media_player.yamaha docs]: /integrations/yamah
+[media_player.yamaha docs]: /integrations/yamaha
 [sensor.eddystone_temperature docs]: /integrations/eddystone_temperature
 [sensor.wunderground docs]: /integrations/wunderground
 [#12392]: https://github.com/home-assistant/home-assistant/pull/12392

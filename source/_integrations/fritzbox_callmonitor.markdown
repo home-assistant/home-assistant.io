@@ -1,39 +1,23 @@
 ---
-title: "FRITZ!Box Call Monitor"
-description: "Instructions on how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant."
-logo: avm.png
+title: AVM FRITZ!Box Call Monitor
+description: Instructions on how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant.
 ha_category:
   - System Monitor
 ha_release: 0.27
 ha_iot_class: Local Polling
+ha_domain: fritzbox_callmonitor
 ---
 
-The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
+The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
 It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.
-
-## Prerequisites
-
-To build the package you have to install some dependencies first.
-
-```bash
-$ sudo apt-get update
-$ sudo apt-get install libxml2-dev libxslt-dev \
-  python3-setuptools zlib1g-dev build-essential
-```
-
-If you installed Home Assistant in a virtualenv, also run the following command inside it.
-Be patient this will take a while.
-```bash
-pip3 install lxml
-```
 
 ## Setup
 
-To activate the call monitor on your Fritz!Box, dial #96\*5\* from any phone connected to it.
+To activate the call monitor on your FRITZ!Box, dial #96\*5\* from any phone connected to it.
 
 ## Configuration
 
-To use the Fritz!Box call monitor in your installation, add the following to your `configuration.yaml` file:
+To use the FRITZ!Box call monitor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +32,7 @@ name:
   default: Phone
   type: string
 host:
-  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every FRITZ!Box is also reachable by using the IP address 169.254.1.1. If you have a local DNS server and have assigned a hostname to your FRITZ!Box, you can also use that here instead of the IP address.
   required: false
   default: 169.254.1.1
   type: string
@@ -58,11 +42,11 @@ port:
   default: 1012
   type: integer
 username:
-  description: Fritz!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
+  description: FRITZ!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
   required: false
   type: string
 password:
-  description: Fritz!Box user's user password. This is required to use the phone book lookup feature.
+  description: FRITZ!Box user's user password. This is required to use the phone book lookup feature.
   required: false
   type: string
 phonebook:

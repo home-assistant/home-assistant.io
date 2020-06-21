@@ -1,11 +1,11 @@
 ---
 title: "KNX Climate"
 description: "Instructions on how to integrate KNX thermostats with Home Assistant."
-logo: knx.png
 ha_category:
   - Climate
 ha_release: 0.25
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>
@@ -48,9 +48,9 @@ climate:
     operation_mode_state_address: '5/1/8'
 ```
 
-If your device doesn't support setpoint_shift calculations (i.e. if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
+If your device doesn't support setpoint_shift calculations (i.e., if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
 attributes of the climate device to avoid issues with exceeding valid temperature values in the frontend. Please do also make sure to add the `target_temperature_address`
-to the config in this case.:
+to the configuration in this case.:
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,7 +69,7 @@ climate:
 ```
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
-If the actor doesn't support explicit state communication objects the *_state_address can be configured with the same group address as the writeable *_address. The Read-Flag for the *_state_address communication object has to be set in ETS to support initial reading eg. when starting home-assistant.
+If the actor doesn't support explicit state communication objects the *_state_address can be configured with the same group address as the writeable *_address. The Read-Flag for the *_state_address communication object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
 
 The following values are valid for the `hvac_mode` attribute:
 
@@ -165,13 +165,18 @@ operation_mode_comfort_address:
   required: false
   type: string
 operation_modes:
-  description: Overrides the supported operation modes.
+  description: Overrides the supported operation modes. Provide the supported `hvac_mode` and `preset_mode` values for your device.
   required: false
   type: list
 on_off_address:
   description: KNX address for switching the climate device on/off.
   required: false
   type: string
+on_off_invert:
+  description: Value for switching the climate device on/off is inverted.
+  required: false
+  default: false
+  type: boolean
 on_off_state_address:
   description: KNX address for gathering the current state (on/off) of the climate device.
   required: false

@@ -1,19 +1,28 @@
 ---
-title: "Tomato"
-description: "Instructions on how to integrate Tomato routers into Home Assistant."
-logo: tomato.png
+title: Tomato
+description: Instructions on how to integrate Tomato routers into Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: pre 0.7
+ha_domain: tomato
 ---
 
-The `tomato` platform requires an extra config variable called `http_id`. The
-value can be obtained by logging in to the Tomato admin interface and search for
-`http_id` in the page source code.
+The `tomato` device tracker integration allows one to tracker devices which are
+connected to a wireless router that is running [Tomato](https://tomato.groov.pl/)
+as firmware.
 
-Because of a limitation in Tomato's API, this platform will only track wireless devices.
-If tracking wired devices like a Philips Hue Hub is necessary,
-it is possible to use another platform like [Nmap](/integrations/nmap_tracker).
+Because of a limitation in Tomato's API, this integration will only track wireless devices.
+
+It could be that the integration is also working with [AdvancedTomato](https://advancedtomato.com/)
+but this was never tested. 
+
+## Setup
+
+The integration requires an extra configuration variable called `http_id`. The
+value can be obtained by logging in to the Tomato admin interface and search for
+`http_id` in the page's source code.
+
+## Configuration
 
 To use this device tracker in your installation,
 add the following to your `configuration.yaml` file:
@@ -44,7 +53,7 @@ ssl:
   type: boolean
   default: false
 verify_ssl:
-  description: "If SSL verification for https resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `false` or `true` or you can pass a location on the device where a certificate can be used for verification e.g., `/mnt/NAS/router_cert.pem`."
+  description: "If SSL verification for HTTPS resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `false` or `true` or you can pass a location on the device where a certificate can be used for verification e.g., `/mnt/NAS/router_cert.pem`."
   required: false
   type: [string, boolean]
   default: true
@@ -57,7 +66,7 @@ password:
   required: true
   type: string
 http_id:
-  description: "The value can be obtained by logging in to the Tomato admin interface and search for `http_id` in the page source code."
+  description: "The value of `http_id`."
   required: true
   type: string
 {% endconfiguration %}
@@ -65,14 +74,11 @@ http_id:
 See the [device tracker integration page](/integrations/device_tracker/) for
 instructions how to configure the people to be tracked.
 
-A description of the API s available in this
-[Tomato API](http://paulusschoutsen.nl/blog/2013/10/tomato-api-documentation/)
-blog post.
-
-SSL Certificate:
+## SSL Certificate
 
 Gathering the SSL Certificate of your router can be accomplished with this (or
 a similar) command:
+
 ```bash
 openssl s_client -showcerts -connect 172.10.10.1:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > router_cert.pem
 ```

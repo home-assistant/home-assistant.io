@@ -1,13 +1,13 @@
 ---
-title: "Linksys Smart Wifi Router"
-description: "Instructions on how to integrate Linksys Smart Wifi Router into Home Assistant."
+title: Linksys Smart Wi-Fi
+description: Instructions on how to integrate Linksys Smart Wi-Fi Router into Home Assistant.
 ha_category:
   - Presence Detection
-logo: linksys.png
 ha_release: 0.48
+ha_domain: linksys_smart
 ---
 
-The `linksys_smart` platform offers presence detection by looking at connected devices to a Linksys Smart Wifi based router.
+The `linksys_smart` platform offers presence detection by looking at connected devices to a Linksys Smart Wi-Fi based router.
 
 Tested routers:
 
@@ -20,7 +20,7 @@ For this platform to work correctly, it is necessary to disable the "Access via 
 
 ## Configuration
 
-To use a Linksys Smart Wifi Router in your Home Assistant installation, add the following to your `configuration.yaml` file:
+To use a Linksys Smart Wi-Fi Router in your Home Assistant installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,10 +1,10 @@
 ---
 title: "Amazon Alexa Flash Briefing"
 description: "Instructions on how to create your Flash Briefing skills with Home Assistant."
-logo: amazon-alexa.png
 ha_category:
   - Voice
 ha_release: "0.31"
+ha_domain: alexa
 ---
 
 ## Flash Briefing Skills
@@ -13,7 +13,7 @@ As of version [0.31][zero-three-one] Home Assistant supports the new [Alexa Flas
 
 ### Requirements
 
-Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are OK because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. When running Hass.io, using the [Let's Encrypt](/addons/lets_encrypt/) and [Duck DNS](/addons/duckdns/) add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
+Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are OK because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. Using the [Let's Encrypt](/addons/lets_encrypt/) and [Duck DNS](/addons/duckdns/) add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
 
 Additionally, note that at the time of this writing, your Alexa skill endpoint *must* accept requests over port 443 (Home Assistant default to 8123). There are two ways you can handle this:
 
@@ -78,5 +78,5 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
 [templates]: /topics/templating/
 [zero-three-one]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/
-[alexa-settings-site]: http://alexa.amazon.com/
+[alexa-settings-site]: https://alexa.amazon.com/
 [emulated-hue-component]: /integrations/emulated_hue/

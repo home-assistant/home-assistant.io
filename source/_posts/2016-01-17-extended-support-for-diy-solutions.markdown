@@ -13,7 +13,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [github-ha]: https://github.com/home-assistant/home-assistant/
 [release-pr]: https://github.com/home-assistant/home-assistant/pull/883#partial-users-participants
 
-<img src='/images/supported_brands/mysensors.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/raspberry-pi.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='50' /><img src='/images/supported_brands/yr.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/telldus_tellstick.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/free_mobile.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/netatmo.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/alarmdotcom.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/proliphix.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='https://brands.home-assistant.io/mysensors/logo.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/raspberry-pi.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='50' /><img src='/images/supported_brands/yr.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/telldus_tellstick.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/free_mobile.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/netatmo.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/proliphix.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
  - [MySensors] revamped and switch support added ([@MartinHjelmare][@MartinHjelmare])
  - Full refactor of RPi GPIO. Now includes [binary sensor][rpi-bs] and [switch][rpi-s] ([@sfam])
@@ -41,7 +41,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [YR]: /integrations/yr
 [Locative]: /integrations/locative
 [sun condition]: /getting-started/automation-condition/#sun-condition
-[command_switch]: /integrations/switch.command_switch/
+[command_switch]: /integrations/switch.command_line/
 [wemo]: /integrations/wemo
 [Telldus Live]: /integrations/tellduslive/
 [Vera]: /integrations/vera/
@@ -53,7 +53,6 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [Cast]: /integrations/cast
 [Universal media player]: /integrations/universal
 [Netatmo]: /integrations/netatmo#sensor
-[Alarm.com]: /integrations/alarmdotcom
 [Proliphix]: /integrations/proliphix/
 [rpi-bs]: /integrations/rpi_gpio#binary-sensor
 [rpi-s]: /integrations/rpi_gpio#switch

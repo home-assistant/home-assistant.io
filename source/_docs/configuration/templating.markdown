@@ -11,21 +11,21 @@ This is an advanced feature of Home Assistant. You'll need a basic understanding
 
 Templating is a powerful feature that allows you to control information going into and out of the system. It is used for:
 
-- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [alexa](/integrations/alexa/) component.
+- Formatting outgoing messages in, for example, the [notify](/integrations/notify/) platforms and [Alexa](/integrations/alexa/) component.
 - Process incoming data from sources that provide raw data, like [MQTT](/integrations/mqtt/), [`rest` sensor](/integrations/rest/) or the [`command_line` sensor](/integrations/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
 
 ## Building templates
 
-Templating in Home Assistant is powered by the [Jinja2](http://jinja.pocoo.org/) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
+Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.com/p/jinja) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
 
-- [Mathematical operation](http://jinja.pocoo.org/docs/dev/templates/#math)
-- [Comparisons](http://jinja.pocoo.org/docs/dev/templates/#comparisons)
-- [Logic](http://jinja.pocoo.org/docs/dev/templates/#logic)
+- [Mathematical operation](https://jinja.palletsprojects.com/en/master/templates/#math)
+- [Comparisons](https://jinja.palletsprojects.com/en/master/templates/#comparisons)
+- [Logic](https://jinja.palletsprojects.com/en/master/templates/#logic)
 
-We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](http://jinja.pocoo.org/docs/dev/templates/).
+We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/master/templates/).
 
-The frontend has a template editor tool to help develop and debug templates. Click on the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> icon, create your template in the _Template editor_ and check the results on the right.
+The frontend has a template editor tool to help develop and debug templates. Navigate to Developer Tools > Template, create your template in the _Template editor_ and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
@@ -57,7 +57,7 @@ Extensions allow templates to access all of the Home Assistant specific states a
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
-- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value).
+- `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
 
 <div class='note warning'>
 
@@ -104,7 +104,7 @@ Other state examples:
 
 {% if states('sensor.temperature') | float > 20 %}
   It is warm!
-{%endif %}
+{% endif %}
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
@@ -169,15 +169,72 @@ The same thing can also be expressed as a filter:
 
 ### Time
 
-- `now()` will be rendered as the current time in your time zone.
-  - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
-- `utcnow()` will be rendered as UTC time.
+- `now()` returns a datetime object that represents the current time in your time zone.
+  - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
+- `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
-- `as_timestamp()` will convert datetime object or string to UNIX timestamp. This function also be used as a filter.
-- `strptime(string, format)` will parse a string to a datetime based on a [format](https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior).
-- Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
-- Filter `timestamp_utc` will convert a UNIX timestamp to UTC time/data.
-- Filter `timestamp_custom(format_string, local_boolean)` will convert a UNIX timestamp to a custom format, the use of a local timestamp is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+- `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
+- `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
+- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+- Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
+- Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
+- Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
+
+Note: [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`):  
+
+{% raw %}
+```yaml
+{{ 120 | timestamp_local }}
+```
+{% endraw %}
+
+### To/From JSON
+
+The `to_json` filter serializes an object to a JSON string. In some cases, it may be necessary to format a JSON string for use with a webhook, as a parameter for command-line utilities or any number of other applications. This can be complicated in a template, especially when dealing with escaping special characters. Using the `to_json` filter, this is handled automatically.
+
+The `from_json` filter operates similarly, but in the other direction, de-serializing a JSON string back into an object.
+
+### To/From JSON examples
+
+In this example, the special character '°' will be automatically escaped in order to produce valid JSON. The difference between the stringified object and the actual JSON is evident.
+
+*Template*
+
+{% raw %}
+```text
+{% set temp = {'temperature': 25, 'unit': '°C'} %}
+stringified object: {{ temp }}
+object|to_json: {{ temp|to_json }}
+```
+{% endraw %}
+
+*Output*
+
+{% raw %}
+```text
+stringified object: {'temperature': 25, 'unit': '°C'}
+object|to_json: {"temperature": 25, "unit": "\u00b0C"}
+```
+{% endraw %}
+
+Conversely, `from_json` can be used to de-serialize a JSON string back into an object to make it possible to easily extract usable data.
+
+*Template*
+
+{% raw %}
+```text
+{% set temp = '{"temperature": 25, "unit": "\u00b0C"}'|from_json %}
+The temperature is {{ temp.temperature }}{{ temp.unit }}
+```
+{% endraw %}
+
+*Output*
+
+{% raw %}
+```text
+The temperature is 25°C
+```
+{% endraw %}
 
 ### Distance
 
@@ -243,7 +300,7 @@ Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
-It will also work as a filter over a iterable group of entities or groups:
+It will also work as a filter over an iterable group of entities or groups:
 
 ```text
 Closest out of given entities: 
@@ -262,7 +319,7 @@ Closest to some entity:
 
 ### Numeric functions and filters
 
-Some of these functions can also be used in a [filter](http://jinja.pocoo.org/docs/dev/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
+Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/master/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
 - `sin(value)` will return the sine of the input. Can be used as a filter.
@@ -276,7 +333,10 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
-- Filter `round(x)` will convert the input to a number and round it to `x` decimals.
+- Filter `round(x)` will convert the input to a number and round it to `x` decimals. Round has four modes and the default mode (with no mode specified) will [round-to-even](https://en.wikipedia.org/wiki/Rounding#Roundhalfto_even).
+  - `round(x, "floor")` will always round down to `x` decimals
+  - `round(x, "ceil")` will always round up to `x` decimals
+  - `round(1, "half")` will always round to the nearest .5 value. `x` should be 1 for this mode
 - Filter `max` will obtain the largest item in a sequence.
 - Filter `min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
@@ -285,8 +345,8 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 
 ### Regular expressions
 
-- Filter `string|regex_match(find, ignorecase=FALSE)` will match the find expression at the beginning of the string using regex.
-- Filter `string|regex_search(find, ignorecase=FALSE)` will match the find expression anywhere in the string using regex.
+- Filter `string|regex_match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
+- Filter `string|regex_search(find, ignorecase=True)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `string|regex_findall_index(find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
 
@@ -328,7 +388,7 @@ Nested JSON in a response is supported as well:
   },
   "values": {
     "temp": 26.09,
-    "hum": 56.73,
+    "hum": 56.73
   }
 }
 ```

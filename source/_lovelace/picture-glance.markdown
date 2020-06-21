@@ -1,10 +1,10 @@
 ---
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
-description: "Show an image card and corresponding entity states as icon"
+description: "The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog."
 ---
 
-Show an image card and corresponding entity states as icon. The entities on the right side allow toggle actions, others show the more-info-dialog.
+The Picture Glance card shows an image and corresponding entity states as an icon. The entities on the right side allow toggle actions, others show the more information dialog.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_picture_glance.gif' alt='Picture glance card for a living room'>
@@ -56,68 +56,29 @@ aspect_ratio:
   type: string
 entity:
   required: false
-  description: Entity to use for `state_image`.
+  description: Entity to use for `state_image` and `state_filter`.
+  type: string
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: true
+theme:
+  required: false
+  description: "Set to any theme within `themes.yaml`"
   type: string
 tap_action:
   required: false
-  description: Action to take on tap
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    url_path:
-      required: false
-      description: "Path to navigate to (e.g. `https://www.home-assistant.io`) when `action` defined as `url`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/).
+  type: map
 {% endconfiguration %}
 
 ## Options For Entities
@@ -129,60 +90,48 @@ entity:
   required: true
   description: Home Assistant entity ID.
   type: string
+attribute:
+  required: false
+  description: Attribute of the entity to display instead of the state
+  type: string
+prefix:
+  required: false
+  description: Prefix to display before the attribute's value
+  type: string
+suffix:
+  required: false
+  description: Suffix to display after the attribute's value
+  type: string
 icon:
   required: false
   description: Overwrites default icon.
   type: string
+show_state:
+  required: false
+  description: Show entity state-text.
+  type: boolean
+  default: true
 tap_action:
   required: false
-  description: Action to take on tap
+  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
 hold_action:
   required: false
-  description: Action to take on tap-and-hold
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
-  keys:
-    action:
-      required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
-      type: string
-      default: "`more-info`"
-    navigation_path:
-      required: false
-      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
-      type: string
-      default: none
-    service:
-      required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`"
-      type: string
-      default: none
-    service_data:
-      required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
-      type: string
-      default: none
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  type: map
+{% endconfiguration %}
+
+## Options For Exemptions
+
+{% configuration badges %}
+user:
+  required: true
+  description: User id that can see the view tab.
+  type: string
 {% endconfiguration %}
 
 ## How to use state_filter
@@ -193,6 +142,7 @@ Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS
 state_filter:
   "on": brightness(110%) saturate(1.2)
   "off": brightness(50%) hue-rotate(45deg)
+entity: switch.decorative_lights
 ```
 
 ## Examples

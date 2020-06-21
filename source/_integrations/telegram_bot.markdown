@@ -1,18 +1,18 @@
 ---
-title: "Telegram chatbot"
-description: "Telegram chatbot support"
-logo: telegram.png
+title: Telegram bot
+description: Telegram bot support
 ha_category:
   - Hub
 ha_release: 0.42
 ha_iot_class: Cloud Push
+ha_domain: telegram_bot
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
 
-This integration creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/integrations/polling) method or with the [webhooks](/integrations/webhooks) one, and trigger events when receiving messages.
+This integration creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/integrations/telegram_polling) platform or with the [webhooks](/integrations/telegram_webhooks) one, and trigger events when receiving messages.
 
-If you don't need to receive messages, you can use the [broadcast](/integrations/broadcast) platform instead.
+If you don't need to receive messages, you can use the [broadcast](/integrations/telegram_broadcast) platform instead.
 
 ## Notification services
 
@@ -48,6 +48,7 @@ Send a photo.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| 'timeout'                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
@@ -66,6 +67,7 @@ Send a video.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| 'timeout'                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
@@ -84,6 +86,7 @@ Send a document.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| 'timeout'                 |      yes | Timeout for send document. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
@@ -223,7 +226,6 @@ Simple ping pong example.
 
 ```yaml
 alias: 'Telegram bot that reply pong to ping'
-hide_entity: true
 trigger:
   platform: event
   event_type: telegram_command
@@ -273,6 +275,7 @@ action:
 An example to show the use of event_data in action:
 
 {% raw %}
+
 ```yaml
 - alias: 'Kitchen Telegram Speak'
   trigger:
@@ -286,6 +289,7 @@ An example to show the use of event_data in action:
         message: >
           Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
 ```
+
 {% endraw %}
 
 ### Sample automations with callback queries and inline keyboards
@@ -299,9 +303,9 @@ A quick example to show some of the callback capabilities of inline keyboards wi
 Text repeater:
 
 {% raw %}
+
 ```yaml
 - alias: 'Telegram bot that repeats text'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_text
@@ -314,21 +318,22 @@ Text repeater:
         disable_notification: true
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
-          - "Remove this button:/remove button"
+          - "Remove this button:/remove_button"
 ```
+
 {% endraw %}
 
 Message editor:
 
 {% raw %}
+
 ```yaml
 - alias: 'Telegram bot that edits the last sent message'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/edit_msg'
+      command: '/edit_msg'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -342,25 +347,26 @@ Message editor:
         title: '*Message edit*'
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
-          - "Remove this button:/remove button"
+          - "Remove this button:/remove_button"
         message: >
           Callback received from {{ trigger.event.data.from_first }}.
           Message id: {{ trigger.event.data.message.message_id }}.
-          Data: {{ trigger.event.data.data }}
+          Data: {{ trigger.event.data.data|replace("_", "\_") }}
 ```
+
 {% endraw %}
 
 Keyboard editor:
 
 {% raw %}
+
 ```yaml
 - alias: 'Telegram bot that edits the keyboard'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/remove button'
+      command: '/remove_button'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
@@ -373,104 +379,48 @@ Keyboard editor:
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
 ```
+
 {% endraw %}
 
 Only acknowledges the 'NO' answer:
 
 {% raw %}
+
 ```yaml
 - alias: 'Telegram bot that simply acknowledges'
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_callback
     event_data:
-      data: '/do_nothing'
+      command: '/do_nothing'
   action:
     - service: telegram_bot.answer_callback_query
       data_template:
         callback_query_id: '{{ trigger.event.data.id }}'
         message: 'OK, you said no!'
 ```
+
 {% endraw %}
 
-For a more complex usage of the `telegram_bot` capabilities, using [AppDaemon](/docs/ecosystem/appdaemon/tutorial/) is advised.
+Telegram callbacks also support arguments and commands the same way as normal messages.
 
-This is how the previous 4 automations would be through a simple AppDaemon app:
+{% raw %}
 
-```python
-import appdaemon.plugins.hass.hassapi as hass
-
-class TelegramBotEventListener(hass.Hass):
-    """Event listener for Telegram bot events."""
-
-    def initialize(self):
-        """Listen to Telegram Bot events of interest."""
-        self.listen_event(self.receive_telegram_text, 'telegram_text')
-        self.listen_event(self.receive_telegram_callback, 'telegram_callback')
-
-    def receive_telegram_text(self, event_id, payload_event, *args):
-        """Text repeater."""
-        assert event_id == 'telegram_text'
-        user_id = payload_event['user_id']
-        msg = 'You said: ``` %s ```' % payload_event['text']
-        keyboard = [[("Edit message", "/edit_msg"),
-                     ("Don't", "/do_nothing")],
-                    [("Remove this button", "/remove button")]]
-        self.call_service('telegram_bot/send_message',
-                          title='*Dumb automation*',
-                          target=user_id,
-                          message=msg,
-                          disable_notification=True,
-                          inline_keyboard=keyboard)
-
-    def receive_telegram_callback(self, event_id, payload_event, *args):
-        """Event listener for Telegram callback queries."""
-        assert event_id == 'telegram_callback'
-        data_callback = payload_event['data']
-        callback_id = payload_event['id']
-        chat_id = payload_event['chat_id']
-        # keyboard = ["Edit message:/edit_msg, Don't:/do_nothing",
-        #             "Remove this button:/remove button"]
-        keyboard = [[("Edit message", "/edit_msg"),
-                     ("Don't", "/do_nothing")],
-                    [("Remove this button", "/remove button")]]
-
-        if data_callback == '/edit_msg':  # Message editor:
-            # Answer callback query
-            self.call_service('telegram_bot/answer_callback_query',
-                              message='Editing the message!',
-                              callback_query_id=callback_id,
-                              show_alert=True)
-
-            # Edit the message origin of the callback query
-            msg_id = payload_event['message']['message_id']
-            user = payload_event['from_first']
-            title = '*Message edit*'
-            msg = 'Callback received from %s. Message id: %s. Data: ``` %s ```'
-            self.call_service('telegram_bot/edit_message',
-                              chat_id=chat_id,
-                              message_id=msg_id,
-                              title=title,
-                              message=msg % (user, msg_id, data_callback),
-                              inline_keyboard=keyboard)
-
-        elif data_callback == '/remove button':  # Keyboard editor:
-            # Answer callback query
-            self.call_service('telegram_bot/answer_callback_query',
-                              message='Callback received for editing the '
-                                      'inline keyboard!',
-                              callback_query_id=callback_id)
-
-            # Edit the keyboard
-            new_keyboard = keyboard[:1]
-            self.call_service('telegram_bot/edit_replymarkup',
-                              chat_id=chat_id,
-                              message_id='last',
-                              inline_keyboard=new_keyboard)
-
-        elif data_callback == '/do_nothing':  # Only Answer to callback query
-            self.call_service('telegram_bot/answer_callback_query',
-                              message='OK, you said no!',
-                              callback_query_id=callback_id)
+```yaml
+- alias: 'Telegram bot repeats arguments on callback query'
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      command: '/repeat'
+  action:
+    - service: telegram_bot.answer_callback_query
+      data_template:
+        show_alert: true
+        callback_query_id: '{{ trigger.event.data.id }}'
+        message: 'I repeat: {{trigger.event.data["args"]}}'
 ```
+
+{% endraw %}
+
+In this case, having a callback with `/repeat 1 2 3` with pop a notification saying `I repeat: [1, 2, 3]`

@@ -1,11 +1,13 @@
 ---
-title: "GPSD"
-description: "Instructions on how to integrate GPSD into Home Assistant."
-logo: gpsd.png
+title: GPSD
+description: Instructions on how to integrate GPSD into Home Assistant.
 ha_category:
   - Utility
 ha_release: 0.26
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
+ha_domain: gpsd
 ---
 
 The `gpsd` integration is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
@@ -64,4 +66,3 @@ name:
   type: string
   default: GPS
 {% endconfiguration %}
-

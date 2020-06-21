@@ -318,7 +318,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - IMAP sensor async/await conversion ([@amelchio] - [#12988]) ([sensor.imap docs])
 - Refactor Google Assistant ([@balloob] - [#12959]) ([google_assistant docs]) ([light docs]) (breaking change)
 - Bump pyEmby version to support aiohttp => 3 ([@mezz64] - [#12986]) ([media_player.emby docs])
-- Update pyalarmdotcom version ([@koolsb] - [#12987]) ([alarm_control_panel.alarmdotcom docs])
+- Update pyalarmdotcom version ([@koolsb] - [#12987])
 - Show the error message when Zabbix fails to log in ([@cyberjacob] - [#12985]) ([zabbix docs])
 - Script/gen_requirements: Ignore package families ([@cdce8p] - [#12963])
 - Fix Sonos group discovery ([@amelchio] - [#12970]) ([media_player.sonos docs])
@@ -540,7 +540,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@teharris1]: https://github.com/teharris1
 [@thejta]: https://github.com/thejta
 [@turbokongen]: https://github.com/turbokongen
-[alarm_control_panel.alarmdotcom docs]: /integrations/alarmdotcom
 [alarm_control_panel.concord232 docs]: /integrations/concord232#alarm-control-panel
 [alarm_control_panel.egardia docs]: /integrations/egardia
 [api docs]: /integrations/api/
@@ -644,9 +643,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.xiaomi_aqara docs]: /integrations/switch.xiaomi_aqara/
 [switch.xiaomi_miio docs]: /integrations/switch.xiaomi_miio/
 [switch.zha docs]: /integrations/zha
-[telegram_bot.broadcast docs]: /integrations/broadcast
-[telegram_bot.polling docs]: /integrations/polling
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot.broadcast docs]: /integrations/telegram_broadcast
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [upcloud docs]: /integrations/upcloud/
 [vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
 [weather docs]: /integrations/weather/

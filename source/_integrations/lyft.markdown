@@ -1,11 +1,11 @@
 ---
-title: "Lyft Sensor"
-description: "How to integrate Lyft in Home Assistant"
-logo: lyft.png
+title: Lyft
+description: How to integrate Lyft in Home Assistant
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.41
+ha_domain: lyft
 ---
 
 The `lyft` sensor will give you time and price estimates for all available [Lyft](https://lyft.com) products at the given `start_latitude` and `start_longitude`.The `ATTRIBUTES` are used to provide extra information about products, such as vehicle capacity and fare rates. If an `end_latitude` and `end_longitude` are specified, a price estimate will also be provided. One sensor will be created for each product at the given `start` location, for pickup time. A second sensor for each product, for estimated price, will be created if a destination is specified. The sensor is powered by the official Lyft [API](https://developer.lyft.com/reference/).

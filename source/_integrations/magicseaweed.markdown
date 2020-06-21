@@ -1,11 +1,11 @@
 ---
-title: "Magicseaweed Sensor"
-description: "How to integrate Magicseaweed within Home Assistant."
-logo: magicseaweed.png
+title: Magicseaweed
+description: How to integrate Magicseaweed within Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.75
 ha_iot_class: Cloud Polling
+ha_domain: magicseaweed
 ---
 
 The `magicseaweed` platform uses the [Magicseaweed Forecast API](https://magicseaweed.com/developer/forecast-api) as a source for surf forecasting data for the surf spots of your choice.

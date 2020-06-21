@@ -1,10 +1,10 @@
 ---
-title: "Meraki"
-description: "Instructions on how to integrate Meraki-based presence detection into Home Assistant."
-logo: meraki.png
+title: Meraki
+description: Instructions on how to integrate Meraki-based presence detection into Home Assistant.
 ha_category:
   - Presence Detection
-ha_release: "0.60"
+ha_release: '0.60'
+ha_domain: meraki
 ---
 
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network.

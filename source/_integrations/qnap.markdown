@@ -1,11 +1,13 @@
 ---
-title: "QNAP Sensor"
-description: "Instructions on how to integrate the QNAP sensor within Home Assistant."
-logo: qnap.png
+title: QNAP
+description: Instructions on how to integrate the QNAP sensor within Home Assistant.
 ha_category:
   - System Monitor
 ha_release: 0.38
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@colinodell'
+ha_domain: qnap
 ---
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
@@ -122,6 +124,7 @@ If your QNAP device uses self-signed certificates, set the `verify_ssl` option t
 
 This integration has been tested on the following devices:
 
+- TS-231P2 (QTS 4.4.2)
 - TS-259 Pro+ (QTS 4.2.6)
 - TS-410 (QTS 4.2.3)
 - TS-419 (QTS 4.2.3)

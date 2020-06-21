@@ -1,10 +1,10 @@
 ---
-title: "SendGrid"
-description: "Instructions on how to add email notifications via SendGrid to Home Assistant."
-logo: sendgrid.png
+title: SendGrid
+description: Instructions on how to add email notifications via SendGrid to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.14
+ha_domain: sendgrid
 ---
 
 The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.

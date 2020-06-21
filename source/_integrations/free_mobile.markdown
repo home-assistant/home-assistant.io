@@ -1,10 +1,10 @@
 ---
-title: "Free Mobile"
-description: "Instructions on how to add user notifications to Home Assistant."
-logo: free_mobile.png
+title: Free Mobile
+description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.11
+ha_domain: free_mobile
 ---
 
 The `free_mobile` platform is using the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone. 

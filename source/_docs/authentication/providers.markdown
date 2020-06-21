@@ -31,6 +31,7 @@ homeassistant:
   auth_providers:
     - type: homeassistant
     - type: legacy_api_password
+      api_password: !secret http_password
 ```
 
 ## Available auth providers
@@ -117,7 +118,7 @@ homeassistant:
           - group: system-users
 ```
 
-First note, `trusted_users` configuration need you use `user id`, you can find it through Configuration -> Users -> View User Detail. The `trusted_users` configuration will not validate the existing of the user, so please make sure you have put in correct user id by yourself.
+First note, for `trusted_users` configuration you need to use `user id`, which you can find through Configuration -> Users -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
 
 Second note, a trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
 
@@ -127,7 +128,7 @@ Specially, you can use `group: GROUP_ID` to assign all users in certain `user gr
 
 #### Skip Login Page Examples
 
-This is a feature to allow you bring back some of the experience before the user system be implemented. You can directly jump to main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose in the login form.
+This is a feature to allow you bring back some of the experience before the user system was implemented. You can directly jump to main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose in the login form.
 
 ```yaml
 # assuming you have only one non-system user
@@ -142,7 +143,7 @@ homeassistant:
     - type: homeassistant
 ```
 
-Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). You will get a login abort error, then you can change to use HomeAsssitant Authentication Provider to login, if you access your Home Assistant instance from outside network.
+Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
 
 ### Command Line
 

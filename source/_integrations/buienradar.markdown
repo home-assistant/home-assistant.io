@@ -1,15 +1,18 @@
 ---
-title: "Buienradar"
-description: "Instructions on how to integrate buienradar.nl weather within Home Assistant."
-logo: buienradar.png
+title: Buienradar
+description: Instructions on how to integrate buienradar.nl weather within Home Assistant.
 ha_category:
   - Camera
   - Weather
 ha_release: 0.47
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@mjj4791'
+  - '@ties'
+ha_domain: buienradar
 ---
 
-The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
+The `buienradar` platform uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
 
 The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor component).  A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
 
@@ -73,7 +76,7 @@ The weather platform is easier to configure but less customizable.
 
 ## Camera
 
-The `buienradar` camera platform uses [buienradar.nl](http://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant.
+The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant.
 
 Internally this component uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
@@ -103,6 +106,12 @@ delta:
   required: false
   default: 600
   type: integer
+country_code:
+  description: You can (optionally) specify the country code (NL or BE) of the
+    country to display on the camera.
+  required: false
+  default: NL
+  type: string
 {% endconfiguration %}
 
 ### The `name` Variable
@@ -113,5 +122,5 @@ version of the name will be used as the name of the entity.
 With the default of "Buienradar loop" the entity name becomes
 `camera.buienradar_loop`.
 
-[Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
-> Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission.
+_[Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
+Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission._

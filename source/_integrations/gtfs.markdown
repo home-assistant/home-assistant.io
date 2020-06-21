@@ -1,24 +1,26 @@
 ---
-title: "Public Transit (GTFS)"
-description: "Instructions on how to use public transit open data in Home Assistant."
-logo: train.png
+title: General Transit Feed Specification (GTFS)
+description: Instructions on how to use public transit open data in Home Assistant.
 ha_category:
   - Transport
 ha_iot_class: Local Polling
 ha_release: 0.17
+ha_codeowners:
+  - '@robbiet480'
+ha_domain: gtfs
 ---
 
 The `gtfs` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.
 
-You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at [TransitFeeds](http://transitfeeds.com/feeds).
+You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at [TransitFeeds](https://transitfeeds.com/feeds).
 
 Here are some examples:
 
-- [Bay Area Rapid Transit (BART)](http://www.bart.gov/schedules/developers/gtfs) - The light rail system for the San Francisco Bay Area.
+- [Bay Area Rapid Transit (BART)](https://www.bart.gov/schedules/developers/gtfs) - The light rail system for the San Francisco Bay Area.
 - [Metropolitan Transit Authority of New York City (MTA)](http://web.mta.info/developers/) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
 - [Official Timetable Switzerland](https://opentransportdata.swiss/en/dataset/timetable-2019-gtfs) - The official timetable data for Switzerland in 2019.
 
-You need to download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e. `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip and place a folder in the `gtfs` folder.
+You need to download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e., `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip and place a folder in the `gtfs` folder.
 
 The data will be converted into a queryable format and saved as a SQLite3 database alongside the source data. The sensor will check for the existence of this SQLite3 data at every startup and will re-import the ZIP/Folder if none is found.
 

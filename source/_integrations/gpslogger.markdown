@@ -1,11 +1,12 @@
 ---
-title: "GPSLogger"
-description: "Instructions on how to use GPSLogger to track devices in Home Assistant."
-logo: gpslogger.png
+title: GPSLogger
+description: Instructions on how to use GPSLogger to track devices in Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 0.34
 ha_iot_class: Cloud Push
+ha_config_flow: true
+ha_domain: gpslogger
 ---
 
 This integration sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
@@ -25,7 +26,7 @@ After the launch, go to **General Options**. Enable **Start on bootup** and **St
   GPSLogger Settings
 </p>
 
-Go to **Logging details** and disable **Log to GPX**, **Log to KML** and **Log to NMEA**. Enable **Log to custom URL**.
+Go to **Logging details** and disable **Log to GPX**. Enable **Log to custom URL**.
 
 <p class='img'>
   <img width='300' src='/images/integrations/gpslogger/logging-details.png' />
@@ -60,7 +61,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 - Make sure that **HTTP Method** is changed to `POST`
 
-If your battery drains too fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers**
+If your battery drains too fast then you can tune the performance of GPSLogger under **Performance**.
 
 <p class='img'>
   <img width='300' src='/images/integrations/gpslogger/performance.png' />

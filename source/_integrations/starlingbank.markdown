@@ -1,11 +1,11 @@
 ---
-title: "Starling Bank"
-description: "How to integrate your Starling Bank account within Home Assistant."
-logo: starlingbank.png
+title: Starling Bank
+description: How to integrate your Starling Bank account within Home Assistant.
 ha_category:
   - Finance
 ha_release: 0.79
 ha_iot_class: Cloud Polling
+ha_domain: starlingbank
 ---
 
 The Starling Bank sensor platform allows you to monitor your account balance data as sensors in Home Assistant.

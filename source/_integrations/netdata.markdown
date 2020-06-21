@@ -1,14 +1,16 @@
 ---
-title: "Netdata"
-description: "Instructions on how to integrate Netdata within Home Assistant."
-logo: netdata.png
+title: Netdata
+description: Instructions on how to integrate Netdata within Home Assistant.
 ha_category:
   - System Monitor
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
+ha_domain: netdata
 ---
 
-The `netdata` sensor platform allows you to display information collected by [Netdata](http://my-netdata.io/).
+The `netdata` sensor platform allows you to display information collected by [Netdata](https://my-netdata.io/).
 
 ## Setup
 
@@ -60,7 +62,7 @@ Alternatively you can browse to the built in Netdata API in your browser `http:/
 	},
 ```
 
-Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your configuration.yaml like the example below. 
+Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your `configuration.yaml` like the example below. 
 
 ## Configuration
 

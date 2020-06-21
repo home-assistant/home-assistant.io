@@ -6,6 +6,7 @@ ha_category:
   - Presence Detection
 ha_release: 0.86
 ha_iot_class: Cloud Push
+ha_domain: locative
 ---
 
 This platform allows you to detect presence using [Locative](https://www.locative.io/). Locative is an open source app for [iOS](https://apps.apple.com/us/app/locative/id725198453?ign-mpt=uo%3D4) that allows users to set up a `GET` or `POST` request when a geofence is entered or exited. This can be configured with Home Assistant to update your location.

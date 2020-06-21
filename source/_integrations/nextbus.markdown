@@ -1,12 +1,14 @@
 ---
-title: "Public Transit (Nextbus)"
-description: "Instructions on how to use public transit data from Nextbus in Home Assistant."
-logo: train.png
+title: NextBus
+description: Instructions on how to use public transit data from Nextbus in Home Assistant.
 ha_category:
   - Transport
   - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.93
+ha_codeowners:
+  - '@vividboarder'
+ha_domain: nextbus
 ---
 
 The `nextbus` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from [NextBus](https://www.nextbus.com), which provides real time transit data for a number of transit authorities.
@@ -43,7 +45,7 @@ route:
 stop:
   description: The stop tag from NextBus.
   required: true
-  type: integer
+  type: string
 name:
   description: Name to use in the frontend.
   required: false

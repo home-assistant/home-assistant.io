@@ -26,7 +26,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Stop Network** stops the Z-Wave network
 * **Soft Reset** tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command, and may cause the Z-Wave network to hang.
 * **Test Network** tells the controller to send no-op commands to each node and measure the time for a response. In theory, this can also bring back nodes which have been marked "presumed dead".
-* **Save Config** Saves the current cache of the network to zwcfg_[home_id].xml
+* **Save Configuration** Saves the current cache of the network to `zwcfg_[home_id].xml`.
 
 ## Z-Wave Node Management
 
@@ -78,11 +78,11 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (e.g., its friendly name, the ID of the node, etc)
+* **Entity Information** to display the attributes of that entity (e.g., its friendly name, the ID of the node, etc)
 
 Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
 
-The **Polling intensity** says how many poll intervals does is this device polled on. For example, if you set 2 then it's polled on every second interval.
+The **Polling intensity** says how many poll intervals this device is polled on. For example, if you set 2 then it's polled on every second interval.
 
 You can also exclude a Z-Wave devices from Home Assistant. You can do that if you have a device that you need to have on the Z-Wave network, but you don't want it to appear in Home Assistant, or if you've got a device that's failed and you're unable to exclude it.
 
@@ -108,7 +108,7 @@ Some Z-Wave devices may associate themselves with the broadcast node (node 255).
 
 That would remove the broadcast group from association group 1 of the device with node_id 3.
 
-### Node config options
+### Node configuration options
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
@@ -116,7 +116,7 @@ You can set the *wakeup* interval (in seconds) of the device, this is shown for 
 The wakeup interval has no impact on the device's ability to report sensor changes. This is purely for how often the Z-Wave chip will check in with the controller. That activity consumes a lot of battery power compared to reporting sensor changes and if you reduce it you'll be reducing the battery life of your device.
 </div>
 
-Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
+Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Configuration Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
 ### Node protection
 
@@ -154,7 +154,7 @@ for x in range(0, 10):
     translations["%s" % x] = "\\x3%s" % x
 
 for c in sys.argv[1]:
-    print(translations[c], end='')
+    print(translations[c], end="")
 ```
 
 ## OZW Log

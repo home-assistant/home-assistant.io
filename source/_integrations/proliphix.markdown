@@ -1,13 +1,12 @@
 ---
-title: "Proliphix Thermostat"
-description: "Instructions on how to integrate Proliphix thermostats within Home Assistant."
-logo: proliphix.png
+title: Proliphix
+description: Instructions on how to integrate Proliphix thermostats within Home Assistant.
 ha_category:
   - Climate
 ha_release: 0.11
 ha_iot_class: Local Polling
+ha_domain: proliphix
 ---
-
 
 The `proliphix` climate platform let you control [Proliphix](http://www.proliphix.com) thermostat from Home Assistant.
 

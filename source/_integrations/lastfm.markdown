@@ -1,18 +1,18 @@
 ---
-title: "Last.fm"
-description: "Instructions on how to integrate Last.fm sensors into Home Assistant."
-logo: lastfm.png
+title: Last.fm
+description: Instructions on how to integrate Last.fm sensors into Home Assistant.
 ha_category:
   - Social
 ha_iot_class: Cloud Polling
-ha_release: "0.20"
+ha_release: '0.20'
+ha_domain: lastfm
 ---
 
-The `lastfm` sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](http://www.last.fm).
+The `lastfm` sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](https://www.last.fm/).
 
 ## Setup
 
-To get an API key you need to create an [API account](http://www.last.fm/api/account/create).
+To get an API key you need to create an [API account](https://www.last.fm/api/account/create).
 
 ## Configuration
 

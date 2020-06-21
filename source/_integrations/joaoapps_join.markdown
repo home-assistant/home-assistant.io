@@ -1,21 +1,21 @@
 ---
-title: "Joaoapps Join"
-description: "Instructions for how to integrate the Join by Joaoapps service within Home Assistant."
-logo: joaoapps_join.png
+title: Joaoapps Join
+description: Instructions for how to integrate the Join by Joaoapps service within Home Assistant.
 ha_category:
   - Hub
   - Notifications
 ha_release: 0.24
+ha_domain: joaoapps_join
 ---
 
 The `joaoapps_join` integration exposes services from
-[Join](http://joaoapps.com/join). In Home Assistant, the Join features are
+[Join](https://joaoapps.com/join). In Home Assistant, the Join features are
 divided up in two locations, the Join component, and the Join notify platform.
 The notify platform allows us to send messages to Join devices, the component
 allows us to access the other special features that Join offers. When in doubt, you can reference the [API documentation](https://joaoapps.com/join/api/) this is based on.
 
-In the `configuration.yaml` file you need to provide the api key and device id
-or name of the target device. You can find your device id and api key
+In the `configuration.yaml` file you need to provide the API key and device id
+or name of the target device. You can find your device id and API key
 [here](https://joinjoaomgcd.appspot.com/).
 
 To set it up, add the following information to your `configuration.yaml` file:
@@ -53,7 +53,7 @@ device_names:
   required: false
   type: string
 name:
-  description: The name parameter is optional but needed if you want to use multiple notification platforms.  The platform will be exposed as service `notify.<name>`. The name will defailt to `notify` if not supplied. See the [Notifications Component](http://www.home-assistant.io/integrations/notify) for more details.
+  description: The name parameter is optional but needed if you want to use multiple notification platforms.  The platform will be exposed as service `notify.<name>`. The name will defailt to `notify` if not supplied. See the [Notifications Component](/integrations/notify) for more details.
   required: false
   type: string
 {% endconfiguration %}

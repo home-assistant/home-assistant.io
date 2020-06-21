@@ -1,39 +1,45 @@
 ---
-title: "Environment Canada Weather"
-description: "Weather data from Environment Canada."
-logo: environment_canada.png
+title: Environment Canada
+description: Weather data from Environment Canada.
 ha_category:
   - Weather
   - Sensor
   - Camera
 ha_release: 0.95
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@michaeldavie'
+ha_domain: environment_canada
 ---
 
 The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).
 
 The following device types and data are supported:
 
-- [Weather](#weather) - Current conditions and forecasts
-- [Sensor](#sensor) - Current conditions and alerts
-- [Camera](#camera) - Radar imagery
-
-<p class='note'>
-
-  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
-  `sudo apt-get install libatlas-base-dev libopenjp2-7`
-
-</p>
+- [Location Selection](#location-selection)
+- [Weather](#weather)
+- [Sensor](#sensor)
+  - [Alert TTS Script](#alert-tts-script)
+- [Camera](#camera)
 
 ## Location Selection
 
-Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
+The `weather` and `sensor` platforms automatically determine which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
 
-For each platform, the location to use is determined according to the following hierarchy:
+For these platforms, the location to use is determined according to the following hierarchy:
 
-  - Location ID specified in platform configuration (optional)
-  - Closest station to latitude/longitude specified in platform configuration (optional
-  - Closest station to latitude/longitude specified in Home Assistant core configuration
+- Location ID specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in platform configuration (optional)
+- Closest station to latitude/longitude specified in Home Assistant configuration (default)
+
+The `camera` platform dynamically builds imagery using a latitude/longitude as a center point. Radar station IDs are also supported for backwards compatibility.
+
+For this platform, the location to use is determined according to the following hierarchy:
+
+- Station ID specified in platform configuration (optional)
+- Latitude/longitude specified in platform configuration (optional)
+- Latitude/longitude specified in Home Assistant configuration (default)
+
 
 ## Weather
 
@@ -67,7 +73,7 @@ station:
   required: false
   type: string
 name:
-  description: Name to be used for the entity ID, e.g. `weather.<name>`.
+  description: Name to be used for the entity ID, e.g.,  `weather.<name>`.
   required: false
   type: string
 forecast:
@@ -89,27 +95,28 @@ sensor:
   - platform: environment_canada
 ```
 
-- A sensor will be created for each of the following conditions, with a default name like `sensor.temperature`:     
+- A sensor will be created for each of the following conditions, with a default name like `sensor.temperature`:
     - `temperature` - The current temperature, in ºC.
-    - `dewpoint` - The current dewpoint, in ºC.
+    - `dew_point` - The current dewpoint, in ºC.
     - `wind_chill` - The current wind chill, in ºC.
     - `humidex` - The current humidex, in ºC.
+    - `air_quality_health_index` - The current Air Quality Health Index score
     - `pressure` - The current air pressure, in kPa.
-    - `tendency` - The current air pressure tendency, e.g. "Rising".
+    - `tendency` - The current air pressure tendency, e.g.,  "Rising".
     - `humidity` - The current humidity, in %.
     - `visibility` - The current visibility, in km.
-    - `condition` - A brief text statement of the current weather conditions, e.g. "Sunny".
+    - `condition` - A brief text statement of the current weather conditions, e.g.,  "Sunny".
     - `icon_code` - A two-digit number corresponding to a condition icon, as specified in these [image to description](https://dd.weather.gc.ca/citypage_weather/docs/Current_Conditions_Icons-Icones_conditions_actuelles.pdf) and [code to description](https://dd.weather.gc.ca/citypage_weather/docs/current_conditions_icon_code_descriptions_e.csv) mappings.
     - `wind_speed` - The current sustained wind speed, in km/h.
     - `wind_gust` - The current wind gust, in km/h.
-    - `wind_dir` - The current cardinal wind direction, e.g. "SSW".
+    - `wind_direction` - The current cardinal wind direction, e.g.,  "SSW".
     - `wind_bearing` - The current wind direction in degrees.
-    - `high_temp` - The next forecast high temperature, in ºC.
-    - `low_temp` - The next forecast low temperature, in ºC.
+    - `high_temperature` - The next forecast high temperature, in ºC.
+    - `low_temperature` - The next forecast low temperature, in ºC.
     - `uv_index` - The next forecast UV index.
-    - `pop` - The next forecast probability of precipitation, in %.
-    - `text_summary` - A textual description of the next forecast period, e.g. "Tonight. Mainly cloudy. Low -12."
-    - `precip_yesterday` - The total amount of precipitation that fell the previous day.
+    - `chance_of_precip` - The next forecast probability of precipitation, in %.
+    - `forecast` - A textual description of the next forecast period, e.g.,  "Tonight. Mainly cloudy. Low -12."
+    - `precipitation_yesterday` - The total amount of precipitation that fell the previous day.
     - `warnings` - Current warning alerts.
     - `watches` - Current watch alerts.
     - `advisories` - Current advisory alerts.
@@ -118,7 +125,7 @@ sensor:
 - The platform automatically determines which weather station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
     - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
     - A specific latitude/longitude
-- In the case of multiple alerts in the same category, the titles and details of each are concatenated together with a pipe (`|`) separator.
+- In the case of multiple alerts in the same category, the titles of each are concatenated together with a pipe (`|`) separator.
 
 {% configuration %}
 latitude:
@@ -155,7 +162,7 @@ weather_alert_tts:
   sequence:
    - service: tts.amazon_polly_say
       data_template:
-        message: "{{ states('sensor.warnings') }} in effect. {{ state_attr('sensor.warnings', 'alert detail') }}"
+        message: "{{ states('sensor.warnings') }} in effect."
 ```
 {% endraw %}
 
@@ -171,23 +178,19 @@ camera:
   - platform: environment_canada
 ```
 
-<p class='note'>
-  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
-  `sudo apt-get install libatlas-base-dev libopenjp2-7`
-</p>
-
-- If no name is given, the camera entity will be named `camera.<station_name>_radar`.
-- The platform automatically determines which radar station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
-    - A specific station ID from [this table](https://en.wikipedia.org/wiki/Canadian_weather_radar_network#List_of_radars). The code must be in the form `XXX` or `CXXXX`, i.e., remove the leading `C` only if the result forms a three-letter code, otherwise, include it. Valid values include `XFT` for Ottawa or `CASBV` for Montreal.
-    - A specific latitude/longitude
+- If no name is given, the camera entity will be named `camera.environment_canada_radar`.
+- The platform dynamically builds imagery based on a latitude/longitude center point. This center point can be specified using:
+    - The latitude/longitude of the Home Assistant installation (default)
+    - A specific latitude/longitude for the platform (optional)
+    - A specific radar station ID from [this table](https://en.wikipedia.org/wiki/Canadian_weather_radar_network#List_of_radars). The code must be in the form `XXX` or `CXXXX`, i.e., remove the leading `C` only if the result forms a three-letter code, otherwise, include it. Valid values include `XFT` for Ottawa or `CASBV` for Montreal. (optional, for backwards compatibility)
 
 {% configuration %}
 latitude:
-  description: Part of a set of coordinates to use when finding the closest radar station.
+  description: Part of a set of coordinates to use as the center point.
   required: inclusive
   type: float
 longitude:
-  description: Part of a set of coordinates to use when finding the closest radar station.
+  description: Part of a set of coordinates to use as the center point.
   required: inclusive
   type: float
 station: 
@@ -195,7 +198,7 @@ station:
   required: false
   type: string
 name:
-  description: Name to be used for the entity ID, e.g. `camera.<name>`.
+  description: Name to be used for the entity ID, e.g.,  `camera.<name>`.
   required: false
   type: string
 loop:

@@ -1,12 +1,12 @@
 ---
-title: "Thinking Cleaner"
-description: "Instructions on how to integrate a ThinkingCleaner within Home Assistant."
-logo: thinkingcleaner.png
+title: Thinking Cleaner
+description: Instructions on how to integrate a ThinkingCleaner within Home Assistant.
 ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.18
+ha_domain: thinkingcleaner
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -16,28 +16,55 @@ There is currently support for the following device types within Home Assistant:
 
 ## Sensor
 
-The `thinkingcleaner` sensor platform simple displays information about your [Thinking Cleaner](http://www.thinkingcleaner.com) add-on.
+The `thinkingcleaner` sensor platform simple displays information about your [Thinking Cleaner](https://www.thinkingcleaner.com/) add-on.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
 sensor:
   - platform: thinkingcleaner
 ```
 
+{% configuration %}
+host:
+  description: IP address of Thinking Cleaner device
+  required: false
+  type: string
+{% endconfiguration %}
+
+
 This will automatically add sensors for each Thinking Cleaner in your network.
 
-## switch
+## Switch
 
-The `thinkingcleaner` switch platform allows you to control your [Thinking Cleaner](http://www.thinkingcleaner.com) add-on.
+The `thinkingcleaner` switch platform allows you to control your [Thinking Cleaner](https://www.thinkingcleaner.com/) add-on.
 
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
 switch:
   - platform: thinkingcleaner
 ```
 
+{% configuration %}
+host:
+  description: IP address of Thinking Cleaner device
+  required: false
+  type: string
+{% endconfiguration %}
+
+
 This will automatically add switches for each Thinking Cleaner in your network.
+
+## Example configuration using a Roomba with a static IP
+
+If your `thinkingcleaner` device has a static IP address, you can also supply this to the sensor and switch using the host parameter. This is optional and will disable the automatic lookup.
+
+```yaml
+sensor:
+  - platform: thinkingcleaner
+    host: 10.0.0.55
+switch:
+  - platform: thinkingcleaner
+    host: 10.0.0.55
+```

@@ -1,12 +1,15 @@
 ---
-title: "SolarEdge Local Sensor"
-description: "Instructions on how to integrate SolarEdge sensor within Home Assistant via Local API."
-logo: solaredge.png
+title: SolarEdge Local
+description: Instructions on how to integrate SolarEdge sensor within Home Assistant via Local API.
 ha_category:
   - Sensor
   - Energy
 ha_release: 0.95
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@drobtravels'
+  - '@scheric'
+ha_domain: solaredge_local
 ---
 
 The `solaredge_local` platform uses the local API available on some SolarEdge Inverters to allow you to get details from your SolarEdge solar power setup and integrate these into your Home Assistant installation.
@@ -24,13 +27,13 @@ If your inverter does not support the local API, you can use the [cloud based ve
 
 ## Configuration
 
-To use the SolarEdge sensors in your installation, add the following to your configuration.yaml file:
+To use the SolarEdge sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: solaredge_local
-    ip_address: IP_ADDRES
+    ip_address: IP_ADDRESS
 ```
 
 {% configuration %}

@@ -21,7 +21,7 @@ Thanks to [Next Thing Co.](https://www.nextthing.co/) and their CHIP which is ac
   Size comparison of a Cubieboard, OrangePi One, and CHIP.
 </p>
 
-If you start using a PocketCHIP you will definitely look like a Blackberry or a GameBoy user. Typing is done with your thumbs :-)
+If you start using a PocketCHIP you will definitely look like a Blackberry or a Game Boy user. Typing is done with your thumbs :-)
 
 First a couple of tweaks like setting up `sudo`, upgrading the existing installation, change passwords, enabling ssh, and removal of the annoying stuff then installation of Home Assistant. There is not much to tell...it's straight-forward. For the sake of completeness below the notes about what I did.
 

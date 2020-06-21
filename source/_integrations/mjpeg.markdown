@@ -1,11 +1,11 @@
 ---
-title: "Generic MJPEG IP Camera"
-description: "Instructions on how to integrate IP cameras within Home Assistant."
-logo: home-assistant.png
+title: MJPEG IP Camera
+description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
   - Camera
 ha_release: pre 0.7
 ha_iot_class: Configurable
+ha_domain: mjpeg
 ---
 
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable
@@ -25,7 +25,7 @@ camera:
 
 {% configuration %}
 mjpeg_url:
-  description: The URL your camera serves the video on, e.g., http://192.168.1.21:2112/
+  description: The URL your camera serves the video on, e.g., `http://192.168.1.21:2112/`
   required: true
   type: string
 still_image_url:
@@ -50,7 +50,7 @@ authentication:
   type: string
   default: basic
 verify_ssl:
-  description: Validate the ssl certificate for this camera.
+  description: Validate the SSL certificate for this camera.
   required: false
   type: boolean
   default: true

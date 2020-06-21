@@ -1,13 +1,13 @@
 ---
-title: "Bbox"
-description: "Instructions on how to integrate Bouygues Bbox routers into Home Assistant."
-logo: bbox.png
+title: Bbox
+description: Instructions on how to integrate Bouygues Bbox routers into Home Assistant.
 ha_category:
   - Network
   - Sensor
   - Presence Detection
 ha_release: 0.31
 ha_iot_class: Local Polling
+ha_domain: bbox
 ---
 
 The `bbox` platform uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
@@ -66,6 +66,8 @@ sensor:
       - up_max_bandwidth
       - current_down_bandwidth
       - current_up_bandwidth
+      - uptime
+      - number_of_reboots
 ```
 
 {% configuration %}
@@ -87,4 +89,8 @@ monitored_variables:
       description: Instant measure of the current used bandwidth for download.
     current_up_bandwidth:
       description: Instant measure of the current used bandwidth for upload.
+    uptime:
+      description: Uptime since the last boot.
+    number_of_reboots:
+      description: Number of reboot since the initial configuration of the router.
 {% endconfiguration %}

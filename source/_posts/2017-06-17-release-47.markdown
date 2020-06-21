@@ -197,7 +197,7 @@ automation:
 - update to pywebpush 1.0.4 which allows install on system with openssl-1.1.0 (cryptography dep) ([@perosb] - [#7915]) ([notify.html5 docs])
 - Do not call update() in constructor ([@fabaff] - [#7917]) ([sensor.dte_energy_bridge docs]) ([sensor.dublin_bus_transport docs]) ([sensor.dweet docs]) ([sensor.ebox docs]) ([sensor.ecobee docs]) ([sensor.hddtemp docs]) ([sensor.mold_indicator docs]) ([sensor.pi_hole docs]) (sensor.yahoo_finance docs)
 - Fix changes introduced with #7917 ([@fabaff] - [#7930]) ([sensor.waqi docs])
-- Do not call update() in constructor ([@fabaff] - [#7931]) ([sensor.yweather docs])
+- Do not call update() in constructor ([@fabaff] - [#7931])
 - Add service_url config option to volvooncall ([@palp] - [#7919]) ([volvooncall docs])
 - Added 'change' field to statistics sensor ([@jminn] - [#7820]) ([sensor.statistics docs])
 - add ripple sensor ([@nkgilley] - [#7935]) ([sensor.ripple docs]) (new-platform)
@@ -540,7 +540,6 @@ automation:
 [sensor.template docs]: /integrations/template
 [sensor.waqi docs]: /integrations/waqi
 [sensor.wunderground docs]: /integrations/wunderground
-[sensor.yweather docs]: /integrations/yweather
 [spc docs]: /integrations/spc/
 [splunk docs]: /integrations/splunk/
 [switch.homematic docs]: /integrations/homematic
@@ -548,8 +547,8 @@ automation:
 [switch.rest docs]: /integrations/switch.rest/
 [switch.template docs]: /integrations/switch.template/
 [telegram_bot.__init__ docs]: /integrations/telegram_bot/
-[telegram_bot.polling docs]: /integrations/polling
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [updater docs]: /integrations/updater/
 [vera docs]: /integrations/vera/
 [volvooncall docs]: /integrations/volvooncall/

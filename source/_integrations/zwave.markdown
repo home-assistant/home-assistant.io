@@ -1,7 +1,6 @@
 ---
-title: "Z-Wave"
-description: "Instructions on how to integrate your existing Z-Wave within Home Assistant."
-logo: z-wave.png
+title: Z-Wave
+description: Instructions on how to integrate your existing Z-Wave within Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
@@ -15,9 +14,13 @@ ha_category:
 featured: true
 ha_iot_class: Local Push
 ha_release: 0.7
+ha_config_flow: true
+ha_codeowners:
+  - '@home-assistant/z-wave'
+ha_domain: zwave
 ---
 
-The [Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
+The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -50,13 +53,6 @@ Thermostats with support for fan modes or different operating modes, will be han
 If the thermostat supports different operating modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the `configuration.yaml` file.
 
 </div>
-
-To enable the climate integration for your Z-Wave network, add the following to your `configuration.yaml` file.
-
-```yaml
-climate:
-  - platform: zwave
-```
 
 Once enabled, any Z-Wave climate devices will be available to Home Assistant. Multiple entities may be created. The following entities are created for a Remotec ZXT-120.
 

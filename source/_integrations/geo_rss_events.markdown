@@ -1,11 +1,13 @@
 ---
-title: GeoRSS Events Sensor
-description: "Instructions on how to set up GeoRSS sensors within Home Assistant."
-logo: rss.png
+title: GeoRSS
+description: Instructions on how to set up GeoRSS sensors within Home Assistant.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.55
+ha_codeowners:
+  - '@exxamalte'
+ha_domain: geo_rss_events
 ---
 
 The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.
@@ -31,7 +33,7 @@ To enable the GeoRSS events sensor, add the following lines to your `configurati
 sensor:
   - platform: geo_rss_events
     name: NSW Fire Service
-    url: http://www.rfs.nsw.gov.au/feeds/majorIncidents.xml
+    url: https://www.rfs.nsw.gov.au/feeds/majorIncidents.xml
     unit_of_measurement: 'Incidents'
     categories:
       - 'Emergency Warning'
@@ -95,7 +97,7 @@ sensor:
     url: https://www.emergency.wa.gov.au/data/incident_FCAD.rss
   - platform: geo_rss_events
     name: ACT Emergency Services Agency
-    url: http://www.esa.act.gov.au/feeds/currentincidents.xml
+    url: https://www.esa.act.gov.au/feeds/currentincidents.xml
 ```
 
 
@@ -111,7 +113,7 @@ sensor:
       - 'Past Day'
   - platform: geo_rss_events
     name: BGS Worlwide Earthquakes
-    url: http://www.bgs.ac.uk/feeds/worldSeismology.xml
+    url: https://www.bgs.ac.uk/feeds/worldSeismology.xml
     categories:
       - 'EQMH'
   - platform: geo_rss_events

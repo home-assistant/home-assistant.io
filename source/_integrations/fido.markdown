@@ -1,11 +1,11 @@
 ---
-title: "Fido Sensor"
-description: "Instructions on how to integrate Fido data usage within Home Assistant."
-logo: fido.png
+title: Fido
+description: Instructions on how to integrate Fido data usage within Home Assistant.
 ha_category:
   - Network
 ha_release: 0.39
 ha_iot_class: Cloud Polling
+ha_domain: fido
 ---
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.

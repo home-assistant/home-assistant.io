@@ -1,16 +1,18 @@
 ---
-title: "Rain Bird"
-description: "Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant."
-logo: rainbird.png
+title: Rain Bird
+description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
 ha_category:
   - Irrigation
   - Sensor
   - Switch
 ha_release: 0.61
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@konikvranik'
+ha_domain: rainbird
 ---
 
-This `rainbird` integration allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -95,13 +97,36 @@ Please note that due to the implementation of the API within the LNK Module, the
 
 ## Sensor
 
-This `rainbird` sensor allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+This `rainbird` sensor allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 The integration adds `rainsensor` and `raindelay` sensors and their `binary_sensor` alternatives.
 
 ## Switch
 
-This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+This `rainbird` switch platform allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 Switches are automatically added for all available zones of configured controllers.
 
+## Services
+
+The Rain Bird switch platform exposes a service to start a single irrigation for a given duration.
+
+| Service | Description |
+| ------- | ----------- |
+| rainbird.start_irrigation | Set a duration state attribute for a switch and turn the irrigation on.|
+
+The service can be used as part of an automation script. For example:
+
+```yaml
+# Example configuration.yaml automation entry
+automation:
+  - alias: Turn irrigation on
+    trigger:
+      platform: time
+      at: '5:30:00'
+    action:
+      service: rainbird.start_irrigation
+      entity_id: switch.sprinkler_1
+      data:
+        duration: 5
+```

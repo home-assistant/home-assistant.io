@@ -39,7 +39,7 @@ __Existing SmartThings configuration entries will be removed,__ including the Sm
 - Rewrite of Toon component ([@frenck] - [#21186]) ([toon docs]) (breaking change) (new-platform)
 - Times of The Day Binary Sensor ([@kstaniek] - [#20068]) ([binary_sensor.tod docs]) (new-platform)
 - Add switch platform for Danfoss Air and additional sensors. ([@JonasPed] - [#21046]) ([danfoss_air docs]) (new-platform)
-- Owlet baby monitor component ([@oblogic7] - [#21108]) ([owlet docs]) (new-platform)
+- Owlet baby monitor component ([@oblogic7] - [#21108]) (new-platform)
 - deCONZ thermostat support ([@Kane610] - [#20586]) ([deconz docs]) (new-platform)
 - Added device tracker support for Ubee Router ([@mzdrale] - [#19586]) ([device_tracker docs]) (new-platform)
 - Add LCN cover platform ([@alengwenus] - [#20288]) ([lcn docs]) ([cover.lcn docs]) (new-platform)
@@ -159,13 +159,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix calc next ([@balloob] - [#21630]) (beta fix)
 - Cast displaytime to int for JSON RPC ([@GGeezes] - [#21649]) ([notify docs]) (beta fix)
 - :shirt: Corrects unit of measurement symbol for Watt ([@frenck] - [#21654]) ([toon docs]) (beta fix)
-- Rename Google Assistant evenets ([@balloob] - [#21655]) ([google_assistant docs]) (beta fix)
+- Rename Google Assistant events ([@balloob] - [#21655]) ([google_assistant docs]) (beta fix)
 - :ambulance: Fixes Toon doing I/O in coroutines ([@frenck] - [#21657]) ([toon docs]) (beta fix)
 - Upgrade toonapilib to 3.1.0 ([@frenck] - [#21661]) ([toon docs]) (beta fix)
 - Avoid recorder thread crashing ([@balloob] - [#21668]) (beta fix)
 - check we have a tb ([@dgomes] - [#21670]) ([system_log docs]) (beta fix)
 - Fix ADS race condition ([@carstenschroeder] - [#21677]) ([ads docs]) (beta fix)
-- resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
+- resync hass that changes have occurred ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
 - Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
 ## All changes
@@ -185,8 +185,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Config Entry migrations ([@andrewsayre] - [#20888])
 - Refactor http CachingStaticResource ([@awarecan] - [#21062]) ([http docs])
 - Add index parameter to scrape sensor ([@davidbb] - [#21084]) ([sensor.scrape docs])
-- Owlet baby monitor component ([@oblogic7] - [#21108]) ([owlet docs]) (new-platform)
-- Order imports ([@fabaff] - [#21117]) ([owlet docs])
+- Owlet baby monitor component ([@oblogic7] - [#21108]) (new-platform)
+- Order imports ([@fabaff] - [#21117])
 - Add Groups to Homematic IP ([@SukramJ] - [#21076]) ([homematicip_cloud docs])
 - Remove outdated url pattern match support for static file hosting ([@awarecan] - [#21109]) ([http docs])
 - Upgrade pytest to 4.2.1 ([@scop] - [#21112])
@@ -351,7 +351,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Avoid recorder thread crashing ([@balloob] - [#21668]) (beta fix)
 - check we have a tb ([@dgomes] - [#21670]) ([system_log docs]) (beta fix)
 - Fix ADS race condition ([@carstenschroeder] - [#21677]) ([ads docs]) (beta fix)
-- resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
+- resync hass that changes have occurred ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
 - Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
 [#18091]: https://github.com/home-assistant/home-assistant/pull/18091
@@ -668,7 +668,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [netatmo docs]: /integrations/netatmo/
 [nissan_leaf docs]: /integrations/nissan_leaf/
 [notify docs]: /integrations/notify/
-[owlet docs]: /integrations/owlet/
 [person docs]: /integrations/person/
 [point docs]: /integrations/point/
 [prometheus docs]: /integrations/prometheus/

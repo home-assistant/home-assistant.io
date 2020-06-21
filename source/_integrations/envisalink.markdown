@@ -1,13 +1,13 @@
 ---
-title: "Envisalink Alarm Control Panel"
-description: "Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an envisalink evl3/evl4 board."
-logo: eyezon.png
+title: Envisalink
+description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an envisalink evl3/evl4 board.
 ha_category:
   - Alarm
   - Binary Sensor
   - Sensor
 ha_release: 0.23
 ha_iot_class: Local Push
+ha_domain: envisalink
 ---
 
 The `envisalink` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 
-As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant.  For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
 An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -104,7 +104,7 @@ panic_type:
   default: Police
   type: string
 zones:
-  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/envisalink) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
+  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/envisalink) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
   required: false
   type: integer
   keys:
@@ -135,6 +135,7 @@ The following services are supported by Envisalink and can be used to script or 
 - **alarm_disarm**: Disarms the alarm with the user code provided, or the code specified in the configuration.
 - **alarm_arm_home**: Arms the alarm in home mode.
 - **alarm_arm_away**: Arms the alarm in standard away mode.
-- **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
-- **envisalink_alarm_keypress**: Sends a string of up to 6 characters to the alarm. *DSC alarms only*
+- **alarm_arm_night**: Arms the alarm in night mode.
+- **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer Z-Wave / Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
+- **alarm_keypress**: Sends a string of up to 6 characters to the alarm. *Works with DSC panels, and confirmed to work with Honeywell Vista-20P (aka First Alert FA-168)*
 - **invoke_custom_function**: Invokes a custom PGM function. *DSC alarms only*

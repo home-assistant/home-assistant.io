@@ -33,6 +33,6 @@ Keep in mind that you may have to pay the fee for customs handling and the impor
 
 [LES]: https://www.thomas-krenn.com/en/products/low-energy-systems/les-v2.html
 [award]: https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/
-[forum]: https://community.home-assistant.io/c/contest-2017
+[forum]: https://community.home-assistant.io/t/hardware-contest-2017/42546
 [twitter]: https://twitter.com/home_assistant
 

@@ -1,14 +1,15 @@
 ---
-title: "Folder sensor"
-description: "Sensor for monitoring the contents of a folder."
-logo: file.png
+title: Folder
+description: Sensor for monitoring the contents of a folder.
 ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.64
+ha_domain: folder
 ---
 
-Sensor for monitoring the contents of a folder. Note that folder paths must be added to [whitelist_external_dirs](/docs/configuration/basic/). Optionally a [wildcard filter](https://docs.python.org/3.6/library/fnmatch.html) can be applied to the files considered within the folder. The state of the sensor is the size in MB of files within the folder that meet the filter criteria. The number of filtered files in the folder and total size in bytes of those files are exposed as attributes.
+Sensor for monitoring the contents of a folder. Note that folder paths must be added to [whitelist_external_dirs](/docs/configuration/basic/). Optionally a [wildcard filter](https://docs.python.org/3.6/library/fnmatch.html) can be applied to the files considered within the folder. The state of the sensor is the size in MB of files within the folder that meet the filter criteria. 
+The sensor exposes the number of filtered files in the folder, total size in bytes of those files and a comma separated list of the file paths as attributes.
 
 ## Configuration
 

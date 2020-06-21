@@ -4,8 +4,8 @@ description: "Instructions how to setup Template vacuums within Home Assistant."
 ha_category: Vacuum
 ha_release: 0.96
 ha_iot_class: Local Push
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform creates vacuums that combine integrations and provides the
@@ -149,6 +149,8 @@ vacuum:
             service: script.vacuum_locate_vacuum
         set_fan_speed:
             service: script.vacuum_set_fan_speed
+            data_template:
+              speed: "{{ fan_speed }}"
         fan_speeds:
             - Low
             - Medium

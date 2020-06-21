@@ -5,8 +5,8 @@ ha_category:
   - Lock
 ha_release: 0.81
 ha_iot_class: Local Push
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform creates locks that combines components.

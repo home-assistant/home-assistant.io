@@ -1,14 +1,17 @@
 ---
-title: "Traccar GPS tracker"
-description: "Instructions how to use Traccar GPS tracker to track devices in Home Assistant."
-logo: traccar.png
+title: Traccar
+description: Instructions how to use Traccar GPS tracker to track devices in Home Assistant.
 ha_release: 0.83
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@ludeeus'
+ha_domain: traccar
 ---
 
-`Traccar` uses GPS for tracking and has support for over 1500 different types of devices. One option is to track the [Traccar Client](https://www.traccar.org/client/) app on a smartphone via `webhook`. The other option is to connect to an existing [Traccar Server](https://www.traccar.org/server/) installation which is also available as Hass.io addon.
+`Traccar` uses GPS for tracking and has support for over 1500 different types of devices. One option is to track the [Traccar Client](https://www.traccar.org/client/) app on a smartphone via `webhook`. The other option is to connect to an existing [Traccar Server](https://www.traccar.org/server/) installation which is also available as Home Assistant add-on.
 
 ## Traccar Client
 

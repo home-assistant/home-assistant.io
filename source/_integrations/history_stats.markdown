@@ -1,15 +1,15 @@
 ---
-title: "History Statistics Sensor"
-description: "Instructions about how to integrate historical statistics into Home Assistant."
-logo: home-assistant.png
+title: History Stats
+description: Instructions about how to integrate historical statistics into Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.39
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: history_stats
 ---
 
-The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [history](/integrations/history/).
+The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
 
 It can track how long the integration has been in a specific state, in a custom time period.
 
@@ -32,7 +32,7 @@ sensor:
     entity_id: light.my_lamp
     state: 'on'
     type: time
-    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
     end: '{{ now() }}'
 ```
 {% endraw %}
@@ -47,7 +47,7 @@ state:
   required: true
   type: string
 name:
-  description: Name displayed on the frontend.
+  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/docs/configuration/customizing-devices/#friendly_name) or via [Lovelace](/lovelace/entities/#name).
   required: false
   default: unnamed statistics
   type: string
@@ -131,7 +131,7 @@ Here are some examples of periods you could work with, and what to write in your
 
 {% raw %}
 ```yaml
-    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
     end: '{{ now() }}'
 ```
 {% endraw %}
@@ -140,7 +140,7 @@ Here are some examples of periods you could work with, and what to write in your
 
 {% raw %}
 ```yaml
-    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
     duration:
       hours: 24
 ```
@@ -150,7 +150,7 @@ Here are some examples of periods you could work with, and what to write in your
 
 {% raw %}
 ```yaml
-    start: '{{ now().replace(hour=6).replace(minute=0).replace(second=0) }}'
+    start: '{{ now().replace(hour=6, minute=0, second=0) }}'
     duration:
       hours: 5
 ```
@@ -162,7 +162,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 
 {% raw %}
 ```yaml
-    start: '{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}'
+    start: '{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}'
     end: '{{ now() }}'
 ```
 {% endraw %}
@@ -171,7 +171,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 
 {% raw %}
 ```yaml
-    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
     duration:
       days: 30
 ```
@@ -188,6 +188,6 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 
 <div class='note'>
 
-  The `/dev-template` page of your home-assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
+  The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
 
 </div>

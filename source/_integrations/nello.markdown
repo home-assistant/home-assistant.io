@@ -1,17 +1,14 @@
 ---
-title: "Nello Lock"
-description: "Instructions on how to integrate Nello intercom devices."
-logo: nello.png
+title: Nello
+description: Instructions on how to integrate Nello intercom devices.
 ha_category:
   - Lock
-
 ha_release: 0.52
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@pschmitt'
+ha_domain: nello
 ---
-
-<div class="note warning">
-Locumi Labs, the manufacturer of Nello, entered insolvency on the 2<sup>nd</sup> of October 2019 closed their cloud service. Since Nello One locks require this cloud service, the locks will cease to operate as of the 18<sup>th</sup> October 2019.
-</div>
 
 The `nello` platform allows you to control [Nello](https://www.nello.io) intercoms.
 

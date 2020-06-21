@@ -1,20 +1,20 @@
 ---
-title: "OpenALPR Local"
-description: "Instructions on how to integrate licences plates with OpenALPR local into Home Assistant."
-logo: openalpr.png
+title: OpenALPR Local
+description: Instructions on how to integrate licences plates with OpenALPR local into Home Assistant.
 ha_category:
   - Image Processing
 ha_release: 0.36
+ha_domain: openalpr_local
 ---
 
-[OpenALPR](http://www.openalpr.com/) integration for Home Assistant allows you
-to process licences plates from a camera. You can use them to open a garage door
+[OpenALPR](https://www.openalpr.com/) integration for Home Assistant allows you
+to process license plates from a camera. You can use them to open a garage door
 or trigger any other [automation](/integrations/automation/).
 
 For using the result inside an automation rule, take a look at the
 [component](/integrations/image_processing) page.
 
-### Local installation
+## Local installation
 
 If you want process all data locally, you need version 2.3.1 or higher of the
 `alpr` commandline tool.
@@ -27,7 +27,7 @@ On a Debian system you can use this `cmake` command to build only the command
 line tool:
 
 ```bash
-$ cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE \
+cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE \
   --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 ```
 
@@ -37,7 +37,7 @@ For other operating system please refer to the
 Verify your `alpr` installation with:
 
 ```bash
-$ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
+wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
 
 ### Configuration

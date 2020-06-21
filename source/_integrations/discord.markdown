@@ -1,10 +1,10 @@
 ---
-title: "Discord"
-description: "Instructions on how to add Discord notifications to Home Assistant."
-logo: discord.png
+title: Discord
+description: Instructions on how to add Discord notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.37
+ha_domain: discord
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
@@ -38,7 +38,7 @@ token:
 
 ### Setting up the bot
 
-Bots can only send messages to servers or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
+Bots can send messages to servers and users or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-bot.png' />
@@ -46,7 +46,7 @@ Bots can only send messages to servers or attach local available images. To add 
 
 Now use the Discord Authorization page with the **Client ID** of your [bot](https://discordapp.com/developers/docs/topics/oauth2#bots).
 
-[https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0](https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0)
+`https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0`
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/discord-auth.png' />
@@ -62,7 +62,7 @@ Once the bot has been added to your server, get the channel ID of the channel yo
 
 Right click channel name and copy the channel ID (**Copy ID**).
 
-This channel ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers.
+This channel or user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
 
 #### Example service call
 
@@ -84,3 +84,5 @@ You can tag any user inside a channel by using their user ID in the message like
 For more information about creating and authorizing bots, visit the [OAuth2 information page](https://discordapp.com/developers/docs/topics/oauth2)
 
 To use notifications effectively, please see the [getting started with automation page](/getting-started/automation/).
+
+Images are uploaded to Discord when a message is sent. As such, a local path to the image is required (i.e., `/config/www/garage.jpg` as opposed to `/local/garage.jpg`), and updating an image after sending it in a message will not update the message in Discord.

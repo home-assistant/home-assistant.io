@@ -1,23 +1,34 @@
 ---
-title: "Roku"
-description: "Instructions how to integrate Roku devices into Home Assistant."
-logo: roku.png
+title: Roku
+description: Instructions how to integrate Roku devices into Home Assistant.
 ha_category:
   - Hub
   - Media Player
   - Remote
 ha_iot_class: Local Polling
 ha_release: 0.86
+ha_domain: roku
+ha_config_flow: true
+ha_quality_scale: silver
+ha_codeowners:
+  - '@ctalkington'
 ---
 
-The [Roku](http://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/integrations/discovery/).
+The Roku integration allows you to control a [Roku](https://www.roku.com/) device.
+
+### Configuration
+
+Go to the integrations page in your configuration and click on new integration -> Roku.
+If your Roku device is on, it has likely been discovered already and you just have to confirm the detected device.
 
 There is currently support for the following device types within Home Assistant:
 
 - Media Player
 - Remote
 
-The `roku` integration can also be forced to load by adding the following lines to your `configuration.yaml`:
+### YAML Configuration
+
+Manual configuration of your Roku device is also possible, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,12 +42,6 @@ host:
   required: true
   type: string
 {% endconfiguration %}
-
-## Services
-
-### Service `roku_scan`
-
-Scans the local network for Rokus. All found devices are presented as a persistent notification.
 
 ## Remote
 
@@ -88,18 +93,32 @@ data:
 
 ## Media Player
 
-When the Home Assistant Roku integration is enabled and has found a Roku device, in the Home Assistant GUI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated, but it requires you to acquire an extra piece of information; the ```appID``` for the channel specific to your Roku. Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
-
-The api calls are like this:
-
-```txt
-GET http:// ROKU_IP:8060/query/apps
-POST http://ROKU_IP:8060/launch/APP_ID
+When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated. Channels can be launched by `name` using a configuration similar to the one below:
+```yaml
+action:
+- data:
+    entity_id: media_player.roku
+    source: "Prime Video"
+  service: media_player.select_source
 ```
 
-More details can be found on the [Roku dev pages](https://developer.roku.com/docs/developer-program/discovery/external-control-api.md)
+Alternatively, the `appID` for the channel can be used for `source:` Although this information is gathered by the Roku integration, at the moment it is not exposed to the end-user. This item might be added in a future release. For now, you can easily get the information yourself. All you need to do is a GET API call on the same network as your device.
 
-To use this in Home Assistant, for instance in an automation, the format is as follows. Note that ```source: ``` is the appID you discovered in the API call:
+The API calls are like this:
+
+```txt
+GET http://ROKU_IP:8060/query/apps
+POST http://ROKU_IP:8060/launch/APP_ID
+
+YouTube example:
+POST http://YOUR_ROKU_IP:8060/launch/837?contentID=YOUR_YOUTUBE_VIDEOS_CONTENT_ID&MediaType=live
+```
+
+One method of performing the GET request is to open `http://ROKU_IP:8060/query/apps` in your web browser of choice. The Roku will return an XML-formatted list of available channels, including their full name and appID. 
+
+More details can be found on the [Roku dev pages](https://developer.roku.com/docs/developer-program/debugging/external-control-api.md)
+
+To use this information in Home Assistant, the format is as follows. Note that `source:` is the appID you discovered in the API call:
 
 ```yaml
 action:
@@ -107,4 +126,15 @@ action:
     entity_id: media_player.roku
     source: 20197
   service: media_player.select_source
+```
+
+It is also possible to tune directly to specific channels if you have a Roku TV and use an OTA antenna. This service only supports `media_channel_type` of 'channel'. `media_content_id` corresponds to the TV channel, which you should see when navigating to these on your TV UI. 
+
+```yaml
+action:
+- data:
+    entity_id: media_player.roku
+    media_content_id: 5.1
+    media_content_type: channel
+  service: media_player.play_media
 ```

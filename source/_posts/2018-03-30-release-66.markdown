@@ -52,7 +52,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 <!--more-->
 ## Breaking Changes
 
-- Refactor Hue: If you specify a bridge in your config, the `host` key is now required and needs to be a valid ip address. Option `allow_in_emulated_hue` has been removed. Exclude the lights via the emulated hue config. Due to the internal changes of how the Hue integration works, any Hue custom component will no longer work. ([@balloob] - [#13043]) ([hue docs]) ([light.hue docs]) (breaking change)
+- Refactor Hue: If you specify a bridge in your config, the `host` key is now required and needs to be a valid IP address. Option `allow_in_emulated_hue` has been removed. Exclude the lights via the emulated hue config. Due to the internal changes of how the Hue integration works, any Hue custom component will no longer work. ([@balloob] - [#13043]) ([hue docs]) ([light.hue docs]) (breaking change)
 - Z-Wave: In version 0.47, the opt-in `new_entity_ids` configuration was added to Z-Wave to smooth the transition through the change. Support for old entity IDs is now removed, and the configuration is no longer necessary. If you are migrating from 0.63 or higher, your entity IDs will already be stored in the Entity Registry and no changes are required. If not, entity IDs can now be manually configured using the Entity Registry if necessary. ([@armills] - [#12652]) ([zwave docs]) (breaking change)
 - Spotcrime sensor: This update changes the sensor to require a user supplied API key as a configuration entry. The default key has been removed from the Spotcrime package and has also been modified to accept a user supplied API key.([@jcconnell] - [#12926]) ([sensor.spotcrime docs]) (breaking change)
 - Smappee sensor: Fixed SI units for current consumption. Total consumption should be in kWh. not kW. ([@vandenberghev] - [#13190]) ([sensor.smappee docs]) (breaking change)
@@ -91,7 +91,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove crazy JSON encoding things that are no longer used ([@balloob] - [#13029]) ([http docs]) ([websocket_api docs])
 - Disable Monkey Patch for 3.6.3+ ([@OttoWinter] - [#13150])
 - Upgrade Sphinx to 1.7.1 ([@fabaff] - [#13127])
-- upgrade tibber libary to 0.4.0 to use aiohttp 3.0 ([@danielhiversen] - [#13164]) ([sensor.tibber docs])
+- upgrade tibber library to 0.4.0 to use aiohttp 3.0 ([@danielhiversen] - [#13164]) ([sensor.tibber docs])
 - Change iglo port to cv.port validator ([@jesserockz] - [#13163]) ([light.iglo docs])
 - deConz rewrite to use async await syntax ([@Kane610] - [#13151]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([scene.deconz docs]) ([sensor.deconz docs])
 - Upgrade holidays to 0.9.4 ([@OttoWinter] - [#13167]) ([binary_sensor.workday docs])

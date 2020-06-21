@@ -1,11 +1,13 @@
 ---
-title: "Logger"
-description: "Instructions on how to enable the logger integration for Home Assistant."
-logo: home-assistant.png
+title: Logger
+description: Instructions on how to enable the logger integration for Home Assistant.
 ha_category:
   - Utility
-ha_qa_scale: internal
 ha_release: 0.8
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: logger
 ---
 
 The `logger` integration lets you define the level of logging activities in Home
@@ -41,10 +43,16 @@ logger:
   logs:
     # log level for HA core
     homeassistant.core: fatal
-    
+
     # log level for MQTT integration
     homeassistant.components.mqtt: warning
-    
+
+    # log level for all python scripts
+    homeassistant.components.python_script: warning
+
+    # individual log level for this python script
+    homeassistant.components.python_script.my_new_script.py: debug
+
     # log level for SmartThings lights
     homeassistant.components.smartthings.light: info
 
@@ -53,7 +61,15 @@ logger:
 
     # log level for the `aiohttp` Python package
     aiohttp: error
+
+    # log level for both 'glances_api' and 'glances' integration
+    homeassistant.components.glances: fatal
+    glances_api: fatal
 ```
+
+The log entries are in the form  
+*timestamp* *log-level* *thread* [**namespace**] *message*  
+where **namespace** is the *<component_namespace>* currently logging.
 
 {% configuration %}
   default:
@@ -70,6 +86,13 @@ logger:
         description: Logger namespace of the component. See [log_level](#log-levels).
         type: string
 {% endconfiguration %}
+
+In the example, do note the difference between 'glances_api' and 'homeassistant.components.glances' namespaces,
+both of which are at root. They are logged by different APIs.
+
+If you want to know the namespaces in your own environment then check your log files on startup.
+You will see INFO log messages from homeassistant.loader stating `loaded <component> from <namespace>`.
+Those are the namespaces available for you to set a `log level` against.
 
 ### Log Levels
 
@@ -121,15 +144,17 @@ The log information are stored in the
 and you can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
 
-If you are a Hassbian user you can use the example below:
+You can use the example below, when logged in through the [SSH add-on](/addons/ssh/):
 
 ```bash
-$ tail -f /home/homeassistant/.homeassistant/home-assistant.log
+tail -f /config/home-assistant.log
 ```
 
-If you are a Hass.io user, you can use the example below, when logged in through
-the [SSH add-on](/addons/ssh/):
+On Docker you can use your host command line directly - follow the logs dynamically with:
 
 ```bash
-$ tail -f /config/home-assistant.log
+# follow the log dynamically
+docker logs --follow  MY_CONTAINER_ID
 ```
+
+To see other options use `--help` instead, or simply leave with no options to display the entire log.

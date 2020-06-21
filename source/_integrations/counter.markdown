@@ -1,11 +1,13 @@
 ---
-title: "Counter"
-description: "Instructions on how to integrate counters into Home Assistant."
-logo: home-assistant.png
+title: Counter
+description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.53
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
+ha_domain: counter
 ---
 
 The `counter` integration allows one to count occurrences fired by automations.
@@ -71,7 +73,7 @@ If `restore` is set to `false`, the `initial` value will only be used when no pr
 
 ## Services
 
-Available services: `increment`, `decrement`, and `reset`.
+Available services: `increment`, `decrement`, `reset` and `configure`.
 
 #### Service `counter.increment`
 
@@ -106,7 +108,9 @@ With this service the properties of the counter can be changed while running.
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 | `minimum`              |     yes  | Set new value for minimum. None disables minimum. |
 | `maximum`              |     yes  | Set new value for maximum. None disables maximum. |
-| `step`                 |     yes  | Set new value for step |
+| `step`                 |     yes  | Set new value for step. |
+| `initial`              |     yes  | Set new value for initial. |
+| `value`                |     yes  | Set the counters state to the given value. |
 
 
 
@@ -146,7 +150,8 @@ automation:
       level: ERROR
   action:
     service: counter.increment
-    entity_id: counter.error_counter
+    data:
+      entity_id: counter.error_counter
     
 counter:
   error_counter:

@@ -1,18 +1,18 @@
 ---
-title: "HP ILO"
-description: "How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant."
-logo: hewlett_packard_enterprise.png
+title: HP Integrated Lights-Out (ILO)
+description: How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant.
 ha_category:
   - System Monitor
 ha_release: 0.27
 ha_iot_class: Local Polling
+ha_domain: hp_ilo
 ---
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
 
 If the ILO or specified jsonpath query returns only a single value (e.g., a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
 
-Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](http://seveas.github.io/python-hpilo/).
+Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](https://seveas.github.io/python-hpilo/).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/hp_ilo.png' />

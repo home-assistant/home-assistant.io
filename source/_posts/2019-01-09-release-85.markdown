@@ -78,7 +78,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Targetting all entities in a domain by not sending an entity_id to a service is now deprecated. Instead, send `entity_id: all` if you want to target all. The old method will work for a couple of releases more, but will print a warning. Please migrate. ([@balloob] - [#19006]) (breaking change)
+- Targeting all entities in a domain by not sending an entity_id to a service is now deprecated. Instead, send `entity_id: all` if you want to target all. The old method will work for a couple of releases more, but will print a warning. Please migrate. ([@balloob] - [#19006]) (breaking change)
 - The default interval of the weather component was aligned with the sensor component and is now 30 seconds instead of 15 seconds. ([@fabaff] - [#19186]) ([weather docs]) (breaking change)
 -  In order to fix the below bug, default entity_ids will change (for example, `sensor.17track_packages_delivered` will change to `sensor.seventeentrack_packages_delivered)`. ([@bachya] - [#19213]) ([sensor.seventeentrack docs]) (breaking change)
 - Change `STATE_AUTO` to `STATE_HEAT` and `STATE_AWAY` to `STATE_ECO` to conform to climate DOMAIN standards. Change made to fix Alexa/Google Assistant support for this component. ([@marchingphoenix] - [#19242]) ([climate.eq3btsmart docs]) (breaking change)
@@ -122,7 +122,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix the Xiaomi Aqara Cube rotate event of the LAN protocol 2.0 (Closes: #18199) ([@syssi] - [#19104]) ([binary_sensor.xiaomi_aqara docs])
 - Upgrade Mill library ([@Danielhiversen] - [#19117]) ([climate.mill docs])
 - Add Philips Moonlight Bedside Lamp support ([@syssi] - [#18496]) ([light.xiaomi_miio docs])
-- update edp_redy version ([@abmantis] - [#19078]) ([edp_redy docs])
+- update edp_redy version ([@abmantis] - [#19078])
 - Update Google Assistant services description and request sync timeout ([@edif30] - [#19113])
 - Fixed doorbird config without events (empty list) ([@basschipper] - [#19121]) ([doorbird docs])
 - Add code support for iAlarm ([@RyuzakiKK] - [#19124]) ([alarm_control_panel.ialarm docs])
@@ -764,7 +764,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [demo docs]: /integrations/demo/
 [device_tracker docs]: /integrations/device_tracker/
 [doorbird docs]: /integrations/doorbird/
-[edp_redy docs]: /integrations/edp_redy/
 [eight_sleep docs]: /integrations/eight_sleep/
 [envisalink docs]: /integrations/envisalink/
 [esphome docs]: /integrations/esphome/

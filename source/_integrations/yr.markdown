@@ -1,14 +1,16 @@
 ---
-title: "YR"
-description: "Instructions on how to integrate Yr.no within Home Assistant."
-logo: yr.png
+title: Yr
+description: Instructions on how to integrate Yr.no within Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.11
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@danielhiversen'
+ha_domain: yr
 ---
 
-The `yr` platform uses [YR.no](http://www.yr.no/) as a source for current
+The `yr` platform uses [YR.no](https://www.yr.no/) as a source for current
 meteorological data for your location. The weather forecast is delivered by the
 Norwegian Meteorological Institute and the NRK.
 

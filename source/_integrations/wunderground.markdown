@@ -1,14 +1,14 @@
 ---
-title: "Weather Underground (WUnderground)"
-description: "Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
-logo: wunderground.png
+title: Weather Underground (WUnderground)
+description: Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.27
 ha_iot_class: Cloud Polling
+ha_domain: wunderground
 ---
 
-The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as a source for current weather information.
+The `wunderground` platform uses [Weather Underground](https://www.wunderground.com/) as a source for current weather information.
 
 <div class='note warning'>
 
@@ -143,7 +143,7 @@ monitored_conditions:
     temp_low_1d_f:
       description: "[<sup>[1d]</sup>](#1d): Forecasted low temperature in Fahrenheit"
     UV:
-      description: Current levels of UV radiation. See [here](https://www.wunderground.com/resources/health/uvindex.asp) for explanation.
+      description: Current levels of UV radiation. See [here](https://api.wunderground.com/resources/health/uvindex.asp) for explanation.
     visibility_km:
       description: Average visibility in km
     visibility_mi:

@@ -346,7 +346,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.spotify docs]: /integrations/spotify
 [media_player.volumio docs]: /integrations/volumio
 [modbus docs]: /integrations/modbus/
-[mqtt.discovery docs]: /integrations/mqtt.discovery/
+[mqtt.discovery docs]: /docs/mqtt/discovery/
 [notify.ios docs]: /docs/ecosystem/ios/notifications/basic/
 [notify.rest docs]: /integrations/notify.rest/
 [notify.slack docs]: /integrations/slack
@@ -370,8 +370,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.rachio docs]: /integrations/rachio#switch
 [switch.rflink docs]: /integrations/switch.rflink/
 [telegram_bot.__init__ docs]: /integrations/telegram_bot/
-[telegram_bot.polling docs]: /integrations/polling
-[telegram_bot.webhooks docs]: /integrations/webhooks
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
 [tellduslive docs]: /integrations/tellduslive/
 [upnp docs]: /integrations/upnp/
 [zoneminder docs]: /integrations/zoneminder/

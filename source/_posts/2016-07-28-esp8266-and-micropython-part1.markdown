@@ -9,13 +9,13 @@ og_image: /images/blog/2016-07-micropython/social.png
 ---
 
 <img src='/images/blog/2016-07-micropython/micropython.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
-The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The [documentation](http://docs.micropython.org/en/latest/esp8266/esp8266_contents.html) covers a lot of ground. This post is providing only a little summary which should get you started.
+The first release of Micropython for ESP8266 was delivered a couple of weeks ago. The [documentation](http://docs.micropython.org/en/latest/) covers a lot of ground. This post is providing only a little summary which should get you started.
 
 Until a couple of weeks ago, the pre-built MicroPython binary for the ESP8266 was only available to backers of the Kickstarter campaign. This has changed now and it is available to the public for [download](https://micropython.org/download/#esp8266).
 
 <!--more-->
 
-The easiest way is to use [esptool.py](https://github.com/themadinventor/esptool) for firmware handling tasks. First erase the flash:
+The easiest way is to use [esptool.py](https://github.com/espressif/esptool) for firmware handling tasks. First erase the flash:
 
 ```bash
 $ sudo python esptool.py --port /dev/ttyUSB0 erase_flash
@@ -24,7 +24,7 @@ Connecting...
 Erasing flash (this may take a while)...
 ```
 
-and then load the firmware. You may adjust the file name of the firmware binary. 
+and then load the firmware. You may adjust the file name of the firmware binary.
 
 ```bash
 $ sudo python esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=8m 0 esp8266-2016-07-10-v1.8.2.bin
@@ -43,7 +43,7 @@ The [WebREPL](http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/rep
 
 ```bash
 $ sudo minicom -D /dev/ttyUSB0
-#4 ets_task(4020e374, 29, 3fff70e8, 10)                                                          
+#4 ets_task(4020e374, 29, 3fff70e8, 10)
 WebREPL daemon started on ws://192.168.4.1:8266
 Started webrepl in setup mode
 could not open file 'main.py' for reading
@@ -51,16 +51,16 @@ could not open file 'main.py' for reading
 #5 ets_task(4010035c, 3, 3fff6360, 4)
 MicroPython v1.8.2-9-g805c2b9 on 2016-07-10; ESP module with ESP8266
 Type "help()" for more information.
->>> 
+>>>
 ```
 
 <div class='note'>
 
-The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the [available modules](http://docs.micropython.org/en/latest/esp8266/py-modindex.html), turned on debug messages, and alike. Also, the WebREPL may not be started by default.
+The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the [available modules](http://docs.micropython.org/en/latest/esp8266/quickref.html), turned on debug messages, and alike. Also, the WebREPL may not be started by default.
 
 </div>
 
-Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected. 
+Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected.
 
 ```python
 >>> import machine
@@ -105,7 +105,7 @@ def do_connect():
 Upload this file with `webrepl_cli.py` or the WebREPL:
 
 ```bash
-$ python webrepl_cli.py boot.py 192.168.4.1:/boot.py
+python webrepl_cli.py boot.py 192.168.4.1:/boot.py
 ```
 
 If you reboot, you should see your current IP address in the terminal.
@@ -162,4 +162,3 @@ if __name__ == '__main__':
 Upload `main.py` the same way as `boot.py`. After a reboot (`>>> import machine` and `>>> machine.reboot()`) or power-cycling your physical notifier is ready.
 
 If you run into trouble, press "Ctrl+c" in the REPL to stop the execution of the code, enter `>>> import webrepl` and `>>> webrepl.start()`, and upload your fixed file.
-

@@ -1,14 +1,17 @@
 ---
-title: "Toon"
-description: "Instructions on how to integrate Toon within Home Assistant."
+title: Toon
+description: Instructions on how to integrate Toon within Home Assistant.
 ha_category:
   - Climate
   - Binary Sensor
   - Energy
   - Sensor
 ha_release: 0.56
-logo: toon.png
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@frenck'
+ha_domain: toon
 ---
 
 The `toon` integration platform can be used to control your Toon thermostat. This integration adds a climate device for your Toon thermostat, sensors for power and gas consumption, sensors for solar production and several binary sensors for things like boiler burner on/off, hot tap water and boiler health status.

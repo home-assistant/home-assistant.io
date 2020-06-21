@@ -1,17 +1,17 @@
 ---
-title: "ZAMG"
-description: "Instructions on how to integrate ZAMG within Home Assistant."
-logo: zamg.png
+title: Zentralanstalt für Meteorologie und Geodynamik (ZAMG)
+description: Instructions on how to integrate ZAMG within Home Assistant.
 ha_category:
   - Weather
   - Sensor
 ha_release: 0.35
 ha_iot_class: Cloud Polling
+ha_domain: zamg
 ---
 
 The `zamg` platform uses meteorological details published by the Austrian weather service [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).
 
-Only observations for capital cities are publicly available. You can check the list of stations in [CSV format](http://www.zamg.ac.at/ogd).
+Only observations for capital cities are publicly available. You can check the list of stations in [CSV format](https://www.zamg.ac.at/ogd).
 
 There is currently support for the following device types within Home Assistant:
 

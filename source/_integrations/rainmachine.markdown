@@ -1,7 +1,6 @@
 ---
-title: "RainMachine"
-description: "Instructions on how to integrate RainMachine units within Home Assistant."
-logo: rainmachine.png
+title: RainMachine
+description: Instructions on how to integrate RainMachine units within Home Assistant.
 ha_category:
   - Irrigation
   - Binary Sensor
@@ -9,9 +8,13 @@ ha_category:
   - Switch
 ha_release: 0.69
 ha_iot_class: Local Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@bachya'
+ha_domain: rainmachine
 ---
 
-The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
+The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,21 +31,6 @@ rainmachine:
   controllers:
     - ip_address: 192.168.1.100
       password: YOUR_PASSWORD
-```
-
-To configure additional functionality, add configuration options beneath a `binary_sensor`, `sensor`, and/or `switches` key within the `rainmachine` sections of `configuration.yaml` as below:
-
-```yaml
-rainmachine:
-  controllers:
-    - ip_address: 192.168.1.100
-      password: YOUR_PASSWORD
-      binary_sensors:
-        # binary sensor configuration options...
-      sensors:
-        # sensor configuration options...
-      switches:
-        # switch configuration options...
 ```
 
 {% configuration %}
@@ -69,36 +57,11 @@ scan_interval:
   required: false
   type: integer
   default: 60
-binary_sensors:
-  description: Binary sensor-related configuration options.
+zone_run_time:
+  description: The default number of seconds that a zone should run when turned on.
   required: false
-  type: map
-  keys:
-    monitored_conditions:
-      description: The conditions to create sensors from.
-      required: false
-      type: list
-      default: all (`extra_water_on_hot_days`, `flow_sensor`, `freeze`, `freeze_protection`, `hourly`, `month`, `raindelay`, `rainsensor`, `weekday`)
-sensors:
-  description: Sensor-related configuration options.
-  required: false
-  type: map
-  keys:
-    monitored_conditions:
-      description: The conditions to create sensors from.
-      required: false
-      type: list
-      default: all (`flow_sensor_clicks_cubic_meter`, `flow_sensor_consumed_liters`, `flow_sensor_start_index`, `flow_sensor_watering_clicks`,`freeze_protect_temp`)
-switches:
-  description: Switch-related configuration options.
-  required: false
-  type: map
-  keys:
-    zone_run_time:
-      description: The default number of seconds that a zone should run when turned on.
-      required: false
-      type: integer
-      default: 600
+  type: integer
+  default: 600
 {% endconfiguration %}
 
 ## Services
@@ -188,7 +151,7 @@ Unpause all watering activities.
 
 ## Switch
 
-The `rainmachine` switch platform allows you to control programs and zones within a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.com/).
+The `rainmachine` switch platform allows you to control programs and zones within a [RainMachine smart Wi-Fi sprinkler controller](https://www.rainmachine.com/).
 
 ### Controlling Your Device
 

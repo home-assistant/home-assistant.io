@@ -1,12 +1,14 @@
 ---
-title: "Ness Alarm"
-description: "Instructions on how to integrate a Ness D8x/D16x alarm system with Home Assistant."
-logo: ness.png
+title: Ness Alarm
+description: Instructions on how to integrate a Ness D8x/D16x alarm system with Home Assistant.
 ha_category:
   - Alarm
   - Binary Sensor
 ha_release: 0.85
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@nickw444'
+ha_domain: ness_alarm
 ---
 
 The `ness_alarm` integration will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
@@ -110,4 +112,3 @@ Trigger a panic
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `code` | No | The user code to use to trigger the panic.
-

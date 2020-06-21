@@ -17,7 +17,7 @@ This release includes a database migration to allow us to store context in the d
 
 <a href='/integrations/#version/0.76'><img src='/images/blog/2018-08-0.76/components.png' style='border: 0;box-shadow: none;'></a>
 
-The auth system is entering release candidate status 🎉. If nothing major is found, it will be enabled by default starting the next release (0.77) with backwards compatability modus turned on. If you want to get ahead of the pack, you can already easily enable it now:
+The auth system is entering release candidate status 🎉. If nothing major is found, it will be enabled by default starting the next release (0.77) with backwards compatibility modus turned on. If you want to get ahead of the pack, you can already easily enable it now:
 
 ```yaml
 homeassistant:
@@ -28,7 +28,7 @@ homeassistant:
    # - type: legacy_api_password
 ```
 
-For iOS users, your frontend should be a lot faster. We had an issue that forced us to serve the frontend in compatability mode, which is slower. We haven't been able to solve [the issue](https://bugs.webkit.org/show_bug.cgi?id=174629), but found a workaround. Race on 🏎.
+For iOS users, your frontend should be a lot faster. We had an issue that forced us to serve the frontend in compatibility mode, which is slower. We haven't been able to solve [the issue](https://bugs.webkit.org/show_bug.cgi?id=174629), but found a workaround. Race on 🏎.
 
 Warning. If you are using the internal MQTT broker, we've had to make a change how the password is set. In the past it would automatically start the broker with the user `homeassistant` and a password equal to the API password. This is no longer the case and you need to configure it yourself now:
 
@@ -90,7 +90,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Keenetic NDMS: user needs to have access to the TelNet interface ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
 - openweathermap: wind speed is now correctly in km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
-- Remove Telstra notifiy component: This API has been decomissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
+- Remove Telstra notifiy component: This API has been decommissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
 - deCONZ - support for power plugs. Power plugs that are of type "On/Off plug-in unit" and "Smart plug" (Osram and Innr among others) will now be switches instead of lights. Entities will be found as switch.entity_id instead of light.entity_id. ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
 - HTTP: Make sure use_x_forward_for and trusted_proxies must be configured together ([@awarecan] - [#15804]) ([http docs]) (breaking change)
 - Velbus: Breaking changes include auto-discovery support so that you don't need to specify modules manually anymore in the configuration file, but just load the velbus component which will automatically load the switch and binary_sensor platforms. In addition, the fan and light platforms are removed since these should be modeled with template platform based on velbus switches. ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([switch.velbus docs]) (breaking change)
@@ -129,7 +129,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Round precipitation forecast to 1 decimal place ([@priiduonu] - [#15759]) ([weather.openweathermap docs])
 - Add a "Reviewed by Hound" badge ([@salbertson] - [#15767])
 - Upgrade Mastodon.py to 1.3.1 ([@fabaff] - [#15766]) ([notify docs])
-- This component API has been decomissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
+- This component API has been decommissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
 - Fix docstrings ([@fabaff] - [#15770])
 - Update pynetgear to 0.4.1 (bugfixes) ([@MatMaul] - [#15768]) ([device_tracker docs])
 - Opensky altitude ([@ioangogo] - [#15273]) ([sensor.opensky docs])
