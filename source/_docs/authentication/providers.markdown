@@ -149,7 +149,7 @@ Assuming you have only the owner created though onboarding process, no other use
 
 The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
-This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance. This will NOT work with Hass.io.
+This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation types.
 
 Here is a configuration example:
 
