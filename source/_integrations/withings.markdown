@@ -41,7 +41,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
       client_id: CLIENT_ID
       client_secret: CONSUMER_SECRET
       profiles:
-        - USER_PROFILE_NAME
+        - USER_PROFILE_NAME 
     ```
     Withings supports multiple profiles per account. Each profile has a person's name to help distinguish whose data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish whose data you're looking at.
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
@@ -54,7 +54,12 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 - Add the Withings integration.
 - Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
   - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
-- Data will synchronize immediately and update every 5 minutes.
+- Data will synchronize immediately and update under the following conditions:
+    - If `use_webhook` is enabled:
+        - Each time Withings notifies Home Assistant of a data change.
+        - Every 120 minutes.
+    - If `use_webhook` is not enabled:
+        - Every 10 minutes.
 
 ## Setup (Advanced)
 For advanced users who are NOT using Home Assistant Cloud. This is not intended to be a complete step-by-step guide.
@@ -94,6 +99,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 withings:
     client_id: CLIENT_ID
     client_secret: CONSUMER_SECRET
+    use_webhook: true
     profiles:
         - USER_PROFILE_NAME
 ```
@@ -106,6 +112,11 @@ client_secret:
   description: The OAuth secret (get from https://account.withings.com/partner/add_oauth2)
   required: true
   type: string
+use_webhook:
+  description: "Configure Withings to notify Home Assistant when data changes. This also required to populate the in_bed sensor. Note: In order for this to work, your Home Assistant install must be accessible to the internet."
+  required: false
+  default: false
+  type: boolean
 profiles:
   description: Withings supports multiple profiles per account. Provide the person's name whom you want Home Assistant entities to will be associated with (just a name, it doesn't have to be perfect). During the authorization step, you will be asked to select this user from the Withings website.
   required: true
