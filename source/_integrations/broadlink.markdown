@@ -38,7 +38,7 @@ broadlink:
     - host: IP_ADDRESS
 ```
 
-The above example will create a config flow for the device on the Integrations page. Go there, click Configure and follow the instructions to complete the setup.
+The above example will create a configuration flow for the device on the Integrations page. Go there, click Configure and follow the instructions to complete the setup.
 
 ### Importing multiple devices
 
