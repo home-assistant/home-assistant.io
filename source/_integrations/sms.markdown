@@ -20,13 +20,20 @@ This integration provides the following platforms:
 
 ## Configuration
 
-To enable those notifications in your installation, add the following to your `configuration.yaml` file:
+Activate the SMS via the integratios menu and search for `SMS`.
+While activating the integration will ask for your serial device. Make sure the device is connected and have a valid SIM activated.
+
+You can also enable `SMS` via your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sms:
   device: /dev/ttyUSB2
+```
 
+To configure the notification service, edit your `configuration.yaml` file:
+
+```yaml
 notify:
   - platform: sms
     name: sms_person1
