@@ -57,14 +57,23 @@ dtoverlay=w1-gpio
 ```
 
 If you don't want to use an external resistor, you can use a built-in one using the following line:
-dtoverlay=w1-gpio-pullup
 
-It is also possible to use a different GPIO pin like this to change it to pin 15
+```txt
+dtoverlay=w1-gpio-pullup
+```
+
+It is also possible to use a different GPIO pin like this to change it to pin 15:
+
+```txt
 dtoverlay=w1-gpio-pullup,gpiopin=15
+```
 
 Furthermore, it is also possible to have multiple GPIOs as one-wire data channel by adding multiple lines like this:
+
+```txt
 dtoverlay=w1-gpio-pullup,gpiopin=15
 dtoverlay=w1-gpio-pullup,gpiopin=16
+```
 
 You can read about further parameters in this documentation: [Raspberry Pi Tutorial Series: 1-Wire DS18B20 Sensor](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
 
