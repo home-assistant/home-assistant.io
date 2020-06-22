@@ -21,6 +21,8 @@ homeassistant:
   whitelist_external_dirs:
     - /usr/var/dumping-ground
     - /tmp
+  whitelist_external_urls:
+    - "http://images.com/image1.png"
 ```
 
 NOTE: You will not be able to edit anything in Configuration -> General in the UI if you are using YAML configuration for any of the following: name, latitude, longitute, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url.
@@ -76,6 +78,10 @@ customize_glob:
   type: string
 whitelist_external_dirs:
   description: List of folders that can be used as sources for sending files.
+  required: false
+  type: list
+whitelist_external_urls:
+  description: List of external URLs that can be fetched.
   required: false
   type: list
 {% endconfiguration %}
