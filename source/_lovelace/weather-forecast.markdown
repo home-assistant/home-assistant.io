@@ -109,5 +109,5 @@ Weather icons can be overwritten with your own personal images via a [Theme](htt
 Example theme configuration:
 
 ```yaml
---weather-icon-sunny: url("local/sunny.png")
+--weather-icon-sunny: url("/local/sunny.png")
 ```

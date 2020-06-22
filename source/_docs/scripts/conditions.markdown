@@ -112,6 +112,18 @@ condition:
   value_template: {% raw %}'{{ float(state.state) + 2 }}'{% endraw %}
 ```
 
+It is also possible to test the condition against multiple entities at once.
+The condition will pass if all entities match the thresholds.
+
+```yaml
+condition:
+  condition: numeric_state
+  entity_id:
+    - sensor.kitchen_temperature
+    - sensor.living_room_temperature
+  below: 18
+```
+
 ### State condition
 
 Tests if an entity is a specified state.
@@ -126,6 +138,18 @@ condition:
     hours: 1
     minutes: 10
     seconds: 5
+```
+
+It is also possible to test the condition against multiple entities at once.
+The condition will pass if all entities match the state.
+
+```yaml
+condition:
+  condition: state
+  entity_id:
+    - light.kitchen
+    - light.living_room
+  state: 'on'
 ```
 
 ### Sun condition
@@ -269,6 +293,18 @@ Zone conditions test if an entity is in a certain zone. For zone automation to w
 condition:
   condition: zone
   entity_id: device_tracker.paulus
+  zone: zone.home
+```
+
+It is also possible to test the condition against multiple entities at once.
+The condition will pass if all entities are in the specified zone.
+
+```yaml
+condition:
+  condition: zone
+  entity_id:
+    - device_tracker.frenck
+    - device_tracker.daphne
   zone: zone.home
 ```
 

@@ -11,8 +11,8 @@ ha_domain: history
 ---
 
 The `history` integration will track everything that is going on within Home
-Assistant and allows the user to browse through it. It depends on the `recorder`
-component for storing the data and uses the same database setting.
+Assistant and allows the user to browse through it. It depends on the [`recorder`](/integrations/recorder/)
+integration for storing the data and uses the same database setting.
 If any entities are excluded from being recorded,
 no history will be available for these entities.
 

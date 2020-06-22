@@ -15,23 +15,26 @@ The [KNX](https://www.knx.org) integration for Home Assistant allows you to conn
 The integration requires a local KNX/IP interface or router. Through this, it will establish a connection between Home Assistant and your KNX bus.
 
 <div class='note warning'>
+
 Please note, the `knx` platform does not support KNX Secure.
+
 </div>
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](/integrations/binary_sensor.knx)
+- [Climate](/integrations/climate.knx)
 - [Cover](/integrations/cover.knx)
-- [Sensor](/integrations/sensor.knx)
-- [Switch](/integrations/switch.knx)
 - [Light](/integrations/light.knx)
-- [Thermostat](/integrations/climate.knx)
 - [Notify](/integrations/notify.knx)
 - [Scene](/integrations/scene.knx)
+- [Sensor](/integrations/sensor.knx)
+- [Switch](/integrations/switch.knx)
+
 
 ## Configuration
 
-To use your KNX in your installation, add the following lines to your `configuration.yaml` file:
+To use your KNX bus in your installation, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 knx:
@@ -56,7 +59,7 @@ rate_limit:
   type: integer
 {% endconfiguration %}
 
-If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:
+If the auto detection of the KNX/IP device does not work you can specify IP and port of the tunneling device:
 
 ```yaml
 knx:

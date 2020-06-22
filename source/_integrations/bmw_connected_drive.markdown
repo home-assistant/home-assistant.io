@@ -12,6 +12,7 @@ ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@gerard33'
+  - '@rikroe'
 ha_domain: bmw_connected_drive
 ---
 
@@ -28,7 +29,7 @@ This integration provides the following platforms:
 - Lock: Control the lock of your car.
 - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
 - Notifications: Send messages or Points of Interest (POI) to your car.
-- Services: Turn on air condition, sound the horn, flash the lights and update the state. More details can be found [here](/integrations/bmw_connected_drive/#services).
+- Services: Turn on air condition, sound the horn, flash the lights, update the vehicle location and update the state. More details can be found [here](/integrations/bmw_connected_drive/#services).
 
 ## Configuration
 
@@ -136,6 +137,10 @@ The service `bmw_connected_drive.sound_horn` sounds the horn of the vehicle. Thi
 ### Flash the lights
 
 The service `bmw_connected_drive.light_flash` flashes the lights of the vehicle. The vehicle is identified via the parameter `vin`.
+
+### Vehicle finder
+
+The service `bmw_connected_drive.find_vehicle` requests the vehicle to update the GPS location. This can be used for older vehicles which don't automatically send the updated GPS location. The vehicle is identified via the parameter `vin`.
 
 ### Update the state
 
