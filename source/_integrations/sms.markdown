@@ -6,6 +6,7 @@ ha_category:
   - Notifications
 ha_release: 0.105
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@ocalvo'
 ha_domain: sms
