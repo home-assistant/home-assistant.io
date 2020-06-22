@@ -101,7 +101,7 @@ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@de
 
 <div class='info'>
  
-Looking for more advanced guides? Check our [Raspbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
+Looking for more advanced guides? Check our [Raspberry Pi OS guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
 
 </div>
 
