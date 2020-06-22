@@ -149,10 +149,12 @@ Currently, OTA providers for firmware updates are only available for IKEA and LE
 To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
 
 ```yaml
-ota:
-  ikea_provider: true                        # Auto update Trådfri devices
-  ledvance_provider: true                    # Auto update LEDVANCE devices
-  #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
+zha:
+  zigpy_config:
+    ota:
+      ikea_provider: true.                       # Auto update Trådfri devices
+      ledvance_provider: true                    # Auto update LEDVANCE devices
+      #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
 ```
 
 You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
