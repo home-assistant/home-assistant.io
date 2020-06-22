@@ -150,7 +150,7 @@ To enable OTA firmware updates for the ZHA integration you need to add the follo
 
 ```yaml
 ota:
-  ikea_provider: true.                       # Auto update Trådfri devices
+  ikea_provider: true                        # Auto update Trådfri devices
   ledvance_provider: true                    # Auto update LEDVANCE devices
   #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
 ```
