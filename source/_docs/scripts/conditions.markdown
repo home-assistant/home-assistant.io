@@ -152,6 +152,32 @@ condition:
   state: 'on'
 ```
 
+Testing if an entity is matching a set of possible conditions;
+The condition will pass if the entity matches one of the states given.
+
+```yaml
+condition:
+  condition: state
+  entity_id: alarm_control_panel.home
+  state:
+    - armed_away
+    - armed_home
+```
+
+Or, combine multiple entities with multiple states. In the following example,
+both media players need to be either paused or playing for the condition to pass.
+
+```yaml
+condition:
+  condition: state
+  entity_id:
+    - media_player.living_room
+    - media_player.kitchen
+  state:
+    - playing
+    - paused
+```
+
 ### Sun condition
 
 #### Sun state condition
@@ -306,6 +332,33 @@ condition:
     - device_tracker.frenck
     - device_tracker.daphne
   zone: zone.home
+```
+
+Testing if an entity is matching a set of possible zones;
+The condition will pass if the entity is in one of the zones.
+
+```yaml
+condition:
+  condition: zone
+  entity_id: device_tracker.paulus
+  state:
+    - zone.home
+    - zone.work
+```
+
+Or, combine multiple entities with multiple zones. In the following example,
+both entities need to be either in the home or the work zone for the condition
+to pass.
+
+```yaml
+condition:
+  condition: zone
+  entity_id:
+    - device_tracker.frenck
+    - device_tracker.daphne
+  state:
+    - zone.home
+    - zone.work
 ```
 
 ### Examples
