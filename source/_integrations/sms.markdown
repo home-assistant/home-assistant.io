@@ -20,8 +20,8 @@ This integration provides the following platforms:
 
 ## Configuration
 
-Activate the SMS via the integratios menu and search for `SMS`.
-While activating the integration will ask for your serial device. Make sure the device is connected and have a valid SIM activated.
+Activate `SMS` via the integrations menu and search for `SMS`.
+While activating the integration, it will ask for your serial device. Make sure the device is connected and have a valid SIM activated.
 
 You can also enable `SMS` via your `configuration.yaml` file:
 
