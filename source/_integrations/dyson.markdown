@@ -170,5 +170,6 @@ Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
+- Pure Hot+cool 2019 model (HP04)
 - Pure Cool 2018 Models (TP04 and DP04)
 - Pure Cool Cryptomic (TP06)
