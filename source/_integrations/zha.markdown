@@ -140,21 +140,22 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 ### OTA firmware updates
 
-ZHA component does have the ability to automatically download and perform  OTA (Over-The-Air) firmware updates of Zigbee devices if OTA firmware provider source URL for updates is available. OTA firmware updates is set to disabled ("false") in the configuration by default.
+ZHA component does have the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
 
-Currently OTA providers for firmware updates are only available for IKEA and LEDVANCE devices. OTA updates for other manufactures devices could possible also be supported by ZHA dependencies in the future if and when the manufacturers publish their firmware provider source URL publically.
+Currently, OTA providers for firmware updates are only available for IKEA and LEDVANCE devices. OTA updates for device of other manufactures could possible also be supported by ZHA dependencies in the future, if these manufacturers publish their firmware publicly.
 
-To enable OTA firmware updates for ZHA component you need to add and change the follwing configuration to your `configuration.yaml` and restart Home Assistant:
+To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
 
 ```yaml
- ota:
-      ikea_provider: true                       # Auto update Trådfri devices
-      ledvance_provider: true                   # Auto update LEDVANCE devices
-      #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
+ota:
+  ikea_provider: true.                       # Auto update Trådfri devices
+  ledvance_provider: true                    # Auto update LEDVANCE devices
+  #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
 ```
-Understand that you can choose if the IKEA or/or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`). After the OTA firmware upgrades you want are complete, you have to set it to disabled (`false`) if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
 
-Note that the `otau_directory` setting is optional. If used it can be the file provider for any firmware files you have downloaded yourself and stored locally on your system. To make ZHA perform OTA firmware for Zigbee devices like that that you have place the OTA firmware files that you have downloaded into the `otau_directory` you configured and restart Home Assistant.
+You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
+
+Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself.
 
 ## Adding devices
 
