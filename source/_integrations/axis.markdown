@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_release: 0.45
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@kane610'
+  - '@Kane610'
 ha_domain: axis
 ---
 

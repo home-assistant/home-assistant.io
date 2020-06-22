@@ -7,9 +7,10 @@ Some Lovelace cards have support for tap actions. These actions define what will
 
 Actions can be enabled on:
 
-- [Entity](/lovelace/entities/)
-- [Entity Button](/lovelace/entity-button/)
+- [Button](/lovelace/button/)
+- [Entities](/lovelace/entities/)
 - [Glance](/lovelace/glance/)
+- [Light](/lovelace/light/)
 - [Picture](/lovelace/picture/)
 - [Picture Element](/lovelace/picture-elements/)
 - [Picture Entity](/lovelace/picture-entity/)

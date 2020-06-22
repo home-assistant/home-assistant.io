@@ -46,10 +46,6 @@ api_key:
   description: The API key for the Rachio account.
   required: true
   type: string
-hass_url_override:
-  description: If your instance is unaware of its actual web location (`base_url`).
-  required: false
-  type: string
 manual_run_mins:
   description: For how long, in minutes, to turn on a station when the switch is enabled.
   required: false
@@ -78,9 +74,9 @@ panel_iframe:
 
 ## Switch
 
-The `rachio` switch platform allows you to toggle zones connected to your [Rachio irrigation system](https://rachio.com/) on and off.
+The `rachio` switch platform allows you to toggle zones and schedules connected to your [Rachio irrigation system](https://rachio.com/) on and off.
 
-Once configured, a switch will be added for every zone that is enabled on every controller in the account provided, as well as a switch to toggle each controller's standby mode.
+Once configured, a switch will be added for every zone that is enabled on every controller in the account provided and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24 hour rain delay on the device.
 
 ## Examples
 
@@ -97,6 +93,7 @@ irrigation:
   - group.zones_front
   - group.zones_back
   - switch.side_yard
+  - switch.every_day_6am
 
 zones_front:
   name: Front Yard

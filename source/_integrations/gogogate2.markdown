@@ -7,39 +7,18 @@ ha_category:
 ha_release: 0.67
 ha_iot_class: Local Polling
 ha_domain: gogogate2
+ha_codeowners:
+  - '@vangorra'
+ha_config_flow: true
 ---
 
-The `gogogate2` cover platform lets you control Gogogate2-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Gogogate2 mobile app.
+The GogoGate2 integration lets you control Gogogate2-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Gogogate2 mobile app.
 
 ## Configuration
 
-To use your Gogogate2 cover in your installation, add the following to your `configuration.yaml` file:
+<div class='note'>
+It is recommended to assign a static IP address to your GogoGate device. This ensures that it won't change IP addresses, so you won't have to change the configuration if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your GogoGate2, check the label on the bottom.
+</div>
 
-```yaml
-# Example configuration.yaml entry
-cover:
-  - platform: gogogate2
-    username: email@email.com
-    password: password
-    ip_address: 192.168.1.200
-```
-
-{% configuration %}
-username:
-  description: Your Gogogate2 account username.
-  required: true
-  type: string
-password:
-  description: Your Gogogate2 account password.
-  required: true
-  type: string
-ip_address:
-  description: The IP Address of your Gogogate2 device.
-  required: true
-  type: string
-name:
-  description: Allows you to override the default name.
-  default: gogogate2
-  required: false
-  type: string
-{% endconfiguration %}
+1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'GogoGate2' and click 'Configure'.
+2. Enter the IP address, username, password and name for the device and click 'Submit'.

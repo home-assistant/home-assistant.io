@@ -152,13 +152,9 @@ Verify that the URLs above are using port 80, rather than port 8300 (i.e., `http
 
 ### Platform specific instructions
 
-#### Home Assistant and Home Assistant Core on Docker
+#### Home Assistant Core
 
-No further actions are required
-
-#### Home Assistant Core in a Python venv
-
-An additional step is required to run Home Assistant as a non-root user and use port 80. 
+An additional step is required to run Home Assistant as a non-root user and use port 80.
 
 ##### Linux
 
@@ -169,20 +165,6 @@ sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin
 ```
 
 Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
-
-##### FreeBSD and FreeNAS
-
-On FreeBSD based systems, including FreeNAS, execute the following to allow `emulated_hue` to use port 80 as a non-root user:
-
-```bash
-sysctl net.inet.ip.portrange.reservedhigh=0
-```
-
-You can make this persist by adding the following to `/etc/sysctl.conf`:
-
-```bash
-net.inet.ip.portrange.reservedhigh=0
-```
 
 ### License
 

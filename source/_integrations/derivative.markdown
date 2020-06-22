@@ -43,12 +43,12 @@ round:
   default: 3
   type: integer
 unit_prefix:
-  description: Metric unit to prefix the derivative result ([Wikipedia](https://en.wikipedia.org/wiki/Unit_prefix)]). Available symbols are "n" (1e-9), "µ" (1e-6), "m" (1e-3), "k" (1e3), "M" (1e6), "G" (1e9), "T" (1e12).
+  description: Metric unit to prefix the derivative result ([Wikipedia](https://en.wikipedia.org/wiki/Unit_prefix)). Available symbols are "n" (1e-9), "µ" (1e-6), "m" (1e-3), "k" (1e3), "M" (1e6), "G" (1e9), "T" (1e12).
   required: false
   default: None
   type: string
 unit_time:
-  description: SI unit of time to integrate over. Available units are s, min, h, d.
+  description: SI unit of time of the derivative. Available units are s, min, h, d.
   required: false
   default: h
   type: string

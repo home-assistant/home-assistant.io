@@ -29,6 +29,10 @@ host:
   default: 192.168.1.254
   required: false
   type: string
+smarthub_model:
+  description: The model of your BT Smarthub 1 or 2. If this option is omitted, it will attempt to detect the hub model.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.

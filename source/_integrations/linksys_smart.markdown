@@ -3,7 +3,6 @@ title: Linksys Smart Wi-Fi
 description: Instructions on how to integrate Linksys Smart Wi-Fi Router into Home Assistant.
 ha_category:
   - Presence Detection
-logo: linksys.png
 ha_release: 0.48
 ha_domain: linksys_smart
 ---
@@ -14,6 +13,7 @@ Tested routers:
 
 - Linksys WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless Router
 - Linksys WRT1900ACS Dual-band Wi-Fi Router
+- Linksys EA8300 Max-Stream AC2200 Tri-Band Wi-Fi Router
 
 ## Setup
 

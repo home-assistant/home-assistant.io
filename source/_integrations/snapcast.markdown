@@ -67,3 +67,12 @@ Remove one or more speakers from their group of speakers.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s to separate from their coordinator speaker.
+
+### Service `snapcast.set_latency`
+
+Set the latency of a speaker.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s for which latency will be adjusted.
+| `latency` | no | Latency in ms.

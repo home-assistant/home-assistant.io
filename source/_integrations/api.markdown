@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: api
 ---
 
-The `api` integration exposes a RESTful API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` integration](/integrations/http/).
+The `api` integration exposes a RESTful API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [HTTP integration](/integrations/http/).
 
 ```yaml
 # Example configuration.yaml entry

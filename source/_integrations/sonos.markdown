@@ -8,8 +8,6 @@ ha_release: 0.7.3
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: sonos
-ha_codeowners:
-  - '@amelchio'
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -149,7 +147,7 @@ sonos:
     interface_addr: 192.0.2.1
 ```
 
-The Sonos speakers will attempt to connect back to Home Assistant to deliver change events (using TCP port 1400). You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
+The Sonos speakers will attempt to connect back to Home Assistant to deliver change events. By default, Home Assistant will listen on port 1400 but will try the next 100 ports above 1400 if it is in use. You can change the IP address that Home Assistant advertises to Sonos speakers. This can help in NAT scenarios such as when _not_ using the Docker option `--net=host`:
 ```yaml
 # Example configuration.yaml entry modifying the advertised host address
 sonos:

@@ -57,6 +57,22 @@ The following parameters can be controlled for the `climate` platform entities:
 - Target temperature
 - Operation mode (HVAC mode)
 - Fan speed
+- Horizontal and vertical vane positions
+
+#### State attributes
+
+|Attribute|Description|Example|
+|---------|-----------|-------|
+|`vane_horizontal` |Current horizontal vane position or mode|`auto`|
+|`vane_horizontal_positions` |Available horizontal vane positions and modes|`auto, split, swing`|
+|`vane_vertical` |Current vertical vane position or mode|`auto`|
+|`vane_vertical_positions` |Available vertical vane positions and modes|`auto, split, swing`|
+
+#### Controlling vanes
+
+The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` services.
+
+Swing mode can also be used to control vertical vane position.
 
 ### Sensor
 
@@ -94,6 +110,8 @@ The following attributes are available for `sensor` platform entities:
 - Room temperature for each zone
 - Tank water temperature
 - Outside temperature - 1°C precision, polled every 1-2 hours.
+- Zone flow temperature, polled every 1-2 hours
+- Zone flow return temperature, polled every 1-2 hours
 
 Unlike air-to-air devices, air-to-water devices do not report energy consumption in an easily accessible manner.
 

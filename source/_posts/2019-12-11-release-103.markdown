@@ -734,7 +734,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Report unavailable entities to google ([@elupus] - [#28501]) ([google_assistant docs])
 - Add initial test suite for arcam_fmj integration ([@elupus] - [#29335])
 - Fix uvloop warning ([@pvizeli] - [#29341]) ([stream docs])
-- Move imports to top for pushetta ([@springstan] - [#29332]) ([pushetta docs])
+- Move imports to top for pushetta ([@springstan] - [#29332])
 - Move imports to top for pencom ([@springstan] - [#29348]) ([pencom docs])
 - Include telegram_bot message id for all messages ([@luca-angemi] - [#29315]) ([telegram_bot docs])
 - Ignore state of climate entities in prometheus ([@springstan] - [#29346]) ([prometheus docs])
@@ -799,7 +799,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for hikvision ([@springstan] - [#29417]) ([hikvision docs])
 - Move imports to top for horizon ([@springstan] - [#29419]) ([horizon docs])
 - Move imports to top for hunterdouglas_powerview ([@springstan] - [#29420]) ([hunterdouglas_powerview docs])
-- Move imports to top for gearbest ([@springstan] - [#29432]) ([gearbest docs])
+- Move imports to top for gearbest ([@springstan] - [#29432])
 - Move imports to top for fleetgo ([@springstan] - [#29431]) ([fleetgo docs])
 - Move imports to top for fints ([@springstan] - [#29429]) ([fints docs])
 - Move imports to top for fastdotcom ([@springstan] - [#29428]) ([fastdotcom docs])
@@ -1542,7 +1542,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [freebox docs]: /integrations/freebox/
 [fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
 [frontend docs]: /integrations/frontend/
-[gearbest docs]: /integrations/gearbest/
 [geizhals docs]: /integrations/geizhals/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [geo_json_events docs]: /integrations/geo_json_events/
@@ -1677,7 +1676,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [proxmoxve docs]: /integrations/proxmoxve/
 [ps4 docs]: /integrations/ps4/
 [pulseaudio_loopback docs]: /integrations/pulseaudio_loopback/
-[pushetta docs]: /integrations/pushetta/
 [python_script docs]: /integrations/python_script/
 [qbittorrent docs]: /integrations/qbittorrent/
 [qnap docs]: /integrations/qnap/

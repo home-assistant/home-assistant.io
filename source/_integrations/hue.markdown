@@ -14,7 +14,7 @@ ha_codeowners:
 ha_domain: hue
 ---
 
-The Philips Hue integration allows you to control and monitor the lights and motion sensors connected to your Hue bridge. The preferred way to set up the Philips Hue integration is by enabling [discovery](/integrations/discovery/).
+The Philips Hue integration allows you to control and monitor the lights and motion sensors connected to your Hue bridge. The Hue integration is automatically discovered. If not, add it via the add integration menu.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -90,7 +90,7 @@ Example:
 To create a `LightGroup` named `Ceiling lights` that contains the lights 1, 2, and 3, execute the following command:
 
 ```bash
-$ curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
+curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
 ```
 
 The `<username>` is the string that is used to register Home Assistant with the bridge. You can find it in the `core.config_entries` file in `/PATH-TO-YOUR-CONFIGURATION/.storage/`. `<bridge>` is the IP address or hostname of your Hue bridge.
@@ -98,7 +98,7 @@ The `<username>` is the string that is used to register Home Assistant with the 
 You can find the IDs of your lights by executing the following command:
 
 ```bash
-$ curl http://<bridge>/api/<username>/lights
+curl http://<bridge>/api/<username>/lights
 ```
 
 Home Assistant will automatically detect your new `LightGroup` and add it to the interface.

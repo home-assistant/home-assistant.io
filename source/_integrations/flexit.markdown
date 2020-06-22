@@ -10,7 +10,7 @@ ha_domain: flexit
 
 Integrates [Flexit](https://www.flexit.no/en/) Air Conditioning unit into Home Assistant.
 
-Requires an CI66 Modbus Adapter [CI66](https://www.flexit.no/en/products/air_handling_unit/accessories_ahu/modul/modbusadapter_ci66/modbus_adapter_ci66_k2-c2-uni/)
+Requires an CI66 Modbus Adapter [CI66](https://www.flexit.no/en/products/air_handling_units_700-5000_m-h/accessories_ahu/modbusadapter_ci66/modbus_adapter_ci66_k2-c2-uni/)
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 

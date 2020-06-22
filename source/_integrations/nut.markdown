@@ -31,11 +31,6 @@ sensor:
 ```
 
 {% configuration %}
-  name:
-    description: Name prefix for defined sensors.
-    required: false
-    default: 'NUT UPS'
-    type: string
   host:
     description: The host name or IP address of the device that is running NUT.
     required: false

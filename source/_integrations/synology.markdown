@@ -25,7 +25,7 @@ To enable your Surveillance Station cameras in your installation, add the follow
 # Minimum configuration.yaml entry
 camera:
   - platform: synology
-    url: IP_ADDRESS_OF_SYNOLOGY_NAS
+    url: FULL_URL_OF_SYNOLOGY_NAS
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```

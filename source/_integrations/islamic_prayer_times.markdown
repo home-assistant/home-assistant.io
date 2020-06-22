@@ -1,14 +1,17 @@
 ---
 title: Islamic Prayer Times
-description: Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant.
+description: Instructions on how to integrate the Islamic Prayer Times integration within Home Assistant.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.85
+ha_config_flow: true
 ha_domain: islamic_prayer_times
+ha_codeowners:
+  - '@engrbm87'
 ---
 
-The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.
+The Islamic Prayer Times (`islamic_prayer_times`) integration displays the various prayer times for Muslims as sensors.
 
 This platform calculates prayer times using the following calculation methods:
 
@@ -19,35 +22,15 @@ This platform calculates prayer times using the following calculation methods:
 
 ## Configuration
 
-To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+Set up the integration through **Configuration -> Integrations -> Islamic Prayer Times**. To import the configuration from `configuration.yaml` remove any previously configured sensors with platform type `islamic_prayer_times` and add the following lines:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: islamic_prayer_times
+islamic_prayer_times:
+
 ```
 
 {% configuration %}
-sensors:
-  required: false
-  default: "['fajr', 'dhuhr', 'asr', 'maghrib', 'isha']"
-  type: list
-  description: List of available sensors.
-  keys:
-    fajr:
-      description: Show the fajr prayer time for today.
-    sunrise:
-      description: Show the sunrise for today which is the end of fajr prayer.  This is a calculated field and may not necessarily be the same as the astronomical sunrise.
-    dhuhr:
-      description: Show the dhuhr prayer time for today.
-    asr:
-      description: Show the asr prayer time for today.
-    maghrib:
-      description: Show the maghrib prayer time for today.
-    isha:
-      description: Show the isha prayer time for today.
-    midnight:
-      description: Show the midnight for today which is the end of isha prayer.  This is a calculated field and is not the same as 12AM.
 calculation_method:
   required: false
   default: 'isna'
@@ -55,17 +38,22 @@ calculation_method:
   description: "The calculation method used for prayer times.  Must be one of: `karachi`, `isna`, `mwl`, `makkah`."
 {% endconfiguration %}
 
+## Integration Sensors
+
+The following sensors are added by the integration:
+
+sensors:
+  - fajr: Show the fajr prayer time for today.
+  - sunrise: Show the sunrise for today which is the end of fajr prayer. This is a calculated field and may not necessarily be the same as the astronomical sunrise.
+  - dhuhr: Show the dhuhr prayer time for today.
+  - asr: Show the asr prayer time for today.
+  - maghrib: Show the maghrib prayer time for today.
+  - isha: Show the isha prayer time for today.
+  - midnight: Show the midnight for today which is the end of isha prayer. This is a calculated field and is not the same as 12AM.
+
 ```yaml
-# Example configuration.yaml entry for all available sensors using a non-default calculation method
-sensor:
-  - platform: islamic_prayer_times
+# Example configuration.yaml using a non-default calculation method
+islamic_prayer_times:
     calculation_method: makkah
-    sensors:
-      - fajr
-      - sunrise
-      - dhuhr
-      - asr
-      - maghrib
-      - isha
-      - midnight
+
 ```

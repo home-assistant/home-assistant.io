@@ -8,7 +8,7 @@ redirect_from: /getting-started/installation-docker/
 
 These below instructions are for an installation of Home Assistant Core running in your own Docker environment, which you manage yourself.
 
-For an installation of Home Assistant Supervised, which includes Home Assistant's add-on ecosystem, see the instructions for installing [Home Assistant Supervised on a generic Linux host](/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host/).
+Note that Docker command line option `--net=host` or the compose file equivalent `network_mode: host` must be used to put Home Assistant on the host's network, otherwise certain functionality - including mDNS and UPnP - will break. The `-p` command line option or the compose file equivalent `ports:` is not compatible with host networking mode and must not be used.
 
 </div>
 
@@ -38,13 +38,11 @@ docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /home/p
 
 When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the local timezone to your Docker container ([Docker issue](https://github.com/docker/for-mac/issues/44)). Instead of `-v /etc/localtime:/etc/localtime:ro`, just pass in the timezone environment variable when you launch the container, e.g, `-e "TZ=America/Los_Angeles"`. Replace "America/Los_Angeles" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
-If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the Docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
-
 ```bash
 docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config -p 8123:8123 homeassistant/home-assistant:stable
 ```
 
-Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking documentation](https://docs.docker.com/network/). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
+Alternatively, `docker-compose` works with any recent release of Docker CE on macOS. Note the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
 ### Windows
 
@@ -56,23 +54,16 @@ Before proceeding, make sure you have shared out a drive for Docker to mount to.
 <https://docs.docker.com/docker-for-windows/troubleshoot/#verify-domain-user-has-permissions-for-shared-drives-volumes>
 
 ```powershell
-docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
+docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v /PATH_TO_YOUR_CONFIG:/config -p 8123:8123 homeassistant/home-assistant:stable
 ```
 
 It’s easier to understand the trick when put into practice. Here we would like to mount a current working directory (something like `C:\Users\<your login name>\homeassistant` make sure this exists first) into the `homeassistant/home-assistant:stable` image at the `/config` location in the container. We would do that as so:
 
 ```powershell
-docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v //c/Users/<your login name>/homeassistant:/config --net=host homeassistant/home-assistant:stable
+docker run --init -d --name="home-assistant" -e "TZ=America/Los_Angeles" -v //c/Users/<your login name>/homeassistant:/config -p 8123:8123 homeassistant/home-assistant:stable
 ```
 
-When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
-
-```bash
-netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 connectaddress=10.0.50.2 connectport=8123
-netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
-```
-
-This will let you access your Home Assistant portal from `http://localhost:8123`, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the Docker container.
+Host networking is not supported on Windows so we have to forward the port 8123. This will let you access your Home Assistant portal from `http://localhost:8123`, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the Docker container.
 
 ### Synology NAS
 
@@ -248,6 +239,13 @@ To restart Home Assistant when you have changed configuration:
 docker-compose restart
 ```
 
+To update your docker-compose image to the latest version and restart:
+
+```bash
+docker-compose pull
+docker-compose up -d --build homeassistant
+```
+
 ## Exposing Devices
 
 In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your Docker command:
@@ -283,3 +281,11 @@ or in a `docker-compose.yml` file:
 On Mac, USB devices are [not passed through](https://github.com/docker/for-mac/issues/900) by default. Follow the instructions in [Using USB with Docker for Mac](https://dev.to/rubberduck/using-usb-with-docker-for-mac-3fdd) by Christopher McClellan if your device is not showing up.
 
 </div>
+
+## Optimizations
+
+The Home Assistant Container is using an alternative memory allocation library [jemalloc](http://jemalloc.net/) for better memory management and Python runtime speedup.
+
+As Jemalloc can cause issues on certain hardware, it can be disabled by passing the environment variable `DISABLE_JEMALLOC` with any value, for example: `-e "JEMALLOC_DISABLE=true"`.
+
+The error message `<jemalloc>: Unsupported system page size` is one known indicator. 

@@ -47,7 +47,7 @@ These install options are fully supported by Home Assistant's documentation. For
 
 <div class='note'>
 
-The only installation methods that allow you to use Home Assistant Add-ons is using the Home Assistant image and [manual Supervised installer](/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host). All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+The only installation methods that allow you to use Home Assistant Add-ons is using the Home Assistant image. All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
 
 </div>
 
@@ -67,55 +67,6 @@ If you use these install methods, we assume that you know how to manage and admi
 
 ## Community provided guides
 
-These guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform or because required Python packages aren't available for that platform.
+Additional installation guides can be found on our [Community Forum](https://community.home-assistant.io/tags/c/community-guides/51/installation).
 
-<div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/docs/installation/armbian/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/armbian.png' />
-    </div>
-    <div class='title'>armbian</div>
-  </a>
-  <a class='option-card' href='/docs/installation/archlinux/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/archlinux.png' />
-    </div>
-    <div class='title'>ArchLinux</div>
-  </a>
-  <a class='option-card' href='/docs/installation/fedora/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/fedora.png' />
-    </div>
-    <div class='title'>Fedora</div>
-  </a>
-  <a class='option-card' href='/docs/installation/centos/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/centos.png' />
-    </div>
-    <div class='title'>CentOS/RHEL</div>
-  </a>
-  <a class='option-card' href='/docs/installation/macos/'>
-    <div class='img-container'>
-      <img src='https://brands.home-assistant.io/ios/icon.png' />
-    </div>
-    <div class='title'>macOS</div>
-  </a>
-  <a class='option-card' href='/docs/installation/synology/'>
-    <div class='img-container'>
-      <img src='https://brands.home-assistant.io/synology/logo.png' />
-    </div>
-    <div class='title'>Synology</div>
-  </a>
-  <a class='option-card' href='/docs/installation/freenas/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/freenas.png' />
-    </div>
-    <div class='title'>FreeNAS</div>
-  </a>
-  <a class='option-card' href='/hassio/installation/#alternative-install-home-assistant-supervised-on-a-generic-linux-host'>
-    <div class='img-container'>
-      <img src='https://brands.home-assistant.io/homeassistant/icon.png' />
-    </div>
-    <div class='title'>Home Assistant Supervised <br> on generic Linux server</div>
-  </a>
-</div>
+These Community Guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform.

@@ -13,6 +13,7 @@ ha_codeowners:
   - '@michaelarnauts'
   - '@bdraco'
 ha_domain: tado
+ha_config_flow: true
 ---
 
 The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
@@ -26,7 +27,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use your Tado thermostats in your installation, add the following to your `configuration.yaml` file:
+To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
+
+Alternatively, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry with multiple accounts
@@ -122,5 +125,18 @@ Find your `home_id` by browsing to `https://my.tado.com/api/v2/me?username=YOUR_
   "mobileDevices": []
 }
 ```
+
+In this example `12345` is the `home_id` you'll need to configure.
+
+### Finding your `home_id` alternative
+
+If the above method returns an unauthorized error. The `home_id` can also be found using Chrome developer tools. Whilst logged into https://my.tado.com/webapp, take the following steps: 
+
+- Select the "Networ"' tab
+- Filter for "home"
+- Under "Name", select "users"
+- Click on the "Response" tab
+
+The `home_id` appears in the response for users as `"id":12345`
 
 In this example `12345` is the `home_id` you'll need to configure.

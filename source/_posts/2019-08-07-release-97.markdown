@@ -245,7 +245,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for multiple N26 accounts ([@gorynychzmey] - [#25086]) ([n26 docs]) (breaking change)
 - Bump insteonplm to 0.16.3 ([@teharris1] - [#25108]) ([insteon docs])
 - Use more compatible samsungtv TV key ([@escoand] - [#25083]) ([samsungtv docs])
-- Add additional WWLLN test ([@bachya] - [#25111]) ([wwlln docs])
+- Add additional WWLLN test ([@bachya] - [#25111])
 - Splunk component filter support ([@asleeis] - [#25071]) ([splunk docs])
 - Add more public rain sensors ([@cgtobi] - [#25117]) ([netatmo docs])
 - PS4 handle no connection/ fix spamming of logs when device is off ([@ktnrg45] - [#25091]) ([ps4 docs])
@@ -298,7 +298,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix util.ruamel_yaml type errors ([@scop] - [#25338])
 - Mypy config improvements ([@scop] - [#25340])
 - Update Google Maps Location Tracker to use locationsharinglib==4.0.2 ([@shbatm] - [#25316]) ([google_maps docs]) (breaking change)
-- Automatically expand WWLLN window to 1 hour (if necessary) ([@bachya] - [#25357]) ([wwlln docs])
+- Automatically expand WWLLN window to 1 hour (if necessary) ([@bachya] - [#25357])
 - Type check all helpers ([@scop] - [#25373])
 - Optional and Union simplifications ([@scop] - [#25365])
 - Add add_torrent service to Transmission ([@postlund] - [#25144]) ([transmission docs])
@@ -360,7 +360,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Roombalocate ([@Anglac] - [#25508]) ([roomba docs])
 - deCONZ - cleanup sensor attributes ([@Kane610] - [#25540]) ([deconz docs])
 - Update to buienradar json api; and additional monitored_conditions ([@mjj4791] - [#24463]) ([buienradar docs]) (breaking change)
-- Fix bug with WWLLN update interval ([@bachya] - [#25498]) ([wwlln docs])
+- Fix bug with WWLLN update interval ([@bachya] - [#25498])
 - Fix WinkAC mode API calls to correct methods ([@cameronrmorris] - [#25545]) ([wink docs])
 - Bump env_canada to 0.0.19 ([@michaeldavie] - [#25548]) ([environment_canada docs])
 - Tibber, off peak values ([@Danielhiversen] - [#25320]) ([tibber docs])
@@ -839,7 +839,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vesync docs]: /integrations/vesync/
 [wink docs]: /integrations/wink/
 [workday docs]: /integrations/workday/
-[wwlln docs]: /integrations/wwlln/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [zha docs]: /integrations/zha/
 [zwave docs]: /integrations/zwave/
