@@ -22,6 +22,7 @@ remote:
     devices:
       - name: TV
         connaddr: 2
+        ir_count: 3
         commands:
           - name: "ON"
             data: "0000 006D 0000 0022 00AC 00AC 0015 0040 0015 0040 0015 0040 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0040 0015 0040 0015 0040 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0015 0040 0015 0015 0015 0015 0015 0040 0015 0040 0015 0015 0015 0015 0015 0040 0015 0015 0015 0040 0015 0040 0015 0015 0015 0015 0015 0040 0015 0040 0015 0015 0015 0689"
@@ -56,6 +57,11 @@ devices:
     connaddr:
       description: iTach connection location for the IR emitter. (Note connaddr is a misleading label. Do not put the connection address here. Technically the connection address is the combination of the module address plus the connection location).
       required: true
+      type: integer
+    ir_count:
+      description: Number of times the command payload will be repeated for a single command send.
+      required: false
+      default: 1
       type: integer
     commands:
       description: Commands available to send to the device.
