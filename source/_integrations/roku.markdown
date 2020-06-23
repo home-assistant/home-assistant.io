@@ -145,7 +145,7 @@ The `remote` platform allows you to send keypress commands to your device. Remot
 
 ## Services
 
-### `roku.search`
+### Service `roku.search`
 
 This service allows you to emulate opening the search screen and entering the search keyword.
 
