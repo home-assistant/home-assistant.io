@@ -151,5 +151,5 @@ This service allows you to emulate opening the search screen and entering the se
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
-| `entity_id` | no | The entities to search on. | remote.living_room
+| `entity_id` | no | The entities to search on. | media_player.roku
 | `keyword` | no | The keyword to search for. | Space Jam
