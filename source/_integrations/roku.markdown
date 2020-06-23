@@ -141,7 +141,7 @@ action:
 
 ## Remote
 
-The `remote` platform allows you to send keypress commands to your device. Remote entities are automatically registered during integration startup.
+The `remote` platform allows you to send keypress commands to your device. Remote entities are automatically registered during integration setup.
 
 ## Services
 
