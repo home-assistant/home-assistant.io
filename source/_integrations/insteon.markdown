@@ -12,6 +12,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.39
 ha_domain: insteon
+ha_codeowners:
+  - '@teharris1'
 ---
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
@@ -289,4 +291,4 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.some_light
-``` 
+```

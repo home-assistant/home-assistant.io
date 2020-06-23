@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: recorder
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` ](/integrations/history/) integration.
 
 <div class='note'>
 
@@ -151,7 +151,7 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | Service data attribute | Optional | Description                                                                                                                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
-| `repack`               | yes      | Rewrite the entire database, possibly saving some disk space. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported for SQLite and PostgreSQL. |
+| `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
 
 ## Custom database engines
 

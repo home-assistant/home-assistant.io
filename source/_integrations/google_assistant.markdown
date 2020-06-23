@@ -189,10 +189,16 @@ Currently, the following domains are available to be used with Google Assistant,
 - light (on/off/brightness/rgb color/color temp)
 - lock 
 - cover (on/off/set position)
-- media_player (on/off/set volume (via set volume)/source (via set input source))
+- media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
 - climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
+
+<div class='note'>
+
+Some of these devices may not display correctly in the Google Home app, such as media_player, however voice commands will still work.
+
+</div>
 
 ### Secure Devices
 
@@ -201,15 +207,6 @@ Certain devices are considered secure, including anything in the `lock` domain, 
 By default these cannot be opened by Google Assistant unless a `secure_devices_pin` is set up. To allow opening, set the `secure_devices_pin` to something and you will be prompted to speak the pin when opening the device. Closing or locking these devices does not require a pin.
 
 For the Alarm Control Panel if a code is set it must be the same as the `secure_devices_pin`. If `code_arm_required` is set to `false` the system will arm without prompting for the pin.
-
-### Media Player Sources
-
-Media Player sources are sent via the Modes trait in Google Assistant.
-There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature [are listed here](https://developers.google.com/actions/reference/smarthome/traits/modes).
-
-#### Example Command
-
-"Hey Google, change input source to TV on Living Room Receiver"
 
 ### Room/Area support
 

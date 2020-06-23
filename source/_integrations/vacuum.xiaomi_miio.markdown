@@ -320,7 +320,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 ### iOS
 
 1. Configure the robot with the Mi Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
-2. Using iTunes, create an unencrypted backup of your iPhone.
+2. Using iTunes, create an unencrypted backup of your iPhone. Since macOS 10.15 there is no iTunes app. Use Finder instead - after connecting your iOS device you should see it in left menu of Finder window. 
 3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
 5. Navigate to `com.xiaomi.mihome`.
@@ -405,7 +405,7 @@ vacuum_kitchen:
         params: [18]
 ```
 
-Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving_room_numbers).
+Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
 
 ## Example on how to reset maintenance hours (brushes, filter, sensors)
 
@@ -458,13 +458,15 @@ vacuum_kitchen:
         command: app_zoned_clean
         params: [[23084,26282,27628,29727,1]]
 ```
-## <a name="retrieving_room_numbers" />Retrieving Room numbers
+
+## Retrieving Room numbers
 
 Valid room numbers can be retrieved using miio command-line tool:
+
 ```bash
 miio protocol call <ip of the vacuum> get_room_mapping
 ```
+
 It will only give room numbers and not the room names. To mat the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient. 
 
 It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing. 
-
