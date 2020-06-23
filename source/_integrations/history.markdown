@@ -64,7 +64,7 @@ include:
 {% endconfiguration %}
 
 Without any `include` or `exclude` configuration the history displays graphs for
- every entity (well that's not exactly true - for instance `hidden` entities or
+ every entity (well that's not exactly true -
  `scenes` are never shown) on a given date. If you are only interested in some
  of the entities you have several options:
 
