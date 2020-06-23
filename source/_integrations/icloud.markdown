@@ -115,6 +115,11 @@ This service can be used to ask an update of a certain iDevice or all devices li
 
 This service will play the Lost iPhone sound on your iDevice. It will still ring if you are on "Mute" or "Do not disturb" mode.
 
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `account`                 |       no | E-mail address of the iCloud account                    |
+| `device_name`             |       no | Human Friendly device name like Bob's iPhone            |
+
 ### Service `icloud.display_message`
 
 This service will display a message on your iDevice. It can also ring your device.
