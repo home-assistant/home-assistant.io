@@ -16,11 +16,8 @@ ha_codeowners:
   
 demo show:
 
-[http://ha.iammeter.com:18123](http://ha.iammeter.com:18123)
+![image-20200623101938530](https://leweidoc.oss-cn-hangzhou.aliyuncs.com/lewei50/img/iammeter/iammeterimage-20200623101938530.png)
 
-username:iammeter
-
-pwd:iammeter
 
 ## Configuration
 
