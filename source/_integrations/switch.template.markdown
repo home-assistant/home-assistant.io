@@ -13,7 +13,7 @@ The `template` platform creates switches that combines components.
 
 For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed.
 
-This can simplify the GUI and make it easier to write automations. You can mark the integrations you have combined as `hidden` so they don't appear themselves.
+This can simplify the GUI and make it easier to write automations.
 
 ## Configuration
 
