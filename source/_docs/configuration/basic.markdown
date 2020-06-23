@@ -21,7 +21,7 @@ homeassistant:
   whitelist_external_dirs:
     - /usr/var/dumping-ground
     - /tmp
-  whitelist_external_urls:
+  allowlist_external_urls:
     - "http://images.com/image1.png"
 ```
 
@@ -80,7 +80,7 @@ whitelist_external_dirs:
   description: List of folders that can be used as sources for sending files.
   required: false
   type: list
-whitelist_external_urls:
+allowlist_external_urls:
   description: List of external URLs that can be fetched.
   required: false
   type: list
