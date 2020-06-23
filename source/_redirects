@@ -1344,7 +1344,6 @@
 /components/folder /integrations/folder
 /components/folder_watcher /integrations/folder_watcher
 /components/foobot /integrations/foobot
-/components/fortigate /integrations/fortigate
 /components/fortios /integrations/fortios
 /components/foscam /integrations/foscam
 /components/foursquare /integrations/foursquare
