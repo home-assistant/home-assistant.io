@@ -16,7 +16,7 @@ ha_codeowners:
   
 demo show:
 
-![image-20200623101938530](https://leweidoc.oss-cn-hangzhou.aliyuncs.com/lewei50/img/iammeter/iammeterimage-20200623101938530.png)
+![image-20200623101938530](../images/screenshots/iammeter demo.jpg)
 
 
 ## Configuration
