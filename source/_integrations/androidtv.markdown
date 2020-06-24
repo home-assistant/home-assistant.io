@@ -265,13 +265,17 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
-#### Faster ADB commands
+### `androidtv.learn_sendevent` (for faster ADB commands)
 
-When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the `androidtv.adb_command` service provides a custom target: `LEARN_SENDEVENT`. Its usage is as follows:
+When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android TV integration provides the `androidtv.learn_sendevent` service. Its usage is as follows:
 
-1. Call the `androidtv.adb_command` service with the parameter `command: LEARN_SENDEVENT`. 
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Name(s) of Android TV / Fire TV entities.
+
+1. Call the `androidtv.learn_sendevent` service. 
 2. Within 8 seconds, hit a single button on your Android TV / Fire TV remote. 
-3. After 8 seconds, check the `adb_response` attribute of the media player in Home Assistant. This will be the equivalent command that can be sent via the `androidtv.adb_command` service. 
+3. After 8 seconds, check the `adb_response` attribute of the media player in Home Assistant. This will be the equivalent command that can be sent via the `androidtv.adb_command` service. It will also be logged at the INFO level.
 
 As an example, a service call in a [script](/docs/scripts) could be changed from this:
 
