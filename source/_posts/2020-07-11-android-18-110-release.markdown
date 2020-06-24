@@ -90,7 +90,7 @@ automation:
 
 In the above automation example a new channel with the name `Alarm` will be created with a default setting for vibration, LED and importance. This notification will also be persistent and part of a group and tag along with an icon amongst other changes.
 
-In addition to the notification enhancements we have made several improvements around some of the error messages people may see as they try to setup the app. Specifically you should see more details about SSL issues that should hopefully lead you in the right direction to fix the issue. We added a new cookie manager so you can save those cookies from custom cards that require it, along with the ability to save logins in the webview and some more biometric improvements.
+In addition to the notification enhancements we have made several improvements around some of the error messages people may see as they try to setup the app. Specifically you should see more details about SSL issues that should hopefully lead you in the right direction to fix the issue. We added a new cookie manager so you can save those cookies from custom cards that require it.
 
 ## Docs
 
