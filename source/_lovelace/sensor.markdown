@@ -11,7 +11,7 @@ The Sensor card gives you a quick overview of your sensors state with an optiona
   Screenshot of the sensor card.
 </p>
 
-> Note: This card looks similar to the custom [mini-graph-card](https://github.com/kalkih/mini-graph-card) but these two cards do not share the same configuration parameters and must configured as per each cards documentation.
+> Note: This card looks similar to the custom [mini-graph-card](https://github.com/kalkih/mini-graph-card) but these two cards do not share the same configuration parameters and must be configured as per each cards documentation.
 
 {% configuration %}
 type:
