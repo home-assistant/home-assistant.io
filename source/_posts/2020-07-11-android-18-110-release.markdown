@@ -10,7 +10,7 @@ categories: Release-Notes
 og_image: /images/blog/2020-07-android-18-110-release/biometric_unlock.png
 ---
 
-There have been lots of more improvements to the android app since we last had a release post so lets go over some of the highlights!
+There have been lots of more improvements to the Android app since we last had a release post so let's go over some of the highlights!
 
 ## 1.8.0
 
