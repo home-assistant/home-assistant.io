@@ -383,7 +383,7 @@ queries_flux:
       description: "Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`."
       required: false
       default: -15m
-    range_end:
+    range_stop:
       type: string
       description: Duration or time value to stop range at. See `range_start` above for how this is used in query.
       required: false
