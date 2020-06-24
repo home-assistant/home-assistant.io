@@ -44,7 +44,17 @@ Lorem ipsum
 
 The following integrations are now available via the Home Assistant UI:
 
-- [Lorem ipsum][ipsum docs], done by [@frenck]
+- [Arcam][arcam_fmj docs], done by [@elupus]
+- [Avri][avri docs], done by [@timvancann]
+- [Awair][awair docs], done by [@ahayworth]
+- [DenonAVR][denonavr docs], done by [@starkillerOG]
+- [MetOffice][metoffice docs], done by [@MrHarcombe]
+- [Smappee][smappee docs], done by [@bsmappee]
+- [SMS notifications via GSM-modem][sms docs], done by [@ocalvo]
+- [Speedtest.net][speedtestdotnet docs], done by [@engrbm87]
+- [Squeezebox][squeezebox docs], done by [@rajlaud]
+- [Tile][tile docs], done by [@bachya]
+- [Xiaomi Aqara][xiaomi_aqara docs], done by [@starkillerOG]
 
 ## If you need help...
 
