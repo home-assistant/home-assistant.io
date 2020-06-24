@@ -41,6 +41,11 @@ sensor:
     required: false
     default: 3493
     type: integer
+  name:
+    description: Custom name of the sensor
+    required: false
+    default: none
+    type: string
   alias:
     description: Name of the UPS on the NUT server.
     required: false
