@@ -58,10 +58,6 @@ tls_insecure:
   description: Set the verification of the server hostname in the server certificate.
   type: boolean
   default: false
-tls_version:
-  required: false
-  description: "TLS/SSL protocol version to use. Available options are: `'auto'`, `'1.0'`, `'1.1'`, `'1.2'`. Make sure to put quotes around the value. Defaults to `'auto'`."
-  type: string
 {% endconfiguration %}
 
 <div class='note'>
