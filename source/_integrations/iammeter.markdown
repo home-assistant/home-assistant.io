@@ -16,7 +16,9 @@ ha_codeowners:
   
 demo show:
 
-![image-20200623101938530](../images/screenshots/iammeter demo.jpg)
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/iammeter demo.jpg' />
+</p>
 
 
 ## Configuration
