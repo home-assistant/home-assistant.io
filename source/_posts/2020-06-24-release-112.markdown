@@ -111,6 +111,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   These all now require that either `entity_id` or `area_id` is passed when calling the service. You need to update all usages (such as automations and scripts) of these services which do not already pass `entity_id` or `area_id`. For example, change the existing automation:
 
+{% raw %}
   ```yaml
   automation:
     - alias: Test vacuum zone
@@ -124,9 +125,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
           repeats: '{{states('input_number.vacuum_passes')|int}}'
           zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
   ```
+{% endraw %}
 
   to:
 
+{% raw %}
   ```yaml
   automation:
     - alias: Test vacuum zone
@@ -141,6 +144,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
           repeats: '{{states('input_number.vacuum_passes')|int}}'
           zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
   ```
+{% endraw %}
 
   ([@jthure] - [#35737]) ([xiaomi_miio docs])
 
