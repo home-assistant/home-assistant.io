@@ -13,34 +13,227 @@ og_image: /images/blog/2020-06-0.112/social.png
 
 <a href='/integrations/#version/0.112'><img src='/images/blog/2020-06-0.112/social.png' style='border: 0;box-shadow: none;'></a>
 
-lorem ipsum
+And another 3 week passed! Home Assistant Core 0.112.0!
 
-## Lorem ipsum
+Please note, these are the beta release notes and might still change during
+the beta week.
 
-Lorem ipsum
+## Important upgrade notice!
+
+Let's start with an important notice for upgrading to Home Assistant Core 0.112.
+
+This release has changes to the database format of Home Assistant. On upgrade,
+it will be migrated to the new format.
+
+Depending on the size of your database and the performance of the hardware you
+run Home Assistant on, this migration process could add additional time to the
+first time starting after the upgrade. For most of us, this add just a couple of
+minutes, but if you have an enormous database (for example, 30+ GiB), it might
+take an hour or maybe even two.
+
+So, don't panic if Home Assistant doesn't come up immediately.
+
+## Logbook and History 🚀
+
+The reason for the above-mentioned database change can be found in the
+Logbook & History. Thanks to [@bdraco], who has been improving this part
+of Home Assistant the past weeks.
+
+As a result of his effort, this History & Logbook are now lightning fast. ⚡️
+
+Not a tiny bit faster, but a whole new experience compared to how it used to
+be. Fantastic work there [@bdraco]!
+
+## Logbook and History now have a date/time range picker
+
+So, [@bramkragten] stepped on the Logbook & History train and made the logbook
+and history panels a lot more flexible.
+
+You no longer have to choose between a fixed period to show, but can define
+the period you want to see data from yourself.
+
+Select a start and end date and time window and it will show just that data.
+
+<p class='img'>
+<img src='/images/blog/2020-06-0.112/datetime-picker.png' alt='Screenshot of the new date/time picker'></a>
+Screenshot of the new date/time picker.
+</p>
+
+By default it no longer shows a full day of data, but just a couple of hours so
+it is even quicker to load. As most of the time, one would look at recent
+events anyways.
+
+## The user that made a change visible in the logbook
+
+Talking about the logbook, you can now also see who made a change in the
+logbook! No more discussion about who changed the temperature!
+
+<p class='img'>
+<img src='/images/blog/2020-06-0.112/logbook-who.png' alt='Screenshot of the logbook showing who made the change'></a>
+Screenshot of the logbook showing who made the change.
+</p>
+
+## Multiple entities and states in YAML automations
+
+Are you writing your automations in YAML? You might appreciate this one:
+
+A single condition rule can now test if multiple entities match the condition.
+Furthermore, states and zones now also accept a list in a condition. That helps
+testing if the entity matches any of the ones listed.
+
+So this:
+
+```yaml
+condition:
+  - platform: state
+    entity_id: light.kitchen
+    state: 'on'
+  - platform: state
+    entity_id: light.living_room
+    state: 'on'
+  - platform: state
+    entity_id: light.office
+    state: 'on'
+```
+
+Can now be shortened to this:
+
+```yaml
+condition:
+  - platform: state
+    entity_id:
+      - light.kitchen
+      - light.living_room
+      - light.office
+    state: 'on'
+```
+
+An example that tests if the alarm is in any of the specified states:
+
+```yaml
+condition:
+  - platform: state
+    entity_id: alarm_control_pane.home
+    state:
+      - armed_home
+      - armed_away
+```
+
+And this condition is now also passing when Frenck is at home or at work
+(fake, of course, since Frenck works from his home).
+
+```yaml
+condition:
+  - platform: zone
+    entity_id: device_tracker.frenck
+    zone:
+      - zone.home
+      - zone.work
+```
+
+Or combine! The following condition would pass if both Frenck and Daphne
+are either at home or in the work zone.
+
+```yaml
+condition:
+  platform: zone
+  entity_id:
+    - device_tracker.frenck
+    - device_tracker.daphne
+  zone:
+    - zone.home
+    - zone.work
+```
+
+## Integration specific panels are now on the integrations page
+
+Some integrations, like ZHA, Z-Wave and MQTT have their own panels or dev tools.
+For things like pairing devices or publishing MQTT messages.
+
+These used to be on the configuration page or development tools, which was weird
+because the integration settings would be on the integrations page. ZHA also had
+a lot of device settings in its own panel, resulting in a lot of duplicate
+functionality spread across the Home Assistant interface.
+
+These panels and tools now moved to the integrations pages, directly with
+the integration that provides those. You can find them on the card of the
+integration at the `Configure` button.
+
+<p class='img'>
+<img src='/images/blog/2020-06-0.112/configure-mqtt.png' alt='Screenshot of the MQTT configure button'></a>
+Screenshot of the MQTT configure button.
+</p>
+
+The device-specific settings are now available on the device page, so we now
+have 1 place to go for information and setting for devices.
+
+<p class='img'>
+<img src='/images/blog/2020-06-0.112/zha-device.png' alt='Screenshot of a ZHA device'></a>
+Screenshot of a ZHA device.
+</p>
+
+In the process, we also cleaned some things ups, like adding a device in ZHA.
+If you change the name of the device while adding it, the entities and entity
+IDs are named accordingly.
+
+## New home for the logs and information pages
+
+More moving this release, the logs and information pages used to be in the
+development tools panel. But they didn't really belong there. They aren't
+really tools for developing, they provide information on your set up.
+
+We moved them to the configuration page where they are joined with server
+management and the general configuration.
+
+<p class='img'>
+<img src='/images/blog/2020-06-0.112/new-home.png' alt='Screenshot of the new home for logs & information'></a>
+Screenshot of the new home for logs & information.
+</p>
+
+## Automatically disconnect if a tab has been hidden for 5 minutes
+
+An improvement in the battery of your device and your data cap are going to
+like:
+
+When the Home Assistant UI is not visible for longer than 5 minutes, it
+disconnects from your Home Assistant server. This means you no longer get data or
+camera streams and your device can optimize resource and power consumption.
+
+Of course, when showing the browser (or browser tab) again, it will
+automatically reconnect.
+
+## We now show all automation/scenes/scripts
+
+Automations, scenes and scripts in the configuration panel are no longer hidden
+when they have the `hidden` attribute. This was erroneously added in the past
+and has now been undone.
+
+Talking about the old `hidden` attributes. They have been slowly deprecated
+over time, as they originate from the previous Home Assistant UI. As of this
+release, this attribute has been completely removed from the system.
 
 ## Other noteworthy changes
 
-- Lorem ipsum
-- Lorem ipsum
+- [@balloob] has shaved of a couple of seconds from the Home Assistant startup
+  again.
 
 ## New Integrations
 
-- Add notify_events notify integration ([@papajojo] - [#36049]) ([notify_events docs]) (new-integration)
-- Add HVV integration (Hamburg public transportation) ([@vigonotion] - [#31564]) ([hvv_departures docs]) (new-integration)
-- Add new Remote Python Debugger integration ([@frenck] - [#36960]) ([debugpy docs]) (new-integration)
-- Add new humidifier entity integration ([@Shulyaka] - [#28693]) ([humidity docs]) (new-integration)
+- Add notify_events notify integration ([@papajojo] - [#36049]) ([notify_events documentation]) (new-integration)
+- Add HVV integration (Hamburg public transportation) ([@vigonotion] - [#31564]) ([hvv_departures documentation]) (new-integration)
+- Add new Remote Python Debugger integration ([@frenck] - [#36960]) ([debugpy documentation]) (new-integration)
+- Add new humidifier entity integration ([@Shulyaka] - [#28693]) ([humidity documentation]) (new-integration)
 
 ## New Platforms
 
-- Add devolo binary_sensor devices ([@2Fake] - [#36370]) ([devolo_home_control docs]) (new-platform)
-- Add sensor platform for vicare integration (heatpump) ([@crazyfx1] - [#34385]) ([vicare docs]) (breaking-change) (new-platform)
-- Add Withings webhooks ([@vangorra] - [#34447]) ([withings docs]) (new-platform)
-- Light control support to Axis devices ([@Kane610] - [#36611]) ([axis docs]) (new-platform)
-- Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([toon docs]) (breaking-change) (new-platform)
-- Part 2: Add signal sensor ([@ocalvo] - [#34406]) ([sms docs]) (new-platform)
-- Part 3: Add support for incoming sms events ([@ocalvo] - [#37015]) ([sms docs]) (new-platform)
-- Add smappee binary_sensor platform ([@bsmappee] - [#37023]) ([smappee docs]) (new-platform)
+- Add devolo binary_sensor devices ([@2Fake] - [#36370]) ([devolo_home_control documentation]) (new-platform)
+- Add sensor platform for ViCare integration (heatpump) ([@crazyfx1] - [#34385]) ([ViCare documentation]) (breaking-change) (new-platform)
+- Add Withings webhooks ([@vangorra] - [#34447]) ([withings documentation]) (new-platform)
+- Light control support to Axis devices ([@Kane610] - [#36611]) ([Axis documentation]) (new-platform)
+- Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([Toon documentation]) (breaking-change) (new-platform)
+- Part 2: Add signal sensor ([@ocalvo] - [#34406]) ([SMS documentation]) (new-platform)
+- Part 3: Add support for incoming SMS events ([@ocalvo] - [#37015]) ([SMS documentation]) (new-platform)
+- Add smappee binary_sensor platform ([@bsmappee] - [#37023]) ([smappee documentation]) (new-platform)
 
 ## Integrations now available to set up from the UI
 
@@ -169,13 +362,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   ([@balloob] - [#36587]) ([default_config docs]) ([frontend docs]) ([safe_mode docs])
 
-- **Homematic IP Cloud
+- **Homematic IP Cloud**
 
   The HMIP-MOD-TM devices will get a new unique ID due to a merge of the implementation with new HMIP-MOD-HO. So check your dashboards, scripts, automation, ... and use the newly created device/entity. The old device can be deleted under the device section in Home Assistant.
 
   ([@SukramJ] - [#36595]) ([homematicip_cloud docs])
 
-- **Sppedtestdotnet
+- **Sppedtest.net**
 
   This integration is now configured through the UI. To successfully import from `configuration.yaml` please remove `monitored_conditions`. If `server_id` is mentioned it will check against the list of servers before importing.
 
