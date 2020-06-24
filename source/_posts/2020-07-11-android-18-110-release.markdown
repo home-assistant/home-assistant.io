@@ -2,8 +2,8 @@
 layout: post
 title: "Home Assistant Companion for Android 1.8 - 1.10"
 description: "Today we're releasing a big update for our Android companion app including lots of improvements to notifications, biometrics support and a new geocoded sensor."
-date: 2020-03-11 00:00:00
-date_formatted: "July 11, 2020"
+date: 2020-06-18 00:00:00
+date_formatted: "June 18, 2020"
 author: Daniel Shokouhi
 comments: true
 categories: Release-Notes
