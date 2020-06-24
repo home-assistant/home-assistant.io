@@ -56,44 +56,274 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Add config flow for Tile ([@bachya] - [#36173]) ([tile docs]) (breaking-change)
-- panel_custom: Allow ES5+latest build, deprecate html ([@balloob] - [#36464]) ([panel_custom docs]) (breaking-change)
-- Add Avri config flow ([@timvancann] - [#34288]) ([avri docs]) (breaking-change)
-- Arcam config flow ([@elupus] - [#34384]) ([arcam_fmj docs]) (breaking-change)
-- Fix usage of states 'idle' and 'standby' for Android TV ([@JeffLIrion] - [#36509]) ([androidtv docs]) (breaking-change)
-- Add Xiaomi miio vaccum goto service ([@jthure] - [#35737]) ([xiaomi_miio docs]) (breaking-change)
-- Remove EU code from honeywell integration ([@jhenkens] - [#36456]) ([honeywell docs]) (breaking-change)
-- Clean up command learning in the Broadlink integration ([@felipediel] - [#36318]) ([broadlink docs]) (breaking-change)
-- Mark config dependency of frontend ([@balloob] - [#36587]) ([default_config docs]) ([frontend docs]) ([safe_mode docs]) (breaking-change)
-- Bump dependency & add devices for HomematicIP Cloud ([@SukramJ] - [#36595]) ([homematicip_cloud docs]) (breaking-change)
-- Add Speedtestdotnet config_flow ([@engrbm87] - [#36254]) ([speedtestdotnet docs]) (breaking-change)
-- Drop ZHA sensor for Analog/Multistate input clusters ([@Adminiuga] - [#36696]) ([zha docs]) (breaking-change)
-- Remove Yeelight model to device type mapping ([@zewelor] - [#36658]) ([yeelight docs]) (breaking-change)
-- Add sensor platform for vicare integration (heatpump) ([@crazyfx1] - [#34385]) ([vicare docs]) (breaking-change) (new-platform)
-- Add alarmdecoder brand specific arming sequences ([@ajschmidt8] - [#36692]) ([alarmdecoder docs]) (breaking-change)
-- Convert MetOffice to use UI for configuration ([@MrHarcombe] - [#34900]) ([metoffice docs]) (breaking-change)
-- Remove context_id from logbook api ([@bdraco] - [#36796]) ([alexa docs]) ([automation docs]) ([homekit docs]) ([logbook docs]) ([recorder docs]) ([script docs]) (breaking-change)
-- DenonAVR Config Flow ([@starkillerOG] - [#35255]) ([denonavr docs]) (breaking-change)
-- Renew Smappee (sensors and switches) ([@bsmappee] - [#36445]) ([smappee docs]) (breaking-change)
-- Improve db performance of state change events and reduce overall db size ([@bdraco] - [#36883]) ([logbook docs]) ([recorder docs]) (breaking-change)
-- Refactor / update Awair integration ([@ahayworth] - [#34394]) ([awair docs]) (breaking-change)
-- Support Hydrawise API v1.4 ([@ptcryan] - [#34448]) ([hydrawise docs]) (breaking-change)
-- Make recorder execute avoid native conversion by default ([@bdraco] - [#36938]) ([history docs]) ([plant docs]) ([recorder docs]) ([statistics docs]) (breaking-change)
-- Add Xiaomi Aqara Config Flow ([@starkillerOG] - [#35595]) ([discovery docs]) ([xiaomi_aqara docs]) (breaking-change)
-- User defined profile name for Withings ([@vangorra] - [#36864]) ([withings docs]) (breaking-change)
-- Remove lockitron integration ([@frenck] - [#37012]) ([lockitron docs]) (breaking-change)
-- Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([toon docs]) (breaking-change) (new-platform)
-- Remove loading of legacy translations ([@ludeeus] - [#37021]) (breaking-change)
-- Remove embedded MQTT broker ([@emontnemery] - [#37032]) ([mqtt docs]) (breaking-change)
-- Optimize database indexes for existing queries ([@bdraco] - [#37036]) ([history docs]) ([recorder docs]) (breaking-change)
-- Drop MQTT broker tls_version parameter ([@emontnemery] - [#37033]) ([mqtt docs]) (breaking-change)
-- Remove support for deprecated hidden attribute from logbook and history ([@bdraco] - [#37039]) ([history docs]) ([logbook docs]) (breaking-change)
+- **Tile**
+
+  This is now available to be configured from the Integrations UI. The entity IDs have changed to reflect the human-friendly name of the Tile (as defined in the Tile mobile app). Please update your automations/etc. accordingly.
+  
+  ([@bachya] - [#36173]) ([tile docs]) 
+
+- **Panel_Custom**
+  
+  Specifying custom panels based on HTML imports is being deprecated and will be removed in a future version.
+
+  ([@balloob] - [#36464]) ([panel_custom docs]) 
+
+
+- **Avri**
+  
+  This is now available to be configured from the Integrations UI. Remove the integration from configuration.yaml and re-add it in the UI.
+  
+  ([@timvancann] - [#34288]) ([avri docs]) 
+
+- **Arcam**
+  
+  This is now available to be configured from the Integrations UI. Remove the integration fromconfiguration.yaml and re-add it in the UI. To support turn_on action, you will need to setup an automation based on an exposed event from the integration. This can be accomplished via device actions.
+
+  ([@elupus] - [#34384]) ([arcam_fmj docs]) 
+
+- **Android TV**
+  
+  Usage of the states 'idle' and 'standby' are switched for the Android TV integration to be consistent with other media players. User-provided custom state detection rules are not affected.
+  
+  ([@JeffLIrion] - [#36509]) ([androidtv docs]) 
+
+- **Xiaomi Miio**
+  
+  Due to general code updates to the xiaomi_miio vacuum component there are breaking changes to the existing services
+
+  - xiaomi_miio.vacuum_remote_control_start
+  - xiaomi_miio.vacuum_remote_control_stop
+  - xiaomi_miio.vacuum_remote_control_move
+  - xiaomi_miio.vacuum_remote_control_move_step
+  - xiaomi_miio.vacuum_clean_zone
+
+  These all now requirethat either `entity_id` or `area_id` are passed when calling the service. You need to update all usages (such as automations and scripts) of these services which do not already pass `entity_id` or `area_id`. For example, change the existing automation:
+  
+  ```yaml
+  automation:
+    - alias: Test vacuum zone
+      trigger:
+      - event: start
+        platform: homeassistant
+      condition: []
+      action:
+      - service: xiaomi_miio.vacuum_clean_zone
+        data_template:
+          repeats: '{{states('input_number.vacuum_passes')|int}}'
+          zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
+  ```
+  to
+
+  ```yaml
+  automation:
+    - alias: Test vacuum zone
+      trigger:
+      - event: start
+        platform: homeassistant
+      condition: []
+      action:
+      - service: xiaomi_miio.vacuum_clean_zone
+        data_template:
+          entity_id: vacuum.xiaomi_vacuum
+          repeats: '{{states('input_number.vacuum_passes')|int}}'
+          zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
+  ```
+
+  ([@jthure] - [#35737]) ([xiaomi_miio docs]) 
+
+- **Honeywell Total Connect Comfort**
+  
+  Remnants of EU integration for honeywell thermostats have been removed. As the integration was already removed for EU, all consumers should already be US integrations. Existing configurations should remove `region:` lines from their `climate:honeywell` configuration sections.
+  
+  ([@jhenkens] - [#36456]) ([honeywell docs]) 
+
+- **Broadlink**
+  
+  The timeout option has been removed from the command learning service because it does not work properly. The device has a fixed timeout of 30 secs, which cannot be changed.
+  
+  To adapt to these changes, users need to remove `timeout: num_secs` from calls to the `broadlink.learn_command` service.
+
+  ([@felipediel] - [#36318]) ([broadlink docs]) 
+
+- **Frontend**
+  
+  The config integration will always be loaded if you load the frontend integration. The config panel can no longer be disabled.
+  
+  ([@balloob] - [#36587]) ([default_config docs]) ([frontend docs]) ([safe_mode docs])
+
+- **Homematic IP Cloud
+  
+  The HMIP-MOD-TM devices will get a new unique_id due to a merge of the implementation with new HMIP-MOD-HO. So check your dashboards, scripts, automation, ... and use the newly created device/entity. The old device can be deleted under the device section in Home Assistant.
+  
+  ([@SukramJ] - [#36595]) ([homematicip_cloud docs])
+
+- **Sppedtestdotnet
+  
+  This integration is now configured through the UI. To successfully import from `configuration.yaml` please remove `monitored_conditions`. If `server_id` is mentioned it will check against the list of servers before importing.
+  
+  ([@engrbm87] - [#36254]) ([speedtestdotnet docs])
+
+- **ZHA**
+  
+  ZHA sensors corresponding to `AnalogInput` and `MultistateInput` Zigbee clusters have been dropped. These are mostly seen in Aqara vibration/cube devices which are pretty much stateless, so remove entities and rely on `zha_events` instead.
+  
+  ([@Adminiuga] - [#36696]) ([zha docs])
+
+- **Yeelight**
+
+  It is no longer be possible to override `device_type` via model from config, to force some supported features. For example force ceiling light into generic light etc. Now it will only be used for yeelight lib, to get correct color temp ranges. It still possible to pass declared model to yeelight lib to get correct temp ranges support.
+  
+  ([@zewelor] - [#36658]) ([yeelight docs])
+
+- **Viessmann ViCare**
+  
+  Removed existing attributes from the climate entity which are now available as separate sensors. If you were using one of the following attributes, you must migrate to the new sensors. The sensors are created automatically.
+
+  For all heating types:
+  
+   - `supply_temperature`
+   - `outside_temperature`
+   - `circulationpump_active`
+  
+  For heating type `gas`:
+  
+   - `burner_modulation`
+   - `boiler_temperature`
+
+  For heating type: `heatpump`:
+
+   - `return_temperature`
+
+([@crazyfx1] - [#34385]) ([vicare docs]) (new-platform)
+
+- **Alarmdecoder**
+
+Previously the `autobypass` configuration option only worked for `home` and `away` arming. It now works for `night` arming also. Review the alarmdecoder integration docs to make sure the `autobypass` option is configured to your preference.
+
+([@ajschmidt8] - [#36692]) ([alarmdecoder docs])
+
+- **Met Office**
+
+  This is now available to be configured from the Integrations UI. You will need to ensure you keep a copy of the DataPoint API key handy to re-enable the integration in your server. The location being forecast is, by default, taken as the location of the server, so again if you were forecasting other locations you will need to have those GPS co-ordinates to hand, to re-enter them when configuring new integrations through the UI.
+  
+  ([@MrHarcombe] - [#34900]) ([metoffice docs])
+
+- **Logbook**
+   
+   Changes have been made which improve db performance of state change events and reduce overall db size.
+
+   - `context_id` has been removed from the logbook api.
+
+   - Remove old/new state data from state change event data since it can now be found by a join of the states table. This change avoids duplicate storage of the state in the events table.
+
+   - Remove support for the deprecated hidden attribute from logbook and history.
+
+   Examples showing how to find the old and new state have been provided in the States (https://data.home-assistant.io/docs/states) and Events (https://data.home-assistant.io/docs/events) documentation.
+  
+   ([@bdraco] - [#36796], [#36883], [#37039]) ([alexa docs]) ([automation docs]) ([homekit docs]) ([logbook docs]) ([recorder docs]) ([history docs]) ([script docs])
+
+- **Recorder** 
+  
+  Entity_id validation now default to on when converting states to native. To disable validation when converting states to native, pass `validate_entity_id=False` to `to_native` or when using `execute` with `to_native=True`, pass `validate_entity_ids=False`
+
+  Context ids are no longer duplicated in the `states` table. Join the `events` table on `state.event_id` to `events.event_id` to find the context_id instead.
+  
+  ([@bdraco] - [#36938], [#37036]) ([history docs]) ([plant docs]) ([recorder docs]) ([statistics docs])
+
+
+- **Denon AVR Network Receivers**
+
+  This is now available to be configured from the Integrations UI. Please remove the denonavr platform from your configuration.yaml file. Denon and Marantz receivers should be discovered automatically and show up under "Configuration"-> "Integrations", from there click on configure and go through the steps. All previous setting options are still available during this setup.
+  If your receiver does not show up automatically, go to "Configuration"-> "Integrations"-> press the "+" icon -> search for "denonavr" and enter the setup.
+
+  ([@starkillerOG] - [#35255]) ([denonavr docs])
+
+- **Smapee**
+  
+  The Smappee integration has been completely renewed with dev API v3 to support all types of Smappee monitors (Energy, Solar, Pro, Plus, Genius, Connect, P1S1 module) and switches (Comfort plug, Switch). Existing old entities will still be available in this new integration, but their unique IDs will have changed. Users will need to remove the old remaining entries from the entity registry.
+  
+  The configuration.yaml file now only requires the `client_id` and `client_secret`. The username and password will be asked with the new oauth2 helper redirect. Please check the documentation for the details how to set up the integration.
+
+  Example YAML configuration:
+  
+  ```yaml
+  smappee:
+    client_id: 1234
+    client_secret: 5678
+  ```
+
+  ([@bsmappee] - [#36445]) ([smappee docs])
+
+- **Awair**
+
+  The Awair integration is now configured from the UI, but YAML configuration will be automatically imported for you. The integration no longer supports listing specific devices to monitor, because the Awair API rate-limits now apply on a per-device basis, rather than per-account. If you do not wish for a device to show up in the UI, simply disable its entities from the integration page.
+
+  Additionally, the Awair integration no longer sets custom "device_class" attributes for non-standard sensors (such as the "Awair Score" sensor). This does not affect the operation of the sensors, but if you relied on these non-standard values in your configuration you may need to make adjustments.Refactor / update Awair integration
+  
+  ([@ahayworth] - [#34394]) ([awair docs])
+
+- **Hunter Hydrawise**
+
+  Hydrawise made an API change that removed rain sensor status, changed the behavior of the automatic watering switches, and the way in which the watering schedule is reported. As a result, the following breaking changes were made.
+
+  - The rain sensor is no longer available.
+  - The `auto_watering` switch state now reports `off` when the corresponding watering zone is actively watering. If `auto_watering` is enabled the switch status will report `off` when watering starts and will return to `on` when watering stops in that zone.
+  - The `next_cycle` sensor date & time state string is now reported in UTC ISO format, e.g., 2020-06-18T13:52:27+0000. Suspended zones no longer report `not_scheduled`.
+  
+  ([@ptcryan] - [#34448]) ([hydrawise docs])
+
+
+- **Xiaomi Gateway (Aqara)**
+
+  YAML configuration of the xiaomi_aqara component has been deprecated, please remove the xiaomi_aqara platform from your configuration.yaml file.
+
+  Xiaomi Aqara Gateways schould be discovered automatically and show up under "Configuration"-> "Integrations", from there click on configure and go through the steps.
+  If your Xiaomi Aqara Gateway does not show up automatically, go to "Configuration"-> "Integrations"-> press the "+" icon -> search for "xiaomi_aqara" and enter the setup. If no key is provided during setup, only the binary_sensor and sensor platforms will be available. A key is required to activate the other platforms.Add Xiaomi Aqara Config Flow
+  
+  ([@starkillerOG] - [#35595]) ([discovery docs]) ([xiaomi_aqara docs])
+
+- **Withings**
+
+  Withings "profiles" yaml configuration is no longer supported and has been moved into ui-based configuration.
+  
+  ([@vangorra] - [#36864]) ([withings docs])
+
+
+- **Toon**
+
+  The Toon integration has been rewritten to support the new authentication methods from Eneco/Electrabel and Viesgo. After upgrading, go to the integrations panel, to re-authenticate the integration.
+
+  The `scan_interval` YAML configuration option has been deprecated. It is no longer used as this integration is now push-based. If you have it configured, please remove it from your configuration.
+
+  The "Holiday Mode" & "Toon Program" binary sensors have been replaced by a "Holiday Mode" and "Thermostat Program" switch, thus having new entities. You may need to adjust your automations if you used those in that.
+
+  Service `toon.update` has been removed, it is no longer needed as this is now a push-based integration. Please make sure you remove those from your automations.
+  
+  ([@frenck] - [#36952]) ([toon docs]) (new-platform)
+
+- **HACS**
+
+  This breaking change applies to maintainers and users of custom integrations (custom_components) that have used the `.translations` directory for translations, as previously warned that directory is no longer loaded.
+  The new name for this directory is `translations` (without the `.` prefix), for Home Assistant to be able to load your files from this directory, simply remove the `.` from the name of it.
+
+  If you publish your custom integration to GitHub, you should enable the [`hassfest` action](https://developers.home-assistant.io/blog/2020/04/16/hassfest), this would have warned you about this change in the previous 3 releases.
+  
+  ([@ludeeus] - [#37021])
+
+- **MQTT**
+  
+  - The embedded MQTT broker which has been marked as deprecated for the past year has now been removed.
+
+  - Remove MQTT broker `tls_version` parameter and instead rely on auto negotiation.
+  
+  ([@emontnemery] - [#37032], [#37033]) ([mqtt docs])
 
 ## Farewell to the following
 
 The integrations below have been removed:
 
-- Lorem ipsum
+- Lockitron (platform is decommissioned) ([@frenck] - [#37012])
+- Fortigate (replaced by FortiOS integration) ([@kifeo] - [#34586])
 
 ## All changes
 
