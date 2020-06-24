@@ -121,49 +121,8 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 </div>
 
-### Embedded broker (Deprecated)
-
-Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
-
-| Setting        | Value                              |
-| -------------- | ---------------------------------- |
-| Host           | localhost                          |
-| Port           | 1883                               |
-| Protocol       | 3.1.1                              |
-| User           | `homeassistant`                    |
-| Password       | _password set under MQTT settings_ |
-| Websocket port | 8080                               |
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  password: hello
-```
-
-<div class='note warning'>
-As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the functionality may be removed in a future release.
-</div>
-
-<div class='note warning'>
-
-There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
-
-</div>
-
 #### Owntracks
 
 To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).
 
-In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.
-
-#### Settings
-
-If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  embedded:
-    # Your HBMQTT config here. Example at:
-    # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
-```
+In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.
