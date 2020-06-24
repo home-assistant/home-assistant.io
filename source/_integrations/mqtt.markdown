@@ -29,20 +29,6 @@ mqtt:
   broker: IP_ADDRESS_BROKER
 ```
 
-You can also use the [embedded MQTT broker](/docs/mqtt/broker#embedded-broker-deprecated). A separate broker is advised for more stability.
-
-<div class='note warning'>
-As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the broker functionality will be removed in a future release.
-</div>
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  password: hello
-```
-
-This allows you to connect to the MQTT broker with user `homeassistant` and password `hello`.
-
 ## Additional features
 
 - [Certificate](/docs/mqtt/certificate/)
