@@ -29,7 +29,7 @@ Add `--restart=always` to your `docker run` command before homeassistant/home-as
 ### Linux
 
 ```bash
-docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable
+docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable
 ```
 
 Updating:
