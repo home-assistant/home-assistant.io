@@ -38,7 +38,7 @@ Updating:
 docker pull homeassistant/home-assistant:stable  # if this returns "Image is up to date" then you can stop here
 docker stop home-assistant  # stop the running container
 docker rm home-assistant  # remove it from Docker's list of containers
-docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable  # finally, start a new one
+docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable  # finally, start a new one
 ```
 
 ### Raspberry Pi 3 (Raspberry Pi OS)
