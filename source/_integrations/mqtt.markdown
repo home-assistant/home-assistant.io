@@ -51,4 +51,3 @@ This allows you to connect to the MQTT broker with user `homeassistant` and pass
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
-- [Processing JSON](/docs/mqtt/processing_json/)
