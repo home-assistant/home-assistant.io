@@ -33,6 +33,7 @@ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v 
 ```
 
 Updating:
+
 ```bash
 docker pull homeassistant/home-assistant:stable  # if this returns "Image is up to date" then you can stop here
 docker stop home-assistant  # stop the running container
