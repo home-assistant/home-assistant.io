@@ -26,7 +26,7 @@ logbook:
 
 {% configuration %}
 exclude:
-  description: "Configure which integrations should **not** create logbook entries."
+  description: "Configure which integrations should **not** create logbook entries. ([Configure Filter](#configure-filter))"
   required: false
   type: map
   keys:
@@ -34,12 +34,16 @@ exclude:
       description: The list of entity ids to be excluded from creating logbook entries.
       required: false
       type: list
+    entity_globs:
+      description: Exclude all entities matching a listed pattern from creating logbook entries (e.g., `sensor.weather_*`).
+      required: false
+      type: list
     domains:
       description: The list of domains to be excluded from creating logbook entries.
       required: false
       type: list
 include:
-  description: Configure which integrations should create logbook entries.
+  description: Configure which integrations should create logbook entries. ([Configure Filter](#configure-filter))
   required: false
   type: map
   keys:
@@ -47,11 +51,57 @@ include:
       description: The list of entity ids to be included in creating logbook entries.
       required: false
       type: list
+    entity_globs:
+      description: Include all entities matching a listed pattern when creating logbook entries (e.g., `sensor.weather_*`).
+      required: false
+      type: list
     domains:
       description: The list of domains to be included in creating logbook entries.
       required: false
       type: list
 {% endconfiguration %}
+
+## Configure Filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
+
+{% raw %}
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+logbook:
+  include:
+    domains:
+      - alarm_control_panel
+      - light
+    entity_globs:
+      - binary_sensor.*_occupancy
+  exclude:
+    entities:
+      - light.kitchen_light
+```
+
+{% endraw %}
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   - Include domain and/or glob patterns specified
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
+
+### Common filtering examples
 
 If you want to exclude messages of some entities or domains from the logbook
 just add the `exclude` parameter like:
@@ -63,6 +113,8 @@ logbook:
     entities:
       - sensor.last_boot
       - sensor.date
+    entity_globs:
+      - sensor.weather_*
     domains:
       - sun
 ```
@@ -96,6 +148,8 @@ logbook:
     entities:
       - sensor.last_boot
       - sensor.date
+    entity_globs:
+      - sensor.weather_*
 ```
 
 ### Exclude Events

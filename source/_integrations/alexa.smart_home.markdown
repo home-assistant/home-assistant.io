@@ -228,6 +228,8 @@ alexa:
       include_entities:
         - light.kitchen
         - light.kitchen_left
+      include_entity_globs:
+        - binary_sensor.*_motion
       include_domains:
         - switch
       exclude_entities:
@@ -273,7 +275,7 @@ alexa:
           required: false
           type: string
         filter:
-          description: Filter domains and entities for Alexa.
+          description: Filter domains and entities for Alexa. ([Configure Filter](#configure-filter))
           required: true
           type: map
           keys:
@@ -283,6 +285,14 @@ alexa:
               type: list
             exclude_domains:
               description: List of domains to exclude (e.g., `light`).
+              required: false
+              type: list
+            include_entity_globs:
+              description: Include all entities matching a listed pattern (e.g., `binary_sensor.*_motion`).
+              required: false
+              type: list
+            exclude_entity_globs:
+              description: Exclude all entities matching a listed pattern (e.g., `binary_sensor.*_motion`).
               required: false
               type: list
             include_entities:
@@ -356,13 +366,15 @@ By default, no entity will be excluded. To limit which entities are being expose
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 alexa:
-    smart_home:
-      filter:
-        include_domains:
-          - alarm_control_panel
-          - light
-        exclude_entities:
-          - light.kitchen_light
+  smart_home:
+    filter:
+      include_domains:
+        - alarm_control_panel
+        - light
+      include_entity_globs:
+        - binary_sensor.*_occupancy
+      exclude_entities:
+        - light.kitchen_light
 ```
 
 {% endraw %}
@@ -373,16 +385,17 @@ Filters are applied as follows:
 2. Includes, no excludes - only include specified entities
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
-   - Include domain specified
-      - if domain is included, and entity not excluded, pass
-      - if domain is not included, and entity not included, fail
-   - Exclude domain specified
-      - if domain is excluded, and entity not included, fail
-      - if domain is not excluded, and entity not excluded, pass
-      - if both include and exclude domains specified, the exclude domains are ignored
-   - Neither include or exclude domain specified
-      - if entity is included, pass (as #2 above)
-      - if entity include and exclude, the entity exclude is ignored
+   - Include domain and/or glob patterns specified
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
 
 See the [troubleshooting](#troubleshooting) if for issues setting up the integration.
 
