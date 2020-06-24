@@ -169,3 +169,24 @@ sensor:
         unit_of_measurement: 'kWh'
 ```
 {% endraw %}
+
+## Increase Polling Frequency
+
+Homeassistant deprecated the 'scan_interval' setting.  TP Link devices seem to be particularly affected by this change as many users report TP Link devices take upwards of 15-30 seconds to respond to automations.  If you find that the automatically determined polling frequency is too low  you can set an automation to poll specific devices at a user defined frequency with the following automation.
+
+{% raw %}
+```yaml
+# automations.yaml
+- id: update_tp_link
+  initial_state: 'on'
+  trigger:
+    - platform: time_pattern
+      seconds: '/5' # every 5 seconds
+  action:
+    - service: homeassistant.update_entity
+      data:
+        entity_id: 
+          - light.tp_link_light
+          - switch.tp_link_switch
+```
+{% endraw %}
