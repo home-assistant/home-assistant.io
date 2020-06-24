@@ -72,7 +72,7 @@ recorder:
           required: false
           type: list
         entity_globs:
-          description: Exclude all entities matching a listed pattern from recordings (e.g. `sensor.weather_*`).
+          description: Exclude all entities matching a listed pattern from recordings (e.g., `sensor.weather_*`).
           required: false
           type: list
         entities:
@@ -93,7 +93,7 @@ recorder:
           required: false
           type: list
         entity_globs:
-          description: Include all entities matching a listed pattern from recordings (e.g. `sensor.weather_*`).
+          description: Include all entities matching a listed pattern from recordings (e.g., `sensor.weather_*`).
           required: false
           type: list
         entities:
@@ -131,16 +131,16 @@ Filters are applied as follows:
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
    - Include domain and/or glob patterns specified
-      - if domain is included, and entity not excluded or match exclude glob pattern, pass
-      - if entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - if domain is not included, glob pattern does not match, and entity not included, fail
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
    - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - if domain is excluded and entity not included, fail
-      - if entity matches exclude glob pattern and entity not included, fail
-      - if entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
    - Neither include or exclude specifies domains or glob patterns
-      - if entity is included, pass (as #2 above)
-      - if entity include and exclude, the entity exclude is ignored
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
 
 If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 

@@ -33,7 +33,7 @@ filter:
       required: false
       type: list
     exclude_entity_globs:
-      description: Exclude all entities matching a listed pattern (e.g. `sensor.weather_*`).
+      description: Exclude all entities matching a listed pattern (e.g., `sensor.weather_*`).
       required: false
       type: list
     exclude_domains:
@@ -45,7 +45,7 @@ filter:
       required: false
       type: list
     include_entity_globs:
-      description: Include all entities matching a listed pattern (e.g. `sensor.weather_*`). If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
+      description: Include all entities matching a listed pattern (e.g., `sensor.weather_*`). If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
       required: false
       type: list
     include_domains:
@@ -54,7 +54,7 @@ filter:
       type: list
 default_metric:
   type: string
-  description: Metric name to use when an entity doesn't have a unit. 
+  description: Metric name to use when an entity doesn't have a unit.
   required: false
   default: uses the entity id of the entity
 override_metric:
@@ -79,7 +79,7 @@ component_config_domain:
       type: string
       description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
       required: false
-component_config_glob: 
+component_config_glob:
   type: string
   required: false
   description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
@@ -119,16 +119,16 @@ Filters are applied as follows:
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
    - Include domain and/or glob patterns specified
-      - if domain is included, and entity not excluded or match exclude glob pattern, pass
-      - if entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - if domain is not included, glob pattern does not match, and entity not included, fail
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
    - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - if domain is excluded and entity not included, fail
-      - if entity matches exclude glob pattern and entity not included, fail
-      - if entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
    - Neither include or exclude specifies domains or glob patterns
-      - if entity is included, pass (as #2 above)
-      - if entity include and exclude, the entity exclude is ignored
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
 
 ## Full Example
 
