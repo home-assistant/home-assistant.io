@@ -39,6 +39,8 @@ Lorem ipsum
 - Light control support to Axis devices ([@Kane610] - [#36611]) ([axis docs]) (new-platform)
 - Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([toon docs]) (breaking-change) (new-platform)
 - Part 2: Add signal sensor ([@ocalvo] - [#34406]) ([sms docs]) (new-platform)
+- Part 3: Add support for incoming sms events ([@ocalvo] - [#37015]) ([sms docs]) (new-platform)
+- Add smappee binary_sensor platform ([@bsmappee] - [#37023]) ([smappee docs]) (new-platform)
 
 ## Integrations now available to set up from the UI
 
@@ -49,6 +51,7 @@ The following integrations are now available via the Home Assistant UI:
 - [Awair][awair docs], done by [@ahayworth]
 - [DenonAVR][denonavr docs], done by [@starkillerOG]
 - [MetOffice][metoffice docs], done by [@MrHarcombe]
+- [Plum Lightpad][plum_lightpad docs], done by [@prystupa]
 - [Smappee][smappee docs], done by [@bsmappee]
 - [SMS notifications via GSM-modem][sms docs], done by [@ocalvo]
 - [Speedtest.net][speedtestdotnet docs], done by [@engrbm87]
@@ -510,7 +513,7 @@ The integrations below have been removed:
 - Set Plex media_player discovery source as an attribute ([@jjlawren] - [#36884]) ([plex docs])
 - Add new Remote Python Debugger integration ([@frenck] - [#36960]) ([debugpy docs]) (new-integration)
 - Reduce state conversion overhead in history by lazy loading properties ([@bdraco] - [#36963]) ([history docs]) ([plant docs]) ([recorder docs]) ([statistics docs])
-- Squeezebox config flow ([@rajlaud] - [#35669]) ([discovery docs]) ([squeezebox docs])
+- Squeezebox config flow ([@rajlaud] - [#35669]) ([discovery docs]) ([squeezebox docs]) (breaking-change)
 - Add NetdataAlarms sensor to additionally collect alarm information ([@jurgenhaas] - [#34339]) ([netdata docs])
 - Bump python-ecobee-api to 0.2.7 ([@marthoc] - [#37002]) ([ecobee docs])
 - Upgrade numpy to 1.19.0 ([@frenck] - [#36996]) ([iqvia docs]) ([opencv docs]) ([tensorflow docs]) ([trend docs])
@@ -557,10 +560,25 @@ The integrations below have been removed:
 - Drop MQTT broker tls_version parameter ([@emontnemery] - [#37033]) ([mqtt docs]) (breaking-change)
 - Bump Plugwise_Smile to v1.1.0 ([@bouwew] - [#37038]) ([plugwise docs])
 - Remove support for deprecated hidden attribute from logbook and history ([@bdraco] - [#37039]) ([history docs]) ([logbook docs]) (breaking-change)
+- Fix typo in roku services description ([@ctalkington] - [#37042]) ([roku docs])
+- Toon translation updates + tweaks ([@frenck] - [#37043]) ([toon docs])
+- Complete deprecation of hidden attribute (ATTR_HIDDEN) ([@bdraco] - [#37041]) ([alert docs]) ([datadog docs]) ([zone docs]) (breaking-change)
+- Add resource_template to rest binary_sensor ([@Hedgehog57] - [#30703]) ([rest docs])
+- Remove fortigate integration ([@kifeo] - [#34586]) ([fortigate docs]) (breaking-change)
+- Add humidifier reproduce state ([@Shulyaka] - [#36799]) ([humidifier docs])
+- Updated frontend to 20200623.3 ([@balloob] - [#37045]) ([frontend docs])
+- Part 3: Add support for incoming sms events ([@ocalvo] - [#37015]) ([sms docs]) (new-platform)
+- Add support for glob matching to entity filters ([@mdegat01] - [#36913]) ([logbook docs]) ([recorder docs]) (breaking-change)
+- Add Plum Lightpad config flow ([@prystupa] - [#36802]) ([plum_lightpad docs])
+- Handle unexpected versions in forked_daapd zeroconf ([@uvjustin] - [#37053]) ([forked_daapd docs])
+- Add smappee binary_sensor platform ([@bsmappee] - [#37023]) ([smappee docs]) (new-platform)
+- Fix rest to use BinarySensorEntity ([@frenck] - [#37054]) ([rest docs])
+- Fix LCN cover behavior when using output ports ([@alengwenus] - [#37034]) ([lcn docs])
 
 </details>
 
 [#28693]: https://github.com/home-assistant/core/pull/28693
+[#30703]: https://github.com/home-assistant/core/pull/30703
 [#31564]: https://github.com/home-assistant/core/pull/31564
 [#34053]: https://github.com/home-assistant/core/pull/34053
 [#34288]: https://github.com/home-assistant/core/pull/34288
@@ -575,6 +593,7 @@ The integrations below have been removed:
 [#34525]: https://github.com/home-assistant/core/pull/34525
 [#34537]: https://github.com/home-assistant/core/pull/34537
 [#34579]: https://github.com/home-assistant/core/pull/34579
+[#34586]: https://github.com/home-assistant/core/pull/34586
 [#34773]: https://github.com/home-assistant/core/pull/34773
 [#34900]: https://github.com/home-assistant/core/pull/34900
 [#34921]: https://github.com/home-assistant/core/pull/34921
@@ -698,7 +717,9 @@ The integrations below have been removed:
 [#36789]: https://github.com/home-assistant/core/pull/36789
 [#36792]: https://github.com/home-assistant/core/pull/36792
 [#36796]: https://github.com/home-assistant/core/pull/36796
+[#36799]: https://github.com/home-assistant/core/pull/36799
 [#36801]: https://github.com/home-assistant/core/pull/36801
+[#36802]: https://github.com/home-assistant/core/pull/36802
 [#36803]: https://github.com/home-assistant/core/pull/36803
 [#36806]: https://github.com/home-assistant/core/pull/36806
 [#36811]: https://github.com/home-assistant/core/pull/36811
@@ -726,6 +747,7 @@ The integrations below have been removed:
 [#36898]: https://github.com/home-assistant/core/pull/36898
 [#36909]: https://github.com/home-assistant/core/pull/36909
 [#36911]: https://github.com/home-assistant/core/pull/36911
+[#36913]: https://github.com/home-assistant/core/pull/36913
 [#36917]: https://github.com/home-assistant/core/pull/36917
 [#36919]: https://github.com/home-assistant/core/pull/36919
 [#36924]: https://github.com/home-assistant/core/pull/36924
@@ -768,20 +790,30 @@ The integrations below have been removed:
 [#37012]: https://github.com/home-assistant/core/pull/37012
 [#37013]: https://github.com/home-assistant/core/pull/37013
 [#37014]: https://github.com/home-assistant/core/pull/37014
+[#37015]: https://github.com/home-assistant/core/pull/37015
 [#37017]: https://github.com/home-assistant/core/pull/37017
 [#37018]: https://github.com/home-assistant/core/pull/37018
 [#37021]: https://github.com/home-assistant/core/pull/37021
+[#37023]: https://github.com/home-assistant/core/pull/37023
 [#37032]: https://github.com/home-assistant/core/pull/37032
 [#37033]: https://github.com/home-assistant/core/pull/37033
+[#37034]: https://github.com/home-assistant/core/pull/37034
 [#37035]: https://github.com/home-assistant/core/pull/37035
 [#37036]: https://github.com/home-assistant/core/pull/37036
 [#37038]: https://github.com/home-assistant/core/pull/37038
 [#37039]: https://github.com/home-assistant/core/pull/37039
+[#37041]: https://github.com/home-assistant/core/pull/37041
+[#37042]: https://github.com/home-assistant/core/pull/37042
+[#37043]: https://github.com/home-assistant/core/pull/37043
+[#37045]: https://github.com/home-assistant/core/pull/37045
+[#37053]: https://github.com/home-assistant/core/pull/37053
+[#37054]: https://github.com/home-assistant/core/pull/37054
 [@2Fake]: https://github.com/2Fake
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@CoMPaTech]: https://github.com/CoMPaTech
 [@Hedda]: https://github.com/Hedda
+[@Hedgehog57]: https://github.com/Hedgehog57
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@Kane610]: https://github.com/Kane610
 [@Leapo]: https://github.com/Leapo
@@ -799,6 +831,7 @@ The integrations below have been removed:
 [@adaamz]: https://github.com/adaamz
 [@ahayworth]: https://github.com/ahayworth
 [@ajschmidt8]: https://github.com/ajschmidt8
+[@alengwenus]: https://github.com/alengwenus
 [@alex3305]: https://github.com/alex3305
 [@auchter]: https://github.com/auchter
 [@avocadio]: https://github.com/avocadio
@@ -845,6 +878,7 @@ The integrations below have been removed:
 [@jthure]: https://github.com/jthure
 [@jurgenhaas]: https://github.com/jurgenhaas
 [@kangyue92]: https://github.com/kangyue92
+[@kifeo]: https://github.com/kifeo
 [@kit-klein]: https://github.com/kit-klein
 [@knyar]: https://github.com/knyar
 [@ktnrg45]: https://github.com/ktnrg45
@@ -876,6 +910,7 @@ The integrations below have been removed:
 [@thomasloven]: https://github.com/thomasloven
 [@timvancann]: https://github.com/timvancann
 [@tomtzeng]: https://github.com/tomtzeng
+[@uvjustin]: https://github.com/uvjustin
 [@vangorra]: https://github.com/vangorra
 [@vigonotion]: https://github.com/vigonotion
 [@z00nx]: https://github.com/z00nx
@@ -888,6 +923,7 @@ The integrations below have been removed:
 [adguard docs]: /integrations/adguard/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
 [alarmdecoder docs]: /integrations/alarmdecoder/
+[alert docs]: /integrations/alert/
 [alexa docs]: /integrations/alexa/
 [ambient_station docs]: /integrations/ambient_station/
 [amcrest docs]: /integrations/amcrest/
@@ -906,6 +942,7 @@ The integrations below have been removed:
 [config docs]: /integrations/config/
 [coronavirus docs]: /integrations/coronavirus/
 [daikin docs]: /integrations/daikin/
+[datadog docs]: /integrations/datadog/
 [ddwrt docs]: /integrations/ddwrt/
 [debugpy docs]: /integrations/debugpy/
 [default_config docs]: /integrations/default_config/
@@ -921,6 +958,8 @@ The integrations below have been removed:
 [environment_canada docs]: /integrations/environment_canada/
 [esphome docs]: /integrations/esphome/
 [fitbit docs]: /integrations/fitbit/
+[forked_daapd docs]: /integrations/forked_daapd/
+[fortigate docs]: /integrations/fortigate/
 [frontend docs]: /integrations/frontend/
 [generic docs]: /integrations/generic/
 [glances docs]: /integrations/glances/
@@ -951,6 +990,7 @@ The integrations below have been removed:
 [kef docs]: /integrations/kef/
 [konnected docs]: /integrations/konnected/
 [lametric docs]: /integrations/lametric/
+[lcn docs]: /integrations/lcn/
 [lockitron docs]: /integrations/lockitron/
 [logbook docs]: /integrations/logbook/
 [lutron_caseta docs]: /integrations/lutron_caseta/
@@ -984,6 +1024,7 @@ The integrations below have been removed:
 [rachio docs]: /integrations/rachio/
 [recorder docs]: /integrations/recorder/
 [remote_rpi_gpio docs]: /integrations/remote_rpi_gpio/
+[rest docs]: /integrations/rest/
 [roku docs]: /integrations/roku/
 [safe_mode docs]: /integrations/safe_mode/
 [script docs]: /integrations/script/
@@ -1023,3 +1064,4 @@ The integrations below have been removed:
 [yamaha docs]: /integrations/yamaha/
 [yeelight docs]: /integrations/yeelight/
 [zha docs]: /integrations/zha/
+[zone docs]: /integrations/zone/
