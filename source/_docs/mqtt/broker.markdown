@@ -12,6 +12,14 @@ This is the most private option, is running your own MQTT broker.
 
 The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
 
+</div>
+
+<div class='note warning'>
+
+There is [an issue](https://github.com/rabbitmq/rabbitmq-mqtt/issues/154) with the RabbitMQ MQTT Plugin which break MQTT message retention. Don't use the RabbitMQ MQTT plugin, instead use another broker like Mosquitto.
+
+</div>
+
 ## Configuration
 
 ```yaml
