@@ -8,6 +8,7 @@ ha_release: 0.112
 ha_config_flow: true
 ha_codeowners:
   - '@vigonotion'
+ha_domain: hvv_departures
 ---
 
 The `hvv_departures` sensor will display the departures of busses, trains and fairies in Hamburg.
