@@ -586,7 +586,7 @@ If you have any iOS 12.x devices signed into your iCloud account, media player e
 
 #### Accessories are all listed as not responding
 
-There are some reports where the IGMP settings of a router were causing issues. With the wrong IGMP settings all accessories will stop responding a few minutes after Home Assistant (re)started. To solve this, turn off your router IGMP settings: **IGMP Proxy**, **IGMP Snooping** and **IGMP Fast Leave**.
+There are reports where the IGMP settings in a router were causing issues with HomeKit. This resulted in a situation where all of the Home Assistant HomeKit accessories stopped responding a few minutes after Home Assistant (re)started. Double check your router's IGPM settings if you experiencing this issue. The default IGMP settings typically work best.
 
 See [specific entity doesn't work](#specific-entity-doesnt-work)
 
