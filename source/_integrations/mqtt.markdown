@@ -37,4 +37,3 @@ mqtt:
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
-- [Processing JSON](/docs/mqtt/processing_json/)
