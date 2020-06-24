@@ -561,7 +561,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move flunearyou imports at top-level ([@Quentame] - [#29096]) ([flunearyou docs])
 - Move folder_watcher imports at top-level ([@Quentame] - [#29095]) ([folder_watcher docs])
 - Move foobot imports at top-level ([@Quentame] - [#29094]) ([foobot docs])
-- Move fortigate imports at top-level ([@Quentame] - [#29093]) ([fortigate docs])
+- Move fortigate imports at top-level ([@Quentame] - [#29093])
 - Move free_mobile imports at top-level ([@Quentame] - [#29092]) ([free_mobile docs])
 - Move dominos imports at top-level ([@Quentame] - [#29090]) ([dominos docs])
 - Move imports to top for uvc ([@springstan] - [#29072]) ([uvc docs])
@@ -1537,7 +1537,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [flunearyou docs]: /integrations/flunearyou/
 [folder_watcher docs]: /integrations/folder_watcher/
 [foobot docs]: /integrations/foobot/
-[fortigate docs]: /integrations/fortigate/
 [free_mobile docs]: /integrations/free_mobile/
 [freebox docs]: /integrations/freebox/
 [fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/

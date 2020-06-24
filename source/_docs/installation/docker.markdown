@@ -22,7 +22,7 @@ Installation with Docker is straightforward. Adjust the following command so tha
 docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
 ```
 
-### Raspberry Pi 3 (Raspbian)
+### Raspberry Pi 3 (Raspberry Pi OS)
 
 ```bash
 docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/raspberrypi3-homeassistant:stable

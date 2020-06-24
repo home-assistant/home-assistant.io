@@ -142,7 +142,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address of the Konnected device with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the `home-assistant.log` for log messages from automatically discovered devices.
+      description: The MAC address (Konnected Alarm Panel) or Device ID (Konnected Alarm Panel Pro) of the Konnected device. MAC addresses must be formatted with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the `home-assistant.log` for log messages from automatically discovered devices. Device ID can be found on the device Status Page which is accessible via the Konnected Mobile App.
       required: true
       type: string
     binary_sensors:
@@ -332,6 +332,9 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | ALARM or OUT               | D8          | 8        | GPIO15       |
 
 ## Revision History
+
+### 0.112
+- Note that Device ID is used for Konnected Alarm Panel Pro and note that it is available on the status page.
 
 ### 0.108
 

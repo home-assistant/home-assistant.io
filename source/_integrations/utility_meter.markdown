@@ -163,7 +163,7 @@ When using the [DSMR component](/integrations/dsmr) to get data from the utility
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
 - `sensor.energy_consumption_tarif_1` for tarif 1 power (for example off-peak)
-- `sensor.energy_consumption_tarif_2` for for tarif 2 power (for example peak)
+- `sensor.energy_consumption_tarif_2` for tarif 2 power (for example peak)
 - `sensor.gas_consumption` for gas consumption
 
 So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` component.
