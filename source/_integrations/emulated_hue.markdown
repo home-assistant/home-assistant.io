@@ -101,7 +101,7 @@ exposed_domains:
   description: The domains that are exposed by default if `expose_by_default` is set to true.
   required: false
   type: list
-  default: [switch, light, group, input_boolean, media_player, fan]
+  default: [switch, light, group, input_boolean, media_player, fan, humidifier]
 entities:
   description: Customization for entities.
   required: false
