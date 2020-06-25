@@ -39,11 +39,6 @@ time_format:
   required: false
   type: string
   default: "%H:%M"
-trim_leading_zero:
-  description: Remove leading zeros, e.g. 9:30 PM instead of 09:30 PM
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
 For valid time zones check the **TZ** column in the [Wikipedia overview](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Or get the full list from the [pytz](https://pypi.python.org/pypi/pytz) module.
