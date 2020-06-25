@@ -18,7 +18,8 @@ The Smappee integration will allow users to integrate their Smappee monitors, pl
 
 ## Configuration
 
-To use the Smappee integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file.  The `client_id` and `client_secret` can be obtained by contacting [support@smappee.com](mailto:support@smappee.com).
+To use the Smappee integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file first.
+Your personal `client_id` and `client_secret` can be obtained by contacting [support@smappee.com](mailto:support@smappee.com).
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,7 +28,7 @@ smappee:
   client_secret: YOUR_CLIENT_SECRET
 ```
 
-Once Home Assistant restarted, go to Configuration > Integrations and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
+Once Home Assistant got restarted, go to Configuration > Integrations and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
 
 {% configuration %}
 client_id:
@@ -39,3 +40,9 @@ client_secret:
   required: true
   type: string
 {% endconfiguration %}
+
+<div class='note'>
+
+If Home Assistant is running in an non local environment, you must make sure that you have configured the `internal_url` and `external_url` in your [configuration](/docs/configuration/basic) in order to complete to OAuth2 config flow.
+
+</div>
