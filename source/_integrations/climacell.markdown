@@ -65,7 +65,7 @@ forecast_type:
   type: string
   default: daily
 timestep:
-  description: The number of minutes between forecasts when `forecast_type` is `nowcast`.
+  description: The number of minutes (1-60) between forecasts when `forecast_type` is `nowcast`. The number of forecasts provided will be dependent on the number of minutes chosen between forecasts, but the maximum number of forecasts is 30 and the maximum overall forecast period is 5 hours.
   required: false
   type: integer
   default: 15
