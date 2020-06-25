@@ -219,21 +219,21 @@ release, this attribute has been completely removed from the system.
 
 ## New Integrations
 
-- Add notify_events notify integration ([@papajojo] - [#36049]) ([notify_events documentation]) (new-integration)
-- Add HVV integration (Hamburg public transportation) ([@vigonotion] - [#31564]) ([hvv_departures documentation]) (new-integration)
-- Add new Remote Python Debugger integration ([@frenck] - [#36960]) ([debugpy documentation]) (new-integration)
-- Add new humidifier entity integration ([@Shulyaka] - [#28693]) ([humidity documentation]) (new-integration)
+- Add notify_events notify integration ([@papajojo] - [#36049]) ([notify_events docs]) (new-integration)
+- Add HVV integration (Hamburg public transportation) ([@vigonotion] - [#31564]) ([hvv_departures docs]) (new-integration)
+- Add new Remote Python Debugger integration ([@frenck] - [#36960]) ([debugpy docs]) (new-integration)
+- Add new humidifier entity integration ([@Shulyaka] - [#28693]) ([humidity docs]) (new-integration)
 
 ## New Platforms
 
-- Add devolo binary_sensor devices ([@2Fake] - [#36370]) ([devolo_home_control documentation]) (new-platform)
-- Add sensor platform for ViCare integration (heatpump) ([@crazyfx1] - [#34385]) ([ViCare documentation]) (breaking-change) (new-platform)
-- Add Withings webhooks ([@vangorra] - [#34447]) ([withings documentation]) (new-platform)
-- Light control support to Axis devices ([@Kane610] - [#36611]) ([Axis documentation]) (new-platform)
-- Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([Toon documentation]) (breaking-change) (new-platform)
-- Part 2: Add signal sensor ([@ocalvo] - [#34406]) ([SMS documentation]) (new-platform)
-- Part 3: Add support for incoming SMS events ([@ocalvo] - [#37015]) ([SMS documentation]) (new-platform)
-- Add smappee binary_sensor platform ([@bsmappee] - [#37023]) ([smappee documentation]) (new-platform)
+- Add devolo binary_sensor devices ([@2Fake] - [#36370]) ([devolo_home_control docs]) (new-platform)
+- Add sensor platform for ViCare integration (heatpump) ([@crazyfx1] - [#34385]) ([ViCare docs]) (breaking-change) (new-platform)
+- Add Withings webhooks ([@vangorra] - [#34447]) ([withings docs]) (new-platform)
+- Light control support to Axis devices ([@Kane610] - [#36611]) ([Axis docs]) (new-platform)
+- Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([Toon docs]) (breaking-change) (new-platform)
+- Part 2: Add signal sensor ([@ocalvo] - [#34406]) ([SMS docs]) (new-platform)
+- Part 3: Add support for incoming SMS events ([@ocalvo] - [#37015]) ([SMS docs]) (new-platform)
+- Add smappee binary_sensor platform ([@bsmappee] - [#37023]) ([smappee docs]) (new-platform)
 
 ## Integrations now available to set up from the UI
 
@@ -368,7 +368,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   ([@SukramJ] - [#36595]) ([homematicip_cloud docs])
 
-- **Sppedtest.net**
+- **Speedtest.net**
 
   This integration is now configured through the UI. To successfully import from `configuration.yaml` please remove `monitored_conditions`. If `server_id` is mentioned it will check against the list of servers before importing.
 
