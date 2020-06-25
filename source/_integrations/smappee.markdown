@@ -15,6 +15,11 @@ ha_domain: smappee
 ---
 
 The Smappee integration will allow users to integrate their Smappee monitors, plugs and switches into Home Assistant using the [official API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview).
+There is currently support for the following device types:
+- Binary Sensor
+- Sensor
+- Switch
+
 
 ## Configuration
 
