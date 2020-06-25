@@ -3,7 +3,7 @@ title: PoolSense
 description: Instructions on how to integrate your PoolSense device within Home Assistant.
 ha_category:
   - Sensor
-ha_release: 0.101
+ha_release: 0.113
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
