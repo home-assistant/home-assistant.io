@@ -4,6 +4,7 @@ description: Instructions on how to setup Smappee within Home Assistant.
 ha_category:
   - Hub
   - Energy
+  - Binary Sensor
   - Sensor
   - Switch
 ha_iot_class: Cloud polling
