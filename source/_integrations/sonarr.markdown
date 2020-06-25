@@ -16,4 +16,21 @@ The `Sonarr` integration pulls data from a given [Sonarr](https://sonarr.tv/) in
 
 ## Configuration
 
-Go to the integrations page in your configuration and click on new integration -> Sonarr.
+Go to the Configuration > Integrations page and click on the plus '+' to add a new integration. Select Sonarr. Enter your Sonarr connection information and click Submit. 
+
+Host:
+  Enter the host address. 
+  Example: 192.168.0.1
+  
+API Key:
+  Enter the API key found in Sonarr at Settings > General > Security. 
+
+Path to API: 
+  Default: /api
+  
+Port: 
+  Enter the configured port for Sonarr. 
+  Default: 8989
+
+Sonarr uses a SSL certificate:
+  Check the box if your Sonarr installation uses an SSL certificate. 
