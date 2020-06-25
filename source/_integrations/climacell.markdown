@@ -21,15 +21,22 @@ You can obtain a free API key by signing up with [ClimaCell](https://developer.c
 
 The integration will automatically set the refresh interval based on the number of `climacell` integrations that are using the same API key for a given Home Assistant instance. The integration currently assumes you are using a free account so the max requests per day is 1000. If you want to use a paid account to increase the number of max requests and increase the update frequency, please open a Home Assistant issue for the integration.
 
+## Supported Forecast Types
+| Forecast Type | Description                                                                                                      |
+|---------------|------------------------------------------------------------------------------------------------------------------|
+| `nowcast`     | Up to the 1 minute predictions. Supports 300 minutes or a max of 30 forecasts depending on the chosen `timestep` |
+| `hourly`      | Hourly forecasts for the next 24 hours                                                                           |
+| `daily`       | Daily  forecasts for the next 14 days                                                                            |
+
 ## Configure the integration
 
 The integration can be configured via the Integrations menu in the Home Assistant frontend, or it can be configured via `configuration.yaml`
 
 ### Configuration via the Integrations menu
 
-Go to the Integrations menu and search for ClimaCell. Fill out the form with a valid API key to set up the integration. In order to configure the `timestep` or `aqi_country` parameters for the config entry, access the config entry options.
+Go to the Integrations menu and search for ClimaCell. Fill out the form with a valid API key to set up the integration. To configure the `timestep` or `aqi_country` parameters (described below), access the options menu for the ClimaCell integration in the Integrations menu.
 
-### Configuration via configuration.yaml
+### Configuration via `configuration.yaml`
 
 To add ClimaCell to your installation, add the following to your `configuration.yaml` file:
 
@@ -60,12 +67,12 @@ longitude:
   type: float
   default: The longitude of your Home Assistant instance
 forecast_type:
-  description: The kind of forecast you want. Valid options are `nowcast`, `hourly`, `daily`, or `disable`. `nowcast` will get up to 3000 minutes of forecasts by the `timestep` number of minutes, `hourly` will get 90 hours of forecasts by the hour, `daily` will get 14 days of forecasts by the day, and `disable` will disable the retrieval of forecasts entirely.
+  description: The kind of forecast you want. Valid options are `nowcast`, `hourly`, `daily`, or `disable`. Choose `disable` to exclude forecasts.
   required: false
   type: string
   default: daily
 timestep:
-  description: The number of minutes (1-60) between forecasts when `forecast_type` is `nowcast`. The number of forecasts provided will be dependent on the number of minutes chosen between forecasts, but the maximum number of forecasts is 30 and the maximum overall forecast period is 5 hours.
+  description: The number of minutes (1 - 60) between forecasts when `forecast_type` is `nowcast`. The number of forecasts provided will be dependent on the number of minutes chosen between forecasts, but the maximum number of forecasts is 30 and the maximum overall forecast period is 5 hours.
   required: false
   type: integer
   default: 15
