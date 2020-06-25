@@ -4,7 +4,7 @@ description: Instructions on how to integrate the ClimaCell Weather and Air Qual
 ha_category:
   - Weather
   - Air Quality
-ha_release: 0.112
+ha_release: 0.113
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_quality_scale: silver
@@ -23,9 +23,13 @@ The integration will automatically set the refresh interval based on the number 
 
 ## Configure the integration
 
-The integration can be configured via the Integrations menu in the Home Assistant front end, or it can be configured via `configuration.yaml`
+The integration can be configured via the Integrations menu in the Home Assistant frontend, or it can be configured via `configuration.yaml`
 
-## Configuration
+### Configuration via the Integrations menu
+
+Go to the Integrations menu and search for ClimaCell. Fill out the form with a valid API key to set up the integration. In order to configure the `timestep` or `aqi_country` parameters for the config entry, access the config entry options.
+
+### Configuration via configuration.yaml
 
 To add ClimaCell to your installation, add the following to your `configuration.yaml` file:
 
@@ -55,11 +59,16 @@ longitude:
   required: inclusive
   type: float
   default: The longitude of your Home Assistant instance
-forecast_interval:
-  description: The kind of forecast you want. Valid options are `hourly`, `daily`, or `disable`. `hourly` will get 90 hours of forecasts by the hour, `daily` will get 14 days of forecasts by the day, and `disable` will disable the retrieval of forecasts entirely.
+forecast_type:
+  description: The kind of forecast you want. Valid options are `nowcast`, `hourly`, `daily`, or `disable`. `nowcast` will get up to 3000 minutes of forecasts by the `timestep` number of minutes, `hourly` will get 90 hours of forecasts by the hour, `daily` will get 14 days of forecasts by the day, and `disable` will disable the retrieval of forecasts entirely.
   required: false
   type: string
   default: daily
+timestep:
+  description: The number of minutes between forecasts when `forecast_type` is `nowcast`.
+  required: false
+  type: integer
+  default: 15
 aqi_country:
   description: The country whose standard is being used to measure the Air Quality Index. Valid options are `usa` for US EPA standards and `china` for China MEP standards.
   required: false
@@ -75,5 +84,6 @@ climacell:
     latitude: -23.22960
     longitude: -108.27803
     forecast_interval: daily
+    timestep: 15
     aqi_country: usa
 ```
