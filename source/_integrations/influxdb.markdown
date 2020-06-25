@@ -107,25 +107,33 @@ override_measurement:
   required: false
 exclude:
   type: list
-  description: Configure which integrations should be excluded from recording to InfluxDB.
+  description: Configure which integrations should be excluded from recording to InfluxDB. ([Configure Filter](#configure-filter))
   required: false
   keys:
     entities:
-      type: list
+      type: [string, list]
       description: The list of entity ids to be excluded from recording to InfluxDB.
       required: false
+    entity_globs:
+      type: [string, list]
+      description: Include all entities matching a listed pattern.
+      required: false
     domains:
-      type: list
+      type: [string, list]
       description: The list of domains to be excluded from recording to InfluxDB.
       required: false
 include:
   type: list
-  description: Configure which integrations should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. Values set by the **exclude** lists will take precedence.
+  description: Configure which integrations should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. ([Configure Filter](#configure-filter))
   required: false
   keys:
     entities:
       type: [string, list]
       description: The list of entity ids to be included in recording to InfluxDB.
+      required: false
+    entity_globs:
+      type: [string, list]
+      description: Exclude all entities matching a listed pattern.
       required: false
     domains:
       type: [string, list]
@@ -168,6 +176,46 @@ component_config_glob:
       description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
 {% endconfiguration %}
+
+## Configure Filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `InfluxDB`, you can use the `include` and `exclude` parameters.
+
+{% raw %}
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+influxdb:
+  include:
+    domains:
+      - alarm_control_panel
+      - light
+    entity_globs:
+      - binary_sensor.*_occupancy
+  exclude:
+    entities:
+      - light.kitchen_light
+```
+
+{% endraw %}
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   - Include domain and/or glob patterns specified
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
 
 ## Examples
 
@@ -233,6 +281,18 @@ influxdb:
 ## Sensor
 
 The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be used to present statistics as Home Assistant sensors, if used with the `influxdb` history component. It can also be used with an external data source.
+
+<div class='note'>
+
+  You must configure the `influxdb` history component in order to create `influxdb` sensors. If you just want to create sensors for an external InfluxDB database and you don't want Home Assistant to write any data to it you can exclude all entities like this:
+
+```yaml
+influxdb:
+  exclude:
+    entity_globs: "*"
+```
+
+</div>
 
 ### Configuration
 
