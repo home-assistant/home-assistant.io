@@ -538,6 +538,25 @@ Previously the `autobypass` configuration option only worked for `home` and `awa
 
   ([@rajlaud] - [#35669]) ([squeezebox docs])
 
+- **Alexa**
+
+  Alexa Flash Briefings users must now set a configuration option called `password`, like this:
+
+  ```yaml
+  alexa:
+    flash_briefings:
+      password: YOUR_PASSWORD
+      whoishome:
+        - title: Who's at home?
+          # ...
+  ```
+
+  If you had configured a flash briefing with the name `password` before, you have to rename it. It is not required anymore to use the legacy `api_password` authentication to use Alexa Flash Briefings.
+
+  You also have to change the endpoint in the Alexa Developer Console to include this password in your URL, like this: `https://YOUR_HOST/api/alexa/flash_briefings/BRIEFING_ID?password=YOUR_PASSWORD`.
+
+  ([@Tho85] - [#36789]) ([alexa docs])
+
 ## Farewell to the following
 
 The integrations below have been removed:
