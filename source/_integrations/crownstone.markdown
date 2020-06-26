@@ -51,6 +51,29 @@ The presence detection can be divided into two devices:
 
 The presence detection of Crownstone becomes available when you have **4 or more configured and active** Crownstones. Make sure to train your Rooms first in the Crownstone App. The value of the sensor is the **first name** of the person that is currently in that Sphere/Location. It is possible for multiple people to be in the same Sphere/Location. A user can only be in **one Location** at the time.
 
+When there are multiple people in one Location, the names are separated by a comma like so: `Name1, Name2, Name3`
+
+### Creating automations for Crownstone presence
+
+The state of a presence sensor is of type **string**.
+
+The following example shows an automation for turning off a Crownstone / light when the user `Peter` has left the living room.
+
+```yaml
+- alias: Turn off the lights
+  trigger:
+    platform: state
+    entity_id: sensor.livingroom
+    from: 'Peter'
+    to: ''
+  condition: []
+  action:
+    device_id: some_device_id
+    domain: light
+    entity_id: light.lamp
+    type: turn_off
+```
+
 ## Crownstone USB
 
 The default connection method of the Crownstone integration is Cloud Polling. However a [Crownstone USB](https://shop.crownstone.rocks/products/crownstone-usb-dongle) is available. Instead of switching and dimming Crownstones using the Cloud, this dongle hooks directly into the Crownstone mesh to switch Crownstones, which means the latencies are really low.
