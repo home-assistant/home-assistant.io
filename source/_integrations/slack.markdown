@@ -75,7 +75,7 @@ The following attributes can be placed inside `data` for extended functionality.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `file`                   |      yes | Local path of file, photo, etc. to post to Slack.
+| `file`                   |      yes | Local path of file, photo, etc. to post to Slack. Note that the file must exist under a path that has been whitelisted via [the `whitelist_external_dirs` configuration key](/docs/configuration/basic/#whitelist_external_dirs).
 | `attachments`            |      yes | Array of [Slack attachments](https://api.slack.com/messaging/composing/layouts#attachments) (legacy). *NOTE*: if using `attachments`, they are shown **in addition** to `message`.
 | `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
