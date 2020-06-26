@@ -16,10 +16,29 @@ Note that Docker command line option `--net=host` or the compose file equivalent
 
 Installation with Docker is straightforward. Adjust the following command so that `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it:
 
+## Autostart using Docker
+
+<div class='note warning'>
+
+Do not try to combine Docker `restart` policies with host-level process managers (such as `systemd`), because this creates conflicts.
+
+</div>
+
+Add `--restart=always` to your `docker run` command before homeassistant/home-assistant:stable. See [the Docker autostart documentation](https://docs.docker.com/config/containers/start-containers-automatically/) for details and more options.
+
 ### Linux
 
 ```bash
-docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/home-assistant:stable
+docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable
+```
+
+Updating:
+
+```bash
+docker pull homeassistant/home-assistant:stable  # if this returns "Image is up to date" then you can stop here
+docker stop home-assistant  # stop the running container
+docker rm home-assistant  # remove it from Docker's list of containers
+docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable  # finally, start a new one
 ```
 
 ### Raspberry Pi 3 (Raspberry Pi OS)
