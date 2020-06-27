@@ -113,7 +113,7 @@ An example that tests if the alarm is in any of the specified states:
 ```yaml
 condition:
   - platform: state
-    entity_id: alarm_control_pane.home
+    entity_id: alarm_control_panel.home
     state:
       - armed_home
       - armed_away
