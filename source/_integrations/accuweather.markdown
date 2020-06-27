@@ -15,7 +15,7 @@ The `accuweather` integration uses the [AccuWeather](https://accuweather.com/) w
 
 ## Setup
 
-To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com) page, register and create application with product **Limited Trial**.
+To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register and create application with product **Limited Trial**.
 
 ## Configuration
 
