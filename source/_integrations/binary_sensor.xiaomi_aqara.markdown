@@ -24,7 +24,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 | Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
 | Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
 | Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
-| Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double` |
+| Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | on (through long_click_press), off | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `hold` |
 | Button (2nd gen, model b) | sensor_switch.aq3 | WXKG12LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `shake` |
 | Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single` |
 | Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `both` |
@@ -154,7 +154,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 
 #### Xiaomi Wireless Button
 
-As indicated in the table on top of this page there are 3 versions of the button. For the round shaped button the available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`. Aqara branded buttons are square shaped. Model WXKG11LM only supports `single` and `double` events. WXKG12LM supports `single`, `double`, `long_click_press` and `shake` events. For the Aqara versions the delay between two clicks to generate a double click must be larger than with the round button. Clicking too quickly generates a single click event.
+As indicated in the table on top of this page there are 3 versions of the button. For the round shaped button the available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`. Aqara branded buttons are square shaped. Model WXKG11LM only supports `single`, `double`, `long_click_press`and `hold` events. WXKG12LM supports `single`, `double`, `long_click_press` and `shake` events. For the Aqara versions the delay between two clicks to generate a double click must be larger than with the round button. Clicking too quickly generates a single click event.
 
 ```yaml
 - alias: Toggle dining light on single press
