@@ -162,7 +162,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
 Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
 
 ### Inovelli Light/Fan Combo (LZW36)
-Follow the [instructions](https://support.inovelli.com/portal/kb/articles/installation-setup-lzw36-fan-light-red-series-gen-2-home-assistant-hass-io) provided by Inovelli. You will need to uncomment command class 38 in the imported config file.
+Follow the [instructions](https://support.inovelli.com/portal/kb/articles/installation-setup-lzw36-fan-light-red-series-gen-2-home-assistant-hass-io) provided by Inovelli. You will need to uncomment command class 38 in the imported configuration file.
 
 ```xml
   <CommandClass id="38">
