@@ -180,7 +180,7 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 <div class='note warning'>
 
-Use quotes around your values for `for` and `to` to avoid the YAML parser from interpreting values as booleans.
+Use quotes around your values for `from` and `to` to avoid the YAML parser from interpreting values as booleans.
 
 </div>
 
