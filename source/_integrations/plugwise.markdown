@@ -2,12 +2,12 @@
 title: Plugwise
 description: Plugwise Smile platform integration.
 ha_category:
+  - Binary Sensor
   - Climate
   - Sensor
   - Switch
-  - Water Heater
 ha_iot_class: Local Polling
-ha_release: 0.98
+ha_release: 0.111
 ha_codeowners:
   - '@CoMPaTech'
   - '@bouwew'
@@ -41,11 +41,14 @@ Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna
 
 ## Configuration
 
-To set up this integration, click Configuration in the sidebar and then click Integrations. Add a new integration using the "+" button in the lower right corner and look for 'Plugwise'. Click configure and you will be presented with a dialog requesting the Smile ID or password of your Smile and it's IP address. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
+To set up this integration, click Configuration in the sidebar and then click Integrations. Add a new integration using the "+" button in the lower right corner and look for 'Plugwise'. Click **CONFIGURE** and you will be presented with a dialog requesting the Smile ID or password of your Smile and it's IP address. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
 
 Depending on your `climate` setup an auxiliary entitiy will be added when there is information available about such Plugwise devices. If you have "plug"s (as in, pluggable switches that come with an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s or `binary_sensor`s.
 
 Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
+
+OPTIONS: newly added, click **OPTIONS** to change the Smile-data refresh-interval: the time between subsequent data refreshes.
+Defaults: "Smile-Anna and Adam": 60 seconds, "Smile P1": 10 seconds.
 
 ### Services
 
