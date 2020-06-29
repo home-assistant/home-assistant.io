@@ -15,17 +15,9 @@ redirect_from:
  - /components/device_tracker.aruba/
 ---
 
-
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](http://www.arubanetworks.com/products/networking/aruba-instant/) device.
 
-The integration supports both REST API (preferred) and SSH collection methods. In order to enable the REST method, you must enable it on your access point:
-
-```
-(Instant AP)# conf t
-(Instant AP)(config)# allow-rest-api
-(Instant AP)(config)# end
-(Instant AP)# commit-apply
-```
+The integration supports both REST API (preferred) and SSH collection methods. 
 
 Supported devices (tested):
 
@@ -41,6 +33,16 @@ device_tracker:
     host: INSTANT_MASTER_IP
     username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
+    mode: api
+```
+
+Note: In order to enable the REST method, you must enable the feature on your access point:
+
+```
+(Instant AP)# conf t
+(Instant AP)(config)# allow-rest-api
+(Instant AP)(config)# end
+(Instant AP)# commit-apply
 ```
 
 {% configuration %}
@@ -55,6 +57,10 @@ username:
 password:
   description: The password for your given admin account.
   required: true
+  type: string
+mode:
+  description: SSH (default) or REST API mode.
+  required: false
   type: string
 {% endconfiguration %}
 
