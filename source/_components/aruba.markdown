@@ -18,7 +18,7 @@ redirect_from:
 
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](http://www.arubanetworks.com/products/networking/aruba-instant/) device.
 
-The integration supports both REST API (preferrered) and SSH collection methods.  In order to enable the REST method, you must enable it on your access point:
+The integration supports both REST API (preferred) and SSH collection methods. In order to enable the REST method, you must enable it on your access point:
 
 ```
 (Instant AP)# conf t
