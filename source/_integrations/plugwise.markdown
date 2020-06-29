@@ -7,7 +7,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Local Polling
-ha_release: 0.111
+ha_release: 0.98
 ha_codeowners:
   - '@CoMPaTech'
   - '@bouwew'
