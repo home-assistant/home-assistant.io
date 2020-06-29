@@ -15,29 +15,23 @@ The `dexcom` integration allows you to view your CGM data from [Dexcom](https://
 
 ## Configuration
 
+<div class='note warning'>
+  
+Some people have had problems with connecting when their Dexcom passwords are entirely numeric. If you have connection issues in that case, try changing your password to something with a mix of numbers and letters.
+
+</div>
+
 You will need to setup the [Dexcom Share](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) feature in your Dexcom G6 App to use this integration. Once you have done that, perform the following steps.
 
 To add `Dexcom` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Dexcom**.
 
-Alternatively, add the following to your `configuration.yaml` file:
+#### Server
 
-```yaml
-# Example configuration.yaml entry
-dexcom:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
+There are two Dexcom Share servers, `US` for United States customers, and `OUS` for all customers outside of the United States.
 
-{% configuration %}
-username:
-  description: The username for accessing your Dexcom account.
-  required: true
-  type: string
-password:
-  description: The password for accessing your Dexcom account.
-  required: true
-  type: string
-{% endconfiguration %}
+#### Unit of measurement
+
+The integrations allows both `md/dL` and `mmol/l` units of measurement for blood glucose values. To change your preffered unit of measurement, got to **Configuration** >> **Integrations** in the UI, and click `OPTIONS`.
 
 ### Sensor
 
