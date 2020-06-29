@@ -17,7 +17,7 @@ redirect_from:
 
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](http://www.arubanetworks.com/products/networking/aruba-instant/) device.
 
-The integration supports both REST API (preferred) and SSH collection methods. 
+The integration supports both REST API as of Aruba Instant 8.6 (preferred) and SSH (default) collection methods. 
 
 Supported devices (tested):
 
@@ -59,7 +59,7 @@ password:
   required: true
   type: string
 mode:
-  description: SSH (default) or REST API mode.
+  description: SSH (default) or REST API mode (ssh or api).
   required: false
   type: string
 {% endconfiguration %}
