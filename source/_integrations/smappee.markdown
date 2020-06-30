@@ -47,8 +47,3 @@ client_secret:
   type: string
 {% endconfiguration %}
 
-<div class='note'>
-
-If Home Assistant is running in an non local environment, you must make sure that you have configured the `internal_url` in your [configuration](/docs/configuration/basic) in order to complete to OAuth2 configuration flow.
-
-</div>
