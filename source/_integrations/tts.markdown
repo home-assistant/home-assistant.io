@@ -104,8 +104,7 @@ Say to all `media_player` device entities:
 # Replace google_translate_say with <platform>_say when you use a different platform.
 service: tts.google_translate_say
 entity_id: "all"
-data:
-  message: 'May the Force be with you.'
+message: 'May the Force be with you.'
 ```
 
 Say to the `media_player.floor` device entity:
@@ -113,8 +112,7 @@ Say to the `media_player.floor` device entity:
 ```yaml
 service: tts.google_translate_say
 entity_id: media_player.floor
-data:
-  message: 'May the Force be with you.'
+message: 'May the Force be with you.'
 ```
 
 Say to the `media_player.floor` device entity in French:
@@ -122,18 +120,17 @@ Say to the `media_player.floor` device entity in French:
 ```yaml
 service: tts.google_translate_say
 entity_id: media_player.floor
-data:
-  message: 'Que la force soit avec toi.'
-  language: 'fr'
+message: 'Que la force soit avec toi.'
+language: 'fr'
 ```
 
 With a template:
 
 ```yaml
 service: tts.google_translate_say
-data_template:
-  message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
-  cache: false
+
+message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
+cache: false
 ```
 
 ## Cache
