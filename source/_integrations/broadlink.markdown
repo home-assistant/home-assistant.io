@@ -15,7 +15,7 @@ ha_domain: broadlink
 
 The Broadlink integration allows you to interact with Broadlink devices.
 
-There is currently support for the following devices:
+The following devices are supported:
 
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
@@ -27,71 +27,11 @@ There is currently support for the following devices:
 
 To set up a Broadlink device, click Configuration in the sidebar and click Integrations. Then click the + icon in the lower right, enter the hostname or IP address of the device and follow the instructions to complete the setup.
 
-### Importing a device
-
-You can also import a device by adding its host to your configuration file:
-
-```yaml
-# Example configuration.yaml entry
-broadlink:
-  devices:
-    - host: IP_ADDRESS
-```
-
-The above example will create a configuration flow for the device on the Integrations page. Go there, click Configure and follow the instructions to complete the setup.
-
-### Importing multiple devices
-
-You can use the same schema to import multiple devices:
-
-```yaml
-# Example configuration.yaml entry
-broadlink:
-  devices:
-    - host: IP_ADDRESS
-    - host: IP_ADDRESS
-    - host: IP_ADDRESS
-```
-
-### Manual configuration
-
-If for some reason you are unable to discover a device, but you know it is available, you can try to configure it manually:
-
-```yaml
-# Example configuration.yaml entry
-broadlink:
-  devices:
-    - host: IP_ADDRESS
-      mac: MAC_ADDRESS
-      type: DEVICE_TYPE
-```
-
-Use the manual configuration only as a __last resort__, as some features may not work correctly for this option.
-
-{% configuration %}
-host:
-  description: Hostname or IP address of the device.
-  required: true
-  type: string
-mac:
-  description: MAC address of the device.
-  required: false
-  type: string
-type:
-  description: Device type. You can find the types in the [broadlink library](https://github.com/mjg59/python-broadlink/blob/master/broadlink/__init__.py).
-  required: false
-  type: integer
-timeout:
-  description: Timeout in seconds for the connection to the device.
-  required: false
-  type: integer
-{% endconfiguration %}
-
 ### Entities and subdomains
 
-Once the device is configured, all the entities will be registered automatically. These entities have the same name as the device by default.
+Once the device is configured, all the entities will be registered automatically.
 
-To change the name, icon or entity ID, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful for you. When you're done, don't forget to click Update to save your changes.
+These entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful for you. When you're done, don't forget to click Update to save your changes.
 
 The entities are divided into three subdomains:
 
@@ -101,18 +41,24 @@ The entities are divided into three subdomains:
 
 ## Remote
 
-The `remote` subdomain allows you to interact with universal remotes. You can learn IR codes, which will be stored in a JSON file, and you can send these codes later. Remote entities are automatically registered during device startup. 
+The `remote` subdomain allows you to interact with universal remotes. You can:
+
+- Learn IR codes, which will be stored into a JSON file.
+- Send the IR codes you have learned.
+- Send RF codes (use the base64 feature).
+
+Remote entities are automatically registered during device startup. 
 
 ### Learn command
 
-Use the `remote.learn_command` service to learn commands.
+Use the `remote.learn_command` service to learn IR codes.
 
 | Service data attribute | Optional | Description                          |
 | ---------------------- | -------- | ------------------------------------ |
 | `entity_id`            | no       | ID of the remote.                    |
 | `device`               | no       | Name of the device to be controlled. |
 | `command`              | no       | Names of the commands to be learned. |
-| `alternative`          | yes      | Indicates whether commands toggle.   |
+| `alternative`          | yes      | Are they toggle commands?            |
 
 Example 1: Learn a single command
 
@@ -148,7 +94,7 @@ script:
 
 Example 3: Learn a toggle command
 
-The `alternative` flag is useful for capturing commands where the same button is used for more than one purpose, such as the power button, which can turn the television on and off.
+The `alternative` flag is useful for capturing commands in which the same button is used for more than one purpose, such as the power button, which can turn the television on and off.
 
 ```yaml
 # Example configuration.yaml entry
@@ -163,7 +109,7 @@ script:
           alternative: true
 ```
 
-In the above example, two codes will be captured for the power command, and they will be sent alternately each time the command is called. This greatly improves the response rate of the device.
+In the above example, two codes will be captured for the power command, and they will be sent alternately each time this command is called.
 
 #### Learned codes storage location
 
@@ -173,7 +119,7 @@ Beware: files in the .storage folder __should never be edited manually__, so jus
 
 ### Send command
 
-Use the `remote.send_command` service to send commands.
+Use the `remote.send_command` service to send IR/RF codes.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -518,16 +464,16 @@ $ ./broadlink_discovery
 Discovering...
 ###########################################
 RM2
-# broadlink_cli --type 0x2737 --host 192.168.1.137 --mac 36668342f7c8
+# broadlink_cli --type 0x2787 --host 192.168.1.137 --mac 34ea34b45d2c
 Device file data (to be used with --device @filename in broadlink_cli) :
-0x2737 192.168.1.137 36668342nnnn
+0x2787 192.168.1.137 34ea34b45d2c
 temperature = 0.0
 ```
 
 Then use this info in a cli-command:
 
 ```bash
-./broadlink_cli  --learn --device "0x2737 192.168.1.137 36668342nnnn"
+./broadlink_cli  --learn --device "0x2787 192.168.1.137 34ea34b45d2c"
 Learning...
 ```
 
@@ -536,6 +482,12 @@ Press a button on the remote and you get a code:
 ```txt
 260058000001219512131114113910141114111411141114103911391114103911391139103911391039113911141039111411391015103911141114113910141139111410391114110005250001274b11000c520001274b11000d05
 Base64: b'JgBYAAABIZUSExEUETkQFBEUERQRFBEUEDkROREUEDkRORE5EDkRORA5ETkRFBA5ERQRORAVEDkRFBEUETkQFBE5ERQQOREUEQAFJQABJ0sRAAxSAAEnSxEADQU='
+```
+
+Use `--rfscanlearn` to learn RF codes:
+
+```bash
+./broadlink_cli  --rfscanlearn --device "0x2787 192.168.1.137 34ea34b45d2c"
 ```
 
 ### Conversion of codes from other projects
