@@ -13,10 +13,26 @@ og_image: /images/blog/2020-07-0.112/social.png
 
 <a href='/integrations/#version/0.112'><img src='/images/blog/2020-07-0.112/social.png' style='border: 0;box-shadow: none;'></a>
 
-And another 3 weeks passed! Home Assistant Core 0.112.0!
+And another three weeks passed! Home Assistant Core 0.112!
 
-Please note, these are the beta release notes and might still change during
-the beta week.
+At this point, I almost feel like "Making things easier" as the motto for our
+current development is replaced by: **Speed!** 🚀
+
+The last couple of releases, tons of performance improvements where made, most
+notably the change in the previous [0.111 release](/blog/2020/06/10/release-111/).
+
+This release is no exception, bringing absolutely game-changing performance
+improvements to the logbook and history panels. Honestly, I avoided using the
+logbook in the past because of the slowness it had.
+
+Personally, I feel like Home Assistant is growing up. Slowly things become more
+reliable, faster, easier to use, slick, more fine-grained?
+I might be biased a bit... What do you think? What is your favorite improvement
+that was made lately?
+
+Enjoy the release!
+
+../Frenck
 
 ## Important upgrade notice!
 
