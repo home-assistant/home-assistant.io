@@ -232,6 +232,14 @@ release, this attribute has been completely removed from the system.
 
 - [@balloob] has shaved of a couple of seconds from the Home Assistant startup
   again.
+- Entities that originate from MQTT will now become "unavailable"  when the
+  integration is not connected to the MQTT broker. Thanks [@elupus]!
+- If you have a Xiaomi vacuum cleaner, [@jthure] added a service to send
+  it to specific places using a new goto service.
+- The Smappee integration has been fully rewritten, by [@bsmappee] themselves!
+- Auto discovery has been added to the NUT integration. Please note that
+  some NAS devices might be discovered as they support adding an external
+  battery.
 
 ## New Integrations
 
