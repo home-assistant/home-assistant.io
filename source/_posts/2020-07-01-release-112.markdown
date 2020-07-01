@@ -794,7 +794,7 @@ The integrations below have been removed:
 - Support guest events in UniFi device tracker ([@Kane610] - [#37008]) ([unifi docs])
 - Use pytest for more MQTT tests ([@emontnemery] - [#36859]) ([mqtt docs])
 - Drop use of async_mock_mqtt_component ([@emontnemery] - [#37011])
-- Remove lockitron integration ([@frenck] - [#37012]) ([lockitron docs]) (breaking-change)
+- Remove lockitron integration ([@frenck] - [#37012]) (breaking-change)
 - Handle ArmDisarm execute without arm level ([@balloob] - [#36942]) ([google_assistant docs])
 - Part 1: Support for config flow on SMS integration ([@ocalvo] - [#35995])
 - Make generic camera stream_source a template ([@zvldz] - [#36123]) ([generic docs])
@@ -834,7 +834,7 @@ The integrations below have been removed:
 - Toon translation updates + tweaks ([@frenck] - [#37043]) ([toon docs])
 - Complete deprecation of hidden attribute (ATTR_HIDDEN) ([@bdraco] - [#37041]) ([alert docs]) ([datadog docs]) ([zone docs]) (breaking-change)
 - Add resource_template to rest binary_sensor ([@Hedgehog57] - [#30703]) ([rest docs])
-- Remove fortigate integration ([@kifeo] - [#34586]) ([fortigate docs]) (breaking-change)
+- Remove fortigate integration ([@kifeo] - [#34586]) (breaking-change)
 - Add humidifier reproduce state ([@Shulyaka] - [#36799]) ([humidifier docs])
 - Updated frontend to 20200623.3 ([@balloob] - [#37045]) ([frontend docs])
 - Part 3: Add support for incoming sms events ([@ocalvo] - [#37015]) ([sms docs]) (new-platform)
@@ -1310,12 +1310,11 @@ The integrations below have been removed:
 [esphome docs]: /integrations/esphome/
 [fitbit docs]: /integrations/fitbit/
 [forked_daapd docs]: /integrations/forked_daapd/
-[fortigate docs]: /integrations/fortigate/
 [fritz docs]: /integrations/fritz/
 [fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
 [fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
 [frontend docs]: /integrations/frontend/
-[generic docs]: /integrations/generic/
+[generic docs]: /integrations/generic_ip_camera/
 [geniushub docs]: /integrations/geniushub/
 [glances docs]: /integrations/glances/
 [gogogate2 docs]: /integrations/gogogate2/
@@ -1346,7 +1345,6 @@ The integrations below have been removed:
 [konnected docs]: /integrations/konnected/
 [lametric docs]: /integrations/lametric/
 [lcn docs]: /integrations/lcn/
-[lockitron docs]: /integrations/lockitron/
 [logbook docs]: /integrations/logbook/
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [manual_mqtt docs]: /integrations/manual_mqtt/
