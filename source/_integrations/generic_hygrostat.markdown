@@ -47,10 +47,10 @@ target_humidity:
   required: false
   type: float
 device_class:
-  description: Whether the switch specified in the *humidifier* option to be treated as a humidifier or a dehumidifier device.
+  description: Whether the switch specified in the *humidifier* option to be treated as a humidifier or a dehumidifier device. Must be either "humidifier" or "dehumidifier"
   required: false
-  type: [humidifier, dehumidifier]
-  default: false
+  type: string
+  default: "humidifier"
 min_cycle_duration:
   description: Set a minimum amount of time that the switch specified in the *humidifier* option must be in its current state prior to being switched either off or on.
   required: false
