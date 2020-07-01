@@ -2,18 +2,18 @@
 layout: post
 title: "0.112: Beta release notes"
 description: "0.112: Beta release notes"
-date: 2020-06-24 00:00:00
+date: 2020-07-01 00:00:00
 date_formatted: "July 1, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2020-06-0.112/social.png
+og_image: /images/blog/2020-07-0.112/social.png
 ---
 
-<a href='/integrations/#version/0.112'><img src='/images/blog/2020-06-0.112/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/0.112'><img src='/images/blog/2020-07-0.112/social.png' style='border: 0;box-shadow: none;'></a>
 
-And another 3 week passed! Home Assistant Core 0.112.0!
+And another 3 weeks passed! Home Assistant Core 0.112.0!
 
 Please note, these are the beta release notes and might still change during
 the beta week.
@@ -27,9 +27,9 @@ it will be migrated to the new format.
 
 Depending on the size of your database and the performance of the hardware you
 run Home Assistant on, this migration process could add additional time to the
-first time starting after the upgrade. For most of us, this add just a couple of
-minutes, but if you have an enormous database (for example, 30+ GiB), it might
-take an hour or maybe even two.
+first time starting after the upgrade. For most of us, this adds just a couple
+of minutes, but if you have an enormous database (for example, 30+ GiB),
+it might take an hour or maybe even two.
 
 So, don't panic if Home Assistant doesn't come up immediately.
 
@@ -39,7 +39,7 @@ The reason for the above-mentioned database change can be found in the
 Logbook & History. Thanks to [@bdraco], who has been improving this part
 of Home Assistant the past weeks.
 
-As a result of his effort, this History & Logbook are now lightning fast. ⚡️
+As a result of his effort, the History & Logbook are now lightning fast. ⚡️
 
 Not a tiny bit faster, but a whole new experience compared to how it used to
 be. Fantastic work there [@bdraco]!
@@ -50,12 +50,12 @@ So, [@bramkragten] stepped on the Logbook & History train and made the logbook
 and history panels a lot more flexible.
 
 You no longer have to choose between a fixed period to show, but can define
-the period you want to see data from yourself.
+the period you want to see data for yourself.
 
 Select a start and end date and time window and it will show just that data.
 
 <p class='img'>
-<img src='/images/blog/2020-06-0.112/datetime-picker.png' alt='Screenshot of the new date/time picker'></a>
+<img src='/images/blog/2020-07-0.112/datetime-picker.png' alt='Screenshot of the new date/time picker'></a>
 Screenshot of the new date/time picker.
 </p>
 
@@ -69,7 +69,7 @@ Talking about the logbook, you can now also see who made a change in the
 logbook! No more discussion about who changed the temperature!
 
 <p class='img'>
-<img src='/images/blog/2020-06-0.112/logbook-who.png' alt='Screenshot of the logbook showing who made the change'></a>
+<img src='/images/blog/2020-07-0.112/logbook-who.png' alt='Screenshot of the logbook showing who made the change'></a>
 Screenshot of the logbook showing who made the change.
 </p>
 
@@ -155,20 +155,20 @@ because the integration settings would be on the integrations page. ZHA also had
 a lot of device settings in its own panel, resulting in a lot of duplicate
 functionality spread across the Home Assistant interface.
 
-These panels and tools now moved to the integrations pages, directly with
+These panels and tools are now moved to the integrations pages, directly within
 the integration that provides those. You can find them on the card of the
 integration at the `Configure` button.
 
 <p class='img'>
-<img src='/images/blog/2020-06-0.112/configure-mqtt.png' alt='Screenshot of the MQTT configure button'></a>
+<img src='/images/blog/2020-07-0.112/configure-mqtt.png' alt='Screenshot of the MQTT configure button'></a>
 Screenshot of the MQTT configure button.
 </p>
 
 The device-specific settings are now available on the device page, so we now
-have 1 place to go for information and setting for devices.
+have 1 place to go for information and settings for devices.
 
 <p class='img'>
-<img src='/images/blog/2020-06-0.112/zha-device.png' alt='Screenshot of a ZHA device'></a>
+<img src='/images/blog/2020-07-0.112/zha-device.png' alt='Screenshot of a ZHA device'></a>
 Screenshot of a ZHA device.
 </p>
 
@@ -179,14 +179,14 @@ IDs are named accordingly.
 ## New home for the logs and information pages
 
 More moving this release, the logs and information pages used to be in the
-development tools panel. But they didn't really belong there. They aren't
+development tools panel, but they didn't really belong there. They aren't
 really tools for developing, they provide information on your set up.
 
 We moved them to the configuration page where they are joined with server
 management and the general configuration.
 
 <p class='img'>
-<img src='/images/blog/2020-06-0.112/new-home.png' alt='Screenshot of the new home for logs & information'></a>
+<img src='/images/blog/2020-07-0.112/new-home.png' alt='Screenshot of the new home for logs & information'></a>
 Screenshot of the new home for logs & information.
 </p>
 
