@@ -441,7 +441,11 @@ Previously the `autobypass` configuration option only worked for `home` and `awa
 
   Context ids are no longer duplicated in the `states` table. Join the `events` table on `state.event_id` to `events.event_id` to find the context_id instead.
 
+  For more information about our database structure and how to query it, check out our [Data Science Portal][data-portal].
+
   ([@bdraco] - [#36938], [#37036]) ([history docs]) ([plant docs]) ([recorder docs]) ([statistics docs])
+
+  [data-portal]: https://data.home-assistant.io/
 
 - **Denon AVR Network Receivers**
 
