@@ -275,7 +275,7 @@ When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow 
 
 1. Call the `androidtv.learn_sendevent` service. 
 2. Within 8 seconds, hit a single button on your Android TV / Fire TV remote. 
-3. After 8 seconds, check the `adb_response` attribute of the media player in Home Assistant. This will be the equivalent command that can be sent via the `androidtv.adb_command` service. It will also be logged at the INFO level.
+3. After 8 seconds, a persistent notification will appear that contains the equivalent command that can be sent via the `androidtv.adb_command` service. This command can also be found in the `adb_response` attribute of the media player in Home Assistant, and it will be logged at the INFO level.
 
 As an example, a service call in a [script](/docs/scripts) could be changed from this:
 
