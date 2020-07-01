@@ -502,7 +502,7 @@ Previously the `autobypass` configuration option only worked for `home` and `awa
 
 - **Toon**
 
-  The Toon integration has been rewritten to support the new authentication methods from Eneco/Electrabel and Viesgo. After upgrading, go to the integrations panel, to re-authenticate the integration.
+  The Toon integration has been rewritten to support the new authentication methods from Eneco/Electrabel and Viesgo. After upgrading, go to the integrations panel, to re-authenticate the integration. Please note, that you might need to update your Toon App with a new redirect URL in the Toon Developer portal. Make sure to check the Toon integration documentation for information about the URL to use.
 
   The `scan_interval` YAML configuration option has been deprecated. It is no longer used, as this integration is now push-based. If you have it configured, please remove it from your configuration.
 
