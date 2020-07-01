@@ -82,6 +82,7 @@ away_fixed:
   description: "If this parameter is set to `True`, the target humidity for the `away` mode is fixed at `away_humidity` level and cannot be changed. An attempt to set the target humidity will effectively set the humidity for the `normal` mode. This can be used to independently control mode and target humidity."
   required: false
   type: boolean
+  default: false
 sensor_stale_duration:
   description: If the *target_sensor* does not update its value within this period, it is considered unavailable until the next update. When the sensor is unavailable, the *humidifier* is turned off for safety reasons.
   required: false
