@@ -7,6 +7,7 @@ redirect_from: /getting-started/scripts-conditions/
 Conditions can be used within a script or automation to prevent further execution. When a condition does not return true, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
+When using lists in conditions, multiple entities default as `and` (only if all entities match) while multiple states default as `or` (if one of the states match).
 
 ### AND condition
 
