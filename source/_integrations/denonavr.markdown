@@ -25,6 +25,7 @@ Known supported devices:
 - Denon AVR-X2300W
 - Denon AVR-X3300W
 - Denon AVR-X3400H
+- Denon AVR-X3600H
 - Denon AVR-X4100W
 - Denon AVR-X4300H
 - Denon AVR-X4500H
@@ -34,6 +35,7 @@ Known supported devices:
 - Denon AVR-3312
 - Denon AVR-4810
 - Denon AVR-S710W
+- Denon AVR-S720W
 - Denon AVR-S750H
 - Marantz M-CR510
 - Marantz M-CR603

@@ -87,8 +87,8 @@ trusted_users:
   required: false
   type: map
   keys:
-    IP_ADDRESS:
-      description: List of users available to select on this IP address or network.
+    USER_ID:
+      description: List of user ids available to select on this IP address or network.
       required: false
       type: [list, string]
 allow_bypass_login:
