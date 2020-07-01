@@ -36,16 +36,16 @@ min_humidity:
   description: Set minimum set point available.
   required: false
   default: 0
-  type: int
+  type: integer
 max_humidity:
   description: Set maximum set point available.
   required: false
   default: 100
-  type: int
+  type: integer
 target_humidity:
   description: Set initial target temperature. This value will be used as fallback when previous setpoint is not available.
   required: false
-  type: int
+  type: integer
 device_class:
   description: Whether the switch specified in the *humidifier* option to be treated as a humidifier or a dehumidifier device. Must be either "humidifier" or "dehumidifier"
   required: false
@@ -59,12 +59,12 @@ dry_tolerance:
   description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched on. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will start when the sensor equals or goes below 42. It is advised to set this parameter equal or above your sensor precision.
   required: false
   default: 3
-  type: int
+  type: integer
 wet_tolerance:
   description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched off. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will stop when the sensor equals or goes above 48. It is advised to set this parameter equal or above your sensor precision.
   required: false
   default: 3
-  type: int
+  type: integer
 keep_alive:
   description: Set a keep-alive interval. If set, the switch specified in the *humidifier* option will be triggered every time the interval elapses. Use with humidifiers and dehumidifiers that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid humidifier integration state (either on or off).
   required: false
@@ -77,7 +77,7 @@ initial_state:
 away_humidity:
   description: "Set the humidity used by `away` mode. If this is not specified, the mode feature will not be available."
   required: false
-  type: int
+  type: integer
 away_fixed:
   description: "If this parameter is set to `True`, the target humidity for the `away` mode is fixed at `away_humidity` level and cannot be changed. An attempt to set the target humidity will effectively set the humidity for the `normal` mode. This can be used to independently control mode and target humidity."
   required: false
