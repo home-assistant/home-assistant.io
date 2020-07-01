@@ -586,6 +586,20 @@ Previously the `autobypass` configuration option only worked for `home` and `awa
 
   ([@Tho85] - [#36789]) ([alexa docs])
 
+- **remote_rpi_gpio**
+
+  A double inversion happening on the `remote_rpi_gpio` platform has been removed. This might inverse your switches behavior for this platform.
+
+  ([@auchter] - [#34390]) ([remote_rpi_gpio docs])
+
+- **Custom integrations/components**
+
+  This is more a breaking change for developers of custom integration for Home Assistant.
+
+  Custom components depending on `helpers.entityfilter` for filtering may need an adjustment. Imports of `FILTER_SCHEMA` or `BASE_FILTER_SCHEMA` will be fine but any components directly depending on the `convert_filter` method will need to ensure the dictionary they are passing in has `include_entity_globs` or `exclude_entity_globs` fields specified.
+
+  ([@mdegat01] - [#36913]) ([logbook docs]) ([recorder docs])
+
 ## Farewell to the following
 
 The integrations below have been removed:
