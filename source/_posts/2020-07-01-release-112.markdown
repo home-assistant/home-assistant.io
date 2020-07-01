@@ -251,13 +251,14 @@ release, this attribute has been completely removed from the system.
 ## New Platforms
 
 - Add devolo binary_sensor devices ([@2Fake] - [#36370]) ([devolo_home_control docs]) (new-platform)
-- Add sensor platform for ViCare integration (heatpump) ([@crazyfx1] - [#34385]) ([ViCare docs]) (breaking-change) (new-platform)
+- Add sensor platform for vicare integration (heatpump) ([@crazyfx1] - [#34385]) ([vicare docs]) (breaking-change) (new-platform)
 - Add Withings webhooks ([@vangorra] - [#34447]) ([withings docs]) (new-platform)
-- Light control support to Axis devices ([@Kane610] - [#36611]) ([Axis docs]) (new-platform)
-- Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([Toon docs]) (breaking-change) (new-platform)
-- Part 2: Add signal sensor ([@ocalvo] - [#34406]) ([SMS docs]) (new-platform)
-- Part 3: Add support for incoming SMS events ([@ocalvo] - [#37015]) ([SMS docs]) (new-platform)
+- Light control support to Axis devices ([@Kane610] - [#36611]) ([axis docs]) (new-platform)
+- Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([toon docs]) (breaking-change) (new-platform)
+- Part 2: Add signal sensor ([@ocalvo] - [#34406]) ([sms docs]) (new-platform)
+- Part 3: Add support for incoming sms events ([@ocalvo] - [#37015]) ([sms docs]) (new-platform)
 - Add smappee binary_sensor platform ([@bsmappee] - [#37023]) ([smappee docs]) (new-platform)
+- Add devolo sensor devices ([@2Fake] - [#37049]) ([devolo_home_control docs]) (new-platform)
 
 ## Integrations now available to set up from the UI
 
@@ -700,7 +701,7 @@ The integrations below have been removed:
 - mobile_app: Camera Stream Webhook ([@zacwest] - [#36839]) ([mobile_app docs])
 - Add support for Dyson Pure HP04 purifying heater + fan ([@etheralm] - [#34537]) ([dyson docs])
 - Add blink tests ([@fronzbot] - [#36672]) ([blink docs])
-- Fix remote_rpi_gpio switch inversion ([@auchter] - [#34390]) ([remote_rpi_gpio docs])
+- Fix remote_rpi_gpio switch inversion ([@auchter] - [#34390]) ([remote_rpi_gpio docs]) (breaking-change)
 - Use MDI CPU icon for glances ([@spacegaier] - [#36736]) ([glances docs])
 - DenonAVR Config Flow ([@starkillerOG] - [#35255]) ([denonavr docs]) (breaking-change)
 - Fix Plugwise schema name display and non_device_class icons ([@CoMPaTech] - [#36815]) ([plugwise docs])
@@ -789,7 +790,7 @@ The integrations below have been removed:
 - Add attribute templates to template vacuum ([@firstof9] - [#36518]) ([template docs])
 - Optimize recorder MySQL tables when repacking ([@alex3305] - [#36762]) ([recorder docs])
 - Support reconfiguring MQTT config entry ([@emontnemery] - [#36537]) ([config docs]) ([mqtt docs])
-- Add new humidifier entity integration ([@Shulyaka] - [#28693]) ([humidity docs]) (new-integration)
+- Add new humidifier entity integration ([@Shulyaka] - [#28693]) ([humidifier docs]) (new-integration)
 - Fix/Rewrite of Toon integration ([@frenck] - [#36952]) ([toon docs]) (breaking-change) (new-platform)
 - Retry failed Amcrest commands that change settings ([@pnbruckner] - [#36917]) ([amcrest docs])
 - Add "seconds" as a valid unit_of_measurement ([@Leapo] - [#36811]) ([uptime docs])
@@ -803,7 +804,7 @@ The integrations below have been removed:
 - Avoid Home connect test doing I/O ([@balloob] - [#37017]) ([home_connect docs])
 - Bump cloud to 0.34.7 ([@balloob] - [#37018]) ([cloud docs])
 - Remove loading of legacy translations ([@ludeeus] - [#37021]) (breaking-change)
-- Fix alexa flash briefings after removal of api_password auth ([@Tho85] - [#36789]) ([alexa docs])
+- Fix alexa flash briefings after removal of api_password auth ([@Tho85] - [#36789]) ([alexa docs]) (breaking-change)
 - Add service to trigger roku search ([@ctalkington] - [#37014]) ([roku docs])
 - Add new Solaredge sensors ([@terminet85] - [#34525]) ([solaredge docs])
 - Remove embedded MQTT broker ([@emontnemery] - [#37032]) ([mqtt docs]) (breaking-change)
@@ -828,6 +829,43 @@ The integrations below have been removed:
 - Add smappee binary_sensor platform ([@bsmappee] - [#37023]) ([smappee docs]) (new-platform)
 - Fix rest to use BinarySensorEntity ([@frenck] - [#37054]) ([rest docs])
 - Fix LCN cover behavior when using output ports ([@alengwenus] - [#37034]) ([lcn docs])
+- Fix asuswrt spamming logs with exceptions ([@RogerSelwyn] - [#37063]) ([asuswrt docs])
+- Handle mysql index/column already exists during migration ([@bdraco] - [#37064]) ([recorder docs])
+- Avoid creating a column in v8 schema that is removed in v9 schema ([@bdraco] - [#37062]) ([recorder docs])
+- Raise slow startup timeout to 3h for large db migrations. ([@bdraco] - [#37061])
+- Squeezebox dispatch helper ([@rajlaud] - [#37030]) ([squeezebox docs])
+- Add devolo sensor devices ([@2Fake] - [#37049]) ([devolo_home_control docs]) (new-platform)
+- Handle Centralite Pearl thermostat modes ([@Adminiuga] - [#37065]) ([zha docs]) (beta fix)
+- Don't reset multiplier/divisor on failures ([@Adminiuga] - [#37066]) ([zha docs]) (beta fix)
+- Fix geniushub spamming log with exceptions ([@RogerSelwyn] - [#37067]) ([geniushub docs]) (beta fix)
+- Use cached values for divisor/multiplier ([@Adminiuga] - [#37070]) ([zha docs]) (beta fix)
+- Clean up plum_lightpad ([@prystupa] - [#37077]) ([plum_lightpad docs]) (beta fix)
+- Add logbook platforms ([@balloob] - [#37078]) ([alexa docs]) ([automation docs]) ([homekit docs]) ([logbook docs]) ([script docs]) (beta fix)
+- Ensure history states can be copied ([@bdraco] - [#37081]) ([history docs]) (beta fix)
+- Remove invalidation version from ZHA deprecated config options ([@frenck] - [#37089]) ([zha docs]) (beta fix)
+- Fix missing service call context in multiple locations ([@frenck] - [#37094]) (beta fix)
+- Fix Plex when using local tokenless authentication ([@jjlawren] - [#37096]) ([plex docs]) (beta fix)
+- Bump frontend ([@balloob] - [#37113]) ([frontend docs]) (beta fix)
+- Fix recorder purging by batch processing purges ([@frenck] - [#37140]) ([recorder docs]) (beta fix)
+- Fix repack when using pymysql ([@bdraco] - [#37142]) ([recorder docs]) (beta fix)
+- Catch additional exception for Plex account login failures ([@jjlawren] - [#37143]) ([plex docs]) (beta fix)
+- Updated frontend to 20200626.1 ([@balloob] - [#37150]) ([frontend docs]) (beta fix)
+- Fix speedtest blowing up ([@balloob] - [#37151]) ([speedtestdotnet docs]) (beta fix)
+- Fix OwnTracks race condition ([@balloob] - [#37152]) ([owntracks docs]) (beta fix)
+- Fix issue with Insteon devices not responding to device changes ([@teharris1] - [#37160]) ([insteon docs]) (beta fix)
+- Bump teslajsonpy to 0.9.0 ([@alandtse] - [#37162]) ([tesla docs]) (beta fix)
+- Fix bug where Tile session would expire ([@bachya] - [#37185]) ([tile docs]) (beta fix)
+- Fix updating ping sensor ([@engrbm87] - [#37220]) ([speedtestdotnet docs]) (beta fix)
+- Fix wind speed change in NWS ([@MatthewFlamm] - [#37222]) ([nws docs]) (beta fix)
+- Ensure recorder data integrity and MySQL lock error handling ([@frenck] - [#37228]) ([recorder docs]) (beta fix)
+- Fixes after PR #36479 ([@definitio] - [#37230]) ([mqtt docs]) (beta fix)
+- Fix Tile location accuracy bug ([@bachya] - [#37233]) ([tile docs]) (beta fix)
+- Bump ZHA Quirks to 0.0.41 ([@dmulcahey] - [#37235]) ([zha docs]) (beta fix)
+- Updated frontend to 20200629.0 ([@balloob] - [#37240]) ([frontend docs]) (beta fix)
+- Update myq for latest client version requirement ([@bdraco] - [#37104]) ([myq docs]) (beta fix)
+- Update fritzconnection to 1.3.0 ([@svenstaro] - [#37212]) ([fritzbox_netmonitor docs]) (beta fix)
+- Revert "Update fritzconnection to 1.3.0" ([@bramkragten] - [#37278]) ([fritz docs]) ([fritzbox_callmonitor docs]) ([fritzbox_netmonitor docs]) (beta fix)
+- Updated frontend to 20200701.0 ([@bramkragten] - [#37279]) ([frontend docs]) (beta fix)
 
 </details>
 
@@ -1049,6 +1087,7 @@ The integrations below have been removed:
 [#37018]: https://github.com/home-assistant/core/pull/37018
 [#37021]: https://github.com/home-assistant/core/pull/37021
 [#37023]: https://github.com/home-assistant/core/pull/37023
+[#37030]: https://github.com/home-assistant/core/pull/37030
 [#37032]: https://github.com/home-assistant/core/pull/37032
 [#37033]: https://github.com/home-assistant/core/pull/37033
 [#37034]: https://github.com/home-assistant/core/pull/37034
@@ -1060,8 +1099,44 @@ The integrations below have been removed:
 [#37042]: https://github.com/home-assistant/core/pull/37042
 [#37043]: https://github.com/home-assistant/core/pull/37043
 [#37045]: https://github.com/home-assistant/core/pull/37045
+[#37049]: https://github.com/home-assistant/core/pull/37049
 [#37053]: https://github.com/home-assistant/core/pull/37053
 [#37054]: https://github.com/home-assistant/core/pull/37054
+[#37061]: https://github.com/home-assistant/core/pull/37061
+[#37062]: https://github.com/home-assistant/core/pull/37062
+[#37063]: https://github.com/home-assistant/core/pull/37063
+[#37064]: https://github.com/home-assistant/core/pull/37064
+[#37065]: https://github.com/home-assistant/core/pull/37065
+[#37066]: https://github.com/home-assistant/core/pull/37066
+[#37067]: https://github.com/home-assistant/core/pull/37067
+[#37070]: https://github.com/home-assistant/core/pull/37070
+[#37077]: https://github.com/home-assistant/core/pull/37077
+[#37078]: https://github.com/home-assistant/core/pull/37078
+[#37081]: https://github.com/home-assistant/core/pull/37081
+[#37089]: https://github.com/home-assistant/core/pull/37089
+[#37094]: https://github.com/home-assistant/core/pull/37094
+[#37096]: https://github.com/home-assistant/core/pull/37096
+[#37104]: https://github.com/home-assistant/core/pull/37104
+[#37113]: https://github.com/home-assistant/core/pull/37113
+[#37140]: https://github.com/home-assistant/core/pull/37140
+[#37142]: https://github.com/home-assistant/core/pull/37142
+[#37143]: https://github.com/home-assistant/core/pull/37143
+[#37150]: https://github.com/home-assistant/core/pull/37150
+[#37151]: https://github.com/home-assistant/core/pull/37151
+[#37152]: https://github.com/home-assistant/core/pull/37152
+[#37160]: https://github.com/home-assistant/core/pull/37160
+[#37162]: https://github.com/home-assistant/core/pull/37162
+[#37185]: https://github.com/home-assistant/core/pull/37185
+[#37212]: https://github.com/home-assistant/core/pull/37212
+[#37220]: https://github.com/home-assistant/core/pull/37220
+[#37222]: https://github.com/home-assistant/core/pull/37222
+[#37228]: https://github.com/home-assistant/core/pull/37228
+[#37230]: https://github.com/home-assistant/core/pull/37230
+[#37233]: https://github.com/home-assistant/core/pull/37233
+[#37235]: https://github.com/home-assistant/core/pull/37235
+[#37240]: https://github.com/home-assistant/core/pull/37240
+[#37278]: https://github.com/home-assistant/core/pull/37278
+[#37279]: https://github.com/home-assistant/core/pull/37279
 [@2Fake]: https://github.com/2Fake
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
@@ -1073,8 +1148,10 @@ The integrations below have been removed:
 [@Leapo]: https://github.com/Leapo
 [@MarBra]: https://github.com/MarBra
 [@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MatthewFlamm]: https://github.com/MatthewFlamm
 [@MrHarcombe]: https://github.com/MrHarcombe
 [@Quentame]: https://github.com/Quentame
+[@RogerSelwyn]: https://github.com/RogerSelwyn
 [@ShaneQi]: https://github.com/ShaneQi
 [@Shulyaka]: https://github.com/Shulyaka
 [@StevenLooman]: https://github.com/StevenLooman
@@ -1085,6 +1162,7 @@ The integrations below have been removed:
 [@adaamz]: https://github.com/adaamz
 [@ahayworth]: https://github.com/ahayworth
 [@ajschmidt8]: https://github.com/ajschmidt8
+[@alandtse]: https://github.com/alandtse
 [@alengwenus]: https://github.com/alengwenus
 [@alex3305]: https://github.com/alex3305
 [@auchter]: https://github.com/auchter
@@ -1106,6 +1184,7 @@ The integrations below have been removed:
 [@damienlevin]: https://github.com/damienlevin
 [@definitio]: https://github.com/definitio
 [@dingusdk]: https://github.com/dingusdk
+[@dmulcahey]: https://github.com/dmulcahey
 [@ehendrix23]: https://github.com/ehendrix23
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
@@ -1160,6 +1239,8 @@ The integrations below have been removed:
 [@sqldiablo]: https://github.com/sqldiablo
 [@squishykid]: https://github.com/squishykid
 [@starkillerOG]: https://github.com/starkillerOG
+[@svenstaro]: https://github.com/svenstaro
+[@teharris1]: https://github.com/teharris1
 [@terminet85]: https://github.com/terminet85
 [@thomasloven]: https://github.com/thomasloven
 [@timvancann]: https://github.com/timvancann
@@ -1183,6 +1264,7 @@ The integrations below have been removed:
 [amcrest docs]: /integrations/amcrest/
 [androidtv docs]: /integrations/androidtv/
 [arcam_fmj docs]: /integrations/arcam_fmj/
+[asuswrt docs]: /integrations/asuswrt/
 [automation docs]: /integrations/automation/
 [avri docs]: /integrations/avri/
 [awair docs]: /integrations/awair/
@@ -1214,8 +1296,12 @@ The integrations below have been removed:
 [fitbit docs]: /integrations/fitbit/
 [forked_daapd docs]: /integrations/forked_daapd/
 [fortigate docs]: /integrations/fortigate/
+[fritz docs]: /integrations/fritz/
+[fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
+[fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
 [frontend docs]: /integrations/frontend/
 [generic docs]: /integrations/generic/
+[geniushub docs]: /integrations/geniushub/
 [glances docs]: /integrations/glances/
 [gogogate2 docs]: /integrations/gogogate2/
 [google_assistant docs]: /integrations/google_assistant/
@@ -1232,11 +1318,11 @@ The integrations below have been removed:
 [honeywell docs]: /integrations/honeywell/
 [huawei_lte docs]: /integrations/huawei_lte/
 [humidifier docs]: /integrations/humidifier/
-[humidity docs]: /integrations/humidity/
 [hvv_departures docs]: /integrations/hvv_departures/
 [hydrawise docs]: /integrations/hydrawise/
 [ihc docs]: /integrations/ihc/
 [influxdb docs]: /integrations/influxdb/
+[insteon docs]: /integrations/insteon/
 [intesishome docs]: /integrations/intesishome/
 [iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
@@ -1255,14 +1341,17 @@ The integrations below have been removed:
 [mqtt docs]: /integrations/mqtt/
 [mqtt_eventstream docs]: /integrations/mqtt_eventstream/
 [mqtt_statestream docs]: /integrations/mqtt_statestream/
+[myq docs]: /integrations/myq/
 [netdata docs]: /integrations/netdata/
 [notify_events docs]: /integrations/notify_events/
 [numato docs]: /integrations/numato/
 [nut docs]: /integrations/nut/
+[nws docs]: /integrations/nws/
 [nx584 docs]: /integrations/nx584/
 [onboarding docs]: /integrations/onboarding/
 [opencv docs]: /integrations/opencv/
 [opentherm_gw docs]: /integrations/opentherm_gw/
+[owntracks docs]: /integrations/owntracks/
 [panel_custom docs]: /integrations/panel_custom/
 [pi_hole docs]: /integrations/pi_hole/
 [pjlink docs]: /integrations/pjlink/
@@ -1296,6 +1385,7 @@ The integrations below have been removed:
 [tahoma docs]: /integrations/tahoma/
 [template docs]: /integrations/template/
 [tensorflow docs]: /integrations/tensorflow/
+[tesla docs]: /integrations/tesla/
 [tile docs]: /integrations/tile/
 [toon docs]: /integrations/toon/
 [trend docs]: /integrations/trend/
