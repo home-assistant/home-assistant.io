@@ -70,9 +70,10 @@ keep_alive:
   required: false
   type: [time, integer]
 initial_state:
-  description: Set the initial state. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_hygrostat* and *humidifier* state.
+  description: Set the initial state. This value is used as a fallback when a previous state is not available.
   required: false
   type: boolean
+  default: false
 away_humidity:
   description: "Set the humidity used by `away` mode. If this is not specified, the mode feature will not be available."
   required: false
