@@ -78,7 +78,7 @@ away_humidity:
   required: false
   type: float
 away_fixed:
-  description: "If this parameter is set to `True`, the target humidity for the `away` mode is fixed at `away_humidity` level and cannot be changed. An attemt to set the target humidity will effectively set the humidity for the `normal` mode. This can be used to independently control mode and target humidity."
+  description: "If this parameter is set to `True`, the target humidity for the `away` mode is fixed at `away_humidity` level and cannot be changed. An attempt to set the target humidity will effectively set the humidity for the `normal` mode. This can be used to independently control mode and target humidity."
   required: false
   type: boolean
 sensor_stale_duration:
