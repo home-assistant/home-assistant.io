@@ -104,13 +104,13 @@ So this:
 condition:
   - condition: state
     entity_id: light.kitchen
-    state: 'on'
+    state: "on"
   - condition: state
     entity_id: light.living_room
-    state: 'on'
+    state: "on"
   - condition: state
     entity_id: light.office
-    state: 'on'
+    state: "on"
 ```
 
 Can now be shortened to this:
@@ -122,7 +122,7 @@ condition:
       - light.kitchen
       - light.living_room
       - light.office
-    state: 'on'
+    state: "on"
 ```
 
 An example that tests if the alarm is in any of the specified states:
@@ -233,7 +233,7 @@ release, this attribute has been completely removed from the system.
 
 - [@balloob] has shaved of a couple of seconds from the Home Assistant startup
   again.
-- Entities that originate from MQTT will now become "unavailable"  when the
+- Entities that originate from MQTT will now become "unavailable" when the
   integration is not connected to the MQTT broker. Thanks [@elupus]!
 - If you have a Xiaomi vacuum cleaner, [@jthure] added a service to send
   it to specific places using a new goto service.
@@ -301,7 +301,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ([@balloob] - [#36464]) ([panel_custom docs])
 
 - **Avri**
-  
+
   Avri is now available for configration via the integrations UI. Remove the integration from `configuration.yaml` and re-add it in the UI.
 
   ([@timvancann] - [#34288]) ([avri docs])
@@ -331,46 +331,50 @@ Experiencing issues introduced by this release? Please report them in our [issue
   These all now require that either `entity_id` or `area_id` is passed when calling the service. You need to update all usages (such as automations and scripts) of these services which do not already pass `entity_id` or `area_id`. For example, change the existing automation:
 
 {% raw %}
-  ```yaml
-  automation:
-    - alias: Test vacuum zone
-      trigger:
-      - event: start
-        platform: homeassistant
-      condition: []
-      action:
-      - service: xiaomi_miio.vacuum_clean_zone
-        data_template:
-          repeats: '{{states('input_number.vacuum_passes')|int}}'
-          zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
-  ```
+
+```yaml
+automation:
+  - alias: Test vacuum zone
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: xiaomi_miio.vacuum_clean_zone
+      data_template:
+        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
+```
+
 {% endraw %}
 
-  to:
+to:
 
 {% raw %}
-  ```yaml
-  automation:
-    - alias: Test vacuum zone
-      trigger:
-      - event: start
-        platform: homeassistant
-      condition: []
-      action:
-      - service: xiaomi_miio.vacuum_clean_zone
-        data_template:
-          entity_id: vacuum.xiaomi_vacuum
-          repeats: '{{states('input_number.vacuum_passes')|int}}'
-          zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
-  ```
+
+```yaml
+automation:
+  - alias: Test vacuum zone
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: xiaomi_miio.vacuum_clean_zone
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum
+        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
+```
+
 {% endraw %}
 
-  ([@jthure] - [#35737]) ([xiaomi_miio docs])
+([@jthure] - [#35737]) ([xiaomi_miio docs])
 
 - **Honeywell Total Connect Comfort**
 
   Remnants of EU integration for Honeywell thermostats have been removed. As the integration was already removed for EU, all consumers should already be US integrations. Existing configurations should remove `region:` lines from their `climate:honeywell` configuration sections.
-  
+
   ([@jhenkens] - [#36456]) ([honeywell docs])
 
 - **Broadlink**
@@ -421,9 +425,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - `supply_temperature`
   - `outside_temperature`
   - `circulationpump_active`
-  
+
   For heating type `gas`:
-  
+
   - `burner_modulation`
   - `boiler_temperature`
 
@@ -456,7 +460,7 @@ Previously the `autobypass` configuration option only worked for `home` and `awa
   - Remove support for the deprecated hidden attribute from logbook and history.
 
   Examples showing how to find the old and new state have been provided in the [States](https://data.home-assistant.io/docs/states) and [Events](https://data.home-assistant.io/docs/events) documentation.
-  
+
   ([@bdraco] - [#36796], [#36883], [#37039]) ([alexa docs]) ([automation docs]) ([homekit docs]) ([logbook docs]) ([recorder docs]) ([history docs]) ([script docs])
 
 - **Recorder**
@@ -549,7 +553,7 @@ Previously the `autobypass` configuration option only worked for `home` and `awa
   The new name for this directory is `translations` (without the `.` prefix), for Home Assistant to be able to load your files from this directory, simply remove the `.` from the name of it.
 
   If you publish your custom integration to GitHub, you should enable the [`hassfest` action](https://developers.home-assistant.io/blog/2020/04/16/hassfest), this would have warned you about this change in the previous 3 releases.
-  
+
   ([@ludeeus] - [#37021])
 
 - **MQTT**
@@ -607,6 +611,45 @@ The integrations below have been removed:
 
 - Lockitron (API platform is decommissioned) ([@frenck] - [#37012])
 - Fortigate (replaced by FortiOS integration) ([@kifeo] - [#34586])
+
+## Release 0.112.1 - July 2
+
+- Update proxmoxve integration to correctly renew authentication ([@jhollowe] - [#37016]) ([proxmoxve docs])
+- Change log url in config check error notification ([@hdsheena] - [#37311]) ([homeassistant docs])
+- Smappee dependency update ([@bsmappee] - [#37331]) ([smappee docs])
+- Fix devolo sensor subscriber ([@2Fake] - [#37337]) ([devolo_home_control docs])
+- Fix gogogate2 issue where non-admin users could not login ([@vangorra] - [#37353]) ([gogogate2 docs])
+- Use entry.data.get() in forked_daapd config_flow as some entries miss… ([@uvjustin] - [#37359]) ([forked_daapd docs])
+- Fix withings bug that grabbed oldest value instead of the newest ([@vangorra] - [#37362]) ([withings docs])
+- Update frontend to 20200702.0 ([@bramkragten] - [#37369]) ([frontend docs])
+- Add DenonAvr missing error message ([@starkillerOG] - [#37370]) ([denonavr docs])
+
+[#37016]: https://github.com/home-assistant/core/pull/37016
+[#37311]: https://github.com/home-assistant/core/pull/37311
+[#37331]: https://github.com/home-assistant/core/pull/37331
+[#37337]: https://github.com/home-assistant/core/pull/37337
+[#37353]: https://github.com/home-assistant/core/pull/37353
+[#37359]: https://github.com/home-assistant/core/pull/37359
+[#37362]: https://github.com/home-assistant/core/pull/37362
+[#37369]: https://github.com/home-assistant/core/pull/37369
+[#37370]: https://github.com/home-assistant/core/pull/37370
+[@2fake]: https://github.com/2Fake
+[@bramkragten]: https://github.com/bramkragten
+[@bsmappee]: https://github.com/bsmappee
+[@hdsheena]: https://github.com/hdsheena
+[@jhollowe]: https://github.com/jhollowe
+[@starkillerog]: https://github.com/starkillerOG
+[@uvjustin]: https://github.com/uvjustin
+[@vangorra]: https://github.com/vangorra
+[denonavr docs]: /integrations/denonavr/
+[devolo_home_control docs]: /integrations/devolo_home_control/
+[forked_daapd docs]: /integrations/forked_daapd/
+[frontend docs]: /integrations/frontend/
+[gogogate2 docs]: /integrations/gogogate2/
+[homeassistant docs]: /integrations/homeassistant/
+[proxmoxve docs]: /integrations/proxmoxve/
+[smappee docs]: /integrations/smappee/
+[withings docs]: /integrations/withings/
 
 ## All changes
 
@@ -1152,28 +1195,28 @@ The integrations below have been removed:
 [#37240]: https://github.com/home-assistant/core/pull/37240
 [#37278]: https://github.com/home-assistant/core/pull/37278
 [#37279]: https://github.com/home-assistant/core/pull/37279
-[@2Fake]: https://github.com/2Fake
-[@Adminiuga]: https://github.com/Adminiuga
-[@BKPepe]: https://github.com/BKPepe
-[@CoMPaTech]: https://github.com/CoMPaTech
-[@Hedda]: https://github.com/Hedda
-[@Hedgehog57]: https://github.com/Hedgehog57
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@Kane610]: https://github.com/Kane610
-[@Leapo]: https://github.com/Leapo
-[@MarBra]: https://github.com/MarBra
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@MatthewFlamm]: https://github.com/MatthewFlamm
-[@MrHarcombe]: https://github.com/MrHarcombe
-[@Quentame]: https://github.com/Quentame
-[@RogerSelwyn]: https://github.com/RogerSelwyn
-[@ShaneQi]: https://github.com/ShaneQi
-[@Shulyaka]: https://github.com/Shulyaka
-[@StevenLooman]: https://github.com/StevenLooman
-[@StevusPrimus]: https://github.com/StevusPrimus
-[@SukramJ]: https://github.com/SukramJ
-[@Tho85]: https://github.com/Tho85
-[@TomBrien]: https://github.com/TomBrien
+[@2fake]: https://github.com/2Fake
+[@adminiuga]: https://github.com/Adminiuga
+[@bkpepe]: https://github.com/BKPepe
+[@compatech]: https://github.com/CoMPaTech
+[@hedda]: https://github.com/Hedda
+[@hedgehog57]: https://github.com/Hedgehog57
+[@jefflirion]: https://github.com/JeffLIrion
+[@kane610]: https://github.com/Kane610
+[@leapo]: https://github.com/Leapo
+[@marbra]: https://github.com/MarBra
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[@matthewflamm]: https://github.com/MatthewFlamm
+[@mrharcombe]: https://github.com/MrHarcombe
+[@quentame]: https://github.com/Quentame
+[@rogerselwyn]: https://github.com/RogerSelwyn
+[@shaneqi]: https://github.com/ShaneQi
+[@shulyaka]: https://github.com/Shulyaka
+[@stevenlooman]: https://github.com/StevenLooman
+[@stevusprimus]: https://github.com/StevusPrimus
+[@sukramj]: https://github.com/SukramJ
+[@tho85]: https://github.com/Tho85
+[@tombrien]: https://github.com/TomBrien
 [@adaamz]: https://github.com/adaamz
 [@ahayworth]: https://github.com/ahayworth
 [@ajschmidt8]: https://github.com/ajschmidt8
@@ -1253,7 +1296,7 @@ The integrations below have been removed:
 [@springstan]: https://github.com/springstan
 [@sqldiablo]: https://github.com/sqldiablo
 [@squishykid]: https://github.com/squishykid
-[@starkillerOG]: https://github.com/starkillerOG
+[@starkillerog]: https://github.com/starkillerOG
 [@svenstaro]: https://github.com/svenstaro
 [@teharris1]: https://github.com/teharris1
 [@terminet85]: https://github.com/terminet85
