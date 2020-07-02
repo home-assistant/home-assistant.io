@@ -29,9 +29,9 @@ To set up a Broadlink device, click Configuration in the sidebar and click Integ
 
 ### Entities and subdomains
 
-Once the device is configured, all the entities will be registered automatically.
+Once the device is configured, all the entities will be created automatically.
 
-These entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful for you. When you're done, don't forget to click Update to save your changes.
+These entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. When you're done, click Update to save your changes.
 
 The entities are divided into three subdomains:
 
@@ -43,13 +43,11 @@ The entities are divided into three subdomains:
 
 The `remote` subdomain allows you to interact with universal remotes. You can:
 
-- Learn IR codes, which will be stored into a JSON file.
+- Learn IR codes, which will be stored into JSON files.
 - Send the IR codes you have learned.
 - Send RF codes (use the base64 feature).
 
-Remote entities are automatically registered during device startup. 
-
-### Learn command
+### Learn IR codes
 
 Use the `remote.learn_command` service to learn IR codes.
 
@@ -113,11 +111,11 @@ In the above example, two codes will be captured for the power command, and they
 
 #### Learned codes storage location
 
-The learned codes are stored in the `.storage` folder in a file called `broadlink_remote_xxxxxxxxxxx_codes.json`. You can open this file with a text editor and copy the codes to set up a custom switch.
+The learned codes are stored in the `/configuration/.storage` folder in a file called `broadlink_remote_xxxxxxxxxxx_codes.json`. You can open this file with a text editor and copy the codes to set up a custom switch.
 
-Beware: files in the .storage folder __should never be edited manually__, so just view the file.
+Beware: the files in the .storage folder __should never be edited manually__.
 
-### Send command
+### Send IR/RF codes
 
 Use the `remote.send_command` service to send IR/RF codes.
 
@@ -220,17 +218,17 @@ script:
 
 ## Sensor
 
-The `sensor` subdomain allows you to fetch data from sensors. Sensor entities are automatically registered during device startup. 
+The `sensor` subdomain allows you to fetch data from sensors.
 
 ## Switch
 
 The `switch` subdomain allows you to interact with switches. You can turn them on and off, and you can monitor their state and power consumption, when available.
 
-Switch entities are automatically registered during device startup. You can also configure custom switches to be controlled with a universal remote device.
-
 ### Custom switches
 
-To define a custom switch, add the following lines to your `configuration.yaml`:
+You can create custom switches to be controlled with universal remote devices.
+
+Start by adding these lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -244,11 +242,11 @@ switch:
         command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
 ```
 
-The above example defines a switch called switch.television that works as an interface for the universal remote with the MAC address provided. The device needs to be configured for this switch to be created.
+The above example sets up a switch called switch.television that works as an interface to the universal remote with the MAC address provided. The device needs to be configured first for this switch to be created.
 
 {% configuration %}
 mac:
-  description: "MAC address of the universal remote."
+  description: The MAC address of the universal remote.
   required: true
   type: string
 switches:
@@ -257,23 +255,43 @@ switches:
   type: map
   keys:
     identifier:
-      description: Name of the switch as slug. Multiple entries are possible.
+      description: The name of the switch as slug. Multiple entries are possible.
       required: true
       type: string
       keys:
         command_on:
-          description: Base64 code to be sent as 'turn on' command.
-          required: true
+          description: A base64 code to be sent as "turn on" command.
+          required: false
           type: string
         command_off:
-          description: Base64 code to be sent as 'turn off' command.
-          required: true
+          description: A base64 code to be sent as "turn off" command.
+          required: false
           type: string
         friendly_name:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
 {% endconfiguration %}
+
+You can also configure multiple switches for the same remote:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: broadlink
+    mac: MAC_ADDRESS
+    switches:
+      tv_philips:
+        friendly_name: Philips TV
+        command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+        command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+      tv_lg:
+        friendly_name: LG TV
+        command_on: JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU=
+        command_off: JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU=
+```
+
+The above example sets up two switches called switch.tv_philips and switch.tv_lg that will be created as soon as the device is configured.
 
 ### Using e-Control remotes
 
@@ -457,6 +475,7 @@ Now you can add as many template nodes, each having a specific code, and add any
 ### Using broadlink_cli to obtain codes
 
 It is also possible to obtain codes using `broadlink_cli` from [python-broadlink](https://github.com/mjg59/python-broadlink) project.
+
 First use discovery to find your Broadlink device:
 
 ```bash
@@ -467,27 +486,56 @@ RM2
 # broadlink_cli --type 0x2787 --host 192.168.1.137 --mac 34ea34b45d2c
 Device file data (to be used with --device @filename in broadlink_cli) :
 0x2787 192.168.1.137 34ea34b45d2c
-temperature = 0.0
+temperature = 27.1
 ```
 
-Then use this info in a cli-command:
+Then use this info in a cli-command. IR and RF learning are supported.
+
+#### Learn IR codes
+
+Use `--learn` to obtain IR codes:
 
 ```bash
-./broadlink_cli  --learn --device "0x2787 192.168.1.137 34ea34b45d2c"
+./broadlink_cli --learn --device "0x2787 192.168.1.137 34ea34b45d2c"
 Learning...
 ```
 
-Press a button on the remote and you get a code:
+Press a button on the remote and you get the code:
 
 ```txt
 260058000001219512131114113910141114111411141114103911391114103911391139103911391039113911141039111411391015103911141114113910141139111410391114110005250001274b11000c520001274b11000d05
 Base64: b'JgBYAAABIZUSExEUETkQFBEUERQRFBEUEDkROREUEDkRORE5EDkRORA5ETkRFBA5ERQRORAVEDkRFBEUETkQFBE5ERQQOREUEQAFJQABJ0sRAAxSAAEnSxEADQU='
 ```
 
-Use `--rfscanlearn` to learn RF codes:
+#### Learn RF codes
+
+Use `--rfscanlearn` to obtain RF codes:
 
 ```bash
-./broadlink_cli  --rfscanlearn --device "0x2787 192.168.1.137 34ea34b45d2c"
+$ ./broadlink_cli --rfscanlearn --device "0x2787 192.168.1.137 34ea34b45d2c"
+Learning RF Frequency, press and hold the button to learn...
+```
+
+Press and hold a button on the remote.
+
+```txt
+Found RF Frequency - 1 of 2!
+You can now let go of the button
+Press enter to continue...
+```
+
+Press enter.
+
+```txt
+To complete learning, single press the button you want to learn
+```
+
+Short press the button and you get the code:
+
+```txt
+Found RF Frequency - 2 of 2!
+b2002c0111211011211121112111212110112122101121112111202210211121112110221011211121112121102210112121111021112221101121211100017b10211111211121102111212210112121111121102111212210211121102210211111211121102122102111112121101121112122101121211000017c10211111211022102111212210112121111022102112202210211121102210221011211022102122102210112121101122102122101121211100017b10211111211121102210212210112122101121102210212210221021112110221011211121112121102210112121111121102122101121221000017b1121101121112111211121211110212210112111211121211121102210211121101121112111212111211011222110112111212111112121100005dc000000000000000000000000
+Base64: b'sgAsAREhEBEhESERIREhIRARISIQESERIREgIhAhESERIRAiEBEhESERISEQIhARISERECERIiEQESEhEQABexAhEREhESEQIREhIhARISERESEQIREhIhAhESEQIhAhEREhESEQISIQIRERISEQESERISIQESEhEAABfBAhEREhECIQIREhIhARISERECIQIRIgIhAhESEQIhAiEBEhECIQISIQIhARISEQESIQISIQESEhEQABexAhEREhESEQIhAhIhARISIQESEQIhAhIhAiECERIRAiEBEhESERISEQIhARISERESEQISIQESEiEAABexEhEBEhESERIREhIREQISIQESERIREhIREhECIQIREhEBEhESERISERIRARIiEQESERISERESEhEAAF3AAAAAAAAAAAAAAAAA=='
 ```
 
 ### Conversion of codes from other projects
