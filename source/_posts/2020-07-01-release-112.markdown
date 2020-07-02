@@ -102,13 +102,13 @@ So this:
 
 ```yaml
 condition:
-  - platform: state
+  - condition: state
     entity_id: light.kitchen
     state: 'on'
-  - platform: state
+  - condition: state
     entity_id: light.living_room
     state: 'on'
-  - platform: state
+  - condition: state
     entity_id: light.office
     state: 'on'
 ```
@@ -117,7 +117,7 @@ Can now be shortened to this:
 
 ```yaml
 condition:
-  - platform: state
+  - condition: state
     entity_id:
       - light.kitchen
       - light.living_room
@@ -129,7 +129,7 @@ An example that tests if the alarm is in any of the specified states:
 
 ```yaml
 condition:
-  - platform: state
+  - condition: state
     entity_id: alarm_control_panel.home
     state:
       - armed_home
@@ -141,7 +141,7 @@ And this condition is now also passing when Frenck is at home or at work
 
 ```yaml
 condition:
-  - platform: zone
+  - condition: zone
     entity_id: device_tracker.frenck
     zone:
       - zone.home
