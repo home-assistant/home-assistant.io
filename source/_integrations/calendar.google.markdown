@@ -39,6 +39,13 @@ Generate a Client ID and Client Secret on
 
 If you will later be adding more scopes than just the "Google Calendar API" to the OAuth for this application, you will need to delete your token file under your Home Assistant Profile. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 
+## Troubleshooting
+
+If you are trying to switch to a new google account then you would run into the following error message. Make sure to delete the existing **.google.token** file from your config folder and restart Home Assistant to try again.
+
+'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
+
+
 ## Configuration
 
 To integrate Google Calendar in Home Assistant,
@@ -49,7 +56,7 @@ add the following section to your `configuration.yaml` file:
 google:
   client_id: YOUR_CLIENT_ID
   client_secret: YOUR_CLIENT_SECRET
-```
+```yaml
 
 {% configuration %}
 client_id:
