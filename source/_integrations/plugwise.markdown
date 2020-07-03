@@ -49,7 +49,7 @@ PLEASE NOTE 2: when you have an Anna and an Adam, make sure to only configure th
 
 PLEASE NOTE 3: BE AWARE that ignoring one Plugwise integration also blocks any other Plugwise integration from future discovery. If you ever need to rediscover an existing Plugwise integration, make sure to first STOP IGNORING the Plugwise integration before you try rediscovery.
 
-Depending on your `climate` setup an auxiliary entity will be added when there is information available about such a Plugwise device. If you have Plugs (as in, pluggable switches that can be connected to an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s or `binary_sensor`s.
+When there are more (than one) Plugwise thermostats present, an "auxiliary device" will be added representing the active heating/cooling device present in your climate system. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s or `binary_sensor`s.
 
 Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
