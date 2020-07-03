@@ -41,7 +41,7 @@ If you will later be adding more scopes than just the "Google Calendar API" to t
 
 ## Troubleshooting
 
-If you are trying to switch to a new google account then you would run into the following error message. Make sure to delete the existing **.google.token** file from your config folder and restart Home Assistant to try again.
+If you are trying to switch to a new Google account then you would run into the following error message. Make sure to delete the existing **.google.token** file from your `config` folder and restart Home Assistant to try again.
 
 'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
 
