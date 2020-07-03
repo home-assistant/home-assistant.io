@@ -18,7 +18,8 @@ The Smappee integration will allow users to integrate their Smappee monitors, pl
 
 ## Configuration
 
-To use the Smappee integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file.  The `client_id` and `client_secret` can be obtained by contacting [support@smappee.com](mailto:support@smappee.com) and require a monthly subscription fee.
+To use the Smappee integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file. The `client_id` and `client_secret` can be obtained by contacting [info@smappee.com](mailto:info@smappee.com) and require a recurring monthly fee.
+For any information about the use of the API please refer to the [Smappee API space](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview).
 
 ```yaml
 # Example configuration.yaml entry
