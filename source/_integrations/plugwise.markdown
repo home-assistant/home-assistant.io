@@ -51,6 +51,8 @@ PLEASE NOTE 3: BE AWARE that ignoring one Plugwise integration also blocks any o
 
 Depending on your `climate` setup an auxiliary entitiy will be added when there is information available about such Plugwise devices. If you have "plug"s (as in, pluggable switches that come with an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor` or `binary_sensor`.
 
+Depending on your `climate` setup an auxiliary entitiy will be added when there is information available about such Plugwise devices. If you have "plug"s (as in, pluggable switches that come with an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s or `binary_sensor`s.
+
 Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
 ### Services
