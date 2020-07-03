@@ -56,6 +56,7 @@ add the following section to your `configuration.yaml` file:
 google:
   client_id: YOUR_CLIENT_ID
   client_secret: YOUR_CLIENT_SECRET
+```
 
 {% configuration %}
 client_id:
