@@ -18,7 +18,7 @@ The Smappee integration will allow users to integrate their Smappee monitors, pl
 
 ## Configuration
 
-To use the Smappee integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file.  The `client_id` and `client_secret` can be obtained by contacting [support@smappee.com](mailto:support@smappee.com).
+To use the Smappee integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file.  The `client_id` and `client_secret` can be obtained by contacting [support@smappee.com](mailto:support@smappee.com) and require a monthly subscription fee.
 
 ```yaml
 # Example configuration.yaml entry
