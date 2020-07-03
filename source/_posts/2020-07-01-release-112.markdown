@@ -651,6 +651,33 @@ The integrations below have been removed:
 [smappee docs]: /integrations/smappee/
 [withings docs]: /integrations/withings/
 
+## Release 0.112.2 - July 3
+
+- Don't print MQTT credentials to log ([@emontnemery] - [#37364]) ([mqtt docs])
+- Handle index already existing on db migration with MySQLdb backend ([@bdraco] - [#37384]) ([recorder docs])
+- Ensure logbook entries appear when the logbook.log ([@bdraco] - [#37388]) ([logbook docs])
+- Bump pytile to 4.0.0 ([@bachya] - [#37398]) ([tile docs])
+- Bump python-miio to 0.5.2.1 ([@rytilahti] - [#37422]) ([xiaomi_miio docs])
+- Bump teslajsonpy to 0.9.2 ([@alandtse] - [#37434]) ([tesla docs])
+
+[#37364]: https://github.com/home-assistant/core/pull/37364
+[#37384]: https://github.com/home-assistant/core/pull/37384
+[#37388]: https://github.com/home-assistant/core/pull/37388
+[#37398]: https://github.com/home-assistant/core/pull/37398
+[#37422]: https://github.com/home-assistant/core/pull/37422
+[#37434]: https://github.com/home-assistant/core/pull/37434
+[@alandtse]: https://github.com/alandtse
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@rytilahti]: https://github.com/rytilahti
+[logbook docs]: /integrations/logbook/
+[mqtt docs]: /integrations/mqtt/
+[recorder docs]: /integrations/recorder/
+[tesla docs]: /integrations/tesla/
+[tile docs]: /integrations/tile/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+
 ## All changes
 
 <details>
