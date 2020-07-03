@@ -22,6 +22,8 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Issue tracker Home Assistant Frontend](https://github.com/home-assistant/frontend/issues)
 - [Issue tracker Home Assistant Supervisor](https://github.com/home-assistant/supervisor/issues)
 - [Issue tracker Home Assistant Operating System](https://github.com/home-assistant/operating-system/issues)
+- [Issue tracker Home Assistant Android App](https://github.com/home-assistant/android/issues)
+- [Issue tracker Home Assistant iOS App](https://github.com/home-assistant/ios/issues)
 - [Issue tracker website & documentation](https://github.com/home-assistant/home-assistant.io/issues)
 
 ## Videos, talks, workshops and alike
