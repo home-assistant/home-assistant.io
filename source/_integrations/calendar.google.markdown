@@ -45,7 +45,6 @@ If you are trying to switch to a new Google account then you would run into the 
 
 'oauth2client.client.HttpAccessTokenRefreshError: deleted_client: The OAuth client was deleted'
 
-
 ## Configuration
 
 To integrate Google Calendar in Home Assistant,
