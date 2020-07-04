@@ -77,6 +77,15 @@ sensor:
     required: false
     type: integer
     default: 3
+  prefix:
+    description: "Prepend all generated entity names and entity ids with the defined prefix"
+    required: false
+    type: string
+  force_update:
+    description: "Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history."
+    required: false
+    type: boolean
+    default: false
 {% endconfiguration %}
 
 Full configuration examples can be found below:
