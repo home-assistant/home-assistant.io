@@ -105,6 +105,10 @@ binary_sensors:
   type: list
   default: None
   keys:
+    audio_detected:
+      description: "Return `on` when audio is detected, `off` when not. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
+    audio_detected_polled:
+      description: "Return `on` when audio is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     motion_detected:
       description: "Return `on` when a motion is detected, `off` when not."
     online:
