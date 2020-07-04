@@ -69,7 +69,7 @@ mode:
   type: string
   default: legacy
 queue_size:
-  description: "Controls maximum number of queued runs waiting for previous run to complete. Only valid with `mode: queued`."
+  description: "Controls maximum number of queued runs waiting for previous run to complete. Only valid with `mode: queue`."
   required: false
   type: integer
   default: 10
@@ -88,7 +88,7 @@ Mode | Description
 `ignore` | Do not start a new run. Previous run continues normally.
 `parallel` | Start a new, independent run in parallel with previous runs which continue normally.
 `restart` | Start a new run after first stopping previous run.
-`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`queue` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
 
 <p class='img'>
   <img src='/images/integrations/script/script_modes.jpg'>
