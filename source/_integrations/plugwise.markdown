@@ -41,7 +41,7 @@ Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna
 
 ## Configuration
 
-The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click CONFIGURATION on the discovered Entity and you will be presented with a dialog requesting the Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
+The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
 
 PLEASE NOTE 1: the Unique ID(s) of the Plugwise integration(s) has(have) changed due to the introduction of automatic discovery. If you have already configured the Plugwise integration(s) via the "Integrations --> Plus-button"-method, you can ignore the newly discovered Plugwise integration(s).
 
