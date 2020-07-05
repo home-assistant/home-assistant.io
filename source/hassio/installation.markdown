@@ -114,7 +114,7 @@ If you would like to test next release before anyone else, you can install the b
 [pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.11/hassos_rpi3-64-4.11.img.gz
 [pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.11/hassos_rpi4-4.11.img.gz
 [pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.11/hassos_rpi4-64-4.11.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.10/hassos_tinker-4.10.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.11/hassos_tinker-4.11.img.gz
 [odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.11/hassos_odroid-c2-4.11.img.gz
 [odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.11/hassos_odroid-n2-4.11.img.gz
 [odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.11/hassos_odroid-xu4-4.11.img.gz
