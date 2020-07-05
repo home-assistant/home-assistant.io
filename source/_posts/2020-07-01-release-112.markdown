@@ -35,6 +35,8 @@ Enjoy the release!
 
 ../Frenck
 
+[Already updated? Skip to point release notes](#release-01121---july-2)
+
 ## Important upgrade notice!
 
 Let's start with an important notice for upgrading to Home Assistant Core 0.112.
