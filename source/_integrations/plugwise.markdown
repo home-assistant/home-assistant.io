@@ -35,7 +35,7 @@ The password can be found on the bottom of your Smile, it should consist of 6 ch
 
 This integration will show all Plugwise entities present in your Plugwise configuration. In addition you will see a 'Smile' entity representing your central Plugwise gateway (i.e. the Smile, Smile P1 or Adam).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom' these will show up as individual entities. When there are more (than one) Plugwise thermostats present, an "Auxiliary Device" will be added representing the active heating/cooling device present in your climate system. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as `switch`es. Various other measures of your setup will be available as `sensor`s or `binary_sensor`s.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom' these will show up as individual entities. When there are more (than one) Plugwise thermostats present, an "Auxiliary Device" will be added representing the active heating/cooling device present in your climate system. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measures of your setup will be available as sensors or binary sensors.
 
 Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway entity. Auxiliary Heater(/Cooler) measurements such as 'boiler_temperature' will be assigned to the Auxiliary entity.
 
