@@ -82,7 +82,28 @@ Best practice for updating a Home Assistant installation:
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
 5. Select _Dashboard_ from the _Supervisor_ menu, and then select _Update_.
 
-## Run a specific version on Home Assistant
+## Run the beta version of Home Assistant
+
+If you would like to test the next release before anyone else, you can install the beta version released every two weeks:
+
+1. Backup your installation, using the snapshot functionality Home Assistant offers.
+2. Check the [Home Assistant Beta release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Select _System_ tab from the _Supervisor_ menu, then select _Join Beta Channel_ under _Supervisor_, then select _Reload_.
+4. Select _Dashboard_ tab from the _Supervisor_ menu, and then select _Update_.
+
+
+## Home Assistant OS FAQ
+
+<details><summary>Why isn't the Pi4 with 8GB RAM supported?</summary>
+<p>
+
+The bootloader which Home Assistant OS uses (uboot) does not currently support the Pi4 with 8GB RAM. Support is likely a month or two away as of July 2020.
+
+</p>
+</details>
+
+<details><summary>How do I run a specfic version of Home Assistant?</summary>
+<p>   
 
 For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
 that is available on your device by connecting a keyboard and screen.
@@ -94,16 +115,58 @@ Use the web-based terminal or SSH to your Home Assistant system, or connect to t
 ```bash
 ha core update --version=0.XX.X
 ```
+Replace 0.XX.X with the version you want. e.g. 0.111.2
+You can also use a similar command for the OS:
 
-## Run the beta version on Home Assistant
+```bash
+ha os update --version 4.11
+```
+</p>
+</details>
 
-If you would like to test next release before anyone else, you can install the beta version released every three weeks:
+<details><summary>Do I need to leave the USB stick connected for wifi?</summary>
+<p>
+ 
+No. The USB "CONFIG" stick is only used to import a network profile to `/etc/NetworkManager/system-connections/` and can be removed.
 
-1. Backup your installation, using the snapshot functionality Home Assistant offers.
-2. Check the [Home Assistant Beta release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
-3. Select _System_ tab from the _Supervisor_ menu, then select _Join Beta Channel_ under _Supervisor_, then select _Reload_.
-4. Select _Dashboard_ tab from the _Supervisor_ menu, and then select _Update_.
+</p>
+</details>
 
+<details><summary>404 Client Error: Not Found ("no such image: homeassistant/...)</summary>
+<p>
+
+This error indicates the an image, whether for updating to Home Assistant or installing or updating an add-on, was not able to be pulled to your system. This is usually a situation where there is not enough space for the image to be downloaded. The first thing to check for is available space on your system.
+
+As the VM image is only about 6GB by default, many VM users run in to this as they have not allocated enough storage. 32 GB is the recommended size.
+
+You'll need to explore your own system to determine where the space has gone.
+Using `df -h` in the ssh addon console to you can quickly check to see if you have the space.
+
+If there is plenty of space available then you might check to see if you are having network issues which are preventing images being downloaded.
+</p>
+</details>
+
+<details><summary>Why does the start button for an add-on flash red when I click it?</summary>
+<p>
+
+If you are looking for more information about addons which won't start or install, navigate to Supervisor > System in the UI and check the logs.
+
+The logs on this page are the same you would see using `ha logs` in the custom cli.
+
+</p>
+</details>
+
+
+<details><summary>I'm trying to find my files on the host or SD card. Where are they?</summary>
+<p>
+  
+On a Home Assistant OS install your files are on the data partition within `/mnt/data/supervisor/`.
+On the SD itself, this is an EXT4 partition labeled `hassos-data`
+
+On a Supervised install they are in `/usr/share/hassio/`.
+
+</p>
+</details>
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
