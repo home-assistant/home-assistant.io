@@ -129,6 +129,11 @@ area:
                   required: false
                   type: float
                   default: 2.0
+                level:
+                  description: Level of the channels when the preset is selected, between 0 and 1.
+                  required: false
+                  type: float
+                  default: None
         nodefault:
           description: Do not use the default presets defined globally, but only the specific ones defined for this area.
           required: false
@@ -179,6 +184,11 @@ preset:
           required: false
           type: float
           default: 2.0
+        level:
+          description: Level of the channels when the preset is selected, between 0 and 1.
+          required: false
+          type: float
+          default: None
 template:
   description: Set the default parameters for the templates.
   required: false
