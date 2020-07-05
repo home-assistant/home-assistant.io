@@ -16,6 +16,11 @@ Duplicates your RF remote control. Supported devices:
 - Shades
 - Fireplaces
 
-## Configuration
+## Configuration via UI
 
 To use Bond controlled devices in your installation, add your Bond hub host and access token from the integrations page.
+
+Menu: **Configuration** -> **Integrations**.
+
+Click on the `+` sign to add an integration and click on **Bond** (use typeahead if necessary).
+After completing the configuration flow, the Bond integration will be available.
