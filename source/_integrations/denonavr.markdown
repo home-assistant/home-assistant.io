@@ -72,11 +72,6 @@ show_all_sources:
   required: false
   default: false
   type: boolean
-timeout:
-  description: Timeout in seconds for HTTP requests to the receiver.
-  required: false
-  default: 2
-  type: integer
 zone1:
   description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
   required: false
