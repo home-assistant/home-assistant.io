@@ -72,10 +72,10 @@ Mode | Description
 
 ```yaml
 automation:
-- mode: queue
-  queue_size: 5
-  trigger:
-  ...
+  - mode: queue
+    queue_size: 5
+    trigger:
+    ...
 ```
 
 #### Legacy Mode
