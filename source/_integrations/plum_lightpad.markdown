@@ -26,8 +26,8 @@ To use Plum Lightpad devices in your installation, add your Plum account from th
 
 Menu: **Configuration** -> **Integrations**.
 
-Click on the `+` sign to add an integration and click on **Bond** (use typeahead if necessary).
-After completing the configuration flow, the Bond integration will be available.
+Click on the `+` sign to add an integration and click on **Plum Lightpad** (use typeahead if necessary).
+After completing the configuration flow, the Plum Lightpad integration will be available.
 
 Alternatively, add the following lines to your `configuration.yaml` file:
 
