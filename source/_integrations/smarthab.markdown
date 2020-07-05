@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Light
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@outadoc'
 ha_domain: smarthab
@@ -17,8 +18,10 @@ devices and you have access to their app-based services, you will be able
 to control your lights and shutters with the SmartHab integration for Home 
 Assistant.
 
-Once you have added a `smarthab` entry to your configuration, your supported 
-devices will automatically be discovered and made available on your dashboard.
+<div class='note info'>
+The easiest way to set up this integration is to do it from the UI. If you
+prefer to do it from `configuration.yaml`, follow these instructions.
+</div>
 
 <div class='note warning'>
   To prevent being automatically logged out of your SmartHab mobile app, you
