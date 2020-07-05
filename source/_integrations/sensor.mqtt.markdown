@@ -71,7 +71,7 @@ expire_after:
   default: 0
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
-  reqired: false
+  required: false
   type: boolean
   default: false
 icon:
