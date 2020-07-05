@@ -106,7 +106,9 @@ binary_sensors:
   default: None
   keys:
     motion_detected:
-      description: "Return `on` when a motion is detected, `off` when not."
+      description: "Return `on` when a motion is detected, `off` when not. Uses streaming method (see [below](#streaming-vs-polled-binary-sensors))."
+    motion_detected_polled:
+      description: "Return `on` when a motion is detected, `off` when not. Uses polled method (see [below](#streaming-vs-polled-binary-sensors))."
     online:
       description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
 sensors:
@@ -142,6 +144,10 @@ Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
 **Note:** If you set the `stream_source` option to `rtsp`,
 make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
 documentation to install the `ffmpeg`.
+
+### Streaming vs Polled Binary Sensors
+
+Some binary sensors provide two choices for method of operation: streaming or polled. Streaming is more responsive and causes less network traffic because the camera will tell Home Assistant when the sensor's state has changed. Polled mode queries the camera periodically (every five seconds) to check the state of the sensor. Therefore streaming is the better option. However, some camera models and versions of camera firmware do not seem to implement the streaming method properly. Therefore the polled mode is also available. It is recommended to use the streaming mode (e.g., `motion_detected`) first, and if that doesn't work (e.g., results in constant errors), then try the polled mode instead (e.g., `motion_detected_polled`.)
 
 ## Services
 
