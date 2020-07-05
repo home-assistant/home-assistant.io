@@ -24,6 +24,7 @@ switch:
       slave: 1
       coil: 13
     - name: Switch2
+      hub: hub1
       slave: 2
       coil: 14
   registers:
