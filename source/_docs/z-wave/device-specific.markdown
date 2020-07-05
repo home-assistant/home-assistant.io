@@ -161,6 +161,17 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
 
 Some models of the Zooz Toggle switches ship with an instruction manual with incorrect instruction for Z-Wave inclusion/exclusion. The instructions say that the switch should be quickly switched on-off-on for inclusion and off-on-off for exclusion. However, the correct method is on-on-on for inclusion and off-off-off for exclusion.
 
+### Inovelli Light/Fan Combo (LZW36)
+Follow the [instructions](https://support.inovelli.com/portal/kb/articles/installation-setup-lzw36-fan-light-red-series-gen-2-home-assistant-hass-io) provided by Inovelli. You will need to uncomment command class 38 in the imported configuration file.
+
+```xml
+  <CommandClass id="38">
+    <Instance index="1" label="Fan/Light" />
+    <Instance index="2" endpoint="1" label="Light" />
+    <Instance index="3" endpoint="2" label="Fan" />
+  </CommandClass>
+```
+
 ## Central Scene configuration
 
 To provide Central Scene support you need to **stop your Z-Wave network** and modify your `zwcfg_*.xml` file according to the following guides. Start your Z-Wave network again after editing `zwcfg_*.xml`.
@@ -191,13 +202,13 @@ Triple tap on|2|4
 5x tap off|1|6
 5x tap on|2|6
 
-### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v2 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
+### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v3 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
 
 Many Zooz switches that have been sold do not have the latest firmwares. Contact Zooz to obtain the over the air firmware update instructions and new user manual for the switches.
 
 Once the firmware is updated, the the new configuration parameters will have to be added to the `zwcfg` file. Replace the existing `COMMAND_CLASS_CONFIGURATION` with the one of the following options (depending on your model of switch):
 
-Zen21v2 (On/Off Switch):
+Zen21v3 (On/Off Switch):
 
 ```xml
 <CommandClass id="112" name="COMMAND_CLASS_CONFIGURATION" version="1">
@@ -1456,4 +1467,46 @@ The configuration parameters will have to be added to the `zwcfg` file. Replace 
     </Help>
   </Value>
 </CommandClass>
+```
+
+### Jasco 2 Button Remote (37792/ZW5307)
+
+<!-- from https://products.z-wavealliance.org/products/2930/ -->
+
+Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below XML data. Save the file and restart Home Assistant.  
+
+```xml
+    <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+    </CommandClass>
+```
+
+Below is a table of the action/scenes for the Jasco remote:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button one single tap|1|0
+Button one double tap|1|3
+Button one triple tap|1|4
+Button two single tap|2|0
+Button two double tap|2|3
+Button two triple tap|2|4
+
+Example Event:
+
+```yaml
+- alias: JascoButton1
+  trigger:
+    - event_type: zwave.scene_activated
+      platform: event
+      event_data:
+        node_id: 2
+        scene_id: 1
+        scene_data: 0
+  action:
+    - service: switch.toggle
+      entity_id: switch.office_fan
 ```

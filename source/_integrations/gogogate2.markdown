@@ -7,6 +7,9 @@ ha_category:
 ha_release: 0.67
 ha_iot_class: Local Polling
 ha_domain: gogogate2
+ha_codeowners:
+  - '@vangorra'
+ha_config_flow: true
 ---
 
 The GogoGate2 integration lets you control Gogogate2-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Gogogate2 mobile app.

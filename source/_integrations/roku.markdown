@@ -138,3 +138,18 @@ action:
     media_content_type: channel
   service: media_player.play_media
 ```
+
+## Remote
+
+The `remote` platform allows you to send keypress commands to your device. Remote entities are automatically registered during the integration setup.
+
+## Services
+
+### Service `roku.search`
+
+This service allows you to emulate opening the search screen and entering the search keyword.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | yes | The entities to search on. | media_player.roku
+| `keyword` | no | The keyword to search for. | Space Jam

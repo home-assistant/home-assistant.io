@@ -43,4 +43,4 @@ For additional configuration variables check the [Device tracker page](/integrat
 
 ## `bluetooth_tracker.update` service
 
-The `bluetooth_tracker.update` service can be used to manually trigger a Bluetooth scan. An example of when this service can be useful is to trigger scans based on other events like doors being opened, beacons are in range or buttons are pressed. 
+The `bluetooth_tracker.update` service can be used to manually trigger a Bluetooth scan. An example of when this service can be useful is to trigger scans based on other events like doors being opened, beacons are in range or buttons are pressed.

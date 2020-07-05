@@ -13,6 +13,7 @@ Tested routers:
 
 - Linksys WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless Router
 - Linksys WRT1900ACS Dual-band Wi-Fi Router
+- Linksys EA8300 Max-Stream AC2200 Tri-Band Wi-Fi Router
 
 ## Setup
 

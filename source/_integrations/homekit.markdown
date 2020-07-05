@@ -31,6 +31,8 @@ homekit:
       - alarm_control_panel
       - light
       - media_player
+    include_entity_globs:
+      - binary_sensor.*_occupancy
     include_entities:
       - binary_sensor.living_room_motion
   entity_config:
@@ -103,12 +105,20 @@ homekit:
             description: Domains to be included.
             required: false
             type: list
+          include_entity_globs:
+            description: Include all entities matching a listed pattern (e.g., `binary_sensor.*_motion`).
+            required: false
+            type: list
           include_entities:
             description: Entities to be included.
             required: false
             type: list
           exclude_domains:
             description: Domains to be excluded.
+            required: false
+            type: list
+          exclude_entity_globs:
+            description: Exclude all entities matching a listed pattern (e.g., `sensor.*_motion`).
             required: false
             type: list
           exclude_entities:
@@ -371,6 +381,8 @@ homekit:
     include_domains:
       - alarm_control_panel
       - light
+    include_entity_globs:
+      - binary_sensor.*_occupancy
     exclude_entities:
       - light.kitchen_light
 ```
@@ -383,16 +395,17 @@ Filters are applied as follows:
 2. Includes, no excludes - only include specified entities
 3. Excludes, no includes - only exclude specified entities
 4. Both includes and excludes:
-   - Include domain specified
-      - if domain is included, and entity not excluded, pass
-      - if domain is not included, and entity not included, fail
-   - Exclude domain specified
-      - if domain is excluded, and entity not included, fail
-      - if domain is not excluded, and entity not excluded, pass
-      - if both include and exclude domains specified, the exclude domains are ignored
-   - Neither include or exclude domain specified
-      - if entity is included, pass (as #2 above)
-      - if entity include and exclude, the entity exclude is ignored
+   - Include domain and/or glob patterns specified
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
 
 ## Safe Mode
 
@@ -453,6 +466,7 @@ The following integrations are currently supported:
 | device_tracker / person | Sensor | Support for `occupancy` device class. |
 | fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
 | fan | Fan | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
+| humidifier | HumidifierDehumidifier | Humidifier and Dehumidifier devices. |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
@@ -597,6 +611,8 @@ Although we try our best, some entities don't work with the HomeKit integration 
 If you have any iOS 12.x devices signed into your iCloud account, media player entities with `device_class: tv` may trigger this condition. Filtering the entity or signing the iOS 12.x device out of iCloud should resolve the issue after restarting other devices.
 
 #### Accessories are all listed as not responding
+
+There are reports where the IGMP settings in a router were causing issues with HomeKit. This resulted in a situation where all of the Home Assistant HomeKit accessories stopped responding a few minutes after Home Assistant (re)started. Double check your router's IGPM settings if you experiencing this issue. The default IGMP settings typically work best.
 
 See [specific entity doesn't work](#specific-entity-doesnt-work)
 

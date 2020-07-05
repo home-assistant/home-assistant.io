@@ -1,12 +1,12 @@
 ---
 title: "Manual installation on a Raspberry Pi"
-description: "Instructions to install Home Assistant Core on a Raspberry Pi running Raspbian Lite."
+description: "Instructions to install Home Assistant Core on a Raspberry Pi running Raspberry Pi OS Lite."
 redirect_from: /getting-started/installation-raspberry-pi/
 ---
 
-This installation of Home Assistant Core requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
+This installation of Home Assistant Core requires the Raspberry Pi to run [Raspberry Pi OS Lite](https://www.raspberrypi.org/downloads/raspberry-pi-os//). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspberry Pi OS Lite.
 
-You must have Python 3.7 or later installed (including the package `python3-dev`) which is *not* the case for Raspbian Stretch.
+You must have Python 3.7 or later installed (including the package `python3-dev`) which is *not* the case for Raspberry Pi OS Stretch.
 
 <div class='note'>
 Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well. This guide is also referred to as the "Advanced Guide" for a virtual environment install.

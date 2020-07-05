@@ -105,10 +105,9 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 ```yaml
 homeassistant:
-    ...
-    whitelist_external_dirs:
-        - '/tmp'
-        - '/path/to/whitelist'
+  whitelist_external_dirs:
+    - '/tmp'
+    - '/path/to/whitelist'
 ```
 
 ### `blink.send_pin`
@@ -135,15 +134,15 @@ This example script shows how to take a picture with your camera, named `My Came
 ```yaml
 alias: Blink Snap Picture
 sequence:
-    - service: blink.trigger_camera
-      data:
-        entity_id: camera.blink_my_camera
-    - delay: 00:00:05  
-    - service: blink.blink_update
-    - service: camera.snapshot
-      data:
-          entity_id: camera.blink_my_camera
-          filename: /tmp/my_image.jpg
+  - service: blink.trigger_camera
+    data:
+      entity_id: camera.blink_my_camera
+  - delay: 00:00:05  
+  - service: blink.blink_update
+  - service: camera.snapshot
+    data:
+      entity_id: camera.blink_my_camera
+      filename: /tmp/my_image.jpg
 ```
 
 ### Arm Blink When Away
@@ -156,12 +155,12 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
 - id: arm_blink_when_away
   alias: Arm Blink When Away
   trigger:
-      platform: state
-      entity_id: all
-      to: 'not_home'
+    platform: state
+    entity_id: all
+    to: 'not_home'
   action:
-      service: alarm_control_panel.alarm_arm_away
-      entity_id: alarm_control_panel.blink_my_sync_module 
+    service: alarm_control_panel.alarm_arm_away
+    entity_id: alarm_control_panel.blink_my_sync_module 
 ```
 
 ### Disarm Blink When Home
@@ -172,12 +171,12 @@ Similar to the previous example, this automation will disarm blink when arriving
 - id: disarm_blink_when_home
   alias: Disarm Blink When Home
   trigger:
-      platform: state
-      entity_id: all
-      to: 'home'
+    platform: state
+    entity_id: all
+    to: 'home'
   action:
-      service: alarm_control_panel.alarm_disarm
-      entity_id: alarm_control_panel.blink_my_sync_module 
+    service: alarm_control_panel.alarm_disarm
+    entity_id: alarm_control_panel.blink_my_sync_module 
 ```
 
 ### Save Video Locally When Motion Detected
@@ -191,14 +190,14 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
 - id: save_blink_video_on_motion
   alias: Save Blink Video on Motion
   trigger:
-      platform: state
-      entity_id: binary_sensor.blink_my_camera_motion_detected
-      to: 'on'
+    platform: state
+    entity_id: binary_sensor.blink_my_camera_motion_detected
+    to: 'on'
   action:
-      service: blink.save_video
-      data_template:
-          name: "My Camera"
-          filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
+    service: blink.save_video
+    data_template:
+      name: "My Camera"
+      filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
       
 ```
 {% endraw %}

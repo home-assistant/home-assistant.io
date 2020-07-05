@@ -34,7 +34,7 @@ secondary_info_attribute:
   required: false
   description: Which attribute to display under the temperature.
   type: boolean
-  default: Defaults to Extrema if Available, if not available then Precipitation and if precipitation isn't available then Humidity.
+  default: Defaults to `extrema` if available, if not available then `precipitation` and if precipitation isn't available then `humidity`.
 theme:
   required: false
   description: "Set to any theme within `themes.yaml`"
@@ -109,5 +109,5 @@ Weather icons can be overwritten with your own personal images via a [Theme](htt
 Example theme configuration:
 
 ```yaml
---weather-icon-sunny: url("local/sunny.png")
+--weather-icon-sunny: url("/local/sunny.png")
 ```

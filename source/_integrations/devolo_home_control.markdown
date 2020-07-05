@@ -2,6 +2,7 @@
 title: devolo Home Control
 description: Instructions on how to integrate devolo Home Control with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Switch
 ha_release: '0.110'
 ha_iot_class: Local Push
@@ -32,3 +33,21 @@ The integration provides support for the following Z-Wave devices:
 - Qubino Flush 1D Relay
 - Fibaro Wall Plug
 - Fibaro Double Relay Switch
+
+
+## Binary Sensors
+
+The integration provides support for the following Z-Wave devices:
+
+- devolo Door/Window Contact
+- devolo Flood Sensor
+- devolo Motion Sensor
+- devolo Smoke Detector
+- Fibaro Floor Sensor
+- Fibaro Motion Sensor
+- Fibaro Smoke Sensor
+
+The integration provides support for the following features:
+
+- Overload alarm sensor of various switches
+- Sensors I2 and I3 of devolo and Qubino flush mounted relays

@@ -2,8 +2,9 @@
 title: Axis
 description: Integration between network devices from Axis Communications with Home Assistant.
 ha_category:
-  - Camera
   - Binary Sensor
+  - Camera
+  - Light
   - Switch
 ha_config_flow: true
 ha_release: 0.45
@@ -22,7 +23,7 @@ Home Assistant will automatically discover their presence on your network.
 For configuration go to the `Integrations pane` on your Home Assistant instance.
 
 <div class='note'>
-  It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality, it is enough to create a user belonging to user group viewer.
+  It is recommended that you create a user on your Axis device specifically for Home Assistant. For all sensor functionality, it is enough to create a user belonging to user group viewer. Light control requires a minimum of operator.
 </div>
 
 ## Troubleshooting discovery
@@ -38,6 +39,10 @@ The following sensor types are supported:
 - Sound detection
 - Day/night mode
 - Inputs and Supervised Inputs
+
+## Light
+
+Control brightness and state of IR LED lights connected to device.
 
 ## Switch
 

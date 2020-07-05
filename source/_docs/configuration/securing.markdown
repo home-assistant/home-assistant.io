@@ -26,5 +26,5 @@ As well as the above we advise that you consider the following to improve securi
 
 - For systems that use SSH set `PermitRootLogin no` in your sshd configuration (usually `/etc/ssh/sshd_config`) and to use SSH keys for authentication instead of passwords. This is particularly important if you enable remote access to your SSH services.
 - Lock down the host following good practice guidance, for example:
-  * [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-manual/index.en.html) (this also applies to Raspbian)
+  * [Securing Debian Manual](https://www.debian.org/doc/manuals/securing-debian-manual/index.en.html) (this also applies to Raspberry Pi OS)
   * [Red Hat Enterprise Linux 7 Security Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/pdf/Security_Guide/Red_Hat_Enterprise_Linux-7-Security_Guide-en-US.pdf), [CIS Red Hat Enterprise Linux 7 Benchmark](https://benchmarks.cisecurity.org/tools2/linux/CIS_Red_Hat_Enterprise_Linux_7_Benchmark_v1.0.0.pdf)

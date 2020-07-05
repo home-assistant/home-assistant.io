@@ -475,7 +475,6 @@
 /components/lock.homematic /integrations/homematic
 /components/lock.isy994 /integrations/isy994
 /components/lock.kiwi /integrations/kiwi
-/components/lock.lockitron /integrations/lockitron
 /components/lock.nello /integrations/nello
 /components/lock.nuki /integrations/nuki
 /components/lock.sesame /integrations/sesame
@@ -1345,7 +1344,6 @@
 /components/folder /integrations/folder
 /components/folder_watcher /integrations/folder_watcher
 /components/foobot /integrations/foobot
-/components/fortigate /integrations/fortigate
 /components/fortios /integrations/fortios
 /components/foscam /integrations/foscam
 /components/foursquare /integrations/foursquare
@@ -1514,7 +1512,6 @@
 /components/lock.mqtt /integrations/lock.mqtt
 /components/lock.template /integrations/lock.template
 /components/lock.xiaomi_aqara /integrations/lock.xiaomi_aqara
-/components/lockitron /integrations/lockitron
 /components/logbook /integrations/logbook
 /components/logentries /integrations/logentries
 /components/logger /integrations/logger
