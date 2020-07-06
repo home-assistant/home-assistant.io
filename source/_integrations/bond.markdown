@@ -11,12 +11,15 @@ ha_codeowners:
   - '@prystupa'
 ---
 
-Duplicates your RF remote control. Supported devices:
+Duplicates your RF remote control.
+
+Supported devices:
+
 - Ceiling fans
 - Shades
 - Fireplaces
 
-## Configuration via UI
+## Configuration
 
 To use Bond controlled devices in your installation, add your Bond hub host and access token from the integrations page.
 
