@@ -163,7 +163,6 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
 
-
 Examples:
 
 ```yaml
