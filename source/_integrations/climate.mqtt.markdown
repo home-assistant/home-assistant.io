@@ -59,7 +59,7 @@ availability:
       type: string
       default: offline
     topic:
-  description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
 availability_topic:
