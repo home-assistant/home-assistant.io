@@ -98,7 +98,6 @@ area:
           description: "Type of template to use for the area. Supported values are: `room` and `time_cover`. They are described in detail below in the **template** section. If the template parameters are different than defaults, they can be overridden in this section as well."
           require: false
           type: string
-          default: No template
         TEMPLATE_PARAMS:
           description: "This can be any of the settings of the template. For example, for template `room`: `room_on` and `room_off` are possible options."
           required: false
@@ -133,7 +132,6 @@ area:
                   description: Level of the channels when the preset is selected, between 0 and 1.
                   required: false
                   type: float
-                  default: None
         nodefault:
           description: Do not use the default presets defined globally, but only the specific ones defined for this area.
           required: false
@@ -188,7 +186,6 @@ preset:
           description: Level of the channels when the preset is selected, between 0 and 1.
           required: false
           type: float
-          default: None
 template:
   description: Set the default parameters for the templates.
   required: false
@@ -233,7 +230,6 @@ template:
           description: Channel that monitors the cover.
           required: false
           type: integer
-          default: No channel
         duration:
           description: Time in seconds it takes to open or close the cover.
           required: false
