@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
+    "minimist": "^1.2.5",
     "remark-cli": "^8.0.0",
     "remark-frontmatter": "^2.0.0",
     "remark-lint": "^7.0.1",
