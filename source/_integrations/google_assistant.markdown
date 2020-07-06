@@ -193,6 +193,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
+- humidifier (humidity setting/on/off/mode)
 
 <div class='note'>
 
