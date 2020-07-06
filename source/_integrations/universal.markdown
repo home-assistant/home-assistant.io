@@ -250,8 +250,6 @@ media_player:
       turn_on:
         service: remote.turn_on
         entity_id: remote.alexander_down_guest
-        data:
-          activity: Watch Apple TV
       turn_off:
         service: remote.turn_off
         entity_id: remote.alexander_down_guest
