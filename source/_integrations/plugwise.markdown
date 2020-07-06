@@ -18,7 +18,7 @@ ha_domain: plugwise
 This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
 The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol) and [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products. See below list for more details.
 
-Platforms available - depending on your Smile and setup are include:
+Platforms available - depending on your Smile and setup include:
 
  - `climate` (for the Anna and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
@@ -33,9 +33,9 @@ The password can be found on the bottom of your Smile, it should consist of 6 ch
 
 ## Entities
 
-This integration will show all Plugwise entities present in your Plugwise configuration. In addition you will see a 'Smile' entity representing your central Plugwise gateway (i.e. the Smile, Smile P1 or Adam).
+This integration will show all Plugwise entities present in your Plugwise configuration. In addition, you will see a 'Smile' entity representing your central Plugwise gateway (i.e., the Smile, Smile P1 or Adam).
 
-For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom' these will show up as individual entities. When there are more (than one) Plugwise thermostats present, an "Auxiliary Device" will be added representing the active heating/cooling device present in your climate system. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measures of your setup will be available as sensors or binary sensors.
+For example, if you have an Adam setup with a Lisa named 'Living' and a Tom named 'Bathroom', these will show up as individual entities. When there are more (than one) Plugwise thermostats present, an "Auxiliary Device" will be added, representing the active heating/cooling device present in your climate system. If you have Plugs (as in, pluggable switches connecting to an Adam) those will be discovered as switches. Various other measures of your setup will be available as sensors or binary sensors.
 
 Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna or Smile will be assigned to your gateway entity. Auxiliary Heater(/Cooler) measurements such as 'boiler_temperature' will be assigned to the Auxiliary entity.
 
@@ -43,13 +43,10 @@ Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna
 
 The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
 
-Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
+Repeat the above procedure for each Smile gateway (i.e., if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
 <div class='note warning'>
-  
-  When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press IGNORE on the Anna integration to remove this integration. 
-  In case you need to rediscover the Adam integration, make sure to STOP IGNORING the Plugwise integration first, available via "show ignored integrations".
-  
+When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Adam integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
 </div>
 
 ### Services
