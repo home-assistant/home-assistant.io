@@ -43,7 +43,7 @@ Actions are all about calling services. To explore the available services open t
 
 ### Automation initial state
 
-When you create a new automation, it will be enabled unless you explicitly add `initial_state: off` to it or turn it off manually via UI/another automation/developer tools. In case automations need to be always enabled or disabled when Home Assistant starts, then you can set the `initial_state` in your automations. Otherwise, the previous state will be restored.
+When you create a new automation, it will be enabled unless you explicitly add `initial_state: false` to it or turn it off manually via UI/another automation/developer tools. In case automations need to be always enabled or disabled when Home Assistant starts, then you can set the `initial_state` in your automations. Otherwise, the previous state will be restored.
 
 Please note that if for some reason Home Assistant cannot restore the previous state, it will result in the automation being enabled.
 
