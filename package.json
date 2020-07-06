@@ -14,6 +14,9 @@
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-terminology": "^2.1.4"
   },
+  "resolutions": {
+    "minimist": ">=1.2.5"
+  },
   "scripts": {
     "markdown:lint": "remark --quiet --frail .",
     "textlint:all": "textlint source",
