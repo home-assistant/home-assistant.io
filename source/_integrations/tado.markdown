@@ -145,7 +145,7 @@ In this example `12345` is the `home_id` you'll need to configure.
 
 ### Service `tado.set_climate_timer`
 
-You can use the service `tado.set_climate_timer` to set your tado climate device, for example a radiator valve, to switch on for a set time period. 
+You can use the service `tado.set_climate_timer` to set your Tado climate device, for example a radiator valve, to switch on for a set time period. 
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
