@@ -12,7 +12,7 @@ The bootloader for Home Assistant OS (uboot) does not yet support Pi4 booting fr
 The Pi4 which comes with 8GB RAM is similarly waiting for support from upstream.
 
 
-## How do I run a specfic version of Home Assistant?
+## How do I run a specific version of Home Assistant?
    
 For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
 that is available on your device by connecting a keyboard and screen.
@@ -42,15 +42,15 @@ This error indicates the an image, whether for updating to Home Assistant or ins
 As the VM image is only about 6GB by default, many VM users run in to this as they have not allocated enough storage. 32 GB is the recommended size.
 
 You'll need to explore your own system to determine where the space has gone.
-Using `df -h` in the ssh addon console to you can quickly check to see if you have the space.
+Using `df -h` in the ssh add-on console to you can quickly check to see if you have the space.
 
 If there is plenty of space available then you might check to see if you are having network issues which are preventing images being downloaded.
 
 ## Why does the start button for an add-on flash red when I click it?
 
-If you are looking for more information about addons which won't start or install, navigate to Supervisor > System in the UI and check the logs.
+If you are looking for more information about add-ons which won't start or install, navigate to Supervisor > System in the UI and check the logs.
 
-The logs on this page are the same you would see using `ha logs` in the custom cli.
+The logs on this page are the same you would see using `ha logs` in the custom CLI.
 
 ## I'm trying to find my files on the host or SD card. Where are they?
  
