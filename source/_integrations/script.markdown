@@ -16,6 +16,8 @@ The `script` integration allows users to specify a sequence of actions to be exe
 
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
+{% raw %}
+ 
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -24,8 +26,10 @@ script:
       # This is Home Assistant Script Syntax
       - service: notify.notify
         data_template:
-          message: "Current temperature is {% raw %}{{ states('sensor.temperature') }}{% endraw %}"
+          message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
+
+{% endraw %}
 
 <div class='note'>
 
