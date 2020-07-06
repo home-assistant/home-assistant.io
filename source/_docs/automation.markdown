@@ -47,13 +47,46 @@ When you create a new automation, it will be enabled unless you explicitly add `
 
 Please note that if for some reason Home Assistant cannot restore the previous state, it will result in the automation being enabled.
 
-```text
+```yaml
 automation:
 - alias: Automation Name
   initial_state: false
   trigger:
   ...
 ```
+
+### Automation Modes
+
+The automation's `mode` configuration option controls what happens when the automation is triggered while the actions are still running from a previous trigger. The default mode is `legacy`.
+
+Mode | Description
+-|-
+`legacy` | See [below](#legacy-mode).
+`error` | Raise an error. Previous run continues normally.
+`ignore` | Do not start a new run. Previous run continues normally.
+`parallel` | Start a new, independent run in parallel with previous runs which continue normally.
+`restart` | Start a new run after first stopping previous run.
+`queue` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued. The maximum number of queued up runs is controlled by the `queue_size` configuration option, which defaults to 10.
+
+#### Example Setting Automation Mode
+
+```yaml
+automation:
+  - mode: queue
+    queue_size: 5
+    trigger:
+    ...
+```
+
+#### Legacy Mode
+
+<div class='note'>
+
+This mode is deprecated, and a warning to that effect will be issued at startup unless `mode: legacy` is specified.
+
+</div>
+
+This mode maintains the legacy script behavior. That is, the actions will run until a `delay` step, or a `wait_template` step (that actually waits) is executed, at which point the actions will suspend. If the automation is triggered while the actions are suspended, it will abort the delay/wait_template and continue immediately to the next step, or finish if there are no more steps.
 
 ### Deleting Automations
 
