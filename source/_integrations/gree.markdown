@@ -15,7 +15,7 @@ The `gree` platform allows you to control a [Gree Smart HVAC](http://global.gree
 
 ### Setup
 
-Go to the integrations page in your configuration and click on new integration -> Gree.
+Go to the integrations page in your configuration and click on **new integration** -> **Gree**.
 
 Gree Smart compatible devices are detected and added automatically.
 
