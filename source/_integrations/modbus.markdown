@@ -4,7 +4,7 @@ description: Instructions on how to integrate Modbus within Home Assistant.
 ha_category:
   - Hub
 ha_release: pre 0.7
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@adamchengtkc'
   - '@janiversen'
@@ -46,8 +46,7 @@ port:
   type: integer
 name:
   description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
-  required: false
-  default: default
+  required: true
   type: string
 timeout:
   description: Timeout for slave response in seconds.
@@ -109,8 +108,7 @@ parity:
   type: string
 name:
   description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
-  required: false
-  default: default
+  required: true
   type: string
 timeout:
   description: Timeout for slave response in seconds.
@@ -148,7 +146,7 @@ modbus:
 
 | Attribute | Description |
 | --------- | ----------- |
-| hub       | Hub name (defaults to 'default' when omitted) |
+| hub       | Hub name |
 | unit      | Slave address (1-255, mostly 255 if you talk to Modbus via TCP) |
 | address   | Address of the Register (e.g., 138) |
 | value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |

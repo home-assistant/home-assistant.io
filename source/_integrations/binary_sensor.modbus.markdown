@@ -4,7 +4,7 @@ description: "Instructions on how to set up Modbus binary sensors within Home As
 ha_category:
   - Binary Sensor
 ha_release: 0.28
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_domain: modbus
 ---
 
@@ -42,8 +42,7 @@ inputs:
       type: string
     hub:
       description: The name of the hub.
-      required: false
-      default: default
+      required: true
       type: string
     slave:
       description: The number of the slave (Optional for TCP and UDP Modbus).

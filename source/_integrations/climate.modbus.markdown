@@ -41,8 +41,7 @@ name:
   type: string
 hub:
   description: The name of the hub.
-  required: false
-  default: default
+  required: true
   type: string
 slave:
   description: The number of the slave (Optional for tcp and upd Modbus, use 1).

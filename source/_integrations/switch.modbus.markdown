@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Modbus switches into Home Assista
 ha_category:
   - Switch
 ha_release: pre 0.7
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_domain: modbus
 ---
 
@@ -43,8 +43,7 @@ coils:
   keys:
     hub:
       description: The name of the hub.
-      required: false
-      default: default
+      required: true
       type: string
     slave:
       description: The number of the slave (can be omitted for tcp and udp Modbus).
@@ -65,8 +64,7 @@ registers:
   keys:
     hub:
       description: The hub to use.
-      required: false
-      default: default
+      required: true
       type: string
     slave:
       description: The number of the slave (can be omitted for tcp and udp Modbus).

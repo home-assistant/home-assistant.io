@@ -19,6 +19,7 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 climate:
   - platform: flexit
     slave: 21
+    hub: hub1
 ```
 
 {% configuration %}
@@ -32,8 +33,7 @@ name:
   type: string
 hub:
   description: The name of the hub where this slave is located.
-  required: false
-  default: default
+  required: true
   type: string
 {% endconfiguration %}
 
@@ -63,4 +63,5 @@ climate:
   - platform: flexit
     name: Main A/C
     slave: 21
+    hub: hub1
 ```

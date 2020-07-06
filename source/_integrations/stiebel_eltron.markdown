@@ -50,6 +50,7 @@ To enable this component, add the following lines to your `configuration.yaml` f
 # Example configuration.yaml entry
 stiebel_eltron:
   name: LWZ504e
+  hub: hub1
 ```
 
 {% configuration %}
@@ -60,8 +61,7 @@ name:
   type: string
 hub:
   description: The name of the hub where this slave is located.
-  required: false
-  default: default
+  required: true
   type: string
 {% endconfiguration %}
 
@@ -79,7 +79,9 @@ modbus:
   type: tcp
   host: YOUR_ISGWEB_IP
   port: 502
+  name: hub1
 
 stiebel_eltron:
   name: LWZ504e
+  hub: hub1
 ```

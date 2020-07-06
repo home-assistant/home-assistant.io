@@ -4,7 +4,7 @@ description: "Instructions on how to integrate Modbus sensors into Home Assistan
 ha_category:
   - Sensor
 ha_release: pre 0.7
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_domain: modbus
 ---
 
@@ -54,8 +54,7 @@ registers:
       type: string
     hub:
       description: The name of the hub.
-      required: false
-      default: default
+      required: true
       type: string
     slave:
       description: The number of the slave (Optional for tcp and upd Modbus).
