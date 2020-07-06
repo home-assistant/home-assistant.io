@@ -678,6 +678,56 @@ The integrations below have been removed:
 [tile docs]: /integrations/tile/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 
+## Release 0.112.3 - July 6
+
+- Move logbook continuous domain filtering to sql ([@bdraco] - [#37115]) ([logbook docs])
+- Ensure logbook performs well when filtering is configured ([@bdraco] - [#37292]) ([logbook docs])
+- Ensure removed entities are not displayed in logbook ([@bdraco] - [#37395]) ([logbook docs]) ([recorder docs])
+- Stop Speedtest sensors update on startup if manual option is enabled ([@engrbm87] - [#37403]) ([speedtestdotnet docs])
+- Fix base topic for 'topic' ([@emontnemery] - [#37475]) ([mqtt docs])
+- Fix base class for ViCare binary sensor to remove warning ([@crazyfx1] - [#37478]) ([vicare docs])
+- Fix braviatv authentication refresh ([@dcnielsen90] - [#37482]) ([braviatv docs])
+- Fix default icon for Withings sleep sensor ([@SeanPM5] - [#37502]) ([withings docs])
+- Update frontend to 20200702.1 ([@bramkragten] - [#37566]) ([frontend docs])
+- Suppress spurious homekit warning about media player sources when the device is off ([@bdraco] - [#37567]) ([homekit docs])
+- Ensure homekit tv names can be saved ([@bdraco] - [#37571]) ([homekit docs])
+- Fix Plex client controls when connected via plex.tv resource ([@jjlawren] - [#37572]) ([plex docs])
+- Ignore HEOS 1, 3, 5 and 7 for DenonAvr ssdp discovery ([@starkillerOG] - [#37579]) ([denonavr docs])
+
+[#37115]: https://github.com/home-assistant/core/pull/37115
+[#37292]: https://github.com/home-assistant/core/pull/37292
+[#37395]: https://github.com/home-assistant/core/pull/37395
+[#37403]: https://github.com/home-assistant/core/pull/37403
+[#37475]: https://github.com/home-assistant/core/pull/37475
+[#37478]: https://github.com/home-assistant/core/pull/37478
+[#37482]: https://github.com/home-assistant/core/pull/37482
+[#37502]: https://github.com/home-assistant/core/pull/37502
+[#37566]: https://github.com/home-assistant/core/pull/37566
+[#37567]: https://github.com/home-assistant/core/pull/37567
+[#37571]: https://github.com/home-assistant/core/pull/37571
+[#37572]: https://github.com/home-assistant/core/pull/37572
+[#37579]: https://github.com/home-assistant/core/pull/37579
+[@SeanPM5]: https://github.com/SeanPM5
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@crazyfx1]: https://github.com/crazyfx1
+[@dcnielsen90]: https://github.com/dcnielsen90
+[@emontnemery]: https://github.com/emontnemery
+[@engrbm87]: https://github.com/engrbm87
+[@jjlawren]: https://github.com/jjlawren
+[@starkillerOG]: https://github.com/starkillerOG
+[braviatv docs]: /integrations/braviatv/
+[denonavr docs]: /integrations/denonavr/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[logbook docs]: /integrations/logbook/
+[mqtt docs]: /integrations/mqtt/
+[plex docs]: /integrations/plex/
+[recorder docs]: /integrations/recorder/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[vicare docs]: /integrations/vicare/
+[withings docs]: /integrations/withings/
+
 ## All changes
 
 <details>
