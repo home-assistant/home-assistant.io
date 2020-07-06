@@ -231,3 +231,47 @@ automation:
 ```
 
 {% endraw %}
+
+#### Harmony Remote Example
+
+The complete configuration is:
+
+{% raw %}
+
+```yaml
+media_player:
+  - platform: universal
+    name: Media Room TV
+    attributes:
+      state: remote.alexander_down_guest
+      source_list: remote.alexander_down_guest|activity_list
+      source: remote.alexander_down_guest|current_activity
+    commands:
+      turn_on:
+        service: remote.turn_on
+        entity_id: remote.alexander_down_guest
+        data:
+          activity: Watch Apple TV
+      turn_off:
+        service: remote.turn_off
+        entity_id: remote.alexander_down_guest
+      volume_up:
+        service: remote.send_command
+        entity_id: remote.alexander_down_guest
+        data:
+          device: Receiver
+          command: VolumeUp
+      volume_down:
+        service: remote.send_command
+        entity_id: remote.alexander_down_guest
+        data:
+          device: Receiver
+          command: VolumeDown
+      select_source:
+        service: remote.turn_on
+        data_template:
+          entity_id: remote.alexander_down_guest
+          activity: '{{ source }}'
+```
+
+{% endraw %}
