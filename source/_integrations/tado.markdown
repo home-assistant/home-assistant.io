@@ -143,6 +143,16 @@ In this example `12345` is the `home_id` you'll need to configure.
 
 ## Services
 
+### Service `tado.set_climate_timer`
+
+You can use the service `tado.set_climate_timer` to set your Tado climate device, for example a radiator valve, to switch on for a set time period. 
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `temperature`          | no       | String, The required target temperature e.g., `20.5`                   |
+
 ### Service `tado.set_water_heater_timer`
 
 You can use the service `tado.set_water_heater_timer` to set your water heater to switch on for a set time period. 
@@ -160,8 +170,13 @@ Examples:
 script:
   boost_heating:
     sequence:
+      - service: tado.set_climate_timer
+        data:
+          entity_id: climate.heating
+          time_period: "01:30:00"
+          temperature: 25
       - service: tado.set_water_heater_timer
         data:
-          entity_id: "water_heater.hot_water"
+          entity_id: water_heater.hot_water
           time_period: "01:30:00"
 ```
