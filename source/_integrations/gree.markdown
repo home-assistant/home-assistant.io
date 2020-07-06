@@ -27,9 +27,6 @@ To use this integration, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 gree:
-  hosts:
-    - host: IP_ADDRESS
-  discovery: true
 ```
 
 {% configuration %}
