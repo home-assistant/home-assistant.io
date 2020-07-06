@@ -50,7 +50,7 @@ Please note that if for some reason Home Assistant cannot restore the previous s
 ```yaml
 automation:
 - alias: Automation Name
-  initial_state: off
+  initial_state: false
   trigger:
   ...
 ```
