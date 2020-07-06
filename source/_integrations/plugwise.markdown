@@ -43,14 +43,14 @@ Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna
 
 The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
 
+Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
+
 <div class='note warning'>
   
   When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press IGNORE on the Anna integration to remove this integration. 
   In case you need to rediscover the Adam integration, make sure to STOP IGNORING the Plugwise integration first, available via "show ignored integrations".
   
 </div>
-
-Repeat the above procedure for each Smile gateway (i.e. if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
 ### Services
 
