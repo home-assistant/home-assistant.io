@@ -4,16 +4,16 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-    time: "11:00"
+    time: "06:00"
   open-pull-requests-limit: 10
   target-branch: current
 - package-ecosystem: bundler
   directory: "/"
   schedule:
     interval: daily
-    time: "11:00"
+    time: "06:00"
   open-pull-requests-limit: 10
   target-branch: current
   allow:
-  - dependency-type: direct
-  - dependency-type: indirect
+    - dependency-type: direct
+    - dependency-type: indirect
