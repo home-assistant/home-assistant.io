@@ -3,7 +3,7 @@ title: Gree
 description: Instructions on how to integrate Gree Smart devices within Home Assistant.
 ha_category:
   - Climate
-ha_release: 103.0
+ha_release: 0.113
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
