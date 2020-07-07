@@ -25,7 +25,7 @@ The following devices are supported:
 
 ## Configuration
 
-To set up a Broadlink device, click Configuration in the sidebar and click Integrations. Then click the + icon in the lower right, enter the hostname or IP address of the device and follow the instructions to complete the setup.
+To set up a Broadlink device, click _Configuration_ in the sidebar and click _Integrations_. Then click the + icon in the lower right, enter the hostname or IP address of the device and follow the instructions to complete the setup.
 
 ### Entities and subdomains
 
@@ -228,7 +228,7 @@ The `switch` subdomain allows you to interact with switches. You can turn them o
 
 You can create custom switches to be controlled with universal remote devices.
 
-Start by adding these lines to your `configuration.yaml`:
+The first step is to configure the device normally via the configuration flow. Then add these lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -236,13 +236,12 @@ switch:
   - platform: broadlink
     mac: MAC_ADDRESS
     switches:
-      television:
-        friendly_name: Philips TV
+      - name: Philips TV
         command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
         command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
 ```
 
-The above example sets up a switch called switch.television that works as an interface to the universal remote with the MAC address provided. The device needs to be configured first for this switch to be created.
+The above example creates `switch.philips_tv`. This switch sends IR/RF codes using the universal remote with the MAC address provided.
 
 {% configuration %}
 mac:
@@ -250,30 +249,25 @@ mac:
   required: true
   type: string
 switches:
-  description: The array that contains all custom switches.
+  description: The list that contains all custom switches.
   required: true
-  type: map
+  type: list
   keys:
-    identifier:
-      description: The name of the switch as slug. Multiple entries are possible.
+    name:
+      description: The name of the switch.
       required: true
       type: string
-      keys:
-        command_on:
-          description: A base64 code to be sent as "turn on" command.
-          required: false
-          type: string
-        command_off:
-          description: A base64 code to be sent as "turn off" command.
-          required: false
-          type: string
-        friendly_name:
-          description: The name used to display the switch in the frontend.
-          required: false
-          type: string
+    command_on:
+      description: A base64 code to be sent as "turn on" command.
+      required: false
+      type: string
+    command_off:
+      description: A base64 code to be sent as "turn off" command.
+      required: false
+      type: string
 {% endconfiguration %}
 
-You can also configure multiple switches for the same remote:
+You can configure multiple switches for the same remote:
 
 ```yaml
 # Example configuration.yaml entry
@@ -281,17 +275,15 @@ switch:
   - platform: broadlink
     mac: MAC_ADDRESS
     switches:
-      tv_philips:
-        friendly_name: Philips TV
+      - name: Philips TV
         command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
         command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
-      tv_lg:
-        friendly_name: LG TV
+      - name: LG TV
         command_on: JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU=
         command_off: JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU=
 ```
 
-The above example sets up two switches called switch.tv_philips and switch.tv_lg that will be created as soon as the device is configured.
+The above example creates `switch.philips_tv` and `switch.lg_tv`. These switches are related to the same universal remote.
 
 ### Using e-Control remotes
 
