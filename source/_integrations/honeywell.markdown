@@ -26,6 +26,8 @@ climate:
   - platform: honeywell
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
+    region: us
+    scan_interval: 120
 ```
 
 {% configuration %}
@@ -37,6 +39,9 @@ password:
   description: Password for the account.
   required: true
   type: string
+region:
+  description: region the user is in. Must be us - see note above.
+  required: true
 away_cool_temperature:
   description: "Cooling setpoint when away mode is on, in degrees Fahrenheit."
   required: false
@@ -55,4 +60,6 @@ location:
   description: ID of location to restrict the integration to.
   required: false
   type: string
+scan_interval:
+  description: time in seconds between polling TCC cloud service. If too low TCC may block further requests.
 {% endconfiguration %}
