@@ -13,9 +13,7 @@ ha_codeowners:
 ha_domain: broadlink
 ---
 
-The Broadlink integration allows you to interact with Broadlink devices.
-
-The following devices are supported:
+The Broadlink integration allows you to interact with Broadlink devices. The following models are supported:
 
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
@@ -31,9 +29,9 @@ To set up a Broadlink device, click _Configuration_ in the sidebar and click _In
 
 Once the device is configured, all the entities will be created automatically.
 
-These entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. When you're done, click Update to save your changes.
+The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. When you're done, click _Update_ to save your changes.
 
-The entities are divided into three subdomains:
+These entities are divided into three subdomains:
 
 - [Remote](#remote)
 - [Sensor](#sensor)
@@ -113,7 +111,7 @@ In the above example, two codes will be captured for the power command, and they
 
 The learned codes are stored in the `/configuration/.storage` folder in a file called `broadlink_remote_xxxxxxxxxxx_codes.json`. You can open this file with a text editor and copy the codes to set up a custom switch.
 
-Beware: the files in the .storage folder __should never be edited manually__.
+Beware: the files in the .storage folder _should never be edited manually_.
 
 ### Send IR/RF codes
 
@@ -226,9 +224,7 @@ The `switch` subdomain allows you to interact with switches. You can turn them o
 
 ### Custom switches
 
-You can create custom switches to be controlled with universal remote devices.
-
-The first step is to configure the device normally via the configuration flow. Then add these lines to your `configuration.yaml`:
+You can create custom switches to send IR/RF codes using universal remote devices. The first step is to configure the device normally via the configuration flow. Then add these lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -241,7 +237,7 @@ switch:
         command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
 ```
 
-The above example creates `switch.philips_tv`. This switch sends IR/RF codes using the universal remote with the MAC address provided.
+The above example creates `switch.philips_tv`, which sends IR/RF codes using the universal remote with the MAC address provided.
 
 {% configuration %}
 mac:
@@ -283,7 +279,7 @@ switch:
         command_off: JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU=
 ```
 
-The above example creates `switch.philips_tv` and `switch.lg_tv`. These switches are related to the same universal remote.
+The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
 ### Using e-Control remotes
 
