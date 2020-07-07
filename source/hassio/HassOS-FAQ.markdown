@@ -17,7 +17,7 @@ The Pi4 which comes with 8GB RAM is similarly waiting for support from upstream.
 For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
 that is available on your device by connecting a keyboard and screen.
 
-To install the Terminal & SSH add-on, choose **Supervisor**, which is located in the sidebar and then the add-on store.
+To install the Terminal & SSH add-on, choose **Supervisor**, which is located in the sidebar and then the add-on store. If you don't see it, enable "Advanced Mode" from your profile page.
 
 Use the web-based terminal or SSH to your Home Assistant system, or connect to the console, and run:
 
