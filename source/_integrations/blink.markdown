@@ -16,6 +16,7 @@ ha_config_flow: true
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
+NOTE: Work is in progress to support Blink mini camera. Stay tuned !
 
 ## Setup
 
