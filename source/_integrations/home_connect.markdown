@@ -34,7 +34,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
-- Redirect URI  : `<YOUR_HOME_ASSISTANT_URL>/auth/external/callback`
+- Redirect URI  : `<YOUR_INTERNAL_HOME_ASSISTANT_URL>/auth/external/callback` # Use same the address defined as `internal_url` in your configuration settings. Example `http://192.168.1.24:8123/auth/external/callback`
 
 3. Add the client ID and client secret to your `configuration.yaml` (see below).
 4. Once Home Assistant has restarted, go to Configuration > Integrations.
