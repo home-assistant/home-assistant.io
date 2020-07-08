@@ -65,3 +65,17 @@ this operation.
 | Service Data Attribute | Required | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1. |
+
+
+### Service `ozw.set_config_parameter`
+
+This service will set the specified configuration parameter to the value specified to 
+allow device-specific configurations. Example of this would be setting notification
+LED colors on switches.
+
+| Service Data Attribute | Required | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
+| `node_id`              | yes      | Node id of the device to set config parameter to (integer).                                                     |
+| `parameter`            | yes      | Parameter number to set (integer).                                                                              |
+| `value`                | yes      | Value to set for parameter. (String or integer value for list, string for bool parameters, integer for others). |
