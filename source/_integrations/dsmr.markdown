@@ -1,7 +1,6 @@
 ---
 title: DSMR Slimme Meter
 description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
-logo: netbeheernederland.png
 ha_category:
   - Energy
 ha_release: 0.34
@@ -53,7 +52,7 @@ There are two ways to integrate your DSMR into Home Assistant
 
 ### Via the frontend
 
-Menu: *Configuration* -> *Integrations*. Search for "DSMR Slimme Meter" and follow the configuration flow.
+Menu: **Configuration** -> **Integrations**. Search for "DSMR Slimme Meter" and follow the configuration flow.
 
 ### Via the configuration file
 
