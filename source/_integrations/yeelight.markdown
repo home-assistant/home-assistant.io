@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To set up this integration, goto Integrations udner Configuration, find Yeelight in the + menu. You can choose "Discovery" or "Manual". To configure the discovered or manually set up devices, use the "Options" button in the integration card. **Note: If you have discovery set up, do not manually set up devices that are discoverable. Otherwise there will be conflicts.**
+To set up this integration, go to Integrations under Configuration and find Yeelight in the + menu. You can choose "Discovery" or "Manual". To configure the discovered or manually set up devices, use the "Options" button in the integration card. **Note: If you have discovery set up, do not manually set up devices that are discoverable. Otherwise there will be conflicts.**
 
 ### Custom effects
 
