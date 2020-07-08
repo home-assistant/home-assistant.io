@@ -145,6 +145,79 @@ homeassistant:
 
 Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
 
+### LDAP/Active Directory
+
+The LDAP auth provider allows logging in against a directory server.
+
+Here's an LDAP example configuration:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: ldap
+      server: ldap.example.com
+      port: 636
+      base_dn: cn=users,cn=accounts,dc=example,dc=com
+```
+
+If you are targeting an Active Directory server you need to set `active_directory` to `true`:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: ldap
+      server: ad.example.com
+      port: 636
+      active_directory: true
+      base_dn: cn=users,cn=accounts,dc=example,dc=com
+```
+
+#### Disabling TLS and/or certificate validation
+
+TLS can be disabled alltogether with the `disable_tls` option:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: ldap
+      server: ldap.example.com
+      port: 389
+      disable_tls: true
+      base_dn: cn=users,cn=accounts,dc=example,dc=com
+```
+
+If your server is using a self-signed certificate and you are not able or willing to make your OS trust these the TLS cert check can disabled as well:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: ldap
+      server: ldap.example.com
+      disable_cert_validatiom: true
+      base_dn: cn=users,cn=accounts,dc=example,dc=com
+```
+
+#### Restricting access to certain groups
+
+To only allow a subset of your directory users to be able to login to Home Assistant you can add a list of allowed groups to the config like so:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: ldap
+      server: ldap.example.com
+      base_dn: cn=users,cn=accounts,dc=example,dc=com
+      allowed_group_dns:
+        - cn=home-assistant,cn=groups,cn=accounts,dc=example,dc=com
+        - cn=admins,cn=groups,cn=accounts,dc=example,dc=com
+```
+
+<div class='note warning'>
+Nested groups are not supported. A users needs to be an explicit member of one of these groups to log in.
+</div>
+
+NOTE
+
 ### Command Line
 
 The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
