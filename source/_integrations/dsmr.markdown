@@ -1,15 +1,16 @@
 ---
 title: DSMR Slimme Meter
 description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
-logo: netbeheernederland.jpg
+logo: netbeheernederland.png
 ha_category:
   - Energy
 ha_release: 0.34
 ha_iot_class: Local Push
+ha_config_flow: true
 ha_domain: dsmr
 ---
 
-A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
+An integration for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
 
 - Currently support DSMR V2.2, V3, V4, V5 and V5 Belgian through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
@@ -46,10 +47,20 @@ DIY solutions (ESP8266 based):
 
 - [esp8266_p1meter (fliphess)](https://github.com/fliphess/esp8266_p1meter)
 
+## Configuration
+
+There are two ways to integrate your DSMR into Home Assistant
+
+### Via the frontend
+
+Menu: *Configuration* -> *Integrations*. Search for "DSMR Slimme Meter" and follow the configuration flow.
+
+### Via the configuration file
+
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: dsmr
+dsmr:
+  port: /dev/ttyUSB0
 ```
 
 {% configuration %}
@@ -77,55 +88,9 @@ sensor:
     required: false
     type: integer
     default: 3
-  prefix:
-    description: "Prepend all generated entity names and entity ids with the defined prefix"
-    required: false
-    type: string
-  force_update:
-    description: "Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history."
-    required: false
-    type: boolean
-    default: false
 {% endconfiguration %}
 
-Full configuration examples can be found below:
-
-```yaml
-# Example configuration.yaml entry for USB/serial connected Smartmeter
-sensor:
-  - platform: dsmr
-    port: /dev/ttyUSB1
-    dsmr_version: 5
-
-group:
-  meter_readings:
-    name: Meter readings
-    entities:
-      - sensor.energy_consumption_tarif_1
-      - sensor.energy_consumption_tarif_2
-      - sensor.energy_production_tarif_1
-      - sensor.energy_production_tarif_2
-      - sensor.gas_consumption
-```
-
-```yaml
-# Example configuration.yaml entry for remote (TCP/IP, i.e., via ser2net) connection to host which is connected to Smartmeter
-sensor:
-  - platform: dsmr
-    host: 192.168.1.13
-    port: 2001
-    dsmr_version: 5
-
-group:
-  meter_readings:
-    name: Meter readings
-    entities:
-      - sensor.energy_consumption_tarif_1
-      - sensor.energy_consumption_tarif_2
-      - sensor.energy_production_tarif_1
-      - sensor.energy_production_tarif_2
-      - sensor.gas_consumption
-```
+### Additional configuration
 
 Optional configuration example for ser2net:
 
