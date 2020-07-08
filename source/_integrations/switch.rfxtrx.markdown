@@ -50,11 +50,6 @@ devices:
       description: Override the name to use in the frontend.
       required: true
       type: string
-    fire_event:
-      description: Fires an event even if the state is the same as before, for example, a doorbell switch. Can also be used for automations.
-      required: false
-      default: false
-      type: boolean
 automatic_add:
   description: To enable the automatic addition of new switches.
   required: false
@@ -110,71 +105,4 @@ switch:
       name: Movement2
     0b1111e003af16aa10000060:
       name: Door
-      fire_event: true
-```
-
-Light hallway if doorbell is pressed (when is sun down):
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  platform: rfxtrx
-  automatic_add: false
-  devices:
-    0710014c440f0160:
-      name: Hall
-    "0710010244080780":
-      name: Door
-      fire_event: true
-
-automation:
-  - alias: Switch the light on when doorbell rings if the sun is below the horizon and the light was off
-    trigger:
-      platform: event
-      event_type: button_pressed
-      event_data: {"entity_id": "switch.door"}
-    condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: sun.sun
-          state: "below_horizon"
-        - condition: state
-          entity_id: switch.hall
-          state: 'off'
-    action:
-      - service: switch.turn_on
-        entity_id: switch.hall
-```
-
-Use remote to enable scene (using event_data):
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  platform: rfxtrx
-  automatic_add: false
-  devices:
-    0b1100ce3213c7f210010f70:
-      name: Light1
-    0b11000a02ef2gf210010f50:
-      name: Light2
-    0b1111e003af16aa10000060:
-      name: Keychain remote
-      fire_event: true
-scene:
-  name: Livingroom
-  entities:
-    switch.light1: on
-    switch.light2: on
-
-automation:
-  - alias: Use remote to enable scene
-    trigger:
-      platform: event
-      event_type: button_pressed
-      event_data: {"state": "on", "entity_id": "switch.keychain_remote"}
-    action:
-      service: scene.turn_on
-      entity_id: scene.livingroom
 ```

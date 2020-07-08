@@ -66,11 +66,6 @@ devices:
       description: Override the name to use in the frontend.
       required: true
       type: string
-    fire_event:
-      description: Fires an event even if the state is the same as before. Can be used for automations.
-      required: false
-      default: false
-      type: boolean
 automatic_add:
   description: To enable the automatic addition of new covers (Siemens/LightwaveRF only).
   required: false

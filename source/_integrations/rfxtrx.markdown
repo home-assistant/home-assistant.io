@@ -64,3 +64,79 @@ You can host your device on another computer by setting up ser2net and example c
 ```text
 50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT
 ```
+
+## Events
+
+The rftrx integration will signal an event on reception of messages from the rfxtrx device on the following form.
+
+*Signal from a byron doorbell button:*
+```yaml
+packet_type: 22
+sub_type: 0
+type_string: "Byron SX"
+id_string: "00:90"
+data: "0716000100900970"
+values:
+  Sound: 9
+  Battery numeric: 0
+  Rssi numeric: 7
+```
+
+*Event data from a Nexa wall socket switch:*
+```yaml
+packet_type: 16
+sub_type: 1
+type_string: 'ARC'
+id_string': 'C3'
+data: '0710010143030170'
+values': 
+  Command: 'On'
+  Rssi numeric': 7
+```
+
+You can setup automations to react to these events. When you do don't include more fields than needed. Always include the device identifying fields, `packet_type`, `sub_type` and `id_string`.
+
+So for example to trigger a action when somebody presses the doorbell, you would set up a automation with the following trigger:
+
+*Automation trigger:*
+```yaml
+- platform: event
+  event_type: rfxtrx_event
+  event_data:
+    packet_type: 22
+    sub_type: 0
+    id_string: "00:90"
+    values:
+      Sound: 9
+```
+
+*A more complete example with scene activation:*
+```yaml
+light:
+  platform: demo
+
+scene:
+  name: WelcomeScene
+  entities:
+    light.bed_light: on
+    light.ceiling_lights: off
+
+automation:
+  - alias: Use doorbell button to trigger scene
+    trigger:
+    - platform: event
+      event_type: rfxtrx_event
+      event_data:
+        packet_type: 22
+        sub_type: 0
+        id_string: "00:90"
+        values:
+          Sound: 9
+    action:
+      service: scene.turn_on
+      entity_id: scene.welcomescene
+```
+
+### Discovering events for your devices
+
+To figure out what your devices send, you can listen on the `rfxtrx_event` in the development tool/event page.
