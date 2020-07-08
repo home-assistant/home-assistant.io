@@ -67,7 +67,7 @@ You can host your device on another computer by setting up ser2net and example c
 
 ## Events
 
-The rftrx integration will signal an event on reception of messages from the rfxtrx device on the following form.
+The rftrx integration will signal an event on reception of messages from the RFXtrx device on the following form.
 
 *Signal from a byron doorbell button:*
 ```yaml
