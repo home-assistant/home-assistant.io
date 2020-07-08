@@ -5,9 +5,11 @@ ha_category:
   - Light
 ha_release: 0.32
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
   - '@zewelor'
+  - '@shenxn'
 ha_domain: yeelight
 ---
 
@@ -16,33 +18,60 @@ The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with 
 There is currently support for the following device types within Home Assistant:
 
 - **Light** - The Yeelight platform for supporting lights.
-- **Sensor** - The Yeelight platform for supporting sensors. Currently only nightlight mode sensor, for ceiling lights.
+- **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently only nightlight mode sensor, for ceiling lights.
 
-## Example configuration (Automatic)
+## Configuration
 
-After the lights are connected to the Wi-Fi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
+To set up this integration, goto Integrations udner Configuration, find Yeelight in the + menu. You can choose "Discovery" or "Manual". To configure the discovered or manually set up devices, use the "Options" button in the integration card. **Note: If you have discovery set up, do not manually set up devices that are discoverable. Otherwise there will be conflicts.**
+
+### Custom effects
+
+Custom effects can only be set up through YAML configuration. To turn on the effect you can use [light.turn_on](/integrations/light/#service-lightturn_on) service.
+
+Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
+
+Where the array values are as per the following:
+
+- RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being in milliseconds (minimum of 50) and final brightness to transition to 1-100 (%).
+- HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in milliseconds (minimum 50) and final brightness 1-100 (%).
+- TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, duration in milliseconds (minimum 50) and final brightness to transition to 1-100 (%).
+- SleepTransition: [duration] with duration being in integer for effect time in milliseconds (minimum 50).
+
+More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
 
 ```yaml
-# Example customize.yaml entry
-light.yeelight_color1_XXXXXXXXXXXX:
-  friendly_name: Living Room
-light.yeelight_color2_XXXXXXXXXXXX:
-  friendly_name: Downstairs Toilet
+yeelight:
+  custom_effects:
+    - name: 'Fire Flicker'
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [1900, 1000, 80]
+          - TemperatureTransition: [1900, 2000, 60]
+          - SleepTransition:       [1000]
 ```
 
-## Example configuration (Manual)
+### Full configuration
 
-To enable those lights, add the following lines to your `configuration.yaml` file:
+This example shows how you can use the optional configuration options.
 
 ```yaml
 # Example configuration.yaml entry
-discovery:
-  ignore:
-    - yeelight
 yeelight:
   devices:
     192.168.1.25:
       name: Living Room
+      transition: 1000
+      use_music_mode: true
+      save_on_change: true
+  custom_effects:
+    - name: 'Fire Flicker'
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [1900, 1000, 80]
+          - TemperatureTransition: [1900, 2000, 60]
+          - SleepTransition:       [1000]
 ```
 
 {% configuration %}
@@ -173,7 +202,7 @@ Start flow with specified transitions
 | `entity_id`               |       no | Only act on specific lights.                                                              |
 | `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
-| `transitions`             |       no | Array of transitions. See [examples below](#custom-effects).                                |
+| `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
 
 ### Service `yeelight.set_color_scene`
 
@@ -214,7 +243,7 @@ Starts a color flow. Difference between this and [yeelight.start_flow](#service-
 | `entity_id`               |       no | Only act on specific lights.                                                              |
 | `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
-| `transitions`             |       no | Array of transitions. See [examples below](#custom-effects).                                |
+| `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
 
 ### Service `yeelight.set_auto_delay_off_scene`
 
@@ -225,65 +254,3 @@ Turns the light on to the specified brightness and sets a timer to turn it back 
 | `entity_id`               |       no | Only act on specific lights.                                                              |
 | `minutes`                 |       no | The minutes to wait before automatically turning the light off.                             |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
-
-## Examples
-
-In this section you find some real-life examples of how to use this light.
-
-### Full configuration
-
-This example shows how you can use the optional configuration options.
-
-```yaml
-# Example configuration.yaml entry
-yeelight:
-  devices:
-    192.168.1.25:
-      name: Living Room
-      transition: 1000
-      use_music_mode: true
-      save_on_change: true
-```
-
-### Multiple bulbs
-
-This example shows how you can add multiple bulbs in your configuration.
-
-```yaml
-yeelight:
-  devices:
-    192.168.1.25:
-      name: Living Room
-    192.168.1.13:
-      name: Front Door
-```
-
-### Custom effects
-
-This example shows how you can add your custom effects in your configuration. To turn on the effect you can use [light.turn_on](/integrations/light/#service-lightturn_on) service.
-
-Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
-
-Where the array values are as per the following:
-
-- RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being in milliseconds (minimum of 50) and final brightness to transition to 1-100 (%).
-- HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in milliseconds (minimum 50) and final brightness 1-100 (%).
-- TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, duration in milliseconds (minimum 50) and final brightness to transition to 1-100 (%).
-- SleepTransition: [duration] with duration being in integer for effect time in milliseconds (minimum 50).
-
-More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
-
-```yaml
-yeelight:
-  devices:
-    192.168.1.25:
-      name: Living Room
-  custom_effects:
-    - name: 'Fire Flicker'
-      flow_params:
-        count: 0
-        transitions:
-          - TemperatureTransition: [1900, 1000, 80]
-          - TemperatureTransition: [1900, 2000, 60]
-          - SleepTransition:       [1000]
-```
