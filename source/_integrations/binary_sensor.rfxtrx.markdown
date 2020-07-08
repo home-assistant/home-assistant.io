@@ -60,11 +60,6 @@ devices:
       description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
       required: false
       type: device_class
-    fire_event:
-      description: Fires an event even if the state is the same as before. Can be used for automations.
-      required: false
-      type: boolean
-      default: false
     off_delay:
       description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
       required: false
