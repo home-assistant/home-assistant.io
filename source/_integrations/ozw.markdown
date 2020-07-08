@@ -77,17 +77,6 @@ Valid usercodes are at least 4 digits.
 | `code_slot`            | yes      | The code slot to set the usercode into. |
 | `usercode`             | yes      | The code to set in the slot.            |
 
-### Service `ozw.get_usercode`
-
-This service will get the usercode from code_slot X.
-The code will display as an `INFO` message in the log.
-Valid code_slots are 1-254.
-
-| Service Data Attribute | Required | Description                             |
-| ---------------------- | -------- | --------------------------------------- |
-| `entity_id`            | yes      | Lock entity to get the usercode.        |
-| `code_slot`            | yes      | The code slot to get the usercode from. |
-
 ### Service `ozw.clear_usercode`
 
 This service will clear the usercode in code_slot X.
