@@ -174,7 +174,7 @@ homeassistant:
 
 #### Disabling TLS and/or certificate validation
 
-TLS can be disabled alltogether with the `disable_tls` option:
+TLS can be disabled altogether with the `disable_tls` option:
 
 ```yaml
 homeassistant:
@@ -199,7 +199,7 @@ homeassistant:
 
 #### Restricting access to certain groups
 
-To only allow a subset of your directory users to be able to login to Home Assistant you can add a list of allowed groups to the config like so:
+To only allow a subset of your directory users to be able to login to Home Assistant you can add a list of allowed groups to the configuration like so:
 
 ```yaml
 homeassistant:
