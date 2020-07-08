@@ -76,6 +76,6 @@ LED colors on switches.
 | Service Data Attribute | Required | Description                                                                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
 | `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
-| `node_id`              | yes      | Node id of the device to set config parameter to (integer).                                                     |
+| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                                     |
 | `parameter`            | yes      | Parameter number to set (integer).                                                                              |
 | `value`                | yes      | Value to set for parameter. (String or integer value for list, string for bool parameters, integer for others). |
