@@ -50,6 +50,11 @@ scan_options:
   required: false
   default: -F --host-timeout 5s
   type: string
+sudo:
+  description: Run Nmap with sudo. This is suitable for Mac OS, but under Linux, it would be better to use setcap as described below.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ## Examples
