@@ -84,9 +84,3 @@ It has two sections, code goes on the left hand side, and the output is shown on
 It is a good practice to test the template code in the template editor prior to putting it in automations and scripts.
 
 For more information about jinja2, visit [jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/), and also read templating document [here](/topics/templating/)
-
-## MQTT
-
-This section is only visible if the MQTT integration is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [MQTT](/integrations/mqtt/) integration.
-
-Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
