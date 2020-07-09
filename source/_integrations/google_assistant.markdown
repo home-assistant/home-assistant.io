@@ -149,7 +149,7 @@ entity_config:
   required: false
   type: map
   keys:
-    `'<ENTITY_ID>'`:
+    YOUR_ENTITY_ID:
       description: Entity to configure
       required: false
       type: map
