@@ -707,7 +707,7 @@ The integrations below have been removed:
 [#37571]: https://github.com/home-assistant/core/pull/37571
 [#37572]: https://github.com/home-assistant/core/pull/37572
 [#37579]: https://github.com/home-assistant/core/pull/37579
-[@SeanPM5]: https://github.com/SeanPM5
+[@seanpm5]: https://github.com/SeanPM5
 [@bdraco]: https://github.com/bdraco
 [@bramkragten]: https://github.com/bramkragten
 [@crazyfx1]: https://github.com/crazyfx1
@@ -715,7 +715,7 @@ The integrations below have been removed:
 [@emontnemery]: https://github.com/emontnemery
 [@engrbm87]: https://github.com/engrbm87
 [@jjlawren]: https://github.com/jjlawren
-[@starkillerOG]: https://github.com/starkillerOG
+[@starkillerog]: https://github.com/starkillerOG
 [braviatv docs]: /integrations/braviatv/
 [denonavr docs]: /integrations/denonavr/
 [frontend docs]: /integrations/frontend/
@@ -726,6 +726,43 @@ The integrations below have been removed:
 [recorder docs]: /integrations/recorder/
 [speedtestdotnet docs]: /integrations/speedtestdotnet/
 [vicare docs]: /integrations/vicare/
+[withings docs]: /integrations/withings/
+
+## Release 0.112.4 - July 9
+
+- Add kwargs to send_magic_packet() service individually ([@stshontikidis] - [#37387]) ([wake_on_lan docs])
+- Upgrade sonar to 0.2.3 ([@therealryanbonham] - [#37392]) ([sonarr docs])
+- Place smappee supported configurations after device class ([@bsmappee] - [#37595]) ([smappee docs])
+- Update Smappee integration with proper solar, voltage and reactive entities ([@bsmappee] - [#37407]) ([smappee docs])
+- Fix DenonAvr discovery of Denon DN-500AV ([@starkillerOG] - [#37529]) ([denonavr docs])
+- Bump backend library for Dune HD integration ([@bieniu] - [#37594]) ([dunehd docs])
+- Bump aiokef to v0.2.13 which fixes the device from becoming "Unavailable" ([@basnijholt] - [#37607]) ([kef docs])
+- Remove withings use of deprecated classes ([@vangorra] - [#37611]) ([withings docs])
+- Increase slow setup logging to warning level ([@bdraco] - [#37635])
+
+[#37387]: https://github.com/home-assistant/core/pull/37387
+[#37392]: https://github.com/home-assistant/core/pull/37392
+[#37407]: https://github.com/home-assistant/core/pull/37407
+[#37529]: https://github.com/home-assistant/core/pull/37529
+[#37594]: https://github.com/home-assistant/core/pull/37594
+[#37595]: https://github.com/home-assistant/core/pull/37595
+[#37607]: https://github.com/home-assistant/core/pull/37607
+[#37611]: https://github.com/home-assistant/core/pull/37611
+[#37635]: https://github.com/home-assistant/core/pull/37635
+[@basnijholt]: https://github.com/basnijholt
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bsmappee]: https://github.com/bsmappee
+[@starkillerog]: https://github.com/starkillerOG
+[@stshontikidis]: https://github.com/stshontikidis
+[@therealryanbonham]: https://github.com/therealryanbonham
+[@vangorra]: https://github.com/vangorra
+[denonavr docs]: /integrations/denonavr/
+[dunehd docs]: /integrations/dunehd/
+[kef docs]: /integrations/kef/
+[smappee docs]: /integrations/smappee/
+[sonarr docs]: /integrations/sonarr/
+[wake_on_lan docs]: /integrations/wake_on_lan/
 [withings docs]: /integrations/withings/
 
 ## All changes
