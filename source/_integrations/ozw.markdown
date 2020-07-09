@@ -80,7 +80,7 @@ Valid usercodes are at least 4 digits.
 ### Service `ozw.clear_usercode`
 
 This service will clear the usercode in code slot X.
-Valid code_slots are between 1-254.
+Valid code slots are between 1-254.
 
 | Service Data Attribute | Required | Description                                            |
 | ---------------------- | -------- | ------------------------------------------------------ |
