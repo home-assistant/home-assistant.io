@@ -31,7 +31,6 @@ Once you're logged in, you can see the details of your account at the _Profile_ 
 You can:
 
 * Change your password.
-* Set the default [dashboard](/lovelace/dashboards-and-views/)
 * Enable or disable [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 * Delete _Refresh Tokens_. These are created when you log in from a device. Delete them if you want to force the device to log out.
 * Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
