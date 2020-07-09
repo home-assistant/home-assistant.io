@@ -68,21 +68,21 @@ this operation.
 
 ### Service `ozw.set_usercode`
 
-This service will set the usercode to X at code_slot Y.
+This service will set the usercode to X at code slot Y.
 Valid usercodes are at least 4 digits.
 
-| Service Data Attribute | Required | Description                             |
-| ---------------------- | -------- | --------------------------------------- |
-| `entity_id`            | yes      | Lock entity to set the usercode.        |
-| `code_slot`            | yes      | The code slot to set the usercode into. |
-| `usercode`             | yes      | The code to set in the slot.            |
+| Service Data Attribute | Required | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            | no       | Lock entity or list of entities to set the usercode. |
+| `code_slot`            | yes      | The code slot to set the usercode into.              |
+| `usercode`             | yes      | The code to set in the slot.                         |
 
 ### Service `ozw.clear_usercode`
 
-This service will clear the usercode in code_slot X.
-Valid code_slots are 1-254.
+This service will clear the usercode in code slot X.
+Valid code_slots are between 1-254.
 
-| Service Data Attribute | Required | Description                               |
-| ---------------------- | -------- | ----------------------------------------- |
-| `entity_id`            | yes      | Lock entity to clear the usercode.        |
-| `code_slot`            | yes      | The code slot to clear the usercode from. |
+| Service Data Attribute | Required | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `entity_id`            | no       | Lock entity or list of entities to clear the usercode. |
+| `code_slot`            | yes      | The code slot to clear the usercode from.              |
