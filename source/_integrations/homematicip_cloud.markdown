@@ -159,6 +159,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Pluggable Switch (*HmIP-PS*)
   * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, HmIP-PSM-IT, HmIP-PSM-UK, HmIP-PSM-PE*)
   * Switch Actuator and Meter – flush-mount (*HmIP-FSM, HmIP-FSM16*)
+  * Switch Actuator with Push-button Input – flush-mount (*HmIP-FSI16*)
   * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8*)
   * Multi IO Box - 2x (*HmIP-MIOB*)
   * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
