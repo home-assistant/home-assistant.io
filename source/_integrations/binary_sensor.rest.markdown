@@ -118,6 +118,10 @@ headers:
   description: The headers for the requests.
   required: false
   type: [list, string]
+proxy_url:                                                                                                                                                       
+  description: The URL to the proxy server. For example: http://127.0.0.1:3128, socks5://user:password@127.0.0.1:9050
+  required: false
+  type: string  
 {% endconfiguration %}
 
 ## Examples
