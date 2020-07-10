@@ -56,6 +56,32 @@ It is recommended to assign a static IP address to your main repeater. This ensu
 
 </div>
 
+## Services
+
+### `lutron.tap_button`
+
+Press and Release a Keypad button (as described below).
+
+| Service Data Attribute    | Optional | Description             |
+|---------------------------|----------|-------------------------|
+| `button`                  |      no  | The name of the button  |
+
+### `lutron.press_button`
+
+Press a Keypad button.  This is useful for the Alarm virtual button where pressing the button activates alarm mode and releasing the button clears the alarm mode.
+
+| Service Data Attribute    | Optional | Description             |
+|---------------------------|----------|-------------------------|
+| `button`                  |      no  | The name of the button  |
+
+### `lutron.release_button`
+
+Release a Keypad button.
+
+| Service Data Attribute    | Optional | Description             |
+|---------------------------|----------|-------------------------|
+| `button`                  |      no  | The name of the button  |
+
 ## Keypad buttons
 
 Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id` and `action` attributes.
