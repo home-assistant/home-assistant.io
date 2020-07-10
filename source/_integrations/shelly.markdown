@@ -16,7 +16,7 @@ This integration connects with Shelly devices (e.g. Shelly 1 switch) over MQTT.
 ## Requirements
 
 - MQTT server and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
-- Your Shelly modules configured to work over MQTT (`Internet & Security` -> `Advanced - Developer Settings` -> `Enable action execution via MQTT`. See Shelly docs for more info)
+- Your Shelly modules configured to work over MQTT (`Internet & Security` -> `Advanced - Developer Settings` -> `Enable action execution via MQTT`. See Shelly documentation for more info)
 
 ## Configuration
 
