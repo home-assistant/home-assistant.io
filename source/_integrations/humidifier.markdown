@@ -18,7 +18,7 @@ Available services: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifie
 
 <div class='note'>
 
-Not all humidifier services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
+Not all humidifier services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking the Services page in the [Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/).
 
 </div>
 
