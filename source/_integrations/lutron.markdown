@@ -9,6 +9,7 @@ ha_category:
   - Switch
 ha_release: 0.37
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@JonGilmore'
 ha_domain: lutron
@@ -21,6 +22,8 @@ Presently, there's only support for communicating with the [RadioRA 2](http://ww
 ## Configuration
 
 When configured, the `lutron` integration will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.
+
+This component supports importing Areas defined by the Lutron RadioRA2 system into Home Assistant.  You can enable this feature in the integration UI.
 
 To use Lutron RadioRA 2 devices in your installation, add the following to your `configuration.yaml` file using the IP address of your RadioRA 2 main repeater:
 
