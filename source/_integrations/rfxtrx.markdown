@@ -127,37 +127,42 @@ dummy:
 devices:
   description: A list of devices.
   required: false
-  type: list
+  type: map
   keys:
-    device_class:
-      description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
-      required: false
-      type: device_class
-    fire_event:
-      description: Fires an event even if the state is the same as before. Can be used for automations.
-      required: false
-      type: boolean
-      default: false
-    off_delay:
-      description: For binary sensors that only sends 'On' state updates, this variable sets a delay after which the binary sensor state will be updated back to 'Off'.
-      required: false
-      type: integer
-    data_bits:
-      description: Defines how many bits are used for commands inside the data packets sent by the device.
-      required: false
-      type: integer
-    command_on:
-      description: Defines the data bits value that is sent by the device upon an 'On' command.
-      required: false
-      type: string
-    command_off:
-      description: Defines the data bits value that is sent by the device upon an 'Off' command.
-      required: false
-      type: string
-    signal_repetitions:
-      description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the rfxtrx device to try to send each signal repeatedly.
-      required: false
-      type: integer
+    EVENT_CODE:
+      description: An code string describing the device. It may include state, but state will be ignored.
+      required: true
+      type: map
+      keys:
+        device_class:
+          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: device_class
+        fire_event:
+          description: Fires an event even if the state is the same as before. Can be used for automations.
+          required: false
+          type: boolean
+          default: false
+        off_delay:
+          description: For binary sensors that only sends 'On' state updates, this variable sets a delay after which the binary sensor state will be updated back to 'Off'.
+          required: false
+          type: integer
+        data_bits:
+          description: Defines how many bits are used for commands inside the data packets sent by the device.
+          required: false
+          type: integer
+        command_on:
+          description: Defines the data bits value that is sent by the device upon an 'On' command.
+          required: false
+          type: string
+        command_off:
+          description: Defines the data bits value that is sent by the device upon an 'Off' command.
+          required: false
+          type: string
+        signal_repetitions:
+          description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the rfxtrx device to try to send each signal repeatedly.
+          required: false
+          type: integer
 automatic_add:
   description: To enable the automatic addition of new binary sensors.
   required: false
