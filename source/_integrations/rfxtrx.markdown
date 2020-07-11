@@ -160,7 +160,7 @@ devices:
           required: false
           type: string
         signal_repetitions:
-          description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the rfxtrx device to try to send each signal repeatedly.
+          description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
           required: false
           type: integer
 automatic_add:
