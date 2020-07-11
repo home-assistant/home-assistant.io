@@ -11,7 +11,9 @@ ha_domain: rfxtrx
 
 The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
-To enable RFXtrx in your installation, add the following to your `configuration.yaml` file:
+To enable RFXtrx in your installation, something like the following to your `configuration.yaml` file.
+
+*Direct serial connection*
 
 ```yaml
 # Example configuration.yaml entry for local serial device
@@ -19,7 +21,7 @@ rfxtrx:
   device: /dev/ttyUSB0
 ```
 
-OR
+*Network connection*
 
 ```yaml
 # Example configuration.yaml entry for TCP connected device using ser2net
@@ -27,6 +29,8 @@ rfxtrx:
   host: 192.168.0.2
   port: 50000
 ```
+
+*Network connection with multiple devices*
 
 ```yaml
 # Example configuration with several devices
@@ -66,7 +70,7 @@ rfxtrx:
     0a52080000301004d240259:
 ```
 
-Use remote to enable scene (using event_data):
+*Use remote to enable scene (using event_data)*
 
 ```yaml
 rfxtrx:
