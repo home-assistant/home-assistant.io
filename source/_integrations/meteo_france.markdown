@@ -54,7 +54,7 @@ meteo_france:
 
 ## Weather platform
 
-To be used with the weather lovelace card to access current condition, today and next four days forecast.
+To be used with the weather Lovelace card to access current condition, today and next four days forecast.
 
 ## Sensor platforms
 
