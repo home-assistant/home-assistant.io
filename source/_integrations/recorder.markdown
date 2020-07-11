@@ -231,9 +231,9 @@ Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hos
 
 <div class='note'>
 
-When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure python MySQL library, which is slower but may be required if the C MySQL library is not available.
+When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure python MySQL library, which is slower but may be required if the C MySQL library is not available. 
 
-`pymysql` is not included in the base Docker image, and is not necessary for this to work.
+When using the official Docker image, the C MySQL library will always be available. `pymysql` is most commonly used with `venv` where the C MySQL library is not installed.
 
 </div>
 
