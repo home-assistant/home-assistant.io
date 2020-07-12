@@ -93,7 +93,7 @@ Optional:
 
 ### Manual configuration
 
-By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a white list of wanted chrome casts.
+By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a list of wanted chrome casts.
 
 ```yaml
 # Example configuration.yaml entry
