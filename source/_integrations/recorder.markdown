@@ -212,11 +212,11 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | Database engine                | `db_url`                                                                                     |
 | :----------------------------- | :------------------------------------------------------------------------------------------- |
 | SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                 |
-| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
-| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
 | MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
 | MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
 | MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
+| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
 | PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                             |
 | PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
 | PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                     |
@@ -231,7 +231,9 @@ Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hos
 
 <div class='note'>
 
-If using an external MariaDB backend (e.g., running on a separate NAS) with Home Assistant, you should omit `pymysql` from the URL. `pymysql` is not included in the base Docker image, and is not necessary for this to work.
+When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure Python MySQL library, which is slower but may be required if the C MySQL library is not available. 
+
+When using the official Docker image, the C MySQL library will always be available. `pymysql` is most commonly used with `venv` where the C MySQL library is not installed.
 
 </div>
 
