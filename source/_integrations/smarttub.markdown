@@ -1,0 +1,29 @@
+---
+title: SmartTub
+description: Instructions on how to integrate SmartTub into Home Assistant.
+ha_category:
+  - Climate
+ha_release: TBD
+ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_quality_scale: silver
+ha_codeowners:
+  - '@mdz'
+ha_domain: smarttub
+---
+
+The `smarttub` integration allows you to view and control hot tubs which use the [SmartTub](https://www.jacuzzi.com/en-us/hot-tubs/owners/smarttub-system) system, in Home Assistant.
+
+## Prerequisites
+
+- A hot tub with a SmartTub module
+- A SmartTub account (registration is not supported, you can use the SmartTub mobile app)
+
+## Configuration
+
+To add SmartTub to your installation:
+
+- Go to the integrations page in the Home Assistant frontend
+- Go to **Integrations**
+- Add a new **SmartTub** integration.
+- Follow the steps shown to authenticate Home Assistant with your SmartTub account.
