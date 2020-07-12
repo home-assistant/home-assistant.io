@@ -345,7 +345,7 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 
 ### String filters
 
-- Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for GET requests using `application/x-www-form-urlencoded`).
+- Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 
 ### Regular expressions
 
