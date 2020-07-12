@@ -100,6 +100,9 @@ homeassistant:
       icon: mdi:kettle
     switch.rfxtrx_switch:
       assumed_state: false
+    media_player.my_media_player
+      source_list:
+        - Channel/input from my available sources
   # Customize all entities in a domain
   customize_domain:
     light:
