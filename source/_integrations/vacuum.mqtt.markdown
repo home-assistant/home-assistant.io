@@ -175,6 +175,10 @@ supported_features:
   required: false
   type: [string, list]
   default: "`turn_on`, `turn_off`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+unique_id:
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 {% endconfiguration %}
 
 ### Legacy configuration example
@@ -391,6 +395,10 @@ supported_features:
   required: false
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+unique_id:
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 {% endconfiguration %}
 
 ### State configuration example
