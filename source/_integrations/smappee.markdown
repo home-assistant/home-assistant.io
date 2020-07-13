@@ -4,6 +4,7 @@ description: Instructions on how to setup Smappee within Home Assistant.
 ha_category:
   - Hub
   - Energy
+  - Binary sensor
   - Sensor
   - Switch
 ha_iot_class: Cloud polling
@@ -14,9 +15,16 @@ ha_codeowners:
 ha_domain: smappee
 ---
 
-The Smappee integration will allow users to integrate their Smappee monitors, plugs and switches into Home Assistant using the [official API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview).
+The Smappee integration will allow users to integrate their Smappee monitors, plugs and switches into Home Assistant using the [official API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview) or the limited local API.
 
-## Configuration
+## Local discovery
+In most cases, the Smappee legacy devices (Energy and Solar) will be automatically discovered by Home Assistant through network scanning.
+Those automatically discovered Smappee devices are listed on the integrations page and can be configured without any additional details.
+This will provide you a limited number of entities only (realtime power values, solar if applicable and the installed Smappee Comfort Plugs and Switches).
+
+If you have API credentials we strongly suggest you use the Smappee cloud configured integration by following the scheme underneath.
+
+## Cloud API configuration
 
 To use the Smappee integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file.  The `client_id` and `client_secret` can be obtained by contacting [support@smappee.com](mailto:support@smappee.com).
 
