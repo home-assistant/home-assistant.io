@@ -24,6 +24,6 @@ The `smarttub` integration allows you to view and control hot tubs which use the
 To add SmartTub to your installation:
 
 - Go to the integrations page in the Home Assistant frontend
-- Go to **Integrations**
+- Select `+` to add a new integration.
 - Add a new **SmartTub** integration.
 - Follow the steps shown to authenticate Home Assistant with your SmartTub account.
