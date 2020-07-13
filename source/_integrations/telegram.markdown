@@ -15,7 +15,7 @@ The requirements are:
 
 - You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
 - You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_bot) and define there your API key and the allowed chat ids to interact with.
-- The `chat_id` of an allowed user. 
+- The `chat_id` of an allowed user.
 
 **Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
 
@@ -207,7 +207,7 @@ Since Home Assistant version 0.48 you have to [whitelist the source folder](/doc
 configuration.yaml
 ...
 homeassistant:
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /tmp
     - /home/kenji/data
 ```

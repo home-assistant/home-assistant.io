@@ -45,7 +45,7 @@ notify:
 ```
 
 {% configuration %}
-name: 
+name:
   description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: false
   type: string
@@ -86,7 +86,7 @@ To include a local file with the Slack message, use these attributes underneath 
 
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `path`                   |      no  | A local filepath that has been [whitelisted](/docs/configuration/basic/#whitelist_external_dirs).
+| `path`                   |      no  | A local filepath that has been [whitelisted](/docs/configuration/basic/#allowlist_external_dirs).
 
 To include a remote file with the Slack message, use these attributes underneath the `file` key:
 
