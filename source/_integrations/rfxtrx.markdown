@@ -3,6 +3,11 @@ title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
   - Hub
+  - Cover
+  - Light
+  - Switch
+  - Binary Sensor
+  - Sensor
 ha_release: pre 0.7
 ha_codeowners:
   - '@danielhiversen'
