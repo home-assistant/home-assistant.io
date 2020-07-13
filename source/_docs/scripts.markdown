@@ -273,6 +273,32 @@ field | description
 `index` | The iteration number of the loop: 1, 2, 3, ...
 `last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
 
+### Choose a Group of Actions
+
+This action allows you to select a sequence of other actions from a list of sequences.
+Nesting is fully supported.
+
+Each sequence can be paired with a list of conditions. The first sequence whose conditions are all true will be run. If a sequence does not have any conditions, then it will be run if none of the previous sequences in the list were run. This is typically used at the end of the list of sequences to be the "default", although it is not required.
+
+{% raw %}
+```yaml
+- alias: Choose a sequence to run
+  choose:
+    - if:
+        - condition: ...
+        - condition: ...
+    - sequence:
+        - ...
+    - if:
+        - condition: ...
+    - sequence:
+        - ...
+    # "Default" sequence to run if none of the above chosen
+    - sequence:
+        - ...
+```
+{% endraw %}
+
 [Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /integrations/alexa/
