@@ -173,6 +173,7 @@
 /components/binary_sensor.rainmachine /integrations/rainmachine
 /components/binary_sensor.random /integrations/random#binary-sensor
 /components/binary_sensor.raspihats /integrations/raspihats#binary-sensor
+/components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensor
 /components/binary_sensor.ring /integrations/ring#binary-sensor
 /components/binary_sensor.rpi_gpio /integrations/rpi_gpio#binary-sensor
 /components/binary_sensor.rpi_pfio /integrations/rpi_pfio#binary-sensor
@@ -304,6 +305,7 @@
 /components/cover.lutron_caseta /integrations/lutron_caseta#cover
 /components/cover.myq /integrations/myq
 /components/cover.opengarage /integrations/opengarage
+/components/cover.rfxtrx /integrations/rfxtrx#cover
 /components/cover.rpi_gpio /integrations/rpi_gpio#cover
 /components/cover.scsgate /integrations/scsgate#cover
 /components/cover.smartthings /integrations/smartthings#cover
@@ -447,6 +449,7 @@
 /components/light.plum_lightpad /integrations/plum_lightpad
 /components/light.qwikswitch /integrations/qwikswitch
 /components/light.rpi_gpio_pwm /integrations/rpi_gpio_pwm
+/components/light.rfxtrx /integrations/rfxtrx#light
 /components/light.scsgate /integrations/scsgate#light
 /components/light.sensehat /integrations/sensehat#light
 /components/light.sisyphus /integrations/sisyphus
@@ -827,6 +830,7 @@
 /components/sensor.reddit /integrations/reddit
 /components/sensor.rejseplanen /integrations/rejseplanen
 /components/sensor.rest /integrations/rest
+/components/sensor.rfxtrx /integrations/rfxtrx#sensor
 /components/sensor.ring /integrations/ring#sensor
 /components/sensor.ripple /integrations/ripple
 /components/sensor.rmvtransport /integrations/rmvtransport
@@ -1006,6 +1010,7 @@
 /components/switch.raspihats /integrations/raspihats#switch
 /components/switch.raspyrfm /integrations/raspyrfm
 /components/switch.recswitch /integrations/recswitch
+/components/switch.rfxtrx /integrations/rfxtrx#switch
 /components/switch.rpi_gpio /integrations/rpi_gpio#switch
 /components/switch.rpi_pfio /integrations/rpi_pfio#switch
 /components/switch.rpi_rf /integrations/rpi_rf
