@@ -445,6 +445,18 @@ automation:
       entity_id: scene.welcomescene
 ```
 
-### Discovering events for your devices
+## Services
 
-To figure out what your devices send, you can listen on the `rfxtrx_event` in the development tool/event page.
+- `rftrx.send`: Send a custom event using the RFXtrx device.
+
+#### Service: Send
+
+Simulate a button being pressed:
+
+```yaml
+...
+action:
+  service: rftrx.send
+  data:
+    event: 0b1111e003af16aa10000060
+```
