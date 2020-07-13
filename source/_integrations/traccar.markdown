@@ -71,6 +71,14 @@ skip_accuracy_filter_on:
   description: Skip filter position by "max_accuracy filter" if any of specified attributes are pressent on the traccar message.
   required: false
   type: list
+devices_include:
+  description: Configure which devices should be tracked. If set, all other entities will not be tracked.
+  required: false
+  type: list
+devices_exclude:
+  description: Configure which devices should be excluded from tracking. An exclusion filter takes precedence over an inclusion filter. 
+  required: false
+  type: list
 monitored_conditions:
   description: Additional traccar computed attributes or device-related attributes to include in the scan.
   required: false
