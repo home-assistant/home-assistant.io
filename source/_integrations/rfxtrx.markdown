@@ -70,6 +70,7 @@ You can host your device on another computer by setting up ser2net and example c
 The rftrx integration will signal an event on reception of messages from the RFXtrx device on the following form.
 
 *Signal from a byron doorbell button:*
+
 ```yaml
 packet_type: 22
 sub_type: 0
@@ -83,6 +84,7 @@ values:
 ```
 
 *Event data from a Nexa wall socket switch:*
+
 ```yaml
 packet_type: 16
 sub_type: 1
@@ -99,6 +101,7 @@ You can setup automations to react to these events. When you do don't include mo
 So for example to trigger a action when somebody presses the doorbell, you would set up a automation with the following trigger:
 
 *Automation trigger:*
+
 ```yaml
 - platform: event
   event_type: rfxtrx_event
@@ -111,6 +114,7 @@ So for example to trigger a action when somebody presses the doorbell, you would
 ```
 
 *A more complete example with scene activation:*
+
 ```yaml
 light:
   platform: demo
