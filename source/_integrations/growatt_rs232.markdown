@@ -17,7 +17,7 @@ These are sensors to collect information from your Growatt inverters using the R
 
 Instead of using the Growatt cloud service, it communicates directly via Modbus over the serial RS232 connector. Good for your privacy and security.
 
-The only thing required is a simple usb to serial RS232 adapter with db9 connector (costing around 15€). Before buying, check if the adapter is compatible with Linux/Windows without having to install extra drivers.
+The only thing required is a simple USB to serial RS232 adapter with db9 connector (costing around 15€). Before buying, check if the adapter is compatible with Linux/Windows without having to install extra drivers.
 
 The RS232 db9 connector is un the underside of the inverter. It's under a small cover plate requiring you to remove 2 screws.
 
@@ -29,7 +29,7 @@ Go to Configuration / Integrations / + (in the bottom right corner).
 
 You need to define
 
-1. The usb port your RS232 adapter is using. In Linux normally /dev/ttyUSB0.
+1. The USB port your RS232 adapter is using. In Linux normally /dev/ttyUSB0.
 2. The Modbus slave address of the inverter. Between 1-247 but normally 1.
 
 ## Remarks
