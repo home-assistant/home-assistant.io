@@ -16,6 +16,13 @@ ha_domain: rfxtrx
 
 The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
+There is currently support for the following device types within Home Assistant:
+- [Cover](/integrations/rfxtrx/#cover)
+- [Light](/integrations/rfxtrx/#light)
+- [Switch](/integrations/rfxtrx/#switch)
+- [Binary Sensor](/integrations/rfxtrx/#binary-sensor)
+- [Switch](/integrations/rfxtrx/#switch)
+
 To enable RFXtrx in your installation, something like the following to your `configuration.yaml` file.
 
 *Direct serial connection*
