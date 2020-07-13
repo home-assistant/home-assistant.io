@@ -14,10 +14,8 @@ Screenshot of Home Assistant's Developer Tools.
 | ------- |----- |
 | States | Sets the representation of an entity |
 | Services | Calls services from integrations |
-| Logs | Displays contents of Home Assistant log file |
 | Events | Fires events |
 | Templates | Renders templates |
-| Info | Details about Home Assistant |
 
 ## What can I do with Developer Tools?
 
@@ -92,11 +90,3 @@ For more information about jinja2, visit [jinja2 documentation](http://jinja.poc
 This section is only visible if the MQTT integration is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [MQTT](/integrations/mqtt/) integration.
 
 Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
-
-## Logs
-
-This section displays `syslog` information, and the contents of `home-assistant.log` with an option to clear and refresh the logs.
-
-## Info
-
-The Information tab simply provides information about the current installed version, [system health](/integrations/system_health/) (if enabled), additional links and credits.

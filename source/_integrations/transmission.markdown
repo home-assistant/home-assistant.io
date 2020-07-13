@@ -68,7 +68,7 @@ scan_interval:
   required: false
   type: integer
 {% endconfiguration %}
-  
+
 ## Integration Entities
 
 The Transmission Integration will add the following sensors and switches.
@@ -120,7 +120,7 @@ Example of configuration of an automation with completed torrents:
 
 ### Service `add_torrent`
 
-Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#whitelist_external_dirs)).
+Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#allowlist_external_dirs)).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -150,7 +150,7 @@ content: >
   {% set payload = state_attr('sensor.transmission_total_torrents', 'torrent_info') %}
 
   {% for torrent in payload.items() %} {% set name = torrent[0] %} {% set data = torrent[1] %}
-  
+
   {{ name|truncate(20) }} is {{ data.percent_done }}% complete, {{ data.eta }} remaining {% endfor %}
 type: markdown
 ```

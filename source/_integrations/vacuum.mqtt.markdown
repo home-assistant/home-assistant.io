@@ -158,7 +158,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use. Must be `legacy` or omitted to select the legacy schema".
+  description: The schema to use. Must be `legacy` or omitted to select the legacy schema.
   required: false
   type: string
   default: legacy
@@ -171,10 +171,14 @@ set_fan_speed_topic:
   required: false
   type: string
 supported_features:
-  description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
+  description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`).
   required: false
   type: [string, list]
   default: "`turn_on`, `turn_off`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+unique_id:
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 {% endconfiguration %}
 
 ### Legacy configuration example
@@ -370,7 +374,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use. Must be `state` to select the state schema".
+  description: The schema to use. Must be `state` to select the state schema.
   required: false
   type: string
   default: legacy
@@ -391,6 +395,10 @@ supported_features:
   required: false
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+unique_id:
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 {% endconfiguration %}
 
 ### State configuration example

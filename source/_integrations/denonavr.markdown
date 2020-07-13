@@ -23,6 +23,7 @@ Known supported devices:
 - Denon AVR-X2100W
 - Denon AVR-X2200W
 - Denon AVR-X2300W
+- Denon AVR-X3200W
 - Denon AVR-X3300W
 - Denon AVR-X3400H
 - Denon AVR-X3600H
@@ -37,14 +38,20 @@ Known supported devices:
 - Denon AVR-S710W
 - Denon AVR-S720W
 - Denon AVR-S750H
+- Denon DN-500AV
 - Marantz M-CR510
+- Marantz M-CR511
 - Marantz M-CR603
 - Marantz M-CR610
+- Marantz M-CR611
+- Marantz SR5006
 - Marantz SR5008
+- Marantz SR5011
 - Marantz SR6007 - SR6012
 - Marantz NR1504
-- Marantz NR1604
 - Marantz NR1506
+- Marantz NR1602
+- Marantz NR1604
 - Marantz NR1607
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
@@ -67,11 +74,6 @@ show_all_sources:
   required: false
   default: false
   type: boolean
-timeout:
-  description: Timeout in seconds for HTTP requests to the receiver.
-  required: false
-  default: 2
-  type: integer
 zone1:
   description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
   required: false

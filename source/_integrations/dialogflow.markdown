@@ -111,6 +111,6 @@ intent_script:
             switch.turn_off
           {%- endif -%}
         data_template:
-          entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
+          entity_id: "switch.light_{{ Room | striptags | replace(' ', '_') }}"
 ```
 {% endraw %}
