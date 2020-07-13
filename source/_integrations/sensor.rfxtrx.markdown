@@ -85,9 +85,6 @@ sensor:
   platform: rfxtrx
   automatic_add: true
   devices:
-    0a52080705020095220269:
-      name: Lving
-      fire_event: true
     0a520802060100ff0e0269:
       name: Bath
       data_type:
@@ -105,11 +102,6 @@ devices:
       description: Override the name to use in the frontend.
       required: false
       type: string
-    fire_event:
-      description: Fires an event even if the state is the same as before. Can be used for automations.
-      required: false
-      default: false
-      type: boolean
     data_type:
       description: Which data type the sensor should show.
       required: false
