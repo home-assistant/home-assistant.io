@@ -17,6 +17,7 @@ ha_domain: rfxtrx
 The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
 There is currently support for the following device types within Home Assistant:
+
 - [Cover](#covers)
 - [Light](#lights)
 - [Sensor](#sensors)
@@ -207,8 +208,8 @@ rfxtrx:
 ```
 
 Open your Home Assistant frontend and go to the "states" page.
-Then make sure to trigger your sensor. You should see a several new entity
-appear in the *Current entities* list, by looking at the entities attribute, you can look at the last received event, which can be added to configuration.
+Then make sure to trigger your sensor. You should see several new entities
+appear in the *Current entities* list, by looking at the entities attribute, you can look at the last received event, which can be added to the configuration.
 
 For example: "0913000022670e013b70". Then you should update your configuration to:
 
@@ -227,7 +228,7 @@ The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that 
 
 ##### RFY
 
-The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however, it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
 
 ### Lights
 
@@ -239,16 +240,20 @@ The `rfxtrx` platform support switches that communicate in the frequency range o
 
 #### Generate codes
 
-If you need to generate codes for switches you can use a template (useful for example COCO switches).
+If you need to generate codes for switches, you can use a template (useful for example COCO switches).
 
 - Go to home-assistant-IP:8123/dev-template
 - Use this code to generate a code:
 
+{% raw %}
+
 ```yaml
-{% raw %}0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70{% endraw %}
+0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
 ```
 
-- Use this code to add a new switch in your `configuration.yaml`
+{% endraw %}
+
+- Use this code to add a new switch in your `configuration.yaml`.
 - Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
@@ -257,7 +262,7 @@ If you need to generate codes for switches you can use a template (useful for ex
 
 The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.
 
-Also several switches and other devices will also expose sensor entities with battery status as well as signal level
+Also, several switches and other devices will also expose sensor entities with battery status as well as the signal level.
 
 ### Binary Sensors
 
@@ -267,7 +272,7 @@ The RFXtrx binary sensor integration provides support for them.
 
 Many cheap sensors available on the web today are based on a particular RF chip
 called *PT-2262*. Depending on the running firmware on the RFXcom box, some of
-them may be recognized under the X10 protocol but most of them are recognized
+them may be recognized under the X10 protocol, but most of them are recognized
 under the *Lighting4* protocol. The RFXtrx binary sensor integration provides
 some special options for them, while other RFXtrx protocols should work too.
 
@@ -282,7 +287,7 @@ some sensors are only able to signal their "on" state:
 - Some doorbells may also only send "on" signals when their toggle switch is pressed, but no "off" signal when the switch is released.
 
 For those devices, use the *off_delay* parameter.
-It defines a delay after which a device will go back to an "Off" state.
+It defines a delay after, which a device will go back to an "Off" state.
 That "Off" state will be fired internally by Home Assistant, just as if
 the device fired it by itself. If a motion sensor can only send signals
 once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.
@@ -306,7 +311,7 @@ rfxtrx:
 When a data packet is transmitted by a PT-2262 device using the Lighting4
 protocol, there is no way to automatically extract the device identifier and the
 command from the packet. Each device has its own id/command length combination
-and the fields lengths are not included in the data. One device that sends 2
+and the field lengths are not included in the data. One device that sends 2
 different commands will be seen as 2 devices on Home Assistant. For such cases,
 the following options are available in order to circumvent the problem:
 
@@ -342,7 +347,7 @@ From those two values, you can guess that the actual id of your device is
 respectively. As one hexadecimal digit uses 4 bits,
 we can conclude that the device is using 4 data bits.
 
-So here is the actual configuration section for the binary sensor:
+So, here is the actual configuration section for the binary sensor:
 
 ```yaml
 rfxtrx:
@@ -368,7 +373,7 @@ command_off=0x7
 INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Found possible matching deviceid 22670e.
 ```
 
-This automatic guess should work most of the time but there is
+This automatic guess should work most of the time, but there is
 no guarantee on that. You should activate it only when you
 want to configure your new devices and leave it off otherwise.
 
@@ -387,9 +392,10 @@ There are too many other to list.
 
 ## Events
 
-The rftrx integration will signal an event on reception of messages from and RFXtrx device on the following form. For signal to be available, the `fire_event` parameter must be set on the device in configuration.
+The RFXtrx integration will signal an event on the reception of messages from and RFXtrx device on the following form. For the signal to be available, the `fire_event` parameter must be set on the device in configuration.
 
 *Signal from a byron doorbell button:*
+
 ```yaml
 packet_type: 22
 sub_type: 0
@@ -403,6 +409,7 @@ values:
 ```
 
 *Event data from a Nexa wall socket switch:*
+
 ```yaml
 packet_type: 16
 sub_type: 1
@@ -416,9 +423,10 @@ values':
 
 You can setup automations to react to these events. When you do don't include more fields than needed. Always include the device identifying fields, `packet_type`, `sub_type` and `id_string`.
 
-So for example to trigger a action when somebody presses the doorbell, you would set up a automation with the following trigger:
+So, for example, to trigger an action when somebody presses the doorbell, you would set up an automation with the following trigger:
 
 *Automation trigger:*
+
 ```yaml
 - platform: event
   event_type: rfxtrx_event
@@ -431,6 +439,7 @@ So for example to trigger a action when somebody presses the doorbell, you would
 ```
 
 *A more complete example with scene activation:*
+
 ```yaml
 light:
   platform: demo
