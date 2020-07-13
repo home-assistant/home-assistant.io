@@ -114,7 +114,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Freebox device tracker ([@stilllman] - [#12727]) ([device_tracker.freebox docs]) (new-platform)
 - Migrate entity registry to using websocket ([@balloob] - [#14830]) ([config docs])
 - Route themes and translations over websocket ([@balloob] - [#14828]) ([frontend docs]) ([websocket_api docs])
-- Feature/gearbest library update (Closes: #14813) ([@HerrHofrat] - [#14833]) ([sensor.gearbest docs])
+- Feature/gearbest library update (Closes: #14813) ([@HerrHofrat] - [#14833])
 - Ignore the mistaken long_both_click event of the 86sw (Closes: #14802) ([@syssi] - [#14808]) ([binary_sensor.xiaomi_aqara docs])
 - Fix non awaited test ([@balloob] - [#14854])
 - Update Hue flow title ([@balloob] - [#14852]) ([hue docs])
@@ -464,7 +464,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.airvisual docs]: /integrations/airvisual
 [sensor.arlo docs]: /integrations/arlo#sensor
 [sensor.eight_sleep docs]: /integrations/eight_sleep
-[sensor.gearbest docs]: /integrations/gearbest
 [sensor.glances docs]: /integrations/glances
 [sensor.hive docs]: /integrations/hive#sensor
 [sensor.homematic docs]: /integrations/homematic

@@ -121,6 +121,15 @@ that.
 | `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `dhw_override` | no | The domestic hot water override state. Value should be 0 or 1 to enable the override in off or on state, or "A" to disable the override.
 
+### Service `opentherm_gw.set_hot_water_setpoint`
+
+Set the domestic hot water setpoint on the OpenTherm Gateway. Not all boilers support this feature.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
+| `dhw_override` | no | The domestic hot water setpoint to set on the gateway. Values between 0 and 90 are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler.
+
 ### Service `opentherm_gw.set_gpio_mode`
 
 Configure the GPIO behavior on the OpenTherm Gateway.

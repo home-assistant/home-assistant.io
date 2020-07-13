@@ -77,15 +77,6 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User id that can see the view tab.
-  type: string
-{% endconfiguration %}
-
 ## How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)

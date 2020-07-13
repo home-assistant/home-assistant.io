@@ -76,7 +76,7 @@ panel_iframe:
 
 The `rachio` switch platform allows you to toggle zones and schedules connected to your [Rachio irrigation system](https://rachio.com/) on and off.
 
-Once configured, a switch will be added for every zone that is enabled on every controller in the account provided, a switch to start or stop every schedule on a controller, as well as a switch to toggle each controller's standby mode.
+Once configured, a switch will be added for every zone that is enabled on every controller in the account provided and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24 hour rain delay on the device.
 
 ## Examples
 

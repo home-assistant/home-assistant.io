@@ -104,7 +104,7 @@ registers:
       default: 0
       type: integer
     data_type:
-      description: Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format.
+      description: Response representation (int, uint, float, string, custom). If float selected, value will be converted to IEEE 754 floating point format.
       required: false
       default: int
       type: string

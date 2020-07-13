@@ -29,7 +29,7 @@ mqtt:
   broker: IP_ADDRESS_BROKER
 ```
 
-You can also use the [embedded MQTT broker](/docs/mqtt/broker#embedded-broker). A separate broker is advised for more stability.
+You can also use the [embedded MQTT broker](/docs/mqtt/broker#embedded-broker-deprecated). A separate broker is advised for more stability.
 
 <div class='note warning'>
 As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the broker functionality will be removed in a future release.
@@ -51,4 +51,3 @@ This allows you to connect to the MQTT broker with user `homeassistant` and pass
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
-- [Processing JSON](/docs/mqtt/processing_json/)

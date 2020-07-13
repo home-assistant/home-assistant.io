@@ -22,7 +22,7 @@ With the brand-new [ADS (automation device specification)][ads docs] component b
 Thanks to [@maxlaverse] Home Assistant support now [WebDav calendars][calendar.caldav docs].
 
 ## Tracking prices
-With the new [`gearbest` sensor][sensor.gearbest docs] there is now an additional sensor available to track the price of a product.
+With the new `gearbest` sensor there is now an additional sensor available to track the price of a product.
 
 ## Financial details
 Yahoo! has discontinued their financial service. To fill this gap we have now the [`alpha_vantage` sensor][sensor.alpha_vantage docs] which is intruded in this release and allows you to monitor the stock market.
@@ -32,7 +32,7 @@ Yahoo! has discontinued their financial service. To fill this gap we have now th
 - Add iAlarm support ([@RyuzakiKK] - [#10878]) ([alarm_control_panel.ialarm docs]) (new-platform)
 - Add Alpha Vantage sensor ([@fabaff] - [#10873]) ([sensor.alpha_vantage docs]) (new-platform)
 - Add ADS component ([@stlehmann] - [#10142]) ([ads docs]) ([binary_sensor.ads docs]) ([light.ads docs]) ([sensor.ads docs]) ([switch.ads docs]) (new-platform)
-- Gearbest sensor ([@HerrHofrat] - [#10556]) ([sensor.gearbest docs]) (new-platform)
+- Gearbest sensor ([@HerrHofrat] - [#10556]) (new-platform)
 - Add Ziggo Mediabox XL media_player ([@b10m] - [#10514]) ([media_player.ziggo_mediabox_xl docs]) (new-platform)
 - Meraki AP Device tracker ([@masarliev] - [#10971]) ([device_tracker.meraki docs]) (new-platform)
 - Added Vera scenes ([@alanfischer] - [#10424]) ([vera docs]) ([scene.vera docs]) (new-platform)
@@ -97,7 +97,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tado ignore invalid devices ([@dasos] - [#10927]) ([climate.tado docs])
 - don't ignore voltage data if sensor data changed ([@PaulAnnekov] - [#10925]) ([xiaomi_aqara docs])
 - Add ADS component ([@stlehmann] - [#10142]) ([ads docs]) ([binary_sensor.ads docs]) ([light.ads docs]) ([sensor.ads docs]) ([switch.ads docs]) (new-platform)
-- Gearbest sensor ([@HerrHofrat] - [#10556]) ([sensor.gearbest docs]) (new-platform)
+- Gearbest sensor ([@HerrHofrat] - [#10556]) (new-platform)
 - Add Ziggo Mediabox XL media_player ([@b10m] - [#10514]) ([media_player.ziggo_mediabox_xl docs]) (new-platform)
 - Generic thermostat initial_operation_mode ([@ziotibia81] - [#10690]) ([climate.generic_thermostat docs])
 - Use new build path for dev translations ([@armills] - [#10937])
@@ -350,7 +350,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.canary docs]: /integrations/canary#sensor
 [sensor.efergy docs]: /integrations/efergy
 [sensor.eliqonline docs]: /integrations/eliqonline
-[sensor.gearbest docs]: /integrations/gearbest
 [sensor.luftdaten docs]: /integrations/luftdaten#sensor
 [sensor.miflora docs]: /integrations/miflora
 [sensor.mqtt docs]: /integrations/sensor.mqtt/

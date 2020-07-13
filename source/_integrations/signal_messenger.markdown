@@ -37,6 +37,10 @@ notify:
       - "RECIPIENT1"
 ```
 
+Both phone numbers and Signal Messenger groups can be added to the `recipients`list. However, it's not possible to mix phone numbers and Signal Messenger groups in a single notifier. If you would like to send messages to individual phone numbers and Signal Messenger groups, separate notifiers need to be created.
+
+To obtain the Signal Messenger group ids, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
+
 {% configuration %}
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
@@ -52,7 +56,7 @@ number:
   required: true
   type: string
 recipients:
-  description: A list of recipients.
+  description: A list of recipients (either phone numbers or Signal Messenger group ids).
   required: true
   type: string
 {% endconfiguration %}

@@ -60,6 +60,7 @@ reconnect_interval:
 {% endconfiguration %}
 
 ### Full example
+
 ```yaml
 # Example configuration.yaml entry
 rflink:
@@ -77,7 +78,7 @@ TCP mode allows you to connect to an RFLink device over a TCP/IP network. This i
 To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:
 
 ```bash
-$ socat /dev/ttyACM0,b57600 TCP-LISTEN:1234,reuseaddr
+socat /dev/ttyACM0,b57600 TCP-LISTEN:1234,reuseaddr
 ```
 
 Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.
@@ -115,9 +116,9 @@ sensor:
     automatic_add: true
 ```
 
-[RFLink Switches](/integrations/switch.rflink/) and [RFLink Binary Sensors](/integrations/binary_sensor.rflink/) cannot be added automatically. 
+[RFLink Switches](/integrations/switch.rflink/) and [RFLink Binary Sensors](/integrations/binary_sensor.rflink/) cannot be added automatically.
 
-The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
+The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group or configure a nice name.
 
 ### Ignoring devices
 

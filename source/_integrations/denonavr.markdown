@@ -11,15 +11,22 @@ ha_codeowners:
   - '@starkillerOG'
 ---
 
-The `denonavr` platform allows you to control a [Denon Network Receivers](https://www.denon.co.uk/chg/product/compactsystems/networkmusicsystems/ceolpiccolo) from Home Assistant. It might be that your device is supported by the [Denon] platform.
+The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
 
 Known supported devices:
 
+- Denon AVR-X1000
+- Denon AVR-X1200W
 - Denon AVR-X1300W
 - Denon AVR-X1500H
 - Denon AVR-X2000
 - Denon AVR-X2100W
+- Denon AVR-X2200W
+- Denon AVR-X2300W
+- Denon AVR-X3200W
+- Denon AVR-X3300W
 - Denon AVR-X3400H
+- Denon AVR-X3600H
 - Denon AVR-X4100W
 - Denon AVR-X4300H
 - Denon AVR-X4500H
@@ -28,15 +35,24 @@ Known supported devices:
 - Denon AVR-3311CI
 - Denon AVR-3312
 - Denon AVR-4810
+- Denon AVR-S710W
+- Denon AVR-S720W
 - Denon AVR-S750H
+- Denon DN-500AV
 - Marantz M-CR510
+- Marantz M-CR511
 - Marantz M-CR603
-- Marantz M-RC610
+- Marantz M-CR610
+- Marantz M-CR611
+- Marantz SR5006
 - Marantz SR5008
-- Marantz SR6007 - SR6010
+- Marantz SR5011
+- Marantz SR6007 - SR6012
 - Marantz NR1504
-- Marantz NR1604
 - Marantz NR1506
+- Marantz NR1602
+- Marantz NR1604
+- Marantz NR1607
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 
@@ -46,28 +62,11 @@ If your model is not on the list then give it a test, if everything works correc
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
 </div>
 
-To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: denonavr
-    host: IP_ADDRESS
-    name: NAME
-    show_all_sources: true
-    timeout: POSITIVE INTEGER
-    zones:
-      - zone: Zone2 / Zone3
-        name: NAME
-```
+To add a Denon Network Receiver to your installation, click Configuration in the sidebar, then click Integrations. Denon and Marantz receivers should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your receiver does not show up automatically, click the + icon in the lower right. Then search for "denonavr" and enter the setup.
 
 {% configuration %}
 host:
   description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
-  required: false
-  type: string
-name:
-  description: Name of the device. If not set, friendlyName of the receiver is used.
   required: false
   type: string
 show_all_sources:
@@ -75,24 +74,16 @@ show_all_sources:
   required: false
   default: false
   type: boolean
-timeout:
-  description: Timeout in seconds for HTTP requests to the receiver.
+zone1:
+  description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
   required: false
-  default: 2
-  type: integer
-zones:
-  description: List of additional zones to be activated. They are displayed as additional media players with the same functionality Main Zone of the device supports.
+  default: false
+  type: boolean
+zone2:
+  description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
   required: false
-  type: list
-  keys:
-    zone:
-      description: Zone which should be activated. Valid options are `Zone2` and `Zone3`.
-      required: true
-      type: string
-    name:
-      description: Name of the zone. If not set the name of the main device + zone as a suffix is taken.
-      required: false
-      type: string
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 A few notes:
@@ -106,7 +97,8 @@ A few notes:
 
 #### Service `denonavr.get_command`
 
-Generic commands are supported, in particular, any command supported by the telnet protocol can be sent to `/goform/formiPhoneAppDirect.xml`, e.g., `/goform/formiPhoneAppDirect.xml?VSMONI2` to switch HDMI outputs on supported receivers. IR remote codes can also be sent to this endpoint, e.g.,  "/goform/formiPhoneAppDirect.xml?RCKSK0410370" as a mute toggle. A comprehensive list of telnet protocol commands is available at <https://ca.denon.com/ca/product/hometheater/receivers/avrx4400h?docname=AVR-X6400H_X4400H_X3400H_X2400H_X1400H_S930H_S730H_PROTOCOL_V01.xlsx> and a full list of IR codes at <http://www.denon-hifi.nl/uk/product/hometheater/avreceivers/avr3313?docname=AVR3313_IR_CODE_V01.pdf>
+Generic commands are supported, in particular, any command supported by the telnet protocol can be sent to `/goform/formiPhoneAppDirect.xml`, e.g., `/goform/formiPhoneAppDirect.xml?VSMONI2` to switch HDMI outputs on supported receivers. IR remote codes can also be sent to this endpoint, e.g.,  "/goform/formiPhoneAppDirect.xml?RCKSK0410370" as a mute toggle.  
+A comprehensive list of telnet protocol commands is [also available](http://assets.denon.com/_layouts/15/xlviewer.aspx?id=/DocumentMaster/us/AVR-X6400H_X4400H_X3400H_X2400H_X1400H_S930H_S730H_PROTOCOL_V01.xlsx) and so is a [full list of IR codes](http://assets.denon.com/DocumentMaster/UK/AVR3313_IR_CODE_V01.pdf)
 
 | Service data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |

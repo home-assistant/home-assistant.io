@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: recorder
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/integrations/history/).
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` ](/integrations/history/) integration.
 
 <div class='note'>
 
@@ -63,12 +63,16 @@ recorder:
       default: 1
       type: integer
     exclude:
-      description: Configure which integrations should be excluded from recordings.
+      description: Configure which integrations should be excluded from recordings. ([Configure Filter](#configure-filter))
       required: false
       type: map
       keys:
         domains:
           description: The list of domains to be excluded from recordings.
+          required: false
+          type: list
+        entity_globs:
+          description: Exclude all entities matching a listed pattern from recordings (e.g., `sensor.weather_*`).
           required: false
           type: list
         entities:
@@ -80,7 +84,7 @@ recorder:
           required: false
           type: list
     include:
-      description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
+      description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded. ([Configure Filter](#configure-filter))
       required: false
       type: map
       keys:
@@ -88,11 +92,59 @@ recorder:
           description: The list of domains to be included in the recordings.
           required: false
           type: list
+        entity_globs:
+          description: Include all entities matching a listed pattern from recordings (e.g., `sensor.weather_*`).
+          required: false
+          type: list
         entities:
           description: The list of entity ids to be included in the recordings.
           required: false
           type: list
 {% endconfiguration %}
+
+## Configure Filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `Recorder`, you can use the `include` and `exclude` parameters.
+
+{% raw %}
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+recorder:
+  include:
+    domains:
+      - alarm_control_panel
+      - light
+    entity_globs:
+      - binary_sensor.*_occupancy
+  exclude:
+    entities:
+      - light.kitchen_light
+```
+
+{% endraw %}
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes:
+   - Include domain and/or glob patterns specified
+      - If domain is included, and entity not excluded or match exclude glob pattern, pass
+      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If domain is not included, glob pattern does not match, and entity not included, fail
+   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
+      - If domain is excluded and entity not included, fail
+      - If entity matches exclude glob pattern and entity not included, fail
+      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
+   - Neither include or exclude specifies domains or glob patterns
+      - If entity is included, pass (as #2 above)
+      - If entity include and exclude, the entity exclude is ignored
+
+If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+
+### Common filtering examples
 
 Defining domains and entities to `exclude` (i.e. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
@@ -105,6 +157,8 @@ recorder:
     domains:
       - automation
       - updater
+    entity_globs:
+      - sensor.weather_*
     entities:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
@@ -139,9 +193,9 @@ recorder:
     entities:
       - sensor.last_boot
       - sensor.date
+    entity_globs:
+      - sensor.weather_*
 ```
-
-If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### Service `purge`
 
@@ -151,18 +205,18 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | Service data attribute | Optional | Description                                                                                                                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
-| `repack`               | yes      | Rewrite the entire database, possibly saving some disk space. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported for SQLite and PostgreSQL. |
+| `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
 
 ## Custom database engines
 
 | Database engine                | `db_url`                                                                                     |
 | :----------------------------- | :------------------------------------------------------------------------------------------- |
 | SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                 |
-| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
-| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
 | MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
 | MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
 | MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
+| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
+| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
 | PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                             |
 | PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
 | PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                     |
@@ -177,7 +231,9 @@ Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hos
 
 <div class='note'>
 
-If using an external MariaDB backend (e.g., running on a separate NAS) with Home Assistant, you should omit `pymysql` from the URL. `pymysql` is not included in the base Docker image, and is not necessary for this to work.
+When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure Python MySQL library, which is slower but may be required if the C MySQL library is not available. 
+
+When using the official Docker image, the C MySQL library will always be available. `pymysql` is most commonly used with `venv` where the C MySQL library is not installed.
 
 </div>
 

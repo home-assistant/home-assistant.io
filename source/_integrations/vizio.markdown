@@ -175,6 +175,29 @@ apps:
               default: null
 {% endconfiguration %}
 
+```yaml
+# Complete configuration.yaml entry
+vizio:
+  - host: "DEVICE_IP:DEVICE_PORT"
+    access_token: AUTH_TOKEN
+    name: MY_VIZIO_DEVICE
+    device_class: tv
+    volume_step: 1
+    apps:
+      include:
+        - APP_1
+        - APP_2
+      exclude:
+        - APP_1
+        - APP_2
+      additional_configs:
+        - name: MY_CUSTOM_APP
+          config:
+            APP_ID: 9
+            NAME_SPACE: 9
+            MESSAGE: MY_MESSAGE
+```
+
 ### Obtaining an app configuration
 
 If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.

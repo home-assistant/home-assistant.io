@@ -17,7 +17,7 @@ After configuring the RFLink hub, lights will be automatically discovered and ad
 
 RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group, hide it or configure a nice name.
+Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group or configure a nice name.
 
 Configuring devices as a light:
 

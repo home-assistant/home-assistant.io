@@ -158,6 +158,14 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+max_mireds:
+  description: The maximum color temperature in mireds.
+  required: false
+  type: integer
+min_mireds:
+  description: The minimum color temperature in mireds.
+  required: false
+  type: integer
 name:
   description: The name of the light.
   required: false
@@ -475,6 +483,14 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+max_mireds:
+  description: The maximum color temperature in mireds.
+  required: false
+  type: integer
+min_mireds:
+  description: The minimum color temperature in mireds.
+  required: false
+  type: integer
 name:
   description: The name of the light.
   required: false
@@ -769,6 +785,14 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+max_mireds:
+  description: The maximum color temperature in mireds.
+  required: false
+  type: integer
+min_mireds:
+  description: The minimum color temperature in mireds.
+  required: false
+  type: integer
 name:
   description: The name of the light.
   required: false
