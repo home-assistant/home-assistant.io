@@ -29,7 +29,7 @@ Sensors for energy, power and gas consumption, sensors for solar production and
 several binary sensors for things like boiler burner on/off, hot tap water and
 boiler health status.
 
-For the Toon integration to work, you'll need an active Toon subscription 
+For the Toon integration to work, you'll need an active Toon subscription
 and a Toon API developer account.
 
 There is currently support for the following device types within Home Assistant:
@@ -129,6 +129,7 @@ The Toon integration provides the following sensors:
 - Max Solar Power Production Today (only with solar module)
 - Solar Energy Produced Today (only with solar module)
 - Solar Power Production to Grid (only with solar module)
+- Temperature
 
 Sensors marked with `*` are disabled by default, but can be enabled
 from the UI, by clicking on the device and enabling the specific entity.
