@@ -69,22 +69,22 @@ To set up the DSMR integration, click Configuration in the sidebar, then click I
     type: integer
   reconnect_interval:
     description: "The reconnect interval in seconds when the connection is lost with the Smartmeter."
-    required: true
+    required: false
     type: integer
     default: 30
   precision:
     description: "Defines the precision of the calculated values, through the argument of round()."
-    required: true
+    required: false
     type: integer
     default: 3
   force_update:
     description: "Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history."
-    required: true
+    required: false
     type: boolean
     default: false
   power_watt:
     description: "Always report power in Watt. When meter reports in kW, values are converted."
-    required: true
+    required: false
     type: boolean
     default: false
 {% endconfiguration %}
