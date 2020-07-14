@@ -38,9 +38,9 @@ cover:
 
 {% configuration %}
 availability:
-  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  description: "A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`."
   required: false
-  type: list
+  type: map
   keys:
     payload_available:
       description: The payload that represents the available state.
@@ -53,11 +53,11 @@ availability:
       type: string
       default: offline
     topic:
-  description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
 availability_topic:
-  description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default." Must not be used together with `availability`.
+  description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
   type: string
 command_topic:
@@ -235,7 +235,7 @@ tilt_optimistic:
   type: boolean
   default: "`true` if `tilt_status_topic` is not defined, else `false`"
 tilt_status_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. "
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic."
   required: false
   type: string
 tilt_status_topic:
