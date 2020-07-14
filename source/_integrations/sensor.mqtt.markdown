@@ -143,7 +143,8 @@ sensor:
     state_topic: "home/sensor1/infojson"
     unit_of_measurement: 'dBm'
     value_template: "{{ value_json.RSSI }}"
-    availability_topic: "home/sensor1/status"
+    availability:
+      - topic: "home/sensor1/status"
     payload_available: "online"
     payload_not_available: "offline"
     json_attributes_topic: "home/sensor1/attributes"
