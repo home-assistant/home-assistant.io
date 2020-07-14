@@ -122,7 +122,7 @@ When themes are enabled in the `configuration.yaml` file, a new option will show
 
 ## Loading extra JavaScript
 
-Starting with version 0.95 you load extra JS modules.
+Starting with version 0.95 you can load extra custom JavaScript.
 
 Example:
 
@@ -136,7 +136,7 @@ frontend:
 ```
 
 Modules will be loaded with `import({{ extra_module }})`, on devices that support it (`latest` mode).
-For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be loaded with `<script defer scr='{{ extra_module }}'></script>`
+For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be loaded with `<script defer src='{{ extra_module }}'></script>`
 
 The ES5 and module version will never both be loaded, depending on if the device supports `import` the module of ES5 version will be loaded.
 
