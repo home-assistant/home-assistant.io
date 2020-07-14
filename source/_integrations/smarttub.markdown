@@ -6,7 +6,7 @@ ha_category:
 ha_release: 0.114
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_codeowners:
   - '@mdz'
 ha_domain: smarttub
