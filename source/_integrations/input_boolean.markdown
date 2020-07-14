@@ -12,7 +12,7 @@ ha_domain: input_boolean
 
 The `input_boolean` integration allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
 
-The preferred way to configure input booleans is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the "**Toggle**" option.
+The preferred way to configure input booleans is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the "**Toggle**" option. (The "**Toggle**" option might be grayed out if you don't have an `input_boolean:` section already in your `configuration.yaml` file or an `!include` for input_boolean.)
 
 Input booleans can also be configured via `configuration.yaml`:
 
