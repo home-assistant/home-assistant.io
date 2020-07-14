@@ -38,11 +38,11 @@ frontend:
             required: true
             type: [list, string]
   extra_html_url:
-    description: "List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `latest` javascript mode."
+    description: "DEPRECATED List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `latest` javascript mode."
     required: false
     type: list
   extra_module_url:
-    description: "List of additional javascript modules to load."
+    description: "List of additional javascript modules to load in `latest` javascript mode."
     required: false
     type: list
   extra_js_url_es5:
@@ -120,23 +120,25 @@ When themes are enabled in the `configuration.yaml` file, a new option will show
   Set a theme
 </p>
 
-## Loading extra HTML
+## Loading extra JavaScript
 
-Starting with version 0.53 you can specify extra HTML files to load, and starting with version 0.95 extra JS modules.
+Starting with version 0.95 you can load extra custom JavaScript.
 
 Example:
 
 ```yaml
 # Example configuration.yaml entry
 frontend:
-  extra_html_url:
-    - https://example.com/file1.html
-    - /local/file2.html
   extra_module_url:
     - /local/my_module.js
+  extra_js_url_es5:
+    - /local/my_es5.js
 ```
 
-HTML will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels), and modules via `<script type='module' scr='{{ extra_module }}'></script>`.
+Modules will be loaded with `import({{ extra_module }})`, on devices that support it (`latest` mode).
+For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be loaded with `<script defer src='{{ extra_module }}'></script>`
+
+The ES5 and module version will never both be loaded, depending on if the device supports `import` the module of ES5 version will be loaded.
 
 ### Manual Language Selection
 
