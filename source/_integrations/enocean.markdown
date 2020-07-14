@@ -43,9 +43,13 @@ The available profiles are usually listed somewhere in the device manual.
 
 Support for tech-in messages is not implemented.
 
-## Hub
+## Configuration
 
-To integrate an EnOcean controller with Home Assistant, simply add the integration from the UI. If your hub is detected automatically, you will be able to select its path from a list. Most often, this list should only contain one path, and a "manual" option.
+To integrate an EnOcean controller with Home Assistant, add the integration from the UI.
+
+Menu: **Configuration** -> **Integrations**.
+
+If your hub is detected automatically, you will be able to select its path from a list. Most often, this list should only contain one path, and a "manual" option.
 If your hub is not detected, you will have to manually enter the path.
 
 Despite the UI-based configuration of the hub, the entities are still configured using YAML see mext chapters).
