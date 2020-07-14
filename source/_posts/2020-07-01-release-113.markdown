@@ -70,11 +70,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
+- Add Hue manual bridge config flow + options flow ([@frenck] - [#37268]) (breaking-change)
 - Add support for glob matching in InfluxDB filters ([@mdegat01] - [#37069]) ([influxdb docs]) (breaking-change)
 - Limit and sort transmission torrents_info attribute ([@zhulik] - [#35411]) ([transmission docs]) (breaking-change)
 - Use eventloop for scheduling ([@bdraco] - [#37184]) ([asuswrt docs]) ([generic_thermostat docs]) (breaking-change)
 - Publish birth and will messages by default ([@emontnemery] - [#37371]) ([mqtt docs]) (breaking-change)
-- Enhance automation integration to use new features in script helper ([@pnbruckner] - [#37479]) ([automation docs]) ([script docs]) (breaking-change)
 - Make devices and activities visible as harmony attributes ([@bdraco] - [#37559]) ([harmony docs]) (breaking-change)
 - Give fan and remote components unique LED strings ([@alexhardwicke] - [#37605]) ([xiaomi_miio docs]) (breaking-change)
 - Convert syncthru to config flow and native SSDP discovery ([@scop] - [#36690]) ([discovery docs]) ([syncthru docs]) (breaking-change)
