@@ -40,7 +40,7 @@ cover:
 availability:
   description: "A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`."
   required: false
-  type: map
+  type: list
   keys:
     payload_available:
       description: The payload that represents the available state.
