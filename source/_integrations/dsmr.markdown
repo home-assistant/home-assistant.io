@@ -66,7 +66,7 @@ To set up the DSMR integration, click Configuration in the sidebar, then click I
   port:
     description: "TCP port number to connect to (i.e., 2001)."
     required: true
-    type: int
+    type: integer
   reconnect_interval:
     description: "The reconnect interval in seconds when the connection is lost with the Smartmeter."
     required: true
