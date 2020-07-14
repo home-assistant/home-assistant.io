@@ -86,3 +86,16 @@ Valid code slots are between 1-254.
 | ---------------------- | -------- | ------------------------------------------------------ |
 | `entity_id`            | no       | Lock entity or list of entities to clear the usercode. |
 | `code_slot`            | yes      | The code slot to clear the usercode from.              |
+
+### Service `ozw.set_config_parameter`
+
+This service will set the specified configuration parameter to the value specified to
+allow device-specific configurations. Example of this would be setting notification
+LED colors on switches.
+
+| Service Data Attribute | Required | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
+| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                              |
+| `parameter`            | yes      | Parameter number to set (integer).                                                                              |
+| `value`                | yes      | Value to set for parameter. (String or integer value for list, string for bool parameters, integer for others). |
