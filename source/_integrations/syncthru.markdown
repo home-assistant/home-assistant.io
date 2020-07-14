@@ -15,11 +15,11 @@ The Samsung SyncThru Printer platform allows you to read current data from your 
 
 It usually provides information about the device's state, the left amount of ink or toner and the state of paper trays.
 
-### Setup
+## Configuration
 
 Go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Samsung SyncThru Printer**.
 
-If your printer is on and you have enabled [SSDP](../ssdp/) discovery, it's likely that the printer is automatically discovered. In that case, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct.
+If your printer is on and you have enabled [SSDP](/integrations/ssdp/) discovery, it's likely that the printer is automatically discovered. In that case, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct.
 
 The following information is displayed in separate sensors, if it is available:
 
