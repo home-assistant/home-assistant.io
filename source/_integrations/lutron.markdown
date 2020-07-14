@@ -19,11 +19,27 @@ ha_domain: lutron
 
 Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches, dimmers, and seeTouch keypad scenes.
 
-## Configuration
+## Configuration via frontend
+
+To add your Lutron controller into your Home Assistant installation, go to:
+
+**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Lutron**
+
+Enter your IP/Hostname, Integration Username and Password and click Submit.
 
 When configured, the `lutron` integration will automatically discover the rooms and their associated switches/dimmers as configured by the RadioRA 2 software from Lutron. Each room will be treated as a separate group.
 
-This component supports importing Areas defined by the Lutron RadioRA2 system into Home Assistant.  You can enable this feature in the integration UI.
+### Options
+
+This component supports additional options by going to:
+
+**Configuration** -> **Integrations** in the UI and clicking on `Options` for the **Lutron** card.
+
+  * _Allow Lutron to define and assign devices to areas:_ Selecting this box will import the Areas defined in the Lutron controller into Home Assistant and assign your devices to the appropriate area(s).
+
+### Configuration via YAML
+
+_YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore._
 
 To use Lutron RadioRA 2 devices in your installation, add the following to your `configuration.yaml` file using the IP address of your RadioRA 2 main repeater:
 
