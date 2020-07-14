@@ -29,6 +29,9 @@ Click on the `+` sign to add an integration and click on **Shelly**.
 The configuration flow will discover devices that are currently connected
 to your MQTT server, and will guide you through configuring them.
 
-Note: This integration is still work-in-progress, and currently only supports
-the Switch platform and a limited set of Shelly devices.
-Wider coverage is coming soon.
+Currently supported models:
+- Shelly 1
+- Shelly 2
+
+Currently supported plaforms:
+- [Switch](/integrations/switch/)
