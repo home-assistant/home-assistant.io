@@ -106,12 +106,12 @@ when values of the thermostat are changed.
 The Toon integration provides the following sensors:
 
 - Average Daily Energy Usage*
-- Average Daily Gas Usage* (only with a "smart" gas meter)
-- Average Gas Usage (only with a "smart" gas meter)
+- Average Daily Gas Usage*
+- Average Gas Usage
 - Average Power Usage*
 - Average Solar Power Production to Grid* (only with solar module)
 - Boiler Modulation Level* (only with OpenTherm)
-- Current Gas Usage (only with a "smart" gas meter)
+- Current Gas Usage
 - Current Power Usage
 - Current Power Usage Covered By Solar (only with solar module)
 - Current Solar Power Production (only with solar module)
@@ -123,9 +123,9 @@ The Toon integration provides the following sensors:
 - Energy Produced To Grid Today* (only with solar module)
 - Energy Usage From Grid Today* (only with solar module)
 - Energy Usage Today
-- Gas Cost Today (only with a "smart" gas meter)
-- Gas Meter (only with a "smart" gas meter)
-- Gas Usage Today (only with a "smart" gas meter)
+- Gas Cost Today
+- Gas Meter
+- Gas Usage Today
 - Max Solar Power Production Today (only with solar module)
 - Solar Energy Produced Today (only with solar module)
 - Solar Power Production to Grid (only with solar module)
