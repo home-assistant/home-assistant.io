@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: shelly
 ---
 
-This integration connects with Shelly devices (e.g. Shelly 1 switch) over MQTT.
+This integration connects with Shelly devices (e.g., Shelly 1 switch) over MQTT.
 
 ## Requirements
 
