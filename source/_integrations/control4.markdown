@@ -22,6 +22,7 @@ Setup the Control4 integration by going to **Configuration** -> **Integrations**
 Enter the IP address of your controller and your Control4 username and password, then continue. Home Assistant will automatically add all lights it discovers in your Control4 system.
 
 ## Options
+
 The Control4 integration offers additional options in **Configuration** -> **Integrations** -> **Control4** -> **Options**:
 
 {% configuration %}
