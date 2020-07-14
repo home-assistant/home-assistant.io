@@ -187,6 +187,13 @@ script:
           domain: light
 ```
 
+
+<div class="note warning">
+
+When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
+
+</div>
+
 <div class='note'>
 
 Sensor entities that have been assigned units (i.e., have a `unit_of_measurement` attribute) are assumed to change frequently and those sensors are automatically excluded from the logbook.
