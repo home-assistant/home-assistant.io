@@ -765,6 +765,44 @@ The integrations below have been removed:
 [wake_on_lan docs]: /integrations/wake_on_lan/
 [withings docs]: /integrations/withings/
 
+## Release 0.112.5 - July 14
+
+- Smappee dependency update ([@bsmappee] - [#37680]) ([smappee docs])
+- Properly set update_interval during Speedtest setup ([@engrbm87] - [#37708]) ([speedtestdotnet docs])
+- Support multiple MQTT availability topics ([@emontnemery] - [#37418]) ([mqtt docs])
+- Tweak MQTT availability ([@emontnemery] - [#37719]) ([mqtt docs])
+- Fix MQTT availability startup race ([@emontnemery] - [#37718]) ([mqtt docs])
+- Fix homekit_controller discovery via zeroconf ([@bdraco] - [#37725]) ([zeroconf docs])
+- Add support for the DataUpdateCoordinator to not automatically update ([@rohankapoorcom] - [#37734])
+- Bump blinkpy version to fix connection errors ([@fronzbot] - [#37755]) ([blink docs])
+- UniFi - Handle session expiration ([@Kane610] - [#37782]) ([unifi docs])
+- deCONZ - don't let light "attr" events update group data ([@Kane610] - [#37797]) ([deconz docs])
+
+[#37418]: https://github.com/home-assistant/core/pull/37418
+[#37680]: https://github.com/home-assistant/core/pull/37680
+[#37708]: https://github.com/home-assistant/core/pull/37708
+[#37718]: https://github.com/home-assistant/core/pull/37718
+[#37719]: https://github.com/home-assistant/core/pull/37719
+[#37725]: https://github.com/home-assistant/core/pull/37725
+[#37734]: https://github.com/home-assistant/core/pull/37734
+[#37755]: https://github.com/home-assistant/core/pull/37755
+[#37782]: https://github.com/home-assistant/core/pull/37782
+[#37797]: https://github.com/home-assistant/core/pull/37797
+[@Kane610]: https://github.com/Kane610
+[@bdraco]: https://github.com/bdraco
+[@bsmappee]: https://github.com/bsmappee
+[@emontnemery]: https://github.com/emontnemery
+[@engrbm87]: https://github.com/engrbm87
+[@fronzbot]: https://github.com/fronzbot
+[@rohankapoorcom]: https://github.com/rohankapoorcom
+[blink docs]: /integrations/blink/
+[deconz docs]: /integrations/deconz/
+[mqtt docs]: /integrations/mqtt/
+[smappee docs]: /integrations/smappee/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[unifi docs]: /integrations/unifi/
+[zeroconf docs]: /integrations/zeroconf/
+
 ## All changes
 
 <details>
