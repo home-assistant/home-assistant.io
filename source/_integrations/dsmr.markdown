@@ -56,7 +56,7 @@ To set up the DSMR integration, click Configuration in the sidebar, then click I
     required: true
     type: string
   usb_path:
-    description: "Serial port to which Smartmeter is connected via USB.
+    description: "Serial port to which Smartmeter is connected via USB."
     required: true
     type: string
   host:
@@ -68,22 +68,22 @@ To set up the DSMR integration, click Configuration in the sidebar, then click I
     required: true
     type: int
   reconnect_interval:
-    description: The reconnect interval in seconds when the connection is lost with the Smartmeter.
+    description: "The reconnect interval in seconds when the connection is lost with the Smartmeter."
     required: true
     type: integer
     default: 30
   precision:
-    description: Defines the precision of the calculated values, through the argument of round().
+    description: "Defines the precision of the calculated values, through the argument of round()."
     required: true
     type: integer
     default: 3
   force_update:
-    description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+    description: "Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history."
     required: true
     type: boolean
     default: false
   power_watt:
-    description: Always report power in Watt. When meter reports in kW, values are converted.
+    description: "Always report power in Watt. When meter reports in kW, values are converted."
     required: true
     type: boolean
     default: false
