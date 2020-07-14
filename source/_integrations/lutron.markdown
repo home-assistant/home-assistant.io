@@ -68,7 +68,7 @@ Press and Release a Keypad button (as described below).
 
 ### `lutron.press_button`
 
-Press a Keypad button.  This is useful for the Alarm virtual button where pressing the button activates alarm mode and releasing the button clears the alarm mode.
+Press a Keypad button. This is useful for the Alarm virtual button were pressing the button activates alarm mode and releasing the button clears the alarm mode.
 
 | Service Data Attribute    | Optional | Description             |
 |---------------------------|----------|-------------------------|
