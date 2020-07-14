@@ -48,45 +48,45 @@ DIY solutions (ESP8266 based):
 
 ## Configuration
 
-There are two ways to integrate your DSMR into Home Assistant
-
-### Via the frontend
-
-Menu: **Configuration** -> **Integrations**. Search for "DSMR Slimme Meter" and follow the configuration flow.
-
-### Via the configuration file
-
-```yaml
-# Example configuration.yaml entry
-dsmr:
-  port: /dev/ttyUSB0
-```
+To set up the DSMR integration, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find DSMR. Choose between "Serial" or "Host" and follow the configuration flow.
 
 {% configuration %}
-  port:
-    description: "Serial port to which Smartmeter is connected via USB. For remote (i.e., ser2net) connections, use TCP port number to connect to (i.e., 2001)."
-    required: false
-    type: string
-    default: "/dev/ttyUSB0"
-  host:
-    description: "Host to which Smartmeter is connected via serial or USB, see **port**. For remote connections, use IP address of host to connect to (i.e., 192.168.1.13)."
-    required: false
-    type: string
   dsmr_version:
     description: "Version of DSMR used by meter. Choices: `2.2`, `4`, `5`, `5B` (For Belgian Meter)."
-    required: false
+    required: true
     type: string
-    default: "2.2"
+  usb_path:
+    description: "Serial port to which Smartmeter is connected via USB.
+    required: true
+    type: string
+  host:
+    description: "Host to which Smartmeter is connected via serial or USB, see **port**. For remote connections, use IP address of host to connect to (i.e., 192.168.1.13)."
+    required: true
+    type: string
+  port:
+    description: "TCP port number to connect to (i.e., 2001)."
+    required: true
+    type: int
   reconnect_interval:
     description: The reconnect interval in seconds when the connection is lost with the Smartmeter.
-    required: false
+    required: true
     type: integer
     default: 30
   precision:
     description: Defines the precision of the calculated values, through the argument of round().
-    required: false
+    required: true
     type: integer
     default: 3
+  force_update:
+    description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+    required: true
+    type: boolean
+    default: false
+  power_watt:
+    description: Always report power in Watt. When meter reports in kW, values are converted.
+    required: true
+    type: boolean
+    default: false
 {% endconfiguration %}
 
 ### Additional configuration
