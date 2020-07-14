@@ -1,14 +1,18 @@
 ---
-title: "Neato Robotics"
-description: "Instructions on how to integrate your Neato within Home Assistant."
-logo: neato.png
+title: Neato Botvac
+description: Instructions on how to integrate your Neato within Home Assistant.
 ha_category:
   - Camera
   - Sensor
   - Switch
   - Vacuum
+ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true
+ha_codeowners:
+  - '@dshokouhi'
+  - '@Santobert'
+ha_domain: neato
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
@@ -22,7 +26,7 @@ Menu: *Configuration* -> *Integrations*
 Search for or select **Neato** from the list and configure the integration. You will need to enter your username and password and whether you are using a Neato or Vorwerk device.
 After that, all the entities will automatically show up in Home Assistant.
 
-## Setup the integration via configuration.yaml
+## Setup the integration via `configuration.yaml`
 
 Add the following to your configuration.yaml:
 
@@ -77,11 +81,11 @@ Currently supported services are:
 
 And a specific Platform Service:
 
-- `vacuum.neato_custom_cleaning`
+- `neato.custom_cleaning`
 
 ### Platform Services
 
-#### Service `vacuum.neato_custom_cleaning`
+#### Service `neato.custom_cleaning`
 
 Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 
@@ -97,8 +101,8 @@ Some information about the capabilities might be found on the [Neato Developer P
 | `entity_id`            | no       | Only act on a specific robot                                                                                                                                                  |
 | `mode`                 | yes      | Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set.                                                                                               |
 | `navigation`           | yes      | Set the navigation mode: 1 for normal, 2 for extra care, 3 for deep. Defaults to normal if not set. Deep cleaning is only supported on the Botvac D7.                                                                           |
-| `category`             | yes      | Whether to use a persistent map or not for cleaning (i.e. No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found). |
-| `zone`                 | yes      | Only supported on the Botvac D7. Name of the zone to clean from the Neato app. Use unique names for the zones to avoid the wrong zone from running. Defaults to no zone i.e. complete house cleanup.                                                                  |
+| `category`             | yes      | Whether to use a persistent map or not for cleaning (i.e., No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found). |
+| `zone`                 | yes      | Only supported on the Botvac D7. Name of the zone to clean from the Neato app. Use unique names for the zones to avoid the wrong zone from running. Defaults to no zone i.e., complete house cleanup.                                                                  |
 
 
 ## Camera

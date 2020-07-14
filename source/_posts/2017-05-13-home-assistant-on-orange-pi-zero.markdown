@@ -128,5 +128,3 @@ ha@orangepizero:~$ cd homeassistant && source bin/activate
 <p class="img">
   <img src="/images/blog/2017-05-orangepi/orange-pi-running.png" />
 </p>
-
-To make it ready for daily usage, don't forget to enable [autostart](/docs/autostart/).

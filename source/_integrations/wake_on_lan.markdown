@@ -1,15 +1,15 @@
 ---
-title: "Wake on LAN"
-description: "Instructions on how to setup the Wake on LAN integration in Home Assistant."
-logo: ethernet.png
+title: Wake on LAN
+description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
 ha_category:
   - Network
   - Switch
 ha_release: 0.49
 ha_iot_class: Local Push
+ha_domain: wake_on_lan
 ---
 
-The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices, to turn them on.
+The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -32,10 +32,11 @@ Available services: `send_magic_packet`.
 
 Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `mac`                     |       no | MAC address of the device to wake up.                 |
-| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet. |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `mac`                     |       no | MAC address of the device to wake up.                   |
+| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet.   |
+| `broadcast_port`          |      yes | Optional port where to send the magic packet.           |
 
 Sample service data:
 
@@ -61,12 +62,12 @@ To enable this switch in your installation, add the following to your `configura
 # Example configuration.yaml entry
 switch:
   - platform: wake_on_lan
-    mac_address: "00-01-02-03-04-05"
+    mac: MAC_ADDRESS
 ```
 
 {% configuration %}
-mac_address:
-  description: MAC address to send the wake up command to.
+mac:
+  description: "The MAC address to send the wake up command to, e.g, `00:01:02:03:04:05`."
   required: true
   type: string
 name:
@@ -87,6 +88,10 @@ broadcast_address:
   required: false
   default: 255.255.255.255
   type: string
+broadcast_port:
+  description: The port to send the magic packet to.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 ### Examples

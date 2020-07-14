@@ -1,7 +1,6 @@
 ---
-title: "Satel Integra Alarm"
-description: "Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel."
-logo: satel.jpg
+title: Satel Integra
+description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
 ha_category:
   - Hub
   - Alarm
@@ -9,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
+ha_domain: satel_integra
 ---
 
 The `satel_integra` integration will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
@@ -52,6 +52,10 @@ port:
   required: false
   default: 7094
   type: integer
+code:
+  description: The INTEGRA ID (found in DLOADX under "Communication configuration" or in polish "Komunikacja Konfiguracji" section), it's needed for making use of the switchable_outputs.
+  required: false
+  type: string
 partitions:
   description: List of the partitions to operate on.
   required: false

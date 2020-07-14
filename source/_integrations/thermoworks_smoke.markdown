@@ -1,11 +1,11 @@
 ---
-title: "ThermoWorks Smoke Sensor"
-description: "Pulls temperature data for a ThermoWorks Smoke Thermometer connected with Smoke Gateway."
-logo: thermoworks.png
+title: ThermoWorks Smoke
+description: Pulls temperature data for a ThermoWorks Smoke Thermometer connected with Smoke Gateway.
 ha_category:
   - Sensor
 ha_release: 0.81
 ha_iot_class: Cloud Polling
+ha_domain: thermoworks_smoke
 ---
 
 The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).

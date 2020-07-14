@@ -6,6 +6,7 @@ ha_category:
   - Light
 ha_release: 0.38
 ha_iot_class: Assumed State
+ha_domain: rflink
 ---
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -16,7 +17,7 @@ After configuring the RFLink hub, lights will be automatically discovered and ad
 
 RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group, hide it or configure a nice name.
+Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group or configure a nice name.
 
 Configuring devices as a light:
 
@@ -99,18 +100,6 @@ devices:
           required: false
           default: true
           type: boolean
-        aliasses:
-          description: (**deprecated**) Alternative RFLink ID's this device is known by.
-          required: false
-          type: [list, string]
-        group_aliasses:
-          description: "(**deprecated**) `aliases` which only respond to group commands."
-          required: false
-          type: [list, string]
-        no_group_aliasses:
-          description: "(**deprecated**) `aliases` which do not respond to group commands."
-          required: false
-          type: [list, string]
 {% endconfiguration %}
 
 ### Light state

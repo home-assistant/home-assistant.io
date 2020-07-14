@@ -1,10 +1,12 @@
 ---
-title: "Hikvision Camera Switch"
-description: "Instructions on how to integrate Hikvision camera switches into Home Assistant."
-logo: hikvision.png
+title: Hikvision
+description: Instructions on how to integrate Hikvision camera switches into Home Assistant.
 ha_category:
   - Switch
 ha_release: pre 0.7
+ha_codeowners:
+  - '@fbradyirl'
+ha_domain: hikvisioncam
 ---
 
 This `hikvisioncam` switch platform allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.

@@ -1,11 +1,11 @@
 ---
-title: "Sensor"
-description: "Instructions on how to setup your sensors with Home Assistant."
-logo: home-assistant.png
+title: Sensor
+description: Instructions on how to setup your sensors with Home Assistant.
 ha_category:
   - Sensor
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
+ha_domain: sensor
 ---
 
 Sensors are gathering information about states and conditions.

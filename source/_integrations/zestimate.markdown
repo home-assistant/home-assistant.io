@@ -1,11 +1,11 @@
 ---
-title: "Zestimate"
-description: "Instructions on how to integrate the Zestimate sensor into Home Assistant."
+title: Zestimate
+description: Instructions on how to integrate the Zestimate sensor into Home Assistant.
 ha_category:
   - Sensor
-logo: zillow.png
 ha_release: 0.65
 ha_iot_class: Cloud Polling
+ha_domain: zestimate
 ---
 
 The `zestimate` sensor allows one to track the Zestimate® value of properties using the [Zillow API](https://www.zillow.com/howto/api/APIOverview.htm). According to Zillow's website, a Zestimate® home valuation is Zillow's estimated market value. It is not an appraisal. Use it as a starting point to determine a home's value. The Zestimate® is provided by [Zillow](https://www.zillow.com), a website primarily for listing homes to buy/sell/rent in the United States.

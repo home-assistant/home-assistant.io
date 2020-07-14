@@ -1,11 +1,11 @@
 ---
-title: "Proximity"
-description: "Instructions on how to setup Proximity monitoring within Home Assistant."
-logo: home-assistant.png
+title: Proximity
+description: Instructions on how to setup Proximity monitoring within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.13
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: proximity
 ---
 
 The `proximity` integration allows you to monitor the proximity of devices to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
@@ -33,6 +33,7 @@ The Proximity entity which is created has the following values:
   - 'm'
   - 'mi'
   - 'ft'
+- `nearest`: The device which is nearest to the zone
 
 To enable this integration in your installation, add the following to your `configuration.yaml` file:
 

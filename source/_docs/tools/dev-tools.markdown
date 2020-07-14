@@ -14,12 +14,11 @@ Screenshot of Home Assistant's Developer Tools.
 | ------- |----- |
 | States | Sets the representation of an entity |
 | Services | Calls services from integrations |
-| Logs | Displays contents of Home Assistant log file |
 | Events | Fires events |
 | Templates | Renders templates |
-| Info | Details about Home Assistant |
 
 ## What can I do with Developer Tools?
+
 The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like calling services, update states, raising events, and publish messages in mqtt…etc.). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the section in detail.
 
 ## Services
@@ -85,17 +84,3 @@ It has two sections, code goes on the left hand side, and the output is shown on
 It is a good practice to test the template code in the template editor prior to putting it in automations and scripts.
 
 For more information about jinja2, visit [jinja2 documentation](http://jinja.pocoo.org/docs/dev/templates/), and also read templating document [here](/topics/templating/)
-
-## MQTT
-
-This section is only visible if the MQTT integration is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [mqtt](/integrations/mqtt/) component.
-
-Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
-
-## Logs
-
-This section displays `syslog` information, and the contents of `home-assistant.log` with an option to clear and refresh the logs.
-
-## Info
-
-The Information tab simply provides information about the current installed version, [system health](/integrations/system_health/) (if enabled), additional links and credits.

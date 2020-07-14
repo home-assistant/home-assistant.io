@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Air Quality Index Monitor"
 description: "Instructions how to integrate your Xiaomi Mi Air Quality Index Monitor within Home Assistant."
-logo: xiaomi.png
 ha_category:
   - Health
 ha_iot_class: Local Polling
 ha_release: 0.66
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index.

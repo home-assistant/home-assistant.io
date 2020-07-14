@@ -1,11 +1,11 @@
 ---
 title: "KNX Binary Sensor"
 description: "Instructions on how to setup the KNX binary sensors within Home Assistant."
-logo: knx.png
 ha_category:
   - Binary Sensor
 ha_release: 0.24
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>

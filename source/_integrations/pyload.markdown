@@ -1,11 +1,11 @@
 ---
-title: "pyLoad Sensor"
-description: "Instructions on how to integrate pyLoad download sensor within Home Assistant."
-logo: pyload.png
+title: pyLoad
+description: Instructions on how to integrate pyLoad download sensor within Home Assistant.
 ha_category:
   - Downloading
 ha_release: 0.58
 ha_iot_class: Local Polling
+ha_domain: pyload
 ---
 
 The `pyload` platform allows you to monitor your downloads with [pyLoad](https://pyload.net/) from within Home Assistant and setup automation based on the information.

@@ -379,7 +379,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - deCONZ - Retry on BridgeBusy errors ([@Kane610] - [#23436]) ([deconz docs])
 - Added option to select photoblack cartridge ([@ThaStealth] - [#23433]) ([epsonworkforce docs]) (breaking change)
 - Fix bad request for some IP ONVIF camera ([@GeertvanHorrik] - [#22972]) ([onvif docs])
-- Bump pyteleloisirs version ([@SNoof85] - [#23661]) ([liveboxplaytv docs])
+- Bump pyteleloisirs version ([@SNoof85] - [#23661])
 - Upgrade psutil to 5.6.2 ([@fabaff] - [#23671]) ([systemmonitor docs])
 - Upgrade shodan to 1.13.0 ([@fabaff] - [#23675]) ([shodan docs])
 - Upgrade slacker to 0.13.0 ([@fabaff] - [#23672]) ([slack docs])
@@ -799,7 +799,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [iqvia docs]: /integrations/iqvia/
 [lcn docs]: /integrations/lcn/
 [lifx docs]: /integrations/lifx/
-[liveboxplaytv docs]: /integrations/liveboxplaytv/
 [local_file docs]: /integrations/local_file/
 [locative docs]: /integrations/locative/
 [logi_circle docs]: /integrations/logi_circle/
@@ -854,7 +853,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [systemmonitor docs]: /integrations/systemmonitor/
 [tapsaff docs]: /integrations/tapsaff/
 [ted5000 docs]: /integrations/ted5000/
-[telegram_bot docs]: /integrations/telegram_chatbot/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tellduslive docs]: /integrations/tellduslive/
 [tensorflow docs]: /integrations/tensorflow/
 [thethingsnetwork docs]: /integrations/thethingsnetwork/

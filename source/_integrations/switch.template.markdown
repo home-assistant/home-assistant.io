@@ -5,15 +5,15 @@ ha_category:
   - Switch
 ha_release: 0.13
 ha_iot_class: Local Push
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform creates switches that combines components.
 
 For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed.
 
-This can simplify the GUI and make it easier to write automations. You can mark the integrations you have combined as `hidden` so they don't appear themselves.
+This can simplify the GUI and make it easier to write automations.
 
 ## Configuration
 
@@ -104,11 +104,11 @@ switch:
         turn_on:
           service: switch.turn_on
           data:
-            entity_id: switch.source
+            entity_id: switch.target
         turn_off:
           service: switch.turn_off
           data:
-            entity_id: switch.source
+            entity_id: switch.target
 ```
 
 {% endraw %}
@@ -151,7 +151,7 @@ switch:
     switches:
       skylight:
         friendly_name: "Skylight"
-        value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
+        value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           service: switch.turn_on
           data:

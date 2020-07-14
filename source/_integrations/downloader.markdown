@@ -1,11 +1,11 @@
 ---
-title: "Downloader"
-description: "Instructions on how to setup the downloader integration with Home Assistant."
-logo: home-assistant.png
+title: Downloader
+description: Instructions on how to setup the downloader integration with Home Assistant.
 ha_category:
   - Downloading
 ha_release: pre 0.7
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: downloader
 ---
 
 The `downloader` integration provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.

@@ -1,13 +1,15 @@
 ---
-title: "Eight Sleep"
-description: "Interface an Eight Sleep smart cover or mattress to Home Assistant"
-logo: eight_sleep.png
+title: Eight Sleep
+description: Interface an Eight Sleep smart cover or mattress to Home Assistant
 ha_category:
   - Health
   - Binary Sensor
   - Sensor
 ha_release: 0.44
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@mezz64'
+ha_domain: eight_sleep
 ---
 
 The `eight_sleep` integration allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.
@@ -15,11 +17,11 @@ The `eight_sleep` integration allows Home Assistant to fetch data from your [Eig
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor - lets observe the presence state of a [Eight Sleep](https://eightsleep.com/) cover/mattress through Home Assistant.
-- Sensor - This includes bed state and results of the current and previous sleep sessions.
+- Sensor - This includes bed state, sleep fitness scores, and results of the current and previous sleep sessions.
 
 ## Configuration
 
-It's setup utilizing 'Sensor' platform to convey the current state of your bed and results of your sleep sessions and a 'Binary Sensor' platform to indicate your presence in the bed. A service is also provided to set the heating level and duration of the bed.
+It's setup utilizing 'Sensor' platform to convey the current state of your bed and results of your sleep sessions and a 'Binary Sensor' platform to indicate your presence in the bed. A service is also provided to set the cooling/heating level and duration of the bed (cooling is only available for the POD mattress).
 
 You must have at least two sleep sessions recorded in the Eight Sleep app prior to setting up the Home Assistant component.
 
@@ -53,6 +55,7 @@ partner:
 Sensors:
 
 - eight_left/right_bed_state
+- eight left/right_sleep_fitness
 - eight_left/right_sleep_session
 - eight_left/right_previous_sleep_session
 - eight_left/right_bed_temperature
@@ -65,13 +68,13 @@ Binary Sensors:
 
 ### Service `heat_set`
 
-You can use the service eight_sleep/heat_set to adjust the target heating level and heating duration of your bed.
+You can use the service eight_sleep/heat_set to adjust the target cooling/heating level and heating duration of your bed (cooling is only available for the POD mattress).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | Entity ID of bed state to adjust.
-| `target` | no | Target heating level from 0-100.
-| `duration` | no | Duration to heat at the target level in seconds.
+| `target` | no | Target cooling/heating level from -100 to 100.
+| `duration` | no | Duration to cool/heat at the target level in seconds.
 
 Script Example:
 

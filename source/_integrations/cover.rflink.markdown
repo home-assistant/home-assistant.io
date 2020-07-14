@@ -5,6 +5,7 @@ logo: rflink.png
 ha_category:
   - Cover
 ha_release: 0.55
+ha_domain: rflink
 ---
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -53,7 +54,7 @@ After configuring the RFLink Somfy RTS you have to add the cover to the `configu
 
 RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`. 
 
-Once the ID of a cover is known, it can be used to configure the cover in Home Assistant, for example, to add it to a different group, hide it or set a nice name.
+Once the ID of a cover is known, it can be used to configure the cover in Home Assistant, for example, to add it to a different group or set a nice name.
 
 Configuring devices as a cover:
 

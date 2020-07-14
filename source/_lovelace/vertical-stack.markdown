@@ -1,10 +1,10 @@
 ---
 title: "Vertical Stack Card"
 sidebar_label: Vertical Stack
-description: "The Vertical Stack card allows you to stack multiple cards together"
+description: "The Vertical Stack card allows you to group multiple cards so they always sit in the same column."
 ---
 
-Vertical stack allows you to group multiple cards so they always sit in the same column.
+The Vertical Stack card allows you to group multiple cards so they always sit in the same column.
 
 {% configuration %}
 type:

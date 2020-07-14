@@ -1,10 +1,10 @@
 ---
 title: "Horizontal Stack Card"
 sidebar_label: Horizontal Stack
-description: "Horizontal stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column."
+description: "The Horizontal Stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column."
 ---
 
-Horizontal stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column.
+The Horizontal Stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column.
 
 {% configuration %}
 type:

@@ -1,10 +1,10 @@
 ---
 title: "Plant Status Card"
 sidebar_label: Plant Status
-description: "The Plant card gives you an easy way of viewing the status of your plants"
+description: "The Plant Status card is for all the lovely botanists out there."
 ---
 
-A card for all the lovely botanists out there.
+The Plant Status card is for all the lovely botanists out there.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_plant_card.png' alt='Screenshot of the plant status card'>

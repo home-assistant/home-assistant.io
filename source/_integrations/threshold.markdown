@@ -1,12 +1,14 @@
 ---
-title: "Threshold Binary Sensor"
-description: "Instructions on how to integrate threshold binary sensors into Home Assistant."
-logo: home-assistant.png
+title: Threshold
+description: Instructions on how to integrate threshold binary sensors into Home Assistant.
 ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.34
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
+ha_domain: threshold
 ---
 
 The `threshold` binary sensor platform observes the state of another sensor. If the value is below (`lower`) or higher (`upper`) than the given threshold then state of the threshold sensor is changed. It support also a range if `lower` and `upper` are given.

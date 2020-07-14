@@ -1,39 +1,39 @@
 ---
 title: "MySensors Binary Sensor"
 description: "Instructions on how to integrate MySensors binary sensors into Home Assistant."
-logo: mysensors.png
 ha_category:
   - DIY
   - Binary Sensor
 ha_release: 0.14
 ha_iot_class: Local Push
+ha_domain: mysensors
 ---
 
-Integrates MySensors binary sensors into Home Assistant. See the [main component] for configuration instructions.
+Integrates MySensors binary sensors into Home Assistant. See the [main integration](/integrations/mysensors/) for configuration instructions.
 
 The following sensor types are supported:
 
-#### MySensors version 1.4 and higher
+## MySensors version 1.4 and higher
 
-S_TYPE             | V_TYPE
--------------------|---------------------------------------
-S_DOOR             | V_TRIPPED
-S_MOTION           | V_TRIPPED
-S_SMOKE            | V_TRIPPED
+| S_TYPE   | V_TYPE    |
+| -------- | --------- |
+| S_DOOR   | V_TRIPPED |
+| S_MOTION | V_TRIPPED |
+| S_SMOKE  | V_TRIPPED |
 
-#### MySensors version 1.5 and higher
+## MySensors version 1.5 and higher
 
-S_TYPE         | V_TYPE
----------------|----------------------------------
-S_SPRINKLER    | V_TRIPPED
-S_WATER_LEAK   | V_TRIPPED
-S_SOUND        | V_TRIPPED
-S_VIBRATION    | V_TRIPPED
-S_MOISTURE     | V_TRIPPED
+| S_TYPE       | V_TYPE    |
+| ------------ | --------- |
+| S_SPRINKLER  | V_TRIPPED |
+| S_WATER_LEAK | V_TRIPPED |
+| S_SOUND      | V_TRIPPED |
+| S_VIBRATION  | V_TRIPPED |
+| S_MOISTURE   | V_TRIPPED |
 
-For more information, visit the [serial api] of MySensors.
+For more information, visit the [serial API](https://www.mysensors.org/download) of MySensors.
 
-### Example sketch
+## Example sketch
 
 ```cpp
 /**
@@ -80,6 +80,3 @@ void loop()
   }
 }
 ```
-
-[main component]: /integrations/mysensors/
-[serial api]: https://www.mysensors.org/download

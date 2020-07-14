@@ -6,7 +6,7 @@ redirect_from: /details/updater/
 
 Starting with 0.31 the [updater component](/integrations/updater/) sends an optional report about Home Assistant instance.
 
-If you want to opt-in to include integration information, add `include_used_components` to your config. This will allow the Home Assistant developers to focus development efforts on the most popular components.
+If you want to opt-in to include integration information, add `include_used_components` to your configuration. This will allow the Home Assistant developers to focus development efforts on the most popular components.
 
 ```yaml
 updater:
@@ -16,7 +16,7 @@ updater:
 We are only collecting this information to better understand our user base to provide better long term support and feature development.
 
 | Name                  | Description                                | Example                            | Data Source    |
-|-----------------------|--------------------------------------------|------------------------------------|----------------|
+| --------------------- | ------------------------------------------ | ---------------------------------- | -------------- |
 | `arch`                | CPU Architecture                           | `x86_64`                           | Local Instance |
 | `distribution`        | Linux Distribution name (only Linux)       | `Ubuntu`                           | Local Instance |
 | `docker`              | True if running inside Docker              | `false`                            | Local Instance |

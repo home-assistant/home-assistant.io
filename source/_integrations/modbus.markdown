@@ -1,13 +1,15 @@
 ---
-title: "Modbus"
-description: "Instructions on how to integrate Modbus within Home Assistant."
-logo: modbus.png
+title: Modbus
+description: Instructions on how to integrate Modbus within Home Assistant.
 ha_category:
   - Hub
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@adamchengtkc'
+  - '@janiversen'
+ha_domain: modbus
 ---
-
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).
 It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
@@ -51,6 +53,11 @@ timeout:
   description: Timeout for slave response in seconds.
   required: false
   default: 3
+  type: integer
+delay:
+  description: Time to sleep in seconds after connecting and before sending messages. Some modbus-tcp servers need a short delay typically 1-2 seconds in order to prepare the communication. If a server accepts connecting, but there is no response to the requests send, this parameter might help.
+  required: false
+  default: 0
   type: integer
 {% endconfiguration %}
 
@@ -141,13 +148,42 @@ modbus:
 
 | Attribute | Description |
 | --------- | ----------- |
-| name      | Hub name (defaults to 'default' when omitted) |
-| unit      | Slave address (set to 255 you talk to Modbus via TCP) |
+| hub       | Hub name (defaults to 'default' when omitted) |
+| unit      | Slave address (1-255, mostly 255 if you talk to Modbus via TCP) |
 | address   | Address of the Register (e.g., 138) |
 | value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
+
+## Log warning (v1.0.8 and onwards)
+
+Pymodbus (which is the implementation library) was updated and issues a warning:
+
+ - "Not Importing deprecated clients. Dependency Twisted is not Installed"
+
+This warning can be safely ignored, and have no influence on how the integration
+works!
+
+## Opening an issue
+
+When opening an issue, please add your current configuration (or a scaled down version), with at least:
+
+ - the Modbus configuration lines
+ - the entity (sensor, etc.) lines
+
+In order for the developers better to identify the problem, please add the
+following lines to configuration.yaml:
+
+```yaml
+logger:
+  logs:
+    homeassistant.components.modbus: debug
+    pymodbus.client: debug
+```
+
+and restart Home Assistant, reproduce the problem, and include the log in the issue.
 
 ## Building on top of Modbus
 
  - [Modbus Binary Sensor](/integrations/binary_sensor.modbus/)
+ - [Modbus Climate](/integrations/climate.modbus/)
  - [Modbus Sensor](/integrations/sensor.modbus/)
  - [Modbus Switch](/integrations/switch.modbus/)

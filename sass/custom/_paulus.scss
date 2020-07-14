@@ -345,6 +345,10 @@ article.post, article.page, article.listing {
     // Future re-design
     // margin: 1.5em 0 1rem;
   }
+
+  details {
+    padding-bottom: 1em;
+  }
 }
 
 p.note, div.note {

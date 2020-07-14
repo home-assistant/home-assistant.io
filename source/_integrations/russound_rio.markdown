@@ -1,11 +1,11 @@
 ---
-title: "Russound RIO"
-description: "Instructions on how to integrate Russound RIO devices into Home Assistant."
-logo: russound.png
+title: Russound RIO
+description: Instructions on how to integrate Russound RIO devices into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.49
 ha_iot_class: Local Push
+ha_domain: russound_rio
 ---
 
 The `russound_rio` platform allows you to control Russound devices that make use of the RIO protocol.

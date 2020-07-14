@@ -33,7 +33,7 @@ homeassistant:
     - type: totp
 ```
 
-If no `auth_mfa_modules` config section is defined in `configuration.yaml` a TOTP module named "Authenticator app" will be autoloaded.
+If no `auth_mfa_modules` configuration section is defined in `configuration.yaml` a TOTP module named "Authenticator app" will be autoloaded.
 
 You will need an authenticator app on your phone. We recommend either [Google Authenticator](https://support.google.com/accounts/answer/1066447) or [Authy](https://authy.com/). Both are available for iOS or Android.
 
@@ -63,7 +63,7 @@ TOTP is _time based_ so it relies on your Home Assistant clock being accurate. I
 
 The Notify MFA module uses the [notify component](/integrations/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
 
-#### Setting up TOTP
+#### Setting up MFA notify
 
 Add Notify MFA to your `configuration.yaml` file like this:
 

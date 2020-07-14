@@ -1,13 +1,19 @@
 ---
-title: "DuckDNS"
-description: "Keep your computer registered with the DuckDNS dynamic DNS."
-logo: duckdns.png
+title: Duck DNS
+description: Keep your computer registered with the DuckDNS dynamic DNS.
 ha_category:
   - Network
 ha_release: 0.55
+ha_domain: duckdns
 ---
 
 With the DuckDNS integration you can keep your DuckDNS record up to date. DuckDNS is a free dynamic DNS service that allows you to point a subdomain under `duckdns.org` at your computer.
+
+<div class='note'>
+
+If you are running the Home Assistant DuckDNS add-on this integration is not required. The add-on will keep your IP updated with DuckDNS.
+
+</div>
 
 ## Configuration
 
@@ -31,8 +37,10 @@ duckdns:
     type: string
 {% endconfiguration %}
 
-<div class='note'>
+## Service `set_txt`
 
-If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this integration is not required. The add-on will keep your IP updated with DuckDNS.
+Set the TXT record of your DuckDNS subdomain.
 
-</div>
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `txt` | no | Payload for the TXT record. |

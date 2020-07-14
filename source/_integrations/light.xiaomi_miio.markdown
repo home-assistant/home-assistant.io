@@ -1,11 +1,11 @@
 ---
 title: "Xiaomi Philips Light"
 description: "Instructions on how to integrate your Xiaomi Philips Lights within Home Assistant."
-logo: philips.png
 ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.53
+ha_domain: xiaomi_miio
 ---
 
 The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips Zhirui Downlight, Xiaomi Philips LED Ceiling Lamp, Xiaomi Philips Eyecare Lamp 2, Xiaomi Philips Moonlight Bedside Lamp and Philips Zhirui Desk Lamp.
@@ -98,7 +98,7 @@ Supported models: `philips.light.moonlight`
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
-To add a Xiaomi Philips Light to your installation, add the following to your configuration.yaml file:
+To add a Xiaomi Philips Light to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entries
@@ -132,7 +132,7 @@ model:
 
 ## Platform Services
 
-### Service `light.xiaomi_miio_set_scene`
+### Service `xiaomi_miio.light_set_scene`
 
 Set one of the 4 available fixed scenes.
 
@@ -141,7 +141,7 @@ Set one of the 4 available fixed scenes.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 | `scene`                   |       no | Scene, between 1 and 4.                               |
 
-### Service `light.xiaomi_miio_set_delayed_turn_off`
+### Service `xiaomi_miio.light_set_delayed_turn_off`
 
 Delayed turn off.
 
@@ -150,7 +150,7 @@ Delayed turn off.
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 | `time_period`             |       no | Time period for the delayed turn off.                 |
 
-### Service `light.xiaomi_miio_reminder_on` (Eyecare Smart Lamp 2 only)
+### Service `xiaomi_miio.light_reminder_on` (Eyecare Smart Lamp 2 only)
 
 Enable the eye fatigue reminder/notification.
 
@@ -158,7 +158,7 @@ Enable the eye fatigue reminder/notification.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
-### Service `light.xiaomi_miio_reminder_off` (Eyecare Smart Lamp 2 only)
+### Service `xiaomi_miio.light_reminder_off` (Eyecare Smart Lamp 2 only)
 
 Disable the eye fatigue reminder/notification.
 
@@ -166,7 +166,7 @@ Disable the eye fatigue reminder/notification.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
-### Service `light.xiaomi_miio_night_light_mode_on`  (Eyecare Smart Lamp 2 only)
+### Service `xiaomi_miio.light_night_light_mode_on`  (Eyecare Smart Lamp 2 only)
 
 Turn the smart night light mode on.
 
@@ -174,7 +174,7 @@ Turn the smart night light mode on.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
-### Service `light.xiaomi_miio_night_light_mode_off`  (Eyecare Smart Lamp 2 only)
+### Service `xiaomi_miio.light_night_light_mode_off`  (Eyecare Smart Lamp 2 only)
 
 Turn the smart night light mode off.
 
@@ -182,7 +182,7 @@ Turn the smart night light mode off.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
-### Service `light.xiaomi_miio_eyecare_mode_on`  (Eyecare Smart Lamp 2 only)
+### Service `xiaomi_miio.light_eyecare_mode_on`  (Eyecare Smart Lamp 2 only)
 
 Turn the eyecare mode on.
 
@@ -190,7 +190,7 @@ Turn the eyecare mode on.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
-### Service `light.xiaomi_miio_eyecare_mode_off`  (Eyecare Smart Lamp 2 only)
+### Service `xiaomi_miio.light_eyecare_mode_off`  (Eyecare Smart Lamp 2 only)
 
 Turn the eyecare mode off.
 

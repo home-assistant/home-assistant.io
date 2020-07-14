@@ -1,10 +1,10 @@
 ---
-title: "Baidu Text-to-Speech"
-description: "Instructions on how to setup Baidu TTS with Home Assistant."
-logo: baiducloud.png
+title: Baidu
+description: Instructions on how to setup Baidu TTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.59
+ha_domain: baidu
 ---
 
 The `baidu` text-to-speech platform uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
@@ -51,7 +51,7 @@ volume:
   type: integer
   default: 5
 person:
-  description: The voice type. You choose one from 0, 1, 3 or 4.
+  description: The voice type. You choose one from 0, 1, 3, 4, 5, 103, 106, 110 or 111.
   required: false
   type: integer
   default: 0

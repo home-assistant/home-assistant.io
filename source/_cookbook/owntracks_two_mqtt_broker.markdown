@@ -40,7 +40,7 @@ $ docker run -ti -p 1884:1883  \
     --name mosquitto-ext -d toke/mosquitto
 ```
  
-Here are the config files:
+Here are the configuration files:
 
 `/volume1/data/mosquitto-int/config/mosquitto.conf`
  

@@ -41,7 +41,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## Breaking Changes
 
 - The `pi_hole` sensor is now limited to `ads_blocked_today` by default and will no longer show all available data. Use [`monitored_conditions`](/integrations/pi_hole#monitored_conditions) to list the sensors you want. ([@fabaff] - [#15014]) ([sensor.pi_hole docs]) (breaking change)
-- Update PostNL unit of measure to `packages` to align with UPS ([@keesschollaart81] - [#15023]) ([sensor.postnl docs]) (breaking change)
+- Update PostNL unit of measure to `packages` to align with UPS ([@keesschollaart81] - [#15023]) (breaking change)
 - Various attributes have been relocated to sensors that make more sense; additionally, some names are corrected. More info in [#14963] ([@bachya] - [#14963]) ([sensor.pollen docs]) (breaking change)
 - The filter option for prometheus was aligned with other components ([@alexbarcelo] - [#13738]) ([prometheus docs]) (breaking change)
 - Change some operation_modes for Z-Wave climate devices to comply with Home Assistant standards and compatibility with Google Home, Alexa and HomeKit. ([@cdce8p] - [#15162]) ([climate.zwave docs]) (breaking change)
@@ -70,7 +70,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Switch nuimo to a hopefully working pypi version ([@andrey-git] - [#15006]) ([nuimo_controller docs])
 - Remove typing ([@fabaff] - [#15018])
 - Add support for Homekit battery service ([@schmittx] - [#14288]) ([homekit docs])
-- Update PostNL unit of measure to align with UPS ([@keesschollaart81] - [#15023]) ([sensor.postnl docs]) (breaking change)
+- Update PostNL unit of measure to align with UPS ([@keesschollaart81] - [#15023]) (breaking change)
 - Expose Wemo component availability to Home Assistant ([@gstorer] - [#14995]) ([light.wemo docs])
 - Improve volume support for Vizio Smartcast ([@JeffLIrion] - [#14981]) ([media_player.vizio docs])
 - Upgrade requests to 2.19.1 ([@fabaff] - [#15019])
@@ -312,7 +312,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.loopenergy docs]: /integrations/loopenergy
 [sensor.pi_hole docs]: /integrations/pi_hole
 [sensor.pollen docs]: /integrations/iqvia
-[sensor.postnl docs]: /integrations/postnl
 [sensor.waze_travel_time docs]: /integrations/waze_travel_time
 [sensor.xiaomi_miio docs]: /integrations/sensor.xiaomi_miio/
 [switch.anel_pwrctrl docs]: /integrations/anel_pwrctrl

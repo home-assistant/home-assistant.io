@@ -1,10 +1,10 @@
 ---
-title: "Microsoft Face Detect"
-description: "Instructions on how to integrate Microsoft Face Detect into Home Assistant."
-logo: microsoft.png
+title: Microsoft Face Detect
+description: Instructions on how to integrate Microsoft Face Detect into Home Assistant.
 ha_category:
   - Image Processing
 ha_release: 0.38
+ha_domain: microsoft_face_detect
 ---
 
 The `microsoft_face_detect` image processing platform allows you to use the

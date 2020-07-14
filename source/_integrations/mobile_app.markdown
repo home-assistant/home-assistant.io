@@ -1,18 +1,21 @@
 ---
-title: "Mobile App"
-description: "The Mobile App integration allows a generic platform for integrating with mobile apps."
-logo: home-assistant.png
+title: Mobile App
+description: The Mobile App integration allows a generic platform for integrating with mobile apps.
 ha_category:
-  - "Other"
+  - Other
 ha_release: 0.89
-ha_qa_scale: internal
+ha_config_flow: true
+ha_quality_scale: internal
+ha_codeowners:
+  - '@robbiet480'
+ha_domain: mobile_app
 ---
 
 The Mobile App integration allows Home Assistant mobile apps to easily integrate with Home Assistant.
 
 If you are planning to use a mobile application that integrates with Home Assistant, we recommend that you keep this integration enabled.
 
-If you are a mobile app developer, see the [developer documentation](https://developers.home-assistant.io/docs/en/app_integration_index.html) for instructions on how to build your app on top of the mobile app component.
+If you are a mobile app developer, see the [developer documentation](https://developers.home-assistant.io/docs/api/native-app-integration.html) for instructions on how to build your app on top of the mobile app component.
 
 ## Configuration
 
@@ -22,3 +25,12 @@ This integration is by default enabled, unless you've disabled or removed the [`
 # Example configuration.yaml entry
 mobile_app:
 ```
+
+## Apps that use Mobile App
+
+- [Home Assistant for iOS](https://apps.apple.com/us/app/home-assistant/id1099568401?ls=1) (official)
+- [Home Assistant for Android](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) (official)
+
+## Mobile App Documentation
+
+- [Companion documentation](https://companion.home-assistant.io/)

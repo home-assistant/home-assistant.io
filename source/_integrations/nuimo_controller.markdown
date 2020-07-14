@@ -1,11 +1,12 @@
 ---
-title: "Nuimo controller"
-description: "Instructions on how to setup and use a Nuimo device in Home Assistant."
+title: Nuimo controller
+description: Instructions on how to setup and use a Nuimo device in Home Assistant.
 logo: nuimo.png
 ha_category:
   - Hub
 ha_release: 0.29
 ha_iot_class: Local Polling
+ha_domain: nuimo_controller
 ---
 
 The `nuimo_controller` integration allows you to connect to a [Nuimo](https://www.senic.com/) device for receiving input events and displaying on the LED  matrix via the [Nuimo SDK for Python on Linux](https://github.com/getSenic/nuimo-linux-python).

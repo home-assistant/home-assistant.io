@@ -1,13 +1,12 @@
 ---
-title: "Fail2Ban Sensor"
-description: "Instructions on how to integrate a fail2ban sensor into Home Assistant."
+title: Fail2Ban
+description: Instructions on how to integrate a fail2ban sensor into Home Assistant.
 ha_category:
   - Network
 ha_iot_class: Local Polling
-logo: fail2ban.png
 ha_release: 0.57
+ha_domain: fail2ban
 ---
-
 
 The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 
@@ -55,13 +54,13 @@ For most setups, you can follow [this tutorial](/cookbook/fail2ban/) to set up `
 
 <div class='note'>
 
-These steps assume you already have the Home Assistant docker running behind NGINX and that it is externally accessible. It also assumes the docker is running with the `--net='host'` flag.
+These steps assume you already have the Home Assistant Docker running behind NGINX and that it is externally accessible. It also assumes the Docker is running with the `--net='host'` flag.
 
 </div>
 
-For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [let's encrypt docker](https://github.com/linuxserver/docker-letsencrypt) from linuxserver.io.
+For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [Let's Encrypt Docker](https://github.com/linuxserver/docker-letsencrypt) from linuxserver.io.
 
-#### Set http logger
+#### Set HTTP logger
 
 In your `configuration.yaml` file, add the following to the `logger` integration to ensure that Home Assistant prints failed login attempts to the log.
 
@@ -73,7 +72,7 @@ logger:
 
 #### Edit the `jail.local` file
 
-Next, we need to edit the `jail.local` file that is included with the Let's Encrypt docker linked above.  Note, for this tutorial, we'll only be implementing the `[hass-iptables]` jail from the [previously linked tutorial](/cookbook/fail2ban/).
+Next, we need to edit the `jail.local` file that is included with the Let's Encrypt Docker linked above.  Note, for this tutorial, we'll only be implementing the `[hass-iptables]` jail from the [previously linked tutorial](/cookbook/fail2ban/).
 
 Edit `/mnt/user/appdata/letsencrypt/fail2ban/jail.local` and append the following to the end of the file:
 
@@ -124,14 +123,14 @@ Now do the same for the Home Assistant docker, but this time we'll be mapping th
 
 By default, the IP address that Home Assistant sees will be that of the container (something like `172.17.0.16`).  What this means is that for any failed login attempt, assuming you have correctly configured `fail2ban`, the Docker IP will be logged as banned, but the originating IP is still allowed to make attempts.  We need `fail2ban` to recognize the originating IP to properly ban it.
 
-First, we have to add the following to the nginx configuration file located in `/mnt/user/appdata/letsencrypt/nginx/site-confs/default`.
+First, we have to add the following to the NGINX configuration file located in `/mnt/user/appdata/letsencrypt/nginx/site-confs/default`.
 
 ```bash
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
-This snippet should be added within your Home Assistant server config, so you have something like the following:
+This snippet should be added within your Home Assistant server configuration, so you have something like the following:
 
 ```bash
 server {
@@ -159,7 +158,7 @@ server {
 }
 ```
 
-Once that's added to the nginx configuration, we need to modify the Home Assistant `configuration.yaml` such that the `X-Forwarded-For` header can be parsed.  This is done by adding the following to the `http` component:
+Once that's added to the NGINX configuration, we need to modify the Home Assistant `configuration.yaml` such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` component:
 
 ```yaml
 http:

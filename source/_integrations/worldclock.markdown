@@ -1,12 +1,14 @@
 ---
-title: "Worldclock"
-description: "Instructions on how to integrate a Worldclock within Home Assistant."
-logo: home-assistant.png
+title: Worldclock
+description: Instructions on how to integrate a Worldclock within Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Local Push
 ha_release: pre 0.7
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@fabaff'
+ha_domain: worldclock
 ---
 
 The `worldclock` sensor platform simply displays the current time in a different time zone.
@@ -36,6 +38,6 @@ name:
 
 For valid time zones check the **TZ** column in the [Wikipedia overview](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Or get the full list from the [pytz](https://pypi.python.org/pypi/pytz) module.
 
-```python
+```shell
 python3 -c "import pytz;print(pytz.all_timezones)"
 ```

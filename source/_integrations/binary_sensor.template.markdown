@@ -5,8 +5,8 @@ ha_category:
   - Binary Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform supports binary sensors which get their values from
@@ -141,9 +141,7 @@ binary_sensor:
 ### Switch as Sensor
 
 Some movement sensors and door/window sensors will appear as a switch. By using
-a Template Binary Sensor, the switch can be displayed as a binary sensors. The
-original switch can then be hidden by
-[customizing](/getting-started/customizing-devices/).
+a Template Binary Sensor, the switch can be displayed as a binary sensors.
 
 {% raw %}
 
@@ -214,7 +212,7 @@ binary_sensor:
 This example is determining if anyone is home based on the combination of device
 tracking and motion sensors. It's extremely useful if you have kids/baby sitter/
 grand parents who might still be in your house that aren't represented by a
-trackable device in Home Assistant. This is providing a composite of WiFi based
+trackable device in Home Assistant. This is providing a composite of Wi-Fi based
 device tracking and Z-Wave multisensor presence sensors.
 
 {% raw %}
@@ -238,7 +236,7 @@ binary_sensor:
 
 ### Device Tracker sensor with Latitude and Longitude Attributes
 
-This example shows how to combine a non-GPS (e.g. NMAP) and GPS device tracker while still including latitude and longitude attributes
+This example shows how to combine a non-GPS (e.g.,  NMAP) and GPS device tracker while still including latitude and longitude attributes
 
 {% raw %}
 ```yaml
