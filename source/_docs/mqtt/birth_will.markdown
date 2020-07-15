@@ -28,7 +28,7 @@ birth_message:
   type: list
   keys:
     topic:
-      description: The MQTT topic to publish the message. Set to the empty string, `""`, to disable publishing a birth message.
+      description: The MQTT topic to publish the message. Set to the empty dict, `{}`, to disable publishing a birth message.
       required: false
       default: homeassistant/status
       type: string
@@ -48,7 +48,7 @@ birth_message:
       default: false
       type: boolean
 will_message:
-  description: Will Message. Set to the empty string, `""`, to disable publishing a will message.
+  description: Will Message. Set to the empty dict, `{}`, to disable publishing a will message.
   required: false
   type: list
   keys:
