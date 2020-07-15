@@ -34,6 +34,36 @@ Subjects ideas/structure:
 Screenshot of lorem ipsum.
 </p>
 
+## MDI icons updated
+
+It has taken some time for us to upgrade to the newest version of Material Design Icons, 5.3.45, there was a reason for that, version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45) contains a lot of breaking changes.
+We wanted to handle these well so it tooks some time.
+
+A lot of icons are renamed, and some were removed.
+In this release we included all new, and all removed icons. Also will the new and the old name work.
+
+If you use an icon that is renamed of removed we will show a warning in the log, in version 0.115 we will remove this conversion path and will removed icons and old names no longer work.
+
+Most of the removed icons can be found in [Simple icons](https://simpleicons.org/), which is available as a [custom integration](https://github.com/vigonotion/hass-simpleicons).
+
+## RTL Fixes
+
+[@yosilevy](https://github.com/yosilevy) is back! He has been the one fixing all the RTL issues we had in Home Assistant, but has been away for a while. This release is full of RTL tweaks again.
+
+## Script and Scene editor updates
+
+The UI to edit or create a script has been updated, you can now define your own ID for a script, so you no longer have to search your states for a long numeric entity id for every script.
+We also added support for the new `mode` and you can give your scripts a custom icon from the UI.
+
+The icon was also added to the scenes editor.
+
+## Deprecated HTML imports
+
+With the start of custom components, you would import a HTML file for your component instead of JavaScript. That's why we have always supported importing extra HTML in the frontend and custom panels.
+This has been deprecated and superseded by ES modules since some time and has (almost) no support anymore in browsers. We have a polyfill in place to still support this, but we are going to remove this.
+
+In version 0.115 we will remove the ability to import HTML, you can use ES modules as a replacement.
+
 ## Other noteworthy changes
 
 - Philips Hue groups can now be turned on/off in the integration options via the UI.
