@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.112: Beta release notes"
+title: "0.113: Beta release notes"
 description: "0.113: Beta release notes"
 date: 2020-07-14 00:00:00
 date_formatted: "July 22, 2020"
@@ -15,47 +15,304 @@ og_image: /images/blog/2020-07-0.113/social.png
 
 Beta release notes for 0.113.0
 
-Subjects ideas/structure:
+Please be sure to report issues on our GitHub issue tracker:
 
-- Automations
-  - Modes
-  - Loops
-  - Chooser
-  - Bonus: Cooldown
-- Speed!!
-  - New optimizations
-  - Python 3.8 (specially optimized build)
-- New MQTT Features?
+Issues with core & integrations: <https://github.com/home-assistant/core/issues>
+Issues with the frontend/UI: <https://github.com/home-assistant/frontend/issues>
 
-## Lorem ipsum
+Issues introduced in this beta, are generally picked up with priority.
+
+## Introduction
+
+Another special, themed, release inbound!
+
+It seems like [@bdraco] is unstoppable, he just keep going on improving
+the performance of the Core. I truly admire him for the work he has been
+delivering the past months, however, that is not the point of this release.
+Sorry, [@bdraco]!
+
+This release is about: Automations & Scripts! Yes!!!
+
+A long long time bug with automation triggering has been resolved, but not
+only that, [@pnbruckner] went all-in by extending the automation/script engine
+even more.
+
+Adding repeat, a chooser and running modes (with cool down possibilities as a side-effect).
+
+I've been playing with these features on my home already and I've
+changed/improved quite a few things. For real, [@pnbruckner], thank you!
+
+Enjoy the release!
+
+../Frenck
+
+## Automations & Scripts
+
+This release brings changes to our automations and scripts. Before we start with
+this all, please note, that the `action` part of an automation is a script
+`sequence`.
+
+**So, all discussed below, apply to both scripts and automations.**
+
+Before diving in: All automation changes have been driven by [@pnbruckner]!
+It is awesome! Thanks!
+
+### Automations & Scripts: Bug fix
+
+There has been an issue with our automations for a long time already, which
+you actually might have never noticed. It is kinda hard to explain, so this
+needs an example.
+
+Consider the following automation:
+
+```yaml
+automation:
+  - alias: "Example"
+    description: "On button press, turn on the light bulb for 10 seconds."
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.button
+        to: "on"
+    action:
+      - service: light.turn_on
+        entity_id: light.bulb
+      - delay:
+          seconds: 10
+      - service: light.turn_off
+        entity_id: light.bulb
+```
+
+This automation turns on a light bulb when the button is pressed, and after
+10 seconds it turns off the light bulb again. A fairly basic automation, which
+does exactly what one would expect, except when a button is pressed twice.
+
+So it takes 10 seconds for the bulb to turn off, what if you press the button
+again after 5 seconds?
+
+_Please, think about this for a moment..._
+
+What actually happened before 0.113, is that the light bulb would turn off
+immediately! Chances are, you didn't expect that.
+
+Let's explain this: So the first button push, turns on the light, and the delay
+is active for 10 seconds. The second button push, done after 5 seconds, is
+actually not handled, however, it does cause the delay of the first run to
+cancel itself and continues to run the rest of the actions/sequence,
+causing the light to turn off immediately!
+
+That bug, has been fixed. As of this release, the second button press wouldn't
+do anything and the light will now turn off after 10 seconds, which the first
+button push has triggered.
+
+### Automations & Scripts: Running modes
+
+With the above mentioned bug fix, it now becomes possible to introduce new
+running modes for both scripts and automations. It allows you to control
+what happens if actions of a previous trigger are still running.
+
+Considering the light bulb example in the bug fix paraph above, it shows
+the default mode: `single`, which means: Do not run and ignore the trigger
+if a previous action of the same automation is still running.
+
+Besides the default `single` mode, the following modes are now available:
+
+Mode | Description
+-|-
+`single` | Do not start a new run, if running already.
+`restart` | Start a new run, after stopping the previous run.
+`queued` | Start a new run after all previous runs complete.
+`parallel` | Start a new, independent, run in parallel with previous runs.
 
 <p class='img'>
-<img src='/images/blog/2020-07-0.112/datetime-picker.png' alt='Screenshot of lorem ipsum'></a>
-Screenshot of lorem ipsum.
+<img src='/images/integrations/script/script_modes.jpg' alt='Automation/script running modes visual explained.'></a>
+Automation/script running modes visual explained.
 </p>
+
+For the queued and parallel modes, an additional parameter `max` is available
+to control the maximum number of runs that are awaiting each other. When
+omitting this setting, it would default to 10.
+
+To clarify a little more, remember the first example in the bug fix paragraph
+where the light bulb would turn on for 10 seconds after a button press?
+
+This would make every button press within the 10 seconds, restart the countdown
+again:
+
+```yaml
+automation:
+  - trigger:
+      - ...
+    mode: restart
+    action:
+      - ...
+```
+
+And this example, would turn on/off the light, for 10 seconds twice, if the
+button was pressed after 5 seconds.
+
+```yaml
+automation:
+  - trigger:
+      - ...
+    mode: queue
+    action:
+      - ...
+```
+
+The modes are also available for automations and scripts in the frontend UI:
+
+<p class='img'>
+<img src='/images/blog/2020-07-0.113/automation-modes.png' alt='Screenshot of running modes in the frontend'></a>
+Screenshot of running modes in the frontend.
+</p>
+
+This is a powerful feature, which allows you to control how automations
+and scripts are run, in ways you could not do before.
+
+### Automations & Scripts: Repeats
+
+A brand new action is made to allow for repeating (also called loops)
+part of your automations or scripts.
+
+The new repeat feature can be used in three different ways:
+
+- **Counted repeat**: Control how many times to repeat a sequence.
+- **While loop**: Keep repeating as long the condition(s) is/are met.
+- **Repeat until**: Runs at least once, and decides after that to repeat as long as the condition(s) is/are met.
+
+For example, this would spam your phone with the same message 10 times:
+
+```yaml
+- alias: Send notification spam to phone
+  repeat:
+    count: 10
+    sequence:
+      - service: notify.frenck
+        data:
+          message: Ding dong! Someone is at the door!
+```
+
+### Automations & Scripts: Chooser
+
+Got multiple automations for that single light to turn it on/off? Or multiple
+automations/scripts to handle the different buttons on some remote?
+
+You can now combine them using a chooser. The chooser is able to pick the
+first sequence that matches a condition, or if none match, run a default
+sequence.
+
+This means each individual sequence in the chooser is paired with its own set
+of conditions.
+
+```yaml
+automation:
+  - alias: "Example"
+    description: "On button press, turn on the light bulb for 10 seconds."
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.button1
+          - binary_sensor.button2
+          - binary_sensor.button3
+    action:
+      - choose:
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.button1
+              state: "on"
+          sequence:
+            - service: light.turn_on
+              entity_id: light.bulb
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.button2
+              state: "on"
+          sequence:
+            - service: light.turn_off
+              entity_id: light.bulb
+        default:
+          - service: notify.frenck
+            data:
+              message: Some other unknown button was pressed!
+```
+
+In the above example, pushing button1, turns on the bulb; while button2 turns
+it off again. The third button isn't handled by any of the conditions in
+the chooser and the default is run instead.
+
+### Automations & Scripts: Bonus! Cool down
+
+An often requested feature is to allow for a cool down time on an automation.
+What that entails is setting a limiting the run of a automation or script
+to a certain time frame.
+
+While this is not a feature specifically added or build, it can be achieved
+now using the new run modes.
+
+```yaml
+automation:
+  - alias: "Doorbell cool down"
+    description: "Prevent multiple message being send when spamming the doorbell."
+    mode: single # Which is the default
+    trigger:
+      - platform: state
+        state: binary_sensor.doorbell
+        to: "on"
+    action:
+      - service: notify.frenck
+        data:
+          message: Ding dong! Someone is at the door!
+      - delay:
+          seconds: 10
+```
+
+The `single` run mode of this automation, combined with the last `delay` of 10
+seconds, prevent this automation to be ran more often than only once every 10
+seconds. This is ideal for things like a doorbell.
 
 ## MDI icons updated
 
-It has taken some time for us to upgrade to the newest version of Material Design Icons, 5.3.45, there was a reason for that, version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45) contains a lot of breaking changes.
-We wanted to handle these well so it tooks some time.
+It has taken some time for us to upgrade to the newest version of Material
+Design Icons, 5.3.45, there was a reason for that, version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45)
+contains a lot of breaking changes.
 
-A lot of icons are renamed, and some were removed.
-In this release we included all new, and all removed icons. Also will the new and the old name work.
+We wanted to handle these well so it took some time.
 
-If you use an icon that is renamed of removed we will show a warning in the log, in version 0.115 we will remove this conversion path and will removed icons and old names no longer work.
+A lot of icons are renamed, and some are removed. In this release we included
+all new, and all removed icons and we made sure the new and the old name work.
 
-Most of the removed icons can be found in [Simple icons](https://simpleicons.org/), which is available as a [custom integration](https://github.com/vigonotion/hass-simpleicons).
+If you use an icon that is renamed or removed we will show a warning in the log,
+in version 0.115,this conversion path will be removed and removed icons and
+old names no longer work.
 
-## RTL Fixes
+So make sure to check your logs if you need to adjust any of your used MDI
+icons.
 
-[@yosilevy](https://github.com/yosilevy) is back! He has been the one fixing all the RTL issues we had in Home Assistant, but has been away for a while. This release is full of RTL tweaks again.
+Most of the removed MDI icons can be found in [Simple icons](https://simpleicons.org/),
+which is available as a [custom integration](https://github.com/vigonotion/hass-simpleicons).
 
 ## Script and Scene editor updates
 
-The UI to edit or create a script has been updated, you can now define your own ID for a script, so you no longer have to search your states for a long numeric entity id for every script.
-We also added support for the new `mode` and you can give your scripts a custom icon from the UI.
+The UI to edit or create a script has been updated, besides support for the
+new running mode and you can give your scripts a custom icon and ID from the UI.
 
-The icon was also added to the scenes editor.
+Especially the naming is helpful, you no longer have to search your states for
+a long numeric entity id that matches your script.
+
+<p class='img'>
+<img src='/images/blog/2020-07-0.113/script-name.png' alt='Screenshot of a script name, icon and run mode.'></a>
+Screenshot of a script name, icon and run mode.
+</p>
+
+The support for setting a custom icon, is also added to the scenes editor.
+
+## More speed optimizations
+
+- New optimizations:
+  - Logbook?
+  - Listeners?
+  - anything else?
+- Python 3.8 (specially optimized build)
 
 ## Deprecated HTML imports
 
@@ -67,6 +324,9 @@ In version 0.115 we will remove the ability to import HTML, you can use ES modul
 ## Other noteworthy changes
 
 - Philips Hue groups can now be turned on/off in the integration options via the UI.
+- After a moment of absence, [@yosilevy](https://github.com/yosilevy) is back!
+  He has been the one fixing all kinds of RTL issues we had in Home Assistant,
+  with his return, this release is full of RTL tweaks again!
 
 ## New Integrations
 
@@ -108,6 +368,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   Adding Hue bridges manually by IP can now be done via the UI. Changing allowing Hue groups or unreachable Hue bulb is now managed by clicking the options button on the Hue integration in the UI.
 
   ([@frenck] - [#37268])
+
   </p>
   </details>
  <details><summary><b>InfluxDB</b></summary>
