@@ -100,21 +100,157 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Add Hue manual bridge config flow + options flow ([@frenck] - [#37268]) (breaking-change)
-- Add support for glob matching in InfluxDB filters ([@mdegat01] - [#37069]) ([influxdb docs]) (breaking-change)
-- Limit and sort transmission torrents_info attribute ([@zhulik] - [#35411]) ([transmission docs]) (breaking-change)
-- Use eventloop for scheduling ([@bdraco] - [#37184]) ([asuswrt docs]) ([generic_thermostat docs]) (breaking-change)
-- Publish birth and will messages by default ([@emontnemery] - [#37371]) ([mqtt docs]) (breaking-change)
-- Make devices and activities visible as harmony attributes ([@bdraco] - [#37559]) ([harmony docs]) (breaking-change)
-- Give fan and remote components unique LED strings ([@alexhardwicke] - [#37605]) ([xiaomi_miio docs]) (breaking-change)
-- Convert syncthru to config flow and native SSDP discovery ([@scop] - [#36690]) ([discovery docs]) ([syncthru docs]) (breaking-change)
-- Round time values in get_age() to better approximate the actual age ([@GMTA] - [#37125]) (breaking-change)
-- Re-add ability to use remote files (by URL) in Slack messages ([@bachya] - [#37161]) ([slack docs]) (breaking-change)
-- Remove legacy script mode and simplify remaining modes ([@pnbruckner] - [#37729]) ([automation docs]) ([script docs]) (breaking-change)
-- Switch rfxtrx to integration level config ([@elupus] - [#37742]) ([rfxtrx docs]) (breaking-change)
-- Replace rfxtrx entity events with integration events ([@elupus] - [#37565]) ([rfxtrx docs]) (breaking-change)
-- Frontend: deprecate `extra_html_url` ([@bramkragten] - [#37843]) ([frontend docs]) (breaking-change)
-- Fix Fibaro HC light switches not being configured as Light entities ([@danielpervan] - [#37690]) ([fibaro docs]) (breaking-change)
+ <details><summary><b>Philips Hue</b></summary>
+ <p>
+
+  Configuring a Hue bridge via YAML configuration is now deprecated. Your current YAML configuration is imported and can be safely removed after upgrading.
+
+  Adding Hue bridges manually by IP can now be done via the UI. Changing allowing Hue groups or unreachable Hue bulb is now managed by clicking the options button on the Hue integration in the UI.
+
+  ([@frenck] - [#37268])
+  </p>
+  </details>
+ <details><summary><b>InfluxDB</b></summary>
+ <p>
+ 
+  Support added for glob matching in InfluxDB filters.
+
+  InfluxDB was not using the common filtering logic shared by `recorder`, `logbook`, `homekit`, etc. and as a result had filtering logic that is inconsistent with the filtering logic of every other recorder-like component. This has been corrected causing the following changes in filtering logic:
+
+  Same domain specified in both include and exclude:
+
+  * Previous behavior: All entities in that domain excluded
+  * New behavior: All entities of that domain included unless entity is excluded by ID or by glob
+
+  Same entity ID specified in both include and exclude:
+
+  * Previous behavior: Entity excluded
+  * New behavior: Entity included
+
+  Filtering has 1+ exclude domains, 0 include domains, and 1+ include entity ID's specified:
+
+  * Previous behavior: All entities not specifically listed by ID were excluded
+  * New behavior: All entities not specifically excluded by either domain or ID are included.
+
+  ([@mdegat01] - [#37069]) ([influxdb docs])
+  </p>
+  </details>
+ <details><summary><b>Transmission</b></summary>
+ <p>
+
+  For all torrents sensors (e.g. `active_torrents` or `started_torrents`) order of the content of the `torrent_info` attribute has changed to `oldest first` which means older torrents will appear first in the list. Also a default limit of 10 items is also applied to the list to avoid very long strings stored in the recorder database. Both config config options, `order` and `limit`, can be adjusted in the config flow UI. 
+
+  ([@zhulik] - [#35411]) ([transmission docs]) 
+  </p>
+  </details>
+ <details><summary><b>AsusWRT and Generic Thermostat</b></summary>
+ <p>
+
+  The minimum required Python version has been bumped from Python 3.7.0 to 3.7.1.
+
+  ([@bdraco] - [#37184]) ([asuswrt docs]) ([generic_thermostat docs]) 
+  </p>
+  </details>
+ <details><summary><b>MQTT</b></summary>
+ <p>
+
+  Birth and will messages are now published by default
+  MQTT birth message defaults to: `{"topic": "homeassistant/status", "payload": "online"}`
+  MQTT will message defaults to: `{"topic": "homeassistant/status", "payload": "offline"}`
+  MQTT will published also on clean connect from broker
+
+  ([@emontnemery] - [#37371]) ([mqtt docs]) 
+  </p>
+  </details>
+ <details><summary><b>Logitech Harmony Hub</b></summary>
+ <p>
+
+  Make devices and activities visible as harmony attributes
+  The current activity is now updated as soon as the remote starts the activity change instead of being delayed until the activity is finished setting up.
+
+  ([@bdraco] - [#37559]) ([harmony docs]) 
+  </p>
+  </details>
+ <details><summary><b>Xiaomi Miio</b></summary>
+ <p>
+
+  Fan and remote components now have unique LED strings.
+  If you had previously set your automation calls from "**fan**_set_led_on/off" to "**remote**_set_led_on/off", you will now need to set those back to "fan".
+
+  ([@alexhardwicke] - [#37605]) ([xiaomi_miio docs]) 
+  </p>
+  </details>
+ <details><summary><b>Samsung SyncThru Printer</b></summary>
+ <p>
+
+  Syncthru configuration is now done throught the integrations UI page.
+
+  ([@scop] - [#36690]) ([discovery docs]) ([syncthru docs]) 
+  </p>
+  </details>
+ <details><summary><b>Relative time</b></summary>
+ <p>
+
+  Previously, the value used for displaying a relative time was floored before being interpolated into the localized string, leading to situations like these:
+
+  * 47 hours ago is displayed as "1 day ago" instead of "2 days ago"
+  * 13 days in the future is displayed as "in 1 week"
+
+  This change modifies the relativeTime function to use Math.round instead of Math.floor so the output more closely matches the actual relative time of the input.
+  
+  ([@GMTA] - [#37125]) 
+  </p>
+  </details>
+ <details><summary><b>Slack</b></summary>
+ <p>
+
+  Re-added the ability to use remote files (by URL) in Slack messages. The data schema for sending files in Slack messages has changed, so be sure to update any Slack-related service calls with the new schema: https://www.home-assistant.io/integrations/slack
+  
+  ([@bachya] - [#37161]) ([slack docs]) 
+  </p>
+  </details>
+ <details><summary><b>Automations/Scripts</b></summary>
+ <p>
+
+  The way automations behaved when they were triggered while "suspended" in a delay or wait_template step from a previous trigger event was unexpected. If this happened the suspended step would be aborted and the automation would continue the action sequence with the following step.
+
+  This change removes support for that "legacy" behavior, in both automations and scripts (although scripts were less affected by this.)
+  
+  It also provides new "modes" of operation for these action sequences, namely single, restart, queued & parallel. To minimize the impact on existing automations and scripts, the default mode for automations is parallel, and the default mode for scripts is single. See the documentation for detailed descriptions of these modes.
+  
+  In addition, for queued & parallel modes there is now a new config option -- max -- that controls the maximum number of "runs" that can be executing and/or queued up at a time. And lastly, the delay step is now much more precise, and supports delays of less than one second. 
+
+  ([@pnbruckner] - [#37729]) ([automation docs]) ([script docs]) 
+  </p>
+  </details>
+ <details><summary><b>RFXCOM RFXtrx</b></summary>
+ <p>
+  
+  * Configuration of rfxtrx devices now happens through the Integration UI page. Please see the documentation at https://www.home-assistant.io/integrations/rfxtrx/
+  * Configuration of entity name must now be done inside home assistant
+  * Multiple entities may be generated for a single device
+  * The events signalled from entity id's are removed in favor of events from an integration level.
+  * The events format has changed. Please see the documentation at: https://www.home-assistant.io/integrations/rfxtrx/#events
+
+  ([@elupus] - [#37742] [#37565]) ([rfxtrx docs]) 
+  </p>
+  </details>
+ <details><summary><b>Frontend</b></summary>
+ <p>
+
+  `extra_html_url` is now deprecated and support will be removed in 0.115. You can switch to the new `extra_module_url` or `extra_js_url_es5` by changing your imported file to JavaScript.
+  
+  ([@bramkragten] - [#37843]) ([frontend docs]) 
+  </p>
+  </details>
+ <details><summary><b>Fibaro</b></summary>
+ <p>
+  
+  Fibaro Home Center switches that control light sources will now correctly be configured as Light entities (instead of Switch entities). This causes those entities IDs to change from `switch`. to `light`. If this is not desirable, change the device role in Home Center to something that isn't a light source (e.g., Other device).
+  
+  ([@danielpervan] - [#37690]) ([fibaro docs])
+  </p>
+  </details>
 
 ## Farewell to the following
 
