@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2020-07-0.113/social.png
 ---
 
-<a href='/integrations/#version/0.113'><img src='/images/blog/2020-07-0.113/social.png' style='border: 0;box-shadow: none;'></a>
+<!--<a href='/integrations/#version/0.113'><img src='/images/blog/2020-07-0.113/social.png' style='border: 0;box-shadow: none;'></a>-->
 
 Beta release notes for 0.113.0
 
@@ -453,6 +453,26 @@ less than one second.
 </details>
 
 <details>
+  <summary><b>Templates</b></summary>
+  <p>
+
+Most of the template platforms would check for extract_entities failing to
+extract entities and avoid setting up a state change listener for "all" after
+extract_entities had warned that it could not extract the entities and updates
+would need to be done manually.
+
+This protection has been extended to all template platforms.
+
+Alter the behavior of extract_entities to return the successfully extracted
+entities if one or more templates fail extraction instead of returning "all"
+and getting rejected by the platform itself.
+
+([@bdraco] - [#37831]) ([template docs])
+
+  </p>
+</details>
+
+<details>
   <summary><b>Relative time</b></summary>
   <p>
 
@@ -488,6 +508,29 @@ MQTT will published also on clean connect from broker.
 </details>
 
 <details>
+  <summary><b>ZHA with Hue remotes</b></summary>
+  <p>
+
+This update does contains a breaking change if you are using Device Triggers
+for the Hue Dimmer models RWL020 and RWL021.
+
+We decided to configure these to use the extended manufacturer support so that
+we can support 4 triggers per button.
+
+If you were previously using Device Triggers in automations for these devices
+you will have reconfigure the device leveraging the button on the device page
+or remove and re-pair the device after updating Home Assistant.
+
+Then you will have to update the automations to use the new triggers.
+
+Sorry for the inconvenience.
+
+([@dmulcahey] - [#37859]) ([zha docs])
+
+  </p>
+</details>
+
+<details>
   <summary><b>Philips Hue</b></summary>
   <p>
 
@@ -498,7 +541,7 @@ Adding Hue bridges manually by IP can now be done via the UI. Changing allowing
 Hue groups or unreachable Hue bulb is now managed by clicking the options button
 on the Hue integration in the UI.
 
-([@frenck] - [#37268])
+([@frenck] - [#37268]) ([hue docs])
 
   </p>
 </details>
@@ -714,7 +757,7 @@ modules as a replacement.
 - Add Dexcom Integration ([@gagebenne] - [#33852]) ([dexcom docs]) (new-integration)
 - Bump pynws-1.2.1 for NWS ([@MatthewFlamm] - [#37304]) ([nws docs])
 - Limit entity platform entity service to same integration ([@balloob] - [#37313])
-- Add Hue manual bridge config flow + options flow ([@frenck] - [#37268])
+- Add Hue manual bridge config flow + options flow ([@frenck] - [#37268]) ([hue docs]) (breaking-change)
 - Fix Influx V1 test query ([@mdegat01] - [#37309]) ([influxdb docs])
 - Fix flapping flux tests ([@bdraco] - [#37346]) ([flux docs])
 - Add humidifier support to homekit ([@Shulyaka] - [#37207]) ([homekit docs])
@@ -772,7 +815,7 @@ modules as a replacement.
 - Upgrade flake8 to 3.8.3 ([@scop] - [#37501])
 - Use package constraints in tox lint ([@scop] - [#37500])
 - GitHub Actions: Add pytest problem matcher ([@frenck] - [#37508]) ([toon docs])
-- Enhance automation integration to use new features in script helper ([@pnbruckner] - [#37479]) ([automation docs]) ([script docs]) (breaking-change)
+- Enhance automation integration to use new features in script helper ([@pnbruckner] - [#37479]) ([automation docs]) ([script docs])
 - Do not count netdata cleared and undefined alarms as warnings ([@jurgenhaas] - [#37505]) ([netdata docs])
 - Bump env_canada to 0.1.0 ([@michaeldavie] - [#37483]) ([environment_canada docs])
 - Prebake common history queries ([@bdraco] - [#37496]) ([history docs])
@@ -799,8 +842,8 @@ modules as a replacement.
 - Switch homekit to use async_track_state_change_event ([@bdraco] - [#37253]) ([homekit docs])
 - Add missing manifest object to the check ([@ludeeus] - [#37535])
 - Add dependabot for automatic updates to GitHub Actions ([@frenck] - [#37550])
-- Bump actions/upload-artifact from v1 to v2.0.1 ([@dependabot[bot]] - [#37555])
-- Bump codecov/codecov-action from v1 to v1.0.10 ([@dependabot[bot]] - [#37556])
+- Bump actions/upload-artifact from v1 to v2.0.1 (dependabot - [#37555])
+- Bump codecov/codecov-action from v1 to v1.0.10 (dependabot - [#37556])
 - Strings capitalization consistency fixes ([@scop] - [#37454])
 - Protect loop set default executor ([@balloob] - [#37438])
 - Add optimistic mode to template switch ([@akloeckner] - [#31637]) ([template docs])
@@ -906,7 +949,7 @@ modules as a replacement.
 - Apply code review changes for poolsense ([@haemishkyd] - [#37817]) ([poolsense docs])
 - Version bump for asuswrt ([@kennedyshead] - [#37827]) ([asuswrt docs])
 - Travis CI improvements ([@scop] - [#37840])
-- Bump actions/upload-artifact from v2.0.1 to 2.1.0 ([@dependabot[bot]] - [#37841])
+- Bump actions/upload-artifact from v2.0.1 to 2.1.0 (dependabot - [#37841])
 - Add support for generic device (switch) to bond integration ([@prystupa] - [#37837]) ([bond docs]) (new-platform)
 - Add choose script action ([@pnbruckner] - [#37818])
 - Attrs cleanups ([@scop] - [#37849]) ([camera docs]) ([cast docs]) ([device_tracker docs]) ([esphome docs]) ([mqtt docs]) ([stream docs]) ([zha docs])
@@ -924,6 +967,29 @@ modules as a replacement.
 - Fix Fibaro HC light switches not being configured as Light entities ([@danielpervan] - [#37690]) ([fibaro docs]) (breaking-change)
 - Do no crash Luftdaten on additional data returned by the API ([@jbeyerstedt] - [#37763]) ([luftdaten docs])
 - Fix zone cleaning and raise config entry not ready when needed ([@dshokouhi] - [#37741]) ([neato docs])
+- bump zigpy and zha quirks ([@dmulcahey] - [#37859]) ([zha docs]) (breaking-change)
+- Updated frontend to 20200714.0 ([@bramkragten] - [#37862]) ([frontend docs])
+- Have async_track_point_in_utc_time call async_run_job directly from call_at ([@bdraco] - [#37790])
+- Add support for fireplaces to bond integration ([@prystupa] - [#37850]) ([bond docs])
+- Update august manufacturer name ([@bdraco] - [#37867]) ([august docs])
+- Switch async_track_state_change to the faster async_track_state_change_event part 6 ([@bdraco] - [#37869]) ([manual_mqtt docs]) ([min_max docs]) ([mold_indicator docs]) ([plant docs])
+- Switch async_track_state_change to the faster async_track_state_change_event part 5 ([@bdraco] - [#37866])
+- Switch async_track_state_change to the faster async_track_state_change_event part 4 ([@bdraco] - [#37863]) ([derivative docs]) ([generic_thermostat docs]) ([integration docs]) ([statistics docs])
+- Switch async_track_state_change to the faster async_track_state_change_event ([@bdraco] - [#37834]) ([group docs])
+- Switch a few more async_track_state_change to the faster async_track_state_change_event ([@bdraco] - [#37833])
+- Switch universal media_player to use async_track_state_change_event ([@bdraco] - [#37832]) ([universal docs])
+- Improve handling of template platforms when entity extraction fails ([@bdraco] - [#37831]) ([template docs]) (breaking-change)
+- Switch async_track_state_change to the faster async_track_state_change_event part 7 ([@bdraco] - [#37870]) ([alert docs]) ([knx docs]) ([zha docs])
+- Prefer external URLs because internal can't have valid SSL ([@balloob] - [#37872]) ([cast docs])
+- Use supervisord "group:name" when get process info ([@serhtt] - [#37678]) ([supervisord docs])
+- Don't reuse venv cache when Python version changes ([@frenck] - [#37881])
+- Fix yeelight flash ([@shenxn] - [#37743]) ([yeelight docs])
+- Improve Neato error logging by including device name ([@dshokouhi] - [#37865]) ([neato docs])
+- Stop running scripts at shutdown ([@pnbruckner] - [#37858])
+- Updated frontend to 20200715.0 ([@bramkragten] - [#37884]) ([frontend docs])
+- Adapt MQTT config flow to default birth and will ([@emontnemery] - [#37875]) ([mqtt docs])
+- Provide workaround for missing/disabled/broken IPv6 ([@bdraco] - [#37887]) ([zeroconf docs])
+- Revert breaking change for Automation ([@pvizeli] - [#37885]) ([automation docs])
 
 </details>
 
@@ -1129,6 +1195,7 @@ modules as a replacement.
 [#37666]: https://github.com/home-assistant/core/pull/37666
 [#37667]: https://github.com/home-assistant/core/pull/37667
 [#37677]: https://github.com/home-assistant/core/pull/37677
+[#37678]: https://github.com/home-assistant/core/pull/37678
 [#37682]: https://github.com/home-assistant/core/pull/37682
 [#37688]: https://github.com/home-assistant/core/pull/37688
 [#37690]: https://github.com/home-assistant/core/pull/37690
@@ -1151,6 +1218,7 @@ modules as a replacement.
 [#37740]: https://github.com/home-assistant/core/pull/37740
 [#37741]: https://github.com/home-assistant/core/pull/37741
 [#37742]: https://github.com/home-assistant/core/pull/37742
+[#37743]: https://github.com/home-assistant/core/pull/37743
 [#37746]: https://github.com/home-assistant/core/pull/37746
 [#37748]: https://github.com/home-assistant/core/pull/37748
 [#37749]: https://github.com/home-assistant/core/pull/37749
@@ -1167,6 +1235,7 @@ modules as a replacement.
 [#37780]: https://github.com/home-assistant/core/pull/37780
 [#37781]: https://github.com/home-assistant/core/pull/37781
 [#37789]: https://github.com/home-assistant/core/pull/37789
+[#37790]: https://github.com/home-assistant/core/pull/37790
 [#37792]: https://github.com/home-assistant/core/pull/37792
 [#37793]: https://github.com/home-assistant/core/pull/37793
 [#37794]: https://github.com/home-assistant/core/pull/37794
@@ -1184,13 +1253,33 @@ modules as a replacement.
 [#37827]: https://github.com/home-assistant/core/pull/37827
 [#37829]: https://github.com/home-assistant/core/pull/37829
 [#37830]: https://github.com/home-assistant/core/pull/37830
+[#37831]: https://github.com/home-assistant/core/pull/37831
+[#37832]: https://github.com/home-assistant/core/pull/37832
+[#37833]: https://github.com/home-assistant/core/pull/37833
+[#37834]: https://github.com/home-assistant/core/pull/37834
 [#37837]: https://github.com/home-assistant/core/pull/37837
 [#37840]: https://github.com/home-assistant/core/pull/37840
 [#37841]: https://github.com/home-assistant/core/pull/37841
 [#37843]: https://github.com/home-assistant/core/pull/37843
 [#37849]: https://github.com/home-assistant/core/pull/37849
+[#37850]: https://github.com/home-assistant/core/pull/37850
 [#37852]: https://github.com/home-assistant/core/pull/37852
 [#37853]: https://github.com/home-assistant/core/pull/37853
+[#37858]: https://github.com/home-assistant/core/pull/37858
+[#37859]: https://github.com/home-assistant/core/pull/37859
+[#37862]: https://github.com/home-assistant/core/pull/37862
+[#37863]: https://github.com/home-assistant/core/pull/37863
+[#37865]: https://github.com/home-assistant/core/pull/37865
+[#37866]: https://github.com/home-assistant/core/pull/37866
+[#37867]: https://github.com/home-assistant/core/pull/37867
+[#37869]: https://github.com/home-assistant/core/pull/37869
+[#37870]: https://github.com/home-assistant/core/pull/37870
+[#37872]: https://github.com/home-assistant/core/pull/37872
+[#37875]: https://github.com/home-assistant/core/pull/37875
+[#37881]: https://github.com/home-assistant/core/pull/37881
+[#37884]: https://github.com/home-assistant/core/pull/37884
+[#37885]: https://github.com/home-assistant/core/pull/37885
+[#37887]: https://github.com/home-assistant/core/pull/37887
 [@2Fake]: https://github.com/2Fake
 [@CoMPaTech]: https://github.com/CoMPaTech
 [@DarkFox]: https://github.com/DarkFox
@@ -1226,7 +1315,6 @@ modules as a replacement.
 [@ctalkington]: https://github.com/ctalkington
 [@danielpervan]: https://github.com/danielpervan
 [@davet2001]: https://github.com/davet2001
-[@dependabotbot]: https://github.com/apps/dependabot
 [@dermotduffy]: https://github.com/dermotduffy
 [@divanikus]: https://github.com/divanikus
 [@djpremier]: https://github.com/djpremier
@@ -1268,6 +1356,8 @@ modules as a replacement.
 [@raman325]: https://github.com/raman325
 [@robbiet480]: https://github.com/robbiet480
 [@scop]: https://github.com/scop
+[@serhtt]: https://github.com/serhtt
+[@shenxn]: https://github.com/shenxn
 [@shermdog]: https://github.com/shermdog
 [@smugleafdev]: https://github.com/smugleafdev
 [@starkillerOG]: https://github.com/starkillerOG
@@ -1279,10 +1369,12 @@ modules as a replacement.
 [ads docs]: /integrations/ads/
 [agent_dvr docs]: /integrations/agent_dvr/
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
+[alert docs]: /integrations/alert/
 [amcrest docs]: /integrations/amcrest/
 [androidtv docs]: /integrations/androidtv/
 [apache_kafka docs]: /integrations/apache_kafka/
 [asuswrt docs]: /integrations/asuswrt/
+[august docs]: /integrations/august/
 [automation docs]: /integrations/automation/
 [avri docs]: /integrations/avri/
 [azure_event_hub docs]: /integrations/azure_event_hub/
@@ -1296,6 +1388,7 @@ modules as a replacement.
 [debugpy docs]: /integrations/debugpy/
 [demo docs]: /integrations/demo/
 [denonavr docs]: /integrations/denonavr/
+[derivative docs]: /integrations/derivative/
 [device_tracker docs]: /integrations/device_tracker/
 [devolo_home_control docs]: /integrations/devolo_home_control/
 [dexcom docs]: /integrations/dexcom/
@@ -1324,6 +1417,7 @@ modules as a replacement.
 [geonetnz_volcano docs]: /integrations/geonetnz_volcano/
 [google_assistant docs]: /integrations/google_assistant/
 [google_pubsub docs]: /integrations/google_pubsub/
+[group docs]: /integrations/group/
 [guardian docs]: /integrations/guardian/
 [harmony docs]: /integrations/harmony/
 [history docs]: /integrations/history/
@@ -1334,11 +1428,16 @@ modules as a replacement.
 [hue docs]: /integrations/hue/
 [influxdb docs]: /integrations/influxdb/
 [input_number docs]: /integrations/input_number/
+[integration docs]: /integrations/integration/
 [ipp docs]: /integrations/ipp/
 [joaoapps_join docs]: /integrations/joaoapps_join/
+[knx docs]: /integrations/knx/
 [logger docs]: /integrations/logger/
 [loopenergy docs]: /integrations/loopenergy/
 [luftdaten docs]: /integrations/luftdaten/
+[manual_mqtt docs]: /integrations/manual_mqtt/
+[min_max docs]: /integrations/min_max/
+[mold_indicator docs]: /integrations/mold_indicator/
 [mqtt docs]: /integrations/mqtt/
 [neato docs]: /integrations/neato/
 [netatmo docs]: /integrations/netatmo/
@@ -1347,6 +1446,7 @@ modules as a replacement.
 [onvif docs]: /integrations/onvif/
 [ozw docs]: /integrations/ozw/
 [pioneer docs]: /integrations/pioneer/
+[plant docs]: /integrations/plant/
 [plex docs]: /integrations/plex/
 [plugwise docs]: /integrations/plugwise/
 [plum_lightpad docs]: /integrations/plum_lightpad/
@@ -1366,7 +1466,9 @@ modules as a replacement.
 [sonarr docs]: /integrations/sonarr/
 [spotify docs]: /integrations/spotify/
 [sql docs]: /integrations/sql/
+[statistics docs]: /integrations/statistics/
 [stream docs]: /integrations/stream/
+[supervisord docs]: /integrations/supervisord/
 [syncthru docs]: /integrations/syncthru/
 [tado docs]: /integrations/tado/
 [template docs]: /integrations/template/
@@ -1377,10 +1479,13 @@ modules as a replacement.
 [transmission docs]: /integrations/transmission/
 [tuya docs]: /integrations/tuya/
 [unifi docs]: /integrations/unifi/
+[universal docs]: /integrations/universal/
 [verisure docs]: /integrations/verisure/
 [vizio docs]: /integrations/vizio/
 [volumio docs]: /integrations/volumio/
 [worldclock docs]: /integrations/worldclock/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+[yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
 [zerproc docs]: /integrations/zerproc/
 [zha docs]: /integrations/zha/
