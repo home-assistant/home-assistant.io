@@ -55,13 +55,11 @@ module Jekyll
 
     def render_config_vars(vars:, component:, platform:, converter:, classes: nil, parent_type: nil)
       result = Array.new
-      result << "<dl class='#{classes}'>"
+      result << "<div class='#{classes}'>"
 
       result << vars.map do |key, attr|
         markup = Array.new
-        markup << "<dt><a class='title-link' name='#{slug(key)}' href='\##{slug(key)}'></a> #{key}</dt>"
-        markup << "<dd>"
-        markup << "<p class='desc'>"
+        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'>#{key}</span>"
 
         if attr.key? 'type'
 
@@ -78,8 +76,7 @@ module Jekyll
               TYPES.include? attr['type']
           end
 
-          markup << "<span class='type'>(<span class='#{type_class(attr['type'])}'>"
-          markup << "#{type_link(attr['type'], component: component)}</span>)</span>"
+          markup << "<span class='config-vars-type'>#{type_link(attr['type'], component: component)}</span>"
         else
           # Type is missing, which is required (unless we are in a list or template)
           raise ArgumentError, "Configuration key '#{key}' is missing a type definition" \
@@ -93,41 +90,40 @@ module Jekyll
             "true, false, inclusive or exclusive."\
             unless [true, false, 'inclusive', 'exclusive'].include? attr['required']
 
-          markup << "<span class='required'>(#{required_value(attr['required'])})</span>"
+          markup << "<span class='config-vars-required #{attr['required']}'>#{required_value(attr['required'])}</span>"
         end
 
+        markup << "</div><div class='config-vars-description-and-children'>"
+
         if attr.key? 'description'
-          markup << "<span class='description'>#{converter.convert(attr['description'].to_s)}</span>"
+          markup << "<span class='config-vars-description'>#{converter.convert(attr['description'].to_s)}</span>"
         else
           # Description is missing
           raise ArgumentError, "Configuration key '#{key}' is missing a description."
         end
-        markup << "</p>"
 
         if attr.key? 'default' and not attr['default'].to_s.empty?
-          markup << "<p class='default'>\nDefault value: #{converter.convert(attr['default'].to_s)}</p>"
+          markup << "<div class='config-vars-default'>\nDefault value: #{converter.convert(attr['default'].to_s)}</div>"
         elsif attr['type'].to_s.include? 'boolean'
           # Is the type is a boolean, a default key is required
           raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
             " therefore, requires a default."
         end
 
-        markup << "</dd>"
+        markup << "</div>"
 
         # Check for nested configuration variables
         if attr.key? 'keys'
-          markup << "<dd>"
           markup << render_config_vars(
             vars: attr['keys'], component: component,
             platform: platform, converter: converter,
             classes: 'nested', parent_type: attr['type'])
-          markup << "</dd>"
         end
 
-        markup
+        markup << "</div>"
       end
 
-      result << "</dl>"
+      result << "</div>"
       result.join
     end
 
