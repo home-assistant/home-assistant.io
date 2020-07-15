@@ -61,10 +61,14 @@ The automation's `mode` configuration option controls what happens when the auto
 
 Mode | Description
 -|-
-`single` | Do not start a new run. Issue a warning.
+`single` | (Default) Do not start a new run. Issue a warning.
 `restart` | Start a new run after first stopping previous run.
 `queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
-`parallel` | (Default) Start a new, independent run in parallel with previous runs.
+`parallel` | Start a new, independent run in parallel with previous runs.
+
+<p class='img'>
+  <img src='/images/integrations/script/script_modes.jpg'>
+</p>
 
 For both `queued` and `parallel` modes, configuration option `max` controls the maximum
 number of runs that can be executing and/or queued up at a time. The default is 10.
