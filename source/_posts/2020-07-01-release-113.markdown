@@ -26,14 +26,14 @@ Issues introduced in this beta, are generally picked up with priority.
 
 Another special, themed, release inbound!
 
-It seems like [@bdraco] is unstoppable, he just keep going on improving
+It seems like [@bdraco] is unstoppable; he just keeps going on improving
 the performance of the Core. I truly admire him for the work he has been
 delivering the past months, however, that is not the point of this release.
 Sorry, [@bdraco]!
 
 This release is about: Automations & Scripts! Yes!!!
 
-A long long time bug with automation triggering has been resolved, but not
+A long, long time bug with automation triggering has been resolved, but not
 only that, [@pnbruckner] went all-in by extending the automation/script engine
 even more.
 
@@ -54,8 +54,8 @@ this all, please note, that the `action` part of an automation is a script
 
 **So, all discussed below, apply to both scripts and automations.**
 
-Before diving in: All automation changes have been driven by [@pnbruckner]!
-It is awesome! Thanks!
+Before diving in: All automation and script changes, have been driven by
+[@pnbruckner]! It is awesome! Thanks!
 
 ### Automations & Scripts: Bug fix
 
@@ -83,7 +83,7 @@ automation:
 ```
 
 This automation turns on a light bulb when the button is pressed, and after
-10 seconds it turns off the light bulb again. A fairly basic automation, which
+10 seconds, it turns off the light bulb again. A fairly basic automation, which
 does exactly what one would expect, except when a button is pressed twice.
 
 So it takes 10 seconds for the bulb to turn off, what if you press the button
@@ -106,7 +106,7 @@ button push has triggered.
 
 ### Automations & Scripts: Running modes
 
-With the above mentioned bug fix, it now becomes possible to introduce new
+With the above-mentioned bug fix, it now becomes possible to introduce new
 running modes for both scripts and automations. It allows you to control
 what happens if actions of a previous trigger are still running.
 
@@ -167,7 +167,7 @@ Screenshot of running modes in the frontend.
 </p>
 
 This is a powerful feature, which allows you to control how automations
-and scripts are run, in ways you could not do before.
+and scripts are run in ways you could not do before.
 
 More information about the running mode can be found the [automations][automation-mode]
 and [scripts][scripts-mode] documentation.
@@ -261,7 +261,7 @@ More information about the chooser can be found in the [documentation][chooser].
 ### Automations & Scripts: Bonus! Cool down
 
 An often requested feature is to allow for a cool down time on an automation.
-What that entails is setting a limiting the run of a automation or script
+What that entails is setting a limiting the run of an automation or script
 to a certain time frame.
 
 While this is not a feature specifically added or build, it can be achieved
@@ -285,8 +285,8 @@ automation:
 ```
 
 The `single` run mode of this automation, combined with the last `delay` of 10
-seconds, prevent this automation to be ran more often than only once every 10
-seconds. This is ideal for things like a doorbell.
+seconds, prevents this automation from being ran more often than only once
+every 10 seconds. This is ideal for things like a doorbell.
 
 ## MDI icons updated
 
@@ -294,9 +294,9 @@ It has taken some time for us to upgrade to the newest version of
 [Material Design Icons][mdi], 5.3.45, there was a reason for that,
 version [5.0.45][mdi-upgrade] contains a lot of breaking changes.
 
-We wanted to handle these well so it took some time.
+We wanted to handle these well, so it took some time.
 
-A lot of icons are renamed, and some are removed. In this release we included
+A lot of icons are renamed, and some are removed. In this release, we included
 all new, and all removed icons and we made sure the new and the old name work.
 
 If you use an icon that is renamed or removed we will show a warning in the log,
@@ -310,7 +310,7 @@ Most of the removed MDI icons can be found in [Simple icons][simple-icons],
 which is available as a [custom integration][hass-simpleicons].
 
 Please note: It is possible that custom integrations (also known as
-custom components) use deprecated icons. These can throw warnings that needs
+custom components) use deprecated icons. These can throw warnings that need
 to be addressed in the custom integration.
 
 [mdi]: https://dev.materialdesignicons.com
@@ -335,11 +335,37 @@ The support for setting a custom icon, is also added to the scenes editor.
 
 ## More speed optimizations
 
-- New optimizations:
-  - Logbook?
-  - Listeners?
-  - anything else?
-- Python 3.8 (specially optimized build)
+After, the well-received, speed optimization done in the 0.111 & 0.112 releases,
+the sega towards improving resource usage and responsiveness of the platform
+continues.
+
+This time we have both [@bdraco] and [@pvizeli] to thank for some great
+optimizations that will reduce the CPU usage of Home Assistant.
+
+First of all, if you are running a Home Assistant OS, Container or
+Supervised installation, this your Home Assistant instance will run on
+Python 3.8. No action from your end is needed for this.
+
+It is not just a normal Python version, but [@pvizeli] has worked on a highly
+optimized Python version for Home Assistant, hitting performance improvements
+that can reach up to 40%! He wrote a more [technical article about this on
+our developers blog][python-speed].
+
+Then [@bdraco] did his part on adding some improvements to the Core. He
+changed a lot of handling around event & state listeners, in such a way
+less things trigger unneeded, which reduces processing when states change.
+
+This lowers CPU usage and improves response speed when you have many state
+changes happening in a short time span, or when having a lot of automations.
+
+Also, all time listeners now have microsecond precision as they are scheduled
+on the internal event loop, instead of the previous situation when it relied on
+the internal clock that triggered every second.
+
+This release should drastically lower the CPU usage of Home Assistant for
+most installations.
+
+[python-speed]: https://developers.home-assistant.io/blog/2020/07/13/alpine-python
 
 ## Other noteworthy changes
 
