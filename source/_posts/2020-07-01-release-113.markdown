@@ -169,6 +169,12 @@ Screenshot of running modes in the frontend.
 This is a powerful feature, which allows you to control how automations
 and scripts are run, in ways you could not do before.
 
+More information about the running mode can be found the [automations][automation-mode]
+and [scripts][scripts-mode] documentation.
+
+[automation-mode]: /docs/automation/#automation-modes
+[scripts-mode]: /integrations/script#script-modes
+
 ### Automations & Scripts: Repeats
 
 A brand new action is made to allow for repeating (also called loops)
@@ -178,7 +184,7 @@ The new repeat feature can be used in three different ways:
 
 - **Counted repeat**: Control how many times to repeat a sequence.
 - **While loop**: Keep repeating as long the condition(s) is/are met.
-- **Repeat until**: Runs at least once, and decides after that to repeat as long as the condition(s) is/are met.
+- **Repeat until**: Runs at least once, and decides after that to repeat until the condition(s) is/are met.
 
 For example, this would spam your phone with the same message 10 times:
 
@@ -191,6 +197,10 @@ For example, this would spam your phone with the same message 10 times:
         data:
           message: Ding dong! Someone is at the door!
 ```
+
+More information about repeats can be found in the [documentation][repeats].
+
+[repeats]: /docs/scripts/#repeat-a-group-of-actions
 
 ### Automations & Scripts: Chooser
 
@@ -238,7 +248,15 @@ automation:
 
 In the above example, pushing button1, turns on the bulb; while button2 turns
 it off again. The third button isn't handled by any of the conditions in
-the chooser and the default is run instead.
+the chooser and the (optional) default is run instead.
+
+The chooser can be used as an `if`/`else` statement, where the `default` acts as
+the else. Or even as `if`/`else if`/`else` statement as shown in the YAML
+example above.
+
+More information about the chooser can be found in the [documentation][chooser].
+
+[chooser]: /docs/scripts/#choose-a-group-of-actions
 
 ### Automations & Scripts: Bonus! Cool down
 
@@ -272,9 +290,9 @@ seconds. This is ideal for things like a doorbell.
 
 ## MDI icons updated
 
-It has taken some time for us to upgrade to the newest version of Material
-Design Icons, 5.3.45, there was a reason for that, version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45)
-contains a lot of breaking changes.
+It has taken some time for us to upgrade to the newest version of
+[Material Design Icons][mdi], 5.3.45, there was a reason for that,
+version [5.0.45][mdi-upgrade] contains a lot of breaking changes.
 
 We wanted to handle these well so it took some time.
 
@@ -288,8 +306,17 @@ old names no longer work.
 So make sure to check your logs if you need to adjust any of your used MDI
 icons.
 
-Most of the removed MDI icons can be found in [Simple icons](https://simpleicons.org/),
-which is available as a [custom integration](https://github.com/vigonotion/hass-simpleicons).
+Most of the removed MDI icons can be found in [Simple icons][simple-icons],
+which is available as a [custom integration][hass-simpleicons].
+
+Please note: It is possible that custom integrations (also known as
+custom components) use deprecated icons. These can throw warnings that needs
+to be addressed in the custom integration.
+
+[mdi]: https://dev.materialdesignicons.com
+[mdi-upgrade]: https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45
+[simple-icons]: https://simpleicons.org/
+[hass-simpleicons]: https://github.com/vigonotion/hass-simpleicons
 
 ## Script and Scene editor updates
 
@@ -314,16 +341,12 @@ The support for setting a custom icon, is also added to the scenes editor.
   - anything else?
 - Python 3.8 (specially optimized build)
 
-## Deprecated HTML imports
-
-With the start of custom components, you would import a HTML file for your component instead of JavaScript. That's why we have always supported importing extra HTML in the frontend and custom panels.
-This has been deprecated and superseded by ES modules since some time and has (almost) no support anymore in browsers. We have a polyfill in place to still support this, but we are going to remove this.
-
-In version 0.115 we will remove the ability to import HTML, you can use ES modules as a replacement.
-
 ## Other noteworthy changes
 
 - Philips Hue groups can now be turned on/off in the integration options via the UI.
+- The [OpenZWave][ozw docs] (beta) got 3 new services. Two of those are for
+  setting user codes on locks. The other allows for setting device-specific
+  configuration parameters.
 - After a moment of absence, [@yosilevy](https://github.com/yosilevy) is back!
   He has been the one fixing all kinds of RTL issues we had in Home Assistant,
   with his return, this release is full of RTL tweaks again!
@@ -360,164 +383,251 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
- <details><summary><b>Philips Hue</b></summary>
- <p>
+Below is a listing of the breaking change for this release, per subject or
+integration. Click on one of those to read more about the breaking change
+for that specific item.
 
-  Configuring a Hue bridge via YAML configuration is now deprecated. Your current YAML configuration is imported and can be safely removed after upgrading.
+<details>
+  <summary><b>Minimum Python version 3.7.1</b></summary>
+  <p>
 
-  Adding Hue bridges manually by IP can now be done via the UI. Changing allowing Hue groups or unreachable Hue bulb is now managed by clicking the options button on the Hue integration in the UI.
+The minimum required Python version has been bumped from Python 3.7.0 to 3.7.1.
 
-  ([@frenck] - [#37268])
+([@bdraco] - [#37184])
 
   </p>
-  </details>
- <details><summary><b>InfluxDB</b></summary>
- <p>
- 
-  Support added for glob matching in InfluxDB filters.
+</details>
 
-  InfluxDB was not using the common filtering logic shared by `recorder`, `logbook`, `homekit`, etc. and as a result had filtering logic that is inconsistent with the filtering logic of every other recorder-like component. This has been corrected causing the following changes in filtering logic:
+<details>
+  <summary><b>Automations/Scripts</b></summary>
+  <p>
 
-  Same domain specified in both include and exclude:
+The way automations behaved when they were triggered while "suspended" in a
+delay or wait_template step from a previous trigger event was unexpected. If
+this happened the suspended step would be aborted and the automation would
+continue the action sequence with the following step.
 
-  * Previous behavior: All entities in that domain excluded
-  * New behavior: All entities of that domain included unless entity is excluded by ID or by glob
+This change removes support for that "legacy" behavior, in both automations
+and scripts (although scripts were less affected by this.)
 
-  Same entity ID specified in both include and exclude:
+It also provides new "modes" of operation for these action sequences, namely
+`single`, `restart`, `queued` & `parallel`. To minimize the impact on existing
+automations and scripts, the default mode is `single`.
 
-  * Previous behavior: Entity excluded
-  * New behavior: Entity included
+In addition, for `queued` & `parallel` modes there is now a new configuration
+option -- `max` -- that controls the maximum number of "runs" that can be
+running and/or queued up at a time.
 
-  Filtering has 1+ exclude domains, 0 include domains, and 1+ include entity ID's specified:
+And lastly, the delay step is now much more precise, and supports delays of
+less than one second.
 
-  * Previous behavior: All entities not specifically listed by ID were excluded
-  * New behavior: All entities not specifically excluded by either domain or ID are included.
+([@pnbruckner] - [#37729]) ([automation docs]) ([script docs])
 
-  ([@mdegat01] - [#37069]) ([influxdb docs])
   </p>
-  </details>
- <details><summary><b>Transmission</b></summary>
- <p>
+</details>
 
-  For all torrents sensors (e.g. `active_torrents` or `started_torrents`) order of the content of the `torrent_info` attribute has changed to `oldest first` which means older torrents will appear first in the list. Also a default limit of 10 items is also applied to the list to avoid very long strings stored in the recorder database. Both config config options, `order` and `limit`, can be adjusted in the config flow UI. 
+<details>
+  <summary><b>Relative time</b></summary>
+  <p>
 
-  ([@zhulik] - [#35411]) ([transmission docs]) 
+Previously, the value used for displaying a relative time was floored before
+being interpolated into the localized string, leading to situations like these:
+
+- 47 hours ago is displayed as "1 day ago" instead of "2 days ago"
+- 13 days in the future is displayed as "in 1 week"
+
+This change modifies the `relativeTime` function to use `Math.round` instead of
+`Math.floor` so the output more closely matches the actual relative time of the
+input.
+
+([@GMTA] - [#37125])
+
   </p>
-  </details>
- <details><summary><b>AsusWRT and Generic Thermostat</b></summary>
- <p>
+</details>
 
-  The minimum required Python version has been bumped from Python 3.7.0 to 3.7.1.
+<details>
+  <summary><b>MQTT</b></summary>
+  <p>
 
-  ([@bdraco] - [#37184]) ([asuswrt docs]) ([generic_thermostat docs]) 
+Birth and will messages are now published by default.
+
+MQTT birth message defaults to:`{"topic": "homeassistant/status", "payload": "online"}`
+MQTT will message defaults to: `{"topic": "homeassistant/status", "payload": "offline"}`
+
+MQTT will published also on clean connect from broker.
+
+([@emontnemery] - [#37371]) ([mqtt docs])
+
   </p>
-  </details>
- <details><summary><b>MQTT</b></summary>
- <p>
+</details>
 
-  Birth and will messages are now published by default
-  MQTT birth message defaults to: `{"topic": "homeassistant/status", "payload": "online"}`
-  MQTT will message defaults to: `{"topic": "homeassistant/status", "payload": "offline"}`
-  MQTT will published also on clean connect from broker
+<details>
+  <summary><b>Philips Hue</b></summary>
+  <p>
 
-  ([@emontnemery] - [#37371]) ([mqtt docs]) 
+Configuring a Hue bridge via YAML configuration is now deprecated. Your current
+YAML configuration is imported and can be safely removed after upgrading.
+
+Adding Hue bridges manually by IP can now be done via the UI. Changing allowing
+Hue groups or unreachable Hue bulb is now managed by clicking the options button
+on the Hue integration in the UI.
+
+([@frenck] - [#37268])
+
   </p>
-  </details>
- <details><summary><b>Logitech Harmony Hub</b></summary>
- <p>
+</details>
 
-  Make devices and activities visible as harmony attributes
-  The current activity is now updated as soon as the remote starts the activity change instead of being delayed until the activity is finished setting up.
+<details>
+  <summary><b>InfluxDB</b></summary>
+  <p>
 
-  ([@bdraco] - [#37559]) ([harmony docs]) 
+Support for glob matching is added with InfluxDB filters.
+
+InfluxDB was not using the common filtering logic shared by `recorder`,
+`logbook`, `homekit`, etc. and as a result had filtering logic that is
+inconsistent with the filtering logic of every other recorder-like component.
+This has been corrected causing the following changes in filtering logic.
+
+Same domain specified in both include and exclude:
+
+- Previous behavior: All entities in that domain excluded
+- New behavior: All entities of that domain included unless entity is excluded
+  by ID or by glob
+
+Same entity ID specified in both include and exclude:
+
+- Previous behavior: Entity excluded
+- New behavior: Entity included
+
+Filtering has 1+ exclude domains, 0 include domains, and 1+ include entity ID's specified:
+
+- Previous behavior: All entities not specifically listed by ID were excluded
+- New behavior: All entities not specifically excluded by either domain or ID
+  are included.
+
+([@mdegat01] - [#37069]) ([influxdb docs])
+
   </p>
-  </details>
- <details><summary><b>Xiaomi Miio</b></summary>
- <p>
+</details>
+
+<details>
+  <summary><b>Transmission</b></summary>
+  <p>
+
+For all torrents sensors (e.g., `active_torrents` or `started_torrents`) order
+of the content of the `torrent_info` attribute has changed to `oldest first`
+which means older torrents will appear first in the list.
+
+Also a default limit of 10 items is also applied to the list to avoid very long
+strings stored in the recorder database. Both configuration options, `order` and
+`limit`, can be adjusted in the integrations UI.
+
+([@zhulik] - [#35411]) ([transmission docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Logitech Harmony Hub</b></summary>
+  <p>
+
+New devices and activities are visible as harmony attributes. The current
+activity is now updated as soon as the remote starts the activity change
+instead of being delayed until the activity is finished setting up.
+
+([@bdraco] - [#37559]) ([harmony docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Xiaomi Miio</b></summary>
+  <p>
 
   Fan and remote components now have unique LED strings.
-  If you had previously set your automation calls from "**fan**_set_led_on/off" to "**remote**_set_led_on/off", you will now need to set those back to "fan".
+  If you had previously set your automation calls from
+  "**fan**_set_led_on/off" to "**remote**_set_led_on/off",
+  you will now need to set those back to "fan".
 
   ([@alexhardwicke] - [#37605]) ([xiaomi_miio docs]) 
+
   </p>
-  </details>
- <details><summary><b>Samsung SyncThru Printer</b></summary>
- <p>
+</details>
 
-  Syncthru configuration is now done throught the integrations UI page.
+<details>
+  <summary><b>Samsung SyncThru Printer</b></summary>
+  <p>
 
-  ([@scop] - [#36690]) ([discovery docs]) ([syncthru docs]) 
+Syncthru configuration is now done through the integrations UI page.
+
+([@scop] - [#36690]) ([discovery docs]) ([syncthru docs])
   </p>
-  </details>
- <details><summary><b>Relative time</b></summary>
- <p>
+</details>
 
-  Previously, the value used for displaying a relative time was floored before being interpolated into the localized string, leading to situations like these:
+<details>
+  <summary><b>Slack</b></summary>
+  <p>
 
-  * 47 hours ago is displayed as "1 day ago" instead of "2 days ago"
-  * 13 days in the future is displayed as "in 1 week"
+Re-added the ability to use remote files (by URL) in Slack messages.
 
-  This change modifies the relativeTime function to use Math.round instead of Math.floor so the output more closely matches the actual relative time of the input.
-  
-  ([@GMTA] - [#37125]) 
+The data schema for sending files in Slack messages has changed, so be sure to
+update any Slack-related service calls with the new schema as listed in
+the Slack integration documentation.
+
+([@bachya] - [#37161]) ([slack docs])
+
   </p>
-  </details>
- <details><summary><b>Slack</b></summary>
- <p>
+</details>
 
-  Re-added the ability to use remote files (by URL) in Slack messages. The data schema for sending files in Slack messages has changed, so be sure to update any Slack-related service calls with the new schema: https://www.home-assistant.io/integrations/slack
+<details>
+  <summary><b>RFXCOM RFXtrx</b></summary>
+  <p>
   
-  ([@bachya] - [#37161]) ([slack docs]) 
+- Configuration of rfxtrx devices now happens through the Integration UI page.
+- Configuration of entity name must now be done inside home assistant
+- Multiple entities may be generated for a single device
+- The events signalled from entity id's are removed in favor of events from an integration level.
+- The events format has changed.
+
+([@elupus] - [#37742] [#37565]) ([rfxtrx docs])
+
   </p>
-  </details>
- <details><summary><b>Automations/Scripts</b></summary>
- <p>
+</details>
 
-  The way automations behaved when they were triggered while "suspended" in a delay or wait_template step from a previous trigger event was unexpected. If this happened the suspended step would be aborted and the automation would continue the action sequence with the following step.
-
-  This change removes support for that "legacy" behavior, in both automations and scripts (although scripts were less affected by this.)
+<details>
+  <summary><b>Fibaro</b></summary>
+  <p>
   
-  It also provides new "modes" of operation for these action sequences, namely single, restart, queued & parallel. To minimize the impact on existing automations and scripts, the default mode for automations is parallel, and the default mode for scripts is single. See the documentation for detailed descriptions of these modes.
-  
-  In addition, for queued & parallel modes there is now a new config option -- max -- that controls the maximum number of "runs" that can be executing and/or queued up at a time. And lastly, the delay step is now much more precise, and supports delays of less than one second. 
+Fibaro Home Center switches that control light sources will now correctly be configured as Light entities (instead of Switch entities). This causes those entities IDs to change from `switch`. to `light`. If this is not desirable, change the device role in Home Center to something that isn't a light source (e.g., Other device).
 
-  ([@pnbruckner] - [#37729]) ([automation docs]) ([script docs]) 
+([@danielpervan] - [#37690]) ([fibaro docs])
+
   </p>
-  </details>
- <details><summary><b>RFXCOM RFXtrx</b></summary>
- <p>
-  
-  * Configuration of rfxtrx devices now happens through the Integration UI page. Please see the documentation at https://www.home-assistant.io/integrations/rfxtrx/
-  * Configuration of entity name must now be done inside home assistant
-  * Multiple entities may be generated for a single device
-  * The events signalled from entity id's are removed in favor of events from an integration level.
-  * The events format has changed. Please see the documentation at: https://www.home-assistant.io/integrations/rfxtrx/#events
+</details>
 
-  ([@elupus] - [#37742] [#37565]) ([rfxtrx docs]) 
+<details>
+  <summary><b>Frontend: Deprecated HTML imports</b></summary>
+  <p>
+
+`extra_html_url` is now deprecated and support will be removed in 0.115.
+You can switch to the new `extra_module_url` or `extra_js_url_es5` by changing
+your imported file to JavaScript.
+
+With the start of custom components, you would import a HTML file for your
+component instead of JavaScript. That's why we have always supported importing
+extra HTML in the frontend and custom panels.
+
+This has been deprecated and superseded by ES modules since some time and has
+ no support anymore in browsers. We have a polyfill in place to still support
+ this, but we are going to remove this.
+
+In version 0.115 we will remove the ability to import HTML, you can use ES
+modules as a replacement.
+
+([@bramkragten] - [#37843]) ([frontend docs])
+
   </p>
-  </details>
- <details><summary><b>Frontend</b></summary>
- <p>
-
-  `extra_html_url` is now deprecated and support will be removed in 0.115. You can switch to the new `extra_module_url` or `extra_js_url_es5` by changing your imported file to JavaScript.
-  
-  ([@bramkragten] - [#37843]) ([frontend docs]) 
-  </p>
-  </details>
- <details><summary><b>Fibaro</b></summary>
- <p>
-  
-  Fibaro Home Center switches that control light sources will now correctly be configured as Light entities (instead of Switch entities). This causes those entities IDs to change from `switch`. to `light`. If this is not desirable, change the device role in Home Center to something that isn't a light source (e.g., Other device).
-  
-  ([@danielpervan] - [#37690]) ([fibaro docs])
-  </p>
-  </details>
-
-## Farewell to the following
-
-The integrations below have been removed:
-
-- Lorem ipsum
+</details>
 
 ## All changes
 
