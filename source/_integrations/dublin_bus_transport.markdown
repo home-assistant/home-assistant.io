@@ -8,11 +8,11 @@ ha_release: 0.36
 ha_domain: dublin_bus_transport
 ---
 
-The `dublin_bus_transport` sensor will give you the time until the next two departures from a Dublin bus stop using the RTPI information.
+The `dublin_bus_transport` sensor will give you the time until the next bus departure also a timetable from a Dublin bus stop using the RTPI information.
 
 The [Dublin Bus](https://www.dublinbus.ie/RTPI/) website can help to determine the id of your bus stop. You can check if this is correct by going to
 
-https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=[Stop ID]
+https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid=[Stop ID]
 
 Then add the data to your `configuration.yaml` file as shown in the example:
 
@@ -39,4 +39,4 @@ name:
   type: string
 {% endconfiguration %}
 
-The public RTPI information is coming from [Dub Linked](https://data.dublinked.ie/).
+The public RTPI information is coming from [Smart Dublin](https://data.smartdublin.ie).
