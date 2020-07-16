@@ -130,7 +130,6 @@ module Jekyll
         if isDefault && defaultValue.length > MIN_DEFAULT_LENGTH
           markup << "<div class='config-vars-default'>\nDefault: #{defaultValue}</div>"
         end
-        
         markup << "</div>"
 
         # Check for nested configuration variables
