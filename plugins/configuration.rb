@@ -165,7 +165,7 @@ module Jekyll
 
       <<~MARKUP
         <div class="config-vars">
-          <h4><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h4>
+          <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
           #{render_config_vars(
             vars: vars,
             component: component,
