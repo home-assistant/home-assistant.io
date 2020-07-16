@@ -12,6 +12,8 @@ module Jekyll
       'device_class', 'icon', 'map', 'list', 'date', 'datetime'
     ]
 
+    MIN_DEFAULT_LENGTH = 30
+
     def initialize(tag_name, text, tokens)
       super
       @component, @platform = text.strip.split('.', 2)
@@ -83,6 +85,16 @@ module Jekyll
             unless ['list', 'template'].include? parent_type
         end
 
+        defaultValue = ""
+        isDefault = false
+        if attr.key? 'default' and not attr['default'].to_s.empty? 
+          isDefault = true
+          defaultValue = converter.convert(attr['default'].to_s)
+        elsif attr['type'].to_s.include? 'boolean'
+          # Is the type is a boolean, a default key is required
+          raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
+            " therefore, requires a default."
+        end
         
         if attr.key? 'required'
           # Check if required is a valid value
@@ -90,7 +102,20 @@ module Jekyll
             "true, false, inclusive or exclusive."\
             unless [true, false, 'inclusive', 'exclusive'].include? attr['required']
 
-          markup << "<span class='config-vars-required #{attr['required']}'>#{required_value(attr['required'])}</span>"
+          isTrue = attr['required'].to_s == 'true'
+          startSymbol = isTrue ? '' : '('
+          endSymbol = isTrue ? '' : ')'
+          showDefault = isDefault && (defaultValue.length <= MIN_DEFAULT_LENGTH)
+          shortDefaultValue = ""
+          if showDefault
+            shortDefaultValue = defaultValue
+            shortDefaultValue.slice!("<p>")
+            shortDefaultValue.slice!("</p>")
+            shortDefaultValue = shortDefaultValue.strip
+            shortDefaultValue = ", default: " + shortDefaultValue
+          end
+
+          markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required'].to_s}'>#{required_value(attr['required'])}</span>#{shortDefaultValue}#{endSymbol}</span>"
         end
 
         markup << "</div><div class='config-vars-description-and-children'>"
@@ -102,14 +127,10 @@ module Jekyll
           raise ArgumentError, "Configuration key '#{key}' is missing a description."
         end
 
-        if attr.key? 'default' and not attr['default'].to_s.empty?
-          markup << "<div class='config-vars-default'>\nDefault value: #{converter.convert(attr['default'].to_s)}</div>"
-        elsif attr['type'].to_s.include? 'boolean'
-          # Is the type is a boolean, a default key is required
-          raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
-            " therefore, requires a default."
+        if isDefault && defaultValue.length > MIN_DEFAULT_LENGTH
+          markup << "<div class='config-vars-default'>\nDefault: #{defaultValue}</div>"
         end
-
+        
         markup << "</div>"
 
         # Check for nested configuration variables
@@ -145,7 +166,7 @@ module Jekyll
 
       <<~MARKUP
         <div class="config-vars">
-          <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+          <h4><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h4>
           #{render_config_vars(
             vars: vars,
             component: component,

@@ -507,7 +507,7 @@ div.config-vars {
     padding-bottom: 4px;
     position: relative;
 
-    span {
+    > span {
       padding-right: 4px;
     }
 
@@ -539,7 +539,7 @@ div.config-vars {
     font-size: 13px;
     text-transform: lowercase;
 
-    &.true {
+    .true {
       color: #e56f4a;
       text-transform: uppercase;
       font-size: 11px;
