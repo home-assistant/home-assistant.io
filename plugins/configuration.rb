@@ -91,7 +91,7 @@ module Jekyll
           isDefault = true
           defaultValue = converter.convert(attr['default'].to_s)
         elsif attr['type'].to_s.include? 'boolean'
-          # Is the type is a boolean, a default key is required
+          # If the type is a boolean, a default key is required
           raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
             " therefore, requires a default."
         end
