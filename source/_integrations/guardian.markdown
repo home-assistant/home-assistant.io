@@ -38,6 +38,14 @@ Disable the device's onboard access point.
 
 Enable the device's onboard access point.
 
+### `guardian.pair_sensor`
+
+Add a new paired sensor to the valve controller.
+
+| Service Data Attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
+
 ### `guardian.reboot`
 
 Reboot the device.
@@ -45,6 +53,14 @@ Reboot the device.
 ### `guardian.reset_valve_diagnostics`
 
 Fully (and irrecoverably) reset all valve diagnostics.
+
+### `guardian.unpair_sensor`
+
+Remove a paired sensor from the valve controller.
+
+| Service Data Attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
 
 ### `guardian.upgrade_firmware`
 
@@ -55,3 +71,7 @@ Upgrade the device firmware.
 | `url`                    | yes      | The URL of the server hosting the firmware file. |
 | `port`                   | yes      | The port on which the firmware file is served.   |
 | `filename`               | yes      | The firmware filename.                           |
+
+*Note:* not all service calls are available on all Guardian valve controller firmwares.
+Please ensure you upgrade your valve controller to the latest firmware before opening
+bugs related to non-working service calls.
