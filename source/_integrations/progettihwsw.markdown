@@ -1,4 +1,3 @@
-
 ---
 title: progettihwsw
 description: Instructions on how to integrate the ProgettiHWSW remote relay boards into Home Assistant.
@@ -6,7 +5,7 @@ ha_category:
   - DIY
   - Binary Sensor
   - Switch
-ha_release: 0.112.5
+ha_release: 0.114
 ha_iot_class: Local Polling
 ha_domain: progettihwsw
 ---
