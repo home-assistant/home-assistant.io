@@ -652,7 +652,6 @@ the Slack integration documentation.
   <summary><b>RFXCOM RFXtrx</b></summary>
   <p>
   
-- Configuration of rfxtrx devices now happens through the Integration UI page.
 - Configuration of entity name must now be done inside home assistant
 - Multiple entities may be generated for a single device
 - The events signalled from entity id's are removed in favor of events from an integration level.
