@@ -75,3 +75,11 @@ Upgrade the device firmware.
 *Note:* not all service calls are available on all Guardian valve controller firmwares.
 Please ensure you upgrade your valve controller to the latest firmware before opening
 bugs related to non-working service calls.
+
+## Paired Sensor Notes
+
+When a paired sensor is first added to the valve controller, it may return inaccurate or
+nonsensical values for several of its attributes, such as `battery` and `temperature`. This
+is due to the sensor never having communicated its data to the valve controller and can
+be fixed by moving the sensor around (so that it beeps, indicating that data has been
+sent to the valve controller).
