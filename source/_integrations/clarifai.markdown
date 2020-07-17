@@ -54,7 +54,7 @@ service: clarifai.predict
 data:
   app_id: YOUR_APP_ID
   workflow_id: YOUR_WORKFLOW_ID
-  result_format: flat # or nested
+  result_format: concepts
   entity_id: camera.<NAME>
 ```
 
@@ -70,10 +70,10 @@ workflow_id:
   required: true
   type: string
 result_format:
-  description: The workflow result can be returned either flat or nested.
-  example: flat
+  description: Either default result format from Clarifai or concepts only.
+  example: concepts
   required: false
-  default: nested
+  default: default
   type: string
 entity_id:
   description: The camera entity to scan for images.
@@ -91,7 +91,7 @@ be sent to Clarifai for processing.
 
 To setup the image processing platform, add the following to your `configuration.yaml` file.
 Most of the configuration variables are the same as when making a service call. The only additional
-variable that must be configured is the scan interval. 
+variable that must be configured is the scan interval.
 
 ```yaml
 # To set up the Clarifai image processing platform
@@ -99,7 +99,7 @@ image_processing:
   - platform: clarifai
     app_id: YOUR_APP_ID
     workflow_id: YOUR_WORKFLOW_ID
-    result_format: flat # or nested
+    result_format: concepts
     scan_interval: 10000 # reduce this but be careful with API limit
     source:
       - entity_id: camera.front_door
@@ -113,50 +113,41 @@ scan_interval:
   type: string
 {% endconfiguration %}
 
-**NOTE** – The Clarifai community plan limits the maximum number of requests 
-per month. Therefore, it is strongly recommended that you limit the `scan_interval` when 
+**NOTE** – The Clarifai community plan limits the maximum number of requests
+per month. Therefore, it is strongly recommended that you limit the `scan_interval` when
 setting up an instance of this entity as detailed on the main [Image Processing component](/integrations/image_processing/) page.
 
 ## Result Format
 
-There are two options for the result format returned from a prediction. 
+There are two options for the result format returned from a prediction.
 
-- *nested*
+- *default*
 
-The nested result format returns the results from a workflow prediction in the original nested
+The default result format returns the results from a workflow prediction in the original nested
 format returned from Clarifai. See the Clarifai [docs](https://docs.clarifai.com/api-guide/workflows/workflow-predict)
-for more info on the nested result format. 
+for more info on the default result format.
 
-- *flat*
+- *concepts*
 
-The flat result format parser recursively crawls through the nested region data for each output and 
-aggregates the concepts and regions into lists. This preserves the confidence values for each concept
+The concepts result format parser recursively crawls through the nested region data for each output and 
+aggregates the concepts into lists. This preserves the confidence values for each concept
 by storing them as a list so that the user can easily take the maximum value from the list for use in 
 automations. 
 
-Below is an example result that has been formatted with the flat parser. 
+Below is an example result that has been formatted with the concepts parser. 
 
 ```json
 "concepts": {
-        "3D-P27": [
-            0,
-            0
-        ],
-        "3D-P30": [
-            0,
-            0
-        ]
-    },
-"regions": [
-    {
-        "boundingBox": {
-            "topRow": 0.07539025,
-            "leftCol": 0.2703206,
-            "bottomRow": 0.7358365,
-            "rightCol": 0.7092912
-        }
-    }
-]
+  "man": [
+    0.9930395
+  ],
+  "portrait": [
+    0.98727286
+  ],
+  "fine-looking": [
+    0.9769733
+  ]
+}
 ```
 
 ## Prediction Event
