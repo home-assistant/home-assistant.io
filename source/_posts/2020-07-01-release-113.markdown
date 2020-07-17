@@ -698,6 +698,19 @@ modules as a replacement.
   </p>
 </details>
 
+<details>
+  <summary><b>Frontend: Themes</b></summary>
+  <p>
+
+The theme variable `paper-card-background-color` is removed. You can use `ha-card-background` or `card-background-color` as a replacement.
+
+In general, all variables that start with `paper` will be removed at some point.
+
+([@bramkragten] - [frontend#6377](https://github.com/home-assistant/frontend/pull/6377)) ([frontend docs])
+
+  </p>
+</details>
+
 ## All changes
 
 <details>
