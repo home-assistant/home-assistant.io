@@ -5,7 +5,7 @@ ha_category:
   - DIY
   - Binary Sensor
   - Switch
-ha_release: 0.113
+ha_release: 0.114
 ha_iot_class: Local Push
 ha_codeowners:
   - '@DaAwesomeP'
