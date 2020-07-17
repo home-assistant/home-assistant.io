@@ -6,7 +6,7 @@ ha_category:
   - Scene
 ha_release: '0.110'
 ha_config_flow: true
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_codeowners:
   - '@gwww'
 ha_domain: upb
