@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Switch
 ha_release: 0.65
+ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@scop'
@@ -25,71 +26,12 @@ Set up your API user credentials in your [UpCloud control panel](https://hub.upc
 
 ## Configuration
 
-To integrate your UpCloud servers with Home Assistant, add the following section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-upcloud:
-  username: YOUR_API_USERNAME
-  password: YOUR_API_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your UpCloud API username.
-  required: true
-  type: string
-password:
-  description: Your UpCloud API user password.
-  required: true
-  type: string
-scan_interval:
-  description: Update interval in seconds.
-  required: false
-  type: integer
-  default: 60
-{% endconfiguration %}
++Go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **UpCloud**.
 
 ## Binary Sensor
 
-The `upcloud` binary sensor platform allows you to monitor your UpCloud servers.
-
-To use your UpCloud servers, you first have to set up your [UpCloud hub](#configuration) and then add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: upcloud
-    servers:
-      - 002167b7-4cb1-44b7-869f-e0900ddeeae1
-      - 00886296-6137-4074-afe3-068e16d89d00
-```
-
-{% configuration %}
-servers:
-  description: List of servers you want to monitor.
-  required: true
-  type: list
-{% endconfiguration %}
+A binary sensor entity is set up for all discovered servers.
 
 ## Switch
 
-The `upcloud` switch platform allows you to control (start/stop) your UpCloud servers.
-
-To use your UpCloud servers, you first have to set up your [UpCloud hub](#configuration) and then add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: upcloud
-    servers:
-      - 002167b7-4cb1-44b7-869f-e0900ddeeae1
-      - 00886296-6137-4074-afe3-068e16d89d00
-```
-
-{% configuration %}
-servers:
-  description: List of servers you want to control.
-  required: true
-  type: list
-{% endconfiguration %}
+A switch entity is set up for all discovered servers. You can use the switch to control (start/stop) them.
