@@ -1,6 +1,6 @@
 ---
-title: Shelly
-description: Instructions on how to integrate Shelly modules with Home Assistant.
+title: Shelly MQTT
+description: Instructions on how to integrate Shelly modules with Home Assistant over MQTT.
 ha_category:
   - Switch
 ha_release: "0.113"
@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - "@OnFreund"
-ha_domain: shelly
+ha_domain: shelly_mqtt
 ---
 
 This integration connects with Shelly devices (e.g., Shelly 1 switch) over MQTT.
@@ -25,7 +25,7 @@ Home Assistant frontend.
 
 Menu: **Configuration** -> **Integrations**.
 
-Click on the `+` sign to add an integration and click on **Shelly**.
+Click on the `+` sign to add an integration and click on **Shelly MQTT**.
 The configuration flow will discover devices that are currently connected
 to your MQTT server, and will guide you through configuring them.
 
