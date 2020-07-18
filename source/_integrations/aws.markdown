@@ -176,7 +176,7 @@ confidence:
     default: 70
     type: float
 detection_attributes:
-  description: Whether to return extra attributes or a specific attribute. Please see the AWS [docs](https://docs.aws.amazon.com/rekognition/latest/dg/faces-detect-images.html) for more detail.
+  description: Whether to return extra attributes or a specific attribute. Please see the [Rekognition documentation](https://docs.aws.amazon.com/rekognition/latest/dg/faces-detect-images.html) for more detail.
   required: false
   default: none
   type: string
