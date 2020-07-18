@@ -174,7 +174,7 @@ homekit:
               stream_count:
                 description: Only for `camera` entities. The number of simultaneous stream the camera can support.
                 required: false
-                type: int
+                type: integer
                 default: 3                
               stream_address:
                 description: Only for `camera` entities. The source IP address to use when streaming to RTP clients. If your Home Assistant host has multiple interfaces, selecting a specific IP may be necessary.
