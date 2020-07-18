@@ -10,9 +10,9 @@ ha_domain: xiaomi_miio
 
 The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use during config flow setup.
+Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
 
-## Config flow setup
+## Configuration flow setup
 
 To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option "Connect to a Xiaomi Gateway" and click submit. You will then be presented with a form in which you will need to fill in the "IP address" and 32 characters "token". Optionally, you can specify a different name for the gateway. After you click submit, you will have the opportunity to select the area that your devices are located.
 
@@ -32,14 +32,14 @@ name:
   default: Xiaomi Gateway
 {% endconfiguration %}
 
-## Supported xiaomi gateway models:
+## Supported Xiaomi gateway models:
 
-| Gateway name     | zigbee id           | model        | supported                                 |
+| Gateway name     | Zigbee id           | model        | supported                                 |
 | ---------------- | ------------------- | ------------ |------------------------------------------ |
 | Chinese version  | lumi.gateway.v3     | DGNWG02LM    | yes                                       |
 | European version | lumi.gateway.mieu01 | ZHWG11LM-763 | only gateway features (no subdevices yet) |
 | Aqara hub        | lumi.gateway.aqhm01 | ZHWG11LM     | untested                                  |
-| Mijia zigbee 3.0 | lumi.gateway.mgl03  | ZNDMWG03LM   | untested                                  |
+| Mijia Zigbee 3.0 | lumi.gateway.mgl03  | ZNDMWG03LM   | untested                                  |
 
 
 ## Gateway Features
@@ -53,7 +53,7 @@ Not yet implemented features (but possible):
 ## Supported subdevices
 These subdevices are fully implemented in HomeAssistant:
 
-| Subdevice name                   | zigbee id               | model           | features                                         |
+| Subdevice name                   | Zigbee id               | model           | features                                         |
 | -------------------------------- | ----------------------- | --------------- | ------------------------------------------------ |
 | Weather sensor                   | lumi.sensor_ht          | WSDCGQ01LM      | readout `temperature` and `humidity`             |
 | Weather sensor                   | lumi.weather.v1         | WSDCGQ11LM      | readout `temperature`, `humidity` and `pressure` |
@@ -61,7 +61,7 @@ These subdevices are fully implemented in HomeAssistant:
 ## Recognized subdevices (not yet implemented)
 These subdevices are recognized by the python-miio code but are still being worked on (not yet implemented).
 
-| Subdevice name                   | zigbee id               | model           |
+| Subdevice name                   | Zigbee id               | model           |
 | -------------------------------- | ----------------------- | --------------- |
 | Button                           | lumi.sensor_switch      | WXKG01LM        |
 | Button                           | lumi.sensor_switch.aq2  | WXKG11LM 2015   |
@@ -103,11 +103,11 @@ These subdevices are recognized by the python-miio code but are still being work
 | Door lock S2 pro                 | lumi.lock.acn03         | ZNMS13LM        |
 | Vima cylinder lock               | lumi.lock.v1            | A6121           |
 | Smart bulb E27                   | lumi.light.aqcn02       | ZNLDP12LM       |
-| Ikea smart bulb E27 white        | ikea.light.led1545g12   | LED1545G12      |
-| Ikea smart bulb E27 white        | ikea.light.led1546g12   | LED1546G12      |
-| Ikea smart bulb E12 white        | ikea.light.led1536g5    | LED1536G5       |
-| Ikea smart bulb GU10 white       | ikea.light.led1537r6    | LED1537R6       |
-| Ikea smart bulb E27 white        | ikea.light.led1623g12   | LED1623G12      |
-| Ikea smart bulb GU10 white       | ikea.light.led1650r5    | LED1650R5       |
-| Ikea smart bulb E12 white        | ikea.light.led1649c5    | LED1649C5       |
+| IKEA smart bulb E27 white        | ikea.light.led1545g12   | LED1545G12      |
+| IKEA smart bulb E27 white        | ikea.light.led1546g12   | LED1546G12      |
+| IKEA smart bulb E12 white        | ikea.light.led1536g5    | LED1536G5       |
+| IKEA smart bulb GU10 white       | ikea.light.led1537r6    | LED1537R6       |
+| IKEA smart bulb E27 white        | ikea.light.led1623g12   | LED1623G12      |
+| IKEA smart bulb GU10 white       | ikea.light.led1650r5    | LED1650R5       |
+| IKEA smart bulb E12 white        | ikea.light.led1649c5    | LED1649C5       |
 | Thermostat S2                    | lumi.airrtc.tcpecn02    | KTWKQ03ES       |
