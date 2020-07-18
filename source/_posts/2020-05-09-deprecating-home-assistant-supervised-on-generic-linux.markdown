@@ -8,6 +8,10 @@ author_twitter: balloob
 categories: Announcements
 ---
 
+**[Update May 26]**
+
+[New blog post published with next steps.](/blog/2020/05/26/installation-methods-and-community-guides-wiki/)
+
 **[Update May 10]**
 
 We’ve been overwhelmed with the many reactions. We realize our communication has been poor on this subject, for which I want to apologize. We do not collect data and so can’t always judge the impact of our decisions.

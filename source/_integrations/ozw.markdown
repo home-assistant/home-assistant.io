@@ -7,9 +7,9 @@ ha_release: "0.110"
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@cgarwood'
-  - '@marcelveldt'
-  - '@MartinHjelmare'
+  - "@cgarwood"
+  - "@marcelveldt"
+  - "@MartinHjelmare"
 ha_domain: ozw
 ---
 
@@ -19,7 +19,7 @@ This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave
 
 - MQTT server and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
 - The [ozwdaemon](https://github.com/OpenZWave/qt-openzwave) installed and running in your network.
-  For Home Assistant Supervisor there's a [custom add-on](https://github.com/marcelveldt/hassio-addons-repo/tree/master/ozwdaemon).
+  For Home Assistant Supervisor there's an official add-on named OpenZWave available from the add-on store.
 - Supported Z-Wave dongle compatible with OpenZWave 1.6. See this [list](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules) of controllers. The Z-Wave controller dongle should be connected to the same host as where the ozwdaemon is running.
 
 ## Configuration
@@ -65,3 +65,37 @@ this operation.
 | Service Data Attribute | Required | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1. |
+
+### Service `ozw.set_usercode`
+
+This service will set the usercode to X at code slot Y.
+Valid usercodes are at least 4 digits.
+
+| Service Data Attribute | Required | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            | no       | Lock entity or list of entities to set the usercode. |
+| `code_slot`            | yes      | The code slot to set the usercode into.              |
+| `usercode`             | yes      | The code to set in the slot.                         |
+
+### Service `ozw.clear_usercode`
+
+This service will clear the usercode in code slot X.
+Valid code slots are between 1-254.
+
+| Service Data Attribute | Required | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `entity_id`            | no       | Lock entity or list of entities to clear the usercode. |
+| `code_slot`            | yes      | The code slot to clear the usercode from.              |
+
+### Service `ozw.set_config_parameter`
+
+This service will set the specified configuration parameter to the value specified to
+allow device-specific configurations. Example of this would be setting notification
+LED colors on switches.
+
+| Service Data Attribute | Required | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
+| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                              |
+| `parameter`            | yes      | Parameter number to set (integer).                                                                              |
+| `value`                | yes      | Value to set for parameter. (String or integer value for list, string for bool parameters, integer for others). |

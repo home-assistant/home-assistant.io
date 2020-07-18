@@ -12,6 +12,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fronzbot'
 ha_domain: blink
+ha_config_flow: true
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
@@ -59,8 +60,8 @@ Once Home Assistant starts and you authenticate access, the `blink` integration 
 
 - An `alarm_control_panel` to arm/disarm the whole blink system (note, `alarm_arm_home` is not implemented and will not actually do anything, despite it being an option in the GUI).
 - A `camera` for each camera linked to your Blink sync module.
-- A `sensor` per camera for temperature, wifi strength, and battery status
-- A `binary_sensor` motion detection and camera armed status
+- A `sensor` per camera for temperature and Wi-Fi strength.
+- A `binary_sensor` motion detection, camera armed status, and battery status.
 
 Since the cameras are battery operated, setting the `scan_interval` must be done with care so as to not drain the battery too quickly, or hammer Blink's servers with too many API requests.  The cameras can be manually updated via the `trigger_camera` service which will ignore the throttling caused by `scan_interval`.  As a note, all of the camera-specific sensors are only polled when a new image is requested from the camera. This means that relying on any of these sensors to provide timely and accurate data is not recommended.
 
@@ -90,11 +91,11 @@ Trigger a camera to take a new still image.
 
 | Service Data Attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
-| `name`                 | no       | Name of camera to take new image with. |
+| `entity_id`            | yes      | Camera entity to take picture with.    |
 
 ### `blink.save_video`
 
-Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `whitelist_external_dirs` in your `configuration.yaml` file (see example below).
+Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file (see example below).
 
 | Service Data Attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
@@ -104,10 +105,9 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 ```yaml
 homeassistant:
-    ...
-    whitelist_external_dirs:
-        - '/tmp'
-        - '/path/to/whitelist'
+  allowlist_external_dirs:
+    - '/tmp'
+    - '/path/to/whitelist'
 ```
 
 ### `blink.send_pin`
@@ -134,15 +134,15 @@ This example script shows how to take a picture with your camera, named `My Came
 ```yaml
 alias: Blink Snap Picture
 sequence:
-    - service: blink.trigger_camera
-      data:
-          name: "My Camera"
-    - delay: 00:00:05  
-    - service: blink.blink_update
-    - service: camera.snapshot
-      data:
-          entity_id: camera.blink_my_camera
-          filename: /tmp/my_image.jpg
+  - service: blink.trigger_camera
+    data:
+      entity_id: camera.blink_my_camera
+  - delay: 00:00:05
+  - service: blink.blink_update
+  - service: camera.snapshot
+    data:
+      entity_id: camera.blink_my_camera
+      filename: /tmp/my_image.jpg
 ```
 
 ### Arm Blink When Away
@@ -155,12 +155,12 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
 - id: arm_blink_when_away
   alias: Arm Blink When Away
   trigger:
-      platform: state
-      entity_id: all
-      to: 'not_home'
+    platform: state
+    entity_id: all
+    to: 'not_home'
   action:
-      service: alarm_control_panel.alarm_arm_away
-      entity_id: alarm_control_panel.blink_my_sync_module 
+    service: alarm_control_panel.alarm_arm_away
+    entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Disarm Blink When Home
@@ -171,12 +171,12 @@ Similar to the previous example, this automation will disarm blink when arriving
 - id: disarm_blink_when_home
   alias: Disarm Blink When Home
   trigger:
-      platform: state
-      entity_id: all
-      to: 'home'
+    platform: state
+    entity_id: all
+    to: 'home'
   action:
-      service: alarm_control_panel.alarm_disarm
-      entity_id: alarm_control_panel.blink_my_sync_module 
+    service: alarm_control_panel.alarm_disarm
+    entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Save Video Locally When Motion Detected
@@ -190,14 +190,14 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
 - id: save_blink_video_on_motion
   alias: Save Blink Video on Motion
   trigger:
-      platform: state
-      entity_id: binary_sensor.blink_my_camera_motion_detected
-      to: 'on'
+    platform: state
+    entity_id: binary_sensor.blink_my_camera_motion_detected
+    to: 'on'
   action:
-      service: blink.save_video
-      data_template:
-          name: "My Camera"
-          filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
-      
+    service: blink.save_video
+    data_template:
+      name: "My Camera"
+      filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
+
 ```
 {% endraw %}

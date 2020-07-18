@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@danielhiversen'
 ha_domain: mill
+ha_config_flow: true
 ---
 
 Integrates Mill heater into Home Assistant.

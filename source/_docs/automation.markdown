@@ -47,10 +47,48 @@ When you create a new automation, it will be enabled unless you explicitly add `
 
 Please note that if for some reason Home Assistant cannot restore the previous state, it will result in the automation being enabled.
 
-```text
+```yaml
 automation:
 - alias: Automation Name
   initial_state: false
   trigger:
   ...
 ```
+
+### Automation Modes
+
+The automation's `mode` configuration option controls what happens when the automation is triggered while the actions are still running from a previous trigger.
+
+Mode | Description
+-|-
+`single` | (Default) Do not start a new run. Issue a warning.
+`restart` | Start a new run after first stopping previous run.
+`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`parallel` | Start a new, independent run in parallel with previous runs.
+
+<p class='img'>
+  <img src='/images/integrations/script/script_modes.jpg'>
+</p>
+
+For both `queued` and `parallel` modes, configuration option `max` controls the maximum
+number of runs that can be executing and/or queued up at a time. The default is 10.
+
+#### Example Setting Automation Mode
+
+```yaml
+automation:
+  - trigger:
+      - ...
+    mode: queued
+    max: 25
+    action:
+      - ...
+```
+
+### Deleting Automations
+
+When automations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
+
+To delete them completely, go to UI **Configuration** -> **Entities** and find the automation in the search field or by scrolling down.
+
+Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.

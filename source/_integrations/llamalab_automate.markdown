@@ -42,6 +42,19 @@ device:
   type: string
 {% endconfiguration %}
 
+Example Automation:
+
+```yaml
+- service: notify.entity_id
+      data:
+        message: "This is the message"
+        data:
+          priority: Normal
+```
+
+Message delivery `priority` in the nested `data` section is optional (default value: Normal).
+Value "High" attempts to awaken the receiving device.
+
 Receiving cloud messages in Automate:
 
 1. Add a new flow

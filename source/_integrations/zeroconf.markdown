@@ -34,4 +34,9 @@ zeroconf:
      required: false
      type: boolean
      default: false
+   ipv6:
+     description: By default, `zeroconf` will enable IPv6 support. If your network has trouble with IPv6 being enabled, you can set this option to `false`.
+     required: false
+     type: boolean
+     default: true
 {% endconfiguration %}

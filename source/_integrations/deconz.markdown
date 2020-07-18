@@ -14,7 +14,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@kane610'
+  - '@Kane610'
 ha_domain: deconz
 ---
 
@@ -156,6 +156,7 @@ Currently supported devices as device triggers:
 - Aqara Round Switch
 - Aqara Square Switch
 - Aqara Magic Cube
+- Aqara Opple 2/4/6 button Switches
 
 #### Requesting support for new device trigger
 

@@ -320,7 +320,7 @@ sensor:
 ```
 {% endraw %}
 
-This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
+This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. This avoids flooding the REST service by only requesting the result once, then creating multiple attributes from that single result using templates. By default, the sensor state would be set to the full JSON — here, that would exceed the 255-character maximum allowed length for the state, so we override that default by using `value_template` to set a static value of `OK`.
 
 {% raw %}
 ```json

@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Zigbee Home Automation (ZHA) 
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Fan
   - Light
   - Lock
@@ -26,6 +27,7 @@ integration for Home Assistant allows you to connect many off-the-shelf Zigbee b
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
+- Climate (beta)
 - Cover
 - Fan
 - Light
@@ -98,11 +100,11 @@ a new pop-up asking for a radio type. In the pop-up:
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| `ezsp`  | EmberZNet based radios, HUSBZB-1, Telegesis ETRX357USB*** (using EmberZNet firmware)  |
-| `deconz` | ConBee, ConBee II, RaspBi |
-| `xbee` | Digi XBee Series 2, 2C and 3 based radios with XBee Zigbee firmware |
-| `ti_cc` | Texas Instruments CC253x/CC26x2/CC13x2 based radios with Z-Stack firmware |
-| `zigate` | ZiGate USB-TTL, PiZiGate, and WiFi based Zigbee radios with ZiGate firmware |
+| `ezsp`  | Silicon Labs EmberZNet protocol (ex; Elelabs, HUSBZB-1, Telegesis) |
+| `deconz` | dresden elektronik deCONZ protocol: ConBee I/II, RaspBee I/II |
+| `ti_cc` | Texas Instruments Z-Stack ZNP protocol (ex: CC253x, CC26x2, CC13x2) |
+| `zigate` | ZiGate Serial protocol: PiZiGate, ZiGate USB-TTL, ZiGate WiFi |
+| `xbee` | Digi XBee ZB Coordinator Firmware protocol (Digi XBee Series 2, 2C, 3) |
 
 - Submit
 
@@ -138,13 +140,35 @@ enable_quirks:
 
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
+### OTA firmware updates
+
+ZHA component does have the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
+
+Currently, OTA providers for firmware updates are only available for IKEA and LEDVANCE devices. OTA updates for device of other manufactures could possible also be supported by ZHA dependencies in the future, if these manufacturers publish their firmware publicly.
+
+To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
+
+```yaml
+zha:
+  zigpy_config:
+    ota:
+      ikea_provider: true                        # Auto update Trådfri devices
+      ledvance_provider: true                    # Auto update LEDVANCE devices
+      #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
+```
+
+You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
+
+Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself.
+
 ## Adding devices
 
-Go to the **Configuration** page and select the **ZHA** integration that was added by the configuration steps above.
+To add a new device:
 
-Click on **ADD DEVICES** to start a scan for new devices.
-
-Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
+1. Go to the **Integrations** page, find the **Zigbee Home Automation** integration that was added by the configuration steps above, and select **Configure**.
+1. Click on the plus button at the bottom right corner to start a scan for new devices.
+1. Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times, switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
+1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 ## Troubleshooting
 
@@ -155,7 +179,7 @@ When reporting issues, please provide the following information in addition to i
 1. Debug logs for the issue, see [debug logging](#debug-logging)
 2. Model of Zigbee radio being used
 3. If issue is related to a specific Zigbee device, provide device Zigbee signature. Signature is available at
-`Configuration` Panel -> `Zigbee Home Automation` -> Pick your Device -> `Zigbee Information`
+**Configuration** -> **Integrations** -> **Zigbee Home Automation** (click **Configure**) -> **Devices** (pick your device) -> **Zigbee Device Signature**
 
 ### Debug logging
 
@@ -176,6 +200,7 @@ logger:
     zigpy_xbee.zigbee.application: debug
     zigpy_xbee.api: debug
     zigpy_zigate: debug
+    zhaquirks: debug
 ```
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
@@ -195,7 +220,7 @@ Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset y
 
 Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/) (EZSP-based Zigbee USB stick required)
 
-### ZHA Start up issue with Home Assistant Supervised or Home Assistant Core on Docker
+### ZHA Start up issue with Home Assistant or Home Assistant Container
 
 On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
 

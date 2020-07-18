@@ -13,6 +13,8 @@ ha_iot_class: Cloud Polling
 ha_release: 0.74
 ha_config_flow: true
 ha_domain: tuya
+ha_codeowners:
+  - '@ollo69'
 ---
 
 The `tuya` integration is the main integration to integrate all [Tuya Smart](https://www.tuya.com) related platforms, except the Zigbee hub. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.

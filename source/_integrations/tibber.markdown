@@ -11,6 +11,7 @@ ha_quality_scale: silver
 ha_codeowners:
   - '@danielhiversen'
 ha_domain: tibber
+ha_config_flow: true
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
@@ -25,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/settings/accesstoken) to get your API token.
 
-To add Tibber to your installation, go to Configuration >> Integrations in the UI and enable the Tibber integration.
+To add Tibber to your installation, go to **Configuration** >> **Integrations** in the UI and enable the Tibber integration.
 
 
 ## Notifications

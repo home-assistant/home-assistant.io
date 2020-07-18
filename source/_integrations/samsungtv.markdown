@@ -118,6 +118,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - MU6170UXZG
 - MU6179
 - MU6199
+- MU650D (on works with WOL, channel change not tested)
 - NU7090 (On/Off)
 - NU7400
 - NU8000
@@ -125,7 +126,10 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - U6000
 - U6300
 - RU7100
+- RU7170
 - RU7172
+- RU7475
+- Q90RATXZT
 
 #### Models tested but not yet working
 
@@ -163,15 +167,12 @@ entity_id: media_player.samsung_tv
 media_content_id: 590
 media_content_type: channel
 ```
+
 #### Selecting a source
 
 It's possible to switch between the 2 sources `TV` and `HDMI`.
 
-### Home Assistant & Home Assistant Core on Docker
-
-No additional actions are required
-
-### Other install methods
+### Home Assistant Core additional requirements
 
 You will need to install the `websocket-client` Python package in your Home Assistant install. This will probably be done with:
 

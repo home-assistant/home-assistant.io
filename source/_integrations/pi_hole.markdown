@@ -45,13 +45,13 @@ location:
   type: string
   default: admin
 ssl:
-  description: "If `true`, use SSL/TLS to connect to the Pi-Hole system."
+  description: "If `true`, use SSL/TLS to connect to the Pi-hole system."
   required: false
   type: boolean
   default: false
 verify_ssl:
   description: >
-    Verify the SSL/TLS certificate of the system. If your Pi-Hole instance uses a self-signed certificate, you should specify `false`.
+    Verify the SSL/TLS certificate of the system. If your Pi-hole instance uses a self-signed certificate, you should specify `false`.
   required: false
   type: boolean
   default: true
@@ -77,7 +77,7 @@ Multiple Pi-holes:
 pi_hole:
   - host: '192.168.0.2'
   - host: '192.168.0.3'
-    name: 'Secondary Pi-Hole'
+    name: 'Secondary Pi-hole'
 ```
 
 Pi-hole with a self-signed certificate:

@@ -11,7 +11,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@kane610'
+  - '@Kane610'
 ha_domain: unifi
 ---
 
@@ -43,7 +43,7 @@ For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti
 
 ### Conflicts with MQTT
 
-The UniFi controller can either be a dedicated hardware device (UniFi's cloud key), or as software any Linux system. If you run the UniFi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
+The UniFi controller can either be a dedicated hardware device (UniFi's cloud key), or as software on any Linux system. If you run the UniFi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
 It is recommended that you run the UniFi controller in a dedicated virtual machine to avoid that situation.
 

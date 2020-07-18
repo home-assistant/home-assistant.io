@@ -15,7 +15,7 @@ The `blinkstick` platform lets you control your [Blinkstick](https://www.blinkst
 To use your Blinkstick, you need to allow the access to the device for [non-root users](https://github.com/arvydas/blinkstick-python#permission-problems-in-linux-and-mac-os-x).
 
 ```bash
-$ sudo blinkstick --add-udev-rule
+sudo blinkstick --add-udev-rule
 ```
 
 ## Configuration

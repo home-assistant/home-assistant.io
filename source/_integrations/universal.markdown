@@ -137,7 +137,7 @@ media_player:
 
 In this example, a [Kodi Media Player](/integrations/kodi) runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi add-on installed, it can turn on and off the attached TV.
 
-We store the state of the attached TV in a hidden [input boolean](/integrations/input_boolean/), so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the universal media player to render its state with a template. We can hide the Kodi Media Player too, and only show the universal one, which now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
+We store the state of the attached TV in a [input boolean](/integrations/input_boolean/), so we can differentiate the TV being on or off, while Kodi is always 'idle', and use the universal media player to render its state with a template. We now can differentiate between the 'idle' and the 'off' state (being the second when it is idle and the TV is off).
 
 Because the input boolean used to store the TV state is only changing when using the Home Assistant `turn_on` and `turn_off` actions, and Kodi could be controlled by so many ways, we also define some automations to update this Input Boolean when needed.
 
@@ -148,10 +148,6 @@ The complete configuration is:
 ```yaml
 homeassistant:
   customize:
-    input_boolean.kodi_tv_state:
-      hidden: true
-    media_player.kodi:
-      hidden: true
     media_player.kodi_tv:
       friendly_name: Kodi
 
@@ -232,6 +228,48 @@ automation:
   action:
   - service: media_player.turn_off
     entity_id: media_player.kodi_tv
+```
+
+{% endraw %}
+
+#### Harmony Remote Example
+
+The complete configuration is:
+
+{% raw %}
+
+```yaml
+media_player:
+  - platform: universal
+    name: Media Room TV
+    attributes:
+      state: remote.alexander_down_guest
+      source_list: remote.alexander_down_guest|activity_list
+      source: remote.alexander_down_guest|current_activity
+    commands:
+      turn_on:
+        service: remote.turn_on
+        entity_id: remote.alexander_down_guest
+      turn_off:
+        service: remote.turn_off
+        entity_id: remote.alexander_down_guest
+      volume_up:
+        service: remote.send_command
+        entity_id: remote.alexander_down_guest
+        data:
+          device: Receiver
+          command: VolumeUp
+      volume_down:
+        service: remote.send_command
+        entity_id: remote.alexander_down_guest
+        data:
+          device: Receiver
+          command: VolumeDown
+      select_source:
+        service: remote.turn_on
+        data_template:
+          entity_id: remote.alexander_down_guest
+          activity: '{{ source }}'
 ```
 
 {% endraw %}

@@ -203,6 +203,102 @@ The following automation shows how to capture the custom event `event_light_stat
 ```
 {% endraw %}
 
+### Repeat a Group of Actions
+
+This action allows you to repeat a sequence of other actions. Nesting is fully supported.
+There are three ways to control how many times the sequence will be repeated.
+
+#### Counted Repeat
+
+This form accepts a count value. The value may be specified by a template, in which case
+the template is rendered when the repeat step is reached.
+
+{% raw %}
+```yaml
+- alias: Repeat the sequence the specified number of times
+  repeat:
+    count: "{{ repeat_count }}"
+    sequence:
+      - ...
+```
+{% endraw %}
+
+#### While Loop
+
+This form accepts a list of conditions that are evaluated _before_ each time the sequence
+is run. The sequence will be repeated _as long as_ the condition(s) evaluate to true.
+
+{% raw %}
+```yaml
+- alias: Repeat the sequence AS LONG AS the conditions are true
+  repeat:
+    while:
+      - condition: state
+        entity_id: input_boolean.run_loop
+        state: 'on'
+      - condition: template
+        value_template: "{{ repeat.index <= 20 }}"
+    sequence:
+      - ...
+```
+{% endraw %}
+
+#### Repeat Until
+
+This form accepts a list of conditions that are evaluated _after_ each time the sequence
+is run. Therefore the sequence will always run at least once. The sequence will be executed
+_until_ the condition(s) evaluate to true.
+
+{% raw %}
+```yaml
+- alias: Repeat the sequence UNTIL the conditions are true
+  repeat:
+    sequence:
+      - ...
+    until:
+      - condition: state
+        entity_id: binary_sensor.the_cows_have_come_home
+        state: 'on'
+```
+{% endraw %}
+
+#### Repeat Loop Variable
+
+A variable named `repeat` is defined within the repeat sequence. If repeat sequences are
+nested, it always applies to the inner-most loop. It contains the following fields:
+
+field | description
+-|-
+`first` | True during the first iteration of the repeat sequence
+`index` | The iteration number of the loop: 1, 2, 3, ...
+`last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
+
+### Choose a Group of Actions
+
+This action allows you to select a sequence of other actions from a list of sequences.
+Nesting is fully supported.
+
+Each sequence is paired with a list of conditions. The first sequence whose conditions are all true will be run.
+An optional `default` sequence can be included which will be run if none of the sequences from the list are run.
+
+{% raw %}
+```yaml
+- alias: Choose a sequence to run
+  choose:
+    - conditions:
+        - condition: ...
+        - condition: ...
+      sequence:
+        - ...
+    - conditions:
+        - condition: ...
+      sequence:
+        - ...
+  default:
+    - ...
+```
+{% endraw %}
+
 [Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /integrations/alexa/

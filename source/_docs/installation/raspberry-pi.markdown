@@ -1,12 +1,12 @@
 ---
 title: "Manual installation on a Raspberry Pi"
-description: "Instructions to install Home Assistant Core on a Raspberry Pi running Raspbian Lite."
+description: "Instructions to install Home Assistant Core on a Raspberry Pi running Raspberry Pi OS Lite."
 redirect_from: /getting-started/installation-raspberry-pi/
 ---
 
-This installation of Home Assistant Core requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
+This installation of Home Assistant Core requires the Raspberry Pi to run [Raspberry Pi OS Lite](https://www.raspberrypi.org/downloads/raspberry-pi-os//). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspberry Pi OS Lite.
 
-You must have Python 3.7 or later installed (including the package `python3-dev`) which is *not* the case for Raspbian Stretch.
+You must have Python 3.7 or later installed (including the package `python3-dev`) which is *not* the case for Raspberry Pi OS Stretch.
 
 <div class='note'>
 Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well. This guide is also referred to as the "Advanced Guide" for a virtual environment install.
@@ -22,7 +22,7 @@ Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
 You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
 
 ```bash
-$ ssh pi@ipaddress
+ssh pi@ipaddress
 ```
 
 Changing the default password is encouraged.
@@ -41,7 +41,7 @@ sudo apt-get upgrade -y
 Install the dependencies.
 
 ```bash
-sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev autoconf
+sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev autoconf build-essential
 ```
 
 Add an account for Home Assistant Core called `homeassistant`.
@@ -67,6 +67,7 @@ cd /srv/homeassistant
 python3 -m venv .
 source bin/activate
 ```
+
 Once you have activated the virtual environment (notice the prompt change to `(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $`) you will need to run the following command to install a required Python package.
 
 ```bash
@@ -84,6 +85,7 @@ Start Home Assistant Core for the first time. This will complete the installatio
 ```bash
 hass
 ```
+
 You can now reach your installation on your Raspberry Pi over the web interface on `http://ipaddress:8123`.
 
 <div class='note'>
@@ -92,9 +94,7 @@ When you run the `hass` command for the first time, it will download, install an
 
 </div>
 
-If you want to setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant Core](/docs/autostart/).
-
-### Updating
+## Updating
 
 To update to the latest version of Home Assistant Core follow these simple steps:
 
@@ -106,7 +106,7 @@ pip3 install --upgrade homeassistant
 
 Once the last command executes, restart the Home Assistant Core service to apply the latest updates. Please keep in mind that some updates may take longer to start up than others. If Home Assistant Core fails to start, make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
 
-### Run a specific version
+## Run a specific version
 
 In the event that a Home Assistant Core version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
 
@@ -116,7 +116,7 @@ source /srv/homeassistant/bin/activate
 pip3 install homeassistant==0.XX.X
 ```
 
-### Run the beta version
+## Run the beta version
 
 If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
 
@@ -126,7 +126,7 @@ source /srv/homeassistant/bin/activate
 pip3 install --pre --upgrade homeassistant
 ```
 
-### Run the development version
+## Run the development version
 
 If you want to stay on the bleeding-edge Home Assistant Core development branch, you can upgrade to `dev`.
 
@@ -142,7 +142,7 @@ source /srv/homeassistant/bin/activate
 pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
 ```
 
-### Activating the virtual environment
+## Activating the virtual environment
 
 When instructions tell you to activate the virtual environment, the following commands will do this:
 

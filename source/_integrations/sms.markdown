@@ -6,6 +6,7 @@ ha_category:
   - Notifications
 ha_release: 0.105
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@ocalvo'
 ha_domain: sms
@@ -19,13 +20,20 @@ This integration provides the following platforms:
 
 ## Configuration
 
-To enable those notifications in your installation, add the following to your `configuration.yaml` file:
+Activate `SMS` via the integrations menu and search for `SMS`.
+While activating the integration, it will ask for your serial device. Make sure the device is connected and have a valid SIM activated.
+
+You can also enable `SMS` via your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sms:
   device: /dev/ttyUSB2
+```
 
+To configure the notification service, edit your `configuration.yaml` file:
+
+```yaml
 notify:
   - platform: sms
     name: sms_person1
