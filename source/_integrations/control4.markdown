@@ -30,15 +30,5 @@ Seconds between updates:
   description: How often Home Assistant will poll the Control4 controller for state updates. Very frequent polling could cause the controller to lag, especially with many devices.
   required: false
   type: integer
-  default: 10
-Default light cold start time (seconds):
-  description: Length of time it takes a light to ramp up when turned on.
-  required: false
-  type: integer
-  default: 3
-Default light brightness transition time (seconds):
-  description: Length of time it takes a light to change brightness levels when already turned on.
-  required: false
-  type: integer
-  default: 0
+  default: 5
 {% endconfiguration %}
