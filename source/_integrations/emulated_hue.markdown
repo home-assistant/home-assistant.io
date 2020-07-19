@@ -111,7 +111,6 @@ lights_all_dimmable:
   required: false
   type: boolean
   default: false
-
 {% endconfiguration %}
 
 A full configuration sample looks like the one below.
