@@ -98,7 +98,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - F6400AF
 - F6500
 - F7000
-- F100
+- F1000
 - F8000BF
 - K5579
 - K5600AK (partially supported, turn on works but state is not updated)
