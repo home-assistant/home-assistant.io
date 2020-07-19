@@ -8,7 +8,6 @@ $primary-color: #049cdb;
   .site-title {
     display: flex;
     align-items: center;
-    font-weight: normal;
   }
 }
 
@@ -50,8 +49,8 @@ $primary-color: #049cdb;
 }
 
 .hero {
-  background-color: #038FC7;
-  padding-bottom: 0;
+  background-color: darken($primary-color, 5%);
+  padding: 25px 0;
 
   .lead {
     margin-bottom: 16px;
@@ -64,12 +63,16 @@ $primary-color: #049cdb;
     display: inline-block;
     font-weight: 500;
   }
+
+  img {
+    box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+  }
 }
 
 .material-card {
   background-color: #fefefe;
-  border-radius: 2px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 
   h1 {
     font-family: Roboto, Noto, sans-serif;
@@ -106,6 +109,30 @@ $primary-color: #049cdb;
   }
 }
 
+.ha-button {
+  background-color: $primary-color;
+  color: $white;
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 16.5px;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 150ms cubic-bezier(0.215,0.61,0.355,1);
+  -webkit-transition-property: background-color,opacity;
+  transition-property: background-color,opacity;
+  margin-bottom: 4px;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    text-decoration: underline;
+  }
+
+  &:visited { 
+    color: $white;
+  }
+}
+
 .frontpage {
   .material-card {
     margin-bottom: 24px;
@@ -114,13 +141,77 @@ $primary-color: #049cdb;
   .current-version {
     .release-date {
       white-space: nowrap;
+      font-weight: normal;
+      font-size: 14px;
     }
   }
 
+  .links {
+    margin-top: 12px;
+  }
+
   .recent-posts {
-    .blog-date {
-      white-space: nowrap;
+    margin-bottom: 28px;
+    .post {
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      a {
+        color: $text-color;
+        display: block;
+
+        &:hover {
+          color: $primary-color
+        }
+      }
+
     }
+  }
+
+  .blog-date {
+    white-space: nowrap;
+  }
+
+  .side-by-side {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 45%;
+    }
+  }
+
+  .vision {
+    margin-bottom: 24px;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      margin-top: .75em;
+    }
+  }
+
+  .app-store-image-section {
+    display: flex;
+    justify-content: center;
+
+    .app-store-image {
+      width: 150px;
+      
+      img {
+        box-shadow: none;
+        border: none;
+  
+        &.ios {
+          margin: 6%;
+          width: 78.5%;
+        }
+      }
+    }    
   }
 
   .highlight-blog-post {
@@ -188,13 +279,29 @@ $primary-color: #049cdb;
 
   .seen-press {
     margin-top: 24px;
+    text-align: center;
 
     img {
       border: 0;
       box-shadow: none;
       margin: 15px;
-      width: 200px;
-      max-width: 40%;
+      width: 12%;
+      min-width: 70px;
+      filter: grayscale(100%);
+    }
+  }
+
+  .sponsored {
+    margin-top: 24px;
+
+    .text {
+      margin-top: 10px;
+    }
+
+    img {
+      border: 0;
+      box-shadow: none;
+      width: 250px;
     }
   }
 }
@@ -260,7 +367,6 @@ dt:hover a.title-link {
 
 article.post, article.page, article.listing {
   font-size: 16px;
-  color: #4f566b;
   line-height: 1.6;
 
   img, table {
@@ -305,46 +411,20 @@ article.post, article.page, article.listing {
     }
   }
 
-  a {
-    text-decoration: underline;
-
-    &.btn {
-      text-decoration: none;
-    }
-  }
-
-  h1 {
-
+  a.btn {
+    text-decoration: none;
   }
 
   h2 {
-    font-size: 1.5em;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 1.5em 0 1rem;
-    //
-    // border: 0;
-    // border-top: 1px solid $primary-color;
-    // padding-top: 1.4rem;
+    margin: 1em 0 1rem;
   }
 
   h3 {
-    text-transform: uppercase;
-    letter-spacing: 0.125rem;
-    font-size: 1.2rem;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 2em 0 1rem;
+    margin: 1.5em 0 .9rem;
   }
 
   h4 {
-    font-size: 1.1rem;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 1.5em 0 1rem;
+    margin: 1em 0 .8rem;
   }
 
   details {
@@ -401,6 +481,9 @@ p.note, div.note {
   .company {
     .title {
       font-size: 1.5em;
+      color: #4f566b;
+      font-weight: bold;
+      letter-spacing: .06125rem;
     }
 
     img {
@@ -463,7 +546,7 @@ p.note, div.note {
 
 ul.sidebar-menu {
   a.active {
-    color: #000;
+    color: $text-color;
     font-weight: bold;
   }
 
@@ -526,8 +609,6 @@ div.config-vars {
 
   .config-vars-label-name {
     font-weight: bold;
-    font-size: 16px; 
-    color: #222222bd;
   }
 
   .config-vars-type {
