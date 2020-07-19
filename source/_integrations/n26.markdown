@@ -23,6 +23,8 @@ Add the following entry to the `configuration.yaml` file:
 n26:
   username: YOUR_EMAIL
   password: YOUR_PASSWORD
+  access_token: generate one from https://www.uuidgenerator.net/
+  auth_mfa_modules: SMS OR APP
 ```
 
 It is possible to add more than one account:
