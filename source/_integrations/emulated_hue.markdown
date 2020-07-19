@@ -106,6 +106,12 @@ entities:
   description: Customization for entities.
   required: false
   type: list
+lights_all_dimmable:
+  description: "By default, all lights that do not support brightness adjustment will be reported as On/Off lights; however some users have reported that this may cause discovery issues with Alexa. By setting this option to true, all non-dimmable lights or switches will be reported as dimmable lights with a fixed dimming setting."
+  required: false
+  type: boolean
+  default: false
+
 {% endconfiguration %}
 
 A full configuration sample looks like the one below.
