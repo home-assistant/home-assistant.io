@@ -62,6 +62,10 @@ add_holidays:
   description: "Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`."
   required: false
   type: list
+working_holidays:
+  description: "If holidays is in the excludes list, add holiday names according to [holidays](https://pypi.org/project/holidays/) that should be treated as a work day.
+  required: false
+  type: list
 {% endconfiguration %}
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
@@ -104,6 +108,18 @@ binary_sensor:
     excludes: [sat, sun, holiday]
     add_holidays:
       - '2020-02-24'
+```
+
+This example excludes Saturdays, Sundays, and holidays.  Martin Luther King Jr. Day is treated as a work day.
+
+```yaml
+# Example 3 configuration.yaml entry
+binary_sensor:
+  - platform: workday
+    country: US
+    workdays: [mon, wed, fri]
+    excludes: [sat, sun, holiday]
+    working_holidays: ['Martin Luther King Jr. Day']
 ```
 
 ## Automation example
