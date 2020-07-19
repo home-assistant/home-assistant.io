@@ -63,7 +63,7 @@ add_holidays:
   required: false
   type: list
 working_holidays:
-  description: "If holidays is in the excludes list, add holiday names according to [holidays](https://pypi.org/project/holidays/) that should be treated as a work day.
+  description: "If holidays is in the excludes list, add holiday names according to [holidays](https://pypi.org/project/holidays/) that should be treated as a work day."
   required: false
   type: list
 {% endconfiguration %}
