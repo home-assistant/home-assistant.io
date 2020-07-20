@@ -110,7 +110,7 @@ The template engine will attempt to work out what entities should trigger an upd
 
 ### Unique ID
 
-The optional `unique_id` can be set so the entity will be registered in the [entity registry](https://developers.home-assistant.io/docs/entity_registry_index). This allows changing the `name`, `icon` and `entity_id` from the web interface instead of having to use the [customize](https://www.home-assistant.io/docs/configuration/customizing-devices/) key in your configuration.yaml file.
+The optional `unique_id` can be set so the entity will be registered in the [entity registry](https://developers.home-assistant.io/docs/entity_registry_index). This allows changing the `name`, `icon` and `entity_id` from the web interface instead of having to use the [customize](https://www.home-assistant.io/docs/configuration/customizing-devices/) key in your `configuration.yaml` file.
 
 ## Examples
 
