@@ -3,7 +3,7 @@ title: Pyscript Python Scripting
 description: Instructions on how to setup Pyscript within Home Assistant.
 ha_category:
   - Automation
-ha_release: 
+ha_release: 0.114
 ha_codeowners:
   - '@craigbarratt'
 ha_quality_scale:
