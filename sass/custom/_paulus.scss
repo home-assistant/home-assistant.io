@@ -8,7 +8,6 @@ $primary-color: #049cdb;
   .site-title {
     display: flex;
     align-items: center;
-    font-weight: normal;
   }
 }
 
@@ -259,7 +258,7 @@ dt:hover a.title-link {
 }
 
 article.post, article.page, article.listing {
-  font-size: 1.125em;
+  font-size: 16px;
   line-height: 1.6;
 
   img, table {
@@ -312,38 +311,16 @@ article.post, article.page, article.listing {
     }
   }
 
-  h1 {
-
-  }
-
   h2 {
-    font-size: 1.5em;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 1.5em 0 1rem;
-    //
-    // border: 0;
-    // border-top: 1px solid $primary-color;
-    // padding-top: 1.4rem;
+    margin: 1em 0 1rem;
   }
 
   h3 {
-    text-transform: uppercase;
-    letter-spacing: 0.125rem;
-    font-size: 1.2rem;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 2em 0 1rem;
+    margin: 1.5em 0 .9rem;
   }
 
   h4 {
-    font-size: 1.1rem;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 1.5em 0 1rem;
+    margin: 1em 0 .8rem;
   }
 
   details {
@@ -400,6 +377,8 @@ p.note, div.note {
   .company {
     .title {
       font-size: 1.5em;
+      color: #4f566b;
+      letter-spacing: .06125rem;
     }
 
     img {
@@ -462,7 +441,7 @@ p.note, div.note {
 
 ul.sidebar-menu {
   a.active {
-    color: #000;
+    color: $text-color;
     font-weight: bold;
   }
 
@@ -525,8 +504,6 @@ div.config-vars {
 
   .config-vars-label-name {
     font-weight: bold;
-    font-size: 16px; 
-    color: #222222bd;
   }
 
   .config-vars-type {

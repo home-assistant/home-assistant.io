@@ -1,12 +1,11 @@
 body > header {
-  @include box-shadow(0 0 3px rgba(0, 0, 0, 0.25));
   background-color: $header-background;
   margin-bottom: 2em;
 
   .site-title {
-    color: $grayDarker;
+    color: $text-color;
     font-size: 1.7em;
-    font-weight: bold;
     line-height: 2.5em;
+    letter-spacing: .06125rem;
   }
 }

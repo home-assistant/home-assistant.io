@@ -274,6 +274,7 @@ pre[class*="language-"].line-numbers > code {
 }
 div.code-toolbar {
 	position: relative;
+    margin-bottom: 2em;
 }
 
 div.code-toolbar > .toolbar {

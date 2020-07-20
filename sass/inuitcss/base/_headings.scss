@@ -11,21 +11,27 @@
  */
 h1,.alpha{
     @include font-size($h1-size);
+    font-weight: 400;
 }
 h2,.beta{
     @include font-size($h2-size);
+    font-weight: 400;
 }
 h3,.gamma{
     @include font-size($h3-size);
+    font-weight: 400;
 }
 h4,.delta{
     @include font-size($h4-size);
+    font-weight: 400;
 }
 h5,.epsilon{
     @include font-size($h5-size);
+    font-weight: 400;
 }
 h6,.zeta{
     @include font-size($h6-size);
+    font-weight: 400;
 }
 
 
