@@ -403,18 +403,17 @@ most installations.
 
 ## New Integrations
 
-- Create PoolSense integration ([@haemishkyd] - [#35561]) ([poolsense docs])
-- Add Dexcom Integration ([@gagebenne] - [#33852]) ([dexcom docs])
-- Add new integration for Bond hub ([@prystupa] - [#37477]) ([bond docs])
+Three new integration added this release:
+
+- [PoolSense][poolsense docs], added by [@haemishkyd]
+- [Dexcom][dexcom docs], added by [@gagebenne]
+- [Bond hub][bond docs], added by [@prystupa]
 
 ## New Platforms
 
-- Add support for window covers to ozw integration ([@Michsior14] - [#37217]) ([ozw docs])
-- Support Fan domain in Bond integration ([@prystupa] - [#37703]) ([bond docs])
-- Updates to poolsense integration ([@haemishkyd] - [#37613]) ([poolsense docs])
-- Apply code quality updates to poolsense ([@haemishkyd] - [#37781]) ([poolsense docs])
-- Add basic support for lights in bond integration ([@prystupa] - [#37802]) ([bond docs])
-- Add support for generic device (switch) to bond integration ([@prystupa] - [#37837]) ([bond docs])
+The following integration got support for a new platform:
+
+- [OpenZWave][ozw docs] has now support for window cover, adde by [@Michsior14]
 
 ## Integrations now available to set up from the UI
 
