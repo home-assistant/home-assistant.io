@@ -63,7 +63,7 @@ When prompted, enter the number of the zone you'd like to add. Press _Submit_ to
 
 #### Editing an Existing Zone
 
-When prompted, enter the number of the zone you'd like to edit. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Edit the zone settings and press _Submit_ to save the changes. The new zone details will take effect upon the next Home Assistant reboot.
+When prompted, enter the number of the zone you'd like to edit. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Edit the zone settings and press _Submit_ to save the changes. The new zone settings will take effect upon the next Home Assistant reboot.
 
 #### Removing an Existing Zone
 
