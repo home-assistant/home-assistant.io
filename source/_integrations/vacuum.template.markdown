@@ -39,6 +39,10 @@ vacuum:
         description: Name to use in the frontend.
         required: false
         type: string
+      unique_id:
+        description: An ID that uniquely identifies this vacuum. Set this to an unique value to allow customisation trough the UI.
+        required: false
+        type: string
       value_template:
         description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
         required: false
