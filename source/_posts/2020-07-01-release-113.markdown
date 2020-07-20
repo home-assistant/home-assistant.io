@@ -18,6 +18,7 @@ Beta release notes for 0.113.0
 Please be sure to report issues on our GitHub issue tracker:
 
 Issues with core & integrations: <https://github.com/home-assistant/core/issues>
+
 Issues with the frontend/UI: <https://github.com/home-assistant/frontend/issues>
 
 Issues introduced in this beta, are generally picked up with priority.
@@ -257,6 +258,29 @@ example above.
 More information about the chooser can be found in the [documentation][chooser].
 
 [chooser]: /docs/scripts/#choose-a-group-of-actions
+
+### Automations & Scripts: Sub-second precision
+
+Thanks to a bunch of optimizations done this release, which is discussed later
+in this blog post, we now have sub-second precision available to our delays.
+
+This precision is helpful in case you want a delay that is less than a second,
+for example, 500 milliseconds.
+
+An example script that toggles the light every 500 milliseconds 10 times.
+
+```yaml
+script:
+  blink_light:
+    sequence:
+      repeat:
+        count: 10
+        sequence:
+        - service: light.toggle
+          entity_id: light.bulb
+        - delay:
+            milliseconds: 500
+```
 
 ### Automations & Scripts: Bonus! Cool down
 
