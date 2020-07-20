@@ -43,7 +43,7 @@ Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum, Ro
 
 #### Service `vacuum.start_pause`
 
-Start, pause or resume a cleaning task.
+Start, pause or resume a cleaning task. For the Xiaomi Vacuum, Roomba, and Neato use `vacuum.start` and `vacuum.pause` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|

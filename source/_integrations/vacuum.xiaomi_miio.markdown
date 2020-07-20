@@ -329,10 +329,18 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 8. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
-11. Input and run this query:
+11. Input and run this query (use appropriate SELECT query for your device i.e. Vacuum, Powerstrip or Plug):
 
     ```sql
+    -- Execute to retrieve token for Vacuum
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"
+    
+    -- Execute to retrieve token for Smart Powerstrip
+    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%powerstrip%"
+  
+    -- Execute to retrieve token for Smart Plug
+    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%plug%"
+
     ```
 
 12. Copy the returned 96-digit hexadecimal string to your clipboard.

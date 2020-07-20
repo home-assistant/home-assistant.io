@@ -183,7 +183,7 @@ sensor:
 sensor:
   - platform: command_line
     name: wind direction
-    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}'
+    command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
     unit_of_measurement: "Direction"
 ```
 
