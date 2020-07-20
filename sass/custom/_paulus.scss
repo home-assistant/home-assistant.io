@@ -293,15 +293,25 @@ $primary-color: #049cdb;
 
   .sponsored {
     margin-top: 24px;
+    display: flex;
+    align-items: center;
 
-    .text {
-      margin-top: 10px;
+    > div {
+      width: 50%;
     }
 
     img {
       border: 0;
       box-shadow: none;
       width: 250px;
+    }
+
+    @include media-query(palm){
+      flex-direction: column-reverse;
+
+      > div {
+        width: 100%;
+      }
     }
   }
 }
