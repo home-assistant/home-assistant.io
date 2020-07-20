@@ -41,7 +41,8 @@ dynamically), sleeping and waiting for triggers.
 
 Pyscript provides functionality that complements the existing automations, templates and
 triggers. It presents a simplified and more integrated binding for Python scripting than
-[Python Scripts](/integrations/python_script/), which provides direct access to Hass internals.
+[Python Scripts](/integrations/python_script/), which provides direct access to Home
+Assistant internals.
 
 ## Writing your first script
 
@@ -347,7 +348,7 @@ triggers every interval starting at the starting datetime and finishing at the o
 datetime. When there is no ending datetime, the periodic trigger runs forever. The interval has
 the form `number{sec|min|hours|days|weeks}` (the same as datetime offset without the leading sign),
 and single-letter abbreviations can be used.
-- `"cron(min hr dom mon dow)"` triggers according to linux crontab. Each of the five entries are
+- `"cron(min hr dom mon dow)"` triggers according to Linux-style crontab. Each of the five entries are
 separated by spaces and correspond to minutes, hours, day-of-month, month, day-of-week (0 = sunday):
 
 |field|allowed values|
@@ -361,7 +362,7 @@ separated by spaces and correspond to minutes, hours, day-of-month, month, day-o
 Each field can be a `*` (which means "all"), a single number, a range or comma-separated list of
 numbers or ranges (no spaces). Ranges are inclusive. For example, if you specify hours as
 `6,10-13` that means hours of 6,10,11,12,13. The trigger happens on the next minute, hour,
-day that matches the specification. See any linux documentation for examples and more details
+day that matches the specification. See any Linux documentation for examples and more details
 (note: names for days of week and months are not supported; only their integer values are).
 
 When the `@time_trigger` occurs, and the function is called, the only keyword argument is
