@@ -107,6 +107,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - KS8000
 - KS8005
 - KS8500
+- KU6000W
 - KU6020
 - KU6100
 - KU6290
