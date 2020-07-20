@@ -117,7 +117,7 @@ The Toon integration provides the following sensors:
 - Current Power Usage
 - Current Power Usage Covered By Solar (only with solar module)
 - Current Solar Power Production (only with solar module)
-- Current Water Usage
+- Current Water Usage*
 - Electricity Meter Feed IN Tariff 1*
 - Electricity Meter Feed IN Tariff 2*
 - Electricity Meter Feed OUT Tariff 1*
@@ -132,8 +132,9 @@ The Toon integration provides the following sensors:
 - Max Solar Power Production Today (only with solar module)
 - Solar Energy Produced Today (only with solar module)
 - Solar Power Production to Grid (only with solar module)
-- Water Meter
-- Water Usage Today
+- Water Meter*
+- Water Usage Today*
+- Water Cost Today*
 
 Sensors marked with `*` are disabled by default, but can be enabled
 from the UI, by clicking on the device and enabling the specific entity.
