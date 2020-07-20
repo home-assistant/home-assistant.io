@@ -413,7 +413,7 @@ Three new integration added this release:
 
 The following integration got support for a new platform:
 
-- [OpenZWave][ozw docs] has now support for window cover, adde by [@Michsior14]
+- [OpenZWave][ozw docs] has now support for window covers, added by [@Michsior14]
 
 ## Integrations now available to set up from the UI
 
