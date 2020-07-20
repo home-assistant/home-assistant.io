@@ -3,7 +3,7 @@ title: Wolflink
 description: Instructions on how to integrate Wolf Smart-Set cloud within Home Assistant.
 ha_category:
   - Heating
-ha_release: 0.109
+ha_release: 0.114
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
