@@ -155,7 +155,8 @@ $primary-color: #049cdb;
     .post {
       .title {
         font-size: 18px;
-        font-weight: bold;
+        text-decoration: underline;
+    
       }
 
       a {
@@ -492,7 +493,6 @@ p.note, div.note {
     .title {
       font-size: 1.5em;
       color: #4f566b;
-      font-weight: bold;
       letter-spacing: .06125rem;
     }
 
