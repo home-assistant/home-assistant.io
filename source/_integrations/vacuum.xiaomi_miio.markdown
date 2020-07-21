@@ -180,6 +180,57 @@ automation:
           - 26496
 ```
 
+### Service `xiaomi_miio.vacuum_goto`
+
+Go the specified coordinates
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                          |
+| `x_coord`                 |       no | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
+| `y_coord`                 |       no | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
+
+### Service `xiaomi_miio.vacuum_clean_segment`
+
+Clean the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific robot                          | 
+| `segments`                |       no | List of segment numbers or one single segment number. |
+
+Example of `xiaomi_miio.vacuum_clean_segment` use:
+
+Multiple segments:
+```yaml
+automation:
+  - alias: Vaccum kitchen and living room
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        segments: [1,2]
+```
+
+Single segment:
+```yaml
+automation:
+  - alias: Vacuum kitchen
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        segments: 1
+```
+
 ## Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
@@ -216,7 +267,7 @@ The following table shows the units of measurement for each attribute:
 
 ## Retrieving the Access Token
 
-### Xiaomi Home app (Xiaomi Aqara Gateway, android?)
+### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
 
 1. Install the Xiaomi Home app.
 2. Sign In/make an account.
@@ -224,9 +275,12 @@ The following table shows the units of measurement for each attribute:
 4. Select your Gateway in Xiaomi Home app.
 5. Then the 3 dots at the top right of the screen.
 6. Then click on about.
-7. Tap the version number (Plug-in version 2.77.1 as of January 2020) at the bottom of the screen repeatedly.
-8. You should now see 2 extra options listed in English, this means you enabled developer mode. [if not, try all steps again!].
-9. Under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
+7. Tap the version number (Plug-in version 2.77.1 as of January 2020, iOS has a white space instead of version number) at the bottom of the screen repeatedly.
+8. You should now see 2 extra options listed in English (iOS still in Chinese), this means you enabled developer mode. [if not, try all steps again!].
+9. Android: under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
+iOS: Most options are still in Chinese, you need the fourth item from the top.
+
+Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token. 
 
 ### Alternative methods
 
@@ -248,8 +302,9 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 > If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).
 
 1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
-2. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
-3. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
+2. If your Robovac is already set up, you must reset its WiFi settings for it to get a new token.
+3. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
+4. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 
 ### Linux and Rooted Android
 
@@ -265,7 +320,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 ### iOS
 
 1. Configure the robot with the Mi Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
-2. Using iTunes, create an unencrypted backup of your iPhone.
+2. Using iTunes, create an unencrypted backup of your iPhone. Since macOS 10.15 there is no iTunes app. Use Finder instead - after connecting your iOS device you should see it in left menu of Finder window. 
 3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
 5. Navigate to `com.xiaomi.mihome`.
@@ -274,10 +329,18 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 8. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
-11. Input and run this query:
+11. Input and run this query (use appropriate SELECT query for your device i.e. Vacuum, Powerstrip or Plug):
 
     ```sql
+    -- Execute to retrieve token for Vacuum
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"
+    
+    -- Execute to retrieve token for Smart Powerstrip
+    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%powerstrip%"
+  
+    -- Execute to retrieve token for Smart Plug
+    SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%plug%"
+
     ```
 
 12. Copy the returned 96-digit hexadecimal string to your clipboard.
@@ -293,13 +356,11 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 1. Configure the robot with the Mi-Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
 2. Install [BlueStacks](https://www.bluestacks.com).
-3. Set up [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) in BlueStacks and login to synchronize devices.
-4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.
-5. Copy `/data/data/com.xiaomi.smarthome/databases/miio2.db` file to your computer using the Bluestacks Tweakers filesystem tool.
-6. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
-7. Open the DB Browser and load the `miio2.db` from your computer.
-8. Select `Browse Data` tab from the DB Browser and switch to table called `devicerecord`
-9. This will display all the connected devices information with the token.
+3. Set up [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and login to synchronize devices.
+4. Open Filemanager in the `More Apps` menu.
+5. Use `Explore` on the left and navigate to `sdcard/SmartHome/logs/plug_DeviceManager`.
+6. Click on `Export to Windows` in the lower left corner and select any or all files to export to you local disk.
+7. Search for `"token":"<yourTokenHere>"`.
 
 ### Miio command line tool
 
@@ -352,13 +413,7 @@ vacuum_kitchen:
         params: [18]
 ```
 
-Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`.
-
-Valid room numbers can be retrieved using miio command-line tool. It will only give room numbers and not the room names. To get the room names, one can just test the app_segment_clean command and see which room it cleans.
-
-```bash
-miio protocol call <ip of the vacuum> get_room_mapping
-```
+Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
 
 ## Example on how to reset maintenance hours (brushes, filter, sensors)
 
@@ -411,3 +466,15 @@ vacuum_kitchen:
         command: app_zoned_clean
         params: [[23084,26282,27628,29727,1]]
 ```
+
+## Retrieving Room numbers
+
+Valid room numbers can be retrieved using miio command-line tool:
+
+```bash
+miio protocol call <ip of the vacuum> get_room_mapping
+```
+
+It will only give room numbers and not the room names. To mat the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient. 
+
+It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing. 

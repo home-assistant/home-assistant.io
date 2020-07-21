@@ -23,7 +23,8 @@ To successfully implement this platform, the Home Assistant host should be capab
 
 ### Installing Alternative Firmware
 
-In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3) or if you have a 2019 version camera [yi-hack-6FUS_4.5.0 GitHub project](https://github.com/roleoroleo/yi-hack-6FUS_4.5.0).
+In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found via the [yi-hack-v3 GitHub project](https://github.com/shadow-1/yi-hack-v3).
+If you have a 2019/2020 version camera use [yi-hack-MStar GitHub project](https://github.com/roleoroleo/yi-hack-MStar) or [yi-hack-Allwinner GitHub project](https://github.com/roleoroleo/yi-hack-Allwinner). In this case configure the cam as ONVIF and read the wiki for further details.
 
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
 

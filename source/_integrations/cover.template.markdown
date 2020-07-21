@@ -26,6 +26,7 @@ cover:
   - platform: template
     covers:
       garage_door:
+        device_class: garage
         friendly_name: "Garage Door"
         value_template: "{{ states('sensor.garage_door')|float > 0 }}"
         open_cover:
@@ -149,6 +150,7 @@ cover:
   - platform: template
     covers:
       garage_door:
+        device_class: garage
         friendly_name: "Garage Door"
         position_template: "{{ states('sensor.garage_door') }}"
         open_cover:

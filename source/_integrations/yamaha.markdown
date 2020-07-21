@@ -136,3 +136,12 @@ Enable or disable an output port (HDMI) on the receiver.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
 | `port` | no | Port to enable or disable, e.g., `hdmi1`.
 | `enabled` | no | To enable set true, otherwise set to false.
+
+### Service `select_scene`
+
+Select a scene on the receiver.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `scene` | no | Scene to select, e.g., `BD/DVD Movie Viewing`, `TV Viewing`, `NET Audio Listening` or `Radio Listening`.

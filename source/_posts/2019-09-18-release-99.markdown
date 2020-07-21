@@ -312,7 +312,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove throttle from update ([@michaeldavie] - [#26216]) ([environment_canada docs])
 - Bump dependency to add PLAY_STATE_STOPPED ([@schmittx] - [#26239]) ([apple_tv docs])
 - Cleanup strings ([@andrewsayre] - [#26243]) ([smartthings docs])
-- Fix WWLLN entity management ([@exxamalte] - [#26250]) ([wwlln docs])
+- Fix WWLLN entity management ([@exxamalte] - [#26250])
 - Enable cert_expiry config entries ([@Cereal2nd] - [#25624]) ([cert_expiry docs])
 - Velbus config entries remove decorator ([@Cereal2nd] - [#26256]) ([velbus docs])
 - Bump androidtv to 0.0.25 and add tests ([@JeffLIrion] - [#26202]) ([androidtv docs])
@@ -403,7 +403,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add new integration for Jandy iAqualink pool control ([@flz] - [#26034]) ([iaqualink docs]) (new-integration)
 - Add protocol and model as an optional restriction for tellstick sensors ([@brange] - [#26026]) ([tellstick docs])
 - Fix KNX light tunable white rounding error ([@farmio] - [#26364]) ([knx docs])
-- Bump aiowwlln to 2.0.1 ([@bachya] - [#26486]) ([wwlln docs])
+- Bump aiowwlln to 2.0.1 ([@bachya] - [#26486])
 - Vicare: Avoid invalid temperature values ([@oischinger] - [#26485]) ([vicare docs])
 - Use PEP 526 type annotations, add some type hints ([@scop] - [#26464])
 - Restructure Z-Wave Climate ([@Santobert] - [#25724]) ([zwave docs])
@@ -804,7 +804,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vivotek docs]: /integrations/vivotek/
 [webhook docs]: /integrations/webhook/
 [withings docs]: /integrations/withings/
-[wwlln docs]: /integrations/wwlln/
 [xiaomi docs]: /integrations/xiaomi_aqara
 [yeelight docs]: /integrations/yeelight/
 [zha docs]: /integrations/zha/
