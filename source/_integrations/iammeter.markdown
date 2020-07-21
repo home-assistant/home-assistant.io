@@ -14,7 +14,7 @@ ha_codeowners:
 `iammeter` provides real-time readings of single-phase (WEM3080, WEM3162) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com) over Wi-Fi.
 
   
-demo show:
+Example Lovelace Dashboard:
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/iammeter demo.jpg' />
