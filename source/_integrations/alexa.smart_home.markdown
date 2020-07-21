@@ -63,7 +63,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 </p>
 
 - In next screen, make sure *v3* is selected in `Payload version`.
-- Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alex Developer Console opened, we need change the skill configuration later.
+- Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alexa Developer Console opened, we need change the skill configuration later.
 
 ## Create an AWS Lambda Function
 
