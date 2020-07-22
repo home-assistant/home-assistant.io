@@ -39,6 +39,11 @@ Hold Action:
 
 ## Code Editor
 
+```yaml
+type: button
+entity: light.living_room
+```
+
 {% configuration %}
 type:
   required: true
@@ -46,16 +51,16 @@ type:
   type: string
 entity:
   required: false
-  description: Home Assistant entity ID.
+  description: Selects an entity to be used for the card. Use the Home Assistant entity ID, for example `lights.bedroom`.
   type: string
 name:
   required: false
-  description: Overwrites the default entity name.
+  description: Sets a name to overwrite the default entity name.
   type: string
   default: Name of Entity
 icon:
   required: false
-  description: Overwrites default entity picture or entity icon.
+  description: Selects an icon to overwrite the default entity picture or entity icon.
   type: string
   default: Entity Domain Icon
 show_name:
@@ -70,29 +75,29 @@ show_icon:
   default: "true"
 icon_height:
   required: false
-  description: Sets the height for the icon. This is in pixels which is handled by the configuration UI. Other CSS values can also be used.
+  description: Sets the height for the icon, in pixels. Other CSS values may also be used.
   type: string
   default: auto
 state_color:
   required: false
-  description: Set to `true` to have icons colored when entity is active
+  description: Defines whether icons are colored when the entity is active. Icons are colored when set to `true`.
   type: boolean
   default: true
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: Defines an action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: Defines an action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: Defines an action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`
+  description: Sets the theme, which may be set to any theme within `themes.yaml`
   type: string
 {% endconfiguration %}
 
@@ -101,7 +106,7 @@ theme:
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: id of the user that can see the view tab.
   type: string
 {% endconfiguration %}
 
