@@ -558,7 +558,7 @@ Sorry for the inconvenience.
 </details>
 
 <details>
-  <summary><b>ZHA with Hue remotes</b></summary>
+  <summary><b>ZHA power unit of measurement</b></summary>
   <p>
 
 Previously ZHA was displaying power as kilowatt (kW) for some devices
