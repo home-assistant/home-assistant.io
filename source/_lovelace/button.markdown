@@ -7,37 +7,34 @@ description: "The Button card allows you to add buttons to perform tasks."
 The Button card allows you to add buttons to perform tasks.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_card.png' alt='Screenshot of the button card'>
-Screenshot of the Button card.
+<img src='/images/lovelace/lovelace_entity_button_card.png' alt='Screenshot of the button cards'>
+Screenshot of three Button Cards.
 </p>
 
-## Visual Editor
-
-<p class='img'>
-<img src='https://i.imgur.com/HJybKBf.jpg' alt='Screenshot of the button card Visual Editor'>Screenshot of the Button card Visual Editor</p>
-
-### Configuration
+## Card Settings
 
 {% configuration_basic %}
 Entity:
-  description: Choose a Home Assistant entity from the dropdown menu
+  description: The entity the card interacts with, for example `light.living_room`.
 Name:
-  description: Enter a name for the button. The default is the entity name.
+  description: The button name. The default is the name of the entity, if an entity is selected.
 Icon:
-  description: Choose an icon to overwrite the default entity picture or entity icon.
-Show Name:
-  description: Toggle to show or hide the button name.
-Show Icon:
-  description: Toggle to show or hide the button icon.
+  description: The icon shown on the card. The default is the entity domain icon, if an entity is selected.
+Show Name?:
+  description: A toggle to show or hide the button name.
+Show Icon?:
+  description: A toggle to show or hide the icon.
+Icon Height:
+  description: The height of the icon, in pixels.
 Theme:
-  description: Choose a card theme from the dropdown menu.
+  description: The card theme, which may be set to any installed theme.
 Tap Action:
-  description: Choose an action from the dropdown menu. This action is taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
 Hold Action:
-  description: Choose an action from the dropdown menu. This action is taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: The action taken on card tap and hold. For more information, see the [action documentation](/lovelace/actions/#hold-action).
 {% endconfiguration_basic %}
 
-## Code Editor
+## Code Editor or YAML mode
 
 ```yaml
 type: button
@@ -51,53 +48,53 @@ type:
   type: string
 entity:
   required: false
-  description: Selects an entity to be used for the card. Use the Home Assistant entity ID, for example `lights.bedroom`.
+  description: The entity the card interacts with, for example `light.living_room`.
   type: string
 name:
   required: false
-  description: Sets a name to overwrite the default entity name.
+  description: The button name.
   type: string
-  default: Name of Entity
+  default: Entity name
 icon:
   required: false
-  description: Selects an icon to overwrite the default entity picture or entity icon.
+  description: The icon shown on the card.
   type: string
   default: Entity Domain Icon
 show_name:
   required: false
-  description: Shows/hides name.
+  description: If true, the button name is shown on the card.
   type: boolean
   default: "true"
 show_icon:
   required: false
-  description: Shows/hides icon.
+  description: If true, the icon is shown on the card.
   type: boolean
   default: "true"
 icon_height:
   required: false
-  description: Sets the height for the icon, in pixels. Other CSS values may also be used.
+  description: The height of the icon. Any CSS value may be used.
   type: string
   default: auto
 state_color:
   required: false
-  description: Defines whether icons are colored when the entity is active. Icons are colored when set to `true`.
+  description: If true, the icon changes color when the entity is active.
   type: boolean
   default: true
 tap_action:
   required: false
-  description: Defines an action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+  description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
   type: map
 hold_action:
   required: false
-  description: Defines an action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  description: The action taken on card tap and hold. For more information, see the [action documentation](/lovelace/actions/#hold-action).
   type: map
 double_tap_action:
   required: false
-  description: Defines an action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  description: The action taken on card double tap. For more information, see the [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 theme:
   required: false
-  description: Sets the theme, which may be set to any theme within `themes.yaml`
+  description: The card theme, which may be set to any theme from the `themes.yaml` file.
   type: string
 {% endconfiguration %}
 
@@ -106,13 +103,13 @@ theme:
 {% configuration badges %}
 user:
   required: true
-  description: id of the user that can see the view tab.
+  description: The id of the user that can see the view tab.
   type: string
 {% endconfiguration %}
 
 ## Examples
 
-Title and Script Service Example:
+Button Card with a button name and a script that runs when card is tapped:
 
 ```yaml
 type: button
@@ -126,5 +123,5 @@ tap_action:
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_entity_button_complex_card.png' alt='Screenshot of the button card'>
-Screenshot of the Button card with Title and Script Service.
+Screenshot of the Button card with Script Service.
 </p>
