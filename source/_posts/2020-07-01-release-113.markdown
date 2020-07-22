@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "0.113: Automations & Scripts, and even more performance!"
-description: "0.113: Great new features to our Automations & Scripts, and even more performance improvements!"
+description: "Automate with sub-second precision in different running modes, use loops, repeats, choose and cool down. New MDI icons and a generally faster performance with lower CPU usage"
 date: 2020-07-22 00:00:00
 date_formatted: "July 22, 2020"
 author: Franck Nijhof
