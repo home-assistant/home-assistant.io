@@ -4,6 +4,9 @@ description: Instructions on setting up Bond Bridge within Home Assistant.
 ha_category:
   - Hub
   - Cover
+  - Fan
+  - Light
+  - Switch
 ha_iot_class: Local Pull
 ha_release: 0.113
 ha_domain: bond
