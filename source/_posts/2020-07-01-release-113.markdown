@@ -174,7 +174,7 @@ Screenshot of running modes in the frontend.
 This is a powerful feature, which allows you to control how automations
 and scripts are run in ways you could not do before.
 
-More information about the running mode can be found the [automations][automation-mode]
+More information about the running mode can be found in the [automations][automation-mode]
 and [scripts][scripts-mode] documentation.
 
 [automation-mode]: /docs/automation/#automation-modes
@@ -289,7 +289,7 @@ script:
 ### Automations & Scripts: Bonus! Cool down
 
 An often requested feature is to allow for a cool down time on an automation.
-What that entails is setting a limiting the run of an automation or script
+What that entails is setting a limit on the run of an automation or script
 to a certain time frame.
 
 While this is not a feature specifically added or build, it can be achieved
@@ -328,8 +328,8 @@ A lot of icons are renamed, and some are removed. In this release, we included
 all new, and all removed icons and we made sure the new and the old name work.
 
 If you use an icon that is renamed or removed we will show a warning in the log,
-in version 0.115,this conversion path will be removed and removed icons and
-old names no longer work.
+in version 0.115, this conversion path will be removed and removed icons and
+old names will no longer work.
 
 So make sure to check your logs if you need to adjust any of your used MDI
 icons.
@@ -341,7 +341,7 @@ Please note: It is possible that custom integrations (also known as
 custom components) use deprecated icons. These can throw warnings that need
 to be addressed in the custom integration.
 
-[mdi]: https://dev.materialdesignicons.com
+[mdi]: https://www.materialdesignicons.com
 [mdi-upgrade]: https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45
 [simple-icons]: https://simpleicons.org/
 [hass-simpleicons]: https://github.com/vigonotion/hass-simpleicons
@@ -349,14 +349,14 @@ to be addressed in the custom integration.
 ## Script and Scene editor updates
 
 The UI to edit or create a script has been updated, besides support for the
-new running mode and you can give your scripts a custom icon and ID from the UI.
+new running mode, you can now give your scripts a custom icon and ID from the UI.
 
-Especially the naming is helpful, you no longer have to search your states for
+Especially the ID is helpful, you no longer have to search your states for
 a long numeric entity id that matches your script.
 
 <p class='img'>
 <img src='/images/blog/2020-07-0.113/script-name.png' alt='Screenshot of a script name, icon and run mode.'></a>
-Screenshot of a script name, icon and run mode.
+Screenshot of a script ID, icon and run mode.
 </p>
 
 The support for setting a custom icon, is also added to the scenes editor.
@@ -364,7 +364,7 @@ The support for setting a custom icon, is also added to the scenes editor.
 ## More speed optimizations
 
 After, the well-received, speed optimization done in the 0.111 & 0.112 releases,
-the sega towards improving resource usage and responsiveness of the platform
+the saga towards improving resource usage and responsiveness of the platform
 continues.
 
 This time we have both [@bdraco] and [@pvizeli] to thank for some great
