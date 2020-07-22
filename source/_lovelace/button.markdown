@@ -7,27 +7,27 @@ description: "The Button card allows you to add buttons to perform tasks."
 The Button card allows you to add buttons to perform tasks.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_card.png' alt='Screenshot of the button cards'>
+<img src='/images/lovelace/lovelace_entity_button_card.png' alt='Screenshot of three Button Cards'>
 Screenshot of three Button Cards.
 </p>
 
-## Card Settings
+### Card Settings
 
 {% configuration_basic %}
 Entity:
-  description: The entity the card interacts with, for example `light.living_room`.
+  description: The entity ID the card interacts with, for example `light.living_room`.
 Name:
-  description: The button name. The default is the name of the entity, if an entity is selected.
+  description: The button name that is displayed on the card. If this field is left blank and the card interacts with an entity, the button name defaults to the entity name. Otherwise, no name is displayed.
 Icon:
-  description: The icon shown on the card. The default is the entity domain icon, if an entity is selected.
-Show Name?:
+  description: The icon that is displayed on the card. If this field is left blank and the card interacts with an entity, the icon defaults to the entity domain icon. Otherwise, no icon is displayed.
+Show Name:
   description: A toggle to show or hide the button name.
-Show Icon?:
+Show Icon:
   description: A toggle to show or hide the icon.
 Icon Height:
   description: The height of the icon, in pixels.
 Theme:
-  description: The card theme, which may be set to any installed theme.
+  description: The card theme, which may be set to any installed theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
 Tap Action:
   description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
 Hold Action:
@@ -35,6 +35,10 @@ Hold Action:
 {% endconfiguration_basic %}
 
 ## Code Editor or YAML mode
+
+Use these configuration variables if you prefer to use the Code Editor to configure your cards, or if you use YAML mode.
+
+For more information, see the [YAML Mode documentation](https://www.home-assistant.io/lovelace/yaml-mode/).
 
 ```yaml
 type: button
@@ -48,26 +52,26 @@ type:
   type: string
 entity:
   required: false
-  description: The entity the card interacts with, for example `light.living_room`.
+  description: The entity ID the card interacts with, for example `light.living_room`.
   type: string
 name:
   required: false
-  description: The button name.
+  description: The button name that is displayed on the card. It defaults to the entity name only if the card interacts with an entity. Otherwise, if not configured, no name is displayed.
   type: string
   default: Entity name
 icon:
   required: false
-  description: The icon shown on the card.
+  description: The icon that is displayed on the card. It defaults to the entity domain icon only if the card interacts with an entity. Otherwise, if not configured, no icon is displayed.
   type: string
   default: Entity Domain Icon
 show_name:
   required: false
-  description: If true, the button name is shown on the card.
+  description: If false, the button name is not shown on the card.
   type: boolean
   default: "true"
 show_icon:
   required: false
-  description: If true, the icon is shown on the card.
+  description: If false, the icon is not shown on the card.
   type: boolean
   default: "true"
 icon_height:
@@ -77,7 +81,7 @@ icon_height:
   default: auto
 state_color:
   required: false
-  description: If true, the icon changes color when the entity is active.
+  description: If false, the icon does not change color when the entity is active.
   type: boolean
   default: true
 tap_action:
@@ -94,7 +98,7 @@ double_tap_action:
   type: map
 theme:
   required: false
-  description: The card theme, which may be set to any theme from the `themes.yaml` file.
+  description: The card theme, which may be set to any theme from the `themes.yaml` file. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 {% endconfiguration %}
 
@@ -122,6 +126,6 @@ tap_action:
 ```
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_entity_button_complex_card.png' alt='Screenshot of the button card'>
+<img src='/images/lovelace/lovelace_entity_button_complex_card.png' alt='Screenshot of the Button card with Script Service'>
 Screenshot of the Button card with Script Service.
 </p>
