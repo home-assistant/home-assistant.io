@@ -241,23 +241,23 @@ The `rfxtrx` platform support switches that communicate in the frequency range o
 
 #### Generate codes
 
-If you need to generate codes for switches, you can use a template (useful for example COCO switches).
+If you need to generate codes for devices, you can use a template (useful for example for COCO switches).
 
 - Go to home-assistant-IP:8123/dev-template
 - Use this code to generate a code:
 
-{% raw %}
-
-```yaml
+```
+# for switches
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
+
+# for dimmers change 010f70 to 020f70 e.g.
+0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}020f70
 ```
 
-{% endraw %}
-
-- Use this code to add a new switch in your `configuration.yaml`.
+- Use this code to add a new device in your `configuration.yaml`.
 - Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
-- Toggle your new switch in the Home Assistant interface
+- Toggle your new device in the Home Assistant interface
 
 ### Sensors
 
