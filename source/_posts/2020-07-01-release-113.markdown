@@ -356,7 +356,7 @@ a long numeric entity id that matches your script.
 
 <p class='img'>
 <img src='/images/blog/2020-07-0.113/script-name.png' alt='Screenshot of a script name, icon and run mode.'></a>
-Screenshot of a script id, icon and run mode.
+Screenshot of a script ID, icon and run mode.
 </p>
 
 The support for setting a custom icon, is also added to the scenes editor.
@@ -364,7 +364,7 @@ The support for setting a custom icon, is also added to the scenes editor.
 ## More speed optimizations
 
 After, the well-received, speed optimization done in the 0.111 & 0.112 releases,
-the sega towards improving resource usage and responsiveness of the platform
+the saga towards improving resource usage and responsiveness of the platform
 continues.
 
 This time we have both [@bdraco] and [@pvizeli] to thank for some great
