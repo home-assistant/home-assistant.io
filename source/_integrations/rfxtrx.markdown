@@ -246,7 +246,7 @@ If you need to generate codes for devices, you can use a template (useful for ex
 - Go to home-assistant-IP:8123/dev-template
 - Use this code to generate a code:
 
-```
+```yaml
 # for switches
 0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
 
