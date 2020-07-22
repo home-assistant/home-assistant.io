@@ -11,6 +11,7 @@ ha_category:
 ha_release: pre 0.7
 ha_codeowners:
   - '@danielhiversen'
+  - '@elupus'
 ha_domain: rfxtrx
 ---
 

@@ -9,6 +9,7 @@ ha_release: 0.113
 ha_domain: bond
 ha_codeowners:
   - '@prystupa'
+ha_config_flow: true
 ---
 
 Duplicates your RF remote control.
