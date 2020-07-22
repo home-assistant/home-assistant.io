@@ -203,14 +203,17 @@ script:
 ### Waiting for Script to Complete
 
 When calling a script "directly" (e.g., `script.NAME`) the calling script will wait for the called script to finish.
+If any errors occur that cause the called script to abort, the calling script will be aborted as well.
 
 When calling a script (or multiple scripts) via the `script.turn_on` service the calling script does _not_ wait. It starts the scripts, in the order listed, and continues as soon as the last script is started.
+Any errors that occur in the called scripts that cause them to abort will _not_ affect the calling script.
 
 <p class='img'>
   <img src='/images/integrations/script/script_wait.jpg'>
 </p>
 
 Following is an example of the calling script not waiting. It performs some other operations while the called script runs "in the background." Then it later waits for the called script to complete via a `wait_template`.
+This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
 {% raw %}
 ```yaml
