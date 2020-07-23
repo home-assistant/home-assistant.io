@@ -15,7 +15,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-Duplicates your RF remote control.
+The Bond integration allows you to control appliances through your [Bond Bridge](https://bondhome.io/). Duplicates your RF remote control.
 
 Supported devices:
 
