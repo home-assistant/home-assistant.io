@@ -15,7 +15,7 @@ Screenshot of three Button Cards.
 
 {% configuration_basic %}
 Entity:
-  description: The entity ID the card interacts with, for example `light.living_room`.
+  description: The entity ID the card interacts with, for example, `light.living_room`.
 Name:
   description: The button name that is displayed on the card. If this field is left blank and the card interacts with an entity, the button name defaults to the entity name. Otherwise, no name is displayed.
 Icon:
@@ -36,7 +36,7 @@ Hold Action:
 
 ## Code Editor or YAML mode
 
-Use these configuration variables if you prefer to use the Code Editor to configure your cards, or if you use YAML mode.
+Use these YAML configuration variables if you are setting up your cards in the Code Editor or in YAML mode.
 
 For more information, see the [YAML Mode documentation](https://www.home-assistant.io/lovelace/yaml-mode/).
 
@@ -52,7 +52,7 @@ type:
   type: string
 entity:
   required: false
-  description: The entity ID the card interacts with, for example `light.living_room`.
+  description: The entity ID the card interacts with, for example, `light.living_room`.
   type: string
 name:
   required: false
@@ -94,7 +94,7 @@ hold_action:
   type: map
 double_tap_action:
   required: false
-  description: The action taken on card double tap. For more information, see the [action documentation](/lovelace/actions/#double-tap-action).
+  description: The action taken on card double-tap. For more information, see the [action documentation](/lovelace/actions/#double-tap-action).
   type: map
 theme:
   required: false
