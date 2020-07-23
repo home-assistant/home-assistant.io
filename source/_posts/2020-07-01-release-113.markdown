@@ -121,12 +121,12 @@ if a previous action of the same automation is still running.
 
 Besides the default `single` mode, the following modes are now available:
 
-Mode | Description
--|-
-`single` | Do not start a new run, if running already.
-`restart` | Start a new run, after stopping the previous run.
-`queued` | Start a new run after all previous runs complete.
-`parallel` | Start a new, independent, run in parallel with previous runs.
+| Mode       | Description                                                   |
+| ---------- | ------------------------------------------------------------- |
+| `single`   | Do not start a new run, if running already.                   |
+| `restart`  | Start a new run, after stopping the previous run.             |
+| `queued`   | Start a new run after all previous runs complete.             |
+| `parallel` | Start a new, independent, run in parallel with previous runs. |
 
 <p class='img'>
 <img src='/images/integrations/script/script_modes.jpg' alt='Automation/script running modes visual explained.'></a>
@@ -452,6 +452,21 @@ The minimum required Python version has been bumped from Python 3.7.0 to 3.7.1.
 </details>
 
 <details>
+  <summary><b>TensorFlow</b></summary>
+  <p>
+
+The TensorFlow integration will fail to upgrade due to missing wheels for Python 3.8.
+This affects all installations that rely on our default docker images running Python 3.8.
+
+To work around this, remove the `tensorflow` platform under the `image_processing` domain from your
+configuration.yaml, before upgrading to 0.113.
+
+Work is under way to resolve the problem. For more information follow this issue: [#38073]
+
+  </p>
+</details>
+
+<details>
   <summary><b>Automations/Scripts</b></summary>
   <p>
 
@@ -661,7 +676,7 @@ instead of being delayed until the activity is finished setting up.
   "**fan**_set_led_on/off" to "**remote**_set_led_on/off",
   you will now need to set those back to "fan".
 
-  ([@alexhardwicke] - [#37605]) ([xiaomi_miio docs]) 
+  ([@alexhardwicke] - [#37605]) ([xiaomi_miio docs])
 
   </p>
 </details>
@@ -694,7 +709,7 @@ the Slack integration documentation.
 <details>
   <summary><b>RFXCOM RFXtrx</b></summary>
   <p>
-  
+
 - Configuration of entity name must now be done inside home assistant
 - Multiple entities may be generated for a single device
 - The events signalled from entity id's are removed in favor of events from an integration level.
@@ -708,7 +723,7 @@ the Slack integration documentation.
 <details>
   <summary><b>Fibaro</b></summary>
   <p>
-  
+
 Fibaro Home Center switches that control light sources will now correctly be configured as Light entities (instead of Switch entities). This causes those entities IDs to change from `switch`. to `light`. If this is not desirable, change the device role in Home Center to something that isn't a light source (e.g., Other device).
 
 ([@danielpervan] - [#37690]) ([fibaro docs])
@@ -1076,6 +1091,7 @@ In general, all variables that start with `paper` will be removed at some point.
 
 </details>
 
+[#38073]: https://github.com/home-assistant/core/issues/38073
 [#31637]: https://github.com/home-assistant/core/pull/31637
 [#33852]: https://github.com/home-assistant/core/pull/33852
 [#34387]: https://github.com/home-assistant/core/pull/34387
