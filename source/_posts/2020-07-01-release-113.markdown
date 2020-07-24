@@ -159,7 +159,7 @@ button was pressed after 5 seconds.
 automation:
   - trigger:
       - ...
-    mode: queue
+    mode: queued
     action:
       - ...
 ```
@@ -194,13 +194,16 @@ The new repeat feature can be used in three different ways:
 For example, this would spam your phone with the same message 10 times:
 
 ```yaml
-- alias: Send notification spam to phone
-  repeat:
-    count: 10
+# Send notification spam to phone
+script:
+  phone_spam:
     sequence:
-      - service: notify.frenck
-        data:
-          message: Ding dong! Someone is at the door!
+      repeat:
+        count: 10
+        sequence:
+          - service: notify.frenck
+            data:
+              message: Ding dong! Someone is at the door!
 ```
 
 More information about repeats can be found in the [documentation][repeats].
@@ -222,7 +225,7 @@ of conditions.
 ```yaml
 automation:
   - alias: "Example"
-    description: "On button press, turn on the light bulb for 10 seconds."
+    description: "On button press, choose the right thing to run."
     trigger:
       - platform: state
         entity_id:
@@ -371,7 +374,7 @@ This time we have both [@bdraco] and [@pvizeli] to thank for some great
 optimizations that will reduce the CPU usage of Home Assistant.
 
 First of all, if you are running a Home Assistant OS, Container or
-Supervised installation, this your Home Assistant instance will run on
+Supervised installation, then your Home Assistant instance will run on
 Python 3.8. No action from your end is needed for this.
 
 It is not just a normal Python version, but [@pvizeli] has worked on a highly
