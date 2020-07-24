@@ -771,6 +771,59 @@ In general, all variables that start with `paper` will be removed at some point.
   </p>
 </details>
 
+## Release 0.113.1 - July 24
+
+- Update discord.py to v1.3.4 for API change ([@DubhAd] - [#38060]) ([discord docs])
+- Fix issue with creation of PT2262 devices in rfxtrx integration ([@RobBie1221] - [#38074]) ([rfxtrx docs])
+- Fix route53 depending on broken package ([@balloob] - [#38079]) ([route53 docs])
+- Bump pysmartthings to v0.7.2 ([@andrewsayre] - [#38086]) ([smartthings docs])
+- Bump androidtv to 0.0.46 ([@JeffLIrion] - [#38090]) ([androidtv docs])
+- Prevent the zeroconf service browser from terminating when a device without any addresses is discovered. ([@bdraco] - [#38094])
+- Fix SimpliSafe to work with new MFA ([@bachya] - [#38097]) ([simplisafe docs])
+- Fix text error when getting getting external IP in route53 ([@ludeeus] - [#38100]) ([route53 docs])
+- Fix script repeat variable lifetime ([@pnbruckner] - [#38124])
+- Log which task is blocking startup when debug logging is on ([@bdraco] - [#38134])
+- Fix Xbox Live integration ([@mKeRix] - [#38146]) ([xbox_live docs])
+- Fix incorrect mesurement in Toon for meter low ([@frenck] - [#38149]) ([toon docs])
+- Fix Nuki Locks and Openers not being available after some time ([@pschmitt] - [#38159]) ([nuki docs])
+- Remove leftover print statement ([@bachya] - [#38163]) ([simplisafe docs])
+
+[#38060]: https://github.com/home-assistant/core/pull/38060
+[#38074]: https://github.com/home-assistant/core/pull/38074
+[#38079]: https://github.com/home-assistant/core/pull/38079
+[#38086]: https://github.com/home-assistant/core/pull/38086
+[#38090]: https://github.com/home-assistant/core/pull/38090
+[#38094]: https://github.com/home-assistant/core/pull/38094
+[#38097]: https://github.com/home-assistant/core/pull/38097
+[#38100]: https://github.com/home-assistant/core/pull/38100
+[#38124]: https://github.com/home-assistant/core/pull/38124
+[#38134]: https://github.com/home-assistant/core/pull/38134
+[#38146]: https://github.com/home-assistant/core/pull/38146
+[#38149]: https://github.com/home-assistant/core/pull/38149
+[#38159]: https://github.com/home-assistant/core/pull/38159
+[#38163]: https://github.com/home-assistant/core/pull/38163
+[@DubhAd]: https://github.com/DubhAd
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@RobBie1221]: https://github.com/RobBie1221
+[@andrewsayre]: https://github.com/andrewsayre
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@ludeeus]: https://github.com/ludeeus
+[@mKeRix]: https://github.com/mKeRix
+[@pnbruckner]: https://github.com/pnbruckner
+[@pschmitt]: https://github.com/pschmitt
+[androidtv docs]: /integrations/androidtv/
+[discord docs]: /integrations/discord/
+[nuki docs]: /integrations/nuki/
+[rfxtrx docs]: /integrations/rfxtrx/
+[route53 docs]: /integrations/route53/
+[simplisafe docs]: /integrations/simplisafe/
+[smartthings docs]: /integrations/smartthings/
+[toon docs]: /integrations/toon/
+[xbox_live docs]: /integrations/xbox_live/
+
 ## All changes
 
 <details>
