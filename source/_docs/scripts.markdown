@@ -206,6 +206,11 @@ The following automation shows how to capture the custom event `event_light_stat
 ### Repeat a Group of Actions
 
 This action allows you to repeat a sequence of other actions. Nesting is fully supported.
+
+<div class='note'>
+  The following examples, as with previous examples, are just a <i>single action</i> within a script's <b>sequence</b> section or an automation's <b>action</b> section.
+</div>
+
 There are three ways to control how many times the sequence will be repeated.
 
 #### Counted Repeat
@@ -225,7 +230,7 @@ the template is rendered when the repeat step is reached.
 
 #### While Loop
 
-This form accepts a list of conditions that are evaluated _before_ each time the sequence
+This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
 is run. The sequence will be repeated _as long as_ the condition(s) evaluate to true.
 
 {% raw %}
@@ -264,7 +269,7 @@ _until_ the condition(s) evaluate to true.
 
 #### Repeat Loop Variable
 
-A variable named `repeat` is defined within the repeat sequence. If repeat sequences are
+A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, as well as `while` or `until` when those options are used.) If repeat sequences are
 nested, it always applies to the inner-most loop. It contains the following fields:
 
 field | description
@@ -278,7 +283,11 @@ field | description
 This action allows you to select a sequence of other actions from a list of sequences.
 Nesting is fully supported.
 
-Each sequence is paired with a list of conditions. The first sequence whose conditions are all true will be run.
+<div class='note'>
+  The following example, as with previous examples, is just a <i>single action</i> within a script's <b>sequence</b> section or an automation's <b>action</b> section.
+</div>
+
+Each sequence is paired with a list of conditions (see [conditions page] for available options.) The first sequence whose conditions are all true will be run.
 An optional `default` sequence can be included which will be run if none of the sequences from the list are run.
 
 {% raw %}
