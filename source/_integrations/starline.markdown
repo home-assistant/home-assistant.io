@@ -16,16 +16,16 @@ ha_codeowners:
 ha_domain: starline
 ---
 
-The `starline` integration lets you retrieve data of your StarLine security system from the StarLine portal. You will need a working StarLine account.
+The `starline` integration lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.
 
 This integration provides the following platforms:
 
-- Binary Sensors: Hand brake, hood, trunk, alarm status and doors lock state.
-- Device tracker: The location of your car.
-- Lock: Control the lock of your car.
-- Sensors: Battery level, SIM card balance, GSM signal level, interior temperature and engine temperature.
-- Switches: Start/stop engine, heater (webasto), additional channel and sound the horn.
-- Services: Update the state, set update frequency. More details can be found [here](#services).
+- Binary sensors: Hand brake, hood, trunk, alarm status and doors lock state
+- Device tracker: The location of your car
+- Lock: Control the lock of your car
+- Sensors: Battery level, SIM card balance, GSM signal level, interior temperature and engine temperature
+- Switches: Start/stop engine, heater (webasto), additional channel and sound the horn
+- Services: Update the state, set update frequency; details [below](#services)
 
 ## Configuration
 
@@ -61,4 +61,4 @@ The service `starline.set_scan_interval` sets update frequency for entities.
 
 ## Disclaimer
 
-This software is not affiliated with or endorsed by StarLine Company.
+This software is not affiliated with or endorsed by ScPA StarLine Ltd.
