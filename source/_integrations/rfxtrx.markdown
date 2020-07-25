@@ -251,6 +251,10 @@ To convert a switch to a dimmable light, make sure the event containt a dimming 
 0a14000101f20302 **01** 0080<br>
 0a14000101f20302 **10** 0080
 
+*Waveman:*<br>
+710030e4102 **01** 50<br>
+710030e4102 **02** 50
+
 ### Switches
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
