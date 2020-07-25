@@ -171,6 +171,11 @@ homekit:
                 required: false
                 type: string
                 default: '`switch`'
+              stream_count:
+                description: Only for `camera` entities. The number of simultaneous stream the camera can support.
+                required: false
+                type: integer
+                default: 3                
               stream_address:
                 description: Only for `camera` entities. The source IP address to use when streaming to RTP clients. If your Home Assistant host has multiple interfaces, selecting a specific IP may be necessary.
                 required: false
@@ -644,9 +649,9 @@ Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured corre
 
 If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when via the UI, go to **Configuration** >> **Integrations** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
 
-#### One video stream limit per camera
+#### Multiple camera streams
 
-Currently, cameras are limited to one video stream. Multiple streams are not possible at this time. One workaround is to create a second `HomeKit Bridge` to generate a copy of the camera accessory.
+Multiple streams can be configured with the `stream_count` configuration option. If you alter the number of streams, you must [reset the accessory](#resetting-accessories).
 
 #### Camera audio is not streaming
 
