@@ -3,7 +3,7 @@ title: Azure DevOps
 description: Instructions on how to integrate Azure DevOps with Home Assistant.
 ha_category:
   - Sensor
-ha_release: 0.109
+ha_release: 0.114
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
