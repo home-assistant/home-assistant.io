@@ -235,13 +235,13 @@ The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) i
 
 The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.
 
-Make sure you trigger a dimming command to get switches detected as lights otherwis, they will need show up as switches.
+Make sure you trigger a dimming command to get switches detected as lights otherwise, they will show up as switches.
 
 #### Convert switch event to dimming event
 
 To convert a standard switch to a light, use the [Light Switch](integrations/light.switch/) component.
 
-To convert a switch to a dimmable light, make sure the event containt a dimming command. You can usually convert a command by changing one byte.
+To convert a switch to a dimmable light, make sure the event contain a dimming command. You can usually convert a command by changing one byte.
 
 *ARC:*<br>
 0b11000248bc0cfe09 **01** 0f70<br>
