@@ -235,33 +235,25 @@ The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) i
 
 The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.
 
+Make sure you trigger a dimming command to get switches detected as lights otherwis, they will need show up as switches.
+
+#### Convert switch event to dimming event
+
+To convert a standard switch to a light, use the [Light Switch](integrations/light.switch/) component.
+
+To convert a switch to a dimmable light, make sure the event containt a dimming command. You can usually convert a command by changing one byte.
+
+*ARC:*<br>
+0b11000248bc0cfe09 **01** 0f70<br>
+0b11000248bc0cfe09 **02** 0f70
+
+*LightwaveRF:*<br>
+0a14000101f20302 **01** 0080<br>
+0a14000101f20302 **10** 0080
+
 ### Switches
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
-
-#### Generate codes
-
-If you need to generate codes for devices, you can use a template (useful for example for COCO switches).
-
-- Go to home-assistant-IP:8123/dev-template
-- Use this code to generate a code:
-
-{% raw %}
-
-```yaml
-# for switches
-0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
-
-# for dimmers change 010f70 to 020f70 e.g.
-0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}020f70
-```
-
-{% endraw %}
-
-- Use this code to add a new device in your `configuration.yaml`.
-- Launch your Home Assistant and go to the website.
-- Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
-- Toggle your new device in the Home Assistant interface
 
 ### Sensors
 
@@ -486,3 +478,47 @@ action:
   data:
     event: 0b1111e003af16aa10000060
 ```
+
+
+## Generate codes
+
+If you need to generate codes for switches and lights, you can use a template (useful for example COCO switches).
+
+- Go to home-assistant-IP:8123/dev-template
+- Use the follwing codes to generate an event:
+
+*Switch: ARC*
+
+{% raw %}
+
+```yaml
+0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}010f70
+```
+
+{% endraw %}
+
+*Light: ARC*
+
+{% raw %}
+
+```yaml
+0b11000{{ range(100,700) | random | int }}bc0cfe0{{ range(0,10) | random | int }}020f70
+```
+
+{% endraw %}
+
+
+*Light: Lightwave RF*
+{% raw %}
+
+```yaml
+0a14000{{ range(100,700) | random | int }}bc0cf{{ range(0,10) | random | int }}100f70
+```
+
+{% endraw %}
+
+
+- Use this code to add a new switch in your `configuration.yaml`.
+- Launch your Home Assistant and go to the website.
+- Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
+- Toggle your new switch in the Home Assistant interface
