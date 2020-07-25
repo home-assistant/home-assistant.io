@@ -4,7 +4,7 @@ description: "Installation of the Z-Wave component."
 redirect_from: /getting-started/z-wave-installation/
 ---
 
-Z-Wave can be configured using the Z-Wave _Integration_ in the _Configuration_ menu, or manually using an entry in `configuration.yaml`
+Z-Wave can be configured using the Z-Wave *Integration* in the *Configuration* menu, or manually using an entry in `configuration.yaml`
 
 ## Configuration
 
@@ -17,75 +17,75 @@ zwave:
 
 {% configuration Z-Wave %}
 usb_path:
-description: The port where your device is connected to your Home Assistant host. Z-Wave sticks will generally be `/dev/ttyACM0` and GPIO hats will generally be `/dev/ttyAMA0`.
-required: false
-type: string
-default: /zwaveusbstick
+  description: The port where your device is connected to your Home Assistant host. Z-Wave sticks will generally be `/dev/ttyACM0` and GPIO hats will generally be `/dev/ttyAMA0`.
+  required: false
+  type: string
+  default: /zwaveusbstick
 network_key:
-description: The 16-byte network key in the form `"0x01, 0x02..."` used in order to connect securely to compatible devices. It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely.
-required: false
-type: string
-default: None
+  description: The 16-byte network key in the form `"0x01, 0x02..."` used in order to connect securely to compatible devices. It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely.
+  required: false
+  type: string
+  default: None
 config_path:
-description: The path to the Python OpenZWave configuration files.
-required: false
-type: string
-default: the 'config' that is installed by python-openzwave
+  description: The path to the Python OpenZWave configuration files.
+  required: false
+  type: string
+  default: the 'config' that is installed by python-openzwave
 polling_interval:
-description: The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the Z-Wave network and cause problems.
-required: false
-type: integer
-default: 60000
+  description: The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the Z-Wave network and cause problems.
+  required: false
+  type: integer
+  default: 60000
 debug:
-description: Print verbose Z-Wave info to log.
-required: false
-type: boolean
-default: false
+  description: Print verbose Z-Wave info to log.
+  required: false
+  type: boolean
+  default: false
 autoheal:
-description: Allows enabling auto Z-Wave heal at midnight. Warning, this is inefficient and [should not be used](https://github.com/home-assistant/architecture/issues/81#issuecomment-478444085).
-required: false
-type: boolean
-default: false
+  description: Allows enabling auto Z-Wave heal at midnight. Warning, this is inefficient and [should not be used](https://github.com/home-assistant/architecture/issues/81#issuecomment-478444085).
+  required: false
+  type: boolean
+  default: false
 device_config / device_config_domain / device_config_glob:
-description: "This attribute contains node-specific override values. NOTE: This needs to be specified if you are going to use any of the following options. See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format."
-required: false
-type: [string, list]
-keys:
-ignored:
-description: Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
-required: false
-type: boolean
-default: false
-polling_intensity:
-description: Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
-required: false
-type: integer
-default: 0
-refresh_value:
-description: Enable refreshing of the node value. Only the light integration uses this.
-required: false
-type: boolean
-default: false
-delay:
-description: Specify the delay for refreshing of node value. Only the light integration uses this.
-required: false
-type: integer
-default: 5
-invert_openclose_buttons:
-description: Inverts function of the open and close buttons for the cover domain. This will not invert the position and state reporting.
-required: false
-type: boolean
-default: false
-invert_percent:
-description: Inverts the percentage of the position for the cover domain. This will invert the position and state reporting.
-required: false
-type: boolean
-default: false  
+  description: "This attribute contains node-specific override values. NOTE: This needs to be specified if you are going to use any of the following options. See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format."
+  required: false
+  type: [string, list]
+  keys:
+    ignored:
+      description: Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
+      required: false
+      type: boolean
+      default: false
+    polling_intensity:
+      description: Enables polling of a value and sets the frequency of polling (0=none, 1=every time through the list, 2=every other time, etc). If not specified then your device will not be polled.
+      required: false
+      type: integer
+      default: 0
+    refresh_value:
+      description: Enable refreshing of the node value. Only the light integration uses this.
+      required: false
+      type: boolean
+      default: false
+    delay:
+      description: Specify the delay for refreshing of node value. Only the light integration uses this.
+      required: false
+      type: integer
+      default: 5
+    invert_openclose_buttons:
+      description: Inverts function of the open and close buttons for the cover domain. This will not invert the position and state reporting.
+      required: false
+      type: boolean
+      default: false
+    invert_percent:
+      description: Inverts the percentage of the position for the cover domain. This will invert the position and state reporting.
+      required: false
+      type: boolean
+      default: false  
 {% endconfiguration %}
 
 ### Network Key
 
-Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the _network_key_ configuration variable to use a network key before adding these devices.
+Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the *network_key* configuration variable to use a network key before adding these devices.
 
 An easy script to generate a random key:
 
@@ -115,7 +115,7 @@ The first run after adding a device is when the `zwave` integration will take ti
 
 You do not need to install any software to use Z-Wave.
 
-If the path of `/dev/ttyACM0` doesn't work, look in the _System_ section of the _Supervisor_ menu. There you'll find a _Hardware_ button which will list all the hardware found.
+If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Supervisor* menu. There you'll find a *Hardware* button which will list all the hardware found.
 
 You can also check what hardware has been found using the [`ha` command](/hassio/commandline/#hardware):
 
@@ -123,7 +123,7 @@ You can also check what hardware has been found using the [`ha` command](/hassio
 ha hardware info
 ```
 
-If you did an alternative install of Home Assistant on Linux (e.g., installing Ubuntu, then Docker, then Home Assistant Supervised) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g., dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
+If you did an alternative install of Home Assistant on Linux (e.g.,  installing Ubuntu, then Docker, then Home Assistant Supervised) then the `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled in the host OS. Failure to do so will result in random failures of those components, e.g.,  dead or unreachable Z-Wave nodes, most notably right after Home Assistant restarts. Connect to your host OS via SSH, then you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager` (commands are for Debian/Ubuntu).
 
 ### Docker
 
@@ -227,9 +227,9 @@ If this applies to your situation:
 
 Then chances are high that the ModemManager in the host OS is causing the issue, claiming or interfering with the USB Z-Wave stick like the much used Aeotec ones. In this case you need to disable ModemManager.
 
-Connect to your host OS (e.g., Ubuntu) through SSH, then execute the following command on your host system to disable the ModemManager:
+Connect to your host OS (e.g.,  Ubuntu) through SSH, then execute the following command on your host system to disable the ModemManager:
 
-```bash
+ ```bash
 systemctl disable ModemManager.service
 ```
 
