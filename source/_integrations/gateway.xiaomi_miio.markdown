@@ -56,6 +56,7 @@ Not yet implemented features (but possible):
 - Gateway internet radio (only chinese stations)
 
 ## Supported subdevices
+
 These subdevices are fully implemented in HomeAssistant:
 
 | Subdevice name                   | Zigbee id               | model           | features                                         |
