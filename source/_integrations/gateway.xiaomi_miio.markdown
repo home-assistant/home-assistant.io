@@ -50,6 +50,7 @@ name:
 - Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`)
 
 Not yet implemented features (but possible):
+
 - Gateway light control
 - Gateway light sensor readout
 - Gateway internet radio (only chinese stations)
