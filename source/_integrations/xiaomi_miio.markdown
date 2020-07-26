@@ -1,6 +1,6 @@
 ---
 title: "Xiaomi Miio"
-description: "Overvieuw of all Xiaomi Miio Integrations."
+description: "Overview of all Xiaomi Miio Integrations."
 ha_category:
   - Hub
 ha_iot_class: Local Polling
@@ -35,5 +35,4 @@ see https://www.home-assistant.io/integrations/light.xiaomi_miio/
 
 ## Xiaomi Smart WiFi Socket and Smart Power Strip
 see https://www.home-assistant.io/integrations/switch.xiaomi_miio/
-
 
