@@ -169,7 +169,7 @@ The information output is:
 
 The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
 
 ### Configuration flow setup
 
@@ -181,7 +181,7 @@ host:
   required: true
   type: string
 token:
-  description: The API token of your Xiaomi gateway [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token).
+  description: The API token of your Xiaomi gateway [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token).
   required: true
   type: string
 name:
@@ -283,7 +283,7 @@ These subdevices are recognized by the python-miio code but are still being work
 
 The `xiaomi_miio` device tracker platform is observing your Xiaomi Mi WiFi Repeater 2 and reporting all associated WiFi clients.
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
 To add a Xiaomi Mi WiFi Repeater device tracker to your installation, add the following to your `configuration.yaml` file:
 
@@ -633,7 +633,7 @@ This model uses newer MiOT communication protocol.
   - `motor_speed`
   - `extra_features`
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a Xiaomi Air Purifier to your installation, add the following to your `configuration.yaml` file:
 
@@ -854,7 +854,7 @@ Currently, the supported features are:
   - battery
   - time_stat
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
 ### Configuration
 
@@ -898,7 +898,7 @@ Currently, the supported features are:
   - temperature
   - humidity
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
 ### Configuration
 
@@ -935,7 +935,7 @@ The `xiaomi miio` remote platform allows you to send IR commands from your Xiaom
 
 ### Setup
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 ### Configuring the Platform
 
@@ -976,7 +976,7 @@ commands:
   type: map
   keys:
     command:
-      description: A list of commands as [raw (learned command)](/integrations/remote.xiaomi_miio/#raw) or [pronto hex code](/integrations/remote.xiaomi_miio/#pronto-hex-code).
+      description: A list of commands as [raw (learned command)](/integrations/xiaomi_miio/#raw) or [pronto hex code](/integrations/xiaomi_miio/#pronto-hex-code).
       required: true
       type: list
 
@@ -1047,7 +1047,7 @@ The Xiaomi IR Remote Platform currently supports two different formats for IR co
 
 ### Raw
 
-A raw command is a command learned from [`xiaomi_miio.remote_learn_command`](/integrations/remote.xiaomi_miio/#xiaomi_miioremote_learn_command).
+A raw command is a command learned from [`xiaomi_miio.remote_learn_command`](/integrations/xiaomi_miio/#xiaomi_miioremote_learn_command).
 
 A raw command is defined as in the following example:
 
@@ -1092,7 +1092,7 @@ The Xiaomi IR Remote Platform registers four services.
 
 ### `remote.send_command`
 
-Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/integrations/remote.xiaomi_miio/#command-types).
+Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/integrations/xiaomi_miio/#command-types).
 
 ### `xiaomi_miio.remote_learn_command`
 
@@ -1100,7 +1100,7 @@ Used to learn new commands.
 
 Use the entity_id of the Xiaomi IR Remote to start a learning process.
 
-`slot` and `timeout` can be specified, but multiple commands learned to the same slot can still be sent using [`remote.send_command`](/integrations/remote.xiaomi_miio/#remotesend_command) even if they are overwritten.
+`slot` and `timeout` can be specified, but multiple commands learned to the same slot can still be sent using [`remote.send_command`](/integrations/xiaomi_miio/#remotesend_command) even if they are overwritten.
 
 After learning the command the base64 string can be found as a notification in Overview, the string can be copied by left clicking on the string and choose the copy option.
 
@@ -1132,7 +1132,7 @@ Currently supported services are:
 
 ### Configuration
 
-Please follow [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
+Please follow [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
 
 To add a vacuum to your installation, add the following to `configuration.yaml`:
@@ -1544,7 +1544,7 @@ Supported models: `philips.light.moonlight`
 
 
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a Xiaomi Philips Light to your installation, add the following to your `configuration.yaml` file:
 
@@ -1651,7 +1651,7 @@ Turn the eyecare mode off.
 
 The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug, Xiaomi Smart Power Strip and Xiaomi Chuangmi Plug V1.
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 ### Features
 
