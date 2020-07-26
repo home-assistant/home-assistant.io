@@ -46,6 +46,7 @@ name:
 
 
 ## Gateway Features
+
 - Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`)
 
 Not yet implemented features (but possible):
