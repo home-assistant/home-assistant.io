@@ -64,6 +64,7 @@ These subdevices are fully implemented in HomeAssistant:
 | Weather sensor                   | lumi.weather.v1         | WSDCGQ11LM      | readout `temperature`, `humidity` and `pressure` |
 
 ## Recognized subdevices (not yet implemented)
+
 These subdevices are recognized by the python-miio code but are still being worked on (not yet implemented).
 
 | Subdevice name                   | Zigbee id               | model           |
