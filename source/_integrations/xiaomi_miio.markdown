@@ -4,8 +4,12 @@ description: "Overview of all Xiaomi Miio Integrations."
 ha_category:
   - Hub
 ha_iot_class: Local Polling
-ha_release: '0.110'
+ha_release: 0.67
+ha_codeowners:
+  - '@rytilahti'
+  - '@syssi'
 ha_domain: xiaomi_miio
+ha_config_flow: true
 ---
 
 The `xiaomi_miio` integration supports many devices, this page gives an overvieuw of all platfoms with links to the documentation.
