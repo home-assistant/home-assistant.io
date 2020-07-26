@@ -18,7 +18,7 @@ homeassistant:
   time_zone: America/Los_Angeles
   external_url: "https://www.example.com"
   internal_url: "http://homeassistant.local:8123"
-  allowlist_external_dirs:
+  whitelist_external_dirs::
     - /usr/var/dumping-ground
     - /tmp
   allowlist_external_urls:
@@ -76,7 +76,7 @@ customize_glob:
   description: "[Customize](/docs/configuration/customizing-devices/) entities matching a pattern."
   required: false
   type: string
-allowlist_external_dirs:
+whitelist_external_dirs::
   description: List of folders that can be used as sources for sending files.
   required: false
   type: list
