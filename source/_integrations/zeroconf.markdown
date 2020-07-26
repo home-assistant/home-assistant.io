@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.18
 ha_quality_scale: internal
 ha_codeowners:
-  - '@robbiet480'
   - '@Kane610'
 ha_domain: zeroconf
 ---

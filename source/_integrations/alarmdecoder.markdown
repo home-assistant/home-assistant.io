@@ -231,4 +231,3 @@ The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Sta
 | `alarm_arm_home`                                        | `chr(4)` + `chr(4)` + `chr(4)`  |
 | `alarm_arm_away`                                        | `chr(5)` + `chr(5)` + `chr(5)`  |
 | `alarm_arm_night`                                       | `chr(4)` + `chr(4)` + `chr(4)`  |
-
