@@ -23,8 +23,10 @@ Use the web-based terminal or SSH to your Home Assistant system, or connect to t
 ```bash
 ha core update --version=0.XX.X
 ```
-Replace 0.XX.X with the version you want. e.g. 0.111.2
-You can also use a similar command for the OS:
+
+Replace 0.XX.X with the version you want. e.g., `0.111.2`
+
+You can also use a similar command for the operating system:
 
 ```bash
 ha os update --version 4.11
