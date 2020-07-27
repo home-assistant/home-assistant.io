@@ -49,7 +49,7 @@ If there is plenty of space available then you might check to see if you are hav
 
 ## Why does the start button for an add-on flash red when I click it?
 
-If you are looking for more information about add-ons which won't start or install, navigate to Supervisor > System in the UI and check the logs.
+If you are looking for more information about add-ons, which won't start or install, navigate to Supervisor > System in the UI and check the logs.
 
 The logs on this page are the same you would see using `ha logs` in the custom CLI.
 
