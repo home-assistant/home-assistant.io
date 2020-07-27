@@ -23,6 +23,7 @@ regenerate: false
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign iot_classes = components | map: 'ha_iot_class' | join: ',' | split: ',' | uniq | sort -%}
 
 <p class='note'>
   Support for these integrations is provided by the Home Assistant community.
@@ -42,6 +43,14 @@ regenerate: false
             </option>
             {%- endfor -%}
           </optgroup>
+          {%- endfor -%}
+        </select></div>
+      <div class="iot_select">IoT Class: <select name="iot_class">
+          <option value="#"></option>
+          {%- for iot_class in iot_classes -%}
+            {%- if iot_class != "" -%}
+              <option value="#iot_class/{{ iot_class }}">{{ iot_class }}</option>
+            {%- endif -%}
           {%- endfor -%}
         </select></div>
       {%- for category in categories -%}
@@ -95,7 +104,7 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
+  {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", iot_class: "{{ component.ha_iot_class }}"},
     {% endif -%}
   {%- endfor -%}
   false
@@ -185,6 +194,13 @@ allComponents.pop(); // remove placeholder element at the end
             return comp.v === search;
           };
 
+        } else if (hash.indexOf('#iot_class/') === 0) {
+          search = decodeURIComponent(hash).substring(11);
+          filter = function (comp) {
+            // compare against the ha_iot_class of the component
+            console.log(search);
+            return comp.iot_class === search;
+          };
         } else {
           // regular filter categories
           search = hash.substring(1);

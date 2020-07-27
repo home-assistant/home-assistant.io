@@ -50,11 +50,15 @@
         margin: 12px 0;
       }
 
-      .version_select {
+      .version_select, iot_select {
         margin: 12px 0 12px 0;
       }
 
       .version_select > select {
+        width: 100%;
+      }
+
+      .iot_select > select {
         width: 100%;
       }
 

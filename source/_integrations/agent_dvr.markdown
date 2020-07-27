@@ -5,7 +5,8 @@ ha_category:
   - Camera
 ha_config_flow: true
 ha_release: '0.110'
-ha_iot_class: Local Pull
+ha_iot_class:
+  - Local Polling
 ha_codeowners:
   - '@ispysoftware'
 ha_domain: agent_dvr

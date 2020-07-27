@@ -6,7 +6,9 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Switch
-ha_iot_class: Cloud Polling and Local Push
+ha_iot_class:
+  - Cloud Polling
+  - Local Push
 ha_release: 0.68
 ha_domain: wirelesstag
 ---

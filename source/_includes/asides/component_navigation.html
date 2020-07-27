@@ -16,7 +16,7 @@
 
   {%- if page.ha_iot_class -%}
     <div class='section'>
-      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_iot_class }}
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: {{ page.ha_iot_class | join: ', ' }}
     </div>
   {%- endif -%}
 
