@@ -1,6 +1,6 @@
 ---
 title: "Home Assistant OS FAQ"
-description: "Frequently Asked Questions for HA OS"
+description: "Frequently Asked Questions for Home Assistant OS"
 ---
 
 # Home Assistant OS FAQ
