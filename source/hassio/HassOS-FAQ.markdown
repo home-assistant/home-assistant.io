@@ -30,7 +30,7 @@ You can also use a similar command for the OS:
 ha os update --version 4.11
 ```
 
-## Do I need to leave the USB stick connected for wifi?
+## Do I need to leave the USB stick connected for Wi-Fi?
  
 No. The USB "CONFIG" stick is only used to import a network profile to `/etc/NetworkManager/system-connections/` and can be removed.
 
