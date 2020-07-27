@@ -242,6 +242,7 @@ script:
 
 This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
 is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
+See also [Template Condition Shortcut](#template-condition-shortcut).
 
 {% raw %}
 ```yaml
@@ -312,9 +313,10 @@ field | description
 ### Choose a Group of Actions
 
 This action allows you to select a sequence of other actions from a list of sequences.
-Nesting is fully supported.
 Each sequence is paired with a list of conditions (see [conditions page] for available options.) The first sequence whose conditions are all true will be run.
 An optional `default` sequence can be included which will be run if none of the sequences from the list are run.
+Nesting is fully supported.
+See also [Template Condition Shortcut](#template-condition-shortcut).
 
 {% raw %}
 ```yaml
@@ -325,19 +327,141 @@ automation:
     mode: queued
     action:
       - choose:
-          # IF motion detected
+          # IF motion detected and front door opened
           - conditions:
               - condition: template
                 value_template: "{{ trigger.to_state.state == 'on' }}"
+              - condition: state
+                entity_id: sensor.last_opened_door
+                state: front
             sequence:
+              # Start turning on lights but don't wait for that to finish
               - service: script.turn_on
-                entity_id:
-                  - script.slowly_turn_on_front_lights
-                  - script.announce_someone_at_door
+                entity_id: script.slowly_turn_on_front_lights
+              # Announce while lights are turning on
+              - service: script.announce_someone_at_door
+                data:
+                  door: front
+              # Now wait for lights to be fully on
+              - wait_template: >
+                  {{ is_state('script.slowly_turn_on_front_lights', 'off') }}
+          # ELIF motion detected and side door opened
+          - conditions:
+              - condition: template
+                value_template: "{{ trigger.to_state.state == 'on' }}"
+              - condition: state
+                entity_id: sensor.last_opened_door
+                state: side
+            sequence:
+              - service: script.announce_someone_at_door
+                data:
+                  door: side
         # ELSE (i.e., motion stopped)
         default:
           - service: light.turn_off
             entity_id: light.front_lights
+```
+{% endraw %}
+
+### Template Condition Shortcut
+
+It's common in a `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option, to use a single template condition, such as:
+
+{% raw %}
+```yaml
+- while:
+    - condition: template
+      value_template: >
+        {{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}
+  sequence:
+    - ...
+```
+{% endraw %}
+
+In this case a shortcut format is also accepted:
+
+{% raw %}
+```yaml
+- while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
+  sequence:
+    - ...
+```
+{% endraw %}
+
+This can make scripts more compact and easier to read, and hence, more easily maintained.
+
+For example, here is an automation that uses lists of conditions:
+
+{% raw %}
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: input_select.home_mode
+    action:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_select.home_mode
+                state: Home
+              - condition: state
+                entity_id: binary_sensor.all_clear
+                state: 'on'
+            sequence:
+              - service: script.arrive_home
+                data:
+                  ok: true
+          - conditions:
+              - condition: state
+                entity_id: input_select.home_mode
+                state: Home
+              - condition: state
+                entity_id: binary_sensor.all_clear
+                state: 'off'
+            sequence:
+              - service: script.turn_on
+                entity_id: script.flash_lights
+              - service: script.arrive_home
+                data:
+                  ok: false
+          - conditions:
+              - condition: state
+                entity_id: input_select.home_mode
+                state: Away
+            sequence:
+              - service: script.left_home
+```
+{% endraw %}
+
+And here is that same automation using shortcut templates:
+
+{% raw %}
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: input_select.home_mode
+    action:
+      - choose:
+          - conditions: >
+              {{ trigger.to_state.state == 'Home' and
+                 is_state('binary_sensor.all_clear', 'on') }}
+            sequence:
+              - service: script.arrive_home
+                data:
+                  ok: true
+          - conditions: >
+              {{ trigger.to_state.state == 'Home' and
+                 is_state('binary_sensor.all_clear', 'off') }}
+            sequence:
+              - service: script.turn_on
+                entity_id: script.flash_lights
+              - service: script.arrive_home
+                data:
+                  ok: false
+          - conditions: "{{ trigger.to_state.state == 'Away' }}"
+            sequence:
+              - service: script.left_home
 ```
 {% endraw %}
 
