@@ -211,7 +211,7 @@ pyvizio --ip=0 get-apps-list
 
 ## Service `vizio.update_setting`
 
-This service allows you to update a setting on a given Vizio device. You will need to know the type of setting and the name of the setting to call this service. The setting types are listed in the `setting_types` property of a Vizio device's state. For a given setting type, the various setting names and their current values are listed in the `<setting_type>_settings` property. You may have to consult the SmartCast device to determine what values are valid.
+This service allows you to update a setting on a given Vizio device. You will need to know the type of setting and the name of the setting to call this service. You can determine this by using the SmartCast app and going to device settings for your target device. The setting type is the first menu item you'd select (e.g. display, audio, system), and the setting name is what you see in the app but spaces are replaced with underscores (e.g. AV delay would be called av_delay).
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
