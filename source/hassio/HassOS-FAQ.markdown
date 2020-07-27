@@ -36,14 +36,14 @@ No. The USB "CONFIG" stick is only used to import a network profile to `/etc/Net
 
 ## 404 Client Error: Not Found ("no such image: homeassistant/...)
 
-This error indicates the an image, whether for updating to Home Assistant or installing or updating an add-on, was not able to be pulled to your system. This is usually a situation where there is not enough space for the image to be downloaded. The first thing to check for is available space on your system.
+This error indicates the image, whether for updating to Home Assistant or installing or updating an add-on, was not able to be pulled to your system. This is usually a situation where there is not enough space for the image to be downloaded. The first thing to check for is the available space on your system.
 
-As the VM image is only about 6GB by default, many VM users run in to this as they have not allocated enough storage. 32 GB is the recommended size.
+Please note, if you are running the operating system as a virtual machine; the default VM image is only about 6GB. Many VM users run into this as they have not allocated enough storage. 32 GB is the minimum recommended size.
 
-You'll need to explore your own system to determine where the space has gone.
-Using `df -h` in the ssh add-on console to you can quickly check to see if you have the space.
+You'll need to explore your own system to determine where space has gone.
+Using `df -h` in the SSH add-on console to you can quickly check to see if you have space available.
 
-If there is plenty of space available then you might check to see if you are having network issues which are preventing images being downloaded.
+If there is plenty of space available then you might check to see if you are having network issues that are preventing images being downloaded.
 
 ## Why does the start button for an add-on flash red when I click it?
 
