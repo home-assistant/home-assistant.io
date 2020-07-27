@@ -13,7 +13,7 @@ ha_domain: volumio
 
 The `Volumio` platform allows you to control a [Volumio](https://volumio.org/) media player from Home Assistant.
 
-## Configuration via the frontend
+## Configuration
 
 Menu: **Configuration** -> **Integrations**.
 
@@ -21,5 +21,6 @@ In most cases, your Volumio device should be discovered and you'll simply need t
 
 If it's not discovered, you can click on the `+` sign to add an integration and then click on **Volumio**, and finally input the host and port.
 
-**Note:** Volumio versions 2.799 and below do not have a unique id when manully configured so you will not be able to rename your entity or add your device to a zone.
-If discovery does not work for you, it is advised to upgrade Volumio before configuring manually.
+<div class='note>
+Volumio versions 2.799 and below do not have a unique id when manually configured, so you will not be able to rename your entity or add your device to a area. If discovery does not work for you, it is advised to upgrade Volumio before configuring.
+</div>
