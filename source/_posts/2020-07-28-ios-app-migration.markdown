@@ -22,7 +22,7 @@ Why did we transfer it to Nabu Casa, Inc.? Why not Home Assistant, Inc.? The sho
 
 ## What do you need to do?
 
-Right now, we are waiting for Apple to approve the entitlement to send [Critical Notifications](https://companion.home-assistant.io/docs/notifications/critical-notifications), when that is done we will release an update (version 2020.5) from the new business account. Due to Apple limits, after updating you are going to need to re-authenticate one time to continue using the app. After that (assuming everything works) you are all done and the app will keep functioning as normal. No integration changes, no push notification changes, your actions are still there, etc etc. Remember that depending on your device settings, this update may well happen automatically, that's why we're telling you all about this in advance.
+Right now, we are waiting for Apple to approve the entitlement to send [Critical Notifications](https://companion.home-assistant.io/docs/notifications/critical-notifications) for the new account. When that is done we will release an update (version 2020.5) from the new business account. Due to Apple limits, after updating you are going to need to re-authenticate one time to continue using the app. After that (assuming everything works) you are all done and the app will keep functioning as normal. No integration changes, no push notification changes, your actions are still there, etc etc. Remember that depending on your device settings, this update may well happen automatically, that's why we're telling you all about this in advance.
 
 ## When is this happening?
 
