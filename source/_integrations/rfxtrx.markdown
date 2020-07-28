@@ -469,7 +469,7 @@ automation:
 
 ## Services
 
-- `rftrx.send`: Send a custom event using the RFXtrx device.
+- `rfxtrx.send`: Send a custom event using the RFXtrx device.
 
 #### Service: Send
 
@@ -478,7 +478,7 @@ Simulate a button being pressed:
 ```yaml
 ...
 action:
-  service: rftrx.send
+  service: rfxtrx.send
   data:
     event: 0b1111e003af16aa10000060
 ```
