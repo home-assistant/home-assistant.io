@@ -49,7 +49,7 @@ ssl:
   default: false
 {% endconfiguration %}
 
-If everything is setup correctly, the download speed will show up in the frontend.
+If everything is setup correctly, the number of active and queued downloads and the download speed will show up in the frontend.
 
 <p class='img'>
   <img src='{{site_root}}/images/integrations/pyload/pyload_speed.png' />
