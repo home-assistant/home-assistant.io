@@ -824,6 +824,72 @@ In general, all variables that start with `paper` will be removed at some point.
 [toon docs]: /integrations/toon/
 [xbox_live docs]: /integrations/xbox_live/
 
+## Release 0.113.2 - July 28
+
+- Bump netdisco to 2.8.1 ([@bdraco] - [#38173]) ([discovery docs])
+- Stop automation runs when turned off or reloaded ([@pnbruckner] - [#38174]) ([automation docs])
+- Bump tesla-powerwall to 0.2.12 to handle powerwall firmware 1.48+ ([@bdraco] - [#38180]) ([powerwall docs])
+- Ignore harmony hubs ips that are already configured during ssdp discovery ([@bdraco] - [#38181]) ([harmony docs])
+- Make rfxtrx RfyDevices have sun automation switches ([@elupus] - [#38210]) ([rfxtrx docs])
+- Fix detection of zones 2 and 3 in Onkyo/Pioneer amplifiers ([@vdkeybus] - [#38234]) ([onkyo docs])
+- Fix repeat action when variables present ([@pnbruckner] - [#38237]) ([script docs])
+- Fix parallel script containing repeat or choose action with max_runs > 10 ([@pnbruckner] - [#38243]) ([automation docs]) ([script docs])
+- Fix Skybell useragent ([@MisterWil] - [#38245]) ([skybell docs])
+- Improve setup retry logic to handle inconsistent powerview hub availability ([@bdraco] - [#38249]) ([hunterdouglas_powerview docs])
+- Don't set up callbacks until entity is created. ([@pavoni] - [#38251]) ([vera docs])
+- Prevent onvif from blocking startup ([@bdraco] - [#38256]) ([onvif docs])
+- Fix #38289 issue with xboxapi lib ([@marciogranzotto] - [#38293]) ([xbox_live docs])
+- Bump python-miio to 0.5.3 ([@rytilahti] - [#38300]) ([xiaomi_miio docs])
+- Prevent speedtest from blocking startup or causing other intergations to fail setup ([@bdraco] - [#38305]) ([speedtestdotnet docs])
+- Fix issue with certain Samsung TVs repeatedly showing auth dialog ([@kylehendricks] - [#38308]) ([samsungtv docs])
+- Add debug logging for when a chain of tasks blocks startup ([@bdraco] - [#38311])
+- Remove AdGuard version check ([@frenck] - [#38326]) ([adguard docs])
+
+[#38173]: https://github.com/home-assistant/core/pull/38173
+[#38174]: https://github.com/home-assistant/core/pull/38174
+[#38180]: https://github.com/home-assistant/core/pull/38180
+[#38181]: https://github.com/home-assistant/core/pull/38181
+[#38210]: https://github.com/home-assistant/core/pull/38210
+[#38234]: https://github.com/home-assistant/core/pull/38234
+[#38237]: https://github.com/home-assistant/core/pull/38237
+[#38243]: https://github.com/home-assistant/core/pull/38243
+[#38245]: https://github.com/home-assistant/core/pull/38245
+[#38249]: https://github.com/home-assistant/core/pull/38249
+[#38251]: https://github.com/home-assistant/core/pull/38251
+[#38256]: https://github.com/home-assistant/core/pull/38256
+[#38293]: https://github.com/home-assistant/core/pull/38293
+[#38300]: https://github.com/home-assistant/core/pull/38300
+[#38305]: https://github.com/home-assistant/core/pull/38305
+[#38308]: https://github.com/home-assistant/core/pull/38308
+[#38311]: https://github.com/home-assistant/core/pull/38311
+[#38326]: https://github.com/home-assistant/core/pull/38326
+[@MisterWil]: https://github.com/MisterWil
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@kylehendricks]: https://github.com/kylehendricks
+[@marciogranzotto]: https://github.com/marciogranzotto
+[@pavoni]: https://github.com/pavoni
+[@pnbruckner]: https://github.com/pnbruckner
+[@rytilahti]: https://github.com/rytilahti
+[@vdkeybus]: https://github.com/vdkeybus
+[adguard docs]: /integrations/adguard/
+[automation docs]: /integrations/automation/
+[discovery docs]: /integrations/discovery/
+[harmony docs]: /integrations/harmony/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[onkyo docs]: /integrations/onkyo/
+[onvif docs]: /integrations/onvif/
+[powerwall docs]: /integrations/powerwall/
+[rfxtrx docs]: /integrations/rfxtrx/
+[samsungtv docs]: /integrations/samsungtv/
+[script docs]: /integrations/script/
+[skybell docs]: /integrations/skybell/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[vera docs]: /integrations/vera/
+[xbox_live docs]: /integrations/xbox_live/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+
 ## All changes
 
 <details>
