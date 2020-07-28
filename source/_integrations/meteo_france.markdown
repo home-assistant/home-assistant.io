@@ -56,7 +56,7 @@ meteo_france:
 
 To be used with the weather Lovelace card to access current condition, today and next four days forecast.
 
-The weather platform can be configured in the frontend to decide if the forecast is given daily (default) or hourly. To change the setting go in **Configuration** -> **Integrations**, click on the city name in Météo-France box and click on 'Options'. You can update the `Forecast mode` by choosing between `daily` or `hourly`.
+The weather platform can be configured in the frontend to decide if the forecast is given daily (default) or hourly. To change the setting go in **Configuration** -> **Integrations**, click on the city name in **Météo-France** box and click on **Options**. You can update the `Forecast mode` by choosing between `daily` or `hourly`.
 
 ## Sensor platforms
 
