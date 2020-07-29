@@ -36,8 +36,9 @@ You will need to create a service account [Create Service account key](https://c
     3. Click `Build your Action`, then click `Add Action(s)`.
     4. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the `Fulfillment URL` box, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
     5. Click `Save`.
+    6. Click on `Overview`, which will lead you back to the app details screen.
 2. `Account linking` is required for your app to interact with Home Assistant.
-    1. Click on the `Develop` tab at the top of the page, then click `Account linking` on the left.
+    1. Set this up by clicking on `Setup account linking` under the `Quick Setup` section of the `Overview` page.
     2. If asked, leave options as they default `No, I only want to allow account creation on my website` and select `Next`.
     3. Then if asked, for the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
     4. Then, enter the following:
