@@ -20,6 +20,10 @@ Recently, I transferred the Home Assistant app from my personal Apple Developer 
 
 Why did we transfer it to Nabu Casa, Inc.? Why not Home Assistant, Inc.? The short answer is there is no Home Assistant, Inc. Apple requires that business accounts are owned by… businesses. Real businesses. Which Home Assistant is not. Nabu Casa was the best option. To be very clear, Nabu Casa does not own the app now. The copyright and license has not changed. It’s still entirely open source. I am not stopping my work on the app, neither are others. Nabu Casa is simply the account under which the app is published. The same rock solid privacy guarantees apply just as before. The only change visible to you will be the name shown as the author in the App Store (Nabu Casa, Inc instead of Robert Trencheny).
 
+## Does this mean there will be a charge for the app?
+
+No.
+
 ## What do you need to do?
 
 Right now, we are waiting for Apple to approve the entitlement to send [Critical Notifications](https://companion.home-assistant.io/docs/notifications/critical-notifications) for the new account. When that is done we will release an update (version 2020.5) from the new business account. Due to Apple limits, after updating you are going to need to re-authenticate one time to continue using the app. After that (assuming everything works) you are all done and the app will keep functioning as normal. No integration changes, no push notification changes, your actions are still there, etc etc. Remember that depending on your device settings, this update may well happen automatically, that's why we're telling you all about this in advance.
