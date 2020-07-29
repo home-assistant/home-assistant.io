@@ -38,15 +38,17 @@ You will need to create a service account [Create Service account key](https://c
     5. Click `Save`.
 2. `Account linking` is required for your app to interact with Home Assistant.
     1. Click on the `Develop` tab at the top of the page, then click `Account linking` on the left.
-    2. Enter the following:
+    2. If asked, leave options as they default `No, I only want to allow account creation on my website` and select `Next`.
+    3. Then if asked, for the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
+    4. Then, enter the following:
                1. Client ID: `https://oauth-redirect.googleusercontent.com/r/YOUR_PROJECT_ID`. (Find your YOUR_PROJECT_ID by clicking on the three little dots (more) icon in the upper right corner of the console, selecting `Project settings`, your Project ID will be listed on the `GENERAL` tab of the `Settings` page.)
                2. Client Secret: Anything you like, Home Assistant doesn't need this field.
                3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
                4. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
                Click `Next`, then `Next` again.
-    7. In the `Configure your client` `Scopes` textbox, type `email` and click `Add scope`, then type `name` and click `Add scope` again.
-    8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
-    9. Click `Next`, then click `Save`
+    5. In the `Configure your client` `Scopes` textbox, type `email` and click `Add scope`, then type `name` and click `Add scope` again.
+    6. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
+    7. Click `Next`, then click `Save`
 
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
