@@ -110,7 +110,7 @@ model:
       label_offset:
         description: Offset for mapping label ID to a name (only use for custom models)
         required: false
-        type: int
+        type: integer
         default: 1
       model_dir:
         description: Full path to TensorFlow models directory.
