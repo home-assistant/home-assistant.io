@@ -13,9 +13,13 @@ ha_codeowners:
 
 The Mullvad VPN integration pulls [Mullvad](https://mullvad.net/) VPN status information into Home Assistant.
 
-![Mullvad VPN Example Sensor](/images/screenshots/mullvad_vpn_sample_sensor_connected.png)
+<p class='img'>
+<img src='/images/screenshots/mullvad_vpn_sample_sensor_connected.png' />
+</p>
 
-![Mullvad VPN Example Sensor](/images/screenshots/mullvad_vpn_sample_sensor_ip.png)
+<p class='img'>
+<img src='/images/screenshots/mullvad_vpn_sample_sensor_ip.png' />
+</p>
 
 ## Configuration
 
