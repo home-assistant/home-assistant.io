@@ -31,8 +31,8 @@ This integration can be configured via the Home Assistant frontend.
 
 - Go to **Configuration** -> **Integrations**.
 - Click on the `+` in the bottom right corner to add a new integration.
-- Search and select the **Coronavirus** integration form the list.
-- Follow the instruction on screen to add the sensors. Either choose for adding
+- Search and select the **Coronavirus** integration from the list.
+- Follow the instruction on screen to add the sensors. Either choose to add
   world-wide sensors, or a specific set of sensors for your country.
 
 If you want to track both world-wide and one or more countries at the same time,
