@@ -63,7 +63,7 @@ next_departure:
     products:
       description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
       required: false
-      default: `['U-Bahn', 'Tram', 'Bus', 'S', 'RB', 'RE', 'EC', 'IC', 'ICE']`
+      default: ['U-Bahn', 'Tram', 'Bus', 'S', 'RB', 'RE', 'EC', 'IC', 'ICE']
       type: [string]
     time_offset:
       description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
