@@ -49,7 +49,7 @@ next_departure:
       required: true
       type: string
     destinations:
-      description: "One or multiple final stop names, e.g., 'Frankfurt (Main) Hauptbahnhof' or ['Frankfurt (Main) Hauptbahnhof','Frankfurt (Main) Stadion']. This can be used to only consider a particular direction of travel."
+      description: "One or multiple final stop IDs, e.g., `'3000010'` or `['3000010','3002899']`. This can be used to only consider a particular direction of travel."
       required: false
       type: [string]
     direction:
@@ -63,7 +63,7 @@ next_departure:
     products:
       description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
       required: false
-      default: ['U-Bahn', 'Tram', 'Bus', 'S', 'RB', 'RE', 'EC', 'IC', 'ICE']
+      default: `['U-Bahn', 'Tram', 'Bus', 'S', 'RB', 'RE', 'EC', 'IC', 'ICE']`
       type: [string]
     time_offset:
       description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
@@ -93,8 +93,8 @@ sensor:
       - station: 3000010
         time_offset: 5
         destinations:
-          - 'Frankfurt (Main) Flughafen Regionalbahnhof'
-          - 'Frankfurt (Main) Stadion'
+          - '3002930
+          - '3002899'
         products:
           - 'RB'
           - 'RE'
@@ -102,7 +102,7 @@ sensor:
           - 'S'
       - station: 3006907
         products: 'Bus'
-        destinations: ['Wiesbaden Dernsches Gelände', 'Mainz Hauptbahnhof']
+        destinations: ['3025622', '3006904']
         name: Destination
       - station: 3006904
         lines: 'S8'
