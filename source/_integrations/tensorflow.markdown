@@ -19,34 +19,47 @@ The `tensorflow` image processing platform allows you to detect and recognize ob
 
 ## Setup
 
-You need to install the `tensorflow` Python packages with: `$ pip3 install tensorflow==1.13.2`. The wheel is not available for all platforms. See [the official install guide](https://www.tensorflow.org/install/) for other options. The required packages are included in Home Assistant Supervised installations but only supported on amd64 architecture.
+You need to install the `tensorflow` Python packages with: `$ pip3 install tensorflow==2.2.0`. The wheel is not available for all platforms. See [the official install guide](https://www.tensorflow.org/install/) for other options. The required packages are included in Home Assistant Supervised installations but only supported on amd64 architecture.
 
-This integration requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed using the sample script at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3). Alternatively, if you wish to perform the process manually, the process is as follows:
+This integration requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed by cloning [this repository](https://github.com/hunterjm/hass-tensorflow) into your configuration directory. Alternatively, if you wish to perform the process manually, the process is as follows:
 
-- Clone [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection)
-- Compile protobuf models located in `research/object_detection/protos` with `protoc`
-- Create the following directory structure inside your configuration directory:
+Create the following folder structure in your configuration directory.
 
 ```bash
   |- {config_dir}
-    | - tensorflow/
-      |- object_detection/
-        |- __init__.py
+    |- tensorflow/
+      |- models/
 ```
 
-- Copy required object_detection dependencies to the `object_detection` folder inside of the `tensorflow` folder:
+Follow these steps (Linux) to compile the object detection library.
 
-  - `research/object_detection/data`
-  - `research/object_detection/utils`
-  - `research/object_detection/protos`
+```bash
+# Clone tensorflow/models
+git clone https://github.com/tensorflow/models.git
+# Compile Protobuf (apt-get install protobuf-compiler)
+cd models/research
+protoc object_detection/protos/*.proto --python_out=.
+# Copy object_detection to {config_dir}
+cp -r object_detection {config_dir}/tensorflow
+```
+
+Your final folder structure should look as follows
+
+```bash
+  |- {config_dir}
+    |- tensorflow/
+      |- models/
+      |- object_detection/
+        |- ...
+```
 
 ## Model Selection
 
-Lastly, it is time to pick a model. It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
+Lastly, it is time to pick a model. It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md).
 
-The trade-off between the different models is accuracy vs speed.  Users with a decent CPU should start with the `faster_rcnn_inception_v2_coco` model. If you are running on an ARM device like a Raspberry Pi, start with the `ssd_mobilenet_v2_coco` model.
+The trade-off between the different models is accuracy vs speed.  Users with a decent CPU should start with one of the `EfficientDet` models. If you are running on an ARM device like a Raspberry Pi, start with the `SSD MobileNet v2 320x320` model.
 
-Whichever model you choose, download it and place the `frozen_inference_graph.pb` file in the `tensorflow` folder in your configuration directory.
+Whichever model you choose, download it and extract in to the `tensorflow/models` folder in your configuration directory.
 
 ## Configuration
 
@@ -59,7 +72,7 @@ image_processing:
     source:
       - entity_id: camera.local_file
     model:
-      graph: /home/homeassistant/.homeassistant/tensorflow/frozen_inference_graph.pb
+      graph: /config/tensorflow/models/efficientdet_d0_coco17_tpu-32/
 ```
 
 {% configuration %}
@@ -86,7 +99,7 @@ model:
     type: map
     keys:
       graph:
-        description: Full path to `frozen_inference_graph.pb`.
+        description: Full path to the base model directory.
         required: true
         type: string
       labels:
@@ -94,6 +107,11 @@ model:
        required: false
        type: string
        default: tensorflow/object_detection/data/mscoco_label_map.pbtxt
+      label_offset:
+        description: Offset for mapping label ID to a name (only use for custom models)
+        required: false
+        type: int
+        default: 1
       model_dir:
         description: Full path to TensorFlow models directory.
         required: false
@@ -143,7 +161,7 @@ image_processing:
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
       - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
     model:
-      graph: /home/homeassistant/.homeassistant/tensorflow/frozen_inference_graph.pb
+      graph: /config/tensorflow/models/efficientdet_d0_coco17_tpu-32/
       categories:
         - category: person
           area:
