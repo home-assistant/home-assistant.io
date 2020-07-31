@@ -23,7 +23,7 @@ camera:
 
 {% configuration %}
 input:
-  description: An FFmpeg-compatible input file, stream, or feed.
+  description: An FFmpeg-compatible input file, stream, or feed. Can be a [template](/topics/templating/).
   required: true
   type: string
 name:
