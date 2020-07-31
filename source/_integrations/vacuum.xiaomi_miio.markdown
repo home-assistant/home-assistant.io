@@ -108,7 +108,7 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific robot                          |
-| `zone`                    |       no | List of zones. Each zone is an array of 4 integer value. Example: [[23510,25311,25110,26361]] |
+| `zone`                    |       no | List of zones. Each zone is an array of four integer values. These values represent two sets of x- and y-axis coordinates that describe the beginning and ending points of a square or rectangle cleaning zone. For example, `[[23510,25311,25110,26361]]` creates a box that starts in one corner at the 23510, 25311 (x- and y-axis) coordinates and then is expanded diagonally to the 25110, 26361 coordinates to create a rectangular cleaning zone. |
 | `repeats`                 |       no | Number of cleaning repeats for each zone between 1 and 3. |
 
 Example of `xiaomi_miio.vacuum_clean_zone` use:
