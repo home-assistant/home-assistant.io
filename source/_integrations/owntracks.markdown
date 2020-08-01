@@ -26,7 +26,7 @@ To configure OwnTracks, you must set it up via the integrations panel in the con
 
 [Install the NextTracks application for Android.](https://codeberg.org/nexttracks/android/releases) (Soon available from [F-Droid](https://f-droid.org/))
 
-In the \*Tracks app, open sidebar and click on preferences, then on connection. Change the following settings:
+In the app, open the sidebar and click on preferences, then on the connection. Change the following settings:
 
  - Mode: Private HTTP
  - Host: `<URL given to you when setting up the integration>`
