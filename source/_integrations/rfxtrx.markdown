@@ -239,7 +239,7 @@ Make sure you trigger a dimming command to get switches detected as lights other
 
 #### Convert switch event to dimming event
 
-To convert a standard switch to a light, use the [Light Switch](integrations/light.switch/) component.
+To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
 
 To convert a switch to a dimmable light, make sure the event contain a dimming command. You can usually convert a command by changing one byte.
 
