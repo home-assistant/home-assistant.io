@@ -5,19 +5,22 @@
       {
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.dev",
         "paths": [
-          "/ios/*"
+          "/ios/*",
+          "/nfc/*"
         ]
       },
       {
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.beta",
         "paths": [
-          "/ios/*"
+          "/ios/*",
+          "/nfc/*"
         ]
       },
       {
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant",
         "paths": [
-          "/ios/*"
+          "/ios/*",
+          "/nfc/*"
         ]
       },
       {
