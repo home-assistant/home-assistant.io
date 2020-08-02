@@ -19,6 +19,27 @@
         "paths": [
           "/ios/*"
         ]
+      },
+      {
+        "appID": "QMQYCKL255.io.robbie.HomeAssistant.dev",
+        "paths": [
+          "/ios/*",
+          "/nfc/*"
+        ]
+      },
+      {
+        "appID": "QMQYCKL255.io.robbie.HomeAssistant.beta",
+        "paths": [
+          "/ios/*",
+          "/nfc/*"
+        ]
+      },
+      {
+        "appID": "QMQYCKL255.io.robbie.HomeAssistant",
+        "paths": [
+          "/ios/*",
+          "/nfc/*"
+        ]
       }
     ]
   }
