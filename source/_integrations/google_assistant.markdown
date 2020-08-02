@@ -128,7 +128,7 @@ api_key:
   type: string
 service_account:
   description: Service account information. You can use an include statement with your downloaded JSON file, enter data here directly or use secrets file to populate.
-  required: false
+  required: true
   type: map
   keys:
     private_key:
