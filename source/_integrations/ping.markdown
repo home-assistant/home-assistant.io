@@ -47,7 +47,7 @@ name:
 
 The sensor exposes the different round trip times values measured by `ping` as attributes:
 
-- `round trip time mdev`
+- `packet loss percentage`
 - `round trip time avg`
 - `round trip time min`
 - `round trip time max`
