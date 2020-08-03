@@ -14,7 +14,7 @@ The `clarifai` integration allows you to use the
 To get started, create a free account on the Clarifai [Portal](https://portal.clarifai.com/signup).
 
 For step-by-step instructions on creating a model using the Clarifai Portal,
-visit the Clarifai [docs](https://docs.clarifai.com/portal-guide/portal_overview).
+visit the Clarifai [documentation](https://docs.clarifai.com/portal-guide/portal_overview).
 
 ## Setup
 
@@ -44,7 +44,7 @@ access_token:
 Once the integration has been configured, the `clarifai.predict` service can be used
 to manually send images to Clarifai to be processed. The service can be used in automations,
 either as a trigger or triggered by other automations. It can also be called by a script
-or via the Amazon Echo. See the Home Assistant [docs](/docs/scripts/service-calls/)
+or via the Amazon Echo. See the Home Assistant [documentation](/docs/scripts/service-calls/)
 for instructions on using service calls.
 
 - *clarifai.predict*
@@ -124,7 +124,7 @@ There are two options for the result format returned from a prediction.
 - *default*
 
 The default result format returns the results from a workflow prediction in the original nested
-format returned from Clarifai. See the Clarifai [docs](https://docs.clarifai.com/api-guide/workflows/workflow-predict)
+format returned from Clarifai. See the Clarifai [documentation](https://docs.clarifai.com/api-guide/workflows/workflow-predict)
 for more info on the default result format.
 
 - *concepts*
@@ -157,7 +157,7 @@ a service call or the image processing platform, the results are
 saved as a `clarifai.prediction` event on the Home Assistant event bus. 
 
 For general information on using an event as a part of an automation, see the Home Assistant
-event [docs](/docs/configuration/events/).
+event [documentation](/docs/configuration/events/).
 
 To use the `clarifai.prediction` event as a trigger for automations, add the following to
 your `configuration.yaml` file. 
