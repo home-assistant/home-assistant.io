@@ -1080,6 +1080,14 @@
 /components/weather.smhi /integrations/smhi
 /components/weather.zamg /integrations/zamg#weather
 /components/xiaomi /integrations/xiaomi_aqara
+/integrations/air_quality.xiaomi_miio /integrations/xiaomi_miio
+/integrations/alarm_control_panel.xiaomi_miio /integrations/xiaomi_miio
+/integrations/fan.xiaomi_miio /integrations/xiaomi_miio
+/integrations/light.xiaomi_miio /integrations/xiaomi_miio
+/integrations/remote.xiaomi_miio /integrations/xiaomi_miio
+/integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/switch.xiaomi_miio /integrations/xiaomi_miio
+/integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
 
 # Renaming components to integrations
 /components /integrations
