@@ -31,20 +31,25 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 You will need to create a service account [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)  which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide the service account, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration.  See Step 2 after the note for more details.
 
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
-    1. Add/Import a project and give it a name.
-    2. Click on the `Smart Home` card, select the `Smart home` recommendation.
-    3. Click `Build your Action`, select `Add Action(s)`. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the `Fulfillment URL` box, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
-    4. Click `Save`. Then click on `Overview`, which will lead you back to the app details screen.
-2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
-    1. Leave it at the default `No, I only want to allow account creation on my website` and select `Next`.
-    2. For the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
-    3. Client ID: `https://oauth-redirect.googleusercontent.com/r/YOUR_PROJECT_ID`.
-    4. Client Secret: Anything you like, Home Assistant doesn't need this field.
-    5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
-    6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`. Click `Next`
-    7. Configure your client: Type `email` and click `Add scope`, then type `name` and click `Add scope` again.
-    8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`. Click `Next`
-    9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app. Click `Save`
+    1. Click `New Project` and give your project a name.
+    2. Click on the `Smart Home` card, then click the `Start Building` button.
+    3. Click `Build your Action`, then click `Add Action(s)`.
+    4. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the `Fulfillment URL` box, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+    5. Click `Save`.
+    6. Click on the `Overview` tab, which will lead you back to the app details screen.
+2. `Account linking` is required for your app to interact with Home Assistant.
+    1. Set this up by clicking on `Setup account linking` under the `Quick Setup` section of the `Overview` page.
+    2. If asked, leave options as they default `No, I only want to allow account creation on my website` and select `Next`.
+    3. Then if asked, for the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
+    4. Enter the following:
+               1. Client ID: `https://oauth-redirect.googleusercontent.com/r/YOUR_PROJECT_ID`. (Find your YOUR_PROJECT_ID by clicking on the three little dots (more) icon in the upper right corner of the console, selecting `Project settings`, your Project ID will be listed on the `GENERAL` tab of the `Settings` page.)
+               2. Client Secret: Anything you like, Home Assistant doesn't need this field.
+               3. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
+               4. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
+               Click `Next`, then `Next` again.
+    5. In the `Configure your client` `Scopes` textbox, type `email` and click `Add scope`, then type `name` and click `Add scope` again.
+    6. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
+    7. Click `Next`, then click `Save`
 
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
@@ -64,11 +69,11 @@ If you've added Home Assistant to your phone's home screen, you have to first re
     2. Click `Test` on the top of the page, then click `Simulator` located to the page left, then click the three little dots (more) icon in the upper right corner of the console.
     3. Click Manage user access. This redirects you to the Google Cloud Platform IAM permissions page.
     4. Click ADD at the top of the page.
-        1. Enter the email address of the user you want to add.
-        2. Click Select a role and choose Project < Viewer.
-        3. Click SAVE
-        2. Copy and share the link with the new user.
-        3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
+           1. Enter the email address of the user you want to add.
+           2. Click Select a role and choose Project < Viewer.
+           3. Click SAVE
+           2. Copy and share the link with the new user.
+           3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 2. If you want to support actively reporting of state to Google's server (configuration option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
     1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
@@ -123,7 +128,7 @@ api_key:
   type: string
 service_account:
   description: Service account information. You can use an include statement with your downloaded JSON file, enter data here directly or use secrets file to populate.
-  required: false
+  required: true
   type: map
   keys:
     private_key:
