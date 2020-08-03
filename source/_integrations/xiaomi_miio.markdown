@@ -102,7 +102,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
     ```sql
     -- Execute to retrieve token for Vacuum
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"
-    
+
     -- Execute to retrieve token for Smart Powerstrip
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%powerstrip%"
   
@@ -164,7 +164,6 @@ The information output is:
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
 
-
 ## Xiaomi Gateway
 
 The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
@@ -202,7 +201,6 @@ name:
 | Aqara AC Companion | lumi.acpartner.v1   | KTBL01LM     | untested                                  |
 | Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM     | untested                                  |
 | Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM     | yes                                       |
-
 
 ### Gateway Features
 
@@ -278,7 +276,6 @@ These subdevices are recognized by the python-miio code but are still being work
 | IKEA smart bulb E12 white        | ikea.light.led1649c5    | LED1649C5       |
 | Thermostat S2                    | lumi.airrtc.tcpecn02    | KTWKQ03ES       |
 
-
 ## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
 
 The `xiaomi_miio` device tracker platform is observing your Xiaomi Mi WiFi Repeater 2 and reporting all associated WiFi clients.
@@ -305,8 +302,8 @@ token:
   type: string
 {% endconfiguration %}
 
-
 ## Xiaomi Air Purifier
+
 The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier, Air Humidifier and Air Fresh.
 
 Supported devices:
@@ -332,7 +329,6 @@ Supported devices:
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
 | Air Humidifier CB1     | zhimi.humidifier.cb1   | |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
-
 
 ### Features
 
@@ -470,7 +466,7 @@ Supported devices:
 
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
 
-This model uses newer MiOT communication protocol. 
+This model uses newer MiOT communication protocol.
 
 - Power (on, off)
 - Operation modes (auto, silent, favorite, fan)
@@ -610,12 +606,12 @@ This model uses newer MiOT communication protocol.
 
 ### Air Fresh VA2
 
-* Power (on, off)
-* Operation modes (auto, silent, interval, low, middle, strong)
-* Buzzer (on, off)
-* Child lock (on, off)
-* LED (on, off), LED brightness (bright, dim, off)
-* Attributes
+- Power (on, off)
+- Operation modes (auto, silent, interval, low, middle, strong)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED (on, off), LED brightness (bright, dim, off)
+- Attributes
   - `model`
   - `aqi`
   - `average_aqi`
@@ -840,7 +836,6 @@ Check if the device is in the same subnet as the Home Assistant instance. Otherw
 
 If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.
 
-
 ## Xiaomi Air Quality Index Monitor 
 
 The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index.
@@ -883,7 +878,6 @@ name:
   type: string
   default: Xiaomi Miio Sensor
 {% endconfiguration %}
-
 
 ## Xiaomi Mi Air Quality Monitor
 
@@ -928,7 +922,6 @@ name:
   default: Xiaomi Miio Air Quality Monitor
 {% endconfiguration %}
 
-
 ## Xiaomi IR Remote
 
 The `xiaomi miio` remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
@@ -940,6 +933,7 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/xi
 ### Configuring the Platform
 
 To add a Xiaomi IR Remote to your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 remote:
   - platform: xiaomi_miio
@@ -979,7 +973,6 @@ commands:
       description: A list of commands as [raw (learned command)](/integrations/xiaomi_miio/#raw) or [pronto hex code](/integrations/xiaomi_miio/#pronto-hex-code).
       required: true
       type: list
-
 {% endconfiguration %}
 
 ### Full Configuration
@@ -1079,10 +1072,10 @@ pronto:0000 006C 0022 0002 015B 00AD 0016 0016 0016 0016 0016 0016 0016 0016 001
 
 Note there are at least 4 versions of the Xiaomi IR Remote (ChuangmiIr) which can be recognized by their default hostname:
 
-* `chuangmi.ir.v2`
-* `chuangmi.remote.h102a03`
-* `chuangmi.remote.v2`
-* `chuangmi.remote.h102c01`
+- `chuangmi.ir.v2`
+- `chuangmi.remote.h102a03`
+- `chuangmi.remote.v2`
+- `chuangmi.remote.h102c01`
 
 For now, pronto hex codes only work on the first version (`chuangmi.ir.v2`).
 
@@ -1112,7 +1105,6 @@ Used to turn remote's blue LED on.
 
 Used to turn remote's blue LED off.
 
-
 ## Xiaomi Mi Robot Vacuum
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
@@ -1125,7 +1117,7 @@ Currently supported services are:
 - `return_to_base`
 - `locate`
 - `clean_spot`
-- `set_fan_speed` 
+- `set_fan_speed`
   Fan speeds: `Silent`, `Standard`, `Medium`, `Turbo` and `Gentle` (exclusively for mopping).
 - `remote_control_*` (of your robot)
 - `xiaomi_clean_zone`
@@ -1215,7 +1207,7 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific robot                          |
-| `zone`                    |       no | List of zones. Each zone is an array of 4 integer value. Example: [[23510,25311,25110,26361]] |
+| `zone`                    |       no | List of zones. Each zone is an array of four integer values. These values represent two sets of x- and y-axis coordinates that describe the beginning and ending points of a square or rectangle cleaning zone. For example, `[[23510,25311,25110,26361]]` creates a box that starts in one corner at the 23510, 25311 (x- and y-axis) coordinates and then is expanded diagonally to the 25110, 26361 coordinates to create a rectangular cleaning zone. |
 | `repeats`                 |       no | Number of cleaning repeats for each zone between 1 and 3. |
 
 Example of `xiaomi_miio.vacuum_clean_zone` use:
@@ -1324,6 +1316,7 @@ automation:
 ```
 
 Single segment:
+
 ```yaml
 automation:
   - alias: Vacuum kitchen
@@ -1409,10 +1402,11 @@ reset_main_brush_left:
 ```
 
 Allowed `params` for the `reset_consumable` command:
-* `['main_brush_work_time']`
-* `['side_brush_work_time']`
-* `['filter_work_time']`
-* `['sensor_dirty_time']`
+
+- `['main_brush_work_time']`
+- `['side_brush_work_time']`
+- `['filter_work_time']`
+- `['sensor_dirty_time']`
 
 ### Retrieving Zoned Cleaning Coordinates
 
@@ -1449,10 +1443,9 @@ Valid room numbers can be retrieved using miio command-line tool:
 miio protocol call <ip of the vacuum> get_room_mapping
 ```
 
-It will only give room numbers and not the room names. To mat the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient. 
+It will only give room numbers and not the room names. To mat the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient.
 
-It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing. 
-
+It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing.
 
 ## Xiaomi Philips Light
 
@@ -1464,12 +1457,12 @@ The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philip
 
 Supported models: `philips.light.bulb`, `philips.light.candle`, `philips.light.candle2`, `philips.light.downlight`
 
-* Power (on, off)
-* Brightness
-* Color temperature (175...333 mireds)
-* Scene (1, 2, 3, 4)
-* Delayed turn off (Resolution in seconds)
-* Attributes
+- Power (on, off)
+- Brightness
+- Color temperature (175...333 mireds)
+- Scene (1, 2, 3, 4)
+- Delayed turn off (Resolution in seconds)
+- Attributes
   - model
   - scene
   - delayed_turn_off
@@ -1478,13 +1471,13 @@ Supported models: `philips.light.bulb`, `philips.light.candle`, `philips.light.c
 
 Supported models: `philips.light.ceiling`, `philips.light.zyceiling`
 
-* Power (on, off)
-* Brightness
-* Color temperature (175...370 mireds)
-* Scene (1, 2, 3, 4)
-* Night light mode (on, off)
-* Delayed turn off (Resolution in seconds)
-* Attributes
+- Power (on, off)
+- Brightness
+- Color temperature (175...370 mireds)
+- Scene (1, 2, 3, 4)
+- Night light mode (on, off)
+- Delayed turn off (Resolution in seconds)
+- Attributes
   - model
   - scene
   - delayed_turn_off
@@ -1495,15 +1488,15 @@ Supported models: `philips.light.ceiling`, `philips.light.zyceiling`
 
 Supported models: `philips.light.sread1`
 
-* Eyecare light (on, off)
-* Ambient light (on, off)
-* Brightness (of each light)
-* Scene (1, 2, 3, 4)
-* Night light mode (on, off)
-* Delayed turn off (Resolution in seconds)
-* Eye fatigue reminder / notification (on, off)
-* Eyecare mode (on, off)
-* Attributes
+- Eyecare light (on, off)
+- Ambient light (on, off)
+- Brightness (of each light)
+- Scene (1, 2, 3, 4)
+- Night light mode (on, off)
+- Delayed turn off (Resolution in seconds)
+- Eye fatigue reminder / notification (on, off)
+- Eyecare mode (on, off)
+- Attributes
   - model
   - scene
   - delayed_turn_off
@@ -1515,11 +1508,11 @@ Supported models: `philips.light.sread1`
 
 Supported models: `philips.light.mono1`
 
-* Power (on, off)
-* Brightness
-* Scene (1, 2, 3, 4)
-* Delayed turn off (Resolution in seconds)
-* Attributes
+- Power (on, off)
+- Brightness
+- Scene (1, 2, 3, 4)
+- Delayed turn off (Resolution in seconds)
+- Attributes
   - model
   - scene
   - delayed_turn_off
@@ -1528,12 +1521,12 @@ Supported models: `philips.light.mono1`
 
 Supported models: `philips.light.moonlight`
 
-* Power (on, off)
-* Brightness
-* Color
-* Color temperature (153...588 mireds)
-* Scene (1, 2, 3, 4, 5, 6)
-* Attributes
+- Power (on, off)
+- Brightness
+- Color
+- Color temperature (153...588 mireds)
+- Scene (1, 2, 3, 4, 5, 6)
+- Attributes
   - model
   - scene
   - sleep_assistant
@@ -1541,8 +1534,6 @@ Supported models: `philips.light.moonlight`
   - total_assistant_sleep_time
   - brand_sleep
   - brand
-
-
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
@@ -1646,7 +1637,6 @@ Turn the eyecare mode off.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO light entity.      |
 
-
 ## Xiaomi Smart WiFi Socket and Smart Power Strip
 
 The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug, Xiaomi Smart Power Strip and Xiaomi Chuangmi Plug V1.
@@ -1691,8 +1681,8 @@ Supported models: `qmi.powerstrip.v1`, `zimi.powerstrip.v2`
 
 Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2` isn't switchable!)
 
-* Power (on, off)
-* Attributes
+- Power (on, off)
+- Attributes
   - Load power
 
 ### Configuration
@@ -1762,4 +1752,3 @@ Set the power mode.
 |---------------------------|----------|---------------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO switch entity.             |
 | `mode`                    |       no | Power mode, valid values are 'normal' and 'green'             |
-
