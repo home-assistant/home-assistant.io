@@ -129,6 +129,7 @@ zones:
 There are several attributes available on the alarm panel to give you more information about your alarm.
 
 - `ac_power`: Set to `true` if your system has AC power supplying it.
+- `alarm_event_occurred`: Set to `true` if your system was recently triggered. When `alarm_event_occurred` is `true`, it must be cleared by entering your code + 1 (or calling the `alarm_control_panel.alarm_disarm` service) before attempting to arm your alarm.
 - `backlight_on`: Set to `true` if your keypad's backlight is on.
 - `battery_low`: Set to `true` if your system's back-up battery is low.
 - `check_zone`: Set to `true` if your system detects a problem with a zone.
