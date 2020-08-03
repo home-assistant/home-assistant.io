@@ -21,15 +21,15 @@ ha_config_flow: true
 
 The `xiaomi_miio` integration supports the following devices:
 
-- [Xiaomi Gateway](/integrations/xiaomi_miio/#xiaomi-gateway)
-- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](/integrations/xiaomi_miio/#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2))
-- [Xiaomi Air Purifier](/integrations/xiaomi_miio/#xiaomi-air-purifier)
-- [Xiaomi Air Quality Index Monitor](/integrations/xiaomi_miio/#xiaomi-air-quality-index-monitor)
-- [Xiaomi Mi Air Quality Monitor](/integrations/xiaomi_miio/#xiaomi-mi-air-quality-monitor)
-- [Xiaomi IR Remote](/integrations/xiaomi_miio/#xiaomi-ir-remote)
-- [Xiaomi Mi Robot Vacuum](/integrations/xiaomi_miio/#xiaomi-mi-robot-vacuum)
-- [Xiaomi Philips Light](/integrations/xiaomi_miio/#xiaomi-philips-light)
-- [Xiaomi Smart WiFi Socket and Smart Power Strip](/integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
+- [Xiaomi Gateway](#xiaomi-gateway)
+- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2))
+- [Xiaomi Air Purifier](#xiaomi-air-purifier)
+- [Xiaomi Air Quality Index Monitor](#xiaomi-air-quality-index-monitor)
+- [Xiaomi Mi Air Quality Monitor](#xiaomi-mi-air-quality-monitor)
+- [Xiaomi IR Remote](#xiaomi-ir-remote)
+- [Xiaomi Mi Robot Vacuum](#xiaomi-mi-robot-vacuum)
+- [Xiaomi Philips Light](#xiaomi-philips-light)
+- [Xiaomi Smart WiFi Socket and Smart Power Strip](#xiaomi-smart-wifi-socket-and-smart-power-strip)
 
 For many of these devices you need a acces token, the first section will describe how to obtain that acces token.
 
@@ -48,7 +48,7 @@ For many of these devices you need a acces token, the first section will describ
 9. Android: under "Hub info" there is quite some text in JSON format, this includes the "token" that you need.
 iOS: Most options are still in Chinese, you need the fourth item from the top.
 
-Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token. 
+Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
 
 ### Alternative methods
 
