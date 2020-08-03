@@ -9,7 +9,7 @@ The bootloader for Home Assistant OS (uboot) does not yet support Pi4 booting fr
 The Pi4, with 8GB RAM, is similarly waiting for support from upstream.
 
 ## How do I run a specific version of Home Assistant?
-   
+
 For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
 that is available on your device by connecting a keyboard and screen.
 
@@ -30,7 +30,7 @@ ha os update --version 4.11
 ```
 
 ## Do I need to leave the USB stick connected for Wi-Fi?
- 
+
 No. The USB "CONFIG" stick is only used to import a network profile to `/etc/NetworkManager/system-connections/` and can be removed.
 
 ## 404 Client Error: Not Found ("no such image: homeassistant/...)
@@ -51,7 +51,7 @@ If you are looking for more information about add-ons, which won't start or inst
 The logs on this page are the same you would see using `ha logs` in the custom CLI.
 
 ## I'm trying to find my files on the host or SD card. Where are they?
- 
+
 On a Home Assistant OS install, your files are on the data partition within `/mnt/data/supervisor/`.
 On the SD itself, this is an EXT4 partition labeled `hassos-data`
 
