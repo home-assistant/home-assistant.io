@@ -110,7 +110,7 @@ The template engine will attempt to work out what entities should trigger an upd
 
 ### Unique ID
 
-The optional `unique_id` can be set so the entity will be registered in the [entity registry](https://developers.home-assistant.io/docs/entity_registry_index). This allows changing the `name`, `icon` and `entity_id` from the web interface instead of having to use the [customize](https://www.home-assistant.io/docs/configuration/customizing-devices/) key in your `configuration.yaml` file.
+The optional `unique_id` can be set so the entity will be registered in the [entity registry](https://developers.home-assistant.io/docs/entity_registry_index). This allows changing the `name`, `icon` and `entity_id` from the web interface instead of having to use the [customize](/docs/configuration/customizing-devices/) key in your `configuration.yaml` file.
 
 ## Examples
 
@@ -357,7 +357,7 @@ sensor:
 
 Useful entities to choose might be `sensor.date` which update once per day or `sensor.time`, which updates once per minute.  
 Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have a negative impact on performance.
- 
+
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
 {% raw %}
