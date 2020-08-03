@@ -29,6 +29,11 @@ command:
   description: The action to take.
   required: true
   type: string
+command_timeout:
+  description: Defines number of seconds for command timeout.
+  required: false
+  type: integer
+  default: 15
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
