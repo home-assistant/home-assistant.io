@@ -17,7 +17,7 @@ ha_codeowners:
 Example Lovelace Dashboard:
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/iammeter demo.jpg' />
+  <img src='/images/screenshots/iammeter-demo.jpg' />
 </p>
 
 
