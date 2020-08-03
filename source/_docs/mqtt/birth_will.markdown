@@ -23,12 +23,12 @@ mqtt:
 
 {% configuration %}
 birth_message:
-  description: Birth Message.
+  description: Birth Message. Set to the empty dict, `{}`, to disable publishing a birth message.
   required: false
   type: list
   keys:
     topic:
-      description: The MQTT topic to publish the message. Set to the empty dict, `{}`, to disable publishing a birth message.
+      description: The MQTT topic to publish the message.
       required: false
       default: homeassistant/status
       type: string

@@ -19,7 +19,7 @@ type:
   description: picture-elements
   type: string
 image:
-  required: false
+  required: true
   description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
   type: string
 camera_image:

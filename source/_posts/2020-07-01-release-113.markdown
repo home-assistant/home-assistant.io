@@ -234,20 +234,20 @@ automation:
           - binary_sensor.button3
     action:
       - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.button1
-              state: "on"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bulb
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.button2
-              state: "on"
-          sequence:
-            - service: light.turn_off
-              entity_id: light.bulb
+          - conditions:
+              - condition: state
+                entity_id: binary_sensor.button1
+                state: "on"
+            sequence:
+              - service: light.turn_on
+                entity_id: light.bulb
+          - conditions:
+              - condition: state
+                entity_id: binary_sensor.button2
+                state: "on"
+            sequence:
+              - service: light.turn_off
+                entity_id: light.bulb
         default:
           - service: notify.frenck
             data:
@@ -283,10 +283,10 @@ script:
       repeat:
         count: 10
         sequence:
-        - service: light.toggle
-          entity_id: light.bulb
-        - delay:
-            milliseconds: 500
+          - service: light.toggle
+            entity_id: light.bulb
+          - delay:
+              milliseconds: 500
 ```
 
 ### Automations & Scripts: Bonus! Cool down
@@ -674,12 +674,12 @@ instead of being delayed until the activity is finished setting up.
   <summary><b>Xiaomi Miio</b></summary>
   <p>
 
-  Fan and remote components now have unique LED strings.
-  If you had previously set your automation calls from
-  "**fan**_set_led_on/off" to "**remote**_set_led_on/off",
-  you will now need to set those back to "fan".
+Fan and remote components now have unique LED strings.
+If you had previously set your automation calls from
+"**fan**\_set_led_on/off" to "**remote**\_set_led_on/off",
+you will now need to set those back to "fan".
 
-  ([@alexhardwicke] - [#37605]) ([xiaomi_miio docs])
+([@alexhardwicke] - [#37605]) ([xiaomi_miio docs])
 
   </p>
 </details>
@@ -691,6 +691,7 @@ instead of being delayed until the activity is finished setting up.
 Syncthru configuration is now done through the integrations UI page.
 
 ([@scop] - [#36690]) ([discovery docs]) ([syncthru docs])
+
   </p>
 </details>
 
@@ -718,7 +719,7 @@ the Slack integration documentation.
 - The events signalled from entity id's are removed in favor of events from an integration level.
 - The events format has changed.
 
-([@elupus] - [#37742] [#37565]) ([rfxtrx docs])
+([@elupus] - [#37742][#37565]) ([rfxtrx docs])
 
   </p>
 </details>
@@ -747,8 +748,8 @@ component instead of JavaScript. That's why we have always supported importing
 extra HTML in the frontend and custom panels.
 
 This has been deprecated and superseded by ES modules since some time and has
- no support anymore in browsers. We have a polyfill in place to still support
- this, but we are going to remove this.
+no support anymore in browsers. We have a polyfill in place to still support
+this, but we are going to remove this.
 
 In version 0.115 we will remove the ability to import HTML, you can use ES
 modules as a replacement.
@@ -802,16 +803,16 @@ In general, all variables that start with `paper` will be removed at some point.
 [#38149]: https://github.com/home-assistant/core/pull/38149
 [#38159]: https://github.com/home-assistant/core/pull/38159
 [#38163]: https://github.com/home-assistant/core/pull/38163
-[@DubhAd]: https://github.com/DubhAd
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@RobBie1221]: https://github.com/RobBie1221
+[@dubhad]: https://github.com/DubhAd
+[@jefflirion]: https://github.com/JeffLIrion
+[@robbie1221]: https://github.com/RobBie1221
 [@andrewsayre]: https://github.com/andrewsayre
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
 [@frenck]: https://github.com/frenck
 [@ludeeus]: https://github.com/ludeeus
-[@mKeRix]: https://github.com/mKeRix
+[@mkerix]: https://github.com/mKeRix
 [@pnbruckner]: https://github.com/pnbruckner
 [@pschmitt]: https://github.com/pschmitt
 [androidtv docs]: /integrations/androidtv/
@@ -823,6 +824,123 @@ In general, all variables that start with `paper` will be removed at some point.
 [smartthings docs]: /integrations/smartthings/
 [toon docs]: /integrations/toon/
 [xbox_live docs]: /integrations/xbox_live/
+
+## Release 0.113.2 - July 28
+
+- Bump netdisco to 2.8.1 ([@bdraco] - [#38173]) ([discovery docs])
+- Stop automation runs when turned off or reloaded ([@pnbruckner] - [#38174]) ([automation docs])
+- Bump tesla-powerwall to 0.2.12 to handle powerwall firmware 1.48+ ([@bdraco] - [#38180]) ([powerwall docs])
+- Ignore harmony hubs ips that are already configured during ssdp discovery ([@bdraco] - [#38181]) ([harmony docs])
+- Fix detection of zones 2 and 3 in Onkyo/Pioneer amplifiers ([@vdkeybus] - [#38234]) ([onkyo docs])
+- Fix repeat action when variables present ([@pnbruckner] - [#38237]) ([script docs])
+- Fix parallel script containing repeat or choose action with max_runs > 10 ([@pnbruckner] - [#38243]) ([automation docs]) ([script docs])
+- Fix Skybell useragent ([@MisterWil] - [#38245]) ([skybell docs])
+- Improve setup retry logic to handle inconsistent powerview hub availability ([@bdraco] - [#38249]) ([hunterdouglas_powerview docs])
+- Don't set up callbacks until entity is created. ([@pavoni] - [#38251]) ([vera docs])
+- Prevent onvif from blocking startup ([@bdraco] - [#38256]) ([onvif docs])
+- Fix #38289 issue with xboxapi lib ([@marciogranzotto] - [#38293]) ([xbox_live docs])
+- Bump python-miio to 0.5.3 ([@rytilahti] - [#38300]) ([xiaomi_miio docs])
+- Prevent speedtest from blocking startup or causing other intergations to fail setup ([@bdraco] - [#38305]) ([speedtestdotnet docs])
+- Fix issue with certain Samsung TVs repeatedly showing auth dialog ([@kylehendricks] - [#38308]) ([samsungtv docs])
+- Add debug logging for when a chain of tasks blocks startup ([@bdraco] - [#38311])
+- Remove AdGuard version check ([@frenck] - [#38326]) ([adguard docs])
+
+[#38173]: https://github.com/home-assistant/core/pull/38173
+[#38174]: https://github.com/home-assistant/core/pull/38174
+[#38180]: https://github.com/home-assistant/core/pull/38180
+[#38181]: https://github.com/home-assistant/core/pull/38181
+[#38234]: https://github.com/home-assistant/core/pull/38234
+[#38237]: https://github.com/home-assistant/core/pull/38237
+[#38243]: https://github.com/home-assistant/core/pull/38243
+[#38245]: https://github.com/home-assistant/core/pull/38245
+[#38249]: https://github.com/home-assistant/core/pull/38249
+[#38251]: https://github.com/home-assistant/core/pull/38251
+[#38256]: https://github.com/home-assistant/core/pull/38256
+[#38293]: https://github.com/home-assistant/core/pull/38293
+[#38300]: https://github.com/home-assistant/core/pull/38300
+[#38305]: https://github.com/home-assistant/core/pull/38305
+[#38308]: https://github.com/home-assistant/core/pull/38308
+[#38311]: https://github.com/home-assistant/core/pull/38311
+[#38326]: https://github.com/home-assistant/core/pull/38326
+[@misterwil]: https://github.com/MisterWil
+[@bdraco]: https://github.com/bdraco
+[@frenck]: https://github.com/frenck
+[@kylehendricks]: https://github.com/kylehendricks
+[@marciogranzotto]: https://github.com/marciogranzotto
+[@pavoni]: https://github.com/pavoni
+[@pnbruckner]: https://github.com/pnbruckner
+[@rytilahti]: https://github.com/rytilahti
+[@vdkeybus]: https://github.com/vdkeybus
+[adguard docs]: /integrations/adguard/
+[automation docs]: /integrations/automation/
+[discovery docs]: /integrations/discovery/
+[harmony docs]: /integrations/harmony/
+[hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
+[onkyo docs]: /integrations/onkyo/
+[onvif docs]: /integrations/onvif/
+[powerwall docs]: /integrations/powerwall/
+[rfxtrx docs]: /integrations/rfxtrx/
+[samsungtv docs]: /integrations/samsungtv/
+[script docs]: /integrations/script/
+[skybell docs]: /integrations/skybell/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[vera docs]: /integrations/vera/
+[xbox_live docs]: /integrations/xbox_live/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+
+## Release 0.113.3 - August 1
+
+- Add Abode camera on and off support ([@shred86] - [#35164]) ([abode docs])
+- Fix songpal already configured check in config flow ([@shenxn] - [#37813]) ([songpal docs])
+- Prevent kodi from blocking startup ([@bdraco] - [#38257]) ([kodi docs])
+- Ignore remote Plex clients during plex.tv lookup ([@jjlawren] - [#38327]) ([plex docs])
+- Bump androidtv to 0.0.47 and adb-shell to 0.2.1 ([@JeffLIrion] - [#38344]) ([androidtv docs])
+- Bump pychromecast to 7.2.0 ([@emontnemery] - [#38351]) ([cast docs])
+- Update aioharmony to 0.2.6 ([@ehendrix23] - [#38360]) ([harmony docs])
+- Avoid error with ignored harmony config entries ([@bdraco] - [#38367]) ([harmony docs])
+- Prevent nut config flow error when checking ignored entries ([@bdraco] - [#38372]) ([nut docs])
+- Ensure Toon webhook ID isn't registered on re-registration ([@frenck] - [#38376]) ([toon docs])
+- Fix rmvtransport breaking when destinations don't match ([@cgtobi] - [#38401]) ([rmvtransport docs])
+- Fix ads integration after 0.113 ([@stlehmann] - [#38402]) ([ads docs])
+- Pin yarl dependency to 1.4.2 as core dependency ([@frenck] - [#38428])
+- Fix double encoding issue in google_translate TTS ([@frenck] - [#38429]) ([google_translate docs])
+
+[#35164]: https://github.com/home-assistant/core/pull/35164
+[#37813]: https://github.com/home-assistant/core/pull/37813
+[#38257]: https://github.com/home-assistant/core/pull/38257
+[#38327]: https://github.com/home-assistant/core/pull/38327
+[#38344]: https://github.com/home-assistant/core/pull/38344
+[#38351]: https://github.com/home-assistant/core/pull/38351
+[#38360]: https://github.com/home-assistant/core/pull/38360
+[#38367]: https://github.com/home-assistant/core/pull/38367
+[#38372]: https://github.com/home-assistant/core/pull/38372
+[#38376]: https://github.com/home-assistant/core/pull/38376
+[#38401]: https://github.com/home-assistant/core/pull/38401
+[#38402]: https://github.com/home-assistant/core/pull/38402
+[#38428]: https://github.com/home-assistant/core/pull/38428
+[#38429]: https://github.com/home-assistant/core/pull/38429
+[@jefflirion]: https://github.com/JeffLIrion
+[@bdraco]: https://github.com/bdraco
+[@cgtobi]: https://github.com/cgtobi
+[@ehendrix23]: https://github.com/ehendrix23
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jjlawren]: https://github.com/jjlawren
+[@shenxn]: https://github.com/shenxn
+[@shred86]: https://github.com/shred86
+[@stlehmann]: https://github.com/stlehmann
+[abode docs]: /integrations/abode/
+[ads docs]: /integrations/ads/
+[androidtv docs]: /integrations/androidtv/
+[cast docs]: /integrations/cast/
+[google_translate docs]: /integrations/google_translate/
+[harmony docs]: /integrations/harmony/
+[kodi docs]: /integrations/kodi/
+[nut docs]: /integrations/nut/
+[plex docs]: /integrations/plex/
+[rmvtransport docs]: /integrations/rmvtransport/
+[songpal docs]: /integrations/songpal/
+[toon docs]: /integrations/toon/
 
 ## All changes
 
@@ -1463,26 +1581,26 @@ In general, all variables that start with `paper` will be removed at some point.
 [#38043]: https://github.com/home-assistant/core/pull/38043
 [#38049]: https://github.com/home-assistant/core/pull/38049
 [#38057]: https://github.com/home-assistant/core/pull/38057
-[@2Fake]: https://github.com/2Fake
-[@Adminiuga]: https://github.com/Adminiuga
-[@CoMPaTech]: https://github.com/CoMPaTech
-[@DarkFox]: https://github.com/DarkFox
-[@GMTA]: https://github.com/GMTA
-[@Harryjholmes]: https://github.com/Harryjholmes
-[@InduPrakash]: https://github.com/InduPrakash
-[@Jc2k]: https://github.com/Jc2k
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@Kdemontf]: https://github.com/Kdemontf
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@MatthewFlamm]: https://github.com/MatthewFlamm
-[@Michsior14]: https://github.com/Michsior14
-[@PaulAnnekov]: https://github.com/PaulAnnekov
-[@Quentame]: https://github.com/Quentame
-[@RogerSelwyn]: https://github.com/RogerSelwyn
-[@SeraphimSerapis]: https://github.com/SeraphimSerapis
-[@Shulyaka]: https://github.com/Shulyaka
-[@SukramJ]: https://github.com/SukramJ
-[@TheLastGimbus]: https://github.com/TheLastGimbus
+[@2fake]: https://github.com/2Fake
+[@adminiuga]: https://github.com/Adminiuga
+[@compatech]: https://github.com/CoMPaTech
+[@darkfox]: https://github.com/DarkFox
+[@gmta]: https://github.com/GMTA
+[@harryjholmes]: https://github.com/Harryjholmes
+[@induprakash]: https://github.com/InduPrakash
+[@jc2k]: https://github.com/Jc2k
+[@jefflirion]: https://github.com/JeffLIrion
+[@kdemontf]: https://github.com/Kdemontf
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[@matthewflamm]: https://github.com/MatthewFlamm
+[@michsior14]: https://github.com/Michsior14
+[@paulannekov]: https://github.com/PaulAnnekov
+[@quentame]: https://github.com/Quentame
+[@rogerselwyn]: https://github.com/RogerSelwyn
+[@seraphimserapis]: https://github.com/SeraphimSerapis
+[@shulyaka]: https://github.com/Shulyaka
+[@sukramj]: https://github.com/SukramJ
+[@thelastgimbus]: https://github.com/TheLastGimbus
 [@aaliddell]: https://github.com/aaliddell
 [@abmantis]: https://github.com/abmantis
 [@ajschmidt8]: https://github.com/ajschmidt8
@@ -1549,7 +1667,7 @@ In general, all variables that start with `paper` will be removed at some point.
 [@shenxn]: https://github.com/shenxn
 [@shermdog]: https://github.com/shermdog
 [@smugleafdev]: https://github.com/smugleafdev
-[@starkillerOG]: https://github.com/starkillerOG
+[@starkillerog]: https://github.com/starkillerOG
 [@teharris1]: https://github.com/teharris1
 [@timmo001]: https://github.com/timmo001
 [@timvancann]: https://github.com/timvancann

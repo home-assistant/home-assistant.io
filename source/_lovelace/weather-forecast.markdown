@@ -63,7 +63,7 @@ show_forecast:
 secondary_info_attribute:
   required: false
   description: Which attribute to display under the temperature.
-  type: boolean
+  type: string
   default: Defaults to `extrema` if available, if not available then `precipitation` and if precipitation isn't available then `humidity`.
 theme:
   required: false
