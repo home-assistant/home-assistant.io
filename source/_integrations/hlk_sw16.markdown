@@ -15,6 +15,6 @@ The [HLK-SW16](http://www.hlktech.net/product_detail.php?ProId=48) by [Hi-Link](
 
 ## Configuration
 
-To add UPB to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Hi-Link HLK-SW16**.
+To add a Hi-Link HLK-SW16 to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Hi-Link HLK-SW16**.
 
 Enter the host and port for the HLK-SW16 TCP socket control interface and hit submit, if the connection is successful this will automatically populate the 16 relay switches as switch entities.
