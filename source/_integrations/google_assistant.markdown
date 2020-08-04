@@ -226,7 +226,9 @@ Here are the modes that are currently available:
 - dry
 - eco
 
-### Troubleshooting the request_sync service
+### Troubleshooting
+
+#### 404 errors on request sync
 
 Syncing may fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is technically in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant" (or whatever you named your project), this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again. If regenerating the draft does not work, go back to the `Action` section and just hit the `enter` key for the URL to recreate the Preview.
 
@@ -240,7 +242,20 @@ The `request_sync` service may fail with a 404 if the `project_id` of the HomeGr
   4. Generate a new API key.
   5. Again, create a new project in the [Actions on Google console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
 
-### Troubleshooting with NGINX
+#### 403 errors on request sync
+
+The `request_sync` service may fail with a 403 if the if the HomeGraph API is not enabled. Go to [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) and verify that HomeGraph API is enabled for your project
+
+#### 404 errors on report state
+
+If you receove 404 errors linked to report state in your log, home assisting is reporting state for entites that where never synced to google. Ask your google home to `Sync my devices` or run the service `google_assistant.request_sync`
+
+
+#### Error during linking: "Could not update the setting. Please check your connection"
+
+Your fullfillment url may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publically reachable.
+
+#### NGINX
 
 When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
 
