@@ -25,14 +25,14 @@ After completing the configuration flow, the GitHub integration will be availabl
 
 This integration provides the following sensors:
 
-- Clones - **Requires push access to the repository** Clone traffic. Attributes contain unique clones.
+- Clones - Clone traffic. Attributes contain unique clones. **Requires push access to the repository**
 - Forks - The amount of forks.
 - Latest Commit - Latest commit sha. Attributes contain other data from the commit such as the message.
 - Latest Open Issue - The latest issue that is open in the repository.
 - Latest Open Pull Request - The latest open pull request in the repository.
 - Latest Release - The last release in the repository.
 - Stargazers - Stars for your repository.
-- Views - **Requires push access to the repository** Viewer count. Attributes contain unique viewers.
-- Watchers - The count of users watching the repository.
+- Views - Viewer count. Attributes contain unique viewers.
+- Watchers - The count of users watching the repository. **Requires push access to the repository**
 
 Clones, Latest Release, Issues and Pull Requests and Views are not enabled by default. These can be enabled by via the integration's options.
