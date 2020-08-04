@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@robbiet480'
   - '@bieniu'
 ha_domain: braviatv
 ha_config_flow: true
@@ -43,7 +42,7 @@ If you have previously set up your TV with any Home Assistant instances, you mus
 
 <div class='note warning'>
 
-New setups via `configuration.yaml` file are currently not be supported.
+New setups via `configuration.yaml` file are currently not supported.
 
 </div>
 

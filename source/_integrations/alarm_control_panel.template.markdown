@@ -72,6 +72,10 @@ panels:
           required: false
           type: string
           default: Template Alarm Control Panel
+        unique_id:
+          description: An ID that uniquely identifies this alarm control panel. Set this to an unique value to allow customisation trough the UI.
+          required: false
+          type: string
         value_template:
           description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
           required: false

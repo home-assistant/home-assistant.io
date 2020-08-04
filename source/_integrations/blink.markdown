@@ -95,7 +95,7 @@ Trigger a camera to take a new still image.
 
 ### `blink.save_video`
 
-Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `whitelist_external_dirs` in your `configuration.yaml` file (see example below).
+Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file (see example below).
 
 | Service Data Attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
@@ -105,7 +105,7 @@ Save the last recorded video of a camera to a local file. Note that in most case
 
 ```yaml
 homeassistant:
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - '/tmp'
     - '/path/to/whitelist'
 ```
@@ -137,7 +137,7 @@ sequence:
   - service: blink.trigger_camera
     data:
       entity_id: camera.blink_my_camera
-  - delay: 00:00:05  
+  - delay: 00:00:05
   - service: blink.blink_update
   - service: camera.snapshot
     data:
@@ -160,7 +160,7 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
     to: 'not_home'
   action:
     service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.blink_my_sync_module 
+    entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Disarm Blink When Home
@@ -176,7 +176,7 @@ Similar to the previous example, this automation will disarm blink when arriving
     to: 'home'
   action:
     service: alarm_control_panel.alarm_disarm
-    entity_id: alarm_control_panel.blink_my_sync_module 
+    entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Save Video Locally When Motion Detected
@@ -198,6 +198,6 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
     data_template:
       name: "My Camera"
       filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
-      
+
 ```
 {% endraw %}

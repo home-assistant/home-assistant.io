@@ -343,6 +343,10 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
+### String filters
+
+- Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
+
 ### Regular expressions
 
 - Filter `string|regex_match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.

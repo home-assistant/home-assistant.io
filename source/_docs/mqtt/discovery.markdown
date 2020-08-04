@@ -43,12 +43,6 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
-<div class='note'>
-
-The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the MQTT discovery messages after every Home Assistant restart for the devices to show up.
-
-</div>
-
 The discovery topic need to follow a specific format:
 
 ```text
@@ -277,6 +271,7 @@ The following software has built-in support for MQTT discovery:
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
+- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 
 ## Examples
 
