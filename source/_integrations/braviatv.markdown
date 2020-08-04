@@ -42,7 +42,7 @@ If you have previously set up your TV with any Home Assistant instances, you mus
 
 <div class='note warning'>
 
-New setups via `configuration.yaml` file are currently not be supported.
+New setups via `configuration.yaml` file are currently not supported.
 
 </div>
 
