@@ -132,7 +132,7 @@ Turn on camera. Not all camera models support this service, please consult indiv
 
 ### Test if it works
 
-A simple way to test if you have set up your `camera` platform correctly, is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose your service from the dropdown menu **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
+A simple way to test if you have set up your `camera` platform correctly, is to use **Services** from the **Developer Tools**. Choose your service from the dropdown menu **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
 
 ```yaml
 entity_id: camera.living_room_camera
