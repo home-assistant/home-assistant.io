@@ -1,7 +1,6 @@
 ---
 title: Ezviz
 description: Integrate Ezviz camera within Home Assistant.
-logo: ezviz.png
 ha_release: 0.107
 ha_category:
   - Camera

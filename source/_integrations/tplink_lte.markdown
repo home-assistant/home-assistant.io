@@ -1,7 +1,6 @@
 ---
 title: TP-Link LTE
 description: Instructions on how to integrate your TP-Link LTE routers within Home Assistant.
-logo: tp-link.png
 ha_release: 0.83
 ha_category:
   - Network

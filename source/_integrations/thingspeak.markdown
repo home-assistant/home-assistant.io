@@ -1,7 +1,6 @@
 ---
 title: ThingSpeak
 description: Record one entity in ThingSpeak
-logo: thingspeak.png
 ha_category:
   - History
 ha_release: 0.32

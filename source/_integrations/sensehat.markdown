@@ -1,7 +1,6 @@
 ---
 title: Sense HAT
 description: Instructions on how to setup Sense HAT LED lights within Home Assistant.
-logo: sense-hat.png
 ha_category:
   - DIY
   - Light
@@ -192,6 +191,6 @@ This fix has been tested with a clean install of:
 
 and
 
-* [Home Assistant 0.37.1](/getting-started/installation-raspberry-pi-all-in-one/)
+* Home Assistant 0.37.1
 
 For setting up the Sense HAT's RGB LED matrix as lights within Home Assistant, please see the [Sense HAT light component](#light).

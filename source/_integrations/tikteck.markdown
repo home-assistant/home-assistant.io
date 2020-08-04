@@ -4,7 +4,6 @@ description: Instructions on how to setup Tikteck LED bulbs within Home Assistan
 ha_category:
   - Light
 ha_iot_class: Local Polling
-logo: tikteck.png
 ha_release: 0.36
 ha_domain: tikteck
 ---

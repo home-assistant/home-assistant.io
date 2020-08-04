@@ -1,7 +1,6 @@
 ---
 title: Channels
 description: Instructions on how to integrate Channels into Home Assistant.
-logo: channels.png
 ha_category:
   - Media Player
 ha_release: 0.65

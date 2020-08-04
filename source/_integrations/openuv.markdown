@@ -1,5 +1,5 @@
 ---
-title: Openuv
+title: OpenUV
 description: Instructions on how to integrate OpenUV within Home Assistant.
 ha_category:
   - Health
@@ -36,32 +36,8 @@ the `update_protection_data` services).
 
 ## Configuration
 
-To retrieve data from OpenUV, add the following to your `configuration.yaml`
-file:
-
-```yaml
-openuv:
-  api_key: YOUR_OPENUV_API_KEY
-```
-
-{% configuration %}
-api_key:
-  description: The OpenUV API key.
-  required: true
-  type: string
-elevation:
-  description: The elevation of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
-  required: false
-  type: float
-latitude:
-  description: The latitude of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
-  required: false
-  type: float
-longitude:
-  description: The longitude of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
-  required: false
-  type: float
-{% endconfiguration %}
+To configure the `openuv` integration, navigate to **Configuration** -> **Integrations**
+in the Home Assistant UI.
 
 ## The Fitzpatrick Scale
 
@@ -112,7 +88,7 @@ automation:
 ```
 
 Update the UV index data every 20 minutes while the sun is at least 10 degrees above the horizon:
-
+{% raw %}
 ```yaml
 automation:
   - alias: Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon
@@ -127,6 +103,7 @@ automation:
     action:
       service: openuv.update_uv_index_data
 ```
+{% endraw %}
 
 Update the protection window once a day:
 ```yaml

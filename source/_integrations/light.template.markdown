@@ -42,6 +42,11 @@ light:
           data_template:
             value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
+        set_white_value:
+          service: input_number.set_value
+          data_template:
+            value: "{{ white_value }}"
+            entity_id: input_number.white_value_input
         set_color:
           - service: input_number.set_value
             data_template:
@@ -69,6 +74,10 @@ light:
         description: A list of entity IDs so the light only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
+      unique_id:
+        description: An ID that uniquely identifies this light. Set this to an unique value to allow customisation trough the UI.
+        required: false
+        type: string
       value_template:
         description: Defines a template to get the state of the light.
         required: false
@@ -81,6 +90,11 @@ light:
         default: optimistic
       temperature_template:
         description: Defines a template to get the color temperature of the light.
+        required: false
+        type: template
+        default: optimistic
+      white_value_template:
+        description: Defines a template to get the white value of the light.
         required: false
         type: template
         default: optimistic
@@ -112,6 +126,10 @@ light:
         type: action
       set_temperature:
         description: Defines an action to run when the light is given a color temperature command.
+        required: false
+        type: action
+      set_white_value:
+        description: Defines an action to run when the light is given a white value command.
         required: false
         type: action
       set_color:

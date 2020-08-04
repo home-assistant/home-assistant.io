@@ -1,7 +1,6 @@
 ---
 title: PVOutput
 description: Instructions on how to use PVOutput within Home Assistant.
-logo: pvoutput.png
 ha_category:
   - Energy
 ha_release: 0.33

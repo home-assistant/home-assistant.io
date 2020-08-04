@@ -6,6 +6,7 @@ ha_category:
   - Notifications
 ha_release: 0.105
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@ocalvo'
 ha_domain: sms
@@ -19,13 +20,20 @@ This integration provides the following platforms:
 
 ## Configuration
 
-To enable those notifications in your installation, add the following to your `configuration.yaml` file:
+Activate `SMS` via the integrations menu and search for `SMS`.
+While activating the integration, it will ask for your serial device. Make sure the device is connected and have a valid SIM activated.
+
+You can also enable `SMS` via your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sms:
   device: /dev/ttyUSB2
+```
 
+To configure the notification service, edit your `configuration.yaml` file:
+
+```yaml
 notify:
   - platform: sms
     name: sms_person1
@@ -110,7 +118,7 @@ Plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
 
-If the device is still not recognized, remove the parameter -X from the usb_modesiwtch command and reboot again.
+If the device is still not recognized, remove the parameter -X from the usb_modeswitch command and reboot again.
 
 ## More details:
 

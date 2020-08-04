@@ -1,5 +1,5 @@
 ---
-title: Apple iOS
+title: Home Assistant iOS
 description: Instructions on how to use the iOS companion app with Home Assistant.
 ha_category:
   - Hub

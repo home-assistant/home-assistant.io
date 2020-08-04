@@ -18,6 +18,9 @@ ha_domain: wled
 implementation of an ESP8266/ESP32 webserver to control
 NeoPixel (WS2812B, WS2811, SK6812, APA102, and similar) LED's.
 
+While Home Assistant supports WLED 0.8.4 and higher, the use of WLED 0.10 and
+newer is recommended to get the optimal experience.
+
 ## Configuration
 
 This integration can be configured using the integrations in the
@@ -44,6 +47,21 @@ entity.
 
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
+
+### Using WLED segments
+
+WLED can split a single LED strip into multiple segments.
+These segments can be controlled separately in WLED and in Home Assistant as
+well. The fully-featured segment control has been introduced in WLED 0.10
+but has been partly around via APIs since WLED 0.8.6.
+
+If WLED has 1 segment defined (the default), that one segment controls the whole
+LED strip. Home Assistant creates a single light entity to control the
+strip.
+
+If WLED has 2 or more segments, each segment gets its own light entity in
+Home Assistant. Additionally, a master light entity is created. This master
+entity controls the strip power and overall brightness applied to all segments.
 
 ## Sensors
 

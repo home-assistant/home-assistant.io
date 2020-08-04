@@ -1,7 +1,6 @@
 ---
 title: The Energy Detective TED5000
 description: How to add a TED5000 to Home Assistant.
-logo: ted.png
 ha_category:
   - Energy
 ha_release: '0.30'

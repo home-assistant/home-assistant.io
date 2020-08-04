@@ -143,7 +143,7 @@ monitored_conditions:
     temp_low_1d_f:
       description: "[<sup>[1d]</sup>](#1d): Forecasted low temperature in Fahrenheit"
     UV:
-      description: Current levels of UV radiation. See [here](https://www.wunderground.com/resources/health/uvindex.asp) for explanation.
+      description: Current levels of UV radiation. See [here](https://api.wunderground.com/resources/health/uvindex.asp) for explanation.
     visibility_km:
       description: Average visibility in km
     visibility_mi:

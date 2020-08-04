@@ -1,7 +1,6 @@
 ---
 title: DLNA Digital Media Renderer
 description: Instructions on how to integrate a DLNA DMR device into Home Assistant.
-logo: dlna.png
 ha_category:
   - Media Player
 ha_release: 0.76

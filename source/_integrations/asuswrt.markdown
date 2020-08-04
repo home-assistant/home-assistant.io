@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: asuswrt
 ---
 
-The `asuswrt` integration is the main integration to connect to a [ASUSWRT](https://event.asus.com/2013/nw/ASUSWRT/) based router.
+The `asuswrt` integration is the main integration to connect to a [ASUSWRT](https://www.asus.com/ASUSWRT/) based router.
 
 There is currently support for the following device types within Home Assistant:
 

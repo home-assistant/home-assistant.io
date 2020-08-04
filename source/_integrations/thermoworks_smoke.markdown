@@ -1,7 +1,6 @@
 ---
 title: ThermoWorks Smoke
 description: Pulls temperature data for a ThermoWorks Smoke Thermometer connected with Smoke Gateway.
-logo: thermoworks.png
 ha_category:
   - Sensor
 ha_release: 0.81

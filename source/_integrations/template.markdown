@@ -54,6 +54,10 @@ sensor:
         description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
+      unique_id:
+        description: An ID that uniquely identifies this sensor. Set this to an unique value to allow customisation trough the UI.
+        required: false
+        type: string
       unit_of_measurement:
         description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
         required: false
@@ -103,6 +107,10 @@ If you are using the state of a platform that takes extra time to load, the Temp
 ### Entity IDs
 
 The template engine will attempt to work out what entities should trigger an update of the sensor. This can fail, for example, if your template loops over the contents of a group. In this case, you can use `entity_id` to provide a list of entity IDs that will cause the sensor to update or you can run the service `homeassistant.update_entity` to update the sensor at will.
+
+### Unique ID
+
+The optional `unique_id` can be set so the entity will be registered in the [entity registry](https://developers.home-assistant.io/docs/entity_registry_index). This allows changing the `name`, `icon` and `entity_id` from the web interface instead of having to use the [customize](/docs/configuration/customizing-devices/) key in your `configuration.yaml` file.
 
 ## Examples
 
@@ -349,7 +357,7 @@ sensor:
 
 Useful entities to choose might be `sensor.date` which update once per day or `sensor.time`, which updates once per minute.  
 Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have a negative impact on performance.
- 
+
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
 {% raw %}

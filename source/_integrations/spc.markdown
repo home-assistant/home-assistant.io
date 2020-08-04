@@ -6,7 +6,6 @@ ha_category:
   - Alarm
   - Binary Sensor
 ha_release: 0.47
-logo: vanderbilt_spc.png
 ha_iot_class: Local Push
 ha_domain: spc
 ---

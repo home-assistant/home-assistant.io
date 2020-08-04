@@ -20,7 +20,7 @@ Connect a keyboard and monitor to your device.
 
 `auth reset --username existing_user --password new_password`
 
-### Home Assistant Core
+### Home Assistant Core and Home Assistant Container
 
 While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
 

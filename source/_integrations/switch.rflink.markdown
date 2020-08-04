@@ -16,7 +16,7 @@ The RFLink integration does not know the difference between a `switch`, a `binar
 
 RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a switch is known, it can be used to configure it as a switch type in HA and, for example, to add it to a different group, hide it or configure a nice name.
+Once the ID of a switch is known, it can be used to configure it as a switch type in HA and, for example, to add it to a different group or configure a nice name.
 
 Configuring devices as switch :
 

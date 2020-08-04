@@ -35,7 +35,6 @@ USB serial converters:
 - Cheap (Banggood/ebay) Generic PL2303
 - <https://sites.google.com/site/nta8130p1smartmeter/webshop>
 - <https://www.sossolutions.nl/slimme-meter-kabel>
-- <https://tweakers.net/gallery/269738/aanbod/>
 - <https://nl.aliexpress.com/item/32945187155.html>
 
 Serial to network proxies:

@@ -1,7 +1,6 @@
 ---
 title: Dominos Pizza
 description: Instructions on how to setup Dominos Pizza ordering within Home Assistant.
-logo: dominos.png
 ha_category:
   - Other
 ha_iot_class: Cloud Polling

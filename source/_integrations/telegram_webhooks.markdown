@@ -19,9 +19,6 @@ To integrate this into Home Assistant, add the following section to your `config
 
 ```yaml
 # Example configuration.yaml entry
-http:
-  base_url: <public_url> # the Home Assistant https url which is exposed to the internet.
-
 telegram_bot:
   - platform: webhooks
     api_key: YOUR_API_KEY
@@ -54,7 +51,7 @@ proxy_params:
   required: false
   type: string
 url:
-  description: Allow to overwrite the `base_url` from the [`http`](/integrations/http/) integration for different configurations (`https://<public_url>:<port>`).
+  description: Allow to overwrite the external URL from the Home Assistant [configuration](/docs/configuration/basic/) for different setups (`https://<public_url>:<port>`).
   required: false
   type: string
 trusted_networks:
@@ -72,9 +69,6 @@ The configuration sample below shows how an entry can look like:
 
 ```yaml
 # Example configuration.yaml entry
-http:
-  base_url: <public_url>
-
 telegram_bot:
   - platform: webhooks
     api_key: YOUR_API_KEY

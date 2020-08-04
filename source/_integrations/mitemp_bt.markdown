@@ -15,11 +15,10 @@ The `mitemp_bt` sensor platform allows one to monitor room temperature and humid
 Depending on the operating system you're running, you have to configure the proper Bluetooth backend on your system:
 
 - On [Home Assistant](/hassio/installation/): `mitemp_bt` will work out of the box as long as the host supports Bluetooth (like the Raspberry Pi does).
-- On a [Home Assistant Core on Docker](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
+- On a [Home Assistant Container](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
   - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
   - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth` or    `bluez-deprecated`.
-- Windows and macOS are currently not supported by the `btlewrap` library.
 
 ## Configuration
 

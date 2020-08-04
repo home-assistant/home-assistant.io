@@ -441,6 +441,148 @@ These integrations have been removed. The websites for both have changed, causin
 [powerwall docs]: /integrations/powerwall/
 [zha docs]: /integrations/zha/
 
+## Release 0.108.4 - April 13
+
+- Fix #33995 Use "now" if departure is None ([@eifinger] - [#34017]) ([here_travel_time docs])
+- Fix nexia fan and hold modes for XL824 thermostats ([@bdraco] - [#34042]) ([nexia docs])
+- Handle all zero serial numbers in NUT ([@bdraco] - [#34045]) ([nut docs])
+- UniFi - Fix unit of measurement from B to MB ([@Kane610] - [#34091]) ([unifi docs])
+- Fix Daikin sensor temperature_unit & cleanup ([@fredrike] - [#34116]) ([daikin docs])
+- Bump pyIntesisHome to 1.7.3 ([@jnimmo] - [#34125]) ([intesishome docs])
+- Fix deprecated icon/username logic in Slack ([@bachya] - [#34156]) ([slack docs])
+- Improve rounding the light level conversion in Lutron Caseta ([@swails] - [#34167]) ([lutron_caseta docs])
+- Fix z-wave brightness off by one ([@bdraco] - [#34170]) ([zwave docs])
+- Increase timeout and log the url of the elkm1 system that time… ([@bdraco] - [#34172]) ([elkm1 docs])
+- Convert sense to use DataUpdateCoordinator for trends data ([@bdraco] - [#34160]) ([sense docs])
+
+[#34017]: https://github.com/home-assistant/core/pull/34017
+[#34042]: https://github.com/home-assistant/core/pull/34042
+[#34045]: https://github.com/home-assistant/core/pull/34045
+[#34091]: https://github.com/home-assistant/core/pull/34091
+[#34116]: https://github.com/home-assistant/core/pull/34116
+[#34125]: https://github.com/home-assistant/core/pull/34125
+[#34156]: https://github.com/home-assistant/core/pull/34156
+[#34160]: https://github.com/home-assistant/core/pull/34160
+[#34167]: https://github.com/home-assistant/core/pull/34167
+[#34170]: https://github.com/home-assistant/core/pull/34170
+[#34172]: https://github.com/home-assistant/core/pull/34172
+[@Kane610]: https://github.com/Kane610
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@eifinger]: https://github.com/eifinger
+[@fredrike]: https://github.com/fredrike
+[@jnimmo]: https://github.com/jnimmo
+[@swails]: https://github.com/swails
+[daikin docs]: /integrations/daikin/
+[elkm1 docs]: /integrations/elkm1/
+[here_travel_time docs]: /integrations/here_travel_time/
+[intesishome docs]: /integrations/intesishome/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[nexia docs]: /integrations/nexia/
+[nut docs]: /integrations/nut/
+[sense docs]: /integrations/sense/
+[slack docs]: /integrations/slack/
+[unifi docs]: /integrations/unifi/
+[zwave docs]: /integrations/zwave/
+
+## Release 0.108.5 - April 15
+
+- Temporary transition Docker init ([@frenck] - [#34135])
+- Catch IPPVersionNotSupportedError in IPP ([@ctalkington] - [#34184]) ([ipp docs])
+- Fix websocket connection bug/errant logic in Ambient PWS ([@bachya] - [#34217]) ([ambient_station docs])
+- Fix Cloud UI bug preventing managing Google 2FA ([@balloob] - [#34241]) ([cloud docs]) ([google_assistant docs])
+- Add daikin update_before_add ([@fredrike] - [#34248]) ([daikin docs])
+- Fix various Daikin issues ([@fredrike] - [#34249]) ([daikin docs])
+
+[#34135]: https://github.com/home-assistant/core/pull/34135
+[#34184]: https://github.com/home-assistant/core/pull/34184
+[#34217]: https://github.com/home-assistant/core/pull/34217
+[#34241]: https://github.com/home-assistant/core/pull/34241
+[#34248]: https://github.com/home-assistant/core/pull/34248
+[#34249]: https://github.com/home-assistant/core/pull/34249
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@ctalkington]: https://github.com/ctalkington
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[ambient_station docs]: /integrations/ambient_station/
+[cloud docs]: /integrations/cloud/
+[daikin docs]: /integrations/daikin/
+[google_assistant docs]: /integrations/google_assistant/
+[ipp docs]: /integrations/ipp/
+
+## Release 0.108.6 - April 16
+
+- Use config entry id for unique id if serial number is missing ([@bdraco] - [#34154]) ([nut docs])
+- Fix default elkm1 temp units ([@bdraco] - [#34274]) ([elkm1 docs])
+- Skip ignored hosts when checking existing config entries in config flow ([@raman325] - [#34280]) ([vizio docs])
+- Upgrade broadlink lib to 0.13.1 ([@Danielhiversen] - [#34290]) ([broadlink docs])
+- Pass an argument to kef.update_dsp for async_track_time_interval ([@basnijholt] - [#34310]) ([kef docs])
+- Fixes for Sonos media titles ([@amelchio] - [#34311]) ([sonos docs])
+- Abort vizio zeroconf config flow if unique ID is already configured ([@raman325] - [#34313]) ([vizio docs])
+- Update Coordinator: Only schedule a refresh if listenerrs ([@balloob] - [#34317])
+
+[#34154]: https://github.com/home-assistant/core/pull/34154
+[#34274]: https://github.com/home-assistant/core/pull/34274
+[#34280]: https://github.com/home-assistant/core/pull/34280
+[#34290]: https://github.com/home-assistant/core/pull/34290
+[#34310]: https://github.com/home-assistant/core/pull/34310
+[#34311]: https://github.com/home-assistant/core/pull/34311
+[#34313]: https://github.com/home-assistant/core/pull/34313
+[#34317]: https://github.com/home-assistant/core/pull/34317
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@amelchio]: https://github.com/amelchio
+[@balloob]: https://github.com/balloob
+[@basnijholt]: https://github.com/basnijholt
+[@bdraco]: https://github.com/bdraco
+[@raman325]: https://github.com/raman325
+[broadlink docs]: /integrations/broadlink/
+[elkm1 docs]: /integrations/elkm1/
+[kef docs]: /integrations/kef/
+[nut docs]: /integrations/nut/
+[sonos docs]: /integrations/sonos/
+[vizio docs]: /integrations/vizio/
+
+## Release 0.108.7 - April 21
+
+- Fix setting up multiple UPSes with NUT in 0.108.x ([@bdraco] - [#34427]) ([nut docs])
+- Cloud do checks during setup ([@balloob] - [#33507]) ([cloud docs])
+- Rollback modbus to version 0.107.7 keep new functionality ([@janiversen] - [#34287]) ([modbus docs])
+- Ensure nexia state file is in a writable location ([@bdraco] - [#34325]) ([nexia docs])
+- Modify requirements for CameraStreamController in Alexa ([@ochlocracy] - [#34470]) ([alexa docs])
+- Fix cloud binary_sensor & TTS/STT ([@pvizeli] - [#34505])
+
+[#33507]: https://github.com/home-assistant/core/pull/33507
+[#34287]: https://github.com/home-assistant/core/pull/34287
+[#34325]: https://github.com/home-assistant/core/pull/34325
+[#34427]: https://github.com/home-assistant/core/pull/34427
+[#34470]: https://github.com/home-assistant/core/pull/34470
+[#34505]: https://github.com/home-assistant/core/pull/34505
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@janiversen]: https://github.com/janiversen
+[@ochlocracy]: https://github.com/ochlocracy
+[@pvizeli]: https://github.com/pvizeli
+[alexa docs]: /integrations/alexa/
+[cloud docs]: /integrations/cloud/
+[modbus docs]: /integrations/modbus/
+[nexia docs]: /integrations/nexia/
+[nut docs]: /integrations/nut/
+
+## Release 0.108.8 - April 22
+
+- Bump hass-nabucasa 0.34.1 ([@pvizeli] - [#34480]) ([cloud docs])
+
+[#34480]: https://github.com/home-assistant/core/pull/34480
+[@pvizeli]: https://github.com/pvizeli
+[cloud docs]: /integrations/cloud/
+
+## Release 0.108.9 - April 24
+
+- Fix Google Assistant devices being disconnected from their rooms ([@balloob] - [#34622])
+
+[#34622]: https://github.com/home-assistant/core/pull/34622
+
 ## All changes
 
 <details>

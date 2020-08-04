@@ -295,7 +295,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fire an event when timer gets out of sync ([@amelchio] - [#17398])
 - Add context to scripts run by template entities ([@balloob] - [#17329]) ([cover.template docs]) ([fan.template docs]) ([light.template docs]) ([lock.template docs]) ([switch.template docs])
 - State is set to UNKNOWN rather than ON in order to make UI have an play/pause button ([@kennedyshead] - [#17357]) ([media_player.samsungtv docs])
-- Re-assign conditions ([@SilvrrGIT] - [#17364]) ([weather.yweather docs])
+- Re-assign conditions ([@SilvrrGIT] - [#17364])
 - Switched to async_fire ([@Julius2342] - [#17472]) ([knx docs])
 - Fix rangefilter ([@nielstron] - [#17473]) ([sensor.filter docs])
 - Cleanup HM Notify platform ([@pvizeli] - [#17355]) ([notify docs])
@@ -857,7 +857,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [weather.demo docs]: /integrations/weather.demo/
 [weather.met docs]: /integrations/met
 [weather.smhi docs]: /integrations/smhi
-[weather.yweather docs]: /integrations/yweather
 [websocket_api docs]: /integrations/websocket_api/
 [wink docs]: /integrations/wink/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/

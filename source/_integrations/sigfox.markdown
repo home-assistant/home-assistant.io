@@ -1,7 +1,6 @@
 ---
 title: Sigfox
 description: Display messages from Sigfox devices in Home Assistant.
-logo: sigfox.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling

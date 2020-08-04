@@ -5,7 +5,12 @@ redirect_from: /getting-started/automation-trigger/
 ---
 
 ### What are triggers
+
 Triggers are what starts the processing of an automation rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
+
+An automation can be triggered by an event, with a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+
+The following sections introduce all trigger types and further details to get started.
 
 ### Event trigger
 
@@ -175,7 +180,7 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 <div class='note warning'>
 
-Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
+Use quotes around your values for `from` and `to` to avoid the YAML parser from interpreting values as booleans.
 
 </div>
 
@@ -308,6 +313,17 @@ automation:
     at: "15:32:00"
 ```
 
+Or at multiple specific times:
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at:
+      - "15:32:00"
+      - "20:30:00"
+```
+
 ### Time pattern trigger
 
 With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
@@ -341,7 +357,7 @@ Do not prefix numbers with a zero - using `'00'` instead of '0' for example will
 
 ### Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. This endpoint does not require authentication besides knowing the webhook id. You can either send encoded form or JSON data, available in the template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`.
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. 
 
 ```yaml
 automation:
@@ -350,9 +366,15 @@ automation:
     webhook_id: some_hook_id
 ```
 
-You could run the above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. An example with no data sent to a SSL/TLS secured installation and using the command-line curl program is `curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id`.
+You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an empty data payload:
 
-Note that each webhook can only be used in one automation at a time.
+```shell
+curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id
+```
+
+Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS. 
+
+Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
 
 ### Zone trigger
 
@@ -382,6 +404,15 @@ automation:
     # Event is either enter or leave
     event: enter # or "leave"
 ```
+
+### Device triggers
+
+Device triggers encompass a set of events that are defined by an integration. This includes, for example, state changes of sensors as well as button events from remotes.
+[MQTT device triggers](/integrations/device_trigger.mqtt/) are set up through autodiscovery.
+
+In contrast to state triggers, device triggers are tied to a device and not necessarily an entity.
+To use a device trigger, set up an automation through the browser frontend.
+If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
 
 ### Multiple triggers
 

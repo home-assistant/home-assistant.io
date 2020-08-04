@@ -11,10 +11,13 @@ ha_category:
   - Switch
 ha_iot_class: Cloud Polling
 ha_release: 0.74
+ha_config_flow: true
 ha_domain: tuya
+ha_codeowners:
+  - '@ollo69'
 ---
 
-The `tuya` integration is the main integration to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
+The `tuya` integration is the main integration to integrate all [Tuya Smart](https://www.tuya.com) related platforms, except the Zigbee hub. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -25,7 +28,17 @@ There is currently support for the following device types within Home Assistant:
 - **Scene** - The device state in frontend panel will not change immediately after you activate a scene.
 - **Switch** - The platform supports switch and socket.
 
-## Configuration
+## Configuration via frontend
+
+To add your Tuya devices into your Home Assistant installation, go to:
+
+**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tuya**.
+
+During configuration, be careful to select the [country code](https://www.countrycode.org/) and the platform corresponding to those used by you in the app. Once configuration flow is completed, the devices configured in your app will be automatically discovered.
+
+### Configuration via YAML
+
+_YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore._
 
 To add your Tuya devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 

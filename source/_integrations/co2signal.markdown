@@ -1,7 +1,6 @@
 ---
 title: CO2 Signal
 description: Instructions on how to use CO2Signal data within Home Assistant
-logo: co2signal.png
 ha_category:
   - Environment
 ha_release: 0.87

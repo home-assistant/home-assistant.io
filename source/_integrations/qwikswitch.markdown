@@ -1,7 +1,6 @@
 ---
 title: QwikSwitch QSUSB
 description: Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant.
-logo: qwikswitch.png
 ha_category:
   - Hub
   - Binary Sensor

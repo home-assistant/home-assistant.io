@@ -1,7 +1,6 @@
 ---
 title: Genius Hub
 description: Instructions on how to integrate a Genius Hub with Home Assistant.
-logo: geniushub.png
 ha_category:
   - Climate
   - Water Heater
