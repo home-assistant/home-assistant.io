@@ -205,12 +205,13 @@ name:
 ### Gateway Features
 
 - Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`)
+- Gateway light control (Turn on/off; change brightness; change color; see status)
+- Gateway illuminance sensor readout (illuminance value in lux)
 
 Not yet implemented features (but possible):
 
-- Gateway light control
-- Gateway light sensor readout
 - Gateway internet radio (only chinese stations)
+- Gateway ringtones/sounds
 
 ### Supported subdevices
 
