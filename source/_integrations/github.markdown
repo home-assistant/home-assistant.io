@@ -16,37 +16,23 @@ To set up this sensor you will need a [personal access token](https://github.com
 
 ## Configuration
 
-To enable this platform, add the following to your `configuration.yaml` file:
+Menu: **Configuration** -> **Integrations**.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: github
-    access_token: !secret github_access_token
-    repositories:
-      - path: 'home-assistant/core'
-```
+Click on the `+` sign to add an integration and click on **GitHub**.
+After completing the configuration flow, the GitHub integration will be available.
 
-{% configuration %}
-access_token:
-  description: Your GitHub Access Token
-  required: true
-  type: string
-url:
-  description: If you are using a GitHub Enterprise server, add it's URL here. For example, `https://mygithubserver.com`
-  required: false
-  type: string
-repositories:
-  description: A list of repository paths and optionally a name
-  required: true
-  type: list
-  keys:
-    path:
-      description: Path to the repository. For Home Assistant this will be `home-assistant/core`
-      required: true
-      type: string
-    name:
-      description: Name of the sensor. Gives the sensor a custom name in Home Assistant. Defaults to the repository name from GitHub if not specified.
-      required: false
-      type: string
-{% endconfiguration %}
+## Sensors
+
+This integration provides the following sensors:
+
+- Clones - **Requires push access to the repository** Clone traffic. Attributes contain unique clones.
+- Forks - The amount of forks.
+- Latest Commit - Latest commit sha. Attributes contain other data from the commit such as the message.
+- Latest Open Issue - The latest issue that is open in the repository.
+- Latest Open Pull Request - The latest open pull request in the repository.
+- Latest Release - The last release in the repository.
+- Stargazers - Stars for your repository.
+- Views - **Requires push access to the repository** Viewer count. Attributes contain unique viewers.
+- Watchers - The count of users watching the repository.
+
+Clones, Latest Release, Issues and Pull Requests and Views are not enabled by default. These can be enabled by via the integration's options.
