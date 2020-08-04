@@ -5,6 +5,9 @@ ha_category:
   - Sensor
 ha_release: 0.88
 ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@timmo001'
 ha_domain: github
 ---
 
@@ -25,14 +28,16 @@ After completing the configuration flow, the GitHub integration will be availabl
 
 This integration provides the following sensors:
 
-- Clones - Clone traffic. Attributes contain unique clones. **Requires push access to the repository**
-- Forks - The amount of forks.
-- Latest Commit - Latest commit sha. Attributes contain other data from the commit such as the message.
-- Latest Open Issue - The latest issue that is open in the repository.
-- Latest Open Pull Request - The latest open pull request in the repository.
-- Latest Release - The last release in the repository.
-- Stargazers - Stars for your repository.
-- Views - Viewer count. Attributes contain unique viewers.
-- Watchers - The count of users watching the repository. **Requires push access to the repository**
+_Some are not enabled by default. These can be enabled by via the integration's options._
 
-Clones, Latest Release, Issues and Pull Requests and Views are not enabled by default. These can be enabled by via the integration's options.
+| Name                      | Enabled by default | Description                                                                                   |
+| ------------------------- | ------------------ | --------------------------------------------------------------------------------------------- |
+| Clones                    | No                 | Clone traffic. Attributes contain unique clones. **_Requires push access to the repository_** |
+| Forks                     | Always            | The amount of forks.                                                                           |
+| Latest Commit             | Yes                | Latest commit sha. Attributes contain other data from the commit such as the message.         |
+| Latest Open Issue         | No                 | The latest issue that is open in the repository.                                              |
+| Latest Open Pull Request  | No                 | The latest open pull request in the repository.                                               |
+| Latest Release            | No                 | The last release in the repository.                                                           |
+| Stargazers                | Always             | Stars for your repository.                                                                    |
+| Views                     | No                 | Viewer count. Attributes contain unique viewers. **_Requires push access to the repository_** |
+| Watchers                  | Always             | The count of users watching the repository.                                                   |
