@@ -29,20 +29,20 @@ Ooh boy, time flew this release cycle; it is time for 0.114 already!
 Personally, I'm hardly even done implementing all automation features added
 in the previous release 😅
 
-Ever since or Lovelace UI started as a beta, back in 2018, one of the most
-requested feature - arguably - is a dark mode. No wonder, as a dark mode is
+Ever since our Lovelace UI started as a beta, back in 2018, one of the most
+requested features - arguably - is a dark mode. No wonder, as a dark mode is
 added to software everywhere nowadays.
 
 This release adds dark mode! [@bramkragten] didn't stop there and added
 color pickers for the main theme colors as well. I looked forward having it,
-a easy way to have a bit of theming, without the need for themes.
+an easy way of having a bit of theming, without the need for themes.
 
 This is by far the most noticeable feature of this release, mainly because it
 is immediately apparent after the upgrade.
 
 Meanwhile, the beta Open Z-Wave integration picks up speed in terms of
 contributions, reports, fixes and improvements. I've been using it already,
-and I love it. My Z-Wave network has never been better and stable.
+and I love it. My Z-Wave network has never been better and more stable.
 If you haven't tried it yet, I would highly recommend doing so.
 
 Besides the listing below, 0.114 may feel a bit "empty", however, it isn't.
@@ -61,7 +61,7 @@ We detect if your device is in dark mode; if that is the case, our default theme
 will go dark. You can override the automatic switching between dark and light
 theme in your profile.
 
-Furthermore you can now also select the primary and accent color for the
+Furthermore, you can now also select the primary and accent color for the
 default theme. We calculate all other colors to make sure everything matches
 and is readable.
 
@@ -76,7 +76,7 @@ you will get a dark theme by default in that case.
 
 Also, when picking colors, make sure you choose a primary color that is
 readable on both a light and dark background. For now, this is just a local
-setting and has to be applied on every device.
+setting and has to be applied to every device.
 
 For custom themes, there is a new option on the `set_theme` service call,
 `mode: 'dark'`; this allows to set a theme that will be used when your device
@@ -106,7 +106,7 @@ time-related notations. For example, you can now use `2.5` seconds/hours/minutes
 or even use it in full time notations: `23:59:59.999`.
 
 The `automation.turn_off` service now accepts a `stop_actions` data parameter.
-By default, when turning off an automation, any currently running automation,
+By default, when turning off an automation, any currently running automation
 will be stopped. This new option allows you to turn off an automation
 and optionally leave any currently active actions running.
 
@@ -263,7 +263,7 @@ to "Set input on TV to.."
 Due to new 2FA endpoint, YAML configuration is no longer supported.
 
 In addition, due to some API changes, if you are upgrading from a previous
-version, you will need navigate to the integration page at startup and
+version, you will need to navigate to the integration page at startup and
 re-configure Blink.
 
 Your username and password will be imported, but you need to submit a 2FA token
@@ -316,7 +316,7 @@ Integrations panel.
   <p>
 
 The `hvac_action()` property has been removed from Evohome zones as this data
-was clearly inaccurate - the algorithm used to provide this data was not
+was inaccurate - the algorithm used to provide this data was not
 reliable, and there is no reasonable hope for a satisfactory alternative.
 
 You will have no indication if a zone is actively calling for heat
@@ -359,7 +359,7 @@ break:
 - `weather_alert:` only one entity created by department. Was by city in the
   previous version and could create duplicates.
 - `weather alert` attributes have been simplified.
-- `weather` platform is showing the current day forecast in first position of
+- `weather` platform is showing the current day forecast in the first position of
   daily forecast (instead of tomorrow forecast).
 
 ([@oncleben31] - [#37737]) ([meteo_france docs])
