@@ -80,27 +80,167 @@ Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 
-- Remove support for legacy logbook events created before 0.112 ([@bdraco] - [#37822]) ([logbook docs]) (breaking-change)
-- Automatically recover when the sqlite3 database is malformed or corrupted ([@bdraco] - [#37949]) ([recorder docs]) (breaking-change)
-- Add switch to pi_hole integration ([@shenxn] - [#35605]) ([pi_hole docs]) (breaking-change) (new-platform)
-- Add support for InputSelector trait ([@elupus] - [#35753]) ([google_assistant docs]) (breaking-change)
-- Use event loop scheduling for tracking time patterns ([@bdraco] - [#38021]) (breaking-change)
-- Add config flow to Volumio ([@OnFreund] - [#38252]) ([discovery docs]) ([volumio docs]) (breaking-change)
-- Remove evohome hvac_action as it is inaccurate ([@zxdavb] - [#38244]) ([evohome docs]) (breaking-change)
-- Update PyFlume version, support for multiple state attributes ([@ChrisMandich] - [#38138]) ([flume docs]) (breaking-change)
-- Refactor Météo-France to use API instead of web scraping ([@oncleben31] - [#37737]) ([meteo_france docs]) (breaking-change)
-- Ensure bond unique ids are unique across hubs ([@prystupa] - [#38496]) ([bond docs]) (breaking-change)
-- Add config flow to HLK-SW16 ([@jameshilliard] - [#37190]) ([hlk_sw16 docs]) (breaking-change)
-- Remove deprecated Slack attachments framework ([@bachya] - [#38139]) ([slack docs]) (breaking-change)
-- Remove YAML configuration support for IQVIA ([@bachya] - [#38141]) ([iqvia docs]) (breaking-change)
-
 <details>
-  <summary><b>Lorem ipsum</b></summary>
+  <summary><b>Logbook</b></summary>
   <p>
 
-Lorem ipsum breaking change.
+Support for legacy logbook events created before 0.112 is removed
 
-([@frenck] - [#1])
+([@bdraco] - [#37822]) ([logbook docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Recorder</b></summary>
+  <p>
+
+The default sqlite database (home-assistant_v2.db) is now validated on startup and if corruption is detected, the database is renamed to `home-assistant_v2.db.corrupt.{ISOTIME}` and startup proceeds with a fresh database.
+
+([@bdraco] - [#37949]) ([recorder docs]) 
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Pi-hole</b></summary>
+  <p>
+
+A switch has been added to the Pi-hole integration. Because of the switch being added, the `pi_hole.enable` service is removed. The `pi_hole.disable` service remains in order to support disabling the service for a given amount of time, but now it relies on the switch entity id instead of the name set by the user, so the `name` field is removed.
+
+With this change, a switch entity `switch.pi_hole` will be added if the user setup the integration with API key and default name (Pi-hole). Now, users can use `switch.turn_on` and `switch.turn_off` to enable and disable the Pi-hole service permanently. To disable the service for a given time, use `pi_hole.disable` with `entity_id: switch.pi_hole` and `duration: 00:00:15`. To target all Pi-hole services, use `entity_id: all`.
+
+([@shenxn] - [#35605]) ([pi_hole docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Google Assistant</b></summary>
+  <p>
+
+A sync will be required for source selection to work after this update. The keyword to select source will also have changed from "Set mode on TV to.." to "Set input on TV to.."
+
+([@elupus] - [#35753]) ([google_assistant docs]) 
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Time pattern listeners</b></summary>
+  <p>
+
+If time abruptly moves forward or backwards, time pattern listeners will only be adjusted after they were previously scheduled to fire. This avoids the need for every time pattern listener to check for this every second.
+
+([@bdraco] - [#38021]) 
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Volumio</b></summary>
+  <p>
+
+The Volumio integration is now configured through the UI. If you previously had it in configuration.yaml, please remove it and configure through the Integrations panel.
+
+([@OnFreund] - [#38252]) ([discovery docs]) ([volumio docs]) 
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Honeywell Total Connect Comfort (evohome)</b></summary>
+  <p>
+
+The `hvac_action()` property has been removed from Evohome zones as this data was clearly inaccurate - the algorithm used to provide this data was not reliable, and there is no reasonable hope for a satisfactory alternative.
+
+The user will have no indication if a zone is actively calling for heat (`CURRENT_HVAC_*`), nor if the heat source is currently active. However, they will continue to have the `hvac_mode()` property, which will indicate if the heating is enabled, or not (`HVAC_MODE_*`).
+
+This will be most obvious by the absence of this information in the UI.
+
+There is no intervention required for this breaking change.
+
+([@zxdavb] - [#38244]) ([evohome docs]) 
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Flume</b></summary>
+  <p>
+
+The unique id is being updated for existing sensors. You will need to clean up the stale entity from the entity registry via the GUI.
+
+([@ChrisMandich] - [#38138]) ([flume docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Météo-France</b></summary>
+  <p>
+
+The `meteo_france` integration moved from a web scraping architecture to a API based architecture. With this major refactor the following change could break something:
+
+  - the `thunder chance` entity is no longer available (no longer in the API results)
+  - the `next rain` entity state is now a datetime instead of a delay
+  - `next rain` attributes have been simplified
+  - `weather_alert:` only one entity created by department. Was by city in the previous version and could create duplicates.
+  - `weather alert` attributes have been simplified
+  - `weather` platform is showing the current day forecast in first position of daily forecast (instead of tomorrow forecast)
+
+([@oncleben31] - [#37737]) ([meteo_france docs])
+
+  </p>
+</details>
+<details>
+  <summary><b>Bond</b></summary>
+  <p>
+
+When you have multiple Bond hubs, each with its own set of devices, those devices have IDs that the Bond integration uses to generate unique entity IDs in HA. Unfortunately, those IDs are only unique within the hub. So it is possible that unique IDs generated for entities from different hubs will not be unique and collide.
+
+This has been fixed by prefixing device ID with a hub ID and the resulting ID is now truly unique.
+After restarting you will see each bond entity twice. One which is live with the a unique ID. The second which is disabled with old unique ID.
+
+How to make it work:
+
+  1. Remove the disabled entity (note its friendly ID, e.g. "cover.shades")
+  2. Optionally rename the generated friendly ID on the live entity, so that your automations continue to work. For example, your live entity will have ID "cover.shades_2". Rename it to "cover.shades"
+
+([@prystupa] - [#38496]) ([bond docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Hi-Link HLK-SW16</b></summary>
+  <p>
+
+The hlk-sw16 entity ids will change upon update and the old entities will need to be removed manually.
+
+([@jameshilliard] - [#37190]) ([hlk_sw16 docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Slack</b></summary>
+  <p>
+
+The Slack attachments framework was deprecated in 0.108.0 and is now officially removed. The blocks framework should be used instead.
+
+([@bachya] - [#38139]) ([slack docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>IQVIA</b></summary>
+  <p>
+
+Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured from the UI. Existing IQVIA users have already had their integrations imported and only need to remove IQVIA-related items from `configuration.yaml`.
+
+([@bachya] - [#38141]) ([iqvia docs])
 
   </p>
 </details>
