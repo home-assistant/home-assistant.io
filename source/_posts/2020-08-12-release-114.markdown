@@ -42,29 +42,28 @@ Screenshot of lorem ipsum.
 
 ## New Integrations
 
-Three new integration added this release:
+Six new integrations added this release:
 
-- [Lorem ipsum][lorem_ipsum docs], added by [@frenck]
-- Add Firmata Integration (attempt 2) ([@DaAwesomeP] - [#35591]) ([firmata docs]) (new-integration)
-- Add Control4 integration ([@lawtancool] - [#37632]) ([control4 docs]) (new-integration)
-- Add Wolflink integration ([@adamkrol93] - [#34104]) ([wolflink docs]) (new-integration)
-- Add AccuWeather integration ([@bieniu] - [#37166]) ([accuweather docs]) (new-integration)
-- Add Azure DevOps Integration ([@timmo001] - [#33765]) ([azure_devops docs]) (new-integration)
+- [AccuWeather][accuweather docs], added by [@bieniu]
+- [Azure DevOps][azure_devops docs], added by [@timmo001]
+- [Control4][control4 docs], added by [@lawtancool]
+- [Firmata][firmata docs], added by [@DaAwesomeP]
+- [OVO Energy][ovo_energy docs], added by [@timmo001]
+- [Wolflink][wolflink docs], added by [@adamkrol93]
 
 ## New Platforms
 
 The following integration got support for a new platform:
 
-- [Lorem ipsum][lorem_ipsum docs] has now support for Lorem ipsum, added by [@frenck]
-- Add switch to pi_hole integration ([@shenxn] - [#35605]) ([pi_hole docs]) (breaking-change) (new-platform)
-- Add sensor platform for AccuWeather integration ([@bieniu] - [#38312]) ([accuweather docs]) (new-platform)
+- [Pi-hole][pi_hole docs] now provides a switch to turn on/off the service, added by [@shenxn]
 
 ## Integrations now available to set up from the UI
 
 The following integrations are now available via the Home Assistant UI:
 
-- [Lorem ipsum][lorem_ipsum docs], done by [@frenck]
-- [Lorem ipsum][lorem_ipsum docs], done by [@frenck]
+- [Volumio][volumio docs], done by [@OnFreund]
+- [HLK-SW16][hlk_sw16 docs], done by [@jameshilliard]
+- [Itho Daalderop Spider][spider docs], done by [@peternijssen]
 
 ## If you need help...
 
@@ -81,36 +80,15 @@ integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 <details>
-  <summary><b>Logbook</b></summary>
-  <p>
-
-Support for legacy logbook events created before 0.112 is removed
-
-([@bdraco] - [#37822]) ([logbook docs])
-
-  </p>
-</details>
-
-<details>
   <summary><b>Recorder</b></summary>
   <p>
 
-The default sqlite database (home-assistant_v2.db) is now validated on startup and if corruption is detected, the database is renamed to `home-assistant_v2.db.corrupt.{ISOTIME}` and startup proceeds with a fresh database.
+The default sqlite database (home-assistant_v2.db) is now validated on startup
+and if corruption is detected, the database is renamed to
+`home-assistant_v2.db.corrupt.{ISOTIME}` and startup proceeds with a fresh
+database.
 
-([@bdraco] - [#37949]) ([recorder docs]) 
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Pi-hole</b></summary>
-  <p>
-
-A switch has been added to the Pi-hole integration. Because of the switch being added, the `pi_hole.enable` service is removed. The `pi_hole.disable` service remains in order to support disabling the service for a given amount of time, but now it relies on the switch entity id instead of the name set by the user, so the `name` field is removed.
-
-With this change, a switch entity `switch.pi_hole` will be added if the user setup the integration with API key and default name (Pi-hole). Now, users can use `switch.turn_on` and `switch.turn_off` to enable and disable the Pi-hole service permanently. To disable the service for a given time, use `pi_hole.disable` with `entity_id: switch.pi_hole` and `duration: 00:00:15`. To target all Pi-hole services, use `entity_id: all`.
-
-([@shenxn] - [#35605]) ([pi_hole docs])
+([@bdraco] - [#37949]) ([recorder docs])
 
   </p>
 </details>
@@ -119,20 +97,53 @@ With this change, a switch entity `switch.pi_hole` will be added if the user set
   <summary><b>Google Assistant</b></summary>
   <p>
 
-A sync will be required for source selection to work after this update. The keyword to select source will also have changed from "Set mode on TV to.." to "Set input on TV to.."
+A sync will be required for source selection to work after this update. The
+keyword to select source will also have changed from "Set mode on TV to.."
+to "Set input on TV to.."
 
-([@elupus] - [#35753]) ([google_assistant docs]) 
+([@elupus] - [#35753]) ([google_assistant docs])
 
   </p>
 </details>
 
 <details>
-  <summary><b>Time pattern listeners</b></summary>
+  <summary><b>Blink</b></summary>
   <p>
 
-If time abruptly moves forward or backwards, time pattern listeners will only be adjusted after they were previously scheduled to fire. This avoids the need for every time pattern listener to check for this every second.
+Due to new 2FA endpoint, YAML configuration is no longer supported.
 
-([@bdraco] - [#38021]) 
+In addition, due to some API changes, if you are upgrading from a previous
+version, you will need navigate to the integration page at startup and
+re-configure Blink.
+
+Your username and password will be imported, but you need to submit a 2FA token
+(emailed to you by Blink) in order to continue setting up the integration.
+
+([@fronzbot] - [#38027]) ([blink docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Pi-hole</b></summary>
+  <p>
+
+A switch has been added to the Pi-hole integration. Because of the switch being
+added, the `pi_hole.enable` service is removed.
+
+The `pi_hole.disable` service remains in order to support disabling the service
+for a given amount of time, but now it relies on the switch entity id instead
+of the name set by the user, so the `name` field is removed.
+
+With this change, a switch entity `switch.pi_hole` will be added if you
+set up the integration with API key and default name (Pi-hole).
+
+Now, you can use `switch.turn_on` and `switch.turn_off` to enable and disable
+the Pi-hole service permanently. To disable the service for a given time,
+use `pi_hole.disable` with `entity_id: switch.pi_hole` and `duration: 00:00:15`.
+To target all Pi-hole services, use `entity_id: all`.
+
+([@shenxn] - [#35605]) ([pi_hole docs])
 
   </p>
 </details>
@@ -141,9 +152,11 @@ If time abruptly moves forward or backwards, time pattern listeners will only be
   <summary><b>Volumio</b></summary>
   <p>
 
-The Volumio integration is now configured through the UI. If you previously had it in configuration.yaml, please remove it and configure through the Integrations panel.
+The Volumio integration is now configured through the UI. If you previously had
+it in configuration.yaml, please remove it and configure through the
+Integrations panel.
 
-([@OnFreund] - [#38252]) ([discovery docs]) ([volumio docs]) 
+([@OnFreund] - [#38252]) ([discovery docs]) ([volumio docs])
 
   </p>
 </details>
@@ -152,15 +165,20 @@ The Volumio integration is now configured through the UI. If you previously had 
   <summary><b>Honeywell Total Connect Comfort (evohome)</b></summary>
   <p>
 
-The `hvac_action()` property has been removed from Evohome zones as this data was clearly inaccurate - the algorithm used to provide this data was not reliable, and there is no reasonable hope for a satisfactory alternative.
+The `hvac_action()` property has been removed from Evohome zones as this data
+was clearly inaccurate - the algorithm used to provide this data was not
+reliable, and there is no reasonable hope for a satisfactory alternative.
 
-The user will have no indication if a zone is actively calling for heat (`CURRENT_HVAC_*`), nor if the heat source is currently active. However, they will continue to have the `hvac_mode()` property, which will indicate if the heating is enabled, or not (`HVAC_MODE_*`).
+You will have no indication if a zone is actively calling for heat
+(`CURRENT_HVAC_*`), nor if the heat source is currently active. However,
+you will continue to have the `hvac_mode()` property, which will indicate if the
+heating is enabled, or not (`HVAC_MODE_*`).
 
 This will be most obvious by the absence of this information in the UI.
 
 There is no intervention required for this breaking change.
 
-([@zxdavb] - [#38244]) ([evohome docs]) 
+([@zxdavb] - [#38244]) ([evohome docs])
 
   </p>
 </details>
@@ -169,7 +187,8 @@ There is no intervention required for this breaking change.
   <summary><b>Flume</b></summary>
   <p>
 
-The unique id is being updated for existing sensors. You will need to clean up the stale entity from the entity registry via the GUI.
+The unique id is being updated for existing sensors. You will need to clean up
+the stale entity from the entity registry via the GUI.
 
 ([@ChrisMandich] - [#38138]) ([flume docs])
 
@@ -180,14 +199,18 @@ The unique id is being updated for existing sensors. You will need to clean up t
   <summary><b>Météo-France</b></summary>
   <p>
 
-The `meteo_france` integration moved from a web scraping architecture to a API based architecture. With this major refactor the following change could break something:
+The `meteo_france` integration moved from a web scraping architecture to a
+API-based architecture. With this major refactor the following change could
+break:
 
-  - the `thunder chance` entity is no longer available (no longer in the API results)
-  - the `next rain` entity state is now a datetime instead of a delay
-  - `next rain` attributes have been simplified
-  - `weather_alert:` only one entity created by department. Was by city in the previous version and could create duplicates.
-  - `weather alert` attributes have been simplified
-  - `weather` platform is showing the current day forecast in first position of daily forecast (instead of tomorrow forecast)
+- The `thunder chance` entity is no longer available (no longer in the API results).
+- The `next rain` entity state is now a datetime instead of a delay.
+- `next rain` attributes have been simplified.
+- `weather_alert:` only one entity created by department. Was by city in the
+  previous version and could create duplicates.
+- `weather alert` attributes have been simplified.
+- `weather` platform is showing the current day forecast in first position of
+  daily forecast (instead of tomorrow forecast).
 
 ([@oncleben31] - [#37737]) ([meteo_france docs])
 
@@ -197,15 +220,23 @@ The `meteo_france` integration moved from a web scraping architecture to a API b
   <summary><b>Bond</b></summary>
   <p>
 
-When you have multiple Bond hubs, each with its own set of devices, those devices have IDs that the Bond integration uses to generate unique entity IDs in HA. Unfortunately, those IDs are only unique within the hub. So it is possible that unique IDs generated for entities from different hubs will not be unique and collide.
+When you have multiple Bond hubs, each with its own set of devices, those
+devices have IDs that the Bond integration uses to generate unique entity IDs
+in Home Assistant. Unfortunately, those IDs are only unique within the hub.
+So it is possible that unique IDs generated for entities from different hubs
+will not be unique and collide.
 
-This has been fixed by prefixing device ID with a hub ID and the resulting ID is now truly unique.
-After restarting you will see each bond entity twice. One which is live with the a unique ID. The second which is disabled with old unique ID.
+This has been fixed by prefixing device ID with a hub ID and the resulting ID
+is now truly unique. After restarting you will see each bond entity twice.
+One which is live with the a unique ID. The second which is disabled with old
+unique ID.
 
 How to make it work:
 
-  1. Remove the disabled entity (note its friendly ID, e.g. "cover.shades")
-  2. Optionally rename the generated friendly ID on the live entity, so that your automations continue to work. For example, your live entity will have ID "cover.shades_2". Rename it to "cover.shades"
+1. Remove the disabled entity (note its friendly ID, e.g., `cover.shades`)
+2. Optionally rename the generated friendly ID on the live entity, so that your
+   automations continue to work. For example, your live entity will have ID
+   `cover.shades_2`. Rename it to `cover.shades`.
 
 ([@prystupa] - [#38496]) ([bond docs])
 
@@ -216,7 +247,8 @@ How to make it work:
   <summary><b>Hi-Link HLK-SW16</b></summary>
   <p>
 
-The hlk-sw16 entity ids will change upon update and the old entities will need to be removed manually.
+The hlk-sw16 entity ids will change upon update and the old entities will need
+to be removed manually.
 
 ([@jameshilliard] - [#37190]) ([hlk_sw16 docs])
 
@@ -227,7 +259,8 @@ The hlk-sw16 entity ids will change upon update and the old entities will need t
   <summary><b>Slack</b></summary>
   <p>
 
-The Slack attachments framework was deprecated in 0.108.0 and is now officially removed. The blocks framework should be used instead.
+The Slack attachments framework was deprecated in 0.108.0 and is now officially
+removed. The blocks framework should be used instead.
 
 ([@bachya] - [#38139]) ([slack docs])
 
@@ -238,9 +271,61 @@ The Slack attachments framework was deprecated in 0.108.0 and is now officially 
   <summary><b>IQVIA</b></summary>
   <p>
 
-Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured from the UI. Existing IQVIA users have already had their integrations imported and only need to remove IQVIA-related items from `configuration.yaml`.
+Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured
+from the UI. Existing IQVIA users have already had their integrations imported
+and only need to remove IQVIA-related items from `configuration.yaml`.
 
 ([@bachya] - [#38141]) ([iqvia docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Shell Command</b></summary>
+  <p>
+
+Processes spawned from the `shell_command` integration (the command executes)
+now timeout after 60 seconds instead of running forever.
+
+([@bdraco] - [#38491]) ([shell_command docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Command Line</b></summary>
+  <p>
+
+The `command_line` cover, notify and switch platforms, now timeout after 15
+seconds (by default) instead of blocking forever.
+
+([@bdraco] - [#38497]) ([command_line docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Time pattern listeners</b></summary>
+  <p>
+
+If time abruptly moves forward or backwards, time pattern listeners will only
+be adjusted after they were previously scheduled to fire.
+
+This avoids the need for every time pattern listener to check for this every
+second.
+
+([@bdraco] - [#38021])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Logbook</b></summary>
+  <p>
+
+Support for legacy logbook events created before 0.112 is removed.
+
+([@bdraco] - [#37822]) ([logbook docs])
 
   </p>
 </details>
@@ -442,6 +527,28 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 - Add Netatmo data handler ([@cgtobi] - [#35571]) ([netatmo docs])
 - Move system log processing out of the event loop ([@bdraco] - [#38445]) ([system_log docs])
 - Fix Control4 token refresh ([@lawtancool] - [#38302]) ([control4 docs])
+- Add spider config flow ([@peternijssen] - [#36001]) ([spider docs])
+- Upgrade toonapi to v0.2.0 ([@frenck] - [#38543]) ([toon docs])
+- Update pymetno lib, and start using met api v2 ([@Danielhiversen] - [#38547]) ([met docs]) ([norway_air docs])
+- Add new Water Meter Sensor for Toon ([@tizzen33] - [#37879]) ([toon docs])
+- Fix Mikrotik encoding by setting utf8 ([@Janhouse] - [#38091]) ([mikrotik docs])
+- Allow device class to control icons for tesla ([@ctalkington] - [#37526]) ([tesla docs])
+- Fix upnp error on unload_entry if device does not exist ([@StevenLooman] - [#38230]) ([upnp docs])
+- Add a 60s timeout to shell_command to prevent processes from building up ([@bdraco] - [#38491]) ([shell_command docs]) (breaking-change)
+- Add missing timeout to command_line platforms: cover, notify, switch ([@bdraco] - [#38497]) ([command_line docs]) (breaking-change)
+- Keep webostv source list when TV is off ([@zhuqf] - [#38250]) ([webostv docs])
+- Use IP Address (host) provided by mDNS on Elgato Key Light ([@PedroLamas] - [#38539]) ([elgato docs])
+- Bump actions/upload-artifact from v2.1.2 to v2.1.3 (dependabot - [#38552])
+- Update pyrainbird to 0.4.2 ([@peternijssen] - [#38542]) ([rainbird docs])
+- Add Xiaomi Aqara wireless and light switches (2020 model) ([@chewbh] - [#37985]) ([xiaomi_aqara docs])
+- Blink auth flow improvement and mini camera support ([@fronzbot] - [#38027]) ([blink docs]) (breaking-change)
+- Add device_info to GIOS integration ([@bieniu] - [#38503]) ([gios docs])
+- Add device_info property for AccuWeather integration ([@bieniu] - [#38480]) ([accuweather docs])
+- Add device_info property and simplify generation of unique_id for Airly integration ([@bieniu] - [#38479]) ([airly docs])
+- Bump python-wiffi to 1.0.1 ([@mampfes] - [#38556]) ([wiffi docs])
+- OVO Energy Integration ([@timmo001] - [#36104]) ([ovo_energy docs]) (new-integration)
+- Intelligent timeout handler for setup/bootstrap ([@pvizeli] - [#38329])
+- Bump frontend to 20200805.0 ([@ludeeus] - [#38557]) ([frontend docs])
 
 </details>
 
@@ -452,6 +559,8 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#35591]: https://github.com/home-assistant/core/pull/35591
 [#35605]: https://github.com/home-assistant/core/pull/35605
 [#35753]: https://github.com/home-assistant/core/pull/35753
+[#36001]: https://github.com/home-assistant/core/pull/36001
+[#36104]: https://github.com/home-assistant/core/pull/36104
 [#36577]: https://github.com/home-assistant/core/pull/36577
 [#36686]: https://github.com/home-assistant/core/pull/36686
 [#36747]: https://github.com/home-assistant/core/pull/36747
@@ -463,6 +572,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#37190]: https://github.com/home-assistant/core/pull/37190
 [#37335]: https://github.com/home-assistant/core/pull/37335
 [#37365]: https://github.com/home-assistant/core/pull/37365
+[#37526]: https://github.com/home-assistant/core/pull/37526
 [#37632]: https://github.com/home-assistant/core/pull/37632
 [#37636]: https://github.com/home-assistant/core/pull/37636
 [#37669]: https://github.com/home-assistant/core/pull/37669
@@ -472,6 +582,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#37761]: https://github.com/home-assistant/core/pull/37761
 [#37822]: https://github.com/home-assistant/core/pull/37822
 [#37868]: https://github.com/home-assistant/core/pull/37868
+[#37879]: https://github.com/home-assistant/core/pull/37879
 [#37890]: https://github.com/home-assistant/core/pull/37890
 [#37897]: https://github.com/home-assistant/core/pull/37897
 [#37900]: https://github.com/home-assistant/core/pull/37900
@@ -494,6 +605,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#37973]: https://github.com/home-assistant/core/pull/37973
 [#37975]: https://github.com/home-assistant/core/pull/37975
 [#37978]: https://github.com/home-assistant/core/pull/37978
+[#37985]: https://github.com/home-assistant/core/pull/37985
 [#37990]: https://github.com/home-assistant/core/pull/37990
 [#37991]: https://github.com/home-assistant/core/pull/37991
 [#37994]: https://github.com/home-assistant/core/pull/37994
@@ -509,6 +621,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#38021]: https://github.com/home-assistant/core/pull/38021
 [#38022]: https://github.com/home-assistant/core/pull/38022
 [#38023]: https://github.com/home-assistant/core/pull/38023
+[#38027]: https://github.com/home-assistant/core/pull/38027
 [#38028]: https://github.com/home-assistant/core/pull/38028
 [#38032]: https://github.com/home-assistant/core/pull/38032
 [#38034]: https://github.com/home-assistant/core/pull/38034
@@ -531,6 +644,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#38082]: https://github.com/home-assistant/core/pull/38082
 [#38085]: https://github.com/home-assistant/core/pull/38085
 [#38089]: https://github.com/home-assistant/core/pull/38089
+[#38091]: https://github.com/home-assistant/core/pull/38091
 [#38093]: https://github.com/home-assistant/core/pull/38093
 [#38098]: https://github.com/home-assistant/core/pull/38098
 [#38102]: https://github.com/home-assistant/core/pull/38102
@@ -566,11 +680,13 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#38220]: https://github.com/home-assistant/core/pull/38220
 [#38221]: https://github.com/home-assistant/core/pull/38221
 [#38227]: https://github.com/home-assistant/core/pull/38227
+[#38230]: https://github.com/home-assistant/core/pull/38230
 [#38236]: https://github.com/home-assistant/core/pull/38236
 [#38239]: https://github.com/home-assistant/core/pull/38239
 [#38241]: https://github.com/home-assistant/core/pull/38241
 [#38244]: https://github.com/home-assistant/core/pull/38244
 [#38246]: https://github.com/home-assistant/core/pull/38246
+[#38250]: https://github.com/home-assistant/core/pull/38250
 [#38252]: https://github.com/home-assistant/core/pull/38252
 [#38253]: https://github.com/home-assistant/core/pull/38253
 [#38254]: https://github.com/home-assistant/core/pull/38254
@@ -587,6 +703,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#38312]: https://github.com/home-assistant/core/pull/38312
 [#38315]: https://github.com/home-assistant/core/pull/38315
 [#38328]: https://github.com/home-assistant/core/pull/38328
+[#38329]: https://github.com/home-assistant/core/pull/38329
 [#38335]: https://github.com/home-assistant/core/pull/38335
 [#38337]: https://github.com/home-assistant/core/pull/38337
 [#38345]: https://github.com/home-assistant/core/pull/38345
@@ -624,11 +741,16 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#38461]: https://github.com/home-assistant/core/pull/38461
 [#38469]: https://github.com/home-assistant/core/pull/38469
 [#38472]: https://github.com/home-assistant/core/pull/38472
+[#38479]: https://github.com/home-assistant/core/pull/38479
+[#38480]: https://github.com/home-assistant/core/pull/38480
 [#38485]: https://github.com/home-assistant/core/pull/38485
+[#38491]: https://github.com/home-assistant/core/pull/38491
 [#38492]: https://github.com/home-assistant/core/pull/38492
 [#38494]: https://github.com/home-assistant/core/pull/38494
 [#38496]: https://github.com/home-assistant/core/pull/38496
+[#38497]: https://github.com/home-assistant/core/pull/38497
 [#38500]: https://github.com/home-assistant/core/pull/38500
+[#38503]: https://github.com/home-assistant/core/pull/38503
 [#38505]: https://github.com/home-assistant/core/pull/38505
 [#38508]: https://github.com/home-assistant/core/pull/38508
 [#38514]: https://github.com/home-assistant/core/pull/38514
@@ -637,21 +759,31 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [#38526]: https://github.com/home-assistant/core/pull/38526
 [#38528]: https://github.com/home-assistant/core/pull/38528
 [#38530]: https://github.com/home-assistant/core/pull/38530
+[#38539]: https://github.com/home-assistant/core/pull/38539
+[#38542]: https://github.com/home-assistant/core/pull/38542
+[#38543]: https://github.com/home-assistant/core/pull/38543
+[#38547]: https://github.com/home-assistant/core/pull/38547
+[#38552]: https://github.com/home-assistant/core/pull/38552
+[#38556]: https://github.com/home-assistant/core/pull/38556
+[#38557]: https://github.com/home-assistant/core/pull/38557
 [@2Fake]: https://github.com/2Fake
 [@BKPepe]: https://github.com/BKPepe
 [@ChrisMandich]: https://github.com/ChrisMandich
 [@Cooper-Dale]: https://github.com/Cooper-Dale
 [@DaAwesomeP]: https://github.com/DaAwesomeP
 [@Danielhiversen]: https://github.com/Danielhiversen
+[@Janhouse]: https://github.com/Janhouse
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MikeTsenatek]: https://github.com/MikeTsenatek
 [@Misiu]: https://github.com/Misiu
 [@OnFreund]: https://github.com/OnFreund
+[@PedroLamas]: https://github.com/PedroLamas
 [@RobBie1221]: https://github.com/RobBie1221
 [@RogerSelwyn]: https://github.com/RogerSelwyn
 [@ShaneQi]: https://github.com/ShaneQi
 [@Shulyaka]: https://github.com/Shulyaka
+[@StevenLooman]: https://github.com/StevenLooman
 [@adamkrol93]: https://github.com/adamkrol93
 [@adrum]: https://github.com/adrum
 [@agners]: https://github.com/agners
@@ -667,6 +799,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [@bratanon]: https://github.com/bratanon
 [@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
+[@chewbh]: https://github.com/chewbh
 [@clssn]: https://github.com/clssn
 [@ctalkington]: https://github.com/ctalkington
 [@danielperna84]: https://github.com/danielperna84
@@ -688,6 +821,8 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [@jyavenard]: https://github.com/jyavenard
 [@knudsvik]: https://github.com/knudsvik
 [@lawtancool]: https://github.com/lawtancool
+[@ludeeus]: https://github.com/ludeeus
+[@mampfes]: https://github.com/mampfes
 [@marciogranzotto]: https://github.com/marciogranzotto
 [@markuskorbel]: https://github.com/markuskorbel
 [@mdegat01]: https://github.com/mdegat01
@@ -699,6 +834,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [@nickw444]: https://github.com/nickw444
 [@oncleben31]: https://github.com/oncleben31
 [@pbalogh77]: https://github.com/pbalogh77
+[@peternijssen]: https://github.com/peternijssen
 [@pnbruckner]: https://github.com/pnbruckner
 [@prystupa]: https://github.com/prystupa
 [@pvizeli]: https://github.com/pvizeli
@@ -711,9 +847,11 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [@starkillerOG]: https://github.com/starkillerOG
 [@thomasdelaet]: https://github.com/thomasdelaet
 [@timmo001]: https://github.com/timmo001
+[@tizzen33]: https://github.com/tizzen33
 [@tradiuz]: https://github.com/tradiuz
 [@vangorra]: https://github.com/vangorra
 [@weissm]: https://github.com/weissm
+[@zhuqf]: https://github.com/zhuqf
 [@zxdavb]: https://github.com/zxdavb
 [accuweather docs]: /integrations/accuweather/
 [airly docs]: /integrations/airly/
@@ -722,10 +860,12 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [androidtv docs]: /integrations/androidtv/
 [automation docs]: /integrations/automation/
 [azure_devops docs]: /integrations/azure_devops/
+[blink docs]: /integrations/blink/
 [bond docs]: /integrations/bond/
 [buienradar docs]: /integrations/buienradar/
 [camera docs]: /integrations/camera/
 [clickatell docs]: /integrations/clickatell/
+[command_line docs]: /integrations/command_line/
 [config docs]: /integrations/config/
 [control4 docs]: /integrations/control4/
 [cover docs]: /integrations/cover/
@@ -734,6 +874,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [devolo_home_control docs]: /integrations/devolo_home_control/
 [directv docs]: /integrations/directv/
 [discovery docs]: /integrations/discovery/
+[elgato docs]: /integrations/elgato/
 [elkm1 docs]: /integrations/elkm1/
 [emulated_hue docs]: /integrations/emulated_hue/
 [evohome docs]: /integrations/evohome/
@@ -742,6 +883,7 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [firmata docs]: /integrations/firmata/
 [flume docs]: /integrations/flume/
 [frontend docs]: /integrations/frontend/
+[gios docs]: /integrations/gios/
 [gogogate2 docs]: /integrations/gogogate2/
 [google_assistant docs]: /integrations/google_assistant/
 [group docs]: /integrations/group/
@@ -764,25 +906,31 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [media_extractor docs]: /integrations/media_extractor/
 [met docs]: /integrations/met/
 [meteo_france docs]: /integrations/meteo_france/
+[mikrotik docs]: /integrations/mikrotik/
 [min_max docs]: /integrations/min_max/
 [mqtt docs]: /integrations/mqtt/
 [neato docs]: /integrations/neato/
 [netatmo docs]: /integrations/netatmo/
+[norway_air docs]: /integrations/norway_air/
 [numato docs]: /integrations/numato/
 [obihai docs]: /integrations/obihai/
 [opentherm_gw docs]: /integrations/opentherm_gw/
+[ovo_energy docs]: /integrations/ovo_energy/
 [ozw docs]: /integrations/ozw/
 [pi_hole docs]: /integrations/pi_hole/
 [plex docs]: /integrations/plex/
 [prometheus docs]: /integrations/prometheus/
+[rainbird docs]: /integrations/rainbird/
 [recorder docs]: /integrations/recorder/
 [rfxtrx docs]: /integrations/rfxtrx/
 [scrape docs]: /integrations/scrape/
 [script docs]: /integrations/script/
+[shell_command docs]: /integrations/shell_command/
 [simplisafe docs]: /integrations/simplisafe/
 [sky_hub docs]: /integrations/sky_hub/
 [slack docs]: /integrations/slack/
 [smartthings docs]: /integrations/smartthings/
+[spider docs]: /integrations/spider/
 [ssdp docs]: /integrations/ssdp/
 [stream docs]: /integrations/stream/
 [sun docs]: /integrations/sun/
@@ -790,8 +938,12 @@ Per ADR-0010, IQVIA can no longer be configured via YAML and must be configured 
 [tado docs]: /integrations/tado/
 [template docs]: /integrations/template/
 [tesla docs]: /integrations/tesla/
+[toon docs]: /integrations/toon/
+[upnp docs]: /integrations/upnp/
 [volumio docs]: /integrations/volumio/
 [volvooncall docs]: /integrations/volvooncall/
+[webostv docs]: /integrations/webostv/
+[wiffi docs]: /integrations/wiffi/
 [wirelesstag docs]: /integrations/wirelesstag/
 [withings docs]: /integrations/withings/
 [wolflink docs]: /integrations/wolflink/
