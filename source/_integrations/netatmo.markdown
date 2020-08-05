@@ -59,6 +59,8 @@ Configuration of Netatmo public weather stations is offered from the front end. 
 
 In the dialogue, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
+To edit an existing area simply enter its name and follow the dialog. 
+
 ### Get API and Secret Key
 
 To get your API credentials, you have to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
