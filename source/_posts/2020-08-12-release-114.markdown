@@ -27,7 +27,7 @@ Issues introduced in this beta, are generally picked up with priority.
 Ooh boy, time flew this release cycle; it is time for 0.114 already!
 
 Personally, I'm hardly even done implementing all automation features added
-in the previous release 😅
+in the previous release. 😅
 
 Ever since our Lovelace UI started as a beta, back in 2018, one of the most
 requested features - arguably - is a dark mode. No wonder, as a dark mode is
@@ -57,7 +57,7 @@ Enjoy the release.
 
 ## Dark mode and theme color pickers
 
-We now have official support for dark mode 🎉
+We now have official support for dark mode. 🎉
 
 We detect if your device is in dark mode; if that is the case, our default theme
 will go dark. You can override the automatic switching between dark and light
@@ -86,7 +86,7 @@ is in dark mode.
 
 Lastly, when using the `set_theme` service, the settings are now persistent
 across restarts. So if you have an automation that calls `set_theme` on startup,
-you don't need it anymore 😉
+you don't need it anymore. 😉
 
 ## Automation & Scripts updates
 
@@ -176,7 +176,7 @@ Finally, if, for any reason, corruption is detected in the Home Assistant
 recorder database (SQLite), the old database is moved and a new, fresh database
 is created. This prevents issues during startup.
 
-Honestly, the above isn't even complete 😅 Thanks [@bdraco]!
+Honestly, the above isn't even complete. 😅 Thanks [@bdraco]!
 
 ## Other noteworthy changes
 
