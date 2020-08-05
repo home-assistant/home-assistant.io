@@ -244,7 +244,7 @@ The `request_sync` service may fail with a 404 if the `project_id` of the HomeGr
 
 #### 403 errors on request sync
 
-The `request_sync` service may fail with a 403 if the if the HomeGraph API is not enabled. Go to [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) and verify that HomeGraph API is enabled for your project
+The `request_sync` service may fail with a 403 if the HomeGraph API is not enabled. Go to [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) and verify that HomeGraph API is enabled for your project.
 
 #### 404 errors on report state
 
