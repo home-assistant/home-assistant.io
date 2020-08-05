@@ -98,6 +98,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - F6400AF
 - F6500
 - F7000
+- F1000
 - F8000BF
 - K5579
 - K5600AK (partially supported, turn on works but state is not updated)
@@ -107,6 +108,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - KS8000
 - KS8005
 - KS8500
+- KU6000W
 - KU6020
 - KU6100
 - KU6290
@@ -118,6 +120,7 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - MU6170UXZG
 - MU6179
 - MU6199
+- MU650D (on works with WOL, channel change not tested)
 - NU7090 (On/Off)
 - NU7400
 - NU8000
@@ -125,8 +128,12 @@ For example: for model `UN55NU7100`, the `UN55` would mean it's an LED, North Am
 - U6000
 - U6300
 - RU7100
+- RU7170
 - RU7172
+- RU7300 (on works with WOL)
+- RU7475
 - Q90RATXZT
+- QA55Q7FAM
 
 #### Models tested but not yet working
 

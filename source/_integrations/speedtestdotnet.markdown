@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@rohankapoorcom'
-  - '@rngrbm87'
+  - '@engrbm87'
 ha_domain: speedtestdotnet
 ---
 

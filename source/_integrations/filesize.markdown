@@ -12,7 +12,7 @@ The `filesize` sensor is for displaying the size in MB of a file.
 
 <div class='note'>
 
-File paths must also be added to [whitelist_external_dirs](/docs/configuration/basic/) in your `configuration.yaml`.
+File paths must also be added to [allowlist_external_dirs](/docs/configuration/basic/) in your `configuration.yaml`.
 
 </div>
 

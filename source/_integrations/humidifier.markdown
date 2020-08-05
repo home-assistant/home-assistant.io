@@ -1,11 +1,14 @@
 ---
-title: "Humidifier"
-description: "Instructions on how to set up humidity control devices within Home Assistant."
+title: Humidifier
+description: Instructions on how to set up humidity control devices within Home Assistant.
 ha_category:
   - Humidifier
-ha_release: "0.112"
+ha_release: '0.112'
 ha_domain: humidifier
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+  - '@Shulyaka'
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
@@ -18,7 +21,7 @@ Available services: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifie
 
 <div class='note'>
 
-Not all humidifier services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
+Not all humidifier services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking the Services page in the [Developer Tools](/docs/tools/dev-tools/).
 
 </div>
 

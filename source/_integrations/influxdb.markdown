@@ -8,6 +8,7 @@ ha_release: 0.9
 ha_iot_class: Configurable
 ha_codeowners:
   - '@fabaff'
+  - '@mdegat01'
 ha_domain: influxdb
 ---
 
@@ -148,6 +149,10 @@ tags_attributes:
   description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
   required: false
   default: 0
+ignore_attributes:
+  type: [string, list]
+  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB.
+  required: false
 component_config:
   type: string
   required: false
@@ -156,6 +161,10 @@ component_config:
     override_measurement:
       type: string
       description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
+      required: false
+    ignore_attributes:
+      type: [string, list]
+      description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
       required: false
 component_config_domain:
   type: string
@@ -166,6 +175,10 @@ component_config_domain:
       type: string
       description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
       required: false
+    ignore_attributes:
+      type: [string, list]
+      description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
+      required: false
 component_config_glob: 
   type: string
   required: false
@@ -174,6 +187,10 @@ component_config_glob:
     override_measurement:
       type: string
       description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
+      required: false
+    ignore_attributes:
+      type: [string, list]
+      description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
       required: false
 {% endconfiguration %}
 

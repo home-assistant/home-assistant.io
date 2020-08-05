@@ -68,12 +68,12 @@ fields:
           description: An example value for PARAMETER_NAME.
           type: string
 mode:
-  description: "Controls what happens when script is run while it is still running from one or more previous invocations. See [Script Modes](#script-modes)."
+  description: "Controls what happens when script is invoked while it is still running from one or more previous invocations. See [Script Modes](#script-modes)."
   required: false
   type: string
-  default: legacy
-queue_size:
-  description: "Controls maximum number of queued runs waiting for previous run to complete. Only valid with `mode: queue`."
+  default: single
+max:
+  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`."
   required: false
   type: integer
   default: 10
@@ -87,26 +87,14 @@ sequence:
 
 Mode | Description
 -|-
-`legacy` | See [below](#legacy-mode).
-`error` | Raise an error. Previous run continues normally.
-`ignore` | Do not start a new run. Previous run continues normally.
-`parallel` | Start a new, independent run in parallel with previous runs which continue normally.
+`single` | Do not start a new run. Issue a warning.
 `restart` | Start a new run after first stopping previous run.
-`queue` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`parallel` | Start a new, independent run in parallel with previous runs.
 
 <p class='img'>
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
-
-#### Legacy Mode
-
-<div class='note'>
-
-This mode is deprecated, and a warning to that effect will be issued at startup unless `mode: legacy` is specified.
-
-</div>
-
-This mode maintains the legacy script behavior. That is, the script will run until it executes a `delay` step, or a `wait_template` step (that actually waits), at which point the script will suspend. If the script is run while suspended, it will abort the delay/wait_template and continue immediately to the next step, or finish if there are no more steps. Also, calling a legacy script that is still running (and not suspended) will result in an error.
 
 ### Full Configuration
 
@@ -215,14 +203,17 @@ script:
 ### Waiting for Script to Complete
 
 When calling a script "directly" (e.g., `script.NAME`) the calling script will wait for the called script to finish.
+If any errors occur that cause the called script to abort, the calling script will be aborted as well.
 
 When calling a script (or multiple scripts) via the `script.turn_on` service the calling script does _not_ wait. It starts the scripts, in the order listed, and continues as soon as the last script is started.
+Any errors that occur in the called scripts that cause them to abort will _not_ affect the calling script.
 
 <p class='img'>
   <img src='/images/integrations/script/script_wait.jpg'>
 </p>
 
 Following is an example of the calling script not waiting. It performs some other operations while the called script runs "in the background." Then it later waits for the called script to complete via a `wait_template`.
+This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
 {% raw %}
 ```yaml
@@ -240,11 +231,3 @@ script:
       # Do some things at the same time as the first script...
 ```
 {% endraw %}
-
-Note that this is only guaranteed to work if the called script uses a non-legacy mode.
-
-### In the Overview
-
-Legacy scripts in the Overview panel will be displayed with an **EXECUTE** button if the script has no `delay:` or `wait_template:` statement, and as a toggle switch if it has either of those. Scripts configured for any other mode than `legacy` will also be displayed with a toggle switch.
-
-This is to enable you to stop a running script.

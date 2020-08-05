@@ -53,6 +53,10 @@ cover:
         description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
+      unique_id:
+        description: An ID that uniquely identifies this cover. Set this to an unique value to allow customisation trough the UI.
+        required: false
+        type: string
       value_template:
         description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
         required: exclusive

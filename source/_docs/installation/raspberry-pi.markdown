@@ -41,7 +41,7 @@ sudo apt-get upgrade -y
 Install the dependencies.
 
 ```bash
-sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev autoconf
+sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev autoconf build-essential
 ```
 
 Add an account for Home Assistant Core called `homeassistant`.
