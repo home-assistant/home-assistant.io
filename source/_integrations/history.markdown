@@ -27,7 +27,7 @@ history:
   <a href='{{site_root}}/images/screenshots/component_history_24h.png'>
     <img src='{{site_root}}/images/screenshots/component_history_24h.png' />
   </a>
-</p>
+</p> 
 
 <div class='note'>
 Events are saved in a local database. Google Graphs is used to draw the graph.
