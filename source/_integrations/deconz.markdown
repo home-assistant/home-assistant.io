@@ -144,8 +144,10 @@ To simplify using remote control devices in automations deCONZ integration expos
 
 Currently supported devices as device triggers:
 
-- Hue Dimmer Remote
-- Hue Tap
+- Hue Dimmer Switch
+- Hue Smart Button
+- Hue Tap Switch
+- Friends of Hue Switch
 - Symfonisk Sound Controller
 - Trådfri On/Off Switch
 - Trådfri Open/Close Remote
