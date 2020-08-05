@@ -91,7 +91,7 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 
 ## Light
 
-The `netatmo` light platform is consuming information provided by a [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) camera. This integration allows you to turn on/off the flood lights.
+The `netatmo` light platform is consuming information provided by a [Netatmo Smart Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) camera and requires an active webhook. This integration allows you to turn on/off the flood lights.
 
 ## Sensor
 
@@ -110,13 +110,13 @@ Set the heating schedule. This requires an entity id and a schedule name.
 
 `set_persons_home`
 
-Set a list of persons as at home. Person's name must match a name known by the Welcome Camera.
+Set a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
 ### Set Person Away
 
 `set_person_away`
 
-Set a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Welcome Camera.
+Set a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
 ### (Un-)Register Webhooks
 
