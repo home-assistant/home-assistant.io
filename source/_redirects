@@ -762,7 +762,6 @@
 /components/sensor.lacrosse /integrations/lacrosse
 /components/sensor.lastfm /integrations/lastfm
 /components/sensor.launch_library /integrations/launch_library
-/components/sensor.linky /integrations/linky
 /components/sensor.linux_battery /integrations/linux_battery
 /components/sensor.logi_circle /integrations/logi_circle#sensor
 /components/sensor.london_air /integrations/london_air
@@ -1513,7 +1512,6 @@
 /components/limitlessled /integrations/limitlessled
 /components/linksys_ap /integrations/linksys_ap
 /components/linksys_smart /integrations/linksys_smart
-/components/linky /integrations/linky
 /components/linode /integrations/linode
 /components/linux_battery /integrations/linux_battery
 /components/lirc /integrations/lirc
