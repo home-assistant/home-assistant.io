@@ -237,4 +237,4 @@ Example:
 
 ### Light
 
-If the lights show as unavailable the issue usually is that webhook is banned by Netatmo. To solve that unregister [Service](#un-register-webhooks) the webhook, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook and then register [Service](#un-register-webhooks) the webhook.
+If the lights show as unavailable the issue usually is that webhook is banned by Netatmo. To solve that [unregister](#un-register-webhooks) the webhook, go to the [Netatmo Developer Page](https://dev.netatmo.com/) to unban your webhook and then [register](#un-register-webhooks) the webhook.
