@@ -74,46 +74,27 @@ The example above defined two themes named `happy` and `sad`. For each theme you
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
-### Theme automation
+### Setting themes
 
 There are 2 themes-related services:
 
  - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme(name)`: sets backend-preferred theme name.
+ - `frontend.set_theme`: sets backend-preferred theme name.
+ 
+ ### Service `set_theme`
 
-Example in automation:
+| Service data attribute | Description                                                                                         |
+| ---------------------- | --------------------------------------------------------------------------------------------------- |
+| `name`                 | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
+| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`)  |
 
-Set a theme at the startup of Home Assistant:
-
-```yaml
-automation:
-  - alias: 'Set theme at startup'
-    trigger:
-     - platform: homeassistant
-       event: start
-    action:
-      service: frontend.set_theme
-      data:
-        name: happy
-```
-
-To enable "night mode":
-
-```yaml
-automation:
-  - alias: 'Set dark theme for the night'
-    trigger:
-      - platform: time
-        at: '21:00:00'
-    action:
-      - service: frontend.set_theme
-        data:
-          name: darkred
-```
+If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
+The backend theme settings will be saved and restored on a restart of Home Assistant.
 
 ### Manual Theme Selection
 
 When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
+This will overrule the theme settings set by the above service calls, and will only be applied to the current device.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' />
