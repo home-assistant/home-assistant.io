@@ -50,9 +50,11 @@ theme:
 {% endconfiguration %}
 
 ## Elements
+
 Elements are the active components (icons, badges, buttons, text, etc.) that overlay the image.
 
 There are several different element types that can be added to a Picture Elements card:
+
 - [State Badge](#state-badge)
 - [State Icon](#state-icon)
 - [State Label](#state-label)
@@ -63,6 +65,7 @@ There are several different element types that can be added to a Picture Element
 - [Custom](#custom-elements)
 
 ### State Badge
+
 This element creates a badge representing the state of an entity.
 
 {% configuration %}
@@ -97,7 +100,8 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### State Icon 
+### State Icon
+
 This element represents an entity state using an icon.
 
 {% configuration %}
@@ -177,6 +181,7 @@ style:
 {% endconfiguration %}
 
 ### State Label
+
 This element represents an entity's state via text.
 
 {% configuration %}
@@ -225,6 +230,7 @@ style:
 {% endconfiguration %}
 
 ### Service Call Button
+
 This entity creates a button (with arbitrary text) that can be used to call a service.
 
 {% configuration %}
@@ -252,6 +258,7 @@ style:
 {% endconfiguration %}
 
 ### Icon Element
+
 This element creates a static icon that is not linked to the state of an entity. 
 
 {% configuration %}
@@ -291,6 +298,7 @@ style:
 {% endconfiguration %}
 
 ### Image Element
+
 This creates an image element that overlays the background image.
 
 {% configuration %}
@@ -388,6 +396,7 @@ elements:
 {% endconfiguration %}
 
 ### Custom Elements
+
 The process for creating and referencing custom elements is the same as for custom cards.
 Please see the [developer documentation](https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html)
 for more information.
@@ -415,6 +424,7 @@ user:
 {% endconfiguration %}
 
 ## Notes on Element Attributes
+
 ### How to use the style object
 
 Position and style your elements using [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS). More/other keys are also possible.
@@ -463,7 +473,9 @@ hold_action:
     entity_id: light.bed_light
     brightness_pct: 100
 ```
+
 ## Examples
+
 ### Example of icons, labels and buttons
 
 ```yaml
