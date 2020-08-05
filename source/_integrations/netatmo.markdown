@@ -40,13 +40,13 @@ netatmo:
 
 {% configuration %}
 client_id:
-description: The `client id` from your Netatmo app.
-required: true
-type: string
+  description: The `client id` from your Netatmo app.
+  required: true
+  type: string
 client_secret:
-description: The `client secret` from your Netatmo app.
-required: true
-type: string
+  description: The `client secret` from your Netatmo app.
+  required: true
+  type: string
 {% endconfiguration %}
 
 **After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
