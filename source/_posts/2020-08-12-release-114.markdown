@@ -458,7 +458,7 @@ seconds (by default) instead of blocking forever.
   <summary><b>Time pattern listeners</b></summary>
   <p>
 
-If time abruptly moves forward or backwards, time pattern listeners will only
+If time abruptly moves forward or backward, time pattern listeners will only
 be adjusted after they were previously scheduled to fire.
 
 This avoids the need for every time pattern listener to check for this every
