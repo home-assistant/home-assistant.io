@@ -24,17 +24,44 @@ Issues introduced in this beta, are generally picked up with priority.
 
 ## Introduction
 
-Lorem ipsum
+Ooh boy, time flew this release cycle; it is time for 0.114 already!
+
+Personally, I'm hardly even done implementing all automation features added
+in the previous release 😅
+
+Ever since or Lovelace UI started as a beta, back in 2018, one of the most
+requested feature - arguably - is a dark mode. No wonder, as a dark mode is
+added to software everywhere nowadays.
+
+This release adds dark mode! [@bramkragten] didn't stop there and added
+color pickers for the main theme colors as well. I looked forward having it,
+a easy way to have a bit of theming, without the need for themes.
+
+This is by far the most noticeable feature of this release, mainly because it
+is immediately apparent after the upgrade.
+
+Meanwhile, the beta Open Z-Wave integration picks up speed in terms of
+contributions, reports, fixes and improvements. I've been using it already,
+and I love it. My Z-Wave network has never been better and stable.
+If you haven't tried it yet, I would highly recommend doing so.
+
+Besides the listing below, 0.114 may feel a bit "empty", however, it isn't.
+It is packed with little things and fixes. The "All changes" section is
+definitely worth a look this release.
+
+Enjoy the release.
+
+../Frenck
 
 ## Dark mode and theme color pickers
 
 We now have official support for dark mode 🎉
 
-We detect if your device is in dark mode, if that is the case our default theme
+We detect if your device is in dark mode; if that is the case, our default theme
 will go dark. You can override the automatic switching between dark and light
 theme in your profile.
 
-Further more you can now also select the primary and accent color for the
+Furthermore you can now also select the primary and accent color for the
 default theme. We calculate all other colors to make sure everything matches
 and is readable.
 
@@ -44,15 +71,15 @@ Screenshot of the new dark mode and theme settings.
 </p>
 
 So if you upgrade to Home Assistant 0.114, you are using the default theme
-and your device is set to a dark mode; Please be aware that after upgrading
+and your device is set to a dark mode; Please be aware that after upgrading,
 you will get a dark theme by default in that case.
 
-Also, when picking colors, make sure you pick a primary color, that it is
-readable on both a light and dark background. For now this is just a local
+Also, when picking colors, make sure you choose a primary color that is
+readable on both a light and dark background. For now, this is just a local
 setting and has to be applied on every device.
 
-For custom themes there is a new option on the `set_theme` service call,
-`mode: 'dark'`, this allows to set a theme that will be used when your device
+For custom themes, there is a new option on the `set_theme` service call,
+`mode: 'dark'`; this allows to set a theme that will be used when your device
 is in dark mode.
 
 Lastly, when using the `set_theme` service, the settings are now persistent
@@ -74,7 +101,7 @@ automations or scripts via the UI.
 Screenshot of the new automation features available in the UI.
 </p>
 
-Sub-second precision has been extended, and is now available in all
+Sub-second precision has been extended and is now available in all
 time-related notations. For example, you can now use `2.5` seconds/hours/minutes
 or even use it in full time notations: `23:59:59.999`.
 
@@ -102,46 +129,66 @@ automation:
 
 ### Open Z-Wave (beta)
 
-- Add RGB light support to ozw ([@firstof9] - [#37636]) ([ozw docs])
-- Disable polling for ozw entities ([@RobBie1221] - [#38005]) ([ozw docs])
-- Force updates for ozw sensors ([@RobBie1221] - [#38003]) ([ozw docs])
-- Fix ozw light color values check ([@MartinHjelmare] - [#38067]) ([ozw docs])
-- Fix ozw color temp ([@tradiuz] - [#38012]) ([ozw docs])
-- Fix ozw dimming duration ([@firstof9] - [#38254]) ([ozw docs])
-- Add basic websocket api for OZW ([@cgarwood] - [#38265]) ([ozw docs])
-- Add node neighbors to ozw websocket api ([@firstof9] - [#38447]) ([ozw docs])
-- Make ozw CCT use device attributes instead of hard coded values ([@tradiuz] - [#38054]) ([ozw docs])
+The Open Z-Wave (beta) integration is coming along nicely and others are
+started helping out as well! A shout out to [@firstof9], [@RobBie1221] and
+[@tradiuz] for jumping in and helping out this release.
+
+Some additional information is added to the UI for Open Z-Wave, you can now
+see device information right from the device page and shows information like
+the Z-Wave Node ID and other information about your Z-Wave device.
+
+<!-- Screenshot needs to be added, but I don't have it in my nightly yet
+<p class='img'>
+<img src='/images/blog/2020-08-0.114/openzwave.png' alt='Screenshot of Z-Wave device information available in the UI'></a>
+Screenshot of Z-Wave device information available in the UI.
+</p>
+-->
+
+Furthermore, RGB color support has been added to lights, and bugs have been
+fixed using color temperatures and dimming. 💡
+
+Lastly, unnecessary polling of devices has been reduced.
 
 ## Yet another round of performance improvements
 
-- Index the entity registry ([@bdraco] - [#37994])
-- Index the device registry ([@bdraco] - [#37990])
-- Use event loop scheduling for tracking time patterns ([@bdraco] - [#38021]) (breaking-change)
-- Speed up group setup ([@bdraco] - [#38048]) ([group docs])
-- Avoid generating a Context() object every second ([@bdraco] - [#38085])
-- Use postgresql style uuid generation (uuid_generate_v1mc) for Context uuids ([@bdraco] - [#38089])
-- Prevent unnecessary updates of zone component ([@Danielhiversen] - [#38167]) ([zone docs])
-- Prevent unnecessary updates of sun component ([@Danielhiversen] - [#38169]) ([sun docs])
-- Simplify generate_entity_id ([@bdraco] - [#38418])
-- Reduce time to reload yaml and check configuration ([@bdraco] - [#38469])
-- Move system log processing out of the event loop ([@bdraco] - [#38445]) ([system_log docs])
+Did we tell you that [@bdraco] is unstoppable in his saga to improve the
+performance and stability of Home Assistant? His train just keeps going!
+
+0.114 is no exception and a lot of smaller performance and stability
+improvements are made again.
+
+A bit technical, maybe, but here is a small overview of the changes:
+
+- The internal device & entity registries are now indexed, and thus faster.
+- Setting up groups at startup is more efficient.
+- Reloading YAML configurations or checking your configuration is now quicker.
+- A context accompanies every event in Home Assistant (every trigger,
+  automation, … has a "triggered by what and who"). These contexts are now
+  created faster, which makes everything faster.
+- Tracking time pattern triggers are now scheduled on our event loop, which
+  is far more efficient.
+- Processing of system logs is taken out of the main program loop, so it doesn't
+  interfere with things Home Assistant does for you.
+
+Finally, if, for any reason, corruption is detected in the Home Assistant
+recorder database (SQLite), the old database is moved and a new, fresh database
+is created. This prevents issues during startup.
+
+Honestly, the above isn't even complete 😅 Thanks [@bdraco]!
 
 ## Other noteworthy changes
 
-- You can now move Lovelace cards to a different dashboard, and add cards to
-  other than main dashboard from the device pages.
+- You can now move Lovelace cards to a different dashboard and add cards to
+  other than the main dashboard from the device pages.
 - Add support for safe area insets; For example, iPhones with notches now cover
   the entire screen while having enough padding for home swipe action
-  and the notch in the top of your display.
-- If for any reason, corruption is detected in the Home Assistant recorder
-  database (SQLite), the old database is moved and a new, fresh, database is
-  created. This prevents issues during start up.
+  and the notch at the top of your display.
 - [HomeKit][homekit docs] has now support for doorbells (thanks [@adrum]) and
   [@bdraco] added support for multiple camera streams.
 - If you use [light][light docs] profiles, those now support a default
   transition value, thanks to [@donkawechico].
-- [@agners] added IPv4 & IPv6 (dual stack) support to the Home Assistant
-  [webserver][http docs], allowing it to run simultaneously on both.
+- [@agners] added IPv4 & IPv6 (dual-stack) support to the Home Assistant
+  [web server][http docs], allowing it to run simultaneously on both.
 
 ## New Integrations
 
