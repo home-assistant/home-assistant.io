@@ -62,6 +62,11 @@ covers:
           description: The name used to display the cover in the frontend.
           required: false
           type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15          
 {% endconfiguration %}
 
 ## Examples
