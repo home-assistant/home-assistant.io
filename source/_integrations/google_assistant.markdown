@@ -253,7 +253,7 @@ If you receove 404 errors linked to report state in your log, home assisting is 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your fullfillment url may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publically reachable.
+Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup) and verify that it's publically reachable.
 
 #### NGINX
 
