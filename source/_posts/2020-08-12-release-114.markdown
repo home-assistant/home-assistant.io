@@ -286,7 +286,7 @@ for a given amount of time, but now it relies on the switch entity id instead
 of the name set by the user, so the `name` field is removed.
 
 With this change, a switch entity `switch.pi_hole` will be added if you
-set up the integration with API key and default name (Pi-hole).
+set up the integration with an API key and default name (Pi-hole).
 
 Now, you can use `switch.turn_on` and `switch.turn_off` to enable and disable
 the Pi-hole service permanently. To disable the service for a given time,
