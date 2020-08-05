@@ -262,7 +262,7 @@ to "Set input on TV to.."
   <summary><b>Blink</b></summary>
   <p>
 
-Due to new 2FA endpoint, YAML configuration is no longer supported.
+Due to the new 2FA endpoint, the YAML configuration is no longer supported.
 
 In addition, due to some API changes, if you are upgrading from a previous
 version, you will need to navigate to the integration page at startup and
