@@ -261,4 +261,4 @@ If you're having trouble with *Account linking failed* after you unlinked your s
 
 ### Failed linking - Could not update the setting. Please check your connection
 
-If you're having trouble linking your account, with the error message *Could not update the setting. Please check your connection* after logging into your Home Assistant instance, try setting `expose_by_default: false` then exposing a single simple device (light or switch preferably). It is also worth checkign if any home ad blocker is diabled if your having issues.
+If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` then exposing a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
