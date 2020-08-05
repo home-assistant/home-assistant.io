@@ -1,11 +1,11 @@
 ---
 title: Crownstone
 description: Instructions on how to setup the Crownstone integration within Home Assistant.
-ha_release: 0.112
+ha_release: 0.114
 ha_iot_class: Cloud Polling
 ha_category:
   - Light
-  - Presence Detection
+  - Switch
 ha_codeowners:
   - '@Crownstone'
   - '@RicArch97'
@@ -40,39 +40,9 @@ Crownstones have the ability to dim, however dimming is disabled by default. To 
 3. Tap on **Abilities**
 4. Turn **Dimming** on
 
+When you have changed an ability through the Crownstone app, the change will be automatically updated in Home Assistant. However, the Crownstone app uses a 10 minute interval to sync changes with the cloud, so it can take 10 minutes before the change is updated in Home Assistant.
+
 Enabling dimming is at own risk. It is recommended to only use dimming on lights.
-
-## Presence Detection (Sensor)
-
-The presence detection can be divided into two devices:
-
-- Sphere (House) Presence
-- Location (Room) Presence
-
-The presence detection of Crownstone becomes available when you have **4 or more configured and active** Crownstones. Make sure to train your Rooms first in the Crownstone App. The value of the sensor is the **first name** of the person that is currently in that Sphere/Location. It is possible for multiple people to be in the same Sphere/Location. A user can only be in **one Location** at the time.
-
-When there are multiple people in one Location, the names are separated by a comma like so: `Name1, Name2, Name3`
-
-### Creating automations for Crownstone presence
-
-The state of a presence sensor is of type **string**.
-
-The following example shows an automation for turning off a Crownstone / light when the user `Peter` has left the living room.
-
-```yaml
-- alias: Turn off the lights
-  trigger:
-    platform: state
-    entity_id: sensor.livingroom
-    from: 'Peter'
-    to: ''
-  condition: []
-  action:
-    device_id: some_device_id
-    domain: light
-    entity_id: light.lamp
-    type: turn_off
-```
 
 ## Crownstone USB
 
