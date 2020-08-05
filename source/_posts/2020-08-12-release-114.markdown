@@ -26,19 +26,92 @@ Issues introduced in this beta, are generally picked up with priority.
 
 Lorem ipsum
 
-## Lorem ipsum
+## Dark mode and color pickers
 
-lorem ipsum
+We now have official support for dark themes 🎉
+
+We detect if your device is in dark mode, if that is the case our default theme
+will go dark. You can override the auto switching between dark and light theme
+in your profile.
+
+Further more you can now also select the primary and accent color for the
+default theme. We calculate all other colors to make sure everything matches
+and is readable.
 
 <p class='img'>
-<img src='/images/integrations/script/script_modes.jpg' alt='Screenshot of lorem ipsum.'></a>
+<img src='/images/blog/2020-08-0.114/dark-mode.png' alt='Screenshot of lorem ipsum.'></a>
 Screenshot of lorem ipsum.
 </p>
 
+So if you upgrade to Home Assistant 0.114, you are using the default theme
+and your device is set to use dark mode; Please be aware that after upgrading
+you will get a dark theme by default in that case.
+
+Make sure, if you pick a primary color, that it is readable on both a light
+and dark background. For now this is just a local setting and has to be applied
+on every device.
+
+For custom themes there is a new option on the `set_theme` service call,
+`mode: 'dark'`, this allows to set a theme that will be used when your device
+is in dark mode.
+
+## Automation & Scripts updates
+
+In Home Assistant 0.113 we added tons of new features to automations and
+scripts. This release contains some fixes for issues discovered and reported,
+but also adds some smaller new features to extend it even more.
+
+First of all, the repeat and choose actions are now available when creating
+automations or scripts via the UI.
+
+<p class='img'>
+<img src='/images/blog/2020-08-0.114/dark-mode.png' alt='Screenshot of lorem ipsum.'></a>
+Screenshot of lorem ipsum.
+</p>
+
+- Allow float values in time periods ([@pnbruckner] - [#38023])
+- Allow automation to be turned off without stopping actions ([@pnbruckner] - [#38436]) ([automation docs]) ([script docs])
+- Add support for multiple time triggers in automations ([@frenck] - [#37975]) ([automation docs])
+
+### Open Z-Wave (beta)
+
+- Add RGB light support to ozw ([@firstof9] - [#37636]) ([ozw docs])
+- Disable polling for ozw entities ([@RobBie1221] - [#38005]) ([ozw docs])
+- Force updates for ozw sensors ([@RobBie1221] - [#38003]) ([ozw docs])
+- Fix ozw light color values check ([@MartinHjelmare] - [#38067]) ([ozw docs])
+- Fix ozw color temp ([@tradiuz] - [#38012]) ([ozw docs])
+- Fix ozw dimming duration ([@firstof9] - [#38254]) ([ozw docs])
+- Add basic websocket api for OZW ([@cgarwood] - [#38265]) ([ozw docs])
+- Add node neighbors to ozw websocket api ([@firstof9] - [#38447]) ([ozw docs])
+- Make ozw CCT use device attributes instead of hard coded values ([@tradiuz] - [#38054]) ([ozw docs])
+
+## Yet another round of performance improvements
+
+- Index the entity registry ([@bdraco] - [#37994])
+- Index the device registry ([@bdraco] - [#37990])
+- Use event loop scheduling for tracking time patterns ([@bdraco] - [#38021]) (breaking-change)
+- Speed up group setup ([@bdraco] - [#38048]) ([group docs])
+- Avoid generating a Context() object every second ([@bdraco] - [#38085])
+- Use postgresql style uuid generation (uuid_generate_v1mc) for Context uuids ([@bdraco] - [#38089])
+- Prevent unnecessary updates of zone component ([@Danielhiversen] - [#38167]) ([zone docs])
+- Prevent unnecessary updates of sun component ([@Danielhiversen] - [#38169]) ([sun docs])
+- Simplify generate_entity_id ([@bdraco] - [#38418])
+- Reduce time to reload yaml and check configuration ([@bdraco] - [#38469])
+- Move system log processing out of the event loop ([@bdraco] - [#38445]) ([system_log docs])
+
 ## Other noteworthy changes
 
-- Lorem ipsum
-- Lorem ipsum
+- You can now move Lovelace cards to a different dashboard, and add cards to
+  other than main dashboard from the device pages.
+- Add support for safe area insets; For example, iPhones with notches now cover
+  the entire screen while having enough padding for home swipe action
+  and the notch in the top of your display.
+- [HomeKit][homekit docs] has now support for doorbells (thanks [@adrum]) and
+  [@bdraco] added support for multiple camera streams.
+- If you use [light][light docs] profiles, those now support a default
+  transition value, thanks to [@donkawechico].
+- [@agners] added IPv4 & IPv6 (dual stack) support to the Home Assistant
+  [webserver][http docs], allowing it to run simultaneously on both.
 
 ## New Integrations
 
