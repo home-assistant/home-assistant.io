@@ -43,7 +43,9 @@ is immediately apparent after the upgrade.
 Meanwhile, the beta Open Z-Wave integration picks up speed in terms of
 contributions, reports, fixes and improvements. I've been using it already,
 and I love it. My Z-Wave network has never been better and more stable.
-If you haven't tried it yet, I would highly recommend doing so.
+If you haven't tried it yet, I would highly recommend doing so. There is a nice
+[community guide](https://community.home-assistant.io/t/how-to-test-the-ozw-beta-without-fully-switching-over/211282)
+on how to test it without switching over.
 
 Besides the listing below, 0.114 may feel a bit "empty", however, it isn't.
 It is packed with little things and fixes. The "All changes" section is
