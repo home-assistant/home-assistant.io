@@ -18,8 +18,7 @@ Currently we use Google's Firebase notification service for sending notification
 
 ## Android minimal app
 
-On a related note, we are delighted to say we now offer a way to install a minimal version of the Android app that is completely free of any reliance on Google.
-**MORE NEEDED FROM ANDROID TEAM**.
+On a related note, we are delighted to say we now offer a way to install a minimal version of the Android app that is completely free of any reliance on Google. This version of the app does not have location tracking or notifications. We hope that by providing this version of the app more developers will be excited about contributing to the app in general. For now, you can find the APKs in the [GitHub Actions](https://github.com/home-assistant/android/actions) page from each pull request.
 
 ## What's New(ish)
 
@@ -96,6 +95,7 @@ We have also been hard at working making improvements in other areas of the app:
 * In App Configuration the Home Network WiFi SSID option now allows the user to select multiple SSIDs.
 * A Cookie Manager was added to our WebView that will allow you to save cookies from sites that you may use in the [webpage card](/lovelace/iframe/).
 * More descriptive SSL error messages were added to help users resolve local issues they may encounter while setting up the app.
+* Device ID is now sent with the event data for actionable notifications.
 
 ### iOS
 
