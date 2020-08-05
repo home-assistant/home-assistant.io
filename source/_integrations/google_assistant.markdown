@@ -248,8 +248,7 @@ The `request_sync` service may fail with a 403 if the HomeGraph API is not enabl
 
 #### 404 errors on report state
 
-If you receove 404 errors linked to report state in your log, home assisting is reporting state for entites that where never synced to google. Ask your google home to `Sync my devices` or run the service `google_assistant.request_sync`
-
+If you receive 404 errors linked to reporting state in your log, Home Assistant is reporting state for entities that were never synced to google. Ask your Google Home to `Sync my devices` or run the service `google_assistant.request_sync`.
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
