@@ -14,7 +14,7 @@ Hi, it's been a while since we let you know about all the great things you can d
 
 ## A note on privacy
 
-Currently we use Google's Firebase notification service for sending notifications to your device and also for tracking crashes. We did this because of simplicity, due to how notifications work on iOS we can't use just any server to send notifications, in fact there is a pretty narrow choice. Using Firebase allowed us to provide notifications at no cost to you! However, many people were uncomfortable about this and would prefer an app that did not rely on Google's servers. Well we hear you and we are actively looking at moving to other providers. While we have not completed this work yet, we just wanted to let you know it is something that is being actively developed and hopefully we will have more news very soon.
+Currently we use Google's Firebase notification service for sending notifications to your device and also for tracking crashes. We did this because of simplicity, due to how notifications work on iOS we can't use just any server to send notifications, in fact there is a pretty narrow choice. Using Firebase allowed us to keep costs low, which Nabu Casa then covered so people are able to use it at no cost. However, many people were uncomfortable about this and would prefer an app that did not rely on Google's servers. Well we hear you and we are actively looking at moving to other providers. While we have not completed this work yet, we just wanted to let you know it is something that is being actively developed and hopefully we will have more news very soon.
 
 ## Android minimal app
 
