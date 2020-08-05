@@ -380,7 +380,7 @@ will not be unique and collide.
 
 This has been fixed by prefixing device ID with a hub ID and the resulting ID
 is now truly unique. After restarting you will see each bond entity twice.
-One which is live with the a unique ID. The second which is disabled with old
+One which is live with the new unique ID. The second which is disabled with old
 unique ID.
 
 How to make it work:
