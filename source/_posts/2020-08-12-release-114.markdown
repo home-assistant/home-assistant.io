@@ -208,6 +208,7 @@ Six new integrations added this release:
 The following integration got support for a new platform:
 
 - [Pi-hole][pi_hole docs] now provides a switch to turn on/off the service, added by [@shenxn]
+- [devolo Home Control][devolo_home_control docs] added support for light devices,added by [@2Fake]
 
 ## Integrations now available to set up from the UI
 
@@ -368,6 +369,7 @@ break:
 
   </p>
 </details>
+
 <details>
   <summary><b>Bond</b></summary>
   <p>
@@ -701,6 +703,10 @@ Support for legacy logbook events created before 0.112 is removed.
 - OVO Energy Integration ([@timmo001] - [#36104]) ([ovo_energy docs]) (new-integration)
 - Intelligent timeout handler for setup/bootstrap ([@pvizeli] - [#38329])
 - Bump frontend to 20200805.0 ([@ludeeus] - [#38557]) ([frontend docs])
+- Add zeroconf/homekit/ssdp discovery support for custom components ([@bdraco] - [#38466]) ([ssdp docs]) ([zeroconf docs])
+- Allow to set default dark theme and persist frontend default themes ([@bramkragten] - [#38548]) ([frontend docs])
+- Add a timeout for async_add_entities ([@bdraco] - [#38474])
+- Add devolo light devices ([@2Fake] - [#37366]) ([devolo_home_control docs]) (new-platform)
 
 </details>
 
@@ -724,6 +730,7 @@ Support for legacy logbook events created before 0.112 is removed.
 [#37190]: https://github.com/home-assistant/core/pull/37190
 [#37335]: https://github.com/home-assistant/core/pull/37335
 [#37365]: https://github.com/home-assistant/core/pull/37365
+[#37366]: https://github.com/home-assistant/core/pull/37366
 [#37526]: https://github.com/home-assistant/core/pull/37526
 [#37632]: https://github.com/home-assistant/core/pull/37632
 [#37636]: https://github.com/home-assistant/core/pull/37636
@@ -891,8 +898,10 @@ Support for legacy logbook events created before 0.112 is removed.
 [#38451]: https://github.com/home-assistant/core/pull/38451
 [#38460]: https://github.com/home-assistant/core/pull/38460
 [#38461]: https://github.com/home-assistant/core/pull/38461
+[#38466]: https://github.com/home-assistant/core/pull/38466
 [#38469]: https://github.com/home-assistant/core/pull/38469
 [#38472]: https://github.com/home-assistant/core/pull/38472
+[#38474]: https://github.com/home-assistant/core/pull/38474
 [#38479]: https://github.com/home-assistant/core/pull/38479
 [#38480]: https://github.com/home-assistant/core/pull/38480
 [#38485]: https://github.com/home-assistant/core/pull/38485
@@ -915,6 +924,7 @@ Support for legacy logbook events created before 0.112 is removed.
 [#38542]: https://github.com/home-assistant/core/pull/38542
 [#38543]: https://github.com/home-assistant/core/pull/38543
 [#38547]: https://github.com/home-assistant/core/pull/38547
+[#38548]: https://github.com/home-assistant/core/pull/38548
 [#38552]: https://github.com/home-assistant/core/pull/38552
 [#38556]: https://github.com/home-assistant/core/pull/38556
 [#38557]: https://github.com/home-assistant/core/pull/38557
