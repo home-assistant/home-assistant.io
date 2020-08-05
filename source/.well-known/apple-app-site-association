@@ -6,42 +6,42 @@
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.dev",
         "paths": [
           "/ios/*",
-          "/nfc/*"
+          "/tag/*"
         ]
       },
       {
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.beta",
         "paths": [
           "/ios/*",
-          "/nfc/*"
+          "/tag/*"
         ]
       },
       {
         "appID": "UTQFCBPQRF.io.robbie.HomeAssistant",
         "paths": [
           "/ios/*",
-          "/nfc/*"
+          "/tag/*"
         ]
       },
       {
         "appID": "QMQYCKL255.io.robbie.HomeAssistant.dev",
         "paths": [
           "/ios/*",
-          "/nfc/*"
+          "/tag/*"
         ]
       },
       {
         "appID": "QMQYCKL255.io.robbie.HomeAssistant.beta",
         "paths": [
           "/ios/*",
-          "/nfc/*"
+          "/tag/*"
         ]
       },
       {
         "appID": "QMQYCKL255.io.robbie.HomeAssistant",
         "paths": [
           "/ios/*",
-          "/nfc/*"
+          "/tag/*"
         ]
       }
     ]
