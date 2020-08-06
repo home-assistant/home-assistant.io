@@ -65,7 +65,7 @@ device_class:
   type: device_class
   default: None
 expire_after:
-  description: "Defines the number of seconds after the sensor's state expires if it's not updated. After expiry, the sensor's state becomes `unavailable`."
+  description: Defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`.
   required: false
   type: integer
   default: 0
