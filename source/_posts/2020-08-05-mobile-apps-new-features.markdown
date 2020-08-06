@@ -18,7 +18,7 @@ Currently we use Google's Firebase notification service for sending notification
 
 ## Android minimal app
 
-On a related note, we are delighted to say we now offer a way to install a minimal version of the Android app that is completely free of any reliance on Google. This version of the app does not have location tracking or notifications. We hope that by providing this version of the app more developers will be excited about contributing to the app in general. You can find the APK on the [release](https://github.com/home-assistant/android/releases) page up on GitHub.
+On a related note, we are delighted to say we now offer a way to install a minimal version of the Android app that is completely free of any reliance on Google. This version of the app does not have location tracking or notifications. We hope that by providing this version of the app more developers will be excited about contributing to the app in general. You can find the APK on the [release](https://github.com/home-assistant/android/releases) page up on GitHub starting from version 2.1.0.
 
 ## What's New(ish)
 
