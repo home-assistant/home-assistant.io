@@ -31,6 +31,6 @@ To try it yourself, check out [the demo](https://demo.home-assistant.io).
 
 ## Additional Lovelace Resources
 
-- [Awesome HA](https://www.awesome-ha.com/#lovelace-ui)
-- [Community Custom Cards](https://github.com/custom-cards)
-- [Material Design Icons](https://materialdesignicons.com/tag/community)
+* [Awesome HA](https://www.awesome-ha.com/#lovelace-ui)
+* [Community Custom Cards](https://github.com/custom-cards)
+* [Material Design Icons](https://materialdesignicons.com/tag/community)
