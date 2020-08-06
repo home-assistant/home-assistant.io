@@ -1,12 +1,11 @@
 ---
-title: "Enable i2c on the Home Assistant Operating System"
+title: "Enable I2C on the Home Assistant Operating System"
 description: "Instructions on how to enable I2C on a Raspberry PI"
 ---
 
-Home Assistant using the Home Assistant Operating System, is a managed environment.
-Which means you can't use existing methods to enable the I2C bus on a Raspberry Pi.
+Home Assistant using the Home Assistant Operating System is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi.
 
-If you're attempting to add an external sensor, you will have to [enable the I2C interface in the Home Assistant configuration](https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/raspberrypi.md#i2c) using a USB stick.
+If you're attempting to add an external sensor you will have to [enable the I2C interface in the Home Assistant configuration](https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/raspberrypi.md#i2c) using a USB stick.
 
 ## Step by step instructions
 
