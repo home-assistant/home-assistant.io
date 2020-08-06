@@ -92,7 +92,7 @@ device_class:
   required: false
   type: string
 expire_after:
-  description: "Defines the number of seconds after the sensor's state expires if it's not updated. After expiry, the sensor's state becomes `unavailable` if any `availability` topic is defined and `unknown` otherwise."
+  description: "Defines the number of seconds after the sensor's state expires if it's not updated. After expiry and before receiving the first state message, the sensor's state will be `unavailable`"
   required: false
   type: integer
 force_update:
