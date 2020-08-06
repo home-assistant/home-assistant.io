@@ -6,7 +6,7 @@ description: "Frequently Asked Questions for Home Assistant OS"
 
 The bootloader for Home Assistant OS (uboot) does not yet support Pi4 booting from USB. Support is likely a month or two away as of July 2020.
 
-The Pi4, with 8GB RAM, is similarly waiting for support from upstream.
+The Pi4 with 8GB RAM is similarly waiting for support from upstream.
 
 ## How do I run a specific version of Home Assistant?
 
@@ -37,12 +37,12 @@ No. The USB "CONFIG" stick is only used to import a network profile to `/etc/Net
 
 This error indicates the image, whether for updating to Home Assistant or installing or updating an add-on, was not able to be pulled to your system. This is usually a situation where there is not enough space for the image to be downloaded. The first thing to check for is the available space on your system.
 
-Please note, if you are running the operating system as a virtual machine; the default VM image is only about 6GB. Many VM users run into this as they have not allocated enough storage. 32 GB is the minimum recommended size.
+Please note, if you are running the operating system as a virtual machine; the default VM image is only about 6GB. Many VM users run into this as they have not allocated enough storage. 32GB is the minimum recommended size.
 
-You'll need to explore your own system to determine where space has gone.
+You will need to explore your own system to determine where space has gone.
 Using `df -h` in the SSH add-on console to you can quickly check to see if you have space available.
 
-If there is plenty of space available then you might check to see if you are having network issues that are preventing images being downloaded.
+If there is plenty of space available then you might check to see if you are having network issues that are preventing images from being downloaded.
 
 ## Why does the start button for an add-on flash red when I click it?
 
@@ -53,6 +53,6 @@ The logs on this page are the same you would see using `ha logs` in the custom C
 ## I'm trying to find my files on the host or SD card. Where are they?
 
 On a Home Assistant OS install, your files are on the data partition within `/mnt/data/supervisor/`.
-On the SD itself, this is an EXT4 partition labeled `hassos-data`
+On the SD itself, this is an EXT4 partition labeled `hassos-data`.
 
 On a Supervised install, they are in `/usr/share/hassio/`.
