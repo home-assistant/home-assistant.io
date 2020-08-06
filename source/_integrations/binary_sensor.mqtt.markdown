@@ -160,14 +160,17 @@ value_template:
 
 In this section, you will find some real-life examples of how to use this sensor.
 
-### Full configuration
+### Full configuration with JSON data
 
+This is an example of a configuration where the state is extracted from a JSON formatted MQTT message.
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
 To set the state of the binary sensor manually:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/window/availability -m "online"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m '{"state":"ON"}'
+mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m '{"state":"OFF"}'
 ```
 
 The example below shows a full configuration for a binary sensor:
@@ -181,14 +184,13 @@ binary_sensor:
     name: "Window Contact Sensor"
     state_topic: "home-assistant/window/contact"
     payload_on: "ON"
-    payload_off: "OFF"
     availability:
       - topic: "home-assistant/window/availability"
         payload_available: "online"
         payload_not_available: "offline"
     qos: 0
     device_class: opening
-    value_template: '{{ value.x }}'
+    value_template: '{{ value_json.state }}'
 ```
 
 {% endraw %}
