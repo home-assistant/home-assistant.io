@@ -18,7 +18,7 @@ Currently we use Google's Firebase notification service for sending notification
 
 ## Android minimal app
 
-On a related note, we are delighted to say we now offer a way to install a minimal version of the Android app that is completely free of any reliance on Google. This version of the app does not have location tracking or notifications. We hope that by providing this version of the app more developers will be excited about contributing to the app in general. For now, you can find the APKs in the [GitHub Actions](https://github.com/home-assistant/android/actions) page from each pull request.
+On a related note, we are delighted to say we now offer a way to install a minimal version of the Android app that is completely free of any reliance on Google. This version of the app does not have location tracking or notifications. We hope that by providing this version of the app more developers will be excited about contributing to the app in general. You can find the APK on the [release](https://github.com/home-assistant/android/releases) page up on GitHub starting from version 2.1.0.
 
 ## What's New(ish)
 
@@ -91,7 +91,7 @@ Screenshot of Biometric Unlock.
 
 We have also been hard at working making improvements in other areas of the app:
 
-* [Widgets](https://companion.home-assistant.io/docs/core/android-widgets) were enhanced to allow you to select from a list of valid and available services along with the ability to add additional data fields that the service may require.
+* There are now 2 [widgets](https://companion.home-assistant.io/docs/core/android-widgets) that you can set up, with Entity State being the latest addition. The Entity State widget will display the state and any attribute of the selected entity. It will update once every 30 minutes or when tapped. The Service Call widget was also enhanced to allow you to select from a list of valid and available services along with the ability to add additional data fields that the service may require.
 * In App Configuration the Home Network WiFi SSID option now allows the user to select multiple SSIDs.
 * A Cookie Manager was added to our WebView that will allow you to save cookies from sites that you may use in the [webpage card](/lovelace/iframe/).
 * More descriptive SSL error messages were added to help users resolve local issues they may encounter while setting up the app.
