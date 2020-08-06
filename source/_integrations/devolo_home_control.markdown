@@ -3,6 +3,7 @@ title: devolo Home Control
 description: Instructions on how to integrate devolo Home Control with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Climate
   - Cover
   - Switch
 ha_release: '0.110'
@@ -58,3 +59,10 @@ The integration provides support for the following Z-Wave devices:
 
 - devolo Shutter FM
 - Qubino Flush Shutter
+
+## Climate
+
+The integration provides support for the following Z-Wave devices:
+
+- devolo Radiator Thermostat
+- Danfoss Living Connect Z Radiator Thermostat
