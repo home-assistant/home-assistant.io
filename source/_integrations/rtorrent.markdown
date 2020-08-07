@@ -67,3 +67,22 @@ monitored_variables:
     active_torrents:
       description: The number of torrents that are actively ( measurable speed ) leeching, seeding or both.
 {% endconfiguration %}
+
+## Services
+
+Available services:
+
+- `set_download_speed`: Set the download speed limit.
+- `set_upload_speed`: Set the upload speed limit.
+
+### Service `rtorrent/set_download_speed`
+
+| Service data attribute | Optional | Description                                                                                     |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `speed`                | yes      | Sets the download speed limit, specified in kB/s. 0 disables the speed limit. Defaults to 1000. |
+
+### Service `rtorrent/set_upload_speed`
+
+| Service data attribute | Optional | Description                                                                                   |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
+| `speed`                | yes      | Sets the upload speed limit, specified in kB/s. 0 disables the speed limit. Defaults to 1000. |
