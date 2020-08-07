@@ -14,19 +14,18 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: rtorrent
-    url: 'http://<user>:<password>@<host>:<port>/RPC2'
-    monitored_variables:
-      - 'current_status'
-      - 'download_speed'
-      - 'upload_speed'
-      - 'all_torrents'
-      - 'stopped_torrents'
-      - 'complete_torrents'
-      - 'uploading_torrents'
-      - 'downloading_torrents'
-      - 'active_torrents'
+rtorrent:
+  url: 'http://<user>:<password>@<host>:<port>/RPC2'
+  monitored_variables:
+    - 'current_status'
+    - 'download_speed'
+    - 'upload_speed'
+    - 'all_torrents'
+    - 'stopped_torrents'
+    - 'complete_torrents'
+    - 'uploading_torrents'
+    - 'downloading_torrents'
+    - 'active_torrents'
 ```
 
 This sensor requires the rTorrent XML-RPC API exposed on an HTTP interface.
