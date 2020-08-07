@@ -317,5 +317,5 @@ Event `dynalite_packet` is fired whenever there is a packet on the Dynalite netw
 | Field       | Description                                                                                         |
 | ----------- | --------------------------------------------------------------------------------------------------- |
 | `host`      | Host IP of the Dynalite gateway                                                                     |
-| `packet`    | List of integers representing the 8-byte packet, including the checksumm                            |
+| `packet`    | List of integers representing the 8-byte packet, including the checksum                             |
 
