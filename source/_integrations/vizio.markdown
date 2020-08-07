@@ -174,7 +174,7 @@ apps:
               type: string
               default: null
     scan_interval:
-      description: Defines the frequency (number of weeks) in which the integration will automatically pull the latest list of apps that Vizio supports. 0 disables the automatic sync."
+      description: Defines the frequency (number of weeks) in which the integration will automatically pull the latest list of apps that Vizio supports. `0` disables the automatic sync.
       required: false
       type: integer
       default: 0
