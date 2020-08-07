@@ -302,7 +302,7 @@ The initial process can be a bit time consuming and tedious, but it only has to 
 
 ### Event `dynalite_preset`
 
-Event `dynalite_preset` is fired every time a preset is selected in a given Dynalite area
+Event `dynalite_preset` is fired every time a preset is selected in a given Dynalite area.
 
 | Field       | Description                                                                                         |
 | ----------- | --------------------------------------------------------------------------------------------------- |
