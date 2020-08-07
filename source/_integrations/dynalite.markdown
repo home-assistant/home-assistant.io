@@ -287,7 +287,7 @@ dynalite:
           room_off: 4
 ```
 
-## Initial configuration and discovery
+## Initial Configuration and Discovery
 
 Maybe the most difficult thing about a Dynalite system is finding out the areas and channel mapping. If you have them or have access to the Dynalite software and your configuration files, this could be easy,
 but in the likely case that your system was installed by an integrator, you will have to discover them on your own.
@@ -297,3 +297,25 @@ This is where the `autodiscover` option comes handy. If it is on, the component 
 For example, you would go to your kitchen light and turn it on. Now you log into Home Assistant and see what the channel was. If there was more than one discovered (e.g., someone turned off the living room lights), you can try one, turn it on and off in Home Assistant and see which light it affects.
 
 The initial process can be a bit time consuming and tedious, but it only has to be done once. Once you are done configuring, it is better to set `autodiscover` to `false`, since there are many "fake" channels and areas that the system uses for internal communication and you do not want to have visible.
+
+## Events
+
+### Event `dynalite_preset`
+
+Event `dynalite_preset` is fired every time a preset is selected in a given Dynalite area.
+
+| Field       | Description                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------- |
+| `host`      | Host IP of the Dynalite gateway                                                                     |
+| `area`      | Area number where preset was selected                                                               |
+| `preset`    | The specific preset that was selected                                                               |
+
+### Event `dynalite_packet`
+
+Event `dynalite_packet` is fired whenever there is a packet on the Dynalite network.
+
+| Field       | Description                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------- |
+| `host`      | Host IP of the Dynalite gateway                                                                     |
+| `packet`    | List of integers representing the 8-byte packet, including the checksum                             |
+
