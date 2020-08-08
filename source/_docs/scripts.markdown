@@ -93,20 +93,14 @@ Delays are useful for temporarily suspending your script and start it at a later
 
 ### Wait
 
-Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will continue its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
+Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger).
+
+#### Wait Template
 
 {% raw %}
 ```yaml
 # Wait until media player have stop the playing
 - wait_template: "{{ is_state('media_player.floor', 'stop') }}"
-```
-{% endraw %}
-
-{% raw %}
-```yaml
-# Wait for sensor to trigger or 1 minute before continuing to execute.
-- wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
-  timeout: '00:01:00'
 ```
 {% endraw %}
 
@@ -132,18 +126,68 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 ```
 {% endraw %}
 
+After each time the wait completes, either because the condition was met, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
+
+Variable | Description
+-|-
+`wait.completed` | `true` if the condition was met, `false` otherwise
+`wait.remaining` | timeout remaining, or `none` if a timeout was not specified
+
+This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
+
+{% raw %}
+```yaml
+# Take different actions depending on if condition was met.
+- wait_template: "{{ is_state('binary_sensor.door', 'on') }}"
+  timeout: 10
+- choose:
+    - conditions:
+        - condition: template
+          value_template: "{{ not wait.completed }}"
+      sequence:
+        - service: script.door_did_not_open
+  default:
+    - service: script.door_did_open
+
+# Wait a total of 10 seconds.
+- wait_template: "{{ is_state('binary_sensor.door_1', 'on') }}"
+  timeout: 10
+  continue_on_timeout: false
+- service: switch.turn_on
+  entity_id: switch.some_light
+- wait_template: "{{ is_state('binary_sensor.door_2', 'on') }}"
+  timeout: "{{ wait.remaining }}"
+  continue_on_timeout: false
+- service: switch.turn_off
+  entity_id: switch.some_light
+```
+{% endraw %}
+
+#### Wait Timeout
+
+It is possible to set a timeout after which the script will continue its execution if the condition is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
+
+{% raw %}
+```yaml
+# Wait for sensor to trigger or 1 minute before continuing to execute.
+- wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
+  timeout: '00:01:00'
+```
+{% endraw %}
+
 You can also get the script to abort after the timeout by using optional `continue_on_timeout`
 
 {% raw %}
 ```yaml
-# Wait until a valve is < 10 or abort after 1 minute.
+# Wait until a valve is < 10 or abort after specified timeout.
 - wait_template: "{{ state_attr('climate.kitchen', 'valve')|int < 10 }}"
-  timeout: '00:01:00'
+  timeout:
+    minutes: "{{ timeout_minutes }}"
   continue_on_timeout: false
 ```
 {% endraw %}
 
-Without `continue_on_timeout` the script will always continue.  
+Without `continue_on_timeout` the script will always continue.
 
 ### Fire an Event
 
