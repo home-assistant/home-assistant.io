@@ -35,5 +35,5 @@ After completing the configuration flow, the Bond integration will be available.
 ## Requirements
 
 This integration supports Bond bridges with firmware v2.10.x and up.
-Bond bridges with firmware v2.9.x and lower will **not** work correctly - please,
+Bond bridges with firmware v2.9.x and lower will **not** work correctly. Please
 upgrade your firmware from Bond app before adding this integration.
