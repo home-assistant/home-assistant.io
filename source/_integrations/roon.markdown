@@ -19,8 +19,6 @@ To integrate with Roon, you need to provide Home Assistant with the Hostname or 
 
 If you use an IP address please assign a static IP address to the machine that runs Roon Core. This ensures that it won't change IP addresses, so you won't have to change the configuration in Home Assistant if it reboots and changes IP address. See your router's manual for details on how to set this up.
 
-</div>
-
 ### Configuration
 
 You need the Hostname or IP adresss of the machine that runs your Roon Core. This might be a machine name (which can be followed buy .local, eg myserver.local) or can be an IP address.
