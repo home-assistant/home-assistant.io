@@ -2679,7 +2679,7 @@ This page contains a list of people who have contributed in one way or another t
 - [Daniel (@delneet)](https://github.com/delneet "2 total commits to the Home Assistant orga:
 2 commits to home-assistant.io
 ")
-- [Daniel (@azrarel783)](https://github.com/azrarel783 "1 total commits to the Home Assistant orga:
+- [Daniel (@azrael783)](https://github.com/azrael783 "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
 - [Daniel (@danimtb)](https://github.com/danimtb "1 total commits to the Home Assistant orga:
