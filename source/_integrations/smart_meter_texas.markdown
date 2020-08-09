@@ -29,4 +29,4 @@ Due to API limits, this sensor refreshes once per hour. The limit is 24 meter re
 
 This integration can be configured from the frontend.
 
-Menu: _Configuration > Integrations_
+Menu: _Configuration > Integrations_, select the `+` button and search for _Smart Meter Texas_.
