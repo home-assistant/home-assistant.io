@@ -1,7 +1,7 @@
 ---
 title: Flo by Moen
 description: Instructions on how to integrate Flo by Moen into Home Assistant.
-ha_release: '0.115'
+ha_release: 0.115
 ha_category:
   - Sensor
 ha_config_flow: true
@@ -20,4 +20,4 @@ There is currently support for the following device types within Home Assistant:
 ## Configuration
 
 This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Flo**.
