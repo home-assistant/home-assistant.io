@@ -83,7 +83,7 @@ default:
     query_channel:
       description: Default to channel to query the area for its preset level. Normally, channel 1 replies for the area.
       required: false
-      type: float
+      type: integer
       default: 1
 area:
   description: Definition for the various Dynalite areas.
@@ -117,7 +117,7 @@ area:
         query_channel:
           description: Channel to query the area for its preset level, if different than system global.
           required: false
-          type: int
+          type: integer
         preset:
           description: Specific presets for the area.
           required: false
