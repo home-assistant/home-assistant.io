@@ -43,7 +43,7 @@ server_port:
   type: integer
   default: 8123
 ssl_certificate:
-  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
+  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`.
   required: false
   type: string
 ssl_peer_certificate:
@@ -51,7 +51,7 @@ ssl_peer_certificate:
   required: false
   type: string
 ssl_key:
-  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection.
+  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
   required: false
   type: string
 cors_allowed_origins:
