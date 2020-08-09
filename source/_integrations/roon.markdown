@@ -3,7 +3,7 @@ title: RoonLabs Media Player
 description: Instructions on how to integrate a RoonLabs multi room player into Home Assistant.
 ha_category:
   - Media Player
-ha_release: 0.114
+ha_release: 0.115
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -25,8 +25,8 @@ If you use an IP address please assign a static IP address to the machine that r
 
 You need the Hostname or IP adresss of the machine that runs your Roon Core. This might be a machine name (which can be followed buy .local, eg myserver.local) or can be an IP address.
 
-1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'Roon' and click 'Configure'.
-2. Enter the Hostname or IP address for the Roon Core machine and click 'Submit'.
-3. Home Assistant will then contact your Roon Core and ask to be authorized. You will need to enable this extension in the Room Application. Go to 'Settings' and then 'Extensions', there you will see an entry for Home Assistant with a button next to it. Click 'Enable'.
+1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Roon' and click **Configure**.
+2. Enter the `Hostname` or `IP address` for the Roon Core machine and click **Submit**.
+3. Home Assistant will then contact your Roon Core and ask to be authorized. You will need to enable this extension in the Room Application. Go to **Settings** and then **Extensions**, there you will see an entry for Home Assistant with a button next to it. Click **Enable**.
 4. Roon core will then provide Home Assistant with the details of your media players.
 5. In Home Assistant you can then pick an area for each of your music players, and add them to Home Assistant.
