@@ -323,7 +323,7 @@ This does not return the area preset. It sends a network command asking the area
 | ---------------------- | -------- | ----------- |
 | `host` | yes | Which gatway to send the command to. If not specificed, sends to all configured gateways.
 | `area` | no | Which area to request the preset for.
-| `query_channel` | yes | Which channel to use. If not specified, uses the area configuration or system default.
+| `channel` | yes | Which channel to use. If not specified, uses the area configuration or system default.
 
 ## Events
 
