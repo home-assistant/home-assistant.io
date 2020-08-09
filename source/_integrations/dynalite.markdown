@@ -298,6 +298,24 @@ For example, you would go to your kitchen light and turn it on. Now you log into
 
 The initial process can be a bit time consuming and tedious, but it only has to be done once. Once you are done configuring, it is better to set `autodiscover` to `false`, since there are many "fake" channels and areas that the system uses for internal communication and you do not want to have visible.
 
+## Services
+
+### Service `dynalite.request_area_preset`
+
+Send a command on the Dynalite network asking an area to report its currently selected preset. Normally, channel 1 (default) is used, but in some implementation, specific areas will need other channels.
+
+<div class='note'>
+
+This does not return the area preset. It sends a network command asking the area to report its preset. Once it reports, that will be caught and handled by the system.
+
+</div>
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host` | yes | Which gatway to send the command to. If not specificed, sends to all configured gateways.
+| `area` | no | Which area to request the preset for.
+| `query_channel` | yes | Which channel to use. If not specified, uses the area configuration or system default.
+
 ## Events
 
 ### Event `dynalite_preset`
