@@ -303,7 +303,11 @@ which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago
 
 ### Time trigger
 
-The time trigger is configured to fire once at a specific point in time each day.
+The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are two allowed formats:
+
+#### Time String
+
+A string that represents a time to fire each day. Can be specified as HH:MM or HH:MM:SS. If the seconds is not specified :00 will be used.
 
 ```yaml
 automation:
@@ -313,15 +317,53 @@ automation:
     at: "15:32:00"
 ```
 
-Or at multiple specific times:
+#### Input Datetime
+
+The Entity ID of an [Input Datetime](/integrations/input_datetime/).
+
+has_date | has_time | Description
+-|-|-
+true | true | Will fire at specifid date & time.
+true | false | Will fire at midnight on specified date.
+false | true | Will fire once a day at specified time.
+
+{% raw %}
+```yaml
+automation:
+  - trigger:
+      platform: state
+      entity_id: binary_sensor.motion
+      to: 'on'
+    action:
+      - service: climate.turn_on
+        entity_id: climate.office
+      - service: input_datetime.set_datetime
+        entity_id: input_datetime.turn_off_ac
+        data_template:
+          datetime: >
+            {{ (now().timestamp() + 2*60*60)
+               | timestamp_custom('%Y-%m-%d %H:%M:%S') }}
+
+  - trigger:
+      platform: time
+      at: input_datetime.turn_off_ac
+    action:
+      service: climate.turn_off
+      entity_id: climate.office
+```
+{% endraw %}
+
+#### Multiple Times
+
+Multiple times can be provided in a list. Both formats can be intermixed.
 
 ```yaml
 automation:
   trigger:
     platform: time
     at:
-      - "15:32:00"
-      - "20:30:00"
+      - input_datetime.leave_for_work
+      - "18:30:00"
 ```
 
 ### Time pattern trigger
