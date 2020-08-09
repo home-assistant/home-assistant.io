@@ -54,7 +54,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 | State | Description |
 | ----- | ----------- |
-| `idle` | Timer is idle because the timer finished, was cancelled or was never started |
+| `idle` | Timer is idle because the timer finished, was canceled or was never started |
 | `active` | Timer is currently running because it was (re-)started |
 | `paused` | Timer is paused because it was paused |
 
