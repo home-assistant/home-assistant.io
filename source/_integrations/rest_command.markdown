@@ -75,7 +75,6 @@ service_name:
 
 This example implements 2 rest commands to add service calls the missing shuffle functionality from the iTunes integration with a REST command.
 
-{% raw %}
 ```yaml
 rest_command:
   shuffle_on: 
@@ -89,7 +88,6 @@ rest_command:
     content_type: "application/x-www-form-urlencoded"
     payload: "mode=off"
 ```
-{% endraw %}
 
 ### Using templates to change the payload based on entities
 
