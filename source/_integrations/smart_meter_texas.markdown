@@ -15,11 +15,15 @@ The [Smart Meter Texas](https://www.smartmetertexas.com/) integration allows Tex
 
 On its own this sensor is not particularly useful. However, combined with a [`utility_meter`](https://www.home-assistant.io/integrations/utility_meter/) sensor you can obtain usage over a month, for example.
 
-Any Texas electricity consumer can [register an account](https://www.smartmetertexas.com/register). To register you will need following details which can be found on your electric bill.
+Any Texas electricity consumer can register an account.
 
-1. The name of your retail electric provider
-2. Your meter number
-3. Your ESIID (Electric Service Identifier)
+1. Go to [Smart Meter Texas](https://www.smartmetertexas.com/)
+2. Select _Sign Up_
+3. Choose _residental_ as your account type
+4. you will need following details which can be found on your electric bill.
+    - The name of your retail electric provider
+    - Your meter number
+    - Your ESIID (Electric Service Identifier)
 
 <div class='note'>
 Due to API limits, this sensor refreshes once per hour. The limit is 24 meter readings per calendar day.
