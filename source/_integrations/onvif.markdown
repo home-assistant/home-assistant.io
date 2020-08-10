@@ -37,6 +37,8 @@ You can configure specific FFmpeg options through the integration options flow b
 | RTSP transport mechanism | RTSP transport protocols. The possible options are: `tcp`, `udp`, `udp_multicast`, `http`. |
 | Extra FFmpeg arguments | Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/integrations/ffmpeg). |
 
+You can also configure which HTTP authentication type (`basic` or `digest`) is used when retrieving snapshots. The default is `digest`.
+
 ### Supported Sensors
 
 This integration uses the ONVIF pullpoint subscription API to process events into sensors that will be automatically added to Home Assistant.  Below is a list of currently supported event topics along with the entities they create.
