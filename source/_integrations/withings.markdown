@@ -40,9 +40,11 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
     withings:
       client_id: CLIENT_ID
       client_secret: CONSUMER_SECRET
+      use_webhook: true
     ```
 - Confirm your YAML configuration is valid by using the `Check Config` tool (see note).
     - Note: In order for "Check Configuration" to be visible, you must enable "Advanced Mode" on your user profile. The "Check Configuration" tool can be found by clicking "Configuration" from the sidebar (cog icon) and then clicking "Server Control".
+- make sure your External URL (under Configuration > General) is set to your Nabu Casa Cloud instance URL
 - Restart Home Assistant.
 
 
@@ -51,6 +53,7 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You 
 - Add the Withings integration.
 - Once authorized, the tab/window will close and the integration page will prompt to select a profile. Select the profile you chose while on the Withings site.
   - Note: It's important you select the same profile from the previous step. Choosing a different one will result in Home Assistant displaying the wrong data.
+- Enable the webhook for the profile you just created under the Home Assistant Cloud settings.
 - Data will synchronize immediately and update under the following conditions:
     - If `use_webhook` is enabled:
         - Each time Withings notifies Home Assistant of a data change.
