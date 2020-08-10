@@ -7,6 +7,7 @@
         "paths": [
           "/ios/*",
           "NOT /ios/beta",
+          "NOT /ios/beta/*",
           "/tag/*"
         ]
       },
@@ -15,6 +16,7 @@
         "paths": [
           "/ios/*",
           "NOT /ios/beta",
+          "NOT /ios/beta/*",
           "/tag/*"
         ]
       },
@@ -23,6 +25,7 @@
         "paths": [
           "/ios/*",
           "NOT /ios/beta",
+          "NOT /ios/beta/*",
           "/tag/*"
         ]
       },
@@ -31,6 +34,7 @@
         "paths": [
           "/ios/*",
           "NOT /ios/beta",
+          "NOT /ios/beta/*",
           "/tag/*"
         ]
       },
@@ -39,6 +43,7 @@
         "paths": [
           "/ios/*",
           "NOT /ios/beta",
+          "NOT /ios/beta/*",
           "/tag/*"
         ]
       },
@@ -47,6 +52,7 @@
         "paths": [
           "/ios/*",
           "NOT /ios/beta",
+          "NOT /ios/beta/*",
           "/tag/*"
         ]
       }
