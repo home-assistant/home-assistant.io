@@ -19,7 +19,7 @@ Any Texas electricity consumer can register an account.
 
 1. Go to [Smart Meter Texas](https://www.smartmetertexas.com/)
 2. Select _Sign Up_
-3. Choose _residental_ as your account type
+3. Choose _residential_ as your account type
 4. you will need following details which can be found on your electric bill.
     - The name of your retail electric provider
     - Your meter number
