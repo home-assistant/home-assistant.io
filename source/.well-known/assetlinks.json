@@ -1,0 +1,36 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.homeassistant.companion.android",
+    "sha256_cert_fingerprints":
+    ["XXX"]
+  }
+},
+{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.homeassistant.companion.android",
+    "sha256_cert_fingerprints":
+    ["XXX"]
+  }
+},
+{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.homeassistant.companion.android.debug",
+    "sha256_cert_fingerprints":
+    ["XXX"]
+  }
+},
+{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.homeassistant.companion.android.debug",
+    "sha256_cert_fingerprints":
+    ["XXX"]
+  }
+}]
