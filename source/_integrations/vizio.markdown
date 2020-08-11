@@ -173,11 +173,6 @@ apps:
               required: false
               type: string
               default: null
-    scan_interval:
-      description: Defines the frequency (number of weeks) in which the integration will automatically pull the latest list of apps that Vizio supports. `0` disables the automatic sync.
-      required: false
-      type: integer
-      default: 0
 {% endconfiguration %}
 
 ```yaml
@@ -201,7 +196,6 @@ vizio:
             APP_ID: 9
             NAME_SPACE: 9
             MESSAGE: MY_MESSAGE
-      scan_interval: 1
 ```
 
 ### Obtaining an app configuration
@@ -217,7 +211,7 @@ pyvizio --ip=0 get-apps-list
 
 ## Service `vizio.fetch_latest_apps`
 
-This service allows you to fetch the latest list of apps for a given Vizio device. Vizio occasionally adds support for additional apps and this service allows you to sync Home Assistant with that list. This action can also be scheduled to perform automatically using the `scan_interval` configuration option in `configuration.yaml` or in the configuration entry Options menu.
+This service allows you to fetch the latest list of apps for a given Vizio device. Vizio occasionally adds support for additional apps and this service allows you to sync Home Assistant with that list. This action can also be scheduled to perform automatically by updating the configuration entry options (Go to **Configuration** > **Integrations** and click on **Options** on the **VIZIO SmartCast** card of the entry you want to update).
 
 ## Notes and limitations
 
