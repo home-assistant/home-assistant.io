@@ -83,7 +83,7 @@ rest_command:
     content_type: "application/x-www-form-urlencoded"
     payload: "mode=songs"
   shuffle_off: 
-    url: "http://[YOUR_ITUNES-API_SERVER_IP]:8181/shuffle"
+    url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
     method: put
     content_type: "application/x-www-form-urlencoded"
     payload: "mode=off"
