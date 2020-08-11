@@ -87,8 +87,6 @@ The example below shows a full configuration with three sensors that showcase th
 # Example configuration.yaml entry
 sensor:
   - platform: rmvtransport
-    scan_interval: 120
-    timeout: 10
     next_departure:
       - station: 3000010
         time_offset: 5
