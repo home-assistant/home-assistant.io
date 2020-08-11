@@ -28,69 +28,9 @@ The integration will automatically set the refresh interval based on the number 
 | `hourly`      | Hourly forecasts for the next 24 hours                                                                           |
 | `daily`       | Daily  forecasts for the next 14 days                                                                            |
 
-## Configure the integration
+## Configuration
 
-The integration can be configured via the Integrations menu in the Home Assistant frontend, or it can be configured via `configuration.yaml`
+To add `climacell` to your setup, go to *Configuration* >> *Integrations* in the UI, click the button with `+` sign and from the list of integrations select *ClimaCell*. to the Integrations menu and search for ClimaCell. Fill out the form with a valid API key to set up the integration.
 
-### Configuration via the Integrations menu
+To configure the update frequency for `nowcast` forecasts, or to select which country's standard is used to measure the Air Quality Index, access the options menu for the ClimaCell integration in the *Integrations* menu.
 
-Go to the Integrations menu and search for ClimaCell. Fill out the form with a valid API key to set up the integration. To configure the `timestep` or `aqi_country` parameters (described below), access the options menu for the ClimaCell integration in the Integrations menu.
-
-### Configuration via `configuration.yaml`
-
-To add ClimaCell to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-climacell:
-  - api_key: YOUR_API_KEY
-```
-
-{% configuration %}
-api_key:
-  description: "A valid ClimaCell API key"
-  required: true
-  type: string
-name:
-  description: Nickname for the integration that will be used to generate the entity ID. If you want to track weather for multiple locations, each name must be unique.
-  required: false
-  type: string
-  default: ClimaCell
-latitude:
-  description: Latitude for the location being tracked.
-  required: inclusive
-  type: float
-  default: The latitude of your Home Assistant instance
-longitude:
-  description: Longitude for the location being tracked.
-  required: inclusive
-  type: float
-  default: The longitude of your Home Assistant instance
-forecast_type:
-  description: The kind of forecast you want. Valid options are `nowcast`, `hourly`, `daily`, or `disable`. Choose `disable` to exclude forecasts.
-  required: false
-  type: string
-  default: daily
-timestep:
-  description: The number of minutes (1 - 60) between forecasts when `forecast_type` is `nowcast`. The number of forecasts provided will be dependent on the number of minutes chosen between forecasts, but the maximum number of forecasts is 30 and the maximum overall forecast period is 5 hours.
-  required: false
-  type: integer
-  default: 15
-aqi_country:
-  description: The country whose standard is being used to measure the Air Quality Index. Valid options are `usa` for US EPA standards and `china` for China MEP standards.
-  required: false
-  type: string
-  default: usa
-{% endconfiguration %}
-
-```yaml
-# Complete configuration.yaml entry
-climacell:
-  - api_key: YOUR_API_KEY
-    name: MY_CLIMACELL_DEVICE
-    latitude: -23.22960
-    longitude: -108.27803
-    forecast_interval: daily
-    timestep: 15
-    aqi_country: usa
-```
