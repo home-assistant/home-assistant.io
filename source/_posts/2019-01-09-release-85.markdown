@@ -37,7 +37,7 @@ This release also features native support for [ESPHome](https://esphomelib.com/e
 - Add native ESPHome API component ([@OttoWinter] - [#19334]) (new-platform)
 - Add GTT Sensor ([@eliseomartelli] - [#18449]) ([sensor.gtt docs]) (new-platform)
 - Add openSenseMap air pollutants platform ([@fabaff] - [#19357]) ([air_pollutants docs]) (new-platform)
-- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) ([sensor.prezzibenzina docs]) (new-platform)
+- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) (new-platform)
 - Add sensor platform for SolarEdge Monitoring API ([@GidoHakvoort] - [#18846]) ([sensor.solaredge docs]) (new-platform)
 - Add Mythic Beasts DNSAPI Component ([@thinkl33t] - [#18333]) ([mythicbeastsdns docs]) (new-platform)
 - Add new sensor platform to expose Islamic prayer times ([@uchagani] - [#19444]) ([sensor.islamic_prayer_times docs]) (new-platform)
@@ -215,7 +215,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add openSenseMap air pollutants platform ([@fabaff] - [#19357]) ([air_pollutants docs]) (new-platform)
 - Optionally disable ssl verification for mjpeg ([@rohankapoorcom] - [#19277]) ([zoneminder docs]) ([camera.mjpeg docs]) ([camera.zoneminder docs])
 - Use string foratting ([@fabaff] - [#19427]) ([sensor.brottsplatskartan docs])
-- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) ([sensor.prezzibenzina docs]) (new-platform)
+- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) (new-platform)
 - Upgrade sqlalchemy to 1.2.15 ([@fabaff] - [#19383]) ([sensor.sql docs])
 - Upgrade requests to 2.21.0 ([@fabaff] - [#19385])
 - Miscellaneous ESPHome cleanups ([@OttoWinter] - [#19425]) ([esphome docs]) ([binary_sensor.esphome docs]) ([switch.esphome docs])
@@ -862,7 +862,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.openweathermap docs]: /integrations/openweathermap#sensor
 [sensor.plum_lightpad docs]: /integrations/plum_lightpad
 [sensor.point docs]: /integrations/point#sensor
-[sensor.prezzibenzina docs]: /integrations/prezzibenzina
 [sensor.scrape docs]: /integrations/scrape
 [sensor.seventeentrack docs]: /integrations/seventeentrack
 [sensor.solaredge docs]: /integrations/solaredge
