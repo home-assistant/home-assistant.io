@@ -211,7 +211,7 @@ pyvizio --ip=0 get-apps-list
 
 ## Service `vizio.fetch_latest_apps`
 
-This service allows you to fetch the latest list of apps for a given Vizio device. Vizio occasionally adds support for additional apps and this service allows you to sync Home Assistant with that list. This action can also be scheduled to perform automatically by updating the configuration entry options (Go to **Configuration** > **Integrations** and click on **Options** on the **VIZIO SmartCast** card of the entry you want to update).
+This service allows you to fetch the latest list of apps for a given Vizio device. Vizio occasionally adds support for additional apps and this service allows you to sync Home Assistant with that list. This action can also be scheduled to perform automatically by updating the configuration entry options: go to **Configuration** > **Integrations** and click on **Options** on the **Vizio SmartCast** card of the entry you want to update.
 
 ## Notes and limitations
 
