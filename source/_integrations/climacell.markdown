@@ -30,7 +30,7 @@ The integration will automatically set the refresh interval based on the number 
 
 ## Configuration
 
-To add `climacell` to your setup, go to *Configuration* >> *Integrations* in the UI, click the button with `+` sign and from the list of integrations select *ClimaCell*. to the Integrations menu and search for ClimaCell. Fill out the form with a valid API key to set up the integration.
+To add `climacell` to your setup, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **ClimaCell**. to the Integrations menu and search for ClimaCell. Fill out the form with a valid API key to set up the integration.
 
 To configure the update frequency for `nowcast` forecasts, or to select which country's standard is used to measure the Air Quality Index, access the options menu for the ClimaCell integration in the *Integrations* menu.
 
