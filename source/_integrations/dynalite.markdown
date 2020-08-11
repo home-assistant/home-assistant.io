@@ -313,6 +313,22 @@ This does not return the area preset. It sends a network command asking the area
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host` | yes | Which gateway to send the command to. If not specified, sends to all configured gateways.
+| `area` | no | Area for the requested channel.
+| `channel` | no | Which channel to request.
+
+### Service `dynalite.request_channel_level`
+
+Send a command on the Dynalite network asking a specific channel in an area to report its current level.
+
+<div class='note'>
+
+This does not return the channel level. It sends a network command asking the channel to report its level. Once it reports, that will be caught and handled by the system.
+
+</div>
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host` | yes | Which gateway to send the command to. If not specified, sends to all configured gateways.
 | `area` | no | Which area to request the preset for.
 | `channel` | yes | Which channel to use. If not specified, uses the area configuration or system default.
 
