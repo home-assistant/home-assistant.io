@@ -1444,8 +1444,8 @@ The configuration parameters will have to be added to the `zwcfg` file. Replace 
     <Item label="Disabled" value="0"/>
     <Item label="Enabled (default)" value="1"/>
   </Value>
-  <Value type="byte" genre="config" index="3" label="Motion Sensativity" size="1" min="1" max="10" value="10">
-    <Help>Adjust motion sensitivity where 10 is the most sensative setting.
+  <Value type="byte" genre="config" index="3" label="Motion Sensitivity" size="1" min="1" max="10" value="10">
+    <Help>Adjust motion sensitivity where 10 is the most sensitive setting.
     default: 10
     </Help>
   </Value>
