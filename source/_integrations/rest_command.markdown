@@ -93,7 +93,7 @@ rest_command:
 
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
 
-In this example entry, you can see some simple [templates](/docs/configuration/templating/) in use for dynamic parameters.
+In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
 
 {% raw %}
 ```yaml
