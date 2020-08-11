@@ -59,20 +59,20 @@ monitored_conditions:
 
 | Attribute    | Description                            |
 | ------------ | -------------------------------------- |
-| `last_updated` | *(time)* Information last update from DWD service. |
+| `last_update` | *(time)* Time and date (UTC) of last update from DWD. |
 | `region_name` | *(str)* Requested region name. This should be the same as the region name in the configuration if a name was given. |
 | `region_id` | *(int)* Region ID assigned by DWD. This should be the same as the region name in the configuration if an id was given. |
 | `warning_count` | *(int)* Number of issued warnings. There can be more than one warning issued at once. |
 | `warning_<x>` | *(list)* The warning as a whole object containing the following attributes as nested attributes. |
-| `warning_<x>_level` | *(int)* Issued warning level between 0 and 4. <br/>0: Keine Warnungen <br/>1: Wetterwarnungen <br/>2: Warnungen vor markantem Wetter<br/>3: Unwetterwarnungen<br/>4: Warnungen vor extremem Unwetter |
-| `warning_<x>_type` | *(int)* Issued warning type. <br/>A list of the used warning types can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/warnings_codes_pdf.pdf |
-| `warning_<x>_name` | *(str)* This name correlates with the warning type and indicates it in short string. |
+| `warning_<x>_level` | *(int)* Issued warning level (0 - 4).<br/>0: Keine Warnungen <br/>1: Wetterwarnungen <br/>2: Warnungen vor markantem Wetter<br/>3: Unwetterwarnungen<br/>4: Warnungen vor extremem Unwetter |
+| `warning_<x>_type` | *(int)* Issued warning type. <br/>More information can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/neu_cap_dwd_profile_changes_de_pdf.pdf |
+| `warning_<x>_name` | *(str)* Warning name correlates with the warning type and represents it as a short string. |
 | `warning_<x>_headline` | *(str)* Official headline of the weather warning. |
-| `warning_<x>_start` | *(time)* Starting time and date of the issued warning. |
-| `warning_<x>_end` | *(time)* Ending time and date of the issued warning. |
+| `warning_<x>_start` | *(time)* Starting time and date (UTC) of the issued warning. |
+| `warning_<x>_end` | *(time)* Ending time and date (UTC) of the issued warning. |
 | `warning_<x>_description` | *(str)* Details for the issued warning. |
-| `warning_<x>_instruction` | *(str)* The DWD is sometimes providing helpful information about precautions to take for the issued warning. |
-| `warning_<x>_parameters` | *(list)* A list of additional warning parameters. <br/> More information can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/neu_cap_dwd_profile_changes_de_pdf.pdf |
+| `warning_<x>_instruction` | *(str)* The DWD sometimes provides helpful information about precautions to take for the issued warning. |
+| `warning_<x>_parameters` | *(list)* A list of additional warning parameters. <br/>More information can be found at https://www.dwd.de/DE/leistungen/opendata/help/warnungen/neu_cap_dwd_profile_changes_de_pdf.pdf |
 | `warning_<x>_color` | *(str)* The DWD color of the warning encoded as `#rrggbb`. |
 
 <div class="note">
