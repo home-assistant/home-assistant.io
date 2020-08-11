@@ -50,6 +50,14 @@ timer:
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
+## Possible States
+
+| State | Description |
+| ----- | ----------- |
+| `idle` | Timer is idle because the timer finished, was canceled or was never started |
+| `active` | Timer is currently running because it was (re-)started |
+| `paused` | Timer is paused because it was paused |
+
 ## Events
 
 |           Event | Description |
