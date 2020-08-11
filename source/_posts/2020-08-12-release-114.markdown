@@ -178,6 +178,17 @@ is created. This prevents issues during startup.
 
 Honestly, the above isn't even complete. 😅 Thanks [@bdraco]!
 
+## Share Diagnostics & Crash reports
+
+With Supervisor 231, shipped with Home Assistant 0.114, we added a new option on System Panel. 
+If you want this, you need enable it, default it's disabled.
+This will allow us to fix the problems, the information is only accessible to the 
+Home Assistant Core team and will not be shared with others.
+The data does not include any private/sensetive information and you can disable 
+this in settings at any time you want.
+
+This service is sponsored by Sentry.io - Thanks a lot!
+
 ## Other noteworthy changes
 
 - You can now move Lovelace cards to a different dashboard and add cards to
