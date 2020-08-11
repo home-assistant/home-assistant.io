@@ -180,14 +180,13 @@ Honestly, the above isn't even complete. 😅 Thanks [@bdraco]!
 
 ## Share Diagnostics & Crash reports
 
-With Supervisor 231, shipped with Home Assistant 0.114, we added a new option on System Panel. 
-If you want this, you need enable it, default it's disabled.
-This will allow us to fix the problems, the information is only accessible to the 
-Home Assistant Core team and will not be shared with others.
-The data does not include any private/sensetive information and you can disable 
-this in settings at any time you want.
+With Supervisor 231, shipped with Home Assistant 0.114, we added a new option on System panel, to share diagnostics and crash reports with us anonymously. This will allow us to find and fix problems. 
 
-This service is sponsored by Sentry.io - Thanks a lot!
+The shared information is only accessible to the Home Assistant Core team and will not be shared with others. The data does not include any private or sensitive information and you can disable it in settings at any time you want.
+
+This option is by default, of course, disabled. So, if you want to help to project out, consider enabling this option in the Supervisor panel. 
+
+This service is sponsored by [Sentry.io](https://sentry.io/welcome/) - Thanks a lot!
 
 ## Other noteworthy changes
 
