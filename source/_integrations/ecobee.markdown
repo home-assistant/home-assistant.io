@@ -193,7 +193,7 @@ Enable/disable automatic daylight savings time.
 
 ### Service `ecobee.set_mic_mode`
 
-Enable/disable Alexa mic (only for Ecobee 4).
+Enable/disable Alexa mic (only for ecobee 4).
 
 | Service data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
