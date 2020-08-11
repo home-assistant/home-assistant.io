@@ -3,7 +3,7 @@ title: Nightscout
 description: Instructions on how to integrate your Nightscout CGM data into Home Assistant.
 ha_category:
   - Sensor
-ha_release: 0.114
+ha_release: 0.115
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -26,7 +26,7 @@ Then just input your server URL in the `Host` field. For example:
 
 If you have a sensor session running, and once you have enabled the Nightscout integration, you should see a `sensor.blood_glucose` entity.
 
-It's icon changes to indicate the direction, or trend, of the glucose readings.
+It's icon changes to indicate the direction or trend, of the glucose readings.
 The state is the last reading from Nightscout, and you can see other information about the reading in the sensor's attributes.
 
 ### Example Automation
