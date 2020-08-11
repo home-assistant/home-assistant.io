@@ -367,13 +367,13 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 ### Zone trigger
 
-Zone trigger fires when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
+Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a person, or a device_tracker. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 automation:
   trigger:
     platform: zone
-    entity_id: device_tracker.paulus
+    entity_id: person.paulus
     zone: zone.home
     # Event is either enter or leave
     event: enter # or "leave"
