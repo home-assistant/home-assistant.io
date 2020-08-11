@@ -312,7 +312,7 @@ This does not return the area preset. It sends a network command asking the area
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `host` | yes | Which gatway to send the command to. If not specificed, sends to all configured gateways.
+| `host` | yes | Which gateway to send the command to. If not specified, sends to all configured gateways.
 | `area` | no | Which area to request the preset for.
 | `channel` | yes | Which channel to use. If not specified, uses the area configuration or system default.
 
