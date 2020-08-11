@@ -73,7 +73,7 @@ service_name:
 
 ### Basic example which uses PUT method and payload encoded as form data
 
-This example implements 2 rest commands to add service calls the missing shuffle functionality from the iTunes integration with a REST command.
+This example implements 2 REST commands to add service calls for the missing shuffle functionality of the iTunes integration.
 
 ```yaml
 rest_command:
