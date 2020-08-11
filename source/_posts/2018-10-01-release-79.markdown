@@ -54,7 +54,7 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 - Add Logi Circle component, camera and sensor platform ([@evanjd] - [#16540]) ([logi_circle docs]) ([camera.logi_circle docs]) ([sensor.logi_circle docs]) (new-platform)
 - deCONZ cover support ([@Kane610] - [#16759]) ([cover docs]) ([deconz docs]) ([cover.deconz docs]) (new-platform)
 - GeoJSON platform ([@exxamalte] - [#16610]) ([geo_location docs]) (new-platform)
-- Add linky sensor ([@tiste] - [#16468]) ([sensor.linky docs]) (new-platform)
+- Add linky sensor ([@tiste] - [#16468]) (new-platform)
 
 ## Release 0.79.1 - September 30
 
@@ -244,7 +244,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Handle netgear_lte connection errors ([@amelchio] - [#16806]) ([netgear_lte docs]) ([notify docs]) ([sensor.netgear_lte docs])
 - Improve opentherm_gw state detection ([@mvn23] - [#16809]) ([climate.opentherm_gw docs])
 - Rework chromecast fix ([@awarecan] - [#16804]) ([media_player.cast docs])
-- Add linky sensor ([@tiste] - [#16468]) ([sensor.linky docs]) (new-platform)
+- Add linky sensor ([@tiste] - [#16468]) (new-platform)
 - Use pyspcwebgw for SPC component ([@mbrrg] - [#16214]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs])
 - Remove discovered MQTT Switch device when discovery topic is cleared ([@emontnemery] - [#16605]) ([mqtt docs]) ([switch.mqtt docs])
 - Allow split component definitions in packages ([@thomasloven] - [#16177])
