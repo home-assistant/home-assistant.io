@@ -13,7 +13,7 @@ zwave:
 ## RAZBERRY BOARD
 
 If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly. Simply plug it into your PC and edit it there.
-The `config.txt` is not accessible from the Home Assistant Operating System, you may need to open the SD card on a Windows or Linux system.:
+The `config.txt` is not accessible from the Home Assistant Operating System, you may need to open the SD card on a Windows or Linux system:
 
 ```txt
 dtoverlay=pi3-miniuart-bt
@@ -39,7 +39,7 @@ zha:
 
 ## Ubuntu and Debian based host system
 
-If your instance is running on a Debian based system, e.g., Ubuntu, the ModemManager may cause unexpected issues.
+If your instance is running on a Debian-based system, e.g., Ubuntu, the ModemManager may cause unexpected issues.
 
 The ModemManager might be claiming or interfering with a USB Z-Wave stick, like the much used Aeotec ones. If you experience issues where the stick stops responding, needs to be re-plugged or Home Assistant needs a restart to get Z-Wave back, chances are high that the ModemManager is causing the issue.
 
