@@ -716,7 +716,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Broadlink remote ([@felipediel] - [#26528]) ([broadlink docs]) (new-platform)
 - Move imports to top for python_script ([@springstan] - [#29331]) ([python_script docs])
 - Move imports to top for postnl ([@springstan] - [#29330])
-- Move imports to top for prezzibenzina ([@springstan] - [#29329]) ([prezzibenzina docs])
+- Move imports to top for prezzibenzina ([@springstan] - [#29329])
 - Move imports to top for quantum_gateway ([@springstan] - [#29327]) ([quantum_gateway docs])
 - Move imports to top for qnap ([@springstan] - [#29326]) ([qnap docs])
 - Move imports to top for qbittorrent ([@springstan] - [#29325]) ([qbittorrent docs])
@@ -1672,7 +1672,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [plex docs]: /integrations/plex/
 [plum_lightpad docs]: /integrations/plum_lightpad/
 [point docs]: /integrations/point/
-[prezzibenzina docs]: /integrations/prezzibenzina/
 [prometheus docs]: /integrations/prometheus/
 [proxmoxve docs]: /integrations/proxmoxve/
 [ps4 docs]: /integrations/ps4/
