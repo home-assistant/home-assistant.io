@@ -131,7 +131,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Each instance of Home Assistant will now generate it's own unique webhook url for Geofencyto use. One will need to be generated and provided to the iOS app to replace the existing url: `https://myhome.duckdns.org/api/geofency?api_password=HA_PASSWORD` ([@rohankapoorcom] - [#18951]) ([geofency docs]) (breaking change)
 - Nest sensor: Correctly map hvac_state to Home Assistant states. Heating -> heat, Cooling -> cool. ([@mitchellrj] - [#19895]) ([sensor.nest docs]) (breaking change)
 - Add nad telnet media player and merge nadtcp into media_player.nad ([@rymsha] - [#19704]) ([media_player.nad docs]) (breaking change)
-- Prezzi Benzina: Added the service type to the name of the sensor to better differentiate between different service tiers. ([@eliseomartelli] - [#19980]) ([sensor.prezzibenzina docs]) (breaking change)
+- Prezzi Benzina: Added the service type to the name of the sensor to better differentiate between different service tiers. ([@eliseomartelli] - [#19980]) (breaking change)
 - PostNL attributes are updated, contain now more information ([@basbl] - [#18334]) (breaking change)
 - Support for multiple Fibaro gateways. A list of gateways is expected instead of a single config. ([@pbalogh77] - [#19705]) ([fibaro docs]) ([binary_sensor.fibaro docs]) ([cover.fibaro docs]) ([light.fibaro docs]) ([scene.fibaro docs]) ([sensor.fibaro docs]) ([switch.fibaro docs]) (breaking change)
 - Upgrade greeneye_monitor to 1.0. It now requires the full 8 digit serial number. ([@jkeljo] - [#19631]) ([greeneye_monitor docs]) (breaking change)
@@ -231,7 +231,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade keyring to 17.1.1 ([@fabaff] - [#19962])
 - Add support for restoring state to rpi_gpio_pwm ([@soldag] - [#19944])
 - min_max sensor support for STATE_UNAVAILABLE ([@RomRider] - [#19914]) ([sensor.min_max docs])
-- add service type in name ([@eliseomartelli] - [#19980]) ([sensor.prezzibenzina docs]) (breaking change)
+- add service type in name ([@eliseomartelli] - [#19980]) (breaking change)
 - Add support for spot cleaning that was introduced in pybotvac 0.12 ([@larsvinc] - [#19857]) ([vacuum.neato docs])
 - Support next generation of the Xiaomi Mi Smart Plug (chuangmi.plug.m3) ([@syssi] - [#19972]) ([switch.xiaomi_miio docs])
 - When tradfri experience communication errors make the lights/devices unavailable. ([@jarlebh] - [#19288]) ([light.tradfri docs]) ([switch.tradfri docs])
@@ -686,7 +686,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.mqtt docs]: /integrations/sensor.mqtt/
 [sensor.mychevy docs]: /integrations/mychevy
 [sensor.nest docs]: /integrations/nest#sensor
-[sensor.prezzibenzina docs]: /integrations/prezzibenzina
 [sensor.rest docs]: /integrations/rest
 [sensor.sma docs]: /integrations/sma#sensors
 [sensor.snmp docs]: /integrations/snmp#sensor
