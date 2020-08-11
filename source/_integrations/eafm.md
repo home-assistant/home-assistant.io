@@ -4,7 +4,7 @@ description: Monitor nearby water levels and be prepared for flooding with the U
 logo: environment_agency.jpg
 ha_category:
   - Sensor
-ha_release: 0.106
+ha_release: 0.115
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
