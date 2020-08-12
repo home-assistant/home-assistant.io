@@ -34,6 +34,11 @@ timeout:
   required: false
   default: 10
   type: integer
+scan_interval:
+  description: Specify the scan interval for the API calls.
+  required: false
+  default: 120
+  type: integer
 next_departure:
   description: One or multiple departure sensors.
   required: true
