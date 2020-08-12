@@ -64,7 +64,7 @@ username:
   type: string
   default: The user account or botname that you generated the API key as.
 icon:
-  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/).
+  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/). Alternatively, a publicly accessible URL may also be used.
   required: false
   type: string
 {% endconfiguration %}
