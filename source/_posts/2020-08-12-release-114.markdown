@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.114: Beta release notes"
-description: "Beta release notes"
-date: 2020-08-05 00:00:00
+title: "0.114: Dark mode, Open Z-Wave progress and more automation & scripts"
+description: "Introducing Dark mode and color picking for themes, Open Z-Wave is taking a leap forward and general performance, automations & script improvements"
+date: 2020-08-12 00:00:00
 date_formatted: "August 12, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -11,18 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2020-08-0.114/social.png
 ---
 
-<!--<a href='/integrations/#version/0.113'><img src='/images/blog/2020-07-0.113/social.png' style='border: 0;box-shadow: none;'></a>-->
-
-Beta release notes for 0.114.0
-
-Please be sure to report issues on our GitHub issue tracker:
-
-- Issues with core & integrations: <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/UI: <https://github.com/home-assistant/frontend/issues>
-
-Issues introduced in this beta, are generally picked up with priority.
-
-## Introduction
+<a href='/integrations/#version/0.114'><img src='/images/blog/2020-08-0.114/social.png' style='border: 0;box-shadow: none;'></a>
 
 Ooh boy, time flew this release cycle; it is time for 0.114 already!
 
@@ -139,12 +128,10 @@ Some additional information is added to the UI for Open Z-Wave, you can now
 see device information right from the device page and shows information like
 the Z-Wave Node ID and other information about your Z-Wave device.
 
-<!-- Screenshot needs to be added, but I don't have it in my nightly yet
 <p class='img'>
-<img src='/images/blog/2020-08-0.114/openzwave.png' alt='Screenshot of Z-Wave device information available in the UI'></a>
+<img src='/images/blog/2020-08-0.114/ozw-info.png' alt='Screenshot of Z-Wave device information available in the UI'></a>
 Screenshot of Z-Wave device information available in the UI.
 </p>
--->
 
 Furthermore, RGB color support has been added to lights, and bugs have been
 fixed using color temperatures and dimming. 💡
@@ -180,13 +167,20 @@ Honestly, the above isn't even complete. 😅 Thanks [@bdraco]!
 
 ## Share Diagnostics & Crash reports
 
-With Supervisor 231, shipped with Home Assistant 0.114, we added a new option on System panel, to share diagnostics and crash reports with us anonymously. This will allow us to find and fix problems. 
+With Supervisor 231, shipped with Home Assistant 0.114, we added a new option on
+the System panel, to share diagnostics and crash reports with us anonymously.
+This will allow us to find and fix problems.
 
-The shared information is only accessible to the Home Assistant Core team and will not be shared with others. The data does not include any private or sensitive information and you can disable it in settings at any time you want.
+The shared information is only accessible to the Home Assistant Core team and
+will not be shared with others. The data does not include any private or
+sensitive information and you can disable it in settings at any time you want.
 
-This option is by default, of course, disabled. So, if you want to help to project out, consider enabling this option in the Supervisor panel. 
+This option is by default, of course, disabled. So, if you want to help to
+project out, consider enabling this option in the Supervisor panel.
 
-This service is sponsored by [Sentry.io](https://sentry.io/welcome/) - Thanks a lot!
+This service is sponsored by [Sentry.io][sentry] - Thanks a lot!
+
+[sentry]: https://sentry.io/welcome/
 
 ## Other noteworthy changes
 
@@ -283,6 +277,21 @@ Your username and password will be imported, but you need to submit a 2FA token
 (emailed to you by Blink) in order to continue setting up the integration.
 
 ([@fronzbot] - [#38027]) ([blink docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>TensorFlow</b></summary>
+  <p>
+
+TensorFlow has been upgraded to TensorFlow 2.
+
+TensorFlow 1 object detection models are not compatible with TensorFlow 2,
+therefore you'll will need to walk through the setup documentation again and
+choose a new model from the Model Zoo.
+
+([@hunterjm] - [#38384]) ([tensorflow docs])
 
   </p>
 </details>
@@ -494,6 +503,37 @@ Support for legacy logbook events created before 0.112 is removed.
   </p>
 </details>
 
+<details>
+  <summary><b>Automation `turn_off` service</b></summary>
+  <p>
+
+This change is actually not a breaking change, but it is making up for the fact
+that a previous change was that was not marked as such.
+
+It turns out there are valid use cases where an automation needs to be turned
+off, so that it will not trigger, but where previous runs may still be active
+that should be allowed to complete. For example, an automation that performs a
+reasonably lengthy procedure that should not be aborted midstream, otherwise
+it would leave the system in an undesirable state. Or a queued automation that
+needs to handle all previous events, some of which may not be complete when
+the automation is turned off.
+
+To accommodate for these use cases, this release introduces adds an optional
+parameter to the `automation.turn_off` service, namely `stop_actions`, which
+defaults to true. It controls whether or not active runs should be stopped when
+the automation is turned off.
+
+([@pnbruckner] - [#38436])
+
+  </p>
+</details>
+
+## Farewell to the following
+
+- The **Linky** integration has been removed.
+  Enedis has discontinued its Linky API (to get electric consumption).
+  ([@Quentame] - [#38565])
+
 ## All changes
 
 <details>
@@ -654,7 +694,7 @@ Support for legacy logbook events created before 0.112 is removed.
 - Add node neighbors to ozw websocket api ([@firstof9] - [#38447]) ([ozw docs])
 - Refactor Météo-France to use API instead of web scraping ([@oncleben31] - [#37737]) ([meteo_france docs]) (breaking-change)
 - Add optional unique_id attribute to the template platforms ([@michaelarnauts] - [#38011]) ([template docs])
-- Allow automation to be turned off without stopping actions ([@pnbruckner] - [#38436]) ([automation docs]) ([script docs])
+- Allow automation to be turned off without stopping actions ([@pnbruckner] - [#38436]) ([automation docs]) ([script docs]) (breaking-change)
 - Optimize directv config flow tests. ([@ctalkington] - [#38460]) ([directv docs]) ([directv docs])
 - Update pyskyqhu to 0.1.1 ([@RogerSelwyn] - [#38461]) ([sky_hub docs])
 - Add sensor platform for AccuWeather integration ([@bieniu] - [#38312]) ([accuweather docs]) (new-platform)
@@ -717,6 +757,44 @@ Support for legacy logbook events created before 0.112 is removed.
 - Allow to set default dark theme and persist frontend default themes ([@bramkragten] - [#38548]) ([frontend docs])
 - Add a timeout for async_add_entities ([@bdraco] - [#38474])
 - Add devolo light devices ([@2Fake] - [#37366]) ([devolo_home_control docs]) (new-platform)
+- Improve Xioami Aqara zeroconf discovery handling ([@starkillerOG] - [#37469]) ([xiaomi_aqara docs]) (beta fix)
+- Remove Linky integration ([@Quentame] - [#38565]) (breaking-change) (beta fix)
+- Suppress MQTT discovery updates without changes ([@emontnemery] - [#38568]) ([mqtt docs]) (beta fix)
+- Fix missing rfxtrx strings ([@MartinHjelmare] - [#38570]) ([rfxtrx docs]) (beta fix)
+- Revert "Add a timeout for async_add_entities (#38474)" ([@pvizeli] - [#38584]) (beta fix)
+- Do not print warning when command line switch queries off ([@balloob] - [#38591]) ([command_line docs]) (beta fix)
+- Upgrade to TensorFlow 2 ([@hunterjm] - [#38384]) ([tensorflow docs]) (breaking-change) (beta fix)
+- Improve the OVO Energy integration ([@timmo001] - [#38598]) ([ovo_energy docs]) (beta fix)
+- V2 timeout for async_add_entities ([@pvizeli] - [#38601]) (beta fix)
+- Ensure homekit pairing barcode is usable on dark themes ([@bdraco] - [#38609]) ([homekit docs]) (beta fix)
+- Handle unavailable input_select in Google Assistant ([@balloob] - [#38611]) ([google_assistant docs]) (beta fix)
+- Bump OpenCV 4.3.0 and Numpy 1.19.1 ([@pvizeli] - [#38616]) ([iqvia docs]) ([opencv docs]) ([tensorflow docs]) ([trend docs]) (beta fix)
+- Expose video doorbell button state to HomeKit ([@adrum] - [#38617]) ([homekit docs]) (beta fix)
+- Ensure doorbird does not block startup ([@bdraco] - [#38619]) ([doorbird docs]) (beta fix)
+- Make sure groups are initialized before template sensors ([@Tho85] - [#37766]) ([template docs]) (beta fix)
+- Fix xiaomi_aqara discovery ([@starkillerOG] - [#38622]) ([xiaomi_aqara docs]) (beta fix)
+- Update frontend to 20200807.1 ([@ludeeus] - [#38626]) ([frontend docs]) (beta fix)
+- Remove tf-models-official from wheels builder ([@frenck] - [#38637]) (beta fix)
+- Fix url in seventeentrack delivered notification ([@Swampen] - [#38646]) ([seventeentrack docs]) (beta fix)
+- Bump regenmaschine to 2.1.0 ([@bachya] - [#38649]) ([rainmachine docs]) (beta fix)
+- Fix AccuWeather async timeout ([@ctalkington] - [#38654]) ([accuweather docs]) (beta fix)
+- Fix rest_command UnboundLocalError in exception handling ([@AlejandroRivera] - [#38656]) ([rest_command docs]) (beta fix)
+- Ensure shared zeroconf is passed to homekit controller devices ([@bdraco] - [#38678]) ([homekit_controller docs]) (beta fix)
+- Update aiohomekit to handle homekit devices that do not send format ([@bdraco] - [#38679]) ([homekit_controller docs]) (beta fix)
+- Fix missing data for Guardian "AP enabled" binary sensor ([@bachya] - [#38681]) ([guardian docs]) (beta fix)
+- Bump pyvolumio to 0.1.1 ([@OnFreund] - [#38685]) ([volumio docs]) (beta fix)
+- Bump updater timeout ([@balloob] - [#38690]) ([updater docs]) (beta fix)
+- Update base image 8.2.1 ([@pvizeli] - [#38716]) (beta fix)
+- Add scan_tag webhook to mobile app ([@balloob] - [#38721]) ([mobile_app docs]) (beta fix)
+- Add scikit-build to installed env ([@pvizeli] - [#38726]) (beta fix)
+- Bump pysmartthings 0.7.3 ([@andrewsayre] - [#38732]) ([smartthings docs]) (beta fix)
+- Make default duration 1/10th of a second for ZHA light calls ([@dmulcahey] - [#38739]) ([zha docs]) (beta fix)
+- Install a threading.excepthook on python 3.8 and later ([@bdraco] - [#38741]) (beta fix)
+- Bump dyson upstream library version ([@etheralm] - [#38756]) ([dyson docs]) (beta fix)
+- Bump frontend to 20200811.0 ([@ludeeus] - [#38760]) ([frontend docs]) (beta fix)
+- Bump ZHA quirks lib to 0.0.43 ([@dmulcahey] - [#38762]) ([zha docs]) (beta fix)
+- Fix lastest version in updater for Supervisor enabled installs ([@frenck] - [#38773]) ([hassio docs]) ([updater docs]) (beta fix)
+- Bump up ZHA dependencies ([@Adminiuga] - [#38775]) ([zha docs]) (beta fix)
 
 </details>
 
@@ -741,6 +819,7 @@ Support for legacy logbook events created before 0.112 is removed.
 [#37335]: https://github.com/home-assistant/core/pull/37335
 [#37365]: https://github.com/home-assistant/core/pull/37365
 [#37366]: https://github.com/home-assistant/core/pull/37366
+[#37469]: https://github.com/home-assistant/core/pull/37469
 [#37526]: https://github.com/home-assistant/core/pull/37526
 [#37632]: https://github.com/home-assistant/core/pull/37632
 [#37636]: https://github.com/home-assistant/core/pull/37636
@@ -749,6 +828,7 @@ Support for legacy logbook events created before 0.112 is removed.
 [#37745]: https://github.com/home-assistant/core/pull/37745
 [#37747]: https://github.com/home-assistant/core/pull/37747
 [#37761]: https://github.com/home-assistant/core/pull/37761
+[#37766]: https://github.com/home-assistant/core/pull/37766
 [#37822]: https://github.com/home-assistant/core/pull/37822
 [#37868]: https://github.com/home-assistant/core/pull/37868
 [#37879]: https://github.com/home-assistant/core/pull/37879
@@ -888,6 +968,7 @@ Support for legacy logbook events created before 0.112 is removed.
 [#38366]: https://github.com/home-assistant/core/pull/38366
 [#38368]: https://github.com/home-assistant/core/pull/38368
 [#38382]: https://github.com/home-assistant/core/pull/38382
+[#38384]: https://github.com/home-assistant/core/pull/38384
 [#38387]: https://github.com/home-assistant/core/pull/38387
 [#38400]: https://github.com/home-assistant/core/pull/38400
 [#38415]: https://github.com/home-assistant/core/pull/38415
@@ -938,7 +1019,44 @@ Support for legacy logbook events created before 0.112 is removed.
 [#38552]: https://github.com/home-assistant/core/pull/38552
 [#38556]: https://github.com/home-assistant/core/pull/38556
 [#38557]: https://github.com/home-assistant/core/pull/38557
+[#38565]: https://github.com/home-assistant/core/pull/38565
+[#38568]: https://github.com/home-assistant/core/pull/38568
+[#38570]: https://github.com/home-assistant/core/pull/38570
+[#38584]: https://github.com/home-assistant/core/pull/38584
+[#38591]: https://github.com/home-assistant/core/pull/38591
+[#38598]: https://github.com/home-assistant/core/pull/38598
+[#38601]: https://github.com/home-assistant/core/pull/38601
+[#38609]: https://github.com/home-assistant/core/pull/38609
+[#38611]: https://github.com/home-assistant/core/pull/38611
+[#38616]: https://github.com/home-assistant/core/pull/38616
+[#38617]: https://github.com/home-assistant/core/pull/38617
+[#38619]: https://github.com/home-assistant/core/pull/38619
+[#38622]: https://github.com/home-assistant/core/pull/38622
+[#38626]: https://github.com/home-assistant/core/pull/38626
+[#38637]: https://github.com/home-assistant/core/pull/38637
+[#38646]: https://github.com/home-assistant/core/pull/38646
+[#38649]: https://github.com/home-assistant/core/pull/38649
+[#38654]: https://github.com/home-assistant/core/pull/38654
+[#38656]: https://github.com/home-assistant/core/pull/38656
+[#38678]: https://github.com/home-assistant/core/pull/38678
+[#38679]: https://github.com/home-assistant/core/pull/38679
+[#38681]: https://github.com/home-assistant/core/pull/38681
+[#38685]: https://github.com/home-assistant/core/pull/38685
+[#38690]: https://github.com/home-assistant/core/pull/38690
+[#38716]: https://github.com/home-assistant/core/pull/38716
+[#38721]: https://github.com/home-assistant/core/pull/38721
+[#38726]: https://github.com/home-assistant/core/pull/38726
+[#38732]: https://github.com/home-assistant/core/pull/38732
+[#38739]: https://github.com/home-assistant/core/pull/38739
+[#38741]: https://github.com/home-assistant/core/pull/38741
+[#38756]: https://github.com/home-assistant/core/pull/38756
+[#38760]: https://github.com/home-assistant/core/pull/38760
+[#38762]: https://github.com/home-assistant/core/pull/38762
+[#38773]: https://github.com/home-assistant/core/pull/38773
+[#38775]: https://github.com/home-assistant/core/pull/38775
 [@2Fake]: https://github.com/2Fake
+[@Adminiuga]: https://github.com/Adminiuga
+[@AlejandroRivera]: https://github.com/AlejandroRivera
 [@BKPepe]: https://github.com/BKPepe
 [@ChrisMandich]: https://github.com/ChrisMandich
 [@Cooper-Dale]: https://github.com/Cooper-Dale
@@ -951,11 +1069,14 @@ Support for legacy logbook events created before 0.112 is removed.
 [@Misiu]: https://github.com/Misiu
 [@OnFreund]: https://github.com/OnFreund
 [@PedroLamas]: https://github.com/PedroLamas
+[@Quentame]: https://github.com/Quentame
 [@RobBie1221]: https://github.com/RobBie1221
 [@RogerSelwyn]: https://github.com/RogerSelwyn
 [@ShaneQi]: https://github.com/ShaneQi
 [@Shulyaka]: https://github.com/Shulyaka
 [@StevenLooman]: https://github.com/StevenLooman
+[@Swampen]: https://github.com/Swampen
+[@Tho85]: https://github.com/Tho85
 [@adamkrol93]: https://github.com/adamkrol93
 [@adrum]: https://github.com/adrum
 [@agners]: https://github.com/agners
@@ -983,10 +1104,12 @@ Support for legacy logbook events created before 0.112 is removed.
 [@ehendrix23]: https://github.com/ehendrix23
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
+[@etheralm]: https://github.com/etheralm
 [@firstof9]: https://github.com/firstof9
 [@frenck]: https://github.com/frenck
 [@fronzbot]: https://github.com/fronzbot
 [@gwww]: https://github.com/gwww
+[@hunterjm]: https://github.com/hunterjm
 [@jameshilliard]: https://github.com/jameshilliard
 [@jcallaghan]: https://github.com/jcallaghan
 [@jjlawren]: https://github.com/jjlawren
@@ -1046,6 +1169,8 @@ Support for legacy logbook events created before 0.112 is removed.
 [devolo_home_control docs]: /integrations/devolo_home_control/
 [directv docs]: /integrations/directv/
 [discovery docs]: /integrations/discovery/
+[doorbird docs]: /integrations/doorbird/
+[dyson docs]: /integrations/dyson/
 [elgato docs]: /integrations/elgato/
 [elkm1 docs]: /integrations/elkm1/
 [emulated_hue docs]: /integrations/emulated_hue/
@@ -1059,10 +1184,13 @@ Support for legacy logbook events created before 0.112 is removed.
 [gogogate2 docs]: /integrations/gogogate2/
 [google_assistant docs]: /integrations/google_assistant/
 [group docs]: /integrations/group/
+[guardian docs]: /integrations/guardian/
 [harmony docs]: /integrations/harmony/
+[hassio docs]: /integrations/hassio/
 [hisense_aehw4a1 docs]: /integrations/hisense_aehw4a1/
 [hlk_sw16 docs]: /integrations/hlk_sw16/
 [homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
 [homematic docs]: /integrations/homematic/
 [http docs]: /integrations/http/
 [humidifier docs]: /integrations/humidifier/
@@ -1080,12 +1208,14 @@ Support for legacy logbook events created before 0.112 is removed.
 [meteo_france docs]: /integrations/meteo_france/
 [mikrotik docs]: /integrations/mikrotik/
 [min_max docs]: /integrations/min_max/
+[mobile_app docs]: /integrations/mobile_app/
 [mqtt docs]: /integrations/mqtt/
 [neato docs]: /integrations/neato/
 [netatmo docs]: /integrations/netatmo/
 [norway_air docs]: /integrations/norway_air/
 [numato docs]: /integrations/numato/
 [obihai docs]: /integrations/obihai/
+[opencv docs]: /integrations/opencv/
 [opentherm_gw docs]: /integrations/opentherm_gw/
 [ovo_energy docs]: /integrations/ovo_energy/
 [ozw docs]: /integrations/ozw/
@@ -1093,10 +1223,13 @@ Support for legacy logbook events created before 0.112 is removed.
 [plex docs]: /integrations/plex/
 [prometheus docs]: /integrations/prometheus/
 [rainbird docs]: /integrations/rainbird/
+[rainmachine docs]: /integrations/rainmachine/
 [recorder docs]: /integrations/recorder/
+[rest_command docs]: /integrations/rest_command/
 [rfxtrx docs]: /integrations/rfxtrx/
 [scrape docs]: /integrations/scrape/
 [script docs]: /integrations/script/
+[seventeentrack docs]: /integrations/seventeentrack/
 [shell_command docs]: /integrations/shell_command/
 [simplisafe docs]: /integrations/simplisafe/
 [sky_hub docs]: /integrations/sky_hub/
@@ -1109,8 +1242,11 @@ Support for legacy logbook events created before 0.112 is removed.
 [system_log docs]: /integrations/system_log/
 [tado docs]: /integrations/tado/
 [template docs]: /integrations/template/
+[tensorflow docs]: /integrations/tensorflow/
 [tesla docs]: /integrations/tesla/
 [toon docs]: /integrations/toon/
+[trend docs]: /integrations/trend/
+[updater docs]: /integrations/updater/
 [upnp docs]: /integrations/upnp/
 [volumio docs]: /integrations/volumio/
 [volvooncall docs]: /integrations/volvooncall/
