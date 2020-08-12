@@ -88,7 +88,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.4)
-    rouge (3.21.0)
+    rouge (3.22.0)
     ruby-enum (0.8.0)
       i18n
     ruby2_keywords (0.0.2)
