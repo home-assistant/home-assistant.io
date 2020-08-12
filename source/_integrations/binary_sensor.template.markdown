@@ -51,6 +51,10 @@ sensors:
           description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
           required: false
           type: [string, list]
+        unique_id:
+          description: An ID that uniquely identifies this binary sensor. Set this to an unique value to allow customisation trough the UI.
+          required: false
+          type: string
         device_class:
           description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false

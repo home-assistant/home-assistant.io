@@ -88,6 +88,7 @@ The list of currently available resources:
 - `odometer`
 - `trip_meter1`
 - `trip_meter2`
+- `average_speed`
 - `fuel_amount`
 - `fuel_amount_level`
 - `average_fuel_consumption`
@@ -104,6 +105,7 @@ The list of currently available resources:
 - `last_trip`
 - `is_engine_running`
 - `doors_hood_open`
+- `doors_tailgate_open`
 - `doors_front_left_door_open`
 - `doors_front_right_door_open`
 - `doors_rear_left_door_open`
