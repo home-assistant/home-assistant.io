@@ -5,7 +5,7 @@ logo: syncthing.png
 ha_category:
   - Downloading
   - Sensor
-ha_release: 0.114
+ha_release: 0.115
 ha_iot_class: Local Polling
 ha_quality_scale: silver
 ha_config_flow: true
