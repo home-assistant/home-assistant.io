@@ -19,7 +19,7 @@ However, this integration should work with most Aruba Instant APs.
 <div class='note warning'>
 <ul>
   <li>This device tracker uses the Aruba REST API and requires Aruba Instant AP code 8.5 or greater.</li>
-  <li>This device tracker will not work with ArubaOS controller based deployments.</li>
+  <li>This device tracker will not work with ArubaOS controllers or Instant On access points.</li>
 </ul>
 </div>
 
