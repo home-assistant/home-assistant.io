@@ -19,7 +19,7 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -88,7 +88,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.4)
-    rouge (3.21.0)
+    rouge (3.22.0)
     ruby-enum (0.8.0)
       i18n
     ruby2_keywords (0.0.2)

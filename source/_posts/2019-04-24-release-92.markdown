@@ -241,7 +241,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Axis component reflect device availability ([@Kane610] - [#22401]) ([axis docs])
 - throw `PlatformNotReady` if unable to connect ([@aav7fl] - [#22515]) ([androidtv docs])
 - Ring camera improvements ([@Yarikx] - [#22526]) ([ring docs])
-- upgrade pylinky to 0.3.3 ([@royto] - [#22544]) ([linky docs])
+- upgrade pylinky to 0.3.3 ([@royto] - [#22544])
 - Move core services.yaml file to Home Assistant integration ([@balloob] - [#22489])
 - Change HEOS component library and add basic config flow ([@andrewsayre] - [#22517]) ([heos docs])
 - Add command_template and value_template for MQTT alarm ([@JumpMaster] - [#21438]) ([mqtt docs])

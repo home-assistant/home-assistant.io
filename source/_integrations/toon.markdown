@@ -107,14 +107,17 @@ The Toon integration provides the following sensors:
 
 - Average Daily Energy Usage*
 - Average Daily Gas Usage*
+- Average Daily Water Usage*
 - Average Gas Usage
 - Average Power Usage*
+- Average Water Usage*
 - Average Solar Power Production to Grid* (only with solar module)
 - Boiler Modulation Level* (only with OpenTherm)
 - Current Gas Usage
 - Current Power Usage
 - Current Power Usage Covered By Solar (only with solar module)
 - Current Solar Power Production (only with solar module)
+- Current Water Usage*
 - Electricity Meter Feed IN Tariff 1*
 - Electricity Meter Feed IN Tariff 2*
 - Electricity Meter Feed OUT Tariff 1*
@@ -130,6 +133,9 @@ The Toon integration provides the following sensors:
 - Solar Energy Produced Today (only with solar module)
 - Solar Power Production to Grid (only with solar module)
 - Temperature
+- Water Meter*
+- Water Usage Today*
+- Water Cost Today*
 
 Sensors marked with `*` are disabled by default, but can be enabled
 from the UI, by clicking on the device and enabling the specific entity.

@@ -762,7 +762,6 @@
 /components/sensor.lacrosse /integrations/lacrosse
 /components/sensor.lastfm /integrations/lastfm
 /components/sensor.launch_library /integrations/launch_library
-/components/sensor.linky /integrations/linky
 /components/sensor.linux_battery /integrations/linux_battery
 /components/sensor.logi_circle /integrations/logi_circle#sensor
 /components/sensor.london_air /integrations/london_air
@@ -814,7 +813,6 @@
 /components/sensor.pocketcasts /integrations/pocketcasts
 /components/sensor.point /integrations/point#sensor
 /components/sensor.pollen /integrations/iqvia
-/components/sensor.prezzibenzina /integrations/prezzibenzina
 /components/sensor.pushbullet /integrations/pushbullet#sensor
 /components/sensor.pvoutput /integrations/pvoutput
 /components/sensor.pyload /integrations/pyload
@@ -1513,7 +1511,6 @@
 /components/limitlessled /integrations/limitlessled
 /components/linksys_ap /integrations/linksys_ap
 /components/linksys_smart /integrations/linksys_smart
-/components/linky /integrations/linky
 /components/linode /integrations/linode
 /components/linux_battery /integrations/linux_battery
 /components/lirc /integrations/lirc
@@ -1687,7 +1684,6 @@
 /components/pocketcasts /integrations/pocketcasts
 /components/point /integrations/point
 /components/polling /integrations/telegram_polling
-/components/prezzibenzina /integrations/prezzibenzina
 /components/proliphix /integrations/proliphix
 /components/prometheus /integrations/prometheus
 /components/prowl /integrations/prowl

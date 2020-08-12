@@ -82,7 +82,7 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from 17 or below, or 25 or above).
+In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from strict below 17, or strict above 25).
 </div>
 
 The `for:` can also be specified as `HH:MM:SS` like this:
@@ -378,13 +378,13 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 ### Zone trigger
 
-Zone trigger fires when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
+Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a person, or a device_tracker. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 automation:
   trigger:
     platform: zone
-    entity_id: device_tracker.paulus
+    entity_id: person.paulus
     zone: zone.home
     # Event is either enter or leave
     event: enter # or "leave"
