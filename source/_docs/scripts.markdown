@@ -203,6 +203,144 @@ The following automation shows how to capture the custom event `event_light_stat
 ```
 {% endraw %}
 
+### Repeat a Group of Actions
+
+This action allows you to repeat a sequence of other actions. Nesting is fully supported.
+There are three ways to control how many times the sequence will be run.
+
+#### Counted Repeat
+
+This form accepts a count value. The value may be specified by a template, in which case
+the template is rendered when the repeat step is reached.
+
+{% raw %}
+```yaml
+script:
+  flash_light:
+    mode: restart
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: "light.{{ light }}"
+      - repeat:
+          count: "{{ count|int * 2 - 1 }}"
+          sequence:
+            - delay: 2
+            - service: light.toggle
+              data_template:
+                entity_id: "light.{{ light }}"
+  flash_hallway_light:
+    sequence:
+      - service: script.flash_light
+        data:
+          light: hallway
+          count: 3
+```
+{% endraw %}
+
+#### While Loop
+
+This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
+is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
+
+{% raw %}
+```yaml
+script:
+  do_something:
+    sequence:
+      - service: script.get_ready_for_something
+      - alias: Repeat the sequence AS LONG AS the conditions are true
+        repeat:
+          while:
+            - condition: state
+              entity_id: input_boolean.do_something
+              state: 'on'
+            # Don't do it too many times
+            - condition: template
+              value_template: "{{ repeat.index <= 20 }}"
+          sequence:
+            - service: script.something
+```
+{% endraw %}
+
+#### Repeat Until
+
+This form accepts a list of conditions that are evaluated _after_ each time the sequence
+is run. Therefore the sequence will always run at least once. The sequence will be run
+_until_ the condition(s) evaluate to true.
+
+{% raw %}
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.xyz
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.something
+        state: 'off'
+    mode: single
+    action:
+      - alias: Repeat the sequence UNTIL the conditions are true
+        repeat:
+          sequence:
+            # Run command that for some reason doesn't always work
+            - service: shell_command.turn_something_on
+            # Give it time to complete
+            - delay:
+                milliseconds: 200
+          until:
+            # Did it work?
+            - condition: state
+              entity_id: binary_sensor.something
+              state: 'on'
+```
+{% endraw %}
+
+#### Repeat Loop Variable
+
+A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, `while` & `until`.)
+It contains the following fields:
+
+field | description
+-|-
+`first` | True during the first iteration of the repeat sequence
+`index` | The iteration number of the loop: 1, 2, 3, ...
+`last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
+
+### Choose a Group of Actions
+
+This action allows you to select a sequence of other actions from a list of sequences.
+Nesting is fully supported.
+Each sequence is paired with a list of conditions (see [conditions page] for available options.) The first sequence whose conditions are all true will be run.
+An optional `default` sequence can be included which will be run if none of the sequences from the list are run.
+
+{% raw %}
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+    mode: queued
+    action:
+      - choose:
+          # IF motion detected
+          - conditions:
+              - condition: template
+                value_template: "{{ trigger.to_state.state == 'on' }}"
+            sequence:
+              - service: script.turn_on
+                entity_id:
+                  - script.slowly_turn_on_front_lights
+                  - script.announce_someone_at_door
+        # ELSE (i.e., motion stopped)
+        default:
+          - service: light.turn_off
+            entity_id: light.front_lights
+```
+{% endraw %}
+
 [Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /integrations/alexa/

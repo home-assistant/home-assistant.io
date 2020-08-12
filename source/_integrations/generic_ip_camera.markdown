@@ -30,7 +30,7 @@ still_image_url:
   required: true
   type: string
 stream_source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/topics/templating/)."
   required: false
   type: string
 name:
@@ -106,7 +106,7 @@ camera:
 
 ### Sharing a camera feed from one Home Assistant instance to another
 
-If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](/developers/rest_api/#get-apicamera_proxycameraltentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
+If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](https://developers.home-assistant.io/docs/api/rest/#get-apicamera_proxycameraentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
 
 ```yaml
 camera:

@@ -25,3 +25,4 @@ sensor:
 ### Note
 
 This replaces the previous `api_streams` sensor.
+The default sensor name is `connected_clients`. 

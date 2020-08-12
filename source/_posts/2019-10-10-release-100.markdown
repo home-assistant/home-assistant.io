@@ -373,7 +373,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Type hint additions ([@scop] - [#26765]) ([automation docs]) ([cover docs]) ([frontend docs]) ([http docs]) ([media_player docs]) ([switch docs])
 - Add transport data from maps.yandex.ru api ([@rishatik92] - [#26766]) ([yandex_transport docs])
 - ZHA siren and warning device support ([@dmulcahey] - [#26046]) ([zha docs])
-- Bump aiowwlln to 2.0.2 ([@bachya] - [#26769]) ([wwlln docs])
+- Bump aiowwlln to 2.0.2 ([@bachya] - [#26769])
 - Bump simplisafe-python to 5.0.1 ([@bachya] - [#26775]) ([simplisafe docs])
 - Add integration scaffolding script ([@balloob] - [#26777])
 - Bump HAP-python to 2.6.0 for homekit ([@Jc2k] - [#26783]) ([homekit docs])
@@ -999,7 +999,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wemo docs]: /integrations/wemo/
 [whois docs]: /integrations/whois/
 [withings docs]: /integrations/withings/
-[wwlln docs]: /integrations/wwlln/
 [xbox_live docs]: /integrations/xbox_live/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [yandex_transport docs]: /integrations/yandex_transport/

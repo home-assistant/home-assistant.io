@@ -1,7 +1,6 @@
 ---
 title: Essent
 description: Instructions on how to integrate Essent within Home Assistant.
-logo: essent.png
 ha_category:
   - Energy
   - Sensor

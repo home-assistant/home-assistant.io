@@ -51,6 +51,10 @@ sensors:
           description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
           required: false
           type: [string, list]
+        unique_id:
+          description: An ID that uniquely identifies this binary sensor. Set this to an unique value to allow customisation trough the UI.
+          required: false
+          type: string
         device_class:
           description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
@@ -141,9 +145,7 @@ binary_sensor:
 ### Switch as Sensor
 
 Some movement sensors and door/window sensors will appear as a switch. By using
-a Template Binary Sensor, the switch can be displayed as a binary sensors. The
-original switch can then be hidden by
-[customizing](/getting-started/customizing-devices/).
+a Template Binary Sensor, the switch can be displayed as a binary sensors.
 
 {% raw %}
 

@@ -28,7 +28,7 @@ A Dynalite area typically (although not necessarily) defines some physical area,
 
 Each area can have one or more channels that correspond to the different devices they control. A channel can relate to a dimmable light, or other devices.
 
-Additionally, each area can have one or more presets that determine the behavior of all the channels, and sometimes trigger additional actions. Typically, preset 1 in an area means 'on', and preset '4' means off. Additional presets could be used for scenes and dimming.
+Additionally, each area can have one or more presets that determine the behavior of all the channels, and sometimes trigger additional actions. Typically, preset '1' in an area means 'on', and preset '4' means 'off'. Additional presets could be used for scenes and dimming.
 
 ## Configuration
 

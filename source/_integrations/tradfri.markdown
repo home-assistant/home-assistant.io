@@ -1,5 +1,5 @@
 ---
-title: IKEA TRÅDFRI (TRADFRI)
+title: IKEA TRÅDFRI
 description: Access and control your IKEA Trådfri Gateway and its connected Zigbee-based devices.
 featured: true
 ha_iot_class: Local Polling

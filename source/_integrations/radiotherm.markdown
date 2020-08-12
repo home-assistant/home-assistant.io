@@ -1,7 +1,6 @@
 ---
 title: Radio Thermostat
 description: Instructions on how to integrate Radio Thermostat (3M Filtrete) thermostats within Home Assistant.
-logo: radiotherm.png
 ha_category:
   - Climate
 ha_iot_class: Local Polling

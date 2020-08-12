@@ -1,5 +1,5 @@
 ---
-title: flume
+title: Flume
 description: Documentation about the flume sensor.
 ha_category:
   - Sensor

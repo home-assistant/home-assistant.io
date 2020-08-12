@@ -163,26 +163,26 @@ When using the [DSMR component](/integrations/dsmr) to get data from the utility
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 
 - `sensor.energy_consumption_tarif_1` for tarif 1 power (for example off-peak)
-- `sensor.energy_consumption_tarif_2` for for tarif 2 power (for example peak)
+- `sensor.energy_consumption_tarif_2` for tarif 2 power (for example peak)
 - `sensor.gas_consumption` for gas consumption
 
 So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` component.
 
 ```yaml
 utility_meter:
-  daily_power_offpeak:
+  daily_energy_offpeak:
     source: sensor.energy_consumption_tarif_1
     cycle: daily
-  daily_power_peak:
+  daily_energy_peak:
     source: sensor.energy_consumption_tarif_2
     cycle: daily
   daily_gas:
     source: sensor.gas_consumption
     cycle: daily
-  monthly_power_offpeak:
+  monthly_energy_offpeak:
     source: sensor.energy_consumption_tarif_1
     cycle: monthly
-  monthly_power_peak:
+  monthly_energy_peak:
     source: sensor.energy_consumption_tarif_2
     cycle: monthly
   monthly_gas:
@@ -197,13 +197,13 @@ Additionally, you can add template sensors to compute daily and monthly total us
 sensor:
   - platform: template
     sensors:
-      daily_power:
-        friendly_name: Daily Power
+      daily_energy:
+        friendly_name: Daily Energy
         unit_of_measurement: kWh
-        value_template: "{{ states('sensor.daily_power_offpeak')|float + states('sensor.daily_power_peak')|float }}"
-      monthly_power:
-        friendly_name: Monthly Power
+        value_template: "{{ states('sensor.daily_energy_offpeak')|float + states('sensor.daily_energy_peak')|float }}"
+      monthly_energy:
+        friendly_name: Monthly Energy
         unit_of_measurement: kWh
-        value_template: "{{ states('sensor.monthly_power_offpeak')|float + states('sensor.monthly_power_peak')|float }}"
+        value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
 ```
 {% endraw %}

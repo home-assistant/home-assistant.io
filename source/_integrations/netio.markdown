@@ -1,7 +1,6 @@
 ---
 title: Netio
 description: Instructions on how to integrate Netio switches into Home Assistant.
-logo: netio.png
 ha_category:
   - Switch
 ha_iot_class: Local Polling

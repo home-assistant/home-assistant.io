@@ -132,4 +132,4 @@ Example for posting file from local path:
 }
 ```
 
-Please note that `path` is validated against the `whitelist_external_dirs` in the `configuration.yaml`.
+Please note that `path` is validated against the `allowlist_external_dirs` in the `configuration.yaml`.

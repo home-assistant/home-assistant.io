@@ -140,7 +140,7 @@ sensor:
   - platform: ads
     adsvar: GVL.temperature
     unit_of_measurement: '°C'
-    adstype: integer
+    adstype: int
 ```
 
 {% configuration %}

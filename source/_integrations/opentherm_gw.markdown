@@ -77,6 +77,24 @@ Reset the OpenTherm Gateway.
 | ---------------------- | -------- | ----------- |
 | `gateway_id` | no | The `gateway_id` as specified during configuration.
 
+### Service `set_central_heating_ovrd`
+
+Set the central heating override option on the gateway.
+When overriding the control setpoint (via a [set_control_setpoint](#service-opentherm_gwset_control_setpoint) service call with a temperature value other than 0), the gateway automatically enables the central heating override to start heating. This service can then be used to control the central heating override status.
+To return control of the central heating to the thermostat, call the [set_control_setpoint](#service-opentherm_gwset_control_setpoint) service with temperature value 0.
+**You will only need this if you are writing your own software thermostat.**
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
+| `ch_override` | no | The desired value for the central heating override. Use `0` to disable or `1` to enable.
+
+<div class='note'>
+
+Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
+
+</div>
+
 ### Service `opentherm_gw.set_clock`
 
 Provide the time and day of week to the OpenTherm Gateway. The value provided here will be forwarded to the thermostat on the next date/time request from the thermostat. The OpenTherm Gateway does not have the ability to accurately keep track of time, so it will only retain the information provided here for a maximum of about 61 seconds.
@@ -120,6 +138,15 @@ that.
 | ---------------------- | -------- | ----------- |
 | `gateway_id` | no | The `gateway_id` as specified during configuration.
 | `dhw_override` | no | The domestic hot water override state. Value should be 0 or 1 to enable the override in off or on state, or "A" to disable the override.
+
+### Service `opentherm_gw.set_hot_water_setpoint`
+
+Set the domestic hot water setpoint on the OpenTherm Gateway. Not all boilers support this feature.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `gateway_id` | no | The `gateway_id` as specified during configuration.
+| `dhw_override` | no | The domestic hot water setpoint to set on the gateway. Values between 0 and 90 are accepted, but not all boilers support this range. Check the values of the `slave_dhw_min_setp` and `slave_dhw_max_setp` sensors to see the supported range on your boiler.
 
 ### Service `opentherm_gw.set_gpio_mode`
 

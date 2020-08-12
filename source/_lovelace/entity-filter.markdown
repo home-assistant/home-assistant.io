@@ -84,7 +84,7 @@ value:
   type: string
 operator:
   required: false
-  description: Operator to use in the comparison. Can be `==`, `<=`, `<`, `>=`, `>`, `!=` or `regex`.
+  description: Operator to use in the comparison. Can be `==`, `<=`, `<`, `>=`, `>`, `!=`, `in`, `not in`, or `regex`.
   type: string
 attribute:
   required: false

@@ -28,8 +28,27 @@ lock:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 command_topic:
@@ -156,6 +175,7 @@ In this section you will find some real-life examples of how to use this lock.
 The example below shows a full configuration for a MQTT lock.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 lock:
@@ -172,6 +192,7 @@ lock:
     retain: true
     value_template: '{{ value.x }}'
 ```
+
 {% endraw %}
 
 Keep an eye on retaining messages to keep the state as you don't want to unlock your door by accident when you restart something.
@@ -179,6 +200,5 @@ Keep an eye on retaining messages to keep the state as you don't want to unlock 
 For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your lock manually:
 
 ```bash
-$  mosquitto_pub -h 127.0.0.1 -t home-assistant/frontdoor/set -m "LOCK"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/frontdoor/set -m "LOCK"
 ```
-

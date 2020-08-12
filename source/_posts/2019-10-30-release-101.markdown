@@ -374,7 +374,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in waze_travel_time component ([@eifinger] - [#27384]) ([waze_travel_time docs])
 - Move imports in wemo component ([@Quentame] - [#27393]) ([wemo docs])
 - Move imports in wink component ([@Quentame] - [#27392]) ([wink docs])
-- Move imports in wunderlist component ([@Quentame] - [#27391]) ([wunderlist docs])
+- Move imports in wunderlist component ([@Quentame] - [#27391])
 - Move imports in xmpp component ([@Quentame] - [#27390]) ([xmpp docs])
 - Move imports in yamaha + yamaha_musiccast component ([@Quentame] - [#27389]) ([yamaha docs]) ([yamaha_musiccast docs])
 - Move imports in zengge component ([@Quentame] - [#27387]) ([zengge docs])
@@ -431,7 +431,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - moved imports to top level ([@Bouni] - [#27500]) ([bbox docs])
 - Move imports in aruba component to top-level ([@thaohtp] - [#27497]) ([aruba docs])
 - moved imports to top level ([@Bouni] - [#27496]) ([aws docs])
-- moved imports to top level ([@Bouni] - [#27495]) ([automatic docs])
+- moved imports to top level ([@Bouni] - [#27495])
 - Add device condition support to the lock integration ([@emontnemery] - [#27488]) ([lock docs])
 - moved imports to top level ([@Bouni] - [#27483]) ([aquostv docs])
 - Move imports in uscis component ([@Quentame] - [#27481]) ([uscis docs])
@@ -614,7 +614,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Add service description for route53 integration ([@tefinger] - [#27774])
 - Move imports in openweathermap component ([@Quentame] - [#27779]) ([openweathermap docs])
 - Move imports in apns component ([@Bouni] - [#27804]) ([apns docs])
-- Move imports in yweather ([@Misiu] - [#27842]) ([yweather docs])
+- Move imports in yweather ([@Misiu] - [#27842])
 - Move imports in brunt component ([@Bouni] - [#27856]) ([brunt docs])
 - Move imports in blockchain component ([@Bouni] - [#27852]) ([blockchain docs])
 - Move blackbird imports ([@Bouni] - [#27849]) ([blackbird docs])
@@ -1549,7 +1549,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [asterisk_mbox docs]: /integrations/asterisk_mbox/
 [august docs]: /integrations/august/
 [auth docs]: /integrations/auth/
-[automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [awair docs]: /integrations/awair/
 [aws docs]: /integrations/aws/
@@ -1892,7 +1891,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [wink docs]: /integrations/wink/
 [withings docs]: /integrations/withings/
 [workday docs]: /integrations/workday/
-[wunderlist docs]: /integrations/wunderlist/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [xmpp docs]: /integrations/xmpp/
 [yamaha docs]: /integrations/yamaha/
@@ -1901,7 +1899,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [yeelight docs]: /integrations/yeelight/
 [yeelightsunflower docs]: /integrations/yeelightsunflower/
 [yr docs]: /integrations/yr/
-[yweather docs]: /integrations/yweather/
 [zengge docs]: /integrations/zengge/
 [zeroconf docs]: /integrations/zeroconf/
 [zestimate docs]: /integrations/zestimate/

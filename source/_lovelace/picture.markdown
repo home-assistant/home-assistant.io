@@ -18,7 +18,7 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image.
+  description: The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the /local path, for example /local/filename.jpg .
   type: string
 theme:
   required: false
@@ -66,7 +66,9 @@ Toggle entity using a service:
 ```yaml
 type: picture
 image: /local/light.png
-service: light.toggle
-service_data:
-  entity_id: light.ceiling_lights
+tap_action:
+  action: call-service
+  service: light.toggle
+  service_data:
+    entity_id: light.ceiling_lights
 ```

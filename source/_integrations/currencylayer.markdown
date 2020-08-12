@@ -3,7 +3,6 @@ title: currencylayer
 description: Instructions on integrating exchange rates from https://currencylayer.com/ within Home Assistant.
 ha_category:
   - Finance
-logo: currencylayer.png
 ha_iot_class: Cloud Polling
 ha_release: 0.32
 ha_domain: currencylayer

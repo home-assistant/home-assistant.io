@@ -51,6 +51,8 @@ continent:
 
 Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [sucks library protocol documentation](https://github.com/wpietri/sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
 
+Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
+
 ### Stability and Reporting Bugs
 
 The library that talks to the Ecovacs servers is in a very early state and still under development. As such, it is likely that not all regions and devices will work at the current time.

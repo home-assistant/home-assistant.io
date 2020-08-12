@@ -65,4 +65,4 @@ This section enables you to control your Z-Wave network and devices from within 
 
 ### Customization
 
-This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, hide entities, and modify other attributes.
+This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, and modify other attributes.

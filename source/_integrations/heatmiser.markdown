@@ -1,7 +1,6 @@
 ---
 title: Heatmiser
 description: Instructions on how to integrate Heatmiser thermostats within Home Assistant.
-logo: heatmiser.png
 ha_category:
   - Climate
 ha_release: '0.10'

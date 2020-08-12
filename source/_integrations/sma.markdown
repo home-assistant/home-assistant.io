@@ -3,7 +3,6 @@ title: SMA Solar
 description: Instructions on how to connect your SMA Solar Inverter to Home Assistant.
 ha_category:
   - Energy
-logo: sma.png
 ha_iot_class: Local Polling
 ha_release: 0.36
 ha_codeowners:
