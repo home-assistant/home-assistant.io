@@ -3,6 +3,7 @@ title: devolo Home Control
 description: Instructions on how to integrate devolo Home Control with Home Assistant.
 ha_category:
   - Binary Sensor
+  - Cover
   - Switch
 ha_release: '0.110'
 ha_iot_class: Local Push
@@ -51,3 +52,10 @@ The integration provides support for the following features:
 
 - Overload alarm sensor of various switches
 - Sensors I2 and I3 of devolo and Qubino flush mounted relays
+
+## Cover
+
+The integration provides support for the following Z-Wave devices:
+
+- devolo Shutter FM
+- Qubino Flush Shutter
