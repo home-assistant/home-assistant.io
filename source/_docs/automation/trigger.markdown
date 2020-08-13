@@ -282,9 +282,10 @@ automation:
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
 <div class='note warning'>
+  
 Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
-</div>
 
+</div>
 
 As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
 
@@ -307,7 +308,7 @@ The time trigger is configured to fire once a day at a specific time, or at a sp
 
 #### Time String
 
-A string that represents a time to fire each day. Can be specified as HH:MM or HH:MM:SS. If the seconds is not specified :00 will be used.
+A string that represents a time to fire on each day. Can be specified as `HH:MM` or `HH:MM:SS`. If the seconds are not specified, `:00` will be used.
 
 ```yaml
 automation:
@@ -323,11 +324,12 @@ The Entity ID of an [Input Datetime](/integrations/input_datetime/).
 
 has_date | has_time | Description
 -|-|-
-true | true | Will fire at specifid date & time.
-true | false | Will fire at midnight on specified date.
-false | true | Will fire once a day at specified time.
+`true` | `true` | Will fire at specified date & time.
+`true` | `false` | Will fire at midnight on specified date.
+`false` | `true` | Will fire once a day at specified time.
 
 {% raw %}
+
 ```yaml
 automation:
   - trigger:
@@ -351,6 +353,7 @@ automation:
       service: climate.turn_off
       entity_id: climate.office
 ```
+
 {% endraw %}
 
 #### Multiple Times
