@@ -8,7 +8,7 @@ You've reached this page because you navigated to an NFC, QR Code, or other URL-
 
 ## iOS
 
-If you arrived here after scanning a tag on iOS, and you have the [Home Assistant app](https://companion.home-assistant.io) installed, you may need to activate Universal Links:
+If you arrived here after scanning a tag on iOS, and you have the [Home Assistant Companion App](https://companion.home-assistant.io) installed, you may need to activate Universal Links:
 
 1. Long-press on [this link](https://www.home-assistant.io/tag/example_from_documentation)
 2. Choose "Open in 'Home Assistant'"
