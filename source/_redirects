@@ -2120,6 +2120,10 @@
 # Redirect old /demo to new demo page
 /demo https://demo.home-assistant.io
 
+# Functionality-required redirects
+# This is a 200 so /tag/anything is a valid URL
+/tag/* /tag 200
+
 # Lovelace documentation
 /lovelace/entity-button /lovelace/button
 /lovelace/views /lovelace/dashboards-and-views
