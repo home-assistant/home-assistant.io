@@ -134,6 +134,9 @@ Besides the standard services provided by the Home Assistant [Climate](/integrat
 - `ecobee.delete_vacation`
 - `ecobee.resume_program`
 - `ecobee.set_fan_min_on_time`
+- `ecobee.set_dst_mode`
+- `ecobee.set_mic_mode`
+- `ecobee.set_occupancy_modes`
 
 ### Service `ecobee.create_vacation`
 
@@ -178,3 +181,31 @@ Sets the minimum amount of time that the fan will run per hour.
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Use `entity_id: all` to target all. |
 | `fan_min_on_time`      | no       | integer (e.g.,  5)                                                                                       |
+
+### Service `ecobee.set_dst_mode`
+
+Enable/disable automatic daylight savings time.
+
+| Service data attribute | Optional | Description                                       |
+| ---------------------- | -------- | ------------------------------------------------- |
+| `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode |
+| `dst_enabled`          | no       | true or false                                     |
+
+### Service `ecobee.set_mic_mode`
+
+Enable/disable Alexa mic (only for ecobee 4).
+
+| Service data attribute | Optional | Description                                       |
+| ---------------------- | -------- | ------------------------------------------------- |
+| `entity_id`            | yes      | ecobee thermostat on which to set the mic mode    |
+| `mic_enabled`          | no       | true or false                                     |
+
+### Service `ecobee.set_occupancy_modes`
+
+Enable/disable Smart Home/Away and Follow Me modes.
+
+| Service data attribute | Optional | Description                                       |
+| ---------------------- | -------- | ------------------------------------------------- |
+| `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes |
+| `auto_away`            | yes      | true or false                                     |
+| `follow_me`            | yes      | true or false                                     |
