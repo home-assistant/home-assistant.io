@@ -188,7 +188,7 @@ Enable/disable automatic daylight savings time.
 
 | Service data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to set daylight savings time mode |
+| `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode |
 | `dst_enabled`          | no       | true or false                                     |
 
 ### Service `ecobee.set_mic_mode`
@@ -197,7 +197,7 @@ Enable/disable Alexa mic (only for ecobee 4).
 
 | Service data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to set the mic mode    |
+| `entity_id`            | yes      | ecobee thermostat on which to set the mic mode    |
 | `mic_enabled`          | no       | true or false                                     |
 
 ### Service `ecobee.set_occupancy_modes`
@@ -206,6 +206,6 @@ Enable/disable Smart Home/Away and Follow Me modes.
 
 | Service data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to set occupancy modes |
+| `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes |
 | `auto_away`            | yes      | true or false                                     |
 | `follow_me`            | yes      | true or false                                     |
