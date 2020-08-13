@@ -35,6 +35,15 @@ There is currently support for the following device types within Home Assistant:
 
 The Daikin integration can be configured via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC (SKYFi based devices need to provide a password and BRP072Cxx devices need to provide a key).
 
+<div class='note'>
+  
+If your Daikin unit does not reside in the same network as your HA, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
+- From HA to the Daikin controller: UDP:30000 => 30050
+- From the Daikin controller to HA: UDP:\<random port> => 30000
+
+You will need to adjust your firewall(s) accordingly. 
+  
+</div>
 
 ## Climate
 
