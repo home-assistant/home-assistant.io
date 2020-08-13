@@ -3,6 +3,7 @@ title: Agent DVR
 description: Access and control Agent DVR from Home Assistant.
 ha_category:
   - Camera
+  - Alarm
 ha_config_flow: true
 ha_release: '0.110'
 ha_iot_class: Local Pull
