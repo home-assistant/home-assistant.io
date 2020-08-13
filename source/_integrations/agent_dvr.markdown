@@ -24,6 +24,10 @@ For configuration, go to the `Integrations panel` on your Home Assistant instanc
   Please ensure you are using Agent DVR v2.6.1.0 +
 </div>
 
+## Alarm Control Panel
+
+Reports on the current alarm status and can be used to arm and disarm the system.
+
 ## Services
 
 Once loaded, the `agent_dvr` integration will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras.
