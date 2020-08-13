@@ -25,4 +25,4 @@ If you arrived here after scanning a tag on Android, and you have the [Home Assi
 1. Open the "Home Assistant" settings and choose "Clear defaults"
 1. Attempt to scan the tag again, choosing to open in Home Assistant
 
-If you do not have it, you must [install the Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1) for these tags to function.
+If you do not have it, you must [install the Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) for these tags to function.
