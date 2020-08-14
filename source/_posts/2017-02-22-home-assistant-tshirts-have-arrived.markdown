@@ -14,14 +14,13 @@ og_image: /images/blog/2017-02-shirts/social.png
   Cool dude with beard and tattoo wearing [the new blue Home Assistant shirt][blue-us].
 </p>
 
-What time is it? Yep, t-shirt time. Today we're launching the first two Home Assistant designs. We have a blue t-shirt ([🇪🇺 EU][blue-eu] – [🇺🇸 US][blue-us]) as pictured above and a design for on black/gray shirts ([🇪🇺 EU][black-eu] – [🇺🇸 US][black-us]) as pictured below.
+What time is it? Yep, t-shirt time. Today we're launching the first two Home Assistant designs. We have a blue t-shirt as pictured above and a design for on black/gray shirts as pictured below.
 
- - [Visit the 🇺🇸 US store][store-us]
- - [Visit the 🇪🇺 EU store][store-eu]
+[Visit the Home Assistant store](https://teespring.com/stores/home-assistant-store)
 
 <p class='img'>
   <img src='/images/blog/2017-02-shirts/family.png' />
-  Family of 4 on a bench wearing the new black Home Assistant shirt. [🇪🇺 EU][black-eu] – [🇺🇸 US][black-us]
+  Family of 4 on a bench wearing the new black Home Assistant shirt.
 </p>
 
 We are using [Teespring.com][ts] to manage all the sales, production and distribution of the shirts. It's also how we got all these amazing stockphotos.
@@ -31,23 +30,23 @@ More photos after the click.
 
 <p class='img'>
   <img src='/images/blog/2017-02-shirts/pull-finger.png' />
-  Moment suprême of a solo pull-my-finger joke while wearing the new blue Home Assistant shirt. – [🇪🇺 EU][blue-eu] – [🇺🇸 US][blue-us]
+  Moment suprême of a solo pull-my-finger joke while wearing the new blue Home Assistant shirt.
 </p>
 <p class='img'>
   <img src='/images/blog/2017-02-shirts/group.png' />
-   Two men carrying two women and the new blue Home Assistant shirt. – [🇪🇺 EU][blue-eu] – [🇺🇸 US][blue-us]
+   Two men carrying two women and the new blue Home Assistant shirt.
 </p>
 <p class='img'>
   <img src='/images/blog/2017-02-shirts/lollipop.png' />
-  Cute girl with gigantic lollipop rocking the new black Home Assistant shirt. – [🇪🇺 EU][black-eu] – [🇺🇸 US][black-us]
+  Cute girl with gigantic lollipop rocking the new black Home Assistant shirt.
 </p>
 <p class='img'>
   <img src='/images/blog/2017-02-shirts/shout.png' />
-  Frustrated user wearing the new blue Home Assistant shirt. – [🇪🇺 EU][blue-eu] – [🇺🇸 US][blue-us]
+  Frustrated user wearing the new blue Home Assistant shirt.
 </p>
 <p class='img'>
   <img src='/images/blog/2017-02-shirts/kids.png' />
-  Cool kid listening to music + sidekick. Both wearing the new blue Home Assistant shirt.  – [🇪🇺 EU][blue-eu] – [🇺🇸 US][blue-us]
+  Cool kid listening to music + sidekick. Both wearing the new blue Home Assistant shirt.
 </p>
 
 [eff]: https://www.eff.org

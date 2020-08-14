@@ -40,11 +40,11 @@ The PAT is used to create a Home Assistant SmartApp in your SmartThings account 
 1. Log into the [personal access tokens page](https://account.smartthings.com/tokens) and click '[Generate new token](https://account.smartthings.com/tokens/new)'
 1. Enter a token name (can be whatever you want), for example, 'Home Assistant' and select the following authorized scopes:
     - Devices (all)
-    - Installed Apps (all)
-    - Locations (all)
+    - Installed Applications (all)
     - Apps (all)
-    - Schedules (all)
+    - Locations (all)
     - Scenes (all)
+    - Schedules (all)
 1. Click 'Generate token'. When the token is displayed copy and save it somewhere safe (such as your keystore) as you will not be able to retrieve it again.
 
 ### Webhook

@@ -85,9 +85,10 @@ The settings for zones are described below:
 There are several attributes available on the alarm panel to give you more information about your alarm.
 
 - `ac_power`: Set to `true` if your system has AC power supplying it.
+- `alarm_event_occurred`: Set to `true` if your system was recently triggered. When `alarm_event_occurred` is `true`, it must be cleared by entering your code + 1 (or calling the `alarm_control_panel.alarm_disarm` service) before attempting to arm your alarm.
 - `backlight_on`: Set to `true` if your keypad's backlight is on.
 - `battery_low`: Set to `true` if your system's back-up battery is low.
-- `check_zone`: Set to `true` if your system was recently triggered. When `check_zone` is `true`, it must be cleared by entering your code + 1 before attempting to rearm your alarm.
+- `check_zone`: Set to `true` if your system detects a problem with a zone.
 - `chime`: Set to `true` if your system's chime is activated. When activated, your system will beep anytime a door or window is faulted while the alarm is disarmed.
 - `entry_delay_off`: Set to `true` if your system is in "Instant" mode, meaning the alarm will sound on any faults.
 - `programming_mode`: Set to `true` if your system is in programming mode.
@@ -187,9 +188,11 @@ The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Sta
 
 </div>
 
+
 | Mode                                                    | Key Sequence                   |
 | ------------------------------------------------------- | ------------------------------ |
 | `alarm_arm_home`                                        | `chr(4)` + `chr(4)` + `chr(4)` |
 | `alarm_arm_away`                                        | `chr(5)` + `chr(5)` + `chr(5)` |
 | `alarm_arm_night` (`alt_night_mode` = `false`, default) | `chr(4)` + `chr(4)` + `chr(4)` |
 | `alarm_arm_night` (`alt_night_mode` = `true`)           | `*9` + `code`                  |
+

@@ -4,8 +4,6 @@ description: Instructions on how to setup Amazon Polly with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.37
-ha_codeowners:
-  - '@robbiet480'
 ha_domain: amazon_polly
 ---
 

@@ -638,7 +638,7 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
 - use isort to sort imports according to PEP8 for group ([@basnijholt] - [#29713])
 - Sort imports according to PEP8 for neato ([@basnijholt] - [#29724]) ([neato docs])
 - Sort imports according to PEP8 for input_text ([@basnijholt] - [#29719]) ([input_text docs])
-- Sort imports according to PEP8 for linky ([@basnijholt] - [#29722]) ([linky docs])
+- Sort imports according to PEP8 for linky ([@basnijholt] - [#29722])
 - Sort imports according to PEP8 for minio ([@basnijholt] - [#29723]) ([minio docs])
 - Sort imports according to PEP8 for netgear_lte ([@basnijholt] - [#29725]) ([netgear_lte docs])
 - Sort imports according to PEP8 for iqvia ([@basnijholt] - [#29720]) ([iqvia docs])
