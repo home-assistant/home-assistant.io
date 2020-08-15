@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: omnilogic
 ---
 
-OmniLogic by [Hayward](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) Elite automation for fully featured new pool and spas. OmniLogic® brings backyard control to the forefront of pool technology. Enjoy the luxuries of full automation from the most intuitive app with effortless upgrades to always keep your backyard on the cutting edge.
+OmniLogic by [Hayward](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) 
+
+Elite automation for fully featured new pool and spas. OmniLogic® brings backyard control to the forefront of pool technology. Enjoy the luxuries of full automation from the most intuitive app with effortless upgrades to always keep your backyard on the cutting edge.
 
 There is currently support for the following device types within Home Assistant:
 
