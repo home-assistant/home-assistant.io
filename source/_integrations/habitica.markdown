@@ -15,7 +15,9 @@ This integration allows you to monitor and manage your Habitica profile. This in
 
 There is currently support for the following device types within Home Assistant:
 
-- Sensor - Allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant.
+- Sensor:
+  - Player data: allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant.
+  - Tasks: allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant.
 
 The sensors will automatically appear, after setup the Habitica component.
 
@@ -57,6 +59,11 @@ sensors:
   required: false
   type: list
   default: all (`name`, `hp`, `maxHealth`, `mp`, `maxMP`, `exp`, `toNextLevel`, `lvl`, `gp`, `class`)
+tasks:
+  description: List of tasks to fetch for this user. If you don't specify this entry then the default (all tasks) will be fetched. If you specify this entry empty then no tasks will be fetched.
+  required: false
+  type: list
+  default: all (`habits`, `dailys`, `todos`, `rewards`)
 {% endconfiguration %}
 
 ### API Service Parameters
