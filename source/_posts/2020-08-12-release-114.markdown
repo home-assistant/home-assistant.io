@@ -114,8 +114,7 @@ automation:
           - "06:00:00"
           - "10:00:00"
     action:
-      choose:
-        ...
+      choose: ...
 ```
 
 ### Open Z-Wave (beta)
@@ -533,6 +532,47 @@ the automation is turned off.
 - The **Linky** integration has been removed.
   Enedis has discontinued its Linky API (to get electric consumption).
   ([@Quentame] - [#38565])
+
+## Release 0.114.1 - August 15
+
+- Update meteo_france based on code review ([@Quentame] - [#38789]) ([meteo_france docs])
+- Catch upnp timeout error ([@balloob] - [#38794]) ([upnp docs])
+- Handle unhandled exceptions related to unavailable SimpliSafe features ([@bachya] - [#38812]) ([simplisafe docs])
+- Make executor max_workers consistent between python versions ([@bdraco] - [#38821])
+- Fix creation of unrequired sensors in OVO energy ([@RogerSelwyn] - [#38835]) ([ovo_energy docs])
+- Bump pywemo to 0.4.46 ([@esev] - [#38845]) ([wemo docs])
+- Fix OVO Energy Sensors ([@timmo001] - [#38849]) ([ovo_energy docs])
+- Fix ozw dimming transition ([@firstof9] - [#38850]) ([ozw docs])
+- Ensure service browser does not collapse on bad dns names ([@bdraco] - [#38851]) ([zeroconf docs])
+- Update ovoenergy package to v1.1.7 ([@timmo001] - [#38875]) ([ovo_energy docs])
+- Adjust slow add entities timeouts to handle slowest known case ([@bdraco] - [#38876])
+
+[#38789]: https://github.com/home-assistant/core/pull/38789
+[#38794]: https://github.com/home-assistant/core/pull/38794
+[#38812]: https://github.com/home-assistant/core/pull/38812
+[#38821]: https://github.com/home-assistant/core/pull/38821
+[#38835]: https://github.com/home-assistant/core/pull/38835
+[#38845]: https://github.com/home-assistant/core/pull/38845
+[#38849]: https://github.com/home-assistant/core/pull/38849
+[#38850]: https://github.com/home-assistant/core/pull/38850
+[#38851]: https://github.com/home-assistant/core/pull/38851
+[#38875]: https://github.com/home-assistant/core/pull/38875
+[#38876]: https://github.com/home-assistant/core/pull/38876
+[@quentame]: https://github.com/Quentame
+[@rogerselwyn]: https://github.com/RogerSelwyn
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@esev]: https://github.com/esev
+[@firstof9]: https://github.com/firstof9
+[@timmo001]: https://github.com/timmo001
+[meteo_france docs]: /integrations/meteo_france/
+[ovo_energy docs]: /integrations/ovo_energy/
+[ozw docs]: /integrations/ozw/
+[simplisafe docs]: /integrations/simplisafe/
+[upnp docs]: /integrations/upnp/
+[wemo docs]: /integrations/wemo/
+[zeroconf docs]: /integrations/zeroconf/
 
 ## All changes
 
@@ -1054,29 +1094,29 @@ the automation is turned off.
 [#38762]: https://github.com/home-assistant/core/pull/38762
 [#38773]: https://github.com/home-assistant/core/pull/38773
 [#38775]: https://github.com/home-assistant/core/pull/38775
-[@2Fake]: https://github.com/2Fake
-[@Adminiuga]: https://github.com/Adminiuga
-[@AlejandroRivera]: https://github.com/AlejandroRivera
-[@BKPepe]: https://github.com/BKPepe
-[@ChrisMandich]: https://github.com/ChrisMandich
-[@Cooper-Dale]: https://github.com/Cooper-Dale
-[@DaAwesomeP]: https://github.com/DaAwesomeP
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@Janhouse]: https://github.com/Janhouse
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@MikeTsenatek]: https://github.com/MikeTsenatek
-[@Misiu]: https://github.com/Misiu
-[@OnFreund]: https://github.com/OnFreund
-[@PedroLamas]: https://github.com/PedroLamas
-[@Quentame]: https://github.com/Quentame
-[@RobBie1221]: https://github.com/RobBie1221
-[@RogerSelwyn]: https://github.com/RogerSelwyn
-[@ShaneQi]: https://github.com/ShaneQi
-[@Shulyaka]: https://github.com/Shulyaka
-[@StevenLooman]: https://github.com/StevenLooman
-[@Swampen]: https://github.com/Swampen
-[@Tho85]: https://github.com/Tho85
+[@2fake]: https://github.com/2Fake
+[@adminiuga]: https://github.com/Adminiuga
+[@alejandrorivera]: https://github.com/AlejandroRivera
+[@bkpepe]: https://github.com/BKPepe
+[@chrismandich]: https://github.com/ChrisMandich
+[@cooper-dale]: https://github.com/Cooper-Dale
+[@daawesomep]: https://github.com/DaAwesomeP
+[@danielhiversen]: https://github.com/Danielhiversen
+[@janhouse]: https://github.com/Janhouse
+[@jefflirion]: https://github.com/JeffLIrion
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[@miketsenatek]: https://github.com/MikeTsenatek
+[@misiu]: https://github.com/Misiu
+[@onfreund]: https://github.com/OnFreund
+[@pedrolamas]: https://github.com/PedroLamas
+[@quentame]: https://github.com/Quentame
+[@robbie1221]: https://github.com/RobBie1221
+[@rogerselwyn]: https://github.com/RogerSelwyn
+[@shaneqi]: https://github.com/ShaneQi
+[@shulyaka]: https://github.com/Shulyaka
+[@stevenlooman]: https://github.com/StevenLooman
+[@swampen]: https://github.com/Swampen
+[@tho85]: https://github.com/Tho85
 [@adamkrol93]: https://github.com/adamkrol93
 [@adrum]: https://github.com/adrum
 [@agners]: https://github.com/agners
@@ -1134,12 +1174,12 @@ the automation is turned off.
 [@prystupa]: https://github.com/prystupa
 [@pvizeli]: https://github.com/pvizeli
 [@rsnodgrass]: https://github.com/rsnodgrass
-[@sMauldaeschle]: https://github.com/sMauldaeschle
+[@smauldaeschle]: https://github.com/sMauldaeschle
 [@scop]: https://github.com/scop
 [@sergeymaysak]: https://github.com/sergeymaysak
 [@sgryphon]: https://github.com/sgryphon
 [@shenxn]: https://github.com/shenxn
-[@starkillerOG]: https://github.com/starkillerOG
+[@starkillerog]: https://github.com/starkillerOG
 [@thomasdelaet]: https://github.com/thomasdelaet
 [@timmo001]: https://github.com/timmo001
 [@tizzen33]: https://github.com/tizzen33
