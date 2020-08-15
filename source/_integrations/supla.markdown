@@ -5,6 +5,7 @@ ha_release: 0.92
 ha_category:
   - Hub
   - Cover
+  - Switch
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@mwegrzynek'
@@ -26,7 +27,9 @@ To use Supla devices in your installation, add the following to your `configurat
 supla:
   servers:
     - server: svr1.supla.org
-      access_token: your_really_long_access_token
+      access_token: your_really_long_access_token      
+      scan_interval: 
+          seconds: 30
 ```
 
 {% configuration %}
@@ -44,4 +47,13 @@ access_token:
     `http[s]://your.server.org/integrations/tokens` (please add at least Channel's Read and Action Execution permissions).
   required: true
   type: string
+scan_interval:
+  description:
+    Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` 
+    and Time period dictionary.
+  required: false
+  type: time 
+  required: false
+  default: 10 seconds
+  type: time
 {% endconfiguration %}
