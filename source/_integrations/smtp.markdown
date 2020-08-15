@@ -37,7 +37,7 @@ recipient:
   required: true
   type: [list, string]
 server:
-  description: SMTP server which is used to end the notifications.
+  description: SMTP server which is used to send the notifications.
   required: false
   type: string
   default: localhost  
