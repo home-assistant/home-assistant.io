@@ -139,7 +139,7 @@ You can also get the script to abort after the timeout by using optional `contin
 # Wait until a valve is < 10 or abort after 1 minute.
 - wait_template: "{{ state_attr('climate.kitchen', 'valve')|int < 10 }}"
   timeout: '00:01:00'
-  continue_on_timeout: 'false'
+  continue_on_timeout: false
 ```
 {% endraw %}
 
