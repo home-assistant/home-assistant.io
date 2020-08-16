@@ -465,6 +465,7 @@ source/_integrations/yr.markdown @danielhiversen
 source/_integrations/zeroconf.markdown @Kane610
 source/_integrations/zerproc.markdown @emlove
 source/_integrations/zha.markdown @dmulcahey @adminiuga
+source/_integrations/zodiac.markdown @JulienTant
 source/_integrations/zone.markdown @home-assistant/core
 source/_integrations/zoneminder.markdown @rohankapoorcom
 source/_integrations/zwave.markdown @home-assistant/z-wave
