@@ -47,6 +47,11 @@ port:
   required: false
   default: 8080
   type: integer
+protocol:
+  description: The protocol for accessing your QVR account.
+  required: false
+  default: "http"
+  type: string
 exclude_channels:
   description: Comma separated list of channel numbers to be excluded.
   required: false
