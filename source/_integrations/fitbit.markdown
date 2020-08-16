@@ -21,7 +21,7 @@ sensor:
       - "body/weight"
 ```
 
-Restart Home Assistant once this is complete. Go to the frontend. You will see a new entry for configuring Fitbit. Follow the instructions there to complete the setup process.
+Restart Home Assistant once this is complete. Go to the frontend. You will see a new notification containing instructions for configuring Fitbit. Follow the instructions there to complete the setup process.
 
 Please be aware that Fitbit has very low rate limits, 150 per user per hour. The clock resets at the _top_ of the hour (meaning it is not a rolling 60 minutes). There is no way around the limits. Due to the rate limits, the sensor only updates every 30 minutes. You can manually trigger an update by restarting Home Assistant. Keep in mind that 1 request is used for every entry in `monitored_resources`.
 
