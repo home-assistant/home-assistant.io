@@ -16,21 +16,28 @@ This integration allows you to monitor and manage your Habitica profile. This in
 There is currently support for the following device types within Home Assistant:
 
 - Sensor:
-  - Player data: allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant.
-  - Tasks: allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant.
+  - Player data: allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+    - name
+    - hp
+    - maxHealth
+    - mp
+    - maxMP
+    - exp
+    - toNextLevel
+    - lvl
+    - gp
+    - class
+  - Tasks: allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+    - habits
+    - dailys
+    - todos
+    - rewards
 
-The sensors will automatically appear, after setup the Habitica component.
+## Set up the integration via the integrations screen
+1. Go to Menu: Configuration > Integrations
+2. Press on Habitica and configure the integration
 
-To use the integration you should use this example configuration:
-
-```yaml
-# Minimum viable configuration.yaml entry
-habitica:
-  - api_user: YOUR_USER_ID
-    api_key: YOUR_API_KEY
-```
-
-You can specify several users, providing `api_user` and `api_key` for each.
+You can specify several users simply by adding another integration.
 At runtime you will be able to use API for each respective user by their Habitica's username.
 You can override this by passing `name` key, this value will be used instead of the username.
 If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
@@ -54,16 +61,6 @@ url:
   required: false
   type: string
   default: https://habitica.com
-sensors:
-  description: List of sensors to generate for this user. If you don't specify this entry then the default (all sensors) will be generated. If you specify this entry empty then no sensors will be generated.
-  required: false
-  type: list
-  default: all (`name`, `hp`, `maxHealth`, `mp`, `maxMP`, `exp`, `toNextLevel`, `lvl`, `gp`, `class`)
-tasks:
-  description: List of tasks to fetch for this user. If you don't specify this entry then the default (all tasks) will be fetched. If you specify this entry empty then no tasks will be fetched.
-  required: false
-  type: list
-  default: all (`habits`, `dailys`, `todos`, `rewards`)
 {% endconfiguration %}
 
 ### API Service Parameters
