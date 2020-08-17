@@ -78,6 +78,19 @@ The `rachio` switch platform allows you to toggle zones and schedules connected 
 
 Once configured, a switch will be added for every zone that is enabled on every controller in the account provided and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24 hour rain delay on the device.
 
+## Service
+
+The Rachio integration has one service that allows setting the moisture percentage of a zone or group of zones. Rachio only uses zone moisture levels for zones that are part of a Flex Daily schedule, so this service will only be available if at least one zone is a part of a Flex Daily schedule.
+
+### Service 'rachio.set_zone_moisture_percent'
+
+Adjust the zone moisture percent for a zone or group of zones from 0 to 100%.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | Individual, list or group of zones to set the moisture percentage.
+| `percent` | no | Integer of the desired zone moisture percentage. Accepts 0-100.
+
 ## Examples
 
 In this section, you find some real-life examples of how to use this switch.
