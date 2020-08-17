@@ -1,6 +1,6 @@
 ---
 title: Broadlink
-description: Instructions on how to integrate Broadlink within Home Assistant.
+description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
   - Remote
   - Switch
@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: broadlink
 ---
 
-The Broadlink integration allows you to interact with Broadlink devices. The following models are supported:
+The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
@@ -23,15 +23,15 @@ The Broadlink integration allows you to interact with Broadlink devices. The fol
 
 ## Configuration
 
-To set up a Broadlink device, click _Configuration_ in the sidebar and click _Integrations_. Then click the + icon in the lower right, enter the hostname or IP address of the device and follow the instructions to complete the setup.
+To set up a Broadlink device, click _Configuration_ in the sidebar and click _Integrations_. If you see your device there, click _Configure_. If not, click the + icon in the lower right, enter the hostname or IP address of the device and follow the instructions to complete the setup.
 
 ### Entities and subdomains
 
-Once the device is configured, all the entities will be created automatically.
+There is no more need to set up platforms, except for custom IR/RF switches. Once the device is configured, all entities will be created automatically.
 
-The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. When you're done, click _Update_ to save your changes.
+The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to click _Update_ to save your changes when you're done.
 
-These entities are divided into three subdomains:
+The entities are divided into three subdomains:
 
 - [Remote](#remote)
 - [Sensor](#sensor)
@@ -39,13 +39,9 @@ These entities are divided into three subdomains:
 
 ## Remote
 
-The `remote` subdomain allows you to interact with universal remotes. You can:
+The `remote` entities allow you to control Broadlink universal remotes. You can learn IR codes, send the codes you have learned and send RF codes (use the base64 functionality). These entities are created automatically when you configure a device that has IR/RF capabilities.
 
-- Learn IR codes, which will be stored into JSON files.
-- Send the IR codes you have learned.
-- Send RF codes (use the base64 feature).
-
-### Learn IR codes
+### Learning IR codes
 
 Use the `remote.learn_command` service to learn IR codes.
 
@@ -67,7 +63,7 @@ script:
         data:
           entity_id: remote.bedroom
           device: television
-          command: mute
+          command: ok
 ```
 
 Example 2: Learn a sequence of commands
@@ -109,11 +105,9 @@ In the above example, two codes will be captured for the power command, and they
 
 #### Learned codes storage location
 
-The learned codes are stored in the `/configuration/.storage` folder in a file called `broadlink_remote_xxxxxxxxxxx_codes.json`. You can open this file with a text editor and copy the codes to set up a custom switch.
+The learned codes are stored in the `/configuration/.storage` folder in a file called `broadlink_remote_xxxxxxxxxxx_codes.json`. You can open this file with a text editor and copy the codes to set up a custom switch, but beware: the files in the .storage folder _should never be edited manually_.
 
-Beware: the files in the .storage folder _should never be edited manually_.
-
-### Send IR/RF codes
+### Sending IR/RF codes
 
 Use the `remote.send_command` service to send IR/RF codes.
 
@@ -216,15 +210,17 @@ script:
 
 ## Sensor
 
-The `sensor` subdomain allows you to fetch data from sensors.
+The `sensor` entities allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
 
 ## Switch
 
-The `switch` subdomain allows you to interact with switches. You can turn them on and off, and you can monitor their state and power consumption, when available.
+The `switch` entities allow you to control and monitor Broadlink smart plugs, power strips and switches. You can turn them on and off, and you can monitor their state and power consumption, when available. These entities are created automatically when you configure a device that has switches.
 
-### Custom switches
+You can also define custom IR/RF switches to be controlled with universal remote devices.
 
-You can create custom switches to send IR/RF codes using universal remote devices. The first step is to configure the device normally via the configuration flow. Then add these lines to your `configuration.yaml`:
+### Setting up custom IR/RF switches
+
+The first step is to configure the device normally via the configuration flow. Then add these lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -280,6 +276,8 @@ switch:
 ```
 
 The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
+
+__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
 
 ### Using e-Control remotes
 
@@ -479,7 +477,7 @@ temperature = 27.1
 
 Then use this info in a cli-command. IR and RF learning are supported.
 
-#### Learn IR codes
+#### Learning IR codes
 
 Use `--learn` to obtain IR codes:
 
@@ -495,7 +493,7 @@ Press a button on the remote and you get the code:
 Base64: b'JgBYAAABIZUSExEUETkQFBEUERQRFBEUEDkROREUEDkRORE5EDkRORA5ETkRFBA5ERQRORAVEDkRFBEUETkQFBE5ERQQOREUEQAFJQABJ0sRAAxSAAEnSxEADQU='
 ```
 
-#### Learn RF codes
+#### Learning RF codes
 
 Use `--rfscanlearn` to obtain RF codes:
 
