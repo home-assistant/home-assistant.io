@@ -574,6 +574,42 @@ the automation is turned off.
 [wemo docs]: /integrations/wemo/
 [zeroconf docs]: /integrations/zeroconf/
 
+## Release 0.114.2 - August 17
+
+- Fix 'Not Available' message for Onkyo integration ([@tizzen33] - [#38554]) ([onkyo docs])
+- Better timeout handling in samsungtv integration ([@escoand] - [#38759]) ([samsungtv docs])
+- Fix ozw pure rgb dimmer light ([@MartinHjelmare] - [#38877]) ([ozw docs])
+- Fix the CONF_LOOP check to use the config ([@automaton82] - [#38890]) ([environment_canada docs])
+- Fix error in meteo_france for overseas France cities ([@oncleben31] - [#38895]) ([meteo_france docs])
+- Fix Netatmo climate boost/heat event handling ([@cgtobi] - [#38923]) ([netatmo docs])
+- Fix HC3 compatibility further ([@pbalogh77] - [#38931]) ([fibaro docs])
+- Accommodate systems with very large databases and slow disk/cpu ([@bdraco] - [#38947]) ([recorder docs])
+
+[#38554]: https://github.com/home-assistant/core/pull/38554
+[#38759]: https://github.com/home-assistant/core/pull/38759
+[#38877]: https://github.com/home-assistant/core/pull/38877
+[#38890]: https://github.com/home-assistant/core/pull/38890
+[#38895]: https://github.com/home-assistant/core/pull/38895
+[#38923]: https://github.com/home-assistant/core/pull/38923
+[#38931]: https://github.com/home-assistant/core/pull/38931
+[#38947]: https://github.com/home-assistant/core/pull/38947
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[@automaton82]: https://github.com/automaton82
+[@bdraco]: https://github.com/bdraco
+[@cgtobi]: https://github.com/cgtobi
+[@escoand]: https://github.com/escoand
+[@oncleben31]: https://github.com/oncleben31
+[@pbalogh77]: https://github.com/pbalogh77
+[@tizzen33]: https://github.com/tizzen33
+[environment_canada docs]: /integrations/environment_canada/
+[fibaro docs]: /integrations/fibaro/
+[meteo_france docs]: /integrations/meteo_france/
+[netatmo docs]: /integrations/netatmo/
+[onkyo docs]: /integrations/onkyo/
+[ozw docs]: /integrations/ozw/
+[recorder docs]: /integrations/recorder/
+[samsungtv docs]: /integrations/samsungtv/
+
 ## All changes
 
 <details>
