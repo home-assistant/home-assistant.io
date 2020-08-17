@@ -10,6 +10,8 @@ ha_domain: fitbit
 
 The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
 
+First, make sure your Home Assistant instance has an External URL configured which can be reached by Fitbit. This can be achieved through the UI (`Configuration > General`) or [via YAML](https://www.home-assistant.io/docs/configuration/basic/). If you have a Nabu Casa account, the URL to use can be found through the UI, under `Configuration > Home Assistant Cloud > Remote Control`.
+
 Enable the sensor by adding the following to your `configuration.yaml` file:
 
 ```yaml
