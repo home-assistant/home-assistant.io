@@ -46,6 +46,10 @@ url:
     description: The URL of the DOODS server.
     required: true
     type: string
+auth_key:
+    description: The authentication key as set in the doods config file or as a docker environment variable (DOODS_AUTH_KEY)
+    required: false
+    type: string
 timeout:
     description: Timeout for requests (in seconds).
     required: false
@@ -151,6 +155,7 @@ image_processing:
     url: "http://<my doods server>:8080"
     timeout: 60
     detector: default
+    auth_key: 2up3rL0ng4uthK3y
     source:
       - entity_id: camera.front_yard
     file_out:
