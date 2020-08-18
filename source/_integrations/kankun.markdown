@@ -51,7 +51,7 @@ switches:
           required: false
           default: 80
           type: integer
-        patch:
+        path:
           description: Path of CGI script.
           required: false
           default: "/cgi-bin/json.cgi"
