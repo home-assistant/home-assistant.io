@@ -47,7 +47,7 @@ url:
     required: true
     type: string
 auth_key:
-    description: The authentication key as set in the doods config file or as a docker environment variable (DOODS_AUTH_KEY)
+    description: The authentication key as set in the doods configuration file or as a Docker environment variable (DOODS_AUTH_KEY)
     required: false
     type: string
 timeout:
