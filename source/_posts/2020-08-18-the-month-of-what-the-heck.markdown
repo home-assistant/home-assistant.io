@@ -6,7 +6,7 @@ date_formatted: "August 18, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 categories: Announcements
-og_image: /images/blog/2020-08-17-the-month-of-what-the-heck/social.png
+og_image: /images/blog/2020-08-18-the-month-of-what-the-heck/social.png
 ---
 
 <a href='https://community.home-assistant.io/c/what-the-heck/52'><img src='/images/blog/2020-08-18-the-month-of-what-the-heck/social.png' style='border: 0;box-shadow: none;'></a>
