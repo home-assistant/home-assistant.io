@@ -62,6 +62,7 @@ initial_state:
   description: Sets the initial state for automations, `on` or `off`.
   required: false
   type: boolean
+  default: true
 {% endconfiguration %}
 
 #### Device Class
