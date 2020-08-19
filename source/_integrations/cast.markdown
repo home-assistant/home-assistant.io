@@ -93,19 +93,19 @@ Optional:
 
 ### Manual configuration
 
-By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a list of wanted chrome casts.
+By default, any discovered Cast device is added to Home Assistant. This can be restricted by supplying a list of allowed chrome casts.
 
 ```yaml
 # Example configuration.yaml entry
 cast:
   media_player:
-    - host: 192.168.1.10
+    - uuid: "ae3be716-b011-4b88-a75d-21478f4f0822"
 ```
 
 {% configuration %}
 media_player:
-  description: A list that contains all Cast devices.
-  required: true
+  description: A list that contains advanced configuration options.
+  required: false
   type: list
   keys:
     uuid:
