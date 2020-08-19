@@ -7,7 +7,7 @@ ha_release: 0.57
 ha_domain: google_domains
 ---
 
-With the Google Domains integration you can keep your Google Domains record up to date.
+With the Google Domains integration you can keep your Google Domains records up to date.
 
 ## Configuration
 
@@ -16,9 +16,12 @@ To use the integration in your installation, add the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 google_domains:
-  domain: subdomain.domain.com
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  - domain: subdomain.domain.com
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+  - domain: subdomain2.domain.com
+    username: YOUR_USERNAME_2
+    password: YOUR_PASSWORD_2
 ```
 
 {% configuration %}
