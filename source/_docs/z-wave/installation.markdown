@@ -93,7 +93,7 @@ An easy script to generate a random key:
 cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
-You can also use sites like [this one](https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h) to generate the required data, just remember to put `0x` before each pair of characters:
+You can also use sites like [this one](https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h) to generate the required data, just remember to put `0x` before each pair of characters and a `,` between them:
 
 ```yaml
 # Example configuration.yaml entry for network_key
