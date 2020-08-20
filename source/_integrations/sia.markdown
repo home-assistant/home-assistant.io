@@ -22,7 +22,7 @@ To use this platform, you need to setup your alarm system to communicate using t
 1. Select "SIA Protocol". 
 2. Enable "Connect on demand". 
 3. Place Account Id - 3-16 ASCII hex characters. For example AAA.
-4. Insert Home Assistant IP address. The hub must be able to reach this ip address. There is no cloud connection necessary.
+4. Insert Home Assistant IP address. The hub must be able to reach this IP address. There is no cloud connection necessary.
 5. Insert Home Assistant listening port. This port must not be used by anything else on the machine Home Assistant is running on, see the notes on [port usage](###Portusage) below.
 6. Select Preferred Network. Ethernet is preferred if hub and HA in same network. Multiple networks are not tested.
 7. Enable Periodic Reports. The interval with which the alarm systems reports to the monitoring station, default is 1 minute. This component adds 30 seconds before setting the alarm unavailable to deal with slights latencies between ajax and HA and the async nature of HA.
