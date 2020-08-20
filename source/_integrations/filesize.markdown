@@ -3,6 +3,7 @@ title: File Size
 description: Component for monitoring the size of a file.
 ha_category:
   - Utility
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: 0.64
 ha_domain: filesize
