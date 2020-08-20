@@ -4,6 +4,7 @@ description: Instructions on how to integrate Derivative Sensor into Home Assist
 ha_category:
   - Utility
   - Energy
+  - Sensor
 ha_release: 0.105
 ha_iot_class: Local Push
 logo: derivative.png
