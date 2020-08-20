@@ -29,6 +29,7 @@ While you should hopefully be storing your passwords in a password manager, if y
 - `onboarding`
 - `hassio`
 - `cloud`
+- `core.area_registry`
 
 ## Recovering Data for Home Assistant (including Supervised)
 
