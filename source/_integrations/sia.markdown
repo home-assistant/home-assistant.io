@@ -3,9 +3,7 @@ title: SIA Alarm Systems
 description: Instructions on how to integrate SIA DC-09 Based Alarm systems into Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
-  - Sensor
-ha_release: "0.112"
+ha_release: "0.115"
 ha_iot_class: "Local Push"
 ha_quality_scale: platinum
 ha_config_flow: true
@@ -20,11 +18,12 @@ To use this platform, you need to setup your alarm system to communicate using t
 
 ## Alarm Setup (Ajax Systems Hub example)
 
+1. In the settings of your hub, go to the monitoring stations page.
 1. Select "SIA Protocol". 
 2. Enable "Connect on demand". 
 3. Place Account Id - 3-16 ASCII hex characters. For example AAA.
-4. Insert Home Assistant IP address. It must be visible to hub. There is no cloud connection necessary to it.
-5. Insert Home Assistant listening port. This port must not be used by anything else on the machine Home Assistant is running on.
+4. Insert Home Assistant IP address. The hub must be able to reach this ip address. There is no cloud connection necessary.
+5. Insert Home Assistant listening port. This port must not be used by anything else on the machine Home Assistant is running on, see the notes on [port usage](###Portusage) below.
 6. Select Preferred Network. Ethernet is preferred if hub and HA in same network. Multiple networks are not tested.
 7. Enable Periodic Reports. The interval with which the alarm systems reports to the monitoring station, default is 1 minute. This component adds 30 seconds before setting the alarm unavailable to deal with slights latencies between ajax and HA and the async nature of HA.
 8. Encryption is preferred but optional. Password is 16 ASCII characters.
@@ -76,4 +75,4 @@ If you have multiple accounts (alarm systems) that you want to monitor you can c
 The port used with this component must be a port no other processes use on the machine your HA instance is running. If you have a complex network setup or want to monitor alarm systems at other locations you will most likely have to open firewalls and/or create network routes for that purpose, the integration will just listen for messages coming into that port, and will not proactively send, only responding with a acknowledgement to the alarm system.
 
 ### Entities
-After setup you will see one entity per account for the heartbeat, and 3 entities for each zone per account, alarm, smoke sensor and moisture sensor. This means at least four entities are added, each will also have a device associated with it, to allow you to use the area feature. Unwanted sensors can be hidden in the interface and friendly names assigned.
+In the initial version, after setup you will see one alarm_control_panel per account and zone combination. This has a attribute for `last_heartbeat` that you could use for a template sensor in order to have that separated out. There is also a attribute for the `last_message` that will hold events happening to moisture and smoke sensors in that zone, entities supporting that will follow.
