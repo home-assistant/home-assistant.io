@@ -22,6 +22,9 @@ Depending on the operating system you're running, you have to configure the prop
 
 ## Configuration
 
+Note: These instructions assume either a linux distribution or [SSH access to the machine itself](https://developers.home-assistant.io/docs/operating-system/debugging/
+).
+
 Start a scan to determine the MAC addresses of the sensor:
 
 ```bash
