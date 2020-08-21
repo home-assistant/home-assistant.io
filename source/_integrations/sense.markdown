@@ -33,20 +33,6 @@ Alternatively, to enable this sensor in your installation, add the following to 
 sense:
   email: CLIENT_ID
   password: CLIENT_SECRET
-
-  entities:
-    light.dining_room:
-      name: "Dining Room Lights"
-      power: 40.2
-    fan.ceiling_fan:
-      power: >-
-        {% if is_state_attr('fan.ceiling_fan','speed', 'low') %} 2
-        {% elif is_state_attr('fan.ceiling_fan','speed', 'medium') %} 12
-        {% elif is_state_attr('fan.ceiling_fan','speed', 'high') %} 48
-        {% endif %}
-    light.wled:
-      name: "Strip Lights"
-      power: "{{ states('sensor.wled_estimated_current') | float * 5 / 1000  }}"
 ```
 
 {% configuration %}
@@ -85,3 +71,27 @@ Sensors are added for both usage and production with the following names:
 Binary sensors are created for each of the devices detected by your Sense monitor to show their power state.
 
 Sensors are created for each of the devices detected by your Sense monitor to show their power usage in Watts.
+
+## Advanced Configuration
+
+The followring is a configuration example of setting up entities to be visible to the Sense monitor.
+The first uses a static power, the second sets the power based on the speed, and the third calculates it based off a sensor
+
+{% raw %}
+```yaml
+sense:
+  entities:
+    light.dining_room:
+      name: "Dining Room Lights"
+      power: 40.2
+    fan.ceiling_fan:
+      power: >-
+        {% if is_state_attr('fan.ceiling_fan','speed', 'low') %} 2
+        {% elif is_state_attr('fan.ceiling_fan','speed', 'medium') %} 12
+        {% elif is_state_attr('fan.ceiling_fan','speed', 'high') %} 48
+        {% endif %}
+    light.wled:
+      name: "Strip Lights"
+      power: "{{ states('sensor.wled_estimated_current') | float * 5 / 1000  }}"
+```
+{% endraw %}
