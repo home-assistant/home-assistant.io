@@ -343,7 +343,7 @@ sensor:
         name: "Mean humidity reported from past day"
         query: >
           filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity"))
-          |> keep(columns: ["_value"])\n"
+          |> keep(columns: ["_value"])
         range_start: "-1d"
 ```
 
