@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: risco
 ---
 
-This integration connects with Risco Alarms over Risco Cloud.
+This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).
 
 ## Configuration
 
