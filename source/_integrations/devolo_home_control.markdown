@@ -41,8 +41,10 @@ The integration provides support for the following Z-Wave devices:
 
 - devolo Door/Window Contact
 - devolo Flood Sensor
+- devolo Key-Fob Switch
 - devolo Motion Sensor
 - devolo Smoke Detector
+- devolo Wall Switch
 - Fibaro Floor Sensor
 - Fibaro Motion Sensor
 - Fibaro Smoke Sensor
