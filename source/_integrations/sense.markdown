@@ -40,10 +40,10 @@ sense:
       power: 40.2
     fan.ceiling_fan:
       power: >-
-		{% if is_state_attr('fan.ceiling_fan','speed', 'low') %} 2
-		{% elif is_state_attr('fan.ceiling_fan','speed', 'medium') %} 12
-		{% elif is_state_attr('fan.ceiling_fan','speed', 'high') %} 48
-		{% endif %}
+        {% if is_state_attr('fan.ceiling_fan','speed', 'low') %} 2
+        {% elif is_state_attr('fan.ceiling_fan','speed', 'medium') %} 12
+        {% elif is_state_attr('fan.ceiling_fan','speed', 'high') %} 48
+        {% endif %}
     light.wled:
       name: "Strip Lights"
       power: "{{ states('sensor.wled_estimated_current') | float * 5 / 1000  }}"
