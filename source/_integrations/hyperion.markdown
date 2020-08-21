@@ -4,11 +4,17 @@ description: Instructions on how to integrate Hyperion into Home Assistant.
 ha_category:
   - Light
 ha_release: 0.7.6
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: hyperion
 ---
 
-The `hyperion` platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
+The `hyperion` platform allows you to integrate your
+[Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is
+an open source Ambilight implementation which runs on many platforms.
+
+NOTE: [Hyperion-NG](https://github.com/hyperion-project/hyperion.ng) is
+supported, the original [discontinued Hyperion](https://github.com/hyperion-project/hyperion) is not supported by
+this integration.
 
 ## Configuration
 
@@ -35,27 +41,42 @@ light:
     description: The name of the device used in the frontend.
     required: false
     type: string
+  token:
+    description: A security token used to authenticate to the Hyperion server. See [Creating a Token](#creating-a-token) below.
+    required: false
+    type: string
   priority:
-    description: The priority of the Hyperion instance make sure this is higher then the system prio in hyperion itself.
+    description: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
     required: false
     type: integer
     default: 128
-  hdmi_priority:
-    description: The priority of the HDMI grabber of this Hyperion instance, note that this priority must be higher than all other priorities used for correct behavior.
-    required: false
-    type: integer
-    default: 880
-  default_color:
-    description: The color of the light.
-    required: false
-    type: list
-    default: "[255, 255, 255]"
   effect_list:
-    description: The list of effects that can be used.
+    description: Restrict the list of effects that will be available. If not specified, the list is dynamically populated from Hyperion.
     required: false
     type: list
-    default: "['HDMI', 'Cinema brighten lights', 'Cinema dim lights', 'Knight rider', 'Blue mood blobs', 'Cold mood blobs', 'Full color mood blobs', 'Green mood blobs', 'Red mood blobs', 'Warm mood blobs', 'Police Lights Single', 'Police Lights Solid', 'Rainbow mood', 'Rainbow swirl fast', 'Rainbow swirl', 'Random', 'Running dots', 'System Shutdown', 'Snake', 'Sparks Color', 'Sparks', 'Strobe blue', 'Strobe Raspbmc', 'Strobe white', 'Color traces', 'UDP multicast listener', 'UDP listener', 'X-Mas']"
+    default: "[]"
 {% endconfiguration %}
+
+<a name='#creating-a-token'></a>
+## Creating a Token
+
+If the Hyperion server has API authentication enabled a token may be created from the web interface.
+
+   * Open the `Configuration > Network Services` panel of the Hyperion UI.
+   * Enable `API Authentication`, which causes a `Token Management` panel to appear.
+   * Enter a value for `Token Description`, e.g. `Home Assistant`.
+   * Click `Create Token` and copy the value that appears to your configuration.
+
+## Effects
+
+Unless statically specified in the configuration, the effect list is
+dynamically pulled from the Hyperion server. The following extra effects will
+be available:
+
+   * BOBLIGHTSERVER: Use a Boblight-Server configured in Hyperion.
+   * GRABBER: Use a 'Platform Capture' grabber that is configured in Hyperion.
+   * V4L: Use a 'USB Capture' V4L device that is configured in Hyperion.
+   * Solid: Use a solid color only.
 
 ## Examples
 
@@ -97,7 +118,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
         effect: "Full color mood blobs"
 ```
 
-To capture the screen when playing something of a media_player you can use this example:
+To capture the screen when playing something on a media_player you can use this example:
 
 ```yaml
 - alias: Set hyperion when playback starts
@@ -109,5 +130,5 @@ To capture the screen when playing something of a media_player you can use this 
     - service: light.turn_on
       data:
         entity_id: light.hyperion
-        effect: HDMI
+        effect: V4L
 ```
