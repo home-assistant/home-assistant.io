@@ -66,17 +66,15 @@ entities:
   description: Devices exposed to Sense as TP-Link Smart Plugs
   required: false
   type: list
-  
-The following are attributes that can be applied in the `entities` section:
-name:
-  description: The name that will show up in the Sense app
-  required: false
-  type: string
-power:
-  description: A float or template for the power in **watts** used by the device while on
-  required: true
-  type: string
-
+  keys:
+    name:
+      description: The name that will show up in the Sense app
+      required: false
+      type: string
+    power:
+      description: A float or template for the power in **watts** used by the device while on
+      required: true
+      type: string
 {% endconfiguration %}
 
 Sensors are added for both usage and production with the following names:
