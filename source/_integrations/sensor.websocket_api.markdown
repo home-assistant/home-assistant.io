@@ -4,6 +4,7 @@ description: "Instructions on how to count connected clients within Home Assista
 logo: home-assistant.png
 ha_category:
   - Utility
+  - Sensor
 ha_release: 0.33
 ha_iot_class: Local Push
 ha_quality_scale: internal
