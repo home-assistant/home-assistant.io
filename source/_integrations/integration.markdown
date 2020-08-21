@@ -4,6 +4,7 @@ description: Instructions on how to integrate Integration Sensor into Home Assis
 ha_category:
   - Utility
   - Energy
+  - Sensor
 ha_release: 0.87
 ha_iot_class: Local Push
 ha_quality_scale: internal
