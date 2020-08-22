@@ -22,6 +22,16 @@ script:
           message: 'Turned on the ceiling light!'
 ```
 
+## Types of Actions
+
+- [Call a Service](#call-a-service)
+- [Test a Condition](#test-a-condition)
+- [Delay](#delay)
+- [Wait](#wait)
+- [Fire an Event](#fire-an-event)
+- [Repeat a Group of Actions](#repeat-a-group-of-actions)
+- [Choose a Group of Actions](#choose-a-group-of-actions)
+
 ### Call a Service
 
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
@@ -170,7 +180,7 @@ an event trigger.
 ```
 {% endraw %}
 
-### Raise and Consume Custom Events
+#### Raise and Consume Custom Events
 
 The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
