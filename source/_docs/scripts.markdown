@@ -321,9 +321,8 @@ The `choose` action can be used like an "if" statement. The first `conditions`/`
 
 {% raw %}
 ```yaml
+# Example with just an "if"
 automation:
-
-  # Example with just an "if"
   - trigger:
       - platform: state
         entity_id: binary_sensor.motion
@@ -341,8 +340,10 @@ automation:
                   duration: 60
       - service: light.turn_on
         entity_id: all
-
-  # Example with "if" and "else"
+```
+```yaml
+# Example with "if" and "else"
+automation:
   - trigger:
       - platform: state
         entity_id: binary_sensor.motion
@@ -362,8 +363,10 @@ automation:
         default:
           - service: light.turn_off
             entity_id: light.front_lights
-
-  # Example with "if", "elif" and "else"
+```
+```yaml
+# Example with "if", "elif" and "else"
+automation:
   - trigger:
       - platform: state
         entity_id: input_boolean.simulate
