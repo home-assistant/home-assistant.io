@@ -44,7 +44,7 @@ automation:
         to: 'on'
     action:
       - service: notify.pushbullet
-        data_template: 
+        data: 
           title: 'New Home Assistant Release'
           target: 'YOUR_TARGET_HERE' #See Pushbullet integration for usage
           message: "Home Assistant {% raw %} {{ state_attr('binary_sensor.updater', 'newest_version') }} {% endraw %} is now available."

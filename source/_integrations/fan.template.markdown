@@ -35,15 +35,15 @@ fan:
           service: script.fan_off
         set_speed:
           service: script.fan_speed
-          data_template:
+          data:
             speed: "{{ speed }}"
         set_oscillating:
           service: script.fan_oscillating
-          data_template:
+          data:
             oscillating: "{{ oscillating }}"
         set_direction:
           service: script.fan_direction
-          data_template:
+          data:
             direction: "{{ direction }}"
         speeds:
           - '1'

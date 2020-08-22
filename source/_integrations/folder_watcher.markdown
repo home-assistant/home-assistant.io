@@ -57,7 +57,7 @@ folder_watcher:
 
 ## Automations
 
-Automations can be triggered on filesystem event data using a `data_template`. The following automation will send a notification with the name and folder of new files added to that folder:
+Automations can be triggered on filesystem event data using a template. The following automation will send a notification with the name and folder of new files added to that folder:
 
 {% raw %}
 ```yaml
@@ -71,7 +71,7 @@ automation:
       event_type: created
   action:
     service: notify.notify
-    data_template:
+    data:
       title: New image captured!
       message: "Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}"
       data:

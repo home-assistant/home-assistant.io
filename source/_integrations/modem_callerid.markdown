@@ -94,7 +94,7 @@ automation:
       to: "callerid"
     action:
       service: tts.google_say
-      data_template:
+      data:
         message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}'
 ```
 {% endraw %}

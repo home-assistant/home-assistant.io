@@ -196,7 +196,7 @@ automation:
         event: 2002
     action:
       - service: light.turn_on
-        data_template:
+        data:
           entity_id: light.lamp
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
@@ -212,7 +212,7 @@ automation:
         event: 3002
     action:
       - service: light.turn_on
-        data_template:
+        data:
           entity_id: light.lamp
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}

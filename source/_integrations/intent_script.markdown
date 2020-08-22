@@ -18,7 +18,7 @@ intent_script:
       text: We have {% raw %}{{ states.sensor.temperature }}{% endraw %} degrees
     action:
       service: notify.notify
-      data_template:
+      data:
         message: Hello from an intent!
 ```
 

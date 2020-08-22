@@ -62,7 +62,7 @@ automation:
       entity_id: input_select.ventilation_profile
     action:
       service: vallox.set_profile
-      data_template:
+      data:
         profile: "{{ states('input_select.ventilation_profile') }}"
 ```
 {% endraw %}

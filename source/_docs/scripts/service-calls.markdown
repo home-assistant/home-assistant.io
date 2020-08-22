@@ -67,23 +67,13 @@ Templates can also be used for the data that you pass to the service call.
 
 ```yaml
 service: thermostat.set_temperature
-data_template:
+data:
   entity_id: >
     {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
       thermostat.upstairs
     {% else %}
       thermostat.downstairs
     {% endif %}{% endraw %}
-  temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
-```
-
-It is even possible to use `data` and `data_template` concurrently but be aware that `data_template` will overwrite attributes that are provided in both.
-
-```yaml
-service: thermostat.set_temperature
-data:
-  entity_id: thermostat.upstairs
-data_template:
   temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
 ```
 

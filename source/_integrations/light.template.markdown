@@ -35,25 +35,25 @@ light:
           service: script.theater_lights_off
         set_level:
           service: script.theater_lights_level
-          data_template:
+          data:
             brightness: "{{ brightness }}"
         set_temperature:
           service: input_number.set_value
-          data_template:
+          data:
             value: "{{ color_temp }}"
             entity_id: input_number.temperature_input
         set_white_value:
           service: input_number.set_value
-          data_template:
+          data:
             value: "{{ white_value }}"
             entity_id: input_number.white_value_input
         set_color:
           - service: input_number.set_value
-            data_template:
+            data:
               value: "{{ h }}"
               entity_id: input_number.h_input
           - service: input_number.set_value
-            data_template:
+            data:
               value: "{{ s }}"
               entity_id: input_number.s_input
 ```
@@ -192,7 +192,7 @@ light:
             is_volume_muted: true
         set_level:
           service: media_player.volume_set
-          data_template:
+          data:
             entity_id: media_player.receiver
             volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
         level_template: >-

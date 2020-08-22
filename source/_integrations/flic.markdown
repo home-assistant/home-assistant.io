@@ -98,8 +98,8 @@ automation:
       platform: event
       event_type: flic_click
     action:
-      - service_template: notify.html5
-        data_template:
+      - service: notify.html5
+        data:
           title: "flic click"
           message: {% raw %}"flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"{% endraw %}
 ```

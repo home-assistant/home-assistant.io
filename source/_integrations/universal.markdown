@@ -114,12 +114,12 @@ media_player:
         entity_id: switch.living_room_mute
     select_source:
       service: media_player.select_source
-      data_template:
+      data:
         entity_id: media_player.receiver
         source: '{{ source }}'
     volume_set:
       service: media_player.volume_set
-      data_template:
+      data:
         entity_id: media_player.receiver
         volume_level: '{{ volume_level }}'
 
@@ -267,7 +267,7 @@ media_player:
           command: VolumeDown
       select_source:
         service: remote.turn_on
-        data_template:
+        data:
           entity_id: remote.alexander_down_guest
           activity: '{{ source }}'
 ```

@@ -141,21 +141,21 @@ automation:
    # Sets time to time from datetime object (current time in this example)
   - service: input_datetime.set_datetime
     entity_id: input_datetime.another_time
-    data_template:
+    data:
       time: "{{ now().strftime('%H:%M:%S') }}"
   # Sets date to date from timestamp (current date in this example)
   - service: input_datetime.set_datetime
     entity_id: input_datetime.another_date
-    data_template:
+    data:
       date: "{{ as_timestamp(now())|timestamp_custom('%Y-%m-%d') }}"
   # Sets date and time to date and time from datetime object (current date and time in this example)
   - service: input_datetime.set_datetime
     entity_id: input_datetime.date_and_time
-    data_template:
+    data:
       datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
   # Sets date and time to date and time from timestamp (current date and time in this example)
   - service: input_datetime.set_datetime
-    data_template:
+    data:
       entity_id: input_datetime.date_and_time
       date: >
         {{ now().timestamp() | timestamp_custom("%Y-%m-%d", true) }}

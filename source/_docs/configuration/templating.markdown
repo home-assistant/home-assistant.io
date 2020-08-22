@@ -35,7 +35,7 @@ script:
   msg_who_is_home:
     sequence:
       - service: notify.notify
-        data_template:
+        data:
           message: >
             {% if is_state('device_tracker.paulus', 'home') %}
               Ha, Paulus is home!

@@ -50,7 +50,7 @@ automation:
       event_type: opensky_entry
     action:
       service: notify.mobile_app_<device_name>
-      data_template:
+      data:
         message : 'Flight entry of {{ trigger.event.data.callsign }} '
 ```
 {% endraw %}

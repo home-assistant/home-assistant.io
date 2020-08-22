@@ -124,7 +124,7 @@ It is also possible to use dummy variables, e.g., in scripts, when using `wait_t
 ```yaml
 # Service call, e.g., from an automation.
 - service: script.do_something
-  data_template:
+  data:
     dummy: input_boolean.switch
 
 # Inside the script
@@ -158,13 +158,13 @@ This action allows you to fire an event. Events can be used for many things. It 
     domain: light
 ```
 
-You can also use event_data_template to fire an event with custom data. This could be used to pass data to another script awaiting
+You can also use event_data to fire an event with custom data. This could be used to pass data to another script awaiting
 an event trigger.
 
 {% raw %}
 ```yaml
 - event: MY_EVENT
-  event_data_template:
+  event_data:
     name: myEvent
     customData: "{{ myCustomVariable }}"
 ```
@@ -198,7 +198,7 @@ The following automation shows how to capture the custom event `event_light_stat
       event_type: event_light_state_changed
   action:
     - service: notify.notify
-      data_template:
+      data:
         message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
 {% endraw %}
@@ -220,14 +220,14 @@ script:
     mode: restart
     sequence:
       - service: light.turn_on
-        data_template:
+        data:
           entity_id: "light.{{ light }}"
       - repeat:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
             - delay: 2
             - service: light.toggle
-              data_template:
+              data:
                 entity_id: "light.{{ light }}"
   flash_hallway_light:
     sequence:

@@ -168,7 +168,7 @@ Example:
       event_data:
         type: movement
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
@@ -192,7 +192,7 @@ Example:
       event_data:
         type: human # other possible types: animal, vehicle
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
@@ -224,7 +224,7 @@ Example:
       event_data:
         type: tag_small_move
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}
         title: Netatmo event

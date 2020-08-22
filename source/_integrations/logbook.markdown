@@ -179,7 +179,7 @@ script:
     alias: Add Logbook
     sequence:
       - service: logbook.log
-        data_template:
+        data:
           name: Kitchen
           message: is being used
           # Optional
