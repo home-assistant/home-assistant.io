@@ -42,8 +42,8 @@ We will need a few things to get started with installing Home Assistant. The Ras
 
 ### Software requirements
 
-- Download and extract the Home Assistant image for [your device](/hassio/installation/)
-- Download [balenaEtcher] to write the image to an SD card
+- Download and extract the Home Assistant image for [your device](/hassio/installation/).
+- Download [balenaEtcher] to write the image to an SD card.
 
 [balenaEtcher]: https://www.balena.io/etcher
 
