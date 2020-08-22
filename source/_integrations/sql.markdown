@@ -154,4 +154,5 @@ sensor:
         query: 'SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();'
         column: 'size'
         unit_of_measurement: 'MiB'
+```
 {% endraw %}
