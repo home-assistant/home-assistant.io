@@ -22,11 +22,13 @@ Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX
 
 The `knx` integration must be configured correctly, see [KNX Integration](/integrations/knx).
 
+To use your binary sensors please add the relevant configuration to your top level KNX configuration key in `configuration.yaml`:
+
 ```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: knx
-    state_address: '6/0/2'
+knx:
+  binary_sensor:
+    - name: sensor1
+      state_address: '6/0/2'
 ```
 
 {% configuration %}
@@ -64,23 +66,23 @@ You can also attach actions to binary sensors (e.g., to switch on a light when a
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: knx
-    name: Livingroom.3Switch3
-    state_address: '5/0/26'
-    automation:
-      - counter: 1
-        hook: 'on'
-        action:
-          - entity_id: light.hue_color_lamp_1
-            service: homeassistant.turn_on
-      - counter: 2
-        hook: 'on'
-        action:
-          - entity_id: light.hue_bloom_1
-            service: homeassistant.turn_on
-          - entity_id: light.hue_bloom_2
-            service: homeassistant.turn_on
+knx:
+  binary_sensor:
+    - name: Livingroom.3Switch3
+      state_address: '5/0/26'
+      automation:
+        - counter: 1
+          hook: 'on'
+          action:
+            - entity_id: light.hue_color_lamp_1
+              service: homeassistant.turn_on
+        - counter: 2
+          hook: 'on'
+          action:
+            - entity_id: light.hue_bloom_1
+              service: homeassistant.turn_on
+            - entity_id: light.hue_bloom_2
+              service: homeassistant.turn_on
 ```
 
 {% configuration %}

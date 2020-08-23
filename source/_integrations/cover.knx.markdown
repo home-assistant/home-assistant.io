@@ -20,15 +20,15 @@ To use your KNX covers in your installation, add the following to your `configur
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: knx
-    name: "Kitchen.Shutter"
-    move_long_address: '3/0/0'
-    move_short_address: '3/0/1'
-    position_address: '3/0/3'
-    position_state_address: '3/0/2'
-    travelling_time_down: 51
-    travelling_time_up: 61
+knx:
+  cover:
+    - name: "Kitchen.Shutter"
+      move_long_address: '3/0/0'
+      move_short_address: '3/0/1'
+      position_address: '3/0/3'
+      position_state_address: '3/0/2'
+      travelling_time_down: 51
+      travelling_time_up: 61
 ```
 
 {% configuration %}

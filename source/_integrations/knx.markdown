@@ -40,6 +40,22 @@ To use your KNX bus in your installation, add the following lines to your `confi
 knx:
 ```
 
+In order to make use of the various platforms KNX offers you will need to have the following configuration inside `configuration.yaml` depending on what
+platforms you intend to use:
+
+```yaml
+knx:
+  binary_sensor: !include knx_binary_sensor.yaml
+  switch: !include knx_switch.yaml
+  sensor: !include knx_sensor.yaml
+  cover: !include knx_cover.yaml
+  light: !include knx_light.yaml
+  notify: !include knx_notify.yaml
+  scene: !include knx_scene.yaml
+```
+
+Please check the dedicated platform documentation about how to configure them correctly.
+
 Optional, or if you want to use the XKNX abstraction also for other scripted tools outside of Home Assistant:
 
 ```yaml

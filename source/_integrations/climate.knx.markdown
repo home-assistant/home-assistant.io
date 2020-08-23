@@ -16,36 +16,36 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 The `knx` climate platform is used as an interface to KNX thermostats and room controllers.
 
-To use your KNX thermostats in your installation, add the following lines to your `configuration.yaml` file:
+To use your KNX thermostats in your installation, add the following lines to your top level KNX configuration key in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-   - platform: knx
-     name: HASS-Kitchen.Temperature
-     temperature_address: '5/1/1'
-     setpoint_shift_address: '5/1/2'
-     setpoint_shift_state_address: '5/1/3'
-     target_temperature_state_address: '5/1/4'
-     operation_mode_address: '5/1/5'
-     operation_mode_state_address: '5/1/6'
+knx:
+  climate:
+    - name: HASS-Kitchen.Temperature
+      temperature_address: '5/1/1'
+      setpoint_shift_address: '5/1/2'
+      setpoint_shift_state_address: '5/1/3'
+      target_temperature_state_address: '5/1/4'
+      operation_mode_address: '5/1/5'
+      operation_mode_state_address: '5/1/6'
 ```
 
 Alternatively, if your device has dedicated binary group addresses for frost/night/comfort mode:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-  - platform: knx
-    name: HASS-Kitchen.Temperature
-    temperature_address: '5/1/1'
-    setpoint_shift_address: '5/1/2'
-    setpoint_shift_state_address: '5/1/3'
-    target_temperature_state_address: '5/1/4'
-    operation_mode_frost_protection_address: '5/1/5'
-    operation_mode_night_address: '5/1/6'
-    operation_mode_comfort_address: '5/1/7'
-    operation_mode_state_address: '5/1/8'
+knx:
+  climate:
+    - name: HASS-Kitchen.Temperature
+      temperature_address: '5/1/1'
+      setpoint_shift_address: '5/1/2'
+      setpoint_shift_state_address: '5/1/3'
+      target_temperature_state_address: '5/1/4'
+      operation_mode_frost_protection_address: '5/1/5'
+      operation_mode_night_address: '5/1/6'
+      operation_mode_comfort_address: '5/1/7'
+      operation_mode_state_address: '5/1/8'
 ```
 
 If your device doesn't support setpoint_shift calculations (i.e., if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
@@ -54,18 +54,18 @@ to the configuration in this case.:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-  - platform: knx
-    name: HASS-Kitchen.Temperature
-    temperature_address: '5/1/2'
-    target_temperature_address: '5/1/4'
-    target_temperature_state_address: '5/1/1'
-    operation_mode_frost_protection_address: '5/1/5'
-    operation_mode_night_address: '5/1/6'
-    operation_mode_comfort_address: '5/1/7'
-    operation_mode_state_address: '5/1/8'
-    min_temp: 7.0
-    max_temp: 32.0
+knx:
+  climate:
+    - name: HASS-Kitchen.Temperature
+      temperature_address: '5/1/2'
+      target_temperature_address: '5/1/4'
+      target_temperature_state_address: '5/1/1'
+      operation_mode_frost_protection_address: '5/1/5'
+      operation_mode_night_address: '5/1/6'
+      operation_mode_comfort_address: '5/1/7'
+      operation_mode_state_address: '5/1/8'
+      min_temp: 7.0
+      max_temp: 32.0
 ```
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.

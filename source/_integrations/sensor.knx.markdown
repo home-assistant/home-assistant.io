@@ -25,10 +25,10 @@ To use your KNX sensor in your installation, add the following lines to your `co
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: knx
-    name: Heating.Valve1
-    state_address: '2/0/0'
+knx:
+  sensor:
+    - name: Heating.Valve1
+      state_address: '2/0/0'
 ```
 
 {% configuration %}
@@ -195,14 +195,13 @@ type:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: knx
-    name: Heating.Valve1
-    state_address: '2/0/0'
-    type: 'percent'
-  - platform: knx
-    name: Kitchen.Temperature
-    state_address: '6/2/1'
-    sync_state: False
-    type: 'temperature'
+knx:
+  sensor:
+    - name: Heating.Valve1
+      state_address: '2/0/0'
+      type: 'percent'
+    - name: Kitchen.Temperature
+      state_address: '6/2/1'
+      sync_state: False
+      type: 'temperature'
 ```
