@@ -88,7 +88,7 @@ Set the zone moisture percentage for a zone or group of zones.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String, list or group of zones to set moisture percentage.
+| `entity_id` | yes | String, list or group of zones to set moisture percentage.
 | `percent` | no | Integer of the desired moisture percentage. Accepts 0-100.
 
 ## Examples
