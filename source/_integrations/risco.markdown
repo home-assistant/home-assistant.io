@@ -27,6 +27,19 @@ An Alarm Control Panel entity will be created for each partition in your site, a
 
 If you have multiple sites, only the first site will be used.
 
+## Options
+
+You can configure additional behavior by clicking on **Options** in the relevant box in the Integration panel:
+
+{% configuration_basic %}
+How often to poll Risco (in seconds):
+  description: "The lower this is, the faster your entities will reflect changes, but the more resource intensive it'll be."
+Require pin code to arm:
+  description: When checked, you'll need to enter your pin code when arming through Home Assistant.
+Require pin code to disarm:
+  description: When checked, you'll need to enter your pin code when disarming through Home Assistant.
+{% endconfiguration_basic %}
+
 Currently supported plaforms:
 - [Alarm Control Panel](/integrations/alarm_control_panel/)
 - [Binary Sensor](/integrations/binary_sensor/)
