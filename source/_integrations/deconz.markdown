@@ -63,7 +63,7 @@ logger:
 
 ## Troubleshooting
 
-If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](http://deconz.dresden-elektronik.de/deconz-firmware/?C=M;O=D).
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](http://deconz.dresden-elektronik.de/deconz-firmware/?C=M;O=D). If you are running the official Home Assistant deCONZ add-on, updating your hardware through the Phoscon app may lead to connectivity issues. Instead, [try updating manually](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Update-deCONZ-manually).
 
 ## Device services
 
