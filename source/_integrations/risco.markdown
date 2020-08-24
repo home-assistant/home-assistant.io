@@ -27,9 +27,9 @@ An Alarm Control Panel entity will be created for each partition in your site, a
 
 If you have multiple sites, only the first site will be used.
 
-### Extra configuration of the integration
+## Options
 
-You can configure additional options through the integration options flow:
+You can configure additional behavior by clicking on **Options** in the relevant box in the Integration panel:
 
 {% configuration_basic %}
 How often to poll Risco (in seconds):
