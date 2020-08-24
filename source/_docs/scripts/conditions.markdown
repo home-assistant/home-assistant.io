@@ -96,9 +96,17 @@ condition:
 
 ### Numeric state condition
 
-This type of condition attempts to parse the state of the specified entity as a number, and triggers if the value matches the thresholds.
+This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds.
 
 If both `below` and `above` are specified, both tests have to pass.
+
+```yaml
+condition:
+  condition: numeric_state
+  entity_id: sensor.temperature
+  above: 17
+  below: 25
+```
 
 You can optionally use a `value_template` to process the value of the state before testing it.
 
@@ -122,6 +130,18 @@ condition:
     - sensor.kitchen_temperature
     - sensor.living_room_temperature
   below: 18
+```
+
+Alternatively, the condition can test against a state attribute.
+The condition will pass if the attribute value of the entity matches the thresholds.
+
+```yaml
+condition:
+  condition: numeric_state
+  entity_id: climate.living_room_thermostat
+  attribute: temperature
+  above: 17
+  below: 25
 ```
 
 ### State condition
@@ -176,6 +196,17 @@ condition:
   state:
     - playing
     - paused
+```
+
+Alternatively, the condition can test against a state attribute.
+The condition will pass if the attribute matches the given state.
+
+```yaml
+condition:
+  condition: state
+  entity_id: climate.living_room_thermostat
+  attribute: hvac_modes
+  state: heat
 ```
 
 ### Sun condition
