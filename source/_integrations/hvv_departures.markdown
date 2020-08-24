@@ -35,7 +35,7 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
 
 ## Elevator sensors
 
-If the selected station has elevators, binary_sensors will be available.
+If the selected station has elevators, binary sensors will be available.
 
 ### States
 
