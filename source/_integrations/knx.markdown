@@ -145,7 +145,7 @@ In order to directly interact with the KNX bus, you can use the following servic
 ```txt
 Domain: knx
 Service: send
-Service Data: {"address": "1/0/15", "payload": 0}
+Service Data: {"address": "1/0/15", "payload": 0, "type": "temperature"}
 ```
 
 {% configuration %}
@@ -155,6 +155,10 @@ address:
 payload:
   description: Payload, either an integer or an array of integers
   type: [integer, list]
+type:
+  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values.
+  required: false
+  type: string
 {% endconfiguration %}
 
 You can also use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of a device.

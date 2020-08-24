@@ -25,6 +25,7 @@ knx:
     - name: "Kitchen.Shutter"
       move_long_address: '3/0/0'
       move_short_address: '3/0/1'
+      stop_address: '3/0/4'
       position_address: '3/0/3'
       position_state_address: '3/0/2'
       travelling_time_down: 51
@@ -42,7 +43,11 @@ move_long_address:
   required: false
   type: string
 move_short_address:
-  description: KNX group address for moving the cover short time up or down. If the KNX device has a stop group address you can use that here.
+  description: KNX group address for moving the cover short time up or down.
+  required: false
+  type: string
+stop_address:
+  description: KNX group address for stopping the current movement from the cover.
   required: false
   type: string
 position_address:
