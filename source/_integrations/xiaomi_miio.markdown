@@ -1224,7 +1224,7 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data_template:
+      data:
         entity_id: vacuum.xiaomi_vacuum
         repeats: '{{states('input_number.vacuum_passes')|int}}'
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
@@ -1244,7 +1244,7 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data_template:
+      data:
         entity_id: vacuum.xiaomi_vacuum
         repeats: '{{states('input_number.vacuum_passes')|int}}'
         zone:

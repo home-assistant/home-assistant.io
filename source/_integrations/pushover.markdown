@@ -89,7 +89,7 @@ alexa:
     LocateIntent:
       action:
         service: notify.notify
-        data_template:
+        data:
           message: "The location of {{ User }} has been queried via Alexa."
         data:
           title: "Home Assistant"

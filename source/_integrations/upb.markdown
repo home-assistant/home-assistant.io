@@ -181,7 +181,7 @@ Start a scene blinking.
       address: '42_9'
   action:
     service: persistent_notification.create
-    data_template:
+    data:
       title: 'Scene Activated'
       message: >
         Activated scene 9 on network 42: {{trigger.event.data.command}}, {{trigger.event.data.address}}

@@ -128,7 +128,7 @@ automation:
     value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
   action:
   - service: persistent_notification.create
-    data_template:
+    data:
       title: Point button press (webhook)
       message: "Button press on Point {{ trigger.event.data.event.device_id }}"
 ```

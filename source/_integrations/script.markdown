@@ -25,7 +25,7 @@ script:
     sequence:
       # This is Home Assistant Script Syntax
       - service: notify.notify
-        data_template:
+        data:
           message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
 
@@ -176,7 +176,7 @@ automation:
       message: 'The light is on!'
 ```
 
-Using the variables in the script requires the use of `data_template`:
+Using the variables in the script requires the use of templates:
 
 ```yaml
 # Example configuration.yaml entry
@@ -195,7 +195,7 @@ script:
         entity_id: switch.pushover_notifications
         state: 'on'
       - service: notify.pushover
-        data_template:
+        data:
           title: "{% raw %}{{ title }}{% endraw %}"
           message: "{% raw %}{{ message }}{% endraw %}"
 ```

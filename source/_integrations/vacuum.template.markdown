@@ -162,7 +162,7 @@ vacuum:
             service: script.vacuum_locate_vacuum
         set_fan_speed:
             service: script.vacuum_set_fan_speed
-            data_template:
+            data:
               speed: "{{ fan_speed }}"
         fan_speeds:
             - Low

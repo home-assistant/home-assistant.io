@@ -54,7 +54,7 @@ automation:
         entity_id: alarm_control_panel.alarm_1
     action:
       - service: notify.notify
-        data_template:
+        data:
           message: >
             {% raw %}Alarm changed from {{ trigger.from_state.state }}
             to {{ trigger.to_state.state }}

@@ -210,7 +210,7 @@ cover:
             modus: 'stop'
         set_cover_position:
           service: script.cover_group_position
-          data_template:
+          data:
             position: "{{position}}"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
@@ -239,7 +239,7 @@ sensor:
 script:
   cover_group:
     sequence:
-      - service_template: "cover.{{modus}}_cover"
+      - service: "cover.{{modus}}_cover"
         data:
           entity_id:
             - cover.bedroom
@@ -247,7 +247,7 @@ script:
   cover_group_position:
     sequence:
       - service: cover.set_cover_position
-        data_template:
+        data:
           entity_id:
             - cover.bedroom
             - cover.livingroom

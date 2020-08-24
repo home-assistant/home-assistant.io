@@ -209,7 +209,7 @@ script:
           entity_id: media_player.kodi
       - alias: Play TV channel
         service: media_player.play_media
-        data_template:
+        data:
           entity_id: media_player.kodi
           media_content_type: "CHANNEL"
           media_content_id: >

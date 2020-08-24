@@ -128,8 +128,7 @@ automation:
       entity_id: input_select.scene_bedroom
     action:
       - service: input_text.set_value
-        # Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
-        data_template:
+        data:
           entity_id: input_text.bedroom
           value: "{{ states('input_select.scene_bedroom') }}"
 ```

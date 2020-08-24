@@ -129,7 +129,7 @@ script:
                    direction == 'down' and br > mn }}
           sequence:
             - service: light.turn_on
-              data_template:
+              data:
                 entity_id: "{{ light }}"
                 brightness: >
                   {% set br = state_attr(light, 'brightness')|int(0) %}

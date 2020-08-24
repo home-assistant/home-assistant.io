@@ -102,15 +102,15 @@ intent_script:
       text: Turning {{ Room }} lights {{ OnOff }}
     action:
       - service: notify.pushbullet
-        data_template:
+        data:
           message: Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}
-      - service_template: >
+      - service: >
           {%- if OnOff == "on" -%}
             switch.turn_on
           {%- else -%}
             switch.turn_off
           {%- endif -%}
-        data_template:
+        data:
           entity_id: "switch.light_{{ Room | striptags | replace(' ', '_') }}"
 ```
 {% endraw %}

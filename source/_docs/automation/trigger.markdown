@@ -123,7 +123,7 @@ automation:
       seconds: "{{ states('input_number.high_temp_sec')|int }}"
   action:
     service: persistent_notification.create
-    data_template:
+    data:
       message: >
         {{ trigger.to_state.name }} too high for {{ trigger.for }}!
 ```
@@ -341,7 +341,7 @@ automation:
         entity_id: climate.office
       - service: input_datetime.set_datetime
         entity_id: input_datetime.turn_off_ac
-        data_template:
+        data:
           datetime: >
             {{ (now().timestamp() + 2*60*60)
                | timestamp_custom('%Y-%m-%d %H:%M:%S') }}

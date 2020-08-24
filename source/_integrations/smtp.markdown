@@ -128,7 +128,7 @@ The optional `html` field makes a custom text/HTML multi-part message, allowing 
       - delay:
             seconds: 1
       - service: notify.NOTIFIER_NAME
-        data_template:
+        data:
             message: 'Intruder alert at apartment!!'
             data:
               images:
