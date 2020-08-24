@@ -102,7 +102,7 @@ LED colors on switches.
 
 ## Events
 
-### ozw.scene_activated
+### Event `ozw.scene_activated`
 
 This event is fired upon scene activation. The data in the event will vary depending on your particular Z-Wave device, however, here is an example from a Zooz ZEN27 Dimmer when the down button is pressed 3 times.
 
