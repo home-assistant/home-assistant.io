@@ -185,7 +185,7 @@ heat_cool_address:
   required: false
   type: string
 heat_cool_state_address:
-  description: KNX address for reading heat/cool mode.
+  description: KNX address for reading heat/cool mode.  0: cooling - 1: heating  *DPT 1.100*
   required: false
   type: string
 operation_mode_frost_protection_address:
