@@ -77,12 +77,12 @@ travelling_time_up:
   default: 25
   type: integer
 invert_position:
-  description: Set this to true if your actuator report fully closed as 100%.
+  description: Set this to true if your actuator report fully closed as 0% in KNX.
   required: false
   default: false
   type: boolean
 invert_angle:
-  description: Set this to true if your actuator reports tilt fully closed as 100%.
+  description: Set this to true if your actuator reports tilt fully closed as 0% in KNX.
   required: false
   default: false
   type: boolean

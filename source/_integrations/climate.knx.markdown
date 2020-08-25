@@ -71,8 +71,8 @@ knx:
 
 `setpoint_shift_mode` allows the two following DPTs to be used:
 
-- "DPT6.002" for 1-byte signed integer (default)
-- "DPT9.002" for 2-byte float
+- DPT6.002 (for 1 byte signed integer)
+- DPT9.002 (for 2 byte float)
 
 Example:
 
@@ -92,6 +92,11 @@ knx:
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` / `operation_mode_standby_address` are not necessary if `operation_mode_address` is specified.
 If the actor doesn't support explicit state communication objects the *_state_address can be configured with the same group address as the writeable *_address. The Read-Flag for the *_state_address communication object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
+
+The following values are valid for the `heat_cool_address` and the `heat_cool_state_address`:
+
+- 0 (cooling)
+- 1 (heating)
 
 The following values are valid for the `hvac_mode` attribute:
 
@@ -133,11 +138,11 @@ target_temperature_state_address:
   required: true
   type: string
 setpoint_shift_address:
-  description: KNX address for setpoint_shift. The DPT used can be configured via setpoint_shift_mode.  *DPT 6.010 or 9.001 based on setpoint_shift_mode*
+  description: KNX address for setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_state_address:
-  description: KNX address for reading setpoint_shift. The DPT used can be configured via setpoint_shift_mode.  *DPT 6.010 or 9.001 based on setpoint_shift_mode*
+  description: KNX address for reading setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_mode:
@@ -181,11 +186,11 @@ controller_mode_state_address:
   required: false
   type: string
 heat_cool_address:
-  description: KNX address for switching between heat/cool mode. 0: cooling - 1: heating  *DPT 1.100*
+  description: KNX address for switching between heat/cool mode. *DPT 1.100*
   required: false
   type: string
 heat_cool_state_address:
-  description: KNX address for reading heat/cool mode.  0: cooling - 1: heating  *DPT 1.100*
+  description: KNX address for reading heat/cool mode. *DPT 1.100*
   required: false
   type: string
 operation_mode_frost_protection_address:
