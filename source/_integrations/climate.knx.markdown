@@ -137,7 +137,7 @@ setpoint_shift_address:
   required: false
   type: string
 setpoint_shift_state_address:
-  description: KNX address for reading setpoint_shift. The DPT used can be configured via setpoint_shift_mode.
+  description: KNX address for reading setpoint_shift. The DPT used can be configured via setpoint_shift_mode.  *DPT 6.010 or 9.001 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_mode:
