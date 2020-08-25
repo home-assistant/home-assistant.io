@@ -224,7 +224,7 @@ style:
   required: false
   description: Style the element using CSS.
   type: map
-  default: height: 1px, background-color: var(--divider-color)
+  default: "height: 1px, background-color: var(--divider-color)"
 {% endconfiguration %}
 
 ### Section
