@@ -164,7 +164,7 @@ After each time a wait completes, either because the condition was met, the even
 Variable | Description
 -|-
 `wait.completed` | Exists only after `wait_template`. `true` if the condition was met, `false` otherwise
-`wait.trigger` | Exists only after `wait_for_trigger`. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data)
+`wait.trigger` | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired
 `wait.remaining` | Timeout remaining, or `none` if a timeout was not specified
 
 This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
