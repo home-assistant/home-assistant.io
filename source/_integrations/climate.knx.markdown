@@ -133,7 +133,7 @@ target_temperature_state_address:
   required: true
   type: string
 setpoint_shift_address:
-  description: KNX address for setpoint_shift. The DPT used can be configured via setpoint_shift_mode.
+  description: KNX address for setpoint_shift. The DPT used can be configured via setpoint_shift_mode.  *DPT 6.010 or 9.001 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_state_address:
@@ -181,7 +181,7 @@ controller_mode_state_address:
   required: false
   type: string
 heat_cool_address:
-  description: KNX address for switching between heat/cool mode.
+  description: KNX address for switching between heat/cool mode. 0: cooling - 1: heating  *DPT 1.100*
   required: false
   type: string
 heat_cool_state_address:
