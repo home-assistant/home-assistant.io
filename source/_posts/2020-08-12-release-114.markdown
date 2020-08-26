@@ -625,7 +625,7 @@ the automation is turned off.
 [#39018]: https://github.com/home-assistant/core/pull/39018
 [#39063]: https://github.com/home-assistant/core/pull/39063
 [#39076]: https://github.com/home-assistant/core/pull/39076
-[@Danielhiversen]: https://github.com/Danielhiversen
+[@danielhiversen]: https://github.com/Danielhiversen
 [@bdraco]: https://github.com/bdraco
 [@emontnemery]: https://github.com/emontnemery
 [@lawtancool]: https://github.com/lawtancool
@@ -637,6 +637,17 @@ the automation is turned off.
 [norway_air docs]: /integrations/norway_air/
 [ssdp docs]: /integrations/ssdp/
 [zeroconf docs]: /integrations/zeroconf/
+
+## Release 0.114.4 - August 26
+
+- Fix TTS languange characters ([@pvizeli] - [#39211]) ([tts docs])
+- Fix time pattern listener firing a few microseconds early ([@bdraco] - [#39281])
+
+[#39211]: https://github.com/home-assistant/core/pull/39211
+[#39281]: https://github.com/home-assistant/core/pull/39281
+[@bdraco]: https://github.com/bdraco
+[@pvizeli]: https://github.com/pvizeli
+[tts docs]: /integrations/tts/
 
 ## All changes
 
