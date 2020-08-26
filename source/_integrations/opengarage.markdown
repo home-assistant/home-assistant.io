@@ -109,19 +109,16 @@ sensor:
           {% else %}
           n/a
           {% endif %}'{% endraw %}
-    garage_car_present:
-      friendly_name: 'Honda in Garage'
-      value_template: {% raw %}'{% if states.cover.honda %}
-          {% if is_state("cover.honda", "open") %}
-            n/a
-          {% elif ((states.cover.honda.attributes["distance_sensor"] > 40) and (states.cover.honda.attributes["distance_sensor"] < 100)) %}
-            Yes
-          {% else %}
-            No
-          {% endif %}
-          {% else %}
-          n/a
-          {% endif %}'
+binary_sensor:
+  platform: template
+  sensors:
+    honda_in_garage:
+      friendly_name: "Honda in Garage"
+      value_template: >-
+        {{ state_attr('cover.honda', 'distance_sensor') < 100 }}
+      availability_template: >-
+        {{ state_attr('cover.honda', 'door_state') == 'closed' }}
+      unique_id: binary_sensor.honda_in_garage
 
 group:
   garage:
