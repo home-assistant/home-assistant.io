@@ -115,9 +115,9 @@ binary_sensor:
     honda_in_garage:
       friendly_name: "Honda in Garage"
       value_template: >-
-        {{ state_attr('cover.honda', 'distance_sensor') < 100 }}
+        {% raw %} {{ state_attr('cover.honda', 'distance_sensor') < 100 }} {% endraw %}
       availability_template: >-
-        {{ state_attr('cover.honda', 'door_state') == 'closed' }}
+        {% raw %} {{ state_attr('cover.honda', 'door_state') == 'closed' }} {% endraw %}
       unique_id: binary_sensor.honda_in_garage
 
 group:
@@ -135,5 +135,3 @@ customize:
   sensor.garage_car_present:
     icon: mdi:car
 ```
-
-{% endraw %}
