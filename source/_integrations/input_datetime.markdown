@@ -78,7 +78,7 @@ automations and templates.
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
-| `timestamp` | A timestamp representing the time held in the input.<br>(seconds past midnight if only `has_time: true` unix timestamp if `has_date: true`)
+| `timestamp` | A timestamp representing the time held in the input.<br>(seconds past midnight if only `has_time: true`, unix timestamp if `has_date: true`)
 
 ### Restore State
 
@@ -163,3 +163,32 @@ automation:
         {{ now().timestamp() | timestamp_custom("%H:%M:%S", true) }}
 ```
 {% endraw %}
+
+The following example automation performs time comparisons using templates.
+
+{% raw %}
+```yaml
+automation:
+  alias: Run at given time before a given date
+  trigger:
+    # Example with a time only input_datetime.
+    # Template is true when current time is at or later than an inputed time for the current day.
+    # Usage in triggers depends on existence of sensor.time because now() only renders on state changes.
+    platform: template
+    value_template: >
+      {{ as_timestamp(states.sensor.time.last_updated)|int >= 
+      (as_timestamp(as_timestamp(now())|timestamp_custom('%Y-%m-%d 00:00:00'))|int + state_attr('input_datetime.only_time','timestamp')|int) }}
+  condition:
+    # Example for a date or datetime input_datetime.
+    # True when current time is before the inputed date or date and time.
+    # Timestamp is midnight of the specified date when input_datetime is date only.
+    # Timestamp is the exact time and date when input_datetime is date and time.
+    condition: template
+    value_template: >
+      {{ as_timestamp(now())|int < state_attr('input_datetime.only_date','timestamp')|int }}    
+  action:
+    service: input_boolean.toggle
+    entity_id: input_boolean.test
+```
+{% endraw %}
+
