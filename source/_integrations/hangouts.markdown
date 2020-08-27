@@ -214,7 +214,7 @@ Sends a message to the given conversations.
 |------------------------|----------|--------------------------------------------------|
 | target                 | No | List of targets with id or name. |
 | message                | No | List of message segments, only the "text" field is required in every segment. |
-| data                   | Yes | Either a path to an image file or a url to an image. |
+| data                   | Yes | Either a path to an image file or a URL to an image. |
 
 ### Service `hangouts.reconnect`
 
