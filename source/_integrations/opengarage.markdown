@@ -118,6 +118,10 @@ binary_sensor:
         {% raw %} {{ state_attr('cover.honda', 'distance_sensor') < 100 }} {% endraw %}
       availability_template: >-
         {% raw %} {{ state_attr('cover.honda', 'door_state') == 'closed' }} {% endraw %}
+      icon_template: >-
+        {% if is_state('binary_sensor.prius_in_garage','on') %} mdi:car
+        {% else %} mdi:car-arrow-right
+        {% endif %}
       unique_id: binary_sensor.honda_in_garage
 
 group:
@@ -132,6 +136,4 @@ customize:
   cover.honda:
     friendly_name: Honda
     entity_picture: /local/honda.gif
-  sensor.garage_car_present:
-    icon: mdi:car
 ```
