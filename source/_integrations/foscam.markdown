@@ -52,6 +52,11 @@ name:
   description: This parameter allows you to override the name of your camera.
   required: false
   type: string
+stream:
+  description: "`main` or `sub` stream."
+  required: false
+  default: main
+  type: string
 {% endconfiguration %}
 
 <div class='note'>
