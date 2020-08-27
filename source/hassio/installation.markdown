@@ -14,7 +14,7 @@ The following will take you through the steps required to install Home Assistant
      - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] (recommended)
      - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 64-bit][pi4-64]
      - [Tinkerboard][tinker]
-     - [Odroid-C2][odroid-c2], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
+     - [ODROID-C2][ODROID-c2], [ODROID-N2][ODROID-n2], [ODROID-XU4][ODROID-xu4]
      - [Intel NUC][intel-nuc]
 
    - As a virtual appliance (x86_64/UEFI):
@@ -31,7 +31,7 @@ The following will take you through the steps required to install Home Assistant
 
 2. Install Home Assistant:
 
-   - **Raspberry Pi, Tinkerboard, or an Odroid**:
+   - **Raspberry Pi, Tinkerboard, or an ODROID**:
    Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
    - **Virtual Appliance**:
    Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
@@ -120,9 +120,9 @@ If you would like to test next release before anyone else, you can install the b
 [pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi4-4.12.img.gz
 [pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi4-64-4.12.img.gz
 [tinker]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_tinker-4.12.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-c2-4.12.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-n2-4.12.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-xu4-4.12.img.gz
+[ODROID-c2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-c2-4.12.img.gz
+[ODROID-n2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-n2-4.12.img.gz
+[ODROID-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-xu4-4.12.img.gz
 [intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_intel-nuc-4.12.img.gz
 [vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.vmdk.gz
 [vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.vhdx.gz
