@@ -21,11 +21,12 @@ Different families have different functionality and can measure different quanti
 | Family | Device           | Physical Quantity  |
 | -------|:-----|:-----|
 | 10     | [DS18S20](https://www.maximintegrated.com/en/products/sensors/DS18S20.html)  | Temperature                     |
-| 12     | [DS2406(TAI-8570)](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | Temperature (pressure when using TAI-8570) |
+| 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)            | 4 Switches: 2 PIO (PIO.A/B), 2 latches (latch.A/B)<br>2 Binary sensors: 2 sensed (sensed.A/B)<br>Sensors : temperature and pressure when using TAI-8570 |
 | 1D     | [DS2423](https://datasheets.maximintegrated.com/en/ds/DS2423.pdf)            | Counter                         |
 | 22     | [DS1822](https://datasheets.maximintegrated.com/en/ds/DS1822.pdf)            |                                 |
-| 26     | [DS2438/B1-R1-A/S2-R1-A](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)| Temperature, Voltage, Current, (pressure and humidity when using TAI-8570) |
+| 26     | [DS2438](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)            | Temperature, Voltage, Current, (pressure when using B1-R1-A, humidity when using HIH-3600 or equivalent, illuminance with S2-R1-A) |
 | 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature                     |
+| 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)            | 16 Switches: 8 PIO (PIO.0-7), 8 latches (latch.0-7)<br>8 Binary sensors: 8 sensed (sensed.0-7) |
 | 3B     | [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)            | Temperature                     |
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
 | EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture |  
@@ -102,7 +103,11 @@ To enable One wire sensors in your installation, add the following to your `conf
 
 ```yaml
 # Example configuration.yaml entry
+binary_sensor:
+  - platform: onewire
 sensor:
+  - platform: onewire
+switch:
   - platform: onewire
 ```
 
