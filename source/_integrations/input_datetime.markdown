@@ -78,7 +78,7 @@ automations and templates.
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
-| `timestamp` | A timestamp representing the time held in the input.<br>(only available if `has_time: true`)
+| `timestamp` | A timestamp representing the time held in the input.<br>(seconds past midnight if only `has_time: true` unix timestamp if `has_date: true`)
 
 ### Restore State
 
@@ -111,7 +111,7 @@ automation (note that you will need a
 automation:
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.bedroom_alarm_clock_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: "{{ as_timestamp(states.sensor.time.last_updated)|timestamp_custom('%H:%M:00') == states('input_datetime.bedroom_alarm_clock_time') }}"
   action:
     service: light.turn_on
     entity_id: light.bedroom
