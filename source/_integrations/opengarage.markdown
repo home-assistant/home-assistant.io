@@ -109,24 +109,25 @@ sensor:
           {% else %}
           n/a
           {% endif %}'{% endraw %}
+
 binary_sensor:
   platform: template
   sensors:
     honda_in_garage:
       friendly_name: "Honda In Garage"
-      value_template: "{{ state_attr('cover.honda', 'distance_sensor') < 100 }}"
+      value_template: {% raw %}"{{ state_attr('cover.honda', 'distance_sensor') < 100 }}"{% endraw %}
       availability_template: >-
-        {%- if is_state('cover.honda','closed') -%}
+        {% raw %}{% if is_state('cover.honda','closed') %}
           true
-        {%- else -%}
+        {% else %}
           unavailable
-        {%- endif -%}
+        {% endif %}{% endraw %}
       icon_template: >-
-        {%- if is_state('binary_sensor.honda_in_garage','on') -%}
+        {% raw %}{% if is_state('binary_sensor.honda_in_garage','on') %}
           mdi:car
-        {%- else -%}
+        {% else %}
           mdi:car-arrow-right
-        {%- endif -%}
+        {% endif %}{% endraw %}
       unique_id: binary_sensor.honda_in_garage
       delay_on: 5
       delay_off: 5
