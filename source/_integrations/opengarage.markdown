@@ -79,6 +79,8 @@ covers:
   <img src='{{site_root}}/images/integrations/opengarage/cover_opengarage_details.jpg' />
 </p>
 
+{% raw %}
+
 ```yaml
 # Related configuration.yaml entry
 cover:
@@ -94,7 +96,7 @@ sensor:
   sensors:
     garage_status:
       friendly_name: 'Honda Door Status'
-      value_template: {% raw %}'{% if states.cover.honda %}
+      value_template: '{% if states.cover.honda %}
           {% if states.cover.honda.attributes["door_state"] == "open" %}
             Open
           {% elif states.cover.honda.attributes["door_state"] == "closed" %}
@@ -108,26 +110,26 @@ sensor:
           {% endif %}
           {% else %}
           n/a
-          {% endif %}'{% endraw %}
+          {% endif %}'
 
 binary_sensor:
   platform: template
   sensors:
     honda_in_garage:
       friendly_name: "Honda In Garage"
-      value_template: {% raw %}"{{ state_attr('cover.honda', 'distance_sensor') < 100 }}"{% endraw %}
+      value_template: "{{ state_attr('cover.honda', 'distance_sensor') < 100 }}"
       availability_template: >-
-        {% raw %}{% if is_state('cover.honda','closed') %}
+        {% if is_state('cover.honda','closed') %}
           true
         {% else %}
           unavailable
-        {% endif %}{% endraw %}
+        {% endif %}
       icon_template: >-
-        {% raw %}{% if is_state('binary_sensor.honda_in_garage','on') %}
+        {% if is_state('binary_sensor.honda_in_garage','on') %}
           mdi:car
         {% else %}
           mdi:car-arrow-right
-        {% endif %}{% endraw %}
+        {% endif %}
       unique_id: binary_sensor.honda_in_garage
       delay_on: 5
       delay_off: 5
@@ -145,3 +147,5 @@ customize:
     friendly_name: Honda
     entity_picture: /local/honda.gif
 ```
+
+{% endraw %}
