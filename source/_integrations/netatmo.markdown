@@ -57,7 +57,7 @@ Menu: **Configuration** -> **Integrations**.
 
 Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cogwheel.
 
-In the dialogue, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
+In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
 To edit an existing area simply enter its name and follow the dialog. 
 
