@@ -111,7 +111,7 @@ verify_ssl:
   description: Verify the SSL certificate or not. If using self-signed certificates, this usually needs to be set to "False".
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}
 
 ## Sensor attributes
