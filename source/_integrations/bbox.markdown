@@ -61,6 +61,7 @@ To add Bbox sensors to your installation, add the following to your `configurati
 # Example configuration.yaml entry
 sensor:
   - platform: bbox
+    host: 192.168.1.1
     monitored_variables:
       - down_max_bandwidth
       - up_max_bandwidth
@@ -76,6 +77,11 @@ name:
   required: false
   default: Bbox
   type: string
+host:
+  description: IP address of your Bbox device.
+  required: false
+  type: string
+  default: 192.168.1.254
 monitored_variables:
   description: Sensors to display in the frontend.
   required: true
