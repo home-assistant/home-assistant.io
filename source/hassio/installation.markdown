@@ -84,7 +84,9 @@ If you are using a Raspberry Pi please remember to ensure you're using an [appro
 
 </div>
 
-Now you can [configure][configure] your install.
+## Configure Home Assistant
+
+Now you can [configure][configure] your Home Assistant installation.
 
 ## Updating a Home Assistant installation
 
