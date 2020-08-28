@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: totalconnect
 ---
 
-The `totalconnect` integration provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.  
+The `totalconnect` integration provides connectivity with TotalConnect alarm systems used by many alarm companies.  
 
 ## Configuration
 
@@ -21,8 +21,10 @@ To enable TotalConnect via `configuration.yaml` add the following lines:
 
 ```yaml
 totalconnect:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  usercodes:
+    123456: "7890"
 ```
 
 {% configuration %}
@@ -34,7 +36,16 @@ password:
   description: Password used to sign into the TotalConnect app/web client.
   required: true
   type: string
+usercodes:
+  description: Code typed into the alarm panel for this user at each location.  In the example, 123456 is the TotalConnect location number and 7890 is the code.  
+  required: true
+  type: string
 {% endconfiguration %}
+
+To find your TotalConnect location number:
+ - Use a web browser to log in to the TotalConnect website as the administrator
+ - Click on your location
+ - The URL shows the location number after "mylocation/" like this https://totalconnect2.com/home/mylocation/123456
 
 You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
 
