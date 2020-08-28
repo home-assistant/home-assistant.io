@@ -86,7 +86,7 @@ To enable an entity disabled by default, go in **Configuration** -> **Integratio
 
   The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
   
-  ![Rain coverage map](images/integrations/meteo_france/carte-couverture-du-service.png)
+  ![Rain coverage map](/images/integrations/meteo_france/carte-couverture-du-service.png)
 
 </div>
 
