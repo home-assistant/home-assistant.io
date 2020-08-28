@@ -56,7 +56,7 @@ unit:
   required: false
   type: string
 method:
-  description: Riemann sum method to be used. Available methods are `trapezoidal`, `left` and `right`."
+  description: "Riemann sum method to be used. Available methods are `trapezoidal`, `left` and `right`."
   required: false
   type: string
   default: trapezoidal
