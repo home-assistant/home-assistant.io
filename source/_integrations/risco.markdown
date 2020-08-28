@@ -49,8 +49,8 @@ This is a two-way mapping, meaning you can map:
 The default mapping:
 |Risco Arming Mode | Home Assistant State |
 |---|---|
-| Arm | Armed Away |
-| Partial Arm | Armed Home |
+| Arm (AWAY) | Armed Away |
+| Partial Arm (STAY) | Armed Home |
 | Group A | Armed Home |
 | Group B | Armed Home |
 | Group C | Armed Home |
