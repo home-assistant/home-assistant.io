@@ -5,7 +5,7 @@ description: "Instructions on how to install Home Assistant."
 
 The following will take you through the steps required to install Home Assistant.
 
-1. Download the appropriate install option:
+## Download the appropriate installation
 
    - As an image for your device:
 
@@ -14,7 +14,7 @@ The following will take you through the steps required to install Home Assistant
      - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] (recommended)
      - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 64-bit][pi4-64]
      - [Tinkerboard][tinker]
-     - [ODROID-C2][ODROID-c2], [ODROID-N2][ODROID-n2], [ODROID-XU4][ODROID-xu4]
+     - [ODROID-C2][odroid-c2], [ODROID-N2][odroid-n2], [ODROID-XU4][odroid-xu4]
      - [Intel NUC][intel-nuc]
 
    - As a virtual appliance (x86_64/UEFI):
@@ -29,33 +29,42 @@ The following will take you through the steps required to install Home Assistant
 
      - [Raspberry Pi][pi1], [Raspberry Pi Zero-W][pi0-w], [Raspberry Pi 2][pi2]
 
-2. Install Home Assistant:
+## Install Home Assistant
 
-   - **Raspberry Pi, Tinkerboard, or an ODROID**:
-   Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
-   - **Virtual Appliance**:
-   Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
-     - For VirtualBox create a new virtual machine, select "Other Linux (64Bit), assign it at least 2 GB of memory and "Use an existing virtual hard disk file", select the VDI file from above, afterwards edit the "Settings" of the VM and go "System" then Motherboard and Enable EFI, then "Network" "Adapter 1" Bridged and your adapter.
-     - For Hyper-V create a new virtual machine, select "Generation 2", assign it at least 2 GB of memory and select "Connection -> "Your Virtual Switch that is bridged", then "Use an existing virtual hard disk" and select the VHDX file from above, after creation go to "Settings" -> "Security" and deselect "Enable Secure Boot".
-     - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...".
-     - For VMware Workstation create a new virtual machine, select "Custom", make it compatible with the default of Workstation and ESX, Choose "I will install the operating system later", select "Linux" -> "Other Linux 5.x or later kernel 64-bit", give it at least 2 GB RAM and 1vCPU, select "Use Bridged Networking" then "Use an existing virtual disk" and select the VMDK file above, after creation of VM go to "Settings" and "Options" then "Advanced" and select "Firmware type" to "UEFI".
-   - **Intel NUC**:
-   Flash the downloaded image to your SSD or hard disk using [balenaEtcher][balenaEtcher]. You can use the `gunzip` command on Linux/macOS or [7-Zip][7-Zip] on Windows to extract the image.
-      - Make sure to disable Secure Boot from the UEFI settings.
+### Raspberry Pi, Tinkerboard, or an ODROID
 
-3. Optional - set up the Wi-Fi or a static IP address. There are two possible places for that:
-   - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
-   - on the Home Assistant SD card's first, bootable partition (labeled `hassos-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
+Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
 
-   For the content of this file, follow the [Home Assistant Operating System howto][hassos-network].
+### Virtual Appliance
 
-4. For image-based installs insert the SD card (and optional USB stick) into the device.
+Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
+  - For VirtualBox create a new virtual machine, select "Other Linux (64Bit), assign it at least 2 GB of memory and "Use an existing virtual hard disk file", select the VDI file from above, afterwards edit the "Settings" of the VM and go "System" then Motherboard and Enable EFI, then "Network" "Adapter 1" Bridged and your adapter.
+  - For Hyper-V create a new virtual machine, select "Generation 2", assign it at least 2 GB of memory and select "Connection -> "Your Virtual Switch that is bridged", then "Use an existing virtual hard disk" and select the VHDX file from above, after creation go to "Settings" -> "Security" and deselect "Enable Secure Boot".
+  - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...".
+  - For VMware Workstation create a new virtual machine, select "Custom", make it compatible with the default of Workstation and ESX, Choose "I will install the operating system later", select "Linux" -> "Other Linux 5.x or later kernel 64-bit", give it at least 2 GB RAM and 1vCPU, select "Use Bridged Networking" then "Use an existing virtual disk" and select the VMDK file above, after creation of VM go to "Settings" and "Options" then "Advanced" and select "Firmware type" to "UEFI".
 
-5. Turn on your device or virtual appliance. On first boot, it downloads the latest version of Home Assistant which takes around 20 minutes (slower/faster depending on the platform and your Internet connection).
+### Intel NUC
+
+Flash the downloaded image to your SSD/hard disk (recommended) or SD-card using [balenaEtcher][balenaEtcher]. You can use the `gunzip` command on Linux/macOS or [7-Zip][7-zip] on Windows to extract the image.
+  - Make sure to disable Secure Boot from the UEFI settings.
+
+### Optional - set up the Wi-Fi or a static IP address
+
+There are two possible places for that:
+  - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
+  - on the Home Assistant SD card's first, bootable partition (labeled `hassos-boot`, might not be auto mounted in Linux) create the `CONFIG/network/my-network` file.
+
+For the content of this file, follow the [Home Assistant Operating System howto][hassos-network].
+
+### Next steps
+
+ - For image-based installs, insert the SD card, SSD or HDD into the device. Don't forget to insert the USB stick in case you have followed the previous step for setting up Wi-Fi or a static IP.
+
+ - Turn on your device or virtual appliance. On first boot, it downloads the latest version of Home Assistant which takes around 20 minutes (slower/faster depending on the platform and your internet connection).
 
    <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
-6. You will be able to reach your installation at `http://homeassistant.local:8123` (if your router supports mDNS, otherwise see below).
+ - You will be able to reach your installation at `http://homeassistant.local:8123` (if your router supports mDNS, otherwise see below).
 
 <div class='note warning'>
 
@@ -109,7 +118,7 @@ If you would like to test next release before anyone else, you can install the b
 3. Select _System_ tab from the _Supervisor_ menu, then select _Join Beta Channel_ under _Supervisor_, then select _Reload_.
 4. Select _Dashboard_ tab from the _Supervisor_ menu, and then select _Update_.
 
-[7-Zip]: https://www.7-zip.org/
+[7-zip]: https://www.7-zip.org/
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
 [pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi0-w-4.12.img.gz
@@ -120,9 +129,9 @@ If you would like to test next release before anyone else, you can install the b
 [pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi4-4.12.img.gz
 [pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi4-64-4.12.img.gz
 [tinker]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_tinker-4.12.img.gz
-[ODROID-c2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-c2-4.12.img.gz
-[ODROID-n2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-n2-4.12.img.gz
-[ODROID-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-xu4-4.12.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-c2-4.12.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-n2-4.12.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-xu4-4.12.img.gz
 [intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_intel-nuc-4.12.img.gz
 [vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.vmdk.gz
 [vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.vhdx.gz
