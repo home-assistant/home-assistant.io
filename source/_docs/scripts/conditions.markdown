@@ -78,6 +78,22 @@ condition:
           below: 20
 ```
 
+### NOT condition
+
+Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
+
+```yaml
+condition:
+  condition: not
+  conditions:
+    - condition: state
+      entity_id: device_tracker.paulus
+      state: 'home'
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: disarmed
+```
+
 ### Numeric state condition
 
 This type of condition attempts to parse the state of the specified entity as a number, and triggers if the value matches the thresholds.
@@ -96,6 +112,18 @@ condition:
   value_template: {% raw %}'{{ float(state.state) + 2 }}'{% endraw %}
 ```
 
+It is also possible to test the condition against multiple entities at once.
+The condition will pass if all entities match the thresholds.
+
+```yaml
+condition:
+  condition: numeric_state
+  entity_id:
+    - sensor.kitchen_temperature
+    - sensor.living_room_temperature
+  below: 18
+```
+
 ### State condition
 
 Tests if an entity is a specified state.
@@ -110,6 +138,44 @@ condition:
     hours: 1
     minutes: 10
     seconds: 5
+```
+
+It is also possible to test the condition against multiple entities at once.
+The condition will pass if all entities match the state.
+
+```yaml
+condition:
+  condition: state
+  entity_id:
+    - light.kitchen
+    - light.living_room
+  state: 'on'
+```
+
+Testing if an entity is matching a set of possible conditions;
+The condition will pass if the entity matches one of the states given.
+
+```yaml
+condition:
+  condition: state
+  entity_id: alarm_control_panel.home
+  state:
+    - armed_away
+    - armed_home
+```
+
+Or, combine multiple entities with multiple states. In the following example,
+both media players need to be either paused or playing for the condition to pass.
+
+```yaml
+condition:
+  condition: state
+  entity_id:
+    - media_player.living_room
+    - media_player.kitchen
+  state:
+    - playing
+    - paused
 ```
 
 ### Sun condition
@@ -176,7 +242,7 @@ condition:
   after_offset: "-01:00:00"
 ```
 
-This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
+This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
 
 ```yaml
 condition:
@@ -185,7 +251,7 @@ condition:
       before: sunset
 ```
 
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`.
+This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
 
 We cannot use both keys in this case as it will always be `false`.
 
@@ -254,6 +320,45 @@ condition:
   condition: zone
   entity_id: device_tracker.paulus
   zone: zone.home
+```
+
+It is also possible to test the condition against multiple entities at once.
+The condition will pass if all entities are in the specified zone.
+
+```yaml
+condition:
+  condition: zone
+  entity_id:
+    - device_tracker.frenck
+    - device_tracker.daphne
+  zone: zone.home
+```
+
+Testing if an entity is matching a set of possible zones;
+The condition will pass if the entity is in one of the zones.
+
+```yaml
+condition:
+  condition: zone
+  entity_id: device_tracker.paulus
+  state:
+    - zone.home
+    - zone.work
+```
+
+Or, combine multiple entities with multiple zones. In the following example,
+both entities need to be either in the home or the work zone for the condition
+to pass.
+
+```yaml
+condition:
+  condition: zone
+  entity_id:
+    - device_tracker.frenck
+    - device_tracker.daphne
+  state:
+    - zone.home
+    - zone.work
 ```
 
 ### Examples

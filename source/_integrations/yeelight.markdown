@@ -80,7 +80,7 @@ devices:
           required: false
           type: string
         model:
-          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`, `ceiling13`. The setting is used to enable model specific features f.e. a particular color temperature range. Its also used to setup device, if its not available and discovery if disabled, during Home Assistant startup. If model is not specified, it will be guessed, by integration by looking at supported properties, reported by device."
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`, `ceiling10`, `ceiling13`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
           type: string
 custom_effects:
@@ -137,6 +137,7 @@ This integration is tested to work with the following models. If you have a diff
 | `color1`   | YLDP02YL     | LED Bulb (Color)                                 |
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
+| `color4`   | YLDP13YL     | LED Bulb 1S (Color)                              |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)                               |
@@ -150,7 +151,9 @@ This integration is tested to work with the following models. If you have a diff
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
 | `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
+| `ceiling10`     | YLDL01YL     | Yeelight Meteorite Pendant Light            |
 | `ceiling13`     | YLXD01YL     | Yeelight LED Ceiling Light           |
+| `lamp` | MJTD02YL | Xiaomi Mijia Desk Lamp Pro |
 
 ## Services
 
@@ -265,9 +268,9 @@ Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransitio
 
 Where the array values are as per the following:
 
-- RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being in milliseconds (minimum of 50) and final brightness to transition to 0-100 (%).
-- HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in milliseconds (minimum 50) and final brightness 0-100 (%).
-- TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, duration in milliseconds (minimum 50) and final brightness to transition to 0-100 (%).
+- RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being in milliseconds (minimum of 50) and final brightness to transition to 1-100 (%).
+- HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in milliseconds (minimum 50) and final brightness 1-100 (%).
+- TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, duration in milliseconds (minimum 50) and final brightness to transition to 1-100 (%).
 - SleepTransition: [duration] with duration being in integer for effect time in milliseconds (minimum 50).
 
 More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).

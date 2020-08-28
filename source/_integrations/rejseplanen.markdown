@@ -10,31 +10,6 @@ ha_domain: rejseplanen
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
-## Setup
-
-The `stop_id` can be obtained through the following steps:
-
-If you know the exact name of the stop you can search the stop_id with the following URL [http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME](http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME) and put in the name of the stop instead of "STOP_NAME" in the end of the URL.
-
-If you don't know the name of the stop follow this guide:
-- Go to [https://www.openstreetmap.org](https://www.openstreetmap.org)
-- Make a search and fill in the location you want to find for.
-- The URL will look like this [https://www.openstreetmap.org/#map=18/56.15756/10.20674](https://www.openstreetmap.org/#map=18/56.15756/10.20674)
-- Now insert the coordinates for the location in the URL, in this example it will be: [http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&](http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&)
-- You will now see the 30 stops closest to your location.
-
-You will see an output like this:
-
-```text
-"StopLocation":[{
-    "name":"Engdalsvej/Århusvej (Favrskov Kom)",
-    "x":"10078598",
-    "y":"56243456",
-    "id":"713000702"
-```
-
-Find the name of your stop in the list and the "id" is the one you are looking for to us as value for `stop_id:`.
-
 ## Configuration
 
 Add a sensor to your `configuration.yaml` file as shown in the example:
@@ -70,13 +45,46 @@ departure_type:
   type: [string, list]
 {% endconfiguration %}
 
+## stop_id
+
+The `stop_id` can be obtained through the following steps:
+
+- Go to [https://www.openstreetmap.org](https://www.openstreetmap.org)
+- Make a search and fill in the location you want to find for.
+- The URL will look like this [https://www.openstreetmap.org/#map=18/56.15756/10.20674](https://www.openstreetmap.org/#map=18/56.15756/10.20674)
+- Now insert the coordinates for the location in the URL, in this example it will be: [http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&](http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&)
+- You will now see the 30 stops closest to your location.
+
+You will see an output like this:
+
+```text
+"StopLocation":[{
+    "name":"Engdalsvej/Århusvej (Favrskov Kom)",
+    "x":"10078598",
+    "y":"56243456",
+    "id":"713000702"
+```
+
+Find the name of your stop in the list and the "id" is the one you are looking for to us as value for `stop_id:`.
+
 ## Direction
 
 If you use the `direction` filter it's important to put correct final destination(s) or else the sensor will not work at all.
 The `direction` has to be the final destination(s) for the `Departure type` - ***NOT the stop where you want to get off***. 
 
-- Check [https://rejseplanen.dk/](https://rejseplanen.dk/)
-- Make a search and use **all variations** for the final destination(s) for the needed `Departure type` in your configuration under `direction`. Make sure you use the exact name for final destination(s).
+- Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
+- The values under `finalStop` is the ones you need to put under `direction`. Make sure you use the exact name and insert all possible finalstops.
+
+You will see an output like this:
+
+```text
+<Departure name="Bus 200" type="BUS" stop="Engdalsvej/Århusvej (Favrskov Kom)" time="10:15" date="06.05.20" id="713000701" line="200" messages="0" finalStop="Bjergegårdsvej/Rylevej (Favrskov Kom)" direction="Hinnerup">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=248868%2F117643%2F641354%2F237721%2F86%3Fdate%3D06.05.20" />
+</Departure>
+<Departure name="Bus 200" type="BUS" stop="Engdalsvej/Århusvej (Favrskov Kom)" time="10:25" date="06.05.20" id="713000702" line="200" messages="0" finalStop="Skanderborg Busterminal (Skanderborg Kom)" direction="Skanderborg Busterminal (Skanderborg Kom)">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=512592%2F205637%2F693742%2F176008%2F86%3Fdate%3D06.05.20" />
+</Departure>
+```
 
 A working example on how to use this sensor with direction:
 
@@ -84,24 +92,29 @@ A working example on how to use this sensor with direction:
 # Example configuration.yaml entry with the correct use of direction.
 sensor:
   - platform: rejseplanen
-    stop_id: '008600615'
+    stop_id: '713000702'
     direction:
-      - 'CPH Lufthavn'
-      - 'Helsingør St.'
+      - 'Bjergegårdsvej/Rylevej (Favrskov Kom)'
+      - 'Skanderborg Busterminal (Skanderborg Kom)'
 ```
 
-A NOT WORKING example use this sensor with direction:
+## Route
 
-```yaml
-# Example configuration.yaml entry with the correct use of direction.
-sensor:
-  - platform: rejseplanen
-    stop_id: '008600615'
-    direction:
-      - 'København H'
+If you use the `route` filter it's important to put correct route name(s) or else the sensor will not work at all. 
+
+- Replace YOUR_STOP_ID with the id for your stop and go to [http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID](http://xmlopen.rejseplanen.dk/bin/rest.exe/departureBoard?id=YOUR_STOP_ID)
+- The values under `Departure name` is the ones you need to put under `route`. Make sure you use the exact name.
+
+You will see an output like this:
+
+```text
+<Departure name="Bus 1A" type="BUS" stop="Elmegade (Nørrebrogade)" time="10:19" date="06.05.20" id="45739" line="1A" messages="0" rtTime="10:21" rtDate="06.05.20" finalStop="Avedøre St." direction="Avedøre St.">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=138234%2F58362%2F751742%2F329795%2F86%3Fdate%3D06.05.20" />
+</Departure>
+<Departure name="Bus 5C" type="BUS" stop="Elmegade (Nørrebrogade)" time="10:22" date="06.05.20" id="45739" line="5C" messages="0" rtTime="10:23" rtDate="06.05.20" finalStop="Husum Torv, Sløjfen (Sløjfen)" direction="Husum Torv">
+<JourneyDetailRef ref="http://xmlopen.rejseplanen.dk/bin/rest.exe/journeyDetail?ref=899547%2F321443%2F654384%2F27343%2F86%3Fdate%3D06.05.20" />
+</Departure>
 ```
-
-It fails because the final destination for the train from the departure station is NOT 'københavn H', but 'CPH Lufthavn' and 'Helsingør St.'.
 
 ## Examples
 

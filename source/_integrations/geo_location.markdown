@@ -23,7 +23,6 @@ The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be 
 | NSW Rural Fire Service Incidents                      | `nsw_rural_fire_service_feed` |
 | Queensland Bushfire Alert                             | `qld_bushfire`                |
 | U.S. Geological Survey Earthquake Hazards Program     | `usgs_earthquakes_feed`       |
-| The World Wide Lightning Location Network             | `wwlln`                       |
 
 Conditions can be used to further filter entities, for example by inspecting their state attributes.
 

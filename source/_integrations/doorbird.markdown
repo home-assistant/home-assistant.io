@@ -182,24 +182,7 @@ Note: Remember to complete the schedule assignment steps above for each event ty
 
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
 
-### Configuration
-
-To enable the camera, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: doorbird
-```
 
 ## Switch
 
 The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](https://www.doorbird.com/) video doorbell device.
-
-To enable this switch, add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: doorbird
-```

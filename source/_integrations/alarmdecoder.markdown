@@ -78,17 +78,17 @@ device:
       default: 115200
       type: string
 panel_display:
-  description: Create a sensor called sensor.alarm_display to match the Alarm Keypad display.
+  description: Create a sensor called `sensor.alarm_display` to match the Alarm Keypad display.
   required: false
   default: false
   type: boolean
 autobypass:
-  description: "If this is set to `true`, then when arming (home or away), it will automatically bypass all open zones (sending '6#'). This will require your code to be entered even if `code_arm_required` is set to `false`."
+  description: "**Honeywell only.** Set to `true`, to automatically bypass all open zones (sending `6#`) when arming. This will require a code to be entered even if `code_arm_required` is set to `false`."
   required: false
   default: false
   type: boolean
 code_arm_required:
-  description: "If this is set to `false`, you will not need to enter your code to arm the system."
+  description: "Set to `false` to enable arming without having to enter a code."
   required: false
   default: true
   type: boolean
@@ -129,9 +129,10 @@ zones:
 There are several attributes available on the alarm panel to give you more information about your alarm.
 
 - `ac_power`: Set to `true` if your system has AC power supplying it.
+- `alarm_event_occurred`: Set to `true` if your system was recently triggered. When `alarm_event_occurred` is `true`, it must be cleared by entering your code + 1 (or calling the `alarm_control_panel.alarm_disarm` service) before attempting to arm your alarm.
 - `backlight_on`: Set to `true` if your keypad's backlight is on.
 - `battery_low`: Set to `true` if your system's back-up battery is low.
-- `check_zone`: Set to `true` if your system was recently triggered. When `check_zone` is `true`, it must be cleared by entering your code + 1 before attempting to rearm your alarm.
+- `check_zone`: Set to `true` if your system detects a problem with a zone.
 - `chime`: Set to `true` if your system's chime is activated. When activated, your system will beep anytime a door or window is faulted while the alarm is disarmed.
 - `entry_delay_off`: Set to `true` if your system is in "Instant" mode, meaning the alarm will sound on any faults.
 - `programming_mode`: Set to `true` if your system is in programming mode.
@@ -146,7 +147,7 @@ The Alarm Decoder integration gives you access to several services for you to co
 - `alarm_arm_away`: Arms the alarm in away mode; all faults will trigger the alarm.
 - `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
 - `alarm_arm_night`: Arms the alarm in instant mode; all faults will trigger the alarm. Additionally, the entry delay is turned off on the doors.
-- `alarm_disarm`: Disarms the alarm from any state. Also clears a `check_zone` flag after an alarm was triggered.
+- `alarm_disarm`: Disarms the alarm from any state.
 - `alarmdecoder.alarm_keypress`: Sends a string of characters to the alarm, as if you had touched those keys on a keypad.
 - `alarmdecoder.alarm_toggle_chime`: Toggles the alarm's chime state.
 
@@ -185,3 +186,49 @@ Using a combination of the available services and attributes, you can create swi
           {% endif %}
 ```
 {% endraw %}
+
+## Arming Key Sequences
+
+The tables below show the key press sequences used for arming for the different panel brands and configuration setting combinations. They are taken from the [adext](https://pypi.org/project/adext/) PyPI package.
+
+### Honeywell
+
+#### code_arm_required = true (default)
+
+| Mode                                                    | Key Sequence                |
+| ------------------------------------------------------- | --------------------------- |
+| `alarm_arm_home`                                        | `code` + `3`                |
+| `alarm_arm_away`                                        | `code` + `2`                |
+| `alarm_arm_night`                                       | `code` + `7`                |
+
+#### code_arm_required = false
+
+| Mode                                                    | Key Sequence                |
+| ------------------------------------------------------- | --------------------------- |
+| `alarm_arm_home`                                        | `#3`                        |
+| `alarm_arm_away`                                        | `#2`                        |
+| `alarm_arm_night`                                       | `#7`                        |
+
+### DSC
+
+#### code_arm_required = true (default)
+
+| Mode                                                    | Key Sequence                |
+| ------------------------------------------------------- | --------------------------- |
+| `alarm_arm_home`                                        | `code`                      |
+| `alarm_arm_away`                                        | `code`                      |
+| `alarm_arm_night`                                       | `code`                      |
+
+#### code_arm_required = false
+
+<div class='note'>
+
+The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='http://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
+
+</div>
+
+| Mode                                                    | Key Sequence                    |
+| ------------------------------------------------------- | ------------------------------- |
+| `alarm_arm_home`                                        | `chr(4)` + `chr(4)` + `chr(4)`  |
+| `alarm_arm_away`                                        | `chr(5)` + `chr(5)` + `chr(5)`  |
+| `alarm_arm_night`                                       | `chr(4)` + `chr(4)` + `chr(4)`  |

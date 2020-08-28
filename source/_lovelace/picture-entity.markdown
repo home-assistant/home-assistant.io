@@ -77,15 +77,6 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User id that can see the view tab.
-  type: string
-{% endconfiguration %}
-
 ## How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
@@ -134,4 +125,4 @@ tap_action:
 
 {% endraw %}
 
-The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](/docs/configuration/basic/)).
+The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `allowlist_external_dirs` ([documentation](/docs/configuration/basic/)).

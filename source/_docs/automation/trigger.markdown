@@ -5,7 +5,12 @@ redirect_from: /getting-started/automation-trigger/
 ---
 
 ### What are triggers
+
 Triggers are what starts the processing of an automation rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
+
+An automation can be triggered by an event, with a certain entity state, at a given time, and more. These can be specified directly or more flexible via templates. It is also possible to specify multiple triggers for one automation.
+
+The following sections introduce all trigger types and further details to get started.
 
 ### Event trigger
 
@@ -77,7 +82,7 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from 17 or below, or 25 or above).
+In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from strict below 17, or strict above 25).
 </div>
 
 The `for:` can also be specified as `HH:MM:SS` like this:
@@ -175,7 +180,7 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 <div class='note warning'>
 
-Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
+Use quotes around your values for `from` and `to` to avoid the YAML parser from interpreting values as booleans.
 
 </div>
 
@@ -308,6 +313,17 @@ automation:
     at: "15:32:00"
 ```
 
+Or at multiple specific times:
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at:
+      - "15:32:00"
+      - "20:30:00"
+```
+
 ### Time pattern trigger
 
 With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
@@ -362,13 +378,13 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 ### Zone trigger
 
-Zone trigger fires when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
+Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a person, or a device_tracker. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 automation:
   trigger:
     platform: zone
-    entity_id: device_tracker.paulus
+    entity_id: person.paulus
     zone: zone.home
     # Event is either enter or leave
     event: enter # or "leave"
@@ -388,6 +404,15 @@ automation:
     # Event is either enter or leave
     event: enter # or "leave"
 ```
+
+### Device triggers
+
+Device triggers encompass a set of events that are defined by an integration. This includes, for example, state changes of sensors as well as button events from remotes.
+[MQTT device triggers](/integrations/device_trigger.mqtt/) are set up through autodiscovery.
+
+In contrast to state triggers, device triggers are tied to a device and not necessarily an entity.
+To use a device trigger, set up an automation through the browser frontend.
+If you would like to use a device trigger for an automation that is not managed through the browser frontend, you can copy the YAML from the trigger widget in the frontend and paste it into your automation's trigger list.
 
 ### Multiple triggers
 

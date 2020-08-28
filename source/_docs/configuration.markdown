@@ -15,7 +15,6 @@ The location of the folder differs between operating systems:
 | Docker         | `/config`                  |
 | macOS          | `~/.homeassistant`         |
 | Linux          | `~/.homeassistant`         |
-| Windows        | `%APPDATA%/.homeassistant` |
 
 If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
 
@@ -28,6 +27,16 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
   Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
 
 </div>
+
+## Editing `configuration.yaml`
+
+There are many ways you can edit `configuration.yaml`. Here are three options to get you started:
+
+The simplest is to use the "File Editor" add-on. This will allow you to edit your configuration from within Home Assistant itself.
+
+You can also use Samba (you may need to install the "Samba" add-on) and your favorite file editor.
+
+The most basic is to use SSH to connect to the system (you may need to install the SSH add-on) and then use `nano` (or `vim`) to edit the file.
 
 ## Reloading changes
 

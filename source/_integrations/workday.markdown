@@ -3,6 +3,7 @@ title: Workday
 description: Steps to configure the binary workday sensor.
 ha_category:
   - Utility
+  - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.41
 ha_quality_scale: internal
@@ -40,7 +41,7 @@ country:
   required: true
   type: string
 province:
-  description: Province code according to [holidays](https://pypi.org/project/holidays/) notation.
+  description: Province/State code according to [holidays](https://pypi.org/project/holidays/) notation.
   required: false
   type: string
 workdays:

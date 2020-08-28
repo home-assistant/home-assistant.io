@@ -110,6 +110,8 @@ The following attributes are available for `sensor` platform entities:
 - Room temperature for each zone
 - Tank water temperature
 - Outside temperature - 1°C precision, polled every 1-2 hours.
+- Zone flow temperature, polled every 1-2 hours
+- Zone flow return temperature, polled every 1-2 hours
 
 Unlike air-to-air devices, air-to-water devices do not report energy consumption in an easily accessible manner.
 

@@ -42,8 +42,8 @@ We will need a few things to get started with installing Home Assistant. The Ras
 
 ### Software requirements
 
-- Download and extract the Home Assistant image for [your device](/hassio/installation/)
-- Download [balenaEtcher] to write the image to an SD card
+- Download and extract the Home Assistant image for [your device](/hassio/installation/).
+- Download [balenaEtcher] to write the image to an SD card.
 
 [balenaEtcher]: https://www.balena.io/etcher
 
@@ -52,7 +52,7 @@ We will need a few things to get started with installing Home Assistant. The Ras
 1. Put the SD card in your card reader.
 2. Open balenaEtcher, select the Home Assistant image and flash it to the SD card.
 3. Unmount the SD card and remove it from your card reader.
-4. Follow this step if you want to configure Wi-Fi or a static IP address (this step requires a USB stick). Otherwise, move to step 5.
+4. The most reliable networking setup for your Raspberry Pi is to connect it using an Ethernet cable, however, if you want to configure Wi-Fi or a static IP address (this step requires a USB stick) you can try this:
    - Format a USB stick to FAT32 with the volume name `CONFIG`.
    - Create a folder named `network` in the root of the newly-formatted USB stick.
    - Within that folder, create a file named `my-network` without a file extension.

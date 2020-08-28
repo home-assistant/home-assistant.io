@@ -50,7 +50,7 @@ To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow t
 
 Thermostats with support for fan modes or different operating modes, will be handled like a HVAC device and will also be detected as one.
 
-If the thermostat supports different operating modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the `configuration.yaml` file.
+If the thermostat supports different operating modes, you will get one thermostat entity for each mode.
 
 </div>
 
@@ -130,8 +130,8 @@ To get your Z-Wave locks working with Home Assistant, follow the instructions fo
 
 Z-Wave locks will expose three services under the lock domain to manage usercodes if the lock supports it:
 
-| Service | Description |
-| ------- | ----------- |
-| clear_usercode | Clears a usercode at code_slot X. Valid code_slots are 1-254, but max is defined by the lock. |
-| get_usercode | Get a usercode from the lock at code_slot. Valid code_slots are 1-254, but max is defined by the lock. |
-| set_usercode | Sets usercode to X at code_slot Y. Valid usercodes are at least 4 digits, and max defined by the lock. |
+| Service        | Description                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------ |
+| clear_usercode | Clears a usercode at code_slot X. Valid code_slots are 1-254, but max is defined by the lock.          |
+| get_usercode   | Get a usercode from the lock at code_slot. Valid code_slots are 1-254, but max is defined by the lock. |
+| set_usercode   | Sets usercode to X at code_slot Y. Valid usercodes are at least 4 digits, and max defined by the lock. |

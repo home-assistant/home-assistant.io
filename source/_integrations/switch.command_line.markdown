@@ -56,6 +56,11 @@ switches:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
+        command_timeout:
+          description: Defines number of seconds for command timeout.
+          required: false
+          type: integer
+          default: 15
 {% endconfiguration %}
 
 A note on `friendly_name`:
@@ -136,7 +141,7 @@ switch:
 ### Control Foscam Motion Sensor
 
 This switch will control the motion sensor of Foscam Webcams which Support CGI
-Commands ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)).
+Commands ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)).
 This switch supports statecmd,
 which checks the current state of motion detection.
 

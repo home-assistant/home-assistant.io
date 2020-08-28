@@ -50,11 +50,10 @@ On the close horizon from [@Landrash][landrash-github] there a few more script i
 
 To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord].
  
-To get started with the new image, check out the installation instructions in the [getting started section][gs-image].
+To get started with the new image, check out the installation instructions in the getting started section.
  
 [cec]: /integrations/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: https://hassbian.local
 [landrash-github]: https://github.com/Landrash
-[gs-image]: /docs/installation/hassbian/installation/
 [discord]: https://discord.gg/8X8DTH4

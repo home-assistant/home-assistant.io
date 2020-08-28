@@ -36,32 +36,8 @@ the `update_protection_data` services).
 
 ## Configuration
 
-To retrieve data from OpenUV, add the following to your `configuration.yaml`
-file:
-
-```yaml
-openuv:
-  api_key: YOUR_OPENUV_API_KEY
-```
-
-{% configuration %}
-api_key:
-  description: The OpenUV API key.
-  required: true
-  type: string
-elevation:
-  description: The elevation of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
-  required: false
-  type: float
-latitude:
-  description: The latitude of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
-  required: false
-  type: float
-longitude:
-  description: The longitude of the monitored location; if omitted, the value specified in `configuration.yaml` will be used.
-  required: false
-  type: float
-{% endconfiguration %}
+To configure the `openuv` integration, navigate to **Configuration** -> **Integrations**
+in the Home Assistant UI.
 
 ## The Fitzpatrick Scale
 

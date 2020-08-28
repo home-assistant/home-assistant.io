@@ -4,7 +4,7 @@ description: "Browser Compatibility List"
 redirect_from: /getting-started/browsers/
 ---
 
-Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works. The "Release" column contains the release number which was tested. This doesn't mean that older or newer releases are not work.
+Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works. The "Release" column contains the release number which was tested. This doesn't mean that older or newer releases will not work.
 
 If a browser is listed as working but you are still having problems, it is possible that some add-on or extension may be the problem. Some add-ons or extension are known to cause issue with the frontend, but it's not possible to test them all. If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time.
 
@@ -25,7 +25,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Map is fixed since 0.51. |
+| [Safari]              |                | works      | Not working with Safari Technology Preview 112 beta |
 
 ## Linux
 
@@ -59,10 +59,10 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Can also be added to desktop. Map is fixed since 0.51. |
-| [Chrome]              |                | works      |                          |
+| [Safari]              |                | works      | Can also be added to desktop. Not working in iOS 14 beta 5. |
+| [Chrome]              |                | works      | Not working in iOS 14 beta 5.               |
 
-There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble.
+There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble. Devices running iOS 14 beta 5, you will not be able to interact with Home Assistant controls.
 
 ## webOS
 

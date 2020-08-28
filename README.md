@@ -9,11 +9,13 @@ This is the source for the [Home-Assistant.io website](https://home-assistant.io
 
 ## Setup
 
-Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documentation_index.html).
+Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting).
 
 ## Site preview
 
-In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000), use the command as follows:
+In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000), use the following [bundler](
+https://bundler.io/
+) command:
 
 ```bash
 bundle exec rake preview

@@ -149,7 +149,7 @@ modbus:
 | Attribute | Description |
 | --------- | ----------- |
 | hub       | Hub name (defaults to 'default' when omitted) |
-| unit      | Slave address (set to 255 you talk to Modbus via TCP) |
+| unit      | Slave address (1-255, mostly 255 if you talk to Modbus via TCP) |
 | address   | Address of the Register (e.g., 138) |
 | value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
 

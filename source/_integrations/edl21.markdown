@@ -33,6 +33,10 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  description: The friendly name of the smart meter.
+  required: false
+  type: string
 serial_port:
   description: The device to communicate with. When using ser2net, use socket://host:port.
   required: true

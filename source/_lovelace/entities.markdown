@@ -74,7 +74,7 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers)."
+  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
   type: string
 format:
   required: false
@@ -223,8 +223,8 @@ type:
 style:
   required: false
   description: Style the element using CSS.
-  type: string
-  default: "height: 1px, background-color: var(--secondary-text-color)"
+  type: map
+  default: "height: 1px, background-color: var(--divider-color)"
 {% endconfiguration %}
 
 ### Section

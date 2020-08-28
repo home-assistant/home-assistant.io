@@ -22,6 +22,16 @@ script:
           message: 'Turned on the ceiling light!'
 ```
 
+## Types of Actions
+
+- [Call a Service](#call-a-service)
+- [Test a Condition](#test-a-condition)
+- [Delay](#delay)
+- [Wait](#wait)
+- [Fire an Event](#fire-an-event)
+- [Repeat a Group of Actions](#repeat-a-group-of-actions)
+- [Choose a Group of Actions](#choose-a-group-of-actions)
+
 ### Call a Service
 
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
@@ -139,7 +149,7 @@ You can also get the script to abort after the timeout by using optional `contin
 # Wait until a valve is < 10 or abort after 1 minute.
 - wait_template: "{{ state_attr('climate.kitchen', 'valve')|int < 10 }}"
   timeout: '00:01:00'
-  continue_on_timeout: 'false'
+  continue_on_timeout: false
 ```
 {% endraw %}
 
@@ -170,7 +180,7 @@ an event trigger.
 ```
 {% endraw %}
 
-### Raise and Consume Custom Events
+#### Raise and Consume Custom Events
 
 The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
@@ -200,6 +210,202 @@ The following automation shows how to capture the custom event `event_light_stat
     - service: notify.notify
       data_template:
         message: "kitchen light is turned {{ trigger.event.data.state }}"
+```
+{% endraw %}
+
+### Repeat a Group of Actions
+
+This action allows you to repeat a sequence of other actions. Nesting is fully supported.
+There are three ways to control how many times the sequence will be run.
+
+#### Counted Repeat
+
+This form accepts a count value. The value may be specified by a template, in which case
+the template is rendered when the repeat step is reached.
+
+{% raw %}
+```yaml
+script:
+  flash_light:
+    mode: restart
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: "light.{{ light }}"
+      - repeat:
+          count: "{{ count|int * 2 - 1 }}"
+          sequence:
+            - delay: 2
+            - service: light.toggle
+              data_template:
+                entity_id: "light.{{ light }}"
+  flash_hallway_light:
+    sequence:
+      - service: script.flash_light
+        data:
+          light: hallway
+          count: 3
+```
+{% endraw %}
+
+#### While Loop
+
+This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
+is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
+
+{% raw %}
+```yaml
+script:
+  do_something:
+    sequence:
+      - service: script.get_ready_for_something
+      - alias: Repeat the sequence AS LONG AS the conditions are true
+        repeat:
+          while:
+            - condition: state
+              entity_id: input_boolean.do_something
+              state: 'on'
+            # Don't do it too many times
+            - condition: template
+              value_template: "{{ repeat.index <= 20 }}"
+          sequence:
+            - service: script.something
+```
+{% endraw %}
+
+#### Repeat Until
+
+This form accepts a list of conditions that are evaluated _after_ each time the sequence
+is run. Therefore the sequence will always run at least once. The sequence will be run
+_until_ the condition(s) evaluate to true.
+
+{% raw %}
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.xyz
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: binary_sensor.something
+        state: 'off'
+    mode: single
+    action:
+      - alias: Repeat the sequence UNTIL the conditions are true
+        repeat:
+          sequence:
+            # Run command that for some reason doesn't always work
+            - service: shell_command.turn_something_on
+            # Give it time to complete
+            - delay:
+                milliseconds: 200
+          until:
+            # Did it work?
+            - condition: state
+              entity_id: binary_sensor.something
+              state: 'on'
+```
+{% endraw %}
+
+#### Repeat Loop Variable
+
+A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, `while` & `until`.)
+It contains the following fields:
+
+field | description
+-|-
+`first` | True during the first iteration of the repeat sequence
+`index` | The iteration number of the loop: 1, 2, 3, ...
+`last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
+
+### Choose a Group of Actions
+
+This action allows you to select a sequence of other actions from a list of sequences.
+Nesting is fully supported.
+
+Each sequence is paired with a list of conditions. (See the [conditions page] for available options and how multiple conditions are handled.) The first sequence whose conditions are all true will be run.
+An _optional_ `default` sequence can be included which will be run only if none of the sequences from the list are run.
+
+The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
+
+{% raw %}
+```yaml
+# Example with just an "if"
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: 'on'
+    action:
+      - choose:
+          # IF nobody home, sound the alarm!
+          - conditions:
+              - condition: state
+                entity_id: group.family
+                state: not_home
+            sequence:
+              - service: script.siren
+                data:
+                  duration: 60
+      - service: light.turn_on
+        entity_id: all
+```
+```yaml
+# Example with "if" and "else"
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+    mode: queued
+    action:
+      - choose:
+          # IF motion detected
+          - conditions:
+              - condition: template
+                value_template: "{{ trigger.to_state.state == 'on' }}"
+            sequence:
+              - service: script.turn_on
+                entity_id:
+                  - script.slowly_turn_on_front_lights
+                  - script.announce_someone_at_door
+        # ELSE (i.e., motion stopped)
+        default:
+          - service: light.turn_off
+            entity_id: light.front_lights
+```
+```yaml
+# Example with "if", "elif" and "else"
+automation:
+  - trigger:
+      - platform: state
+        entity_id: input_boolean.simulate
+        to: 'on'
+    mode: restart
+    action:
+      - choose:
+          # IF morning
+          - conditions:
+              - condition: template
+                value_template: "{{ now().hour < 9 }}"
+            sequence:
+              - service: script.sim_morning
+          # ELIF day
+          - conditions:
+              - condition: template
+                value_template: "{{ now().hour < 18 }}"
+            sequence:
+              - service: light.turn_off
+                entity_id: light.living_room
+              - service: script.sim_day
+        # ELSE night
+        default:
+          - service: light.turn_off
+            entity_id: light.kitchen
+          - delay:
+              minutes: "{{ range(1, 11)|random }}"
+          - service: light.turn_off
+            entity_id: all
 ```
 {% endraw %}
 

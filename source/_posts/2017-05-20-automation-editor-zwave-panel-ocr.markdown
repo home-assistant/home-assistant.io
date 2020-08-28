@@ -133,13 +133,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support for the PiFace Digital I/O module ([@basschipper] - [#7494]) ([rpi_pfio docs]) ([binary_sensor.rpi_pfio docs]) ([switch.rpi_pfio docs]) (new-platform)
 - Upgrade limitlessled to 1.0.7 ([@corneyl] - [#7525]) ([light.limitlessled docs])
 - Update docstrings and log messages ([@fabaff] - [#7526]) ([light.blinksticklight docs]) ([light.enocean docs]) ([light.flux_led docs]) ([light.insteon_local docs]) ([light.insteon_plm docs]) ([light.isy994 docs]) ([light.limitlessled docs]) ([light.mystrom docs])
-- Try to request current_location Automatic scope ([@armills] - [#7447]) ([device_tracker.automatic docs])
+- Try to request current_location Automatic scope ([@armills] - [#7447])
 - Add myStrom binary sensor ([@fabaff] - [#7530])
 - Add not-context-manager ([@fabaff] - [#7523])
 - Threadsafe configurator ([@Kane610] - [#7536]) ([configurator docs])
 - Fix for #7459 ([@deftdawg] - [#7544]) ([alexa docs])
 - Upgrade sendgrid to 4.1.0 ([@fabaff] - [#7538]) ([notify.sendgrid docs])
-- Automatic version bump ([@armills] - [#7555]) ([device_tracker.automatic docs])
+- Automatic version bump ([@armills] - [#7555])
 - Upgrade dweepy to 0.3.0 ([@fabaff] - [#7550]) ([dweet docs]) ([sensor.dweet docs])
 - Add SSL support to NZBGet sensor ([@tboyce021] - [#7553]) ([sensor.nzbget docs])
 - Do not install all dependencies in dev mode ([@balloob] - [#7548])
@@ -353,7 +353,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [configurator docs]: /integrations/configurator/
 [cover.lutron_caseta docs]: /integrations/lutron_caseta/
 [datadog docs]: /integrations/datadog/
-[device_tracker.automatic docs]: /integrations/automatic
 [device_tracker.unifi docs]: /integrations/unifi
 [dweet docs]: /integrations/dweet/
 [eight_sleep docs]: /integrations/eight_sleep/

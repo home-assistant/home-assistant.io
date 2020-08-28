@@ -20,6 +20,11 @@ entity:
   required: true
   description: "A media player `entity_id`."
   type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
+  default: Name of Entity
 {% endconfiguration %}
 
 ## Example

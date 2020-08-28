@@ -8,7 +8,7 @@ redirect_from: /getting-started/customizing-devices/
 
 You can use the UI to change the `entity_id` and friendly name of supported entities. To do this:
 
-1. Select the entity, either from the frontend or by clicking <img src='/images/frontend/entity_box.png' /> next to the entity in the Developer Tools "States" tab.
+1. Select the entity, either from the frontend or by clicking the info button next to the entity in the Developer Tools "States" tab.
 2. Click on the cog in the right corner of the entity's dialog
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
 4. Select *Save*
@@ -35,17 +35,12 @@ friendly_name:
   description: Name of the entity as displayed in the UI.
   required: false
   type: string
-hidden:
-  description: Set to `true` to hide the entity.
-  required: false
-  type: boolean
-  default: false
 entity_picture:
   description: URL to use as picture for entity.
   required: false
   type: string
 icon:
-  description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/4.5.95/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
+  description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/5.3.45/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
   required: false
   type: string
 assumed_state:
@@ -94,8 +89,6 @@ homeassistant:
 
   customize:
     # Add an entry for each entity that you want to overwrite.
-    sensor.living_room_motion:
-      hidden: true
     thermostat.family_room:
       entity_picture: https://example.com/images/nest.jpg
       friendly_name: Nest
@@ -107,6 +100,9 @@ homeassistant:
       icon: mdi:kettle
     switch.rfxtrx_switch:
       assumed_state: false
+    media_player.my_media_player:
+      source_list:
+        - Channel/input from my available sources
   # Customize all entities in a domain
   customize_domain:
     light:
@@ -118,12 +114,16 @@ homeassistant:
     "light.kitchen_*":
       icon: mdi:description
     "scene.month_*_colors":
-      hidden: true
+      icon: mdi:other
 ```
 
 ### Reloading customize
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the "Service" tab under Developer Tools, select the `homeassistant.reload_core_config` service and click the "CALL SERVICE" button. Alternatively, you can press the "Reload Location & Customizations" button under Configuration > Server Control.
+Home Assistant offers a service to reload the core configuration while Home Assistant is running. This allows you to change your customize section and see your changes being applied without having to restart Home Assistant.
+
+To reload customizations, navigate to Configuration > Server Controls and then press the "Reload Location & Customizations" button. If you don't see this, enable Advanced Mode on your user profile page first.
+
+Alternatively, you can reload via service call. Navigate to Developer Tools > Services tab, select `homeassistant.reload_core_config` from the dropdown and press the "Call Service" button. 
 
 <div class='note warning'>
 New customize information will be applied the next time the state of the entity gets updated.

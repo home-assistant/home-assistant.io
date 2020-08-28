@@ -9,8 +9,6 @@ ha_category:
   - Switch
 ha_release: pre 0.7
 ha_config_flow: true
-ha_codeowners:
-  - '@sqldiablo'
 ha_domain: wemo
 ---
 

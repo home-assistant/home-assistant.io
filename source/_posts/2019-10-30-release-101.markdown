@@ -374,7 +374,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in waze_travel_time component ([@eifinger] - [#27384]) ([waze_travel_time docs])
 - Move imports in wemo component ([@Quentame] - [#27393]) ([wemo docs])
 - Move imports in wink component ([@Quentame] - [#27392]) ([wink docs])
-- Move imports in wunderlist component ([@Quentame] - [#27391]) ([wunderlist docs])
+- Move imports in wunderlist component ([@Quentame] - [#27391])
 - Move imports in xmpp component ([@Quentame] - [#27390]) ([xmpp docs])
 - Move imports in yamaha + yamaha_musiccast component ([@Quentame] - [#27389]) ([yamaha docs]) ([yamaha_musiccast docs])
 - Move imports in zengge component ([@Quentame] - [#27387]) ([zengge docs])
@@ -431,7 +431,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - moved imports to top level ([@Bouni] - [#27500]) ([bbox docs])
 - Move imports in aruba component to top-level ([@thaohtp] - [#27497]) ([aruba docs])
 - moved imports to top level ([@Bouni] - [#27496]) ([aws docs])
-- moved imports to top level ([@Bouni] - [#27495]) ([automatic docs])
+- moved imports to top level ([@Bouni] - [#27495])
 - Add device condition support to the lock integration ([@emontnemery] - [#27488]) ([lock docs])
 - moved imports to top level ([@Bouni] - [#27483]) ([aquostv docs])
 - Move imports in uscis component ([@Quentame] - [#27481]) ([uscis docs])
@@ -603,7 +603,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in telegram_bot component ([@Quentame] - [#27785]) ([telegram_bot docs])
 - Add device action support to the lock integration ([@emontnemery] - [#27499]) ([lock docs])
 - Add grid sensors to SolarEdge_local ([@scheric] - [#27247]) ([solaredge_local docs])
-- Unload linky config entry ([@Quentame] - [#27831]) ([linky docs])
+- Unload linky config entry ([@Quentame] - [#27831])
 - Fix attribution ([@bieniu] - [#27815]) ([airly docs])
 - Added handling for connection errors in state update, added available property ([@ratsept] - [#27794]) ([soma docs])
 - Add device_info to HomematicIP climate and acp ([@SukramJ] - [#27771]) ([homematicip_cloud docs])
@@ -684,7 +684,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Fix whois error, check expiration_date for list and pick first ([@cyberjacob] - [#27930]) ([whois docs])
 - Move imports in sql component ([@Michsior14] - [#27713]) ([sql docs])
 - move imports in smarthab component ([@Michsior14] - [#27942]) ([smarthab docs])
-- Fixing config_entries.async_forward_entry_unload calls (step 1) ([@Quentame] - [#27857]) ([cert_expiry docs]) ([linky docs]) ([locative docs]) ([luftdaten docs]) ([withings docs])
+- Fixing config_entries.async_forward_entry_unload calls (step 1) ([@Quentame] - [#27857]) ([cert_expiry docs]) ([locative docs]) ([luftdaten docs]) ([withings docs])
 - move imports in sma component ([@Michsior14] - [#27945]) ([sma docs])
 - Remove tplink device tracker ([@rytilahti] - [#27936]) ([tplink docs])
 - Add option to disable HTTPS verification in Luci component ([@mzdrale] - [#27946]) ([luci docs])
@@ -1549,7 +1549,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [asterisk_mbox docs]: /integrations/asterisk_mbox/
 [august docs]: /integrations/august/
 [auth docs]: /integrations/auth/
-[automatic docs]: /integrations/automatic/
 [automation docs]: /integrations/automation/
 [awair docs]: /integrations/awair/
 [aws docs]: /integrations/aws/
@@ -1892,7 +1891,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [wink docs]: /integrations/wink/
 [withings docs]: /integrations/withings/
 [workday docs]: /integrations/workday/
-[wunderlist docs]: /integrations/wunderlist/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [xmpp docs]: /integrations/xmpp/
 [yamaha docs]: /integrations/yamaha/
