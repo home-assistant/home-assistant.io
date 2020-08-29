@@ -110,7 +110,7 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### {% linkable_title Sensor state updates %}
+### Sensor state updates
 
 The template engine works out what entities are used to trigger an update of the sensor and only recalculates the result when one of those entities change. This is robust to any type of template used, and the sensor state will be recalculated on any change of the referenced entity states.
 
@@ -295,7 +295,7 @@ binary_sensor:
 {% endraw %}
 
 
-### {% linkable_title Working without entities %}
+### Working without entities
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates. 
 
