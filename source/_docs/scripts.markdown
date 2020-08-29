@@ -97,7 +97,7 @@ Wait until some things are complete. We support at the moment `wait_template` fo
 
 #### Wait Template
 
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template as it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the (time_date)[/components/time_date/] component that will update minutely or daily.
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template as it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the (Time and Date)[/integrations/time_date/] component that will update minutely or daily.
 
 {% raw %}
 ```yaml
