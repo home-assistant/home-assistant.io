@@ -294,7 +294,6 @@ binary_sensor:
 
 {% endraw %}
 
-
 ### Working without entities
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates. 
@@ -336,4 +335,3 @@ automation:
         entity_id: sensor.half_hour
 ```
 {% endraw %}
-
