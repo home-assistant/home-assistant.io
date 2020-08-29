@@ -45,7 +45,7 @@ Load the appliance image into your virtual machine software. (Note: You are free
 
 ### Intel NUC
 
-Flash the downloaded image to your SSD/hard disk (recommended) or SD-card using [balenaEtcher][balenaEtcher]. You can use the `gunzip` command on Linux/macOS or [7-Zip][7-zip] on Windows to extract the image.
+Flash the downloaded image to your storage device using [balenaEtcher][balenaEtcher]. You can use the `gunzip` command on Linux/macOS or [7-Zip][7-zip] on Windows to extract the image.
   - Make sure to disable Secure Boot from the UEFI settings.
 
 ### Optional - set up the Wi-Fi or a static IP address
