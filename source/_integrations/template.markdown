@@ -321,7 +321,7 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update, so we add in a reference to the `sensor.date` sensor from the [date sensor](/components/time_date/), which will update once a day.
+This template contains no entities that will trigger an update, so we add in a reference to the `sensor.date` sensor from the [Time & Date](/integrations/time_date/), which will update once a day.
 
 {% raw %}
 
