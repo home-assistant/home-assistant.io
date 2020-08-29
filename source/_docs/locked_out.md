@@ -58,7 +58,7 @@ You will then be at the Home Assistant CLI, where you can run the custom command
 ### Remove the SD and access the files from another computer
 
 On linux, the files are easily accessed. Modern distributions will automagically mount the partitions from the SD card.  As an
-example, in ubuntu, the files can be found in `/media/<username>//hassos-data/supervisor/homeassistant/.storage/'
+example, in ubuntu, the files can be found in `/media/<username>/hassos-data/supervisor/homeassistant/.storage/'
 
 For Windows or macOS you will need third party software. Below are some options.
 
