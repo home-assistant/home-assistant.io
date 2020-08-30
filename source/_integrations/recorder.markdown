@@ -48,7 +48,7 @@ recorder:
       default: 3
       type: integer
     db_integrity_check:
-      description: When using SQLite, if Home Assistant does not restart cleanly or the recorder fails to shut down, a `quick_check` is performed on the database to ensure it is usable. If `db_integrity_check` is disabled, the system will only perform necessary sanity checks and skip the `quick_check`. Home Assistant will not be able to automatically recover and start the recorder in the event the database is malformed if `db_integrity_check` is disabled.
+      description: When using SQLite, if Home Assistant does not restart cleanly or the recorder fails to shut down, a `quick_check` is performed on the database to ensure it is usable. If `db_integrity_check` is disabled, the system will only perform necessary sanity checks and skip the `quick_check`. Home Assistant may not be able to automatically recover and start the recorder in the event the database is malformed if `db_integrity_check` is disabled.
       required: false
       default: true
       type: boolean      
