@@ -58,6 +58,8 @@ Mode | Description
 For both `queued` and `parallel` modes, configuration option `max` controls the maximum
 number of runs that can be executing and/or queued up at a time. The default is 10.
 
+When `max` is exceeded (which is effectively 1 for `single` mode) a log message will be emitted to indicate this has happened. Configuration option `max_exceeded` controls the severity level of that log message. See [Log Levels](/integrations/logger/#log-levels) for a list of valid options. Or `silent` may be specified to suppress the message from being emitted. The default is `warning`.
+
 #### Example Setting Automation Mode
 
 ```yaml
