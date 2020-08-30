@@ -1,5 +1,5 @@
 ---
-title: progettihwsw
+title: ProgettiHWSW
 description: Instructions on how to integrate the ProgettiHWSW remote relay boards into Home Assistant.
 ha_category:
   - DIY
