@@ -104,8 +104,8 @@ Utilisation:
 - `network_down`: Displays total down speed of network interfaces (combines all interfaces).
 
 Information:
-- `temperature`: Displays the temperature of the nas
-- `uptime`: Displays the uptime of the nas (in seconds)
+- `temperature`: Displays the temperature of the NAS.
+- `uptime`: Displays the uptime of the NAS (in seconds).
 
 For each disk:
 - `disk_smart_status`: Displays the S.M.A.R.T status of the disk.
