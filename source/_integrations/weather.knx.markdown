@@ -23,17 +23,17 @@ To use your KNX weather station in your installation, add the following lines to
 knx:
   weather:
     - name: "home"
-      group_address_temperature: "7/0/0"
-      group_address_brightness_south: "7/0/1"
-      group_address_brightness_west: "7/0/2"
-      group_address_brightness_east: "7/0/3"
-      group_address_wind_speed: "7/0/4"
-      group_address_rain_alarm: "7/0/5"
-      group_address_frost_alarm: "7/0/6"
-      group_address_wind_alarm: "7/0/7"
-      group_address_day_night: "7/0/8"
-      group_address_air_pressure: "7/0/9"
-      group_address_humidity: "7/0/10"
+      address_temperature: "7/0/0"
+      address_brightness_south: "7/0/1"
+      address_brightness_west: "7/0/2"
+      address_brightness_east: "7/0/3"
+      address_wind_speed: "7/0/4"
+      address_rain_alarm: "7/0/5"
+      address_frost_alarm: "7/0/6"
+      address_wind_alarm: "7/0/7"
+      address_day_night: "7/0/8"
+      address_air_pressure: "7/0/9"
+      address_humidity: "7/0/10"
       expose_sensors: False
       sync_state: True
 ```
@@ -44,47 +44,47 @@ name:
   required: false
   default: KNX Weather
   type: string
-group_address_temperature:
+address_temperature:
   description: KNX group address for reading current outside temperature from KNX bus. *DPT 9.001*
   required: true
   type: string
-group_address_brightness_south:
+address_brightness_south:
   description: KNX group address for reading current brightness to south coordinate from KNX bus. *DPT 9.004*
   required: false
   type: string
-group_address_brightness_west:
+address_brightness_west:
   description: KNX group address for reading current brightness to west coordinate from KNX bus. *DPT 9.004*
   required: false
   type: string
-group_address_brightness_east:
+address_brightness_east:
   description: KNX group address for reading current brightness to east coordinate from KNX bus. *DPT 9.004*
   required: false
   type: string
-group_address_wind_speed:
+address_wind_speed:
   description: KNX group address for reading current wind speed from KNX bus. *DPT 9.005*
   required: false
   type: string
-group_address_rain_alarm:
+address_rain_alarm:
   description: KNX group address for reading if rain alarm is on/off.
   required: false
   type: string
-group_address_frost_alarm:
+address_frost_alarm:
   description: KNX group address for reading if frost alarm is on/off.
   required: false
   type: string
-group_address_wind_alarm:
+address_wind_alarm:
   description: KNX group address for reading if wind alarm is on/off.
   required: false
   type: string
-group_address_day_night:
+address_day_night:
   description: KNX group address for reading if it's day/night.
   required: false
   type: string
-group_address_air_pressure:
+address_air_pressure:
   description: KNX address reading current air pressure. *DPT 9.006*
   required: false
   type: string
-group_address_humidity:
+address_humidity:
   description: KNX address for reading current humidity. *DPT 9.007*
   required: false
   type: string
