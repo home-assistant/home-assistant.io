@@ -25,7 +25,7 @@ To add a Met Éireann weather source, go to __Configuration >> Integrations__ in
 
 ## Data License
 
-The data provied by Met Éireann is licensed under the Met Éireann Open Data Custom Licence (similar to a Creative Commons CC BY 4.0 licence). A license summary and the full license are available [here](https://data.gov.ie/dataset/met-eireann-weather-forecast-api/resource/027da6d5-d819-48d1-9b16-331dba169bd1). In short, if you distribute, broadcast or make Met Éireann data available on the public internet you must give credit to Met Éireann and display their weather warnings.
+The data provied by Met Éireann is licensed under the Met Éireann Open Data Custom License (similar to a Creative Commons CC BY 4.0 licence). A license summary and the full license are available [here](https://data.gov.ie/dataset/met-eireann-weather-forecast-api/resource/027da6d5-d819-48d1-9b16-331dba169bd1). In short, if you distribute, broadcast or make Met Éireann data available on the public internet you must give credit to Met Éireann and display their weather warnings.
 
 ## Data Changes
 
