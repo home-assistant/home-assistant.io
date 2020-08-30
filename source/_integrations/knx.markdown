@@ -30,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Scene](/integrations/scene.knx)
 - [Sensor](/integrations/sensor.knx)
 - [Switch](/integrations/switch.knx)
+- [Weather](/integrations/weather.knx)
 
 
 ## Configuration
