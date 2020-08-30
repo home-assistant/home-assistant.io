@@ -26,7 +26,7 @@ For more information about the boards, visit [our website](http://www.progetti-h
 
 ## Configuration
 
-The configuration for this integration can be done from Home Assistant interface by entering the host and port number of board in Integration config wizard.
+The configuration for this integration can be done from Home Assistant interface by entering the host and port number of board in Integration configuration wizard.
 
 The wizard can be accessed from Configuration --> Integrations --> (Plus sign at the bottom right).
 
