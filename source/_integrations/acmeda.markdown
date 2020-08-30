@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: acmeda
 ---
 
-The Rollease Acmeda Automate integration allows you to control and monitor covers via your Rolelase Acmeda Automate hub. The integration uses an [API](https://pypi.org/project/aiopulse/) to directly communicate with hubs on the local network, rather than connecting via the cloud or via RS-485.
+The Rollease Acmeda Automate integration allows you to control and monitor covers via your Rolelase Acmeda Automate hub (v1 only see the [Automate Integration](/integrations/automate) for the Automate Pulse v2 Hub). The integration uses an [API](https://pypi.org/project/aiopulse/) to directly communicate with hubs on the local network, rather than connecting via the cloud or via RS-485.
 
 Devices are represented as a cover for monitoring and control as well as a sensor for monitoring battery condition.
 
