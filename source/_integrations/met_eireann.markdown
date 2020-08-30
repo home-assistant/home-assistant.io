@@ -21,7 +21,7 @@ The Met Éireann API will only provide data for Ireland, the UK and a small part
 
 ## Configuration
 
-To add a Met Éireann weather source, go to __Configuration >> Integrations__ in the UI and create a new Met Éireann entry. You can specify a custom latitude, longitude and elevation if required, if not speciefied the Home Assistant defaults will be used.
+To add a Met Éireann weather source, go to **Configuration** -> **Integrations** in the UI and create a new Met Éireann entry. You can specify a custom latitude, longitude and elevation if required, if not speciefied the Home Assistant defaults will be used.
 
 ## Data License
 
