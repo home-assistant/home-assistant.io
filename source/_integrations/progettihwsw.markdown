@@ -14,7 +14,7 @@ The `progettihwsw` integration brings the automation experience with ProgettiHWS
 
 ## Binary Sensor
 
-The `progettihwsw` binary sensor platform allows you to read input values of of a [ProgettiHWSW Board](http://www.progetti-hw-sw.it/).
+The `progettihwsw` binary sensor platform allows you to read input values of a [ProgettiHWSW Board](http://www.progetti-hw-sw.it/).
 
 The input numbers for sensors are shown on the board's enclosure and PCB.
 
