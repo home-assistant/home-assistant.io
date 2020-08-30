@@ -5,6 +5,7 @@ ha_category:
   - DIY
   - Binary Sensor
   - Switch
+  - Device Automation
 ha_release: 0.114
 ha_iot_class: Local Polling
 ha_domain: progettihwsw
