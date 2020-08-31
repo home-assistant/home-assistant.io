@@ -72,7 +72,7 @@ automation:
     below: 25
     # If given, will trigger when the value of the given attribute for the given entity changes
     attribute: attribute_name
-    # If given, will trigger when the condition has been for X time; you can also use days and milliseconds.
+    # If given, will trigger when the condition has been true for X time; you can also use days and milliseconds.
     for:
       hours: 1
       minutes: 10
