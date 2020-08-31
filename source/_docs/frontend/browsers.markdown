@@ -68,7 +68,7 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [LG webOS TV Built-in]| webOSv04.80.03 | words      | including magic remote   |
+| [LG webOS TV Built-in]| webOS 04.80.03 | works      | including magic remote   |
 
 [Chrome]: https://www.google.com/chrome/
 [Chromium]: https://www.chromium.org/
@@ -89,4 +89,4 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Uzbl]: https://www.uzbl.org/
 [w3m]: http://w3m.sourceforge.net/
 [Waterfox]: https://www.waterfoxproject.org
-[LG webOS TV Built-In]: https://www.lg.com/uk/support/solutions/tv/smart-tv/internet-browsing
+[LG webOS TV Built-In]: https://www.lg.com/uk/support/help-library/details-on-enjoying-internet-browsing-on-your-lg-webos-tv-CT00008334-1435838149474
