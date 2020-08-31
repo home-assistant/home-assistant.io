@@ -56,7 +56,7 @@ automation:
 
 ### Numeric state trigger
 
-Fires when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if value is changing from above to below or from below to above the given threshold.
+Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property) crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
 
 {% raw %}
 
@@ -70,8 +70,9 @@ automation:
     # At least one of the following required
     above: 17
     below: 25
-
-    # If given, will trigger when condition has been for X time, can also use days and milliseconds.
+    # If given, will trigger when the value of the given attribute for the given entity changes
+    attribute: attribute_name
+    # If given, will trigger when the condition has been true for X time; you can also use days and milliseconds.
     for:
       hours: 1
       minutes: 10
