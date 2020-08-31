@@ -100,6 +100,12 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 
 ## Services
 
+### Set Outdoor Camera Light Mode
+
+`set_camera_light_mode`
+
+Set the outdoor camera light mode. This requires an entity id and a valid state.
+
 ### Set Schedule
 
 `set_schedule`
