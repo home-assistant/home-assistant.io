@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: yeelight
 ---
 
-The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
+The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -22,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To set up this integration, go to Integrations under Configuration and find Yeelight in the + menu. You can choose "Discovery" or "Manual". To configure the discovered or manually set up devices, use the "Options" button in the integration card. **Note: If you have discovery set up, do not manually set up devices that are discoverable. Otherwise there will be conflicts.**
+To set up this integration, go to Integrations under Configuration and find Yeelight in the + menu. You can leave IP address empty to set up discovered devices. To configure the devices, use the "Options" button in the integration card.
 
 ### Custom effects
 
@@ -76,7 +76,7 @@ yeelight:
 
 {% configuration %}
 devices:
-  required: true
+  required: false
   description: List of Yeelight devices.
   type: map
   keys:
