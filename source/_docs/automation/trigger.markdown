@@ -151,9 +151,30 @@ automation:
     from: "not_home"
     # Optional
     to: "home"
+```
 
-    # If given, will trigger when state has been the to state for X time.
-    for: "01:10:05"
+#### Holding a state
+
+You can use `for` to have the state trigger only fire if the state holds for some time.
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: light.office
+    # Must stay "on" for 30 seconds
+    to: "on"
+    for: "00:00:30"
+```
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: media_player.kitchen
+    # Not "playing" for 30 seconds
+    from: "playing"
+    for: "00:00:30"
 ```
 
 You can also use templates in the `for` option.
