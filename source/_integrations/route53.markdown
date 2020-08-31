@@ -92,7 +92,7 @@ domain:
   required: true
   type: string
 records:
-  description: A list of records you want to update.
+  description: A list of records you want to update. Use `.` to update the default record ie. *yourdomain.com*.
   required: true
   type: list
 ttl:
