@@ -15,14 +15,14 @@ ha_domain: yeelight
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
 
-There is currently support for the following device types within Home Assistant:
+There is support for the following device types within Home Assistant:
 
 - **Light** - The Yeelight platform for supporting lights.
-- **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently only nightlight mode sensor, for ceiling lights.
+- **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
 
 ## Configuration
 
-To set up this integration, go to Integrations under Configuration and find Yeelight in the + menu. You can leave IP address empty to set up discovered devices. To configure the devices, use the "Options" button in the integration card.
+To set up this integration, go to **Integrations** under **Configuration** and find Yeelight in the `+` menu. You can leave the IP address field empty to set up discovered devices. To configure the devices, use the "Options" button in the integration card.
 
 ### Custom effects
 
@@ -32,10 +32,10 @@ Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransitio
 
 Where the array values are as per the following:
 
-- RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being in milliseconds (minimum of 50) and final brightness to transition to 1-100 (%).
-- HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in milliseconds (minimum 50) and final brightness 1-100 (%).
-- TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, duration in milliseconds (minimum 50) and final brightness to transition to 1-100 (%).
-- SleepTransition: [duration] with duration being in integer for effect time in milliseconds (minimum 50).
+- RGBTransition: [red, green, blue, duration, brightness] with red/green/blue being an number between 0 and 255, the duration being in milliseconds (with a minimum of 50) and the final brightness to transition to 1-100 (%).
+- HSVTransition: [hue, saturation, duration, brightness] with hue being an number between 0 and 359, saturation 0 -100, the duration in milliseconds (with a minimum of 50) and the final brightness 1-100 (%).
+- TemperatureTransition: [temp, duration, brightness] with temp being the final color temperature between 1700 and 6500, the duration in milliseconds (with a minimum of 50) and the final brightness to transition to 1-100 (%).
+- SleepTransition: [duration] with duration being an number for the effect time in milliseconds (with a minimum of 50).
 
 More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
 
@@ -139,14 +139,14 @@ custom_effects:
 
 ### Music mode
 
-Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the integration and it tries to keep the connection open, which may not be wanted in all use-cases.
+Per default, the bulb limits the number of requests per minute to 60, a limitation that can be bypassed by enabling the music mode. In music mode, the bulb is commanded to connect back to a socket provided by the integration and it tries to keep the connection open, which may not be wanted in all use-cases.
 **Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from Home Assistant the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
 
 ### Initial setup
 
 <div class='note'>
 
-Before trying to control your light through Home Assistant, you have to setup your bulb using Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
+Before trying to control your light through Home Assistant, you have to set up your bulb using the Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
 In the bulb property, you have to enable "LAN Control" (previously called "Developer mode"). LAN Control may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
 Determine your bulb IP (using router, software, ping...).
 Information on how to enable "LAN Control" can be found [here](https://www.yeelight.com/faqs/lan_control).
@@ -156,7 +156,7 @@ Information on how to enable "LAN Control" can be found [here](https://www.yeeli
 ### Supported models
 
 <div class='note warning'>
-This integration is tested to work with the following models. If you have a different model and it is working please let us know.
+This integration is tested to work with the following models. If you have a different model and it is working, please let us know.
 </div>
 
 | Model ID   | Model number | Product name                                     |
@@ -236,7 +236,7 @@ Changes the light to the specified color temperature. If the light is off, it wi
 
 ### Service `yeelight.set_color_flow_scene`
 
-Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses different Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences, in handling complex flows, etc.
+Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses different a Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows, etc.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
