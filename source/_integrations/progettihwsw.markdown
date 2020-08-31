@@ -5,7 +5,6 @@ ha_category:
   - DIY
   - Binary Sensor
   - Switch
-  - Device Automation
 ha_release: 0.115
 ha_iot_class: Local Polling
 ha_domain: progettihwsw
@@ -15,13 +14,13 @@ The `progettihwsw` integration brings the automation experience with ProgettiHWS
 
 ## Configuration
 
-The configuration for this integration can be done from Home Assistant interface by entering the host and port number of board in Integration configuration wizard.
+The configuration for this integration can be done from Home Assistant interface by entering the host and port number of the board in the integration configuration wizard.
 
 The wizard can be accessed from **Configuration** -> **Integrations** -> (Plus sign at the bottom right).
 
 ## Binary Sensor
 
-The `progettihwsw` binary sensor platform allows you to read input values of a [ProgettiHWSW Board](http://www.progetti-hw-sw.it/).
+The `progettihwsw` binary sensor platform allows you to read the input values of a [ProgettiHWSW Board](http://www.progetti-hw-sw.it/).
 
 The input numbers for sensors are shown on the board's enclosure and PCB.
 
