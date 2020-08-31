@@ -9,9 +9,15 @@ ha_codeowners:
 ha_domain: shelly
 ---
 
-Integrate [Shelly devices](https://shelly.cloud) into Home Assistant. Devices will be automatically discovered when on the same network and can also be manually configured via the integrations page.
+Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
-Current limitations:
+## Configuration
+
+To add a Shelly device to your installation, go to **Configuration** >> **Integrations** in the UI. Devices will be automatically discovered when on the same network and listed on the integrations page. Click on "Configure" of the discovered device to add it to Home Assistant.
+
+A device can also be added manually, click the button with `+` sign on the integrations page and from the list of integrations, select **Shelly** and follow the instructions shown.
+
+## Known issues and limitations
 
 - Only supports firmware 1.8 and later
 - Support relays, lights (brightness) and sensors
