@@ -68,7 +68,7 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [LG webOS TV Built-in]| 2019-2020      | fails      | loads empty page         |
+| [LG webOS TV Built-in]| webOSv04.80.03 | words      | including magic remote   |
 
 [Chrome]: https://www.google.com/chrome/
 [Chromium]: https://www.chromium.org/
