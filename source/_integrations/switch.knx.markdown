@@ -21,10 +21,10 @@ The `knx` switch platform is used as an interface to switching actuators.
 To use your KNX switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-switch:
-  - platform: knx
-    name: Kitchen.Coffee
-    address: '1/1/6'
+knx:
+  switch:
+    - name: Kitchen.Coffee
+      address: '1/1/6'
 ```
 
 {% configuration %}

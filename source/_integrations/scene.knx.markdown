@@ -21,11 +21,11 @@ To use your KNX scence in your installation, add the following to your `configur
 
 ```yaml
 # Example configuration.yaml entry
-scene:
-  - name: Romantic
-    platform: knx
-    address: 8/8/8
-    scene_number: 23
+knx:
+  scene:
+    - name: Romantic
+      address: 8/8/8
+      scene_number: 23
 ```
 
 {% configuration %}
