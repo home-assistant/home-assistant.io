@@ -260,7 +260,7 @@ The following automation shows how to capture the custom event `event_light_stat
 ### Repeat a Group of Actions
 
 This action allows you to repeat a sequence of other actions. Nesting is fully supported.
-There are three ways to control how many times the sequence will be run.
+There are four ways to control how many times the sequence will be run.
 
 #### Counted Repeat
 
@@ -289,6 +289,72 @@ script:
         data:
           light: hallway
           count: 3
+```
+{% endraw %}
+
+#### For Each Item in List
+
+This form accepts a list of items and will run the `sequence` of actions for each.
+The list can be specified using a standard YAML list, or it can be specified as a comma separated string.
+Templates are accepted in both cases, and will be rendered when the repeat step is reached.
+Each time the `sequence` is run, variable `repeat.value` will contain the current item from the list.
+
+This example shows the list specified in YAML, with some entries being static values and others being specified by templates.
+
+{% raw %}
+```yaml
+script:
+  wink_lights:
+    description: Wink lights in sequence
+    fields:
+      last_light:
+        description: entity_id of last light to wink
+        example: light.light_3
+    sequence:
+      - repeat:
+          for_each:
+            - light.light_1
+            - light.light_2
+            - "{{ last_light }}"
+          sequence:
+            - light.turn_on
+              data_template:
+                entity_id: "{{ repeat.value }}"
+                brightness_pct: 50
+                transition: 1
+            - light.turn_on
+              data_template:
+                entity_id: "{{ repeat.value }}"
+                brightness_pct: 100
+                transition: 1
+```
+{% endraw %}
+
+This example shows the use of a comma separated string dynamically specified via a template.
+
+{% raw %}
+```yaml
+group:
+  shaded_windows:
+    entities:
+      - cover.window_back
+      - cover.window_front_west
+      - cover.window_front_east
+automation:
+  - alias: Lower Shades Staggered
+    trigger:
+      - platform: state
+        entity_id: 'input_boolean.sunprotect'
+        to: 'on'
+    action:
+      - repeat:
+          for_each: "{{ state_attr('group.shaded_windows', 'entity_id')|join(',') }}"
+          sequence:
+            - service: cover.set_cover_position
+              data_template:
+                entity_id: "{{ repeat.value }}"
+                position: 30
+            - delay: 1
 ```
 {% endraw %}
 
@@ -361,7 +427,8 @@ field | description
 -|-
 `first` | True during the first iteration of the repeat sequence
 `index` | The iteration number of the loop: 1, 2, 3, ...
-`last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
+`last` | True during the last iteration of the repeat sequence, which is only valid for counted and "for each" loops
+`value` | Value of item from `for_each` list
 
 ### Choose a Group of Actions
 
