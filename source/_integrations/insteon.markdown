@@ -39,13 +39,13 @@ You can configure the Insteon integration by going to the integrations page insi
 [2245]: https://www.insteon.com/insteon-hub/
 [2242]: https://www.insteon.com/support-knowledgebase/2014/9/26/insteon-hub-owners-manual
 
-### Autodiscovery
+## Autodiscovery
 
 The first time autodiscovery runs, the duration may require up to 60 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, trigger the device, such as toggling a button, to force the device to send a message to the modem. The device will then be discovered. You may need to trigger the device a few times. If for any reason this approach does not work, you can add the device to a **device override** in configuration options from the integrations page inside the configuration panel.
 
 In order for a device to be discovered, it must be linked to the INSTEON Modem as either a responder or a controller.
 
-### Linking Devices to the INSTEON Modem
+## Linking Devices to the INSTEON Modem
 
 In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Development Tools] service calls. The following services are available:
 
@@ -55,7 +55,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 - **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
 - **insteon.print_im_all_link_database**: Print the All-Link Database for the INSTEON Modem (IM).
 
-If you are looking for more advanced options, you can use the [insteon_tools] command line tool that is distributed with the [pyinsteon] Python module. Please see the documentation on the [pyinsteon] GitHub site. Alternatively, you can download [HouseLinc] which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
+If you are looking for more advanced options, you can use the [insteon_tools] command-line tool that is distributed with the [pyinsteon] Python module. Please see the documentation on the [pyinsteon] GitHub site. Alternatively, you can download [HouseLinc], which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
 [Development Tools]: /docs/tools/dev-tools/
@@ -63,7 +63,7 @@ If you are looking for more advanced options, you can use the [insteon_tools] co
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteon_tools]: https://github.com/pyinsteon/pyinsteon
 
-### Customization
+## Customization
 
 The only configuration item that is necessary is the PLM port or Hub IP address, username and password so that Home Assistant can connect to the INSTEON Modem. This will expose all the supported INSTEON devices which exist in the modem’s ALL-Link database. However, devices will only be shown by their INSTEON hex address (e.g., “1A.2B.3C”) which can be a bit unwieldy. As you link and unlink devices using the ‘Set’ buttons, they’ll be added and removed from Home Assistant automatically.
 
@@ -71,7 +71,7 @@ You can use the normal Home Assistant [device customization] section of your con
 
 [device customization]: /getting-started/customizing-devices/
 
-### Device Overrides
+## Device Overrides
 
 INSTEON devices are added to Home Assistant using the platform(s) that make the most sense given the model and features of the hardware. The features of the INSTEON devices are built into the Home Assistant platform. Changing the platform is not recommended.
 
@@ -80,11 +80,11 @@ There are two primary uses for the **device override** feature:
 - Devices that do not respond during autodiscovery. This is common for battery operated devices. Before using a device override, please trigger the device a few times and it will likely be discovered by Home Assistant.
 - Devices that have not been fully developed. This allows an unknown device to be mapped to a device that operates similarly to another device.
 
-Device overrides can be setup using the integrations page inside the configuration panel.
+Device overrides can be set up using the integrations page inside the configuration panel.
 
-### INSTEON Scenes
+## INSTEON Scenes
 
-Trigger an INSTEON scene on or off is done via automations. Two services are provided to support this feature:
+Trigger an INSTEON scene on or off, is done via automations. Two services are provided to support this feature:
 
 - **insteon.scene_on**
   - **group**: (required) The INSTEON scene number to trigger.
@@ -101,7 +101,7 @@ automation:
         group: 25
 ```
 
-### Events and Mini-Remotes
+## Events and Mini-Remotes
 
 Mini-Remote devices do not appear as Home Assistant entities, they generate events. The following events are available:
 
@@ -150,7 +150,7 @@ automation:
         entity_id: light.some_light
 ```
 
-### Manual configuration
+## Manual configuration
 
 Manual configuration is not required as all configuration options are available through the integrations page inside the configuration panel. However, manual setup is available using the following settings.
 
@@ -207,7 +207,7 @@ port:
   required: false
   type: string
 host:
-  description: The host name or IP address of the Hub. Required with Hub.
+  description: The hostname or IP address of the Hub. Required with Hub.
   required: false
   type: string
 ip_port:
@@ -215,11 +215,11 @@ ip_port:
   required: true
   type: integer
 username:
-  description: The username to login in to the local Hub. You can find your Hub username on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
+  description: The username to login into the local Hub. You can find your Hub username on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
   required: false
   type: string
 password:
-  description: The password to login in to the local Hub. You can find your Hub password on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
+  description: The password to login into the local Hub. You can find your Hub password on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
   required: false
   type: string
 hub_version:
