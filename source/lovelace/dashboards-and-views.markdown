@@ -5,11 +5,11 @@ description: "The Lovelace UI is a powerful and configurable interface for Home 
 
 You can define multiple dashboards in Lovelace. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-You can manage your dashboards via the user interface. Go to config -> Lovelace Dashboards. Here you can see all defined dashboards and create new ones.
+You can manage your dashboards via the user interface. Go to configuration -> Lovelace Dashboards. Here you can see all defined dashboards and create new ones.
 
 ### Using YAML for the default dashboard
 
-To change the default dashboard, create a new file `ui-lovelace.yaml` in your config directory and add the following section to your `configuration.yaml` and restart Home Assistant:
+To change the default dashboard, create a new file `ui-lovelace.yaml` in your configuration directory and add the following section to your `configuration.yaml` and restart Home Assistant:
 
 ```yaml
 lovelace:
