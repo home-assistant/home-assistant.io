@@ -22,6 +22,16 @@ script:
           message: 'Turned on the ceiling light!'
 ```
 
+## Types of Actions
+
+- [Call a Service](#call-a-service)
+- [Test a Condition](#test-a-condition)
+- [Delay](#delay)
+- [Wait](#wait)
+- [Fire an Event](#fire-an-event)
+- [Repeat a Group of Actions](#repeat-a-group-of-actions)
+- [Choose a Group of Actions](#choose-a-group-of-actions)
+
 ### Call a Service
 
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
@@ -214,7 +224,7 @@ an event trigger.
 ```
 {% endraw %}
 
-### Raise and Consume Custom Events
+#### Raise and Consume Custom Events
 
 The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
@@ -357,11 +367,36 @@ field | description
 
 This action allows you to select a sequence of other actions from a list of sequences.
 Nesting is fully supported.
-Each sequence is paired with a list of conditions (see [conditions page] for available options.) The first sequence whose conditions are all true will be run.
-An optional `default` sequence can be included which will be run if none of the sequences from the list are run.
+
+Each sequence is paired with a list of conditions. (See the [conditions page] for available options and how multiple conditions are handled.) The first sequence whose conditions are all true will be run.
+An _optional_ `default` sequence can be included which will be run only if none of the sequences from the list are run.
+
+The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
 {% raw %}
 ```yaml
+# Example with just an "if"
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: 'on'
+    action:
+      - choose:
+          # IF nobody home, sound the alarm!
+          - conditions:
+              - condition: state
+                entity_id: group.family
+                state: not_home
+            sequence:
+              - service: script.siren
+                data:
+                  duration: 60
+      - service: light.turn_on
+        entity_id: all
+```
+```yaml
+# Example with "if" and "else"
 automation:
   - trigger:
       - platform: state
@@ -382,6 +417,39 @@ automation:
         default:
           - service: light.turn_off
             entity_id: light.front_lights
+```
+```yaml
+# Example with "if", "elif" and "else"
+automation:
+  - trigger:
+      - platform: state
+        entity_id: input_boolean.simulate
+        to: 'on'
+    mode: restart
+    action:
+      - choose:
+          # IF morning
+          - conditions:
+              - condition: template
+                value_template: "{{ now().hour < 9 }}"
+            sequence:
+              - service: script.sim_morning
+          # ELIF day
+          - conditions:
+              - condition: template
+                value_template: "{{ now().hour < 18 }}"
+            sequence:
+              - service: light.turn_off
+                entity_id: light.living_room
+              - service: script.sim_day
+        # ELSE night
+        default:
+          - service: light.turn_off
+            entity_id: light.kitchen
+          - delay:
+              minutes: "{{ range(1, 11)|random }}"
+          - service: light.turn_off
+            entity_id: all
 ```
 {% endraw %}
 

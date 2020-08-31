@@ -610,6 +610,45 @@ the automation is turned off.
 [recorder docs]: /integrations/recorder/
 [samsungtv docs]: /integrations/samsungtv/
 
+## Release 0.114.3 - August 20
+
+- Update zeroconf to fix ServiceBrowser leak on cancelation ([@bdraco] - [#38933]) ([zeroconf docs])
+- Bump netdisco to 2.8.2 to accomodate new zeroconf exception ([@bdraco] - [#38949]) ([discovery docs]) ([ssdp docs])
+- Fix Control4 light setup issues ([@lawtancool] - [#38952]) ([control4 docs])
+- Bump pychromecast to 7.2.1 ([@emontnemery] - [#39018]) ([cast docs])
+- Fix emulated hue on/off devices compatibility with alexa ([@bdraco] - [#39063]) ([emulated_hue docs])
+- Update met.no library ([@Danielhiversen] - [#39076]) ([met docs]) ([norway_air docs])
+
+[#38933]: https://github.com/home-assistant/core/pull/38933
+[#38949]: https://github.com/home-assistant/core/pull/38949
+[#38952]: https://github.com/home-assistant/core/pull/38952
+[#39018]: https://github.com/home-assistant/core/pull/39018
+[#39063]: https://github.com/home-assistant/core/pull/39063
+[#39076]: https://github.com/home-assistant/core/pull/39076
+[@danielhiversen]: https://github.com/Danielhiversen
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@lawtancool]: https://github.com/lawtancool
+[cast docs]: /integrations/cast/
+[control4 docs]: /integrations/control4/
+[discovery docs]: /integrations/discovery/
+[emulated_hue docs]: /integrations/emulated_hue/
+[met docs]: /integrations/met/
+[norway_air docs]: /integrations/norway_air/
+[ssdp docs]: /integrations/ssdp/
+[zeroconf docs]: /integrations/zeroconf/
+
+## Release 0.114.4 - August 26
+
+- Fix TTS languange characters ([@pvizeli] - [#39211]) ([tts docs])
+- Fix time pattern listener firing a few microseconds early ([@bdraco] - [#39281])
+
+[#39211]: https://github.com/home-assistant/core/pull/39211
+[#39281]: https://github.com/home-assistant/core/pull/39281
+[@bdraco]: https://github.com/bdraco
+[@pvizeli]: https://github.com/pvizeli
+[tts docs]: /integrations/tts/
+
 ## All changes
 
 <details>
