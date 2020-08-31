@@ -33,13 +33,39 @@ You can configure additional behavior by clicking on **Options** in the relevant
 
 {% configuration_basic %}
 How often to poll Risco (in seconds):
-  description: "The lower this is, the faster your entities will reflect changes, but the more resource intensive it'll be."
+  description: "The lower this is, the faster your entities will reflect changes, but the more resource-intensive it'll be."
 Require pin code to arm:
   description: When checked, you'll need to enter your pin code when arming through Home Assistant.
 Require pin code to disarm:
   description: When checked, you'll need to enter your pin code when disarming through Home Assistant.
 {% endconfiguration_basic %}
 
+Apart from these options, you can also define a custom mapping between your Home Assistant Alarm states and the Risco arming modes.
+This is an advanced configuration, and unless you're using group arming, the default mapping should probably be best.
+This is a two-way mapping, meaning you can map:
+
+- What Home Assistant state your partition entity will report when Risco is armed in a specific mode.
+- Which arming mode to use when arming from Home Assistant using one of its modes. Note that in this step, you can only choose combinations that map to each other in the previous step.
+
+The default mapping:
+
+|Risco Arming Mode | Home Assistant State |
+|---|---|
+| Arm (AWAY) | Armed Away |
+| Partial Arm (STAY) | Armed Home |
+| Group A | Armed Home |
+| Group B | Armed Home |
+| Group C | Armed Home |
+| Group D | Armed Home |
+
+And in the reverse direction:
+
+| Home Assistant Mode | Risco Arming Mode |
+|---|---|
+| Arm Away | Arm |
+| Arm Home | Partial Arm |
+
 Currently supported plaforms:
+
 - [Alarm Control Panel](/integrations/alarm_control_panel/)
 - [Binary Sensor](/integrations/binary_sensor/)
