@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_domain: meteo_france
 ---
 
-The `meteo_france` integration uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world. One or more locations can be set via the front end or via the configuration file.
+The `meteo_france` integration uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world with a focus on France. One or more locations can be set via the front end or via the configuration file.
 
 The integration support the following platforms within Home Assistant:
 
@@ -85,11 +85,38 @@ To enable an entity disabled by default, go in **Configuration** -> **Integratio
 <div class='note warning'>
 
   The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
-  You can check if your city is covered on the [Météo-France website](https://www.meteofrance.com/previsions-meteo-france/previsions-pluie).
+  
+  ![Rain coverage map](/images/integrations/meteo_france/carte-couverture-du-service.png)
 
 </div>
 
-The attributes allow to have a forecast of the rain type by 5 to 10 minutes intervals.
+The attributes allow to have a forecast of the rain type by 5 to 10 minutes intervals:
+
+- `forecast_time_ref` give a timestamp in ISO format UTC, corresponding to the start of the
+  forecast.
+- `1_hour_forecast` is a dictionary to access the type of rain for the next hour for each periods.
+  
+"Type of rain" values are given by Météo-France API. Values already noted are:
+- `Temps sec`
+- `Pluie faible`
+- `Pluie modérée`
+- `Pluie forte`
+
+Example:
+
+```yaml
+forecast_time_ref: '2020-08-20T19:25:00+00:00'
+1_hour_forecast:
+  0 min: Temps sec
+  5 min: Temps sec
+  10 min: Temps sec
+  15 min: Temps sec
+  20 min: Temps sec
+  25 min: Pluie faible
+  35 min: Pluie faible
+  45 min: Pluie modérée
+  55 min: Pluie modérée
+```
 
 ### About `weather_alert` sensor
 
