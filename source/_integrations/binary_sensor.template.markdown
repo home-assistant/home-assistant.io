@@ -112,7 +112,7 @@ result:
 
 ### Sensor state updates
 
-The template engine works out what entities are used to trigger an update of the sensor and only recalculates the result when one of those entities change. This is robust to any type of template used, and the sensor state will be recalculated on any change of the referenced entity states.
+The template engine works out what entities are used to trigger an update of the sensor and recalculates the result when one of those entities change.
 
 If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, create an interval-based
 automation that calls the service `homeassistant.update_entity` for the sensor requiring updates. See the [example below](#working-without-entities).
