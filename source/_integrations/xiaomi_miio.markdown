@@ -192,15 +192,15 @@ name:
 
 ### Supported Xiaomi gateway models:
 
-| Gateway name       | Zigbee id           | model        | supported                                 |
-| ------------------ | ------------------- | ------------ |------------------------------------------ |
-| Chinese version    | lumi.gateway.v3     | DGNWG02LM    | yes                                       |
-| European version   | lumi.gateway.mieu01 | ZHWG11LM-763 | only gateway features (no subdevices yet) |
-| Aqara hub          | lumi.gateway.aqhm01 | ZHWG11LM     | untested                                  |
-| Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM   | untested                                  |
-| Aqara AC Companion | lumi.acpartner.v1   | KTBL01LM     | untested                                  |
-| Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM     | untested                                  |
-| Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM     | yes                                       |
+| Gateway name       | Zigbee id           | model                    | supported                                 |
+| ------------------ | ------------------- | ------------------------ |------------------------------------------ |
+| Chinese version    | lumi.gateway.v3     | DGNWG02LM                | yes                                       |
+| European version   | lumi.gateway.mieu01 | ZHWG11LM-763 / DGNWQ05LM | only gateway features (no subdevices yet) |
+| Aqara hub          | lumi.gateway.aqhm01 | ZHWG11LM                 | untested                                  |
+| Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM               | untested                                  |
+| Aqara AC Companion | lumi.acpartner.v1   | KTBL01LM                 | untested                                  |
+| Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                                  |
+| Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM                 | yes                                       |
 
 ### Gateway Features
 
