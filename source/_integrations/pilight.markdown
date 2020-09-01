@@ -331,6 +331,8 @@ light:
   - platform: pilight
     lights:
       test2:
+        dimlevel_min: 2
+        dimlevel_max: 14
         on_code:
           protocol: kaku_dimmer
           id: 23298822
