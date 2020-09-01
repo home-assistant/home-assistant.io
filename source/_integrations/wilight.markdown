@@ -33,8 +33,8 @@ There are several services which can be used for automations and control of the 
 
 | Service | Description |
 | --------- | ----------- |
-| `set_speed` | Calling this service sets the fan speed (entity_id and speed are required parameters, and speed must be one of the following: low, medium, or high). Calling this service will not turn the fan on. You can call the `turn_on` service with the speed attribute, in addition to entity_id to turn the fan on and setting a speed.
+| `set_speed` | Calling this service sets the fan speed (entity_id and speed are required parameters, and speed must be one of the following: low, medium, or high). Calling this service will not turn the fan on.
 | `set_direction` | Calling this service will set the fan direction (entity_id and direction are required parameters, and direction must be one of the following: forward or reverse). Calling this service will turn the fan on.
 | `toggle` | Calling this service will toggle the fan between on and off states (entity_id is required).
 | `turn_off` | Calling this service will turn the fan off (entity_id is required).
-| `turn_on` | Calling this service will turn the fan on and set the speed and direction to the last used ones (defaults to high and forward, entity_id is required). You can call the `turn_on` service with the speed attribute, in addition to entity_id to turn the fan on and setting a speed.
+| `turn_on` | Calling this service will turn the fan on and set the speed and direction to the last used ones (defaults to high and forward, entity_id is required).
