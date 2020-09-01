@@ -3,6 +3,7 @@ title: Filter
 description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
 ha_category:
   - Utility
+  - Sensor
 ha_release: 0.65
 ha_iot_class: Local Push
 ha_quality_scale: internal

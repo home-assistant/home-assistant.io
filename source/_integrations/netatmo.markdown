@@ -57,7 +57,7 @@ Menu: **Configuration** -> **Integrations**.
 
 Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cogwheel.
 
-In the dialogue, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
+In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
 To edit an existing area simply enter its name and follow the dialog. 
 
@@ -99,6 +99,12 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 [Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) device or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
 
 ## Services
+
+### Set Outdoor Camera Light Mode
+
+`set_camera_light_mode`
+
+Set the outdoor camera light mode. This requires an entity id and a valid state.
 
 ### Set Schedule
 
