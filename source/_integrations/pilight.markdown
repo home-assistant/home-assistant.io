@@ -310,7 +310,9 @@ switch:
 ## Light
 
 Pilight dimmer devices, which can have different brightness values, can be used as a light. 
-The configuration parameters are the same for dimmers and switches. 
+The configuration parameters are the same for dimmers and switches, but lights support a minimum and maximum dimming level.
+The min and max dimming are to be set in the range of 0 till 15, as used by pilight.
+Any dimming in home assistant (a 0 to 100 range) will be converted to be a percentage of the available configured range.
 
 {% configuration %}
 lights:
