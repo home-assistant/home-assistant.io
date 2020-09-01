@@ -401,7 +401,7 @@ Just use the "Square bracket notation" to get the value.
 
 {% raw %}
 ```yaml
-'{{ value_json['values']['temp'] }}'
+"{{ value_json['values']['temp'] }}"
 ```
 {% endraw %}
 
