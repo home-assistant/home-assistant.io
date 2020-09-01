@@ -322,16 +322,15 @@ An alternative to this is to create an interval-based automation that calls the 
 binary_sensor:
 - platform: template
   sensors:
-    half_hour:
-      value_template: '{{ now().minute < 30 }}'
+    minute_is_odd:
+      value_template: '{{ now().minute % 2 }}'
 
 automation:
-  - alias: 'half_hour_update'
+  - alias: 'Update minute_is_odd'
     trigger:
       - platform: time_pattern
-        minutes: '/2'
+        minutes: '*'
     action:
       - service: homeassistant.update_entity
-        entity_id: sensor.half_hour
-```
+        entity_id: binary_sensor.minute_is_odd
 {% endraw %}
