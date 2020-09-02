@@ -333,7 +333,7 @@ sensor:
   - platform: template
     sensors:
       nonsmoker:
-        value_template: '{{ states('sensor.date').state and (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        value_template: '{{ states('sensor.date') and (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
         friendly_name: 'Not smoking'
         unit_of_measurement: "Days"
 ```
