@@ -70,8 +70,8 @@ This integration provides sensors for the following information from WLED:
 - Estimated current (in mA).
 - Uptime (disabled by default)
 - Free memory (in bytes, disabled by default).
-- Wi-Fi Signal Strength (in %m disabled by default).
-- Wi-Fi Signal Strength (RSSI in dBm).
+- Wi-Fi Signal Strength (in %, disabled by default).
+- Wi-Fi Signal Strength (RSSI in dBm, disabled by default).
 - Wi-Fi Channel (disabled by default).
 - Wi-Fi BSSID (disabled by default).
 
