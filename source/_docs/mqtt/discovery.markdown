@@ -275,6 +275,7 @@ The following software has built-in support for MQTT discovery:
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
+- [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
 
 ## Examples
 
