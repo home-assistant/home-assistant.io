@@ -132,7 +132,7 @@ In this example `12345` is the `home_id` you'll need to configure.
 
 If the above method returns an unauthorized error. The `home_id` can also be found using Chrome developer tools. Whilst logged into https://my.tado.com/webapp, take the following steps: 
 
-- Select the "Networ"' tab
+- Select the "Network"' tab
 - Filter for "home"
 - Under "Name", select "users"
 - Click on the "Response" tab
