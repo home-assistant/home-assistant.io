@@ -22,7 +22,7 @@ There is support for the following device types within Home Assistant:
 
 ## Configuration
 
-To set up this integration, go to **Integrations** under **Configuration** and find Yeelight in the `+` menu. You can leave the IP address field empty to set up discovered devices. To configure the devices, use the "Options" button in the integration card.
+To set up this integration, go to **Integrations** under **Configuration** and find Yeelight in the `+` menu. You can leave the host field empty to set up discovered devices. To configure the devices, use the "Options" button in the integration card.
 
 ### Custom effects
 
@@ -80,8 +80,8 @@ devices:
   description: List of Yeelight devices.
   type: map
   keys:
-    ip:
-      description: IP address of the bulb.
+    host:
+      description: Hostname or IP address of the bulb.
       required: true
       type: map
       keys:
