@@ -51,6 +51,6 @@ automation:
     action:
       service: notify.mobile_app_<device_name>
       data_template:
-        message : 'Flight entry of {{ trigger.event.data.callsign }} '
+        message: 'Flight entry of {{ trigger.event.data.callsign }}'
 ```
 {% endraw %}
