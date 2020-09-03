@@ -334,3 +334,21 @@ automation:
       - service: homeassistant.update_entity
         entity_id: binary_sensor.minute_is_odd
 {% endraw %}
+
+In the case where the template should be updated every minute, replacing `now()` with `as_local(states.sensor.time.last_changed)`
+can achive the desired result without the need to create an automation:
+
+{% raw %}
+```yaml
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+
+binary_sensor:
+- platform: template
+  sensors:
+    minute_is_odd:
+      value_template: '{{ as_local(states.sensor.time.last_changed).minute % 2 }}'
+```
+{% endraw %}
