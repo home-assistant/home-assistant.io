@@ -16,7 +16,7 @@ The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces t
 
 For example, the [Sense Energy Monitor](/integrations/sense) can use this to idenfity power usage.
 
-The configuration includes a list of entities to expose with attributes for the published name and current power usage.  The power usage can be a hard coded value, a sensor, or a template (see config example).
+The configuration includes a list of entities to expose with attributes for the published name and current power usage.  The power usage can be a hard coded value, a sensor, or a template (see configuration example).
 
 ## Configuration
 
