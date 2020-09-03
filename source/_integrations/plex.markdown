@@ -184,6 +184,35 @@ media_content_type: MUSIC
 media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "shuffle": "1" }'
 ```
 
+## Additional Services
+
+### Service 'plex.scan_for_clients'
+
+Scan for new controllable Plex clients. This may be necessary in scripts or automations which control a Plex `media_player` entity, but where the underlying device must be turned on first.
+
+Example script:
+{% raw %}
+```yaml
+play_plex_on_tv:
+  sequence:
+    - service: media_player.select_source
+      entity_id: media_player.smart_tv
+      data:
+        source: 'Plex'
+    - wait_template: "{{ is_state('media_player.smart_tv', 'On') }}"
+      timeout: '00:00:10'
+    - service: plex.scan_for_clients
+    - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
+      timeout: '00:00:10'
+      continue_on_timeout: false
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.plex_smart_tv
+        media_content_id: '{"library_name": "Movies", "title": "Zoolander"}'
+        media_content_type: movie
+```
+{% endraw %}
+
 ## Notes
 
 * The `plex` integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
