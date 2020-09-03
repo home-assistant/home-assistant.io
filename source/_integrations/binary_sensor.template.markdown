@@ -336,7 +336,7 @@ automation:
 {% endraw %}
 
 In the case where the template should be updated every minute, replacing `now()` with `as_local(states.sensor.time.last_changed)`
-can achive the desired result without the need to create an automation:
+can achieve the desired result without the need to create an automation:
 
 {% raw %}
 ```yaml
