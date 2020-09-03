@@ -69,11 +69,6 @@ key:
   description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
   required: false
   type: string
-discovery_retry:
-  description: Number of times that Home Assistant should try to discover subdevices of the gateway.
-  required: false
-  type: integer
-  default: 3
 name:
   description: Name of the Gateway
   required: false
@@ -221,7 +216,6 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Make sure you have [enabled LAN access](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 - Turn off the firewall on the system where Home Assistant is running.
 - Ensure your router supports multicast as this is a requirement of the Xiaomi Gateway.
-- Try to set `discovery_retry: 10`.
 - Try to disable and then enable LAN access.
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
 - If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.
