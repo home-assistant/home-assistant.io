@@ -74,6 +74,8 @@ It is also recommended that the command `volume_up`, the command `volume_down`, 
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
+When using `state_template`, if you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see the [example](/integrations/binary_sensor.template/#working-without-entities) in the template binary_sensor.
+
 ## Usage examples
 
 ### Chromecast & Kodi control with switches
