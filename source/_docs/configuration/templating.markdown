@@ -108,7 +108,12 @@ Other state examples:
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
+{{ as_local(states.binary_sensor.garage_door.last_changed) }}
+
 {{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+
+{{ as_local(states.sensor.time.last_changed) }}
+
 ```
 {% endraw %}
 
@@ -174,6 +179,7 @@ The same thing can also be expressed as a filter:
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
 - `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
+- `as_local()` converts datetime object to local time. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
