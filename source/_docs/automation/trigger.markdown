@@ -428,3 +428,17 @@ automation:
     - platform: sun
       event: sunset
 ```
+
+### Multiple Entity IDs for the same Trigger
+
+It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, [processing](#what-are-triggers) your automation each time the trigger is true for each entity listed.
+
+```yaml
+automation:
+  trigger:
+    - platform: state
+      entity_id: 
+        - sensor.one
+        - sensor.two
+        - sensor.three
+```
