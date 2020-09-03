@@ -17,7 +17,7 @@ You will need:
 ### Step 1 - Access the Home Assistant OS boot partition
 
 Shutdown/turn-off your Home Assistant installation and unplug the SD card.
-Plug the SD card into a SD card reader and find a drive/file system named
+Plug the SD card into an SD card reader and find a drive/file system named
 `hassos-boot`. The file system might be shown/mounted automatically. If not,
 use your operating systems disk management utility to find the SD card reader
 and make sure the first partition is available.
