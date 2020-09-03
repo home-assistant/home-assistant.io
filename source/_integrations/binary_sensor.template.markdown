@@ -333,6 +333,7 @@ automation:
     action:
       - service: homeassistant.update_entity
         entity_id: binary_sensor.minute_is_odd
+```
 {% endraw %}
 
 In the case where the template should be updated every minute, replacing `now()` with `as_local(states.sensor.time.last_changed)`
