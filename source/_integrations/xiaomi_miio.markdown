@@ -1363,7 +1363,7 @@ The following table shows the units of measurement for each attribute:
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
 | `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
-| `clean_end`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `clean_stop`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
 
 ### Example on how to clean a specific room
 
