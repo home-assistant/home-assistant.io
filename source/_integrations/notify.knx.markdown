@@ -21,10 +21,10 @@ The `knx` notify platform allows you to send notifications to [KNX](https://www.
 To use your KNX switch in your installation, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-notify:
-  - platform: knx
-    name: Alarm
-    address: '5/1/10'
+knx:
+  notify:
+    - name: Alarm
+      address: '5/1/10'
 ```
 
 {% configuration %}

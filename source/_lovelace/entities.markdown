@@ -223,8 +223,8 @@ type:
 style:
   required: false
   description: Style the element using CSS.
-  type: string
-  default: "height: 1px, background-color: var(--secondary-text-color)"
+  type: map
+  default: "height: 1px, background-color: var(--divider-color)"
 {% endconfiguration %}
 
 ### Section

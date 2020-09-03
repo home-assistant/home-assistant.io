@@ -9,7 +9,7 @@ ha_codeowners:
 ha_domain: spaceapi
 ---
 
-The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
+The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).
 
 ## Configuration
 

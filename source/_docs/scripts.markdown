@@ -22,6 +22,16 @@ script:
           message: 'Turned on the ceiling light!'
 ```
 
+## Types of Actions
+
+- [Call a Service](#call-a-service)
+- [Test a Condition](#test-a-condition)
+- [Delay](#delay)
+- [Wait](#wait)
+- [Fire an Event](#fire-an-event)
+- [Repeat a Group of Actions](#repeat-a-group-of-actions)
+- [Choose a Group of Actions](#choose-a-group-of-actions)
+
 ### Call a Service
 
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
@@ -57,45 +67,54 @@ While executing a script you can add a condition to stop further execution. When
 
 Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
+{% raw %}
 ```yaml
+# Seconds
+# Waits 5 seconds
+- delay: 5
+```
+
+```yaml
+# HH:MM
 # Waits 1 hour
 - delay: '01:00'
 ```
 
 ```yaml
-# Waits 1 minute, 30 seconds
+# HH:MM:SS
+# Waits 1.5 minutes
 - delay: '00:01:30'
 ```
 
 ```yaml
+# Supports milliseconds, seconds, minutes, hours, days
+# Can be used in combination, at least one required
 # Waits 1 minute
 - delay:
-    # Supports milliseconds, seconds, minutes, hours, days
     minutes: 1
 ```
-
-{% raw %}
-```yaml
-# Waits however many seconds input_number.second_delay is set to
-- delay:
-    # Supports milliseconds, seconds, minutes, hours, days
-    seconds: "{{ states('input_number.second_delay') | int }}"
-```
 {% endraw %}
+
+All forms accept templates.
 
 {% raw %}
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
-# Valid formats include HH:MM and HH:MM:SS
-- delay: "{{ states('input_number.minute_delay') | multiply(60) | timestamp_custom('%H:%M:%S',False) }}"
+- delay: "{{ states('input_number.minute_delay') | multiply(60) | int }}"
 ```
 {% endraw %}
 
 ### Wait
 
-Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger).
+These actions allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
+
+When used within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
 #### Wait Template
+
+This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
+
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the (Time and Date)[/integrations/time_date/] component that will update minutely or daily.
 
 {% raw %}
 ```yaml
@@ -104,34 +123,61 @@ Wait until some things are complete. We support at the moment `wait_template` fo
 ```
 {% endraw %}
 
-When using `wait_template` within an automation `trigger.entity_id` is supported for `state`, `numeric_state` and `template` triggers, see also [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+#### Wait for Trigger
 
+This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires.
 {% raw %}
 ```yaml
-- wait_template: "{{ is_state(trigger.entity_id, 'on') }}"
+# Wait for a custom event or light to turn on and stay on for 10 sec
+- wait_for_trigger:
+    - platform: event
+      event_type: MY_EVENT
+    - platform: state
+      entity_id: light.LIGHT
+      to: 'on'
+      for: 10
 ```
 {% endraw %}
 
-It is also possible to use dummy variables, e.g., in scripts, when using `wait_template`.
+#### Wait Timeout
+
+With both types of waits it is possible to set a timeout after which the script will continue its execution if the condition/event is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
 
 {% raw %}
 ```yaml
-# Service call, e.g., from an automation.
-- service: script.do_something
-  data:
-    dummy: input_boolean.switch
-
-# Inside the script
-- wait_template: "{{ is_state(dummy, 'off') }}"
+# Wait for sensor to change to 'on' up to 1 minute before continuing to execute.
+- wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
+  timeout: '00:01:00'
 ```
 {% endraw %}
 
-After each time the wait completes, either because the condition was met, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
+You can also get the script to abort after the timeout by using optional `continue_on_timeout`.
+
+{% raw %}
+```yaml
+# Wait for IFTTT event or abort after specified timeout.
+- wait_for_trigger:
+    - platform: event
+      event_type: ifttt_webhook_received
+      event_data:
+        action: connected_to_network
+  timeout:
+    minutes: "{{ timeout_minutes }}"
+  continue_on_timeout: false
+```
+{% endraw %}
+
+Without `continue_on_timeout` the script will always continue.
+
+#### Wait Variable
+
+After each time a wait completes, either because the condition was met, the event happened, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
 
 Variable | Description
 -|-
-`wait.completed` | `true` if the condition was met, `false` otherwise
-`wait.remaining` | timeout remaining, or `none` if a timeout was not specified
+`wait.completed` | Exists only after `wait_template`. `true` if the condition was met, `false` otherwise
+`wait.trigger` | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired
+`wait.remaining` | Timeout remaining, or `none` if a timeout was not specified
 
 This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
 
@@ -147,7 +193,10 @@ This can be used to take different actions based on whether or not the condition
       sequence:
         - service: script.door_did_not_open
   default:
-    - service: script.door_did_open
+    - service: script.turn_on
+      entity_id:
+        - script.door_did_open
+        - script.play_fanfare
 
 # Wait a total of 10 seconds.
 - wait_template: "{{ is_state('binary_sensor.door_1', 'on') }}"
@@ -155,39 +204,17 @@ This can be used to take different actions based on whether or not the condition
   continue_on_timeout: false
 - service: switch.turn_on
   entity_id: switch.some_light
-- wait_template: "{{ is_state('binary_sensor.door_2', 'on') }}"
+- wait_for_trigger:
+    - platform: state
+      entity_id: binary_sensor.door_2
+      to: 'on'
+      for: 2
   timeout: "{{ wait.remaining }}"
   continue_on_timeout: false
 - service: switch.turn_off
   entity_id: switch.some_light
 ```
 {% endraw %}
-
-#### Wait Timeout
-
-It is possible to set a timeout after which the script will continue its execution if the condition is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
-
-{% raw %}
-```yaml
-# Wait for sensor to trigger or 1 minute before continuing to execute.
-- wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
-  timeout: '00:01:00'
-```
-{% endraw %}
-
-You can also get the script to abort after the timeout by using optional `continue_on_timeout`
-
-{% raw %}
-```yaml
-# Wait until a valve is < 10 or abort after specified timeout.
-- wait_template: "{{ state_attr('climate.kitchen', 'valve')|int < 10 }}"
-  timeout:
-    minutes: "{{ timeout_minutes }}"
-  continue_on_timeout: false
-```
-{% endraw %}
-
-Without `continue_on_timeout` the script will always continue.
 
 ### Fire an Event
 
@@ -214,7 +241,7 @@ an event trigger.
 ```
 {% endraw %}
 
-### Raise and Consume Custom Events
+#### Raise and Consume Custom Events
 
 The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
@@ -357,11 +384,36 @@ field | description
 
 This action allows you to select a sequence of other actions from a list of sequences.
 Nesting is fully supported.
-Each sequence is paired with a list of conditions (see [conditions page] for available options.) The first sequence whose conditions are all true will be run.
-An optional `default` sequence can be included which will be run if none of the sequences from the list are run.
+
+Each sequence is paired with a list of conditions. (See the [conditions page] for available options and how multiple conditions are handled.) The first sequence whose conditions are all true will be run.
+An _optional_ `default` sequence can be included which will be run only if none of the sequences from the list are run.
+
+The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
 {% raw %}
 ```yaml
+# Example with just an "if"
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: 'on'
+    action:
+      - choose:
+          # IF nobody home, sound the alarm!
+          - conditions:
+              - condition: state
+                entity_id: group.family
+                state: not_home
+            sequence:
+              - service: script.siren
+                data:
+                  duration: 60
+      - service: light.turn_on
+        entity_id: all
+```
+```yaml
+# Example with "if" and "else"
 automation:
   - trigger:
       - platform: state
@@ -382,6 +434,39 @@ automation:
         default:
           - service: light.turn_off
             entity_id: light.front_lights
+```
+```yaml
+# Example with "if", "elif" and "else"
+automation:
+  - trigger:
+      - platform: state
+        entity_id: input_boolean.simulate
+        to: 'on'
+    mode: restart
+    action:
+      - choose:
+          # IF morning
+          - conditions:
+              - condition: template
+                value_template: "{{ now().hour < 9 }}"
+            sequence:
+              - service: script.sim_morning
+          # ELIF day
+          - conditions:
+              - condition: template
+                value_template: "{{ now().hour < 18 }}"
+            sequence:
+              - service: light.turn_off
+                entity_id: light.living_room
+              - service: script.sim_day
+        # ELSE night
+        default:
+          - service: light.turn_off
+            entity_id: light.kitchen
+          - delay:
+              minutes: "{{ range(1, 11)|random }}"
+          - service: light.turn_off
+            entity_id: all
 ```
 {% endraw %}
 

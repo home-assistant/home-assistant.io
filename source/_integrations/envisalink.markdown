@@ -29,7 +29,7 @@ An `envisalink` section must be present in the `configuration.yaml` file and con
 ```yaml
 # Example configuration.yaml entry
 envisalink:
-  host: <envisalink IP address>
+  host: <envisalink IP address or hostname>
   panel_type: HONEYWELL or DSC
   user_name: YOUR_USERNAME
   password: YOUR_PASSWORD
@@ -54,7 +54,7 @@ envisalink:
 
 {% configuration %}
 host:
-  description: The IP address of the Envisalink device on your home network.
+  description: The IP address or hostname (host.fqdn.tld) of the Envisalink device on your home network.
   required: true
   type: string
 panel_type:

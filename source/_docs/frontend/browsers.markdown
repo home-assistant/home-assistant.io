@@ -25,7 +25,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Map is fixed since 0.51. |
+| [Safari]              |                | works      | Not working with Safari Technology Preview 112 beta |
 
 ## Linux
 
@@ -59,10 +59,10 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
-| [Safari]              |                | works      | Can also be added to desktop. Map is fixed since 0.51. |
-| [Chrome]              |                | works      |                          |
+| [Safari]              |                | works      | Can also be added to desktop. Not working in iOS 14 beta 5. |
+| [Chrome]              |                | works      | Not working in iOS 14 beta 5.               |
 
-There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble.
+There are reports that devices running with iOS prior to iOS 10, especially old iPads, are having trouble. Devices running iOS 14 beta 5, you will not be able to interact with Home Assistant controls.
 
 ## webOS
 

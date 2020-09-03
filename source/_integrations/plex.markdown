@@ -173,6 +173,7 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 | `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.sonos_speaker
 media_content_type: MUSIC
@@ -194,6 +195,33 @@ Refresh a Plex library to scan for new and updated media.
 | --- | --- | --- | --- |
 | `server_name` | No | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
 | `library_name` | Yes | Name of Plex library to update. | "TV Shows" |
+
+### Service 'plex.scan_for_clients'
+
+Scan for new controllable Plex clients. This may be necessary in scripts or automations which control a Plex `media_player` entity, but where the underlying device must be turned on first.
+
+Example script:
+{% raw %}
+```yaml
+play_plex_on_tv:
+  sequence:
+    - service: media_player.select_source
+      entity_id: media_player.smart_tv
+      data:
+        source: 'Plex'
+    - wait_template: "{{ is_state('media_player.smart_tv', 'On') }}"
+      timeout: '00:00:10'
+    - service: plex.scan_for_clients
+    - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
+      timeout: '00:00:10'
+      continue_on_timeout: false
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.plex_smart_tv
+        media_content_id: '{"library_name": "Movies", "title": "Zoolander"}'
+        media_content_type: movie
+```
+{% endraw %}
 
 ## Notes
 

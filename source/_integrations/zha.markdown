@@ -59,6 +59,7 @@ ZHA integration uses a hardware independent Zigbee stack implementation with mod
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
+  - Bitron Video/Smabit BV AV2010/10 USB-Stick with Silicon Labs Ember 3587 (no flashing necessary)
   - Telegesis ETRX357USB (Note! This first have to be flashed with other EmberZNet firmware)
   - Telegesis ETRX357USB-LRS (Note! This first have to be flashed with other EmberZNet firmware)
   - Telegesis ETRX357USB-LRS+8M (Note! This first have to be flashed with other EmberZNet firmware)

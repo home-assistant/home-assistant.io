@@ -380,7 +380,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in zengge component ([@Quentame] - [#27387]) ([zengge docs])
 - Move imports in zestimate component ([@Quentame] - [#27386]) ([zestimate docs])
 - Move imports in zigbee component ([@Quentame] - [#27383]) ([zigbee docs])
-- Move imports in yr component ([@Quentame] - [#27382]) ([yr docs])
+- Move imports in yr component ([@Quentame] - [#27382])
 - Move imports in google_travel_time component ([@eifinger] - [#27381]) ([google_travel_time docs])
 - Move imports in github component ([@mnigbur] - [#27406]) ([github docs])
 - Move imports in eufy component ([@mnigbur] - [#27405]) ([eufy docs])
@@ -1898,7 +1898,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [yandex_transport docs]: /integrations/yandex_transport/
 [yeelight docs]: /integrations/yeelight/
 [yeelightsunflower docs]: /integrations/yeelightsunflower/
-[yr docs]: /integrations/yr/
 [zengge docs]: /integrations/zengge/
 [zeroconf docs]: /integrations/zeroconf/
 [zestimate docs]: /integrations/zestimate/
