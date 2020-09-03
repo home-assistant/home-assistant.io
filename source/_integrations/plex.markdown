@@ -173,6 +173,7 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 | `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.sonos_speaker
 media_content_type: MUSIC
@@ -185,6 +186,15 @@ media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "s
 ```
 
 ## Additional Services
+
+### Service `plex.refresh_library`
+
+Refresh a Plex library to scan for new and updated media.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `server_name` | No | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
+| `library_name` | Yes | Name of Plex library to update. | "TV Shows" |
 
 ### Service 'plex.scan_for_clients'
 
