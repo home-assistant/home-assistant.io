@@ -3,9 +3,6 @@ title: Renault
 description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
   - Car
-  - Binary Sensor
-  - Climate
-  - Presence Detection
   - Sensor
 ha_release: 0.115
 ha_iot_class: Cloud Polling
@@ -24,4 +21,6 @@ This integration provides the following platforms:
 
 Home Assistant offers the Renault integration through **Configuration** -> **Integrations** -> **Renault**.
 
-Enter username and password, select account id and then continue.
+Enter username, password, select locale and Kameron account id and then continue.
+
+All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
