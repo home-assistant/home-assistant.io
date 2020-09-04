@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: media_source
 ---
 
-The Media Source integration platform allows integrations to expose media for use inside Home Assistant through the Media Browser panel or through supported media players like Google Cast. This integration is configured automatically through `default_config` or if another integration implements media source. If your configuration does not contain any of the above, you can add the below to your configuration file.
+The Media Source integration platform allows integrations to expose media for use inside Home Assistant through the Media Browser panel or through supported media players like Google Cast. This integration is configured automatically through `default_config` or if another integration implements a media source. If your configuration does not contain any of the above, you can add the below to your configuration file.
 
 ```yaml
 # Example configuration.yaml entry
