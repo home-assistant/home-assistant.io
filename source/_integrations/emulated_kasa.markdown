@@ -16,7 +16,11 @@ The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces t
 
 For example, the [Sense Energy Monitor](/integrations/sense) can use this to idenfity power usage.
 
-The configuration includes a list of entities to expose with attributes for the published name and current power usage.  The power usage can be a hard coded value, a sensor, or a template (see configuration example).
+The configuration includes a list of entities to expose with attributes for the published name and current power usage.
+If the entity is a sensor or has a `current_power_w` attribute (such as in a smart switch), that value will be reported as the current power usage unless the power field is defined.
+The power field can contain a hard coded value, a sensor, or a template (see configuration example). 
+
+The resulting power usage should be in watts.
 
 ## Configuration
 
@@ -29,15 +33,6 @@ emulated_kasa:
     light.dining_room:
       name: "Dining Room Lights"
       power: 40.2
-    fan.ceiling_fan:
-      power: >-
-                {% if is_state_attr('fan.ceiling_fan','speed', 'low') %} 2
-                {% elif is_state_attr('fan.ceiling_fan','speed', 'medium') %} 12
-                {% elif is_state_attr('fan.ceiling_fan','speed', 'high') %} 48
-                {% endif %}
-    light.wled:
-      name: "Strip Lights"
-      power: sensor.light_power_w
 ```
 
 {% configuration %}
@@ -54,3 +49,36 @@ power:
   required: false
   type: integer/float/entity/template
 {% endconfiguration %}
+
+A full configuration sample looks like the one below.
+
+```yaml
+# Example configuration.yaml entry
+emulated_kasa:
+  entities:
+    # uses the current_power_w attribute of the switch
+    switch.ac:
+      name: "A/C"
+	# uses the sensor state value
+    sensor.power_meter:
+      name: "Power Meter"
+	# uses static value
+    light.dining_room:
+      name: "Dining Room Lights"
+      power: 40.2
+	# uses template based on state of device
+    fan.ceiling_fan:
+      power: >-
+                {% if is_state_attr('fan.ceiling_fan','speed', 'low') %} 2
+                {% elif is_state_attr('fan.ceiling_fan','speed', 'medium') %} 12
+                {% elif is_state_attr('fan.ceiling_fan','speed', 'high') %} 48
+                {% endif %}
+	# uses value from 3rd party sensor
+    light.wled:
+      name: "Strip Lights"
+      power: sensor.light_power_w
+	# uses template to convert device state into watts
+    sensor.ups_kw:
+      name: UPS Power
+      power: "{{ float(states('sensor.ups_kw')) * 1000 }}"
+```
