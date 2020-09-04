@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@markperdue'
   - '@webdjoe'
+  - '@thegardenmonkey'
 ha_domain: vesync
 ---
 
