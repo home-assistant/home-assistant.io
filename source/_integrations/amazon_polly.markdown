@@ -1,10 +1,10 @@
 ---
-title: "Amazon Polly"
-description: "Instructions on how to setup Amazon Polly with Home Assistant."
-logo: polly.png
+title: Amazon Polly
+description: Instructions on how to setup Amazon Polly with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.37
+ha_domain: amazon_polly
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
@@ -82,7 +82,7 @@ Say to all `media_player` device entities:
 
 ```yaml
 - service: tts.amazon_polly_say
-  data_template:
+  data:
     message: '<speak>Hello from Amazon Polly</speak>'
 ```
 
@@ -90,7 +90,7 @@ or
 
 ```yaml
 - service: tts.amazon_polly_say
-  data_template:
+  data:
     message: >
       <speak>
           Hello from Amazon Polly
@@ -101,7 +101,7 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.amazon_polly_say
-  data_template:
+  data:
     entity_id: media_player.living_room
     message: >
       <speak>
@@ -113,7 +113,7 @@ Say with break:
 
 ```yaml
 - service: tts.amazon_polly_say
-  data_template:
+  data:
     message: >
       <speak>
           Hello from

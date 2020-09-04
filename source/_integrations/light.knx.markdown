@@ -1,11 +1,11 @@
 ---
 title: "KNX Light"
 description: "Instructions on how to integrate KNX lights with Home Assistant."
-logo: knx.png
 ha_category:
   - Light
 ha_release: 0.44
 ha_iot_class: Local Push
+ha_domain: knx
 ---
 
 <div class='note'>
@@ -14,7 +14,7 @@ The `knx` integration must be configured correctly to use this integration, see 
 
 </div>
 
-The `knx light` integration is used as an interface to control knx actuators for lighting applications such as:
+The `knx light` integration is used as an interface to control KNX actuators for lighting applications such as:
 
 - switching actuators
 - dimming actuators
@@ -27,9 +27,10 @@ To use your KNX light in your installation, add the following lines to your `con
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: knx
-    address: '1/0/9'
+knx:
+  light:
+    - name: 'kitchen'
+      address: '1/0/9'
 ```
 
 {% configuration %}
@@ -98,46 +99,43 @@ Many KNX devices can change their state internally without a message to the swit
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state communication objects you can set `state_address` to the same value as `address`.
 
-*Note on tunable white:* Home-Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home-Assistant may not align with ones of KNX visualizations. This is the expected behavior.
+*Note on tunable white:* Home Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home Assistant may not align with ones of KNX visualizations. This is the expected behavior.
 
 ## Extended configuration example
 
 ```yaml
-light:
-  # dimmable light
-  - platform: knx
-    name: Bedroom-Light-1
-    address: '1/0/9'
-    state_address: '1/1/9'
-    brightness_address: '1/2/9'
-    brightness_state_address: '1/3/9'
-  #
-  # RGB light
-  - platform: knx
-    name: Bathroom-Light-1
-    address: '1/0/9'
-    state_address: '1/1/9'
-    brightness_address: '1/2/9'
-    brightness_state_address: '1/3/9'
-    color_address: '1/4/9'
-    color_state_address: '1/5/9'
-  #
-  # tunable white light
-  - platform: knx
-    name: Office-Light-1
-    address: '1/0/21'
-    state_address: '1/1/21'
-    brightness_address: '1/2/21'
-    brightness_state_address: '1/3/21'
-    color_temperature_address: '1/4/21'
-    color_temperature_state_address: '1/5/21'
-    color_temperature_mode: absolute
-    min_kelvin: 2550
-    max_kelvin: 6200
-  #
-  # actuator without dedicated state communication object
-  - platform: knx
-    name: Cellar-Light-1
-    address: '1/0/5'
-    state_address: '1/0/5'
+knx:
+  light:
+    # dimmable light
+    - name: Bedroom-Light-1
+      address: '1/0/9'
+      state_address: '1/1/9'
+      brightness_address: '1/2/9'
+      brightness_state_address: '1/3/9'
+    #
+    # RGB light
+    - name: Bathroom-Light-1
+      address: '1/0/9'
+      state_address: '1/1/9'
+      brightness_address: '1/2/9'
+      brightness_state_address: '1/3/9'
+      color_address: '1/4/9'
+      color_state_address: '1/5/9'
+    #
+    # tunable white light
+    - name: Office-Light-1
+      address: '1/0/21'
+      state_address: '1/1/21'
+      brightness_address: '1/2/21'
+      brightness_state_address: '1/3/21'
+      color_temperature_address: '1/4/21'
+      color_temperature_state_address: '1/5/21'
+      color_temperature_mode: absolute
+      min_kelvin: 2550
+      max_kelvin: 6200
+    #
+    # actuator without dedicated state communication object
+    - name: Cellar-Light-1
+      address: '1/0/5'
+      state_address: '1/0/5'
 ```

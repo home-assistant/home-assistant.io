@@ -21,10 +21,10 @@ hass --script db_migrator --config /path/to/config
 
 You can omit the `--config` option if you use the default configuration directory. Run the script with `--help` to get more options.
 
-<img src='/images/supported_brands/yahooweather.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/joaoapps_join.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/knx.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/tp-link.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/joaoapps_join.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/knx/logo.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/tp-link.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Config: Improved support for storing [secrets][secrets] ([@kellerza])
-- Sensor: Support for [Yahoo! Weather][yahoo-weather] ([@pvizeli])
+- Sensor: Support for Yahoo! Weather ([@pvizeli])
 - Add scripts to command line to expose advanced options ([@balloob])
 - Alarm: [SimpliSafe][simplisafe] is now supported ([@w1ll1am23]) 
 - Core: Switch to SQLAlchemy for the Recorder component ([@rhooper])
@@ -92,6 +92,5 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [Telegram]: /integrations/telegram
 [TPLink]: /integrations/tplink
 [Verisure]: /integrations/verisure
-[yahoo-weather]: /integrations/yweather
 [Z-Wave]: /integrations/zwave/
 [RFXtrx]: /integrations/rfxtrx/

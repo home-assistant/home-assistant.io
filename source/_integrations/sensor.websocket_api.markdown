@@ -4,9 +4,11 @@ description: "Instructions on how to count connected clients within Home Assista
 logo: home-assistant.png
 ha_category:
   - Utility
+  - Sensor
 ha_release: 0.33
 ha_iot_class: Local Push
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: websocket_api
 ---
 
 The `websocket_api` sensor platform shows how many clients are connected to the stream API.
@@ -24,3 +26,4 @@ sensor:
 ### Note
 
 This replaces the previous `api_streams` sensor.
+The default sensor name is `connected_clients`. 

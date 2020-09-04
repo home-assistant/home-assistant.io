@@ -1,10 +1,12 @@
 ---
-title: "OpenGarage Cover"
-description: "Instructions on how to integrate OpenGarage.io covers within Home Assistant."
-logo: opengarage.png
+title: OpenGarage
+description: Instructions on how to integrate OpenGarage.io covers within Home Assistant.
 ha_category:
   - DIY
 ha_release: 0.44
+ha_domain: opengarage
+ha_codeowners:
+  - '@danielhiversen'
 ---
 
 The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
@@ -23,7 +25,10 @@ cover:
       device_key: opendoor
       name: Left Garage Door
     garage2:
-      host: 192.168.1.13
+      protocol: https
+      verify_ssl: false
+      host: garage.example.com
+      port: 443
       device_key: opendoor
       name: Right Garage Door
 ```
@@ -39,6 +44,16 @@ covers:
       required: true
       type: map
       keys:
+        ssl:
+          description: Use HTTPS instead of HTTP to connect.
+          required: false
+          type: boolean
+          default: false
+        verify_ssl:
+          description: Enable or disable SSL certificate verification. Set to false if you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
+          required: false
+          default: true
+          type: boolean
         host:
           description: IP address of device.
           required: true
@@ -64,6 +79,8 @@ covers:
   <img src='{{site_root}}/images/integrations/opengarage/cover_opengarage_details.jpg' />
 </p>
 
+{% raw %}
+
 ```yaml
 # Related configuration.yaml entry
 cover:
@@ -79,7 +96,7 @@ sensor:
   sensors:
     garage_status:
       friendly_name: 'Honda Door Status'
-      value_template: {% raw %}'{% if states.cover.honda %}
+      value_template: '{% if states.cover.honda %}
           {% if states.cover.honda.attributes["door_state"] == "open" %}
             Open
           {% elif states.cover.honda.attributes["door_state"] == "closed" %}
@@ -93,20 +110,29 @@ sensor:
           {% endif %}
           {% else %}
           n/a
-          {% endif %}'{% endraw %}
-    garage_car_present:
-      friendly_name: 'Honda in Garage'
-      value_template: {% raw %}'{% if states.cover.honda %}
-          {% if is_state("cover.honda", "open") %}
-            n/a
-          {% elif ((states.cover.honda.attributes["distance_sensor"] > 40) and (states.cover.honda.attributes["distance_sensor"] < 100)) %}
-            Yes
-          {% else %}
-            No
-          {% endif %}
-          {% else %}
-          n/a
           {% endif %}'
+
+binary_sensor:
+  platform: template
+  sensors:
+    honda_in_garage:
+      friendly_name: "Honda In Garage"
+      value_template: "{{ state_attr('cover.honda', 'distance_sensor') < 100 }}"
+      availability_template: >-
+        {% if is_state('cover.honda','closed') %}
+          true
+        {% else %}
+          unavailable
+        {% endif %}
+      icon_template: >-
+        {% if is_state('binary_sensor.honda_in_garage','on') %}
+          mdi:car
+        {% else %}
+          mdi:car-arrow-right
+        {% endif %}
+      unique_id: binary_sensor.honda_in_garage
+      delay_on: 5
+      delay_off: 5
 
 group:
   garage:
@@ -120,7 +146,6 @@ customize:
   cover.honda:
     friendly_name: Honda
     entity_picture: /local/honda.gif
-  sensor.garage_car_present:
-    icon: mdi:car
 ```
+
 {% endraw %}

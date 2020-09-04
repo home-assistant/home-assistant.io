@@ -1,13 +1,16 @@
 ---
-title: "Luftdaten"
-description: "Instructions on how to setup Luftdaten sensors in Home Assistant."
-logo: luftdaten.png
+title: Luftdaten
+description: Instructions on how to setup Luftdaten sensors in Home Assistant.
 ha_category:
   - Health
   - Sensor
 ha_release: 0.82
 ha_iot_class: Cloud Polling
-ha_qa_scale: gold
+ha_config_flow: true
+ha_quality_scale: gold
+ha_codeowners:
+  - '@fabaff'
+ha_domain: luftdaten
 ---
 
 The `luftdaten` integration will query the open data API of [luftdaten.info](https://luftdaten.info/) to monitor air quality and other weather data from a specific (self build) sensor station.
@@ -81,7 +84,7 @@ If you set `show_on_map` to `true` then the location attributes are named `latit
 Not all sensors provide all conditions. Also, it's possible that the sensor values are not available all the time. To check what a sensor is publishing use `curl`:
 
 ```bash
-$ curl https://api.luftdaten.info/v1/sensor/[sensorid]/
+curl https://api.luftdaten.info/v1/sensor/[sensorid]/
 ```
 
 ## Full example

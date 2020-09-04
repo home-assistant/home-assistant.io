@@ -1,11 +1,11 @@
 ---
-title: "RESTful Command"
-description: "Instructions on how to integrate REST commands into Home Assistant."
-logo: restful.png
+title: RESTful Command
+description: Instructions on how to integrate REST commands into Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.36
 ha_iot_class: Local Push
+ha_domain: rest_command
 ---
 
 This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].
@@ -31,7 +31,7 @@ service_name:
     url:
       description: The URL (supports template) for sending request.
       required: true
-      type: [string, template]
+      type: template
     method:
       description: HTTP method to use (get, patch, post, put, or delete).
       required: false
@@ -44,7 +44,7 @@ service_name:
     payload:
       description: A string/template to send with request.
       required: false
-      type: [string, template]
+      type: template
     username:
       description: The username for HTTP authentication.
       required: false
@@ -71,7 +71,29 @@ service_name:
 
 ## Examples
 
+### Basic example which uses PUT method and payload encoded as form data
+
+This example implements 2 REST commands to add service calls for the missing shuffle functionality of the iTunes integration.
+
+```yaml
+rest_command:
+  shuffle_on: 
+    url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
+    method: put
+    content_type: "application/x-www-form-urlencoded"
+    payload: "mode=songs"
+  shuffle_off: 
+    url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
+    method: put
+    content_type: "application/x-www-form-urlencoded"
+    payload: "mode=off"
+```
+
+### Using templates to change the payload based on entities
+
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
+
+In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
 
 {% raw %}
 ```yaml
@@ -83,13 +105,14 @@ rest_command:
     headers:
       authorization: !secret rest_headers_secret
       accept: 'application/json, text/html'
+      user-agent: 'Mozilla/5.0 {{ useragent }}'
     payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
     content_type:  'application/json; charset=utf-8'
     verify_ssl: true
 ```
 {% endraw %}
 
-In this example entry, you can see some simple [templates](/docs/configuration/templating/) in use for dynamic parameters.
+### How to test your new REST command
 
 Call the new service from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
 
@@ -99,7 +122,7 @@ Call the new service from [developer tools](/docs/tools/dev-tools/) in the sideb
   "emoji":":plex:"
 }
 ```
-Or in an example `automation`
+### Using a REST command as an action in an automation
 
 ```yaml
 automation:

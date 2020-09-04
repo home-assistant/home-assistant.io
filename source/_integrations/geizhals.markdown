@@ -1,11 +1,12 @@
 ---
-title: "Geizhals"
-description: "Instructions on how to integrate a Geizhals sensor into Home Assistant."
+title: Geizhals
+description: Instructions on how to integrate a Geizhals sensor into Home Assistant.
 logo: geizhals.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.51
+ha_domain: geizhals
 ---
 
 The `geizhals` sensor will give you the best price of a product from [Geizhals](https://geizhals.de) or related site. With this information can be used in e.g., automations to notify you when a price drops.

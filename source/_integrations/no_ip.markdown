@@ -1,10 +1,12 @@
 ---
-title: "NO-IP.com"
-description: "Keep your computer registered with the NO-IP.com dynamic DNS."
-logo: noip.png
+title: No-IP.com
+description: Keep your computer registered with the NO-IP.com dynamic DNS.
 ha_category:
   - Network
 ha_release: 0.57
+ha_codeowners:
+  - '@fabaff'
+ha_domain: no_ip
 ---
 
 With the `no_ip` integration you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  

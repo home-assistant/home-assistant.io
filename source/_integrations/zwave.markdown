@@ -1,7 +1,6 @@
 ---
-title: "Z-Wave"
-description: "Instructions on how to integrate your existing Z-Wave within Home Assistant."
-logo: z-wave.png
+title: Z-Wave
+description: Instructions on how to integrate your existing Z-Wave within Home Assistant.
 ha_category:
   - Hub
   - Binary Sensor
@@ -15,6 +14,10 @@ ha_category:
 featured: true
 ha_iot_class: Local Push
 ha_release: 0.7
+ha_config_flow: true
+ha_codeowners:
+  - '@home-assistant/z-wave'
+ha_domain: zwave
 ---
 
 The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
@@ -47,16 +50,9 @@ To get your Z-Wave thermostat or HVAC unit working with Home Assistant, follow t
 
 Thermostats with support for fan modes or different operating modes, will be handled like a HVAC device and will also be detected as one.
 
-If the thermostat supports different operating modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the `configuration.yaml` file.
+If the thermostat supports different operating modes, you will get one thermostat entity for each mode.
 
 </div>
-
-To enable the climate integration for your Z-Wave network, add the following to your `configuration.yaml` file.
-
-```yaml
-climate:
-  - platform: zwave
-```
 
 Once enabled, any Z-Wave climate devices will be available to Home Assistant. Multiple entities may be created. The following entities are created for a Remotec ZXT-120.
 
@@ -134,8 +130,8 @@ To get your Z-Wave locks working with Home Assistant, follow the instructions fo
 
 Z-Wave locks will expose three services under the lock domain to manage usercodes if the lock supports it:
 
-| Service | Description |
-| ------- | ----------- |
-| clear_usercode | Clears a usercode at code_slot X. Valid code_slots are 1-254, but max is defined by the lock. |
-| get_usercode | Get a usercode from the lock at code_slot. Valid code_slots are 1-254, but max is defined by the lock. |
-| set_usercode | Sets usercode to X at code_slot Y. Valid usercodes are at least 4 digits, and max defined by the lock. |
+| Service        | Description                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------ |
+| clear_usercode | Clears a usercode at code_slot X. Valid code_slots are 1-254, but max is defined by the lock.          |
+| get_usercode   | Get a usercode from the lock at code_slot. Valid code_slots are 1-254, but max is defined by the lock. |
+| set_usercode   | Sets usercode to X at code_slot Y. Valid usercodes are at least 4 digits, and max defined by the lock. |

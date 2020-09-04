@@ -1,17 +1,16 @@
 ---
-title: "ZhongHong Thermostats Controller"
-description: "Instructions on how to integrate ZhongHong Support thermostats within Home Assistant."
-logo: zhong_hong.png
+title: ZhongHong
+description: Instructions on how to integrate ZhongHong Support thermostats within Home Assistant.
 ha_category:
   - Climate
 ha_release: 0.72
 ha_iot_class: Local Push
+ha_domain: zhong_hong
 ---
-
 
 The `zhong_hong` climate platform lets you control [Zhonghong HVAC Gateway Controller](http://zhonghongtech.cn/v1/index.shtml) thermostats through Home Assistant.
 
-To set it up, add the following information to your configuration.yaml file:
+To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 climate:

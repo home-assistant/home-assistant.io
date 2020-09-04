@@ -1,13 +1,15 @@
 ---
-title: "File"
-description: "Instructions on how to integrate sensors which read from files into Home Assistant."
-logo: file.png
+title: File
+description: Instructions on how to integrate sensors which read from files into Home Assistant.
 ha_category:
   - Utility
   - Notifications
   - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
+ha_domain: file
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -50,7 +52,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ## Sensor
 
-The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [whitelist_external_dirs](/docs/configuration/basic/).
+The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [allowlist_external_dirs](/docs/configuration/basic/).
 
 To enable the `file` sensor, add the following lines to your `configuration.yaml`:
 

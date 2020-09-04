@@ -1,11 +1,13 @@
 ---
-title: "Suez Water Sensor"
-description: "Instructions on how to integrate Suez Water daily data within Home Assistant."
-logo: suez.png
+title: Suez Water
+description: Instructions on how to integrate Suez Water daily data within Home Assistant.
 ha_release: 0.97
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@ooii'
+ha_domain: suez_water
 ---
 
 The `suez_water` sensor platform fetches your last day consumption of water from the French water provider [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.

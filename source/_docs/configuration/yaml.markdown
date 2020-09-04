@@ -10,7 +10,6 @@ For integrations that you want to use in Home Assistant, you add code in your `c
 
 The following example entry assumes that you would like to set up the [notify component](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
 
-
 ```yaml
 notify:
   platform: pushbullet
@@ -66,11 +65,14 @@ sensor:
 ## Including values
 
 ### Environmental variables
-You can include values from your system's environment variables with `!env_var`. Note that this will only work in a scenario where it is possible to specify these. Hass.io users are recommended to use `!include` statements instead.
+
+On Home Assistant Core installations, you can include values from your system's environment variables with `!env_var`.
+Note that this will only work for Home Assistant Core installations, in a scenario where it is possible to specify these.
+Regular Home Assistant users are recommended to use `!include` statements instead.
 
 ```yaml
-http:
-  api_password: !env_var PASSWORD
+example:
+  password: !env_var PASSWORD
 ```
 
 #### Default value
@@ -78,8 +80,8 @@ http:
 If an environment variable is not set, you can fallback to a default value.
 
 ```yaml
-http:
-  api_password: !env_var PASSWORD default_password
+example:
+  password: !env_var PASSWORD default_password
 ```
 
 ### Including entire files
@@ -87,7 +89,7 @@ http:
 To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
 
 ```yaml
-lights: !include lights.yaml
+light: !include lights.yaml
 ```
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
@@ -102,10 +104,20 @@ If you see the following message:
 found character '\t' that cannot start any token
 ```
 
-This means that you've mistakenly entered a tab character, instead of spaces. 
+This means that you've mistakenly entered a tab character, instead of spaces.
 
 ### Upper and lower case
 
 Home Assistant is case sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
 
 If you're having trouble, check the case that Home Assistant is reporting in the dev-state menu, under *Developer tools*.
+
+### Booleans 
+
+YAML treats `Y`, `true`, `Yes`, `ON` all as `true` and `n`, `FALSE`, `No`, `off` as `false`. This means that if you want to set the state of an entity to `on` you *must* quote it as `'on'` otherwise it will be translated as setting the state to true. The same applies to `off`.
+
+Not quoting the value may generate an error such as:
+
+```txt
+not a valid value for dictionary value @ data
+```

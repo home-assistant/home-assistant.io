@@ -1,17 +1,19 @@
 ---
-title: "Kodi"
-description: "Instructions on how to integrate Kodi into Home Assistant."
-logo: kodi.png
+title: Kodi
+description: Instructions on how to integrate Kodi into Home Assistant.
 ha_category:
   - Notifications
   - Media Player
 ha_release: pre 0.7
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@armills'
+ha_domain: kodi
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
-The preferred way to set up the Kodi platform is by enabling the [discovery component](/integrations/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+The preferred way to set up the Kodi platform is by through discovery, which requires an enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -20,72 +22,24 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
+The Kodi media player is configured through the integrations screen. If your Kodi is discovered, you'll see it there and can click to set it up.
+If you do not see your device, you can click on the `+` button and choose Kodi.
+The flow will guide you through the setup. Most of the settings are advanced, and the defaults should work.
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: kodi
-    host: IP_ADDRESS
-```
+If you previously had Kodi configured through `configuration.yaml`, it's advisable to remove it, and configure from the UI.
+If you do not remove it, your configuration will be imported with the following limitations:
+* Your turn on/off actions will not be imported. This functionality is now available through device triggers.
+* You may have duplicate entities.
 
-{% configuration %}
-host:
-  description: The host name or address of the device that is running XBMC/Kodi.
-  required: true
-  type: string
-port:
-  description: The HTTP port number.
-  required: false
-  type: integer
-  default: 8080
-tcp_port:
-  description: The TCP port number. Used for WebSocket connections to Kodi.
-  required: false
-  type: integer
-  default: 9090
-name:
-  description: The name of the device used in the frontend.
-  required: false
-  type: string
-proxy_ssl:
-  description: Connect to Kodi with HTTPS and WSS. Useful if Kodi is behind an SSL proxy.
-  required: false
-  type: boolean
-  default: false
-username:
-  description: The XBMC/Kodi HTTP username.
-  required: false
-  type: string
-password:
-  description: The XBMC/Kodi HTTP password.
-  required: false
-  type: string
-turn_on_action:
-  description: Home Assistant script sequence to call when turning on.
-  required: false
-  type: list
-turn_off_action:
-  description: Home Assistant script sequence to call when turning off.
-  required: false
-  type: list
-enable_websocket:
-  description: Enable websocket connections to Kodi via the TCP port. The WebSocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
-  required: false
-  type: boolean
-  default: true
-timeout:
-  description: Set timeout for connections to Kodi. Defaults to 5 seconds.
-  required: false
-  type: integer
-  default: 5
-{% endconfiguration %}
+### Turning On/Off
+
+You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence.
 
 ### Services
 
 #### Service `kodi.add_to_playlist`
 
-Add music to the default playlist (i.e. playlistid=0).
+Add music to the default playlist (i.e., playlistid=0).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -97,17 +51,17 @@ Add music to the default playlist (i.e. playlistid=0).
 
 #### Service `kodi.call_method`
 
-Call a [Kodi JSONRPC API](https://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
+Call a [Kodi JSON-RPC API](https://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | Name(s) of the Kodi entities where to run the API method. |
-| `method` | yes | Name of the Kodi JSONRPC API method to be called. |
+| `method` | yes | Name of the Kodi JSON-RPC API method to be called. |
 | any other parameter | no | Optional parameters for the Kodi API call. |
 
 ### Event triggering
 
-When calling the `kodi.call_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
+When calling the `kodi.call_method` service, if the Kodi JSON-RPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
 
 ```yaml
 entity_id: "<Kodi media_player entity_id>"
@@ -122,7 +76,7 @@ With the `turn_on_action` and `turn_off_action` parameters you can run any combi
 
 #### Turn on Kodi with Wake on LAN
 
-With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
 
 ```yaml
 media_player:
@@ -235,7 +189,7 @@ media_player:
 
 <div class='note'>
 
-This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your kodi player. Use this with caution.
+This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your Kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your Kodi player. Use this with caution.
 
 </div>
 
@@ -255,7 +209,7 @@ script:
           entity_id: media_player.kodi
       - alias: Play TV channel
         service: media_player.play_media
-        data_template:
+        data:
           entity_id: media_player.kodi
           media_content_type: "CHANNEL"
           media_content_id: >
@@ -272,6 +226,26 @@ script:
             {% else %}
               10
             {% endif %}
+```
+{% endraw %}
+
+#### Simple script to play a smart playlist
+
+{% raw %}
+```yaml
+script:
+  play_kodi_smp:
+    alias: Turn on the silly box with random Firefighter Sam episode
+    sequence:
+      - alias: TV on
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.kodi
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.kodi
+          media_content_type: DIRECTORY
+          media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
 {% endraw %}
 
@@ -318,7 +292,7 @@ port:
   default: 8080
   type: integer
 proxy_ssl:
-  description: Connect to kodi with HTTPS. Useful if Kodi is behind an SSL proxy.
+  description: Connect to Kodi with HTTPS. Useful if Kodi is behind an SSL proxy.
   required: false
   default: "`false`"
   type: boolean
@@ -363,7 +337,7 @@ data:
   type: map
   keys:
     icon:
-      description: "Kodi comes with 3 default icons: `info`, `warning` and `error`, an URL to an image is also valid."
+      description: "Kodi comes with 3 default icons: `info`, `warning` and `error`, a URL to an image is also valid."
       required: false
       default: "`info`"
       type: string

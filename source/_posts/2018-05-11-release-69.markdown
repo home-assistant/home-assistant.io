@@ -18,7 +18,7 @@ Not much time to write a great intro this time as we're hanging out at PyCon! So
 - Support Xiaomi Mijia Bluetooth Wireless Temperature and Humidity Sensor ([@ratcashdev] - [#13955]) ([sensor.mitemp_bt docs]) (new-platform)
 - Move RainMachine to component/hub model ([@bachya] - [#14085]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
 - Add Social Blade Sensor ([@meauxt] - [#14060]) ([sensor.socialblade docs]) ([sensor.uscis docs]) (new-platform)
-- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
+- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) (new-platform)
 - Issue/add template fans ([@giangvo] - [#12027]) ([fan.template docs]) (new-platform)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 
@@ -69,7 +69,7 @@ rainmachine:
 ## All changes
 
 - Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
-- Expose the condition code on condition sensors ([@maddox] - [#14011]) ([sensor.yweather docs])
+- Expose the condition code on condition sensors ([@maddox] - [#14011])
 - upgrade rfxtrx lib, dimming support for Lighting3 ([@Danielhiversen] - [#14026]) ([rfxtrx docs])
 - Add Accuracy to Google Location Sharing ([@rdbahm] - [#14039]) ([device_tracker docs])
 - bump gogogate2 version ([@dlbroadfoot] - [#14044]) ([cover.gogogate2 docs])
@@ -145,7 +145,7 @@ rainmachine:
 - Fix Hue color state for missing xy ([@amelchio] - [#14230]) ([light.hue docs])
 - Add support for tracking devices on Netgear access points ([@MatMaul] - [#13331]) ([device_tracker docs])
 - WUnderground unique ids ([@OttoWinter] - [#13311]) ([sensor.wunderground docs])
-- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) ([sensor.postnl docs]) (new-platform)
+- Add PostNL sensor (Dutch Postal Services) ([@iMicknl] - [#12366]) (new-platform)
 - python_openzwave update config service ([@perosb] - [#12060]) ([zwave docs])
 - Add unique_id to zwave node entity ([@andrey-git] - [#14201]) ([zwave docs])
 - Add prereqs for HomeKit Controller ([@marthoc] - [#14172])
@@ -172,7 +172,7 @@ rainmachine:
 - Sensor device classes ([@cdce8p] - [#14282]) ([sensor docs]) (breaking change)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 - deCONZ add new device without restart ([@Kane610] - [#14221]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs])
-- Add alarmdotcom sensor status ([@jnewland] - [#14254]) ([alarm_control_panel.alarmdotcom docs])
+- Add alarmdotcom sensor status ([@jnewland] - [#14254])
 - Add domain to labels and count state changes to Prometheus ([@jnewland] - [#14253]) ([prometheus docs])
 - Add support for max_volume ([@relvacode] - [#13822]) ([media_player.onkyo docs])
 - Refactor ImageProcessingFaceEntity ([@robmarkcole] - [#14296]) ([image_processing docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs])
@@ -372,7 +372,6 @@ rainmachine:
 [@thelittlefireman]: https://github.com/thelittlefireman
 [@tinloaf]: https://github.com/tinloaf
 [abode docs]: /integrations/abode/
-[alarm_control_panel.alarmdotcom docs]: /integrations/alarmdotcom
 [auth docs]: /integrations/auth/
 [binary_sensor docs]: /integrations/binary_sensor/
 [binary_sensor.deconz docs]: /integrations/deconz#binary-sensor
@@ -453,7 +452,6 @@ rainmachine:
 [sensor.mitemp_bt docs]: /integrations/mitemp_bt
 [sensor.mqtt docs]: /integrations/sensor.mqtt/
 [sensor.pollen docs]: /integrations/iqvia
-[sensor.postnl docs]: /integrations/postnl
 [sensor.qnap docs]: /integrations/qnap
 [sensor.socialblade docs]: /integrations/socialblade
 [sensor.sql docs]: /integrations/sql
@@ -463,7 +461,6 @@ rainmachine:
 [sensor.uscis docs]: /integrations/uscis
 [sensor.wunderground docs]: /integrations/wunderground
 [sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
-[sensor.yweather docs]: /integrations/yweather
 [switch.deluge docs]: /integrations/deluge#switch
 [switch.fritzbox docs]: /integrations/fritzbox
 [switch.insteon_plm docs]: /integrations/insteon/

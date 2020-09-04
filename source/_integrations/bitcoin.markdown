@@ -1,13 +1,14 @@
 ---
-title: "Bitcoin"
-description: "Instructions on how to integrate Bitcoin data within Home Assistant."
-logo: bitcoin.png
+title: Bitcoin
+description: Instructions on how to integrate Bitcoin data within Home Assistant.
 ha_category:
   - Finance
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@fabaff'
+ha_domain: bitcoin
 ---
-
 
 The `bitcoin` sensor platform displays various details about the [Bitcoin](https://bitcoin.org) network.
 
@@ -76,4 +77,3 @@ display_options:
     market_price_usd:
       description: Market price in USD
 {% endconfiguration %}
-

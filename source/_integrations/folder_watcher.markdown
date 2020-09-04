@@ -1,12 +1,12 @@
 ---
-title: "Folder Watcher"
-description: "Component for monitoring changes within the filesystem."
-logo: home-assistant.png
+title: Folder Watcher
+description: Component for monitoring changes within the filesystem.
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.67
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: folder_watcher
 ---
 
 This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
@@ -16,7 +16,7 @@ This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system
 * `modified`
 * `moved`
 
-Configured folders must be added to [whitelist_external_dirs](/docs/configuration/basic/). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
+Configured folders must be added to [allowlist_external_dirs](/docs/configuration/basic/). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
 
 ## Configuration
 
@@ -57,7 +57,7 @@ folder_watcher:
 
 ## Automations
 
-Automations can be triggered on filesystem event data using a `data_template`. The following automation will send a notification with the name and folder of new files added to that folder:
+Automations can be triggered on filesystem event data using a template. The following automation will send a notification with the name and folder of new files added to that folder:
 
 {% raw %}
 ```yaml
@@ -71,7 +71,7 @@ automation:
       event_type: created
   action:
     service: notify.notify
-    data_template:
+    data:
       title: New image captured!
       message: "Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}"
       data:

@@ -1,13 +1,13 @@
 ---
-title: "Linode"
-description: "Instructions on how to set up Linode within Home Assistant."
+title: Linode
+description: Instructions on how to set up Linode within Home Assistant.
 ha_category:
   - System Monitor
   - Binary Sensor
   - Switch
-logo: linode.png
 ha_release: 0.57
 ha_iot_class: Cloud Polling
+ha_domain: linode
 ---
 
 The `linode` integration allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.

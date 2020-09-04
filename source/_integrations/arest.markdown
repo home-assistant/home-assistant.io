@@ -1,6 +1,6 @@
 ---
-title: "aREST"
-description: "Instructions on how to integrate aREST within Home Assistant."
+title: aREST
+description: Instructions on how to integrate aREST within Home Assistant.
 logo: arest.png
 ha_category:
   - DIY
@@ -9,6 +9,9 @@ ha_category:
   - Switch
 ha_iot_class: Local Polling
 ha_release: 0.9
+ha_codeowners:
+  - '@fabaff'
+ha_domain: arest
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -19,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Binary Sensor
 
-The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with an ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
+The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with an ethernet/Wi-Fi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
 
 To use your aREST binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -70,7 +73,7 @@ This sensor is not suitable for fast state changes because there is a high possi
 
 ## Sensor
 
-The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a Ethernet/Wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
+The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a Ethernet/Wi-Fi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
 
 To use your aREST enabled device in your installation, add the following to your `configuration.yaml` file:
 
@@ -173,7 +176,7 @@ The root will give you a JSON response that contains all variables and their cur
 
 ## Switch
 
-The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with an Ethernet/Wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
+The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with an Ethernet/Wi-Fi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
 
 To use your aREST enabled device with pins in your installation, add the following to your `configuration.yaml` file:
 

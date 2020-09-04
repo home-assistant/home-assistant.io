@@ -1,12 +1,12 @@
 ---
-title: "Time of Flight sensor using VL53L1X"
-description: "Instructions on how to integrate a VL53L1X ToF sensor into Home Assistant."
-logo: raspberry-pi.png
+title: Time of Flight
+description: Instructions on how to integrate a VL53L1X ToF sensor into Home Assistant.
 ha_category:
   - DIY
   - Sensor
-ha_release: "0.90"
+ha_release: '0.90'
 ha_iot_class: Local Polling
+ha_domain: tof
 ---
 
 The Time of Flight sensor uses an invisible laser to measure distance with millimeter resolution.
@@ -62,7 +62,8 @@ sensor:
     i2c_address: 0x29
     xshut: 16
 ```
-Several devices may be attached and a GPIO port from RPI is used for reset. XSHUT signal is generated pulsing LOW at initialization and after that, it is kept HIGH all time. This version uses VL53L1X long-range mode that may reach up to 4 meters.
+
+Several devices may be attached and a GPIO port from Raspberry Pi is used for reset. XSHUT signal is generated pulsing LOW at initialization and after that, it is kept HIGH all time. This version uses VL53L1X long-range mode that may reach up to 4 meters.
 
 ## Directions for installing i2c on Raspberry Pi
 
@@ -70,22 +71,22 @@ Enable the I2c interface with the Raspberry Pi configuration utility:
 
 ```bash
 # pi user environment: Enable i2c interface
-$ sudo raspi-config
+sudo raspi-config
 ```
 
 Select `Interfacing options->I2C` choose `<Yes>` and hit `Enter`, then go to `Finish` and you'll be prompted to reboot.
 
-Install dependencies for use the `smbus-cffi` module and enable your _homeassistant_ user to join the _i2c_ group:
+Install dependencies for use the `smbus-cffi` module and enable your `homeassistant` user to join the _i2c_ group:
 
 ```bash
 # pi user environment: Install i2c dependencies and utilities
-$ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
 
 # pi user environment: Add homeassistant user to the i2c group
-$ sudo addgroup homeassistant i2c
+sudo addgroup homeassistant i2c
 
 # pi user environment: Reboot Raspberry Pi to apply changes
-$ sudo reboot
+sudo reboot
 ```
 
 ### Check the i2c address of the sensor
@@ -93,7 +94,7 @@ $ sudo reboot
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 
 ```bash
-$ /usr/sbin/i2cdetect -y 1
+/usr/sbin/i2cdetect -y 1
 ```
 
 It will output a table like this:

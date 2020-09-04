@@ -1,11 +1,13 @@
 ---
-title: "VLC Telnet"
-description: "Instructions on how to integrate VLC media player into Home Assistant using the telnet interface."
-logo: videolan.png
+title: VLC media player Telnet
+description: Instructions on how to integrate VLC media player into Home Assistant using the telnet interface.
 ha_category:
   - Media Player
 ha_release: 0.95
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@rodripf'
+ha_domain: vlc_telnet
 ---
 
 The `vlc_telnet` platform allows you to control a [VLC media player](https://www.videolan.org/vlc/index.html) using the built in telnet interface.
@@ -26,7 +28,7 @@ name:
   description: The name to use in the frontend.
   required: false
   type: string
-pasword:
+password:
   description: The password to control the VLC through the telnet interface.
   required: true
   type: string
@@ -46,6 +48,10 @@ Only the "music" media type is supported for now.
 This service will control any instance of VLC player on the network with the telnet interface activated. 
 To activate the telnet interface on your VLC Player please read the [official VLC documentation](https://wiki.videolan.org/Documentation:Modules/telnet/). Also remember to add a firewall rule allowing inbound connections for the port used in the device running VLC.
 
+In case the VLC is running on a host with a locale other than English, you may get some errors during the volume change.
+This is related to the different use of the decimal separator in other countries.
+Consider to set the locale to `en_US` before starting VLC.
+
 ## Full configuration
 
 A full configuration for VLC could look like the one below:
@@ -60,6 +66,7 @@ media_player:
     password: your-secure-password
 ```
 
-##### Additional configuration for Rasperry Pi
+## Home Assistant Add-on
 
-You can run a VLC Media Player inside your Hassio installation using the [hassio-local-vlc add-on](https://github.com/rodripf/hassio-local-vlc). Using it you can play files on the local network, Internet or files and playlist locally saved to the /share folder of your Hassio installation.
+You can run a VLC Media Player on your Home Assistant installation using the a community provided [add-on](https://github.com/rodripf/hassio-local-vlc).
+Using it you can play files on the local network, Internet or files and playlist locally saved to the `/share` folder of your Home Assistant installation.

@@ -1,12 +1,13 @@
 ---
-title: "Gitter Sensor"
-description: "Instructions on how to integrate a Gitter room sensor with Home Assistant"
-logo: gitter.png
+title: Gitter
+description: Instructions on how to integrate a Gitter room sensor with Home Assistant
 ha_category:
   - Sensor
 ha_release: 0.47
+ha_codeowners:
+  - '@fabaff'
+ha_domain: gitter
 ---
-
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
 

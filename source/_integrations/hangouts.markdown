@@ -1,11 +1,12 @@
 ---
-title: "Google Hangouts"
-description: "Hangouts chatbot support"
-logo: hangouts.png
+title: Google Hangouts
+description: Hangouts chatbot support
 ha_category:
   - Hub
   - Notifications
 ha_release: 0.77
+ha_config_flow: true
+ha_domain: hangouts
 ---
 
 This integration allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
@@ -186,7 +187,7 @@ intent_script:
       text: Changed the lights to {{ color }}.
     action:
       service: light.turn_on
-      data_template:
+      data:
         rgb_color:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"
@@ -211,9 +212,9 @@ Sends a message to the given conversations.
 
 | Service data attribute | Optional | Description                                      |
 |------------------------|----------|--------------------------------------------------|
-| target                 | List of targets with id or name. [Required] | [{"id": "UgxrXzVrARmjx_C6AZx4AaABAagBo-6UCw"}, {"name": "Test Conversation"}] |
-| message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
-| data                   | Extra options | {"image_file": "path"} / {"image_url": "url"} |
+| target                 | No | List of targets with id or name. |
+| message                | No | List of message segments, only the "text" field is required in every segment. |
+| data                   | Yes | Either a path to an image file or a URL to an image. |
 
 ### Service `hangouts.reconnect`
 

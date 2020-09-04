@@ -1,14 +1,16 @@
 ---
-title: "Vivotek Camera"
-description: "Instructions on how to integrate Vivotek cameras within Home Assistant."
+title: VIVOTEK
+description: Instructions on how to integrate VIVOTEK cameras within Home Assistant.
 ha_category:
   - Camera
-logo: vivotek.jpg
 ha_release: 0.99
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@HarlemSquirrel'
+ha_domain: vivotek
 ---
 
-The `vivotek` camera platform allows you to integrate a Vivotek IP camera into Home Assistant.
+The `vivotek` camera platform allows you to integrate a VIVOTEK IP camera into Home Assistant.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
@@ -33,7 +35,7 @@ ip_address:
 name:
   description: This parameter allows you to override the name of your camera.
   required: false
-  default: Vivotek Camera
+  default: VIVOTEK Camera
   type: string
 username:
   description: The username for accessing your camera.
@@ -42,6 +44,11 @@ username:
 password:
   description: The password for accessing your camera.
   required: true
+  type: string
+authentication:
+  description: "Type for authenticating the requests `basic` or `digest`."
+  required: false
+  default: basic
   type: string
 security_level:
   description: The security level of the user accessing your camera. This could be `admin` or `viewer`.
@@ -81,6 +88,7 @@ camera:
     ssl: true
     username: !secret fd_camera_username
     password: !secret fd_camera_pwd
+    authentication: digest
     security_level: admin
     verify_ssl: false
     framerate: 5
@@ -138,7 +146,7 @@ Take a snapshot from a camera.
 | `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.front_door_camera`. |
 | `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
 
-The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
 For example, the following action is an automation that would take a snapshot from "front_door_camera" and save it to /tmp with a timestamped filename.
 

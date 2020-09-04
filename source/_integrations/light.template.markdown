@@ -5,8 +5,8 @@ ha_category:
   - Light
 ha_release: 0.46
 ha_iot_class: Local Push
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform creates lights that combine integrations and provides the
@@ -25,16 +25,37 @@ light:
     lights:
       theater_lights:
         friendly_name: "Theater Lights"
-        level_template: "{{ sensor.theater_brightness.attributes.lux|int }}"
-        value_template: "{{ sensor.theater_brightness.attributes.lux|int > 0 }}"
+        level_template: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
+        value_template: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
+        temperature_template: "{{states('input_number.temperature_input') | int}}"
+        color_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         turn_on:
           service: script.theater_lights_on
         turn_off:
           service: script.theater_lights_off
         set_level:
           service: script.theater_lights_level
-          data_template:
+          data:
             brightness: "{{ brightness }}"
+        set_temperature:
+          service: input_number.set_value
+          data:
+            value: "{{ color_temp }}"
+            entity_id: input_number.temperature_input
+        set_white_value:
+          service: input_number.set_value
+          data:
+            value: "{{ white_value }}"
+            entity_id: input_number.white_value_input
+        set_color:
+          - service: input_number.set_value
+            data:
+              value: "{{ h }}"
+              entity_id: input_number.h_input
+          - service: input_number.set_value
+            data:
+              value: "{{ s }}"
+              entity_id: input_number.s_input
 ```
 
 {% endraw %}
@@ -49,10 +70,10 @@ light:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: A list of entity IDs so the light only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+      unique_id:
+        description: An ID that uniquely identifies this light. Set this to an unique value to allow customisation trough the UI.
         required: false
-        type: [string, list]
+        type: string
       value_template:
         description: Defines a template to get the state of the light.
         required: false
@@ -63,8 +84,23 @@ light:
         required: false
         type: template
         default: optimistic
+      temperature_template:
+        description: Defines a template to get the color temperature of the light.
+        required: false
+        type: template
+        default: optimistic
+      white_value_template:
+        description: Defines a template to get the white value of the light.
+        required: false
+        type: template
+        default: optimistic
+      color_template:
+        description: Defines a template to get the color of the light. Must render a tuple (hue, saturation)
+        required: false
+        type: template
+        default: optimistic
       icon_template:
-        description: Defines a template for an icon or picture, e.g. showing a different icon for different states.
+        description: Defines a template for an icon or picture, e.g.,  showing a different icon for different states.
         required: false
         type: template
       availability_template:
@@ -84,6 +120,18 @@ light:
         description: Defines an action to run when the light is given a brightness command.
         required: false
         type: action
+      set_temperature:
+        description: Defines an action to run when the light is given a color temperature command.
+        required: false
+        type: action
+      set_white_value:
+        description: Defines an action to run when the light is given a white value command.
+        required: false
+        type: action
+      set_color:
+        description: Defines an action to run when the light is given a color command.
+        required: false
+        type: action
 {% endconfiguration %}
 
 ## Considerations
@@ -97,6 +145,10 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+
+### Working without entities
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
 
 ## Examples
 
@@ -140,7 +192,7 @@ light:
             is_volume_muted: true
         set_level:
           service: media_player.volume_set
-          data_template:
+          data:
             entity_id: media_player.receiver
             volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
         level_template: >-

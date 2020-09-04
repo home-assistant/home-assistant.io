@@ -1,10 +1,12 @@
 ---
-title: "Watson TTS"
-description: "Instructions on how to setup IBM Watson TTS with Home Assistant."
-logo: watson_tts.png
+title: IBM Watson TTS
+description: Instructions on how to setup IBM Watson TTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.94
+ha_codeowners:
+  - '@rutkai'
+ha_domain: watson_tts
 ---
 
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
@@ -38,7 +40,7 @@ watson_url:
   description: "The endpoint to which the service will connect."
   required: false
   type: string
-  default: https://stream.watsonplatform.net/text-to-speech/api
+  default: "`https://stream.watsonplatform.net/text-to-speech/api`"
 watson_apikey:
   description: "Your secret apikey generated on the IBM Cloud admin console."
   required: true
@@ -61,7 +63,7 @@ Say to all `media_player` device entities:
 
 ```yaml
 - service: tts.watson_tts_say
-  data_template:
+  data:
     message: 'Hello from Watson'
 ```
 
@@ -69,7 +71,7 @@ or
 
 ```yaml
 - service: tts.watson_tts_say
-  data_template:
+  data:
     message: >
       <speak>
           Hello from Watson
@@ -80,7 +82,7 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.watson_tts_say
-  data_template:
+  data:
     entity_id: media_player.living_room
     message: >
       <speak>
@@ -92,7 +94,7 @@ Say with break:
 
 ```yaml
 - service: tts.watson_tts_say
-  data_template:
+  data:
     message: >
       <speak>
           Hello from

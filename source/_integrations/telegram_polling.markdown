@@ -1,10 +1,10 @@
 ---
 title: "Telegram polling"
 description: "Telegram polling support"
-logo: telegram.png
 ha_category:
   - Notifications
 ha_release: 0.42
+ha_domain: telegram_bot
 ---
 
 Telegram chatbot polling implementation.
@@ -40,7 +40,7 @@ parse_mode:
   type: string
   default: "`markdown`"
 proxy_url:
-  description: Proxy url if working behind one (`socks5://proxy_ip:proxy_port`).
+  description: Proxy URL if working behind one (`socks5://proxy_ip:proxy_port`).
   required: false
   type: string
 proxy_params:

@@ -1,11 +1,15 @@
 ---
-title: "Almond"
-description: "Instructions on how to setup Almond within Home Assistant."
-logo: almond.png
+title: Almond
+description: Instructions on how to setup Almond within Home Assistant.
 ha_category:
   - Voice
 ha_iot_class: Local Polling
-ha_release: "0.102"
+ha_release: '0.102'
+ha_config_flow: true
+ha_codeowners:
+  - '@gcampax'
+  - '@balloob'
+ha_domain: almond
 ---
 
 [Almond](https://almond.stanford.edu/) is an open, privacy-preserving virtual assistant by [Stanford Open Virtual Assistant Lab](https://oval.cs.stanford.edu/). It allows you, among other things, to control Home Assistant using natural language. Once installed, it will be available on Lovelace via the microphone icon in the top right.
@@ -20,9 +24,9 @@ Almond consists of three parts:
 
 ## Installation
 
-### Hass.io installation
+### Home Assistant add-on installation
 
-To install Almond Server on Hass.io, go to Hass.io App Store, search for Almond and click on Install. Once started, it will initiate a config flow to finish set up in Home Assistant. You can find it on the integrations page in the configuration panel.
+To install Almond Server, go to the Home Assistant add-on store, search for Almond and click on Install. Once started, it will initiate a configuration flow to finish set up in Home Assistant. You can find it on the integrations page in the configuration panel.
 
 ### Manual installation
 
@@ -39,11 +43,13 @@ almond:
   host: http://127.0.0.1:3000
 ```
 
-The Almond integration does not update config entries yet. If you make a change to configuration.yaml, you will need to remove the config entry and then restart Home Assistant.
+The Almond integration does not update configuration entries yet. If you make a change to configuration.yaml, you will need to remove the configuration entry and then restart Home Assistant.
 
 ### Almond Web
 
 Stanford offers a hosted version of Almond Server called Almond Web. To use this, go to the integrations page and add Almond using the add integration flow.
+
+Your Home Assistant installation needs to be externally accessible if you want Almond Web to be able to control Home Assistant.
 
 ### Almond Web - Manual installation
 

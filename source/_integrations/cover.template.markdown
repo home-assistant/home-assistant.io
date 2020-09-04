@@ -5,8 +5,8 @@ ha_category:
   - Cover
 ha_release: 0.48
 ha_iot_class: Local Push
-logo: home-assistant.png
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_domain: template
 ---
 
 The `template` platform can create covers that combine integrations and provides
@@ -26,6 +26,7 @@ cover:
   - platform: template
     covers:
       garage_door:
+        device_class: garage
         friendly_name: "Garage Door"
         value_template: "{{ states('sensor.garage_door')|float > 0 }}"
         open_cover:
@@ -48,10 +49,10 @@ cover:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+      unique_id:
+        description: An ID that uniquely identifies this cover. Set this to an unique value to allow customisation trough the UI.
         required: false
-        type: [string, list]
+        type: string
       value_template:
         description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
         required: exclusive
@@ -74,23 +75,23 @@ cover:
         required: false
         type: string
       open_cover:
-        description: Defines an action to run when the cover is opened. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
+        description: Defines an action to open the cover. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
         required: inclusive
         type: action
       close_cover:
-        description: Defines an action to run when the cover is closed.
+        description: Defines an action to close the cover.
         required: inclusive
         type: action
       stop_cover:
-        description: Defines an action to run when the cover is stopped.
+        description: Defines an action to stop the cover.
         required: false
         type: action
       set_cover_position:
-        description: Defines an action to run when the cover is set to a specific value (between `0` and `100`).
+        description: Defines an action to set to a cover position (between `0` and `100`).
         required: false
         type: action
       set_cover_tilt_position:
-        description: Defines an action to run when the cover tilt is set to a specific value (between `0` and `100`).
+        description: Defines an action to set the tilt of a cover (between `0` and `100`).
         required: false
         type: action
       optimistic:
@@ -121,6 +122,10 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('cover.source', 'open') }}`{% endraw %}
 
+### Working without entities
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
+
 ## Optimistic Mode
 
 In optimistic mode, the cover position state is maintained internally. This mode
@@ -149,6 +154,7 @@ cover:
   - platform: template
     covers:
       garage_door:
+        device_class: garage
         friendly_name: "Garage Door"
         position_template: "{{ states('sensor.garage_door') }}"
         open_cover:
@@ -204,7 +210,7 @@ cover:
             modus: 'stop'
         set_cover_position:
           service: script.cover_group_position
-          data_template:
+          data:
             position: "{{position}}"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
@@ -213,9 +219,6 @@ cover:
           {% else %}
             mdi:window-closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 sensor:
   - platform: template
@@ -233,7 +236,7 @@ sensor:
 script:
   cover_group:
     sequence:
-      - service_template: "cover.{{modus}}_cover"
+      - service: "cover.{{modus}}_cover"
         data:
           entity_id:
             - cover.bedroom
@@ -241,7 +244,7 @@ script:
   cover_group_position:
     sequence:
       - service: cover.set_cover_position
-        data_template:
+        data:
           entity_id:
             - cover.bedroom
             - cover.livingroom

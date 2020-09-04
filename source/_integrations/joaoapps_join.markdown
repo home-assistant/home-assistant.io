@@ -1,11 +1,11 @@
 ---
-title: "Joaoapps Join"
-description: "Instructions for how to integrate the Join by Joaoapps service within Home Assistant."
-logo: joaoapps_join.png
+title: Joaoapps Join
+description: Instructions for how to integrate the Join by Joaoapps service within Home Assistant.
 ha_category:
   - Hub
   - Notifications
 ha_release: 0.24
+ha_domain: joaoapps_join
 ---
 
 The `joaoapps_join` integration exposes services from
@@ -14,8 +14,8 @@ divided up in two locations, the Join component, and the Join notify platform.
 The notify platform allows us to send messages to Join devices, the component
 allows us to access the other special features that Join offers. When in doubt, you can reference the [API documentation](https://joaoapps.com/join/api/) this is based on.
 
-In the `configuration.yaml` file you need to provide the api key and device id
-or name of the target device. You can find your device id and api key
+In the `configuration.yaml` file you need to provide the API key and device id
+or name of the target device. You can find your device id and API key
 [here](https://joinjoaomgcd.appspot.com/).
 
 To set it up, add the following information to your `configuration.yaml` file:
@@ -76,22 +76,24 @@ notify:
 The notify service has several optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `tts`, `tts_language` and `vibration`.
 You can use them like so:
 
-```json
-{
-	"message": "Hello from Home Assistant!",
-	"title": "Home Assistant",
-	"data": {
-		"icon": "https://goo.gl/xeetdy",
-		"smallicon": "https://goo.gl/xeetdy",
-		"vibration": "0,65,706,86,657,95,668,100",
-		"image": "https://www.home-assistant.io/images/favicon-192x192-full.png",
-		"sound": "https://goo.gl/asasde.mp3",
-		"url": "https://home-assistant.io",
-		"notification_id": "hass-notification",
-		"tts": "Notification from Home Assistant",
-		"tts_language": "english"
-	}
-}
+```yaml
+message: Hello from Home Assistant!
+title: Home Assistant
+data:
+  icon: https://goo.gl/xeetdy
+  smallicon: https://goo.gl/xeetdy
+  vibration: 0,65,706,86,657,95,668,100
+  image: https://www.home-assistant.io/images/favicon-192x192-full.png
+  sound: https://goo.gl/asasde.mp3
+  url: https://home-assistant.io
+  notification_id: hass-notification
+  tts: Notification from Home Assistant
+  tts_language: english
+  actions:
+    Netflix:
+    Tweet:
+      - Tweet from HASS!
+    Sleep:
 ```
 
 The services exposed in the `joaoapps_join` integration can be used with the

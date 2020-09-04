@@ -1,11 +1,13 @@
 ---
-title: "Scripts"
-description: "Instructions on how to setup scripts within Home Assistant."
-logo: home-assistant.png
+title: Scripts
+description: Instructions on how to setup scripts within Home Assistant.
 ha_category:
   - Automation
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: script
 ---
 
 The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
@@ -14,6 +16,8 @@ The `script` integration allows users to specify a sequence of actions to be exe
 
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
+{% raw %}
+ 
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -21,19 +25,25 @@ script:
     sequence:
       # This is Home Assistant Script Syntax
       - service: notify.notify
-        data_template:
-          message: Current temperature is {% raw %}{{ states('sensor.temperature') }}{% endraw %}
+        data:
+          message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
+
+{% endraw %}
 
 <div class='note'>
 
-Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
+Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e., `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
 
 </div>
 
 {% configuration %}
 alias:
   description: Friendly name for the script.
+  required: false
+  type: string
+icon:
+  description: Icon for the script.
   required: false
   type: string
 description:
@@ -57,23 +67,56 @@ fields:
         example:
           description: An example value for PARAMETER_NAME.
           type: string
+mode:
+  description: "Controls what happens when script is invoked while it is still running from one or more previous invocations. See [Script Modes](#script-modes)."
+  required: false
+  type: string
+  default: single
+max:
+  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`."
+  required: false
+  type: integer
+  default: 10
+max_exceeded:
+  description: "When `max` is exceeded (which is effectively 1 for `single` mode) a log message will be emitted to indicate this has happened. This option controls the severity level of that log message. See [Log Levels](/integrations/logger/#log-levels) for a list of valid options. Or `silent` may be specified to suppress the message from being emitted."
+  required: false
+  type: string
+  default: warning
 sequence:
   description: The sequence of actions to be performed in the script.
   required: true
   type: list
 {% endconfiguration %}
 
+### Script Modes
+
+Mode | Description
+-|-
+`single` | Do not start a new run. Issue a warning.
+`restart` | Start a new run after first stopping previous run.
+`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`parallel` | Start a new, independent run in parallel with previous runs.
+
+<p class='img'>
+  <img src='/images/integrations/script/script_modes.jpg'>
+</p>
+
 ### Full Configuration
+
+{% raw %}
 
 ```yaml
 script: 
   wakeup:
     alias: Wake Up
+    icon: "mdi:party-popper"
     description: 'Turns on the bedroom lights and then the living room lights after a delay'
     fields:
       minutes:
         description: 'The amount of time to wait before turning on the living room lights'
         example: 1
+    # If called again while still running (probably in delay step), start over.
+    mode: restart
     sequence:
       # This is Home Assistant Script Syntax
       - event: LOGBOOK_ENTRY
@@ -95,6 +138,8 @@ script: 
         data:
           entity_id: group.living_room
 ```
+
+{% endraw %}
 
 ### Passing variables to scripts
 
@@ -136,7 +181,7 @@ automation:
       message: 'The light is on!'
 ```
 
-Using the variables in the script requires the use of `data_template`:
+Using the variables in the script requires the use of templates:
 
 ```yaml
 # Example configuration.yaml entry
@@ -155,13 +200,39 @@ script:
         entity_id: switch.pushover_notifications
         state: 'on'
       - service: notify.pushover
-        data_template:
+        data:
           title: "{% raw %}{{ title }}{% endraw %}"
           message: "{% raw %}{{ message }}{% endraw %}"
 ```
 
-### In the Overview
+### Waiting for Script to Complete
 
-Scripts in the Overview panel will be displayed with an **EXECUTE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
+When calling a script "directly" (e.g., `script.NAME`) the calling script will wait for the called script to finish.
+If any errors occur that cause the called script to abort, the calling script will be aborted as well.
 
-This is to enable you to stop a running script.
+When calling a script (or multiple scripts) via the `script.turn_on` service the calling script does _not_ wait. It starts the scripts, in the order listed, and continues as soon as the last script is started.
+Any errors that occur in the called scripts that cause them to abort will _not_ affect the calling script.
+
+<p class='img'>
+  <img src='/images/integrations/script/script_wait.jpg'>
+</p>
+
+Following is an example of the calling script not waiting. It performs some other operations while the called script runs "in the background." Then it later waits for the called script to complete via a `wait_template`.
+This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
+
+{% raw %}
+```yaml
+script:
+  script_1:
+    sequence:
+      - service: script.turn_on
+        entity_id: script.script_2
+      # Perform some other steps here while second script runs...
+      # Now wait for called script to complete.
+      - wait_template: "{{ is_state('script.script_2', 'off') }}"
+      # Now do some other things...
+  script_2:
+    sequence:
+      # Do some things at the same time as the first script...
+```
+{% endraw %}

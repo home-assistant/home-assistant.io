@@ -1,321 +1,289 @@
 ---
-title: "Broadlink"
-description: "Instructions on how to integrate Broadlink within Home Assistant."
-logo: broadlink.png
+title: Broadlink
+description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
+  - Remote
   - Switch
   - Sensor
 ha_release: 0.35
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@danielhiversen'
+  - '@felipediel'
+ha_domain: broadlink
 ---
 
-There is currently support for the following device types within Home Assistant:
+The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
+- Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
+- Sensors: `e-Sensor`
+- Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU` and `SP3S-US`
+- Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
+- Wi-Fi Controlled Switches: `SC1`
+
+## Configuration
+
+To set up a Broadlink device, click _Configuration_ in the sidebar and click _Integrations_. If you see your device there, click _Configure_. If not, click the + icon in the lower right, enter the hostname or IP address of the device and follow the instructions to complete the setup.
+
+### Entities and subdomains
+
+There is no more need to set up platforms, except for custom IR/RF switches. Once the device is configured, all entities will be created automatically.
+
+The entities have the same name as the device by default. To change the name, icon or entity id, click the entity on the frontend and click the settings icon in the upper right. You can also disable the entity there if you don't think it is useful. Don't forget to click _Update_ to save your changes when you're done.
+
+The entities are divided into three subdomains:
+
+- [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## Sensor
+## Remote
 
-The `broadlink` sensor platform let you monitor data from an RM2 and A1 E-air. There is currently no support for the cloud API.
+The `remote` entities allow you to control Broadlink universal remotes. You can learn IR codes, send the codes you have learned and send RF codes (use the base64 functionality). These entities are created automatically when you configure a device that has IR/RF capabilities.
 
-To enable it, add the following lines to your `configuration.yaml`:
+### Learning IR codes
+
+Use the `remote.learn_command` service to learn IR codes.
+
+| Service data attribute | Optional | Description                          |
+| ---------------------- | -------- | ------------------------------------ |
+| `entity_id`            | no       | ID of the remote.                    |
+| `device`               | no       | Name of the device to be controlled. |
+| `command`              | no       | Names of the commands to be learned. |
+| `alternative`          | yes      | Are they toggle commands?            |
+
+Example 1: Learn a single command
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: broadlink
-    host: IP_ADDRESS
-    mac: 'MAC_ADDRESS'
-    monitored_conditions:
-      - 'temperature'
+script:
+  learn_mute_tv:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: ok
 ```
 
-{% configuration %}
-host:
-  description: The hostname/IP address to connect to.
-  required: true
-  type: string
-mac:
-  description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
-  required: true
-  type: string
-name:
-  description: Sensor name.
-  required: false
-  default: Broadlink sensor
-  type: string
-scan_interval:
-  description: Time in seconds to fetch data from sensors.
-  required: false
-  default: 300
-  type: integer
-timeout:
-  description: Timeout in seconds for the connection to the device.
-  required: false
-  default: 10
-  type: integer
-monitored_conditions:
-  description:
-  required: true
-  type: list
-  keys:
-    "'temperature'":
-      description: Temperature
-    "'humidity'":
-      description: Humidity
-    "'air_quality'":
-      description: Air quality
-    "'light'":
-      description: Light
-    "'noise'":
-      description: Noise
-{% endconfiguration %}
-
-To set it up, add the following information to your `configuration.yaml` file:
-
-Obtain sensor data from an A1:
+Example 2: Learn a sequence of commands
 
 ```yaml
-sensor:
-  - platform: broadlink
-    scan_interval: 60
-    host: IP_ADDRESS
-    mac: 'MAC_ADDRESS'
-    monitored_conditions:
-      - temperature
-      - humidity
-      - air_quality
-      - light
-      - noise
+# Example configuration.yaml entry
+script:
+  learn_tv_commands:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command:
+            - turn on
+            - turn off
+            - volume up
+            - volume down
 ```
 
-Obtain temperature data from an RM2:
+Example 3: Learn a toggle command
+
+The `alternative` flag is useful for capturing commands in which the same button is used for more than one purpose, such as the power button, which can turn the television on and off.
 
 ```yaml
-sensor:
-  - platform: broadlink
-    scan_interval: 60
-    host: IP_ADDRESS
-    mac: 'MAC_ADDRESS'
-    monitored_conditions:
-      - temperature
+# Example configuration.yaml entry
+script:
+  learn_tv_power_button:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: power
+          alternative: true
 ```
 
-### Microsoft Windows installation
+In the above example, two codes will be captured for the power command, and they will be sent alternately each time this command is called.
 
-<div class='note'>
+#### Learned codes storage location
 
-The pycrypto library needs to be available on your platform. On a typical windows sysytem `pip install pycrypto` will fail, as a compiler needs to be installed first.
+The learned codes are stored in the `/configuration/.storage` folder in a file called `broadlink_remote_xxxxxxxxxxx_codes.json`. You can open this file with a text editor and copy the codes to set up a custom switch, but beware: the files in the .storage folder _should never be edited manually_.
 
-</div>
+### Sending IR/RF codes
 
-The quickest way around this is to use a pre-built binary, e.g., from [https://github.com/sfbahr/PyCrypto-Wheels](https://github.com/sfbahr/PyCrypto-Wheels)
+Use the `remote.send_command` service to send IR/RF codes.
 
-Be sure to get the correct 64 or 32-bit binary for your system, the full command line will look something like the sample below for a 64-bit system:
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                                                      |
+| `command`              | no       | Names of the commands to be sent or base64 codes prefixed with `b64:`. |
+| `device`               | yes      | Name of the device to be controlled (optional for base64 codes).       |
+| `num_repeats`          | yes      | Number of times to repeat the commands.                                |
+| `delay_secs`           | yes      | Interval in seconds between one send and another.                      |
 
-```bash
-pip install --use-wheel --no-index --find-links=https://github.com/sfbahr/PyCrypto-Wheels/raw/master/pycrypto-2.6.1-cp35-none-win_amd64.whl pycrypto
+Example 1: Send a single command
+
+```yaml
+# Example configuration.yaml entry
+script:
+  mute_tv:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: mute
 ```
+
+Example 2: Send a command repeatedly
+
+```yaml
+# Example configuration.yaml entry
+script:
+  turn_up_tv_volume_20:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: volume up
+          num_repeats: 20
+```
+
+Example 3: Send a sequence of commands
+
+```yaml
+# Example configuration.yaml entry
+script:
+  turn_on_ac:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: air conditioner
+          command:
+            - turn on
+            - turn off display
+```
+
+Example 4: Send a single base64 code
+
+```yaml
+# Example configuration.yaml entry
+script:
+  turn_on_tv:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+```
+
+Example 5: Send a sequence of base64 codes
+
+```yaml
+# Example configuration.yaml entry
+script:
+  turn_on_ac:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          command:
+            - b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+            - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+```
+
+Example 6: Mix commands and base64 codes
+
+```yaml
+# Example configuration.yaml entry
+script:
+  turn_on_ac:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command:
+            - turn on
+            - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+```
+
+## Sensor
+
+The `sensor` entities allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
 
 ## Switch
 
-This `Broadlink` switch platform allow to you control Broadlink [devices](https://www.ibroadlink.com/).
+The `switch` entities allow you to control and monitor Broadlink smart plugs, power strips and switches. You can turn them on and off, and you can monitor their state and power consumption, when available. These entities are created automatically when you configure a device that has switches.
 
-### Configuration
+You can also define custom IR/RF switches to be controlled with universal remote devices.
 
-To enable it, add the following lines to your `configuration.yaml`:
+### Setting up custom IR/RF switches
+
+The first step is to configure the device normally via the configuration flow. Then add these lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 switch:
   - platform: broadlink
-    host: IP_ADDRESS
-    mac: 'MAC_ADDRESS'
+    mac: MAC_ADDRESS
+    switches:
+      - name: Philips TV
+        command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+        command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
 ```
 
+The above example creates `switch.philips_tv`, which sends IR/RF codes using the universal remote with the MAC address provided.
+
 {% configuration %}
-host:
-  description: The hostname/IP address to connect to.
-  required: true
-  type: string
 mac:
-  description: "Device MAC address. Use the following format: `AA:BB:CC:DD:EE:FF`."
-  required: true
-  type: string
-timeout:
-  description: Timeout in seconds for the connection to the device.
-  required: false
-  type: integer
-retry:
-  description: Retry times for fetch data if failed.
-  required: false
-  type: integer
-  default: 2
-friendly_name:
-  description: The name used to display the switch in the frontend.
-  required: false
-  type: string
-type:
-  description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
+  description: The MAC address of the universal remote.
   required: true
   type: string
 switches:
-  description: The array that contains all switches.
-  required: false
-  type: map
+  description: The list that contains all custom switches.
+  required: true
+  type: list
   keys:
-    identifier:
-      description: Name of the command switch as slug. Multiple entries are possible.
+    name:
+      description: The name of the switch.
       required: true
       type: string
-      keys:
-        command_on:
-          description: Base64 encoded packet from RM device to take for on.
-          required: true
-          type: string
-        command_off:
-          description: Base64 encoded packet from RM device to take for off.
-          required: true
-          type: string
-        friendly_name:
-          description: The name used to display the switch in the frontend.
-          required: false
-          type: string
-slots:
-  description: Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
-  required: false
-  type: map
-  keys:
-    slot_1:
-      description: Friendly names of slot 1
+    command_on:
+      description: A base64 code to be sent as "turn on" command.
       required: false
       type: string
-    slot_2:
-      description: Friendly names of slot 2
-      required: false
-      type: string
-    slot_3:
-      description: Friendly names of slot 3
-      required: false
-      type: string
-    slot_4:
-      description: Friendly names of slot 4
+    command_off:
+      description: A base64 code to be sent as "turn off" command.
       required: false
       type: string
 {% endconfiguration %}
 
-Information about how to install on Windows can be found [here](/integrations/broadlink#sensor#microsoft-windows-installation).
-
-### How to obtain IR/RF packets?
-
-Choose Call Service from the Developer Tools. Choose the service `broadlink.learn` from the list of **Available services:**, write in "Service Data" JSON with 1 field "host":"your_broadlink_IP" and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
-
-Example config for `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl` and `rm_mini_shate` devices:
+You can configure multiple switches for the same remote:
 
 ```yaml
+# Example configuration.yaml entry
 switch:
   - platform: broadlink
-    host: 192.168.1.2
-    mac: 'B4:43:0D:CC:0F:58'
-    timeout: 15
-    retry: 5
+    mac: MAC_ADDRESS
     switches:
-      # Will work on most Phillips TVs:
-      tv_phillips:
-        friendly_name: "Phillips Tv Power"
-        command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
-        command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
-      # Will work on most LG TVs
-      tv_lg:
-        friendly_name: "LG Tv Power"
-        command_on: 'JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='
-        command_off: 'JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='
-      tv_lg_hdmi1_hdmi2:
-        friendly_name: "LG Tv HDMI12"
-        command_on: 'JgBIAAABIZMRExITEjYSExMRERURExEUEDkRNxEUEjYSNhM3ETcSNxITETgSNhI2ExMQExE4ETYSNxIUERMSExE4ETcRFBETEQANBQ=='
-        command_off: 'JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA='
-      tv_lg_hdmi3:
-        friendly_name: "LG Tv HDMI3"
-        command_on: 'JgBIAAABIZMSFBISETgRExEUERQQFBETEjcTNhMSETgRNxE3EjcROBM2ERMSFBE4ERMSNxM2EjUSFBE2ETgRExM2ExITEhATEwANBQ=='
-      tv_lg_av1_av2:
-        friendly_name: "LG Tv AV12"
-        command_on: 'JgBIAAABIpQPFBITETgSEw8UEhQSEhEVDzgSOBAUETgQOQ84EjgRNxITETgSExA5EDgREhI3EhMROBMSEDkQFBETEjYTEhE4EQANBQ=='
-        command_off: 'JgBIAAABH5YPFBETETgUERAUEBURFBATETgROBEUETcSNxE4ETcSOBISEBUQFREUEjUSFBA5ETcRNxE4ETkQOBAUEjcRFRAUEQANBQ=='
-  - platform: broadlink
-    host: 192.168.1.2
-    mac: 'B4:43:0D:CC:0F:58'
-    timeout: 15
-    switches:
-    # Will work on most Phillips TVs:
-      tv:
-        friendly_name: "Phillips Tv"
-        command_on: 'JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA='
-        command_off: 'JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA='
+      - name: Philips TV
+        command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+        command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+      - name: LG TV
+        command_on: JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU=
+        command_off: JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU=
 ```
 
-Example config for `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2` and `spminiplus` devices:
+The above example creates `switch.philips_tv` and `switch.lg_tv`, which are related to the same universal remote.
 
-```yaml
-switch:
-  - platform: broadlink
-    host: IP_ADDRESS
-    mac: 'MAC_ADDRESS'
-    type:  sp1
-    friendly_name: 'Humidifier'
-  - platform: broadlink
-    host: IP_ADDRESS
-    mac: 'MAC_ADDRESS'
-    type:  sp2
-    retry: 5
-    friendly_name: 'Humidifier'
-```
+__IMPORTANT__: Always use unique names for your switches. A good choice is to prefix the name with the area in which the device is located, e.g. Bedroom TV.
 
-Example config for `mp1` device:
+### Using e-Control remotes
 
-```yaml
-switch:
-  - platform: broadlink
-    host: IP_ADDRESS
-    mac: 'MAC_ADDRESS'
-    type: mp1
-    friendly_name: 'MP1'
-    slots:
-      # friendly name of slots - optional
-      # if not set, slot name will be switch's friendly_name + 'slot {slot_index}'. e.g 'MP1 slot 1'
-      slot_1: 'TV slot'
-      slot_2: 'Xbox slot'
-      slot_3: 'Fan slot'
-      slot_4: 'Speaker slot'
-```
+If you already have your remotes learned on e-Control app you can use this method to "copy" them to Home Assistant.
 
-### Service `broadlink.send`
-
-You can use the service `broadlink.send` to directly send IR packets without the need to assign a switch entity for each command.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `host`   | no | IP address to send command to.
-| `packet` | no | String or list of strings that contain the packet data.
-
-Example:
-
-```yaml
-script:
-  tv_select_source:
-    sequence:
-      - service: broadlink.send
-        data:
-          host: 192.168.0.107
-          packet:
-            - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
-            - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
-```
-
-### Using E-Control remotes
-
-If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
-
-First get or learn all the remotes you want to add to Home Assistant in E-Control
+First get or learn all the remotes you want to add to Home Assistant in e-Control
 
 1. Download
 
@@ -323,7 +291,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 2. Dump the data from the app
 
-    Open the E-Control app on your mobile device. On the left side menu choose "Share" and then "Share to other phones in WLAN". It will generate the files you will need for the script.
+    Open the e-Control app on your mobile device. On the left side menu choose "Share" and then "Share to other phones in WLAN". It will generate the files you will need for the script.
 
 3. Get data from your Android device
 
@@ -335,7 +303,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 4. Install Requirements
 
-    Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+    Run `pip install simplejson`. You must install `simplejson` in the same Python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
 
 5. Get the data from the device
 
@@ -361,20 +329,20 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 ### Using iOS and Windows to obtain codes
 
-1. Use the E-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
+1. Use the e-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
 
 2. Install Requirements
 
    - Download and install Python 2.7 on your windows PC.
-   - Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+   - Run `pip install simplejson`. You must install `simplejson` in the same Python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
    - Download and install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/).
-   - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
+   - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) GitHub files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
 
-3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.
+3. Plug your iPhone into your Windows PC, open iTunes and create a non-encrypted backup of your device.
 
 4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
 
-5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g. C:\Python27. Now run the command python getBroadlinkSharedData.py, you should see something like this:
+5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g., `C:\Python27`. Now run the command `python getBroadlinkSharedData.py`, you should see something like this:
 
     ```bash
     C:\Python27>python getBroadlinkSharedData.py
@@ -405,7 +373,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     [+] Dumping codes to TV.txt
     ```
 
-6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).
+6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your `configuration.yaml` file (or wherever you have your switches).
 
 ### Using Windows to obtain codes with Broadlink Manager
 
@@ -414,12 +382,12 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 3. Hit "Learn New Command" and follow instructions on screen.
 4. The "OnRawData Base64" is the value to be used with Home Assistant.
 
-
 ### Using Node-RED to obtain codes
 
 1. Install the Broadlink Control palette in Node-RED (click the Hamburger menu at top right corner> Settings> Palette> Install and type Broadlink. Click install on the node-red-contrib-broadlink-control.
 2. Once installed, verify that the new palette titled broadlink is available in the nodes menu.
 3. Drag the RM node to an empty flow and double click to configure the node.
+
    ```bash
    a. give your RM device a name for easy identification
    b. click on the pencil to edit the device information
@@ -427,29 +395,36 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
    d. enter the IP address of the Broadlink RM PRO or RM mini
    e. leave the Catalog field empty.
    ```
+
 4. Click Update, and the device field should show the MAC address of the newly added device. If not, just select it.
 5. In the Action field, select Learn, then click Done.
 6. Drag an Inject node to the left of the RM node and link them. The type of inject doesn't matter. Leave it to the defaults.
 7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
 8. Double click the Template node to edit it, select:
+
    ```bash
    Property: msg.payload
    Format: Mustache template
    Template field: enter '{% raw %}{{payload.data}}{% endraw %}'.
    Output as: Plain text
    ```
+
 9. Drag a Debug node to the right of the Template node and link them.
 10. Show the debug messages, deploy the flow and click on the inject button.
 11. A message will show in the debug window:
+
     ```bash
     3/23/2019, 9:56:53 AMnode: RM_Mini1
     msg : string[47]
     "Please tap the remote button within 30 seconds."
     ```
+
 12. Point the IR remote control at the RM device and click the desired button for about 2 seconds. An array of numbers will show in the debug window. For example:
+
     ```bash
     '38,0,132,3,19,18,19,18,19,18,19,17,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,20,17,19,18,19,18,19,18,19,17,20,17,20,54,20,17,20,54,19,55,19,54,20,54,20,54,19,55,19,0,6,6,150,146,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,17,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,19,18,19,55,19,54,20,54,20,54,20,54,19,55,19,0,6,6,150,146,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,54,19,55,19,54,20,17,20,17,20,17,20,17,20,17,19,18,19,55,19,17,20,17,20,17,20,17,20,17,19,18,19,55,19,18,19,54,20,54,20,54,19,55,19,54,20,54,20,0,6,5,150,146,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,17,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,19,18,19,55,19,54,20,54,20,54,19,55,19,54,20,0,6,6,149,147,20,54,19,55,19,54,20,17,20,17,20,17,20,17,20,17,19,55,19,54,20,54,20,17,20,17,20,17,19,18,19,18,19,18,19,54,20,17,20,17,20,17,20,17,19,18,19,18,19,54,20,17,20,54,20,54,20,54,19,...'
     ```
+
 This is the code we need to transmit again to replicate the same remote function.
 
 ### Using Node red to Transmit Codes
@@ -458,6 +433,7 @@ This is the code we need to transmit again to replicate the same remote function
 2. In the Action field, select - Set from msg.payload -.
 3. Drag an Inject node and give it a meaningful name relevant to the remote control button function, like "TV On" or "TV Source".
 4. Drag a template node and double click it to configure:
+
    ```bash
    Property: msg.payload
    Format: Mustache template
@@ -468,13 +444,16 @@ This is the code we need to transmit again to replicate the same remote function
    }'
    In the Output as field, "select Parsed JSON".
    ```
+
 5. Click Done.
 6. Drag a debug node and connect it to the output of the RM node.
 7. Connect the Inject node to the Template node, and the template node to the RM node.
 8. Click Deploy to activate the flow, and then click the inject button. The debug window should show a debug message. For example:
+
    ```bash
    {"action":"send","data":   [38,0,152,0,0,1,39,148,19,18,18,19,18,55,19,18,18,19,18,19,18,19,18,55,18,56,18,19,18,55,18,19,18,56,18,18,19,55,18,19,18,19,18,18,18,56,18,19,18,18,19,55,18,56,18,18,19,18,18,19,18,19,18,55,19,18,18,19,18,19,18,19,18,18,18,19,18,19,18,55,19,55,18,19,18,19,18,18,19,18,18,56,18,19,18,18,19,55,18,56,18,18,19,18,18,19,18,19,18,19,18,18,19,18,18,56,18,55,18,19,18,19,18,19,18,18,19,55,18,19,18,55,19,18,18,56,18,19,18,18,19,18,18,19,18,19,18,19,18,18,18,56,18,0,13,5],"status":"OK"}
    ```
+
 The "status" : "OK" at the end is a feedback that the Broadlink RM device is connected and has transmitted the payload.
 
 Now you can add as many template nodes, each having a specific code, and add any type of input nodes to activate the template and transmit the code.
@@ -483,13 +462,75 @@ Now you can add as many template nodes, each having a specific code, and add any
 
 It is also possible to obtain codes using `broadlink_cli` from [python-broadlink](https://github.com/mjg59/python-broadlink) project.
 
+First use discovery to find your Broadlink device:
+
+```bash
+$ ./broadlink_discovery
+Discovering...
+###########################################
+RM2
+# broadlink_cli --type 0x2787 --host 192.168.1.137 --mac 34ea34b45d2c
+Device file data (to be used with --device @filename in broadlink_cli) :
+0x2787 192.168.1.137 34ea34b45d2c
+temperature = 27.1
+```
+
+Then use this info in a cli-command. IR and RF learning are supported.
+
+#### Learning IR codes
+
+Use `--learn` to obtain IR codes:
+
+```bash
+./broadlink_cli --learn --device "0x2787 192.168.1.137 34ea34b45d2c"
+Learning...
+```
+
+Press a button on the remote and you get the code:
+
+```txt
+260058000001219512131114113910141114111411141114103911391114103911391139103911391039113911141039111411391015103911141114113910141139111410391114110005250001274b11000c520001274b11000d05
+Base64: b'JgBYAAABIZUSExEUETkQFBEUERQRFBEUEDkROREUEDkRORE5EDkRORA5ETkRFBA5ERQRORAVEDkRFBEUETkQFBE5ERQQOREUEQAFJQABJ0sRAAxSAAEnSxEADQU='
+```
+
+#### Learning RF codes
+
+Use `--rfscanlearn` to obtain RF codes:
+
+```bash
+$ ./broadlink_cli --rfscanlearn --device "0x2787 192.168.1.137 34ea34b45d2c"
+Learning RF Frequency, press and hold the button to learn...
+```
+
+Press and hold a button on the remote.
+
+```txt
+Found RF Frequency - 1 of 2!
+You can now let go of the button
+Press enter to continue...
+```
+
+Press enter.
+
+```txt
+To complete learning, single press the button you want to learn
+```
+
+Short press the button and you get the code:
+
+```txt
+Found RF Frequency - 2 of 2!
+b2002c0111211011211121112111212110112122101121112111202210211121112110221011211121112121102210112121111021112221101121211100017b10211111211121102111212210112121111121102111212210211121102210211111211121102122102111112121101121112122101121211000017c10211111211022102111212210112121111022102112202210211121102210221011211022102122102210112121101122102122101121211100017b10211111211121102210212210112122101121102210212210221021112110221011211121112121102210112121111121102122101121221000017b1121101121112111211121211110212210112111211121211121102210211121101121112111212111211011222110112111212111112121100005dc000000000000000000000000
+Base64: b'sgAsAREhEBEhESERIREhIRARISIQESERIREgIhAhESERIRAiEBEhESERISEQIhARISERECERIiEQESEhEQABexAhEREhESEQIREhIhARISERESEQIREhIhAhESEQIhAhEREhESEQISIQIRERISEQESERISIQESEhEAABfBAhEREhECIQIREhIhARISERECIQIRIgIhAhESEQIhAiEBEhECIQISIQIhARISEQESIQISIQESEhEQABexAhEREhESEQIhAhIhARISIQESEQIhAhIhAiECERIRAiEBEhESERISEQIhARISERESEQISIQESEiEAABexEhEBEhESERIREhIREQISIQESERIREhIREhECIQIREhEBEhESERISERIRARIiEQESERISERESEhEAAF3AAAAAAAAAAAAAAAAA=='
+```
+
 ### Conversion of codes from other projects
 
 For old/awkward devices another possibility is to try to get codes by using data gathered by the LIRC project.
 
 Assuming that your (or similar) device is in one of these databases:
 
-- https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/
-- https://github.com/probonopd/irdb/tree/master/
+- <https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/>
+- <https://github.com/probonopd/irdb/tree/master/>
 
 You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.

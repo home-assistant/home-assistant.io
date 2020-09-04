@@ -1,10 +1,14 @@
 ---
-title: "VeSync Integration"
-description: "Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant."
-logo: vesync.png
+title: Etekcity VeSync
+description: Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant.
 ha_category:
   - Switch
 ha_release: 0.66
+ha_config_flow: true
+ha_codeowners:
+  - '@markperdue'
+  - '@webdjoe'
+ha_domain: vesync
 ---
 
 The `vesync` integration enables you to control Etekcity smart switches and outlets connected to the VeSync App.
@@ -85,6 +89,7 @@ Adapted from the [TP-Link integration](https://www.home-assistant.io/integration
 ```yaml
 sensor:
   - platform: template
+    sensors:
       vesync_switch_watts:
         friendly_name_template: "{{ states.switch.vesync_switch.name}} Current Consumption"
         value_template: '{{ states.switch.vesync_switch.attributes["current_power_w"] | float }}'

@@ -1,11 +1,11 @@
 ---
-title: "Sigfox Sensor"
-description: "Display messages from Sigfox devices in Home Assistant."
-logo: sigfox.png
+title: Sigfox
+description: Display messages from Sigfox devices in Home Assistant.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.68
+ha_domain: sigfox
 ---
 
 [SigFox](https://www.sigfox.com/en) integration adding a sensor for each Sigfox device registered with your account. The default name of sensors is `sigfox_{DEVICE_ID}` where `DEVICE_ID` is the devices Sigfox ID. The state of an added Sigfox sensor is the payload of the last message published by that device. Additionally, there are attributes for the latitude and longitude coordinates of the device, as well as the signal-to-noise ratio ([snr](https://en.wikipedia.org/wiki/Signal-to-noise_ratio)).

@@ -1,13 +1,15 @@
 ---
-title: "PCAL9535A I2C GPIO expander"
-description: "Instructions on how to integrate the PCAL9535A GPIO pin expander with I2C interface into Home Assistant."
-logo: raspberry-pi.png
+title: PCAL9535A I/O Expander
+description: Instructions on how to integrate the PCAL9535A GPIO pin expander with I2C interface into Home Assistant.
 ha_category:
   - DIY
   - Binary Sensor
   - Switch
 ha_release: 0.102
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@Shulyaka'
+ha_domain: pcal9535a
 ---
 
 The `pcal9535a` integration is the base for all related pcal9535a platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms, please check their corresponding sections.

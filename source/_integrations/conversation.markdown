@@ -1,11 +1,13 @@
 ---
-title: "Conversation"
-description: "Instructions on how to have conversations with your Home Assistant."
-logo: home-assistant.png
+title: Conversation
+description: Instructions on how to have conversations with your Home Assistant.
 ha_category:
-  - "Voice"
-ha_qa_scale: internal
+  - Voice
 ha_release: 0.7
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: conversation
 ---
 
 The conversation integration allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
@@ -77,7 +79,7 @@ intent_script:
       text: Changed the lights to {{ color }}.
     action:
       service: light.turn_on
-      data_template:
+      data:
         rgb_color:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"

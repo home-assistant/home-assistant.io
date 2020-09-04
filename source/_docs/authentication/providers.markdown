@@ -22,6 +22,8 @@ However, this feature is deprecated and will be removed in a future release so y
 
 Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
 
+This means that if you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider``type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
+
 </div>
 
 Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. You can supply more than one, for example:
@@ -87,8 +89,8 @@ trusted_users:
   required: false
   type: map
   keys:
-    IP_ADDRESS:
-      description: List of users available to select on this IP address or network.
+    USER_ID:
+      description: List of user ids available to select on this IP address or network.
       required: false
       type: [list, string]
 allow_bypass_login:
@@ -118,7 +120,7 @@ homeassistant:
           - group: system-users
 ```
 
-First note, for `trusted_users` configuration you need to use `user id`, which you can find through Configuration -> Users -> View User Detail. The `trusted_users` configuration will not validate the existing of the user, so please make sure you have put in the correct user id by yourself.
+First note, for `trusted_users` configuration you need to use `user id`, which you can find through Configuration -> Users -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
 
 Second note, a trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
 
@@ -143,13 +145,13 @@ homeassistant:
     - type: homeassistant
 ```
 
-Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use HomeAsssitant Authentication Provider to login, if you access your Home Assistant instance from outside network.
+Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
 
 ### Command Line
 
 The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
-This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance.
+This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation type.
 
 Here is a configuration example:
 

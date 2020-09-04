@@ -1,10 +1,11 @@
 ---
-title: "Graphite"
-description: "Instructions on how to record Home Assistant history in Graphite."
+title: Graphite
+description: Instructions on how to record Home Assistant history in Graphite.
 logo: graphite.png
 ha_category:
   - History
 ha_release: 0.13
+ha_domain: graphite
 ---
 
 The `graphite` integration records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.
@@ -33,4 +34,3 @@ prefix:
   type: string
   default: ha
 {% endconfiguration %}
-

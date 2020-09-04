@@ -1,10 +1,10 @@
 ---
 title: "Sensor Card"
 sidebar_label: Sensor
-description: "The sensor card gives you information about the sensor state"
+description: "The Sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time."
 ---
 
-The sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time.
+The Sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_sensor.png' alt='Screenshot of the sensor card'>

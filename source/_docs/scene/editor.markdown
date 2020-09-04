@@ -73,5 +73,5 @@ For example:
 ```
 
 <div class='note'>
-Any comments in the YAML file will be lost and templates will be reformatted when you update an automation via the editor.
+Any comments in the YAML file will be lost and templates will be reformatted when you update a scene via the editor.
 </div>

@@ -1,11 +1,13 @@
 ---
-title: "Foscam IP Camera"
-description: "Instructions on how to integrate Foscam IP cameras within Home Assistant."
-logo: foscam.png
+title: Foscam
+description: Instructions on how to integrate Foscam IP cameras within Home Assistant.
 ha_category:
   - Camera
 ha_iot_class: Local Polling
 ha_release: 0.7.3
+ha_codeowners:
+  - '@skgsergio'
+ha_domain: foscam
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
@@ -62,7 +64,7 @@ If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
 
 | Service data attribute | Description |
 | -----------------------| ----------- |
-| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Else targets all. |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 | `movement` | 	Direction of the movement. Allowed values: `up`, `down`, `left`, `right`, `top_left`, `top_right`, `bottom_left`, `bottom_right` |
 | `travel_time` | (Optional) Travel time in seconds. Allowed values: float from 0 to 1. Default: 0.125 |
 
@@ -182,4 +184,4 @@ elements:
 
 ### Extra CGI Commands
 
-Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)). For an example of how this can be done, see the [Foscam IP Camera Pan, Tilt, Zoom Control](/cookbook/foscam_away_mode_PTZ/) Cookbook entry.
+Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)). For an example of how this can be done, see the [Foscam IP Camera Pan, Tilt, Zoom Control](/cookbook/foscam_away_mode_PTZ/) Cookbook entry.

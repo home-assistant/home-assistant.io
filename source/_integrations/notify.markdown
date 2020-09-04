@@ -1,14 +1,16 @@
 ---
-title: "Notifications"
-description: "Instructions on how to add user notifications to Home Assistant."
-logo: home-assistant.png
+title: Notifications
+description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
-ha_qa_scale: internal
 ha_release: 0.7
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
+ha_domain: notify
 ---
 
-The `notify` integration makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
+The `notify` integration makes it possible to send notifications to a wide variety of platforms. To use it you have to setup at least one notification target (notifier), check the [integrations list](/integrations/#notifications) for one that fits your use case.
 
 If you want to send notifications to the Home Assistant web interface, you may use the [Persistent Notification integration](/integrations/persistent_notification/).
 
@@ -23,7 +25,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `target`               |      yes | Some platforms allow specifying a recipient that will receive the notification. See your platform page if it is supported.
 | `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
 
-The notify integration supports specifying [templates](/topics/templating/) with `data_template`. This will allow you to use the current state of Home Assistant in your notifications.
+The notify integration supports specifying [templates](/topics/templating/). This will allow you to use the current state of Home Assistant in your notifications.
 
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
@@ -37,7 +39,7 @@ action:
 
 ### Test if it works
 
-A simple way to test if you have set up your notify platform correctly, is to open **Developer Tools** from the sidebar and then select the  **Services** tab. Choose your service from the **Service** dropdown menu, enter the sample below into the **Service Data** field, and press the **CALL SERVICE** button.
+After you setup a [notifier](/integrations/#notifications) a simple way to test if you have set up your notify platform correctly, is to open **Developer Tools** from the sidebar and then select the  **Services** tab. Choose your service from the **Service** dropdown menu, enter the sample below into the **Service Data** field, and press the **CALL SERVICE** button.
 
 ```json
 {
@@ -50,7 +52,7 @@ The automation equivalent would be:
 ```yaml
 action:
   service: notify.notify
-  data_template:
+  data:
     message: "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
 ```
 

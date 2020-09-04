@@ -37,7 +37,7 @@ This release also features native support for [ESPHome](https://esphomelib.com/e
 - Add native ESPHome API component ([@OttoWinter] - [#19334]) (new-platform)
 - Add GTT Sensor ([@eliseomartelli] - [#18449]) ([sensor.gtt docs]) (new-platform)
 - Add openSenseMap air pollutants platform ([@fabaff] - [#19357]) ([air_pollutants docs]) (new-platform)
-- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) ([sensor.prezzibenzina docs]) (new-platform)
+- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) (new-platform)
 - Add sensor platform for SolarEdge Monitoring API ([@GidoHakvoort] - [#18846]) ([sensor.solaredge docs]) (new-platform)
 - Add Mythic Beasts DNSAPI Component ([@thinkl33t] - [#18333]) ([mythicbeastsdns docs]) (new-platform)
 - Add new sensor platform to expose Islamic prayer times ([@uchagani] - [#19444]) ([sensor.islamic_prayer_times docs]) (new-platform)
@@ -78,7 +78,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- Targetting all entities in a domain by not sending an entity_id to a service is now deprecated. Instead, send `entity_id: all` if you want to target all. The old method will work for a couple of releases more, but will print a warning. Please migrate. ([@balloob] - [#19006]) (breaking change)
+- Targeting all entities in a domain by not sending an entity_id to a service is now deprecated. Instead, send `entity_id: all` if you want to target all. The old method will work for a couple of releases more, but will print a warning. Please migrate. ([@balloob] - [#19006]) (breaking change)
 - The default interval of the weather component was aligned with the sensor component and is now 30 seconds instead of 15 seconds. ([@fabaff] - [#19186]) ([weather docs]) (breaking change)
 -  In order to fix the below bug, default entity_ids will change (for example, `sensor.17track_packages_delivered` will change to `sensor.seventeentrack_packages_delivered)`. ([@bachya] - [#19213]) ([sensor.seventeentrack docs]) (breaking change)
 - Change `STATE_AUTO` to `STATE_HEAT` and `STATE_AWAY` to `STATE_ECO` to conform to climate DOMAIN standards. Change made to fix Alexa/Google Assistant support for this component. ([@marchingphoenix] - [#19242]) ([climate.eq3btsmart docs]) (breaking change)
@@ -215,7 +215,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add openSenseMap air pollutants platform ([@fabaff] - [#19357]) ([air_pollutants docs]) (new-platform)
 - Optionally disable ssl verification for mjpeg ([@rohankapoorcom] - [#19277]) ([zoneminder docs]) ([camera.mjpeg docs]) ([camera.zoneminder docs])
 - Use string foratting ([@fabaff] - [#19427]) ([sensor.brottsplatskartan docs])
-- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) ([sensor.prezzibenzina docs]) (new-platform)
+- Add Prezzibenzina (Italian Fuel Price) Sensor ([@eliseomartelli] - [#19297]) (new-platform)
 - Upgrade sqlalchemy to 1.2.15 ([@fabaff] - [#19383]) ([sensor.sql docs])
 - Upgrade requests to 2.21.0 ([@fabaff] - [#19385])
 - Miscellaneous ESPHome cleanups ([@OttoWinter] - [#19425]) ([esphome docs]) ([binary_sensor.esphome docs]) ([switch.esphome docs])
@@ -862,7 +862,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.openweathermap docs]: /integrations/openweathermap#sensor
 [sensor.plum_lightpad docs]: /integrations/plum_lightpad
 [sensor.point docs]: /integrations/point#sensor
-[sensor.prezzibenzina docs]: /integrations/prezzibenzina
 [sensor.scrape docs]: /integrations/scrape
 [sensor.seventeentrack docs]: /integrations/seventeentrack
 [sensor.solaredge docs]: /integrations/solaredge

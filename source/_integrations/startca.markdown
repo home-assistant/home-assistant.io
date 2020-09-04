@@ -1,11 +1,11 @@
 ---
-title: "Start.ca"
-description: "Instructions on how to integrate Start.ca data usage within Home Assistant."
-logo: startca.png
+title: Start.ca
+description: Instructions on how to integrate Start.ca data usage within Home Assistant.
 ha_category:
   - Network
 ha_release: 0.64
 ha_iot_class: Cloud Polling
+ha_domain: startca
 ---
 
 Integrate your [Start.ca](https://www.start.ca/) account information into Home Assistant.
@@ -76,5 +76,5 @@ monitored_conditions:
     total_download:
       description: Total bandwidth upload (Grace + Used) (gigabytes).
     used_remaining:
-      description: Remaining bandwidth calucated from used and supplied total bandwidth (gigabytes).
+      description: Remaining bandwidth calculated from used and supplied total bandwidth (gigabytes).
 {% endconfiguration %}

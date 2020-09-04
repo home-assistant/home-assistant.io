@@ -1,11 +1,13 @@
 ---
-title: "Serial Sensor"
-description: "Instructions on how to integrate data from serial connected sensors into Home Assistant."
-logo: home-assistant.png
+title: Serial
+description: Instructions on how to integrate data from serial connected sensors into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.56
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@fabaff'
+ha_domain: serial
 ---
 
 The `serial` sensor platform is using the data provided by a device connected to the serial port of the system where Home Assistant is running. With [`ser2net`](http://ser2net.sourceforge.net/) and [`socat`](http://www.dest-unreach.org/socat/) would it also work for sensors connected to a remote system.
@@ -41,6 +43,36 @@ baudrate:
   required: false
   default: 9600 Bps
   type: integer
+bytesize:
+  description: "Number of data bits. Possible values: `5=FIVEBITS`, `6=SIXBITS`, `7=SEVENBITS`, `8=EIGHTBITS`."
+  required: false
+  default: 8
+  type: integer
+parity:
+  description: "Enable parity checking. Possible values: `N=PARITY_NONE`, `E=PARITY_EVEN`, `O=PARITY_ODD`, `M=PARITY_MARK`, `S=PARITY_SPACE`."
+  required: false
+  default: "N"
+  type: string
+stopbits:
+  description: "Number of stop bits. Possible values: `1=STOPBITS_ONE`, `1.5=STOPBITS_ONE_POINT_FIVE`, `2=STOPBITS_TWO`."
+  required: false
+  default: 1
+  type: float
+xonxoff: 
+  description: Enable software flow control.
+  required: false
+  default: False
+  type: boolean
+rtscts:
+  description: Enable hardware (RTS/CTS) flow control.
+  required: false
+  default: False
+  type: boolean
+dsrdtr:
+  description: Enable hardware (DSR/DTR) flow control.
+  required: false
+  default: False
+  type: boolean
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the serial line."
   required: false

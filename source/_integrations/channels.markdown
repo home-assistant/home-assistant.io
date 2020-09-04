@@ -1,13 +1,12 @@
 ---
-title: "Channels"
-description: "Instructions on how to integrate Channels into Home Assistant."
-logo: channels.png
+title: Channels
+description: Instructions on how to integrate Channels into Home Assistant.
 ha_category:
   - Media Player
 ha_release: 0.65
 ha_iot_class: Local Polling
+ha_domain: channels
 ---
-
 
 The Channels platform allows you to control [Channels](https://getchannels.com/) from Home Assistant. Play, pause, seek, or skip commercials on an instance of Channels that is running on your network.
 
@@ -40,7 +39,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### Service `channels_seek_forward`
+### Service `seek_forward`
 
 Seek forward by the number of seconds currently set in settings on the instance of Channels.
 
@@ -49,7 +48,7 @@ Seek forward by the number of seconds currently set in settings on the instance 
 | `entity_id` | no | String that points at `entity_id` of Channels app.
 
 
-### Service `channels_seek_backward`
+### Service `seek_backward`
 
 Seek backward by the number of seconds currently set in settings on the instance of Channels.
 
@@ -57,7 +56,7 @@ Seek backward by the number of seconds currently set in settings on the instance
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String that points at `entity_id` of Channels app.
 
-### Service `channels_seek_by`
+### Service `seek_by`
 
 Seek forward or backward by a provided number of seconds.
 

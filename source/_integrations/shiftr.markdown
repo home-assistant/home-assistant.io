@@ -1,10 +1,12 @@
 ---
-title: "Shiftr.io"
-description: "Transfer events to Shiftr.io."
-logo: shiftr.png
+title: shiftr.io
+description: Transfer events to Shiftr.io.
 ha_category:
-  - "History"
+  - History
 ha_release: 0.48
+ha_codeowners:
+  - '@fabaff'
+ha_domain: shiftr
 ---
 
 The `shiftr` integration makes it possible to transfer details collected with Home Assistant to [Shiftr.io](https://shiftr.io) and visualize the flow of the information. Keep in mind that your details will be public!

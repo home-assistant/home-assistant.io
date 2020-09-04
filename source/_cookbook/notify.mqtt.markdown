@@ -31,7 +31,7 @@ The same will work for automations.
 
 ### REST API
 
-Using the [REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) to send a message to a given topic.
+Using the [REST API](https://developers.home-assistant.io/docs/api/rest/ to send a message to a given topic.
 
 ```bash
 $ curl -X POST \
@@ -63,7 +63,7 @@ script:
   notify_mqtt:
     sequence:
       - service: mqtt.publish
-        data_template:
+        data:
           payload: "{{ message }}"
           topic: home/"{{ target }}"
           retain: true

@@ -1,11 +1,11 @@
 ---
-title: "qBittorrent Sensor"
-description: "Instructions on how to integrate qBittorrent sensors within Home Assistant."
-logo: qbittorrent.png
+title: qBittorrent
+description: Instructions on how to integrate qBittorrent sensors within Home Assistant.
 ha_category:
   - Downloading
 ha_release: 0.84
 ha_iot_class: Local Polling
+ha_domain: qbittorrent
 ---
 
 The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.

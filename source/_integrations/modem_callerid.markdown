@@ -1,10 +1,11 @@
 ---
-title: "Caller ID Sensor"
-description: "Instructions on how to integrate the Caller ID sensor into Home Assistant."
+title: Modem Caller ID
+description: Instructions on how to integrate the Caller ID sensor into Home Assistant.
 ha_category:
   - Sensor
-ha_release: "0.40"
+ha_release: '0.40'
 ha_iot_class: Local Polling
+ha_domain: modem_callerid
 ---
 
 The `modem_callerid` integration uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
@@ -93,7 +94,7 @@ automation:
       to: "callerid"
     action:
       service: tts.google_say
-      data_template:
+      data:
         message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}'
 ```
 {% endraw %}

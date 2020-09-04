@@ -6,6 +6,7 @@ ha_category:
   - Sensor
 ha_release: 0.38
 ha_iot_class: Local Polling
+ha_domain: rflink
 ---
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -18,7 +19,7 @@ After configuring the RFLink hub, sensors will be automatically discovered and a
 
 RFLink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own.
 
-Once the ID of a sensor is known, it can be used to configure the sensor in Home Assistant, for example to add it to a different group, hide it or configure a nice name.
+Once the ID of a sensor is known, it can be used to configure the sensor in Home Assistant, for example to add it to a different group or configure a nice name.
 
 Configuring a device as a sensor:
 
@@ -63,13 +64,9 @@ devices:
           description: "Alternative RFLink ID's this device is known by."
           required: false
           type: [list, string]
-        aliasses:
-          description: "(**deprecated**) Alternative RFLink ID's this device is known by."
-          required: false
-          type: [list, string]
 {% endconfiguration %}
 
-## Sensors types
+## Sensor types
 
 Sensor type values:
 
@@ -111,7 +108,6 @@ Sensor type values:
 Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
 - Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
-- Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/integrations/rflink/#ignoring-devices)
 
 ## Device support

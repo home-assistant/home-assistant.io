@@ -1,11 +1,13 @@
 ---
-title: "RMV"
-description: "Instructions on how to integrate Rhein-Main public transport departure times into Home Assistant."
-logo: RMV.png
+title: RMV
+description: Instructions on how to integrate Rhein-Main public transport departure times into Home Assistant.
 ha_category:
   - Transport
 ha_release: 0.76
 ha_iot_class: Cloud Polling
+ha_codeowners:
+  - '@cgtobi'
+ha_domain: rmvtransport
 ---
 
 The `rvmtransport` sensor will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
@@ -43,7 +45,7 @@ next_departure:
       default: The default is the station name.
       type: string
     station:
-      description: "ID of the stop or station, e.g. `3000010`."
+      description: "ID of the stop or station, e.g.,  `3000010`."
       required: true
       type: string
     destinations:
@@ -59,9 +61,9 @@ next_departure:
       required: false
       type: [string, integer]
     products:
-      description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
+      description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
       required: false
-      default: ['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']
+      default: ['U-Bahn', 'Tram', 'Bus', 'S', 'RB', 'RE', 'EC', 'IC', 'ICE']
       type: [string]
     time_offset:
       description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
@@ -97,7 +99,7 @@ sensor:
           - 'RB'
           - 'RE'
           - 'Bus'
-          - 'S-Bahn'
+          - 'S'
       - station: 3006907
         products: 'Bus'
         destinations: ['Wiesbaden Dernsches Gelände', 'Mainz Hauptbahnhof']
@@ -105,7 +107,7 @@ sensor:
       - station: 3006904
         lines: 'S8'
         max_journeys: 5
-        products: 'S-Bahn'
+        products: 'S'
 ```
 
 The first sensor will return S-Bahn, bus, RB and RE trains departures from Frankfurt Hauptbahnhof to Frankfurt Airport or Stadium that are at least 5 minutes away.

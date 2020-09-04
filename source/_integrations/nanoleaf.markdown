@@ -1,11 +1,11 @@
 ---
-title: "Nanoleaf Light Panel"
-description: "Instructions how to integrate Nanoleaf Light Panels into Home Assistant."
-logo: nanoleaf_light.png
+title: Nanoleaf
+description: Instructions how to integrate Nanoleaf Light Panels into Home Assistant.
 ha_category:
   - Light
 ha_iot_class: Local Polling
 ha_release: 0.67
+ha_domain: nanoleaf
 ---
 
 ### Configuration Sample

@@ -1,19 +1,20 @@
 ---
-title: "IFTTT"
-description: "Instructions on how to setup IFTTT within Home Assistant."
-logo: ifttt.png
+title: IFTTT
+description: Instructions on how to setup IFTTT within Home Assistant.
 ha_category:
   - Automation
 featured: true
 ha_iot_class: Cloud Push
-ha_release: 0.80
+ha_release: 0.8
+ha_config_flow: true
+ha_domain: ifttt
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
 
 ## Sending events from IFTTT to Home Assistant
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/integrations/http/#base_url)).
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic).
 
 ### Setting up the integration
 
@@ -43,9 +44,9 @@ automation:
     platform: event
   condition: []
   action:
-  - data_template:
+  - data:
       entity_id: '{{ trigger.event.data.entity_id }}'
-    service_template: '{{ trigger.event.data.service }}'
+    service: '{{ trigger.event.data.service }}'
 ```
 {% endraw %}
 
@@ -99,7 +100,7 @@ Service Data | `{"event": "EventName", "value1": "Hello World"}`
 When your screen looks like this, click the 'call service' button.
 </p>
 
-By default the trigger is sent to all the api keys from `configuration.yaml`. If you
+By default, the trigger is sent to all the API keys from `configuration.yaml`. If you
 want to send the trigger to a specific key use the `target` field:
 
 Field | Value
@@ -138,7 +139,7 @@ automation:
 ```
 {% endraw %}
 
-IFTTT can also be used in scripts and with `data_template`.  Here is the above automation broken into an automation and script using variables and data_templates.
+IFTTT can also be used in scripts and with templates. Here is the above automation broken into an automation and script using variables and templates.
 
 {% raw %}
 ```yaml
@@ -150,7 +151,7 @@ automation:
     event: start
   action:
     service: script.ifttt_notify
-    data_template:
+    data:
       value1: 'HA Status:'
       value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
       value3: "{{ trigger.event.data.to_state.state }}"
@@ -163,7 +164,7 @@ automation:
 ifttt_notify:
   sequence:
     - service: ifttt.trigger
-      data_template: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
+      data: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
 {% endraw %}
 

@@ -1,11 +1,11 @@
 ---
 title: "RESTful Binary Sensor"
 description: "Instructions on how to integrate REST binary sensors into Home Assistant."
-logo: restful.png
 ha_category:
   - Binary Sensor
 ha_release: "0.10"
 ha_iot_class: Local Polling
+ha_domain: rest
 ---
 
 The `rest` binary sensor platform is consuming a given endpoint which is exposed
@@ -49,6 +49,14 @@ binary_sensor:
     resource: http://IP_ADDRESS/ENDPOINT
     method: POST
 ```
+or a template based request:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: rest
+    resource_template: {% raw %} "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}" {% endraw %}
+```
 
 {% configuration %}
 resource:
@@ -56,6 +64,10 @@ resource:
   required: true
   type: string
   default: string
+resource_template:
+  description: The resource or endpoint that contains the value with template support.
+  required: false
+  type: template
 method:
   description: The method of the request.
   required: false
@@ -107,10 +119,6 @@ headers:
   required: false
   type: [list, string]
 {% endconfiguration %}
-
-<div class='note warning'>
-Make sure that the URL exactly matches your endpoint or resource.
-</div>
 
 ## Examples
 

@@ -1,11 +1,12 @@
 ---
-title: "Crime Reports"
-description: "Instructions on how to integrate CrimeReports.com into Home Assistant."
+title: Crime Reports
+description: Instructions on how to integrate CrimeReports.com into Home Assistant.
 ha_category:
   - Social
 logo: crimereports.png
 ha_release: 0.42
 ha_iot_class: Cloud Polling
+ha_domain: crimereports
 ---
 
 The `crimereports` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Crime Reports](https://www.crimereports.com). Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.
