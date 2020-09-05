@@ -61,7 +61,8 @@ unit_of_measurement:
 initial_state:
   description: Sets the initial state for automations, `on` or `off`.
   required: false
-  type: string
+  type: boolean
+  default: None
 {% endconfiguration %}
 
 #### Device Class
