@@ -2,7 +2,6 @@
 title: Emulated Kasa
 description: Instructions on how to integrate Emulated Kasa within Home Assistant.
 ha_category:
-  - Hub
   - Energy
 ha_iot_class: Local Push
 ha_release: 0.112
@@ -14,16 +13,17 @@ ha_domain: emulated_kasa
 
 The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network. 
 
-For example, the [Sense Energy Monitor](/integrations/sense) can use this to idenfity power usage.
+For example, the [Sense Energy Monitor](/integrations/sense) can use this to identify power usage.
 
 The configuration includes a list of entities to expose with attributes for the published name and current power usage.
 If the entity is a sensor or has a `current_power_w` attribute (such as in a smart switch), that value will be reported as the current power usage unless the power field is defined.
-The power field can contain a hard coded value, a sensor, or a template (see configuration example). 
+The power field can contain a hardcoded value, a sensor, or a template (see configuration example).
 
 <div class='note'>
-The provided power unit must be the current power usage in Watts.  Values of `kw` can be converted, but values of `kwh` cannot be used.
-</div>
 
+The provided power unit must be the current power usage in Watts.  Values of `kW` can be converted, but the values of `kWh` cannot be used.
+
+</div>
 
 ## Configuration
 
@@ -40,20 +40,20 @@ emulated_kasa:
 
 {% configuration %}
 entities:
-  description: A list of entities exposed
+  description: A list of entities exposed.
   required: true
   type: map
   keys:
     name:
-      description: Name visible to external devices
+      description: Name visible to external devices.
       required: false
       type: string
     power:
-      description: The current power usage in Watts.  This can be set to a static value or a template 
+      description: The current power usage in watts. This can be set to a static value or a template.
       required: false
       type: [integer,float,template]
     power_entity:
-      description: A sensor measuring the current power usage in watts 
+      description: A sensor measuring the current power usage in watts.
       required: false
       type: string
 {% endconfiguration %}
