@@ -101,10 +101,10 @@ Gympie          HallsCreek      Hobart          Kalgoorlie      Katherine
 Learmonth       Longreach       Mackay          Marburg         Melbourne
 Mildura         Moree           MorningtonIs    MountIsa        MtGambier
 Namoi           Newcastle       Newdegate       NorfolkIs       NWTasmania
-Perth           PortHedland     SellicksHill    SouthDoodlakine Sydney
-Townsville      WaggaWagga      Warrego         Warruwi         Watheroo
-Weipa           WillisIs        Wollongong      Woomera         Wyndham
-Yarrawonga
+Perth           PortHedland     Rainbow         SellicksHill    SouthDoodlakine
+Sydney          Townsville      WaggaWagga      Warrego         Warruwi
+Watheroo        Weipa           WillisIs        Wollongong      Woomera
+Wyndham         Yarrawonga
 ```
 
 ### Examples
