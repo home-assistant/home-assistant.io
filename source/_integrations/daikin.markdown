@@ -37,12 +37,13 @@ The Daikin integration can be configured via the Home Assistant user interface w
 
 <div class='note'>
   
-If your Daikin unit does not reside in the same network as your HA, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
-- From HA to the Daikin controller: UDP:30000 => 30050
-- From the Daikin controller to HA: UDP:\<random port> => 30000
+If your Daikin unit does not reside in the same network as your Home Assistant instance, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
 
-You will need to adjust your firewall(s) accordingly. 
-  
+- From Home Assistant to the Daikin controller: `UDP:30000` => `30050`
+- From the Daikin controller to Home Assistant: `UDP:<random port>` => `30000`
+
+If this situation applies to you, you may need to adjust your firewall(s) accordingly.
+
 </div>
 
 ## Climate
