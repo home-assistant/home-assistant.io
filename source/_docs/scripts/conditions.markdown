@@ -146,6 +146,18 @@ condition:
   below: 25
 ```
 
+Number helpers (`input_number` entities) can be used in the `above` and `below`
+options to make the condition more dynamic.
+
+```yaml
+condition:
+  condition: numeric_state
+  entity_id: climate.living_room_thermostat
+  attribute: temperature
+  above: input_number.temperature_threshold_low
+  below: input_number.temperature_threshold_high
+```
+
 ### State condition
 
 Tests if an entity is a specified state.
