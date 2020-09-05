@@ -73,10 +73,10 @@ file.
 
 If no path is provided via the optional argument, the integration defaults to '/' (root).
 
-**Note:** The disk usage sensors do not support monitoring folder/directory sizes. Instead it is only concerned with "disks" (more specifically mount points on Linux).
+**Note:** The disk usage sensors do not support monitoring folder/directory sizes. Instead, it is only concerned with "disks" (more specifically mount points on Linux).
 
-Example output of `df -H`:
-```
+```bash
+$ df -H
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/root        29G   12G   16G  42% /
 devtmpfs        805M     0  805M   0% /dev
