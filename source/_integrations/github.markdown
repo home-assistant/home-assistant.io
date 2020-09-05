@@ -1,6 +1,6 @@
 ---
 title: GitHub
-description: How to integrate the GitHub sensor into Home Assistant.
+description: How to integrate the GitHub integration into Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.88
@@ -15,7 +15,7 @@ The GitHub sensor integrates data from [GitHub](https://github.com/) to monitor 
 
 ## Setup
 
-To set up this sensor you will need a [personal access token](https://github.com/settings/tokens). You will need to check the `repo` scope for the sensor to function.
+To set up the integration you will need a [personal access token](https://github.com/settings/tokens) with the the `repo` scope.
 
 ## Configuration
 
