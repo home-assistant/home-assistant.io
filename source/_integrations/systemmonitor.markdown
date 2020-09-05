@@ -40,34 +40,34 @@ resources:
 {% endconfiguration %}
 
 The table contains types and their argument to use in your `configuration.yaml`
-file. Mandatory arguments are marked with a `*`.
+file.
 
-| Type (`type:`)         | Argument (`arg:`)         |
-| :--------------------- |:--------------------------|
-| disk_use_percent       | Path, e.g., `/`           |
-| disk_use               | Path, e.g., `/`           |
-| disk_free              | Path, e.g., `/`           |
-| memory_use_percent     |                           |
-| memory_use             |                           |
-| memory_free            |                           |
-| swap_use_percent       |                           |
-| swap_use               |                           |
-| swap_free              |                           |
-| load_1m                |                           |
-| load_5m                |                           |
-| load_15m               |                           |
-| network_in             | Interface*, e.g., `eth0`   |
-| network_out            | Interface*, e.g., `eth0`   |
-| throughput_network_in  | Interface*, e.g., `eth0`   |
-| throughput_network_out | Interface*, e.g., `eth0`   |
-| packets_in             | Interface*, e.g., `eth0`   |
-| packets_out            | Interface*, e.g., `eth0`   |
-| ipv4_address           | Interface*, e.g., `eth0`   |
-| ipv6_address           | Interface*, e.g., `eth0`   |
-| processor_use          |                           |
-| processor_temperature  |                           |
-| process                | Binary *, e.g., `octave-cli` |
-| last_boot              |                           |
+| Type (`type:`)         | Argument (`arg:`)         | Argument mandatory        |
+| :--------------------- |:--------------------------|:--------------------------|
+| disk_use_percent       | Path, e.g., `/`           | -                          |
+| disk_use               | Path, e.g., `/`           | -                          |
+| disk_free              | Path, e.g., `/`           | -                          |
+| memory_use_percent     |                           |                           |
+| memory_use             |                           |                           |
+| memory_free            |                           |                           |
+| swap_use_percent       |                           |                           |
+| swap_use               |                           |                           |
+| swap_free              |                           |                           |
+| load_1m                |                           |                           |
+| load_5m                |                           |                           |
+| load_15m               |                           |                           |
+| network_in             | Interface, e.g., `eth0`   | &check;                   |
+| network_out            | Interface, e.g., `eth0`   | &check;                   |
+| throughput_network_in  | Interface, e.g., `eth0`   | &check;                   |
+| throughput_network_out | Interface, e.g., `eth0`   | &check;                   |
+| packets_in             | Interface, e.g., `eth0`   | &check;                   |
+| packets_out            | Interface, e.g., `eth0`   | &check;                   |
+| ipv4_address           | Interface, e.g., `eth0`   | &check;                   |
+| ipv6_address           | Interface, e.g., `eth0`   | &check;                   |
+| processor_use          |                           |                           |
+| processor_temperature  |                           |                           |
+| process                | Binary, e.g., `octave-cli` | &check;                  |
+| last_boot              |                           |                           |
 
 ## Disk usage
 
