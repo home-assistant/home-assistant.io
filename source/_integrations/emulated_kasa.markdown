@@ -42,19 +42,20 @@ emulated_kasa:
 entities:
   description: A list of entities exposed
   required: true
-  type: list
-name:
-  description: Name visible to external devices
-  required: false
-  type: string
-power:
-  description: The current power usage in Watts.  This can be set to a static value or a template 
-  required: false
-  type: integer/float/entity
-power_:
-  description: A sensor measuring the current power usage in watts 
-  required: false
-  type: template
+  type: map
+  keys:
+    name:
+      description: Name visible to external devices
+      required: false
+      type: string
+    power:
+      description: The current power usage in Watts.  This can be set to a static value or a template 
+      required: false
+      type: [integer,float,template]
+    power_entity:
+      description: A sensor measuring the current power usage in watts 
+      required: false
+      type: string
 {% endconfiguration %}
 
 A full configuration sample looks like the one below.
@@ -67,25 +68,25 @@ emulated_kasa:
     # uses the current_power_w attribute of the switch
     switch.ac:
       name: "A/C"
-	# uses the sensor state value
+    # uses the sensor state value
     sensor.power_meter:
       name: "Power Meter"
-	# uses static value
+    # uses static value
     light.dining_room:
       name: "Dining Room Lights"
       power: 40.2
-	# uses template based on state of device
+    # uses template based on state of device
     fan.ceiling_fan:
       power: >-
                 {% if is_state_attr('fan.ceiling_fan','speed', 'low') %} 2
                 {% elif is_state_attr('fan.ceiling_fan','speed', 'medium') %} 12
                 {% elif is_state_attr('fan.ceiling_fan','speed', 'high') %} 48
                 {% endif %}
-	# uses value from 3rd party sensor
+    # uses value from 3rd party sensor
     light.wled:
       name: "Strip Lights"
       power_entity: sensor.light_power_w
-	# uses template to convert device state into watts
+    # uses template to convert device state into watts
     sensor.ups_kw:
       name: UPS Power
       power: "{{ float(states('sensor.ups_kw')) * 1000 }}"
