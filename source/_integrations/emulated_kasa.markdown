@@ -34,7 +34,6 @@ This integration requires the entities exposed to be listed in your `configurati
 emulated_kasa:
   entities:
     light.dining_room:
-      name: "Dining Room Lights"
       power: 40.2
 ```
 
