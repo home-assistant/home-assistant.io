@@ -25,6 +25,9 @@ Click on the `+` sign to add an integration and click on **Risco**.
 You will be prompted for your username, password, and pin code (you can create a specific user for this purpose).
 An Alarm Control Panel entity will be created for each partition in your site, and binary sensors for each of your zones.
 
+Additionally, 4 sensors will be created to store events, depending on the category (Status, Alarm, Trouble and Other). Each sensor
+has the event timestamp as the state, and other event information in attributes.
+
 If you have multiple sites, only the first site will be used.
 
 ## Options
