@@ -20,7 +20,10 @@ The configuration includes a list of entities to expose with attributes for the 
 If the entity is a sensor or has a `current_power_w` attribute (such as in a smart switch), that value will be reported as the current power usage unless the power field is defined.
 The power field can contain a hard coded value, a sensor, or a template (see configuration example). 
 
-The resulting power usage should be in watts.
+<div class='note'>
+The provided power unit must be the current power usage in Watts.  Values of `kw` can be converted, but values of `kwh` cannot be used.
+</div>
+
 
 ## Configuration
 
@@ -45,9 +48,13 @@ name:
   required: false
   type: string
 power:
-  description: The current power usage in Watts.  This can be set to a static value, a sensor measuring the watts, or a template
+  description: The current power usage in Watts.  This can be set to a static value or a template 
   required: false
-  type: integer/float/entity/template
+  type: integer/float/entity
+power_:
+  description: A sensor measuring the current power usage in watts 
+  required: false
+  type: template
 {% endconfiguration %}
 
 A full configuration sample looks like the one below.
@@ -76,7 +83,7 @@ emulated_kasa:
 	# uses value from 3rd party sensor
     light.wled:
       name: "Strip Lights"
-      power: sensor.light_power_w
+      power_entity: sensor.light_power_w
 	# uses template to convert device state into watts
     sensor.ups_kw:
       name: UPS Power
