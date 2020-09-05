@@ -89,6 +89,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Combined Alarm Control Panal with INTERNAL and EXTERNAL Security zones (*HmIP-SecurityZone*)
 
 * homematicip_cloud.binary_sensor
+  * Access Point Cloud Connection (*HmIP-HAP, HmIP-HAP-B1*)
   * Acceleration Sensor (*HMIP-SAM*)
   * Window and door contact (*HmIP-SWDO, HmIP-SWDO-PL, HmIP-SWDO-I, HmIP-SWDM, HmIP-SWDM-B2*)
   * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
@@ -141,7 +142,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
 
 * homematicip_cloud.sensor
-  * Cloud Access point duty-cycle (*HmIP-HAP, HmIP-HAP-B1*)
+  * Access Point Duty Cycle (*HmIP-HAP, HmIP-HAP-B1*)
   * Wall Mounted Thermostat (*HmIP-WTH, HmIP-WTH2, HmIP-WTH-B*)
   * Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
   * Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
