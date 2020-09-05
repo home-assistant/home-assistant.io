@@ -70,4 +70,20 @@
     max-width: 80%;
     margin: 0 auto;
   }
+
+  .hero-button-primary {
+    border-radius: 3px;
+    background: $button-color;
+    color: $button-text;
+    padding: .75rem 2rem;
+    text-decoration: none;
+    opacity: .9;
+    margin: 0 0 1rem;
+    &:hover {
+      opacity: 1;
+    }
+    &:active {
+      background: $button-color;
+    }
+  }
 }
