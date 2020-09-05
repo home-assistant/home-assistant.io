@@ -40,7 +40,7 @@ resources:
 {% endconfiguration %}
 
 The table contains types and their argument to use in your `configuration.yaml`
-file.
+file. Mandatory arguments are marked with a `*`.
 
 | Type (`type:`)         | Argument (`arg:`)         |
 | :--------------------- |:--------------------------|
@@ -56,22 +56,35 @@ file.
 | load_1m                |                           |
 | load_5m                |                           |
 | load_15m               |                           |
-| network_in             | Interface, e.g., `eth0`   |
-| network_out            | Interface, e.g., `eth0`   |
-| throughput_network_in  | Interface, e.g., `eth0`   |
-| throughput_network_out | Interface, e.g., `eth0`   |
-| packets_in             | Interface, e.g., `eth0`   |
-| packets_out            | Interface, e.g., `eth0`   |
-| ipv4_address           | Interface, e.g., `eth0`   |
-| ipv6_address           | Interface, e.g., `eth0`   |
+| network_in             | Interface*, e.g., `eth0`   |
+| network_out            | Interface*, e.g., `eth0`   |
+| throughput_network_in  | Interface*, e.g., `eth0`   |
+| throughput_network_out | Interface*, e.g., `eth0`   |
+| packets_in             | Interface*, e.g., `eth0`   |
+| packets_out            | Interface*, e.g., `eth0`   |
+| ipv4_address           | Interface*, e.g., `eth0`   |
+| ipv6_address           | Interface*, e.g., `eth0`   |
 | processor_use          |                           |
 | processor_temperature  |                           |
-| process                | Binary, e.g., `octave-cli` |
+| process                | Binary *, e.g., `octave-cli` |
 | last_boot              |                           |
 
 ## Disk usage
 
 If no path is provided via the optional argument, the integration defaults to '/' (root).
+
+**Note:** The disk usage sensors do not support monitoring folder/directory sizes. Instead it is only concerned with "disks" (more specifically mount points on Linux).
+
+Example output of `df -H`:
+```
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        29G   12G   16G  42% /
+devtmpfs        805M     0  805M   0% /dev
+tmpfs           934M     0  934M   0% /dev/shm
+/dev/mmcblk0p1  253M   54M  199M  22% /boot
+```
+
+Defining a `disk_use` sensor for `/` and `/home/pi` is redundant and will return the same values, since they both belong to the same "disk". However, defining separate sensors for `/dev` and `dev/shm` is possible and provides different values, since those are treated as separate "disks" by the integration.
 
 ## Processor temperature
 
