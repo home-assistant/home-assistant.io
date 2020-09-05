@@ -42,6 +42,7 @@ Both events have three attributes:
 To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: 'Flight entry notification'
@@ -51,6 +52,7 @@ automation:
     action:
       service: notify.mobile_app_<device_name>
       data:
-        message : 'Flight entry of {{ trigger.event.data.callsign }} '
+        message: 'Flight entry of {{ trigger.event.data.callsign }}'
 ```
+
 {% endraw %}

@@ -45,10 +45,10 @@ input_select:
     name: Threat level
 # A collection is used for options
     options:
-     - 0
-     - 1
-     - 2
-     - 3
+      - 0
+      - 1
+      - 2
+      - 3
     initial: 0
 ```
 
