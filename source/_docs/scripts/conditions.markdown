@@ -102,6 +102,7 @@ If both `below` and `above` are specified, both tests have to pass.
 
 You can optionally use a `value_template` to process the value of the state before testing it.
 
+{% raw %}
 ```yaml
 condition:
   condition: numeric_state
@@ -109,8 +110,9 @@ condition:
   above: 17
   below: 25
   # If your sensor value needs to be adjusted
-  value_template: {% raw %}'{{ float(state.state) + 2 }}'{% endraw %}
+  value_template: '{{ float(state.state) + 2 }}'
 ```
+{% endraw %}
 
 It is also possible to test the condition against multiple entities at once.
 The condition will pass if all entities match the thresholds.
@@ -205,21 +207,25 @@ For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_el
 
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
+{% raw %}
 ```yaml
 condition:
   condition: and  # 'twilight' condition: dusk and dawn, in typical locations
   conditions:
     - condition: template
-      value_template: {% raw %}'{{ state_attr("sun.sun", "elevation") < 0 }}'{% endraw %}
+      value_template: "{{ state_attr('sun.sun', 'elevation') < 0 }}"
     - condition: template
-      value_template: {% raw %}'{{ state_attr("sun.sun", "elevation") > -6 }}'{% endraw %}
+      value_template: "{{ state_attr('sun.sun', 'elevation') > -6 }}"
 ```
+{% endraw %}
 
+{% raw %}
 ```yaml
 condition:
   condition: template  # 'night' condition: from dusk to dawn, in typical locations
-  value_template: {% raw %}'{{ state_attr("sun.sun", "elevation") < -6 }}'{% endraw %}
+  value_template: "{{ state_attr('sun.sun', 'elevation') < -6 }}"
 ```
+{% endraw %}
 
 #### Sunset/sunrise condition
 
@@ -273,11 +279,13 @@ A visual timeline is provided below showing an example of when these conditions 
 
 The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
 
+{% raw %}
 ```yaml
 condition:
   condition: template
-  value_template: "{% raw %}{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}{% endraw %}"
+  value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
+{% endraw %}
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
 
@@ -363,6 +371,7 @@ condition:
 
 ### Examples
 
+{% raw %}
 ```yaml
 condition:
   - condition: numeric_state
@@ -379,3 +388,4 @@ condition:
     entity_id: script.light_turned_off_5min
     state: 'off'
 ```
+{% endraw %}
