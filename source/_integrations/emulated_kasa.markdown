@@ -59,6 +59,7 @@ power_:
 
 A full configuration sample looks like the one below.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 emulated_kasa:
@@ -89,3 +90,4 @@ emulated_kasa:
       name: UPS Power
       power: "{{ float(states('sensor.ups_kw')) * 1000 }}"
 ```
+{% endraw %}
