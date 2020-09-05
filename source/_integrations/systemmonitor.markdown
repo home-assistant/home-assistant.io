@@ -44,9 +44,9 @@ file.
 
 | Type (`type:`)         | Argument (`arg:`)         | Argument mandatory        |
 | :--------------------- |:--------------------------|:--------------------------|
-| disk_use_percent       | Path, e.g., `/`           | -                          |
-| disk_use               | Path, e.g., `/`           | -                          |
-| disk_free              | Path, e.g., `/`           | -                          |
+| disk_use_percent       | Path, e.g., `/`           | no                        |
+| disk_use               | Path, e.g., `/`           | no                        |
+| disk_free              | Path, e.g., `/`           | no                        |
 | memory_use_percent     |                           |                           |
 | memory_use             |                           |                           |
 | memory_free            |                           |                           |
@@ -56,17 +56,17 @@ file.
 | load_1m                |                           |                           |
 | load_5m                |                           |                           |
 | load_15m               |                           |                           |
-| network_in             | Interface, e.g., `eth0`   | &check;                   |
-| network_out            | Interface, e.g., `eth0`   | &check;                   |
-| throughput_network_in  | Interface, e.g., `eth0`   | &check;                   |
-| throughput_network_out | Interface, e.g., `eth0`   | &check;                   |
-| packets_in             | Interface, e.g., `eth0`   | &check;                   |
-| packets_out            | Interface, e.g., `eth0`   | &check;                   |
-| ipv4_address           | Interface, e.g., `eth0`   | &check;                   |
-| ipv6_address           | Interface, e.g., `eth0`   | &check;                   |
+| network_in             | Interface, e.g., `eth0`   | yes                       |
+| network_out            | Interface, e.g., `eth0`   | yes                       |
+| throughput_network_in  | Interface, e.g., `eth0`   | yes                       |
+| throughput_network_out | Interface, e.g., `eth0`   | yes                       |
+| packets_in             | Interface, e.g., `eth0`   | yes                       |
+| packets_out            | Interface, e.g., `eth0`   | yes                       |
+| ipv4_address           | Interface, e.g., `eth0`   | yes                       |
+| ipv6_address           | Interface, e.g., `eth0`   | yes                       |
 | processor_use          |                           |                           |
 | processor_temperature  |                           |                           |
-| process                | Binary, e.g., `octave-cli` | &check;                  |
+| process                | Binary, e.g., `octave-cli` | yes                       |
 | last_boot              |                           |                           |
 
 ## Disk usage
