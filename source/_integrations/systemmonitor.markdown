@@ -65,8 +65,19 @@ file.
 | ipv4_address           | Interface, e.g., `eth0`   |
 | ipv6_address           | Interface, e.g., `eth0`   |
 | processor_use          |                           |
+| processor_temperature  |                           |
 | process                | Binary, e.g., `octave-cli` |
 | last_boot              |                           |
+
+## Disk usage
+
+If no path is provided via the optional argument, the integration defaults to '/' (root).
+
+## Processor temperature
+
+- If no hardware sensor data is available (e.g., because the integration runs in a virtualized environment), the sensor entity will not be created.
+- The unit of measurement (Celsius vs. Fahrenheit) will be chosen based on the system configuration.
+- Only the very first processor related hardware sensor is read, i.e., no individual core temperatures (even if the hardware sensor could provide that level of detail).
 
 ## Linux specific
 
