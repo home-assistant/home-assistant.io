@@ -21,6 +21,7 @@ To use Discord notifications, add the following to your `configuration.yaml` fil
 # Example configuration.yaml entry
 notify:
   - platform: discord
+    name: Some_Name
     token: YOUR_DISCORD_BOT_TOKEN
 ```
 
