@@ -72,16 +72,16 @@ In order to also update the input select in case some external event changes the
 {% raw %}
 ```yaml
 automation:
-- alias: Update Vallox input_select
-  description: Update input_select when external event changes the profile
-  trigger:
-  - entity_id: sensor.vallox_current_profile
-    platform: state
-  action:
-  - data_template:
-      entity_id: input_select.ventilation_profile
-      option: "{{ states('sensor.vallox_current_profile') }}"
-    service: input_select.select_option
+  - alias: Update Vallox input_select
+    description: Update input_select when external event changes the profile
+    trigger:
+      - entity_id: sensor.vallox_current_profile
+        platform: state
+    action:
+      - data_template:
+        entity_id: input_select.ventilation_profile
+        option: "{{ states('sensor.vallox_current_profile') }}"
+        service: input_select.select_option
 ```
 {% endraw %}
 
