@@ -1,15 +1,10 @@
 .hero {
-  background-color: rgb(11, 107, 148);
-  background-position: 0 50%;
-  -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
-  color: $white;
+  background-color: $white;
   margin-top: -2em;
   margin-bottom: 1.5em;
   padding: 50px 0;
   position: relative;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.05);
 
   // &::before {
   //   background: url("../images/matrix.png") 0 0 rgba(0, 0, 0, 0.35);
