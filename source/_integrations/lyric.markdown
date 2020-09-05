@@ -21,7 +21,7 @@ To set up this component, you will need to set up a developer account with Honey
 1. Go to the [developer site](https://developer.honeywellhome.com) and register with an account.
 1. Next, create a [new app](https://developer.honeywellhome.com/user/me/apps/add) via the `My Apps` section.
    1. App Name: You can use any name here.
-   1. Callback URL: This needs to be the base url of your Home Assistant instance + `/auth/external/callback`. For example: `http://192.168.1.123:8123/auth/external/callback`.
+   1. Callback URL: This needs to be the base URL of your Home Assistant instance + `/auth/external/callback`. For example: `http://192.168.1.123:8123/auth/external/callback`.
 
 Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret` to add to your configuration:
 
