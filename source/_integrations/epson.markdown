@@ -10,9 +10,9 @@ ha_domain: epson
 
 The `epson` platform allows you to control a Epson projector from Home Assistant.
 
-To add Epson to your installation go to Integration page and add Epson Projector or configure via configuration.yaml.
+To add Epson to your installation go to Integration page and add Epson Projector or configure via `configuration.yaml`.
 
-### Configuration.yaml
+### Configuration
 
 Add the following to your `configuration.yaml` file:
 
