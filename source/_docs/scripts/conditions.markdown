@@ -438,7 +438,7 @@ condition:
   before: input_datetime.house_silent_hours_end
 ```
 
-### Zone condition
+## Zone condition
 
 Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have set up a device tracker platform that supports reporting GPS coordinates.
 
