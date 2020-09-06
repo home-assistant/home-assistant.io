@@ -4,14 +4,14 @@ description: Instructions on setting up Easee charging stations with Home Assist
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 0.115
+ha_release: 0.x
 ha_config_flow: true
 ha_codeowners:
   - '@fondberg'
 ha_domain: easee
 ---
 
-The easee integrattion allows you to monitor your Easee charging station (wallbox). 
+The easee integrattion allows you to monitor your Easee charging stations (wallbox). It polls information from the EaseeCloud API (see https://api.easee.cloud/index.html).
 
 This component provides the following platforms:
 
@@ -79,7 +79,7 @@ A site typically corresponds to a building, i.e. a single household home or an a
 
 A circuit corresponds to a circuit breaker in the building electrical distribution panel. Each circuit have a fuse rating assosiated. Several chargers can be connected to the same circuit and they will then share the current that is allowed by the rating of that circuit. Chargers can also be connected to different circuits and will thus not share the current with other chargers, but will still be limited by and shre the site fuse rating.
 
-A charger corresponds to a pysical charging station.
+A charger corresponds to a physical charging station.
 
 ## Options
 
@@ -93,6 +93,7 @@ Select which sites the easee component should create sensors for, thus limiting 
 
 The easee component have various sensors that can be enabled/disabled in the integration configuration UI.
 
+- status
 - basic_schedule
 - cableLocked
 - circuitCurrent
@@ -110,7 +111,6 @@ The easee component have various sensors that can be enabled/disabled in the int
 - reasonForNoCurrent
 - session_energy
 - smartCharging
-- status
 - total_power
 - update_available
 - voltage
