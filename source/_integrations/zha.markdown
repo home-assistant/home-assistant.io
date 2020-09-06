@@ -103,7 +103,8 @@ a new pop-up asking for a radio type. In the pop-up:
 | ------------- | ------------- |
 | `ezsp`  | Silicon Labs EmberZNet protocol (ex; Elelabs, HUSBZB-1, Telegesis) |
 | `deconz` | dresden elektronik deCONZ protocol: ConBee I/II, RaspBee I/II |
-| `ti_cc` | Texas Instruments Z-Stack ZNP protocol (ex: CC253x, CC26x2, CC13x2) |
+| `znp` | Actively maintained: Texas Instruments Z-Stack ZNP protocol (ex: CC253x, CC26x2, CC13x2) |
+| `ti_cc` | Legacy & HA12 ZStack Texas Instruments Z-Stack ZNP protocol (ex: CC253x, CC26x2, CC13x2) |
 | `zigate` | ZiGate Serial protocol: PiZiGate, ZiGate USB-TTL, ZiGate WiFi |
 | `xbee` | Digi XBee ZB Coordinator Firmware protocol (Digi XBee Series 2, 2C, 3) |
 
@@ -202,6 +203,7 @@ logger:
     zigpy_xbee.zigbee.application: debug
     zigpy_xbee.api: debug
     zigpy_zigate: debug
+    zigpy_znp: debug
     zhaquirks: debug
 ```
 
