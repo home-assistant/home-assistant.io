@@ -211,6 +211,17 @@ condition:
   state: heat
 ```
 
+Finally, the `state` option accepts helper entities (also known as `input_*`
+entities). The condition will pass if the state of the entity matches the state
+of the given helper entity.
+
+```yaml
+condition:
+  condition: state
+  entity_id: alarm_control_panel.home
+  state: input_select.guest_mode
+```
+
 ### Sun condition
 
 #### Sun state condition
