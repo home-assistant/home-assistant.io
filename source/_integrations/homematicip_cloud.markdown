@@ -90,6 +90,7 @@ Within this delay the device registration should be completed in the App, otherw
 
 * homematicip_cloud.binary_sensor
   * Acceleration Sensor (*HMIP-SAM*)
+  * Inclination and vibration Sensor (*HMIP-STV*)
   * Window and door contact (*HmIP-SWDO, HmIP-SWDO-PL, HmIP-SWDO-I, HmIP-SWDM, HmIP-SWDM-B2*)
   * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
   * Contact Interface (*HmIP-SCI*)
