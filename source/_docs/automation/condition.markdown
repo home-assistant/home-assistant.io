@@ -10,22 +10,44 @@ The available conditions for an automation are the same as for the script syntax
 
 Example of using condition:
 
+{% raw %}
+
 ```yaml
 automation:
-- alias: 'Enciende Despacho'
-  trigger:
-    platform: state
-    entity_id: sensor.mini_despacho
-    to: 'on'
-  condition:
-    condition: or
-    conditions:
-      - condition: template
-        value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') < 4 }}{% endraw %}"
-      - condition: template
-        value_template: "{% raw %}{{ states('sensor.sensorluz_7_0') < 10 }}{% endraw %}"
-  action:
-    - service: scene.turn_on
-      entity_id: scene.DespiertaDespacho
+  - alias: 'Enciende Despacho'
+    trigger:
+      platform: state
+      entity_id: sensor.mini_despacho
+      to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: template
+          value_template: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
+        - condition: template
+          value_template: "{{ states('sensor.sensorluz_7_0') < 10 }}"
+    action:
+      - service: scene.turn_on
+        entity_id: scene.DespiertaDespacho
 ```
 
+{% endraw %}
+
+The `condition` option of an automation, also accepts a single condition template directly. For example:
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: 'Enciende Despacho'
+    trigger:
+      platform: state
+      entity_id: sensor.mini_despacho
+      to: 'on'
+    condition: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
+    action:
+      - service: scene.turn_on
+        entity_id: scene.DespiertaDespacho
+```
+
+{% endraw %}

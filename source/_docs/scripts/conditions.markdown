@@ -8,7 +8,7 @@ Conditions can be used within a script or automation to prevent further executio
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
-### AND condition
+## AND condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are valid.
 
@@ -40,7 +40,7 @@ condition:
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
-### OR condition
+## OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is valid.
 
@@ -56,7 +56,7 @@ condition:
       below: 20
 ```
 
-### MIXED AND and OR conditions
+## MIXED AND and OR conditions
 
 Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is valid.
 This allows you to mix several AND and OR conditions together.
@@ -78,7 +78,7 @@ condition:
           below: 20
 ```
 
-### NOT condition
+## NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** valid.
 
@@ -94,7 +94,7 @@ condition:
       state: disarmed
 ```
 
-### Numeric state condition
+## Numeric state condition
 
 This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds.
 
@@ -111,6 +111,7 @@ condition:
 You can optionally use a `value_template` to process the value of the state before testing it.
 
 {% raw %}
+
 ```yaml
 condition:
   condition: numeric_state
@@ -118,8 +119,9 @@ condition:
   above: 17
   below: 25
   # If your sensor value needs to be adjusted
-  value_template: '{{ float(state.state) + 2 }}'
+  value_template: "{{ float(state.state) + 2 }}"
 ```
+
 {% endraw %}
 
 It is also possible to test the condition against multiple entities at once.
@@ -146,7 +148,7 @@ condition:
   below: 25
 ```
 
-### State condition
+## State condition
 
 Tests if an entity is a specified state.
 
@@ -231,7 +233,7 @@ condition:
   state: 'below_horizon'
 ```
 
-#### Sun elevation condition
+### Sun elevation condition
 
 The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night, etc. when a trigger occurs.
 For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_elevation_trigger].
@@ -239,6 +241,7 @@ For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_el
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
 {% raw %}
+
 ```yaml
 condition:
   condition: and  # 'twilight' condition: dusk and dawn, in typical locations
@@ -248,17 +251,20 @@ condition:
     - condition: template
       value_template: "{{ state_attr('sun.sun', 'elevation') > -6 }}"
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 condition:
   condition: template  # 'night' condition: from dusk to dawn, in typical locations
   value_template: "{{ state_attr('sun.sun', 'elevation') < -6 }}"
 ```
+
 {% endraw %}
 
-#### Sunset/sunrise condition
+### Sunset/sunrise condition
 
 The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger]. When both keys are used, the result is a logical `and` of separate conditions.
 
@@ -306,24 +312,97 @@ A visual timeline is provided below showing an example of when these conditions 
 
 <img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
 
-### Template condition
+## Template condition
 
 The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
 
 {% raw %}
+
 ```yaml
 condition:
   condition: template
   value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
+
 {% endraw %}
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
 
+### Template condition shorthand notation
+
+The template condition has a shorthand notation that can be used to make your scripts and automations shorter.
+
+For example:
+
+{% raw %}
+
+```yaml
+conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
+```
+
+{% endraw %}
+
+Or in a list of conditions, allowing to use existing conditions as described in this
+chapter and one or more shorthand template conditions
+
+{% raw %}
+
+```yaml
+conditions:
+  - "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
+  - condition: state
+    entity_id: alarm_control_panel.home
+    state: armed_away
+  - "{{ is_state('device_tracker.iphone', 'away') }}"
+```
+
+{% endraw %}
+
+This shorthand notation can be used everywhere in Home Assistant where
+conditions are accepted. For example, in [`and`](#and-condition), [`or`](#or-condition)
+and [`not`](#not-condition) conditions:
+
+{% raw %}
+
+```yaml
+condition:
+  condition: or
+  conditions:
+    - "{{ is_state('device_tracker.iphone', 'away') }}"
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: 20
+```
+
+{% endraw %}
+
+But also in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
+
+{% raw %}
+
+```yaml
+- while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
+  sequence:
+    - ...
+```
+
+{% endraw %}
+
+{% raw %}
+
+```yaml
+- choose:
+    - conditions: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
+      sequence:
+       - ...
+```
+
+{% endraw %}
+
 [template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/
 
-### Time condition
+## Time condition
 
 The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
 
@@ -350,7 +429,7 @@ A better weekday condition could be by using the [Workday Binary Sensor](/integr
 
 </div>
 
-### Zone condition
+## Zone condition
 
 Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have set up a device tracker platform that supports reporting GPS coordinates.
 
@@ -400,14 +479,15 @@ condition:
     - zone.work
 ```
 
-### Examples
+## Examples
 
 {% raw %}
+
 ```yaml
 condition:
   - condition: numeric_state
     entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
+    value_template: "{{ state.attributes.elevation }}"
     below: 1
   - condition: state
     entity_id: light.living_room
@@ -419,4 +499,5 @@ condition:
     entity_id: script.light_turned_off_5min
     state: 'off'
 ```
+
 {% endraw %}
