@@ -315,6 +315,7 @@ This form accepts a list of conditions (see [conditions page] for available opti
 is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
 
 {% raw %}
+
 ```yaml
 script:
   do_something:
@@ -332,6 +333,20 @@ script:
           sequence:
             - service: script.something
 ```
+
+{% endraw %}
+
+The `while` also accepts a [shorthand notation of a template condition][shorthand-template].
+For example:
+
+{% raw %}
+
+```yaml
+- while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
+  sequence:
+    - ...
+```
+
 {% endraw %}
 
 #### Repeat Until
@@ -341,6 +356,7 @@ is run. Therefore the sequence will always run at least once. The sequence will 
 _until_ the condition(s) evaluate to true.
 
 {% raw %}
+
 ```yaml
 automation:
   - trigger:
@@ -367,7 +383,19 @@ automation:
               entity_id: binary_sensor.something
               state: 'on'
 ```
+
 {% endraw %}
+
+`until` also accepts a [shorthand notation of a template condition][shorthand-template].
+For example:
+
+{% raw %}
+
+```yaml
+- until: "{{ is_state('device_tracker.iphone', 'home') }}"
+  sequence:
+    - ...
+```
 
 #### Repeat Loop Variable
 
@@ -391,6 +419,7 @@ An _optional_ `default` sequence can be included which will be run only if none 
 The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
 {% raw %}
+
 ```yaml
 # Example with just an "if"
 automation:
@@ -412,6 +441,7 @@ automation:
       - service: light.turn_on
         entity_id: all
 ```
+
 ```yaml
 # Example with "if" and "else"
 automation:
@@ -435,6 +465,7 @@ automation:
           - service: light.turn_off
             entity_id: light.front_lights
 ```
+
 ```yaml
 # Example with "if", "elif" and "else"
 automation:
@@ -468,6 +499,42 @@ automation:
           - service: light.turn_off
             entity_id: all
 ```
+
+{% endraw %}
+
+`conditions` also accepts a [shorthand notation of a template condition][shorthand-template].
+For example:
+
+{% raw %}
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: input_select.home_mode
+    action:
+      - choose:
+          - conditions: >
+              {{ trigger.to_state.state == 'Home' and
+                 is_state('binary_sensor.all_clear', 'on') }}
+            sequence:
+              - service: script.arrive_home
+                data:
+                  ok: true
+          - conditions: >
+              {{ trigger.to_state.state == 'Home' and
+                 is_state('binary_sensor.all_clear', 'off') }}
+            sequence:
+              - service: script.turn_on
+                entity_id: script.flash_lights
+              - service: script.arrive_home
+                data:
+                  ok: false
+          - conditions: "{{ trigger.to_state.state == 'Away' }}"
+            sequence:
+              - service: script.left_home
+```
+
 {% endraw %}
 
 [Script component]: /integrations/script/
@@ -475,3 +542,4 @@ automation:
 [Alexa/Amazon Echo]: /integrations/alexa/
 [service calls page]: /getting-started/scripts-service-calls/
 [conditions page]: /getting-started/scripts-conditions/
+[shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
