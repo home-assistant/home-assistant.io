@@ -99,3 +99,29 @@ LED colors on switches.
 | `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                              |
 | `parameter`            | yes      | Parameter number to set (integer).                                                                              |
 | `value`                | yes      | Value to set for parameter. (String or integer value for list, string for bool parameters, integer for others). |
+
+## Events
+
+### Event `ozw.scene_activated`
+
+This event is fired upon scene activation. The data in the event will vary depending on your particular Z-Wave device, however, here is an example from a Zooz ZEN27 Dimmer when the down button is pressed 3 times.
+
+````json
+{
+    "event_type": "ozw.scene_activated",
+    "data": {
+        "node_id": 9,
+        "scene_id": 1,
+        "scene_label": "Scene 1",
+        "scene_value_id": 5,
+        "scene_value_label": "Pressed 3 Times"
+    },
+    "origin": "LOCAL",
+    "time_fired": "2020-08-16T12:49:50.409702+00:00",
+    "context": {
+        "id": "f917f078dfbe11ea8c0e374c447f29eb",
+        "parent_id": null,
+        "user_id": null
+    }
+}
+````
