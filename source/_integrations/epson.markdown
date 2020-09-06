@@ -8,10 +8,11 @@ ha_iot_class: Local Polling
 ha_domain: epson
 ---
 
-The `epson` platform allows you to control a Epson projector from Home
-Assistant.
+The `epson` platform allows you to control a Epson projector from Home Assistant.
 
 To add Epson to your installation go to Integration page and add Epson Projector or configure via configuration.yaml.
+
+### Configuration.yaml
 
 Add the following to your `configuration.yaml` file:
 
@@ -44,7 +45,8 @@ ssl:
   default: false
 {% endconfiguration %}
 
-Supported features of Epson projector:
+### Supported features
+
 - turn on/off
 - set input
 - set/get color mode
@@ -52,10 +54,12 @@ Supported features of Epson projector:
 - mute/unmute audio
 - send next/previous track
 
-Supported devices:
+### Supported devices
+
 - Epson projectors supporting ESC/VP21 protocol.
 
-Tested devices:
+### Tested devices
+
 - Epson EH-TW5350
 - Epson EH-TW7000
 
