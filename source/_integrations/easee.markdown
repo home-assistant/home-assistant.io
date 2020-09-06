@@ -17,16 +17,17 @@ This component provides the following platforms:
 
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
 
-To set up this integration, click Configuration in the sidebar and then click Integrations. Click the + icon in the lower right and find easee. Click configure and you will be presented with the intergration dialog where you enter your easee.cloud login username and password. The username is your phone number prepended with the country code, e.g. +46xxxxxxxx.
-
 ## Configuration
 
-To enable this component in your installation, add at least the following to your `configuration.yaml` file:
+To set up this integration, click Configuration in the sidebar and then click Integrations. Click the + icon in the lower right and find easee. Click configure and you will be presented with the intergration dialog where you enter your easee.cloud login username and password.
+
+Alternatively you can add at least the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 easee:
 ```
+
 
 {% configuration %}
 easee:
@@ -69,6 +70,58 @@ easee:
       type: integer
       default: 5
 {% endconfiguration %}
+
+## Sites, circuits and chargers
+
+In the easee eco-system chargers are arranged in sites, circuits and chargers.
+
+A site typically corresponds to a building, i.e. a single household home or an apartment building. Each site has a fuse rating assosiated. A site may have an assisiated equipmant that measures the current load on the phases thus allowing the chagergers to limit their current to not overload the fuses.
+
+A circuit corresponds to a circuit breaker in the building electrical distribution panel. Each circuit have a fuse rating assosiated. Several chargers can be connected to the same circuit and they will then share the current that is allowed by the rating of that circuit. Chargers can also be connected to different circuits and will thus not share the current with other chargers, but will still be limited by and shre the site fuse rating.
+
+A charger corresponds to a pysical charging station.
+
+## Options
+
+Various options and sensors can be enabled/disabled in the integration option window as described below. 
+
+### Sites
+
+Select which sites the easee component should create sensors for, thus limiting sensor clutter.
+
+### Sensors
+
+The easee component have various sensors that can be enabled/disabled in the integration configuration UI.
+
+- basic_schedule
+- cableLocked
+- circuitCurrent
+- costPerkWh
+- dynamicChargerCurrent
+- dynamicCircuitCurrent
+- enableIdleCurrent
+- energy_per_hour
+- inCurrent
+- isEnabled
+- maxChargerCurrent
+- maxCircuitCurrent
+- online
+- outputCurrent
+- reasonForNoCurrent
+- session_energy
+- smartCharging
+- status
+- total_power
+- update_available
+- voltage
+
+### Consumption
+
+Selects which sensors for energy consumptions should be created, options are 1, 7, 14, 30 and 365 days.
+
+### Custom Units
+
+Selects the units for power, kW or W, and for energy, kWh or Wh.
 
 ## Disclaimer
 
