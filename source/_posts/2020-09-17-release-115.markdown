@@ -94,7 +94,11 @@ The following integration got support for a new platform:
 
 The following integrations are now available via the Home Assistant UI:
 
-- [Lorem ipsum][lorem_ipsum docs], done by [@frenck]
+- [Broadlink][broadlink docs], done by [@felipediel]
+- [Insteon][insteon docs], done by [@teharris1]
+- [Kodi][kodi docs], done by [@OnFreund]
+- [OpenWeatherMap][openweathermap docs], done by [@freekode]
+- [Yeelight][yeelight docs], done by [@shenxn]
 
 ## If you need help...
 
