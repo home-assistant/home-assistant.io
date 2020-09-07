@@ -41,10 +41,6 @@ light:
     description: The name of the device used in the frontend.
     required: false
     type: string
-  token:
-    description: A security token used to authenticate to the Hyperion server. See [Creating a Token](#creating-a-token) below.
-    required: false
-    type: string
   priority:
     description: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
     required: false
