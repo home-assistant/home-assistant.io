@@ -18,20 +18,93 @@ og_image: /images/blog/2020-09-0.115/social.png
 Subjects to touch on:
 - Happy birthday!
 - Media browser and the integrations supporting it
+  - Websocket media browsing for Plex ([@jjlawren] - [#35590]) ([plex docs])
+  - Add Spotify media browser capability ([@cgtobi] - [#39240]) ([spotify docs])
+  - Add Sonos media browser capability ([@cgtobi] - [#39239]) ([sonos docs])
+  - Register media browser panel ([@hunterjm] - [#39655]) ([media_source docs])
+  - Add media browser support to roku ([@ctalkington] - [#39652]) ([roku docs])
+  - Add Arcam radio media browsing ([@elupus] - [#39593]) ([arcam_fmj docs])
+  - Add Netatmo media browser support ([@cgtobi] - [#39578]) ([cast docs]) ([default_config docs]) ([media_source docs]) ([netatmo docs]) (new-integration)
+
 - Tags!
+  - Mobile App integration to use tag integration ([@balloob] - [#38757]) ([mobile_app docs])
+
 - Automation & Scripts changes
-  - shorthand template conditions
-  - wait_for_trigger
-  - use of input_datetime in triggers and conditions
-  - more use if input_* in conditions
-  - 
+  - Add wait_for_trigger script action ([@pnbruckner] - [#38075]) ([automation docs])
+  - Add support for attributes in (numeric) state conditions ([@frenck] - [#39050])
+  - Time trigger can also accept an input_datetime Entity ID ([@pnbruckner] - [#38698]) ([automation docs])
+  - Create variable with result of wait_template and accept template for timeout option ([@pnbruckner] - [#38634]) ([automation docs])
+  - Allow templating keys in data_template ([@basnijholt] - [#39008])
+  - Allow templates in data & service parameters (making data_template & service_template obsolete) ([@frenck] - [#39210])
+  - Add support for attributes in state/numeric state trigger ([@balloob] - [#39238]) ([homeassistant docs])
+  - Add timestamp option for input_datetime.set_datetime ([@pnbruckner] - [#39121]) ([input_datetime docs])
+  - Add max_exceeded log level option to automations & scripts ([@pnbruckner] - [#39448]) ([automation docs]) ([script docs])
+  - Add as_local convenience function to jinja templates ([@bdraco] - [#39618])
+  - Time condition can also accept an input_datetime Entity ID ([@frenck] - [#39676])
+  - Add shorthand notation for Template conditions ([@frenck] - [#39705]) ([automation docs])
+  - Numeric state condition can also accept input_number entity ID ([@frenck] - [#39680])
+
 - Major WTH changes
   - Sidebar changeable
-  - 
-- 
+  - Reloading of platforms/Integrations
+    - Support reloading the group notify platform ([@bdraco] - [#39511]) ([group docs]) ([notify docs])
+    - Support reloading the rest notify platform ([@bdraco] - [#39527]) ([rest docs])
+    - Support reloading the telegram notify platform ([@bdraco] - [#39529]) ([telegram docs])
+    - Support reloading the smtp notify platform ([@bdraco] - [#39530]) ([group docs]) ([notify docs]) ([rest docs]) ([smtp docs])
+    - Support reloading mqtt yaml configuration ([@bdraco] - [#39531]) ([mqtt docs])
+    - Add the ability to reload rpi_gpio platforms from yaml ([@Misiu] - [#39548]) ([rpi_gpio docs])
+    - Make template entities reloadable ([@bdraco] - [#39075]) ([template docs])
+    - Support reloading the universal platform ([@bdraco] - [#39248]) ([helpers docs]) ([template docs]) ([universal docs])
+    - Add the ability to reload trend platforms from yaml ([@bdraco] - [#39341]) ([trend docs])
+    - Add the ability to reload filesize platforms from yaml ([@bdraco] - [#39347]) ([filesize docs])
+    - Add the ability to reload generic_thermostat platforms from yaml ([@bdraco] - [#39291]) ([generic_thermostat docs])
+    - Add the ability to reload generic platforms from yaml ([@bdraco] - [#39289]) ([generic docs])
+    - Add the ability to reload homekit from yaml ([@bdraco] - [#39326]) ([helpers docs]) ([homekit docs])
+    - Add the ability to reload history_stats platforms from yaml ([@bdraco] - [#39337]) ([history_stats docs])
+    - Add support for reloading min_max from yaml ([@bdraco] - [#39327]) ([min_max docs])
+    - Add the ability to reload the rest platforms from yaml ([@bdraco] - [#39257]) ([group docs]) ([helpers docs]) ([rest docs]) ([template docs]) ([universal docs])
+    - Add the ability to reload command_line platforms from yaml ([@bdraco] - [#39262]) ([command_line docs]) ([group docs]) ([rest docs]) ([template docs]) ([universal docs])
+    - Add the ability to reload filter platforms from yaml ([@bdraco] - [#39267]) ([filter docs])
+    - Add the ability to reload light/cover groups from yaml ([@bdraco] - [#39250]) ([group docs]) ([helpers docs]) ([template docs]) ([universal docs])
+    - Add the ability to reload statistics platforms from yaml ([@bdraco] - [#39268]) ([statistics docs])
+    - Add the ability to reload ping platforms from yaml ([@bdraco] - [#39344]) ([ping docs])
+
+- Other WTH
+  - Extend IP ban / failed login notification information ([@frenck] - [#39020]) ([http docs])
+  - Allow Slack notifications to change username/icon on the fly ([@bachya] - [#39091])
+  - Don't sort keys when dumping json and yaml ([@bramkragten] - [#39214]) ([http docs])
+  - Allow owner users to change password of any user ([@balloob] - [#39242]) ([config docs])
+  - Add description of what caused an automation trigger to fire ([@pnbruckner] - [#39251]) ([arcam_fmj docs]) ([automation docs]) ([geo_location docs]) ([homeassistant docs]) ([kodi docs]) ([litejet docs]) ([mqtt docs]) ([sun docs]) ([template docs]) ([webhook docs]) ([zone docs])
+
+- Performance
+  - Template parsing and entity tracking?
+  - Improve performance of fetching the state domain ([@bdraco] - [#38653])
+  - Improve the performance of dt_util.utcnow() ([@bdraco] - [#39145])
+  - Add shortcuts when we know template is static ([@balloob] - [#39208])
+  - Standardize uuid generation for events/storage/registry ([@bdraco] - [#39184])
+  - Tune logbook performance to accomodate recent changes ([@bdraco] - [#39348]) ([automation docs]) ([logbook docs]) ([script docs])
 
 Todo items:
-- 
+
+- Social media image
+- Bump version in Jekyll config
+
+Interesting items that might need a place in the notes:
+
+- Add H.265 support to stream component ([@uvjustin] - [#38125]) ([stream docs])
+- Speed up OZW availability check ([@balloob] - [#38758]) ([ozw docs])
+- Implement local discovery of Smappee legacy devices ([@bsmappee] - [#37812]) ([smappee docs])
+- Add hourly forecast to met.no ([@bruxy70] - [#38700]) ([met docs])
+- Add audio to stream ([@uvjustin] - [#38846]) ([stream docs])
+- Allow exposing domains in cloud ([@balloob] - [#39216]) ([cloud docs])
+
+OZW Changes:
+
+- Add websocket command to get a list of OZW instances and their status ([@cgarwood] - [#39019]) ([ozw docs])
+- Tweak OZW Websocket Instance/Network Responses ([@cgarwood] - [#39107]) ([ozw docs])
+- Add OZW network_statistics websocket command ([@cgarwood] - [#39124]) ([ozw docs]) (new-integration)
+- Add ZwaveStringSensor to OZW integration ([@zyberzero] - [#38676]) ([ozw docs])
+- Add get_nodes command to OZW websocket api ([@cgarwood] - [#39317]) ([ozw docs])
 
 ## Lorem ipsum
 
