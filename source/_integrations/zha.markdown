@@ -101,12 +101,12 @@ a new pop-up asking for a radio type. In the pop-up:
 
 | Radio Type | Zigbee Radio Hardware |
 | ------------- | ------------- |
-| `ezsp`  | Silicon Labs EmberZNet protocol (e.g. Elelabs, HUSBZB-1, Telegesis) |
-| `deconz` | dresden elektronik deCONZ protocol (e.g. ConBee I/II, RaspBee I/II) |
-| `znp` | Texas Instruments new (active): Z-Stack 3.x.x ZNP protocol (e.g. CC26x2, CC13x2) |
-| `ti_cc` | Texas Instruments legacy & HA12: Z-Stack Home 1.2.x ZNP protocol (e.g. CC253x) |
-| `zigate` | ZiGate Serial protocol (e.g. ZiGate USB-TTL, PiZiGate, ZiGate WiFi) |
-| `xbee` | Digi XBee ZB Coordinator Firmware protocol (e.g. Digi XBee Series 2, 2C, 3) |
+| `ezsp`  | Silicon Labs EmberZNet protocol (e.g., Elelabs, HUSBZB-1, Telegesis) |
+| `deconz` | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II) |
+| `znp` | Texas Instruments new (active): Z-Stack 3.x.x ZNP protocol (e.g., CC26x2, CC13x2) |
+| `ti_cc` | Texas Instruments legacy & HA12: Z-Stack Home 1.2.x ZNP protocol (e.g., CC253x) |
+| `zigate` | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi) |
+| `xbee` | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3) |
 
 - Submit
 
