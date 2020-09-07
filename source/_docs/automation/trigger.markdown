@@ -171,7 +171,7 @@ automation:
     for: "00:00:30"
 ```
 
-You can also fire the trigger when the state values changed from a specific
+You can also fire the trigger when the state value changed from a specific
 state, but hasn't returned to that state value for the specified time.
 
 This can be useful, e.g., checking if a media player hasn't turned "off" for
@@ -186,6 +186,9 @@ automation:
     from: "off"
     for: "00:30:00"
 ```
+
+Please note, that when using `from`, `to` and `for`, only the value of the
+`to` option is considered for the time specified.
 
 In this example, the trigger fires if the state value of the entity remains the
 same for `for` the time specified, regardless of the current state value.
