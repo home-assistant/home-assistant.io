@@ -78,17 +78,11 @@ A lot new integrations added this release:
 
 The following integration got support for a new platform:
 
-- [Lorem ipsum][lorem_ipsum docs] now provides a switch to turn on/off the service, added by [@frenck]
-- Add devolo blinds devices ([@2Fake] - [#36597]) ([devolo_home_control docs]) (new-platform)
-- Add Agent DVR Alarm Control Panel ([@ispysoftware] - [#36468]) ([agent_dvr docs]) (new-platform)
-- Add binary sensors to Risco integration ([@OnFreund] - [#39137]) ([risco docs]) (new-platform)
-- Add basic light and sensor support to Shelly ([@balloob] - [#39288]) ([shelly docs]) (new-platform)
-- Add basic lock support for fibaro ([@pbalogh77] - [#38962]) ([fibaro docs]) (new-platform)
-- Add basic binary_sensor support to Shelly ([@bieniu] - [#39365]) ([shelly docs]) (new-platform)
-- Add support for a dedicated weather station within KNX ([@marvin-w] - [#39476]) ([knx docs]) (new-platform)
-- Add support for VeSync Fans ([@TheGardenMonkey] - [#36132]) ([vesync docs]) (new-platform)
-- Add devolo thermostat devices ([@2Fake] - [#38594]) ([devolo_home_control docs]) (new-platform)
-- Add event sensors for risco ([@OnFreund] - [#39594]) ([risco docs]) (new-platform)
+- [Agent DVR][agent_dvr docs] now supports the Alarm Control Panel, added by [@ispysoftware]
+- [devolo Home Control][devolo_home_control docs] now support blinds and thermostats, added by [@2Fake]
+- [Fibaro][fibaro docs] added basic lock support, added by [@pbalogh77]
+- [KNX][knx docs] now supports the use of a dedicated weather station, added by [@marvin-w]
+- [VeSync][vesync docs] added support for fans, added by [@TheGardenMonkey]
 
 ## Integrations now available to set up from the UI
 
