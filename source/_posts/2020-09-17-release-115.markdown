@@ -254,10 +254,30 @@ More examples can be found in the [conditions documentation][shorthand-condition
 
 ### Use templates directly in `data` and `service` fields
 
-Another WTH input.8
+More WTH input! Those `data_template`, and `service_template` fields in service
+calls are so annoying! Why not accept templates in the normal `data` and `service`
+field?
 
-- Allow templating keys in data_template ([@basnijholt] - [#39008])
-- Allow templates in data & service parameters (making data_template & service_template obsolete) ([@frenck] - [#39210])
+Good question! And even better suggestion. As of now, you can!
+
+```yaml
+action:
+  - service: "notify.{{ state('input_select.active_notify_platform)' }}"
+    data:
+      title: This is notification!
+      message: "The time is {{ now() }}"
+```
+
+Don't worry, the old format still works as before, so this is not a breaking
+change. However, you can start removing those `data_template`'s.
+
+The keys inside a data block, can be templates now too!
+
+```yaml
+service: kef_custom.set_mode
+  data:
+    "{{ attribute }}": "{{ now() }}"
+```
 
 ### Other scripts and automation changes
 
