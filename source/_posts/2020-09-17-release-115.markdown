@@ -43,56 +43,17 @@ description, so we can classify your issue correctly. Issues introduced in the b
 - Social media image
 - Bump version in Jekyll config
 - Documentation page for new image integration is missing
-- Image uploading
-
-Not placed yet:
-
-- Sidebar changeable, press and hold an item in the sidebar to activate edit mode.
-- Reloading of platforms/Integrations, now available for:
-  - [Command Line][command_line docs]
-  - [File Size][filesize docs]
-  - [Filter][filter docs]
-  - [Generic IP Camera][generic docs]
-  - [Generic Thermostat][generic_thermostat docs]
-  - [Groups][group docs]
-  - [History Stats][history_stats docs]
-  - [HomeKit][homekit docs]
-  - [Min/Max][min_max docs]
-  - [MQTT][mqtt docs]
-  - [Ping][ping docs]
-  - [RESTful][rest docs]
-  - [RPi GPIO][rpi_gpio docs]
-  - [SMTP][smtp docs]
-  - [Statistics][statistics docs]
-  - [Telegram][telegram docs]
-  - [Templates][template docs]
-  - [Trend][trend docs]
-  - [Universal Media Player][universal docs]
-
-- Something about the template changes? Mainly performance I guess.
-  - Add track_template_result method to events ([@bdraco] - [#38802])
-  - Update TrackTemplateResultInfo to remove side effects from init ([@bdraco] - [#38934])
-  - Update template sensor to use async_track_template_result ([@bdraco] - [#38940]) ([template docs])
-  - Convert template lock to use async_track_template_result ([@bdraco] - [#38946]) ([template docs])
-  - Convert template switch to use async_track_template_result ([@bdraco] - [#38950]) ([template docs])
-  - Convert template fan to use async_track_template_result ([@bdraco] - [#38983]) ([template docs])
-  - Convert template alarm_control_panel to use async_track_template_result ([@bdraco] - [#39014]) ([template docs])
-  - Convert template binary_sensor to use async_track_template_result ([@bdraco] - [#39027]) ([template docs])
-  - Convert template cover to use async_track_template_result ([@bdraco] - [#39042]) ([template docs])
-  - Convert template light to use async_track_template_result ([@bdraco] - [#39045]) ([template docs])
-  - Convert template vacuum to use async_track_template_result ([@bdraco] - [#39047]) ([template docs])
-  - Convert bayesian binary_sensor to use async_track_template_result ([@bdraco] - [#39174]) ([bayesian docs])
-  - Update websocket api to use async_track_template_result ([@bdraco] - [#39057]) ([websocket_api docs])
-  - Simplify template integration entities ([@bdraco] - [#39083]) ([template docs])
-  - Update template triggers to use async_track_template_result ([@bdraco] - [#39059]) ([template docs])
-  - Update universal media_player to use async_track_template_result ([@bdraco] - [#39054]) ([universal docs])
-  - Report usage of extract_entities by custom components ([@bdraco] - [#39185]) (breaking-change)
-  - Subscribe to state change events only if the template has entities ([@bdraco] - [#39188]) ([template docs])
-  - Make async_track_template_result track multiple templates ([@bdraco] - [#39371]) ([bayesian docs]) ([template docs]) ([universal docs]) ([websocket_api docs]))
 
 ## Media Browser
 
-Lorem ipsum
+Media players are now able to offer a media browser. This allows you to browse
+through the available content for the media player.
+
+We also added a new media panel, this panel can be used to browse your local media.
+If you create a directory `media` in your configuration directory and add some media files in it, you can now play them from Home Assistant in your web browser.
+
+There is also support for other integrations like Netatmo and more are on the way. (are there more sources?)
+You can also select another media player and use it to browse and play media on that media player.
 
 - Websocket media browsing for Plex ([@jjlawren] - [#35590]) ([plex docs])
 - Add Spotify media browser capability ([@cgtobi] - [#39240]) ([spotify docs])
@@ -105,9 +66,10 @@ Lorem ipsum
 
 ## Wanna play tag?
 
-Lorem ipsum
+We have a tags configuration panel, you create tags, see when a tag is last
+scanned, and write tags with the Android and iOS companion apps.
 
-- Mobile App integration to use tag integration ([@balloob] - [#38757]) ([mobile_app docs])
+When a tag is scanned it will glow so you can easily identify it.
 
 ## Month of "What The Heck?!"
 
@@ -130,6 +92,11 @@ The month of "What the heck?!" brought in a lot of topics the evolve around
 automations and scripts, of which quite a few have been addressed this release.
 Furthermore, we already had quite a bunch of improvements pending. If you
 like doing automation in YAML, you'll probably love this release.
+
+Before starting on the list of newly added features, lets talk about the Home
+Assistant frontend. You can now duplicate an automation and, the long present
+but always disabled, duplicate condition, trigger, and action function is now
+also finally working!
 
 ### New action: `wait_for_trigger`
 
@@ -294,9 +261,194 @@ service: kef_custom.set_mode
 - Add as_local convenience function to jinja templates ([@bdraco] - [#39618])
 - Add timestamp option for input_datetime.set_datetime ([@pnbruckner] - [#39121]) ([input_datetime docs])
 
-## Lorem ipsum
+## Calendar card
 
-Lorem ipsum
+Like promised when we introduced the calendar panel, we now also added a
+calendar Lovelace card. This allows you to select the calendar entities you
+want to show.
+
+TODO: screenshot
+<!-- Image template
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
+Lorem ipsum.
+</p>
+-->
+
+## Customize the sidebar
+
+One of the most requested functions of What the heck was customizing the
+sidebar, you do want history for your entities in the more info dialog, but you
+don't use that history panel. Or you do want calendars for automating but don't
+want a calendar panel.
+
+Now you can hide panels from the sidebar, and rearrange them.
+
+TODO: animation / screen recording
+<!-- Image template
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
+Lorem ipsum.
+</p>
+-->
+
+You can enter edit mode by pressing and holding the sidebar, you can then drag
+the items in the order you want them or remove them by clicking the cross.
+
+This is stored on your device, so this has to be set up on every device.
+
+## Person image upload
+
+You can now upload images in the frontend for a person, you can select or drop
+an image in the input field and then crop it to a square. The image will be
+stored on your Home Assistant server.
+
+TODO: screenshot
+<!-- Image template
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
+Lorem ipsum.
+</p>
+-->
+
+We will use the image in the frontend for your persons, but also in the sidebar
+for the user that is linked to this person.
+
+## Code editor themeable (breaking)
+
+TODO: Move this to the breaking changes
+
+The code editor is now themeable, you can set the background color and the color
+for the different code blocks. The default background color now is
+`card-background-color`, for some themes this may conflict with the default code
+colors. To get the old behavior back add `code-editor-background-color: white`
+to your theme.
+
+## Updated MDI to 5.5.55
+
+TODO: Move this to the breaking change section
+
+The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), another 100 icons where added. `scooter` was...?
+
+## Template developer tools
+
+The template developer tools are very useful for checking if the template you
+made works and does what you want it to do. But people had some annoyances with
+the tool; the editor is always filled with sample data, that can give a lot of
+response. It would be more useful to have your previously used template there.
+
+The template would also not automatically re-render after the state of an entity
+is changed.
+
+TODO: animated gif?
+<!-- Image template
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
+Lorem ipsum.
+</p>
+-->
+
+We addressed both these issues, we save your last-used template and will show
+that instead of the example when you visit the template developer tools.
+
+We will also listen for changes of the entities you used in your template and
+automatically re-render your template.
+
+## Logbook
+
+The more info dialog is updated, it now has 2 tabs. One for controls and one
+for history. On the history tab, you can find the history graph you are used to
+and now also a list of logbook entries of the specific entity.
+
+TODO: screenshot
+<!-- Image template
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
+Lorem ipsum.
+</p>
+-->
+
+On the logbook panel, we added some more information. You can now see what
+automation or script caused the change of state and also what action was used
+to do it.
+
+## Reload everything YAML and integration
+
+We added a lot of YAML integrations that can be reloaded without restarting
+Home Assistant, you can just reload it from the configuration server control
+page (you will need advanced mode).
+
+As of this release, beside the integration that already could be reloaded,
+the following integration can now reload their YAML configuration without
+restart Home Assistant:
+
+- [Command Line][command_line docs]
+- [File Size][filesize docs]
+- [Filter][filter docs]
+- [Generic IP Camera][generic docs]
+- [Generic Thermostat][generic_thermostat docs]
+- [Groups][group docs]
+- [History Stats][history_stats docs]
+- [HomeKit][homekit docs]
+- [Min/Max][min_max docs]
+- [MQTT][mqtt docs]
+- [Ping][ping docs]
+- [RESTful][rest docs]
+- [RPi GPIO][rpi_gpio docs]
+- [SMTP][smtp docs]
+- [Statistics][statistics docs]
+- [Telegram][telegram docs]
+- [Templates][template docs]
+- [Trend][trend docs]
+- [Universal Media Player][universal docs]
+
+You can also reload an integration that is setup with the UI. This can be useful
+when it lost it's connection or is in an otherwise failed state. You can find
+the reload the button in the overflow menu on the integration card. 
+
+## User password change
+
+Another What the heck: Being able to change the password of a user as the owner
+of the system. You can now change the password of every user from the UI when
+you are the owner of your system.
+
+## Cloud expose domains/entity
+
+If you are using Home Assistant Cloud with Google Assistant of Alexa, you can
+select what entities you want to expose in the UI. We would by default expose
+all new entities. We now introduced a new setting where you can set if you want
+to expose entities by domain.
+
+You can overrule this domain setting per entity.
+
+A newly added entity will by default get the settings of the domain, so you
+don't have to change these settings for every newly added entity.
+
+## Add card by entities
+
+Are you a bit overwhelmed by all the different types of cards Lovelace has? You
+can now just select the entities you want to use for a card, and have Lovelace
+suggest a card for you.
+
+TODO: screenshot
+<!-- Image template
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
+Lorem ipsum.
+</p>
+-->
+
+In the add card dialog, we added a second tab with a list of all your entities.
+Select the entities you want to use and click continue. We will suggest a card
+for you and you can then fine-tune the config.
+
+## Order entities in Lovelace UI editor
+
+You can now sort the entities in Lovelace UI editors by just dragging them.
+No more clicking the up and down buttons over and over again, simply drag the
+item up or down.
+
+TODO: Animated gif
 
 <!-- Image template
 <p class='img'>
@@ -308,8 +460,10 @@ Lorem ipsum.
 ## Other noteworthy changes
 
 - The OpenZwave beta integration in coming along nicely. First signs of
-  some control panels in the UI are visible this release. Exposing more
-  information in the UI of Home Assistant. Thanks [@cgtobi]!
+  some control panels in the UI are visible this release. You can see the status
+  and information of your network and nodes. There are also buttons to put your
+  Z-Wave network in inclusion and exclusion mode and to refresh a node.
+  Thanks [@cgtobi]!
 - The stream component now supports audio! And if you use the latest Home
   Assistant Android app, the stream component now support H.265 streams.
   Amazing job [@uvjustin]!
@@ -328,6 +482,26 @@ Lorem ipsum.
   - Standardize uuid generation for events/storage/registry ([@bdraco] - [#39184])
   - Tune logbook performance to accomodate recent changes ([@bdraco] - [#39348]) ([automation docs]) ([logbook docs]) ([script docs])
   - Provide a logbook option entity_matches_only to optimize for single entity lookup ([@bdraco] - [#39555]) ([logbook docs]
+  - Something about the template changes? Mainly performance...
+    - Add track_template_result method to events ([@bdraco] - [#38802])
+    - Update TrackTemplateResultInfo to remove side effects from init ([@bdraco] - [#38934])
+    - Update template sensor to use async_track_template_result ([@bdraco] - [#38940]) ([template docs])
+    - Convert template lock to use async_track_template_result ([@bdraco] - [#38946]) ([template docs])
+    - Convert template switch to use async_track_template_result ([@bdraco] - [#38950]) ([template docs])
+    - Convert template fan to use async_track_template_result ([@bdraco] - [#38983]) ([template docs])
+    - Convert template alarm_control_panel to use async_track_template_result ([@bdraco] - [#39014]) ([template docs])
+    - Convert template binary_sensor to use async_track_template_result ([@bdraco] - [#39027]) ([template docs])
+    - Convert template cover to use async_track_template_result ([@bdraco] - [#39042]) ([template docs])
+    - Convert template light to use async_track_template_result ([@bdraco] - [#39045]) ([template docs])
+    - Convert template vacuum to use async_track_template_result ([@bdraco] - [#39047]) ([template docs])
+    - Convert bayesian binary_sensor to use async_track_template_result ([@bdraco] - [#39174]) ([bayesian docs])
+    - Update websocket api to use async_track_template_result ([@bdraco] - [#39057]) ([websocket_api docs])
+    - Simplify template integration entities ([@bdraco] - [#39083]) ([template docs])
+    - Update template triggers to use async_track_template_result ([@bdraco] - [#39059]) ([template docs])
+    - Update universal media_player to use async_track_template_result ([@bdraco] - [#39054]) ([universal docs])
+    - Report usage of extract_entities by custom components ([@bdraco] - [#39185]) (breaking-change)
+    - Subscribe to state change events only if the template has entities ([@bdraco] - [#39188]) ([template docs])
+    - Make async_track_template_result track multiple templates ([@bdraco] - [#39371]) ([bayesian docs]) ([template docs]) ([universal docs]) ([websocket_api docs]))
 
 - WTH: Extend IP ban / failed login notification information ([@frenck] - [#39020]) ([http docs]) 
 - WTH: Allow Slack notifications to change username/icon on the fly ([@bachya] - [#39091])
