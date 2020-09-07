@@ -57,6 +57,7 @@ havdalah_minutes_after_sunset:
 ## Sensor list
 
 ### Data sensors
+
 - date: Shows the hebrew date for today.
 - weekly_portion: Shows the weekly portion (parshat hashavu'a).
 - holiday: If it is a holiday, shows the name of the holiday _(see below for more info)_.
@@ -87,8 +88,8 @@ For easier use in automations, all time sensors have a `timestamp` attribute, wh
 - upcoming_havdalah: The time of havdalah for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the havdalah for Rosh Hashana on Wednesday night. To always get the Shabbat times, use the upcoming_shabbat_havdalah sensor.
 
 ### Binary sensors
-- issur_melacha_in_effect: A boolean sensor indicating if melacha is currently not permitted. The value is true when it is currently Shabbat or Yom Tov and false otherwise.
 
+- issur_melacha_in_effect: A boolean sensor indicating if melacha is currently not permitted. The value is true when it is currently Shabbat or Yom Tov and false otherwise.
 
 ### Holiday sensor
 
@@ -96,7 +97,6 @@ The holiday sensor includes 3 attributes: *type*, *type_id* and *id*.
 The *type_id* is useful for cases to condition automations based on a range of types.
 
 The following is the list of holidays the sensor knows about with their selected type:
-
 
 | ID                   | English                    | Hebrew                | Type                          |
 |----------------------|----------------------------|-----------------------|--------------------------------|
@@ -140,7 +140,6 @@ The following is the list of holidays the sensor knows about with their selected
 | memorial_day_unknown | Memorial day for fallen whose place of burial is unknown | יום זכרון... | MEMORIAL_DAY (8) |
 | rabin_memorial_day   | Yitzhak Rabin memorial day | יום הזכרון ליצחק רבין | MEMORIAL_DAY (8)              |
 | zeev_zhabotinsky_day | Zeev Zhabotinsky day       | יום ז'בוטינסקי        | MEMORIAL_DAY (8)              |
-
 
 ## Full configuration sample
 
