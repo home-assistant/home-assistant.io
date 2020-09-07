@@ -125,6 +125,8 @@ Lorem ipsum
 
 Lorem ipsum
 
+Own notes with an overview of the changes: <https://gist.github.com/frenck/7b47d484578ab23b5cc20ffef0bacc30>
+
 - Add wait_for_trigger script action ([@pnbruckner] - [#38075]) ([automation docs])
 - Add support for attributes in (numeric) state conditions ([@frenck] - [#39050])
 - Time trigger can also accept an input_datetime Entity ID ([@pnbruckner] - [#38698]) ([automation docs])
