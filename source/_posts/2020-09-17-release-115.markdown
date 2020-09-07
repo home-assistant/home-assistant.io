@@ -752,9 +752,12 @@ an issue when trying to use InfluxDB for example. This has been adjusted.
 
 ## Farewell to the following
 
-- The **Lorem Ipsum** integration has been removed.
-  Lorem has deprecated the Ipsum API.
-  ([@frenck] - [#11111])
+- The **Prezzi Benzina** integration has been removed.
+  It was using webscaping to gather its data, which is no longer allowed.
+  ([@eliseomartelli] - [#38736])
+- The **yr** integration has been removed after a request from yr.no. Use
+  the Met.no integration instead
+  ([@Danielhiversen] - [#39247])
 
 ## All changes
 
