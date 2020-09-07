@@ -41,37 +41,17 @@ light:
     description: The name of the device used in the frontend.
     required: false
     type: string
-  token:
-    description: A security token used to authenticate to the Hyperion server. See [Creating a Token](#creating-a-token) below.
-    required: false
-    type: string
   priority:
     description: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
     required: false
     type: integer
     default: 128
-  effect_list:
-    description: Restrict the list of effects that will be available. If not specified, the list is dynamically populated from Hyperion.
-    required: false
-    type: list
-    default: "[]"
 {% endconfiguration %}
-
-<a name='#creating-a-token'></a>
-## Creating a Token
-
-If the Hyperion server has API authentication enabled a token may be created from the web interface.
-
-   * Open the `Configuration > Network Services` panel of the Hyperion UI.
-   * Enable `API Authentication`, which causes a `Token Management` panel to appear.
-   * Enter a value for `Token Description`, e.g. `Home Assistant`.
-   * Click `Create Token` and copy the value that appears to your configuration.
 
 ## Effects
 
-Unless statically specified in the configuration, the effect list is
-dynamically pulled from the Hyperion server. The following extra effects will
-be available:
+The effect list is dynamically pulled from the Hyperion server. The following
+extra effects will be available:
 
    * BOBLIGHTSERVER: Use a Boblight-Server configured in Hyperion.
    * GRABBER: Use a 'Platform Capture' grabber that is configured in Hyperion.
