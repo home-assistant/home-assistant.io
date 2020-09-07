@@ -69,7 +69,26 @@ Not placed yet:
   - [Trend][trend docs]
   - [Universal Media Player][universal docs]
 
-
+- Something about the template changes?
+  - Add track_template_result method to events ([@bdraco] - [#38802])
+  - Update TrackTemplateResultInfo to remove side effects from init ([@bdraco] - [#38934])
+  - Update template sensor to use async_track_template_result ([@bdraco] - [#38940]) ([template docs])
+  - Convert template lock to use async_track_template_result ([@bdraco] - [#38946]) ([template docs])
+  - Convert template switch to use async_track_template_result ([@bdraco] - [#38950]) ([template docs])
+  - Convert template fan to use async_track_template_result ([@bdraco] - [#38983]) ([template docs])
+  - Convert template alarm_control_panel to use async_track_template_result ([@bdraco] - [#39014]) ([template docs])
+  - Convert template binary_sensor to use async_track_template_result ([@bdraco] - [#39027]) ([template docs])
+  - Convert template cover to use async_track_template_result ([@bdraco] - [#39042]) ([template docs])
+  - Convert template light to use async_track_template_result ([@bdraco] - [#39045]) ([template docs])
+  - Convert template vacuum to use async_track_template_result ([@bdraco] - [#39047]) ([template docs])
+  - Convert bayesian binary_sensor to use async_track_template_result ([@bdraco] - [#39174]) ([bayesian docs])
+  - Update websocket api to use async_track_template_result ([@bdraco] - [#39057]) ([websocket_api docs])
+  - Simplify template integration entities ([@bdraco] - [#39083]) ([template docs])
+  - Update template triggers to use async_track_template_result ([@bdraco] - [#39059]) ([template docs])
+  - Update universal media_player to use async_track_template_result ([@bdraco] - [#39054]) ([universal docs])
+  - Report usage of extract_entities by custom components ([@bdraco] - [#39185]) (breaking-change)
+  - Subscribe to state change events only if the template has entities ([@bdraco] - [#39188]) ([template docs])
+  - Make async_track_template_result track multiple templates ([@bdraco] - [#39371]) ([bayesian docs]) ([template docs]) ([universal docs]) ([websocket_api docs]))
 
 ## Media Browser
 
