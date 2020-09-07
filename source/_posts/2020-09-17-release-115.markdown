@@ -260,6 +260,8 @@ field?
 
 Good question! And even better suggestion. As of now, you can!
 
+{% raw %}
+
 ```yaml
 action:
   - service: "notify.{{ state('input_select.active_notify_platform)' }}"
@@ -268,16 +270,22 @@ action:
       message: "The time is {{ now() }}"
 ```
 
+{% endraw %}
+
 Don't worry, the old format still works as before, so this is not a breaking
 change. However, you can start removing those `data_template`'s.
 
 The keys inside a data block, can be templates now too!
+
+{% raw %}
 
 ```yaml
 service: kef_custom.set_mode
   data:
     "{{ attribute }}": "{{ now() }}"
 ```
+
+{% endraw %}
 
 ### Other scripts and automation changes
 
