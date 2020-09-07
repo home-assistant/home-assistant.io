@@ -37,12 +37,6 @@ There is currently support for the following device types within Home Assistant:
 
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created.
 
-## ZHA exception and deviation handling
-
-Zigbee devices that deviate from or do not fully conform to the standard specifications set by the [Zigbee Alliance](https://zigbeealliance.org) may require the development of custom [ZHA Device Handlers](https://github.com/dmulcahey/zha-device-handlers) (ZHA custom quirks handler implementation) to for all their functions to work properly with the ZHA integration in Home Assistant. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices.
-
-The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Shepherd Converters as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
-
 ## Compatible hardware
 
 ZHA integration uses a hardware independent Zigbee stack implementation with modular design which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
@@ -173,6 +167,22 @@ To add a new device:
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 ## Troubleshooting
+
+To help resolve any kinks or compatibility problems by reporting bugs as issues with debug logs. Please follow the instructions in this troubleshooting section.
+
+### Supported devices
+
+There is no official list of supported devices for the simple reason that practically all devices Zigbee Home Automation that are fully compliant with the standards and specifications as set by the [Zigbee Alliance](https://zigbeealliance.org) the should in technically be compatible. The fact remain some hardware manufacturers does not always fully comply with each set specification which can cause a few devices to only partily work or not work at all with ZHA, however developers can create workarounds for such issues via a solution for 'ZHA exception and deviation handling' that this implementation features, please see the section below for more information.
+
+Tip to new users is that while there is no official list of supported devices, some ZHA users take comfort that blakadder maintains an unofficial Zigbee Device Compatibility Repository which anyone can submit compatibility reports to, it can be found at [zigbee.blakadder.com](https://zigbee.blakadder.com) and currently contains independent compatibility lists and device pairing tips for several home automation gateway/bridge/hub software, including but not limited to open source Zigbee implementations such as; ZHA, Tasmota, Zigbee2MQTT, and ZiGate.
+
+#### ZHA exception and deviation handling
+
+The few Zigbee devices that deviate from the standard or do not fully conform to the specifications set by the [Zigbee Alliance](https://zigbeealliance.org) may require users to assistant the developers to write custom [ZHA Device Handlers](https://github.com/zigpy/zha-device-handlers/blob/dev/README.md) for all their functions to work properly with the ZHA integration in Home Assistant. The ZHA Device Handlers that are made can then be reused by all users in future versions of Home Assistant.
+
+Such a custom "ZHA Device Handler" are Python scripts that internally is also refered to as a "quirk" because they fix "quirks" as in deviations from the standards. They do this by transparently acting as a translator, translating and converting a non-complient device messages and instead present them to the application as coming from a virtual compliant device. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices.
+
+This custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Herdsman Converters (formerly Zigbee-Shepherd Converters) as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
 
 ### Reporting issues
 
