@@ -414,7 +414,7 @@ you are the owner of your system.
 
 ## Cloud expose domains/entity
 
-If you are using Home Assistant Cloud with Google Assistant of Alexa, you can
+If you are using Home Assistant Cloud with Google Assistant or Alexa, you can
 select what entities you want to expose in the UI. We would by default expose
 all new entities. We now introduced a new setting where you can set if you want
 to expose entities by domain.
