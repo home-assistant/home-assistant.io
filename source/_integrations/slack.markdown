@@ -76,11 +76,10 @@ The following attributes can be placed inside the `data` key of the service call
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `file`                   |      yes | A file to include with the message; see below.
-| `attachments`            |      yes | Array of [Slack attachments](https://api.slack.com/messaging/composing/layouts#attachments) (legacy). *NOTE*: if using `attachments`, they are shown **in addition** to `message`.
 | `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
 
-Note that using `file` will ignore all usage of `attachments`, `blocks`, and `blocks_template` (as Slack does not support those frameworks in messages that accompany uploaded files).
+Note that using `file` will ignore all usage of `blocks` and `blocks_template` (as Slack does not support those frameworks in messages that accompany uploaded files).
 
 To include a local file with the Slack message, use these attributes underneath the `file` key:
 
@@ -159,15 +158,4 @@ data:
         text: |-
           *Average Rating*
           1.0
-```
-
-To use the legacy attachments framework:
-
-```yaml
-message: Message that will be added as a comment to the file.
-title: Title of the file.
-data:
-  attachments:
-    - title: WHAT A HORRIBLE NIGHT TO HAVE A CURSE.
-      image_url: https://i.imgur.com/JEExnsI.gif
 ```

@@ -82,7 +82,7 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from 17 or below, or 25 or above).
+In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from strict below 17, or strict above 25).
 </div>
 
 The `for:` can also be specified as `HH:MM:SS` like this:
@@ -282,9 +282,10 @@ automation:
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
 <div class='note warning'>
+  
 Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
-</div>
 
+</div>
 
 As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
 
@@ -303,7 +304,11 @@ which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago
 
 ### Time trigger
 
-The time trigger is configured to fire once at a specific point in time each day.
+The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are two allowed formats:
+
+#### Time String
+
+A string that represents a time to fire on each day. Can be specified as `HH:MM` or `HH:MM:SS`. If the seconds are not specified, `:00` will be used.
 
 ```yaml
 automation:
@@ -311,6 +316,57 @@ automation:
     platform: time
     # Military time format. This trigger will fire at 3:32 PM
     at: "15:32:00"
+```
+
+#### Input Datetime
+
+The Entity ID of an [Input Datetime](/integrations/input_datetime/).
+
+has_date | has_time | Description
+-|-|-
+`true` | `true` | Will fire at specified date & time.
+`true` | `false` | Will fire at midnight on specified date.
+`false` | `true` | Will fire once a day at specified time.
+
+{% raw %}
+
+```yaml
+automation:
+  - trigger:
+      platform: state
+      entity_id: binary_sensor.motion
+      to: 'on'
+    action:
+      - service: climate.turn_on
+        entity_id: climate.office
+      - service: input_datetime.set_datetime
+        entity_id: input_datetime.turn_off_ac
+        data_template:
+          datetime: >
+            {{ (now().timestamp() + 2*60*60)
+               | timestamp_custom('%Y-%m-%d %H:%M:%S') }}
+
+  - trigger:
+      platform: time
+      at: input_datetime.turn_off_ac
+    action:
+      service: climate.turn_off
+      entity_id: climate.office
+```
+
+{% endraw %}
+
+#### Multiple Times
+
+Multiple times can be provided in a list. Both formats can be intermixed.
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at:
+      - input_datetime.leave_for_work
+      - "18:30:00"
 ```
 
 ### Time pattern trigger
@@ -367,13 +423,13 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 ### Zone trigger
 
-Zone trigger fires when an entity is entering or leaving the zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
+Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a person, or a device_tracker. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. This includes [GPS Logger](/integrations/gpslogger/), the [OwnTracks platform](/integrations/owntracks/) and the [iCloud platform](/integrations/icloud/).
 
 ```yaml
 automation:
   trigger:
     platform: zone
-    entity_id: device_tracker.paulus
+    entity_id: person.paulus
     zone: zone.home
     # Event is either enter or leave
     event: enter # or "leave"

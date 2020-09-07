@@ -33,9 +33,9 @@ http:
 
 {% configuration %}
 server_host:
-  description: "Only listen to incoming requests on specific IP/host. By default it will accept all IPv4 connections. Use `server_host: ::0` if you want to listen to (and only) IPv6."
+  description: "Only listen to incoming requests on specific IP/host. By default the `http` integration will accept all IPv4 and IPv6 connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses."
   required: false
-  type: string
+  type: [list, string]
   default: 0.0.0.0
 server_port:
   description: Let you set a port to use.
@@ -43,7 +43,7 @@ server_port:
   type: integer
   default: 8123
 ssl_certificate:
-  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection.
+  description: Path to your TLS/SSL certificate to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) this will be at `/ssl/fullchain.pem`.
   required: false
   type: string
 ssl_peer_certificate:
@@ -51,7 +51,7 @@ ssl_peer_certificate:
   required: false
   type: string
 ssl_key:
-  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection.
+  description: Path to your TLS/SSL key to serve Home Assistant over a secure connection. If using the [Let's Encrypt add-on](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) this will be at `/ssl/privkey.pem`.
   required: false
   type: string
 cors_allowed_origins:

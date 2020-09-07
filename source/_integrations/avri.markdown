@@ -8,6 +8,7 @@ ha_release: 0.107
 ha_codeowners:
   - '@timvancann'
 ha_domain: avri
+ha_config_flow: true
 ---
 
 The `Avri Waste` platform allows you to track the next scheduled waste pickup and the type of waste from [Avri](https://www.avri.nl/).

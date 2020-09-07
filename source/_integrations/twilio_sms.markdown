@@ -4,8 +4,6 @@ description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: '0.20'
-ha_codeowners:
-  - '@robbiet480'
 ha_domain: twilio_sms
 ---
 

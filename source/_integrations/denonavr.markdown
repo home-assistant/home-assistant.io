@@ -9,6 +9,7 @@ ha_domain: denonavr
 ha_codeowners:
   - '@scarface-4711'
   - '@starkillerOG'
+ha_config_flow: true
 ---
 
 The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
@@ -19,6 +20,7 @@ Known supported devices:
 - Denon AVR-X1200W
 - Denon AVR-X1300W
 - Denon AVR-X1500H
+- Denon AVR-X1600H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X2200W

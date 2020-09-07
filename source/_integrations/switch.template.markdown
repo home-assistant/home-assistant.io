@@ -54,6 +54,10 @@ switch:
         description: A list of entity IDs so the switch only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
+      unique_id:
+        description: An ID that uniquely identifies this switch. Set this to an unique value to allow customisation trough the UI.
+        required: false
+        type: string
       value_template:
         description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
         required: false
