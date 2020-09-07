@@ -112,6 +112,11 @@ registers:
       description: "If data_type is custom specify here a double quoted Python struct format string to unpack the value. See Python documentation for details. Ex: >i."
       required: false
       type: string
+    structure_index:
+      description: "If you are using a custom structure to unpack the register, you can specify the index of the value you want to unpack here. (Starting at 0)"
+      required: false
+      type: integer
+      default: 0
 {% endconfiguration %}
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
