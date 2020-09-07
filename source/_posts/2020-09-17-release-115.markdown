@@ -47,8 +47,8 @@ description, so we can classify your issue correctly. Issues introduced in the b
 
 Not placed yet:
 
-- Sidebar changeable
-- Reloading of platforms/Integrations
+- Sidebar changeable, press and hold an item in the sidebar to activate edit mode.
+- Reloading of platforms/Integrations, now available for:
   - [Command Line][command_line docs]
   - [File Size][filesize docs]
   - [Filter][filter docs]
@@ -69,7 +69,7 @@ Not placed yet:
   - [Trend][trend docs]
   - [Universal Media Player][universal docs]
 
-- Something about the template changes?
+- Something about the template changes? Mainly performance I guess.
   - Add track_template_result method to events ([@bdraco] - [#38802])
   - Update TrackTemplateResultInfo to remove side effects from init ([@bdraco] - [#38934])
   - Update template sensor to use async_track_template_result ([@bdraco] - [#38940]) ([template docs])
@@ -121,25 +121,138 @@ Lorem ipsum
 - Links to GitHub org with WTH labels?
 - Not over yet! Hacktoberfest!
 
-## Automation & Scripts part 100
+## Automation & Scripts updates
 
-Lorem ipsum
-
+TODO: Remove next line
 Own notes with an overview of the changes: <https://gist.github.com/frenck/7b47d484578ab23b5cc20ffef0bacc30>
 
-- Add wait_for_trigger script action ([@pnbruckner] - [#38075]) ([automation docs])
-- Add support for attributes in (numeric) state conditions ([@frenck] - [#39050])
+The month of "What the heck?!" brought in a lot of topics the evolve around
+automations and scripts, of which quite a few have been addressed this release.
+Furthermore, we already had quite a bunch of improvements pending. If you
+like doing automation in YAML, you'll probably love this release.
+
+### New action: `wait_for_trigger`
+
+This is a special new trigger than can be used in an automation action or
+script sequence, that allows you to pause the execution until a certain trigger
+is been fired.
+
+It can be helpful for automations or scripts that consists of multiple stages,
+for example, actionable notification. Those would send the notification and
+next wait for a second input as a trigger before continuing.
+
+The following example sends a notification when one passes through 2 gates to
+enter the garden:
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.gate1
+        to: 'on'
+    action:
+      - wait_for_trigger:
+          - platform: state
+            entity_id: binary_sensor.gate2
+            to: 'on'
+        timeout: 10
+        continue_on_timeout: false
+      - service: notify.notify
+        data:
+          message: Someone just entered the yard!
+```
+
+### Triggers & Conditions on entity attributes
+
+Every tried to create an automation trigger or condition on an entity attribute?
+Like the temperature of a climate or weather entity?
+
+You used to need to use a template for that, which was a reason for a lot of you
+to put it up as a "What the heck?!" entry.
+
+Home Assistant now support the use of attributes in triggers & conditions, in
+both the state and numeric state triggers & conditions, which now have a
+`attribute` option that can be set with the attribute to use.
+
+```yaml
+trigger:
+  - platform: state
+    entity_id: climate.living_room
+    attribute: havc_action
+    state: "heating"
+  - platform: numeric_state
+    entity_id: weather.outside
+    attribute: temperature
+    above: 20.5
+condition:
+  - condition: state
+    entity_id: climate.living_room
+    attribute: havc_mode
+    state: "heat"
+  - condition: numeric_state
+    entity_id: weather.outside
+    attribute: humidity
+    below: 80
+```
+
+### Use input_* helper entities directly in your automations and scripts
+
 - Time trigger can also accept an input_datetime Entity ID ([@pnbruckner] - [#38698]) ([automation docs])
-- Create variable with result of wait_template and accept template for timeout option ([@pnbruckner] - [#38634]) ([automation docs])
+- Numeric state condition can also accept input_number entity ID ([@frenck] - [#39680])
+- Time condition can also accept an input_datetime Entity ID ([@frenck] - [#39676])
+
+### Shorthand notation for template conditions
+
+A neat little trick has been added this release, to allow for shorter, cleaner
+code if you use templates quite a bit: A shorthand notation for condition
+templates has been added.
+
+All places that accept condition now accept templates directly. Some examples:
+
+```yaml
+automations:
+  - alias: "My automation"
+    ...
+    conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level') | int) > 50 }}"
+    ...
+```
+
+```yaml
+- choose:
+    - conditions: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
+      sequence:
+       - ...
+```
+
+Or in a list of conditions:
+
+```yaml
+condition:
+  condition: or
+  conditions:
+    - "{{ is_state('device_tracker.iphone', 'away') }}"
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: 20
+```
+
+More examples can be found in the [conditions documentation][shorthand-conditions].
+
+[shorthand-conditions]: /docs/scripts/conditions/#template-condition-shorthand-notation
+
+### Use templates directly in `data` and `service` fields
+
+Another WTH input.8
+
 - Allow templating keys in data_template ([@basnijholt] - [#39008])
 - Allow templates in data & service parameters (making data_template & service_template obsolete) ([@frenck] - [#39210])
-- Add support for attributes in state/numeric state trigger ([@balloob] - [#39238]) ([homeassistant docs])
-- Add timestamp option for input_datetime.set_datetime ([@pnbruckner] - [#39121]) ([input_datetime docs])
+
+### Other scripts and automation changes
+
+- Create variable with result of wait_template and accept template for timeout option ([@pnbruckner] - [#38634]) ([automation docs])
 - Add max_exceeded log level option to automations & scripts ([@pnbruckner] - [#39448]) ([automation docs]) ([script docs])
 - Add as_local convenience function to jinja templates ([@bdraco] - [#39618])
-- Time condition can also accept an input_datetime Entity ID ([@frenck] - [#39676])
-- Add shorthand notation for Template conditions ([@frenck] - [#39705]) ([automation docs])
-- Numeric state condition can also accept input_number entity ID ([@frenck] - [#39680])
+- Add timestamp option for input_datetime.set_datetime ([@pnbruckner] - [#39121]) ([input_datetime docs])
 
 ## Lorem ipsum
 
@@ -175,7 +288,6 @@ Lorem ipsum.
   - Standardize uuid generation for events/storage/registry ([@bdraco] - [#39184])
   - Tune logbook performance to accomodate recent changes ([@bdraco] - [#39348]) ([automation docs]) ([logbook docs]) ([script docs])
   - Provide a logbook option entity_matches_only to optimize for single entity lookup ([@bdraco] - [#39555]) ([logbook docs]
-
 
 - WTH: Extend IP ban / failed login notification information ([@frenck] - [#39020]) ([http docs]) 
 - WTH: Allow Slack notifications to change username/icon on the fly ([@bachya] - [#39091])
