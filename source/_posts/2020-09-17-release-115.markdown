@@ -209,6 +209,8 @@ templates has been added.
 
 All places that accept condition now accept templates directly. Some examples:
 
+{% raw %}
+
 ```yaml
 automations:
   - alias: "My automation"
@@ -217,6 +219,10 @@ automations:
     ...
 ```
 
+{% endraw %}
+
+{% raw %}
+
 ```yaml
 - choose:
     - conditions: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
@@ -224,7 +230,11 @@ automations:
        - ...
 ```
 
+{% endraw %}
+
 Or in a list of conditions:
+
+{% raw %}
 
 ```yaml
 condition:
@@ -235,6 +245,8 @@ condition:
       entity_id: 'sensor.temperature'
       below: 20
 ```
+
+{% endraw %}
 
 More examples can be found in the [conditions documentation][shorthand-conditions].
 
