@@ -28,8 +28,8 @@ Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These w
 ```yaml
 # Example configuration.yaml entry
 lyric:
-  client_id: myconsumerkey
-  client_secret: myconsumersecret
+  client_id: MY_CONSUMER_KEY
+  client_secret: MY_CONSUMER_SECRET
 ```
 
 You can then add the integration in the frontend.
@@ -39,7 +39,7 @@ You can then add the integration in the frontend.
 Menu: **Configuration** -> **Integrations**.
 
 Click on the `+` sign to add an integration and click on **Honeywell Lyric**.
-Login with your Honeywell Lyric account and agree to the terms. The Honeywell Lyric integration will then be available.
+Log in with your Honeywell Lyric account and agree to the terms. The Honeywell Lyric integration will then be available.
 
 ## Sensors
 
