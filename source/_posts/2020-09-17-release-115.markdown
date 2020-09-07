@@ -109,49 +109,646 @@ integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 <details>
-  <summary><b>Lorem ipsum</b></summary>
+  <summary><b>Instituto Português do Mar e Atmosfera (IPMA)</b></summary>
   <p>
 
-Lorem ipsum.
+The `precipitation` attribute has been renamed to `precipitation_probability`.
 
-([@frenck] - [#11111]) ([lorem_ipsum docs])
+([@dgomes] - [#38697]) ([ipma docs])
 
   </p>
 </details>
 
-- Update IPMA weather component ([@dgomes] - [#38697]) ([ipma docs]) (breaking-change)
-- Remove prezzibenzina integration (ADR-0004) ([@eliseomartelli] - [#38736]) ([prezzibenzina docs]) (breaking-change)
-- Move DwdWeatherWarningsAPI to a library hosted on PyPI ([@stephan192] - [#34820]) ([dwd_weather_warnings docs]) (breaking-change)
-- Improve X-Forwarded-* request headers handling ([@frenck] - [#38696]) ([http docs]) (breaking-change)
-- Update script helper constructor parameters ([@pnbruckner] - [#38763]) (breaking-change)
-- Cleanup Netatmo sensors ([@cgtobi] - [#38627]) ([netatmo docs]) (breaking-change)
-- Use current request context in OAuth redirect ([@frenck] - [#38692]) (breaking-change)
-- Remove deprecated YAML config from OpenUV ([@bachya] - [#38857]) ([openuv docs]) (breaking-change)
-- Upgrade to aioymaps==1.1.0 to support new types of stops #39006 ([@devbis] - [#39021]) ([yandex_transport docs]) (breaking-change)
-- Sentry integration enhancements ([@frenck] - [#38833]) ([sentry docs]) (breaking-change)
-- Implement config flow in the Broadlink integration ([@felipediel] - [#36914]) ([broadlink docs]) (breaking-change)
-- Add config flow to kodi ([@OnFreund] - [#38551]) ([discovery docs]) ([kodi docs]) (breaking-change)
-- Deprecate optional script context ([@balloob] - [#39034]) ([intent_script docs]) ([kodi docs]) ([panasonic_viera docs]) ([samsungtv docs]) ([template docs]) ([webostv docs]) (breaking-change)
-- Upgrade py-cpuinfo to 7.0.0 ([@fabaff] - [#39155]) ([cpuspeed docs]) (breaking-change)
-- Report usage of extract_entities by custom components ([@bdraco] - [#39185]) (breaking-change)
-- Remove 'entity_id' from ToggleRflinkLight ([@javicalle] - [#37992]) ([rflink docs]) (breaking-change)
-- Remove yr integration after a request from yr.no ([@Danielhiversen] - [#39247]) ([yr docs]) (breaking-change)
-- Allow disabling integrations in manifest, block uuid package being installed and disable ezviz ([@balloob] - [#38444]) ([ezviz docs]) (breaking-change)
-- Bump brother library to version 0.1.15 ([@bieniu] - [#39226]) ([brother docs]) (breaking-change)
-- Block typing from being installed ([@balloob] - [#37707]) (breaking-change)
-- Centralize knx config and update xknx to 0.12.0 ([@marvin-w] - [#39219]) ([knx docs]) (breaking-change)
-- Meteo france "next_rain" attributes rework ([@oncleben31] - [#39092]) ([meteo_france docs]) (breaking-change)
-- Reduce automation state changes by using script helper's last_triggered attribute ([@pnbruckner] - [#39323]) ([automation docs]) (breaking-change)
-- Add config flow to nzbget ([@ctalkington] - [#38938]) ([nzbget docs]) (breaking-change)
-- Implement code review for nzbget ([@ctalkington] - [#39425]) ([nzbget docs]) (breaking-change)
-- Add config flow to yeelight ([@shenxn] - [#37191]) ([discovery docs]) ([yeelight docs]) (breaking-change)
-- Squeezebox scene fixes ([@rajlaud] - [#38214]) ([squeezebox docs]) (breaking-change)
-- Deprecate manually passing entity ids to template entities ([@bdraco] - [#39382]) ([template docs]) (breaking-change)
-- Provide compatibility with older Home Assistant installations. ([@jyavenard] - [#39539]) ([emulated_hue docs]) (breaking-change)
-- Use media state to better represent roku state ([@ctalkington] - [#39540]) ([roku docs]) (breaking-change)
-- Met.no migrate from classic to complete endpoint ([@thimic] - [#39493]) ([met docs]) (breaking-change)
-- Add OpenWeatherMap config_flow ([@freekode] - [#34659]) ([openweathermap docs]) (breaking-change)
-- Add number parsing for OpenHardwareMonitor ([@fillefilip8] - [#39030]) ([openhardwaremonitor docs]) (breaking-change)
+<details>
+  <summary><b>Deutsche Wetter Dienst (DWD) Weather Warnings</b></summary>
+  <p>
+
+If you use entity state attributes of this integration in automations or scripts
+need to adjust these to handle the changes.
+
+- The `region_state` attribute has been removed, cause it is no longer available
+  on the new API.
+- All timestamps in the state attributes are now UTC and not local time anymore.
+
+([@stephan192] - [#34820]) ([dwd_weather_warnings docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>HTTP: Using reverse proxies</b></summary>
+  <p>
+
+The processing of data received from reverse proxies is now more strictly
+handled. Invalid or malformed `X-Forwarded-For` headers will now result in an
+HTTP 400 error (Bad Request).
+
+Support for `X-Forwarded-Proto` and `X-Forwarded-Host` has been added.
+
+Additionally, Home Assistant will now log cases of a reverse proxy being used,
+but not configured with Home Assistant. Make sure, you set the
+`use_x_forwarded_for` and `trusted_proxies` in your Home Assistant HTTP
+configuration correctly to avoid warnings.
+
+([@frenck] - [#38696]) ([http docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Netatmo</b></summary>
+  <p>
+
+The sensor for wind and gust angle is split up into two entities so that it now
+returns the direction (e.g., `NE`) and the actual value (e.g., `178°`) rather
+than a string containing both (e.g., `NE (123°)`).
+
+([@cgtobi] - [#38627]) ([netatmo docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>OAuth2 authentication and redirects</b></summary>
+  <p>
+
+Integrations using OAuth2 authentication now use the current request URL from
+the browser as the redirect target, instead of the internal URL setting.
+
+This matches the experience one would expect to happen and removes the need
+to fiddle around with the internal URL setting.
+
+However, this might require you to update application settings when
+re-authenticating with existing services.
+
+([@frenck] - [#38692])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>OpenUV</b></summary>
+  <p>
+  
+Support for configuring this integration has been fully removed.
+If you have existing OpenUV configuration in your YAML configuration files,
+you can safely remove that configuration.
+
+([@bachya] - [#38857]) ([openuv docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Yandex Transport</b></summary>
+  <p>
+
+The integration now accepts a full stop ID in text notation:
+`'stop__1234'` or `'group_345'` or `'6789'`
+
+You'll have to update `stop_id: 1234567` in your existing configuration to
+`stop_id: stop__1234567` as it is used in Yandex maps API.
+
+([@devbis] - [#39021]) ([yandex_transport docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Sentry</b></summary>
+  <p>
+
+The YAML configuration for Sentry is now deprecated and no longer works. If you
+had Sentry configured via YAML previously, you can safely remove the YAML
+configuration (without the need to reconfigure) as it has been imported into
+the UI before.
+
+The release is now formatted with only the version number of Home Assistant
+Core, for example, `0.115.0`. Previously, this was prefixed with
+`homeassistant-`, for example, `homeassistant-0.115.0`.
+This prefix is now removed.
+
+([@frenck] - [#38833]) ([sentry docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Broadlink</b></summary>
+  <p>
+
+**1. Devices are now configured via configuration flow**
+
+To set up a Broadlink device, click _Configuration_ in the sidebar and click
+_Integrations_.
+
+The devices will be imported from your configuration files to that page. If yousee
+ your device there, click _Configure_. If not, click the `+` icon in the lower
+ right, click _Broadlink_, enter the host and follow the instructions to
+ complete the setup.
+
+The name you choose will serve as a template for the entities. You can change
+the entity name and id in the entity settings on the frontend. You may need to
+change some names or ids to make everything look the same as it was before this
+update.
+
+**2. Discontinue `broadlink.learn` and `broadlink.send` services**
+
+`remote.learn_command` and `remote.send_command` are now registered
+automatically. Now you can use `remote.send_command` to send base64 codes.
+
+Instead of `broadlink.learn`:
+
+```yaml
+script:
+  learn_tv_power:
+    sequence:
+      - service: broadlink.learn
+        data:
+          host: 192.168.0.107
+```
+
+Use the `remote.learn_command`:
+
+```yaml
+script:
+  learn_tv_power:
+    sequence:
+      - service: remote.learn_command
+        data:
+          entity_id: remote.bedroom
+          device: tv
+          command: power
+```
+
+Instead of `broadlink.send`:
+
+```yaml
+script:
+  send_tv_power:
+    sequence:
+      - service: broadlink.send
+        data:
+          host: 192.168.0.107
+          packet: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+```
+
+Use the `remote.send_command`:
+
+```yaml
+script:
+  send_tv_power:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+```
+
+Keeping it clean:
+
+```yaml
+script:
+  send_tv_power:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.bedroom
+          device: tv
+          command: power
+```
+
+**3. Discontinue all platforms, except switch**
+
+Entities are now registered automatically. The only exception is the switch
+platform, which continues to exist for RM switches. The config schema haschanged
+. The host and type are no longer required and the name serves as a template
+for the entity ID.
+
+Instead of:
+
+```yaml
+switch:
+  - platform: broadlink
+    host: 192.168.0.107
+    mac: 34:ea:34:b4:5d:2c
+    type: rm_mini3_redbean
+    switches:
+      sony_tv:
+        friendly_name: Sony TV
+        command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+        command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+      lg_tv:
+        friendly_name: LG TV
+        command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+        command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+```
+
+Use this:
+
+```yaml
+switch:
+  - platform: broadlink
+    mac: 34:ea:34:b4:5d:2c
+    switches:
+      - name: Sony TV
+        command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+        command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+      - name: LG TV
+        command_on: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
+        command_off: JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+```
+
+The above example creates `switch.sony_tv` and `switch.lg_tv` to be controlled
+using the device with the MAC address 34:ea:34:b4:5d:2c. This device needs to
+be configured first via configuration flow.
+
+When you finish configuring the devices you can delete all your Broadlink
+configuration files except the RM switches. These switches are the only
+platform that still exists in YAML. They won't be imported. If you delete the
+file, they are gone.
+
+([@felipediel] - [#36914]) ([broadlink docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Kodi</b></summary>
+  <p>
+
+Kodi Media Player configuration is now available through the UI, including
+discovery. If you have Kodi configured in YAML, it is advised to remove that
+and use discovery or a manual configuration through the UI.
+
+Existing YAML entries will be imported, but:
+
+1. Your turn on/off actions will not be ported. This functionality is now
+   available through device triggers.
+2. You may have duplicate entities.
+
+([@OnFreund] - [#38551]) ([kodi docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>CPU Speed</b></summary>
+  <p>
+
+The naming of the attributes was updated to be aligned with the current used
+standards.
+
+- `Brand` -> `brand`
+- `GHz Advertised` -> `ghz_advertised`
+
+([@fabaff] - [#39155]) ([cpuspeed docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>RFLink</b></summary>
+  <p>
+
+The integration has been adjusted and modified the `entity_id` generation for
+Rflink toggle type lights. There is a small possibility an entity ID has
+changed because of this.
+
+([@javicalle] - [#37992]) ([rflink docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Ezviz</b></summary>
+  <p>
+
+The Ezviz integration has been temporarily disabled, as it has a dependency
+that contains code that breaks Home Assistant.
+
+([@balloob] - [#38444]) ([ezviz docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Brother Printer</b></summary>
+  <p>
+
+The uptime sensor state format and unit have been changed. If you rely on those
+you might need to adjust your configuration.
+
+([@bieniu] - [#39226]) ([brother docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Mi Flora</b></summary>
+  <p>
+
+The Mi Flora integration has been temporarily disabled, as it has a dependency
+that contains code that breaks Home Assistant.
+
+([@balloob] - [#37707])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>HDMI-CEC</b></summary>
+  <p>
+
+The HDMI-CEC integration has been temporarily disabled, as it has a dependency
+that contains code that breaks Home Assistant.
+
+([@balloob] - [#37707])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>KNX</b></summary>
+  <p>
+
+The KNX integration has been completely refactored to no longer rely on
+dedicated platform configuration but instead use the integration domain key
+as the base configuration.
+
+Let's say you've previously used the following configuration:
+
+```yaml
+knx:
+  tunneling:
+    host: '192.168.0.1'
+switch:
+  - platform: knx
+    name: Switch
+    address: '2/0/1'
+    state_address: '2/0/2'
+```
+
+You'll need to migrate it as follows:
+
+```yaml
+knx:
+  tunneling:
+    host: '192.168.0.1'
+  switch:
+    - name: Switch
+      address: '2/0/1'
+      state_address: '2/0/2'
+```
+
+([@marvin-w] - [#39219]) ([knx docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Météo-France</b></summary>
+  <p>
+
+The attributes of `next_rain` has been reworked. In the previous version it was
+a list of objects with changing keys (every 5 minutes) corresponding to a
+UTC timestamp. This design was difficult to use in templates and automation.
+
+The new design will add a dedicated string attribute to have the the reference
+timestamp of the forecast (`forecast_time_ref`) and a dict attribute with fixed
+keys to access the rain forecast within the hour (`1_hour_forecast`).
+
+Example of the new attributes:
+
+```yaml
+forecast_time_ref: '2020-08-20T19:25:00+00:00'
+1_hour_forecast:
+  0 min: Temps sec
+  5 min: Temps sec
+  10 min: Temps sec
+  15 min: Temps sec
+  20 min: Temps sec
+  25 min: Pluie faible
+  35 min: Pluie faible
+  45 min: Pluie modérée
+  55 min: Pluie modérée
+```
+
+([@oncleben31] - [#39092]) ([meteo_france docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Automations</b></summary>
+  <p>
+
+Previously an automation's `last_triggered` attribute was updated, and an
+`automation_triggered` event was fired, whenever a trigger fired and the
+conditions (if any) were true, regardless if the actions actually ran.
+
+For example, in `single` mode, the actions won't run if they are still running
+from a previous trigger event.
+
+Now the attribute will be updated, and the event fired, only if the actions
+actually run.
+
+([@pnbruckner] - [#39323]) ([automation docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>NZBGet</b></summary>
+  <p>
+
+NZBGet is now available via the Integrations UI. This also means its no longer
+configured in YAML. Existing configurations are automatically transitioned to
+configuration via UI, so after upgrade your existing YAML entry can be safely
+removed.
+
+YAML support will be fully removed in Home Assistant 0.117.0.
+
+The NZGGet uptime sensor is now a timestamp sensor so its state value has
+changed from number of minutes since startup to a timestamp indicating the
+start time of the application.
+
+([@ctalkington] - [#38938] [#39425]) ([nzbget docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Yeelight</b></summary>
+  <p>
+
+The Yeelight integration now uses custom SSDP-like discovery instead of the
+mDNS discovery, since mDNS discovery is removed in new firmwares.
+
+After this change, there will be no longer automatic configuration based on
+discovery. Users currently using that should set up all devices through UI.
+
+([@shenxn] - [#37191]) ([yeelight docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Squeezebox</b></summary>
+  <p>
+
+The Squeezebox integration previously always gave only the current track as
+the `media_content_id` and gave the `media_content_type` as `music`.
+
+This leads to unexpected behavior when saving and loading scenes, because only
+the current track is saved and loaded.
+
+The `media_content_id` for the `squeezebox` integration may be either a single
+URL or a list of them. If a single URL, `media_content_type` is `music`.
+If a playlist, `media_content_type` is a `playlist`. If you are using
+automations that use `media_content_id`, you should check if the
+`media_content_type` is `music` or `playlist`.
+
+([@rajlaud] - [#38214]) ([squeezebox docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Templates</b></summary>
+  <p>
+
+It is no longer necessary to provide a list of entities to monitor for each
+template platform as automatic analysis can now find all entities that affect
+the state in the template without manual setup.
+
+The template is now re-evaluated whenever an entity that can affect the
+template state changes. New entities that can affect the template state are
+automatically discovered each time the template is rendered. This change solves
+a performance issue where the template would be re-rendered unnecessarily.
+
+Please review the `Working without entities` section on the
+`Binary Sensor Template` documentation for alternative ways to force
+templates entities to re-evaluate.
+
+If this change means you need to make adjustments, we have made it easier by
+making template entities reloadable in the `YAML configuration reloading`
+section under `Configure Home Assistant` -> `Server Controls`.
+
+([@bdraco] - [#39382]) ([template docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Emulated Hue</b></summary>
+  <p>
+
+By default, all lights and devices that do not support brightness adjustment are
+exported as On/Off lights without a brightness property. When upgrading from
+earlier versions of Home Assistant (0.112 and earlier), some devices may now be
+reported by Alexa as non-responsive.
+
+Alternatively, you can set the `lights_all_dimmable` configuration option to
+continue reporting these devices as if they have a brightness setting.
+
+**How to fix it once and for all**:
+
+You need to have Alexa rediscover all devices and then remove the now
+non-responding duplicates using the Alexa phone App. This can take quite a while
+if you have lots of devices.
+
+An alternative would be to log to the Alexa web site and remove all the lights
+instead and then re-discover them all.
+
+To do so go to <https://alexa.amazon.com/spa/index.html#appliances>, or if not
+logged in: <https://alexa.amazon.com> then select "Smart Home" -> "Devices" and
+select "Remove All".
+
+If you have multiple Echo devices on your network, it is possible that the
+entries would continue to show as duplicates. This is due to an individual Echo
+device caching the old list and re-using it.
+
+The only known solution for this is to remove your echo devices from your Amazon
+account, delete all the lights previously discovered by Alexa and then re-run
+discovery.
+
+This is a one-off requirement, unfortunately there's no other way to easily
+transitioned from the previously incorrect values reported by the Emulated Hue.
+
+([@jyavenard] - [#39539]) ([emulated_hue docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Roku</b></summary>
+  <p>
+
+The Roku state now better aligns with media playback.
+
+Previously, if an app was open, the state would be "playing" even if you were
+just browsing the app interface. This has been adjusted to be represented as
+"on". When Roku reports media playback in progress, the state "playing" will
+be used.
+
+This improves compatibility with exposing entities to Alexa, Google Assistant,
+and HomeKit.
+
+([@ctalkington] - [#39540]) ([roku docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Meteorologisk institutt (Met.no)</b></summary>
+  <p>
+
+While updating the integration, and its underlying libraries, to use the newer
+API endpoint, some of the calculations and forecast aggregations were tweaked a
+bit:
+
+- Use hourly forecast for current weather, not daily.
+- Ensure compared datetime objects are compared in the same time zone.
+- Use highest resolution data from full 24 hours to calculate daily forecast
+  min/max/sum values.
+
+None of these changes are expected to break your setup, though the data
+presented might look a little different due to the above.
+
+In addition, all time stamps are now given in UTC. Automations that depend on
+the `datetime` key under the state attribute `forecast` needs to be checked and
+updated accordingly.
+
+([@thimic] - [#39493]) ([met docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>OpenWeatherMap</b></summary>
+  <p>
+
+The OpenWeatherMap integration can now be configured via the UI. After upgrading
+your existing configuration will be imported automatically and you can safely
+remove existing YAML configuration for this integration.
+
+([@freekode] - [#34659]) ([openweathermap docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Open Hardware Monitor</b></summary>
+  <p>
+
+In some locales numbers with decimals uses "," instead of "." and this causes
+an issue when trying to use InfluxDB for example. This has been adjusted.
+
+([@fillefilip8] - [#39030]) ([openhardwaremonitor docs])
+
+  </p>
+</details>
 
 ## Farewell to the following
 
