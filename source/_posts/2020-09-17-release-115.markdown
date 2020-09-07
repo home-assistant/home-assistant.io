@@ -125,27 +125,20 @@ Lorem ipsum.
 
 A lot new integrations added this release:
 
-- [Lorem ipsum template][lorem ipsum docs], added by [@frenck]
-- Add Nightscout integration ([@marciogranzotto] - [#38615]) ([nightscout docs]) (new-integration)
-- Add support for Flo by Moen water shutoff devices ([@dmulcahey] - [#38171]) ([flo docs]) (new-integration)
-- Add water level sensors provided by UK Environment Agency ([@Jc2k] - [#31954]) ([eafm docs]) (new-integration)
-- [RFC] Add Tag integration ([@dmulcahey] - [#38727]) ([default_config docs]) ([tag docs]) (new-integration)
-- Add roon media player integration ([@pavoni] - [#37553]) ([roon docs]) (new-integration)
-- Add binary sensor support to the Flo integration ([@dmulcahey] - [#38267]) ([flo docs]) (new-integration)
-- Add switch support to the Flo integration ([@dmulcahey] - [#38268]) ([flo docs]) (new-integration)
-- Add image integration ([@balloob] - [#38969]) ([media_manager docs]) (new-integration)
-- Smart Meter Texas integration ([@grahamwetzler] - [#37966]) ([smart_meter_texas docs]) (new-integration)
-- Add OZW network_statistics websocket command ([@cgarwood] - [#39124]) ([ozw docs]) (new-integration)
-- Add Risco integration ([@OnFreund] - [#36930]) ([risco docs]) (new-integration)
-- Add Shelly integration ([@balloob] - [#39178]) ([shelly docs]) (new-integration)
-- Add Wilight integration with SSDP ([@leofig-rj] - [#36694]) ([wilight docs]) (new-integration)
-- Add sharkiq integration for Shark IQ robot vacuums ([@ajmarks] - [#38272]) ([sharkiq docs]) (new-integration)
-- Add integration for ProgettiHWSW automation boards ([@ArdaSeremet] - [#37922]) ([progettihwsw docs]) (new-integration)
-- Add entity services to the Flo integration ([@dmulcahey] - [#38287]) ([flo docs]) (new-integration)
-- Add get_migration_config to zwave websocket api ([@cgarwood] - [#39577]) ([zwave docs]) (new-integration)
-- Media Source implementation for Chromecast ([@hunterjm] - [#39305]) ([cast docs]) ([default_config docs]) ([media_finder docs]) (new-integration)
-- Add Netatmo media browser support ([@cgtobi] - [#39578]) ([cast docs]) ([default_config docs]) ([media_source docs]) ([netatmo docs]) (new-integration)
-- Add Emulated Kasa Integration ([@kbickar] - [#39630]) ([emulated_kasa docs]) ([sense docs]) (new-integration)
+- [Emulated Kasa][emulated_kasa docs], added by [@kbickar]
+- [Flo by Moen][flo docs], added by [@dmulcahey]
+- [Image][image docs], added by [@balloob]
+- [Media Source][media_source docs], added by [@balloob]
+- [Nightscout][nightscout docs], added by [@marciogranzotto]
+- [ProgettiHWSW][progettihwsw docs], added by [@ArdaSeremet]
+- [Risco Alarm][risco docs], added by [@OnFreund]
+- [RoonLabs Media Player][roon docs], added by [@pavoni]
+- [Shark IQ][sharkiq docs], added by [@ajmarks]
+- [Shelly][shelly docs], added by [@balloob]
+- [Smart Meter Texas][smart_meter_texas docs], added by [@grahamwetzler]
+- [Tag][tag docs], added by [@dmulcahey]
+- [UK Environment Agency Flood Monitoring][eafm docs], added by [@Jc2k]
+- [WiLight][wilight docs], added by [@leofig-rj]
 
 ## New Platforms
 
