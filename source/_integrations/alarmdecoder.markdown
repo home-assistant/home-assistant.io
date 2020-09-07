@@ -43,7 +43,7 @@ Once AlarmDecoder has been set up according to the instructions above, the armin
 
 ### Arming Settings
 
-There are currently 3 arming settings for AlarmDecoder (shown below). Changes to the arming settings should take effect immediately and will **not** require a Home Assistant reboot.
+There are currently 3 arming settings for AlarmDecoder (shown below).
 
 - **Alternative Night Mode** - For Honeywell systems, set to `true` to enable _Night-Stay_ mode instead of _Instant_ mode for night arming. For DSC systems, set to `true` to enable _No-Entry_ mode instead of _Stay_ mode for night arming. For both systems, whenever this option is set to `true`, a code will be required for night arming **regardless of the _Code Required for Arming_ setting.** See [Arming Key Sequences](#arming-key-sequences) section below for more information.
 - **Auto Bypass on Arm** - (Honeywell only) Set to `true` to automatically bypass all open zones by sending `code` + `6#` before arming. This setting requires a code only if there are faulted zones when arming.
@@ -51,23 +51,23 @@ There are currently 3 arming settings for AlarmDecoder (shown below). Changes to
 
 ### Zones
 
-Zones can be added, edited, and removed through the option forms. **Home Assistant will need to be rebooted for zone changes to take effect.** You can, however, add/edit/remove multiple zones before rebooting and all of the changes will be applied after a single reboot.
+Zones can be added, edited, and removed through the option forms.
 
 Each zone that's added to AlarmDecoder will have its own [binary sensor](https://www.home-assistant.io/integrations/binary_sensor/) created.
 
 #### Adding a New Zone
 
-When prompted, enter the number of the zone you'd like to add. Press _Submit_ to move to the next screen where you'll be prompted for the [zone settings](#zone-settings). Press _Submit_ again to save. The new zone will be added to Home Assistant upon the next reboot.
+When prompted, enter the number of the zone you'd like to add. Press _Submit_ to move to the next screen where you'll be prompted for the [zone settings](#zone-settings). Press _Submit_ again to save.
 
 **Note:** The zone number that was entered will appear as an attribute on the binary sensor entity that's created in order to easily edit the zone settings at a later time.
 
 #### Editing an Existing Zone
 
-When prompted, enter the number of the zone you'd like to edit. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Edit the zone settings and press _Submit_ to save the changes. The new zone details will take effect upon the next Home Assistant reboot.
+When prompted, enter the number of the zone you'd like to edit. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Edit the zone settings and press _Submit_ to save the changes.
 
 #### Removing an Existing Zone
 
-When prompted, enter the number of the zone you'd like to remove. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Clear the _Zone Name_ field and press _Submit_. The zone will be successfully removed upon the next Home Assistant reboot.
+When prompted, enter the number of the zone you'd like to remove. Press _Submit_ to move to the next screen where the existing zone settings will be pre-filled. Clear the _Zone Name_ field and press _Submit_.
 
 #### Zone Settings
 
