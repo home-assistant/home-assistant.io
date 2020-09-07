@@ -12,33 +12,12 @@ ha_codeowners:
 
 This `goalzero` integration pulls data from a Wifi enabled Goal Zero Yeti.
 
-The switch platform creates a switch for the 12V, 5V, and AC outputs.
-
 ## Configuration
 
-To use your Goal Zero sensor in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-goalzero:
-  host: 192.168.0.10
-  name: 'Yeti'
-```
-
-{% configuration %}
-host:
-  required: true
-  type: string
-  description: The IP address of the Goal Zero Yeti.
-name:
-  required: false
-  type: string
-  description: Give a name for your Goal Zero Yeti.
-
-{% endconfiguration %}
+Go to the integrations page in your configuration and click on new integration -> Goal Zero Yeti.
 
 ## Integration Entities
 
-Each added configuration entry for this integration will create the following sensors:
+Each added configuration entry will create the following sensors:
 
 `v12PortStatus`, `usbPortStatus`, `acPortStatus`, `backlight`, `app_online`, `isCharging`
