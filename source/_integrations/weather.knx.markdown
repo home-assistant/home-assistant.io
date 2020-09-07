@@ -3,7 +3,7 @@ title: "KNX Weather"
 description: "Instructions on how to integrate KNX weather stations with Home Assistant."
 ha_category:
   - Weather
-ha_release: 0.115.0
+ha_release: 0.115
 ha_iot_class: Local Push
 ha_domain: knx
 ---
