@@ -41,7 +41,6 @@ description, so we can classify your issue correctly. Issues introduced in the b
 - Birthday message
 - Split into multiple posts?
 - Social media image
-- Bump version in Jekyll config
 - Documentation page for new image integration is missing
 
 ## Media Browser
