@@ -30,10 +30,14 @@ To create the required Spotify application:
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file.
-- Add a **Redirect URI** in one of the following forms:
+- On the Spotify page, enter the **Edit Settings** dialog of your newly created application and add a **Redirect URI**:
   - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
   - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
 - Click **Save** after adding the URI.
+
+<div class='note'>
+  Your Home Assitant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
+</div>  
 
 ## Configuration
 
@@ -61,18 +65,18 @@ client_secret:
 
 After you have set up the above:
 
-- Go to the integrations page in the Home Assistant frontend
-- Go to **Integrations**
+- Go to the **Configurations** page in the Home Assistant frontend.
+- Go to **Integrations**.
 - Add a new **Spotify** integration.
 - Follow the steps shown to authenticate Home Assistant with your Spotify account.
 
 <div class='note'>
   
-  If you receive an `INVALID_CLIENT: Invalid redirect URI` error while trying to authenticate with your Spotify account, make sure to check the Redirect URI in the address bar after adding the new integration. Compare this value with the Redirect URL defined in the Spotify Developer Portal.
+  If you receive an `INVALID_CLIENT: Invalid redirect URI` error while trying to authenticate with your Spotify account, make sure to check the Redirect URI in the address bar after adding the new integration. Compare this value with the Redirect URI defined in the Spotify Developer Portal.
 
 </div>
 
-## URI Links For Playlists
+## URI Links for Playlists
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which are part of the
 [media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service.
