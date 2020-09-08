@@ -42,10 +42,10 @@ name:
   type: string
   default: OpenWeatherMap
 mode:
-  description: "Can specify `hourly`, `daily`, or `freedaily`. Select `hourly` for a three-hour forecast, `daily` for daily forecast, or `freedaily` for a five-day forecast with the free tier."
+  description: "Can specify `hourly` or `daily`."
   required: false
   type: string
-  default: "`hourly`"
+  default: "`daily`"
 latitude:
   description: Latitude of the location to display the weather.
   required: false
@@ -66,7 +66,7 @@ This platform is an alternative to the [`openweathermap`](/integrations/openweat
 
 ## Sensor
 
-The `openweathermap` platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 3h.
+The `openweathermap` platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 1h or in 1d, depending on the `mode` you selected.
 
 To include OpenWeatherMap sensor to your installation, add the following to your `configuration.yaml` file:
 
