@@ -58,11 +58,11 @@ havdalah_minutes_after_sunset:
 
 ### Data sensors
 
-- date: Shows the hebrew date for today.
-- weekly_portion: Shows the weekly portion (parshat hashavu'a).
-- holiday: If it is a holiday, shows the name of the holiday _(see below for more info)_.
-- omer_count: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
-- daf_yomi: Shows the date's daf yomi page.
+- `date`: Shows the hebrew date for today.
+- `weekly_portion`: Shows the weekly portion (parshat hashavu'a).
+- `holiday`: If it is a holiday, shows the name of the holiday _(see below for more info)_.
+- `omer_count`: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
+- `daf_yomi`: Shows the date's daf yomi page.
 
 ### Time sensors
 
@@ -71,25 +71,25 @@ havdalah_minutes_after_sunset:
 Time sensor states are represented as ISO8601 formatted *UTC time*.
 For easier use in automations, all time sensors have a `timestamp` attribute, which returns the UNIX timestamp.
 
-- first_light: First light of dawn (Alot Hashachar - עלות השחר).
-- talit: Earliest time for tallit and tefillin
-- gra_end_shma: Last time for reading of the Shma according to the Gr"a.
-- mga_end_shma: Last time for reading of the Shma according to the MG"A.
-- gra_end_tefilla: Last time for full shacharit according to the Gr"a.
-- mga_end_tefilla: Last time for full shacharit according to the MG"A.
-- big_mincha: Earliest time for Mincha (Mincha Gedola)
-- little_mincha: Preferable earliest time for Mincha (Mincha Ketana)
-- plag_mincha: Time of the Plag Hamincha.
-- sunset: Sunset (Shkiya)
-- first_stars: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים).
-- upcoming_shabbat_candle_lighting: The time of candle lighting for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat.
-- upcoming_shabbat_havdalah: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e., if holiday is Sat./Sun./Mon. and it's Saturday, there will be no shabbat_havdalah value. See comments in hdate library for details.)
-- upcoming_candle_lighting: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the upcoming_shabbat_candle_lighting sensor.
-- upcoming_havdalah: The time of havdalah for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the havdalah for Rosh Hashana on Wednesday night. To always get the Shabbat times, use the upcoming_shabbat_havdalah sensor.
+- `first_light`: First light of dawn (Alot Hashachar - עלות השחר).
+- `talit`: Earliest time for tallit and tefillin
+- `gra_end_shma`: Last time for reading of the Shma according to the Gr"a.
+- `mga_end_shma`: Last time for reading of the Shma according to the MG"A.
+- `gra_end_tefilla`: Last time for full shacharit according to the Gr"a.
+- `mga_end_tefilla`: Last time for full shacharit according to the MG"A.
+- `big_mincha`: Earliest time for Mincha (Mincha Gedola)
+- `little_mincha`: Preferable earliest time for Mincha (Mincha Ketana)
+- `plag_mincha`: Time of the Plag Hamincha.
+- `sunset`: Sunset (Shkiya)
+- `first_stars`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים).
+- `upcoming_shabbat_candle_lighting`: The time of candle lighting for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat.
+- `upcoming_shabbat_havdalah`: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e., if holiday is Sat./Sun./Mon. and it's Saturday, there will be no shabbat_havdalah value. See comments in hdate library for details.)
+- `upcoming_candle_lighting`: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the `upcoming_shabbat_candle_lighting` sensor.
+- `upcoming_havdalah`: The time of havdalah for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the havdalah for Rosh Hashana on Wednesday night. To always get the Shabbat times, use the `upcoming_shabbat_havdalah` sensor.
 
 ### Binary sensors
 
-- issur_melacha_in_effect: A boolean sensor indicating if melacha is currently not permitted. The value is true when it is currently Shabbat or Yom Tov and false otherwise.
+- `issur_melacha_in_effect`: A boolean sensor indicating if melacha is currently not permitted. The value is true when it is currently Shabbat or Yom Tov and false otherwise.
 
 ### Holiday sensor
 
@@ -98,7 +98,7 @@ The *type_id* is useful for cases to condition automations based on a range of t
 
 The following is the list of holidays the sensor knows about with their selected type:
 
-| ID                   | English                    | Hebrew                | Type                      | Type ID |
+| ID                   | English                    | Hebrew                | Type                      | Type_ID |
 |----------------------|----------------------------|-----------------------|---------------------------|---------|
 | erev_rosh_hashana    | Erev Rosh Hashana          | ערב ראש השנה          | EREV_YOM_TOV              | 2       |
 | rosh_hashana_i       | Rosh Hashana I             | א' ראש השנה           | YOM_TOV                   | 1       |
