@@ -10,11 +10,11 @@ ha_codeowners:
 ha_domain: jewish_calendar
 ---
 
-The Jewish Calendar (`jewish_calendar`) sensor platform displays a variety of information related to the Jewish Calendar as a variety of sensors.
+The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
 
 ## Configuration
 
-To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+To enable this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
