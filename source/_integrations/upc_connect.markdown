@@ -20,6 +20,10 @@ device_tracker:
     password: PASSWORD
 ```
 
+<div class='note'>
+This integration works by logging into the router with a password. The router can only have one active session at any time, so if you want to access your router settings then stop Home Assistant first.
+</div>
+
 {% configuration %}
 password:
   description: The password of your router.
