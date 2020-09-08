@@ -422,6 +422,16 @@ But also in the `repeat` action's `while` or `until` option, or in a `choose` ac
 
 {% endraw %}
 
+<div class="note warning">
+
+While conditions can be used in script sequences or automation actions, the
+shorthand for template conditions cannot be used directly in those constructs.
+
+However, if an used action supports conditions itself, like `choose` and
+ `repeat`, the shorthand template conditions will be accepted in those cases.
+
+</div>
+
 [template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/
 
