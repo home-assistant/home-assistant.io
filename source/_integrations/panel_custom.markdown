@@ -77,8 +77,4 @@ trust_external_script:
   required: false
   default: false
   type: boolean
-webcomponent_path:
-  description: "*DEPRECATED* The HTML path to your component. If omitted will default to `<config dir>/panels/<component name>.html` This cannot be used in combination with either `js_url` and `module_url`."
-  required: false
-  type: string
 {% endconfiguration %}
