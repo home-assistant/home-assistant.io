@@ -99,7 +99,7 @@ The *type_id* is useful for cases to condition automations based on a range of t
 The following is the list of holidays the sensor knows about with their selected type:
 
 | ID                   | English                    | Hebrew                | Type                      | Type_ID |
-|----------------------|----------------------------|-----------------------|---------------------------|---------|
+|----------------------|----------------------------|-----------------------|---------------------------|:-------:|
 | erev_rosh_hashana    | Erev Rosh Hashana          | ערב ראש השנה          | EREV_YOM_TOV              | 2       |
 | rosh_hashana_i       | Rosh Hashana I             | א' ראש השנה           | YOM_TOV                   | 1       |
 | rosh_hashana_ii      | Rosh Hashana II            | ב' ראש השנה           | YOM_TOV                   | 1       |
