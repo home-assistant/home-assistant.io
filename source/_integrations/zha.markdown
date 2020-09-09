@@ -185,7 +185,7 @@ When reporting issues, please provide the following information in addition to i
 
 ### Debug logging
 
-To enable debug logging for ZHA component and radio libraries, add the following [logger](https://www.home-assistant.io/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for ZHA component and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
 
 ```yaml
 logger:
