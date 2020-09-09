@@ -49,7 +49,7 @@ address of your instance.
 For example, `https://192.168.1.2:8123`
 
 Replace the IP with the IP address of your Home Assistant instance. If you
-don't know this, you could also skip to this and try the next solution.
+don't know this, you could also skip this and try the next solution.
 
 Now you can set up the integration as normal, without getting the No URL
 Available message.
