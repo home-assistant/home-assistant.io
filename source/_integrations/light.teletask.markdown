@@ -14,10 +14,7 @@ The `teletask` integration must be configured correctly to use this integration,
 
 </div>
 
-The `teletask light` integration is used as an interface to control KNX actuators for lighting applications such as:
-
-- switching actuators
-- dimming actuators
+The `teletask light` integration is used as an interface to control KNX actuators for lighting applications
 
 ## Configuration
 
