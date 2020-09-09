@@ -36,10 +36,9 @@ There are multiple options to consider:
 If you have Nabu Casa's Home Assistant Cloud, the easiest way to resolve this,
 is by visiting your Home Assistant instance from the remote UI URL.
 
-If you don't know this URL, surf to <https://remote.nabucasa.com/> and log in.
-You will be automatically redirected to the right address.
+Go to **Configuration** -> **Cloud**.
 
-Now you can set up the integration as normal, without getting the No URL
+Visit your instance on the remote URL. Now you can set up the integration as normal, without getting the No URL
 Available message.
 
 ### Using your instance by IP address
