@@ -61,7 +61,7 @@ module Jekyll
 
       result << vars.map do |key, attr|
         markup = Array.new
-        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'>#{key}</span>"
+        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'> #{key} </span>"
 
         if attr.key? 'type'
 
@@ -115,7 +115,7 @@ module Jekyll
             shortDefaultValue = ", default: " + shortDefaultValue
           end
 
-          markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required'].to_s}'>#{required_value(attr['required'])}</span>#{shortDefaultValue}#{endSymbol}</span>"
+          markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required'].to_s}'>#{required_value(attr['required'])}</span><span class='default'>#{shortDefaultValue}</span>#{endSymbol}</span>"
         end
 
         markup << "</div><div class='config-vars-description-and-children'>"
