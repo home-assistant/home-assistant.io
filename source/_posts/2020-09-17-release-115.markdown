@@ -23,13 +23,13 @@ the release announcements into multiple blog posts.
 
 If you encounter any issues, please report them on GitHub:
 
-- Issues with integrations, automations and such (Core related):  
+- Issues with integrations, automations and such (Core related):
   <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/lovelace:  
+- Issues with the frontend/lovelace:
   <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:  
+- Issues with the Supervisor:
   <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:  
+- Issues with the documentation:
   <https://github.com/home-assistant/home-assistant.io/issues>
 
 Please be sure to include the beta version you are running in the issue
@@ -403,7 +403,7 @@ restart Home Assistant:
 
 You can also reload an integration that is setup with the UI. This can be useful
 when it lost it's connection or is in an otherwise failed state. You can find
-the reload the button in the overflow menu on the integration card. 
+the reload the button in the overflow menu on the integration card.
 
 ## User password change
 
@@ -456,6 +456,14 @@ Lorem ipsum.
 </p>
 -->
 
+## Home Assistant Cloud for older Android devices
+
+Home Assistant Cloud uses Let's Encrypt to provide SSL certificates for your instance. Let's Encrypt is changing the way they sign their certificates at the end of the month which breaks support for older Android devices (older than Android 7.1).
+
+This release includes an update to make the certificates used by Home Assistant Cloud backwards compatible. This relies on a feature that Let's Encrypt provides, which will expire in September 2021.
+
+If you use an older Android device and cannot upgrade to Home Assistant 0.115 or want to use it past September 2021, install the Firefox browser. It includes modern certificates and is able to support the new Let's Encrypt certificates.
+
 ## Other noteworthy changes
 
 - The OpenZwave beta integration in coming along nicely. First signs of
@@ -502,7 +510,7 @@ Lorem ipsum.
     - Subscribe to state change events only if the template has entities ([@bdraco] - [#39188]) ([template docs])
     - Make async_track_template_result track multiple templates ([@bdraco] - [#39371]) ([bayesian docs]) ([template docs]) ([universal docs]) ([websocket_api docs]))
 
-- WTH: Extend IP ban / failed login notification information ([@frenck] - [#39020]) ([http docs]) 
+- WTH: Extend IP ban / failed login notification information ([@frenck] - [#39020]) ([http docs])
 - WTH: Allow Slack notifications to change username/icon on the fly ([@bachya] - [#39091])
 - WTH: Don't sort keys when dumping json and yaml ([@bramkragten] - [#39214]) ([http docs])
 - WTH: Allow owner users to change password of any user ([@balloob] - [#39242]) ([config docs])
@@ -642,7 +650,7 @@ re-authenticating with existing services.
 <details>
   <summary><b>OpenUV</b></summary>
   <p>
-  
+
 Support for configuring this integration has been fully removed.
 If you have existing OpenUV configuration in your YAML configuration files,
 you can safely remove that configuration.
