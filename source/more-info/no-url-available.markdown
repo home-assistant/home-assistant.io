@@ -69,9 +69,9 @@ Go to **Configuration** -> **General**.
 On this page, two fields that can resolve this issue: "External URL"
 and "Internal URL".
 
-**Internal URL**: The URL you type in your browser when you are **at home**,
+- **Internal URL**: The URL you type in your browser when you are **at home**,
 connected to your home network, e.g., `http://homeassistant.local:8123`
-**External URL**: The URL you type in your browser when you are **not home**,
+- **External URL**: The URL you type in your browser when you are **not home**,
 connected to your home network, e.g., `https://example.duckdns.org`
 
 Some additional notes:
