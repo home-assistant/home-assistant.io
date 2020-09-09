@@ -55,7 +55,7 @@ sensor:
         required: false
         type: [string, list]
       unique_id:
-        description: An ID that uniquely identifies this sensor. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this sensor. Set this to an unique value to allow customisation through the UI.
         required: false
         type: string
       unit_of_measurement:
