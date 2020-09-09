@@ -171,6 +171,9 @@ automation:
     for: "00:00:30"
 ```
 
+Please note, that when holding a state, changes to attributes are ignored and
+do not cancel the hold time.
+
 You can also fire the trigger when the state value changed from a specific
 state, but hasn't returned to that state value for the specified time.
 
@@ -203,7 +206,8 @@ automation:
 ```
 
 When the `attribute` option is specified, all of the above works, but only
-applies to the specific state value of that attribute.
+applies to the specific state value of that attribute. In this case the
+normal state value of the entity is ignored.
 
 For example, this trigger only fires if the boiler was heating for 10 minutes:
 
