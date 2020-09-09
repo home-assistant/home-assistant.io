@@ -10,17 +10,18 @@ account to be linked.
 ## What happened
 
 The authentication method for linking such an account is called OAuth2, and
-if a modern and more common way of linking systems together, by logging in with
+is a modern and more common way of linking systems together, by logging in with
 the provider of the data.
 
 This means Home Assistant will redirect you to the provider to log in. After the
-login was successful, the third-party provider will redirect you back to your
+login is successful, the third-party provider will redirect you back to your
 Home Assistant instance.
 
 For the third-party to be able to redirect/link you back to Home Assistant
 after authentication, Home Assistant needs to tell the third-party application
-about the URL to access Home Assistant on / to redirect back to, unfortunately,
-if this error occurs, Home Assistant hasn't been able to figure out that URL.
+about the URL to access Home Assistant on / to redirect back to. Unfortunately,
+if the "No URL Available" error occurs, Home Assistant hasn't been able to figure out
+that URL.
 
 ## How to solve it
 
@@ -58,7 +59,7 @@ Available message.
 
 Another good solution is configuring the Home Assistant instance URL in
 Home Assistant. By letting Home Assistant know about the URL you use to
-access it, Home Assistant will be able to deal with that in s situation
+access it, Home Assistant will be able to deal with that in a situation
 like this.
 
 Please note, you'll need to enable advanced mode in your user profile in order
