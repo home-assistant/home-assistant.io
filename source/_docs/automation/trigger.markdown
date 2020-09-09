@@ -171,8 +171,8 @@ automation:
     for: "00:00:30"
 ```
 
-Please note, that when holding a state, changes to attributes ignored and do
-not cancel the hold time.
+Please note, that when holding a state, changes to attributes are ignored and
+do not cancel the hold time.
 
 You can also fire the trigger when the state value changed from a specific
 state, but hasn't returned to that state value for the specified time.
