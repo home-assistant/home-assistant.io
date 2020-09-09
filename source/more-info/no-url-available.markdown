@@ -76,7 +76,7 @@ connected to your home network, e.g., `https://example.duckdns.org`
 
 Some additional notes:
 
-- Don't use the Nabu Casa remote UI URL in any of these fields. The remove UI
+- Don't use the Nabu Casa remote UI URL in any of these fields. The remote UI
   will automatically be handled correctly.
 - If the address you use, is the same for both the "**at home**" and
   "**not home**" situations, you can use the same address for both fields.
