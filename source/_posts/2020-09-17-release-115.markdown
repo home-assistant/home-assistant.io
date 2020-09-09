@@ -754,7 +754,7 @@ script:
           packet: JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
-Use the `remote.send_command`:
+Use the `remote.send_command` by replacing `host` by `entity_id` of the remote entity, replace `packet` by `command` with data prefixed with `b64:`:
 
 ```yaml
 script:
@@ -766,7 +766,7 @@ script:
           command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
-Keeping it clean:
+If you have learned the commands, you can refer to them by name instead of the raw codes.:
 
 ```yaml
 script:
