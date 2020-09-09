@@ -61,6 +61,7 @@ module Jekyll
 
       result << vars.map do |key, attr|
         markup = Array.new
+        # There are spaces around the "{key}", to improve double-click selection in Chrome.
         markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'> #{key} </span>"
 
         if attr.key? 'type'
