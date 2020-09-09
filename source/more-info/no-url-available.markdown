@@ -79,7 +79,9 @@ Some additional notes:
 - Don't use the Nabu Casa remote UI URL in any of these fields. The remote UI
   will automatically be handled correctly.
 - If the address you use, is the same for both the "**at home**" and
-  "**not home**" situations, you can use the same address for both fields.
+  "**not home**" situations, it is recommend to only use the External URL field.
+- The internal URL should preferably not have `https://` in it, as it might
+  cause problems with casting to media devices.
 - If you do not have an external address for your Home Assistant instance,
   leave that field empty.
 
