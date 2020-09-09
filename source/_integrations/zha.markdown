@@ -21,7 +21,7 @@ ha_codeowners:
 ha_domain: zha
 ---
 
-[Zigbee Home Automation](https://zigbeealliance.org)
+[Zigbee Home Automation](https://zigbeealliance.org) (ZHA)
 integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules that is compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on separate libraries which can each interface a with Zigbee radio module a different manufacturer).
 
 There is currently support for the following device types within Home Assistant:
@@ -117,9 +117,9 @@ radio type. In the pop-up:
 
 Most devices need at very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
 device path from `/dev/serial/by-id` folder,
-eg `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`
+e.g. `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`
 
-Press `Submit` The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
+Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path configuration:
 
@@ -185,7 +185,7 @@ When reporting issues, please provide the following information in addition to i
 
 ### Debug logging
 
-To enable debug logging for ZHA component ard radio libraries, add the following [logger](https://www.home-assistant.io/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for ZHA component and radio libraries, add the following [logger](https://www.home-assistant.io/integrations/logger/) configuration to `configuration.yaml`:
 
 ```yaml
 logger:
@@ -226,7 +226,7 @@ Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://git
 
 On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
 
-To remove modemmanager from an Debian/Ubuntu host run this command:
+To remove modemmanager from a Debian/Ubuntu host run this command:
 
 ```bash
 sudo apt-get purge modemmanager
