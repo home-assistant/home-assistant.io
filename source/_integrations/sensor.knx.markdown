@@ -25,10 +25,21 @@ To use your KNX sensor in your installation, add the following lines to your `co
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: knx
-    name: Heating.Valve1
-    state_address: '2/0/0'
+knx:
+  sensor:
+    - name: Heating.Valve1
+      state_address: '2/0/0'
+```
+
+In order to actively read the sensor data from the bus all 30 seconds you can add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  sensor:
+    - name: Heating.Valve1
+      state_address: '2/0/0'
+      sync_state: 30
 ```
 
 {% configuration %}
@@ -41,9 +52,9 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus.
+  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus. You can also define in seconds between 2 and 1440 how often the state update should take place. 
   required: false
-  type: boolean
+  type: [boolean, string, integer]
   default: True
 type:
   description: A type from the following table must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
@@ -195,14 +206,13 @@ type:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: knx
-    name: Heating.Valve1
-    state_address: '2/0/0'
-    type: 'percent'
-  - platform: knx
-    name: Kitchen.Temperature
-    state_address: '6/2/1'
-    sync_state: False
-    type: 'temperature'
+knx:
+  sensor:
+    - name: Heating.Valve1
+      state_address: '2/0/0'
+      type: 'percent'
+    - name: Kitchen.Temperature
+      state_address: '6/2/1'
+      sync_state: False
+      type: 'temperature'
 ```

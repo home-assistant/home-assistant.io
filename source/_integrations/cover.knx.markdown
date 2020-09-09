@@ -20,15 +20,16 @@ To use your KNX covers in your installation, add the following to your `configur
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: knx
-    name: "Kitchen.Shutter"
-    move_long_address: '3/0/0'
-    move_short_address: '3/0/1'
-    position_address: '3/0/3'
-    position_state_address: '3/0/2'
-    travelling_time_down: 51
-    travelling_time_up: 61
+knx:
+  cover:
+    - name: "Kitchen.Shutter"
+      move_long_address: '3/0/0'
+      move_short_address: '3/0/1'
+      stop_address: '3/0/4'
+      position_address: '3/0/3'
+      position_state_address: '3/0/2'
+      travelling_time_down: 51
+      travelling_time_up: 61
 ```
 
 {% configuration %}
@@ -42,7 +43,11 @@ move_long_address:
   required: false
   type: string
 move_short_address:
-  description: KNX group address for moving the cover short time up or down. If the KNX device has a stop group address you can use that here.
+  description: KNX group address for moving the cover short time up or down.
+  required: false
+  type: string
+stop_address:
+  description: KNX group address for stopping the current movement from the cover.
   required: false
   type: string
 position_address:
@@ -72,12 +77,12 @@ travelling_time_up:
   default: 25
   type: integer
 invert_position:
-  description: Set this to true if your actuator report fully closed as 100%.
+  description: Set this to true if your actuator report fully closed as 0% in KNX.
   required: false
   default: false
   type: boolean
 invert_angle:
-  description: Set this to true if your actuator reports tilt fully closed as 100%.
+  description: Set this to true if your actuator reports tilt fully closed as 0% in KNX.
   required: false
   default: false
   type: boolean

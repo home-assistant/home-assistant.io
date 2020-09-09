@@ -70,8 +70,8 @@ automation:
       event_data:
         entity_id: binary_sensor.cube_158d000103a3de
     action:
-      service_template: notify.pushover
-      data_template: 
+      service: notify.pushover
+      data: 
         title: "Cube event detected"
         message: "Cube has triggered this event: {{ trigger.event }}"
 ```

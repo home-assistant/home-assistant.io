@@ -100,6 +100,12 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 
 ## Services
 
+### Set Outdoor Camera Light Mode
+
+`set_camera_light_mode`
+
+Set the outdoor camera light mode. This requires an entity id and a valid state.
+
 ### Set Schedule
 
 `set_schedule`
@@ -168,7 +174,7 @@ Example:
       event_data:
         type: movement
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
@@ -192,7 +198,7 @@ Example:
       event_data:
         type: human # other possible types: animal, vehicle
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
@@ -224,7 +230,7 @@ Example:
       event_data:
         type: tag_small_move
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}
         title: Netatmo event

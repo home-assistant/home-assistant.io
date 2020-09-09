@@ -25,7 +25,7 @@ script:
     sequence:
       # This is Home Assistant Script Syntax
       - service: notify.notify
-        data_template:
+        data:
           message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
 
@@ -77,6 +77,11 @@ max:
   required: false
   type: integer
   default: 10
+max_exceeded:
+  description: "When `max` is exceeded (which is effectively 1 for `single` mode) a log message will be emitted to indicate this has happened. This option controls the severity level of that log message. See [Log Levels](/integrations/logger/#log-levels) for a list of valid options. Or `silent` may be specified to suppress the message from being emitted."
+  required: false
+  type: string
+  default: warning
 sequence:
   description: The sequence of actions to be performed in the script.
   required: true
@@ -176,7 +181,7 @@ automation:
       message: 'The light is on!'
 ```
 
-Using the variables in the script requires the use of `data_template`:
+Using the variables in the script requires the use of templates:
 
 ```yaml
 # Example configuration.yaml entry
@@ -195,7 +200,7 @@ script:
         entity_id: switch.pushover_notifications
         state: 'on'
       - service: notify.pushover
-        data_template:
+        data:
           title: "{% raw %}{{ title }}{% endraw %}"
           message: "{% raw %}{{ message }}{% endraw %}"
 ```

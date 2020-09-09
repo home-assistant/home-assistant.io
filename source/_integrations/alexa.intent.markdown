@@ -218,7 +218,7 @@ intent_script:
   ActivateSceneIntent:
     action:
       service: scene.turn_on
-      data_template:
+      data:
         entity_id: scene.{% raw %}{{ Scene | replace(" ", "_") }}{% endraw %}
     speech:
       type: plain
@@ -266,7 +266,7 @@ intent_script:
   RunScriptIntent:
     action:
       service: script.turn_on
-      data_template:
+      data:
         entity_id: script.{% raw %}{{ Script | replace(" ", "_") }}{% endraw %}
     speech:
       type: plain

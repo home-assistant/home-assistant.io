@@ -114,7 +114,7 @@ automation:
       value_template: '{{ "service" in trigger.event.data.message }}'
     action:
       service: persistent_notification.create
-      data_template:
+      data:
         title: Something bad happened
         message: '{{ trigger.event.data.message }}'
 ```
@@ -135,7 +135,7 @@ automation:
       to: 'on'
     action:
       service: system_log.write
-      data_template:
+      data:
         message: 'Door opened!'
         level: info
 ```

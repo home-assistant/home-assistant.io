@@ -44,9 +44,9 @@ automation:
     platform: event
   condition: []
   action:
-  - data_template:
+  - data:
       entity_id: '{{ trigger.event.data.entity_id }}'
-    service_template: '{{ trigger.event.data.service }}'
+    service: '{{ trigger.event.data.service }}'
 ```
 {% endraw %}
 
@@ -139,7 +139,7 @@ automation:
 ```
 {% endraw %}
 
-IFTTT can also be used in scripts and with `data_template`.  Here is the above automation broken into an automation and script using variables and data_templates.
+IFTTT can also be used in scripts and with templates. Here is the above automation broken into an automation and script using variables and templates.
 
 {% raw %}
 ```yaml
@@ -151,7 +151,7 @@ automation:
     event: start
   action:
     service: script.ifttt_notify
-    data_template:
+    data:
       value1: 'HA Status:'
       value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
       value3: "{{ trigger.event.data.to_state.state }}"
@@ -164,7 +164,7 @@ automation:
 ifttt_notify:
   sequence:
     - service: ifttt.trigger
-      data_template: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
+      data: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
 {% endraw %}
 

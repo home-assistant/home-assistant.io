@@ -49,10 +49,6 @@ cover:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
-        required: false
-        type: [string, list]
       unique_id:
         description: An ID that uniquely identifies this cover. Set this to an unique value to allow customisation trough the UI.
         required: false
@@ -125,6 +121,10 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('cover.source', 'open') }}`{% endraw %}
+
+### Working without entities
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
 
 ## Optimistic Mode
 
@@ -210,7 +210,7 @@ cover:
             modus: 'stop'
         set_cover_position:
           service: script.cover_group_position
-          data_template:
+          data:
             position: "{{position}}"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
@@ -219,9 +219,6 @@ cover:
           {% else %}
             mdi:window-closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 sensor:
   - platform: template
@@ -239,7 +236,7 @@ sensor:
 script:
   cover_group:
     sequence:
-      - service_template: "cover.{{modus}}_cover"
+      - service: "cover.{{modus}}_cover"
         data:
           entity_id:
             - cover.bedroom
@@ -247,7 +244,7 @@ script:
   cover_group_position:
     sequence:
       - service: cover.set_cover_position
-        data_template:
+        data:
           entity_id:
             - cover.bedroom
             - cover.livingroom

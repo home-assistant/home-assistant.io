@@ -23,8 +23,12 @@ switch:
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value.
+  description: The resource or endpoint used to control the REST switch.
   required: true
+  type: string
+state_resource:
+  description: "The resource or endpoint that reports the state if different from `resource`. Used by `is_on_template`. Defaults to `resource`."
+  required: false
   type: string
 method:
   description: "The method of the request. Supported `post` or `put`."

@@ -62,7 +62,7 @@ Then you can use the following `action` in your automation (this will save the v
 ```yaml
 action:
   - service: downloader.download_file
-    data_template:
+    data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
       filename: "{{state_attr('camera.front_door', 'friendly_name')}}"

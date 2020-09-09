@@ -73,7 +73,7 @@ data:
   description: Dictionary of extra parameters to send to the resource.
   required: false
   type: string
-data_template:
+data:
   description: Template dictionary of extra parameters to send to the resource.
   required: false
   type: template
