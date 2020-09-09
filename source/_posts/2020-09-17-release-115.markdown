@@ -23,13 +23,13 @@ the release announcements into multiple blog posts.
 
 If you encounter any issues, please report them on GitHub:
 
-- Issues with integrations, automations and such (Core related):
+- Issues with integrations, automations and such (Core related):<br>
   <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/lovelace:
+- Issues with the frontend/lovelace:<br>
   <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:
+- Issues with the Supervisor:<br>
   <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:
+- Issues with the documentation:<br>
   <https://github.com/home-assistant/home-assistant.io/issues>
 
 Please be sure to include the beta version you are running in the issue
