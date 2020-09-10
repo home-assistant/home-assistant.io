@@ -217,7 +217,8 @@ automation:
     platform: state
     entity_id: climate.living_room
     attribute: hvac_action
-    state: "heating"
+    to: "heating"
+    for: "00:10:00"
 ```
 
 You can also use templates in the `for` option.
