@@ -3,6 +3,7 @@ title: Griddy Power
 description: Instructions on how to integrate griddy real-time electricity prices into Home Assistant.
 ha_category:
   - Energy
+  - Sensor
 ha_release: 0.107
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -15,7 +16,7 @@ The `griddy` integration allows you to integrate your [Griddy](https://griddy.co
 
 There is currently support for the following device types within Home Assistant:
 
-- Energy
+- Sensor
 
 ## Configuration
 
