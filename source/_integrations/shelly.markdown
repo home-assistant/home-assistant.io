@@ -7,6 +7,7 @@ ha_release: 0.115
 ha_codeowners:
   - "@balloob"
 ha_domain: shelly
+ha_featured: true
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
