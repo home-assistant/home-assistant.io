@@ -3,7 +3,6 @@ title: IFTTT
 description: Instructions on how to setup IFTTT within Home Assistant.
 ha_category:
   - Automation
-featured: false
 ha_iot_class: Cloud Push
 ha_release: 0.8
 ha_config_flow: true
