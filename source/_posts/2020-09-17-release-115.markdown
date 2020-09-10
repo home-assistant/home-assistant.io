@@ -906,18 +906,6 @@ you might need to adjust your configuration.
 </details>
 
 <details>
-  <summary><b>Mi Flora</b></summary>
-  <p>
-
-The Mi Flora integration has been temporarily disabled, as it has a dependency
-that contains code that breaks Home Assistant.
-
-([@balloob] - [#37707])
-
-  </p>
-</details>
-
-<details>
   <summary><b>HDMI-CEC</b></summary>
   <p>
 
