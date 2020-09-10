@@ -128,6 +128,38 @@ In above example, if user try to access Home Assistant from 192.168.0.1, they wi
 
 Specially, you can use `group: GROUP_ID` to assign all users in certain `user group` to be available to choose. Group and users can be mix and match.
 
+### Header Authentication
+
+The Header auth provider authenticates users based on a HTTP Header. This Header is set by a reverse proxy, like [oauth2_proxy](https://github.com/oauth2-proxy/oauth2-proxy). Users are matched by their usernames, and new users are *not* automatically created.
+
+This authentication provider works together with the `trusted_proxies` setting from [HTTP](/integrations/http). Only requests coming from an IP in the trusted proxies setting are allowed.
+
+<div class='note info'>
+
+The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
+
+</div>
+
+Here is an example in `configuration.yaml` to set up Header Authentication:
+
+```yaml
+http:
+  trusted_proxies:
+    - 127.0.0.1/32
+
+homeassistant:
+  auth_providers:
+    - type: header
+```
+
+{% configuration %}
+username_header:
+  description: The header sent by the reverse proxy which contains the Username
+  required: false
+  default: X-Forwarded-Preferred-Username
+  type: string
+{% endconfiguration %}
+
 #### Skip Login Page Examples
 
 This is a feature to allow you bring back some of the experience before the user system was implemented. You can directly jump to main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose in the login form.
