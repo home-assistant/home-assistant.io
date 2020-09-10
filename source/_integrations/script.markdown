@@ -59,7 +59,7 @@ variables:
   keys:
     PARAMETER_NAME:
       description: The value of the variable. Any YAML is valid.
-      type: mixed
+      type: any
 fields:
   description: Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below.
   required: false
