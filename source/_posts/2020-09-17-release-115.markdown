@@ -1071,20 +1071,26 @@ It is no longer necessary to provide a list of entities to monitor for each
 template platform as automatic analysis can now find all entities that affect
 the state in the template without manual setup.
 
+This means you can now remove the `entity_id` option from your templates,
+as it is now deprecated.
+
 The template is now re-evaluated whenever an entity that can affect the
 template state changes. New entities that can affect the template state are
 automatically discovered each time the template is rendered. This change solves
 a performance issue where the template would be re-rendered unnecessarily.
 
-Please review the `Working without entities` section on the
-`Binary Sensor Template` documentation for alternative ways to force
-templates entities to re-evaluate.
+Please review the [`Working without entities`][working-without-entities] section
+on the [`Binary Sensor Template`][working-without-entities] documentation for
+alternative ways to force templates entities to re-evaluate. This includes
+templates that rely on the use of `now()`.
 
 If this change means you need to make adjustments, we have made it easier by
 making template entities reloadable in the `YAML configuration reloading`
 section under `Configure Home Assistant` -> `Server Controls`.
 
 ([@bdraco] - [#39382]) ([template docs])
+
+[working-without-entities]: /integrations/binary_sensor.template/#working-without-entities
 
   </p>
 </details>
