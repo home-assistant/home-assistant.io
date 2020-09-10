@@ -500,16 +500,12 @@ div.config-vars {
   }
 
   .nested .config-vars-item:last-child {
-    border: none
+    border: none;
   }
 
   .config-vars-label {
     padding-bottom: 4px;
     position: relative;
-
-    > span {
-      padding-right: 4px;
-    }
 
     &:hover a.title-link::before {
       position: absolute;
@@ -525,17 +521,17 @@ div.config-vars {
 
   .config-vars-label-name {
     font-weight: bold;
-    font-size: 16px; 
+    font-size: 16px;
     color: #222222bd;
   }
 
   .config-vars-type {
-    color :#8792a2;
+    color: #8792a2;
     font-size: 13px;
   }
 
   .config-vars-required {
-    color :#8792a2;
+    color: #8792a2;
     font-size: 13px;
     text-transform: lowercase;
 
@@ -543,6 +539,10 @@ div.config-vars {
       color: #e56f4a;
       text-transform: uppercase;
       font-size: 11px;
+    }
+
+    .default {
+      text-transform: None;
     }
   }
 
