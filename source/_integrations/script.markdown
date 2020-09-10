@@ -17,7 +17,7 @@ The `script` integration allows users to specify a sequence of actions to be exe
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
 {% raw %}
- 
+
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -51,6 +51,15 @@ description:
   required: false
   default: ''
   type: string
+variables:
+  description: Variables that will be available inside your templates
+  required: false
+  default: {}
+  type: map
+  keys:
+    PARAMETER_NAME:
+      description: The value of the variable. Any YAML is valid.
+      type: any
 fields:
   description: Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below.
   required: false
@@ -111,6 +120,8 @@ script: 
     alias: Wake Up
     icon: "mdi:party-popper"
     description: 'Turns on the bedroom lights and then the living room lights after a delay'
+    variables:
+      turn_on_entity: group.living_room
     fields:
       minutes:
         description: 'The amount of time to wait before turning on the living room lights'
@@ -136,7 +147,7 @@ script: 
       - alias: Living room lights on
         service: light.turn_on
         data:
-          entity_id: group.living_room
+          entity_id: {{ turn_on_entity }}
 ```
 
 {% endraw %}
