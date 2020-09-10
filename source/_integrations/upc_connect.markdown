@@ -11,6 +11,10 @@ ha_domain: upc_connect
 
 The `upc_connect` platform offers presence detection by looking at connected devices to a [Connect Box](https://www.upc.ch/en/internet/learn-about-internet/) from [Liberty Global](https://www.libertyglobal.com) (also known as UPC Cablecom in Switzerland) which is an Internet provider in Switzerland, Austria and the Netherlands (under Ziggo).
 
+<div class='note'>
+This integration works by logging into the router with a password. The router can only have one active session at any time, so if you want to access your router settings then stop Home Assistant first.
+</div>
+
 To use a Connect Box in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -19,10 +23,6 @@ device_tracker:
   - platform: upc_connect
     password: PASSWORD
 ```
-
-<div class='note'>
-This integration works by logging into the router with a password. The router can only have one active session at any time, so if you want to access your router settings then stop Home Assistant first.
-</div>
 
 {% configuration %}
 password:
