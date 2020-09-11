@@ -22,17 +22,26 @@ script:
           message: 'Turned on the ceiling light!'
 ```
 
-## Types of Actions
-
 - [Call a Service](#call-a-service)
+  - [Activate a Scene](#activate-a-scene)
+- [Variables](#variables)
 - [Test a Condition](#test-a-condition)
 - [Delay](#delay)
 - [Wait](#wait)
+  - [Wait Template](#wait-template)
+  - [Wait for Trigger](#wait-for-trigger)
+  - [Wait Timeout](#wait-timeout)
+  - [Wait Variable](#wait-variable)
 - [Fire an Event](#fire-an-event)
+  - [Raise and Consume Custom Events](#raise-and-consume-custom-events)
 - [Repeat a Group of Actions](#repeat-a-group-of-actions)
+  - [Counted Repeat](#counted-repeat)
+  - [While Loop](#while-loop)
+  - [Repeat Until](#repeat-until)
+  - [Repeat Loop Variable](#repeat-loop-variable)
 - [Choose a Group of Actions](#choose-a-group-of-actions)
 
-### Call a Service
+## Call a Service
 
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
 
@@ -44,7 +53,7 @@ The most important one is the action to call a service. This can be done in vari
     brightness: 100
 ```
 
-#### Activate a Scene
+### Activate a Scene
 
 Scripts may also use a shortcut syntax for activating scenes instead of calling the `scene.turn_on` service.
 
@@ -52,7 +61,22 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 - scene: scene.morning_living_room
 ```
 
-### Test a Condition
+## Variables
+
+The variable command allows you to set/override variables that will be accessible by templates in actions after it.
+
+```yaml
+- variables:
+    entities: light.kitchen, light.living_room
+    brightness: 100
+- alias: Control lights
+  service: light.turn_on
+  data:
+    entity_id: "{{ entities }}"
+    brightness: "{{ brightness }}"
+```
+
+## Test a Condition
 
 While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
 
@@ -63,7 +87,7 @@ While executing a script you can add a condition to stop further execution. When
   state: 'home'
 ```
 
-### Delay
+## Delay
 
 Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
@@ -104,13 +128,13 @@ All forms accept templates.
 ```
 {% endraw %}
 
-### Wait
+## Wait
 
 These actions allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
 
 When used within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
-#### Wait Template
+### Wait Template
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
@@ -123,7 +147,7 @@ The template is re-evaluated whenever an entity ID that it references changes st
 ```
 {% endraw %}
 
-#### Wait for Trigger
+### Wait for Trigger
 
 This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires.
 {% raw %}
@@ -139,7 +163,7 @@ This action can use the same triggers that are available in an automation's `tri
 ```
 {% endraw %}
 
-#### Wait Timeout
+### Wait Timeout
 
 With both types of waits it is possible to set a timeout after which the script will continue its execution if the condition/event is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
 
@@ -169,7 +193,7 @@ You can also get the script to abort after the timeout by using optional `contin
 
 Without `continue_on_timeout` the script will always continue.
 
-#### Wait Variable
+### Wait Variable
 
 After each time a wait completes, either because the condition was met, the event happened, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
 
@@ -216,7 +240,7 @@ This can be used to take different actions based on whether or not the condition
 ```
 {% endraw %}
 
-### Fire an Event
+## Fire an Event
 
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
@@ -241,7 +265,7 @@ an event trigger.
 ```
 {% endraw %}
 
-#### Raise and Consume Custom Events
+### Raise and Consume Custom Events
 
 The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
@@ -274,12 +298,12 @@ The following automation shows how to capture the custom event `event_light_stat
 ```
 {% endraw %}
 
-### Repeat a Group of Actions
+## Repeat a Group of Actions
 
 This action allows you to repeat a sequence of other actions. Nesting is fully supported.
 There are three ways to control how many times the sequence will be run.
 
-#### Counted Repeat
+### Counted Repeat
 
 This form accepts a count value. The value may be specified by a template, in which case
 the template is rendered when the repeat step is reached.
@@ -309,7 +333,7 @@ script:
 ```
 {% endraw %}
 
-#### While Loop
+### While Loop
 
 This form accepts a list of conditions (see [conditions page] for available options) that are evaluated _before_ each time the sequence
 is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
@@ -349,7 +373,7 @@ For example:
 
 {% endraw %}
 
-#### Repeat Until
+### Repeat Until
 
 This form accepts a list of conditions that are evaluated _after_ each time the sequence
 is run. Therefore the sequence will always run at least once. The sequence will be run
@@ -397,7 +421,7 @@ For example:
     - ...
 ```
 
-#### Repeat Loop Variable
+### Repeat Loop Variable
 
 A variable named `repeat` is defined within the repeat action (i.e., it is available inside `sequence`, `while` & `until`.)
 It contains the following fields:
@@ -408,7 +432,7 @@ field | description
 `index` | The iteration number of the loop: 1, 2, 3, ...
 `last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
 
-### Choose a Group of Actions
+## Choose a Group of Actions
 
 This action allows you to select a sequence of other actions from a list of sequences.
 Nesting is fully supported.
