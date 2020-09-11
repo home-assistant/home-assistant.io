@@ -96,7 +96,7 @@ roomba:
 
 Please refer to [here](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [here](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) to retrieve both the BLID (username) and the password.
 
-For Home Assistant running in docker the following command uses the [roombapy](https://github.com/pschmitt/roombapy/blob/e70480128635657b400e503cf3de96302a9b6363/roomba/entry_points.py#L20) pacakge deployed with Home Assistant to retrieve the BLID (username) and password:
+For Home Assistant running in Docker the following command uses the [roombapy](https://github.com/pschmitt/roombapy/blob/e70480128635657b400e503cf3de96302a9b6363/roomba/entry_points.py#L20) pacakge deployed with Home Assistant to retrieve the BLID (username) and password:
 
 ```shell
 docker exec -it CONTAINER_NAME_OR_ID python -c 'import roomba.entry_points; roomba.entry_points.password()' ROOMBA_IP
