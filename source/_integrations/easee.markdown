@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: easee
 ---
 
-The easee integrattion allows you to monitor your Easee charger (wallbox). It polls information from the EaseeCloud API (see https://api.easee.cloud/index.html).
+The easee integration allows you to monitor your Easee charger (wallbox). It polls information from the EaseeCloud API (see https://api.easee.cloud/index.html).
 
 This component provides the following platforms:
 
@@ -19,7 +19,7 @@ This component provides the following platforms:
 
 ## Configuration
 
-To set up this integration, click Configuration in the sidebar and then click Integrations. Click the + icon in the lower right and find easee. Click configure and you will be presented with the intergration dialog where you enter your easee.cloud login username and password.
+To set up this integration, click Configuration in the sidebar and then click Integrations. Click the + icon in the lower right and find easee. Click configure and you will be presented with the intergation dialog where you enter your easee.cloud login username and password. The username is your phone number, including + sign and country code, example: +46123456789.	
 
 ## Options
 
@@ -68,15 +68,15 @@ Selects the units for power, kW or W, and for energy, kWh or Wh.
 
 ## Background on the Easee ecosystem
 
-The easee chargers are connected in a rather complex ecosystem consiting of chargers and cloud servers. Depending on your needs, it may be required to understand some of the concepts.
+The easee chargers are connected in a rather complex ecosystem consisting of chargers and cloud servers. Depending on your needs, it may be required to understand some of the concepts.
 
 ### Sites, circuits and chargers
 
-In the easee ecosystem there are  sites, circuits and chargers.
+In the easee ecosystem there are sites, circuits and chargers.
 
-A site typically corresponds to a building, i.e. a single household home or an apartment building. Each site has a main fuse rating assosiated. A site may have an associated equipmant that measures the current load on the phases of the building, thus allowing the chagergers to limit their current to not overload the main fuses. This can be equipment as a Watty, Tibber Pulse or Easee Equalizer, but in theory any device capable of measureing the phase currents could be used if integrated with the Easee ecosystem.
+A site typically corresponds to a building, i.e. a single household home or an apartment building. Each site has a main fuse rating associated. A site may have an associated equipmant that measures the current load on the phases of the building, thus allowing the chargers to limit their current to not overload the main fuses. This can be equipment as a Watty, Tibber Pulse or Easee Equalizer, but in theory any device capable of measureing the phase currents could be used if integrated with the Easee ecosystem.
 
-A circuit corresponds to a circuit breaker in the building electrical distribution panel. Each circuit have a fuse rating assosiated. Up to three chargers can be connected to the same circuit and they will then share the current that is allowed by the rating of that circuit. The chargers communicates with each other wirelesslly to accomplish this. Chargers can also be connected to different circuits and will thus not share the current with other chargers, but will still be limited by and shre the site fuse rating.
+A circuit corresponds to a circuit breaker in the building electrical distribution panel. Each circuit have a fuse rating associated. Up to three chargers can be connected to the same circuit and they will then share the current that is allowed by the rating of that circuit. The chargers communicates with each other wirelessly to accomplish this. Chargers can also be connected to different circuits and will thus not share the current with other chargers, but will still be limited by and share the site main fuse rating.
 
 A charger corresponds to a physical charging station.
 
@@ -95,7 +95,7 @@ Typical connections for different electrical systems:
 |T4|L2|L3|||
 |T5|L3|||||
 
-E.g. for a 3-phase TN system, the voltage of phase L! is voltageT2T3, for L2 it is voltageT2T4, for L3 it is voltageT2T5, and so on.
+E.g. for a 3-phase TN system, the voltage of phase L1 is voltageT2T3, for L2 it is voltageT2T4, for L3 it is voltageT2T5, and so on.
 
 ## Disclaimer
 
