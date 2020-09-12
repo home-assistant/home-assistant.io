@@ -8,20 +8,14 @@ ha_iot_class: Local Push
 ha_domain: knx
 ---
 
-<div class='note'>
-  
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
-
-</div>
-
-The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors. 
+The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
 Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
 
 ## Configuration
 
-To use your KNX sensor in your installation, add the following lines to your `configuration.yaml` file:
+To use your KNX sensor in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,7 +33,7 @@ knx:
   sensor:
     - name: Heating.Valve1
       state_address: '2/0/0'
-      sync_state: 30
+      sync_state: expire 30
 ```
 
 {% configuration %}
@@ -52,7 +46,7 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus. You can also define in seconds between 2 and 1440 how often the state update should take place. 
+  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `True` wich is interpreted as "expire 60".
   required: false
   type: [boolean, string, integer]
   default: True
@@ -210,9 +204,10 @@ knx:
   sensor:
     - name: Heating.Valve1
       state_address: '2/0/0'
+      sync_state: init
       type: 'percent'
     - name: Kitchen.Temperature
       state_address: '6/2/1'
-      sync_state: False
+      sync_state: every 60
       type: 'temperature'
 ```

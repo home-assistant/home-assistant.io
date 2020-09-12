@@ -8,15 +8,9 @@ ha_iot_class: Local Push
 ha_domain: knx
 ---
 
-<div class='note'>
-  
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
-
-</div>
-
 The `knx` weather platform is used as an interface to KNX weather stations.
 
-To use your KNX weather station in your installation, add the following lines to your top level KNX configuration key in `configuration.yaml`:
+To use your KNX weather station in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

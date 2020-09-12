@@ -8,12 +8,6 @@ ha_iot_class: Local Push
 ha_domain: knx
 ---
 
-<div class='note'>
-  
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
-
-</div>
-
 The `knx light` integration is used as an interface to control KNX actuators for lighting applications such as:
 
 - switching actuators
@@ -23,7 +17,7 @@ The `knx light` integration is used as an interface to control KNX actuators for
 
 ## Configuration
 
-To use your KNX light in your installation, add the following lines to your `configuration.yaml` file:
+To use your KNX light in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
