@@ -20,7 +20,24 @@ Connect a keyboard and monitor to your device.
 
 `auth reset --username existing_user --password new_password`
 
-### Home Assistant Core and Home Assistant Container
+### Home Assistant Container
+
+If you are running Home Assistant in a container you can login into the container and use the `hass` command line tool to change your password. The following example shows how to do it using `docker-compose`, you can adapt the below commands if using `docker` only. The container running Home Assistant is called `ha` in the below example:
+
+```bash
+# Log into the container
+docker-compose exec ha bash
+
+# Change the password
+hass --script auth --config /config change_password your_username your_new_password
+
+# Exit the container with CTRL+C
+
+# Restart the container
+docker-compose restart ha
+```
+
+### Home Assistant Core
 
 While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
 
