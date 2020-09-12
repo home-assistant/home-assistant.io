@@ -33,7 +33,7 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `True` wich is interpreted as "expire 60".
+  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `True` which is interpreted as "expire 60".
   required: false
   type: [boolean, string, integer]
   default: True
