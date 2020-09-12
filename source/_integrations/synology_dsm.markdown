@@ -82,6 +82,15 @@ Due to the nature of the Synology DSM API, it is required to grant the user admi
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
+### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
+
+If you have the "Enforece 2-step verification for the following users" option checked under **Control Panel > User > Advanced > 2-Step Verification**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant. 
+
+Make sure to log our of your "normal" user's account and then login with the seaparate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend congifuration screen. 
+
+<div class='note'>
+If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to login with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
+</div>
 
 ## Sensors
 
