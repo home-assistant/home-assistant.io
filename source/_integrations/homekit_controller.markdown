@@ -108,7 +108,7 @@ If your devices are on a different VLAN to Home Assistant you must have an mDNS 
 
 Check that your device is visible with an mDNS tool. If you are comfortable with the command line you can run `netdisco` from your Home Assistant installation:
 
-```
+```bash
 python3 -m netdisco
 Discovered devices:
 homekit:
