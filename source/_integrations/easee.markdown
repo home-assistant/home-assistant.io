@@ -21,56 +21,18 @@ This component provides the following platforms:
 
 To set up this integration, click Configuration in the sidebar and then click Integrations. Click the + icon in the lower right and find easee. Click configure and you will be presented with the intergration dialog where you enter your easee.cloud login username and password.
 
-Alternatively you can add at least the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-easee:
-```
-
-
-{% configuration %}
-easee:
-  description: configuration
-  required: true
-  type: map
-  keys:
-    username::
-      description: Username for easee cloud, on the form +ccxxx..., where cc is country code, and xxx... is the phone number.
-      required: true
-      type: string
-    password:
-      description: password for the easee cloud.
-      required: true
-      type: string
-    monitored_conditions:
-      description: Enable failsafe mode at Home Assistant startup.
-      required: false
-      type: list
-      default: false
-    measured_consumption_days:
-      description: Sensors for energy consumptions 
-      required: false
-      type: list
-      default: 30
-    scan_interval:
-      description: Scan interval to fetch new data from the charging station.
-      required: false
-      type: integer
-      default: 60
-{% endconfiguration %}
-
 ## Options
 
 Various options and sensors can be enabled/disabled in the integration option window as described below. 
 
-### Sites
+### Sites to include
 
 Select which sites the easee component should create sensors for, thus limiting sensor clutter.
 
-### Sensors
+### Sensors monitored
 
-The easee component have various sensors that can be enabled/disabled in the integration configuration UI. In addition to providing a state/value each sensor also provides a lot of extra information in attributes.
+Selects which of the senors in the table below to enable/disable.
+In addition to providing a state/value each sensor also provides a lot of extra information in attributes.
 
 | Sensor name | Main state |
 |-------------|------------|
@@ -92,11 +54,13 @@ The easee component have various sensors that can be enabled/disabled in the int
 | basic_schedule | The programmed schedule |
 | cost_per_kwh | Cost per kWh |
 
-Each sensor will have a complete name on the form of sensor.<charger_id>_<sensor_name>
+Each sensor will have a complete name on the form of sensor.easee_charger_<charger_id>_<sensor_name>
 
-### Consumption
+### Consumption monitoring days
 
 Selects which sensors for energy consumptions should be created, options are 1, 7, 14, 30 and 365 days.
+
+The sensor vill have a complete name on the form of sensor.easee_chager_<charger_id>_consumptions_days_<1/7/14/30/365>.
 
 ### Custom Units
 
@@ -110,7 +74,7 @@ The easee chargers are connected in a rather complex ecosystem consiting of char
 
 In the easee ecosystem there are  sites, circuits and chargers.
 
-A site typically corresponds to a building, i.e. a single household home or an apartment building. Each site has a fuse rating assosiated. A site may have an assisiated equipmant that measures the current load on the phases thus allowing the chagergers to limit their current to not overload the fuses. A Watty, Tibber Pulse or Easee Equalizer is typically used, but in theory any device capable of measureing the phase currents could be used if integrated with the Easee ecosystem.
+A site typically corresponds to a building, i.e. a single household home or an apartment building. Each site has a main fuse rating assosiated. A site may have an associated equipmant that measures the current load on the phases of the building, thus allowing the chagergers to limit their current to not overload the main fuses. This can be equipment as a Watty, Tibber Pulse or Easee Equalizer, but in theory any device capable of measureing the phase currents could be used if integrated with the Easee ecosystem.
 
 A circuit corresponds to a circuit breaker in the building electrical distribution panel. Each circuit have a fuse rating assosiated. Up to three chargers can be connected to the same circuit and they will then share the current that is allowed by the rating of that circuit. The chargers communicates with each other wirelesslly to accomplish this. Chargers can also be connected to different circuits and will thus not share the current with other chargers, but will still be limited by and shre the site fuse rating.
 
@@ -122,6 +86,7 @@ The easee charger supports several different electrical systems and configuratio
 Inside the charger there are 5 terminals that connects to the electrical net. The voltages and currents that are relevant to measure varies with the type of network.
 To provide full insight, all of the possible combination of voltages and currents are available as attributes to sensors. E.g. inCurrentT3 means the current flowing through terminal 3, and voltageT2T3 means the the voltage between terminal 2 and 3.
 
+Typical connections for different electrical systems:
 |Terminal|3-phase TN|3-phase IT|1-phase TN|1-phase IT|
 |--------|----------|----------|----------|----------|
 |T1|PE|PE|PE|PE|
@@ -130,6 +95,8 @@ To provide full insight, all of the possible combination of voltages and current
 |T4|L2|L3|||
 |T5|L3|||||
 
+E.g. for a 3-phase TN system, the voltage of phase L! is voltageT2T3, for L2 it is voltageT2T4, for L3 it is voltageT2T5, and so on.
+
 ## Disclaimer
 
-This software is not affiliated with or endorsed by Easee.
+This software is not affiliated with or endorsed by Easee AS.
