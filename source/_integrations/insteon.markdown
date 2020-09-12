@@ -239,9 +239,12 @@ automation:
   # Trigger an INSTEON scene 25
   - id: trigger_scene_25_on
     alias: Turn on scene 25
+    trigger:
+      - ...
     action:
       - service: insteon.scene_on
-        group: 25
+        data:
+          group: 25
 ```
 
 ### Events and Mini-Remotes
