@@ -104,6 +104,36 @@ For IP accessories, Home Assistant can only find devices that are already on the
 
 Home Assistant can only find accessories that aren't already paired. Even if you reset your Home Assistant configuration, the accessory will still think it is paired and you won't be able to use it with Home Assistant. You should reset the accessory according to the manufacturer's instructions. Some devices have a "Reset HomeKit" option, and some may require a full reset.
 
+If your devices are on a different VLAN to Home Assistant you must have an mDNS reflector for discovery and pairing to work.
+
+Check that your device is visible with an mDNS tool. If you are comfortable with the command line you can run `netdisco` from your Home Assistant installation:
+
+```
+python3 -m netdisco
+Discovered devices:
+homekit:
+[ {'host': '192.168.17.5',
+  'hostname': 'Philips-hue.local.',
+  'name': 'Philips hue - xxxx',
+  'port': 8080,
+  'properties': {'c#': '21',
+                 'ci': '2',
+                 'ff': '1',
+                 'id': 'AA:BB:CC:DD:EE:FF',
+                 'md': 'BSB002',
+                 'pv': '1.1',
+                 's#': '1',
+                 'sf': '0'}},
+```
+
+`netdisco` is not used by Home Assistant to discover HomeKit devices, so if it can't see your device the problem is more likely to be environmental than with Home Assistant itself.
+
+Alternatively if you are less comfortable with the command line you could use Discovery for [Mac](https://apps.apple.com/us/app/discovery-dns-sd-browser/id1381004916?mt=12) or [iOS](https://apps.apple.com/us/app/discovery-dns-sd-browser/id305441017), Android [Service Browser](https://play.google.com/store/apps/details?id=com.druk.servicebrowser) or [All My Lan](https://www.microsoft.com/en-us/p/all-my-lan/9wzdncrdn19v). These are a less useful diagnostic as they aren't running from the same point on your network as Home Assistant. Even if it is visible in this tool it might still be a networking issue. They can give sometimes give clues.
+
+Where a discovery tool does give an IP, check it is what you expect (compare to DHCP leases in your router for example). Can you ping it? If not, you have a network problem.
+
+Some users have reported that their network configuration has interfered with using HomeKit devices with Home Assistant. The symptoms vary but include discovery not working at all or being unstable (sometimes working, sometimes not). This is very specific not only to the hardware in use but how it is configured and unfortunately we can't suggest appropriate settings. For example, we have seen IGMP Snooping be blamed as the cause of the problem and also suggested as the fix.
+
 ### HomeKit controller is finding devices on my network even though I don't have any Apple devices
 
 This is completely normal. Unlike many other commercial IoT offerings, the HomeKit protocol is a local and offline protocol that does not rely on the Apple ecosystem to function. You do not need an Apple online account to use a "Works with HomeKit" device. Some Wi-Fi devices may need an iOS device briefly to get them onto your WiFi, but other than that you do not need any Apple hardware on your network.
