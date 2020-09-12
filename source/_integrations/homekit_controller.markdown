@@ -43,6 +43,12 @@ There is currently support for the following device types within Home Assistant:
 - Air Quality
 - Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
+<div class='note'>
+
+  If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
+
+</div>
+
 HomeKit IP accessories for these device types may work with some caveats:
 
 - If the device is Wi-Fi based and has no physical controls or screen then you may need an Apple HomeKit device like an iPhone or iPad to get the accessory onto your Wi-Fi network. For example, for a Koogeek LS1 you must add the accessory to HomeKit on your iOS device, then remove it from the iOS device. This leaves the LS1 in an unpaired state but still on your Wi-Fi. Home Assistant can then find it and pair with it.
@@ -51,12 +57,6 @@ HomeKit IP accessories for these device types may work with some caveats:
 HomeKit controller will poll your devices, but it will also automatically enable push updates for accessories that support it.
 
 Home Assistant does not currently support HomeKit BLE.
-
-<div class='note'>
-
-  HomeKit Controller might detect some HomeKit devices on your network that are not currently supported by this integration. One such example is HomeKit displays (such as Vizio TVs which have been updated with HomeKit support). These devices might pair with Home Assistant if you go through the pairing process, but no entity will be created, and you won't be able to control these devices with Home Assistant. However, pairing the device with Home Assistant *will* remove the persistent notification generated when Home Assistant finds new devices.
-
-</div>
 
 ## 'Stateless' switches and sensors
 
