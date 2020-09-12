@@ -41,6 +41,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
 - Air Quality
+- Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
 HomeKit IP accessories for these device types may work with some caveats:
 
@@ -56,6 +57,34 @@ Home Assistant does not currently support HomeKit BLE.
   HomeKit Controller might detect some HomeKit devices on your network that are not currently supported by this integration. One such example is HomeKit displays (such as Vizio TVs which have been updated with HomeKit support). These devices might pair with Home Assistant if you go through the pairing process, but no entity will be created, and you won't be able to control these devices with Home Assistant. However, pairing the device with Home Assistant *will* remove the persistent notification generated when Home Assistant finds new devices.
 
 </div>
+
+## 'Stateless' switches and sensors
+
+Some HomeKit devices (like buttons, remotes and doorbells) don't have sensors that can be read like a normal HomeKit device - they only inform Home Assistant when something happens. This means Home Assistant can't show an entity for them, as they have no state. But they are available for use as [device automations](/integrations/device_automation/).
+
+For example, to add a new automation that is triggered by one of these devices go to the device registry UI and find the device you want to use as a trigger. Click on it to reveal the device registry entry for it. You will be able to see the devices model, manufacturer and firmware version. You might see related entities - like a battery sensor.
+
+<p class='img'>
+<img src='/images/integrations/homekit_controller/device_automation_start.png' />
+</p>
+
+Click on the button to add an automation. A popup will show you a list of triggers that are available.
+
+<p class='img'>
+<img src='/images/integrations/homekit_controller/device_automation_triggers.png' />
+</p>
+
+Clicking on one will drop you in to the automation editor with a trigger pre-filled in. If your device supports it you will be able to choose between types of event - like a short press or a long press.
+
+<p class='img'>
+<img src='/images/integrations/homekit_controller/device_automation_new.png' />
+</p>
+
+When you have filled in the rest of the form to create your migration it will show up against that device in the device registry.
+
+<p class='img'>
+<img src='/images/integrations/homekit_controller/device_automation_finish.png' />
+</p>
 
 ## Troubleshooting
 
@@ -96,3 +125,7 @@ In these cases it's unlikely that HomeKit controller itself is directly responsi
 - There is a problem with the accessory itself which is causing intermittent network issues.
 
 In these cases, HomeKit Controller will skip polling to avoid a buildup of back pressure in your instance.
+
+### I can't see any events generated for "stateless" accessories
+
+This is expected. The only way to use stateless accessories like some doorbells, buttons or remotes with Home Assistant is through device automations. Home Assistant doesn't create duplicate events for device automation triggers, so for example you won't be able to watch them with the events developer tools.
