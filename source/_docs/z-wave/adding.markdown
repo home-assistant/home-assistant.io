@@ -3,9 +3,9 @@ title: "Z-Wave Devices - Adding and Removing"
 description: "How to add and remove Z-Wave devices."
 ---
 
-Recommendation before adding any devices:
+**Recommendation before adding any devices:**
 
-ZWave devices behave as a mesh and can store network relationship details on the device itself.  This means used devices or even brand new devices could already be enrolled in another network, for example a test network for a brand new device or a previous network for devices aren't new. This could cause headaches when you're attempting to add/enrol the device to your network. It is recommended that if possible, perform a factory reset AND device perform exclusion or disenroll for the device you're attempting to add to Home Assistant. Steps can found further below on this page under "Removing Devices".
+Z-Wave devices behave as a mesh and can store network relationship details on the device itself.  This means used devices or even brand new devices could already be enrolled in another network, for example a test network for a brand new device or a previous network for devices aren't new. This could cause headaches when you're attempting to add/enrol the device to your network. It is recommended that if possible, perform a factory reset AND device perform exclusion or disenroll for the device you're attempting to add to Home Assistant. Steps can found further below on this page under "Removing Devices".
 
 ## Adding Non-Secure Devices
 
