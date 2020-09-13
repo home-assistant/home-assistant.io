@@ -113,7 +113,7 @@ knx:
 
 {% configuration %}
 local_ip:
-  description: The local IP address of interface that shall send multicast packets.
+  description: The local IP address of the interface that shall be used to send multicast packets.
   type: string
   required: true
 {% endconfiguration %}
