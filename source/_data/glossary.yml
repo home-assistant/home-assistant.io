@@ -67,6 +67,6 @@
 - topic: Trigger
   description: "A [trigger](/docs/automation/trigger/) is a set of values or conditions of a platform that are defined to cause an automation to run."
 - topic: TTS
-  description: "TTS ([text to speech](/integrations/tts) allows Home Assistant to talk to you."
+  description: "TTS ([text to speech](/integrations/tts)) allows Home Assistant to talk to you."
 - topic: Zone
   description: "[Zones](/integrations/zone/) are areas that can be used for presence detection."
