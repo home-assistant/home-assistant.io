@@ -76,14 +76,6 @@ id:
   description: Allows you to manually specify a BOM Radar ID (either `location` or `id` must be defined, but not both).
   required: false
   type: integer
-delta:
-  description: Time in seconds between BOM radar images available for this radar. Optional if `location` is defined; required if `id` is defined.
-  required: false
-  type: integer
-frames:
-  description: Number of frames in the animated GIF. Optional if `location` is defined; required if `id` is defined.
-  required: false
-  type: integer
 filename:
   description: Periodically save the animated GIF image to this filesystem path.
   required: false
@@ -101,47 +93,47 @@ Gympie          HallsCreek      Hobart          Kalgoorlie      Katherine
 Learmonth       Longreach       Mackay          Marburg         Melbourne
 Mildura         Moree           MorningtonIs    MountIsa        MtGambier
 Namoi           Newcastle       Newdegate       NorfolkIs       NWTasmania
-Perth           PortHedland     SellicksHill    SouthDoodlakine Sydney
-Townsville      WaggaWagga      Warrego         Warruwi         Watheroo
-Weipa           WillisIs        Wollongong      Woomera         Wyndham
-Yarrawonga
+Perth           PortHedland     Rainbow         SellicksHill    SouthDoodlakine
+Sydney          Townsville      WaggaWagga      Warrego         Warruwi
+Watheroo        Weipa           WillisIs        Wollongong      Woomera
+Wyndham         Yarrawonga
 ```
 
 ### Examples
 
 #### Using `location` and `name`
 
-Example `configuration.yaml` entry to display the `Townsville` radar with a camera named `mytowsvilleradar`:
+Example `configuration.yaml` entry to display the `Townsville` radar with a camera named `My Towsville Radar`:
 
 ```yaml
 camera:
   - platform: bom
-    name: mytownsvilleradar
+    name: My Townsville Radar
     location: Townsville
 ```
 
-#### Using `id`, `delta` and `frames`
+#### Using `id`
 
-In the event BOM creates a new radar, or a radar's ID changes, you may define a custom `id` along with corresponding `delta` and `frames` values. You may also specify custom `delta` and `frames` values, along with a valid `location`, to override the default values for an existing radar. You may not define `location` and `id` in the same entity; you must specify one or the other. If `id` is specified, then `delta` and `frames` values _must_ be provided. If `location` is specified, `delta` and `frames` _may_ be provided to override the default values.
+You may alternatively specify radar imagery by ID, obtained from BOM's [Radar Images](http://www.bom.gov.au/australia/radar/) site. Each radar has a unique 2-digit code, followed by a digit specifying the resolution (1 for 512km, 2 for 256km, 3 for 128km, and 4 for 64km; note that not all resolutions are available for every site). Visit the BOM page for a particular radar and note the numeric portion of the `IDR` value (e.g. `IDR713` for the 128km Sydney imagery) in its URL. Use this 3-digit ID (e.g. `713`) for the `id` value in your configuration. If the ID begins with a zero, it _must_ be quoted.
 
-To find a live radar ID (e.g.,  for the `Townsville` radar), visit the [BOM website's radars page](http://www.bom.gov.au/australia/radar/), click the link for the radar you are interested in, and note the URL, for example: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e., `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's JavaScript-driven animation. The number of minutes (in seconds) between these times corresponds to the camera's `delta` value, and the number of frames corresponds to the `frames` value. At the time of this writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
-
-```yaml
-camera:
-  - platform: bom
-    location: Townsville
-```
-
-is equivalent to this one
+So, the configuration
 
 ```yaml
 camera:
   - platform: bom
-    id: '053'
-    delta: 600
-    frames: 4
-    name: 'Carnarvon'
+    location: Melbourne
 ```
+
+is equivalent to
+
+```yaml
+camera:
+  - platform: bom
+    id: '023'
+    name: 'Melbourne'
+```
+
+since `bomradarloop` uses 128km resolution when `location` is specified in the configuration.
 
 #### Using `filename`
 
@@ -152,11 +144,11 @@ Example `configuration.yaml` entry to display the `Sydney` radar and save the an
 ```yaml
 camera:
   - platform: bom
-    id: Sydney
+    location: Sydney
     filename: /config/www/images/sydneyradar.gif
 ```
 
-The file will be updated every `delta` seconds when the camera regenerates the animation.
+The file will be automatically updated when the camera regenerates the animation.
 
 ## Sensor
 
