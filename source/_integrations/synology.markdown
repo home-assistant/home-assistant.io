@@ -10,7 +10,7 @@ ha_domain: synology
 
 <div class='note warning'>
 
-This integration is deprecated. Please use the [Synology DSM](/integrations/synology_dsm/) integration instead.
+This integration is deprecated. Please use the [Synology DSM](/integrations/synology_dsm/) integration instead. This integration will be removed in version 0.118.0.
 
 </div>
 
