@@ -1,5 +1,5 @@
 ---
-title: Deutsche Wetter Dienst (DWD) Weather Warnings
+title: Deutscher Wetterdienst (DWD) Weather Warnings
 description: Instructions on how to integrate Deutsche Wetter Dienst weather warnings into Home Assistant.
 ha_category:
   - Weather
@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: dwd_weather_warnings
 ---
 
-The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD)](https://www.dwd.de) as a source for current and advance warnings.
+The `dwd_weather_warnings` sensor platform uses the [Deutscher Wetterdienst (DWD)](https://www.dwd.de) as a source for current and advance warnings.
 
 - A name is optional but if multiple regions are used a name will be required.
 - The sensor checks for new data every 15 minutes.
@@ -28,7 +28,7 @@ sensor:
 
 As it suggests the region name is not the city or nearest city you want to get the warnings for but the next higher level of the governmental district called "Kreis" in German.
 
-Be aware, to get the region name you need to use the following link by replacing `Hamburg` with your city:
+Be aware, to get the region name you need to use the following link by replacing `Hansestadt Hamburg` with your city:
 - Find your region here: `https://www.dwd.de/DE/wetter/warnungen_landkreise/warnWetter_node.html?ort=Hamburg`
 - On the page that is loaded in your browser you will find the correct region ("Kreis") below the map as a heading.
 - Verify if you find any warning for your region here. Your region ("Kreis") will appear only if warnings exist: `https://www.dwd.de/DWD/warnungen/warnapp_landkreise/json/warnings.json?jsonp=loadWarnings`
