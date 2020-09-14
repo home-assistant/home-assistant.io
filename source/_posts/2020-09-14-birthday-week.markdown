@@ -1,5 +1,5 @@
 ---
-title: "Happy seventh birthday Home Assistant! 🎉"
+title: "Happy 7th birthday Home Assistant! 🎉"
 description: "We're turning 7 this week and are celebrating this with a week of cool releases. Keep an eye on the blog for the latest."
 date: 2020-09-14 00:00:00
 date_formatted: "September 14, 2020"
