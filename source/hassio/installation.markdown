@@ -31,8 +31,8 @@ The following will take you through the steps required to install Home Assistant
 
 2. Install Home Assistant:
 
-   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
-   - Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
+   - **For the device images:** Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
+   - **For the virtual appliance images:** Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
      - For VirtualBox create a new virtual machine, select "Other Linux (64Bit), assign it at least 2 GB of memory and "Use an existing virtual hard disk file", select the VDI file from above, afterwards edit the "Settings" of the VM and go "System" then Motherboard and Enable EFI, then "Network" "Adapter 1" Bridged and your adapter.
      - For Hyper-V create a new virtual machine, select "Generation 2", assign it at least 2 GB of memory and select "Connection -> "Your Virtual Switch that is bridged", then "Use an existing virtual hard disk" and select the VHDX file from above, after creation go to "Settings" -> "Security" and deselect "Enable Secure Boot".
      - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...".
