@@ -21,7 +21,7 @@ In the last year, we've seen Home Assistant get more user friendly, more powerfu
 
 We’re going to celebrate it this year with not just one day, but with a whole week of daily announcements and various releases. 🎁 So check back each day this week to catch the latest!
 
-Also, keep an eye out for the next episode of the Home Assistant Podcast this Thursday. I’ll be joining Phil and Rohan to discuss literally everything. It will be a great episode.
+Also, keep an eye out for the next episode of [the Home Assistant Podcast](https://hasspodcast.io/) this Thursday. I’ll be joining Phil and Rohan to discuss literally everything. It will be a great episode.
 
 Happy birthday!
 
