@@ -8,6 +8,7 @@ ha_release: 0.116
 ha_domain: rpi_power
 ha_codeowners:
   - '@shenxn'
+  - '@swetoast'
 ha_config_flow: true
 ---
 
