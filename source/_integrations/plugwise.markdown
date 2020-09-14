@@ -47,7 +47,7 @@ Repeat the above procedure for each Smile gateway (i.e., if you have an Adam set
 
 After adding the Plugwise integration(s), the default Smile-data refresh-interval can be changed by pressing the "OPTIONS" button: change the number via the up- or down-button and press "SUBMIT".
 
-If you have a Smile that is connected, for example, using a (remote) port-forwarding device and has a port other than `80` (HTTP) by default: you can add the port number when configuring it manually. E.g. `192.168.1.2:81`.
+If you have a Smile that is connected, for example, using a (remote) port-forwarding device and has a port other than `80` (HTTP) by default: you can add the port number when configuring it manually. E.g., `192.168.1.2:81`.
 
 <div class='note warning'>
 When you have an Anna and an Adam, make sure to only configure the Adam integration. You can press the "IGNORE" button on the Anna integration to remove this integration. In case you need to rediscover the Adam integration, make sure to click the "STOP IGNORING" button on the Plugwise integration first, available via "show ignored integrations".
