@@ -19,7 +19,7 @@ All these people are working to make Home Assistant the best home automation sof
 
 In the last year, we've seen Home Assistant get more user friendly, more powerful and receive significant performance improvements. We're continuing to be able to give everyone a great experience, regardless of expertise level.
 
-We’re going to celebrate it this year with not just one day, but with a whole week of releases. 🎁 So check back each day this week to catch the latest!
+We’re going to celebrate it this year with not just one day, but with a whole week of daily announcements and various releases. 🎁 So check back each day this week to catch the latest!
 
 Also, keep an eye out for the next episode of the Home Assistant Podcast this Thursday. I’ll be joining Phil and Rohan to discuss literally everything. It will be a great episode.
 
