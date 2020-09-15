@@ -470,7 +470,7 @@ If you use an older Android device and cannot upgrade to Home Assistant 0.115 or
   some control panels in the UI are visible this release. You can see the status
   and information of your network and nodes. There are also buttons to put your
   Z-Wave network in inclusion and exclusion mode and to refresh a node.
-  Thanks [@cgtobi]!
+  Thanks [@cgarwood]!
 - The stream component now supports audio! And if you use the latest Home
   Assistant Android app, the stream component now support H.265 streams.
   Amazing job [@uvjustin]!
@@ -480,6 +480,11 @@ If you use an older Android device and cannot upgrade to Home Assistant 0.115 or
   - Basic support for controlling light effect has been added by [@mjg59].
   - [@blueshiftlabs] added capabilities to control media player muting and
     relative-volume controls.
+- The Netatmo integration was re-engineered and now has a new data handler to
+  reduce the number of API calls and also merge in webhook events to improve the 
+  overall responsiveness.
+  It now comes with a light platform to control the outdoor camera flood light and 
+  contains services to set the home/away status of occupants.
 
 - Performance
   - Template parsing and entity tracking?
