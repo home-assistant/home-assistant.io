@@ -6,7 +6,7 @@ date_formatted: "September 15, 2020"
 comments: true
 author: Paulus Schoutsen
 categories: Announcements
-og_image: /images/blog/2020-09-15-home-assistant-tags/social.jpg
+og_image: /images/blog/2020-09-15-home-assistant-tags/social.png
 ---
 
 ![Photo of a Tag Reader](/images/blog/2020-09-15-home-assistant-tags/tag-reader.jpg)
