@@ -1,7 +1,7 @@
 ---
 title: "Home Assistant Tags"
-description: "Power your home and life with NFC tags, now a first class citizen in Home Assistant."
-date: 2020-09-14 00:01:00
+description: "Power your home and life with NFC tags, now a first-class citizen in Home Assistant."
+date: 2020-09-15 00:01:00
 date_formatted: "September 15, 2020"
 comments: true
 author: Paulus Schoutsen
@@ -13,15 +13,15 @@ og_image: /images/blog/2020-09-15-home-assistant-tags/social.jpg
 
 RFID tags have been on my radar for home automation since [@hoveeman](https://github.com/hoveeman) published [this video](https://www.youtube.com/watch?v=AvCseOQidSw) two years ago of him using RFID cards to play music in his house.
 
-It has been [my dream](https://twitter.com/balloob/status/1256728762680393728?s=12) ever since to get this easily accessible to every Home Assistant user. It already got a lot more accessible when [@maddox](https://github.com/maddox) released [Magic Cards](https://github.com/maddox/magic-cards). But this was still a seperate application that you had to run besides Home Assistant, and it required a separate RFID reader.
+It has been [my dream](https://twitter.com/balloob/status/1256728762680393728?s=12) ever since to get this easily accessible to every Home Assistant user. It already got a lot more accessible when [@maddox](https://github.com/maddox) released [Magic Cards](https://github.com/maddox/magic-cards). But this was still a separate application that you had to run besides Home Assistant, and it required a separate RFID reader.
 
-Can we do better? Yes, we can. Today we are introducing a collaboration between our iOS, Android, frontend, core and hardware groups: Home Assistant Tags. With Home Assistant Tags we're making scannable tags (NFC/RFID) a first class citizen in Home Assistant. Easy to read, write and automate!
+Can we do better? Yes, we can. Today we are introducing a collaboration between our iOS, Android, frontend, core and hardware groups: Home Assistant Tags. With Home Assistant Tags, we're making scannable tags (NFC/RFID) a first-class citizen in Home Assistant. Easy to read, write and automate!
 
 ## The Apps
 
 The official Home Assistant apps have been updated with NFC support. This dramatically lowers the bar for starting to automate your house with NFC tags. All you need now is tags!
 
-From the app configuration you can now write a special Home Assistant url to tags. Once you hover over one of these tags with your phone, they will trigger the Home Assistant app and send the data to your Home Assistant instance for processing.
+From the app configuration, you can now write a special Home Assistant URL to tags. Once you hover over one of these tags with your phone, they will trigger the Home Assistant app and send the data to your Home Assistant instance for processing.
 
 Thanks to [@David-Development](https://github.com/david-development) for the NFC support in the Android app and thanks to [@zacwest](https://github.com/zacwest) for the NFC support in the iOS app.
 
@@ -42,7 +42,7 @@ Having mobile tag readers is great, but there is more! The original RFID jukebox
 
 These solutions work great but were bulky and required hardware skills and technical skills to set up. The hardware cost for building a single reader could be around $30 (RFID reader + Raspberry Pi 0), but that's just for 1 room. What if you want more rooms? That adds up quickly.
 
-[@adonno](https://github.com/adonno), with the help of [@MagnusO](https://github.com/magnusoverli), has been working on a smaller tag reader based on [ESPHome](https://www.esphome.io). It's powered by an ESP8266 chip and an PN532 NFC module. The case is 3D printed.
+[@adonno](https://github.com/adonno), with the help of [@MagnusO](https://github.com/magnusoverli), has been working on a smaller tag reader based on [ESPHome](https://www.esphome.io). It's powered by an ESP8266 chip and a PN532 NFC module. The case is 3D printed.
 
 Because it's powered by ESPHome, setting up is a breeze. Once powered on, it will create an access point that allows you to add your WiFi configuration. After that Home Assistant will pick it up and you can start scanning tags.
 
@@ -54,7 +54,7 @@ Adonno is releasing this tag reader as open-source. You can make one yourself or
 
 ## Managing Tags in Home Assistant 0.115
 
-Home Assistant 0.115 will contain a brand new tag manager thanks to [@bramkragten](https://github.com/bramkragten) and [@dmulcahey](https://github.com/dmulcahey). On this screen you can create new tags, see the tags that have been scanned and can easily create automations for each tag. The new UI tightly integrates with the mobile apps, allowing you to write existing IDs to new tags with the tap of a button.
+Home Assistant 0.115 will contain a brand new tag manager, thanks to [@bramkragten](https://github.com/bramkragten) and [@dmulcahey](https://github.com/dmulcahey). On this screen you can create new tags, see the tags that have been scanned and can easily create automations for each tag. The new UI tightly integrates with the mobile apps, allowing you to write existing IDs to new tags with the tap of a button.
 
 ![Tag user interface in Home Assistant](/images/blog/2020-09-15-home-assistant-tags/tag-ui.gif)
 
@@ -113,12 +113,12 @@ Printed NFC cards. <a href="/integrations/tag/#printing-tags">Learn how to make 
 
 ## Time to get scanning!
 
-With these new features you will be able to do a lot of cool things. Get yourself some [NFC tags](https://amzn.to/3bQU0nN) or [NFC cards](https://amzn.to/2RlqPzM) to get going. Here is some inspiration:
+With these new features, you will be able to do a lot of cool things. Get yourself some [NFC tags](https://amzn.to/3bQU0nN) or [NFC cards](https://amzn.to/2RlqPzM) to get going. Here is some inspiration:
 
 - NFC cards to play music
 - NFC stickers on books that play grandparents reading the book
 - NFC tags to activate scenes in the room
-- NFC cards to open recipes on screens in kitchen
+- NFC cards to open recipes on screens in the kitchen
 - NFC tags to allow access to your home
 
 <div class="videoWrapper">
