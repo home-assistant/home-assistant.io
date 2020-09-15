@@ -15,13 +15,13 @@ RFID tags have been on my radar for home automation since [@hoveeman](https://gi
 
 It has been [my dream](https://twitter.com/balloob/status/1256728762680393728?s=12) ever since to get this easily accessible to every Home Assistant user. It already got a lot more accessible when [@maddox](https://github.com/maddox) released [Magic Cards](https://github.com/maddox/magic-cards). But this was still a separate application that you had to run besides Home Assistant, and it required a separate RFID reader.
 
-Can we do better? Yes, we can. Today we are introducing a collaboration between our iOS, Android, frontend, core and hardware groups: Home Assistant Tags. With Home Assistant Tags, we're making scannable tags (NFC/RFID) a first-class citizen in Home Assistant. Easy to read, write and automate!
+Can we do better? Yes, we can. Today we are introducing <b>Home Assistant Tags</b>. A collaboration between our iOS, Android, frontend, core and hardware groups. With Home Assistant Tags, we're making scannable tags (NFC/RFID) a first-class citizen in Home Assistant. Easy to read, write and automate!
 
 ## The Apps
 
 The official Home Assistant apps have been updated with NFC support. This dramatically lowers the bar for starting to automate your house with NFC tags. All you need now is tags!
 
-From the app configuration, you can now write a special Home Assistant URL to tags. Once you hover over one of these tags with your phone, they will trigger the Home Assistant app and send the data to your Home Assistant instance for processing.
+From the apps you can now write a special Home Assistant URL to tags. Once you hover over one of these tags with your phone, they will trigger the Home Assistant app and send the identifier to your Home Assistant instance for processing. Tags are not bound to the phone that wrote them, any phone can scan them.
 
 Thanks to [@David-Development](https://github.com/david-development) for the NFC support in the Android app and thanks to [@zacwest](https://github.com/zacwest) for the NFC support in the iOS app.
 
@@ -124,5 +124,5 @@ With these new features, you will be able to do a lot of cool things. Get yourse
 - NFC tags to allow access to your home
 
 <div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4IHHThgys_U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/sF83ZK9kFL4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
