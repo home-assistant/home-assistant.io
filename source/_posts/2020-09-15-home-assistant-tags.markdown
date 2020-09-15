@@ -29,7 +29,9 @@ Thanks to [@David-Development](https://github.com/david-development) for the NFC
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/Xc120lClUgA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-Note for iPhone users: only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
+<div class='note' data-title='for iPhone users'>
+Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
+</div>
 
 ## Standalone Tag Reader
 
@@ -48,9 +50,9 @@ Because it's powered by ESPHome, setting up is a breeze. Once powered on, it wil
 
 ![Photo of a tag reader with orange accents](/images/blog/2020-09-15-home-assistant-tags/orange-reader.jpg)
 
-The nice thing about standalone tag readers is that they will are dedicated to a room. This means automations know in which room to act when a music card is scanned and can pick the right media player. This makes it great to have cards that can work in every room.
+The nice thing about standalone tag readers is that they are dedicated to a room. This means automations know in which room to act when a music card is scanned and can pick the right media player. This makes it easy to have cards that can work in every room.
 
-The tag reader is open-source and [available on GitHub](https://github.com/adonno/tagreader). You can make one yourself or buy one of the pre-built ones or DIY kits that he is [selling](https://adonno.com/product/tag-reader/).
+The tag reader is open-source and [available on GitHub](https://github.com/adonno/tagreader). You can make one yourself or buy one of the pre-built ones or DIY kits that Adonno is [selling](https://adonno.com/product/tag-reader/).
 
 ## Managing Tags in Home Assistant 0.115
 
