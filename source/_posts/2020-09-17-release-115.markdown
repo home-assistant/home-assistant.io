@@ -1211,6 +1211,18 @@ an issue when trying to use InfluxDB for example. This has been adjusted.
   </p>
 </details>
 
+<details>
+  <summary><b>Lovelace for generated (auto) mode</b></summary>
+  <p>
+
+Entities that are generated from mobile apps with the `mobile_app` integration is now hidden in the generated Lovelace view.
+If you want to continue to display those you need to take control over your view with the 3 dots in the top right corner of the Lovelace screen.
+
+([@ludeeus] - [#6873]) ([lovelace docs])
+
+  </p>
+</details>
+
 ## Farewell to the following
 
 - The **Prezzi Benzina** integration has been removed.
@@ -1833,6 +1845,7 @@ an issue when trying to use InfluxDB for example. This has been adjusted.
 
 </details>
 
+[#6873]: https://github.com/home-assistant/frontend/pull/6873
 [#31954]: https://github.com/home-assistant/core/pull/31954
 [#34659]: https://github.com/home-assistant/core/pull/34659
 [#34820]: https://github.com/home-assistant/core/pull/34820
@@ -2536,6 +2549,7 @@ an issue when trying to use InfluxDB for example. This has been adjusted.
 [@kit-klein]: https://github.com/kit-klein
 [@ktownsend-personal]: https://github.com/ktownsend-personal
 [@leofig-rj]: https://github.com/leofig-rj
+[@ludeeus]: https://github.com/ludeeus
 [@lukashass]: https://github.com/lukashass
 [@maddenp]: https://github.com/maddenp
 [@marciogranzotto]: https://github.com/marciogranzotto
