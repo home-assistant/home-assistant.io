@@ -484,7 +484,7 @@ If you use an older Android device and cannot upgrade to Home Assistant 0.115 or
   reduce the number of API calls and also merge in webhook events to improve the 
   overall responsiveness.
   It now comes with a light platform to control the outdoor camera flood light and 
-  contains services to set the home/away status of occupants.
+  contains services to set the home/away status of occupants as well as the outdoor camera mode.
 
 - Performance
   - Template parsing and entity tracking?
