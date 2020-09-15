@@ -22,6 +22,8 @@ All information about how the seasons work was taken from Wikipedia:
 - [https://en.wikipedia.org/wiki/Equinox](https://en.wikipedia.org/wiki/Equinox)
 - [https://en.wikipedia.org/wiki/Solstice](https://en.wikipedia.org/wiki/Solstice)
 
+To cut a long read short, `astronomical` gives seasons based on the shortest/longest day and equinoxes. So in the Northern Hemisphere spring starts on 20 March). `meterological` gives seasons based on months (so in the Northern Hemisphere spring starts on 1 March).
+
 ## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml` file:
