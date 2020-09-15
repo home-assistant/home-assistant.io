@@ -50,7 +50,7 @@ Because it's powered by ESPHome, setting up is a breeze. Once powered on, it wil
 
 The nice thing about standalone tag readers is that they will are dedicated to a room. This means automations know in which room to act when a music card is scanned and can pick the right media player. This makes it great to have cards that can work in every room.
 
-Adonno is releasing this tag reader as open-source. You can make one yourself or buy one of the pre-built ones or DIY kits that he is [selling](https://adonno.com/product/tag-reader/). To learn more about the tag reader, it’s design and backstory, check out [Adonno’s website](https://adonno.com/).
+The tag reader is open-source and [available on GitHub](https://github.com/adonno/tagreader). You can make one yourself or buy one of the pre-built ones or DIY kits that he is [selling](https://adonno.com/product/tag-reader/).
 
 ## Managing Tags in Home Assistant 0.115
 
