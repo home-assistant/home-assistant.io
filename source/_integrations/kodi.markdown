@@ -30,6 +30,7 @@ If you previously had Kodi configured through `configuration.yaml`, it's advisab
 If you do not remove it, your configuration will be imported with the following limitations:
 * Your turn on/off actions will not be imported. This functionality is now available through device triggers.
 * You may have duplicate entities.
+* Kodi must be on when HA is loading for the first time for the configuration to be imported.
 
 ### Turning On/Off
 
