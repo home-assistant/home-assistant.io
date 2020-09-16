@@ -7,7 +7,7 @@ comments: true
 author: Tom Brien
 author_twitter: tbrien88
 categories: Announcements
-og_image: /images/blog/2020-09-15-home-assistant-tags/social.png
+og_image: /images/blog/2020-09-18-mac-companion/social.png
 ---
 
 TODO: ADD VIDEO
