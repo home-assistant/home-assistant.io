@@ -301,7 +301,7 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - IKEA Trådfri bulb E27 WS & RGB Opal 600lm
 - IKEA Trådfri bulb GU10 W 400lm
 - IKEA Trådfri FLOALT LED light panel
-- Innr BY-265, BY-245
+- Innr BY-265, BY-245, RB-265
 - OSRAM Classic A60 W clear - LIGHTIFY
 - OSRAM Flex RGBW
 - OSRAM Gardenpole RGBW
