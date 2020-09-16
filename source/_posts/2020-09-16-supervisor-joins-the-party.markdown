@@ -74,7 +74,7 @@ Early this year, we built a new Audio layer with a central sound server based on
 
 ![audio graphic](/images/blog/2020-09-16-supervisor-joins-the-party/audio.png)
 
-We will be working on exposing more of these features via the UI in the future, such as controlling the audio volume. The command-line interface supports most of the functionality already and is accessible via the SSH & Web Terminal add-on and entering ha audio --help.
+We will be working on exposing more of these features via the UI in the future, such as controlling the audio volume. The command-line interface supports most of the functionality already and is accessible via the SSH & Web Terminal add-on and entering `ha audio --help`.
 
 ## Improved mDNS
 
