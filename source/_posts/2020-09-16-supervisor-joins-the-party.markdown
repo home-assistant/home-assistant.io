@@ -82,7 +82,7 @@ Hostnames on your network often end with `.local`, for example, `http://homeassi
 
 Last year we introduced a new DNS backend based on [CoreDNS][coredns]. This year, we’ve extended our DNS plugin with mDNS support and are forwarding all multicast traffic from mDNS onto the Supervisor’s internal network.
 
-This means we now have support for `.local” domains everywhere and it is transparent throughout the whole system, including Home Assistant and all add-ons.
+This means we now have support for `.local` domains everywhere and it is transparent throughout the whole system, including Home Assistant and all add-ons.
 
 <blockquote>
    "It’s not DNS. There’s no way it’s DNS. It was DNS. - anonymous
