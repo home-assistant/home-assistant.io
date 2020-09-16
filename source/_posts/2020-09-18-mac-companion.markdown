@@ -24,7 +24,7 @@ Rendered image of the Home Assistant Lovelace interface running full screen on a
 
 ## Getting the beta
 
-You can get the beta right now from the [home-assistant/ios repository](https://github.com/home-assistant/iOS) just download the [`home-assistant-mac.zip` file from the latest release](https://companion.home-assistant.io/app/mac/latest), unzip and drag it over to your Applications folder. Done!
+You can get the beta right now from the home-assistant/ios repository: download the `home-assistant-mac.zip` file from the [latest release](https://companion.home-assistant.io/app/mac/latest), unzip and drag it over to your Applications folder. Done!
 
 ## Features
 
