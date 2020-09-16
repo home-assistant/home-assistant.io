@@ -1,7 +1,7 @@
 ---
 title: "Home Assistant Companion for Mac"
 description: "Integrate your Mac into Home Assistant."
-date: 2020-09-18 00:00:00
+date: 2020-09-16 02:00:00
 date_formatted: "September 18, 2020"
 comments: true
 author: Tom Brien
