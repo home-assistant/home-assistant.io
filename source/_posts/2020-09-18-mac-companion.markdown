@@ -28,7 +28,7 @@ You can get the beta right now from the [home-assistant/ios repository](https://
 
 ## Features
 
-Let's start by looking at some of the coolest Mac-specific features of the app, sensors for all your webcams and microphones. Each camera and microphone has its on `binary_sensor` showing whether it is active or not. These can enable some really useful automations, especially for those home working at the moment. You could automatically turn off the radio when starting a call or close the blinds behind you to improve your video quality. To see just how useful this can be in the real world, check out this video of how our very own Frenck is using these sensors in his streaming set up.
+Let's start by looking at some of the coolest Mac-specific features of the app, sensors for all your webcams and microphones. Each camera and microphone has its own `binary_sensor` showing whether it is active or not. These can enable some really useful automations, especially for those home working at the moment. You could automatically turn off the radio when answering a call or close the blinds behind you to improve your video quality. To see just how useful this can be in the real world, check out this video of how our very own Frenck is using these sensors in his streaming set up.
 
 TODO: ADD VIDEO EMBED HERE
 
@@ -40,7 +40,7 @@ Just like the iOS app, you can send notifications to your Mac with services like
 
 ### Interface
 
-Your Mac isn't a mobile so you shouldn't be forced to use an interface designed for a mobile. In the Mac app the App Configuration page has been removed from Home Assistant's sidebar and instead the configuration options and preferences are in the Home Assistant menu on the menu bar right where you'd expect to find them for any other app and all the standard shortcuts work too (just hit `cmd + ,` for preferences). Here you will also find an option to manually send an update to Home Assistant and you can even open extra Home Assistant windows! Finally, on the menu bar you can also find a new Actions menu where you will see all your [actions](https://companion.home-assistant.io/docs/core/actions) and fire them.
+Your Mac isn't a mobile so you shouldn't be forced to use an interface designed for a mobile. In the Mac app the App Configuration page has been removed from Home Assistant's sidebar and instead the configuration options and preferences are in the Home Assistant menu on the menu bar right where you'd expect to find them for any other app and all the standard shortcuts work too (just hit `cmd + ,` for preferences). Here you will also find an option to manually send an update to Home Assistant and you can even open extra Home Assistant windows! Finally, on the menu bar you can also find a new Actions menu where you can see all your [actions](https://companion.home-assistant.io/docs/core/actions) and fire them.
 
 ### Big Sur Features
 
