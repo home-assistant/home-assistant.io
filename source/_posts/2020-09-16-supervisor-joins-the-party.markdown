@@ -37,7 +37,7 @@ Not all add-ons have this feature and an add-on can still get themselves into pr
 
 ![watchdog graphic](/images/blog/2020-09-16-supervisor-joins-the-party/watchdog.png)
 
-When the watchdog is enabled for an add-on, the Supervisor will automatically restart the add-on if it stops, regardless of the reason (crash/manual stop). The watchdog does not know if you’re testing an add-on or playing around with different options, and so it might restart when you don’t need it. You should only enable the watchdog after you are finished setting it up and want to make sure it’s running 24/7.
+When the watchdog is enabled for an add-on, the Supervisor will automatically restart the add-on if it stops, regardless of the reason (crash/manual stop). The watchdog does not know if you’re testing an add-on or playing around with different options, and so it might restart when you don’t need it. You should only enable the watchdog after you are finished setting the add-on up and want to make sure it’s running 24/7.
 
 <blockquote>
    "Never stop never stopping." - Conner4Real
