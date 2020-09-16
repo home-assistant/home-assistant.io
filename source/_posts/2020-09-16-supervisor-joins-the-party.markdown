@@ -4,6 +4,8 @@ description: "In celebration of the 7th anniversary of Home Assistant, we’ve g
 date: 2020-09-16 00:00:00
 date_formatted: "September 16, 2020"
 comments: true
+author: Joakim Sørensen
+author_twitter: ludeeus
 categories: Announcements
 ---
 
