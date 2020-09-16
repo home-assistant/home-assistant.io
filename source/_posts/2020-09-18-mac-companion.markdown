@@ -6,7 +6,6 @@ date_formatted: "September 18, 2020"
 comments: true
 author: Tom Brien
 author_twitter: tbrien88
-date_formatted: "August 18, 2020"
 categories: Announcements
 og_image: /images/blog/2020-09-15-home-assistant-tags/social.png
 ---
