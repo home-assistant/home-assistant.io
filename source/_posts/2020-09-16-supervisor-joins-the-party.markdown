@@ -7,6 +7,7 @@ comments: true
 author: Joakim Sørensen
 author_twitter: ludeeus
 categories: Announcements
+og_image: /images/blog/2020-09-16-supervisor-joins-the-party/social.png
 ---
 
 The Supervisor is responsible for managing your system so that you can manage your home. It’s the beating heart of the Home Assistant Operating System and it ensures that your system stays secure and up to date. When things do go wrong, the Supervisor is there to help you recover the system.
