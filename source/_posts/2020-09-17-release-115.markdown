@@ -847,6 +847,7 @@ Existing YAML entries will be imported, but:
 1. Your turn on/off actions will not be ported. This functionality is now
    available through device triggers.
 2. You may have duplicate entities.
+3. Kodi must be on when Home Assistant is loading for the first time in order for the configuration to be imported.
 
 ([@OnFreund] - [#38551]) ([kodi docs])
 
