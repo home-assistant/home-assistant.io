@@ -5,6 +5,8 @@ ha_category:
   - Binary Sensor
   - Climate
   - Cover
+  - Lights
+  - Sensor
   - Switch
 ha_release: '0.110'
 ha_iot_class: Local Push
@@ -68,3 +70,18 @@ The integration provides support for the following Z-Wave devices:
 
 - devolo Radiator Thermostat
 - Danfoss Living Connect Z Radiator Thermostat
+
+## Lights
+
+The integration provides support for the following Z-Wave devices:
+
+- devolo Dimmer FM
+- Qubino Flush Dimmer
+
+## Sensor
+
+The integration provides support for the following features:
+
+- Temperature and brightness of devolo Sensors, that support it
+- Consumptions of devolo and Qubino devices, that support it
+- Voltage of devolo Metering Plug v2
