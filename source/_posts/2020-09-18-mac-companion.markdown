@@ -14,8 +14,6 @@ TODO: ADD VIDEO
 
 TODO: CHECK IF CHANGING DISCORD/REPO NAMES
 
-TODO: CREATE REDIRECT for mac download
-
 
 Wow what a birthday week it has been! We've had a [new supervisor release](/blog/2020/09/16/supervisor-joins-the-part), one of the largest and most user-driven core [releases](/blog/2020/09/17/release-115) thanks to the month of What The Heck?! and even seen the the integration of [RFID tags](/blog/2020/09/15/home-assistant-tags) right into the heart of Home Assistant. To finish the week off we've got one last present for all our Mac users, we're announcing the beta release of Home Assistant Companion for Mac. Like a lot of the recent updates to the iOS app, we have [@zacwest](https://github.com/zacwest) to thank for this. Zac has ported the iOS app over to Mac and added some great new features specific to the Mac.
 
@@ -26,7 +24,7 @@ Rendered image of the Home Assistant Lovelace interface running full screen on a
 
 ## Getting the beta
 
-You can get the beta right now from the [home-assistant/ios repository](https://github.com/home-assistant/iOS) just download the [`home-assistant-mac.zip` file from the latest release](https://github.com/home-assistant/iOS/releases/tag/testflight%2F2020.6%2F14), unzip and drag it over to your Applications folder. Done!
+You can get the beta right now from the [home-assistant/ios repository](https://github.com/home-assistant/iOS) just download the [`home-assistant-mac.zip` file from the latest release](https://companion.home-assistant.io/app/mac/latest), unzip and drag it over to your Applications folder. Done!
 
 ## Features
 
