@@ -22,15 +22,7 @@ Wow what a birthday week it has been! We've had a [new supervisor release](/blog
 Rendered image of the Home Assistant Lovelace interface running full screen on a 16-inch Mac Book Pro.
 </p>
 
-<<<<<<< HEAD
 ## Automate when you start using your webcam or microphone
-=======
-## Getting the beta
-
-You can get the beta right now from the home-assistant/ios repository: download the `home-assistant-mac.zip` file from the [latest release](https://companion.home-assistant.io/app/mac/latest), unzip and drag it over to your Applications folder. Done!
-
-## Features
->>>>>>> mac-blog-20200918
 
 Let's start by looking at some of the coolest Mac-specific features of the app, sensors for all your webcams and microphones. Each camera and microphone has its own `binary_sensor` showing whether it is active or not. These can enable some really useful automations, especially for those home working at the moment. You could automatically turn off the radio when answering a call or close the blinds behind you to improve your video quality. To see just how useful this can be in the real world, check out this video of how our very own Frenck is using these sensors in his streaming set up.
 
