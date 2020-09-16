@@ -15,7 +15,7 @@ Earlier this year, we limited the scope of what systems we support with the Supe
 
 ## Crash Reporting
 
-The Supervisor is now able to share anonymized diagnostics and crash information with the Home Assistant developers that work on the Supervisor. This option is, of course, opt-in and disabled by default. With this enabled, you submit issues without needing to open an issue!
+The Supervisor can now share anonymized diagnostics and crash information with the Home Assistant developers that work on the Supervisor. This option is, of course, opt-in and disabled by default. With this enabled, you submit issues without needing to open an issue!
 
 ![diagnostics graphic](/images/blog/2020-09-16-supervisor-joins-the-party/diagnostics.png)
 
@@ -27,17 +27,17 @@ Big thanks to [Sentry][sentry], for powering and sponsoring this great feature.
    "Accurate information is a key part of motivation." - Mary Ann Allison
 </blockquote>
 
-## Improve add-on availability with the new Watchdog feature
+## Improve add-on availability with the new watchdog feature
 
-Add-ons for Home Assistant allow you to easily run third party applications. These applications will benefit from the same management features also used to manage your Home Assistant installation.
+Add-ons for Home Assistant allow you to run third-party applications easily. These applications will benefit from the same management features also used to manage your Home Assistant installation.
 
 Add-on developers will be able to activate additional functionality for their add-on with the new “watchdog” add-on option. This enables application-level monitoring and allows the Supervisor to check if the add-on is behaving correctly using the ways specified by the developer.
 
-Not all add-ons have this feature and an add-on can still get themselves into problems that they can’t recover from, causing the application not to work as expected and crash. For this purpose we have introduced a new watchdog toggle for advanced users. The functionality is similar to Docker’s health checks but operate outside of the container, making it a more robust option.
+Not all add-ons have this feature and an add-on can still get themselves into problems that they can’t recover from, causing the application not to work as expected and crash. For this purpose, we have introduced a new watchdog toggle for advanced users. The functionality is similar to Docker’s health checks but operates outside of the container, making it a more robust option.
 
 ![watchdog graphic](/images/blog/2020-09-16-supervisor-joins-the-party/watchdog.png)
 
-When the watchdog is enabled for an add-on, the Supervisor will automatically restart the add-on if it stops, regardless of the reason (crash/manual stop). The Watchdog does not know if you’re testing an add-on or playing around with different options, and so it might restart when you don’t need it. You should only enable the watchdog after you are finished setting it up and want to make sure it’s running 24/7.
+When the watchdog is enabled for an add-on, the Supervisor will automatically restart the add-on if it stops, regardless of the reason (crash/manual stop). The watchdog does not know if you’re testing an add-on or playing around with different options, and so it might restart when you don’t need it. You should only enable the watchdog after you are finished setting it up and want to make sure it’s running 24/7.
 
 <blockquote>
    "Never stop never stopping." - Conner4Real
@@ -57,7 +57,7 @@ This is just the start to make advanced host management more accessible and it o
 
 ## Observer Plugin
 
-The Supervisor provides several other services using “plugins”. Plugins are microservices that add features to help run Home Assistant + add-ons and manage your system. The latest plugin added is the [Observer plugin][observer]. The observer keeps an eye on the Supervisor. It provides a diagnostics portal on port `4357`(HELP). In case you ever lose access to the Supervisor, you can go to th eObserver Portal to get the Supervisor status and logs and diagnose what’s wrong (and share it with us). The benefit of having this as a web portal is that you no longer need to attach a monitor and keyboard to your device or know the Linux commands to get the information out.
+The Supervisor provides several other services using “plugins”. Plugins are microservices that add features to help run Home Assistant + add-ons and manage your system. The latest plugin added is the [Observer plugin][observer]. The observer keeps an eye on the Supervisor. It provides a diagnostics portal on port `4357`(HELP). In case you ever lose access to the Supervisor, you can go to the Observer Portal to get the Supervisor status and logs and diagnose what’s wrong (and share it with us). The benefit of having this as a web portal is that you no longer need to attach a monitor and keyboard to your device or know the Linux commands to get the information out.
 
 This is the first version and will be extended with more information and functionality in the future.
 
@@ -69,7 +69,7 @@ This is the first version and will be extended with more information and functio
 
 ## Improved Audio
 
-Early this year we built a new Audio layer with a central sound server based on [PulseAudio][pulseaudio]. With this system in place all add-ons and Home Assistant can simultaneously use audio devices, and paired Bluetooth-speakers work flawlessly.
+Early this year, we built a new Audio layer with a central sound server based on [PulseAudio][pulseaudio]. With this system in place, all add-ons and Home Assistant can simultaneously use audio devices and paired Bluetooth-speakers work flawlessly.
 
 ![audio graphic](/images/blog/2020-09-16-supervisor-joins-the-party/audio.png)
 
