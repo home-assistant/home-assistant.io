@@ -76,6 +76,11 @@ Early this year, we built a new Audio layer with a central sound server based on
 
 We will be working on exposing more of these features via the UI in the future, such as controlling the audio volume. The command-line interface supports most of the functionality already and is accessible via the SSH & Web Terminal add-on and entering `ha audio --help`.
 
+<p class='img'>
+   <img src='/images/blog/2020-09-16-supervisor-joins-the-party/spotify.png' alt='Screenshot of Spotify connected to Home Assistant as audio output.'>
+   The <a href="https://github.com/hassio-addons/addon-spotify-connect">Spotify Connect add-on</a> from Community Add-Ons allows playing Spotify via Home Assistant
+</p>
+
 ## Improved mDNS
 
 Hostnames on your network often end with `.local`, for example, `http://homeassistant.local:8123`. This is a feature called mDNS. With Home Assistant OS and Supervised systems, this hasn’t always been functioning as well as it should have. This is a side effect caused by using the Docker layers to power the systems.
