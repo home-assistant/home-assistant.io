@@ -8,6 +8,8 @@ ha_release: 0.x
 ha_config_flow: true
 ha_codeowners:
   - '@fondberg'
+  - '@tmjo'
+  - '@olalid'
 ha_domain: easee
 ---
 
