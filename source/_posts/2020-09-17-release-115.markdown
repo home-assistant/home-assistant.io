@@ -1215,10 +1215,73 @@ an issue when trying to use InfluxDB for example. This has been adjusted.
   <summary><b>Lovelace for generated (auto) mode</b></summary>
   <p>
 
-Entities that are generated from mobile apps with the `mobile_app` integration is now hidden in the generated Lovelace view.
-If you want to continue to display those you need to take control over your view with the 3 dots in the top right corner of the Lovelace screen.
+Entities that are generated from mobile apps with the `mobile_app` integration
+is now hidden in the generated Lovelace view. If you want to continue to display
+those you need to take control over your view with the 3 dots in the top right
+corner of the Lovelace screen.
 
 ([@ludeeus] - [#6873]) ([lovelace docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Time Pattern Trigger</b></summary>
+  <p>
+
+The `time_pattern` trigger will now reject invalid expressions that were
+previously accepted (but did not work as expected).
+
+For example the `minutes: /60` would have been accepted previously, but
+could never trigger.
+
+([@amelchio] - [#38982]) ([automation docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Axis</b></summary>
+  <p>
+
+Initial naming of events from VMD4 and Fence guard are now based on their
+configured name on the device; `binary_sensor.m1065-lw_0_vmd4_camera1profile1`
+is now `binary_sensor.m1065-lw_0_vmd4_profile_1` or `profile_1` can be whatever
+the user chose to name the profile.
+
+([@Kane610] - [#39699]) ([axis docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Timer</b></summary>
+  <p>
+
+This will remove the `remaining` attribute from the timer unless the timer is
+paused. Any workarounds that do exist to use the `remaining` attribute to
+determine when the timer finishes have to switch to use the `finishes_at`
+attribute.
+
+([@IcyPalm] - [#37519]) ([timer docs])
+
+Timers with a duration longer than a day would format as "1 day, 1:00:00" and
+that is difficult to use in templates or for the frontend to render.
+Now it will render as "25:00:00".
+
+([@bramkragten] - [#38292]) ([timer docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Frontend</b></summary>
+  <p>
+
+The previous deprecated frontend configuration options `frontend_extra_html_url`
+and `frontend_extra_html_url` are now removed.
+
+([@balloob] - [#39799]) ([frontend docs])
 
   </p>
 </details>
@@ -1325,7 +1388,7 @@ If you want to continue to display those you need to take control over your view
 - Addressing feedback from #37711 ([@esev] - [#38781]) ([onvif docs])
 - Use the shared zeroconf instance when attempting to create another Zeroconf instance ([@bdraco] - [#38744]) ([zeroconf docs])
 - Simplify vizio unique ID check since only IP and device class are needed ([@raman325] - [#37692]) ([vizio docs])
-- Update script helper constructor parameters ([@pnbruckner] - [#38763]) (breaking-change)
+- Update script helper constructor parameters ([@pnbruckner] - [#38763])
 - Add async_track_state_added_domain for tracking when states are added to a domain ([@bdraco] - [#38776])
 - Create variable with result of wait_template and accept template for timeout option ([@pnbruckner] - [#38634]) ([automation docs]) ([generic_thermostat docs]) ([ness_alarm docs]) ([speedtestdotnet docs]) ([template docs]) ([toon docs]) ([xiaomi_miio docs])
 - Add refresh_node_info command to OZW websocket api ([@cgarwood] - [#38573]) ([ozw docs])
@@ -1380,7 +1443,7 @@ If you want to continue to display those you need to take control over your view
 - Bump pysuez to 0.1.19 ([@ooii] - [#38998]) ([suez_water docs])
 - Add triggers for the Tag component ([@dmulcahey] - [#39004]) ([tag docs])
 - Update emulated_hue to allow getting bridge config without username ([@kbickar] - [#38986]) ([emulated_hue docs])
-- Improve time_pattern validation schema ([@amelchio] - [#38982]) ([homeassistant docs])
+- Improve time_pattern validation schema ([@amelchio] - [#38982]) ([homeassistant docs]) (breaking-change)
 - Extend IP ban / failed login notification information ([@frenck] - [#39020]) ([http docs])
 - Make ping binary_sensor update async ([@Misiu] - [#35301]) ([ping docs])
 - Add Rachio zone moisture service ([@brg468] - [#38817]) ([rachio docs])
@@ -1418,7 +1481,7 @@ If you want to continue to display those you need to take control over your view
 - Remove dead ozw discovery code ([@MartinHjelmare] - [#39098]) ([ozw docs])
 - Use SimpleQueue for recorder ([@bdraco] - [#38967]) ([recorder docs])
 - Update websocket api to use async_track_template_result ([@bdraco] - [#39057]) ([websocket_api docs])
-- Deprecate optional script context ([@balloob] - [#39034]) ([intent_script docs]) ([kodi docs]) ([panasonic_viera docs]) ([samsungtv docs]) ([template docs]) ([webostv docs]) (breaking-change)
+- Deprecate optional script context ([@balloob] - [#39034]) ([intent_script docs]) ([kodi docs]) ([panasonic_viera docs]) ([samsungtv docs]) ([template docs]) ([webostv docs])
 - Skip the sqlite quick_check on clean restarts ([@bdraco] - [#38972]) ([recorder docs])
 - Prevent invalid data from being passed to zeroconf ([@bdraco] - [#39009]) ([zeroconf docs])
 - Simplify template integration entities ([@bdraco] - [#39083]) ([template docs])
@@ -1476,7 +1539,7 @@ If you want to continue to display those you need to take control over your view
 - Support Rainbow radar site in BOM camera ([@maddenp] - [#39129]) ([bom docs])
 - Update bug report template for new Logs location ([@lukashass] - [#39183])
 - Add pin code support to the Risco integration ([@OnFreund] - [#39177]) ([risco docs])
-- Report usage of extract_entities by custom components ([@bdraco] - [#39185]) (breaking-change)
+- Report usage of extract_entities by custom components ([@bdraco] - [#39185])
 - Add unique_id to solarlog sensors ([@Ernst79] - [#39186]) ([solarlog docs])
 - Trim CW from RGB when not supported in ozw ([@firstof9] - [#39191]) ([ozw docs])
 - Upgrade debugpy to 1.0.0rc2 ([@frenck] - [#39195]) ([debugpy docs])
@@ -1842,6 +1905,158 @@ If you want to continue to display those you need to take control over your view
 - Set log level for libav.mp4 in stream ([@uvjustin] - [#39719]) ([stream docs])
 - Add number parsing for OpenHardwareMonitor ([@fillefilip8] - [#39030]) ([openhardwaremonitor docs]) (breaking-change)
 - Update ZHA storage every 10 minutes ([@dmulcahey] - [#39710]) ([zha docs])
+- Add Plugwise scan_interval config option ([@bouwew] - [#37229]) ([plugwise docs])
+- Bump zeroconf to resolve a performance issue with the cache reaper ([@bdraco] - [#39713]) ([zeroconf docs])
+- Fix media browser panel title ([@spacegaier] - [#39720]) ([media_source docs])
+- Fix setup of ONVIF devices without snapshot capability ([@scop] - [#39723]) ([onvif docs])
+- Spotify browser add more sources ([@bramkragten] - [#39296]) ([media_player docs]) ([spotify docs])
+- Add domain filter support to async_all to match async_entity_ids ([@bdraco] - [#39725]) ([humidifier docs]) ([light docs]) ([owntracks docs])
+- Axis - Improve naming of some events ([@Kane610] - [#39699]) ([axis docs]) (breaking-change)
+- Add hassfest requirements validation ([@MartinHjelmare] - [#39329])
+- Fix some missing ozw sensors ([@firstof9] - [#39686]) ([ozw docs])
+- State condition can also accept an input_* Entity ID as state value ([@frenck] - [#39691])
+- allow creating directories from camera snapshot, stream record, and tensorflow file out ([@hunterjm] - [#39728]) ([camera docs]) ([stream docs]) ([tensorflow docs])
+- Set DEVICE_CLASS_GATE for iSmartGate gates ([@bdraco] - [#39703]) ([gogogate2 docs])
+- Add unique_id to jewish_calendar entities ([@ajmarks] - [#39025]) ([jewish_calendar docs])
+- Improve climate support for fibaro ([@pbalogh77] - [#39038]) ([fibaro docs])
+- Fix handling of device registry defaults ([@emontnemery] - [#39688])
+- Update ZHA dependencies ([@Adminiuga] - [#39700]) ([zha docs])
+- Remove ozw lock service for loops, replace with get_value() ([@firstof9] - [#39735]) ([ozw docs])
+- Optimize template sandbox for Home Assistant ([@bdraco] - [#39731])
+- Bump pyskyqhub to 0.1.3 ([@RogerSelwyn] - [#39739]) ([sky_hub docs])
+- Upgrade isort to 5.5.1 ([@frenck] - [#39737])
+- Make Sonos use BrowseMedia ([@cgtobi] - [#39742]) ([sonos docs])
+- Bump Plugwise_Smile from 1.1.0 to 1.4.0 ([@CoMPaTech] - [#39726]) ([plugwise docs])
+- Fix cast media player browser ([@bramkragten] - [#39745]) ([cast docs])
+- Rework Shelly sensors ([@balloob] - [#39747]) ([shelly docs])
+- Improve Plugwise config_options testing ([@CoMPaTech] - [#39736]) ([plugwise docs])
+- Add devolo current and total consumption to sensors ([@2Fake] - [#38386]) ([devolo_home_control docs])
+- Add devolo remote devices as binary sensors ([@2Fake] - [#39105]) ([devolo_home_control docs])
+- Add device action support for remotes ([@ctalkington] - [#39400]) ([remote docs])
+- Support state trigger with from/for but no to ([@amelchio] - [#39480]) ([homeassistant docs])
+- Retry tado setup later when cloud service is unavailable ([@bdraco] - [#39748]) ([tado docs])
+- Support 'for' without setting the 'to'-state in automation state triggers ([@frenck] - [#39730]) ([homeassistant docs])
+- Fix netatmo browse_media return type ([@MartinHjelmare] - [#39751]) ([netatmo docs])
+- Ensure static templates are still called back on first refresh ([@bdraco] - [#39753])
+- Support color temperature ([@Misiu] - [#39743]) ([shelly docs])
+- Increase test coverage for template sandbox ([@bdraco] - [#39750])
+- Make Spotify library payload use "BrowseMedia" ([@spacegaier] - [#39744]) ([spotify docs])
+- Remove remaining and add finishes_at attributes from timer ([@IcyPalm] - [#37519]) ([timer docs]) (breaking-change)
+- Add Kodi media browser support ([@cgtobi] - [#39729]) ([kodi docs])
+- Timer make attribute format always h:mm:ss ([@bramkragten] - [#38292]) ([timer docs]) (breaking-change)
+- Update pykodi to 0.1.2 ([@OnFreund] - [#39758]) ([kodi docs])
+- Add missing MENU option for webos.button service ([@basnijholt] - [#39746]) ([webostv docs])
+- Don't poll entities for unavailable ZHA devices ([@dmulcahey] - [#39756]) ([zha docs])
+- Local media source: return different error if media folder doesnt exist ([@bramkragten] - [#39759]) ([media_source docs])
+- Force token expires_in to float ([@timmo001] - [#39489])
+- Update frontend to 20200907.0 ([@bramkragten] - [#39761]) ([frontend docs])
+- Clean up spotify media browser dict access ([@MartinHjelmare] - [#39764]) ([spotify docs])
+- Fix plex browse media ([@MartinHjelmare] - [#39766]) ([plex docs])
+- Support shelly cover(roller) mode ([@chemelli74] - [#39711]) ([shelly docs]) (beta fix) (new-platform)
+- Guard for spotify items without type ([@balloob] - [#39795]) ([spotify docs]) (beta fix)
+- Add media class browse media attribute ([@MartinHjelmare] - [#39770]) (beta fix)
+- Add the ability to reload bayesian platforms from yaml ([@bdraco] - [#39771]) ([bayesian docs]) (beta fix)
+- Remove invalidation version from panel_custom ([@frenck] - [#39782]) ([panel_custom docs]) (beta fix)
+- Restore miflora now that v0.7.0 is out ([@basnijholt] - [#39787]) ([miflora docs]) (beta fix)
+- Fix Sonos issue ([@cgtobi] - [#39790]) ([sonos docs]) (beta fix)
+- Copy instead of deepcopy the variables in a wait for trigger ([@balloob] - [#39796]) (beta fix)
+- Some shelly fixes ([@balloob] - [#39798]) ([shelly docs]) (beta fix)
+- Remove HTML support from frontend ([@balloob] - [#39799]) ([frontend docs]) (breaking-change) (beta fix)
+- Remove deprecated Hue configuration ([@frenck] - [#39800]) ([hue docs]) (beta fix)
+- Bump pydelijn to 0.6.1 ([@Emilv2] - [#39802]) ([delijn docs]) (beta fix)
+- Fix cover template entities honoring titlecase True/False ([@bdraco] - [#39803]) ([template docs]) (beta fix)
+- Restore missing device_class to template binary_sensor ([@bdraco] - [#39805]) ([template docs]) (beta fix)
+- Fix isy994 send_node_command ([@bdraco] - [#39806]) ([isy994 docs]) (beta fix)
+- Fix MQTT light value template ([@emontnemery] - [#39820]) ([mqtt docs]) (beta fix)
+- Update frontend to 20200908.0 ([@bramkragten] - [#39824]) ([frontend docs]) (beta fix)
+- Avoid failing when hub does not provide cover position information ([@Franchie] - [#39826]) ([hunterdouglas_powerview docs]) (beta fix)
+- Add missing sensors after reworking sensor platform in Shelly integration ([@bieniu] - [#39765]) ([shelly docs]) (beta fix)
+- Fix Kodi media browser ([@cgtobi] - [#39829]) ([kodi docs]) (beta fix)
+- Fix nzbget sensors ([@ctalkington] - [#39833]) ([nzbget docs]) (beta fix)
+- Fix Kodi media browser ([@cgtobi] - [#39840]) ([kodi docs]) (beta fix)
+- Make spotify media class lookup more robust ([@MartinHjelmare] - [#39841]) ([spotify docs]) (beta fix)
+- Use correct URL for Fitbit callbacks ([@colinfrei] - [#39823]) ([fitbit docs]) (beta fix)
+- Use a unique id for each icmplib ping to avoid mixing unrelated responses ([@bdraco] - [#39830]) ([ping docs]) (beta fix)
+- Updated warning_device_warn ([@martin3000] - [#39851]) ([zha docs]) (beta fix)
+- Sort Local Media Source and fix media class ([@hunterjm] - [#39858]) ([media_source docs]) (beta fix)
+- Update ZHA dependency ([@Adminiuga] - [#39862]) ([zha docs]) (beta fix)
+- Remove media class apps and channels ([@MartinHjelmare] - [#39864]) ([media_player docs]) ([media_source docs]) ([philips_js docs]) ([roku docs]) (beta fix)
+- Improve Roku media browser structure ([@ctalkington] - [#39754]) ([roku docs]) (beta fix)
+- Add exception for NoURLAvailableError in OAuth2FlowHandler ([@ludeeus] - [#39845]) ([spotify docs]) (beta fix)
+- Install stdlib-list in script/bootstrap ([@balloob] - [#39866]) (beta fix)
+- Disable Met.no hourly weather by default ([@frenck] - [#39867]) ([met docs]) (beta fix)
+- Updated frontend to 20200909.0 ([@ludeeus] - [#39869]) ([frontend docs]) (beta fix)
+- Bump pysmappee to 0.2.13 ([@bsmappee] - [#39883]) ([smappee docs]) (beta fix)
+- Fix event trigger ([@balloob] - [#39884]) ([homeassistant docs]) (beta fix)
+- Bump hass-nabucasa 0.37.0 ([@pvizeli] - [#39885]) ([cloud docs]) (beta fix)
+- Shelly switch to guard for shelly 2 in roller mode ([@balloob] - [#39886]) ([shelly docs]) (beta fix)
+- Fix spotify media browser category ([@bramkragten] - [#39888]) ([spotify docs]) (beta fix)
+- Fix issue with grpcio build on 32bit arch ([@pvizeli] - [#39893]) (beta fix)
+- Add default variables to script helper ([@balloob] - [#39895]) ([automation docs]) ([script docs]) (beta fix)
+- Detect self-referencing loops in template entities and log a warning ([@bdraco] - [#39897]) ([template docs]) (beta fix)
+- Fix ping log level to be debug instead of warning ([@bdraco] - [#39900]) ([ping docs]) (beta fix)
+- Fix discovery update of MQTT state templates ([@emontnemery] - [#39901]) ([mqtt docs]) (beta fix)
+- Limit zeroconf discovery to name/macaddress when provided ([@bdraco] - [#39877]) ([axis docs]) ([brother docs]) ([doorbird docs]) ([shelly docs]) ([smappee docs]) ([zeroconf docs]) (beta fix)
+- Warn users if KNX has no devices configured ([@marvin-w] - [#39899]) ([knx docs]) (beta fix)
+- Add children media class ([@MartinHjelmare] - [#39902]) (beta fix)
+- Disable audio for HLS or mpegts input ([@uvjustin] - [#39906]) ([stream docs]) (beta fix)
+- Don't trigger on attribute when the attribute doesn't change ([@basnijholt] - [#39910]) ([homeassistant docs]) (beta fix)
+- Extract variable rendering ([@balloob] - [#39934]) ([automation docs]) ([script docs]) (beta fix)
+- Set variable values in scripts ([@thomasloven] - [#39915]) (beta fix)
+- Bump aioshelly to 0.3.1 ([@balloob] - [#39917]) ([shelly docs]) (beta fix)
+- Prevent missing integration from failing HomeKit startup ([@bdraco] - [#39918]) ([homekit docs]) (beta fix)
+- Update zeroconf to 0.28.5 ([@bdraco] - [#39923]) ([zeroconf docs]) (beta fix)
+- Accept known hosts for get_url for OAuth ([@frenck] - [#39936]) (beta fix)
+- Handle Kodi shutdown ([@OnFreund] - [#39856]) ([kodi docs]) (beta fix)
+- Bump pyloopenergy library to 0.2.1 ([@pavoni] - [#39919]) ([loopenergy docs]) (beta fix)
+- Return the listeners with the template result for the websocket api ([@bdraco] - [#39925]) ([websocket_api docs]) (beta fix)
+- Fix missing position attribute for MeteoFranceAlertSensor ([@Quentame] - [#39938]) ([meteo_france docs]) (beta fix)
+- Change template loop detection strategy to allow self-referencing updates when there are multiple templates ([@bdraco] - [#39943]) ([template docs]) (beta fix)
+- Set output timescale to input timescale ([@uvjustin] - [#39946]) ([stream docs]) (beta fix)
+- Add children media class to children spotify media browser ([@bramkragten] - [#39953]) ([spotify docs]) (beta fix)
+- Remove skip_sidx container option in stream ([@uvjustin] - [#39970]) ([stream docs]) (beta fix)
+- Fix children_media_class for special folders ([@jjlawren] - [#39974]) ([plex docs]) (beta fix)
+- Bump frontend to 20200912.0 ([@ludeeus] - [#39997]) ([frontend docs]) (beta fix)
+- Bump androidtv to 0.0.50 ([@JeffLIrion] - [#39998]) ([androidtv docs]) (beta fix)
+- Fix Freebox call sensor when no call in history ([@Quentame] - [#40001]) ([freebox docs]) (beta fix)
+- Bump pyhaversion to 3.4.0 ([@ludeeus] - [#40016]) ([version docs]) (beta fix)
+- Suppress homekit bridge discovery by homekit controller ([@bdraco] - [#39990]) ([homekit_controller docs]) (beta fix)
+- Fix requiring username or password for nzbget yaml config ([@springstan] - [#40003]) ([nzbget docs]) (beta fix)
+- Add tests for Plugwise integration ([@CoMPaTech] - [#36371]) ([plugwise docs]) (beta fix)
+- Ensure Plugwise unique_id is correctly set ([@bouwew] - [#40014]) ([plugwise docs]) (beta fix)
+- Improve handling of mireds being far out of spec ([@Kane610] - [#40018]) ([deconz docs]) (beta fix)
+- Do not log an error when a host is unreachable while pinging ([@bdraco] - [#40024]) ([ping docs]) (beta fix)
+- Fix slack notifications requiring an icon ([@springstan] - [#40027]) ([slack docs]) (beta fix)
+- Ensure homekit_controller traps exceptions from find_ip_by_device_id ([@bdraco] - [#40030]) ([homekit_controller docs]) (beta fix)
+- Fix entity extraction from Template conditions ([@frenck] - [#40034]) (beta fix)
+- Speedtestdotnet - use server name to generate server list ([@r4nd0mbr1ck] - [#39775]) ([speedtestdotnet docs]) (beta fix)
+- Update gogogate2-api to 2.0.2 ([@bdraco] - [#40010]) ([gogogate2 docs]) (beta fix)
+- Fix ecobee weather forcast off by 1 bug ([@b3nj1] - [#40048]) ([ecobee docs]) (beta fix)
+- Correct devolo climate devices ([@2Fake] - [#40061]) ([devolo_home_control docs]) (beta fix)
+- Fix default forecast mode OpenWeatherMap ([@freekode] - [#40062]) ([openweathermap docs]) (beta fix)
+- Bump aiohomekit version (regression fix) ([@Jc2k] - [#40064]) ([homekit_controller docs]) (beta fix)
+- Update docker base image to 8.4.0 ([@pvizeli] - [#40066]) (beta fix)
+- Fix tag last scanned serialization ([@balloob] - [#40067]) ([tag docs]) (beta fix)
+- Fix netatmo media browser of outdoor events ([@cgtobi] - [#40079]) ([netatmo docs]) (beta fix)
+- Increase TIMEOUT_ACK to 2s ([@emontnemery] - [#40080]) ([mqtt docs]) (beta fix)
+- Update ZHA dependency ([@Adminiuga] - [#40083]) ([zha docs]) (beta fix)
+- Check Sonos for local library before browsing ([@cgtobi] - [#40085]) ([sonos docs]) (beta fix)
+- Convert color temperature to hue and saturation for HomeKit ([@bdraco] - [#40089]) ([homekit docs]) (beta fix)
+- Update frontend to 20200915.0 ([@bramkragten] - [#40101]) ([frontend docs]) (beta fix)
+- Address error in SQL query ([@dgomes] - [#39939]) ([sql docs]) (beta fix)
+- Add media dirs core configuration ([@frenck] - [#40071]) ([media_source docs]) (breaking-change) (beta fix)
+- Guard both Shelly 2 & Shelly 2.5 in roller mode ([@thecode] - [#40086]) ([shelly docs]) (beta fix)
+- Remove the unnecessary prefix from the sensor names in the Shelly integration ([@bieniu] - [#40097]) ([shelly docs]) (beta fix)
+- Increase TIMEOUT_ACK to 10s ([@springstan] - [#40117]) ([mqtt docs]) (beta fix)
+- Bump aioshelly library to version 0.3.2 ([@bieniu] - [#40118]) ([shelly docs]) (beta fix)
+- Allow ESPHome to trigger the HA tag scanned event ([@jesserockz] - [#40128]) ([esphome docs]) (beta fix)
+- Use device name stored in device_info for tag scan in ESPHome ([@jesserockz] - [#40130]) ([esphome docs]) (beta fix)
+- Guard for when Yandex Transport data fetching fails ([@balloob] - [#40131]) ([yandex_transport docs]) (beta fix)
+- Fix ESPHome scan tag device ID ([@balloob] - [#40132]) ([esphome docs]) (beta fix)
+- Fix scene validator ([@balloob] - [#40140]) ([homeassistant docs]) (beta fix)
+- Fix missing f from f-strings in cast integration ([@frenck] - [#40144]) ([cast docs]) (beta fix)
+- Fix local media browser source conflicting with local www folder ([@frenck] - [#40151]) ([media_source docs]) (beta fix)
+- Update frontend to 20200916.0 ([@bramkragten] - [#40153]) ([frontend docs]) (beta fix)
 
 </details>
 
@@ -1853,6 +2068,7 @@ If you want to continue to display those you need to take control over your view
 [#35590]: https://github.com/home-assistant/core/pull/35590
 [#36132]: https://github.com/home-assistant/core/pull/36132
 [#36283]: https://github.com/home-assistant/core/pull/36283
+[#36371]: https://github.com/home-assistant/core/pull/36371
 [#36467]: https://github.com/home-assistant/core/pull/36467
 [#36468]: https://github.com/home-assistant/core/pull/36468
 [#36597]: https://github.com/home-assistant/core/pull/36597
@@ -1864,9 +2080,11 @@ If you want to continue to display those you need to take control over your view
 [#36930]: https://github.com/home-assistant/core/pull/36930
 [#37191]: https://github.com/home-assistant/core/pull/37191
 [#37216]: https://github.com/home-assistant/core/pull/37216
+[#37229]: https://github.com/home-assistant/core/pull/37229
 [#37258]: https://github.com/home-assistant/core/pull/37258
 [#37282]: https://github.com/home-assistant/core/pull/37282
 [#37467]: https://github.com/home-assistant/core/pull/37467
+[#37519]: https://github.com/home-assistant/core/pull/37519
 [#37533]: https://github.com/home-assistant/core/pull/37533
 [#37553]: https://github.com/home-assistant/core/pull/37553
 [#37561]: https://github.com/home-assistant/core/pull/37561
@@ -1894,10 +2112,12 @@ If you want to continue to display those you need to take control over your view
 [#38268]: https://github.com/home-assistant/core/pull/38268
 [#38272]: https://github.com/home-assistant/core/pull/38272
 [#38287]: https://github.com/home-assistant/core/pull/38287
+[#38292]: https://github.com/home-assistant/core/pull/38292
 [#38306]: https://github.com/home-assistant/core/pull/38306
 [#38330]: https://github.com/home-assistant/core/pull/38330
 [#38378]: https://github.com/home-assistant/core/pull/38378
 [#38381]: https://github.com/home-assistant/core/pull/38381
+[#38386]: https://github.com/home-assistant/core/pull/38386
 [#38405]: https://github.com/home-assistant/core/pull/38405
 [#38444]: https://github.com/home-assistant/core/pull/38444
 [#38518]: https://github.com/home-assistant/core/pull/38518
@@ -2055,10 +2275,12 @@ If you want to continue to display those you need to take control over your view
 [#39019]: https://github.com/home-assistant/core/pull/39019
 [#39020]: https://github.com/home-assistant/core/pull/39020
 [#39021]: https://github.com/home-assistant/core/pull/39021
+[#39025]: https://github.com/home-assistant/core/pull/39025
 [#39027]: https://github.com/home-assistant/core/pull/39027
 [#39030]: https://github.com/home-assistant/core/pull/39030
 [#39034]: https://github.com/home-assistant/core/pull/39034
 [#39036]: https://github.com/home-assistant/core/pull/39036
+[#39038]: https://github.com/home-assistant/core/pull/39038
 [#39042]: https://github.com/home-assistant/core/pull/39042
 [#39043]: https://github.com/home-assistant/core/pull/39043
 [#39045]: https://github.com/home-assistant/core/pull/39045
@@ -2088,6 +2310,7 @@ If you want to continue to display those you need to take control over your view
 [#39098]: https://github.com/home-assistant/core/pull/39098
 [#39102]: https://github.com/home-assistant/core/pull/39102
 [#39104]: https://github.com/home-assistant/core/pull/39104
+[#39105]: https://github.com/home-assistant/core/pull/39105
 [#39107]: https://github.com/home-assistant/core/pull/39107
 [#39108]: https://github.com/home-assistant/core/pull/39108
 [#39109]: https://github.com/home-assistant/core/pull/39109
@@ -2198,6 +2421,7 @@ If you want to continue to display those you need to take control over your view
 [#39289]: https://github.com/home-assistant/core/pull/39289
 [#39291]: https://github.com/home-assistant/core/pull/39291
 [#39292]: https://github.com/home-assistant/core/pull/39292
+[#39296]: https://github.com/home-assistant/core/pull/39296
 [#39302]: https://github.com/home-assistant/core/pull/39302
 [#39303]: https://github.com/home-assistant/core/pull/39303
 [#39305]: https://github.com/home-assistant/core/pull/39305
@@ -2213,6 +2437,7 @@ If you want to continue to display those you need to take control over your view
 [#39325]: https://github.com/home-assistant/core/pull/39325
 [#39326]: https://github.com/home-assistant/core/pull/39326
 [#39327]: https://github.com/home-assistant/core/pull/39327
+[#39329]: https://github.com/home-assistant/core/pull/39329
 [#39332]: https://github.com/home-assistant/core/pull/39332
 [#39334]: https://github.com/home-assistant/core/pull/39334
 [#39335]: https://github.com/home-assistant/core/pull/39335
@@ -2263,6 +2488,7 @@ If you want to continue to display those you need to take control over your view
 [#39396]: https://github.com/home-assistant/core/pull/39396
 [#39397]: https://github.com/home-assistant/core/pull/39397
 [#39399]: https://github.com/home-assistant/core/pull/39399
+[#39400]: https://github.com/home-assistant/core/pull/39400
 [#39402]: https://github.com/home-assistant/core/pull/39402
 [#39404]: https://github.com/home-assistant/core/pull/39404
 [#39405]: https://github.com/home-assistant/core/pull/39405
@@ -2329,11 +2555,13 @@ If you want to continue to display those you need to take control over your view
 [#39477]: https://github.com/home-assistant/core/pull/39477
 [#39478]: https://github.com/home-assistant/core/pull/39478
 [#39479]: https://github.com/home-assistant/core/pull/39479
+[#39480]: https://github.com/home-assistant/core/pull/39480
 [#39482]: https://github.com/home-assistant/core/pull/39482
 [#39483]: https://github.com/home-assistant/core/pull/39483
 [#39484]: https://github.com/home-assistant/core/pull/39484
 [#39486]: https://github.com/home-assistant/core/pull/39486
 [#39488]: https://github.com/home-assistant/core/pull/39488
+[#39489]: https://github.com/home-assistant/core/pull/39489
 [#39490]: https://github.com/home-assistant/core/pull/39490
 [#39492]: https://github.com/home-assistant/core/pull/39492
 [#39493]: https://github.com/home-assistant/core/pull/39493
@@ -2438,30 +2666,175 @@ If you want to continue to display those you need to take control over your view
 [#39681]: https://github.com/home-assistant/core/pull/39681
 [#39683]: https://github.com/home-assistant/core/pull/39683
 [#39685]: https://github.com/home-assistant/core/pull/39685
+[#39686]: https://github.com/home-assistant/core/pull/39686
+[#39688]: https://github.com/home-assistant/core/pull/39688
 [#39689]: https://github.com/home-assistant/core/pull/39689
 [#39690]: https://github.com/home-assistant/core/pull/39690
+[#39691]: https://github.com/home-assistant/core/pull/39691
 [#39692]: https://github.com/home-assistant/core/pull/39692
 [#39696]: https://github.com/home-assistant/core/pull/39696
 [#39698]: https://github.com/home-assistant/core/pull/39698
+[#39699]: https://github.com/home-assistant/core/pull/39699
+[#39700]: https://github.com/home-assistant/core/pull/39700
 [#39702]: https://github.com/home-assistant/core/pull/39702
+[#39703]: https://github.com/home-assistant/core/pull/39703
 [#39705]: https://github.com/home-assistant/core/pull/39705
 [#39706]: https://github.com/home-assistant/core/pull/39706
 [#39707]: https://github.com/home-assistant/core/pull/39707
 [#39708]: https://github.com/home-assistant/core/pull/39708
 [#39710]: https://github.com/home-assistant/core/pull/39710
+[#39711]: https://github.com/home-assistant/core/pull/39711
+[#39713]: https://github.com/home-assistant/core/pull/39713
 [#39716]: https://github.com/home-assistant/core/pull/39716
 [#39719]: https://github.com/home-assistant/core/pull/39719
+[#39720]: https://github.com/home-assistant/core/pull/39720
+[#39723]: https://github.com/home-assistant/core/pull/39723
+[#39725]: https://github.com/home-assistant/core/pull/39725
+[#39726]: https://github.com/home-assistant/core/pull/39726
+[#39728]: https://github.com/home-assistant/core/pull/39728
+[#39729]: https://github.com/home-assistant/core/pull/39729
+[#39730]: https://github.com/home-assistant/core/pull/39730
+[#39731]: https://github.com/home-assistant/core/pull/39731
+[#39735]: https://github.com/home-assistant/core/pull/39735
+[#39736]: https://github.com/home-assistant/core/pull/39736
+[#39737]: https://github.com/home-assistant/core/pull/39737
+[#39739]: https://github.com/home-assistant/core/pull/39739
+[#39742]: https://github.com/home-assistant/core/pull/39742
+[#39743]: https://github.com/home-assistant/core/pull/39743
+[#39744]: https://github.com/home-assistant/core/pull/39744
+[#39745]: https://github.com/home-assistant/core/pull/39745
+[#39746]: https://github.com/home-assistant/core/pull/39746
+[#39747]: https://github.com/home-assistant/core/pull/39747
+[#39748]: https://github.com/home-assistant/core/pull/39748
+[#39750]: https://github.com/home-assistant/core/pull/39750
+[#39751]: https://github.com/home-assistant/core/pull/39751
+[#39753]: https://github.com/home-assistant/core/pull/39753
+[#39754]: https://github.com/home-assistant/core/pull/39754
+[#39756]: https://github.com/home-assistant/core/pull/39756
+[#39758]: https://github.com/home-assistant/core/pull/39758
+[#39759]: https://github.com/home-assistant/core/pull/39759
+[#39761]: https://github.com/home-assistant/core/pull/39761
+[#39764]: https://github.com/home-assistant/core/pull/39764
+[#39765]: https://github.com/home-assistant/core/pull/39765
+[#39766]: https://github.com/home-assistant/core/pull/39766
+[#39770]: https://github.com/home-assistant/core/pull/39770
+[#39771]: https://github.com/home-assistant/core/pull/39771
+[#39775]: https://github.com/home-assistant/core/pull/39775
+[#39782]: https://github.com/home-assistant/core/pull/39782
+[#39787]: https://github.com/home-assistant/core/pull/39787
+[#39790]: https://github.com/home-assistant/core/pull/39790
+[#39795]: https://github.com/home-assistant/core/pull/39795
+[#39796]: https://github.com/home-assistant/core/pull/39796
+[#39798]: https://github.com/home-assistant/core/pull/39798
+[#39799]: https://github.com/home-assistant/core/pull/39799
+[#39800]: https://github.com/home-assistant/core/pull/39800
+[#39802]: https://github.com/home-assistant/core/pull/39802
+[#39803]: https://github.com/home-assistant/core/pull/39803
+[#39805]: https://github.com/home-assistant/core/pull/39805
+[#39806]: https://github.com/home-assistant/core/pull/39806
+[#39820]: https://github.com/home-assistant/core/pull/39820
+[#39823]: https://github.com/home-assistant/core/pull/39823
+[#39824]: https://github.com/home-assistant/core/pull/39824
+[#39826]: https://github.com/home-assistant/core/pull/39826
+[#39829]: https://github.com/home-assistant/core/pull/39829
+[#39830]: https://github.com/home-assistant/core/pull/39830
+[#39833]: https://github.com/home-assistant/core/pull/39833
+[#39840]: https://github.com/home-assistant/core/pull/39840
+[#39841]: https://github.com/home-assistant/core/pull/39841
+[#39845]: https://github.com/home-assistant/core/pull/39845
+[#39851]: https://github.com/home-assistant/core/pull/39851
+[#39856]: https://github.com/home-assistant/core/pull/39856
+[#39858]: https://github.com/home-assistant/core/pull/39858
+[#39862]: https://github.com/home-assistant/core/pull/39862
+[#39864]: https://github.com/home-assistant/core/pull/39864
+[#39866]: https://github.com/home-assistant/core/pull/39866
+[#39867]: https://github.com/home-assistant/core/pull/39867
+[#39869]: https://github.com/home-assistant/core/pull/39869
+[#39877]: https://github.com/home-assistant/core/pull/39877
+[#39883]: https://github.com/home-assistant/core/pull/39883
+[#39884]: https://github.com/home-assistant/core/pull/39884
+[#39885]: https://github.com/home-assistant/core/pull/39885
+[#39886]: https://github.com/home-assistant/core/pull/39886
+[#39888]: https://github.com/home-assistant/core/pull/39888
+[#39893]: https://github.com/home-assistant/core/pull/39893
+[#39895]: https://github.com/home-assistant/core/pull/39895
+[#39897]: https://github.com/home-assistant/core/pull/39897
+[#39899]: https://github.com/home-assistant/core/pull/39899
+[#39900]: https://github.com/home-assistant/core/pull/39900
+[#39901]: https://github.com/home-assistant/core/pull/39901
+[#39902]: https://github.com/home-assistant/core/pull/39902
+[#39906]: https://github.com/home-assistant/core/pull/39906
+[#39910]: https://github.com/home-assistant/core/pull/39910
+[#39915]: https://github.com/home-assistant/core/pull/39915
+[#39917]: https://github.com/home-assistant/core/pull/39917
+[#39918]: https://github.com/home-assistant/core/pull/39918
+[#39919]: https://github.com/home-assistant/core/pull/39919
+[#39923]: https://github.com/home-assistant/core/pull/39923
+[#39925]: https://github.com/home-assistant/core/pull/39925
+[#39934]: https://github.com/home-assistant/core/pull/39934
+[#39936]: https://github.com/home-assistant/core/pull/39936
+[#39938]: https://github.com/home-assistant/core/pull/39938
+[#39939]: https://github.com/home-assistant/core/pull/39939
+[#39943]: https://github.com/home-assistant/core/pull/39943
+[#39946]: https://github.com/home-assistant/core/pull/39946
+[#39953]: https://github.com/home-assistant/core/pull/39953
+[#39970]: https://github.com/home-assistant/core/pull/39970
+[#39974]: https://github.com/home-assistant/core/pull/39974
+[#39990]: https://github.com/home-assistant/core/pull/39990
+[#39997]: https://github.com/home-assistant/core/pull/39997
+[#39998]: https://github.com/home-assistant/core/pull/39998
+[#40001]: https://github.com/home-assistant/core/pull/40001
+[#40003]: https://github.com/home-assistant/core/pull/40003
+[#40010]: https://github.com/home-assistant/core/pull/40010
+[#40014]: https://github.com/home-assistant/core/pull/40014
+[#40016]: https://github.com/home-assistant/core/pull/40016
+[#40018]: https://github.com/home-assistant/core/pull/40018
+[#40024]: https://github.com/home-assistant/core/pull/40024
+[#40027]: https://github.com/home-assistant/core/pull/40027
+[#40030]: https://github.com/home-assistant/core/pull/40030
+[#40034]: https://github.com/home-assistant/core/pull/40034
+[#40048]: https://github.com/home-assistant/core/pull/40048
+[#40061]: https://github.com/home-assistant/core/pull/40061
+[#40062]: https://github.com/home-assistant/core/pull/40062
+[#40064]: https://github.com/home-assistant/core/pull/40064
+[#40066]: https://github.com/home-assistant/core/pull/40066
+[#40067]: https://github.com/home-assistant/core/pull/40067
+[#40071]: https://github.com/home-assistant/core/pull/40071
+[#40079]: https://github.com/home-assistant/core/pull/40079
+[#40080]: https://github.com/home-assistant/core/pull/40080
+[#40083]: https://github.com/home-assistant/core/pull/40083
+[#40085]: https://github.com/home-assistant/core/pull/40085
+[#40086]: https://github.com/home-assistant/core/pull/40086
+[#40089]: https://github.com/home-assistant/core/pull/40089
+[#40097]: https://github.com/home-assistant/core/pull/40097
+[#40101]: https://github.com/home-assistant/core/pull/40101
+[#40117]: https://github.com/home-assistant/core/pull/40117
+[#40118]: https://github.com/home-assistant/core/pull/40118
+[#40128]: https://github.com/home-assistant/core/pull/40128
+[#40130]: https://github.com/home-assistant/core/pull/40130
+[#40131]: https://github.com/home-assistant/core/pull/40131
+[#40132]: https://github.com/home-assistant/core/pull/40132
+[#40140]: https://github.com/home-assistant/core/pull/40140
+[#40144]: https://github.com/home-assistant/core/pull/40144
+[#40151]: https://github.com/home-assistant/core/pull/40151
+[#40153]: https://github.com/home-assistant/core/pull/40153
 [@2Fake]: https://github.com/2Fake
+[@Adminiuga]: https://github.com/Adminiuga
 [@ArdaSeremet]: https://github.com/ArdaSeremet
+[@CoMPaTech]: https://github.com/CoMPaTech
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@DarkFox]: https://github.com/DarkFox
 [@DelusionalAI]: https://github.com/DelusionalAI
+[@Emilv2]: https://github.com/Emilv2
 [@Ernst79]: https://github.com/Ernst79
+[@Franchie]: https://github.com/Franchie
 [@Funcy-dcm]: https://github.com/Funcy-dcm
+[@IcyPalm]: https://github.com/IcyPalm
 [@JPHutchins]: https://github.com/JPHutchins
 [@Jc2k]: https://github.com/Jc2k
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@KTibow]: https://github.com/KTibow
+[@Kane610]: https://github.com/Kane610
 [@Mariusthvdb]: https://github.com/Mariusthvdb
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MatthewFlamm]: https://github.com/MatthewFlamm
@@ -2489,6 +2862,7 @@ If you want to continue to display those you need to take control over your view
 [@arychj]: https://github.com/arychj
 [@ausil]: https://github.com/ausil
 [@azogue]: https://github.com/azogue
+[@b3nj1]: https://github.com/b3nj1
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@basnijholt]: https://github.com/basnijholt
@@ -2498,6 +2872,7 @@ If you want to continue to display those you need to take control over your view
 [@bjornsnoen]: https://github.com/bjornsnoen
 [@blueshiftlabs]: https://github.com/blueshiftlabs
 [@boralyl]: https://github.com/boralyl
+[@bouwew]: https://github.com/bouwew
 [@bramkragten]: https://github.com/bramkragten
 [@brg468]: https://github.com/brg468
 [@bruxy70]: https://github.com/bruxy70
@@ -2507,6 +2882,7 @@ If you want to continue to display those you need to take control over your view
 [@cgtobi]: https://github.com/cgtobi
 [@chemelli74]: https://github.com/chemelli74
 [@clarkd]: https://github.com/clarkd
+[@colinfrei]: https://github.com/colinfrei
 [@ctalkington]: https://github.com/ctalkington
 [@denysdovhan]: https://github.com/denysdovhan
 [@devbis]: https://github.com/devbis
@@ -2540,6 +2916,7 @@ If you want to continue to display those you need to take control over your view
 [@jameshilliard]: https://github.com/jameshilliard
 [@javicalle]: https://github.com/javicalle
 [@jdelaney72]: https://github.com/jdelaney72
+[@jesserockz]: https://github.com/jesserockz
 [@jgrob1]: https://github.com/jgrob1
 [@jjlawren]: https://github.com/jjlawren
 [@joogps]: https://github.com/joogps
@@ -2553,6 +2930,7 @@ If you want to continue to display those you need to take control over your view
 [@lukashass]: https://github.com/lukashass
 [@maddenp]: https://github.com/maddenp
 [@marciogranzotto]: https://github.com/marciogranzotto
+[@martin3000]: https://github.com/martin3000
 [@marvin-w]: https://github.com/marvin-w
 [@matgad]: https://github.com/matgad
 [@mhaack]: https://github.com/mhaack
@@ -2572,6 +2950,7 @@ If you want to continue to display those you need to take control over your view
 [@pnbruckner]: https://github.com/pnbruckner
 [@prystupa]: https://github.com/prystupa
 [@pvizeli]: https://github.com/pvizeli
+[@r4nd0mbr1ck]: https://github.com/r4nd0mbr1ck
 [@rajlaud]: https://github.com/rajlaud
 [@raman325]: https://github.com/raman325
 [@rytilahti]: https://github.com/rytilahti
@@ -2584,8 +2963,10 @@ If you want to continue to display those you need to take control over your view
 [@stephan192]: https://github.com/stephan192
 [@stlehmann]: https://github.com/stlehmann
 [@teharris1]: https://github.com/teharris1
+[@thecode]: https://github.com/thecode
 [@thimic]: https://github.com/thimic
 [@thomasdelaet]: https://github.com/thomasdelaet
+[@thomasloven]: https://github.com/thomasloven
 [@thrust15]: https://github.com/thrust15
 [@timmo001]: https://github.com/timmo001
 [@uvjustin]: https://github.com/uvjustin
@@ -2609,11 +2990,13 @@ If you want to continue to display those you need to take control over your view
 [atag docs]: /integrations/atag/
 [automation docs]: /integrations/automation/
 [awair docs]: /integrations/awair/
+[axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
 [bom docs]: /integrations/bom/
 [bond docs]: /integrations/bond/
 [broadlink docs]: /integrations/broadlink/
 [brother docs]: /integrations/brother/
+[camera docs]: /integrations/camera/
 [cast docs]: /integrations/cast/
 [cert_expiry docs]: /integrations/cert_expiry/
 [channels docs]: /integrations/channels/
@@ -2628,6 +3011,7 @@ If you want to continue to display those you need to take control over your view
 [debugpy docs]: /integrations/debugpy/
 [deconz docs]: /integrations/deconz/
 [default_config docs]: /integrations/default_config/
+[delijn docs]: /integrations/delijn/
 [demo docs]: /integrations/demo/
 [devolo_home_control docs]: /integrations/devolo_home_control/
 [dexcom docs]: /integrations/dexcom/
@@ -2636,6 +3020,7 @@ If you want to continue to display those you need to take control over your view
 [discord docs]: /integrations/discord/
 [discovery docs]: /integrations/discovery/
 [doods docs]: /integrations/doods/
+[doorbird docs]: /integrations/doorbird/
 [dsmr docs]: /integrations/dsmr/
 [duckdns docs]: /integrations/duckdns/
 [dwd_weather_warnings docs]: /integrations/dwd_weather_warnings/
@@ -2652,6 +3037,7 @@ If you want to continue to display those you need to take control over your view
 [fibaro docs]: /integrations/fibaro/
 [filesize docs]: /integrations/filesize/
 [filter docs]: /integrations/filter/
+[fitbit docs]: /integrations/fitbit/
 [flo docs]: /integrations/flo/
 [freebox docs]: /integrations/freebox/
 [frontend docs]: /integrations/frontend/
@@ -2677,6 +3063,7 @@ If you want to continue to display those you need to take control over your view
 [http docs]: /integrations/http/
 [huawei_lte docs]: /integrations/huawei_lte/
 [hue docs]: /integrations/hue/
+[humidifier docs]: /integrations/humidifier/
 [hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
 [iammeter docs]: /integrations/iammeter/
 [image docs]: /integrations/image/
@@ -2688,6 +3075,8 @@ If you want to continue to display those you need to take control over your view
 [ipma docs]: /integrations/ipma/
 [ipp docs]: /integrations/ipp/
 [iqvia docs]: /integrations/iqvia/
+[isy994 docs]: /integrations/isy994/
+[jewish_calendar docs]: /integrations/jewish_calendar/
 [juicenet docs]: /integrations/juicenet/
 [knx docs]: /integrations/knx/
 [kodi docs]: /integrations/kodi/
@@ -2697,6 +3086,7 @@ If you want to continue to display those you need to take control over your view
 [light docs]: /integrations/light/
 [litejet docs]: /integrations/litejet/
 [logbook docs]: /integrations/logbook/
+[loopenergy docs]: /integrations/loopenergy/
 [lovelace docs]: /integrations/lovelace/
 [luci docs]: /integrations/luci/
 [marytts docs]: /integrations/marytts/
@@ -2709,6 +3099,7 @@ If you want to continue to display those you need to take control over your view
 [melissa docs]: /integrations/melissa/
 [met docs]: /integrations/met/
 [meteo_france docs]: /integrations/meteo_france/
+[miflora docs]: /integrations/miflora/
 [mikrotik docs]: /integrations/mikrotik/
 [min_max docs]: /integrations/min_max/
 [mobile_app docs]: /integrations/mobile_app/
@@ -2735,8 +3126,10 @@ If you want to continue to display those you need to take control over your view
 [openuv docs]: /integrations/openuv/
 [openweathermap docs]: /integrations/openweathermap/
 [ovo_energy docs]: /integrations/ovo_energy/
+[owntracks docs]: /integrations/owntracks/
 [ozw docs]: /integrations/ozw/
 [panasonic_viera docs]: /integrations/panasonic_viera/
+[panel_custom docs]: /integrations/panel_custom/
 [philips_js docs]: /integrations/philips_js/
 [pi_hole docs]: /integrations/pi_hole/
 [ping docs]: /integrations/ping/
@@ -2753,6 +3146,7 @@ If you want to continue to display those you need to take control over your view
 [recorder docs]: /integrations/recorder/
 [reddit docs]: /integrations/reddit/
 [rejseplanen docs]: /integrations/rejseplanen/
+[remote docs]: /integrations/remote/
 [rest docs]: /integrations/rest/
 [rest_command docs]: /integrations/rest_command/
 [rflink docs]: /integrations/rflink/
@@ -2799,6 +3193,7 @@ If you want to continue to display those you need to take control over your view
 [syncthru docs]: /integrations/syncthru/
 [synology_dsm docs]: /integrations/synology_dsm/
 [systemmonitor docs]: /integrations/systemmonitor/
+[tado docs]: /integrations/tado/
 [tag docs]: /integrations/tag/
 [tankerkoenig docs]: /integrations/tankerkoenig/
 [telegram docs]: /integrations/telegram/
@@ -2806,6 +3201,7 @@ If you want to continue to display those you need to take control over your view
 [tensorflow docs]: /integrations/tensorflow/
 [tesla docs]: /integrations/tesla/
 [tile docs]: /integrations/tile/
+[timer docs]: /integrations/timer/
 [todoist docs]: /integrations/todoist/
 [toon docs]: /integrations/toon/
 [tradfri docs]: /integrations/tradfri/
@@ -2820,6 +3216,7 @@ If you want to continue to display those you need to take control over your view
 [updater docs]: /integrations/updater/
 [upnp docs]: /integrations/upnp/
 [velbus docs]: /integrations/velbus/
+[version docs]: /integrations/version/
 [vesync docs]: /integrations/vesync/
 [vizio docs]: /integrations/vizio/
 [volkszaehler docs]: /integrations/volkszaehler/
