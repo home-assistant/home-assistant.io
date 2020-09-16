@@ -16,7 +16,7 @@ TODO: CHECK IF CHANGING DISCORD/REPO NAMES
 TODO: CREATE REDIRECT for mac download
 
 
-Wow what a birthday week it has been! We've had a new supervisor release, one of the largest and most user-driven core releases thanks to the month of What The Heck?! and even seen the the integration of [RFID tags](2020-09-15-home-assistant-tags.markdown) right into the heart of Home Assistant. To finish the week off we've got one last present for all our Mac users, we're announcing the beta release of Home Assistant Companion for Mac. Like a lot of the recent updates to the iOS app, we have [@zacwest](https://github.com/zacwest) to thank for this. Zac has ported the iOS app over to Mac and added some great new features specific to the Mac.
+Wow what a birthday week it has been! We've had a [new supervisor release](/blog/2020/09/16/supervisor-joins-the-part), one of the largest and most user-driven core releases thanks to the month of What The Heck?! and even seen the the integration of [RFID tags](/blog/2020/09/15/home-assistant-tags) right into the heart of Home Assistant. To finish the week off we've got one last present for all our Mac users, we're announcing the beta release of Home Assistant Companion for Mac. Like a lot of the recent updates to the iOS app, we have [@zacwest](https://github.com/zacwest) to thank for this. Zac has ported the iOS app over to Mac and added some great new features specific to the Mac.
 
 <p class='img'>
 <img src='/images/blog/2020-09-18-mac-companion/render.png' alt='Rendered image of the Home Assistant Lovelace interface running full screen on a 16-inch Mac Book Pro'></a>
