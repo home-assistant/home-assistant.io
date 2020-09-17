@@ -254,7 +254,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Drop unnecessary block_till_done, improve tests for MQTT Cover tests ([@emontnemery] - [#23255])
 - Drop unnecessary block_till_done ([@emontnemery] - [#23256])
 - Add ctags file to .gitignore ([@bachya] - [#23279])
-- Upgrade xmltodict to 0.12.0 ([@BKPepe] - [#23277]) ([bluesound docs]) ([startca docs]) ([ted5000 docs]) ([yr docs]) ([zestimate docs])
+- Upgrade xmltodict to 0.12.0 ([@BKPepe] - [#23277]) ([bluesound docs]) ([startca docs]) ([ted5000 docs]) ([zestimate docs])
 - Upgrade pyotp to 2.2.7 ([@BKPepe] - [#23274]) ([otp docs])
 - Add homematicip cloud temperature sensor from thermostats ([@SukramJ] - [#23263]) ([homematicip_cloud docs]) (breaking change)
 - Improve MQTT tests ([@emontnemery] - [#23296])
@@ -870,7 +870,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [xmpp docs]: /integrations/xmpp/
 [yeelight docs]: /integrations/yeelight/
-[yr docs]: /integrations/yr/
 [zeroconf docs]: /integrations/zeroconf/
 [zestimate docs]: /integrations/zestimate/
 [zha docs]: /integrations/zha/

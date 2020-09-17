@@ -71,7 +71,7 @@ If there is an automation that handles that event, it will be automatically trig
     event_type: event_light_state_changed
   action:
     - service: notify.notify
-      data_template:
+      data:
         message: "Light is turned {{ trigger.event.data.state }}"
 ```
 

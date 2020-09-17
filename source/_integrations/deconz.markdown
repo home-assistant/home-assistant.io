@@ -144,8 +144,10 @@ To simplify using remote control devices in automations deCONZ integration expos
 
 Currently supported devices as device triggers:
 
-- Hue Dimmer Remote
-- Hue Tap
+- Hue Dimmer Switch
+- Hue Smart Button
+- Hue Tap Switch
+- Friends of Hue Switch
 - Symfonisk Sound Controller
 - Trådfri On/Off Switch
 - Trådfri Open/Close Remote
@@ -194,7 +196,7 @@ automation:
         event: 2002
     action:
       - service: light.turn_on
-        data_template:
+        data:
           entity_id: light.lamp
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
@@ -210,7 +212,7 @@ automation:
         event: 3002
     action:
       - service: light.turn_on
-        data_template:
+        data:
           entity_id: light.lamp
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
@@ -299,7 +301,7 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - IKEA Trådfri bulb E27 WS & RGB Opal 600lm
 - IKEA Trådfri bulb GU10 W 400lm
 - IKEA Trådfri FLOALT LED light panel
-- Innr BY-265, BY-245
+- Innr BY-265, BY-245, RB-265
 - OSRAM Classic A60 W clear - LIGHTIFY
 - OSRAM Flex RGBW
 - OSRAM Gardenpole RGBW

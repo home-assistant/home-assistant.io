@@ -92,15 +92,14 @@ mqtt:
 
 ### CloudMQTT
 
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/integrations/owntracks/) and give you a taste of what is possible.
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance. Plans start at 5$ per months.
 
 <div class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
 </div>
 
- 1. [Create an account](https://customer.cloudmqtt.com/login) (no payment details needed)
+ 1. [Create an account](https://customer.cloudmqtt.com/login)
  2. [Create a new CloudMQTT instance](https://customer.cloudmqtt.com/subscription/create)
-    (Cute Cat is the free plan)
  3. From the control panel, click on the _Details_ button.
  4. Create unique users for Home Assistant and each phone to connect<br>(CloudMQTT does not allow two connections from the same user)
       1. Under manage users, fill in username, password and click add

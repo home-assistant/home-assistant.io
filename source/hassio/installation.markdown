@@ -31,8 +31,8 @@ The following will take you through the steps required to install Home Assistant
 
 2. Install Home Assistant:
 
-   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
-   - Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
+   - **For the device images:** Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
+   - **For the virtual appliance images:** Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
      - For VirtualBox create a new virtual machine, select "Other Linux (64Bit), assign it at least 2 GB of memory and "Use an existing virtual hard disk file", select the VDI file from above, afterwards edit the "Settings" of the VM and go "System" then Motherboard and Enable EFI, then "Network" "Adapter 1" Bridged and your adapter.
      - For Hyper-V create a new virtual machine, select "Generation 2", assign it at least 2 GB of memory and select "Connection -> "Your Virtual Switch that is bridged", then "Use an existing virtual hard disk" and select the VHDX file from above, after creation go to "Settings" -> "Security" and deselect "Enable Secure Boot".
      - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...".
@@ -107,23 +107,23 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi0-w-4.12.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi-4.12.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi2-4.12.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi3-4.12.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi3-64-4.12.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi4-4.12.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_rpi4-64-4.12.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_tinker-4.12.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-c2-4.12.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-n2-4.12.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_odroid-xu4-4.12.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_intel-nuc-4.12.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.12/hassos_ova-4.12.ova
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi0-w-4.13.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi-4.13.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi2-4.13.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi3-4.13.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi3-64-4.13.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi4-4.13.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi4-64-4.13.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_tinker-4.13.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_odroid-c2-4.13.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_odroid-n2-4.13.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_odroid-xu4-4.13.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_intel-nuc-4.13.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.vdi.gz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.qcow2.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/

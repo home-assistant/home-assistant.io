@@ -14,7 +14,7 @@ The camera integration allows you to use IP cameras with Home Assistant.
 
 If your camera supports it, and the [`stream`](/integrations/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.
 
-This option will keep the stream alive, and preload the feed on Home Assistant startup. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
+The `Preload stream` option will start the camera feed on Home Assistant startup and continue to keep the stream alive. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
 
 <p class='img'>
   <img src='/images/integrations/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
@@ -85,7 +85,7 @@ For example, the following action in an automation would take a recording from "
 ```yaml
 action:
   service: camera.record
-  data_template:
+  data:
     entity_id: camera.yourcamera
     filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```

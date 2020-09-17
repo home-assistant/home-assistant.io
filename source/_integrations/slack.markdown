@@ -64,10 +64,16 @@ username:
   type: string
   default: The user account or botname that you generated the API key as.
 icon:
-  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/).
+  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/). Alternatively a publicly accessible URL may be used.
   required: false
   type: string
 {% endconfiguration %}
+
+<div class='note'>
+
+Note that in order to modify your Slack bot's username and icon, you must ensure your Slack app has the `chat:write.customize` OAuth scope. See [the Slack API documentation](https://api.slack.com/methods/chat.postMessage#authorship) for more information.
+
+</div>
 
 ### Slack Service Data
 
@@ -75,6 +81,9 @@ The following attributes can be placed inside the `data` key of the service call
 
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
+| `username`               |      yes | The username of the Slack bot.
+| `icon`                   |      yes | The icon of the Slack bot.
+| `file`                   |      yes | A file to include with the message; see below.
 | `file`                   |      yes | A file to include with the message; see below.
 | `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).

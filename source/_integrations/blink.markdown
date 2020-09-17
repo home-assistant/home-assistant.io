@@ -159,7 +159,7 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
     to: 'on'
   action:
     service: blink.save_video
-    data_template:
+    data:
       name: "My Camera"
       filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
 

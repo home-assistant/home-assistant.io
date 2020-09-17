@@ -61,6 +61,7 @@ Once configuration is completed you'll see a Konnected.io entry in **Configurati
 The settings for each panel can be accessed by selecting the entry in **Configuration** -> **Integrations** => **Configured** and then clicking on the gear icon in the upper right corner. You can reconfigure these settings at any time and once completed the settings will be immediately applied.
 
 The settings UI starts by having you configure the general behavior of each zone. You need to specify `Disabled`, `Binary Sensor`, `Digital Sensor`, or `Switchable Output` for each zone.  After that, you'll be prompted, for each zone that is not disabled, to configure details of the zones' behavior. All zones will allow entry of a Name. Additional fields depend on how you configured the general behavior of the zone.  
+**Note some zones do not support all behaviors. The UI will reflect specific options available to each zone.**
 
 ##### Binary Sensor:
 

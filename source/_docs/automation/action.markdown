@@ -22,15 +22,18 @@ automation:
       entity_id:
         - light.kitchen
         - light.living_room
+
 automation 2:
   # Notify me on my mobile phone of an event
   trigger:
     platform: sun
     event: sunset
     offset: -00:30
+  variables:
+    notification_service: notify.paulus_iphone
   action:
     # Actions are scripts so can also be a list of actions
-    - service: notify.notify
+    - service: {{ notification_service }}
       data:
         message: Beautiful sunset!
     - delay: 0:35

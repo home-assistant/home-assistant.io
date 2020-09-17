@@ -127,20 +127,49 @@ media_content_type: EPISODE
 media_content_id: '{ "library_name": "Kid TV", "show_name": "Sesame Street", "shuffle": "1" }'
 ```
 
-#### Video
+#### Movie
 
 | Service data attribute | Description                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | `entity_id` of the client                                                                               |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`video_name` (Required)</li></ul> |
-| `media_content_type`   | `VIDEO`                                                                                                 |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`title` (Required)</li><li>`<SEARCH_KEY>` (optional)</li></ul> |
+| `media_content_type`   | `movie`                                                                                                 |
 
-##### Example:
+For movies it's usually sufficient to provide the title. However, if the title you provide has multiple matches (such as with remakes), more search keys may be necessary. These optional keys can be included in the `media_content_id` JSON payload to restrict the search:
+
+* `unwatched`: Restrict search to unwatched items only (`True`, `False`)
+* `actor`: Restrict search for movies that include a specific actor
+* `collection`: Restrict search within a named Plex collection ("Back to the Future", "Indiana Jones")
+* `contentRating`: Restrict search to a specific content rating ("PG", "R")
+* `country`: Restrict search to a specific country of origin
+* `decade`: Restrict search to a specific decade ("1960", "2010")
+* `director`: Restrict search to a specific director
+* `genre`: Restrict search to a specific genre ("Animation", "Drama", "Sci-Fi")
+* `resolution`: Restrict search to a specific video resolution (480, 720, 1080, "4k")
+* `year`: Restrict search to a specific year
+
+##### Examples:
 ```yaml
 entity_id: media_player.plex_player
-media_content_type: VIDEO
-media_content_id: '{ "library_name": "Adult Movies", "video_name": "Blade" }'
+media_content_type: movie
+media_content_id: '{ "library_name": "Adult Movies", "title": "Blade" }'
 ```
+
+```yaml
+entity_id: media_player.plex_player
+media_content_type: movie
+media_content_id: '{ "library_name": "Adult Movies", "title": "The Manchurian Candidate", year=1962 }'
+# Would find the original instead of the 2004 remake
+```
+
+"Lazy" searches are also possible:
+```yaml
+entity_id: media_player.plex_player
+media_content_type: movie
+media_content_id: '{ "library_name": "Adult Movies", "title": "die hard", year=1995 }'
+# Would find the sequel, "Die Hard: With a Vengeance"
+```
+
 
 ### Compatibility
 
@@ -173,6 +202,7 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 | `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.sonos_speaker
 media_content_type: MUSIC
@@ -183,6 +213,44 @@ entity_id: media_player.sonos_speaker
 media_content_type: MUSIC
 media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "shuffle": "1" }'
 ```
+
+## Additional Services
+
+### Service `plex.refresh_library`
+
+Refresh a Plex library to scan for new and updated media.
+
+| Service data attribute | Required | Description | Example |
+| --- | --- | --- | --- |
+| `server_name` | No | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
+| `library_name` | Yes | Name of Plex library to update. | "TV Shows" |
+
+### Service 'plex.scan_for_clients'
+
+Scan for new controllable Plex clients. This may be necessary in scripts or automations which control a Plex `media_player` entity, but where the underlying device must be turned on first.
+
+Example script:
+{% raw %}
+```yaml
+play_plex_on_tv:
+  sequence:
+    - service: media_player.select_source
+      entity_id: media_player.smart_tv
+      data:
+        source: 'Plex'
+    - wait_template: "{{ is_state('media_player.smart_tv', 'On') }}"
+      timeout: '00:00:10'
+    - service: plex.scan_for_clients
+    - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
+      timeout: '00:00:10'
+      continue_on_timeout: false
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.plex_smart_tv
+        media_content_id: '{"library_name": "Movies", "title": "Zoolander"}'
+        media_content_type: movie
+```
+{% endraw %}
 
 ## Notes
 

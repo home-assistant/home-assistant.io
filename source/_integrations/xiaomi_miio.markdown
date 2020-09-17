@@ -205,12 +205,13 @@ name:
 ### Gateway Features
 
 - Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`)
+- Gateway light control (Turn on/off; change brightness; change color; see status)
+- Gateway illuminance sensor readout (illuminance value in lux)
 
 Not yet implemented features (but possible):
 
-- Gateway light control
-- Gateway light sensor readout
 - Gateway internet radio (only chinese stations)
+- Gateway ringtones/sounds
 
 ### Supported subdevices
 
@@ -1224,7 +1225,7 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data_template:
+      data:
         entity_id: vacuum.xiaomi_vacuum
         repeats: '{{states('input_number.vacuum_passes')|int}}'
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
@@ -1244,7 +1245,7 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data_template:
+      data:
         entity_id: vacuum.xiaomi_vacuum
         repeats: '{{states('input_number.vacuum_passes')|int}}'
         zone:
@@ -1363,7 +1364,7 @@ The following table shows the units of measurement for each attribute:
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
 | `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
-| `clean_end`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `clean_stop`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
 
 ### Example on how to clean a specific room
 
@@ -1655,7 +1656,7 @@ Supported models: `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `c
 
 ### Xiaomi Chuangmi Plug V1
 
-Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`
+Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`, `chuangmi.plug.hmi208`
 
 - Power (on, off)
 - USB (on, off)
@@ -1712,7 +1713,7 @@ name:
   type: string
   default: Xiaomi Miio Switch
 model:
-  description: The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `chuangmi.plug.v3` and `chuangmi.plug.hmi205`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+  description: The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `chuangmi.plug.v3`, `chuangmi.plug.hmi205` and `chuangmi.plug.hmi208`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}
