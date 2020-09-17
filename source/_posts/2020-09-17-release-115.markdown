@@ -52,6 +52,7 @@ og_image: /images/blog/2020-09-0.115/social.png
 - Template processing section?
 - Other noteworthy changes section
 - Breaking change MDI icons needs a note about the backward compatibility removed
+- Re-order breaking changes (Alphabetically this time maybe? It is quite a list...)
 - Finally: Update/slim TOC
 - Ensure the blog post has a title & description that match
 
