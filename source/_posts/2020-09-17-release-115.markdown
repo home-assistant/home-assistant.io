@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.115: Beta release notes"
-description: "Lorem ipsum"
+title: "0.115: B-Day release! Media browser, tags, automations & WTH"
+description: "Celebrating with a new media browser, support for tags, powerful new automation features and lot of WTH changes!"
 date: 2020-09-17 00:00:00
 date_formatted: "September 17, 2020"
 author: Franck Nijhof
