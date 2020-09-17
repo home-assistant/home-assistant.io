@@ -23,6 +23,9 @@ homeassistant:
     - /tmp
   allowlist_external_urls:
     - "http://images.com/image1.png"
+  media_dirs:
+    media: /media
+    recordings: /mnt/recordings
 ```
 
 NOTE: You will not be able to edit anything in Configuration -> General in the UI if you are using YAML configuration for any of the following: name, latitude, longitute, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url.
@@ -84,6 +87,10 @@ allowlist_external_urls:
   description: List of external URLs that can be fetched. URLs can match specific resources (e.g., `http://10.10.10.12/images/image1.jpg`) or a relative path that allows access to resources within it (e.g., `http://10.10.10.12/images` would allow access to anything under that path)
   required: false
   type: list
+media_dirs:
+  description: A mapping of local media sources and their paths on disk.
+  required: false
+  type: map
 {% endconfiguration %}
 
 ## Reload Core Service

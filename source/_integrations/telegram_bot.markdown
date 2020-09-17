@@ -285,7 +285,7 @@ An example to show the use of event_data in action:
       command: '/speak'
   action:
     - service: notify.kitchen_echo
-      data_template:
+      data:
         message: >
           Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
 ```
@@ -311,7 +311,7 @@ Text repeater:
     event_type: telegram_text
   action:
     - service: telegram_bot.send_message
-      data_template:
+      data:
         title: '*Dumb automation*'
         target: '{{ trigger.event.data.user_id }}'
         message: 'You said: {{ trigger.event.data.text }}'
@@ -336,12 +336,12 @@ Message editor:
       command: '/edit_msg'
   action:
     - service: telegram_bot.answer_callback_query
-      data_template:
+      data:
         callback_query_id: '{{ trigger.event.data.id }}'
         message: 'Editing the message!'
         show_alert: true
     - service: telegram_bot.edit_message
-      data_template:
+      data:
         message_id: '{{ trigger.event.data.message.message_id }}'
         chat_id: '{{ trigger.event.data.chat_id }}'
         title: '*Message edit*'
@@ -369,11 +369,11 @@ Keyboard editor:
       command: '/remove_button'
   action:
     - service: telegram_bot.answer_callback_query
-      data_template:
+      data:
         callback_query_id: '{{ trigger.event.data.id }}'
         message: 'Callback received for editing the inline keyboard!'
     - service: telegram_bot.edit_replymarkup
-      data_template:
+      data:
         message_id: 'last'
         chat_id: '{{ trigger.event.data.chat_id }}'
         inline_keyboard:
@@ -395,7 +395,7 @@ Only acknowledges the 'NO' answer:
       command: '/do_nothing'
   action:
     - service: telegram_bot.answer_callback_query
-      data_template:
+      data:
         callback_query_id: '{{ trigger.event.data.id }}'
         message: 'OK, you said no!'
 ```
@@ -415,7 +415,7 @@ Telegram callbacks also support arguments and commands the same way as normal me
       command: '/repeat'
   action:
     - service: telegram_bot.answer_callback_query
-      data_template:
+      data:
         show_alert: true
         callback_query_id: '{{ trigger.event.data.id }}'
         message: 'I repeat: {{trigger.event.data["args"]}}'

@@ -112,4 +112,3 @@ When a tag is scanned, the `tag_scanned` event is fired. This event contains the
 | - | - |
 | `tag_id` | Identifier of the tag. Use this to decide what to do.
 | `device_id` | Device registry identifier of the device that scanned the tag. Use this to decide where to do it.
-

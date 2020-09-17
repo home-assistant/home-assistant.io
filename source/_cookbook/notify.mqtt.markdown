@@ -63,7 +63,7 @@ script:
   notify_mqtt:
     sequence:
       - service: mqtt.publish
-        data_template:
+        data:
           payload: "{{ message }}"
           topic: home/"{{ target }}"
           retain: true

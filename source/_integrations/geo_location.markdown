@@ -58,7 +58,7 @@ automation:
       value_template: "{{ trigger.to_state.attributes.type == 'Bush Fire' }}"
     action:
       - service: persistent_notification.create
-        data_template:
+        data:
           message: "{{ trigger.to_state.name }} - {{ trigger.to_state.attributes.status }}"
           title: "Bush Fire Alert"
 ```

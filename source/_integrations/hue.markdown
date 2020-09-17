@@ -22,6 +22,10 @@ There is currently support for the following device types within Home Assistant:
 - Lights
 - Motion sensors (including temperature and light level sensors)
 - Hue switches (as device triggers for automations and also exposed as battery sensors when they are battery-powered)
+  - Hue Dimmer Switch
+  - Hue Tap Switch
+  - Hue Smart Button
+  - Friends of Hue Switch
 
 To set up this integration, click Configuration in the sidebar and then click Integrations. You should see "Philips Hue" in the discovered section (if you do not, click the + icon in the lower right and find Philips Hue). Click configure and you will be presented with the initiation dialog. This will prompt you select the Hue hub to configure and next to press the button on your Hue bridge to register the hub with Home Assistant. After you click submit, you will have the opportunity to select the area that your bridge is located.
 

@@ -121,7 +121,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - flux led version 0.20 ([@danielhiversen] - [#11791])
 - Hyperion: fix ([@starkillerOG] - [#11793]) ([light.hyperion docs])
 - Fix sensibo function names ([@andrey-git] - [#11797]) ([climate.sensibo docs])
-- Always load yr picture from https ([@andrey-git] - [#11796]) ([sensor.yr docs])
+- Always load yr picture from https ([@andrey-git] - [#11796])
 - Make Google TTS secure ([@PRabahy] - [#11031]) ([tts.google docs])
 - Correct inadvertent change to file permissions ([@shortbloke] - [#11755]) ([light.flux_led docs])
 - Fix recorder purge ([@tinloaf] - [#11802])
@@ -466,7 +466,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.teksavvy docs]: /integrations/teksavvy
 [sensor.xbox_live docs]: /integrations/xbox_live
 [sensor.xiaomi_aqara docs]: /integrations/sensor.xiaomi_aqara/
-[sensor.yr docs]: /integrations/yr
 [snips docs]: /integrations/snips/
 [switch.hive docs]: /integrations/hive#switch
 [switch.ihc docs]: /integrations/ihc#switch

@@ -72,7 +72,7 @@ automation:
       event_type: feedreader
     action:
       service: persistent_notification.create
-      data_template:
+      data:
         title: "New HA Podcast available"
         message: {% raw %}"New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"{% endraw %}
         notification_id: {% raw %}"{{ trigger.event.data.title }}"{% endraw %}

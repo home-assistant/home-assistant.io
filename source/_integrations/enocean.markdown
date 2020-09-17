@@ -134,8 +134,8 @@ automation:
         id: [0xYY, 0xYY, 0xYY, 0xYY]
         pushed: 0
     action:
-      service_template: "{% raw %}{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}{% endraw %}"
-      data_template:
+      service: "{% raw %}{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}{% endraw %}"
+      data:
         entity_id: "{% raw %}{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}{% endraw %}"
 ```
 

@@ -169,7 +169,7 @@ input_select:
    # entity_id: input_select.thermostat_mode
   action:
      service: input_select.select_option
-     data_template:
+     data:
       entity_id: input_select.thermostat_mode
       option: "{{ trigger.payload }}"
 
@@ -181,7 +181,7 @@ input_select:
     entity_id: input_select.thermostat_mode
   action:
     service: mqtt.publish
-    data_template:
+    data:
       topic: "thermostatMode"
       retain: true
       payload: "{{ states('input_select.thermostat_mode') }}"

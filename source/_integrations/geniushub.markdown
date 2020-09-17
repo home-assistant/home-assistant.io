@@ -85,7 +85,7 @@ Each such entity has a state attribute that will contain a list of any such issu
     above: 0
   action:
   - service: notify.pushbullet_notifier
-    data_template:
+    data:
       title: "Genius Hub has errors"
       message: >-
         Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
@@ -103,7 +103,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
     entity_id: binary_sensor.dual_channel_receiver_2_1
   action:
   - service: notify.pushbullet_notifier
-    data_template:
+    data:
       title: "Warning: CH State Change!"
       message: >-
         {{ trigger.to_state.attributes.friendly_name }} has changed

@@ -103,6 +103,10 @@ vacuum:
         type: [string, list]
 {% endconfiguration %}
 
+### Working without entities
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/template/#working-without-entities) in the Template Sensor integration.
+
 ## Examples
 
 ### Control vacuum with Harmony Hub
@@ -162,7 +166,7 @@ vacuum:
             service: script.vacuum_locate_vacuum
         set_fan_speed:
             service: script.vacuum_set_fan_speed
-            data_template:
+            data:
               speed: "{{ fan_speed }}"
         fan_speeds:
             - Low

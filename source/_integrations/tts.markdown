@@ -131,7 +131,7 @@ With a template:
 
 ```yaml
 service: tts.google_translate_say
-data_template:
+data:
   message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
   cache: false
 ```

@@ -56,7 +56,7 @@ automation:
 
 ### Numeric state trigger
 
-Fires when numeric value of an entity's state crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if value is changing from above to below or from below to above the given threshold.
+Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property) crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
 
 {% raw %}
 
@@ -70,8 +70,9 @@ automation:
     # At least one of the following required
     above: 17
     below: 25
-
-    # If given, will trigger when condition has been for X time, can also use days and milliseconds.
+    # If given, will trigger when the value of the given attribute for the given entity changes
+    attribute: attribute_name
+    # If given, will trigger when the condition has been true for X time; you can also use days and milliseconds.
     for:
       hours: 1
       minutes: 10
@@ -123,7 +124,7 @@ automation:
       seconds: "{{ states('input_number.high_temp_sec')|int }}"
   action:
     service: persistent_notification.create
-    data_template:
+    data:
       message: >
         {{ trigger.to_state.name }} too high for {{ trigger.for }}!
 ```
@@ -151,9 +152,73 @@ automation:
     from: "not_home"
     # Optional
     to: "home"
+```
 
-    # If given, will trigger when state has been the to state for X time.
-    for: "01:10:05"
+#### Holding a state
+
+You can use `for` to have the state trigger only fire if the state holds for some time.
+
+This example fires, when the entity state changed to `"on"` and holds that
+state for 30 seconds:
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: light.office
+    # Must stay "on" for 30 seconds
+    to: "on"
+    for: "00:00:30"
+```
+
+Please note, that when holding a state, changes to attributes are ignored and
+do not cancel the hold time.
+
+You can also fire the trigger when the state value changed from a specific
+state, but hasn't returned to that state value for the specified time.
+
+This can be useful, e.g., checking if a media player hasn't turned "off" for
+the time specified, but doesn't care about "playing" or "paused".
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: media_player.kitchen
+    # Not "off" for 30 minutes
+    from: "off"
+    for: "00:30:00"
+```
+
+Please note, that when using `from`, `to` and `for`, only the value of the
+`to` option is considered for the time specified.
+
+In this example, the trigger fires if the state value of the entity remains the
+same for `for` the time specified, regardless of the current state value.
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: media_player.kitchen
+    # The media player remained in its current state for 1 hour
+    for: "01:00:00"
+```
+
+When the `attribute` option is specified, all of the above works, but only
+applies to the specific state value of that attribute. In this case the
+normal state value of the entity is ignored.
+
+For example, this trigger only fires if the boiler was heating for 10 minutes:
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: climate.living_room
+    attribute: hvac_action
+    to: "heating"
+    for: "00:10:00"
 ```
 
 You can also use templates in the `for` option.
@@ -282,9 +347,10 @@ automation:
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
 <div class='note warning'>
+  
 Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
-</div>
 
+</div>
 
 As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
 
@@ -303,7 +369,11 @@ which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago
 
 ### Time trigger
 
-The time trigger is configured to fire once at a specific point in time each day.
+The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are two allowed formats:
+
+#### Time String
+
+A string that represents a time to fire on each day. Can be specified as `HH:MM` or `HH:MM:SS`. If the seconds are not specified, `:00` will be used.
 
 ```yaml
 automation:
@@ -313,15 +383,55 @@ automation:
     at: "15:32:00"
 ```
 
-Or at multiple specific times:
+#### Input Datetime
+
+The Entity ID of an [Input Datetime](/integrations/input_datetime/).
+
+has_date | has_time | Description
+-|-|-
+`true` | `true` | Will fire at specified date & time.
+`true` | `false` | Will fire at midnight on specified date.
+`false` | `true` | Will fire once a day at specified time.
+
+{% raw %}
+
+```yaml
+automation:
+  - trigger:
+      platform: state
+      entity_id: binary_sensor.motion
+      to: 'on'
+    action:
+      - service: climate.turn_on
+        entity_id: climate.office
+      - service: input_datetime.set_datetime
+        entity_id: input_datetime.turn_off_ac
+        data:
+          datetime: >
+            {{ (now().timestamp() + 2*60*60)
+               | timestamp_custom('%Y-%m-%d %H:%M:%S') }}
+
+  - trigger:
+      platform: time
+      at: input_datetime.turn_off_ac
+    action:
+      service: climate.turn_off
+      entity_id: climate.office
+```
+
+{% endraw %}
+
+#### Multiple Times
+
+Multiple times can be provided in a list. Both formats can be intermixed.
 
 ```yaml
 automation:
   trigger:
     platform: time
     at:
-      - "15:32:00"
-      - "20:30:00"
+      - input_datetime.leave_for_work
+      - "18:30:00"
 ```
 
 ### Time pattern trigger

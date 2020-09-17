@@ -813,7 +813,6 @@
 /components/sensor.pocketcasts /integrations/pocketcasts
 /components/sensor.point /integrations/point#sensor
 /components/sensor.pollen /integrations/iqvia
-/components/sensor.prezzibenzina /integrations/prezzibenzina
 /components/sensor.pushbullet /integrations/pushbullet#sensor
 /components/sensor.pvoutput /integrations/pvoutput
 /components/sensor.pyload /integrations/pyload
@@ -926,7 +925,6 @@
 /components/sensor.wunderground /integrations/wunderground
 /components/sensor.xbox_live /integrations/xbox_live
 /components/sensor.xs1 /integrations/xs1#sensors
-/components/sensor.yr /integrations/yr
 /components/sensor.zabbix /integrations/zabbix#sensor
 /components/sensor.zamg /integrations/zamg#sensor
 /components/sensor.zestimate /integrations/zestimate
@@ -1685,7 +1683,6 @@
 /components/pocketcasts /integrations/pocketcasts
 /components/point /integrations/point
 /components/polling /integrations/telegram_polling
-/components/prezzibenzina /integrations/prezzibenzina
 /components/proliphix /integrations/proliphix
 /components/prometheus /integrations/prometheus
 /components/prowl /integrations/prowl
@@ -2012,7 +2009,6 @@
 /components/yeelightsunflower /integrations/yeelightsunflower
 /components/yessssms /integrations/yessssms
 /components/yi /integrations/yi
-/components/yr /integrations/yr
 /components/zabbix /integrations/zabbix
 /components/zamg /integrations/zamg
 /components/zengge /integrations/zengge
