@@ -4,7 +4,7 @@ description: Instructions on how to integrate Emulated Kasa within Home Assistan
 ha_category:
   - Energy
 ha_iot_class: Local Push
-ha_release: 0.112
+ha_release: 0.115
 ha_codeowners:
   - '@kbickar'
 ha_domain: emulated_kasa
