@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.115: Beta release notes"
-description: "Lorem ipsum"
-date: 2020-09-07 00:00:00
+title: "0.115: B-Day release! Media browser, tags, automations & WTH"
+description: "Celebrating with a new media browser, support for tags, powerful new automation features and lot of WTH changes!"
+date: 2020-09-17 00:00:00
 date_formatted: "September 17, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -11,116 +11,289 @@ categories: Release-Notes
 og_image: /images/blog/2020-09-0.115/social.png
 ---
 
-<!--<a href='/integrations/#version/0.115'><img src='/images/blog/2020-09-0.115/social.png' style='border: 0;box-shadow: none;'></a>-->
+## Happy Birthday Home Assistant!
 
-These are the beta release notes for Home Assistant 0.115!
+<blockquote>
+There's a party goin' on right here <span style="font-style: normal">🕺</span><br />
+A dedication to last throughout the years <span style="font-style: normal">🥳</span><br />
+So bring your good times, and your laughter too <span style="font-style: normal">😂</span><br />
+We gonna celebrate our party with you <span style="font-style: normal">🎁</span><br />
+<br />
+It's a celebration! 🎉
+</blockquote>
 
-0.115 is our birthday release, and is jam packed! We run a longer beta this
-time. The release is planned for 17 September.
+~ [_Kool & The Gang - Celebration_](https://www.youtube.com/watch?v=3GwjfUFyY6M)
 
-The release notes still need a lot of tweaking and we are looking into splitting
-the release announcements into multiple blog posts.
+7! Siete! Soch! Syv! Sieben! Seitsemän! Cедем! Sept! Sju! επτά! Zeven! Sette!
+Seven! Years old today! And ooooh, are we going to party and celebrate with
+you!
 
-If you encounter any issues, please report them on GitHub:
+You might have noticed, this release is a bit late, two weeks late.
+Our regular release cycle is 3 weeks, this time however, we took 5 weeks.
+Sure, the reason was, of course, related to our birthday today, but what is a
+better gift than a jam-packed release that has something for everybody?
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+Thankfully, a lot of you have been sharing their gift wishlist items during
+[the month of "What the heck?!"][wth] (WTH). I love you all! What a good and
+amazing set of great ideas, annoyances and other suggestions have been made in
+that forum this month!
 
-Please be sure to include the beta version you are running in the issue
-description, so we can classify your issue correctly. Issues introduced in the beta are processed with priority.
+And it is not just that, a lot of people jumped in fixing these things as well!
+What a community! The month of WTH is almost over now, after that we will
+close the category on the forum, until the next WTH month.
 
-## TODO
+Besides that, two totally new and big features are added this release, which
+we really wanted to polish before releasing it.
 
-- Introduction note
-- Birthday message
-- Split into multiple posts?
-- Social media image
-- Documentation page for new image integration is missing
+I usually write some things about the release in my personal introduction
+note right here, but honestly, I have no idea where to start... it is just
+too darn much! I love the new automation features, but there are so
+many of those in this release as well. 😅 I'm not going to try writing this. 😂
+
+So, let me close with a thank you to our founding father:
+
+> Paulus, thank you so much for what you have imagined, started and created 7
+> years ago. Your idea has changed the lives of many, including my own.
+> Thank you.
+
+Of course, it is not just Paulus, but everybody else who contributes to the
+project in any way. Code, text, support, chat, YouTube video, live streams,
+blogs, articles, community guides, documentation, tweets, issues, bug reports,
+feature requests, ideas, questions or even if you just use it.
+Thank you for contributing! ❤️
+
+Happy birthday and enjoy the release!
+
+../Frenck
+
+[wth]: /blog/2020/08/18/the-month-of-what-the-heck/
+
+## Table of contents
+
+Alright, this release is massive, so here is a table of contents for helping
+navigating you around this release.
+
+- [Media Browser](#media-browser)
+- [Home Assistant Tags](#home-assistant-tags)
+- [Customize the sidebar](#customize-the-sidebar)
+- [Person image upload](#person-image-upload)
+- [Updated more info dialog](#updated-more-info-dialog)
+- [More information in the logbook panel](#more-information-in-the-logbook-panel)
+- [Automation & Scripts updates](#automation--scripts-updates)
+  - [New action: Wait for trigger](#new-action-wait-for-trigger)
+  - [Triggers & Conditions on entity attributes](#triggers--conditions-on-entity-attributes)
+  - [Use `input_datetime` helpers in automation triggers](#use-input_datetime-helpers-in-automation-triggers)
+  - [Use `input_*` helpers in conditions](#use-input_-helpers-in-conditions)
+  - [Shorthand notation for template conditions](#shorthand-notation-for-template-conditions)
+  - [Use templates directly in `data` and `service` fields](#use-templates-directly-in-data-and-service-fields)
+  - [Variables](#variables)
+  - [Other scripts and automation changes](#other-scripts-and-automation-changes)
+- [Calendar card](#calendar-card)
+- [Template developer tools](#template-developer-tools)
+- [Reload everything YAML](#reload-everything-yaml)
+- [User password change](#user-password-change)
+- [Improved ways of exposing entities via Home Assistant Cloud](#improved-ways-of-exposing-entities-via-home-assistant-cloud)
+- [Add card by entities](#add-card-by-entities)
+- [Order entities in Lovelace UI editor](#order-entities-in-lovelace-ui-editor)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New Integrations](#new-integrations)
+- [New Platforms](#new-platforms)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Breaking Changes](#breaking-changes)
 
 ## Media Browser
 
-Media players are now able to offer a media browser. This allows you to browse
-through the available content for the media player.
+This release includes an exciting set of features around media. If the media
+player supports it, you can now browse the player's media library and quickly
+change what you're listening to. No need for two apps anymore if you want to
+change the lights and pick some music.
 
-We also added a new media panel, this panel can be used to browse your local media.
-If you create a directory `media` in your configuration directory and add some media files in it, you can now play them from Home Assistant in your web browser.
+Any media player can enable this new feature. This release adds media browser
+support to [Arcam FMJ](/integrations/arcam_fmj), [Kodi](/integrations/kodi),
+[Philips JS](/integrations/philips_js), [Plex](/integrations/plex),
+[Roku](/integrations/roku), [Sonos](/integrations/sonos)
+and [Spotify](/integrations/spotify)!
 
-There is also support for other integrations like Netatmo and more are on the way. (are there more sources?)
-You can also select another media player and use it to browse and play media on that media player.
+Thanks to [@jjlawren] for the initial implementation and to [@cgtobi],
+[@ctalkington], [@martinhjelmare], [@elupus] for the work on the various
+integrations and backend refining.
 
-- Websocket media browsing for Plex ([@jjlawren] - [#35590]) ([plex docs])
-- Add Spotify media browser capability ([@cgtobi] - [#39240]) ([spotify docs])
-- Add Sonos media browser capability ([@cgtobi] - [#39239]) ([sonos docs])
-- Register media browser panel ([@hunterjm] - [#39655]) ([media_source docs])
-- Add media browser support to roku ([@ctalkington] - [#39652]) ([roku docs])
-- Add Arcam radio media browsing ([@elupus] - [#39593]) ([arcam_fmj docs])
-- Add Netatmo media browser support ([@cgtobi] - [#39578]) ([cast docs]) ([default_config docs]) ([media_source docs]) ([netatmo docs]) (new-integration)
-- Media Source implementation for Chromecast ([@hunterjm] - [#39305]) ([cast docs]) ([default_config docs]) ([media_finder docs]) (new-integration)
+But a media browser isn't just backend, it also needs to look good. Thankfully,
+we had [@NKDZCK] on the case, with the help of [@bramkragten]. They came up with
+a beautiful design so you can browse your media in style.
 
-## Wanna play tag?
+[@nkdzck]: https://github.com/NKDZCK
 
-We have a tags configuration panel, you create tags, see when a tag is last
-scanned, and write tags with the Android and iOS companion apps.
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4tQvMezHJkQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
-When a tag is scanned it will glow so you can easily identify it.
+When [@hunterjm] saw the new media browser, he got an idea. What if the user can
+use the media browser to browse media offered by any integration and play it on
+any of their media players? And so
+[the media source integration](/integrations/media_source/) was born.
 
-## Month of "What The Heck?!"
+The first media source that has been added is to allow users to play local media.
+Local media can be motion detection events from your IP camera or a bunch of
+music files to be used with [Home Assistant Tags][tags].
 
-Lorem ipsum
+Home Assistant, by default, will look at the `/media` path. If you're using Home
+Assistant OS (the default install), you can use the Samba add-on to upload media.
+If you use Docker, you need to mount a volume at `/media` and if you use a
+Python virtual environment, the default is `<config>/media`.
 
-- Collect some stats
-- Keep it global?
-- Mention WTH related changes below marked as WTH
-- Next year...
-- Awesome thanks
-- Links to GitHub org with WTH labels?
-- Not over yet! Hacktoberfest!
+You can also specify your own media paths with a new configuration option
+in `configuration.yaml`:
+
+```yaml
+homeassistant:
+  media_dirs:
+    motion: /media/motion_events
+    music: /media/music
+```
+
+Media Source is not limited to local media. Any integration can offer its
+media. [@cgtobi] has upgraded [the Netatmo integration](/integrations/netatmo),
+which will now offer its recorded motion events to play.
+
+Media player integrations that want to play media sources will need to be
+updated. In this release, we've updated [the Chromecast integration](/integrations/cast/).
+If you click its media browser button, you will be presented with the available
+local sources.
+
+Sometimes you just want to play your media without having to turn on the TV. To
+cover that case, [@NKDZCK] added a new media browser to the Home Assistant
+interface, which can be used to play your media. That way, you can quickly see
+what that motion event that you just received was about.
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/yvbjeLwXo30" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+## Home Assistant Tags
+
+<p class='img'>
+<img src='/images/blog/2020-09-15-home-assistant-tags/tag-reader.jpg' alt='Photo of the Home Assistant tag reader made by Adonno'>
+The Home Assistant tag reader, made by Adonno with the help of MagnusO.
+</p>
+
+Home Assistant now has native support for tags! With Home Assistant Tags, we’re
+making scannable tags (NFC/RFID) a first-class citizen in Home Assistant.
+Easy to read, write and automate!
+
+We have a beautiful UI for it in the frontend, our mobile companion apps have
+been updated to work seamlessly with tags and there is now even an open-source
+scanner available, as shown in the image above.
+
+For all details, [read the dedicated blog post about Home Assistant tags][tags]!
+
+[tags]: /blog/2020/09/15/home-assistant-tags/
+
+## Customize the sidebar
+
+One of the most requested functions of What the heck was customizing the
+sidebar: You do want history for your entities in the more info dialog, but you
+don't use that history panel. Or you do want calendars for automating, or in
+the new Lovelace cards, but don't want a calendar panel with all your calendars.
+
+Now you can hide panels from the sidebar and rearrange them, by just drag and
+drop them.
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/sidebar.gif' alt='Screen recording of customizing the sidebar'>
+Screen recording of customizing the sidebar.
+</p>
+
+You can enter edit mode by pressing and holding the sidebar's header or from
+your profile page. You can then drag the items in the order you want them
+or remove them by clicking the `x` next to it.
+
+The removed items will be visible at the bottom of the list, by clicking the
+`+` button, you can add them back to the sidebar.
+
+These settings are stored on your device in the local storage of your browser,
+this means that this setting is device-based and will be cleared when you logout.
+
+## Person image upload
+
+You can now upload images for a person in the frontend!
+
+Select or drop an image in the input field and then crop it to a square. The
+image is stored on your Home Assistant server.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>
+</div>
+
+We will use the image in the frontend for your persons and the sidebar for the
+user linked to this person.
+
+This feature is powered by the new image integration and opens up for future
+possibilities. For example, uploading images, for use in your Lovelace picture
+cards, would be nice!
+
+## Updated more info dialog
+
+The more info dialog is updated. In case an entity has controls, for example
+a light, the more info dialog will now have 2 tabs. One for controls and one
+for history.
+
+On the history tab, you can find the history graph you are used to and now also
+a list of logbook entries of the specific entity.
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/more-info.png' alt='Screenshot of the update more info dialogs'>
+The updated more info dialogs, showing the two tabs: details & history.
+</p>
+
+For entities without controls (like a sensor), no tabs will be shown like before.
+
+## More information in the logbook panel
+
+The logbook will now show what automation or script caused the change and
+what action was used to make the change happen.
+
+This solves yet another WTH request. It will be really helpful to find those
+cases that are: WTH turned on this light?
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/logbook.png' alt='Screenshot of the logbook showing the sources of the events.'>
+The logbook shows which automation changed the state of my stream light.
+</p>
 
 ## Automation & Scripts updates
 
-TODO: Remove next line
-Own notes with an overview of the changes: <https://gist.github.com/frenck/7b47d484578ab23b5cc20ffef0bacc30>
-
-The month of "What the heck?!" brought in a lot of topics the evolve around
+The month of "What the heck?!" brought in a lot of topics that evolve around
 automations and scripts, of which quite a few have been addressed this release.
 Furthermore, we already had quite a bunch of improvements pending. If you
-like doing automation in YAML, you'll probably love this release.
+like doing automation in YAML, you'll probably just love this release.
 
-Before starting on the list of newly added features, lets talk about the Home
+Before starting on the list of newly added features, let's talk about the Home
 Assistant frontend. You can now duplicate an automation and, the long present
-but always disabled, duplicate condition, trigger, and action function is now
+but always disabled, duplicate condition, trigger, and action function are now
 also finally working!
 
-### New action: `wait_for_trigger`
+### New action: Wait for trigger
 
-This is a special new trigger than can be used in an automation action or
-script sequence, that allows you to pause the execution until a certain trigger
-is been fired.
+This is a special new action than can be used in an automation action or
+script sequence that allows you to pause the execution until a certain trigger
+is been fired. It can be helpful for automations or scripts that consist of
+multiple stages.
 
-It can be helpful for automations or scripts that consists of multiple stages,
-for example, actionable notification. Those would send the notification and
-next wait for a second input as a trigger before continuing.
-
-The following example sends a notification when one passes through 2 gates to
-enter the garden:
+In this example, a notification is sent when one passes through two gates
+to enter the garden, but only when both gates are passed within 10 seconds.
 
 ```yaml
 automation:
   - trigger:
       - platform: state
         entity_id: binary_sensor.gate1
-        to: 'on'
+        to: "on"
     action:
       - wait_for_trigger:
           - platform: state
             entity_id: binary_sensor.gate2
-            to: 'on'
+            to: "on"
         timeout: 10
         continue_on_timeout: false
       - service: notify.notify
@@ -128,24 +301,55 @@ automation:
           message: Someone just entered the yard!
 ```
 
+This example is simple and probably fairly useless for most of us. However,
+let's say you left your garage door open and you leave the "Home" zone. Home
+Assistant could send you an actionable notification, saying: "Hey, you left
+the garage door open, shall I close if for you?" with 2 choices: Yes/No.
+
+Where you previously would have needed 3 automations for this. The first
+for sending a notification and two others for handling the "Yes" or "No"
+answer. Using the `wait_for_trigger` this could be done in a single automation.
+
+Right after sending the notification, the `wait_for_trigger` could halt the
+script from continuing, until it receives the "Yes" or "No" answer and continue
+after that and run the actions you'd like based on the answer received.
+
+This new feature is not just for our YAML uses; it also is added to our
+automation editor in the UI.
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/wait-for-trigger.png' alt='Screenshot of the new wait_for_trigger in the automation editor'>
+The automation editor can also use the new Wait for trigger action.
+</p>
+
 ### Triggers & Conditions on entity attributes
 
-Every tried to create an automation trigger or condition on an entity attribute?
-Like the temperature of a climate or weather entity?
+Ever tried to create an automation trigger or condition on an entity attribute, like the temperature of a climate or weather entity?
 
-You used to need to use a template for that, which was a reason for a lot of you
-to put it up as a "What the heck?!" entry.
+You used to need to use a template for that. Either by extracting the attribute
+from an entity using a template sensor or by writing a template condition.
+A reason for a lot of you to put it up as a "What the heck?!" entry. And you
+know what? You guys are right, this was difficult.
 
-Home Assistant now support the use of attributes in triggers & conditions, in
-both the state and numeric state triggers & conditions, which now have a
-`attribute` option that can be set with the attribute to use.
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/attributes.png' alt='Screenshot of using attributes in the automation editor'>
+The automation editor now supports attributes on triggers and conditions.
+</p>
+
+So, Home Assistant now supports the use of attributes in triggers & conditions.
+Both the state and numeric state, triggers & conditions now have an `attribute`
+option that can be set with the attribute to use. The UI got a nice field for
+it, as shown in the above screenshots, but of course, it is also available
+when you are using YAML for your automations.
+
+Some example triggers and conditions using attributes in YAML:
 
 ```yaml
 trigger:
   - platform: state
     entity_id: climate.living_room
-    attribute: havc_action
-    state: "heating"
+    attribute: hvac_action
+    to: "heating"
   - platform: numeric_state
     entity_id: weather.outside
     attribute: temperature
@@ -161,19 +365,102 @@ condition:
     below: 80
 ```
 
-### Use input_* helper entities directly in your automations and scripts
+### Use `input_datetime` helpers in automation triggers
 
-- Time trigger can also accept an input_datetime Entity ID ([@pnbruckner] - [#38698]) ([automation docs])
-- Numeric state condition can also accept input_number entity ID ([@frenck] - [#39680])
-- Time condition can also accept an input_datetime Entity ID ([@frenck] - [#39676])
+Using dates and times in your automation can be hard. If often needs quite a bit
+of Jinja templating and is actually really hard to do. [@pnbruckner] noticed,
+and he added the possibility to use your `input_datetime` helper entities
+directly in time trigger!
+
+Assume you have an `input_datetime.bedroom_alarm_clock_time` helper entity, that
+is in your Lovelace UI, which you can set a time in. Great! You can now
+just use it in your automations to trigger on:
+
+```yaml
+trigger:
+  - platform: time
+    at: input_datetime.bedroom_alarm_clock_time
+```
+
+Yes, he made it that elegant. It also works for multiple, or mixed variable and
+statically set times.
+
+```yaml
+trigger:
+  - platform: time
+    at:
+      - "10:00"
+      - input_datetime.bedroom_alarm_clock_time
+      - input_datetime.some_other_time_entity
+```
+
+More about the time trigger, can be found in our [documentation][trigger-time].
+
+[trigger-time]: /docs/automation/trigger/#time-trigger
+
+### Use `input_*` helpers in conditions
+
+[@pnbruckner] set a standard in the above, and we used that to start working
+on making this something that would work on more places. As of this release,
+all `input_*` entities can be used in conditions.
+
+The `time` condition can accept `input_datetime` helper entities, similar to
+the trigger shown above.
+
+```yaml
+conditions:
+  - condition: time
+    after: input_datetime.house_silent_hours_start
+    before: input_datetime.house_silent_hours_end
+```
+
+The `numeric_state` condition now accepts `input_number` helper entities for
+the `above` and `below` options.
+
+```yaml
+conditions:
+  - condition: numeric_state
+    entity_id: climate.living_room_thermostat
+    attribute: temperature
+    above: input_number.temperature_threshold_low
+    below: input_number.temperature_threshold_high
+```
+
+And finally, the `state` condition accepts any `input_*` helper entity in its
+`state` option.
+
+```yaml
+conditions:
+  - condition: state
+    entity_id: sensor.happy_birthday
+    state: input_text.too_you
+  - condition: state
+    entity_id: sensor.happy_birtday_song
+    state: input_select.notify_on_song
+  - condition: state
+    entity_id: light.living_room
+    state: input_boolean.expected_state
+```
+
+We are confident this will greatly improve the power and ease of the helper
+entities. The [conditions documentation][conditions] has been updated
+with more examples.
+
+Here is an idea: You can now easily create a set of helper entities
+representing your automation settings and adding those to a separate Lovelace
+dashboard. You now have your own automation configuration panel, helpful
+for tweaking things like times or adjust temperature thresholds, without
+touching your automations.
+
+[conditions]: /docs/scripts/conditions/
 
 ### Shorthand notation for template conditions
 
-A neat little trick has been added this release, to allow for shorter, cleaner
-code if you use templates quite a bit: A shorthand notation for condition
-templates has been added.
+A neat little trick added this release: Allow for shorter, cleaner
+YAML code, if you use templates quite a bit: A shorthand notation for condition
+templates have been added.
 
-All places that accept condition now accept templates directly. Some examples:
+All places that accept conditions, now accept templates directly. Some examples:
 
 {% raw %}
 
@@ -181,7 +468,7 @@ All places that accept condition now accept templates directly. Some examples:
 automations:
   - alias: "My automation"
     ...
-    conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level') | int) > 50 }}"
+    condition: "{{ (state_attr('device_tracker.iphone', 'battery_level') | int) > 50 }}"
     ...
 ```
 
@@ -191,9 +478,9 @@ automations:
 
 ```yaml
 - choose:
-    - conditions: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
+    - condition: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
       sequence:
-       - ...
+        - ...
 ```
 
 {% endraw %}
@@ -208,7 +495,7 @@ condition:
   conditions:
     - "{{ is_state('device_tracker.iphone', 'away') }}"
     - condition: numeric_state
-      entity_id: 'sensor.temperature'
+      entity_id: "sensor.temperature"
       below: 20
 ```
 
@@ -239,7 +526,8 @@ action:
 {% endraw %}
 
 Don't worry, the old format still works as before, so this is not a breaking
-change. However, you can start removing those `data_template`'s.
+change. However, you can start removing those `data_template`'s by renaming to
+(or merging them with) `data`.
 
 The keys inside a data block, can be templates now too!
 
@@ -253,81 +541,125 @@ service: kef_custom.set_mode
 
 {% endraw %}
 
+### Variables
+
+Another WTH item, "Why can't we have variables?!". This WTH is not fully solved,
+but a good start is made this release by adding support for variables to
+automation and scripts.
+
+Here is an example automation:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: sun
+    event: sunset
+    offset: -00:30
+  variables:
+    notification_service: notify.paulus_iphone
+  action:
+    - service: "{{ notification_service }}"
+      data:
+        message: Beautiful sunset!
+```
+
+{% endraw %}
+
+While the above example, it doesn't add that much value, it does shows how it
+works. Variables can be templates too! For example:
+
+{% raw %}
+
+```yaml
+variables:
+  person: frenck
+  notification_service: "notify.{{ person }}_iphone"
+```
+
+{% endraw %}
+
+Both scripts and automation actions support this syntax now. Additionally,
+we added a new action! The variables action. This unlocks the potential to
+change variables during the runtime of a script.
+
+{% raw %}
+
+```yaml
+variables:
+  notification_service: notify.paulus_iphone
+action:
+  - variables:
+    notification_service: notify.frenck_iphone
+  - service: "{{ notification_service }}"
+    data:
+      message: This message actually went to Frenck, not Paulus.
+```
+
+{% endraw %}
+
+For a more extensive example, check out the example written in [the blog
+article about Home Assistant Tags][tags].
+
 ### Other scripts and automation changes
 
-- Create variable with result of wait_template and accept template for timeout option ([@pnbruckner] - [#38634]) ([automation docs])
-- Add max_exceeded log level option to automations & scripts ([@pnbruckner] - [#39448]) ([automation docs]) ([script docs])
-- Add as_local convenience function to jinja templates ([@bdraco] - [#39618])
-- Add timestamp option for input_datetime.set_datetime ([@pnbruckner] - [#39121]) ([input_datetime docs])
+But wait! There is more! 😂
+
+There was no way of knowing if a wait template was timed out or if it continued
+normally. Now, we do know this. After each wait template, a new variable is
+available: `wait`. It provides `wait.completed` (indicates if the template
+evaluated to true before the timeout expired) and `wait.remaning` (remaining time
+out).
+
+{% raw %}
+
+```yaml
+sequence:
+  - wait_template: "{{ is_state('binary_sensor.abc', 'on') }}"
+    timeout: 10
+    continue_on_timeout: true
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ not wait.completed }}"
+        sequence:
+          # Handle timeout case
+```
+
+{% endraw %}
+
+The new script and automation run modes are amazing! But in some cases, they
+might be polluting your logs. For example, you have a automation in `single`
+mode, but it does get triggered multiples times sometimes and you are not
+interested in the log. You can now control that with the `max_exceeded` option.
+
+The example below silences the automation and it will not log when it gets
+triggered while it was already running:
+
+```yaml
+automation:
+  - trigger: ...
+    max_exceeded: silent
+    action: ...
+```
 
 ## Calendar card
 
-Like promised when we introduced the calendar panel, we now also added a
-calendar Lovelace card. This allows you to select the calendar entities you
-want to show.
+Like promised, when we introduced the calendar panel, we now also added a
+Lovelace calendar card!
 
-TODO: screenshot
-<!-- Image template
+This allows you to create as many calendars as you want with the entities you
+want.
+
+If you want multiple calendar panels, create a Lovelace dashboard with a
+panelmode view with a calendar card!
+
+
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
+<img src='/images/blog/2020-09-0.115/calendar-card.png' alt='Screenshot of the new calendar card'>
+Screenshot of the new calendar card.
 </p>
--->
-
-## Customize the sidebar
-
-One of the most requested functions of What the heck was customizing the
-sidebar, you do want history for your entities in the more info dialog, but you
-don't use that history panel. Or you do want calendars for automating but don't
-want a calendar panel.
-
-Now you can hide panels from the sidebar, and rearrange them.
-
-TODO: animation / screen recording
-<!-- Image template
-<p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
-</p>
--->
-
-You can enter edit mode by pressing and holding the sidebar, you can then drag
-the items in the order you want them or remove them by clicking the cross.
-
-This is stored on your device, so this has to be set up on every device.
-
-## Person image upload
-
-You can now upload images in the frontend for a person, you can select or drop
-an image in the input field and then crop it to a square. The image will be
-stored on your Home Assistant server.
-
-TODO: screenshot
-<!-- Image template
-<p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
-</p>
--->
-
-We will use the image in the frontend for your persons, but also in the sidebar
-for the user that is linked to this person.
-
-## Code editor themeable (breaking)
-
-TODO: Move this to the breaking changes
-
-The code editor is now themeable, you can set the background color and the color
-for the different code blocks. The default background color now is
-`card-background-color`, for some themes this may conflict with the default code
-colors. To get the old behavior back add `code-editor-background-color: white`
-to your theme.
-
-## Updated MDI to 5.5.55
-
-TODO: Move this to the breaking change section
-
-The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), another 100 icons where added. `scooter` was...?
 
 ## Template developer tools
 
@@ -335,51 +667,35 @@ The template developer tools are very useful for checking if the template you
 made works and does what you want it to do. But people had some annoyances with
 the tool; the editor is always filled with sample data, that can give a lot of
 response. It would be more useful to have your previously used template there.
+Yes, you guessed it, another WTH!
 
 The template would also not automatically re-render after the state of an entity
-is changed.
+is changed, causing you needing to change the template in order to re-render it.
 
-TODO: animated gif?
-<!-- Image template
-<p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
-</p>
--->
-
-We addressed both these issues, we save your last-used template and will show
+We addressed both these issues. We save your last-used template and will show
 that instead of the example when you visit the template developer tools.
 
-We will also listen for changes of the entities you used in your template and
-automatically re-render your template.
-
-## Logbook
-
-The more info dialog is updated, it now has 2 tabs. One for controls and one
-for history. On the history tab, you can find the history graph you are used to
-and now also a list of logbook entries of the specific entity.
-
-TODO: screenshot
-<!-- Image template
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
+<img src='/images/blog/2020-09-0.115/dev-tools-templates.gif' alt='Screenrecording the live state changes in the template development tools.'>
+Templates you write in the developer tools, are now updating live!
 </p>
--->
 
-On the logbook panel, we added some more information. You can now see what
-automation or script caused the change of state and also what action was used
-to do it.
+We will also listen for changes of the entities you used in your template and
+automatically re-render your template. As a bonus, we will show
+which entities Home Assistant detected you are using in your template.
 
-## Reload everything YAML and integration
+## Reload everything YAML
 
-We added a lot of YAML integrations that can be reloaded without restarting
-Home Assistant, you can just reload it from the configuration server control
-page (you will need advanced mode).
+WTH, do we still need to restart Home Assistant for applying YAML configuration?
+That was one of the WTH raised. It is being worked on!
 
-As of this release, beside the integration that already could be reloaded,
+This release, [@bdraco] found a way to reload some of the internal integrations
+and boosted this capability to a lot of integrations. For those, you can just
+reload the YAML in the configuration server control page (you will need advanced mode).
+
+As of this release, besides the integrations that already could be reloaded,
 the following integration can now reload their YAML configuration without
-restart Home Assistant:
+a restart of Home Assistant:
 
 - [Command Line][command_line docs]
 - [File Size][filesize docs]
@@ -393,7 +709,7 @@ restart Home Assistant:
 - [MQTT][mqtt docs]
 - [Ping][ping docs]
 - [RESTful][rest docs]
-- [RPi GPIO][rpi_gpio docs]
+- [Raspberry Pi GPIO][rpi_gpio docs]
 - [SMTP][smtp docs]
 - [Statistics][statistics docs]
 - [Telegram][telegram docs]
@@ -401,27 +717,41 @@ restart Home Assistant:
 - [Trend][trend docs]
 - [Universal Media Player][universal docs]
 
-You can also reload an integration that is setup with the UI. This can be useful
-when it lost it's connection or is in an otherwise failed state. You can find
-the reload the button in the overflow menu on the integration card.
+You can also reload an integration that is setup with the UI! This can be useful
+when it lost its connection or is in an otherwise failed state. You can find
+the reload button in the overflow menu on the integration card.
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/integrations-reload.png' alt='Screenshot of reloading an UI configured integration.'>
+UI configured integration can now be reloaded as well!
+</p>
 
 ## User password change
 
-Another What the heck: Being able to change the password of a user as the owner
-of the system. You can now change the password of every user from the UI when
-you are the owner of your system.
+Another What the heck, that sounded so obvious: Being able to change a user's
+password as the owner of the system. Right?!
 
-## Cloud expose domains/entity
+You can now change every user's password from the UI when you are the owner of
+the system!
 
-If you are using Home Assistant Cloud with Google Assistant or Alexa, you can
-select what entities you want to expose in the UI. We would by default expose
-all new entities. We now introduced a new setting where you can set if you want
-to expose entities by domain.
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/change-password.png' alt='Screenshot of change a password of a user account.'>
+As a owner, you can now change a password of a user.
+</p>
 
-You can overrule this domain setting per entity.
+## Improved ways of exposing entities via Home Assistant Cloud
 
-A newly added entity will by default get the settings of the domain, so you
-don't have to change these settings for every newly added entity.
+This release brings an update to the way you can expose entities to Google
+Assistant and Amazon Alexa via Home Assistant Cloud.
+
+With the new panel, you can now set on a domain level if entities should be
+exposed/not exposed by default. You can still override this on a per-entity
+level for fine-grained control.
+
+The default expose rules have also been updated to expose entities that work
+best with voice assistants.
+
+<img class='no-shadow' src='/images/blog/2020-09-0.115/cloud-expose-entities.png' alt='Screenshot of expose options on an entity.'>
 
 ## Add card by entities
 
@@ -429,17 +759,19 @@ Are you a bit overwhelmed by all the different types of cards Lovelace has? You
 can now just select the entities you want to use for a card, and have Lovelace
 suggest a card for you.
 
-TODO: screenshot
-<!-- Image template
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
+<img src='/images/blog/2020-09-0.115/add-card-by-entity-selection.png' alt='Screenshot of add card by entity selection view in Lovelace UI.'>
+Select one or more entities to populate the card.
 </p>
--->
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/add-card-by-entity-confirmation.png' alt='Screenshot of add card by entity confirmation view in Lovelace UI.'>
+A confirmation dialog is shown before adding the suggested card.
+</p>
 
 In the add card dialog, we added a second tab with a list of all your entities.
 Select the entities you want to use and click continue. We will suggest a card
-for you and you can then fine-tune the config.
+for you and you can then fine-tune the configuration.
 
 ## Order entities in Lovelace UI editor
 
@@ -447,79 +779,45 @@ You can now sort the entities in Lovelace UI editors by just dragging them.
 No more clicking the up and down buttons over and over again, simply drag the
 item up or down.
 
-TODO: Animated gif
-
-<!-- Image template
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
+<img src='/images/blog/2020-09-0.115/order-entities.gif' alt='Screenrecording of dragging and dropping entities to re-order'>
+Drag and and drop the entities in the order you want.
 </p>
--->
-
-## Home Assistant Cloud for older Android devices
-
-Home Assistant Cloud uses Let's Encrypt to provide SSL certificates for your instance. Let's Encrypt is changing the way they sign their certificates at the end of the month which breaks support for older Android devices (older than Android 7.1).
-
-This release includes an update to make the certificates used by Home Assistant Cloud backwards compatible. This relies on a feature that Let's Encrypt provides, which will expire in September 2021.
-
-If you use an older Android device and cannot upgrade to Home Assistant 0.115 or want to use it past September 2021, install the Firefox browser. It includes modern certificates and is able to support the new Let's Encrypt certificates.
 
 ## Other noteworthy changes
 
-- The OpenZwave beta integration in coming along nicely. First signs of
+- The OpenZWave beta integration is coming along nicely. First signs of
   some control panels in the UI are visible this release. You can see the status
   and information of your network and nodes. There are also buttons to put your
   Z-Wave network in inclusion and exclusion mode and to refresh a node.
   Thanks [@cgarwood]!
-- The stream component now supports audio! And if you use the latest Home
-  Assistant Android app, the stream component now support H.265 streams.
-  Amazing job [@uvjustin]!
-- The [Met.no](/integrations/met) now support hourly forcasts, very nice [@bruxy70]!
+
+- The code editor in the UI is now theme-able, so make them look nice!
+
+- The stream component now supports audio! Amazing job [@uvjustin]!
+
+- Slack notification now supports change username/icon on the fly, which was
+  a great WTH suggestion! Thanks for adding that [@bachya].
+
+- The [Met.no](/integrations/met) now supports hourly forecasts, very nice [@bruxy70]!
+
+- The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
+  this adds another 100 icons you can use!
+
 - The Google Assistant integration got some updates:
+
   - [@elupus] added support for asking for the previous or next input source.
   - Basic support for controlling light effect has been added by [@mjg59].
   - [@blueshiftlabs] added capabilities to control media player muting and
     relative-volume controls.
-- The Netatmo integration was re-engineered and now has a new data handler to
-  reduce the number of API calls and also merge in webhook events to improve the 
-  overall responsiveness.
-  It now comes with a light platform to control the outdoor camera flood light and 
-  contains services to set the home/away status of occupants as well as the outdoor camera mode.
 
-- Performance
-  - Template parsing and entity tracking?
-  - Improve performance of fetching the state domain ([@bdraco] - [#38653])
-  - Improve the performance of dt_util.utcnow() ([@bdraco] - [#39145])
-  - Add shortcuts when we know template is static ([@balloob] - [#39208])
-  - Standardize uuid generation for events/storage/registry ([@bdraco] - [#39184])
-  - Tune logbook performance to accomodate recent changes ([@bdraco] - [#39348]) ([automation docs]) ([logbook docs]) ([script docs])
-  - Provide a logbook option entity_matches_only to optimize for single entity lookup ([@bdraco] - [#39555]) ([logbook docs]
-  - Something about the template changes? Mainly performance...
-    - Add track_template_result method to events ([@bdraco] - [#38802])
-    - Update TrackTemplateResultInfo to remove side effects from init ([@bdraco] - [#38934])
-    - Update template sensor to use async_track_template_result ([@bdraco] - [#38940]) ([template docs])
-    - Convert template lock to use async_track_template_result ([@bdraco] - [#38946]) ([template docs])
-    - Convert template switch to use async_track_template_result ([@bdraco] - [#38950]) ([template docs])
-    - Convert template fan to use async_track_template_result ([@bdraco] - [#38983]) ([template docs])
-    - Convert template alarm_control_panel to use async_track_template_result ([@bdraco] - [#39014]) ([template docs])
-    - Convert template binary_sensor to use async_track_template_result ([@bdraco] - [#39027]) ([template docs])
-    - Convert template cover to use async_track_template_result ([@bdraco] - [#39042]) ([template docs])
-    - Convert template light to use async_track_template_result ([@bdraco] - [#39045]) ([template docs])
-    - Convert template vacuum to use async_track_template_result ([@bdraco] - [#39047]) ([template docs])
-    - Convert bayesian binary_sensor to use async_track_template_result ([@bdraco] - [#39174]) ([bayesian docs])
-    - Update websocket api to use async_track_template_result ([@bdraco] - [#39057]) ([websocket_api docs])
-    - Simplify template integration entities ([@bdraco] - [#39083]) ([template docs])
-    - Update template triggers to use async_track_template_result ([@bdraco] - [#39059]) ([template docs])
-    - Update universal media_player to use async_track_template_result ([@bdraco] - [#39054]) ([universal docs])
-    - Report usage of extract_entities by custom components ([@bdraco] - [#39185]) (breaking-change)
-    - Subscribe to state change events only if the template has entities ([@bdraco] - [#39188]) ([template docs])
-    - Make async_track_template_result track multiple templates ([@bdraco] - [#39371]) ([bayesian docs]) ([template docs]) ([universal docs]) ([websocket_api docs]))
+- The Netatmo integration was re-engineered, which reduced the number of API
+  calls and added webhook events to improve overall responsiveness. It now
+  supports controlling the outdoor camera floodlight and got services to set
+  the occupants' home/away status and the outdoor camera mode.
 
-- WTH: Extend IP ban / failed login notification information ([@frenck] - [#39020]) ([http docs])
-- WTH: Allow Slack notifications to change username/icon on the fly ([@bachya] - [#39091])
-- WTH: Don't sort keys when dumping json and yaml ([@bramkragten] - [#39214]) ([http docs])
-- WTH: Allow owner users to change password of any user ([@balloob] - [#39242]) ([config docs])
-- WTH: Add description of what caused an automation trigger to fire ([@pnbruckner] - [#39251])
+- We no longer automatically alphabetically sort the keys in YAML files written
+  by the UI, as a result from a WTH request. Much better!
 
 ## New Integrations
 
@@ -575,126 +873,34 @@ integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 <details>
-  <summary><b>Instituto Português do Mar e Atmosfera (IPMA)</b></summary>
+  <summary><b>Automations</b></summary>
   <p>
 
-The `precipitation` attribute has been renamed to `precipitation_probability`.
+Previously an automation's `last_triggered` attribute was updated, and an
+`automation_triggered` event was fired, whenever a trigger fired and the
+conditions (if any) were true, regardless if the actions actually ran.
 
-([@dgomes] - [#38697]) ([ipma docs])
+For example, in `single` mode, the actions won't run if they are still running
+from a previous trigger event.
+
+Now the attribute will be updated, and the event fired, only if the actions
+actually run.
+
+([@pnbruckner] - [#39323]) ([automation docs])
 
   </p>
 </details>
 
 <details>
-  <summary><b>Deutsche Wetter Dienst (DWD) Weather Warnings</b></summary>
+  <summary><b>Axis</b></summary>
   <p>
 
-If you use entity state attributes of this integration in automations or scripts
-need to adjust these to handle the changes.
+Initial naming of events from VMD4 and Fence guard are now based on their
+configured name on the device; `binary_sensor.m1065-lw_0_vmd4_camera1profile1`
+is now `binary_sensor.m1065-lw_0_vmd4_profile_1` or `profile_1` can be whatever
+the user chose to name the profile.
 
-- The `region_state` attribute has been removed, cause it is no longer available
-  on the new API.
-- All timestamps in the state attributes are now UTC and not local time anymore.
-
-([@stephan192] - [#34820]) ([dwd_weather_warnings docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>HTTP: Using reverse proxies</b></summary>
-  <p>
-
-The processing of data received from reverse proxies is now more strictly
-handled. Invalid or malformed `X-Forwarded-For` headers will now result in an
-HTTP 400 error (Bad Request).
-
-Support for `X-Forwarded-Proto` and `X-Forwarded-Host` has been added.
-
-Additionally, Home Assistant will now log cases of a reverse proxy being used,
-but not configured with Home Assistant. Make sure, you set the
-`use_x_forwarded_for` and `trusted_proxies` in your Home Assistant HTTP
-configuration correctly to avoid warnings.
-
-([@frenck] - [#38696]) ([http docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Netatmo</b></summary>
-  <p>
-
-The sensor for wind and gust angle is split up into two entities so that it now
-returns the direction (e.g., `NE`) and the actual value (e.g., `178°`) rather
-than a string containing both (e.g., `NE (123°)`).
-
-([@cgtobi] - [#38627]) ([netatmo docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>OAuth2 authentication and redirects</b></summary>
-  <p>
-
-Integrations using OAuth2 authentication now use the current request URL from
-the browser as the redirect target, instead of the internal URL setting.
-
-This matches the experience one would expect to happen and removes the need
-to fiddle around with the internal URL setting.
-
-However, this might require you to update application settings when
-re-authenticating with existing services.
-
-([@frenck] - [#38692])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>OpenUV</b></summary>
-  <p>
-
-Support for configuring this integration has been fully removed.
-If you have existing OpenUV configuration in your YAML configuration files,
-you can safely remove that configuration.
-
-([@bachya] - [#38857]) ([openuv docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Yandex Transport</b></summary>
-  <p>
-
-The integration now accepts a full stop ID in text notation:
-`'stop__1234'` or `'group_345'` or `'6789'`
-
-You'll have to update `stop_id: 1234567` in your existing configuration to
-`stop_id: stop__1234567` as it is used in Yandex maps API.
-
-([@devbis] - [#39021]) ([yandex_transport docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Sentry</b></summary>
-  <p>
-
-The YAML configuration for Sentry is now deprecated and no longer works. If you
-had Sentry configured via YAML previously, you can safely remove the YAML
-configuration (without the need to reconfigure) as it has been imported into
-the UI before.
-
-The release is now formatted with only the version number of Home Assistant
-Core, for example, `0.115.0`. Previously, this was prefixed with
-`homeassistant-`, for example, `homeassistant-0.115.0`.
-This prefix is now removed.
-
-([@frenck] - [#38833]) ([sentry docs])
+([@Kane610] - [#39699]) ([axis docs])
 
   </p>
 </details>
@@ -708,10 +914,10 @@ This prefix is now removed.
 To set up a Broadlink device, click _Configuration_ in the sidebar and click
 _Integrations_.
 
-The devices will be imported from your configuration files to that page. If yousee
- your device there, click _Configure_. If not, click the `+` icon in the lower
- right, click _Broadlink_, enter the host and follow the instructions to
- complete the setup.
+The devices will be imported from your configuration files to that page. If you see
+your device there, click _Configure_. If not, click the `+` icon in the lower
+right, click _Broadlink_, enter the host and follow the instructions to
+complete the setup.
 
 The name you choose will serve as a template for the entities. You can change
 the entity name and id in the entity settings on the frontend. You may need to
@@ -839,6 +1045,216 @@ file, they are gone.
   </p>
 </details>
 
+
+<details>
+  <summary><b>Brother Printer</b></summary>
+  <p>
+
+The uptime sensor state format and unit have been changed. If you rely on those
+you might need to adjust your configuration.
+
+([@bieniu] - [#39226]) ([brother docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>CPU Speed</b></summary>
+  <p>
+
+The naming of the attributes was updated to be aligned with the current used
+standards.
+
+- `Brand` -> `brand`
+- `GHz Advertised` -> `ghz_advertised`
+
+([@fabaff] - [#39155]) ([cpuspeed docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Deutsche Wetter Dienst (DWD) Weather Warnings</b></summary>
+  <p>
+
+If you use entity state attributes of this integration in automations or scripts
+need to adjust these to handle the changes.
+
+- The `region_state` attribute has been removed, cause it is no longer available
+  on the new API.
+- All timestamps in the state attributes are now UTC and not local time anymore.
+
+([@stephan192] - [#34820]) ([dwd_weather_warnings docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Emulated Hue</b></summary>
+  <p>
+
+By default, all lights and devices that do not support brightness adjustment are
+exported as On/Off lights without a brightness property. When upgrading from
+earlier versions of Home Assistant (0.112 and earlier), some devices may now be
+reported by Alexa as non-responsive.
+
+Alternatively, you can set the `lights_all_dimmable` configuration option to
+continue reporting these devices as if they have a brightness setting.
+
+**How to fix it once and for all**:
+
+You need to have Alexa rediscover all devices and then remove the now
+non-responding duplicates using the Alexa phone App. This can take quite a while
+if you have lots of devices.
+
+An alternative would be to log in to the Alexa web site and remove all the lights
+instead and then re-discover them all.
+
+To do so go to <https://alexa.amazon.com/spa/index.html#appliances>, or if not
+logged in: <https://alexa.amazon.com> then select "Smart Home" -> "Devices" and
+select "Remove All".
+
+If you have multiple Echo devices on your network, it is possible that the
+entries would continue to show as duplicates. This is due to an individual Echo
+device caching the old list and re-using it.
+
+The only known solution for this is to remove your echo devices from your Amazon
+account, delete all the lights previously discovered by Alexa and then re-run
+discovery.
+
+This is a one-off requirement, unfortunately there's no other way to easily
+transition from the previously incorrect values reported by the Emulated Hue.
+
+([@jyavenard] - [#39539]) ([emulated_hue docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Ezviz</b></summary>
+  <p>
+
+The Ezviz integration has been temporarily disabled, as it has a dependency
+that contains code that breaks Home Assistant.
+
+([@balloob] - [#38444]) ([ezviz docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Frontend</b></summary>
+  <p>
+
+The previous deprecated frontend configuration options `frontend_extra_html_url`
+and `frontend_extra_html_url` are now removed.
+
+([@balloob] - [#39799]) ([frontend docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>HDMI-CEC</b></summary>
+  <p>
+
+The HDMI-CEC integration has been temporarily disabled, as it has a dependency
+that contains code that breaks Home Assistant.
+
+([@balloob] - [#37707])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Home Assistant Cloud for older Android devices</b></summary>
+  <p>
+
+Home Assistant Cloud uses Let's Encrypt to provide SSL certificates for your
+instance. Let's Encrypt is changing the way they sign their certificates at
+the end of the month which breaks support for older Android devices
+(older than Android 7.1).
+
+This release includes an update to make the certificates used by Home Assistant
+Cloud backward compatible. This relies on a feature that Let's Encrypt
+provides, which will expire in September 2021.
+
+If you use an older Android device and cannot upgrade to Home Assistant 0.115
+or want to use it past September 2021, install the Firefox browser. It includes
+modern certificates and is able to support the new Let's Encrypt certificates.
+
+  </p>
+</details>
+
+<details>
+  <summary><b>HTTP: Using reverse proxies</b></summary>
+  <p>
+
+The processing of data received from reverse proxies is now more strictly
+handled. Invalid or malformed `X-Forwarded-For` headers will now result in an
+HTTP 400 error (Bad Request).
+
+Support for `X-Forwarded-Proto` and `X-Forwarded-Host` has been added.
+
+Additionally, Home Assistant will now log cases of a reverse proxy being used,
+but not configured with Home Assistant. Make sure, you set the
+`use_x_forwarded_for` and `trusted_proxies` in your Home Assistant HTTP
+configuration correctly to avoid warnings.
+
+([@frenck] - [#38696]) ([http docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Instituto Português do Mar e Atmosfera (IPMA)</b></summary>
+  <p>
+
+The `precipitation` attribute has been renamed to `precipitation_probability`.
+
+([@dgomes] - [#38697]) ([ipma docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>KNX</b></summary>
+  <p>
+
+The KNX integration has been completely refactored to no longer rely on
+dedicated platform configuration but instead use the integration domain key
+as the base configuration.
+
+Let's say you've previously used the following configuration:
+
+```yaml
+knx:
+  tunneling:
+    host: "192.168.0.1"
+switch:
+  - platform: knx
+    name: Switch
+    address: "2/0/1"
+    state_address: "2/0/2"
+```
+
+You'll need to migrate it as follows:
+
+```yaml
+knx:
+  tunneling:
+    host: "192.168.0.1"
+  switch:
+    - name: Switch
+      address: "2/0/1"
+      state_address: "2/0/2"
+```
+
+([@marvin-w] - [#39219]) ([knx docs])
+
+  </p>
+</details>
+
 <details>
   <summary><b>Kodi</b></summary>
   <p>
@@ -860,103 +1276,34 @@ Existing YAML entries will be imported, but:
 </details>
 
 <details>
-  <summary><b>CPU Speed</b></summary>
+  <summary><b>Lovelace for generated (auto) mode</b></summary>
   <p>
 
-The naming of the attributes was updated to be aligned with the current used
-standards.
+Entities that are generated from mobile apps with the `mobile_app` integration
+is now hidden in the generated Lovelace view. If you want to continue to display
+those you need to take control over your view with the 3 dots in the top right
+corner of the Lovelace screen.
 
-- `Brand` -> `brand`
-- `GHz Advertised` -> `ghz_advertised`
-
-([@fabaff] - [#39155]) ([cpuspeed docs])
+([@ludeeus] - [#6873]) ([lovelace docs])
 
   </p>
 </details>
 
 <details>
-  <summary><b>RFLink</b></summary>
+  <summary><b>MDI Icons</b></summary>
   <p>
 
-The integration has been adjusted and modified the `entity_id` generation for
-Rflink toggle type lights. There is a small possibility an entity ID has
-changed because of this.
+The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
+this adds another 100 icons you can use!
 
-([@javicalle] - [#37992]) ([rflink docs])
+In 5.5.55 there was 1 breaking change, if you used the icon `mdi:scooter` this
+has been renamed to `mdi:human-scooter` and you need to adjust your
+configuration.
 
-  </p>
-</details>
-
-<details>
-  <summary><b>Ezviz</b></summary>
-  <p>
-
-The Ezviz integration has been temporarily disabled, as it has a dependency
-that contains code that breaks Home Assistant.
-
-([@balloob] - [#38444]) ([ezviz docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Brother Printer</b></summary>
-  <p>
-
-The uptime sensor state format and unit have been changed. If you rely on those
-you might need to adjust your configuration.
-
-([@bieniu] - [#39226]) ([brother docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>HDMI-CEC</b></summary>
-  <p>
-
-The HDMI-CEC integration has been temporarily disabled, as it has a dependency
-that contains code that breaks Home Assistant.
-
-([@balloob] - [#37707])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>KNX</b></summary>
-  <p>
-
-The KNX integration has been completely refactored to no longer rely on
-dedicated platform configuration but instead use the integration domain key
-as the base configuration.
-
-Let's say you've previously used the following configuration:
-
-```yaml
-knx:
-  tunneling:
-    host: '192.168.0.1'
-switch:
-  - platform: knx
-    name: Switch
-    address: '2/0/1'
-    state_address: '2/0/2'
-```
-
-You'll need to migrate it as follows:
-
-```yaml
-knx:
-  tunneling:
-    host: '192.168.0.1'
-  switch:
-    - name: Switch
-      address: '2/0/1'
-      state_address: '2/0/2'
-```
-
-([@marvin-w] - [#39219]) ([knx docs])
+All icons that were deprecated in [0.113.0](/blog/2020/07/22/release-113/#mdi-icons-updated)
+have now been removed. Icons that were renamed or deleted in
+version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45)
+will no longer work.
 
   </p>
 </details>
@@ -969,14 +1316,14 @@ The attributes of `next_rain` has been reworked. In the previous version it was
 a list of objects with changing keys (every 5 minutes) corresponding to a
 UTC timestamp. This design was difficult to use in templates and automation.
 
-The new design will add a dedicated string attribute to have the the reference
+The new design will add a dedicated string attribute to have the reference
 timestamp of the forecast (`forecast_time_ref`) and a dict attribute with fixed
 keys to access the rain forecast within the hour (`1_hour_forecast`).
 
 Example of the new attributes:
 
 ```yaml
-forecast_time_ref: '2020-08-20T19:25:00+00:00'
+forecast_time_ref: "2020-08-20T19:25:00+00:00"
 1_hour_forecast:
   0 min: Temps sec
   5 min: Temps sec
@@ -995,20 +1342,39 @@ forecast_time_ref: '2020-08-20T19:25:00+00:00'
 </details>
 
 <details>
-  <summary><b>Automations</b></summary>
+  <summary><b>Meteorologisk institutt (Met.no)</b></summary>
   <p>
 
-Previously an automation's `last_triggered` attribute was updated, and an
-`automation_triggered` event was fired, whenever a trigger fired and the
-conditions (if any) were true, regardless if the actions actually ran.
+While updating the integration, and its underlying libraries, to use the newer
+API endpoint, some of the calculations and forecast aggregations were tweaked a
+bit:
 
-For example, in `single` mode, the actions won't run if they are still running
-from a previous trigger event.
+- Use hourly forecast for current weather, not daily.
+- Ensure compared datetime objects are compared in the same time zone.
+- Use highest resolution data from full 24 hours to calculate daily forecast
+  min/max/sum values.
 
-Now the attribute will be updated, and the event fired, only if the actions
-actually run.
+None of these changes are expected to break your setup, though the data
+presented might look a little different due to the above.
 
-([@pnbruckner] - [#39323]) ([automation docs])
+In addition, all time stamps are now given in UTC. Automations that depend on
+the `datetime` key under the state attribute `forecast` needs to be checked and
+updated accordingly.
+
+([@thimic] - [#39493]) ([met docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Netatmo</b></summary>
+  <p>
+
+The sensor for wind and gust angle is split up into two entities so that it now
+returns the direction (e.g., `NE`) and the actual value (e.g., `178°`) rather
+than a string containing both (e.g., `NE (123°)`).
+
+([@cgtobi] - [#38627]) ([netatmo docs])
 
   </p>
 </details>
@@ -1017,7 +1383,7 @@ actually run.
   <summary><b>NZBGet</b></summary>
   <p>
 
-NZBGet is now available via the Integrations UI. This also means its no longer
+NZBGet is now available via the Integrations UI. This also means it's no longer
 configured in YAML. Existing configurations are automatically transitioned to
 configuration via UI, so after upgrade your existing YAML entry can be safely
 removed.
@@ -1034,16 +1400,108 @@ start time of the application.
 </details>
 
 <details>
-  <summary><b>Yeelight</b></summary>
+  <summary><b>OAuth2 authentication and redirects</b></summary>
   <p>
 
-The Yeelight integration now uses custom SSDP-like discovery instead of the
-mDNS discovery, since mDNS discovery is removed in new firmwares.
+Integrations using OAuth2 authentication now use the current request URL from
+the browser as the redirect target, instead of the internal URL setting.
 
-After this change, there will be no longer automatic configuration based on
-discovery. Users currently using that should set up all devices through UI.
+This matches the experience one would expect to happen and removes the need
+to fiddle around with the internal URL setting.
 
-([@shenxn] - [#37191]) ([yeelight docs])
+However, this might require you to update application settings when
+re-authenticating with existing services.
+
+([@frenck] - [#38692])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Open Hardware Monitor</b></summary>
+  <p>
+
+In some locales numbers with decimals uses "," instead of "." and this causes
+an issue when trying to use InfluxDB for example. This has been adjusted.
+
+([@fillefilip8] - [#39030]) ([openhardwaremonitor docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>OpenUV</b></summary>
+  <p>
+
+Support for configuring this integration has been fully removed.
+If you have existing OpenUV configuration in your YAML configuration files,
+you can safely remove that configuration.
+
+([@bachya] - [#38857]) ([openuv docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>OpenWeatherMap</b></summary>
+  <p>
+
+The OpenWeatherMap integration can now be configured via the UI. After upgrading,
+your existing configuration will be imported automatically and you can safely
+remove existing YAML configuration for this integration.
+
+([@freekode] - [#34659]) ([openweathermap docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>RFLink</b></summary>
+  <p>
+
+The integration has been adjusted and modified the `entity_id` generation for
+Rflink toggle type lights. There is a small possibility an entity ID has
+changed because of this.
+
+([@javicalle] - [#37992]) ([rflink docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Roku</b></summary>
+  <p>
+
+The Roku state now better aligns with media playback.
+
+Previously, if an app was open, the state would be "playing" even if you were
+just browsing the app interface. This has been adjusted to be represented as
+"on". When Roku reports media playback in progress, the state "playing" will
+be used.
+
+This improves compatibility with exposing entities to Alexa, Google Assistant,
+and HomeKit.
+
+([@ctalkington] - [#39540]) ([roku docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Sentry</b></summary>
+  <p>
+
+The YAML configuration for Sentry is now deprecated and no longer works. If you
+had Sentry configured via YAML previously, you can safely remove the YAML
+configuration (without the need to reconfigure) as it has been imported into
+the UI before.
+
+The release is now formatted with only the version number of Home Assistant
+Core, for example, `0.115.0`. Previously, this was prefixed with
+`homeassistant-`, for example, `homeassistant-0.115.0`.
+This prefix is now removed.
+
+([@frenck] - [#38833]) ([sentry docs])
 
   </p>
 </details>
@@ -1087,7 +1545,7 @@ a performance issue where the template would be re-rendered unnecessarily.
 
 Please review the [`Working without entities`][working-without-entities] section
 on the [`Binary Sensor Template`][working-without-entities] documentation for
-alternative ways to force templates entities to re-evaluate. This includes
+alternative ways to force template entities to re-evaluate. This includes
 templates that rely on the use of `now()`.
 
 If this change means you need to make adjustments, we have made it easier by
@@ -1102,125 +1560,14 @@ section under `Configure Home Assistant` -> `Server Controls`.
 </details>
 
 <details>
-  <summary><b>Emulated Hue</b></summary>
+  <summary><b>Themes</b></summary>
   <p>
 
-By default, all lights and devices that do not support brightness adjustment are
-exported as On/Off lights without a brightness property. When upgrading from
-earlier versions of Home Assistant (0.112 and earlier), some devices may now be
-reported by Alexa as non-responsive.
-
-Alternatively, you can set the `lights_all_dimmable` configuration option to
-continue reporting these devices as if they have a brightness setting.
-
-**How to fix it once and for all**:
-
-You need to have Alexa rediscover all devices and then remove the now
-non-responding duplicates using the Alexa phone App. This can take quite a while
-if you have lots of devices.
-
-An alternative would be to log to the Alexa web site and remove all the lights
-instead and then re-discover them all.
-
-To do so go to <https://alexa.amazon.com/spa/index.html#appliances>, or if not
-logged in: <https://alexa.amazon.com> then select "Smart Home" -> "Devices" and
-select "Remove All".
-
-If you have multiple Echo devices on your network, it is possible that the
-entries would continue to show as duplicates. This is due to an individual Echo
-device caching the old list and re-using it.
-
-The only known solution for this is to remove your echo devices from your Amazon
-account, delete all the lights previously discovered by Alexa and then re-run
-discovery.
-
-This is a one-off requirement, unfortunately there's no other way to easily
-transitioned from the previously incorrect values reported by the Emulated Hue.
-
-([@jyavenard] - [#39539]) ([emulated_hue docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Roku</b></summary>
-  <p>
-
-The Roku state now better aligns with media playback.
-
-Previously, if an app was open, the state would be "playing" even if you were
-just browsing the app interface. This has been adjusted to be represented as
-"on". When Roku reports media playback in progress, the state "playing" will
-be used.
-
-This improves compatibility with exposing entities to Alexa, Google Assistant,
-and HomeKit.
-
-([@ctalkington] - [#39540]) ([roku docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Meteorologisk institutt (Met.no)</b></summary>
-  <p>
-
-While updating the integration, and its underlying libraries, to use the newer
-API endpoint, some of the calculations and forecast aggregations were tweaked a
-bit:
-
-- Use hourly forecast for current weather, not daily.
-- Ensure compared datetime objects are compared in the same time zone.
-- Use highest resolution data from full 24 hours to calculate daily forecast
-  min/max/sum values.
-
-None of these changes are expected to break your setup, though the data
-presented might look a little different due to the above.
-
-In addition, all time stamps are now given in UTC. Automations that depend on
-the `datetime` key under the state attribute `forecast` needs to be checked and
-updated accordingly.
-
-([@thimic] - [#39493]) ([met docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>OpenWeatherMap</b></summary>
-  <p>
-
-The OpenWeatherMap integration can now be configured via the UI. After upgrading
-your existing configuration will be imported automatically and you can safely
-remove existing YAML configuration for this integration.
-
-([@freekode] - [#34659]) ([openweathermap docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Open Hardware Monitor</b></summary>
-  <p>
-
-In some locales numbers with decimals uses "," instead of "." and this causes
-an issue when trying to use InfluxDB for example. This has been adjusted.
-
-([@fillefilip8] - [#39030]) ([openhardwaremonitor docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Lovelace for generated (auto) mode</b></summary>
-  <p>
-
-Entities that are generated from mobile apps with the `mobile_app` integration
-is now hidden in the generated Lovelace view. If you want to continue to display
-those you need to take control over your view with the 3 dots in the top right
-corner of the Lovelace screen.
-
-([@ludeeus] - [#6873]) ([lovelace docs])
+The code editor is now themeable, you can set the background color and the color
+for the different code blocks. The default background color now is
+`card-background-color`. For some themes this may conflict with the default code
+colors. To get the old behavior back add `code-editor-background-color: white`
+to your theme.
 
   </p>
 </details>
@@ -1236,20 +1583,6 @@ For example the `minutes: /60` would have been accepted previously, but
 could never trigger.
 
 ([@amelchio] - [#38982]) ([automation docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Axis</b></summary>
-  <p>
-
-Initial naming of events from VMD4 and Fence guard are now based on their
-configured name on the device; `binary_sensor.m1065-lw_0_vmd4_camera1profile1`
-is now `binary_sensor.m1065-lw_0_vmd4_profile_1` or `profile_1` can be whatever
-the user chose to name the profile.
-
-([@Kane610] - [#39699]) ([axis docs])
 
   </p>
 </details>
@@ -1275,13 +1608,31 @@ Now it will render as "25:00:00".
 </details>
 
 <details>
-  <summary><b>Frontend</b></summary>
+  <summary><b>Yandex Transport</b></summary>
   <p>
 
-The previous deprecated frontend configuration options `frontend_extra_html_url`
-and `frontend_extra_html_url` are now removed.
+The integration now accepts a full stop ID in text notation:
+`'stop__1234'` or `'group_345'` or `'6789'`
 
-([@balloob] - [#39799]) ([frontend docs])
+You'll have to update `stop_id: 1234567` in your existing configuration to
+`stop_id: stop__1234567` as it is used in Yandex maps API.
+
+([@devbis] - [#39021]) ([yandex_transport docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Yeelight</b></summary>
+  <p>
+
+The Yeelight integration now uses custom SSDP-like discovery instead of the
+mDNS discovery, since mDNS discovery is removed in new firmwares.
+
+After this change, there will be no longer automatic configuration based on
+discovery. Users currently using that should set up all devices through UI.
+
+([@shenxn] - [#37191]) ([yeelight docs])
 
   </p>
 </details>
@@ -1289,7 +1640,7 @@ and `frontend_extra_html_url` are now removed.
 ## Farewell to the following
 
 - The **Prezzi Benzina** integration has been removed.
-  It was using webscaping to gather its data, which is no longer allowed.
+  It was using webscraping to gather its data, which is no longer allowed.
   ([@eliseomartelli] - [#38736])
 - The **yr** integration has been removed after a request from yr.no. Use
   the Met.no integration instead
@@ -1357,7 +1708,7 @@ and `frontend_extra_html_url` are now removed.
 - Add URL as common string ([@ctalkington] - [#38694])
 - Add hourly forecast to met.no ([@bruxy70] - [#38700]) ([met docs])
 - Update IPMA weather component ([@dgomes] - [#38697]) ([ipma docs]) (breaking-change)
-- Remove prezzibenzina integration (ADR-0004) ([@eliseomartelli] - [#38736]) ([prezzibenzina docs]) (breaking-change)
+- Remove prezzibenzina integration (ADR-0004) ([@eliseomartelli] - [#38736]) (breaking-change)
 - Add Ecobee services ([@hudcap] - [#38749]) ([ecobee docs])
 - [RFC] Add Tag integration ([@dmulcahey] - [#38727]) ([default_config docs]) ([tag docs]) (new-integration)
 - Update Flo config flow and associated tests ([@dmulcahey] - [#38722]) ([flo docs])
@@ -1379,8 +1730,8 @@ and `frontend_extra_html_url` are now removed.
 - Cleanup Netatmo code ([@cgtobi] - [#38772]) ([netatmo docs])
 - Add config flow to insteon component ([@teharris1] - [#36467]) ([insteon docs])
 - Bump androidtv to 0.0.49 ([@JeffLIrion] - [#38778]) ([androidtv docs])
-- Bump actions/setup-python from v2.1.1 to v2.1.2 (dependabot - [#38780])
-- Bump actions/upload-artifact from v2.1.3 to v2.1.4 (dependabot - [#38779])
+- Bump actions/setup-python from v2.1.1 to v2.1.2 (@dependabot - [#38780])
+- Bump actions/upload-artifact from v2.1.3 to v2.1.4 (@dependabot - [#38779])
 - Remove Netatmo HomeKit discovery method ([@cgtobi] - [#38770]) ([netatmo docs])
 - Add roon media player integration ([@pavoni] - [#37553]) ([roon docs]) (new-integration)
 - Unsubscribe ozw listeners ([@MartinHjelmare] - [#38787]) ([ozw docs])
@@ -1438,7 +1789,7 @@ and `frontend_extra_html_url` are now removed.
 - Make check-executables-have-shebangs manual ([@emontnemery] - [#38980])
 - Bump python-openzwave-mqtt to 1.0.5 ([@cgarwood] - [#38984]) ([ozw docs])
 - Allow empty cast media_player config ([@emontnemery] - [#38971]) ([cast docs])
-- Bump codecov/codecov-action from v1.0.12 to v1.0.13 (dependabot - [#38991])
+- Bump codecov/codecov-action from v1.0.12 to v1.0.13 (@dependabot - [#38991])
 - Fix time trigger test ([@pnbruckner] - [#38988]) ([homeassistant docs])
 - Bump pysuez to 0.1.19 ([@ooii] - [#38998]) ([suez_water docs])
 - Add triggers for the Tag component ([@dmulcahey] - [#39004]) ([tag docs])
@@ -1567,17 +1918,17 @@ and `frontend_extra_html_url` are now removed.
 - Wait before sending MQTT birth message ([@emontnemery] - [#39120]) ([mqtt docs])
 - Ensure unique ids are generated for surepetcare ([@ctalkington] - [#39196]) ([surepetcare docs])
 - Add HomeKit Controller heater-cooler devices ([@vfreex] - [#38979]) ([homekit_controller docs])
-- Remove yr integration after a request from yr.no ([@Danielhiversen] - [#39247]) ([yr docs]) (breaking-change)
+- Remove yr integration after a request from yr.no ([@Danielhiversen] - [#39247]) (breaking-change)
 - Update homeassistant base image 8.3.0 ([@pvizeli] - [#39245])
 - Subscribe to state change events only if the template has entities ([@bdraco] - [#39188]) ([template docs])
 - Ensure the context is passed to group changes ([@bdraco] - [#39221]) ([group docs])
-- Support reloading the universal platform ([@bdraco] - [#39248]) ([helpers docs]) ([template docs]) ([universal docs])
+- Support reloading the universal platform ([@bdraco] - [#39248]) ([template docs]) ([universal docs])
 - Ensure template tracking can recover after the template generates an exception ([@bdraco] - [#39256])
 - Implement local discovery of Smappee series-2 devices and improvements ([@bsmappee] - [#38728]) ([smappee docs])
 - Add api to reload config entries ([@bdraco] - [#39068]) ([config docs])
-- Add the ability to reload light/cover groups from yaml ([@bdraco] - [#39250]) ([group docs]) ([helpers docs]) ([template docs]) ([universal docs])
+- Add the ability to reload light/cover groups from yaml ([@bdraco] - [#39250]) ([group docs]) ([template docs]) ([universal docs])
 - Rename entity base class for HMIPC ([@SukramJ] - [#39243]) ([homematicip_cloud docs])
-- Add the ability to reload the rest platforms from yaml ([@bdraco] - [#39257]) ([group docs]) ([helpers docs]) ([rest docs]) ([template docs]) ([universal docs])
+- Add the ability to reload the rest platforms from yaml ([@bdraco] - [#39257]) ([group docs]) ([rest docs]) ([template docs]) ([universal docs])
 - Add the ability to reload command_line platforms from yaml ([@bdraco] - [#39262]) ([command_line docs]) ([group docs]) ([rest docs]) ([template docs]) ([universal docs])
 - Add the ability to reload filter platforms from yaml ([@bdraco] - [#39267]) ([filter docs])
 - Allow disabling integrations in manifest, block uuid package being installed and disable ezviz ([@balloob] - [#38444]) ([ezviz docs]) (breaking-change)
@@ -1629,7 +1980,7 @@ and `frontend_extra_html_url` are now removed.
 - Ensure we always fire time pattern changes after microsecond 0 ([@bdraco] - [#39302])
 - Update time triggers to use async_track_state_change_event ([@bdraco] - [#39338]) ([homeassistant docs])
 - Add the ability to reload generic platforms from yaml ([@bdraco] - [#39289]) ([generic docs])
-- Add the ability to reload homekit from yaml ([@bdraco] - [#39326]) ([helpers docs]) ([homekit docs])
+- Add the ability to reload homekit from yaml ([@bdraco] - [#39326]) ([homekit docs])
 - Allow exposing domains in cloud ([@balloob] - [#39216]) ([cloud docs])
 - Add description of what caused an automation trigger to fire ([@pnbruckner] - [#39251]) ([arcam_fmj docs]) ([automation docs]) ([geo_location docs]) ([homeassistant docs]) ([kodi docs]) ([litejet docs]) ([mqtt docs]) ([sun docs]) ([template docs]) ([webhook docs]) ([zone docs])
 - Add support for reloading min_max from yaml ([@bdraco] - [#39327]) ([min_max docs])
@@ -2057,6 +2408,12 @@ and `frontend_extra_html_url` are now removed.
 - Fix missing f from f-strings in cast integration ([@frenck] - [#40144]) ([cast docs]) (beta fix)
 - Fix local media browser source conflicting with local www folder ([@frenck] - [#40151]) ([media_source docs]) (beta fix)
 - Update frontend to 20200916.0 ([@bramkragten] - [#40153]) ([frontend docs]) (beta fix)
+- Check mpd time type before splitting it ([@ctalkington] - [#40139]) ([mpd docs]) (beta fix)
+- Fix luci device_tracker not reliably reporting home/away state ([@cagnulein] - [#40160]) ([luci docs]) (beta fix)
+- Update pyhaversion to 3.4.2 ([@ludeeus] - [#40161]) ([version docs]) (beta fix)
+- Updated frontend to 20200917.1 ([@bramkragten] - [#40170]) ([frontend docs]) (beta fix)
+- Fix editing tags only get isoformat from datetime ([@bramkragten] - [#40174]) ([tag docs]) (beta fix)
+- Add missing conext preservation to bayesian and universal ([@bdraco] - [#40178]) ([bayesian docs]) ([universal docs]) (beta fix)
 
 </details>
 
@@ -2814,10 +3171,16 @@ and `frontend_extra_html_url` are now removed.
 [#40130]: https://github.com/home-assistant/core/pull/40130
 [#40131]: https://github.com/home-assistant/core/pull/40131
 [#40132]: https://github.com/home-assistant/core/pull/40132
+[#40139]: https://github.com/home-assistant/core/pull/40139
 [#40140]: https://github.com/home-assistant/core/pull/40140
 [#40144]: https://github.com/home-assistant/core/pull/40144
 [#40151]: https://github.com/home-assistant/core/pull/40151
 [#40153]: https://github.com/home-assistant/core/pull/40153
+[#40160]: https://github.com/home-assistant/core/pull/40160
+[#40161]: https://github.com/home-assistant/core/pull/40161
+[#40170]: https://github.com/home-assistant/core/pull/40170
+[#40174]: https://github.com/home-assistant/core/pull/40174
+[#40178]: https://github.com/home-assistant/core/pull/40178
 [@2Fake]: https://github.com/2Fake
 [@Adminiuga]: https://github.com/Adminiuga
 [@ArdaSeremet]: https://github.com/ArdaSeremet
@@ -2877,6 +3240,7 @@ and `frontend_extra_html_url` are now removed.
 [@brg468]: https://github.com/brg468
 [@bruxy70]: https://github.com/bruxy70
 [@bsmappee]: https://github.com/bsmappee
+[@cagnulein]: https://github.com/cagnulein
 [@caronc]: https://github.com/caronc
 [@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
@@ -3041,7 +3405,7 @@ and `frontend_extra_html_url` are now removed.
 [flo docs]: /integrations/flo/
 [freebox docs]: /integrations/freebox/
 [frontend docs]: /integrations/frontend/
-[generic docs]: /integrations/generic/
+[generic docs]: /integrations/generic_ip_camera/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [geo_location docs]: /integrations/geo_location/
 [gios docs]: /integrations/gios/
@@ -3052,7 +3416,6 @@ and `frontend_extra_html_url` are now removed.
 [growatt_server docs]: /integrations/growatt_server/
 [hangouts docs]: /integrations/hangouts/
 [hassio docs]: /integrations/hassio/
-[helpers docs]: /integrations/helpers/
 [history_stats docs]: /integrations/history_stats/
 [hive docs]: /integrations/hive/
 [hlk_sw16 docs]: /integrations/hlk_sw16/
@@ -3090,8 +3453,8 @@ and `frontend_extra_html_url` are now removed.
 [lovelace docs]: /integrations/lovelace/
 [luci docs]: /integrations/luci/
 [marytts docs]: /integrations/marytts/
-[media_finder docs]: /integrations/media_finder/
-[media_manager docs]: /integrations/media_manager/
+[media_finder docs]: /integrations/media_source/
+[media_manager docs]: /integrations/image/
 [media_player docs]: /integrations/media_player/
 [media_source docs]: /integrations/media_source/
 [mediaroom docs]: /integrations/mediaroom/
@@ -3137,7 +3500,6 @@ and `frontend_extra_html_url` are now removed.
 [plugwise docs]: /integrations/plugwise/
 [poolsense docs]: /integrations/poolsense/
 [powerwall docs]: /integrations/powerwall/
-[prezzibenzina docs]: /integrations/prezzibenzina/
 [progettihwsw docs]: /integrations/progettihwsw/
 [pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
 [qvr_pro docs]: /integrations/qvr_pro/
@@ -3235,7 +3597,6 @@ and `frontend_extra_html_url` are now removed.
 [xmpp docs]: /integrations/xmpp/
 [yandex_transport docs]: /integrations/yandex_transport/
 [yeelight docs]: /integrations/yeelight/
-[yr docs]: /integrations/yr/
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
 [zone docs]: /integrations/zone/
