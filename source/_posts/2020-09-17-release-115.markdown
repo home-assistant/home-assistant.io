@@ -210,7 +210,7 @@ All places that accept conditions, now accept templates directly. Some examples:
 automations:
   - alias: "My automation"
     ...
-    conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level') | int) > 50 }}"
+    condition: "{{ (state_attr('device_tracker.iphone', 'battery_level') | int) > 50 }}"
     ...
 ```
 
@@ -220,7 +220,7 @@ automations:
 
 ```yaml
 - choose:
-    - conditions: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
+    - condition: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
       sequence:
        - ...
 ```
@@ -268,7 +268,8 @@ action:
 {% endraw %}
 
 Don't worry, the old format still works as before, so this is not a breaking
-change. However, you can start removing those `data_template`'s.
+change. However, you can start removing those `data_template`'s by renaming to
+(or merging them with) `data`.
 
 The keys inside a data block, can be templates now too!
 
@@ -281,6 +282,10 @@ service: kef_custom.set_mode
 ```
 
 {% endraw %}
+
+### Variables
+
+Lorem ipsum.
 
 ### Other scripts and automation changes
 
@@ -490,7 +495,8 @@ Lorem ipsum.
   overall responsiveness.
   It now comes with a light platform to control the outdoor camera flood light and 
   contains services to set the home/away status of occupants as well as the outdoor camera mode.
-
+- The code editor in the UI is now theme-able, so make them look nice!
+- 
 - Performance
   - Template parsing and entity tracking?
   - Improve performance of fetching the state domain ([@bdraco] - [#38653])
