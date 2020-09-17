@@ -23,4 +23,4 @@ A device can also be added manually, click the button with `+` sign on the integ
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
-- Support relays, lights (brightness) and sensors
+- Support relays, lights (with brightness), sensors and rollers
