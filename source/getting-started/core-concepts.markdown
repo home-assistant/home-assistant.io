@@ -65,7 +65,7 @@ For example, let’s imagine you have a scene called “welcome home” that say
 
 ## Integrations
 
-Home Assistant is set up to work with devices and services from lots of different companies, including voice assistants, smart devices, cameras, and other home automation software. You can make home Assistant work with these services by installing **[integrations](https://www.home-assistant.io/integrations)**.
+Home Assistant is set up to work with devices and services from lots of different companies, including voice assistants, smart devices, cameras, and other home automation software. You can make Home Assistant work with these services by installing **[integrations](https://www.home-assistant.io/integrations)**.
 
 Once installed, integrations can make new entities available, add panels to Lovelace, and more.
 
