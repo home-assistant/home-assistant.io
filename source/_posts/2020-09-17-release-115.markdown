@@ -11,20 +11,6 @@ categories: Release-Notes
 og_image: /images/blog/2020-09-0.115/social.png
 ---
 
-## TODO
-
-- Social media image
-- Cloud expose domains/entity
-  - Needs more fluff and screenshots
-- Add card by entities
-  - Improve / extend text
-  - Add screenshot
-- Template processing section?
-- Ensure the blog post has a title & description that match
-- Make embeded YouTube vids public
-
-<!--<a href='/integrations/#version/0.115'><img src='/images/blog/2020-09-0.115/social.png' style='border: 0;box-shadow: none;'></a>-->
-
 ## Happy Birthday Home Assistant!
 
 <blockquote>
