@@ -109,7 +109,8 @@ navigating you around this release.
 - [Customize the sidebar](#customize-the-sidebar)
 - [Person image upload](#person-image-upload)
 - [Template developer tools](#template-developer-tools)
-- [Logbook](#logbook)
+- [Updated more info dialog](#updated-more-info-dialog)
+- [More information in the logbook panel](#more-information-in-the-logbook-panel)
 - [Reload everything YAML](#reload-everything-yaml)
 - [User password change](#user-password-change)
 - [Cloud expose domains/entity](#cloud-expose-domainsentity)
@@ -126,13 +127,24 @@ navigating you around this release.
 
 ## Media Browser
 
-This release includes an exciting set of features around media. If the media player supports it, you can now browse the player's media library and quickly change what you're listening to. No need for two apps anymore if you want to change the lights and pick some music.
+This release includes an exciting set of features around media. If the media
+player supports it, you can now browse the player's media library and quickly
+change what you're listening to. No need for two apps anymore if you want to
+change the lights and pick some music.
 
-Any media player can enable this new feature. This release adds media browser support to [Arcam FMJ](integrations/arcam_fmj), [Kodi](integrations/kodi), [Philips JS](integrations/philips_js), [Plex](integrations/plex), [Roku](integrations/roku), [Sonos](integrations/sonos) and [Spotify](/integrations/spotify)!
+Any media player can enable this new feature. This release adds media browser
+support to [Arcam FMJ](/integrations/arcam_fmj), [Kodi](/integrations/kodi),
+[Philips JS](/integrations/philips_js), [Plex](/integrations/plex),
+[Roku](/integrations/roku), [Sonos](/integrations/sonos)
+and [Spotify](/integrations/spotify)!
 
-Thanks to [@jjlawren] for the initial implementation and to [@cgtobi], [@ctalkington], [@martinhjelmare], [@elupus] for the work on the various integrations and backend refining.
+Thanks to [@jjlawren] for the initial implementation and to [@cgtobi],
+[@ctalkington], [@martinhjelmare], [@elupus] for the work on the various
+integrations and backend refining.
 
-But a media browser isn't just backend, it also needs to look good. Thankfully we had [@NKDZCK] on the case, with the help of [@bramkragten]. They came up with a beautiful design so you can browse your media in style.
+But a media browser isn't just backend, it also needs to look good. Thankfully,
+we had [@NKDZCK] on the case, with the help of [@bramkragten]. They came up with
+a beautiful design so you can browse your media in style.
 
 [@NKDZCK]: https://github.com/NKDZCK
 
@@ -140,11 +152,22 @@ But a media browser isn't just backend, it also needs to look good. Thankfully w
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4tQvMezHJkQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-When [@hunterjm] saw the new media browser, he got an idea. What if the user can use the media browser to browse media offered by any integration and play it on any of their media players? And so the [the media source integration](/integrations/media_source/) was born.
+When [@hunterjm] saw the new media browser, he got an idea. What if the user can
+use the media browser to browse media offered by any integration and play it on
+any of their media players? And so the
+[the media source integration](/integrations/media_source/) was born.
 
-The first media source that has been added is to allow users to play local media. Local media can be motion detection events from your IP camera or a bunch of music files to be used with [Home Assistant Tags](https://www.home-assistant.io/blog/2020/09/15/home-assistant-tags/).
+The first media source that has been added is to allow users to play local media.
+Local media can be motion detection events from your IP camera or a bunch of
+music files to be used with [Home Assistant Tags][tags].
 
-Home Assistant by default will look at the `/media` path. If you're using Home Assistant OS (the default install), you can use the Samba add-on to upload media. If you use Docker, you need to mount a volume at `/media` and if you use a Python virtual environment, the default is `<config>/media`. You can also specify your own media paths with a new configuration option in `configuration.yaml`:
+Home Assistant by default will look at the `/media` path. If you're using Home
+Assistant OS (the default install), you can use the Samba add-on to upload media.
+If you use Docker, you need to mount a volume at `/media` and if you use a
+Python virtual environment, the default is `<config>/media`.
+
+You can also specify your own media paths with a new configuration option
+in `configuration.yaml`:
 
 ```yaml
 homeassistant:
@@ -153,11 +176,19 @@ homeassistant:
     music: /media/music
 ```
 
-Media Source is not limited to local media. Any integration can offer their media. [@cgtobi] has upgraded [the Netatmo integration](/integrations/netatmo) which will now offer its recorded motion events to play.
+Media Source is not limited to local media. Any integration can offer their
+media. [@cgtobi] has upgraded [the Netatmo integration](/integrations/netatmo)
+which will now offer its recorded motion events to play.
 
-Media player integrations that want to play media sources will need to be updated. In this release we've updated [the Chromecast integration](/integrations/cast/). If you click it's media browser button, you will be presented with the available local sources.
+Media player integrations that want to play media sources will need to be
+updated. In this release we've updated [the Chromecast integration](/integrations/cast/).
+If you click it's media browser button, you will be presented with the available
+local sources.
 
-Sometimes you just want to play your media without having to turn on the TV. To cover that case, [@NKDZCK] added a new media browser to the Home Assistant interface which can be used to play your media. That way you can quickly see what that motion event that you just received was about.
+Sometimes you just want to play your media without having to turn on the TV. To
+cover that case, [@NKDZCK] added a new media browser to the Home Assistant
+interface which can be used to play your media. That way you can quickly see
+what that motion event that you just received was about.
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/yvbjeLwXo30" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -791,7 +822,7 @@ Drag and and drop the entities in the order you want.
   It now comes with a light platform to control the outdoor camera flood light and 
   contains services to set the home/away status of occupants as well as the outdoor camera mode.
 - The code editor in the UI is now theme-able, so make them look nice!
--
+- The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), this adds another 100 icons you can use!
 - Performance
   - Template parsing and entity tracking?
   - Improve performance of fetching the state domain ([@bdraco] - [#38653])
@@ -1609,11 +1640,17 @@ to your theme.
   <summary><b>MDI Icons</b></summary>
   <p>
 
-The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), this adds another 100 icons you can use!
+The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
+this adds another 100 icons you can use!
 
-In 5.5.55 there was 1 breaking change, if you used the icon `mdi:scooter` this has been renamed to `mdi:human-scooter` and you need to adjust your configuration.
+In 5.5.55 there was 1 breaking change, if you used the icon `mdi:scooter` this
+has been renamed to `mdi:human-scooter` and you need to adjust your
+configuration.
 
-All icons that were deprecated in [0.113.0](https://www.home-assistant.io/blog/2020/07/22/release-113/#mdi-icons-updated) have now been removed. Icons that were renamed or deleted in version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45) will no longer work.
+All icons that were deprecated in [0.113.0](/blog/2020/07/22/release-113/#mdi-icons-updated)
+have now been removed. Icons that were renamed or deleted in
+version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45)
+will no longer work.
 
   </p>
 </details>
