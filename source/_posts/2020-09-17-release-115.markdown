@@ -26,9 +26,6 @@ og_image: /images/blog/2020-09-0.115/social.png
   - This section contains 2 things. Reconsider title of this chapter
   - Needs screenshot of the new more information dialog
   - Needs screenshot of the script caused the state change
-- Reload everything YAML
-  - Improve / extend text
-  - Thank bdraco
 - User password change?
   - Either keep it and add some content + screenshot or move it to other noteworthy changes
 - Cloud expose domains/entity
@@ -119,7 +116,8 @@ navigating you around this release.
 - [Automation & Scripts updates](#automation--scripts-updates)
   - [New action: Wait for trigger](#new-action-wait-for-trigger)
   - [Triggers & Conditions on entity attributes](#triggers--conditions-on-entity-attributes)
-  - [Use input_* helper entities directly in your automations and scripts](#use-input_-helper-entities-directly-in-your-automations-and-scripts)
+  - [Use `input_datetime` helpers in automation triggers](#use-input_datetime-helpers-in-automation-triggers)
+  - [Use `input_*` helpers in conditions](#use-input_-helpers-in-conditions)
   - [Shorthand notation for template conditions](#shorthand-notation-for-template-conditions)
   - [Use templates directly in `data` and `service` fields](#use-templates-directly-in-data-and-service-fields)
   - [Variables](#variables)
@@ -129,7 +127,7 @@ navigating you around this release.
 - [Person image upload](#person-image-upload)
 - [Template developer tools](#template-developer-tools)
 - [Logbook](#logbook)
-- [Reload everything YAML and integration](#reload-everything-yaml-and-integration)
+- [Reload everything YAML](#reload-everything-yaml)
 - [User password change](#user-password-change)
 - [Cloud expose domains/entity](#cloud-expose-domainsentity)
 - [Add card by entities](#add-card-by-entities)
@@ -663,11 +661,14 @@ On the logbook panel, we added some more information. You can now see what
 automation or script caused the change of state and also what action was used
 to do it.
 
-## Reload everything YAML and integration
+## Reload everything YAML
 
-We added a lot of YAML integrations that can be reloaded without restarting
-Home Assistant, you can just reload it from the configuration server control
-page (you will need advanced mode).
+WTH do we still need to restart Home Assistant for applying YAML configuration?
+That was one of the WTH raised. It is being worked on!
+
+This release, [@bdraco] found a wait for reloading some of internal integrations
+and boosted this capability to a lot of integration. For those, you can just
+reload the YAML configuration server control page (you will need advanced mode).
 
 As of this release, beside the integration that already could be reloaded,
 the following integration can now reload their YAML configuration without
@@ -685,7 +686,7 @@ restart Home Assistant:
 - [MQTT][mqtt docs]
 - [Ping][ping docs]
 - [RESTful][rest docs]
-- [RPi GPIO][rpi_gpio docs]
+- [Raspberry Pi GPIO][rpi_gpio docs]
 - [SMTP][smtp docs]
 - [Statistics][statistics docs]
 - [Telegram][telegram docs]
@@ -693,9 +694,14 @@ restart Home Assistant:
 - [Trend][trend docs]
 - [Universal Media Player][universal docs]
 
-You can also reload an integration that is setup with the UI. This can be useful
+You can also reload an integration that is setup with the UI! This can be useful
 when it lost it's connection or is in an otherwise failed state. You can find
 the reload the button in the overflow menu on the integration card.
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/integrations-reload.png' alt='Screenshot of reloading an UI configured integration.'></a>
+UI configured integration can now be reloaded as well!
+</p>
 
 ## User password change
 
