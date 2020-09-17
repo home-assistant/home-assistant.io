@@ -69,7 +69,7 @@ Home Assistant is set up to work with devices and services from lots of differen
 
 Once installed, integrations can make new entities available, add panels to Lovelace, and more.
 
-_Not to be confused with add-ons._
+_Formerly known as components; not to be confused with add-ons._
 
 ## The Home Assistant software
 
