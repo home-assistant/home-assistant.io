@@ -20,7 +20,6 @@ og_image: /images/blog/2020-09-0.115/social.png
   - Improve / extend text
   - Add screenshot
 - Template processing section?
-- Re-order breaking changes (Alphabetically this time maybe? It is quite a list...)
 - Ensure the blog post has a title & description that match
 - Make embeded YouTube vids public
 
