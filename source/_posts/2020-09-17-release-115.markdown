@@ -90,8 +90,7 @@ What a community! The month of WTH is almost over now, after that we will
 close the category on the forum, until the next WTH month.
 
 Besides that, two totally new and big features are added this release, which
-we really wanted to polish before releasing it. The additional time this release
-was very well spent.
+we really wanted to polish before releasing it.
 
 Normally I write some things about the release in my personal introduction
 note right here, but honestly, I have no idea where to start... it is just
