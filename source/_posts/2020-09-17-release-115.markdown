@@ -21,7 +21,6 @@ og_image: /images/blog/2020-09-0.115/social.png
   - Add screenshot
 - Template processing section?
 - Re-order breaking changes (Alphabetically this time maybe? It is quite a list...)
-- Finally: Update/slim TOC
 - Ensure the blog post has a title & description that match
 - Make embeded YouTube vids public
 
@@ -89,11 +88,12 @@ Happy birthday and enjoy the release!
 Alright, this release is massive, so here is a table of contents for helping
 navigating you around this release.
 
-- [TODO](#todo)
-- [Happy Birthday Home Assistant!](#happy-birthday-home-assistant)
-- [Table of contents](#table-of-contents)
 - [Media Browser](#media-browser)
 - [Home Assistant Tags](#home-assistant-tags)
+- [Customize the sidebar](#customize-the-sidebar)
+- [Person image upload](#person-image-upload)
+- [Updated more info dialog](#updated-more-info-dialog)
+- [More information in the logbook panel](#more-information-in-the-logbook-panel)
 - [Automation & Scripts updates](#automation--scripts-updates)
   - [New action: Wait for trigger](#new-action-wait-for-trigger)
   - [Triggers & Conditions on entity attributes](#triggers--conditions-on-entity-attributes)
@@ -104,11 +104,7 @@ navigating you around this release.
   - [Variables](#variables)
   - [Other scripts and automation changes](#other-scripts-and-automation-changes)
 - [Calendar card](#calendar-card)
-- [Customize the sidebar](#customize-the-sidebar)
-- [Person image upload](#person-image-upload)
 - [Template developer tools](#template-developer-tools)
-- [Updated more info dialog](#updated-more-info-dialog)
-- [More information in the logbook panel](#more-information-in-the-logbook-panel)
 - [Reload everything YAML](#reload-everything-yaml)
 - [User password change](#user-password-change)
 - [Cloud expose domains/entity](#cloud-expose-domainsentity)
@@ -118,10 +114,7 @@ navigating you around this release.
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
-- [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
-- [Farewell to the following](#farewell-to-the-following)
-- [All changes](#all-changes)
 
 ## Media Browser
 
@@ -210,6 +203,78 @@ scanner available as shown in the image above.
 For all details, [read the dedicated blog post about Home Assistant tags][tags]!
 
 [tags]: /blog/2020/09/15/home-assistant-tags/
+
+## Customize the sidebar
+
+One of the most requested functions of What the heck was customizing the
+sidebar, you do want history for your entities in the more info dialog, but you
+don't use that history panel. Or you do want calendars for automating, or in
+the new Lovelace cards, but don't want a calendar panel with all your calendars.
+
+Now you can hide panels from the sidebar, and rearrange them, by just drag and
+dropping them.
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/sidebar.gif' alt='Screen recording of customizing the sidebar'></a>
+Screen recording of customizing the sidebar.
+</p>
+
+You can enter edit mode by pressing and holding the header of the sidebar, or
+from your profile page. You can then drag the items in the order you want them
+or remove them by clicking the `x` next to it.
+
+The removed items will be visible at the bottom of the list, by clicking the
+`+` button you can add them back to the sidebar.
+
+These settings are stored on your device in the local storage of your browser,
+this means that this setting is device based and will be cleared when you logout.
+
+## Person image upload
+
+You can now upload images for a person in the frontend!
+
+Select or drop an image in the input field and then crop it to a square. The
+image is stored on your Home Assistant server.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>
+</div>
+
+We will use the image in the frontend for your persons, but also in the sidebar
+for the user that is linked to this person.
+
+This feature is powered by the new image integration and opens up for future
+possibilities. For example, uploading images, for use in your Lovelace picture
+cards, would be nice!
+
+## Updated more info dialog
+
+The more info dialog is updated. In case an entity has controls, for example
+a light, the more info dialog will now have 2 tabs. One for controls and one
+for history.
+
+On the history tab, you can find the history graph you are used to and now also
+a list of logbook entries of the specific entity.
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/more-info.png' alt='Screenshot of the update more info dialogs'></a>
+The updated more info dialogs, showing the two tabs: details & history.
+</p>
+
+For entities without controls (like a sensor), no tabs will be shown like before.
+
+## More information in the logbook panel
+
+The logbook will now show what automation or script caused the the change and
+what action was used to make the change happen.
+
+This solves, yet another, WTH request. It will be really helpful to find those
+cases that are: WTH turned on this light?
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/logbook.png' alt='Screenshot of the logbook showing the sources of the events.'></a>
+The logbook shows which automation changed the state of my stream light.
+</p>
 
 ## Automation & Scripts updates
 
@@ -611,45 +676,6 @@ If you want multiple calendar panels, just create a Lovelace dashboard with a vi
 Screenshot of the new calendar card.
 </p>
 
-## Customize the sidebar
-
-One of the most requested functions of What the heck was customizing the
-sidebar, you do want history for your entities in the more info dialog, but you
-don't use that history panel. Or you do want calendars for automating, or in the new Lovelace cards, but don't
-want a calendar panel with all your calendars.
-
-Now you can hide panels from the sidebar, and rearrange them, by just drag and dropping them.
-
-<p class='img'>
-<img src='/images/blog/2020-09-0.115/sidebar.gif' alt='Screen recording of customizing the sidebar'></a>
-Screen recording of customizing the sidebar.
-</p>
-
-You can enter edit mode by pressing and holding the header of the sidebar, or from your profile page. You can then drag
-the items in the order you want them or remove them by clicking the `x` next to it.
-
-The removed items will be visible at the bottom of the list, by clicking the `+` button you can add them back to the sidebar.
-
-These settings are stored on your device in the local storage of your browser, this means that this setting is device based and will be cleared when you logout.
-
-## Person image upload
-
-You can now upload images for a person in the frontend!
-
-Select or drop an image in the input field and then crop it to a square. The
-image is stored on your Home Assistant server.
-
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>
-</div>
-
-We will use the image in the frontend for your persons, but also in the sidebar
-for the user that is linked to this person.
-
-This feature is powered by the new image integration and opens up for future
-possibilities. For example, uploading images, for use in your Lovelace picture
-cards, would be nice!
-
 ## Template developer tools
 
 The template developer tools are very useful for checking if the template you
@@ -672,35 +698,6 @@ Templates you write in the developer tools, are now updating live!
 We will also listen for changes of the entities you used in your template and
 automatically re-render your template. As an added bonus we will show
 which entities Home Assistant dectected you are using in your template
-
-## Updated more info dialog
-
-The more info dialog is updated. In case an entity has controls, for example
-a light, the more info dialog will now have 2 tabs. One for controls and one
-for history.
-
-On the history tab, you can find the history graph you are used to and now also
-a list of logbook entries of the specific entity.
-
-<p class='img'>
-<img src='/images/blog/2020-09-0.115/more-info.png' alt='Screenshot of the update more info dialogs'></a>
-The updated more info dialogs, showing the two tabs: details & history.
-</p>
-
-For entities without controls (like a sensor), no tabs will be shown like before.
-
-## More information in the logbook panel
-
-The logbook will now show what automation or script caused the the change and
-what action was used to make the change happen.
-
-This solves, yet another, WTH request. It will be really helpful to find those
-cases that are: WTH turned on this light?
-
-<p class='img'>
-<img src='/images/blog/2020-09-0.115/logbook.png' alt='Screenshot of the logbook showing the sources of the events.'></a>
-The logbook shows which automation changed the state of my stream light.
-</p>
 
 ## Reload everything YAML
 
