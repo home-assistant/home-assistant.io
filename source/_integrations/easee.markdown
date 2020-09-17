@@ -58,7 +58,7 @@ Selects which of the available senors to enable or disable. In addition to provi
 | cost_per_kwh | Cost per kWh |
 
 Each sensor will have a complete name on the form of:
-```
+```sensor
 sensor.easee_charger_<charger_id>_<sensor_name>
 ```
 
@@ -67,7 +67,7 @@ sensor.easee_charger_<charger_id>_<sensor_name>
 Selects which sensors for energy consumptions should be created, options are 1, 7, 14, 30 and 365 days.
 
 The sensor will have a complete name on the form of:
-```
+```sensor
 sensor.easee_charger_<charger_id>_consumptions_days_<days>
 ```
 
