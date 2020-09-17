@@ -88,6 +88,9 @@ Happy birthday and enjoy the release!
 Alright, this release is massive, so here is a table of contents for helping
 navigating you around this release.
 
+- [TODO](#todo)
+- [Happy Birthday Home Assistant!](#happy-birthday-home-assistant)
+- [Table of contents](#table-of-contents)
 - [Media Browser](#media-browser)
 - [Home Assistant Tags](#home-assistant-tags)
 - [Customize the sidebar](#customize-the-sidebar)
@@ -114,7 +117,10 @@ navigating you around this release.
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
 
 ## Media Browser
 
@@ -137,7 +143,7 @@ But a media browser isn't just backend, it also needs to look good. Thankfully,
 we had [@NKDZCK] on the case, with the help of [@bramkragten]. They came up with
 a beautiful design so you can browse your media in style.
 
-[@NKDZCK]: https://github.com/NKDZCK
+[@nkdzck]: https://github.com/NKDZCK
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4tQvMezHJkQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -303,12 +309,12 @@ automation:
   - trigger:
       - platform: state
         entity_id: binary_sensor.gate1
-        to: 'on'
+        to: "on"
     action:
       - wait_for_trigger:
           - platform: state
             entity_id: binary_sensor.gate2
-            to: 'on'
+            to: "on"
         timeout: 10
         continue_on_timeout: false
       - service: notify.notify
@@ -431,7 +437,7 @@ conditions:
 ```
 
 The `numeric_state` condition now accepts `input_number` helper entities for
-the `above`  and `below` options.
+the `above` and `below` options.
 
 ```yaml
 conditions:
@@ -496,7 +502,7 @@ automations:
 - choose:
     - condition: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
       sequence:
-       - ...
+        - ...
 ```
 
 {% endraw %}
@@ -511,7 +517,7 @@ condition:
   conditions:
     - "{{ is_state('device_tracker.iphone', 'away') }}"
     - condition: numeric_state
-      entity_id: 'sensor.temperature'
+      entity_id: "sensor.temperature"
       below: 20
 ```
 
@@ -655,11 +661,9 @@ triggered while it was already running:
 
 ```yaml
 automation:
-  - trigger:
-      ...
+  - trigger: ...
     max_exceeded: silent
-    action:
-      ...
+    action: ...
 ```
 
 ## Calendar card
@@ -766,13 +770,15 @@ Are you a bit overwhelmed by all the different types of cards Lovelace has? You
 can now just select the entities you want to use for a card, and have Lovelace
 suggest a card for you.
 
-TODO: screenshot
-<!-- Image template
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'>
-Lorem ipsum.
+<img src='/images/blog/2020-09-0.115/add-card-by-entity-selection.png' alt='Screenshot of add card by entity selection view in Lovelace UI.'>
+Select one or more entities to populate the card.
 </p>
--->
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/add-card-by-entity-confirmation.png' alt='Screenshot of add card by entity confirmation view in Lovelace UI.'>
+A confirmation dialogue is shown before adding the suggested card.
+</p>
 
 In the add card dialog, we added a second tab with a list of all your entities.
 Select the entities you want to use and click continue. We will suggest a card
@@ -812,6 +818,7 @@ Drag and and drop the entities in the order you want.
   this adds another 100 icons you can use!
 
 - The Google Assistant integration got some updates:
+
   - [@elupus] added support for asking for the previous or next input source.
   - Basic support for controlling light effect has been added by [@mjg59].
   - [@blueshiftlabs] added capabilities to control media player muting and
@@ -1013,9 +1020,9 @@ To set up a Broadlink device, click _Configuration_ in the sidebar and click
 _Integrations_.
 
 The devices will be imported from your configuration files to that page. If yousee
- your device there, click _Configure_. If not, click the `+` icon in the lower
- right, click _Broadlink_, enter the host and follow the instructions to
- complete the setup.
+your device there, click _Configure_. If not, click the `+` icon in the lower
+right, click _Broadlink_, enter the host and follow the instructions to
+complete the setup.
 
 The name you choose will serve as a template for the entities. You can change
 the entity name and id in the entity settings on the frontend. You may need to
@@ -1240,12 +1247,12 @@ Let's say you've previously used the following configuration:
 ```yaml
 knx:
   tunneling:
-    host: '192.168.0.1'
+    host: "192.168.0.1"
 switch:
   - platform: knx
     name: Switch
-    address: '2/0/1'
-    state_address: '2/0/2'
+    address: "2/0/1"
+    state_address: "2/0/2"
 ```
 
 You'll need to migrate it as follows:
@@ -1253,11 +1260,11 @@ You'll need to migrate it as follows:
 ```yaml
 knx:
   tunneling:
-    host: '192.168.0.1'
+    host: "192.168.0.1"
   switch:
     - name: Switch
-      address: '2/0/1'
-      state_address: '2/0/2'
+      address: "2/0/1"
+      state_address: "2/0/2"
 ```
 
 ([@marvin-w] - [#39219]) ([knx docs])
@@ -1280,7 +1287,7 @@ keys to access the rain forecast within the hour (`1_hour_forecast`).
 Example of the new attributes:
 
 ```yaml
-forecast_time_ref: '2020-08-20T19:25:00+00:00'
+forecast_time_ref: "2020-08-20T19:25:00+00:00"
 1_hour_forecast:
   0 min: Temps sec
   5 min: Temps sec
@@ -1680,7 +1687,7 @@ modern certificates and is able to support the new Let's Encrypt certificates.
 - Bump codespell from v1.16.0 to v1.17.1 and fix new spelling errors ([@basnijholt] - [#38663])
 - Bump pre-commit-hooks from v2.40 to v3.2.0 ([@basnijholt] - [#38664])
 - Bump env_canada to 0.2.0 ([@michaeldavie] - [#37467]) ([environment_canada docs])
-- Add support for reload_on_update to _abort_if_unique_id_configured ([@bdraco] - [#38638])
+- Add support for reload_on_update to \_abort_if_unique_id_configured ([@bdraco] - [#38638])
 - Add device classes for electrical measurement ([@fabiocastagnino] - [#36800]) ([sensor docs])
 - Add support for exposing light effects via Google Assistant ([@mjg59] - [#38575]) ([google_assistant docs])
 - Support extracting entities by domain from templates ([@bdraco] - [#38647])
@@ -1726,11 +1733,11 @@ modern certificates and is able to support the new Let's Encrypt certificates.
 - Add energy device class to Toon sensors ([@frenck] - [#38686]) ([toon docs])
 - Time trigger can also accept an input_datetime Entity ID ([@pnbruckner] - [#38698]) ([automation docs])
 - Enable PAHO MQTT client logging ([@emontnemery] - [#38767]) ([mqtt docs])
-- Improve X-Forwarded-* request headers handling ([@frenck] - [#38696]) ([http docs]) (breaking-change)
+- Improve X-Forwarded-\* request headers handling ([@frenck] - [#38696]) ([http docs]) (breaking-change)
 - Adapt the ONVIF Renewal termination_time for Amcrest cameras ([@esev] - [#37750]) ([onvif docs])
 - Revert "Add energy device class to Toon sensors" ([@frenck] - [#38768]) ([toon docs])
 - Add H.265 support to stream component ([@uvjustin] - [#38125]) ([stream docs])
-- Stream clients operate on a copy of the intnernal self._outputs dict ([@esev] - [#38766]) ([stream docs])
+- Stream clients operate on a copy of the intnernal self.\_outputs dict ([@esev] - [#38766]) ([stream docs])
 - Allow ONVIF devices to resume a PullPoint subscription when the camera reboots ([@esev] - [#37711]) ([onvif docs])
 - Cleanup Netatmo code ([@cgtobi] - [#38772]) ([netatmo docs])
 - Add config flow to insteon component ([@teharris1] - [#36467]) ([insteon docs])
@@ -1755,7 +1762,7 @@ modern certificates and is able to support the new Let's Encrypt certificates.
 - Update rokuecp to 0.6.0 ([@ctalkington] - [#38819]) ([roku docs])
 - Add Agent DVR Alarm Control Panel ([@ispysoftware] - [#36468]) ([agent_dvr docs]) (new-platform)
 - Cleanup Netatmo sensors ([@cgtobi] - [#38627]) ([netatmo docs]) (breaking-change)
-- Add default_* to device registry ([@balloob] - [#38829]) ([mikrotik docs])
+- Add default\_\* to device registry ([@balloob] - [#38829]) ([mikrotik docs])
 - Convert Channels platform services to use platform register ([@balloob] - [#38827]) ([channels docs])
 - Add binary sensor support to the Flo integration ([@dmulcahey] - [#38267]) ([flo docs]) (new-integration)
 - Nightscout PR fixes ([@marciogranzotto] - [#38737]) ([nightscout docs])
@@ -2239,7 +2246,7 @@ modern certificates and is able to support the new Let's Encrypt certificates.
 - Fix monoprice option flow test ([@MartinHjelmare] - [#39685]) ([monoprice docs])
 - Add iSmartGate support ([@vangorra] - [#39437]) ([gogogate2 docs])
 - Fix for starline authorization ([@Funcy-dcm] - [#39674]) ([starline docs])
-- Drop UNIT_ prefix for percentage constant ([@springstan] - [#39383])
+- Drop UNIT\_ prefix for percentage constant ([@springstan] - [#39383])
 - Use more homeassistant constants in NWS ([@MatthewFlamm] - [#39690]) ([nws docs])
 - Match documentation on expose being default True ([@elupus] - [#39692]) ([google_assistant docs])
 - Add tradfri api call error handling ([@MartinHjelmare] - [#39681]) ([tradfri docs])
@@ -2270,7 +2277,7 @@ modern certificates and is able to support the new Let's Encrypt certificates.
 - Axis - Improve naming of some events ([@Kane610] - [#39699]) ([axis docs]) (breaking-change)
 - Add hassfest requirements validation ([@MartinHjelmare] - [#39329])
 - Fix some missing ozw sensors ([@firstof9] - [#39686]) ([ozw docs])
-- State condition can also accept an input_* Entity ID as state value ([@frenck] - [#39691])
+- State condition can also accept an input\_\* Entity ID as state value ([@frenck] - [#39691])
 - allow creating directories from camera snapshot, stream record, and tensorflow file out ([@hunterjm] - [#39728]) ([camera docs]) ([stream docs]) ([tensorflow docs])
 - Set DEVICE_CLASS_GATE for iSmartGate gates ([@bdraco] - [#39703]) ([gogogate2 docs])
 - Add unique_id to jewish_calendar entities ([@ajmarks] - [#39025]) ([jewish_calendar docs])
@@ -3174,40 +3181,40 @@ modern certificates and is able to support the new Let's Encrypt certificates.
 [#40144]: https://github.com/home-assistant/core/pull/40144
 [#40151]: https://github.com/home-assistant/core/pull/40151
 [#40153]: https://github.com/home-assistant/core/pull/40153
-[@2Fake]: https://github.com/2Fake
-[@Adminiuga]: https://github.com/Adminiuga
-[@ArdaSeremet]: https://github.com/ArdaSeremet
-[@CoMPaTech]: https://github.com/CoMPaTech
-[@Danielhiversen]: https://github.com/Danielhiversen
-[@DarkFox]: https://github.com/DarkFox
-[@DelusionalAI]: https://github.com/DelusionalAI
-[@Emilv2]: https://github.com/Emilv2
-[@Ernst79]: https://github.com/Ernst79
-[@Franchie]: https://github.com/Franchie
-[@Funcy-dcm]: https://github.com/Funcy-dcm
-[@IcyPalm]: https://github.com/IcyPalm
-[@JPHutchins]: https://github.com/JPHutchins
-[@Jc2k]: https://github.com/Jc2k
-[@JeffLIrion]: https://github.com/JeffLIrion
-[@KTibow]: https://github.com/KTibow
-[@Kane610]: https://github.com/Kane610
-[@Mariusthvdb]: https://github.com/Mariusthvdb
-[@MartinHjelmare]: https://github.com/MartinHjelmare
-[@MatthewFlamm]: https://github.com/MatthewFlamm
-[@Misiu]: https://github.com/Misiu
-[@OnFreund]: https://github.com/OnFreund
-[@Quentame]: https://github.com/Quentame
-[@Rikorose]: https://github.com/Rikorose
-[@RobBie1221]: https://github.com/RobBie1221
-[@RogerSelwyn]: https://github.com/RogerSelwyn
-[@SNoof85]: https://github.com/SNoof85
-[@SeanPM5]: https://github.com/SeanPM5
-[@SukramJ]: https://github.com/SukramJ
-[@TheGardenMonkey]: https://github.com/TheGardenMonkey
-[@TomBrien]: https://github.com/TomBrien
-[@TomerFi]: https://github.com/TomerFi
-[@VDigitall]: https://github.com/VDigitall
-[@Vaarlion]: https://github.com/Vaarlion
+[@2fake]: https://github.com/2Fake
+[@adminiuga]: https://github.com/Adminiuga
+[@ardaseremet]: https://github.com/ArdaSeremet
+[@compatech]: https://github.com/CoMPaTech
+[@danielhiversen]: https://github.com/Danielhiversen
+[@darkfox]: https://github.com/DarkFox
+[@delusionalai]: https://github.com/DelusionalAI
+[@emilv2]: https://github.com/Emilv2
+[@ernst79]: https://github.com/Ernst79
+[@franchie]: https://github.com/Franchie
+[@funcy-dcm]: https://github.com/Funcy-dcm
+[@icypalm]: https://github.com/IcyPalm
+[@jphutchins]: https://github.com/JPHutchins
+[@jc2k]: https://github.com/Jc2k
+[@jefflirion]: https://github.com/JeffLIrion
+[@ktibow]: https://github.com/KTibow
+[@kane610]: https://github.com/Kane610
+[@mariusthvdb]: https://github.com/Mariusthvdb
+[@martinhjelmare]: https://github.com/MartinHjelmare
+[@matthewflamm]: https://github.com/MatthewFlamm
+[@misiu]: https://github.com/Misiu
+[@onfreund]: https://github.com/OnFreund
+[@quentame]: https://github.com/Quentame
+[@rikorose]: https://github.com/Rikorose
+[@robbie1221]: https://github.com/RobBie1221
+[@rogerselwyn]: https://github.com/RogerSelwyn
+[@snoof85]: https://github.com/SNoof85
+[@seanpm5]: https://github.com/SeanPM5
+[@sukramj]: https://github.com/SukramJ
+[@thegardenmonkey]: https://github.com/TheGardenMonkey
+[@tombrien]: https://github.com/TomBrien
+[@tomerfi]: https://github.com/TomerFi
+[@vdigitall]: https://github.com/VDigitall
+[@vaarlion]: https://github.com/Vaarlion
 [@ajmarks]: https://github.com/ajmarks
 [@akinomeroglu]: https://github.com/akinomeroglu
 [@alandtse]: https://github.com/alandtse
@@ -3315,7 +3322,7 @@ modern certificates and is able to support the new Let's Encrypt certificates.
 [@shenxn]: https://github.com/shenxn
 [@spacegaier]: https://github.com/spacegaier
 [@springstan]: https://github.com/springstan
-[@starkillerOG]: https://github.com/starkillerOG
+[@starkillerog]: https://github.com/starkillerOG
 [@stephan192]: https://github.com/stephan192
 [@stlehmann]: https://github.com/stlehmann
 [@teharris1]: https://github.com/teharris1
