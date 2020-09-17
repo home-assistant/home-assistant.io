@@ -22,9 +22,6 @@ og_image: /images/blog/2020-09-0.115/social.png
 - Customize the sidebar
   - Improve / extend text
   - Animation or recording on how that works
-- Template developer tools
-  - Check text
-  - Add animated gif on the live update
 - Logbook
   - This section contains 2 things. Reconsider title of this chapter
   - Needs screenshot of the new more information dialog
@@ -631,23 +628,22 @@ The template developer tools are very useful for checking if the template you
 made works and does what you want it to do. But people had some annoyances with
 the tool; the editor is always filled with sample data, that can give a lot of
 response. It would be more useful to have your previously used template there.
+Yes, you guessed it, another WTH!
 
 The template would also not automatically re-render after the state of an entity
-is changed.
-
-TODO: animated gif?
-<!-- Image template
-<p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
-</p>
--->
+is changed. Causing you needed to change the template in order to re-render it.
 
 We addressed both these issues, we save your last-used template and will show
 that instead of the example when you visit the template developer tools.
 
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/dev-tools-templates.gif' alt='Screenrecording the live state changes in the template development tools.'></a>
+Templates you write in the developer tools, are now updating live!
+</p>
+
 We will also listen for changes of the entities you used in your template and
-automatically re-render your template.
+automatically re-render your template. As an added bonus we will show
+which entities Home Assistant dectected you are using in your template
 
 ## Logbook
 
