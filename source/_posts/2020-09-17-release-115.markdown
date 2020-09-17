@@ -14,12 +14,6 @@ og_image: /images/blog/2020-09-0.115/social.png
 ## TODO
 
 - Social media image
-- Media browser section
-  - Definitely needs a vid
-- Logbook
-  - This section contains 2 things. Reconsider title of this chapter
-  - Needs screenshot of the new more information dialog
-  - Needs screenshot of the script caused the state change
 - Cloud expose domains/entity
   - Needs more fluff and screenshots
 - Add card by entities
@@ -473,7 +467,7 @@ service: kef_custom.set_mode
 
 Another WTH item "Why can't we have variables?!". This WTH is not fully solved,
 but a good start is made this release by adding support for variables to
-automation and script.
+automation and scripts.
 
 Here is an example automation:
 
@@ -650,23 +644,34 @@ We will also listen for changes of the entities you used in your template and
 automatically re-render your template. As an added bonus we will show
 which entities Home Assistant dectected you are using in your template
 
-## Logbook
+## Updated more info dialog
 
-The more info dialog is updated, it now has 2 tabs. One for controls and one
-for history. On the history tab, you can find the history graph you are used to
-and now also a list of logbook entries of the specific entity.
+The more info dialog is updated. In case an entity has controls, for example
+a light, the more info dialog will now have 2 tabs. One for controls and one
+for history.
 
-TODO: screenshot
-<!-- Image template
+On the history tab, you can find the history graph you are used to and now also
+a list of logbook entries of the specific entity.
+
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
+<img src='/images/blog/2020-09-0.115/more-info.png' alt='Screenshot of the update more info dialogs'></a>
+The updated more info dialogs, showing the two tabs: details & history.
 </p>
--->
 
-On the logbook panel, we added some more information. You can now see what
-automation or script caused the change of state and also what action was used
-to do it.
+For entities without controls (like a sensor), no tabs will be shown like before.
+
+## More information in the logbook panel
+
+The logbook will now show what automation or script caused the the change and
+what action was used to make the change happen.
+
+This solves, yet another, WTH request. It will be really helpful to find those
+cases that are: WTH turned on this light?
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/logbook.png' alt='Screenshot of the logbook showing the sources of the events.'></a>
+The logbook shows which automation changed the state of my stream light.
+</p>
 
 ## Reload everything YAML
 
