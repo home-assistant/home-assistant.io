@@ -31,9 +31,6 @@ og_image: /images/blog/2020-09-0.115/social.png
 - Add card by entities
   - Improve / extend text
   - Add screenshot
-- Order entities in Lovelace UI editor
-  - improve / extend text
-  - Needs gif animation of the moving action
 - Template processing section?
 - Other noteworthy changes section
 - Breaking change MDI icons needs a note about the backward compatibility removed
@@ -750,14 +747,10 @@ You can now sort the entities in Lovelace UI editors by just dragging them.
 No more clicking the up and down buttons over and over again, simply drag the
 item up or down.
 
-TODO: Animated gif
-
-<!-- Image template
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
+<img src='/images/blog/2020-09-0.115/order-entities.gif' alt='Screenrecording of dragging and dropping entities to re-order'></a>
+Drag and and drop the entities in the order you want.
 </p>
--->
 
 ## Other noteworthy changes
 
