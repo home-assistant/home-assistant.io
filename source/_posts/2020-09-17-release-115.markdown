@@ -119,7 +119,7 @@ Happy birthday and enjoy the release!
 ## Table of contents
 
 Alright, this release is massive, so here is a table of contents for helping
-navigating your around this release.
+navigating you around this release.
 
 - [TODO](#todo)
 - [Happy Birthday Home Assistant!](#happy-birthday-home-assistant)
@@ -283,7 +283,7 @@ Some example triggers and conditions using attributes in YAML:
 trigger:
   - platform: state
     entity_id: climate.living_room
-    attribute: havc_action
+    attribute: hvac_action
     to: "heating"
   - platform: numeric_state
     entity_id: weather.outside
@@ -1507,7 +1507,11 @@ to your theme.
   <summary><b>MDI Icons</b></summary>
   <p>
 
-The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), another 100 icons where added.
+The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), this adds another 100 icons you can use!
+
+In 5.5.55 there was 1 breaking change, if you used the icon `mdi:scooter` this has been renamed to `mdi:human-scooter` and you need to adjust your configuration.
+
+All icons that were deprecated in [0.113.0](https://www.home-assistant.io/blog/2020/07/22/release-113/#mdi-icons-updated) have now been removed.
 
   </p>
 </details>
