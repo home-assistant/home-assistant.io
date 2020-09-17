@@ -188,7 +188,7 @@ what that motion event that you just received was about.
 ## Home Assistant Tags
 
 <p class='img'>
-<img src='/images/blog/2020-09-15-home-assistant-tags/tag-reader.jpg' alt='Photo of the Home Assistant tag reader made by Adonno'></a>
+<img src='/images/blog/2020-09-15-home-assistant-tags/tag-reader.jpg' alt='Photo of the Home Assistant tag reader made by Adonno'>
 The Home Assistant tag reader, made by Adonno with the help of MagnusO.
 </p>
 
@@ -215,7 +215,7 @@ Now you can hide panels from the sidebar, and rearrange them, by just drag and
 dropping them.
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/sidebar.gif' alt='Screen recording of customizing the sidebar'></a>
+<img src='/images/blog/2020-09-0.115/sidebar.gif' alt='Screen recording of customizing the sidebar'>
 Screen recording of customizing the sidebar.
 </p>
 
@@ -257,7 +257,7 @@ On the history tab, you can find the history graph you are used to and now also
 a list of logbook entries of the specific entity.
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/more-info.png' alt='Screenshot of the update more info dialogs'></a>
+<img src='/images/blog/2020-09-0.115/more-info.png' alt='Screenshot of the update more info dialogs'>
 The updated more info dialogs, showing the two tabs: details & history.
 </p>
 
@@ -272,7 +272,7 @@ This solves, yet another, WTH request. It will be really helpful to find those
 cases that are: WTH turned on this light?
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/logbook.png' alt='Screenshot of the logbook showing the sources of the events.'></a>
+<img src='/images/blog/2020-09-0.115/logbook.png' alt='Screenshot of the logbook showing the sources of the events.'>
 The logbook shows which automation changed the state of my stream light.
 </p>
 
@@ -333,7 +333,7 @@ This new feature is not just for our YAML uses, it also is added to our
 automation editor in the UI.
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/wait-for-trigger.png' alt='Screenshot of the new wait_for_trigger in the automation editor'></a>
+<img src='/images/blog/2020-09-0.115/wait-for-trigger.png' alt='Screenshot of the new wait_for_trigger in the automation editor'>
 The automation editor can also use the new Wait for trigger action.
 </p>
 
@@ -348,7 +348,7 @@ A reason for a lot of you to put it up as a "What the heck?!" entry. And you
 know what? You guys are right, this was difficult.
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/attributes.png' alt='Screenshot of using attributes in the automation editor'></a>
+<img src='/images/blog/2020-09-0.115/attributes.png' alt='Screenshot of using attributes in the automation editor'>
 The automation editor now supports attributes on triggers and conditions.
 </p>
 
@@ -672,7 +672,7 @@ This allows you to create as many calendars as you want with the entities you wa
 If you want multiple calendar panels, just create a Lovelace dashboard with a view in panel mode with a calendar card!
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/calendar-card.png' alt='Screenshot of the new calendar card'></a>
+<img src='/images/blog/2020-09-0.115/calendar-card.png' alt='Screenshot of the new calendar card'>
 Screenshot of the new calendar card.
 </p>
 
@@ -691,7 +691,7 @@ We addressed both these issues, we save your last-used template and will show
 that instead of the example when you visit the template developer tools.
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/dev-tools-templates.gif' alt='Screenrecording the live state changes in the template development tools.'></a>
+<img src='/images/blog/2020-09-0.115/dev-tools-templates.gif' alt='Screenrecording the live state changes in the template development tools.'>
 Templates you write in the developer tools, are now updating live!
 </p>
 
@@ -737,7 +737,7 @@ when it lost it's connection or is in an otherwise failed state. You can find
 the reload the button in the overflow menu on the integration card.
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/integrations-reload.png' alt='Screenshot of reloading an UI configured integration.'></a>
+<img src='/images/blog/2020-09-0.115/integrations-reload.png' alt='Screenshot of reloading an UI configured integration.'>
 UI configured integration can now be reloaded as well!
 </p>
 
@@ -750,7 +750,7 @@ You can now change the password of every user from the UI when you are the owner
 of your system!
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/change-password.png' alt='Screenshot of change a password of a user account.'></a>
+<img src='/images/blog/2020-09-0.115/change-password.png' alt='Screenshot of change a password of a user account.'>
 As a owner, you can now change a password of a user.
 </p>
 
@@ -775,7 +775,7 @@ suggest a card for you.
 TODO: screenshot
 <!-- Image template
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
+<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'>
 Lorem ipsum.
 </p>
 -->
@@ -791,7 +791,7 @@ No more clicking the up and down buttons over and over again, simply drag the
 item up or down.
 
 <p class='img'>
-<img src='/images/blog/2020-09-0.115/order-entities.gif' alt='Screenrecording of dragging and dropping entities to re-order'></a>
+<img src='/images/blog/2020-09-0.115/order-entities.gif' alt='Screenrecording of dragging and dropping entities to re-order'>
 Drag and and drop the entities in the order you want.
 </p>
 
