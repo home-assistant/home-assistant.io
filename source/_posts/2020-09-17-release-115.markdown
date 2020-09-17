@@ -73,6 +73,8 @@ Happy birthday and enjoy the release!
 Alright, this release is massive, so here is a table of contents for helping
 navigating you around this release.
 
+- [Happy Birthday Home Assistant!](#happy-birthday-home-assistant)
+- [Table of contents](#table-of-contents)
 - [Media Browser](#media-browser)
 - [Home Assistant Tags](#home-assistant-tags)
 - [Customize the sidebar](#customize-the-sidebar)
@@ -99,7 +101,10 @@ navigating you around this release.
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
 
 ## Media Browser
 
@@ -263,7 +268,7 @@ The logbook shows which automation changed the state of my stream light.
 
 ## Automation & Scripts updates
 
-The month of "What the heck?!" brought in a lot of topics the evolve around
+The month of "What the heck?!" brought in a lot of topics that evolve around
 automations and scripts, of which quite a few have been addressed this release.
 Furthermore, we already had quite a bunch of improvements pending. If you
 like doing automation in YAML, you'll probably just love this release.
