@@ -107,7 +107,7 @@ navigating you around this release.
 - [Template developer tools](#template-developer-tools)
 - [Reload everything YAML](#reload-everything-yaml)
 - [User password change](#user-password-change)
-- [Cloud expose domains/entity](#cloud-expose-domainsentity)
+- [Improved ways of exposing entities via Home Assistant Cloud](#improved-ways-of-exposing-entities-via-home-assistant-cloud)
 - [Add card by entities](#add-card-by-entities)
 - [Order entities in Lovelace UI editor](#order-entities-in-lovelace-ui-editor)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -754,17 +754,11 @@ of your system!
 As a owner, you can now change a password of a user.
 </p>
 
-## Cloud expose domains/entity
+## Improved ways of exposing entities via Home Assistant Cloud
 
-If you are using Home Assistant Cloud with Google Assistant or Alexa, you can
-select what entities you want to expose in the UI. We would by default expose
-all new entities. We now introduced a new setting where you can set if you want
-to expose entities by domain.
+This release brings an update to the way you can expose entities to Google Assistant and Amazon Alexa via Home Assistant Cloud. With the new panel, you can now set on a domain level if entities should be exposed/not exposed by default. You can still override this on a per-entity level for fine-grained control. The default expose rules have also been updated to expose entities that work best with voice assistants.
 
-You can overrule this domain setting per entity.
-
-A newly added entity will by default get the settings of the domain, so you
-don't have to change these settings for every newly added entity.
+<img class='no-shadow' src='/images/blog/2020-09-0.115/cloud-expose-entities.png' alt='Screenshot of expose options on an entity.'>
 
 ## Add card by entities
 
