@@ -2,7 +2,7 @@
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
 ha_category: Climate
-ha_release: 0.115
+ha_release: 0.116
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: advantage_air
 ---
 
-The `Advantage Air` integration allows you to control you [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
+The `Advantage Air` integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
 
 ## Configuration
 
@@ -26,7 +26,7 @@ After completing the configuration flow, the Advantage Air integration will dyna
 
 ### Climate
 
-The `advantage_air` climate platform will create a climate entity for each Air Conditioning system found, and for each zone only if they are temperature controlled.
+The `advantage_air` climate platform will create a climate entity for each air conditioning system found, and for each zone that is temperature controlled.
 
 
 ### Cover
@@ -35,12 +35,12 @@ The `advantage_air` cover platform will create a cover entity for each zone that
 
 ### Sensor
 
-The `advantage_air` sensor platform will create sensor entities for a variety of aspects.
+The `advantage_air` sensor platform will create sensor entities for a variety of aspects:
 
-- The Air Filter sensor shows if it needs to be replaced.
-- Two sensor entity will be created for the 'time to on' and 'time to off' features. Use the `myair.set_time_to` service to change these.
+- The air filter sensor shows if it needs to be replaced.
+- Two sensor entity will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` service to change these.
 - Each zone that is temperature controlled will have a sensor to show how open the damper is.
-- A sensor entity will be created for each zone that has a wireless temperature/motion sensors that reports its wireless RSSI.
+- Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
 ### Binary Sensor
 
@@ -48,12 +48,12 @@ The `advantage_air` binary sensor platform will create a binary sensor for each 
 
 ## Component services
 
-Set the On/Off Timer:
+### Service set_time_to
 
-`advantage_air.set_time_to`
+Set the On/Off Timer using the relevant sensor entity.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | sensor.[name]_time_to_on or sensor.[name]_time_to_off
-| `entity_id` | no | Number of minutes between 0 and 720.
+| `entity_id` | no | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
+| `entity_id` | no | Number of minutes between `0` and `720`.
 
