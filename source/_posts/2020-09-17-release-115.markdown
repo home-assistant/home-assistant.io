@@ -28,10 +28,10 @@ It's a celebration! 🎉
 Seven! Years old today! And ooooh, are we going to party and celebrate with
 you!
 
-You might have noticed, this release is a bit late, two weeks late to be exact.
+You might have noticed, this release is a bit late, two weeks late.
 Our regular release cycle is 3 weeks, this time however, we took 5 weeks.
-Sure, the reason was of course related to our birthday today, but what is a
-better gift than a jam packed release that has something for everybody?
+Sure, the reason was, of course, related to our birthday today, but what is a
+better gift than a jam-packed release that has something for everybody?
 
 Thankfully, a lot of you have been sharing their gift wishlist items during
 [the month of "What the heck?!"][wth] (WTH). I love you all! What a good and
@@ -45,9 +45,9 @@ close the category on the forum, until the next WTH month.
 Besides that, two totally new and big features are added this release, which
 we really wanted to polish before releasing it.
 
-Normally I write some things about the release in my personal introduction
+I usually write some things about the release in my personal introduction
 note right here, but honestly, I have no idea where to start... it is just
-too darn much! I personally love the new automation features, but there are so
+too darn much! I love the new automation features, but there are so
 many of those in this release as well. 😅 I'm not going to try writing this. 😂
 
 So, let me close with a thank you to our founding father:
