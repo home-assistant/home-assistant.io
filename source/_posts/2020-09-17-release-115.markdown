@@ -97,18 +97,15 @@ Assistant frontend. You can now duplicate an automation and, the long present
 but always disabled, duplicate condition, trigger, and action function is now
 also finally working!
 
-### New action: `wait_for_trigger`
+### New action: Wait for trigger
 
-This is a special new trigger than can be used in an automation action or
+This is a special new action than can be used in an automation action or
 script sequence, that allows you to pause the execution until a certain trigger
-is been fired.
+is been fired. It can be helpful for automations or scripts that consists of
+multiple stages.
 
-It can be helpful for automations or scripts that consists of multiple stages,
-for example, actionable notification. Those would send the notification and
-next wait for a second input as a trigger before continuing.
-
-The following example sends a notification when one passes through 2 gates to
-enter the garden:
+In this example, a notification is send when one passes through two gates
+to enter the garden, but only when both gates are passed within 10 seconds.
 
 ```yaml
 automation:
@@ -127,6 +124,27 @@ automation:
         data:
           message: Someone just entered the yard!
 ```
+
+This example is simple, and probably fairly useless for most of us. However,
+lets say you left your garage door open and you leave the "Home" zone. Home
+Assistant could send you a actionable notification, saying: "Hey, you left
+the garage door open, shall I close if for you?" with 2 choices: Yes/No.
+
+Where you previously would have needed 3 automations for this. The first
+for sending a notification and two others for handling the "Yes" or "No"
+answer. Using the `wait_for_trigger` this could be done in a single automation.
+
+Right after sending the notification, the `wait_for_trigger` could halt the
+script from continuing, until it receives the "Yes" or "No" answer and continue
+after that and run the actions you'd like based on the answer received.
+
+This new feature is not just for our YAML uses, it also is added to our
+automation editor in the UI.
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/wait-for-trigger.png' alt='Screenshot of the new wait_for_trigger in the automation editor'></a>
+The automation editor can also use the new Wait for trigger action.
+</p>
 
 ### Triggers & Conditions on entity attributes
 
