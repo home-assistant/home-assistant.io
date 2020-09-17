@@ -1675,7 +1675,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Bump codespell from v1.16.0 to v1.17.1 and fix new spelling errors ([@basnijholt] - [#38663])
 - Bump pre-commit-hooks from v2.40 to v3.2.0 ([@basnijholt] - [#38664])
 - Bump env_canada to 0.2.0 ([@michaeldavie] - [#37467]) ([environment_canada docs])
-- Add support for reload_on_update to \_abort_if_unique_id_configured ([@bdraco] - [#38638])
+- Add support for reload_on_update to _abort_if_unique_id_configured ([@bdraco] - [#38638])
 - Add device classes for electrical measurement ([@fabiocastagnino] - [#36800]) ([sensor docs])
 - Add support for exposing light effects via Google Assistant ([@mjg59] - [#38575]) ([google_assistant docs])
 - Support extracting entities by domain from templates ([@bdraco] - [#38647])
@@ -1708,7 +1708,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Add URL as common string ([@ctalkington] - [#38694])
 - Add hourly forecast to met.no ([@bruxy70] - [#38700]) ([met docs])
 - Update IPMA weather component ([@dgomes] - [#38697]) ([ipma docs]) (breaking-change)
-- Remove prezzibenzina integration (ADR-0004) ([@eliseomartelli] - [#38736]) ([prezzibenzina docs]) (breaking-change)
+- Remove prezzibenzina integration (ADR-0004) ([@eliseomartelli] - [#38736]) (breaking-change)
 - Add Ecobee services ([@hudcap] - [#38749]) ([ecobee docs])
 - [RFC] Add Tag integration ([@dmulcahey] - [#38727]) ([default_config docs]) ([tag docs]) (new-integration)
 - Update Flo config flow and associated tests ([@dmulcahey] - [#38722]) ([flo docs])
@@ -1721,17 +1721,17 @@ discovery. Users currently using that should set up all devices through UI.
 - Add energy device class to Toon sensors ([@frenck] - [#38686]) ([toon docs])
 - Time trigger can also accept an input_datetime Entity ID ([@pnbruckner] - [#38698]) ([automation docs])
 - Enable PAHO MQTT client logging ([@emontnemery] - [#38767]) ([mqtt docs])
-- Improve X-Forwarded-\* request headers handling ([@frenck] - [#38696]) ([http docs]) (breaking-change)
+- Improve X-Forwarded-* request headers handling ([@frenck] - [#38696]) ([http docs]) (breaking-change)
 - Adapt the ONVIF Renewal termination_time for Amcrest cameras ([@esev] - [#37750]) ([onvif docs])
 - Revert "Add energy device class to Toon sensors" ([@frenck] - [#38768]) ([toon docs])
 - Add H.265 support to stream component ([@uvjustin] - [#38125]) ([stream docs])
-- Stream clients operate on a copy of the intnernal self.\_outputs dict ([@esev] - [#38766]) ([stream docs])
+- Stream clients operate on a copy of the intnernal self._outputs dict ([@esev] - [#38766]) ([stream docs])
 - Allow ONVIF devices to resume a PullPoint subscription when the camera reboots ([@esev] - [#37711]) ([onvif docs])
 - Cleanup Netatmo code ([@cgtobi] - [#38772]) ([netatmo docs])
 - Add config flow to insteon component ([@teharris1] - [#36467]) ([insteon docs])
 - Bump androidtv to 0.0.49 ([@JeffLIrion] - [#38778]) ([androidtv docs])
-- Bump actions/setup-python from v2.1.1 to v2.1.2 (dependabot - [#38780])
-- Bump actions/upload-artifact from v2.1.3 to v2.1.4 (dependabot - [#38779])
+- Bump actions/setup-python from v2.1.1 to v2.1.2 (@dependabot - [#38780])
+- Bump actions/upload-artifact from v2.1.3 to v2.1.4 (@dependabot - [#38779])
 - Remove Netatmo HomeKit discovery method ([@cgtobi] - [#38770]) ([netatmo docs])
 - Add roon media player integration ([@pavoni] - [#37553]) ([roon docs]) (new-integration)
 - Unsubscribe ozw listeners ([@MartinHjelmare] - [#38787]) ([ozw docs])
@@ -1750,7 +1750,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Update rokuecp to 0.6.0 ([@ctalkington] - [#38819]) ([roku docs])
 - Add Agent DVR Alarm Control Panel ([@ispysoftware] - [#36468]) ([agent_dvr docs]) (new-platform)
 - Cleanup Netatmo sensors ([@cgtobi] - [#38627]) ([netatmo docs]) (breaking-change)
-- Add default\_\* to device registry ([@balloob] - [#38829]) ([mikrotik docs])
+- Add default_* to device registry ([@balloob] - [#38829]) ([mikrotik docs])
 - Convert Channels platform services to use platform register ([@balloob] - [#38827]) ([channels docs])
 - Add binary sensor support to the Flo integration ([@dmulcahey] - [#38267]) ([flo docs]) (new-integration)
 - Nightscout PR fixes ([@marciogranzotto] - [#38737]) ([nightscout docs])
@@ -1789,7 +1789,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Make check-executables-have-shebangs manual ([@emontnemery] - [#38980])
 - Bump python-openzwave-mqtt to 1.0.5 ([@cgarwood] - [#38984]) ([ozw docs])
 - Allow empty cast media_player config ([@emontnemery] - [#38971]) ([cast docs])
-- Bump codecov/codecov-action from v1.0.12 to v1.0.13 (dependabot - [#38991])
+- Bump codecov/codecov-action from v1.0.12 to v1.0.13 (@dependabot - [#38991])
 - Fix time trigger test ([@pnbruckner] - [#38988]) ([homeassistant docs])
 - Bump pysuez to 0.1.19 ([@ooii] - [#38998]) ([suez_water docs])
 - Add triggers for the Tag component ([@dmulcahey] - [#39004]) ([tag docs])
@@ -1918,17 +1918,17 @@ discovery. Users currently using that should set up all devices through UI.
 - Wait before sending MQTT birth message ([@emontnemery] - [#39120]) ([mqtt docs])
 - Ensure unique ids are generated for surepetcare ([@ctalkington] - [#39196]) ([surepetcare docs])
 - Add HomeKit Controller heater-cooler devices ([@vfreex] - [#38979]) ([homekit_controller docs])
-- Remove yr integration after a request from yr.no ([@Danielhiversen] - [#39247]) ([yr docs]) (breaking-change)
+- Remove yr integration after a request from yr.no ([@Danielhiversen] - [#39247]) (breaking-change)
 - Update homeassistant base image 8.3.0 ([@pvizeli] - [#39245])
 - Subscribe to state change events only if the template has entities ([@bdraco] - [#39188]) ([template docs])
 - Ensure the context is passed to group changes ([@bdraco] - [#39221]) ([group docs])
-- Support reloading the universal platform ([@bdraco] - [#39248]) ([helpers docs]) ([template docs]) ([universal docs])
+- Support reloading the universal platform ([@bdraco] - [#39248]) ([template docs]) ([universal docs])
 - Ensure template tracking can recover after the template generates an exception ([@bdraco] - [#39256])
 - Implement local discovery of Smappee series-2 devices and improvements ([@bsmappee] - [#38728]) ([smappee docs])
 - Add api to reload config entries ([@bdraco] - [#39068]) ([config docs])
-- Add the ability to reload light/cover groups from yaml ([@bdraco] - [#39250]) ([group docs]) ([helpers docs]) ([template docs]) ([universal docs])
+- Add the ability to reload light/cover groups from yaml ([@bdraco] - [#39250]) ([group docs]) ([template docs]) ([universal docs])
 - Rename entity base class for HMIPC ([@SukramJ] - [#39243]) ([homematicip_cloud docs])
-- Add the ability to reload the rest platforms from yaml ([@bdraco] - [#39257]) ([group docs]) ([helpers docs]) ([rest docs]) ([template docs]) ([universal docs])
+- Add the ability to reload the rest platforms from yaml ([@bdraco] - [#39257]) ([group docs]) ([rest docs]) ([template docs]) ([universal docs])
 - Add the ability to reload command_line platforms from yaml ([@bdraco] - [#39262]) ([command_line docs]) ([group docs]) ([rest docs]) ([template docs]) ([universal docs])
 - Add the ability to reload filter platforms from yaml ([@bdraco] - [#39267]) ([filter docs])
 - Allow disabling integrations in manifest, block uuid package being installed and disable ezviz ([@balloob] - [#38444]) ([ezviz docs]) (breaking-change)
@@ -1980,7 +1980,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Ensure we always fire time pattern changes after microsecond 0 ([@bdraco] - [#39302])
 - Update time triggers to use async_track_state_change_event ([@bdraco] - [#39338]) ([homeassistant docs])
 - Add the ability to reload generic platforms from yaml ([@bdraco] - [#39289]) ([generic docs])
-- Add the ability to reload homekit from yaml ([@bdraco] - [#39326]) ([helpers docs]) ([homekit docs])
+- Add the ability to reload homekit from yaml ([@bdraco] - [#39326]) ([homekit docs])
 - Allow exposing domains in cloud ([@balloob] - [#39216]) ([cloud docs])
 - Add description of what caused an automation trigger to fire ([@pnbruckner] - [#39251]) ([arcam_fmj docs]) ([automation docs]) ([geo_location docs]) ([homeassistant docs]) ([kodi docs]) ([litejet docs]) ([mqtt docs]) ([sun docs]) ([template docs]) ([webhook docs]) ([zone docs])
 - Add support for reloading min_max from yaml ([@bdraco] - [#39327]) ([min_max docs])
@@ -2234,7 +2234,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Fix monoprice option flow test ([@MartinHjelmare] - [#39685]) ([monoprice docs])
 - Add iSmartGate support ([@vangorra] - [#39437]) ([gogogate2 docs])
 - Fix for starline authorization ([@Funcy-dcm] - [#39674]) ([starline docs])
-- Drop UNIT\_ prefix for percentage constant ([@springstan] - [#39383])
+- Drop UNIT_ prefix for percentage constant ([@springstan] - [#39383])
 - Use more homeassistant constants in NWS ([@MatthewFlamm] - [#39690]) ([nws docs])
 - Match documentation on expose being default True ([@elupus] - [#39692]) ([google_assistant docs])
 - Add tradfri api call error handling ([@MartinHjelmare] - [#39681]) ([tradfri docs])
@@ -2265,7 +2265,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Axis - Improve naming of some events ([@Kane610] - [#39699]) ([axis docs]) (breaking-change)
 - Add hassfest requirements validation ([@MartinHjelmare] - [#39329])
 - Fix some missing ozw sensors ([@firstof9] - [#39686]) ([ozw docs])
-- State condition can also accept an input\_\* Entity ID as state value ([@frenck] - [#39691])
+- State condition can also accept an input_* Entity ID as state value ([@frenck] - [#39691])
 - allow creating directories from camera snapshot, stream record, and tensorflow file out ([@hunterjm] - [#39728]) ([camera docs]) ([stream docs]) ([tensorflow docs])
 - Set DEVICE_CLASS_GATE for iSmartGate gates ([@bdraco] - [#39703]) ([gogogate2 docs])
 - Add unique_id to jewish_calendar entities ([@ajmarks] - [#39025]) ([jewish_calendar docs])
@@ -2408,6 +2408,12 @@ discovery. Users currently using that should set up all devices through UI.
 - Fix missing f from f-strings in cast integration ([@frenck] - [#40144]) ([cast docs]) (beta fix)
 - Fix local media browser source conflicting with local www folder ([@frenck] - [#40151]) ([media_source docs]) (beta fix)
 - Update frontend to 20200916.0 ([@bramkragten] - [#40153]) ([frontend docs]) (beta fix)
+- Check mpd time type before splitting it ([@ctalkington] - [#40139]) ([mpd docs]) (beta fix)
+- Fix luci device_tracker not reliably reporting home/away state ([@cagnulein] - [#40160]) ([luci docs]) (beta fix)
+- Update pyhaversion to 3.4.2 ([@ludeeus] - [#40161]) ([version docs]) (beta fix)
+- Updated frontend to 20200917.1 ([@bramkragten] - [#40170]) ([frontend docs]) (beta fix)
+- Fix editing tags only get isoformat from datetime ([@bramkragten] - [#40174]) ([tag docs]) (beta fix)
+- Add missing conext preservation to bayesian and universal ([@bdraco] - [#40178]) ([bayesian docs]) ([universal docs]) (beta fix)
 
 </details>
 
@@ -3165,44 +3171,50 @@ discovery. Users currently using that should set up all devices through UI.
 [#40130]: https://github.com/home-assistant/core/pull/40130
 [#40131]: https://github.com/home-assistant/core/pull/40131
 [#40132]: https://github.com/home-assistant/core/pull/40132
+[#40139]: https://github.com/home-assistant/core/pull/40139
 [#40140]: https://github.com/home-assistant/core/pull/40140
 [#40144]: https://github.com/home-assistant/core/pull/40144
 [#40151]: https://github.com/home-assistant/core/pull/40151
 [#40153]: https://github.com/home-assistant/core/pull/40153
-[@2fake]: https://github.com/2Fake
-[@adminiuga]: https://github.com/Adminiuga
-[@ardaseremet]: https://github.com/ArdaSeremet
-[@compatech]: https://github.com/CoMPaTech
-[@danielhiversen]: https://github.com/Danielhiversen
-[@darkfox]: https://github.com/DarkFox
-[@delusionalai]: https://github.com/DelusionalAI
-[@emilv2]: https://github.com/Emilv2
-[@ernst79]: https://github.com/Ernst79
-[@franchie]: https://github.com/Franchie
-[@funcy-dcm]: https://github.com/Funcy-dcm
-[@icypalm]: https://github.com/IcyPalm
-[@jphutchins]: https://github.com/JPHutchins
-[@jc2k]: https://github.com/Jc2k
-[@jefflirion]: https://github.com/JeffLIrion
-[@ktibow]: https://github.com/KTibow
-[@kane610]: https://github.com/Kane610
-[@mariusthvdb]: https://github.com/Mariusthvdb
-[@martinhjelmare]: https://github.com/MartinHjelmare
-[@matthewflamm]: https://github.com/MatthewFlamm
-[@misiu]: https://github.com/Misiu
-[@onfreund]: https://github.com/OnFreund
-[@quentame]: https://github.com/Quentame
-[@rikorose]: https://github.com/Rikorose
-[@robbie1221]: https://github.com/RobBie1221
-[@rogerselwyn]: https://github.com/RogerSelwyn
-[@snoof85]: https://github.com/SNoof85
-[@seanpm5]: https://github.com/SeanPM5
-[@sukramj]: https://github.com/SukramJ
-[@thegardenmonkey]: https://github.com/TheGardenMonkey
-[@tombrien]: https://github.com/TomBrien
-[@tomerfi]: https://github.com/TomerFi
-[@vdigitall]: https://github.com/VDigitall
-[@vaarlion]: https://github.com/Vaarlion
+[#40160]: https://github.com/home-assistant/core/pull/40160
+[#40161]: https://github.com/home-assistant/core/pull/40161
+[#40170]: https://github.com/home-assistant/core/pull/40170
+[#40174]: https://github.com/home-assistant/core/pull/40174
+[#40178]: https://github.com/home-assistant/core/pull/40178
+[@2Fake]: https://github.com/2Fake
+[@Adminiuga]: https://github.com/Adminiuga
+[@ArdaSeremet]: https://github.com/ArdaSeremet
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@DarkFox]: https://github.com/DarkFox
+[@DelusionalAI]: https://github.com/DelusionalAI
+[@Emilv2]: https://github.com/Emilv2
+[@Ernst79]: https://github.com/Ernst79
+[@Franchie]: https://github.com/Franchie
+[@Funcy-dcm]: https://github.com/Funcy-dcm
+[@IcyPalm]: https://github.com/IcyPalm
+[@JPHutchins]: https://github.com/JPHutchins
+[@Jc2k]: https://github.com/Jc2k
+[@JeffLIrion]: https://github.com/JeffLIrion
+[@KTibow]: https://github.com/KTibow
+[@Kane610]: https://github.com/Kane610
+[@Mariusthvdb]: https://github.com/Mariusthvdb
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@Misiu]: https://github.com/Misiu
+[@OnFreund]: https://github.com/OnFreund
+[@Quentame]: https://github.com/Quentame
+[@Rikorose]: https://github.com/Rikorose
+[@RobBie1221]: https://github.com/RobBie1221
+[@RogerSelwyn]: https://github.com/RogerSelwyn
+[@SNoof85]: https://github.com/SNoof85
+[@SeanPM5]: https://github.com/SeanPM5
+[@SukramJ]: https://github.com/SukramJ
+[@TheGardenMonkey]: https://github.com/TheGardenMonkey
+[@TomBrien]: https://github.com/TomBrien
+[@TomerFi]: https://github.com/TomerFi
+[@VDigitall]: https://github.com/VDigitall
+[@Vaarlion]: https://github.com/Vaarlion
 [@ajmarks]: https://github.com/ajmarks
 [@akinomeroglu]: https://github.com/akinomeroglu
 [@alandtse]: https://github.com/alandtse
@@ -3228,6 +3240,7 @@ discovery. Users currently using that should set up all devices through UI.
 [@brg468]: https://github.com/brg468
 [@bruxy70]: https://github.com/bruxy70
 [@bsmappee]: https://github.com/bsmappee
+[@cagnulein]: https://github.com/cagnulein
 [@caronc]: https://github.com/caronc
 [@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
@@ -3310,7 +3323,7 @@ discovery. Users currently using that should set up all devices through UI.
 [@shenxn]: https://github.com/shenxn
 [@spacegaier]: https://github.com/spacegaier
 [@springstan]: https://github.com/springstan
-[@starkillerog]: https://github.com/starkillerOG
+[@starkillerOG]: https://github.com/starkillerOG
 [@stephan192]: https://github.com/stephan192
 [@stlehmann]: https://github.com/stlehmann
 [@teharris1]: https://github.com/teharris1
@@ -3392,7 +3405,7 @@ discovery. Users currently using that should set up all devices through UI.
 [flo docs]: /integrations/flo/
 [freebox docs]: /integrations/freebox/
 [frontend docs]: /integrations/frontend/
-[generic docs]: /integrations/generic/
+[generic docs]: /integrations/generic_ip_camera/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [geo_location docs]: /integrations/geo_location/
 [gios docs]: /integrations/gios/
@@ -3403,7 +3416,6 @@ discovery. Users currently using that should set up all devices through UI.
 [growatt_server docs]: /integrations/growatt_server/
 [hangouts docs]: /integrations/hangouts/
 [hassio docs]: /integrations/hassio/
-[helpers docs]: /integrations/helpers/
 [history_stats docs]: /integrations/history_stats/
 [hive docs]: /integrations/hive/
 [hlk_sw16 docs]: /integrations/hlk_sw16/
@@ -3441,8 +3453,8 @@ discovery. Users currently using that should set up all devices through UI.
 [lovelace docs]: /integrations/lovelace/
 [luci docs]: /integrations/luci/
 [marytts docs]: /integrations/marytts/
-[media_finder docs]: /integrations/media_finder/
-[media_manager docs]: /integrations/media_manager/
+[media_finder docs]: /integrations/media_source/
+[media_manager docs]: /integrations/image/
 [media_player docs]: /integrations/media_player/
 [media_source docs]: /integrations/media_source/
 [mediaroom docs]: /integrations/mediaroom/
@@ -3488,7 +3500,6 @@ discovery. Users currently using that should set up all devices through UI.
 [plugwise docs]: /integrations/plugwise/
 [poolsense docs]: /integrations/poolsense/
 [powerwall docs]: /integrations/powerwall/
-[prezzibenzina docs]: /integrations/prezzibenzina/
 [progettihwsw docs]: /integrations/progettihwsw/
 [pvpc_hourly_pricing docs]: /integrations/pvpc_hourly_pricing/
 [qvr_pro docs]: /integrations/qvr_pro/
@@ -3586,7 +3597,6 @@ discovery. Users currently using that should set up all devices through UI.
 [xmpp docs]: /integrations/xmpp/
 [yandex_transport docs]: /integrations/yandex_transport/
 [yeelight docs]: /integrations/yeelight/
-[yr docs]: /integrations/yr/
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
 [zone docs]: /integrations/zone/
