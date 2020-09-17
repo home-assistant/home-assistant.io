@@ -480,6 +480,8 @@ automation and script.
 
 Here is an example automation:
 
+{% raw %}
+
 ```yaml
 automation:
   trigger:
@@ -494,8 +496,12 @@ automation:
         message: Beautiful sunset!
 ```
 
+{% endraw %}
+
 While the above example, it doesn't add that much value, it does shows how it
 works. Variables can be templates too! For example:
+
+{% raw %}
 
 ```yaml
 variables:
@@ -503,9 +509,13 @@ variables:
   notification_service: "notify.{{ person }}_iphone"
 ```
 
+{% endraw %}
+
 Both scripts and automation actions support this syntax now. Additionally,
 we added a new action! The variables action. This unlock the potential to
 change variables during the runtime of a script.
+
+{% raw %}
 
 ```yaml
 variables:
@@ -517,6 +527,8 @@ action:
     data:
       message: This message actually went to Frenck, not Paulus.
 ```
+
+{% endraw %}
 
 For a more extensive example, check out the example written in [the blog
 article about Home Assistant Tags][tags].
@@ -531,6 +543,8 @@ available: `wait`. It provides `wait.completed` (indicates if the template
 evaluated to true before the timeout expired) and `wait.remaning` (remaining time
 out).
 
+{% raw %}
+
 ```yaml
 sequence:
   - wait_template: "{{ is_state('binary_sensor.abc', 'on') }}"
@@ -543,6 +557,8 @@ sequence:
         sequence:
           # Handle timeout case
 ```
+
+{% endraw %}
 
 The new script and automation run modes are amazing! But in some cases, they
 might be polluting your logs. For example, you have a automation in `single`
