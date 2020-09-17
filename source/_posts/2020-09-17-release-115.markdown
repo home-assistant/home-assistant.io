@@ -177,13 +177,13 @@ what that motion event that you just received was about.
 The Home Assistant tag reader, made by Adonno with the help of MagnusO.
 </p>
 
-Home Assistant has now native support for tags! With Home Assistant Tags, we’re
+Home Assistant now has native support for tags! With Home Assistant Tags, we’re
 making scannable tags (NFC/RFID) a first-class citizen in Home Assistant.
 Easy to read, write and automate!
 
 We have a beautiful UI for it in the frontend, our mobile companion apps have
-been updated to work seamlessly with tags and there is now even a open source
-scanner available as shown in the image above.
+been updated to work seamlessly with tags and there is now even an open-source
+scanner available, as shown in the image above.
 
 For all details, [read the dedicated blog post about Home Assistant tags][tags]!
 
@@ -196,23 +196,23 @@ sidebar, you do want history for your entities in the more info dialog, but you
 don't use that history panel. Or you do want calendars for automating, or in
 the new Lovelace cards, but don't want a calendar panel with all your calendars.
 
-Now you can hide panels from the sidebar, and rearrange them, by just drag and
-dropping them.
+Now you can hide panels from the sidebar and rearrange them, by just drag and
+drop them.
 
 <p class='img'>
 <img src='/images/blog/2020-09-0.115/sidebar.gif' alt='Screen recording of customizing the sidebar'>
 Screen recording of customizing the sidebar.
 </p>
 
-You can enter edit mode by pressing and holding the header of the sidebar, or
-from your profile page. You can then drag the items in the order you want them
+You can enter edit mode by pressing and holding the sidebar's header or from
+your profile page. You can then drag the items in the order you want them
 or remove them by clicking the `x` next to it.
 
 The removed items will be visible at the bottom of the list, by clicking the
-`+` button you can add them back to the sidebar.
+`+` button, you can add them back to the sidebar.
 
 These settings are stored on your device in the local storage of your browser,
-this means that this setting is device based and will be cleared when you logout.
+this means that this setting is device-based and will be cleared when you logout.
 
 ## Person image upload
 
@@ -225,8 +225,8 @@ image is stored on your Home Assistant server.
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>
 </div>
 
-We will use the image in the frontend for your persons, but also in the sidebar
-for the user that is linked to this person.
+We will use the image in the frontend for your persons and the sidebar for the
+user linked to this person.
 
 This feature is powered by the new image integration and opens up for future
 possibilities. For example, uploading images, for use in your Lovelace picture
@@ -234,7 +234,7 @@ cards, would be nice!
 
 ## Updated more info dialog
 
-The more info dialog is updated. In case an entity has controls, for example
+The more info dialog is updated. In case an entity has controls, for example,
 a light, the more info dialog will now have 2 tabs. One for controls and one
 for history.
 
@@ -250,10 +250,10 @@ For entities without controls (like a sensor), no tabs will be shown like before
 
 ## More information in the logbook panel
 
-The logbook will now show what automation or script caused the the change and
+The logbook will now show what automation or script caused the change and
 what action was used to make the change happen.
 
-This solves, yet another, WTH request. It will be really helpful to find those
+This solves yet another WTH request. It will be really helpful to find those
 cases that are: WTH turned on this light?
 
 <p class='img'>
@@ -268,19 +268,19 @@ automations and scripts, of which quite a few have been addressed this release.
 Furthermore, we already had quite a bunch of improvements pending. If you
 like doing automation in YAML, you'll probably just love this release.
 
-Before starting on the list of newly added features, lets talk about the Home
+Before starting on the list of newly added features, let's talk about the Home
 Assistant frontend. You can now duplicate an automation and, the long present
-but always disabled, duplicate condition, trigger, and action function is now
+but always disabled, duplicate condition, trigger, and action function are now
 also finally working!
 
 ### New action: Wait for trigger
 
 This is a special new action than can be used in an automation action or
-script sequence, that allows you to pause the execution until a certain trigger
-is been fired. It can be helpful for automations or scripts that consists of
+script sequence that allows you to pause the execution until a certain trigger
+is been fired. It can be helpful for automations or scripts that consist of
 multiple stages.
 
-In this example, a notification is send when one passes through two gates
+In this example, a notification is sent when one passes through two gates
 to enter the garden, but only when both gates are passed within 10 seconds.
 
 ```yaml
