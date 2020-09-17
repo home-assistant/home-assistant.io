@@ -138,23 +138,42 @@ navigating you around this release.
 
 ## Media Browser
 
-Media players are now able to offer a media browser. This allows you to browse
-through the available content for the media player.
+This release includes an exciting set of features around media. If the media player supports it, you can now browse the player's media library and quickly change what you're listening to. No need for two apps anymore if you want to change the lights and pick some music.
 
-We also added a new media panel, this panel can be used to browse your local media.
-If you create a directory `media` in your configuration directory and add some media files in it, you can now play them from Home Assistant in your web browser.
+Any media player can enable this new feature. This release adds media browser support to [Arcam FMJ](integrations/arcam_fmj), [Kodi](integrations/kodi), [Philips JS](integrations/philips_js), [Plex](integrations/plex), [Roku](integrations/roku), [Sonos](integrations/sonos) and [Spotify](/integrations/spotify)!
 
-There is also support for other integrations like Netatmo and more are on the way. (are there more sources?)
-You can also select another media player and use it to browse and play media on that media player.
+Thanks to [@jjlawren] for the initial implementation and to [@cgtobi], [@ctalkington], [@martinhjelmare], [@elupus] for the work on the various integrations and backend refining.
 
-- Websocket media browsing for Plex ([@jjlawren] - [#35590]) ([plex docs])
-- Add Spotify media browser capability ([@cgtobi] - [#39240]) ([spotify docs])
-- Add Sonos media browser capability ([@cgtobi] - [#39239]) ([sonos docs])
-- Register media browser panel ([@hunterjm] - [#39655]) ([media_source docs])
-- Add media browser support to roku ([@ctalkington] - [#39652]) ([roku docs])
-- Add Arcam radio media browsing ([@elupus] - [#39593]) ([arcam_fmj docs])
-- Add Netatmo media browser support ([@cgtobi] - [#39578]) ([cast docs]) ([default_config docs]) ([media_source docs]) ([netatmo docs]) (new-integration)
-- Media Source implementation for Chromecast ([@hunterjm] - [#39305]) ([cast docs]) ([default_config docs]) ([media_finder docs]) (new-integration)
+But a media browser isn't just backend, it also needs to look good. Thankfully we had [@NKDZCK] on the case, with the help of [@bramkragten]. They came up with a beautiful design so you can browse your media in style.
+
+[@NKDZCK]: https://github.com/NKDZCK
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4tQvMezHJkQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+When [@hunterjm] saw the new media browser, he got an idea. What if the user can use the media browser to browse media offered by any integration and play it on any of their media players? And so the [the media source integration](/integrations/media_source/) was born.
+
+The first media source that has been added is to allow users to play local media. Local media can be motion detection events from your IP camera or a bunch of music files to be used with [Home Assistant Tags](https://www.home-assistant.io/blog/2020/09/15/home-assistant-tags/).
+
+Home Assistant by default will look at the `/media` path. If you're using Home Assistant OS (the default install), you can use the Samba add-on to upload media. If you use Docker, you need to mount a volume at `/media` and if you use a Python virtual environment, the default is `<config>/media`. You can also specify your own media paths with a new configuration option in `configuration.yaml`:
+
+```yaml
+homeassistant:
+  media_dirs:
+    motion: /media/motion_events
+    music: /media/music
+```
+
+Media Source is not limited to local media. Any integration can offer their media. [@cgtobi] has upgraded [the Netatmo integration](/integrations/netatmo) which will now offer its recorded motion events to play.
+
+Media player integrations that want to play media sources will need to be updated. In this release we've updated [the Chromecast integration](/integrations/cast/). If you click it's media browser button, you will be presented with the available local sources.
+
+Sometimes you just want to play your media without having to turn on the TV. To cover that case, [@NKDZCK] added a new media browser to the Home Assistant interface which can be used to play your media. That way you can quickly see what that motion event that you just received was about.
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/yvbjeLwXo30" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 ## Home Assistant Tags
 
@@ -769,12 +788,12 @@ Drag and and drop the entities in the order you want.
   - [@blueshiftlabs] added capabilities to control media player muting and
     relative-volume controls.
 - The Netatmo integration was re-engineered and now has a new data handler to
-  reduce the number of API calls and also merge in webhook events to improve the 
+  reduce the number of API calls and also merge in webhook events to improve the
   overall responsiveness.
   It now comes with a light platform to control the outdoor camera flood light and 
   contains services to set the home/away status of occupants as well as the outdoor camera mode.
 - The code editor in the UI is now theme-able, so make them look nice!
-- 
+-
 - Performance
   - Template parsing and entity tracking?
   - Improve performance of fetching the state domain ([@bdraco] - [#38653])
