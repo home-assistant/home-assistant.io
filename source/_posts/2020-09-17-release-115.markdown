@@ -300,11 +300,94 @@ condition:
     below: 80
 ```
 
-### Use input_* helper entities directly in your automations and scripts
+### Use `input_datetime` helpers in automation triggers
 
-- Time trigger can also accept an input_datetime Entity ID ([@pnbruckner] - [#38698]) ([automation docs])
-- Numeric state condition can also accept input_number entity ID ([@frenck] - [#39680])
-- Time condition can also accept an input_datetime Entity ID ([@frenck] - [#39676])
+Using dates and time in your automation can be hard. If often needs quite a bit
+of Jinja templating and is actually really hard to do. [@pnbruckner] noticed,
+and he added the possibility use your `input_datetime` helper entities
+directly in time trigger!
+
+Assume you have a `input_datetime.bedroom_alarm_clock_time` helper entity, that
+is in your Lovelace UI, which you can set a time in. Great! You can now
+just use it in your automations to trigger on:
+
+```yaml
+trigger:
+  - platform: time
+    at: input_datetime.bedroom_alarm_clock_time
+```
+
+Yes, he made it that elegant. It also works for multiple, or mixed variable and
+statically set times.
+
+```yaml
+trigger:
+  - platform: time
+    at:
+      - "10:00"
+      - input_datetime.bedroom_alarm_clock_time
+      - input_datetime.some_other_time_entity
+```
+
+More about the time trigger, can be found in our [documentation][trigger-time].
+
+[trigger-time]: /docs/automation/trigger/#time-trigger
+
+### Use `input_*` helpers in conditions
+
+[@pnbruckner] set a standard in the above, and we used that to start working
+on making this something that would work on more places. As of this release
+all `input_*` can be used in conditions.
+
+The `time` condition can accept `input_datetime` helper entities, similar to
+trigger shown above.
+
+```yaml
+conditions:
+  - condition: time
+    after: input_datetime.house_silent_hours_start
+    before: input_datetime.house_silent_hours_end
+```
+
+The `numeric_state` condition now accepts `input_number` helper entities for
+the `above`  and `below` options.
+
+```yaml
+conditions:
+  - condition: numeric_state
+    entity_id: climate.living_room_thermostat
+    attribute: temperature
+    above: input_number.temperature_threshold_low
+    below: input_number.temperature_threshold_high
+```
+
+And finally, the `state` condition accepts any `input_*` helper entit in its
+`state` option.
+
+```yaml
+conditions:
+  - condition: state
+    entity_id: sensor.happy_birthday
+    state: input_text.too_you
+  - condition: state
+    entity_id: sensor.happy_birtday_song
+    state: input_select.notify_on_song
+  - condition: state
+    entity_id: light.living_room
+    state: input_boolean.expected_state
+```
+
+We are confident this will greatly improve the power and ease of the helper
+entities. The [conditions documentation][conditions] has been updated
+with more examples.
+
+Here is an idea: You can now easily create a set of helper entities
+that represent your automation settings and add those to a separate Lovelace
+dashboard. You now have your own automation configuration panel, helpful
+for tweaking things like times or adjust temperature thresholds, without
+touching your automations.
+
+[conditions]: /docs/scripts/conditions/
 
 ### Shorthand notation for template conditions
 
