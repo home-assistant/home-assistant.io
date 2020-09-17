@@ -26,8 +26,6 @@ og_image: /images/blog/2020-09-0.115/social.png
   - This section contains 2 things. Reconsider title of this chapter
   - Needs screenshot of the new more information dialog
   - Needs screenshot of the script caused the state change
-- User password change?
-  - Either keep it and add some content + screenshot or move it to other noteworthy changes
 - Cloud expose domains/entity
   - Needs more fluff and screenshots
 - Add card by entities
@@ -705,9 +703,16 @@ UI configured integration can now be reloaded as well!
 
 ## User password change
 
-Another What the heck: Being able to change the password of a user as the owner
-of the system. You can now change the password of every user from the UI when
-you are the owner of your system.
+Another What the heck, that sounded so obvious: Being able to change the
+password of a user as the owner of the system. Right?!
+
+You can now change the password of every user from the UI when you are the owner
+of your system!
+
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/change-password.png' alt='Screenshot of change a password of a user account.'></a>
+As a owner, you can now change a password of a user.
+</p>
 
 ## Cloud expose domains/entity
 
