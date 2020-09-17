@@ -137,7 +137,7 @@ The first media source that has been added is to allow users to play local media
 Local media can be motion detection events from your IP camera or a bunch of
 music files to be used with [Home Assistant Tags][tags].
 
-Home Assistant by default will look at the `/media` path. If you're using Home
+Home Assistant, by default, will look at the `/media` path. If you're using Home
 Assistant OS (the default install), you can use the Samba add-on to upload media.
 If you use Docker, you need to mount a volume at `/media` and if you use a
 Python virtual environment, the default is `<config>/media`.
@@ -152,18 +152,18 @@ homeassistant:
     music: /media/music
 ```
 
-Media Source is not limited to local media. Any integration can offer their
-media. [@cgtobi] has upgraded [the Netatmo integration](/integrations/netatmo)
+Media Source is not limited to local media. Any integration can offer its
+media. [@cgtobi] has upgraded [the Netatmo integration](/integrations/netatmo),
 which will now offer its recorded motion events to play.
 
 Media player integrations that want to play media sources will need to be
-updated. In this release we've updated [the Chromecast integration](/integrations/cast/).
-If you click it's media browser button, you will be presented with the available
+updated. In this release, we've updated [the Chromecast integration](/integrations/cast/).
+If you click its media browser button, you will be presented with the available
 local sources.
 
 Sometimes you just want to play your media without having to turn on the TV. To
 cover that case, [@NKDZCK] added a new media browser to the Home Assistant
-interface which can be used to play your media. That way you can quickly see
+interface, which can be used to play your media. That way, you can quickly see
 what that motion event that you just received was about.
 
 <div class="videoWrapper">
