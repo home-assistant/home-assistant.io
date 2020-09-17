@@ -55,6 +55,7 @@ og_image: /images/blog/2020-09-0.115/social.png
 - Re-order breaking changes (Alphabetically this time maybe? It is quite a list...)
 - Finally: Update/slim TOC
 - Ensure the blog post has a title & description that match
+- Make embeded YouTube vids public
 
 <!--<a href='/integrations/#version/0.115'><img src='/images/blog/2020-09-0.115/social.png' style='border: 0;box-shadow: none;'></a>-->
 
