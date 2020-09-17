@@ -90,7 +90,7 @@ Own notes with an overview of the changes: <https://gist.github.com/frenck/7b47d
 The month of "What the heck?!" brought in a lot of topics the evolve around
 automations and scripts, of which quite a few have been addressed this release.
 Furthermore, we already had quite a bunch of improvements pending. If you
-like doing automation in YAML, you'll probably love this release.
+like doing automation in YAML, you'll probably just love this release.
 
 Before starting on the list of newly added features, lets talk about the Home
 Assistant frontend. You can now duplicate an automation and, the long present
@@ -151,19 +151,30 @@ The automation editor can also use the new Wait for trigger action.
 Every tried to create an automation trigger or condition on an entity attribute?
 Like the temperature of a climate or weather entity?
 
-You used to need to use a template for that, which was a reason for a lot of you
-to put it up as a "What the heck?!" entry.
+You used to need to use a template for that. Either by extracting the attribute
+from an entity using a template sensor or by writing a template condition.
+A reason for a lot of you to put it up as a "What the heck?!" entry. And you
+know what? You guys are right, this was difficult.
 
-Home Assistant now support the use of attributes in triggers & conditions, in
-both the state and numeric state triggers & conditions, which now have a
-`attribute` option that can be set with the attribute to use.
+<p class='img'>
+<img src='/images/blog/2020-09-0.115/attributes.png' alt='Screenshot of using attributes in the automation editor'></a>
+The automation editor now supports attributes on triggers and conditions.
+</p>
+
+So, Home Assistant now support the use of attributes in triggers & conditions.
+Both the state and numeric state, triggers & conditions, now have a `attribute`
+option that can be set with the attribute to use. The UI got a nice field for
+it, as shown in the above screenshots, but of course, it is also available
+when you are using YAML for your automations.
+
+Some example triggers and conditions using attributes in YAML:
 
 ```yaml
 trigger:
   - platform: state
     entity_id: climate.living_room
     attribute: havc_action
-    state: "heating"
+    to: "heating"
   - platform: numeric_state
     entity_id: weather.outside
     attribute: temperature
@@ -188,10 +199,10 @@ condition:
 ### Shorthand notation for template conditions
 
 A neat little trick has been added this release, to allow for shorter, cleaner
-code if you use templates quite a bit: A shorthand notation for condition
+YAML code, if you use templates quite a bit: A shorthand notation for condition
 templates has been added.
 
-All places that accept condition now accept templates directly. Some examples:
+All places that accept conditions, now accept templates directly. Some examples:
 
 {% raw %}
 
