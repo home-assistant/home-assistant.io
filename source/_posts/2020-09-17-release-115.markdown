@@ -13,29 +13,64 @@ og_image: /images/blog/2020-09-0.115/social.png
 
 <!--<a href='/integrations/#version/0.115'><img src='/images/blog/2020-09-0.115/social.png' style='border: 0;box-shadow: none;'></a>-->
 
-These are the beta release notes for Home Assistant 0.115!
+## Happy Birthday Home Assistant!
 
-0.115 is our birthday release, and is jam packed! We run a longer beta this
-time. The release is planned for 17 September.
+<blockquote>
+There's a party goin' on right here <span style="font-style: normal">🕺</span><br />
+A dedication to last throughout the years <span style="font-style: normal">🥳</span><br />
+So bring your good times, and your laughter too <span style="font-style: normal">😂</span><br />
+We gonna celebrate our party with you <span style="font-style: normal">🎁</span><br />
+<br />
+It's a celebration! 🎉
+</blockquote>
 
-The release notes still need a lot of tweaking and we are looking into splitting
-the release announcements into multiple blog posts.
+~ [_Kool & The Gang - Celebration_](https://www.youtube.com/watch?v=3GwjfUFyY6M)
 
-If you encounter any issues, please report them on GitHub:
+7! Siete! Soch! Syv! Sieben! Seitsemän! Cедем! Sept! Sju! επτά! Zeven! Sette!
+Seven! Years old today! And ooooh, are we going to party and celebrate with
+you!
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+You might have noticed, this release is a bit late, two weeks late to be exact.
+Our regular release cycle is 3 weeks, this time however, we took 5 weeks.
+Sure, the reason was of course related to our birthday today, but what is a
+better gift than a jam packed release that has something for everybody?
 
-Please be sure to include the beta version you are running in the issue
-description, so we can classify your issue correctly. Issues introduced in the beta are processed with priority.
+Thankfully, a lot of you have been sharing their gift wishlist items during
+[the month of "What the heck?!"][wth] (WTH). I love you all! What a good and
+amazing set of great ideas, annoyances and other suggestions have been made in
+that forum this month!
 
-## TODO
+And it is not just that, a lot of people jumped in fixing these things as well!
+What a community! The month of WTH is almost over now, after that we will
+close the category on the forum, until the next WTH month.
+
+Besides that, two totally new and big features are added this release, which
+we really wanted to polish before releasing it. The additional time this release
+was very well spent.
+
+Normally I write some things about the release in my personal introduction
+note right here, but honestly, I have no idea where to start... it is just
+too darn much! I personally love the new automation features, but there are so
+many of those in this release as well. 😅 I'm not going to try writing this. 😂
+
+So, let me close with a thank you to our founding father:
+
+> Paulus, thank you so much for what you have imagined, started and created 7
+> years ago. Your idea has changed the lives of many, including my own.
+> Thank you.
+
+Of course, it is not just Paulus, but everybody else who contributes to the
+project in any way. Code, text, support, chat, YouTube video, live streams,
+blogs, articles, community guides, documentation, tweets, issues, bug reports,
+feature requests, ideas, questions or even if you just using it.
+Thank you for contributing! ❤️
+
+Happy birthday and enjoy the release!
+
+../Frenck
+
+[wth]: /blog/2020/08/18/the-month-of-what-the-heck/
+
 
 - Introduction note
 - Birthday message
