@@ -20,8 +20,6 @@ og_image: /images/blog/2020-09-0.115/social.png
   - Improve / extend text
   - Add screenshot
 - Template processing section?
-- Other noteworthy changes section
-- Breaking change MDI icons needs a note about the backward compatibility removed
 - Re-order breaking changes (Alphabetically this time maybe? It is quite a list...)
 - Finally: Update/slim TOC
 - Ensure the blog post has a title & description that match
@@ -787,7 +785,7 @@ Lorem ipsum.
 
 In the add card dialog, we added a second tab with a list of all your entities.
 Select the entities you want to use and click continue. We will suggest a card
-for you and you can then fine-tune the config.
+for you and you can then fine-tune the configuration.
 
 ## Order entities in Lovelace UI editor
 
@@ -807,56 +805,34 @@ Drag and and drop the entities in the order you want.
   and information of your network and nodes. There are also buttons to put your
   Z-Wave network in inclusion and exclusion mode and to refresh a node.
   Thanks [@cgarwood]!
+
+- The code editor in the UI is now theme-able, so make them look nice!
+
 - The stream component now supports audio! And if you use the latest Home
   Assistant Android app, the stream component now support H.265 streams.
   Amazing job [@uvjustin]!
+
+- Slack notification now support change usernam/icon on the fly, which was
+  a great WTH suggestion! Thanks for adding that [@bachya].
+
 - The [Met.no](/integrations/met) now support hourly forcasts, very nice [@bruxy70]!
+
+- The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
+  this adds another 100 icons you can use!
+
 - The Google Assistant integration got some updates:
   - [@elupus] added support for asking for the previous or next input source.
   - Basic support for controlling light effect has been added by [@mjg59].
   - [@blueshiftlabs] added capabilities to control media player muting and
     relative-volume controls.
-- The Netatmo integration was re-engineered and now has a new data handler to
-  reduce the number of API calls and also merge in webhook events to improve the
-  overall responsiveness.
-  It now comes with a light platform to control the outdoor camera flood light and 
-  contains services to set the home/away status of occupants as well as the outdoor camera mode.
-- The code editor in the UI is now theme-able, so make them look nice!
-- The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), this adds another 100 icons you can use!
-- Performance
-  - Template parsing and entity tracking?
-  - Improve performance of fetching the state domain ([@bdraco] - [#38653])
-  - Improve the performance of dt_util.utcnow() ([@bdraco] - [#39145])
-  - Add shortcuts when we know template is static ([@balloob] - [#39208])
-  - Standardize uuid generation for events/storage/registry ([@bdraco] - [#39184])
-  - Tune logbook performance to accomodate recent changes ([@bdraco] - [#39348]) ([automation docs]) ([logbook docs]) ([script docs])
-  - Provide a logbook option entity_matches_only to optimize for single entity lookup ([@bdraco] - [#39555]) ([logbook docs]
-  - Something about the template changes? Mainly performance...
-    - Add track_template_result method to events ([@bdraco] - [#38802])
-    - Update TrackTemplateResultInfo to remove side effects from init ([@bdraco] - [#38934])
-    - Update template sensor to use async_track_template_result ([@bdraco] - [#38940]) ([template docs])
-    - Convert template lock to use async_track_template_result ([@bdraco] - [#38946]) ([template docs])
-    - Convert template switch to use async_track_template_result ([@bdraco] - [#38950]) ([template docs])
-    - Convert template fan to use async_track_template_result ([@bdraco] - [#38983]) ([template docs])
-    - Convert template alarm_control_panel to use async_track_template_result ([@bdraco] - [#39014]) ([template docs])
-    - Convert template binary_sensor to use async_track_template_result ([@bdraco] - [#39027]) ([template docs])
-    - Convert template cover to use async_track_template_result ([@bdraco] - [#39042]) ([template docs])
-    - Convert template light to use async_track_template_result ([@bdraco] - [#39045]) ([template docs])
-    - Convert template vacuum to use async_track_template_result ([@bdraco] - [#39047]) ([template docs])
-    - Convert bayesian binary_sensor to use async_track_template_result ([@bdraco] - [#39174]) ([bayesian docs])
-    - Update websocket api to use async_track_template_result ([@bdraco] - [#39057]) ([websocket_api docs])
-    - Simplify template integration entities ([@bdraco] - [#39083]) ([template docs])
-    - Update template triggers to use async_track_template_result ([@bdraco] - [#39059]) ([template docs])
-    - Update universal media_player to use async_track_template_result ([@bdraco] - [#39054]) ([universal docs])
-    - Report usage of extract_entities by custom components ([@bdraco] - [#39185]) (breaking-change)
-    - Subscribe to state change events only if the template has entities ([@bdraco] - [#39188]) ([template docs])
-    - Make async_track_template_result track multiple templates ([@bdraco] - [#39371]) ([bayesian docs]) ([template docs]) ([universal docs]) ([websocket_api docs]))
 
-- WTH: Extend IP ban / failed login notification information ([@frenck] - [#39020]) ([http docs])
-- WTH: Allow Slack notifications to change username/icon on the fly ([@bachya] - [#39091])
-- WTH: Don't sort keys when dumping json and yaml ([@bramkragten] - [#39214]) ([http docs])
-- WTH: Allow owner users to change password of any user ([@balloob] - [#39242]) ([config docs])
-- WTH: Add description of what caused an automation trigger to fire ([@pnbruckner] - [#39251])
+- The Netatmo integration was re-engineered and which reduced the number of API
+  calls and also added webhook events to improve the overall responsiveness.
+  It now supports controlling the outdoor camera flood light and got services
+  to set the home/away status of occupants and the outdoor camera mode.
+
+- We no longer automatically alphabetically sort the keys in YAML files written
+  by the UI, as a result from a WTH request. Much better!
 
 ## New Integrations
 
