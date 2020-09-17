@@ -19,9 +19,13 @@ Wow what a birthday week it has been! We've had a [new supervisor release](/blog
 Rendered image of the Home Assistant Lovelace interface running full screen on a 16-inch Mac Book Pro.
 </p>
 
-## Automate when you start using your webcam or microphone
+## Trigger automations with your Mac
 
-Let's start by looking at some of the coolest Mac-specific features of the app, sensors for all your webcams and microphones. Each camera and microphone has its own `binary_sensor` showing whether it is active or not. These can enable some really useful automations, especially for those home working at the moment. You could automatically turn off the radio when answering a call or close the blinds behind you to improve your video quality. To see just how useful this can be in the real world, check out this video of how our very own Frenck is using these sensors in his streaming set up.
+Home Assistant Companion for macOS adds several new `binary_sensor`s for your Mac showing whether it is active and whether a particular microphone or webcam is in use.
+
+The "active" sensor reports whether the Mac is being actively used. In other words that it is not sleeping, not showing a screensaver, not locked and not just sat idle. You can configure the idle threshold in the Sensors section of Preferences to between 20 seconds and one hour.
+
+Each camera and microphone has its own `binary_sensor` showing whether it is active or not. These can enable some really useful automations, especially for those home working at the moment. You could automatically turn off the radio when answering a call or close the blinds behind you to improve your video quality. To see just how useful this can be in the real world, check out this video of how our very own Frenck is using these sensors in his streaming set up.
 
 TODO: ADD VIDEO EMBED HERE
 
@@ -33,7 +37,9 @@ Just like the iOS app, you can send notifications to your Mac with services like
 
 ## Interface
 
-Your Mac isn't a mobile so you shouldn't be forced to use an interface designed for a mobile. In the Mac app the App Configuration page has been removed from Home Assistant's sidebar and instead the configuration options and preferences are in the Home Assistant menu on the menu bar right where you'd expect to find them for any other app and all the standard shortcuts work too (just hit `cmd + ,` for preferences). Here you will also find an option to manually send an update to Home Assistant and you can even open extra Home Assistant windows! Finally, on the menu bar you can also find a new Actions menu where you can see all your [actions](https://companion.home-assistant.io/docs/core/actions) and fire them.
+The Mac app is definitely a _Mac_ app. The App Configuration page has been removed from Home Assistant's sidebar and instead the configuration options and preferences are on the menu bar right where you'd expect to find them for any other app and all the standard shortcuts work too (like `⌘,` for Preferences). You can even open multiple Lovelace windows via File>New.
+
+In the menu bar you will also find an option to manually send an update to Home Assistant and a new Actions menu where you can see all your [actions](https://companion.home-assistant.io/docs/core/actions) and fire them.
 
 ## Big Sur Features
 
