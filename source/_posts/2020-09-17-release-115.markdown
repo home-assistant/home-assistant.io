@@ -1112,7 +1112,7 @@ You need to have Alexa rediscover all devices and then remove the now
 non-responding duplicates using the Alexa phone App. This can take quite a while
 if you have lots of devices.
 
-An alternative would be to log to the Alexa web site and remove all the lights
+An alternative would be to log in to the Alexa web site and remove all the lights
 instead and then re-discover them all.
 
 To do so go to <https://alexa.amazon.com/spa/index.html#appliances>, or if not
