@@ -135,7 +135,7 @@ a beautiful design so you can browse your media in style.
 
 When [@hunterjm] saw the new media browser, he got an idea. What if the user can
 use the media browser to browse media offered by any integration and play it on
-any of their media players? And so the
+any of their media players? And so
 [the media source integration](/integrations/media_source/) was born.
 
 The first media source that has been added is to allow users to play local media.
@@ -197,7 +197,7 @@ For all details, [read the dedicated blog post about Home Assistant tags][tags]!
 ## Customize the sidebar
 
 One of the most requested functions of What the heck was customizing the
-sidebar, you do want history for your entities in the more info dialog, but you
+sidebar: You do want history for your entities in the more info dialog, but you
 don't use that history panel. Or you do want calendars for automating, or in
 the new Lovelace cards, but don't want a calendar panel with all your calendars.
 
@@ -239,7 +239,7 @@ cards, would be nice!
 
 ## Updated more info dialog
 
-The more info dialog is updated. In case an entity has controls, for example,
+The more info dialog is updated. In case an entity has controls, for example
 a light, the more info dialog will now have 2 tabs. One for controls and one
 for history.
 
@@ -329,8 +329,7 @@ The automation editor can also use the new Wait for trigger action.
 
 ### Triggers & Conditions on entity attributes
 
-Every tried to create an automation trigger or condition on an entity attribute?
-Like the temperature of a climate or weather entity?
+Ever tried to create an automation trigger or condition on an entity attribute, like the temperature of a climate or weather entity?
 
 You used to need to use a template for that. Either by extracting the attribute
 from an entity using a template sensor or by writing a template condition.
@@ -375,7 +374,7 @@ condition:
 
 Using dates and times in your automation can be hard. If often needs quite a bit
 of Jinja templating and is actually really hard to do. [@pnbruckner] noticed,
-and he added the possibility use your `input_datetime` helper entities
+and he added the possibility to use your `input_datetime` helper entities
 directly in time trigger!
 
 Assume you have an `input_datetime.bedroom_alarm_clock_time` helper entity, that
@@ -408,7 +407,7 @@ More about the time trigger, can be found in our [documentation][trigger-time].
 
 [@pnbruckner] set a standard in the above, and we used that to start working
 on making this something that would work on more places. As of this release,
-all `input_*` can be used in conditions.
+all `input_*` entities can be used in conditions.
 
 The `time` condition can accept `input_datetime` helper entities, similar to
 the trigger shown above.
@@ -432,7 +431,7 @@ conditions:
     below: input_number.temperature_threshold_high
 ```
 
-And finally, the `state` condition accepts any `input_*` helper entit in its
+And finally, the `state` condition accepts any `input_*` helper entity in its
 `state` option.
 
 ```yaml
@@ -640,7 +639,7 @@ might be polluting your logs. For example, you have a automation in `single`
 mode, but it does get triggered multiples times sometimes and you are not
 interested in the log. You can now control that with the `max_exceeded` option.
 
-The example below silents the automation and will not log when it gets
+The example below silences the automation and it will not log when it gets
 triggered while it was already running:
 
 ```yaml
@@ -676,9 +675,9 @@ response. It would be more useful to have your previously used template there.
 Yes, you guessed it, another WTH!
 
 The template would also not automatically re-render after the state of an entity
-is changed. Causing you needed to change the template in order to re-render it.
+is changed, causing you needing to change the template in order to re-render it.
 
-We addressed both these issues, we save your last-used template and will show
+We addressed both these issues. We save your last-used template and will show
 that instead of the example when you visit the template developer tools.
 
 <p class='img'>
@@ -695,13 +694,13 @@ which entities Home Assistant detected you are using in your template.
 WTH, do we still need to restart Home Assistant for applying YAML configuration?
 That was one of the WTH raised. It is being worked on!
 
-This release, [@bdraco] found a way to reload some of internal integrations
+This release, [@bdraco] found a way to reload some of the internal integrations
 and boosted this capability to a lot of integrations. For those, you can just
-reload the YAML configuration server control page (you will need advanced mode).
+reload the YAML in the configuration server control page (you will need advanced mode).
 
-As of this release, besides the integration that already could be reloaded,
+As of this release, besides the integrations that already could be reloaded,
 the following integration can now reload their YAML configuration without
-restart Home Assistant:
+a restart of Home Assistant:
 
 - [Command Line][command_line docs]
 - [File Size][filesize docs]
@@ -724,8 +723,8 @@ restart Home Assistant:
 - [Universal Media Player][universal docs]
 
 You can also reload an integration that is setup with the UI! This can be useful
-when it lost it's connection or is in an otherwise failed state. You can find
-the reload the button in the overflow menu on the integration card.
+when it lost its connection or is in an otherwise failed state. You can find
+the reload button in the overflow menu on the integration card.
 
 <p class='img'>
 <img src='/images/blog/2020-09-0.115/integrations-reload.png' alt='Screenshot of reloading an UI configured integration.'>
@@ -747,7 +746,7 @@ As a owner, you can now change a password of a user.
 
 ## Improved ways of exposing entities via Home Assistant Cloud
 
-This release brings an update to the way you can expose entities toGoogle
+This release brings an update to the way you can expose entities to Google
 Assistant and Amazon Alexa via Home Assistant Cloud.
 
 With the new panel, you can now set on a domain level if entities should be
@@ -772,7 +771,7 @@ Select one or more entities to populate the card.
 
 <p class='img'>
 <img src='/images/blog/2020-09-0.115/add-card-by-entity-confirmation.png' alt='Screenshot of add card by entity confirmation view in Lovelace UI.'>
-A confirmation dialogue is shown before adding the suggested card.
+A confirmation dialog is shown before adding the suggested card.
 </p>
 
 In the add card dialog, we added a second tab with a list of all your entities.
