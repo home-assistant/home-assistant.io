@@ -652,12 +652,15 @@ automation:
 
 ## Calendar card
 
-Like promised when we introduced the calendar panel, we now also added a
+Like promised, when we introduced the calendar panel, we now also added a
 Lovelace calendar card!
 
-This allows you to create as many calendars as you want with the entities you want.
+This allows you to create as many calendars as you want with the entities you
+want.
 
-If you want multiple calendar panels, just create a Lovelace dashboard with a view in panel mode with a calendar card!
+If you want multiple calendar panels, create a Lovelace dashboard with a
+panelmode view with a calendar card!
+
 
 <p class='img'>
 <img src='/images/blog/2020-09-0.115/calendar-card.png' alt='Screenshot of the new calendar card'>
@@ -684,19 +687,19 @@ Templates you write in the developer tools, are now updating live!
 </p>
 
 We will also listen for changes of the entities you used in your template and
-automatically re-render your template. As an added bonus we will show
-which entities Home Assistant dectected you are using in your template
+automatically re-render your template. As a bonus, we will show
+which entities Home Assistant detected you are using in your template.
 
 ## Reload everything YAML
 
-WTH do we still need to restart Home Assistant for applying YAML configuration?
+WTH, do we still need to restart Home Assistant for applying YAML configuration?
 That was one of the WTH raised. It is being worked on!
 
-This release, [@bdraco] found a wait for reloading some of internal integrations
-and boosted this capability to a lot of integration. For those, you can just
+This release, [@bdraco] found a way to reload some of internal integrations
+and boosted this capability to a lot of integrations. For those, you can just
 reload the YAML configuration server control page (you will need advanced mode).
 
-As of this release, beside the integration that already could be reloaded,
+As of this release, besides the integration that already could be reloaded,
 the following integration can now reload their YAML configuration without
 restart Home Assistant:
 
@@ -731,11 +734,11 @@ UI configured integration can now be reloaded as well!
 
 ## User password change
 
-Another What the heck, that sounded so obvious: Being able to change the
-password of a user as the owner of the system. Right?!
+Another What the heck, that sounded so obvious: Being able to change a user's
+password as the owner of the system. Right?!
 
-You can now change the password of every user from the UI when you are the owner
-of your system!
+You can now change every user's password from the UI when you are the owner of
+the system!
 
 <p class='img'>
 <img src='/images/blog/2020-09-0.115/change-password.png' alt='Screenshot of change a password of a user account.'>
@@ -744,7 +747,15 @@ As a owner, you can now change a password of a user.
 
 ## Improved ways of exposing entities via Home Assistant Cloud
 
-This release brings an update to the way you can expose entities to Google Assistant and Amazon Alexa via Home Assistant Cloud. With the new panel, you can now set on a domain level if entities should be exposed/not exposed by default. You can still override this on a per-entity level for fine-grained control. The default expose rules have also been updated to expose entities that work best with voice assistants.
+This release brings an update to the way you can expose entities toGoogle
+Assistant and Amazon Alexa via Home Assistant Cloud.
+
+With the new panel, you can now set on a domain level if entities should be
+exposed/not exposed by default. You can still override this on a per-entity
+level for fine-grained control.
+
+The default expose rules have also been updated to expose entities that work
+best with voice assistants.
 
 <img class='no-shadow' src='/images/blog/2020-09-0.115/cloud-expose-entities.png' alt='Screenshot of expose options on an entity.'>
 
@@ -781,7 +792,7 @@ Drag and and drop the entities in the order you want.
 
 ## Other noteworthy changes
 
-- The OpenZwave beta integration in coming along nicely. First signs of
+- The OpenZwave beta integration is coming along nicely. First signs of
   some control panels in the UI are visible this release. You can see the status
   and information of your network and nodes. There are also buttons to put your
   Z-Wave network in inclusion and exclusion mode and to refresh a node.
@@ -790,13 +801,13 @@ Drag and and drop the entities in the order you want.
 - The code editor in the UI is now theme-able, so make them look nice!
 
 - The stream component now supports audio! And if you use the latest Home
-  Assistant Android app, the stream component now support H.265 streams.
+  Assistant Android app, the stream component now supports H.265 streams.
   Amazing job [@uvjustin]!
 
-- Slack notification now support change usernam/icon on the fly, which was
+- Slack notification now supports change username/icon on the fly, which was
   a great WTH suggestion! Thanks for adding that [@bachya].
 
-- The [Met.no](/integrations/met) now support hourly forcasts, very nice [@bruxy70]!
+- The [Met.no](/integrations/met) now supports hourly forecasts, very nice [@bruxy70]!
 
 - The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
   this adds another 100 icons you can use!
@@ -808,10 +819,10 @@ Drag and and drop the entities in the order you want.
   - [@blueshiftlabs] added capabilities to control media player muting and
     relative-volume controls.
 
-- The Netatmo integration was re-engineered and which reduced the number of API
-  calls and also added webhook events to improve the overall responsiveness.
-  It now supports controlling the outdoor camera flood light and got services
-  to set the home/away status of occupants and the outdoor camera mode.
+- The Netatmo integration was re-engineered, which reduced the number of API
+  calls and added webhook events to improve overall responsiveness. It now
+  supports controlling the outdoor camera floodlight and got services to set
+  the occupants' home/away status and the outdoor camera mode.
 
 - We no longer automatically alphabetically sort the keys in YAML files written
   by the UI, as a result from a WTH request. Much better!
