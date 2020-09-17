@@ -1128,7 +1128,7 @@ account, delete all the lights previously discovered by Alexa and then re-run
 discovery.
 
 This is a one-off requirement, unfortunately there's no other way to easily
-transitioned from the previously incorrect values reported by the Emulated Hue.
+transition from the previously incorrect values reported by the Emulated Hue.
 
 ([@jyavenard] - [#39539]) ([emulated_hue docs])
 
