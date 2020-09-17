@@ -109,11 +109,11 @@ For a 3-phase TN system the neutral to phase voltages would be voltageT2T3, volt
 
 ### Limits
 
-The charging robot is configured to know the main fuse rating, which circuit it is connected to and the curcuit fuse rating. It is the responsibility of the installer (electrician) to configure this. This information together with a max and dynamic current limit controls the current available at each charging robot.
+The charging robot is configured to know the main fuse rating, which circuit it is connected to and the circuit fuse rating. It is the responsibility of the installer (electrician) to configure this. This information together with a max and dynamic current limit controls the current available at each charging robot.
 
 The circuit and the charging robot each have a max current limit. These are hard limits which the charging robot will always respect. If there is only one charging robot on a circuit they will be the same, but with more than one they can differ. These limits are typically configured by the user.
 
-The curcuit and the charging robot also each have a dynamic current limit. This is a limit that will vary with the site total current load and is used by devices such as Easee Equalizer and Tibber Pulse to limit and balance power beteeen charging robots to not overload the site main fuse and/or circuit fuse.
+The circuit and the charging robot also each have a dynamic current limit. This is a limit that will vary with the site total current load and is used by devices such as Easee Equalizer and Tibber Pulse to limit and balance power beteeen charging robots to not overload the site main fuse and/or circuit fuse.
 
 ### Charging schedule
 
