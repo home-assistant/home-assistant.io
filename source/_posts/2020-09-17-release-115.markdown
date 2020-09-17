@@ -919,7 +919,7 @@ the user chose to name the profile.
 To set up a Broadlink device, click _Configuration_ in the sidebar and click
 _Integrations_.
 
-The devices will be imported from your configuration files to that page. If yousee
+The devices will be imported from your configuration files to that page. If you see
 your device there, click _Configure_. If not, click the `+` icon in the lower
 right, click _Broadlink_, enter the host and follow the instructions to
 complete the setup.
