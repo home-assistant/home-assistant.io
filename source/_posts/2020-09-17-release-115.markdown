@@ -1316,7 +1316,7 @@ The attributes of `next_rain` has been reworked. In the previous version it was
 a list of objects with changing keys (every 5 minutes) corresponding to a
 UTC timestamp. This design was difficult to use in templates and automation.
 
-The new design will add a dedicated string attribute to have the the reference
+The new design will add a dedicated string attribute to have the reference
 timestamp of the forecast (`forecast_time_ref`) and a dict attribute with fixed
 keys to access the rain forecast within the hour (`1_hour_forecast`).
 
@@ -1383,7 +1383,7 @@ than a string containing both (e.g., `NE (123°)`).
   <summary><b>NZBGet</b></summary>
   <p>
 
-NZBGet is now available via the Integrations UI. This also means its no longer
+NZBGet is now available via the Integrations UI. This also means it's no longer
 configured in YAML. Existing configurations are automatically transitioned to
 configuration via UI, so after upgrade your existing YAML entry can be safely
 removed.
@@ -1446,7 +1446,7 @@ you can safely remove that configuration.
   <summary><b>OpenWeatherMap</b></summary>
   <p>
 
-The OpenWeatherMap integration can now be configured via the UI. After upgrading
+The OpenWeatherMap integration can now be configured via the UI. After upgrading,
 your existing configuration will be imported automatically and you can safely
 remove existing YAML configuration for this integration.
 
@@ -1545,7 +1545,7 @@ a performance issue where the template would be re-rendered unnecessarily.
 
 Please review the [`Working without entities`][working-without-entities] section
 on the [`Binary Sensor Template`][working-without-entities] documentation for
-alternative ways to force templates entities to re-evaluate. This includes
+alternative ways to force template entities to re-evaluate. This includes
 templates that rely on the use of `now()`.
 
 If this change means you need to make adjustments, we have made it easier by
@@ -1565,7 +1565,7 @@ section under `Configure Home Assistant` -> `Server Controls`.
 
 The code editor is now themeable, you can set the background color and the color
 for the different code blocks. The default background color now is
-`card-background-color`, for some themes this may conflict with the default code
+`card-background-color`. For some themes this may conflict with the default code
 colors. To get the old behavior back add `code-editor-background-color: white`
 to your theme.
 
