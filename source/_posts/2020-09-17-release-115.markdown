@@ -17,8 +17,6 @@ og_image: /images/blog/2020-09-0.115/social.png
 - Media browser section
   - Definitely needs a vid
 - Automation section:
-  - Variables
-  - input_*
   - Other changes section
 - Calendar card section
   - Improve / extend text
@@ -478,7 +476,52 @@ service: kef_custom.set_mode
 
 ### Variables
 
-Lorem ipsum.
+Another WTH item "Why can't we have variables?!". This WTH is not fully solved,
+but a good start is made this release by adding support for variables to
+automation and script.
+
+Here is an example automation:
+
+```yaml
+automation:
+  trigger:
+    platform: sun
+    event: sunset
+    offset: -00:30
+  variables:
+    notification_service: notify.paulus_iphone
+  action:
+    - service: "{{ notification_service }}"
+      data:
+        message: Beautiful sunset!
+```
+
+While the above example, it doesn't add that much value, it does shows how it
+works. Variables can be templates too! For example:
+
+```yaml
+variables:
+  person: frenck
+  notification_service: "notify.{{ person }}_iphone"
+```
+
+Both scripts and automation actions support this syntax now. Additionally,
+we added a new action! The variables action. This unlock the potential to
+change variables during the runtime of a script.
+
+```yaml
+variables:
+  notification_service: notify.paulus_iphone
+action:
+  - variables:
+    notification_service: notify.frenck_iphone
+  - service: "{{ notification_service }}"
+    data:
+      message: This message actually went to Frenck, not Paulus.
+```
+
+For a more extensive example, check out the example written in [the blog
+article about Home Assistant Tags][tags].
 
 ### Other scripts and automation changes
 
