@@ -63,24 +63,24 @@ You can also select another media player and use it to browse and play media on 
 - Add Netatmo media browser support ([@cgtobi] - [#39578]) ([cast docs]) ([default_config docs]) ([media_source docs]) ([netatmo docs]) (new-integration)
 - Media Source implementation for Chromecast ([@hunterjm] - [#39305]) ([cast docs]) ([default_config docs]) ([media_finder docs]) (new-integration)
 
-## Wanna play tag?
+## Home Assistant Tags
 
-We have a tags configuration panel, you create tags, see when a tag is last
-scanned, and write tags with the Android and iOS companion apps.
+<p class='img'>
+<img src='/images/blog/2020-09-15-home-assistant-tags/tag-reader.jpg' alt='Photo of the Home Assistant tag reader made by Adonno'></a>
+The Home Assistant tag reader, made by Adonno with the help of MagnusO.
+</p>
 
-When a tag is scanned it will glow so you can easily identify it.
+Home Assistant has now native support for tags! With Home Assistant Tags, we’re
+making scannable tags (NFC/RFID) a first-class citizen in Home Assistant.
+Easy to read, write and automate!
 
-## Month of "What The Heck?!"
+We have a beautiful UI for it in the frontend, our mobile companion apps have
+been updated to work seamlessly with tags and there is now even a open source
+scanner available as shown in the image above.
 
-Lorem ipsum
+For all details, [read the dedicated blog post about Home Assistant tags][tags]!
 
-- Collect some stats
-- Keep it global?
-- Mention WTH related changes below marked as WTH
-- Next year...
-- Awesome thanks
-- Links to GitHub org with WTH labels?
-- Not over yet! Hacktoberfest!
+[tags]: /blog/2020/09/15/home-assistant-tags/
 
 ## Automation & Scripts updates
 
