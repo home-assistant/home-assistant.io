@@ -12,7 +12,11 @@ og_image: /images/blog/2020-09-18-mac-companion/social.png
 
 TODO: ADD VIDEO
 
-Wow what a birthday week it has been! We've had a [new supervisor release](/blog/2020/09/16/supervisor-joins-the-party), one of the largest and most user-driven core [releases](/blog/2020/09/17/release-115) thanks to the month of What The Heck?! and even seen the integration of [RFID tags](/blog/2020/09/15/home-assistant-tags) right into the heart of Home Assistant. To finish the week off we've got one last present for all our Mac users, we're announcing the beta release of Home Assistant Companion for macOS. Like a lot of the recent updates to the iOS app, we have [@zacwest](https://github.com/zacwest) to thank for this. Zac has ported the iOS app over to Mac and added some great new features specific to the Mac. If you're a Windows user, don't worry, you can integrate your PC with the great [IOT Link](https://iotlink.gitlab.io/index.html) tool.
+Wow what a birthday week it has been! We've had a [new supervisor release](/blog/2020/09/16/supervisor-joins-the-party), one of the largest and most user-driven core [releases](/blog/2020/09/17/release-115) thanks to the month of What The Heck?! and even seen the integration of [RFID tags](/blog/2020/09/15/home-assistant-tags) right into the heart of Home Assistant but we're not done yet! We have "One more thing…"
+
+## Introducing Home Assistant Companion for macOS
+
+Like a lot of the recent updates to the iOS app, we have [@zacwest](https://github.com/zacwest) to thank for this. Zac has ported the iOS app over to Mac and added some great new features specific to the Mac. If you're a Windows user, don't worry, you can integrate your PC with the great [IOT Link](https://iotlink.gitlab.io/index.html) tool.
 
 <p class='img'>
 <img src='/images/blog/2020-09-18-mac-companion/render.png' alt='Rendered image of the Home Assistant Lovelace interface running full screen on a 16-inch Mac Book Pro'></a>
@@ -21,7 +25,7 @@ Rendered image of the Home Assistant Lovelace interface running full screen on a
 
 ## Trigger automations with your Mac
 
-Home Assistant Companion for macOS adds several new `binary_sensor`s for your Mac showing whether it is active and whether a particular microphone or webcam is in use.
+Home Assistant Companion for macOS adds several new binary sensors for your Mac showing whether it is active and whether a particular microphone or webcam is in use.
 
 The "active" sensor reports whether the Mac is being actively used. In other words that it is not sleeping, not showing a screensaver, not locked and not just sat idle. You can configure the "Time Until Idle" in one-minute steps from a minimum of 1 minute, you'll find this option in the Sensors section of Preferences.
 
