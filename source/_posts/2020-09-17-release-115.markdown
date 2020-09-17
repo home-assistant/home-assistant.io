@@ -331,22 +331,6 @@ Lorem ipsum.
 We will use the image in the frontend for your persons, but also in the sidebar
 for the user that is linked to this person.
 
-## Code editor themeable (breaking)
-
-TODO: Move this to the breaking changes
-
-The code editor is now themeable, you can set the background color and the color
-for the different code blocks. The default background color now is
-`card-background-color`, for some themes this may conflict with the default code
-colors. To get the old behavior back add `code-editor-background-color: white`
-to your theme.
-
-## Updated MDI to 5.5.55
-
-TODO: Move this to the breaking change section
-
-The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), another 100 icons where added. `scooter` was...?
-
 ## Template developer tools
 
 The template developer tools are very useful for checking if the template you
@@ -473,14 +457,6 @@ TODO: Animated gif
 Lorem ipsum.
 </p>
 -->
-
-## Home Assistant Cloud for older Android devices
-
-Home Assistant Cloud uses Let's Encrypt to provide SSL certificates for your instance. Let's Encrypt is changing the way they sign their certificates at the end of the month which breaks support for older Android devices (older than Android 7.1).
-
-This release includes an update to make the certificates used by Home Assistant Cloud backwards compatible. This relies on a feature that Let's Encrypt provides, which will expire in September 2021.
-
-If you use an older Android device and cannot upgrade to Home Assistant 0.115 or want to use it past September 2021, install the Firefox browser. It includes modern certificates and is able to support the new Let's Encrypt certificates.
 
 ## Other noteworthy changes
 
@@ -1300,6 +1276,48 @@ The previous deprecated frontend configuration options `frontend_extra_html_url`
 and `frontend_extra_html_url` are now removed.
 
 ([@balloob] - [#39799]) ([frontend docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Themes</b></summary>
+  <p>
+
+The code editor is now themeable, you can set the background color and the color
+for the different code blocks. The default background color now is
+`card-background-color`, for some themes this may conflict with the default code
+colors. To get the old behavior back add `code-editor-background-color: white`
+to your theme.
+
+  </p>
+</details>
+
+<details>
+  <summary><b>MDI Icons</b></summary>
+  <p>
+
+The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55), another 100 icons where added.
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Home Assistant Cloud for older Android devices</b></summary>
+  <p>
+
+Home Assistant Cloud uses Let's Encrypt to provide SSL certificates for your
+instance. Let's Encrypt is changing the way they sign their certificates at
+the end of the month which breaks support for older Android devices
+(older than Android 7.1).
+
+This release includes an update to make the certificates used by Home Assistant
+Cloud backward compatible. This relies on a feature that Let's Encrypt
+provides, which will expire in September 2021.
+
+If you use an older Android device and cannot upgrade to Home Assistant 0.115
+or want to use it past September 2021, install the Firefox browser. It includes
+modern certificates and is able to support the new Let's Encrypt certificates.
 
   </p>
 </details>
