@@ -190,9 +190,6 @@ For all details, [read the dedicated blog post about Home Assistant tags][tags]!
 
 ## Automation & Scripts updates
 
-TODO: Remove next line
-Own notes with an overview of the changes: <https://gist.github.com/frenck/7b47d484578ab23b5cc20ffef0bacc30>
-
 The month of "What the heck?!" brought in a lot of topics the evolve around
 automations and scripts, of which quite a few have been addressed this release.
 Furthermore, we already had quite a bunch of improvements pending. If you
