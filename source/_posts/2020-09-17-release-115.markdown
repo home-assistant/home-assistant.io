@@ -59,7 +59,7 @@ So, let me close with a thank you to our founding father:
 Of course, it is not just Paulus, but everybody else who contributes to the
 project in any way. Code, text, support, chat, YouTube video, live streams,
 blogs, articles, community guides, documentation, tweets, issues, bug reports,
-feature requests, ideas, questions or even if you just using it.
+feature requests, ideas, questions or even if you just use it.
 Thank you for contributing! ❤️
 
 Happy birthday and enjoy the release!
