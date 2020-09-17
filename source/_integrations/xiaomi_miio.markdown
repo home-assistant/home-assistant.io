@@ -1,6 +1,6 @@
 ---
-title: "Xiaomi Miio"
-description: "Instructions on how to integrate Xiaomi devices using the Xiaomi Miio integration within Home Assistant."
+title: Xiaomi Miio
+description: Instructions on how to integrate Xiaomi devices using the Xiaomi Miio integration within Home Assistant.
 ha_category:
   - Hub
   - Fan
@@ -15,6 +15,7 @@ ha_release: 0.51
 ha_codeowners:
   - '@rytilahti'
   - '@syssi'
+  - '@starkillerOG'
 ha_domain: xiaomi_miio
 ha_config_flow: true
 ---

@@ -9,10 +9,10 @@ ha_category:
   - Climate
   - Camera
   - Light
-ha_release: "0.20"
+ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - "@cgtobi"
+  - '@cgtobi'
 ha_config_flow: true
 ha_domain: netatmo
 ---

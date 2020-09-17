@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.38
 ha_iot_class: Local Polling
 ha_codeowners:
+  - '@pschmitt'
   - '@pvizeli'
 ha_domain: nuki
 ---

@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_domain: trafikverket_weatherstation
+ha_codeowners:
+  - '@endor-force'
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.

@@ -5,9 +5,11 @@ ha_category:
   - Switch
 ha_release: 0.115
 ha_codeowners:
-  - "@balloob"
+  - '@balloob'
+  - '@bieniu'
 ha_domain: shelly
 featured: true
+ha_config_flow: true
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.

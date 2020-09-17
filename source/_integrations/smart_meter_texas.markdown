@@ -7,7 +7,7 @@ ha_release: 0.115
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@grahamwetzler"
+  - '@grahamwetzler'
 ha_domain: smart_meter_texas
 ---
 

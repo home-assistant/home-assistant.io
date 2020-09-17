@@ -1,5 +1,5 @@
 ---
-title: RoonLabs Media Player
+title: RoonLabs music player
 description: Instructions on how to integrate a RoonLabs multi room player into Home Assistant.
 ha_category:
   - Media Player

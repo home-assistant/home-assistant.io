@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.36
 ha_codeowners:
   - '@pvizeli'
+  - '@fabaff'
 ha_domain: upc_connect
 ---
 

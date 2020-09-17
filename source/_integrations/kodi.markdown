@@ -7,8 +7,9 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@armills'
+  - '@OnFreund'
 ha_domain: kodi
+ha_config_flow: true
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.

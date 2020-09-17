@@ -14,6 +14,7 @@ ha_release: 0.39
 ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
+ha_config_flow: true
 ---
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.

@@ -5,10 +5,10 @@ ha_category:
   - Energy
 ha_iot_class: Local Push
 ha_release: 0.112
-ha_config_flow: false
 ha_codeowners:
   - '@kbickar'
 ha_domain: emulated_kasa
+ha_quality_scale: internal
 ---
 
 The Emulated Kasa integration emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network. 

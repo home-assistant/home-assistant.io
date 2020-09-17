@@ -7,6 +7,8 @@ ha_release: 0.24
 ha_iot_class: Local Push
 ha_codeowners:
   - '@Julius2342'
+  - '@farmio'
+  - '@marvin-w'
 ha_domain: knx
 ---
 
