@@ -22,9 +22,6 @@ og_image: /images/blog/2020-09-0.115/social.png
 - Customize the sidebar
   - Improve / extend text
   - Animation or recording on how that works
-- Person image upload
-  - Improve / extend text
-  - Animation or recording on how that work
 - Template developer tools
   - Check text
   - Add animated gif on the live update
@@ -612,20 +609,21 @@ This is stored on your device, so this has to be set up on every device.
 
 ## Person image upload
 
-You can now upload images in the frontend for a person, you can select or drop
-an image in the input field and then crop it to a square. The image will be
-stored on your Home Assistant server.
+You can now upload images for a person in the frontend!
 
-TODO: screenshot
-<!-- Image template
-<p class='img'>
-<img src='/images/blog/2020-09-0.115/image.png' alt='Screenshot of lorem ipsum'></a>
-Lorem ipsum.
-</p>
--->
+Select or drop an image in the input field and then crop it to a square. The
+image is stored on your Home Assistant server.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>
+</div>
 
 We will use the image in the frontend for your persons, but also in the sidebar
 for the user that is linked to this person.
+
+This feature is powered by the new image integration and opens up for future
+possibilities. For example, uploading images, for use in your Lovelace picture
+cards, would be nice!
 
 ## Template developer tools
 
