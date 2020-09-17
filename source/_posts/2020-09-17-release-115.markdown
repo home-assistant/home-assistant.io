@@ -16,8 +16,6 @@ og_image: /images/blog/2020-09-0.115/social.png
 - Social media image
 - Media browser section
   - Definitely needs a vid
-- Automation section:
-  - Other changes section
 - Calendar card section
   - Improve / extend text
   - Add screenshot
@@ -525,10 +523,43 @@ article about Home Assistant Tags][tags].
 
 ### Other scripts and automation changes
 
-- Create variable with result of wait_template and accept template for timeout option ([@pnbruckner] - [#38634]) ([automation docs])
-- Add max_exceeded log level option to automations & scripts ([@pnbruckner] - [#39448]) ([automation docs]) ([script docs])
-- Add as_local convenience function to jinja templates ([@bdraco] - [#39618])
-- Add timestamp option for input_datetime.set_datetime ([@pnbruckner] - [#39121]) ([input_datetime docs])
+But wait! There is more! 😂
+
+There was no way of knowing if a wait template was timed out or if it continued
+normally. Now, we do know this. After each wait template, a new variable is
+available: `wait`. It provides `wait.completed` (indicates if the template
+evaluated to true before the timeout expired) and `wait.remaning` (remaining time
+out).
+
+```yaml
+sequence:
+  - wait_template: "{{ is_state('binary_sensor.abc', 'on') }}"
+    timeout: 10
+    continue_on_timeout: true
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ not wait.completed }}"
+        sequence:
+          # Handle timeout case
+```
+
+The new script and automation run modes are amazing! But in some cases, they
+might be polluting your logs. For example, you have a automation in `single`
+mode, but it does get triggered multiples times sometimes and you are not
+interested in the log. You can now control that with the `max_exceeded` option.
+
+The example below silents the automation and will not log when it gets
+triggered while it was already running:
+
+```yaml
+automation:
+  - trigger:
+      ...
+    max_exceeded: silent
+    action:
+      ...
+```
 
 ## Calendar card
 
