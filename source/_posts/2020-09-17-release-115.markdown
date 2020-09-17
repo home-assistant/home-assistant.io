@@ -886,126 +886,34 @@ integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 <details>
-  <summary><b>Instituto Português do Mar e Atmosfera (IPMA)</b></summary>
+  <summary><b>Automations</b></summary>
   <p>
 
-The `precipitation` attribute has been renamed to `precipitation_probability`.
+Previously an automation's `last_triggered` attribute was updated, and an
+`automation_triggered` event was fired, whenever a trigger fired and the
+conditions (if any) were true, regardless if the actions actually ran.
 
-([@dgomes] - [#38697]) ([ipma docs])
+For example, in `single` mode, the actions won't run if they are still running
+from a previous trigger event.
+
+Now the attribute will be updated, and the event fired, only if the actions
+actually run.
+
+([@pnbruckner] - [#39323]) ([automation docs])
 
   </p>
 </details>
 
 <details>
-  <summary><b>Deutsche Wetter Dienst (DWD) Weather Warnings</b></summary>
+  <summary><b>Axis</b></summary>
   <p>
 
-If you use entity state attributes of this integration in automations or scripts
-need to adjust these to handle the changes.
+Initial naming of events from VMD4 and Fence guard are now based on their
+configured name on the device; `binary_sensor.m1065-lw_0_vmd4_camera1profile1`
+is now `binary_sensor.m1065-lw_0_vmd4_profile_1` or `profile_1` can be whatever
+the user chose to name the profile.
 
-- The `region_state` attribute has been removed, cause it is no longer available
-  on the new API.
-- All timestamps in the state attributes are now UTC and not local time anymore.
-
-([@stephan192] - [#34820]) ([dwd_weather_warnings docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>HTTP: Using reverse proxies</b></summary>
-  <p>
-
-The processing of data received from reverse proxies is now more strictly
-handled. Invalid or malformed `X-Forwarded-For` headers will now result in an
-HTTP 400 error (Bad Request).
-
-Support for `X-Forwarded-Proto` and `X-Forwarded-Host` has been added.
-
-Additionally, Home Assistant will now log cases of a reverse proxy being used,
-but not configured with Home Assistant. Make sure, you set the
-`use_x_forwarded_for` and `trusted_proxies` in your Home Assistant HTTP
-configuration correctly to avoid warnings.
-
-([@frenck] - [#38696]) ([http docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Netatmo</b></summary>
-  <p>
-
-The sensor for wind and gust angle is split up into two entities so that it now
-returns the direction (e.g., `NE`) and the actual value (e.g., `178°`) rather
-than a string containing both (e.g., `NE (123°)`).
-
-([@cgtobi] - [#38627]) ([netatmo docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>OAuth2 authentication and redirects</b></summary>
-  <p>
-
-Integrations using OAuth2 authentication now use the current request URL from
-the browser as the redirect target, instead of the internal URL setting.
-
-This matches the experience one would expect to happen and removes the need
-to fiddle around with the internal URL setting.
-
-However, this might require you to update application settings when
-re-authenticating with existing services.
-
-([@frenck] - [#38692])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>OpenUV</b></summary>
-  <p>
-
-Support for configuring this integration has been fully removed.
-If you have existing OpenUV configuration in your YAML configuration files,
-you can safely remove that configuration.
-
-([@bachya] - [#38857]) ([openuv docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Yandex Transport</b></summary>
-  <p>
-
-The integration now accepts a full stop ID in text notation:
-`'stop__1234'` or `'group_345'` or `'6789'`
-
-You'll have to update `stop_id: 1234567` in your existing configuration to
-`stop_id: stop__1234567` as it is used in Yandex maps API.
-
-([@devbis] - [#39021]) ([yandex_transport docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Sentry</b></summary>
-  <p>
-
-The YAML configuration for Sentry is now deprecated and no longer works. If you
-had Sentry configured via YAML previously, you can safely remove the YAML
-configuration (without the need to reconfigure) as it has been imported into
-the UI before.
-
-The release is now formatted with only the version number of Home Assistant
-Core, for example, `0.115.0`. Previously, this was prefixed with
-`homeassistant-`, for example, `homeassistant-0.115.0`.
-This prefix is now removed.
-
-([@frenck] - [#38833]) ([sentry docs])
+([@Kane610] - [#39699]) ([axis docs])
 
   </p>
 </details>
@@ -1150,22 +1058,15 @@ file, they are gone.
   </p>
 </details>
 
+
 <details>
-  <summary><b>Kodi</b></summary>
+  <summary><b>Brother Printer</b></summary>
   <p>
 
-Kodi Media Player configuration is now available through the UI, including
-discovery. If you have Kodi configured in YAML, it is advised to remove that
-and use discovery or a manual configuration through the UI.
+The uptime sensor state format and unit have been changed. If you rely on those
+you might need to adjust your configuration.
 
-Existing YAML entries will be imported, but:
-
-1. Your turn on/off actions will not be ported. This functionality is now
-   available through device triggers.
-2. You may have duplicate entities.
-3. Kodi must be on when Home Assistant is loading for the first time in order for the configuration to be imported.
-
-([@OnFreund] - [#38551]) ([kodi docs])
+([@bieniu] - [#39226]) ([brother docs])
 
   </p>
 </details>
@@ -1186,14 +1087,58 @@ standards.
 </details>
 
 <details>
-  <summary><b>RFLink</b></summary>
+  <summary><b>Deutsche Wetter Dienst (DWD) Weather Warnings</b></summary>
   <p>
 
-The integration has been adjusted and modified the `entity_id` generation for
-Rflink toggle type lights. There is a small possibility an entity ID has
-changed because of this.
+If you use entity state attributes of this integration in automations or scripts
+need to adjust these to handle the changes.
 
-([@javicalle] - [#37992]) ([rflink docs])
+- The `region_state` attribute has been removed, cause it is no longer available
+  on the new API.
+- All timestamps in the state attributes are now UTC and not local time anymore.
+
+([@stephan192] - [#34820]) ([dwd_weather_warnings docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Emulated Hue</b></summary>
+  <p>
+
+By default, all lights and devices that do not support brightness adjustment are
+exported as On/Off lights without a brightness property. When upgrading from
+earlier versions of Home Assistant (0.112 and earlier), some devices may now be
+reported by Alexa as non-responsive.
+
+Alternatively, you can set the `lights_all_dimmable` configuration option to
+continue reporting these devices as if they have a brightness setting.
+
+**How to fix it once and for all**:
+
+You need to have Alexa rediscover all devices and then remove the now
+non-responding duplicates using the Alexa phone App. This can take quite a while
+if you have lots of devices.
+
+An alternative would be to log to the Alexa web site and remove all the lights
+instead and then re-discover them all.
+
+To do so go to <https://alexa.amazon.com/spa/index.html#appliances>, or if not
+logged in: <https://alexa.amazon.com> then select "Smart Home" -> "Devices" and
+select "Remove All".
+
+If you have multiple Echo devices on your network, it is possible that the
+entries would continue to show as duplicates. This is due to an individual Echo
+device caching the old list and re-using it.
+
+The only known solution for this is to remove your echo devices from your Amazon
+account, delete all the lights previously discovered by Alexa and then re-run
+discovery.
+
+This is a one-off requirement, unfortunately there's no other way to easily
+transitioned from the previously incorrect values reported by the Emulated Hue.
+
+([@jyavenard] - [#39539]) ([emulated_hue docs])
 
   </p>
 </details>
@@ -1211,13 +1156,13 @@ that contains code that breaks Home Assistant.
 </details>
 
 <details>
-  <summary><b>Brother Printer</b></summary>
+  <summary><b>Frontend</b></summary>
   <p>
 
-The uptime sensor state format and unit have been changed. If you rely on those
-you might need to adjust your configuration.
+The previous deprecated frontend configuration options `frontend_extra_html_url`
+and `frontend_extra_html_url` are now removed.
 
-([@bieniu] - [#39226]) ([brother docs])
+([@balloob] - [#39799]) ([frontend docs])
 
   </p>
 </details>
@@ -1230,6 +1175,57 @@ The HDMI-CEC integration has been temporarily disabled, as it has a dependency
 that contains code that breaks Home Assistant.
 
 ([@balloob] - [#37707])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Home Assistant Cloud for older Android devices</b></summary>
+  <p>
+
+Home Assistant Cloud uses Let's Encrypt to provide SSL certificates for your
+instance. Let's Encrypt is changing the way they sign their certificates at
+the end of the month which breaks support for older Android devices
+(older than Android 7.1).
+
+This release includes an update to make the certificates used by Home Assistant
+Cloud backward compatible. This relies on a feature that Let's Encrypt
+provides, which will expire in September 2021.
+
+If you use an older Android device and cannot upgrade to Home Assistant 0.115
+or want to use it past September 2021, install the Firefox browser. It includes
+modern certificates and is able to support the new Let's Encrypt certificates.
+
+  </p>
+</details>
+
+<details>
+  <summary><b>HTTP: Using reverse proxies</b></summary>
+  <p>
+
+The processing of data received from reverse proxies is now more strictly
+handled. Invalid or malformed `X-Forwarded-For` headers will now result in an
+HTTP 400 error (Bad Request).
+
+Support for `X-Forwarded-Proto` and `X-Forwarded-Host` has been added.
+
+Additionally, Home Assistant will now log cases of a reverse proxy being used,
+but not configured with Home Assistant. Make sure, you set the
+`use_x_forwarded_for` and `trusted_proxies` in your Home Assistant HTTP
+configuration correctly to avoid warnings.
+
+([@frenck] - [#38696]) ([http docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Instituto Português do Mar e Atmosfera (IPMA)</b></summary>
+  <p>
+
+The `precipitation` attribute has been renamed to `precipitation_probability`.
+
+([@dgomes] - [#38697]) ([ipma docs])
 
   </p>
 </details>
@@ -1273,6 +1269,59 @@ knx:
 </details>
 
 <details>
+  <summary><b>Kodi</b></summary>
+  <p>
+
+Kodi Media Player configuration is now available through the UI, including
+discovery. If you have Kodi configured in YAML, it is advised to remove that
+and use discovery or a manual configuration through the UI.
+
+Existing YAML entries will be imported, but:
+
+1. Your turn on/off actions will not be ported. This functionality is now
+   available through device triggers.
+2. You may have duplicate entities.
+3. Kodi must be on when Home Assistant is loading for the first time in order for the configuration to be imported.
+
+([@OnFreund] - [#38551]) ([kodi docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Lovelace for generated (auto) mode</b></summary>
+  <p>
+
+Entities that are generated from mobile apps with the `mobile_app` integration
+is now hidden in the generated Lovelace view. If you want to continue to display
+those you need to take control over your view with the 3 dots in the top right
+corner of the Lovelace screen.
+
+([@ludeeus] - [#6873]) ([lovelace docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>MDI Icons</b></summary>
+  <p>
+
+The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
+this adds another 100 icons you can use!
+
+In 5.5.55 there was 1 breaking change, if you used the icon `mdi:scooter` this
+has been renamed to `mdi:human-scooter` and you need to adjust your
+configuration.
+
+All icons that were deprecated in [0.113.0](/blog/2020/07/22/release-113/#mdi-icons-updated)
+have now been removed. Icons that were renamed or deleted in
+version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45)
+will no longer work.
+
+  </p>
+</details>
+
+<details>
   <summary><b>Météo-France</b></summary>
   <p>
 
@@ -1306,20 +1355,39 @@ forecast_time_ref: "2020-08-20T19:25:00+00:00"
 </details>
 
 <details>
-  <summary><b>Automations</b></summary>
+  <summary><b>Meteorologisk institutt (Met.no)</b></summary>
   <p>
 
-Previously an automation's `last_triggered` attribute was updated, and an
-`automation_triggered` event was fired, whenever a trigger fired and the
-conditions (if any) were true, regardless if the actions actually ran.
+While updating the integration, and its underlying libraries, to use the newer
+API endpoint, some of the calculations and forecast aggregations were tweaked a
+bit:
 
-For example, in `single` mode, the actions won't run if they are still running
-from a previous trigger event.
+- Use hourly forecast for current weather, not daily.
+- Ensure compared datetime objects are compared in the same time zone.
+- Use highest resolution data from full 24 hours to calculate daily forecast
+  min/max/sum values.
 
-Now the attribute will be updated, and the event fired, only if the actions
-actually run.
+None of these changes are expected to break your setup, though the data
+presented might look a little different due to the above.
 
-([@pnbruckner] - [#39323]) ([automation docs])
+In addition, all time stamps are now given in UTC. Automations that depend on
+the `datetime` key under the state attribute `forecast` needs to be checked and
+updated accordingly.
+
+([@thimic] - [#39493]) ([met docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Netatmo</b></summary>
+  <p>
+
+The sensor for wind and gust angle is split up into two entities so that it now
+returns the direction (e.g., `NE`) and the actual value (e.g., `178°`) rather
+than a string containing both (e.g., `NE (123°)`).
+
+([@cgtobi] - [#38627]) ([netatmo docs])
 
   </p>
 </details>
@@ -1345,16 +1413,108 @@ start time of the application.
 </details>
 
 <details>
-  <summary><b>Yeelight</b></summary>
+  <summary><b>OAuth2 authentication and redirects</b></summary>
   <p>
 
-The Yeelight integration now uses custom SSDP-like discovery instead of the
-mDNS discovery, since mDNS discovery is removed in new firmwares.
+Integrations using OAuth2 authentication now use the current request URL from
+the browser as the redirect target, instead of the internal URL setting.
 
-After this change, there will be no longer automatic configuration based on
-discovery. Users currently using that should set up all devices through UI.
+This matches the experience one would expect to happen and removes the need
+to fiddle around with the internal URL setting.
 
-([@shenxn] - [#37191]) ([yeelight docs])
+However, this might require you to update application settings when
+re-authenticating with existing services.
+
+([@frenck] - [#38692])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Open Hardware Monitor</b></summary>
+  <p>
+
+In some locales numbers with decimals uses "," instead of "." and this causes
+an issue when trying to use InfluxDB for example. This has been adjusted.
+
+([@fillefilip8] - [#39030]) ([openhardwaremonitor docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>OpenUV</b></summary>
+  <p>
+
+Support for configuring this integration has been fully removed.
+If you have existing OpenUV configuration in your YAML configuration files,
+you can safely remove that configuration.
+
+([@bachya] - [#38857]) ([openuv docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>OpenWeatherMap</b></summary>
+  <p>
+
+The OpenWeatherMap integration can now be configured via the UI. After upgrading
+your existing configuration will be imported automatically and you can safely
+remove existing YAML configuration for this integration.
+
+([@freekode] - [#34659]) ([openweathermap docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>RFLink</b></summary>
+  <p>
+
+The integration has been adjusted and modified the `entity_id` generation for
+Rflink toggle type lights. There is a small possibility an entity ID has
+changed because of this.
+
+([@javicalle] - [#37992]) ([rflink docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Roku</b></summary>
+  <p>
+
+The Roku state now better aligns with media playback.
+
+Previously, if an app was open, the state would be "playing" even if you were
+just browsing the app interface. This has been adjusted to be represented as
+"on". When Roku reports media playback in progress, the state "playing" will
+be used.
+
+This improves compatibility with exposing entities to Alexa, Google Assistant,
+and HomeKit.
+
+([@ctalkington] - [#39540]) ([roku docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Sentry</b></summary>
+  <p>
+
+The YAML configuration for Sentry is now deprecated and no longer works. If you
+had Sentry configured via YAML previously, you can safely remove the YAML
+configuration (without the need to reconfigure) as it has been imported into
+the UI before.
+
+The release is now formatted with only the version number of Home Assistant
+Core, for example, `0.115.0`. Previously, this was prefixed with
+`homeassistant-`, for example, `homeassistant-0.115.0`.
+This prefix is now removed.
+
+([@frenck] - [#38833]) ([sentry docs])
 
   </p>
 </details>
@@ -1413,125 +1573,14 @@ section under `Configure Home Assistant` -> `Server Controls`.
 </details>
 
 <details>
-  <summary><b>Emulated Hue</b></summary>
+  <summary><b>Themes</b></summary>
   <p>
 
-By default, all lights and devices that do not support brightness adjustment are
-exported as On/Off lights without a brightness property. When upgrading from
-earlier versions of Home Assistant (0.112 and earlier), some devices may now be
-reported by Alexa as non-responsive.
-
-Alternatively, you can set the `lights_all_dimmable` configuration option to
-continue reporting these devices as if they have a brightness setting.
-
-**How to fix it once and for all**:
-
-You need to have Alexa rediscover all devices and then remove the now
-non-responding duplicates using the Alexa phone App. This can take quite a while
-if you have lots of devices.
-
-An alternative would be to log to the Alexa web site and remove all the lights
-instead and then re-discover them all.
-
-To do so go to <https://alexa.amazon.com/spa/index.html#appliances>, or if not
-logged in: <https://alexa.amazon.com> then select "Smart Home" -> "Devices" and
-select "Remove All".
-
-If you have multiple Echo devices on your network, it is possible that the
-entries would continue to show as duplicates. This is due to an individual Echo
-device caching the old list and re-using it.
-
-The only known solution for this is to remove your echo devices from your Amazon
-account, delete all the lights previously discovered by Alexa and then re-run
-discovery.
-
-This is a one-off requirement, unfortunately there's no other way to easily
-transitioned from the previously incorrect values reported by the Emulated Hue.
-
-([@jyavenard] - [#39539]) ([emulated_hue docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Roku</b></summary>
-  <p>
-
-The Roku state now better aligns with media playback.
-
-Previously, if an app was open, the state would be "playing" even if you were
-just browsing the app interface. This has been adjusted to be represented as
-"on". When Roku reports media playback in progress, the state "playing" will
-be used.
-
-This improves compatibility with exposing entities to Alexa, Google Assistant,
-and HomeKit.
-
-([@ctalkington] - [#39540]) ([roku docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Meteorologisk institutt (Met.no)</b></summary>
-  <p>
-
-While updating the integration, and its underlying libraries, to use the newer
-API endpoint, some of the calculations and forecast aggregations were tweaked a
-bit:
-
-- Use hourly forecast for current weather, not daily.
-- Ensure compared datetime objects are compared in the same time zone.
-- Use highest resolution data from full 24 hours to calculate daily forecast
-  min/max/sum values.
-
-None of these changes are expected to break your setup, though the data
-presented might look a little different due to the above.
-
-In addition, all time stamps are now given in UTC. Automations that depend on
-the `datetime` key under the state attribute `forecast` needs to be checked and
-updated accordingly.
-
-([@thimic] - [#39493]) ([met docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>OpenWeatherMap</b></summary>
-  <p>
-
-The OpenWeatherMap integration can now be configured via the UI. After upgrading
-your existing configuration will be imported automatically and you can safely
-remove existing YAML configuration for this integration.
-
-([@freekode] - [#34659]) ([openweathermap docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Open Hardware Monitor</b></summary>
-  <p>
-
-In some locales numbers with decimals uses "," instead of "." and this causes
-an issue when trying to use InfluxDB for example. This has been adjusted.
-
-([@fillefilip8] - [#39030]) ([openhardwaremonitor docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Lovelace for generated (auto) mode</b></summary>
-  <p>
-
-Entities that are generated from mobile apps with the `mobile_app` integration
-is now hidden in the generated Lovelace view. If you want to continue to display
-those you need to take control over your view with the 3 dots in the top right
-corner of the Lovelace screen.
-
-([@ludeeus] - [#6873]) ([lovelace docs])
+The code editor is now themeable, you can set the background color and the color
+for the different code blocks. The default background color now is
+`card-background-color`, for some themes this may conflict with the default code
+colors. To get the old behavior back add `code-editor-background-color: white`
+to your theme.
 
   </p>
 </details>
@@ -1547,20 +1596,6 @@ For example the `minutes: /60` would have been accepted previously, but
 could never trigger.
 
 ([@amelchio] - [#38982]) ([automation docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Axis</b></summary>
-  <p>
-
-Initial naming of events from VMD4 and Fence guard are now based on their
-configured name on the device; `binary_sensor.m1065-lw_0_vmd4_camera1profile1`
-is now `binary_sensor.m1065-lw_0_vmd4_profile_1` or `profile_1` can be whatever
-the user chose to name the profile.
-
-([@Kane610] - [#39699]) ([axis docs])
 
   </p>
 </details>
@@ -1586,65 +1621,31 @@ Now it will render as "25:00:00".
 </details>
 
 <details>
-  <summary><b>Frontend</b></summary>
+  <summary><b>Yandex Transport</b></summary>
   <p>
 
-The previous deprecated frontend configuration options `frontend_extra_html_url`
-and `frontend_extra_html_url` are now removed.
+The integration now accepts a full stop ID in text notation:
+`'stop__1234'` or `'group_345'` or `'6789'`
 
-([@balloob] - [#39799]) ([frontend docs])
+You'll have to update `stop_id: 1234567` in your existing configuration to
+`stop_id: stop__1234567` as it is used in Yandex maps API.
+
+([@devbis] - [#39021]) ([yandex_transport docs])
 
   </p>
 </details>
 
 <details>
-  <summary><b>Themes</b></summary>
+  <summary><b>Yeelight</b></summary>
   <p>
 
-The code editor is now themeable, you can set the background color and the color
-for the different code blocks. The default background color now is
-`card-background-color`, for some themes this may conflict with the default code
-colors. To get the old behavior back add `code-editor-background-color: white`
-to your theme.
+The Yeelight integration now uses custom SSDP-like discovery instead of the
+mDNS discovery, since mDNS discovery is removed in new firmwares.
 
-  </p>
-</details>
+After this change, there will be no longer automatic configuration based on
+discovery. Users currently using that should set up all devices through UI.
 
-<details>
-  <summary><b>MDI Icons</b></summary>
-  <p>
-
-The MDI icons are updated to version [5.5.55](https://dev.materialdesignicons.com/changelog#version-5.5.55),
-this adds another 100 icons you can use!
-
-In 5.5.55 there was 1 breaking change, if you used the icon `mdi:scooter` this
-has been renamed to `mdi:human-scooter` and you need to adjust your
-configuration.
-
-All icons that were deprecated in [0.113.0](/blog/2020/07/22/release-113/#mdi-icons-updated)
-have now been removed. Icons that were renamed or deleted in
-version [5.0.45](https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45)
-will no longer work.
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Home Assistant Cloud for older Android devices</b></summary>
-  <p>
-
-Home Assistant Cloud uses Let's Encrypt to provide SSL certificates for your
-instance. Let's Encrypt is changing the way they sign their certificates at
-the end of the month which breaks support for older Android devices
-(older than Android 7.1).
-
-This release includes an update to make the certificates used by Home Assistant
-Cloud backward compatible. This relies on a feature that Let's Encrypt
-provides, which will expire in September 2021.
-
-If you use an older Android device and cannot upgrade to Home Assistant 0.115
-or want to use it past September 2021, install the Firefox browser. It includes
-modern certificates and is able to support the new Let's Encrypt certificates.
+([@shenxn] - [#37191]) ([yeelight docs])
 
   </p>
 </details>
