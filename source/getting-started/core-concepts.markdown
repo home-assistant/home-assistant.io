@@ -19,6 +19,8 @@ Because many devices do more than one thing, things in Home Assistant are contro
 
 A device can provide multiple entities. For example, a device called “Sam’s Phone” might have entities like location, battery level, and step count. Some devices like lightbulbs only have a single entity, and devices like hubs may have no entities at all.
 
+To get entities to appear in Home Assistant, you must define them in your [`configuration.yaml` file](/docs/configuration) in this format: `entity_id: domain.object_id`. The **domain** is a built-in category of entities that you manage in a similar way. You can get the object ID by ________?
+
 Some entities are useful for controlling things in your home:
 
 - **[Switches](/integrations/switch)** let you check if something is switched on or off
@@ -29,8 +31,6 @@ Other entities are there to respond to Home Assistant:
 
 - **[Lights](/integrations/light)** can turn on and off, and sometimes dim and change color
 - **[Covers](/integrations/cover)** are things that can move up and down, like garage doors and smart blinds
-
-Some entities are part of a **domain**, or a built-in category of entities that you manage in a similar way. For example, there is a “lights” domain in Home Assistant.
 
 Entities can be grouped into **areas**, which roughly represent a room in your house. Common areas are “kitchen”, “office”, “basement” and “yard”.
 
