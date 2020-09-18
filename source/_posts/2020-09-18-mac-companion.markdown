@@ -25,7 +25,7 @@ Rendered image of the Home Assistant Lovelace interface running full screen on a
 
 ## Trigger automations with your Mac
 
-Home Assistant Companion for macOS adds several new binary sensors for your Mac showing whether it is active and whether a particular microphone or webcam is in use.
+Home Assistant Companion for macOS adds several new binary sensors for your Mac, showing whether it is active and whether a particular microphone or webcam is in use.
 
 The "active" sensor reports whether the Mac is being actively used. In other words that it is not sleeping, not showing a screensaver, not locked and not just sat idle. You can configure the "Time Until Idle" in one-minute steps from a minimum of 1 minute, you'll find this option in the Sensors section of Preferences.
 
