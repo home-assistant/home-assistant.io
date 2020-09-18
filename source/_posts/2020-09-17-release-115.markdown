@@ -478,7 +478,7 @@ automations:
 
 ```yaml
 - choose:
-    - condition: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
+    - conditions: "{{ is_state('sensor.mode', 'on') and (state_attr('climate.room', 'temperature') | int) < 10 }}"
       sequence:
         - ...
 ```
