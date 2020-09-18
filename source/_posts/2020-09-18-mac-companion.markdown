@@ -35,17 +35,7 @@ TODO: ADD VIDEO EMBED HERE
 
 One huge advantage of running on a Mac compared to a mobile device is the much larger battery. This means we are not constrained by battery-saving measures and can address one of the most common gripes with the iOS app, update intervals. On a Mac, entity updates are immediately triggered when something changes. You will see this reported by the `sensor.DEVICE_NAME_last_update_trigger` reporting `Signaled`.
 
-## Notifications
-
-Just like the iOS app, you can send notifications to your Mac with services like `notify.mobile_app_DEVICE_NAME`. One small difference is that [critical notifications](https://companion.home-assistant.io/docs/notifications/critical-notifications) are not yet available for the Mac app. However, all our other notifications features like actionable notifications work on the Mac app. To see what is possible, take a look at [the docs](https://companion.home-assistant.io/).
-
-## Interface
-
-The Mac app is definitely a _Mac_ app. The App Configuration page has been removed from Home Assistant's sidebar. Instead, the configuration options and preferences are on the menu bar right where you'd expect to find them for any other app and all the standard shortcuts work too (like `⌘,` for Preferences). You can even open multiple Lovelace windows via File > New.
-
-In the menu bar, you will also find an option to manually send an update to Home Assistant and a new Actions menu where you can see all your [actions](https://companion.home-assistant.io/docs/core/actions) and fire them.
-
-## Big Sur Features
+## Home Assistant Widgets (Big Sur only)
 
 Home Assistant Companion for macOS already supports widgets in Big Sur. Right now, we have an Actions Widget where you can have up to eight actions. You can also create multiple widgets with different sets of actions. If you have an idea for other widgets you'd like to see, pop over to [the community forums and let us know](https://community.home-assistant.io/t/what-kind-of-ios-14-widgets-would-you-like-to-see/211112/14).
 
@@ -53,6 +43,16 @@ Home Assistant Companion for macOS already supports widgets in Big Sur. Right no
 <img src='/images/blog/2020-09-18-mac-companion/actions-widget.png' alt='Screenshot of a large Home Assistant Actions widget in Big Sur'></a>
 Screenshot of a large Home Assistant Actions widget in Big Sur.
 </p>
+
+## Interface
+
+The Mac app is definitely a _Mac_ app. The App Configuration page has been removed from Home Assistant's sidebar. Instead, the configuration options and preferences are on the menu bar right where you'd expect to find them for any other app and all the standard shortcuts work too (like `⌘,` for Preferences). You can even open multiple Lovelace windows via File > New.
+
+In the menu bar, you will also find an option to manually send an update to Home Assistant and a new Actions menu where you can see all your [actions](https://companion.home-assistant.io/docs/core/actions) and fire them.
+
+## Notifications
+
+Just like the iOS app, you can send notifications to your Mac with services like `notify.mobile_app_DEVICE_NAME`. One small difference is that [critical notifications](https://companion.home-assistant.io/docs/notifications/critical-notifications) are not yet available for the Mac app. However, all our other notifications features like actionable notifications work on the Mac app. To see what is possible, take a look at [the docs](https://companion.home-assistant.io/).
 
 ## Documentation and Support
 
