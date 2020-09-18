@@ -22,7 +22,7 @@ _If you're a Windows user, don't worry, you can integrate your PC with the great
 
 <p class='img'>
 <img src='/images/blog/2020-09-18-mac-companion/render.png' alt='Rendered image of the Home Assistant Lovelace interface running full screen on a 16-inch Mac Book Pro'></a>
-Rendered image of the Home Assistant Lovelace interface running full screen on a 16-inch Mac Book Pro.
+Home Assistant Companion running on a 16-inch Mac Book Pro
 </p>
 
 ## Trigger automations with your Mac
