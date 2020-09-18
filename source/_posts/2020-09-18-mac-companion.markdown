@@ -10,8 +10,6 @@ categories: Announcements
 og_image: /images/blog/2020-09-18-mac-companion/social.png
 ---
 
-TODO: ADD VIDEO
-
 Wow, what a birthday week it has been! We've had a [new supervisor release](/blog/2020/09/16/supervisor-joins-the-party), one of the largest and most user-driven core [releases](/blog/2020/09/17/release-115), thanks to the [month of What The Heck?!](/blog/2020/08/18/the-month-of-what-the-heck/). We even got [RFID tags](/blog/2020/09/15/home-assistant-tags) right into the heart of Home Assistant, but we're not done yet! We have "One more thing…"
 
 ## Introducing Home Assistant Companion for macOS
@@ -33,7 +31,9 @@ Home Assistant Companion for macOS adds several new binary sensors for your Mac,
 
 Each camera and microphone has its own `binary_sensor` showing whether it is active or not. These can enable some really useful automations, especially for those home working at the moment. You could automatically turn off the radio when answering a call or close the blinds behind you to improve your video quality. To see just how useful this can be in the real world, check out this video of how our very own Frenck is using these sensors in his streaming set up.
 
-TODO: ADD VIDEO EMBED HERE
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/ssRVjqS40-0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 The "active" sensor reports whether the Mac is being actively used. In other words that it is not sleeping, not showing a screensaver, not locked and not just sat idle. You can configure the "Time Until Idle" in one-minute steps from a minimum of 1 minute. You'll find this option in the Sensors section of Preferences.
 
