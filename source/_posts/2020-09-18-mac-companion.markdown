@@ -16,7 +16,9 @@ Wow, what a birthday week it has been! We've had a [new supervisor release](/blo
 
 ## Introducing Home Assistant Companion for macOS
 
-Like many recent updates to the iOS app, we have [@zacwest](https://github.com/zacwest) to thank for this. Zac has ported the iOS app over to Mac and added some great new features specifically for the Mac. If you're a Windows user, don't worry, you can integrate your PC with the great [IOT Link](https://iotlink.gitlab.io/index.html) tool.
+Like many recent updates to the iOS app, we have [@zacwest](https://github.com/zacwest) to thank for this. Zac has ported the iOS app over to Mac and added some great new features specifically for the Mac.
+
+_If you're a Windows user, don't worry, you can integrate your PC with the great [IOT Link](https://iotlink.gitlab.io/index.html) tool._
 
 <p class='img'>
 <img src='/images/blog/2020-09-18-mac-companion/render.png' alt='Rendered image of the Home Assistant Lovelace interface running full screen on a 16-inch Mac Book Pro'></a>
