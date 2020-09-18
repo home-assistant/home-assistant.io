@@ -56,7 +56,7 @@ Home Assistant remembers the **[state](/docs/configuration/state_object)** of ea
 
 A **[scene](/docs/scene)** is a list of entities along with the state you want them each to be in. When you trigger that scene, Home Assistant will figure out the right events to get each of those entities into that state.
 
-For example, let’s imagine you have a scene called “welcome home” that says “lights on, door unlocked”. If you turn on that scene, Home Assistant will check if your lights are on and turn them on if they’re off. Then it will check if your door is unlocked, and unlock it if it’s locked.
+For example, let’s imagine you have a “welcome home” scene that says “lights on, door unlocked”. If you turn on that scene, Home Assistant will check if your lights are on and turn them on if they’re off. Then it will check if your door is unlocked, and unlock it if it’s locked.
 
 ## More concepts
 
