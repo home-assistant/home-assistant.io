@@ -45,7 +45,7 @@ Home Assistant Companion for macOS already supports widgets in Big Sur. Right no
 
 <p class='img'>
 <img src='/images/blog/2020-09-18-mac-companion/actions-widget.png' alt='Screenshot of a large Home Assistant Actions widget in Big Sur'></a>
-Screenshot of a large Home Assistant Actions widget in Big Sur.
+The large Home Assistant Actions widget in Big Sur.
 </p>
 
 ## Interface
