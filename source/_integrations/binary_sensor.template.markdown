@@ -311,33 +311,32 @@ binary_sensor:
   - platform: template
     sensors:
       half_hour:
-        value_template: '{{ (states.sensor.time.state[3:]|int) < 30 }}'
+        value_template: '{{ (states("sensor.time")[3:] | int) < 30 }}'
 ```
 {% endraw %}
 
-An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 2 minutes:
+An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates:
 
 {% raw %}
 ```yaml
 binary_sensor:
 - platform: template
   sensors:
-    minute_is_odd:
-      value_template: '{{ now().minute % 2 }}'
+    half_hour:
+      value_template: '{{ now().minute < 30 }}'
 
 automation:
-  - alias: 'Update minute_is_odd'
+  - alias: 'Update half_hour'
     trigger:
       - platform: time_pattern
-        minutes: '*'
+        minutes: /30
     action:
       - service: homeassistant.update_entity
-        entity_id: binary_sensor.minute_is_odd
+        entity_id: binary_sensor.half_hour
 ```
 {% endraw %}
 
-In the case where the template should be updated every minute, replacing `now()` with `as_local(states.sensor.time.last_changed)`
-can achieve the desired result without the need to create an automation:
+In the case where the template should be updated every minute, just reading `states("sensor.time")` can achieve the desired result without the need to create an automation:
 
 {% raw %}
 ```yaml
@@ -350,6 +349,26 @@ binary_sensor:
 - platform: template
   sensors:
     minute_is_odd:
-      value_template: '{{ as_local(states.sensor.time.last_changed).minute % 2 }}'
+      value_template: >-
+        {% set dummy = states("sensor.time") %}
+        {{ now().minute % 2 == 1 }}
+```
+{% endraw %}
+
+A similar trick of ignoring the sensor value can be used with `states("sensor.date")` for templates that should update at midnight.
+The `time_date` sensors are always true so here we use `and` to ignore the result in a more condensed way:
+
+{% raw %}
+```yaml
+sensor:
+  - platform: time_date
+    display_options:
+      - 'date'
+
+binary_sensor:
+- platform: template
+  sensors:
+    weekend:
+      value_template: {{ states("sensor.date") and now().isoweekday() > 5 }}
 ```
 {% endraw %}
