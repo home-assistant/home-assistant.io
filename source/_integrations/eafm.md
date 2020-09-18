@@ -15,7 +15,7 @@ The `eafm` integration offers integration with the [UK Environment Agency Flood 
 
 ## Configuration
 
-Home Assistant offers the flood monitoring integration through **Configuration** -> **Integrations** -> **UK Environment Ageny - Flood Gauges**.
+Home Assistant offers the flood monitoring integration through **Configuration** -> **Integrations** -> **Environment Agency Flood Gauges**.
 
 You will be prompted to select a monitoring station. You can find the name of nearby monitoring stations on the Flood information service [website](https://flood-warning-information.service.gov.uk/river-and-sea-levels).
 
