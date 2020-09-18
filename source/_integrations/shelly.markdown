@@ -20,7 +20,13 @@ To add a Shelly device to your installation, go to **Configuration** >> **Integr
 
 A device can also be added manually, click the button with `+` sign on the integrations page and from the list of integrations, select **Shelly** and follow the instructions shown.
 
+<div class="note">
+You need to configure and connect the device to same network using the Shelly cloud App or device Web page.
+Integration is communicating directly with the device; cloud connection is not needed.
+</div>
+
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
 - Support relays, lights (with brightness), sensors and rollers
+- Support for battery powered devices is currently very limited
