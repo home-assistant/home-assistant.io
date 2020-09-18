@@ -87,3 +87,4 @@ Lovelace is organized like this:
 
 _You may hear about Home Assistant "Core" and "Supervisor". These refer to parts of Home Assistant that advanced users can install separately._
 
+### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)
