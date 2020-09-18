@@ -41,7 +41,7 @@ Just like the iOS app, you can send notifications to your Mac with services like
 
 ## Interface
 
-The Mac app is definitely a _Mac_ app. The App Configuration page has been removed from Home Assistant's sidebar and instead the configuration options and preferences are on the menu bar right where you'd expect to find them for any other app and all the standard shortcuts work too (like `⌘,` for Preferences). You can even open multiple Lovelace windows via File>New.
+The Mac app is definitely a _Mac_ app. The App Configuration page has been removed from Home Assistant's sidebar. Instead, the configuration options and preferences are on the menu bar right where you'd expect to find them for any other app and all the standard shortcuts work too (like `⌘,` for Preferences). You can even open multiple Lovelace windows via File > New.
 
 In the menu bar you will also find an option to manually send an update to Home Assistant and a new Actions menu where you can see all your [actions](https://companion.home-assistant.io/docs/core/actions) and fire them.
 
