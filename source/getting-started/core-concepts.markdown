@@ -30,7 +30,7 @@ Other entities are there to respond to Home Assistant:
 - **[Lights](/integrations/light)** can turn on and off, and sometimes dim and change color
 - **[Covers](/integrations/cover)** are things that can move up and down, like garage doors and smart blinds
 
-Some entities are part of a **domain**, or a built-in category of entities that are managed in a similar way. For example, there is a “lights” domain in Home Assistant.
+Some entities are part of a **domain**, or a built-in category of entities that you manage in a similar way. For example, there is a “lights” domain in Home Assistant.
 
 Entities can be grouped into **areas**, which roughly represent a room in your house. Common areas are “kitchen”, “office”, “basement” and “yard”.
 
