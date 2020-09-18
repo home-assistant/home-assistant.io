@@ -1305,7 +1305,7 @@ Example of `xiaomi_miio.vacuum_clean_segment` use:
 Multiple segments:
 ```yaml
 automation:
-  - alias: Vaccum kitchen and living room
+  - alias: Vacuum kitchen and living room
     trigger:
     - event: start
       platform: homeassistant
