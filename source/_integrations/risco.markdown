@@ -14,9 +14,11 @@ ha_quality_scale: platinum
 ---
 
 This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).
+
 <div class='note warning'>
 
-It is recommended to use  a regular (non-owner) account with the Risco app/website, and use a different regular account with the integration. Risco has restrictions on concurrent uses by different users, especially if they have different permission levels.
+  It is recommended to use  a regular (non-owner) account with the Risco app/website, and use a different regular account with the integration. Risco has restrictions on concurrent uses by different users, especially if they have different permission levels.
+
 </div>
 
 ## Configuration
