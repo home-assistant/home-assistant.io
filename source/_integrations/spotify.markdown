@@ -18,7 +18,7 @@ The `spotify` media player integration allows you to control [Spotify](https://w
 
 - Spotify account
 - Spotify application, properly configured (see below).
-- `internal_url` and `external_url` set correctly. See [Setup basic information](https://www.home-assistant.io/docs/configuration/basic/)
+- `internal_url` and `external_url` set correctly. See [Setup basic information](/docs/configuration/basic/)
 
 <div class='note'>
   Controlling the Spotify integration (pause, play, next, etc.) requires a Premium account.
