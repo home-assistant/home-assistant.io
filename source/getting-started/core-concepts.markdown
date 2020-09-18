@@ -9,7 +9,7 @@ Home Assistant, like all home automation software, allows you to control smart d
 
 In Home Assistant, a **device** is a physical object in your connected home. This would be something like a smart lightbulb or a Chromecast.
 
-Home Assistant has a **discovery** feature, which scans for new devices as they’re added and adds them to your Home Assistant automatically.
+Home Assistant has a **discovery** feature, which scans for new devices constantly and adds them to your Home Assistant automatically.
 
 **Device trackers** are devices like cell phones that can move around.
 
