@@ -60,7 +60,7 @@ We are updating the [Companion App docs](https://companion.home-assistant.io) wi
 
 ## Getting the beta
 
-You can get the beta right now from the home-assistant/ios repository: download the `home-assistant-mac.zip` file from the [latest release](https://companion.home-assistant.io/app/mac/latest), unzip and drag it over to your Applications folder. Done!
+You can get the beta right now from the `home-assistant/ios` repository: download the `home-assistant-mac.zip` file from the [latest release](https://companion.home-assistant.io/app/mac/latest), unzip and drag it over to your Applications folder. Done!
 
 That's it. All that's left is to wish Home Assistant Happy Birthday one last time and to wait and see what amazing developments the next year brings.
 
