@@ -73,6 +73,8 @@ Happy birthday and enjoy the release!
 Alright, this release is massive, so here is a table of contents for helping
 navigating you around this release.
 
+- [Happy Birthday Home Assistant!](#happy-birthday-home-assistant)
+- [Table of contents](#table-of-contents)
 - [Media Browser](#media-browser)
 - [Home Assistant Tags](#home-assistant-tags)
 - [Customize the sidebar](#customize-the-sidebar)
@@ -99,7 +101,11 @@ navigating you around this release.
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [Release 0.115.1 - September 18](#release-01151---september-18)
+- [All changes](#all-changes)
 
 ## Media Browser
 
@@ -1645,6 +1651,43 @@ discovery. Users currently using that should set up all devices through UI.
 - The **yr** integration has been removed after a request from yr.no. Use
   the Met.no integration instead
   ([@Danielhiversen] - [#39247])
+
+## Release 0.115.1 - September 18
+
+- Log template listeners when debug logging is on ([@bdraco] - [#40180])
+- Upgrade pyvlx to 0.2.17 ([@Julius2342] - [#40182]) ([velux docs])
+- Fix Vizio async_unload_entry bug ([@raman325] - [#40210]) ([vizio docs])
+- Fix Nextcloud sensors becoming unavailable ([@meichthys] - [#40212]) ([nextcloud docs])
+- Disable async on Apprise ([@caronc] - [#40213]) ([apprise docs])
+- Fix RM mini 3 update manager ([@felipediel] - [#40215]) ([broadlink docs])
+- Fix kodi.call_method ([@OnFreund] - [#40236]) ([kodi docs])
+- Handle systems without groups ([@OnFreund] - [#40238]) ([risco docs])
+- Fix coolmaster.info ([@OnFreund] - [#40240]) ([coolmaster docs])
+
+[#40180]: https://github.com/home-assistant/core/pull/40180
+[#40182]: https://github.com/home-assistant/core/pull/40182
+[#40210]: https://github.com/home-assistant/core/pull/40210
+[#40212]: https://github.com/home-assistant/core/pull/40212
+[#40213]: https://github.com/home-assistant/core/pull/40213
+[#40215]: https://github.com/home-assistant/core/pull/40215
+[#40236]: https://github.com/home-assistant/core/pull/40236
+[#40238]: https://github.com/home-assistant/core/pull/40238
+[#40240]: https://github.com/home-assistant/core/pull/40240
+[@Julius2342]: https://github.com/Julius2342
+[@OnFreund]: https://github.com/OnFreund
+[@bdraco]: https://github.com/bdraco
+[@caronc]: https://github.com/caronc
+[@felipediel]: https://github.com/felipediel
+[@meichthys]: https://github.com/meichthys
+[@raman325]: https://github.com/raman325
+[apprise docs]: /integrations/apprise/
+[broadlink docs]: /integrations/broadlink/
+[coolmaster docs]: /integrations/coolmaster/
+[kodi docs]: /integrations/kodi/
+[nextcloud docs]: /integrations/nextcloud/
+[risco docs]: /integrations/risco/
+[velux docs]: /integrations/velux/
+[vizio docs]: /integrations/vizio/
 
 ## All changes
 
