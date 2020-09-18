@@ -40,7 +40,7 @@ _Advanced users can write [scripts](/docs/scripts), special entities that run cu
 
 ## Automation
 
-**[Automations](/docs/automation)** let you go father by telling Home Assistant to automatically do things without you having to hit a button yourself. For example, you could write an automation that says “turn on the lights when it gets dark if I’m home”.
+**[Automations](/docs/automation)** let you go further by telling Home Assistant to automatically do things without you having to hit a button yourself. For example, you could write an automation that says “turn on the lights when it gets dark if I’m home”.
 
 An automation has three main parts:
 
