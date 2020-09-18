@@ -33,7 +33,7 @@ automation 2:
     notification_service: notify.paulus_iphone
   action:
     # Actions are scripts so can also be a list of actions
-    - service: {{ notification_service }}
+    - service: '{{ notification_service }}'
       data:
         message: Beautiful sunset!
     - delay: 0:35
