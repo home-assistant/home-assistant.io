@@ -5,7 +5,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Cover
-  - Lights
+  - Light
   - Sensor
   - Switch
 ha_release: '0.110'
