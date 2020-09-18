@@ -1,7 +1,7 @@
 ---
 title: "One more thing…"
 description: "Introducing Home Assistant Companion for macOS."
-date: 2020-09-16 02:00:00
+date: 2020-09-18 08:00:00
 date_formatted: "September 18, 2020"
 comments: true
 author: Tom Brien
