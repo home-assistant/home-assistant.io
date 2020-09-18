@@ -4,6 +4,8 @@ description: The image integration handle image assets in Home Assistant.
 ha_category:
   - Other
 ha_release: 0.115
+ha_config_flow: true
+ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: image

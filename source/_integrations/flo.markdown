@@ -1,5 +1,5 @@
 ---
-title: Flo
+title: Flo by Moen
 description: Instructions on how to integrate Flo by Moen into Home Assistant.
 ha_release: 0.115
 ha_category:
@@ -8,7 +8,7 @@ ha_category:
   - Switch
 ha_config_flow: true
 ha_codeowners:
-  - '@dmulcahey'
+  - "@dmulcahey"
 ha_domain: flo
 ---
 

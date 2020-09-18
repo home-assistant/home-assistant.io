@@ -7,7 +7,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.115
 ha_config_flow: true
 ha_codeowners:
-  - '@ajmarks'
+  - '@amarks'
 ha_domain: sharkiq
 ---
 

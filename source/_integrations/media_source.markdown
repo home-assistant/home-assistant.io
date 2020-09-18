@@ -4,9 +4,8 @@ description: Instructions on how to access your media with Home Assistant.
 ha_category:
   - Media Source
 ha_release: 0.115
+ha_quality_scale: internal
 ha_domain: media_source
-ha_codeowners:
-  - '@hunterjm'
 ---
 
 The Media Source integration platform allows integrations to expose media for

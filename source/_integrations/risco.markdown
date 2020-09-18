@@ -1,16 +1,15 @@
 ---
-title: Risco
+title: Risco Alarm
 description: Instructions on how to integrate Risco alarms into HA using Risco Cloud.
 ha_category:
   - Alarm
   - Binary Sensor
-ha_release: '0.115'
+ha_release: "0.115"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@OnFreund'
+  - "@OnFreund"
 ha_domain: risco
-ha_quality_scale: platinum
 ---
 
 This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).

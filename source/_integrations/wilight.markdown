@@ -8,7 +8,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@leofig-rj'
 ha_domain: wilight
-ha_quality_scale: silver
 ---
 
 The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.
