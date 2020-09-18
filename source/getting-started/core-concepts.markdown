@@ -79,7 +79,7 @@ You probably want to [install Home Assistant](https://www.home-assistant.io/gett
 
 If you’re feeling adventurous, you can also install parts of Home Assistant separately:
 
-- **Core** - the main "engine" of home assistant that handles reading data, controlling devices, and running automations
+- **Core** - the main "engine" of Home Assistant that handles reading data, controlling devices, and running automations
 - **Supervisor** makes sure everything is up to date, installs add-ons, runs backups, and more
 
 Learn more about [different installation methods here](https://community.home-assistant.io/t/home-assistant-installation-methods/207703).
