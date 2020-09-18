@@ -50,9 +50,7 @@ An automation has three main parts:
 
 **[Templates](/docs/automation/templating)** let advanced users use variables and logic in their automations
 
-## Events and state
-
-Entities in Home Assistant are controlled by sending **[events](/docs/configuration/events)**.
+## State
 
 Home Assistant remembers the **[state](/docs/configuration/state_object)** of each entity. The state means what *mode* or *condition* the entity is in this moment. For example, a light could have two states: ‘on’ and ‘off’, and a garage door could be in one of two states: ‘open’ or ‘closed’.
 
