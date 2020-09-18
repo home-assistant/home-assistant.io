@@ -16,6 +16,8 @@ Wow, what a birthday week it has been! We've had a [new supervisor release](/blo
 
 ## Introducing Home Assistant Companion for macOS
 
+Home Assistant Companion is a new application for Mac to control your Home Assistant instance, exposing your Mac sensors to Home Assistant and to receive notifications.
+
 Like many recent updates to the iOS app, we have [@zacwest](https://github.com/zacwest) to thank for this. Zac has ported the iOS app over to Mac and added some great new features specifically for the Mac.
 
 _If you're a Windows user, don't worry, you can integrate your PC with the great [IOT Link](https://iotlink.gitlab.io/index.html) tool._
