@@ -21,15 +21,15 @@ A device can provide multiple entities. For example, a device called “Sam’s 
 
 Some entities are useful for controlling things in your home:
 
-- **Switches** let you check if something is switched on or off
-- **Sensors** can be a wide range of things that watch for changes in the environment, like motion sensors and temperature sensors
-- **Binary sensors** detect something that is either on or off
+- **[Switches](/integrations/switch)** let you check if something is switched on or off
+- **[Sensors](/integrations/sensor)** can be a wide range of things that watch for changes in the environment, like motion sensors and temperature sensors
+- **[Binary sensors](/integrations/device_tracker)** detect something that is either on or off
 - **[Scripts](/docs/scripts)** are special entities that run custom code when they’re triggered
 
 Other entities are there to respond to Home Assistant:
 
-- **Lights** can turn on and off, and sometimes dim and change color
-- **Covers** are things that can move up and down, like garage doors and smart blinds
+- **[Lights](/integrations/light)** can turn on and off, and sometimes dim and change color
+- **[Covers](/integrations/cover)** are things that can move up and down, like garage doors and smart blinds
 
 Some entities are part of a **domain**, or a built-in category of entities that are managed in a similar way. For example, there is a “lights” domain in Home Assistant.
 
@@ -61,7 +61,7 @@ For example, let’s imagine you have a scene called “welcome home” that say
 
 ## More concepts
 
-- **Zones** are geographical areas on earth. You can check if a device tracker is inside a zone as a trigger or condition in an automation. For example, “turn on the lights when Sam’s Phone comes into the ‘home’ zone”.
+- **[Zones](/integrations/zone)** are geographical areas on earth. You can check if a device tracker is inside a zone as a trigger or condition in an automation. For example, “turn on the lights when Sam’s Phone comes into the ‘home’ zone”.
 
 ## Integrations
 
