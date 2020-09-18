@@ -11,22 +11,20 @@ The Calendar card displays your calendar entities in a month, day and list view.
   Screenshot of the calendar card.
 </p>
 
-
 ### Card Settings
-
 
 {% configuration_basic %}
 Title:
-  description: The title displayed at the top of the card
+  description: The title displayed at the top of the card.
 Entities:
-  description: The calendar entities that will be displayed in the card
+  description: The calendar entities that will be displayed in the card.
 Theme:
   description: Theme your card using any installed theme in your HA environment.
 {% endconfiguration_basic %}
 
 ### YAML
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI
+This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -35,11 +33,11 @@ type:
   type: string
 title:
   required: false
-  description: The title of the card
+  description: The title of the card.
   type: string
 entities:
   required: true
-  description: A list of calendar entities that will be displayed in the card
+  description: A list of calendar entities that will be displayed in the card.
   type: list
 theme:
   required: false
@@ -47,7 +45,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-Example
+Example:
 
 ```yaml
 type: calendar
