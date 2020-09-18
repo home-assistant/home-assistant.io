@@ -33,7 +33,7 @@ Each camera and microphone has its own `binary_sensor` showing whether it is act
 
 TODO: ADD VIDEO EMBED HERE
 
-One huge advantage of running on a Mac compared to a mobile device is the much larger battery. This means we are not constrained by battery saving measures and can address one of the most common gripes with the iOS app, update intervals. On a Mac entity updates are triggered immediately when something changes. You will see this reported by the `sensor.DEVICE_NAME_last_update_trigger` reporting `Signaled`.
+One huge advantage of running on a Mac compared to a mobile device is the much larger battery. This means we are not constrained by battery-saving measures and can address one of the most common gripes with the iOS app, update intervals. On a Mac, entity updates are immediately triggered when something changes. You will see this reported by the `sensor.DEVICE_NAME_last_update_trigger` reporting `Signaled`.
 
 ## Notifications
 
