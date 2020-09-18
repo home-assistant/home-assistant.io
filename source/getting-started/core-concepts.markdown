@@ -52,7 +52,7 @@ An automation has three main parts:
 
 ## State
 
-Home Assistant remembers the **[state](/docs/configuration/state_object)** of each entity. The state means what *mode* or *condition* the entity is in this moment. For example, a light could have two states: ‘on’ and ‘off’, and a garage door could be in one of two states: ‘open’ or ‘closed’.
+Home Assistant remembers the **[state](/docs/configuration/state_object)** of each entity. Think of state as in "what state is this in?" For example, a light could have two states: ‘on’ and ‘off’, and a garage door could be in one of two states: ‘open’ or ‘closed’.
 
 A **[scene](/docs/scene)** is a list of entities along with the state you want them each to be in. When you trigger that scene, Home Assistant will figure out the right events to get each of those entities into that state.
 
