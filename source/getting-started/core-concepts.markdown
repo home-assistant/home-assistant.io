@@ -7,7 +7,7 @@ Home Assistant, like all home automation software, allows you to control smart d
 
 ## Devices
 
-In Home Assistant, a **device** is a physical object in your connected home. An example would be a lightbulb, a Chromecast, or a smart hub.
+In Home Assistant, a **device** is a physical object in your connected home. This would be something like a smart lightbulb or a Chromecast.
 
 Home Assistant has a **discovery** feature, which scans for new devices as they’re added and adds them to your Home Assistant automatically.
 
