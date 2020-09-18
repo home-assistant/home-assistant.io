@@ -591,7 +591,7 @@ variables:
   notification_service: notify.paulus_iphone
 action:
   - variables:
-    notification_service: notify.frenck_iphone
+      notification_service: notify.frenck_iphone
   - service: "{{ notification_service }}"
     data:
       message: This message actually went to Frenck, not Paulus.
