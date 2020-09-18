@@ -11,7 +11,7 @@ In Home Assistant, a **device** is a physical object in your connected home. Thi
 
 Home Assistant has a **discovery** feature, which scans for new devices constantly and adds them to your Home Assistant automatically.
 
-**Device trackers** are devices like cell phones that can move around.
+**Device trackers** are devices that track the position of something or someone, like a person or a cellphone.
 
 ## Entities
 
