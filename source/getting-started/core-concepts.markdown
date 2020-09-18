@@ -76,13 +76,6 @@ So now you know what Home Assistant is. But how do you start using it?
 
 You probably want to [install Home Assistant](/getting-started/) using a disk image, which contains everything you need to run Home Assistant and keep it updated.
 
-If you’re feeling adventurous, you can also install parts of Home Assistant separately:
-
-- **Core** - the main "engine" of Home Assistant that handles reading data, controlling devices, and running automations
-- **Supervisor** makes sure everything is up to date, installs add-ons, runs backups, and more
-
-Learn more about [different installation methods here](https://community.home-assistant.io/t/home-assistant-installation-methods/207703).
-
 Most people control Home Assistant with its built-in frontend, **Lovelace**. Lovelace is the user interface in your browser and the mobile apps.
 
 Lovelace is organized like this:
@@ -91,3 +84,6 @@ Lovelace is organized like this:
 - **[Dashboard](/lovelace/dashboards-and-views)** panels are the main way to see and control your home. You can add multiple custom dashboards in addition to the one that comes by default.
 - **[Views](/lovelace/dashboards-and-views)** are just tabs inside of dashboards. You can easily toggle between views on the same dashboard. You can customize the name and an icon for each view.
 - **Cards** are smaller pieces of UI inside a view. You can generally see multiple cards at once. Home Assistant comes with built in cards, but you can also write your own.
+
+_You may hear about Home Assistant "Core" and "Supervisor". These refer to parts of Home Assistant that advanced users can install separately._
+
