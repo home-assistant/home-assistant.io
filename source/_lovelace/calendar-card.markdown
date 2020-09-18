@@ -39,7 +39,7 @@ title:
   type: string
 entities:
   required: true
-  description: A list if calendar entities that will be displayed in the card
+  description: A list of calendar entities that will be displayed in the card
   type: list
 theme:
   required: false
