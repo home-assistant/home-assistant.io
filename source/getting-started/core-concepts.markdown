@@ -24,7 +24,6 @@ Some entities are useful for controlling things in your home:
 - **[Switches](/integrations/switch)** let you check if something is switched on or off
 - **[Sensors](/integrations/sensor)** can be a wide range of things that watch for changes in the environment, like motion sensors and temperature sensors
 - **[Binary sensors](/integrations/device_tracker)** detect something that is either on or off
-- **[Scripts](/docs/scripts)** are special entities that run custom code when they’re triggered
 
 Other entities are there to respond to Home Assistant:
 
@@ -36,6 +35,8 @@ Some entities are part of a **domain**, or a built-in category of entities that 
 Entities can be grouped into **areas**, which roughly represent a room in your house. Common areas are “kitchen”, “office”, “basement” and “yard”.
 
 You can reference multiple entities at one time by putting them into a **[group](/integrations/group)**
+
+_Advanced users can write [scripts](/docs/scripts), special entities that run custom code when they’re triggered_
 
 ## Automation
 
