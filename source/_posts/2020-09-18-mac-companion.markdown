@@ -47,7 +47,7 @@ In the menu bar, you will also find an option to manually send an update to Home
 
 ## Big Sur Features
 
-Home Assistant Companion for macOS already supports widgets in Big Sur. Right now we have an Actions Widget where you can have up to eight actions. You can also create multiple widgets with different sets of actions. If you have an idea for other widgets you'd like to see, pop over to [the community forums and let us know](https://community.home-assistant.io/t/what-kind-of-ios-14-widgets-would-you-like-to-see/211112/14).
+Home Assistant Companion for macOS already supports widgets in Big Sur. Right now, we have an Actions Widget where you can have up to eight actions. You can also create multiple widgets with different sets of actions. If you have an idea for other widgets you'd like to see, pop over to [the community forums and let us know](https://community.home-assistant.io/t/what-kind-of-ios-14-widgets-would-you-like-to-see/211112/14).
 
 <p class='img'>
 <img src='/images/blog/2020-09-18-mac-companion/actions-widget.png' alt='Screenshot of a large Home Assistant Actions widget in Big Sur'></a>
