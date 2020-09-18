@@ -21,7 +21,7 @@ A device can provide multiple entities. For example, a device called “Sam’s 
 
 Some entities are useful for controlling things in your home:
 
-- **Switches** let you check if something is switched on or off?
+- **Switches** let you check if something is switched on or off
 - **Sensors** can be a wide range of things that watch for changes in the environment, like motion sensors and temperature sensors
 - **Binary sensors** detect something that is either on or off
 - **[Scripts](https://www.home-assistant.io/docs/scripts/)** are special entities that run custom code when they’re triggered
