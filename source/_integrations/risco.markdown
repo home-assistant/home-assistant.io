@@ -16,7 +16,7 @@ ha_quality_scale: platinum
 This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).
 <div class='note warning'>
 
-Recommendation: Create a new regular account on www.riscocloud.be with the same roles as you use with the Android/Iphone app. Only one session can do writes at a time, other users can only read.
+It is recommended to use  a regular (non-owner) account with the Risco app/website, and use a different regular account with the integration. Risco has restrictions on concurrent uses by different users, especially if they have different permission levels.
 </div>
 
 ## Configuration
