@@ -56,7 +56,7 @@ Screenshot of a large Home Assistant Actions widget in Big Sur.
 
 ## Documentation and Support
 
-We are updating the [Companion App docs](https://companion.home-assistant.io) with details for the Mac app. You can also pop over to the [Discord channel](https://discord.com/login?redirect_to=%2Fchannels%2F330944238910963714%2F551871772484698112). If you find a bug or have an idea for a feature please open an issue over on the [GitHub repository](https://github.com/home-assistant/iOS/issues/new/choose).
+We are updating the [Companion App docs](https://companion.home-assistant.io) with details for the Mac app. You can also pop over to the [Discord channel](https://discord.com/login?redirect_to=%2Fchannels%2F330944238910963714%2F551871772484698112). If you find a bug or have an idea for a feature, please open up an issue on the [GitHub repository](https://github.com/home-assistant/iOS/issues/new/choose).
 
 ## Getting the beta
 
