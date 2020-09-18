@@ -15,7 +15,7 @@ Home Assistant has a **discovery** feature, which scans for new devices constant
 
 ## Entities
 
-Because many devices do more than one thing, most things in Home Assistant use  **entities**. An entity is a single function or property of a device, like a single sensor, light, or switch.
+Because many devices do more than one thing, things in Home Assistant are controlled using **entities**. An entity is a single function or property of a device, like a single sensor, light, or switch.
 
 A device can provide multiple entities. For example, a device called “Sam’s Phone” might have entities like location, battery level, and step count. Some devices like lightbulbs only have a single entity, and devices like hubs may have no entities at all.
 
