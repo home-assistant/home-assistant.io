@@ -31,11 +31,11 @@ Home Assistant Companion running on a 16-inch Mac Book Pro
 
 Home Assistant Companion for macOS adds several new binary sensors for your Mac, showing whether it is active and whether a particular microphone or webcam is in use.
 
-The "active" sensor reports whether the Mac is actively used. In other words that it is not sleeping, not showing a screensaver, not locked and not just sat idle. You can configure the "Time Until Idle" in one-minute steps from a minimum of 1 minute. You'll find this option in the Sensors section of Preferences.
-
 Each camera and microphone has its own `binary_sensor` showing whether it is active or not. These can enable some really useful automations, especially for those home working at the moment. You could automatically turn off the radio when answering a call or close the blinds behind you to improve your video quality. To see just how useful this can be in the real world, check out this video of how our very own Frenck is using these sensors in his streaming set up.
 
 TODO: ADD VIDEO EMBED HERE
+
+The "active" sensor reports whether the Mac is being actively used. In other words that it is not sleeping, not showing a screensaver, not locked and not just sat idle. You can configure the "Time Until Idle" in one-minute steps from a minimum of 1 minute. You'll find this option in the Sensors section of Preferences.
 
 One huge advantage of running on a Mac compared to a mobile device is the much larger battery. This means we are not constrained by battery-saving measures and can address one of the most common gripes with the iOS app, update intervals. On a Mac, entity updates are immediately triggered when something changes. You will see this reported by the `sensor.DEVICE_NAME_last_update_trigger` reporting `Signaled`.
 
