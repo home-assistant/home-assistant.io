@@ -143,11 +143,11 @@ script: 
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
-          minutes: {{ minutes }}
+          minutes: "{{ minutes }}"
       - alias: Living room lights on
         service: light.turn_on
         data:
-          entity_id: {{ turn_on_entity }}
+          entity_id: "{{ turn_on_entity }}"
 ```
 
 {% endraw %}
