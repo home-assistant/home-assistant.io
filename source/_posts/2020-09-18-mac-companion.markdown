@@ -54,7 +54,7 @@ The Mac app is definitely a _Mac_ app. The App Configuration page has been remov
 
 <p class='img'>
 <img src='/images/blog/2020-09-18-mac-companion/multi_window.png' alt='Screenshot of two Lovelace windows open side-by-side'></a>
-Multiple Lovelace windows.
+You can have multiple Home Assistant Companion windows open.
 </p>
 
 In the menu bar, you will also find an option to manually send an update to Home Assistant and a new Actions menu where you can see all your [actions](https://companion.home-assistant.io/docs/core/actions) and fire them.
