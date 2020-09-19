@@ -11,7 +11,7 @@ categories: Announcements
 og_image: /images/blog/2020-08-18-the-month-of-what-the-heck/social.png
 ---
 
-<a href='https://community.home-assistant.io/c/what-the-heck/52'><img src='/images/blog/2020-08-18-the-month-of-what-the-heck/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='https://community.home-assistant.io/c/what-the-heck/52'><img src='/images/blog/2020-08-18-the-month-of-what-the-heck/social.png' class='no-shadow'></a>
 
 A month ago, I wrote [a blog post][kickoff], starting our first month of
 "What the heck?!" (WTH) ever! An experiment and without any expectations,
