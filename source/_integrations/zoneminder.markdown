@@ -29,6 +29,41 @@ There is currently support for the following device types within Home Assistant:
 1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'ZoneMinder' and click 'Configure'.
 2. Enter the information appropriate for the server and click 'Submit'.
 
+{% configuration %}
+host:
+  description: Your ZoneMinder server's host (and optional port), not including the scheme.
+  required: true
+  type: string
+path:
+  description: Path to your ZoneMinder install.
+  required: false
+  type: string
+  default: "`/zm/`"
+path_zms:
+  description: Path to the CGI script for streaming. This should match `PATH_ZMS` in ZM's "Paths" settings.
+  required: false
+  type: string
+  default: "`/zm/cgi-bin/nph-zms`"
+ssl:
+  description: Set to `true` if your ZoneMinder installation is using SSL.
+  required: false
+  type: boolean
+  default: false
+verify_ssl:
+  description: Verify the certification of the endpoint.
+  required: false
+  type: boolean
+  default: true
+username:
+  description: Your ZoneMinder username.
+  required: false
+  type: string
+password:
+  description: Your ZoneMinder password. Required if `OPT_USE_AUTH` is enabled in ZM.
+  required: false
+  type: string
+{% endconfiguration %}
+
 ## Service
 
 Once loaded, the `zoneminder` integration will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
@@ -57,8 +92,6 @@ Each binary_sensor created will be named after the hostname used when configurin
 ## Camera
 
 The `zoneminder` camera platform lets you monitor the current stream of your [ZoneMinder](https://www.zoneminder.com) cameras.
-
-### Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 
