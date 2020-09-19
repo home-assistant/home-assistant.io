@@ -151,13 +151,13 @@ intent_script:
   ActivateLightColor:
     action:
       - service: light.turn_on
-        data_template:
-          entity_id: light.{{ objectLocation | replace(" ","_") }}
-          color_name: {{ objectColor }}
+        data:
+          entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
+          color_name: '{{ objectColor }}'
 ```
 {% endraw %}
 
-In the `data_template` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
+In the `data` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
 
 ### Special slots
 
@@ -175,7 +175,7 @@ SetTimer:
     text: 'Set a timer'
   action:
     service: script.set_timer
-    data_template:
+    data:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
       siteId: "{{ site_id }}"

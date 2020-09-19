@@ -8,12 +8,6 @@ ha_iot_class: Local Push
 ha_domain: knx
 ---
 
-<div class='note'>
-  
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
-
-</div>
-
 The `knx light` integration is used as an interface to control KNX actuators for lighting applications such as:
 
 - switching actuators
@@ -23,13 +17,14 @@ The `knx light` integration is used as an interface to control KNX actuators for
 
 ## Configuration
 
-To use your KNX light in your installation, add the following lines to your `configuration.yaml` file:
+To use your KNX light in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: knx
-    address: '1/0/9'
+knx:
+  light:
+    - name: 'kitchen'
+      address: '1/0/9'
 ```
 
 {% configuration %}
@@ -103,41 +98,38 @@ For switching/light actuators that are only controlled by a single group address
 ## Extended configuration example
 
 ```yaml
-light:
-  # dimmable light
-  - platform: knx
-    name: Bedroom-Light-1
-    address: '1/0/9'
-    state_address: '1/1/9'
-    brightness_address: '1/2/9'
-    brightness_state_address: '1/3/9'
-  #
-  # RGB light
-  - platform: knx
-    name: Bathroom-Light-1
-    address: '1/0/9'
-    state_address: '1/1/9'
-    brightness_address: '1/2/9'
-    brightness_state_address: '1/3/9'
-    color_address: '1/4/9'
-    color_state_address: '1/5/9'
-  #
-  # tunable white light
-  - platform: knx
-    name: Office-Light-1
-    address: '1/0/21'
-    state_address: '1/1/21'
-    brightness_address: '1/2/21'
-    brightness_state_address: '1/3/21'
-    color_temperature_address: '1/4/21'
-    color_temperature_state_address: '1/5/21'
-    color_temperature_mode: absolute
-    min_kelvin: 2550
-    max_kelvin: 6200
-  #
-  # actuator without dedicated state communication object
-  - platform: knx
-    name: Cellar-Light-1
-    address: '1/0/5'
-    state_address: '1/0/5'
+knx:
+  light:
+    # dimmable light
+    - name: Bedroom-Light-1
+      address: '1/0/9'
+      state_address: '1/1/9'
+      brightness_address: '1/2/9'
+      brightness_state_address: '1/3/9'
+    #
+    # RGB light
+    - name: Bathroom-Light-1
+      address: '1/0/9'
+      state_address: '1/1/9'
+      brightness_address: '1/2/9'
+      brightness_state_address: '1/3/9'
+      color_address: '1/4/9'
+      color_state_address: '1/5/9'
+    #
+    # tunable white light
+    - name: Office-Light-1
+      address: '1/0/21'
+      state_address: '1/1/21'
+      brightness_address: '1/2/21'
+      brightness_state_address: '1/3/21'
+      color_temperature_address: '1/4/21'
+      color_temperature_state_address: '1/5/21'
+      color_temperature_mode: absolute
+      min_kelvin: 2550
+      max_kelvin: 6200
+    #
+    # actuator without dedicated state communication object
+    - name: Cellar-Light-1
+      address: '1/0/5'
+      state_address: '1/0/5'
 ```

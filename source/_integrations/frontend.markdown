@@ -37,10 +37,6 @@ frontend:
             description: The CSS identifier.
             required: true
             type: [list, string]
-  extra_html_url:
-    description: "DEPRECATED List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `latest` javascript mode."
-    required: false
-    type: list
   extra_module_url:
     description: "List of additional javascript modules to load in `latest` javascript mode."
     required: false
@@ -80,7 +76,7 @@ There are 2 themes-related services:
 
  - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
  - `frontend.set_theme`: sets backend-preferred theme name.
- 
+
  ### Service `set_theme`
 
 | Service data attribute | Description                                                                                         |

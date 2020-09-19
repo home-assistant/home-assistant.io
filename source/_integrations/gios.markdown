@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: gios
+ha_quality_scale: platinum
 ---
 
 The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.

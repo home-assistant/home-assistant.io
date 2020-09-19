@@ -7,6 +7,8 @@ ha_release: 0.24
 ha_iot_class: Local Push
 ha_codeowners:
   - '@Julius2342'
+  - '@farmio'
+  - '@marvin-w'
 ha_domain: knx
 ---
 
@@ -30,15 +32,32 @@ There is currently support for the following device types within Home Assistant:
 - [Scene](/integrations/scene.knx)
 - [Sensor](/integrations/sensor.knx)
 - [Switch](/integrations/switch.knx)
+- [Weather](/integrations/weather.knx)
 
 
-## Configuration
+## Basic Configuration
 
 To use your KNX bus in your installation, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 knx:
 ```
+
+In order to make use of the various platforms KNX offers you will need to have the following configuration inside `configuration.yaml` depending on what
+platforms you intend to use:
+
+```yaml
+knx:
+  binary_sensor: !include knx_binary_sensor.yaml
+  switch: !include knx_switch.yaml
+  sensor: !include knx_sensor.yaml
+  cover: !include knx_cover.yaml
+  light: !include knx_light.yaml
+  notify: !include knx_notify.yaml
+  scene: !include knx_scene.yaml
+```
+
+Please check the dedicated platform documentation about how to configure them correctly.
 
 Optional, or if you want to use the XKNX abstraction also for other scripted tools outside of Home Assistant:
 
@@ -71,7 +90,7 @@ knx:
 
 {% configuration %}
 host:
-  description: Host of the KNX/IP tunneling device.
+  description: IP address of the KNX/IP tunneling device.
   type: string
   required: true
 port:
@@ -79,7 +98,7 @@ port:
   type: integer
   required: false
 local_ip:
-  description: IP of the local interface.
+  description: IP address of the local interface.
   type: string
   required: false
 {% endconfiguration %}
@@ -94,7 +113,7 @@ knx:
 
 {% configuration %}
 local_ip:
-  description: The local IP address of interface (which should be used for multicasting).
+  description: The local IP address of the interface that shall be used to send multicast packets.
   type: string
   required: true
 {% endconfiguration %}
@@ -122,14 +141,14 @@ state_updater:
   type: boolean
 {% endconfiguration %}
 
-### Services
+## Services
 
 In order to directly interact with the KNX bus, you can use the following service:
 
 ```txt
 Domain: knx
 Service: send
-Service Data: {"address": "1/0/15", "payload": 0}
+Service Data: {"address": "1/0/15", "payload": 0, "type": "temperature"}
 ```
 
 {% configuration %}
@@ -137,13 +156,16 @@ address:
   description: KNX group address
   type: string
 payload:
-  description: Payload, either an integer or an array of integers
+  description: Payload to send to the bus. When `type` is not set, raw bytes are sent. Integers are then treated as DPT 1/2/3 payloads. For DPTs > 6 bits send a list. Each value represents 1 octet (0-255). Pad with 0 to DPT byte length.
   type: [integer, list]
+type:
+  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](/integrations/sensor.knx).
+  type: [string, integer, float]
 {% endconfiguration %}
 
 You can also use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of a device.
 
-### Exposing entity states, entity attributes or time to KNX bus
+## Exposing entity states, entity attributes or time to KNX bus
 
 KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address. It is also possible to expose the current time.
 
@@ -185,13 +207,13 @@ entity_id:
   type: string
   required: false
 attribute:
-  description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent. 
+  description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent.
     Eg. for a light the state is eigther "on" or "off" - with attribute you can expose its "brightness".
   type: string
   required: false
 default:
-  description: Default value to send to the bus if the state or attribute value is `None`. 
-    Eg. a light with state "off" has no brightness attribute so a default value of `0` could be used. 
+  description: Default value to send to the bus if the state or attribute value is `None`.
+    Eg. a light with state "off" has no brightness attribute so a default value of `0` could be used.
     If not set (or `None`) no value would be sent to the bus and a GroupReadRequest to the address would return the last known value.
   type: [boolean, string, integer, float]
   default: None

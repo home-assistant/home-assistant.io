@@ -161,7 +161,7 @@ condition:
         {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
 action:
   - service: sonos.remove_from_queue
-    data_template:
+    data:
       entity_id: >
         {{ trigger.entity_id }}
       queue_position: >

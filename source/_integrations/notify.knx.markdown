@@ -8,28 +8,22 @@ ha_iot_class: Local Push
 ha_domain: knx
 ---
 
-<div class='note'>
-  
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
-
-</div>
-
 The `knx` notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices.
 
 ## Configuration
 
-To use your KNX switch in your installation, add the following lines to your `configuration.yaml` file:
+To use your KNX switch in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
-notify:
-  - platform: knx
-    name: Alarm
-    address: '5/1/10'
+knx:
+  notify:
+    - name: Alarm
+      address: '5/1/10'
 ```
 
 {% configuration %}
 address:
-  description: KNX group address of the notification.
+  description: KNX group address of the notification. *DPT 16.000*
   required: true
   type: string
 name:

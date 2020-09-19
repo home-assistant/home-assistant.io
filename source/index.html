@@ -62,8 +62,8 @@ description: Open source home automation that puts local control and privacy fir
 
       <a
         class="material-card picture-promo"
-        href="https://www.home-assistant.io/blog/2019/08/06/home-assistant-cast/"
-        style="background-image: url(/images/frontpage/cast-frontpage.png);"
+        href="/blog/2019/08/06/home-assistant-cast/"
+        style="background-image: url(/images/frontpage/cast-frontpage.png)"
       >
         <div class="caption">
           <div class="title">Take over all the screens</div>
@@ -77,7 +77,7 @@ description: Open source home automation that puts local control and privacy fir
       <div class="recent-posts material-card text">
         <h1>Recent Blog Posts</h1>
 
-        {% for post in site.posts limit: 3 %}
+        {% for post in site.posts limit: 5 %}
         <li class="post">
           <a href="{{ post.url }}">{{ post.title }}</a>
           <small class="blog-date">{{ post.date_formatted }}</small>
@@ -95,9 +95,7 @@ description: Open source home automation that puts local control and privacy fir
         "
       >
         <div class="caption">
-          <div class="title">
-            State of the Union 2019
-          </div>
+          <div class="title">State of the Union 2019</div>
           <div class="subtitle">
             Learn why we do what we do and what is next.
           </div>
@@ -108,19 +106,32 @@ description: Open source home automation that puts local control and privacy fir
         class="material-card highlight-blog-post large"
         href="/blog/2017/07/25/introducing-hassio/"
       >
-        Learn how Hass.io can turn your Raspberry Pi into the ultimate home
+        Learn how our OS can turn your Raspberry Pi into the ultimate home
         automation hub <i class="icon-arrow-right"></i>
       </a>
 
       <a
         class="material-card picture-promo"
-        href="https://teespring.com/stores/home-assistant-store"
-        style="background-image: url(/images/merchandise/shirt-frontpage.png);"
+        href="/blog/2020/09/15/home-assistant-tags/"
+        style="
+          background-image: url(/images/blog/2020-09-15-home-assistant-tags/tag-reader.jpg);
+        "
       >
         <div class="caption">
-          <div class="title">
-            Join the Home Assistant t-shirt revolution!
+          <div class="title">Home Assistant Tags</div>
+          <div class="subtitle">
+            Use NFC to bring music to your life or automate the mundane.
           </div>
+        </div>
+      </a>
+
+      <a
+        class="material-card picture-promo"
+        href="https://teespring.com/stores/home-assistant-store"
+        style="background-image: url(/images/merchandise/shirt-frontpage.png)"
+      >
+        <div class="caption">
+          <div class="title">Join the Home Assistant t-shirt revolution!</div>
           <div class="subtitle">
             Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
           </div>

@@ -17,7 +17,7 @@ The `script` integration allows users to specify a sequence of actions to be exe
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
 {% raw %}
- 
+
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -25,7 +25,7 @@ script:
     sequence:
       # This is Home Assistant Script Syntax
       - service: notify.notify
-        data_template:
+        data:
           message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
 
@@ -51,6 +51,15 @@ description:
   required: false
   default: ''
   type: string
+variables:
+  description: Variables that will be available inside your templates
+  required: false
+  default: {}
+  type: map
+  keys:
+    PARAMETER_NAME:
+      description: The value of the variable. Any YAML is valid.
+      type: any
 fields:
   description: Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below.
   required: false
@@ -77,6 +86,11 @@ max:
   required: false
   type: integer
   default: 10
+max_exceeded:
+  description: "When `max` is exceeded (which is effectively 1 for `single` mode) a log message will be emitted to indicate this has happened. This option controls the severity level of that log message. See [Log Levels](/integrations/logger/#log-levels) for a list of valid options. Or `silent` may be specified to suppress the message from being emitted."
+  required: false
+  type: string
+  default: warning
 sequence:
   description: The sequence of actions to be performed in the script.
   required: true
@@ -106,6 +120,8 @@ script: 
     alias: Wake Up
     icon: "mdi:party-popper"
     description: 'Turns on the bedroom lights and then the living room lights after a delay'
+    variables:
+      turn_on_entity: group.living_room
     fields:
       minutes:
         description: 'The amount of time to wait before turning on the living room lights'
@@ -127,11 +143,11 @@ script: 
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
-          minutes: {{ minutes }}
+          minutes: "{{ minutes }}"
       - alias: Living room lights on
         service: light.turn_on
         data:
-          entity_id: group.living_room
+          entity_id: "{{ turn_on_entity }}"
 ```
 
 {% endraw %}
@@ -176,7 +192,7 @@ automation:
       message: 'The light is on!'
 ```
 
-Using the variables in the script requires the use of `data_template`:
+Using the variables in the script requires the use of templates:
 
 ```yaml
 # Example configuration.yaml entry
@@ -195,7 +211,7 @@ script:
         entity_id: switch.pushover_notifications
         state: 'on'
       - service: notify.pushover
-        data_template:
+        data:
           title: "{% raw %}{{ title }}{% endraw %}"
           message: "{% raw %}{{ message }}{% endraw %}"
 ```

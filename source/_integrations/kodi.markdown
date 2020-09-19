@@ -7,13 +7,14 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@armills'
+  - '@OnFreund'
 ha_domain: kodi
+ha_config_flow: true
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
-The preferred way to set up the Kodi platform is by enabling the [discovery component](/integrations/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+The preferred way to set up the Kodi platform is by through discovery, which requires an enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -22,66 +23,19 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
+The Kodi media player is configured through the integrations screen. If your Kodi is discovered, you'll see it there and can click to set it up.
+If you do not see your device, you can click on the `+` button and choose Kodi.
+The flow will guide you through the setup. Most of the settings are advanced, and the defaults should work.
 
-```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: kodi
-    host: IP_ADDRESS
-```
+If you previously had Kodi configured through `configuration.yaml`, it's advisable to remove it, and configure from the UI.
+If you do not remove it, your configuration will be imported with the following limitations:
+* Your turn on/off actions will not be imported. This functionality is now available through device triggers.
+* You may have duplicate entities.
+* Kodi must be on when Home Assistant is loading for the first time for the configuration to be imported.
 
-{% configuration %}
-host:
-  description: The host name or address of the device that is running XBMC/Kodi.
-  required: true
-  type: string
-port:
-  description: The HTTP port number.
-  required: false
-  type: integer
-  default: 8080
-tcp_port:
-  description: The TCP port number. Used for WebSocket connections to Kodi.
-  required: false
-  type: integer
-  default: 9090
-name:
-  description: The name of the device used in the frontend.
-  required: false
-  type: string
-proxy_ssl:
-  description: Connect to Kodi with HTTPS and WSS. Useful if Kodi is behind an SSL proxy.
-  required: false
-  type: boolean
-  default: false
-username:
-  description: The XBMC/Kodi HTTP username.
-  required: false
-  type: string
-password:
-  description: The XBMC/Kodi HTTP password.
-  required: false
-  type: string
-turn_on_action:
-  description: Home Assistant script sequence to call when turning on.
-  required: false
-  type: list
-turn_off_action:
-  description: Home Assistant script sequence to call when turning off.
-  required: false
-  type: list
-enable_websocket:
-  description: Enable websocket connections to Kodi via the TCP port. The WebSocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
-  required: false
-  type: boolean
-  default: true
-timeout:
-  description: Set timeout for connections to Kodi. Defaults to 5 seconds.
-  required: false
-  type: integer
-  default: 5
-{% endconfiguration %}
+### Turning On/Off
+
+You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence.
 
 ### Services
 
@@ -257,7 +211,7 @@ script:
           entity_id: media_player.kodi
       - alias: Play TV channel
         service: media_player.play_media
-        data_template:
+        data:
           entity_id: media_player.kodi
           media_content_type: "CHANNEL"
           media_content_id: >

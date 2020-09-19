@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_domain: trafikverket_weatherstation
+ha_codeowners:
+  - '@endor-force'
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.
@@ -34,6 +36,7 @@ sensor:
         - wind_direction
         - wind_direction_text
         - wind_speed
+        - wind_speed_max
         - precipitation_amount
         - precipitation_amountname
 ```
@@ -70,6 +73,8 @@ monitored_conditions:
       description: Rough wind direction in twelve variants (Swedish text).
     wind_speed:
       description: Average wind speed during the last 10 minutes.
+    wind_speed_max:
+      description: Maximum wind speed measured during the last 30 minutes.
     precipitation_amount:
       description: Amount of precipitation.
     precipitation_amountname:
@@ -105,6 +110,7 @@ sensor:
         - wind_direction
         - wind_direction_text
         - wind_speed
+        - wind_speed_max
   - platform: trafikverket_weatherstation
     name: Trafikverket Lanna
     api_key: YOUR_API_KEY

@@ -8,28 +8,22 @@ ha_iot_class: Local Push
 ha_domain: knx
 ---
 
-<div class='note'>
-  
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
-
-</div>
-
 The `knx` switch platform is used as an interface to switching actuators.
 
 ## Configuration
 
-To use your KNX switch in your installation, add the following to your `configuration.yaml` file:
+To use your KNX switch in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
-switch:
-  - platform: knx
-    name: Kitchen.Coffee
-    address: '1/1/6'
+knx:
+  switch:
+    - name: Kitchen.Coffee
+      address: '1/1/6'
 ```
 
 {% configuration %}
 address:
-  description: KNX group address for switching the switch on/off.
+  description: KNX group address for switching the switch on/off. *DPT 1*
   required: true
   type: string
 name:
@@ -38,7 +32,7 @@ name:
   default: KNX Switch
   type: string
 state_address:
-  description: Separate KNX group address for retrieving the switch state.
+  description: Separate KNX group address for retrieving the switch state. *DPT 1*
   required: false
   type: string
 {% endconfiguration %}

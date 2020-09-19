@@ -56,3 +56,9 @@ Sensors are added for both usage and production with the following names:
 Binary sensors are created for each of the devices detected by your Sense monitor to show their power state.
 
 Sensors are created for each of the devices detected by your Sense monitor to show their power usage in Watts.
+
+<div class='note'>
+
+The [Emulated Kasa](/integrations/emulated_kasa) integration can be used to expose devices in Home Assistant to the Sense Monitor by emulating TP-Link Kasa Smart Plugs.
+
+</div>

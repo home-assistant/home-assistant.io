@@ -23,9 +23,9 @@ There is currently support for the following platforms within Home Assistant:
 
 - Presence detection - device tracker for connected devices
 - Notifications - via SMS
-- Sensors - device, signal, and traffic information; number of unread SMS
+- Sensors - device, network, signal, SMS count, and traffic information
 - Switch - mobile data on/off
-- Binary sensor - mobile connection status
+- Binary sensor - mobile and Wi-Fi connection status
 
 ## Configuration
 

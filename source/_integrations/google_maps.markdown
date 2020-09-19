@@ -12,11 +12,11 @@ The `google_maps` platform allows you to detect presence using the unofficial AP
 
 ## Setup
 
-You first need to create an additional Google account and share your location with that account. This integration will use that account to fetch the location of your device(s). 
+You need two Google accounts. Account A is the account that has to be set up to share its location with account B. Account B is used to fetch the location of your device(s) and will be connected to this integration. 
 
-1. You have to setup sharing through the Google Maps app on your mobile phone. You can find more information [here](https://support.google.com/accounts?p=location_sharing).
-2. You need to use the cookies from that account after you have properly authenticated which you can retrieve with either [Export cookies](https://addons.mozilla.org/en-US/firefox/addon/export-cookies-txt/?src=search) for Firefox (make sure that "Prefix HttpOnly cookies" is unchecked) or [cookies.txt](https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=en-US) for Chrome/Chromium.
-3. Save the cookie file to your Home Assistant configuration directory with the following name: `.google_maps_location_sharing.cookies.` followed by the slugified username of the NEW Google account. Make sure to use the `.com` TLD (e.g., maps.google.com), otherwise the cookie won't be able to provide a valid session.
+1. You first have to setup sharing of the location of account A through the Google Maps app on your mobile phone. Share your location with account B. You can find more information [here](https://support.google.com/accounts?p=location_sharing).
+2. Next, you have to retrieve a valid cookie from Google, while being logged in with account B. Log in with your credentials of account B on [Google Maps](https://www.google.com/maps) with a PC with Firefox or Chrome. Make sure to use the `.com` TLD (e.g., maps.google.com), otherwise the cookie won't be able to provide a valid session. After you have properly authenticated, you can retrieve the cookie with either [Export cookies](https://addons.mozilla.org/en-US/firefox/addon/export-cookies-txt/?src=search) for Firefox (make sure that "Prefix HttpOnly cookies" is unchecked) or [cookies.txt](https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=en-US) for Chrome/Chromium.
+3. Save the cookie file to your Home Assistant configuration directory with the following name: `.google_maps_location_sharing.cookies.` followed by the slugified username of the NEW Google account (account B). 
    - For example: If your email address was `location.tracker@gmail.com`, the filename would be: `.google_maps_location_sharing.cookies.location_tracker_gmail_com`.
 
 ## Configuration

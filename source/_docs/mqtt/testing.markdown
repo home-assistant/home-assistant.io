@@ -10,7 +10,7 @@ The `mosquitto` broker package ships commandline tools (often as `*-clients` pac
 mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
 ```
 
-Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose the "MQTT" tab. Enter something similar to the example below into the "Topic" field.
+Another way to send MQTT messages manually is to use the "MQTT" Integration in the frontend. Choose the "Configuration" tab, click "Integrations" and click the "Configure" option under the "MQTT" integration. Enter something similar to the example below into the "topic" field under "Publish a packet*.
 
 ```bash
    home-assistant/switch/1/power

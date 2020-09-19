@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: accuweather
+ha_quality_scale: platinum
 ---
 
 The `accuweather` integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.

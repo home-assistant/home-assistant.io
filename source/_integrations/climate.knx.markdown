@@ -8,44 +8,38 @@ ha_iot_class: Local Push
 ha_domain: knx
 ---
 
-<div class='note'>
-  
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
-
-</div>
-
 The `knx` climate platform is used as an interface to KNX thermostats and room controllers.
 
-To use your KNX thermostats in your installation, add the following lines to your `configuration.yaml` file:
+To use your KNX thermostats in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-   - platform: knx
-     name: HASS-Kitchen.Temperature
-     temperature_address: '5/1/1'
-     setpoint_shift_address: '5/1/2'
-     setpoint_shift_state_address: '5/1/3'
-     target_temperature_state_address: '5/1/4'
-     operation_mode_address: '5/1/5'
-     operation_mode_state_address: '5/1/6'
+knx:
+  climate:
+    - name: HASS-Kitchen.Temperature
+      temperature_address: '5/1/1'
+      setpoint_shift_address: '5/1/2'
+      setpoint_shift_state_address: '5/1/3'
+      target_temperature_state_address: '5/1/4'
+      operation_mode_address: '5/1/5'
+      operation_mode_state_address: '5/1/6'
 ```
 
 Alternatively, if your device has dedicated binary group addresses for frost/night/comfort mode:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-  - platform: knx
-    name: HASS-Kitchen.Temperature
-    temperature_address: '5/1/1'
-    setpoint_shift_address: '5/1/2'
-    setpoint_shift_state_address: '5/1/3'
-    target_temperature_state_address: '5/1/4'
-    operation_mode_frost_protection_address: '5/1/5'
-    operation_mode_night_address: '5/1/6'
-    operation_mode_comfort_address: '5/1/7'
-    operation_mode_state_address: '5/1/8'
+knx:
+  climate:
+    - name: HASS-Kitchen.Temperature
+      temperature_address: '5/1/1'
+      setpoint_shift_address: '5/1/2'
+      setpoint_shift_state_address: '5/1/3'
+      target_temperature_state_address: '5/1/4'
+      operation_mode_frost_protection_address: '5/1/5'
+      operation_mode_night_address: '5/1/6'
+      operation_mode_comfort_address: '5/1/7'
+      operation_mode_state_address: '5/1/8'
 ```
 
 If your device doesn't support setpoint_shift calculations (i.e., if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
@@ -54,22 +48,49 @@ to the configuration in this case.:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-  - platform: knx
-    name: HASS-Kitchen.Temperature
-    temperature_address: '5/1/2'
-    target_temperature_address: '5/1/4'
-    target_temperature_state_address: '5/1/1'
-    operation_mode_frost_protection_address: '5/1/5'
-    operation_mode_night_address: '5/1/6'
-    operation_mode_comfort_address: '5/1/7'
-    operation_mode_state_address: '5/1/8'
-    min_temp: 7.0
-    max_temp: 32.0
+knx:
+  climate:
+    - name: HASS-Kitchen.Temperature
+      temperature_address: '5/1/2'
+      target_temperature_address: '5/1/4'
+      target_temperature_state_address: '5/1/1'
+      operation_mode_frost_protection_address: '5/1/5'
+      operation_mode_night_address: '5/1/6'
+      operation_mode_comfort_address: '5/1/7'
+      operation_mode_state_address: '5/1/8'
+      operation_mode_standby_address: '5/1/9'
+      min_temp: 7.0
+      max_temp: 32.0
 ```
 
-`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
+`setpoint_shift_mode` allows the two following DPTs to be used:
+
+- DPT6.002 (for 1 byte signed integer)
+- DPT9.002 (for 2 byte float)
+
+Example:
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  climate:
+    - name: HASS-Kitchen.Temperature
+      temperature_address: '5/1/1'
+      setpoint_shift_address: '5/1/2'
+      setpoint_shift_state_address: '5/1/3'
+      setpoint_shift_mode: 'DPT9002'
+      target_temperature_state_address: '5/1/4'
+      operation_mode_address: '5/1/5'
+      operation_mode_state_address: '5/1/6'
+```
+
+`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` / `operation_mode_standby_address` are not necessary if `operation_mode_address` is specified.
 If the actor doesn't support explicit state communication objects the *_state_address can be configured with the same group address as the writeable *_address. The Read-Flag for the *_state_address communication object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
+
+The following values are valid for the `heat_cool_address` and the `heat_cool_state_address`:
+
+- 0 (cooling)
+- 1 (heating)
 
 The following values are valid for the `hvac_mode` attribute:
 
@@ -97,6 +118,11 @@ temperature_address:
   description: KNX group address for reading current room temperature from KNX bus. *DPT 9.001*
   required: true
   type: string
+temperature_step:
+  description: Defines the step size in Kelvin for each step of setpoint_shift.
+  required: false
+  type: float
+  default: 0.1
 target_temperature_address:
   description: KNX group address for setting target temperature. *DPT 9.001*
   required: false
@@ -106,18 +132,19 @@ target_temperature_state_address:
   required: true
   type: string
 setpoint_shift_address:
-  description: KNX address for setpoint_shift. *DPT 6.010*
+  description: KNX address for setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_state_address:
-  description: KNX address for reading setpoint_shift. *DPT 6.010*
+  description: KNX address for reading setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
   required: false
   type: string
-setpoint_shift_step:
-  description: Defines the step size in Kelvin for each step of setpoint_shift.
+setpoint_shift_mode:
+  description: Defines the internal device DPT used.
   required: false
   default: 0.5
-  type: float
+  type: string
+  default: DPT6010
 setpoint_shift_min:
   description: Minimum value of setpoint shift.
   required: false
@@ -152,24 +179,36 @@ controller_mode_state_address:
   description: KNX address for reading HVAC Control Mode. *DPT 20.105*
   required: false
   type: string
+heat_cool_address:
+  description: KNX address for switching between heat/cool mode. *DPT 1.100*
+  required: false
+  type: string
+heat_cool_state_address:
+  description: KNX address for reading heat/cool mode. *DPT 1.100*
+  required: false
+  type: string
 operation_mode_frost_protection_address:
-  description: KNX address for switching on/off frost/heat protection mode.
+  description: KNX address for switching on/off frost/heat protection mode. *DPT 1*
   required: false
   type: string
 operation_mode_night_address:
-  description: KNX address for switching on/off night mode.
+  description: KNX address for switching on/off night mode. *DPT 1*
   required: false
   type: string
 operation_mode_comfort_address:
-  description: KNX address for switching on/off comfort mode.
+  description: KNX address for switching on/off comfort mode. *DPT 1*
   required: false
   type: string
+operation_mode_standby_address:
+  description: KNX address for switching on/off standby mode. *DPT 1*
+  required: false
+  type: string  
 operation_modes:
   description: Overrides the supported operation modes. Provide the supported `hvac_mode` and `preset_mode` values for your device.
   required: false
   type: list
 on_off_address:
-  description: KNX address for switching the climate device on/off.
+  description: KNX address for switching the climate device on/off. *DPT 1*
   required: false
   type: string
 on_off_invert:
@@ -178,7 +217,7 @@ on_off_invert:
   default: false
   type: boolean
 on_off_state_address:
-  description: KNX address for gathering the current state (on/off) of the climate device.
+  description: KNX address for gathering the current state (on/off) of the climate device. *DPT 1*
   required: false
   type: string
 min_temp:
