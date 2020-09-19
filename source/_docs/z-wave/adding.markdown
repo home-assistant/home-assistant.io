@@ -3,7 +3,7 @@ title: "Z-Wave Devices - Adding and Removing"
 description: "How to add and remove Z-Wave devices."
 ---
 
-**Recommendation before adding any devices:**
+## Recommendation before adding any devices
 
 Z-Wave devices behave as a mesh and can store network relationship details on the device itself.  This means used devices or even brand new devices could already be enrolled in another network, for example a test network for a brand new device or a previous network for devices aren't new. This could cause headaches when you're attempting to add/enrol the device to your network. It is recommended that if possible, perform a factory reset AND device perform exclusion or disenroll for the device you're attempting to add to Home Assistant. Steps can found further below on this page under "Removing Devices".
 
@@ -42,8 +42,8 @@ Each individual value in the defined key can be anywhere from 0x00 to 0xFF. Defi
 
 ### Network Key
 
-An easy UNIX script to generate a random key:
-(remember you can run this in Home Assistant! just add the Terminal Add-on)
+An easy Linux script to generate a random key:
+(remember you can run this in Home Assistant OS or Supervised, you can use the Terminal Add-on)
 
 ```bash
 cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
@@ -82,12 +82,11 @@ Secure devices require additional bandwidth, and too many secure devices can slo
 
 To remove (exclude) a Z-Wave device from your system:
 
-1. Go to the Z-Wave control panel in the Home Assistant frontend. (Home Assistant > Configuration > Integrations > Configure)
+1. Go to the Z-Wave control panel in the Home Assistant frontend. (Home Assistant > Configuration > Integrations > Z-Wave > Configure)
 2. Click the **Remove Node** button in the *Z-Wave Network Management* card - this will place the controller in exclusion mode
 3. Activate your device to be excluded by following the instructions provided with the device
-4. The device should now be removed, but that won't show until you restart Home Assistant. Look for confirmation signal on the device if available, or confirm on the Home Assistant logs.
+4. The device should now be removed, but that won't show until you restart Home Assistant. Look for a confirmation signal on the device if available, or confirm on the Home Assistant logs.
 5. Run a *Heal Network* so all the other nodes learn about its removal
-6. Make sure to Restart Home Assistant. Done through **Home Assistant > Configuration > Server Controls**
 
 If your device isn't responding to this process, possibly because you've factory reset it or it has failed, you can remove it using **Remove Failed Node**. This only works for devices marked as `"is_failed": true`, but you can trick the system into thinking that this the case:
 
