@@ -42,7 +42,7 @@ A full list of the parameters for a service can be found on the documentation pa
 You can use [templating] support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.
 
 ```yaml
-service_template: >
+service: >
   {% raw %}{% if states('sensor.temperature') | float > 15 %}
     switch.turn_on
   {% else %}
