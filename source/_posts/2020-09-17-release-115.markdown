@@ -105,6 +105,7 @@ navigating you around this release.
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [Release 0.115.1 - September 18](#release-01151---september-18)
+- [Release 0.115.2 - September 19](#release-01152---september-19)
 - [All changes](#all-changes)
 
 ## Media Browser
@@ -1688,6 +1689,46 @@ discovery. Users currently using that should set up all devices through UI.
 [risco docs]: /integrations/risco/
 [velux docs]: /integrations/velux/
 [vizio docs]: /integrations/vizio/
+
+## Release 0.115.2 - September 19
+
+- Get option flow defaults from yaml for non configured MQTT options ([@emontnemery] - [#40177]) ([mqtt docs])
+- Correct modbus switch to return correct coil ([@janiversen] - [#40190]) ([modbus docs])
+- Handle an unsupported device in the Broadlink config flow ([@felipediel] - [#40242]) ([broadlink docs])
+- Fix Kodi discovery title ([@OnFreund] - [#40247]) ([kodi docs])
+- Fix high CPU usage in vera integration. ([@vangorra] - [#40249]) ([vera docs])
+- Updated frontend to 20200918.0 ([@bramkragten] - [#40253]) ([frontend docs])
+- Bump hangups to 0.4.11 ([@dshokouhi] - [#40258]) ([hangouts docs])
+- Update ZHA dependencies ([@Adminiuga] - [#40283]) ([zha docs])
+- Fix error creating duplicate ConfigEntry upon import for rfxtrx ([@RobBie1221] - [#40296]) ([rfxtrx docs])
+
+[#40177]: https://github.com/home-assistant/core/pull/40177
+[#40190]: https://github.com/home-assistant/core/pull/40190
+[#40242]: https://github.com/home-assistant/core/pull/40242
+[#40247]: https://github.com/home-assistant/core/pull/40247
+[#40249]: https://github.com/home-assistant/core/pull/40249
+[#40253]: https://github.com/home-assistant/core/pull/40253
+[#40258]: https://github.com/home-assistant/core/pull/40258
+[#40283]: https://github.com/home-assistant/core/pull/40283
+[#40296]: https://github.com/home-assistant/core/pull/40296
+[@Adminiuga]: https://github.com/Adminiuga
+[@OnFreund]: https://github.com/OnFreund
+[@RobBie1221]: https://github.com/RobBie1221
+[@bramkragten]: https://github.com/bramkragten
+[@dshokouhi]: https://github.com/dshokouhi
+[@emontnemery]: https://github.com/emontnemery
+[@felipediel]: https://github.com/felipediel
+[@janiversen]: https://github.com/janiversen
+[@vangorra]: https://github.com/vangorra
+[broadlink docs]: /integrations/broadlink/
+[frontend docs]: /integrations/frontend/
+[hangouts docs]: /integrations/hangouts/
+[kodi docs]: /integrations/kodi/
+[modbus docs]: /integrations/modbus/
+[mqtt docs]: /integrations/mqtt/
+[rfxtrx docs]: /integrations/rfxtrx/
+[vera docs]: /integrations/vera/
+[zha docs]: /integrations/zha/
 
 ## All changes
 
