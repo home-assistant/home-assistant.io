@@ -2124,6 +2124,7 @@
 /lovelace/entity-button /lovelace/button
 /lovelace/views /lovelace/dashboards-and-views
 /lovelace/yaml-mode /lovelace/dashboards-and-views
+/lovelace/calendar-card /lovelace/calendar
 
 # Removed documentation
 /docs/installation/hassbian /getting-started
