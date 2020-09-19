@@ -9,7 +9,7 @@ find you local media.
 ## Home Assistant OS and Supervised
 
 No action is needed from your end to set it up. Home Assistant will
-automatically use the "media" folder that is provided on these systems.
+automatically use the "media" folder that is provided on these systems (e.g.: `/usr/share/hassio/media/`).
 
 ## Home Assistant Container
 
