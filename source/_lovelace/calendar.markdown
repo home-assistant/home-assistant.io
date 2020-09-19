@@ -1,7 +1,6 @@
 ---
 title: "Calendar Card"
 sidebar_label: Calendar
-redirect_from: /lovelace/calendar-card/
 description: "The calendar card displays your calendar entities in a month, day and list view"
 ---
 
