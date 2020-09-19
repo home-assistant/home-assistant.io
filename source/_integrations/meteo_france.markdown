@@ -7,6 +7,7 @@ ha_category:
   - Sensor
   - Weather
 ha_codeowners:
+  - '@hacf-fr'
   - '@oncleben31'
   - '@Quentame'
 ha_config_flow: true

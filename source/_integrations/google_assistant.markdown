@@ -77,15 +77,16 @@ If you've added Home Assistant to your phone's home screen, you have to first re
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 2. If you want to support actively reporting of state to Google's server (configuration option `report_state`) and support `google_assistant.request_sync`, you need to generate a service account.
     1. In the GCP Console, go to the [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey) page.
-    2. From the Service account list, select New service account.
-    3. In the Service account name field, enter a name.
-    4. In the Service account ID field, enter an ID.
-    5. From the Role list, select Service Accounts > Service Account Token Creator.
-    6. For the Key type, select the JSON option.
-    7. Click Create. A JSON file that contains your key downloads to your computer.
-    8. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
-    9. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
-    10. Select your project and click Enable HomeGraph API.
+    2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the `project_id` and it ensure it matches.
+    3. From the Service account list, select New service account.
+    4. In the Service account name field, enter a name.
+    5. In the Service account ID field, enter an ID.
+    6. From the Role list, select Service Accounts > Service Account Token Creator.
+    7. For the Key type, select the JSON option.
+    8. Click Create. A JSON file that contains your key downloads to your computer.
+    9. Use the information in this file or the file directly to add to the `service_account` key in the configuration.
+    10. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
+    11. Select your project and click Enable HomeGraph API.
 
 
 ### Configuration
@@ -245,11 +246,11 @@ The `request_sync` service requires that the initial sync from Google includes t
 
 The `request_sync` service may fail with a 404 if the `project_id` of the HomeGraph API differs from the `project_id` of the Actions SDK found in the preferences of your project on [Actions on Google console](https://console.actions.google.com). Resolve this by:
 
-  1. Removing your project from the [Actions on Google console](https://console.actions.google.com).
-  2. Add a new project to the [Google Cloud API Console](https://console.cloud.google.com). Here you get a new `project_id`.
-  3. Enable HomeGraph API to the new project.
-  4. Generate a new API key.
-  5. Again, create a new project in the [Actions on Google console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
+  1. Removing your project from the [Google Cloud API Console](https://console.cloud.google.com).
+  2. Add a new project to the [Actions on Google console](https://console.actions.google.com) Here you get a new `project_id`.
+  3. Run through the previously mentioned [Actions on Google console] setup instructions until the step to create a `service_account`.
+  4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.  
+  5. Enable HomeGraph API to the new project.
 
 #### 403 errors on request sync
 

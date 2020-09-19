@@ -1,6 +1,6 @@
 ---
 title: Firmata
-description: "Connect Arduino-compatible boards within Home Assistant"
+description: Connect Arduino-compatible boards within Home Assistant
 ha_category:
   - DIY
   - Binary Sensor

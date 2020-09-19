@@ -11,6 +11,7 @@ ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
 ha_domain: broadlink
+ha_config_flow: true
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:

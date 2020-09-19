@@ -1,6 +1,6 @@
 ---
-title: "Gogogate2 and iSmartGate Cover"
-description: "Instructions on how to integrate Gogogate2 and iSmartGate enabled garage door covers into Home Assistant."
+title: Gogogate2 and iSmartGate
+description: Instructions on how to integrate Gogogate2 and iSmartGate enabled garage door covers into Home Assistant.
 logo: gogogate2.png
 ha_category:
   - Cover
