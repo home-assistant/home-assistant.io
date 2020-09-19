@@ -16,12 +16,9 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 ## Configuration
 
-To add a Shelly device to your installation, go to **Configuration** >> **Integrations** in the UI, click the + to add a new integration and search for Shelly. Devices will be automatically discovered when on the same network and listed on the integrations page. Click on "Configure" of the discovered device to add it to Home Assistant.
-
-A device can also be added manually, click the button with `+` sign on the integrations page and from the list of integrations, select **Shelly** and follow the instructions shown.
+To add a Shelly device to your installation, make sure they are connected to your Wi-Fi network first. Next, go to **Configuration** >> **Integrations** in the UI. If the new device is on the same network as Home Assistant, it is discovered automatically. Clicking "Configure" on the discovered device, adds it to Home Assistant. If your device isn't discovered automatically, click the button with `+` sign on the integrations page and from the list of integrations, select **Shelly** and follow the instructions shown.
 
 <div class="note">
-You need to configure and connect the device to same network using the Shelly cloud App or device Web page.
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
 
