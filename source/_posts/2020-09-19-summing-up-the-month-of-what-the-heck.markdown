@@ -19,10 +19,10 @@ as we have never had done something like this before. But WTH, why not 😁
 
 And today, I think we can actually say: All good things come to an end.
 
-It has been an amazing month! A whopping 123 topics have been created in the
-[WTH forum][forum], that together collected over 4.123 posts. The contents of
+It has been an amazing month! A whopping 746 topics have been created in the
+[WTH forum][forum], that together collected over 4.500 posts. The contents of
 all these created topics are amazing! And apparently, you all agreed on that,
-as a stunning 12.123 likes have been given on all those posts.
+as a stunning 2.600 likes have been given on all those posts.
 
 About the content, it is amazing! There was some really good feedback in there.
 Annoyances made many people think: “Yeah! What the heck?!” and more importantly,
