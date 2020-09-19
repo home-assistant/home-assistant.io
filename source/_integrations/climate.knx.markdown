@@ -8,15 +8,9 @@ ha_iot_class: Local Push
 ha_domain: knx
 ---
 
-<div class='note'>
-  
-The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/integrations/knx).
-
-</div>
-
 The `knx` climate platform is used as an interface to KNX thermostats and room controllers.
 
-To use your KNX thermostats in your installation, add the following lines to your top level KNX configuration key in `configuration.yaml`:
+To use your KNX thermostats in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -194,19 +188,19 @@ heat_cool_state_address:
   required: false
   type: string
 operation_mode_frost_protection_address:
-  description: KNX address for switching on/off frost/heat protection mode.
+  description: KNX address for switching on/off frost/heat protection mode. *DPT 1*
   required: false
   type: string
 operation_mode_night_address:
-  description: KNX address for switching on/off night mode.
+  description: KNX address for switching on/off night mode. *DPT 1*
   required: false
   type: string
 operation_mode_comfort_address:
-  description: KNX address for switching on/off comfort mode.
+  description: KNX address for switching on/off comfort mode. *DPT 1*
   required: false
   type: string
 operation_mode_standby_address:
-  description: KNX address for switching on/off standby mode.
+  description: KNX address for switching on/off standby mode. *DPT 1*
   required: false
   type: string  
 operation_modes:
@@ -214,7 +208,7 @@ operation_modes:
   required: false
   type: list
 on_off_address:
-  description: KNX address for switching the climate device on/off.
+  description: KNX address for switching the climate device on/off. *DPT 1*
   required: false
   type: string
 on_off_invert:
@@ -223,7 +217,7 @@ on_off_invert:
   default: false
   type: boolean
 on_off_state_address:
-  description: KNX address for gathering the current state (on/off) of the climate device.
+  description: KNX address for gathering the current state (on/off) of the climate device. *DPT 1*
   required: false
   type: string
 min_temp:

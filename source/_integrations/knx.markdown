@@ -35,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - [Weather](/integrations/weather.knx)
 
 
-## Configuration
+## Basic Configuration
 
 To use your KNX bus in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -90,7 +90,7 @@ knx:
 
 {% configuration %}
 host:
-  description: Host of the KNX/IP tunneling device.
+  description: IP address of the KNX/IP tunneling device.
   type: string
   required: true
 port:
@@ -98,7 +98,7 @@ port:
   type: integer
   required: false
 local_ip:
-  description: IP of the local interface.
+  description: IP address of the local interface.
   type: string
   required: false
 {% endconfiguration %}
@@ -113,7 +113,7 @@ knx:
 
 {% configuration %}
 local_ip:
-  description: The local IP address of interface (which should be used for multicasting).
+  description: The local IP address of the interface that shall be used to send multicast packets.
   type: string
   required: true
 {% endconfiguration %}
@@ -141,7 +141,7 @@ state_updater:
   type: boolean
 {% endconfiguration %}
 
-### Services
+## Services
 
 In order to directly interact with the KNX bus, you can use the following service:
 
@@ -156,17 +156,16 @@ address:
   description: KNX group address
   type: string
 payload:
-  description: Payload, either an integer or an array of integers
+  description: Payload to send to the bus. When `type` is not set, raw bytes are sent. Integers are then treated as DPT 1/2/3 payloads. For DPTs > 6 bits send a list. Each value represents 1 octet (0-255). Pad with 0 to DPT byte length.
   type: [integer, list]
 type:
-  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values.
-  required: false
-  type: string
+  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](/integrations/sensor.knx).
+  type: [string, integer, float]
 {% endconfiguration %}
 
 You can also use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of a device.
 
-### Exposing entity states, entity attributes or time to KNX bus
+## Exposing entity states, entity attributes or time to KNX bus
 
 KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address. It is also possible to expose the current time.
 
@@ -208,13 +207,13 @@ entity_id:
   type: string
   required: false
 attribute:
-  description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent. 
+  description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent.
     Eg. for a light the state is eigther "on" or "off" - with attribute you can expose its "brightness".
   type: string
   required: false
 default:
-  description: Default value to send to the bus if the state or attribute value is `None`. 
-    Eg. a light with state "off" has no brightness attribute so a default value of `0` could be used. 
+  description: Default value to send to the bus if the state or attribute value is `None`.
+    Eg. a light with state "off" has no brightness attribute so a default value of `0` could be used.
     If not set (or `None`) no value would be sent to the bus and a GroupReadRequest to the address would return the last known value.
   type: [boolean, string, integer, float]
   default: None
