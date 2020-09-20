@@ -4,8 +4,8 @@ description: Instructions on how to integrate the zodiac sensor into Home Assist
 ha_category:
   - Environment
 ha_iot_class: Local Polling
-ha_release: 0.115
-ha_quality_scale: internal
+ha_release: 0.116
+ha_quality_scale: silver
 ha_codeowners:
   - '@JulienTant'
 ha_domain: zodiac
