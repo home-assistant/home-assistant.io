@@ -1,6 +1,6 @@
 ---
 title: Zodiac
-description: Instructions on how to integrate the zodiac integration into Home Assistant.
+description: Instructions on how to setup the zodiac integration within Home Assistant.
 ha_category:
   - Environment
 ha_iot_class: Local Polling
@@ -15,7 +15,7 @@ The `zodiac` integration tracks the current zodiac sign.
 
 ## Configuration
 
-To enable the zodiac sensor, add the following lines to your `configuration.yaml`:
+To enable the zodiac integration, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
