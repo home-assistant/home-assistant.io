@@ -19,8 +19,7 @@ To enable the zodiac sensor, add the following lines to your `configuration.yaml
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: zodiac
+zodiac:
 ```
 
 This sensor will return one of the following values:
