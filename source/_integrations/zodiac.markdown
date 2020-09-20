@@ -1,6 +1,6 @@
 ---
 title: Zodiac
-description: Instructions on how to integrate the zodiac sensor into Home Assistant.
+description: Instructions on how to integrate the zodiac integration into Home Assistant.
 ha_category:
   - Environment
 ha_iot_class: Local Polling
