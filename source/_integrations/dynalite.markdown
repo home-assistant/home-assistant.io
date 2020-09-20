@@ -32,7 +32,13 @@ Additionally, each area can have one or more presets that determine the behavior
 
 ## Configuration
 
-Since Philips Dynalite has virtually no auto-discover capabilities, it needs to be configured via the `configuration.yaml` file:
+### Configuration via the User Interface
+
+Currently, only a limited configuration is available via the UI. Choose Philips Dynalite in the Integrations Configuration, enter the gateway IP and port, and potentially a name for this gateway. The gateway will only be able to send events when packets are sent on the Dynet network. The remaining functionality will be added over time.
+
+### Configuration via configuration.yaml
+
+Since Philips Dynalite has virtually no auto-discover capabilities, for the full functionality, it has to be configured via the `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
