@@ -22,8 +22,13 @@ To enable the zodiac integration, add the following lines to your `configuration
 zodiac:
 ```
 
-This sensor will return one of the following values:
-`aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo`, `libra`, `scorpio`, `sagittarius`, `capricorn`, `aquarius`, `pisces`. You also have access to three attributes :
+## Sensor
+
+This integration offers a sensor that will return one of the following values:
+`aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo`, `libra`, `scorpio`, `sagittarius`, `capricorn`, `aquarius`, `pisces`.
+
+The sensor also exposes three attributes:
+
 - `sign`: return one of the values above
 - `element`: `fire`, `air`, `earth`, `water`
 - `modality`: `cardinal`, `fixed`, `mutable`
