@@ -3,6 +3,15 @@ title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 ha_category:
   - Hub
+  - Binary Sensor
+  - Climate
+  - Cover
+  - Light
+  - Notify
+  - Scene
+  - Sensor
+  - Switch
+  - Weather
 ha_release: 0.24
 ha_iot_class: Local Push
 ha_codeowners:
