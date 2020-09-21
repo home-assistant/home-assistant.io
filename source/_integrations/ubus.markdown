@@ -87,6 +87,8 @@ dhcp_software:
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 
+This device tracker provides a number of additional attributes for each tracked device (if it is at home): `ssid` and `host`. The `ssid` attribute can be used to distinguish in which wifi a device is logged in, if you have multiple (ex. private and guest wifi).  The `host` attribute is taken from the platform configuration and can be used to distinguish in which router a device is logged in, if you are using multiple OpenWrt routers.
+
 ## Troubleshooting
 
 If you find that this never creates `known_devices.yaml`, or if you need more information on the communication chain between Home Assistant and OpenWRT, follow these steps to grab the packet stream and gain insight into what's happening.
