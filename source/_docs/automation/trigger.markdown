@@ -479,7 +479,7 @@ automation:
 You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an empty data payload:
 
 ```shell
-curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
 Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS. 
