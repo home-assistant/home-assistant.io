@@ -27,19 +27,11 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
-  - [Configuration](#configuration)
-  - [Extended configuration example](#extended-configuration-example)
 - [Notify](#notify)
-  - [Configuration](#configuration-1)
 - [Scene](#scene)
-  - [Configuration](#configuration-2)
 - [Sensor](#sensor)
-  - [Configuration](#configuration-3)
-  - [Full example](#full-example)
 - [Switch](#switch)
-  - [Configuration](#configuration-4)
 - [Weather](#weather)
-
 
 ## Basic Configuration
 
@@ -316,7 +308,7 @@ action:
   type: list
 {% endconfiguration %}
 
-# Climate
+## Climate
 
 The `knx` climate platform is used as an interface to KNX thermostats and room controllers.
 
@@ -540,7 +532,7 @@ max_temp:
   type: float
 {% endconfiguration %}
 
-# Cover
+## Cover
 
 The `knx` cover platform is used as an interface to KNX covers.
 
@@ -616,7 +608,7 @@ invert_angle:
   type: boolean
 {% endconfiguration %}
 
-# Light
+## Light
 
 The `knx light` integration is used as an interface to control KNX actuators for lighting applications such as:
 
@@ -625,7 +617,7 @@ The `knx light` integration is used as an interface to control KNX actuators for
 - LED controllers
 - DALI gateways
 
-## Configuration
+### Configuration
 
 To use your KNX light in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -744,11 +736,11 @@ knx:
       state_address: '1/0/5'
 ```
 
-# Notify
+## Notify
 
 The `knx` notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices.
 
-## Configuration
+### Configuration
 
 To use your KNX switch in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -771,9 +763,9 @@ name:
 {% endconfiguration %}
 The `knx` scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes.
 
-# Scene
+## Scene
 
-## Configuration
+### Configuration
 
 To use your KNX scene in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -801,14 +793,14 @@ name:
   type: string
 {% endconfiguration %}
 
-# Sensor
+## Sensor
 
 The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
 Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
 
-## Configuration
+### Configuration
 
 To use your KNX sensor in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -991,7 +983,7 @@ type:
 | 16.000  | string                        | 14           |                            |                |
 | 17.001  | scene_number                  | 1            | 1 ... 64                   |                |
 
-## Full example
+### Full example
 
 ```yaml
 # Example configuration.yaml entry
@@ -1007,11 +999,11 @@ knx:
       type: 'temperature'
 ```
 
-# Switch
+## Switch
 
 The `knx` switch platform is used as an interface to switching actuators.
 
-## Configuration
+### Configuration
 
 To use your KNX switch in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -1041,7 +1033,7 @@ state_address:
 Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 For switching actuators that are only controlled by a single group address and can't change their state internally, you don't have to configure the state address.
 
-# Weather
+## Weather
 
 The `knx` weather platform is used as an interface to KNX weather stations.
 
