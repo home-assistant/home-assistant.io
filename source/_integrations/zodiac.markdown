@@ -24,11 +24,10 @@ zodiac:
 
 ## Sensor
 
-This integration offers a sensor that will return one of the following values:
+This integration offers a sensor that will return one of the following states:
 `aries`, `taurus`, `gemini`, `cancer`, `leo`, `virgo`, `libra`, `scorpio`, `sagittarius`, `capricorn`, `aquarius`, `pisces`.
 
-The sensor also exposes three attributes:
+The sensor also exposes the following attributes:
 
-- `sign`: return one of the values above
 - `element`: `fire`, `air`, `earth`, `water`
 - `modality`: `cardinal`, `fixed`, `mutable`
