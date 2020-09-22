@@ -77,7 +77,7 @@ The following entities are created:
 | `created_at`        | Date and time when incident was created. |
 | `start_time`         | Start date and time of incident.                                                                                                                                                                                               |
 | `location`         | Message text and address string concatinated.                                                                                                                                                                                               |
-| `message_to_speech_url`         | The url of the mp3 file containing the spoken text of the incident.                                                                                                                                                                                               |
+| `message_to_speech_url`         | The URL of the mp3 file containing the spoken text of the incident.                                                                                                                                                                                               |
 | `prio`         | Priority of the incident, 'a1', 'a2', 'b1' or 'b2'.                                                                                                                                                                                               |
 | `type`         | Type of incident, e.g. 'incident_alert'.                                                                                                                                                                                               |
 | `responder_mode`         | Modes of response, e.g. 'available_in_schedule_is_acknowledgment'.                                                                                                                                                                                               |
@@ -138,7 +138,7 @@ The following entities are created:
 
 ## Advanced Configuration
 
-Practical use can be sounding an alarm and/or blinking lights when an emergency incident is received, use text to speech to play incident details while getting dressed, respond with an acknowledge using a door-sensor leaving house or a button or something else connected to home assistant to let your teammates know you are underway.
+Practical use can be sounding an alarm and/or blinking lights when an emergency incident is received, use text to speech to play incident details while getting dressed, respond with an acknowledge using a door-sensor leaving house or a button or something else connected to Home Assistant to let your teammates know you are underway.
 
 ### FireServiceRota Dashboard
 
@@ -146,7 +146,7 @@ If you want to have your browser to function as audio player, and have screen co
 
 Set the device alias below to match your media player id.
 
-You also need to install the following plugins for lovelace (again HACS is your friend)
+You also need to install the following plugins for Lovelace (again HACS is your friend)
 - 'custom:layout-card'
 - 'custom:bignumber-card'
 - 'custom:vertical-stack-in-card'
