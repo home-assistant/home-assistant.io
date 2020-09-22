@@ -28,7 +28,7 @@ A word of caution: Do not solely rely on this integration for your emergency cal
 
 This integration provides the following platforms:
 
-* Sensor: Incoming emergency calls. Metadata contains _amoung other data_ the location of the incident and a text-to-speech URL. The integration uses a websocket client connection with the service to ensure a minimum delay.
+* Sensor: Incoming emergency calls. Metadata contains _amoung other data_ the location of the incident and a text-to-speech URL. The integration uses a WebSocket client connection with the service to ensure a minimum delay.
 * Binary Sensor: Your current duty status (as scheduled via the FireServiceRota mobile app and/or website)
 * Switch: Enabled for 30 minutes after any emergency call. ‘on’ represents a confirmed response. Use this to automate your emergency call response and save valuable seconds.
 
