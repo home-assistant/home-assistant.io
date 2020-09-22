@@ -1,29 +1,16 @@
 ---
-
 title: FireServiceRota
-
 description: Instructions on how to configure the FireServiceRota integration for Home Assistant.
-
 ha_category:
-
   - Binary Sensor
-
   - Sensor
-
   - Switch
-
 ha_iot_class: Cloud Polling
-
 ha_release: 0.116
-
 ha_codeowners:
-
   - '@cyberjunky'
-
 ha_config_flow: true
-
 ha_domain: fireservicerota
-
 ---
 
 FireServiceRota is a powerful and flexible availability, scheduling and dispatching system for firefighters.
@@ -39,14 +26,10 @@ A word of caution: Do not solely rely on this integration for your emergency cal
 
 </div>
 
-
 This integration provides the following platforms:
 
-
-* Sensor: Incoming emergency calls. Metadata contains -amoung other data- the location of the incident and a text-to-speech URL. The integration uses a websocket client connection with the service to ensure a minimum delay.
-
+* Sensor: Incoming emergency calls. Metadata contains _amoung other data_ the location of the incident and a text-to-speech URL. The integration uses a websocket client connection with the service to ensure a minimum delay.
 * Binary Sensor: Your current duty status (as scheduled via the FireServiceRota mobile app and/or website)
-
 * Switch: Enabled for 30 minutes after any emergency call. ‘on’ represents a confirmed response. Use this to automate your emergency call response and save valuable seconds.
 
 On how to write automations using these platform read the 'Advanced Configuration' section below.
@@ -58,16 +41,15 @@ On how to write automations using these platform read the 'Advanced Configuratio
 1. Choose your platform `www.brandweerrooster.nl` or `www.fireservicerota.co.uk`.
 1. Click the Save button.
 
-
 ## Entities
 
 The following entities are created:
 
 ### sensor.incidents
 
-| Value      | Description                                                                                                                                                                                                                                |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `value` | Incident text message.                                             |
+| Value   | Description           |
+| --------| --------------------- |
+| `value` | Incident text message.|
 
 | Attribute      | Description                                                                                                                                                                                                                                |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
