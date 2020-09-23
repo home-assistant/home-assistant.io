@@ -23,6 +23,8 @@ cloud:
 
 Documentation of further configuration possibilites are located at [NabuCasa](https://www.nabucasa.com/config/)
 
+**Warning:** Files in the `www` folder (`/local/` url), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication. For better security, you should place any sensitive files (like camera snapshots), in a subdirectory with a long, random name like `hjkhsnf342345523lkjshdfiu/my_camera_image.jpg`.
+
 Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your `configuration.yaml` file.
 
 ```yaml
