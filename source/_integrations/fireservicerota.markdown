@@ -205,7 +205,7 @@ views:
 
 <img src='/images/integrations/fireservicerota/dashboard.png' alt='Example of a FireServiceRota dashboard' class="no-shadow"/> 
 
-This photo shows what a FireServiceRota dashboard can look like.
+This screenshot shows what a FireServiceRota dashboard can look like.
 
 
 ## Debugging
