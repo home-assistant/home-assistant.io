@@ -288,7 +288,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 
 1. Download
 
-    Get the script from [here](https://github.com/NightRang3r/Broadlink-e-control-db-dump).
+    Get the script from [here](https://github.com/clach04/Broadlink-e-control-db-dump).
 
 2. Dump the data from the app
 
