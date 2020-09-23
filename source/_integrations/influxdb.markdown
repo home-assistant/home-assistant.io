@@ -97,6 +97,11 @@ max_retries:
   description: Set this to allow the integration to retry if there was a network error when transmitting data.
   required: false
   default: 0
+precision:
+  type: string
+  description: Set this to specify the time precision sent to influxdb. Setting a coarser precision allows InfluxDb to compress your data better. If not set, defaults to ns.
+  required: false
+  default: ns
 default_measurement:
   type: string
   description: Measurement name to use when an entity doesn't have a unit. 
