@@ -3,7 +3,7 @@ title: "Modbus Cover"
 description: "Instructions on how to integrate Modbus covers into Home Assistant."
 ha_category:
   - Cover
-ha_release: 0.113
+ha_release: 0.116
 ha_iot_class: Local Polling
 ha_domain: modbus
 ---
@@ -23,32 +23,28 @@ To use Modbus covers in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 modbus:
-  hubs:
-    - name: hub1
-      type: tcp
-      host: IP_ADDRESS
-      port: 502
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
 
-  covers:
-    - name: Door1
-      hub: hub1
-      device_class: door
-      scan_interval: 1
-      coil: 0
-    - name: Door2
-      hub: hub1
-      device_class: door
-      scan_interval: 1
-      coil: 1
-      status_register: 1
-    - name: Door3
-      hub: hub1
-      slave: 2
-      device_class: door
-      scan_interval: 1
-      register: 0
-      state_open: 1
-      state_closed: 0
+    covers:
+      - name: Door1
+        device_class: door
+        scan_interval: 1
+        coil: 0
+      - name: Door2
+        device_class: door
+        scan_interval: 1
+        coil: 1
+        status_register: 1
+      - name: Door3
+        slave: 2
+        device_class: door
+        scan_interval: 1
+        register: 0
+        state_open: 1
+        state_closed: 0
 ```
 
 {% configuration %}
@@ -57,10 +53,6 @@ covers:
   required: true
   type: map
   keys:
-    hub:
-      description: The name of the hub.
-      required: true
-      type: string
     slave:
       description: The number of the slave (can be omitted for tcp and udp Modbus).
       required: false
@@ -130,25 +122,22 @@ This example shows a configuration for a Modbus cover controlled using a coil. I
 
 ```yaml
 modbus:
-  hubs:
-    - name: hub1
-      type: tcp
-      host: IP_ADDRESS
-      port: 502
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
 
-  covers:
-    - name: Door1
-      hub: hub1
-      slave: 1
-      coil: 1
-      device_class: door
-      scan_interval: 10
-    - name: Door2
-      hub: hub1
-      slave: 2
-      coil: 2
-      device_class: door
-      scan_interval: 10
+    covers:
+      - name: Door1
+        slave: 1
+        coil: 1
+        device_class: door
+        scan_interval: 10
+      - name: Door2
+        slave: 2
+        coil: 2
+        device_class: door
+        scan_interval: 10
 ```
 
 ### Modbus cover controlled by a coil, it's state is read from the register
@@ -157,25 +146,23 @@ This example shows a configuration for a Modbus cover controlled using a coil. A
 
 ```yaml
 modbus:
-  hubs:
-    - name: hub1
-      type: tcp
-      host: IP_ADDRESS
-      port: 502
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
 
-  covers:
-    - name: Door1
-      hub: hub1
-      slave: 1
-      device_class: door
-      scan_interval: 10
-      coil: 1
-      status_register: 1
-      status_register_type: input
-      state_opening: 1
-      state_open: 2
-      state_closing: 3
-      state_closed: 4
+    covers:
+      - name: Door1
+        slave: 1
+        device_class: door
+        scan_interval: 10
+        coil: 1
+        status_register: 1
+        status_register_type: input
+        state_opening: 1
+        state_open: 2
+        state_closing: 3
+        state_closed: 4
 ```
 
 ### Modbus cover controlled by a holding register
@@ -184,23 +171,21 @@ This example shows a configuration for a Modbus cover controlled using a holding
 
 ```yaml
 modbus:
-  hubs:
-    - name: hub1
-      type: tcp
-      host: IP_ADDRESS
-      port: 502
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
 
-  covers:
-    - name: Door1
-      hub: hub1
-      slave: 1
-      device_class: door
-      scan_interval: 10
-      register: 1
-      state_opening: 1
-      state_open: 2
-      state_closing: 3
-      state_closed: 4
+    covers:
+      - name: Door1
+        slave: 1
+        device_class: door
+        scan_interval: 10
+        register: 1
+        state_opening: 1
+        state_open: 2
+        state_closing: 3
+        state_closed: 4
 ```
 
 ### Modbus cover controlled by a holding register, it's state is read from the status register
@@ -209,21 +194,19 @@ This example shows a configuration for a Modbus cover controlled using a holding
 
 ```yaml
 modbus:
-  hubs:
-    - name: hub1
-      type: tcp
-      host: IP_ADDRESS
-      port: 502
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
 
-  covers:
-    - name: Door1
-      hub: hub1
-      slave: 1
-      device_class: door
-      scan_interval: 10
-      register: 1
-      status_register: 2
-      register_type: holding
-      state_open: 1
-      state_closed: 0
+    covers:
+      - name: Door1
+        slave: 1
+        device_class: door
+        scan_interval: 10
+        register: 1
+        status_register: 2
+        register_type: holding
+        state_open: 1
+        state_closed: 0
 ```

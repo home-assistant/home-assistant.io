@@ -25,11 +25,10 @@ For a network connection, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry for a TCP connection
 modbus:
-  hubs:
-    - name: hub1
-      type: tcp
-      host: IP_ADDRESS
-      port: 2020
+  name: hub1
+  type: tcp
+  host: IP_ADDRESS
+  port: 2020
 ```
 
 {% configuration %}
@@ -69,15 +68,14 @@ For a serial connection, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry for a serial connection
 modbus:
-  hubs:
-    - name: hub1
-      type: serial
-      method: rtu
-      port: /dev/ttyUSB0
-      baudrate: 9600
-      stopbits: 1
-      bytesize: 8
-      parity: N
+  name: hub1
+  type: serial
+  method: rtu
+  port: /dev/ttyUSB0
+  baudrate: 9600
+  stopbits: 1
+  bytesize: 8
+  parity: N
 ```
 
 {% configuration %}
@@ -128,16 +126,15 @@ Multiple connections are possible, add something like the following to your `con
 ```yaml
 # Example configuration.yaml entry for multiple TCP connections
 modbus:
-  hubs:
-    - type: tcp
-      host: IP_ADDRESS_1
-      port: 2020
-      name: hub1
+  - type: tcp
+    host: IP_ADDRESS_1
+    port: 2020
+    name: hub1
 
-    - type: tcp
-      host: IP_ADDRESS_2
-      port: 501
-      name: hub2
+  - type: tcp
+    host: IP_ADDRESS_2
+    port: 501
+    name: hub2
 ```
 
 ### Services
