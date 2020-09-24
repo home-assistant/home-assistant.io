@@ -48,7 +48,7 @@ The `advantage_air` binary sensor platform will create a binary sensor for each 
 
 ## Component services
 
-### Service set_time_to
+### set_time_to
 
 Set the On/Off Timer using the relevant sensor entity.
 
