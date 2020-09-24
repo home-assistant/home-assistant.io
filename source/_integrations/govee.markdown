@@ -28,9 +28,9 @@ For others we assume the state just after controlling the light, but will otherw
 Support thread is here: <https://community.home-assistant.io/t/govee-led-strips-integration/228516>
 There you'll also find links to code repositories and their issue trackers.
 
-For bug reports include debug log, which could be enabled in configuration.yaml + restart:
+For bug reports include debug log, which could be enabled in configuration YAML + restart:
 
-```yaml
+```YAML
 logger:
   default: warning
   logs:
