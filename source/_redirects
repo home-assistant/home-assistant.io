@@ -2,6 +2,7 @@
 #
 
 # General use redirects
+/join-chat https://discord.gg/c5DvZ4e
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 
 # Older development pages
