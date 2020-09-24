@@ -103,7 +103,7 @@ The `html5` platform can only function if all of the following requirements are 
 Assuming you have already configured the platform:
 
 1. Open Home Assistant in Chrome or Firefox.
-2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address. If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
+2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
 3. Slide it to the on position.
 4. Name the device you're using in the alert that appears.
 5. Within a few seconds you should be prompted to allow notifications from Home Assistant.

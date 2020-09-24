@@ -122,7 +122,7 @@ exclude:
       required: false
     entity_globs:
       type: [string, list]
-      description: Include all entities matching a listed pattern.
+      description: Exclude all entities matching a listed pattern.
       required: false
     domains:
       type: [string, list]
@@ -139,7 +139,7 @@ include:
       required: false
     entity_globs:
       type: [string, list]
-      description: Exclude all entities matching a listed pattern.
+      description: Include all entities matching a listed pattern.
       required: false
     domains:
       type: [string, list]

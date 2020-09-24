@@ -53,7 +53,7 @@ You will need to create a service account [Create Service account key](https://c
 
     <img src='/images/integrations/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
-3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App.
+3. Select the `Develop` tab at the top of the page, then in the upper right hand corner select the `Test` button to generate the draft version Test App. If you don't see this option, go to the `Test` tab instead, click on the `Settings` button in the top right below the header, and ensure `On device testing` is enabled (if it isn't, enable it).
 4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
 5. (Note that app versions may be slightly different.) Open the Google Home app and go to `Settings`.
 6. Click `Add...`, `+ Set up or add`, `+ Set up device`, and click `Have something already setup?`. You should have `[test] your app name` listed under 'Add new'. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
