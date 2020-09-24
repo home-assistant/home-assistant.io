@@ -110,7 +110,13 @@ If mDNS is still not working:
 #### mDNS forwarding
 If it's not possible to have Home Assistant and the devices on the same network, mDNS forwarding may allow mDNS discovery between networks.
 
-mDNS forwarding is a configurable option in some routers. It can also be called mDNS reflector or mDNS repeater, depending on the manufacturer.
+mDNS forwarding is a configurable option in some routers. It can also be called mDNS reflector or mDNS repeater, depending on the manufacturer. For Docker setups that use bridge network (instead of `net=host` - not recommended) the following Avahi setting can help:
+
+```
+[reflector]
+enable-reflector=yes
+reflect-ipv=no
+```
 
 ### Windows
 
