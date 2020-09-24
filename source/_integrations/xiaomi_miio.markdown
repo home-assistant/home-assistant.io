@@ -32,7 +32,7 @@ The `xiaomi_miio` integration supports the following devices:
 - [Xiaomi Philips Light](#xiaomi-philips-light)
 - [Xiaomi Smart WiFi Socket and Smart Power Strip](#xiaomi-smart-wifi-socket-and-smart-power-strip)
 
-For many of these devices you need a acces token, the first section will describe how to obtain that acces token.
+For many of these devices you need an access token, the first section will describe how to obtain that access token.
 
 ## Retrieving the Access Token
 
