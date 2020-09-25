@@ -14,26 +14,7 @@ The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM
 
 For this integration to function properly, you need to have "UPnP Statusinformation transfer" activated on the AVM FRITZ!Box. Please make sure you have that enabled.
 
-To use the FRITZ!Box network monitor in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: fritzbox_netmonitor
-```
-
-{% configuration %}
-host:
-  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every FRITZ!Box is also reachable by using the IP address 169.254.1.1.
-  required: false
-  default: 169.254.1.1
-  type: string
-name:
-  description: Give the sensor a friendly name for in the front-end.
-  required: false
-  default: fritz_netmonitor
-  type: string
-{% endconfiguration %}
+To add the AVM FRITZ!Box Net Monitor integration to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ!Box Net Monitor**.
 
 The following statistics will be exposed as attributes.
 
