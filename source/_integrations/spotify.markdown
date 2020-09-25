@@ -91,7 +91,6 @@ in the [Activating the Spotify integration](#activating-the-spotify-integration)
 chapter. However, make sure you go to the Spotify website and log out before
 you do so.
 
-
 ## URI Links for Playlists
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which are part of the
