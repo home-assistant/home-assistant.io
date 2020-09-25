@@ -182,17 +182,20 @@ The same thing can also be expressed as a filter:
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
-- Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
+- Filter `timestamp_local` converts a UNIX timestamp to its string representation as date/time in your local timezone.
 - Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
 - Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
-Note: [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`):  
+Notes: 
+1. [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`):  
 
 {% raw %}
 ```yaml
 {{ 120 | timestamp_local }}
 ```
 {% endraw %}
+
+2. iOS Specific: `timestamp_local` & `timestamp_utc` do not output a properly formatted [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) value (the "T" separating date and time is dropped). This results in iOS displaying "Invalid Date" for template values where these filters are used. Instead `timestamp_custom('%Y-%m-%dT%H:%M:%S%z')` provides a valid ISO 8601 datetime and renders correctly in iOS.
 
 ### To/From JSON
 
