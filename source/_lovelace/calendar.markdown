@@ -17,7 +17,7 @@ The Calendar card displays your calendar entities in a month, day and list view.
 Title:
   description: The title displayed at the top of the card.
 Initial View:
-  description: The view that will show first when the card is loaded onto the page. Options are Month View, Day View, or List View.
+  description: "The view that will show first when the card is loaded onto the page. Options are `Month View`, `Day View`, or `List View`."
 Entities:
   description: The calendar entities that will be displayed in the card.
 Theme:
