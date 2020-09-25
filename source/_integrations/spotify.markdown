@@ -36,7 +36,7 @@ To create the required Spotify application:
 - Click **Save** after adding the URI.
 
 <div class='note'>
-  Your Home Assitant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
+  Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
 </div>  
 
 ## Configuration
@@ -71,10 +71,24 @@ After you have set up the above:
 - Follow the steps shown to authenticate Home Assistant with your Spotify account.
 
 <div class='note'>
-  
-  If you receive an `INVALID_CLIENT: Invalid redirect URI` error while trying to authenticate with your Spotify account, make sure to check the Redirect URI in the address bar after adding the new integration. Compare this value with the Redirect URI defined in the Spotify Developer Portal.
+
+  If you receive an `INVALID_CLIENT: Invalid redirect URI` error while trying to
+  authenticate with your Spotify account, make sure to check the Redirect URI in
+  the address bar after adding the new integration. Compare this value with the
+  Redirect URI defined in the Spotify Developer Portal.
 
 </div>
+
+## Using multiple Spotify accounts
+
+The integration support multiple Spotify accounts at once. You don't need to
+create another Spotify Application in the Spotify Developer portal and no
+modification to the `configuration.yaml` file is needed. Multiple Spotify
+accounts can be linked on a _single_ Spotify application.
+
+To add an additional Spotify account to Home Assistant, repeat _only_ the steps
+in the [Activating the Spotify integration](#activating-the-spotify-integration)
+chapter.
 
 ## URI Links for Playlists
 
