@@ -2056,6 +2056,15 @@
 /ecosystem/notebooks/installation https://data.home-assistant.io
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
+/integrations/binary_sensor.knx /integrations/knx#binary-sensor
+/integrations/climate.knx /integrations/knx#climate
+/integrations/cover.knx /integrations/knx#cover
+/integrations/light.knx /integrations/knx#light
+/integrations/notify.knx /integrations/knx#notify
+/integrations/scene.knx /integrations/knx#scene
+/integrations/sensor.knx /integrations/knx#sensor
+/integrations/switch.knx /integrations/knx#switch
+/integrations/weather.knx /integrations/knx#weather
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
