@@ -2065,6 +2065,19 @@
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/switch.knx /integrations/knx#switch
 /integrations/weather.knx /integrations/knx#weather
+/integrations/alarm_control_panel.mqtt /integrations/mqtt#alarm-panel
+/integrations/binary_sensor.mqtt /integrations/mqtt#binary-sensor
+/integrations/camera.mqtt /integrations/mqtt#camera
+/integrations/climate.mqtt /integrations/mqtt#climate
+/integrations/cover.mqtt /integrations/mqtt#cover
+/integrations/device_tracker.mqtt /integrations/mqtt#device-tracker
+/integrations/device_trigger.mqtt /integrations/mqtt#device-trigger
+/integrations/fan.mqtt /integrations/mqtt#fan
+/integrations/light.mqtt /integrations/mqtt#light
+/integrations/lock.mqtt /integrations/mqtt#lock
+/integrations/sensor.mqtt /integrations/mqtt#sensor
+/integrations/switch.mqtt /integrations/mqtt#switch
+/integrations/vacuum.mqtt /integrations/mqtt#vacuum
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
