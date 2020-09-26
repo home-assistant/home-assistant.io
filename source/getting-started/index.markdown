@@ -62,8 +62,10 @@ We will need a few things to get started with installing Home Assistant. The Ras
 5. Insert the SD card into your Raspberry Pi. If you are going to use an Ethernet cable, connect that too.
 6. Connect your power supply to the Raspberry Pi.
 7. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes.
-8. Home Assistant will be available at `http://homeassistant.local:8123`. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `http://homeassistant:8123` or `http://X.X.X.X:8123` (replace `X.X.X.X` with your Pi's IP address).
-9. If you used a USB stick for configuring the network, you can now remove it.
+8. When this is complete, a login prompt will display on the command line. Ignore this, or refer to [console access](https://www.home-assistant.io/hassio/commandline/) for further information.
+9. Start a browser on a separate device that is connected to the same network. 
+10. Home Assistant will be available at `http://homeassistant.local:8123`. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `http://homeassistant:8123` or `http://X.X.X.X:8123` (replace `X.X.X.X` with your Pi's IP address).
+11. If you used a USB stick for configuring the network, you can now remove it.
 
 [the examples]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
 
