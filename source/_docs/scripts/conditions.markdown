@@ -313,8 +313,8 @@ This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_hor
 ```yaml
 condition:
   - condition: sun
-      after: sunrise
-      before: sunset
+    after: sunrise
+    before: sunset
 ```
 
 This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`.
