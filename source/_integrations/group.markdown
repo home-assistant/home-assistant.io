@@ -56,3 +56,43 @@ icon:
 ## Group behavior
 
 By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
+
+## Group state calculation
+
+The system can calculate group state with entities from the following domains:
+
+* alarm_control_panel
+* binary_sensor
+* climate
+* cover
+* device_tracker
+* fan
+* humidifier
+* light
+* lock
+* media_player
+* person
+* remote
+* switch
+* vacuum
+* water_heater
+
+When entities all have a single on and off state, the group state will
+be calculated as follows:
+
+| Domain            | on     | off      |
+|-------------------|--------|----------|
+| device_tracker    | home   | not_home |
+| cover             | open   | closed   |
+| lock              | locked | unlocked |
+| person            | home   | not_home |
+| media_player      | ok     | problem  |
+
+When a group contains entities from domains that have multiple `on` states or only use `on`
+and `off`, the group state will be `on` or `off`.
+
+It is possible to create a group that the system cannot calculate a group state.
+Groups with entities from unsupported domains will always have an unknown state.
+
+These groups can still be in templates with the `expand()` directive, called using the
+`homeassistant.turn_on` and `homeassistant.turn_off` services, etc.
