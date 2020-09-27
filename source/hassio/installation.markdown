@@ -82,19 +82,6 @@ Best practice for updating a Home Assistant installation:
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
 5. Select _Dashboard_ from the _Supervisor_ menu, and then select _Update_.
 
-## Run a specific version on Home Assistant
-
-For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
-that is available on your device by connecting a keyboard and screen.
-
-To install the Terminal & SSH add-on, choose **Supervisor**, which is located in the sidebar and then the add-on store.
-
-Use the web-based terminal or SSH to your Home Assistant system, or connect to the console, and run:
-
-```bash
-ha core update --version=0.XX.X
-```
-
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
 [pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi0-w-4.13.img.gz
@@ -116,6 +103,5 @@ ha core update --version=0.XX.X
 [Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
-[ssh]: /addons/ssh/
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
 [configure]: /getting-started/configuration/
