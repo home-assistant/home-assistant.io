@@ -110,8 +110,6 @@ covers:
       default: 15
 {% endconfiguration %}
 
-It's possible to change the default 30 seconds scan interval for the cover state updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
-
 ## Examples
 
 In this section, you find some real-life examples of how to use this light.
