@@ -294,6 +294,19 @@ binary_sensor:
 
 {% endraw %}
 
+### Rate limiting updates
+
+When there are entities present in the template, the template will be re-rendered when one of the entities changes states.
+
+When `states` is used in a template by itself to iterate all states on the system, the template is re-rendered each
+time any state changed event happens if any part of the state is accessed. When merely counting states, the template
+is only re-rendered when a state is added or removed from the system. On busy systems with many entities or hundreds of
+thousands state changed events per day, templates may re-render more than desirable.
+
+A `rate_limit` directive can be used to limit how often the template re-renders.
+
+
+
 ### Working without entities
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates. 
