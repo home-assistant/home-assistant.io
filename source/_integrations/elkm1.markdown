@@ -33,6 +33,8 @@ There is currently support for the following device types within Home Assistant:
 
 If you would like your `alarm_control_panel` devices to keep track of the user whose code was last used to change the status of that partition (via the attributes `changed_by` and `changed_by_id`) you must configure your Elk's global setting location 35, “System Log Data Update” transmission, so that the M1 sends the updated partition status whenever it changes. (It may work anyway if you have exactly one area configured and do not have that setting enabled.)
 
+In order for alarm states to be reflected properly in Home Assistant, select **Keypad keys** under **Globals** >> **Serial Port 0 Transmit Options** in ElkRP.
+
 
 ## Configuration
 
