@@ -1,6 +1,6 @@
 ---
-title: "Installation of Home Assistant"
-description: "Instructions on how to install Home Assistant to launch on start."
+title: "Choose installation method for Home Assistant"
+description: "Explain the various installation methods forHome Assistant."
 redirect_from: /getting-started/installation/
 ---
 
