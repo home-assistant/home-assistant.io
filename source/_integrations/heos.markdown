@@ -44,7 +44,7 @@ A connection to a single device enables control for all devices on the network. 
 
 ### Service `heos.sign_in`
 
-Use the sign-in service to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
+Use the sign-in service (go to Developer Tools -> Services and then run the heos.sign_in with your username and password. Use the “Fill example data” first, then change it with your data. Check the logs right after, there you should see if the sign-in was successful or not) to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
 
 ```yaml
 username: "example@example.com"
