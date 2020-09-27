@@ -40,7 +40,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **vibration**: `on` means vibration detected, `off` means no vibration (clear)
 - **window**: `on` means open, `off` means closed
 
-For analog sensors please check the [integration overview](/integrations/#sensor).
+For analog sensors please check the [integration overview](/integrations/sensor).
 
 <p class='img'>
 <img src='/images/screenshots/binary_sensor_classes_icons.png' />
