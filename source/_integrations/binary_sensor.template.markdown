@@ -305,7 +305,19 @@ thousands state changed events per day, templates may re-render more than desira
 
 A `rate_limit` directive can be used to limit how often the template re-renders.
 
+`rate_limit` accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
+In the below example, re-renders are limited to once per minute:
+
+{% raw %}
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      has_unavailable_states:
+        value_template: '{% set delta = rate_limit(minutes=1) %}{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
+```
+{% endraw %}
 
 ### Working without entities
 
