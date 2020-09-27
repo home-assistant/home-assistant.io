@@ -95,16 +95,6 @@ Use the web-based terminal or SSH to your Home Assistant system, or connect to t
 ha core update --version=0.XX.X
 ```
 
-## Run the beta version on Home Assistant
-
-If you would like to test next release before anyone else, you can install the beta version released every three weeks:
-
-1. Backup your installation, using the snapshot functionality Home Assistant offers.
-2. Check the [Home Assistant Beta release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
-3. Select _System_ tab from the _Supervisor_ menu, then select _Join Beta Channel_ under _Supervisor_, then select _Reload_.
-4. Select _Dashboard_ tab from the _Supervisor_ menu, and then select _Update_.
-
-
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
 [pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi0-w-4.13.img.gz
