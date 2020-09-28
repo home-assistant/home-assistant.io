@@ -16,6 +16,8 @@ The Calendar card displays your calendar entities in a month, day and list view.
 {% configuration_basic %}
 Title:
   description: The title displayed at the top of the card.
+Initial View:
+  description: "The view that will show first when the card is loaded onto the page. Options are `Month View`, `Day View`, or `List View`."
 Entities:
   description: The calendar entities that will be displayed in the card.
 Theme:
@@ -34,6 +36,10 @@ type:
 title:
   required: false
   description: The title of the card.
+  type: string
+initial_view:
+  required: false
+  description: "The view that will show first when the card is loaded onto the page. Options are `dayGridMonth`, `dayGridDay`, and `listWeek`."
   type: string
 entities:
   required: true
