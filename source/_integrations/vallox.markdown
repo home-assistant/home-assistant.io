@@ -1,5 +1,5 @@
 ---
-title: Valloxs
+title: Vallox
 description: Instructions on how to integrate Vallox ventilation units into Home Assistant.
 ha_category:
   - Fan
