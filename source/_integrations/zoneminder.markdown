@@ -79,7 +79,7 @@ For example, if your ZoneMinder instance was configured with a run state called 
 action:
   service: zoneminder.set_run_state
   data:
-    id: 10.10.3.2
+    id: ZM_HOST
     name: Home
 ```
 
