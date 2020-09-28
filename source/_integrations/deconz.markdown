@@ -259,8 +259,6 @@ automation:
 ```
 
 {% endraw %}
-
-
 ## Binary Sensor
 
 The following sensor types are supported:
