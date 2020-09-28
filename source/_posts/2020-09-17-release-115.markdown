@@ -107,6 +107,7 @@ navigating you around this release.
 - [Release 0.115.1 - September 18](#release-01151---september-18)
 - [Release 0.115.2 - September 19](#release-01152---september-19)
 - [Release 0.115.3 - September 25](#release-01153---september-25)
+- [Release 0.115.4 - September 28](#release-01154---september-28)
 - [All changes](#all-changes)
 
 ## Media Browser
@@ -1821,6 +1822,43 @@ discovery. Users currently using that should set up all devices through UI.
 [stream docs]: /integrations/stream/
 [upnp docs]: /integrations/upnp/
 [webostv docs]: /integrations/webostv/
+
+## Release 0.115.4 - September 28
+
+- Bump aioshelly library to version 0.3.3 ([@bieniu] - [#40415]) ([shelly docs])
+- Create master playlist for cast ([@uvjustin] - [#40483]) ([stream docs])
+- Fix fitbit current URL not available while configuring ([@colinfrei] - [#40547]) ([fitbit docs])
+- Bump Plugwise-Smile to v1.5.1 ([@bouwew] - [#40572]) ([plugwise docs])
+- Fix camera play stream ([@hunterjm] - [#40641]) ([camera docs]) ([cast docs]) ([media_player docs]) ([stream docs])
+- set ID3 tags as TextFrame types ([@digitallyserviced] - [#40666]) ([tts docs])
+- Pin gRPC to 1.31.0 to workaround amrv7 issues ([@frenck] - [#40678])
+- Bump Airly package to 1.0.0 ([@ak-ambi] - [#40695]) ([airly docs])
+
+[#40415]: https://github.com/home-assistant/core/pull/40415
+[#40483]: https://github.com/home-assistant/core/pull/40483
+[#40547]: https://github.com/home-assistant/core/pull/40547
+[#40572]: https://github.com/home-assistant/core/pull/40572
+[#40641]: https://github.com/home-assistant/core/pull/40641
+[#40666]: https://github.com/home-assistant/core/pull/40666
+[#40678]: https://github.com/home-assistant/core/pull/40678
+[#40695]: https://github.com/home-assistant/core/pull/40695
+[@ak-ambi]: https://github.com/ak-ambi
+[@bieniu]: https://github.com/bieniu
+[@bouwew]: https://github.com/bouwew
+[@colinfrei]: https://github.com/colinfrei
+[@digitallyserviced]: https://github.com/digitallyserviced
+[@frenck]: https://github.com/frenck
+[@hunterjm]: https://github.com/hunterjm
+[@uvjustin]: https://github.com/uvjustin
+[airly docs]: /integrations/airly/
+[camera docs]: /integrations/camera/
+[cast docs]: /integrations/cast/
+[fitbit docs]: /integrations/fitbit/
+[media_player docs]: /integrations/media_player/
+[plugwise docs]: /integrations/plugwise/
+[shelly docs]: /integrations/shelly/
+[stream docs]: /integrations/stream/
+[tts docs]: /integrations/tts/
 
 ## All changes
 
