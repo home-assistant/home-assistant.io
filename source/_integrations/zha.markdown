@@ -70,12 +70,13 @@ ZHA integration uses a hardware independent Zigbee stack implementation with mod
 
 ### Experimental support for additional Zigbee radio modules
 
-- Texas Instruments CC253x, CC26x2R, and CC13x2 based radios (via the [zigpy-cc](https://github.com/zigpy/zigpy-cc) library for zigpy)
-  - [CC2531 USB stick hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
-  - [CC2530 + CC2591/CC2592 USB stick hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
-  - [CC2538 + CC2592 dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/getting_started/what_do_i_need.html)
-  - [CC2652P/CC2652R/CC2652RB USB stick or dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/information/supported_adapters)
-  - [CC1352P/CC1352R USB stick or dev board hardware flashed with custom Z-Stack coordinator firmware from the Zigbee2mqtt project](https://www.zigbee2mqtt.io/information/supported_adapters)
+- Texas Instruments based radios with Z-Stack 3.x.x (via the [zigpy-znp](https://github.com/zha-ng/zigpy-znp) library for zigpy)
+  - [CC2652P/CC2652R/CC2652RB USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
+  - [CC1352P/CC1352R USB stick or dev board hardware flashed with Z-Stack 3.x.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
+- Texas Instruments based radios with Z-Stack Home 1.2.x (via the [zigpy-cc](https://github.com/zigpy/zigpy-cc) library for zigpy)
+  - [CC2531 USB stick hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
+  - [CC2530 + CC2591/CC2592 USB stick hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
+  - [CC2538 + CC2592 dev board hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
 - ZiGate based radios (via the [zigpy-zigate](https://github.com/zigpy/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
   - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
   - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
