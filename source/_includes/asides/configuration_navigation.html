@@ -1,0 +1,25 @@
+<section class="aside-module grid__item one-whole lap-one-half">
+  <!-- {% include edit_github.html %} -->
+  {% assign cards = site.configuration | sort_natural: 'title' %}
+
+    <div class="section">
+    <h1 class="title delta">Configuration</h1>
+    <ul class="divided sidebar-menu">
+      <li>
+        <b>{% active_link /faq/ FAQ %}</b>
+        |
+        <b>{% active_link /docs/glossary/ Glossary %}</b>
+      </li>
+      <li>{% active_link /configuration/ Configuration %}</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 class="title delta">Topics</h2>
+    <ul class="divided sidebar-menu">
+      {% for card in cards %}
+        <li>{% active_link {{card.url}} {{card.title}} %}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

@@ -12,7 +12,7 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>Installation</div>
   </a>
-  <a class='option-card' href='/docs/configuration/'>
+  <a class='option-card' href='/configuration/'>
     <div class='img-container'>
       <img src='/images/supported_brands/pencil.png' />
     </div>

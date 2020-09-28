@@ -75,6 +75,8 @@ collections:
     output: true
   lovelace:
     output: true
+  configuration:
+    output: true
 
 # ----------------------- #
 #   3rd Party Settings    #
