@@ -6,7 +6,7 @@ ha_category:
   - Camera
   - Sensor
 ha_release: '0.60'
-ha_config_flow: True
+ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_domain: canary
 ---
