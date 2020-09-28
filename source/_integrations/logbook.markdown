@@ -92,8 +92,8 @@ Filters are applied as follows:
 
 The following characters can be used in entity globs:
 
-* "*" - The asterisk represents zero, one, or multiple characters
-* "." - The period represents a single character
+- `*` - The asterisk represents zero, one, or multiple characters
+- `.` - The period represents a single character
 
 ### Common filtering examples
 
