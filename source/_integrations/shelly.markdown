@@ -18,6 +18,8 @@ Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
 
 To add a Shelly device to your installation, make sure they are connected to your Wi-Fi network first. Next, go to **Configuration** >> **Integrations** in the UI. If the new device is on the same network as Home Assistant, it is discovered automatically. Clicking "Configure" on the discovered device, adds it to Home Assistant. If your device isn't discovered automatically, click the button with `+` sign on the integrations page and from the list of integrations, select **Shelly** and follow the instructions shown.
 
+From the Device list, you can then configure dimmer specific options by pressing on the **Options** button in the UI: you can override the support for brightness and colors, allowing to use dimmers with non-dimmable bulbs.
+
 <div class="note">
 Integration is communicating directly with the device; cloud connection is not needed.
 </div>
