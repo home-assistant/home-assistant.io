@@ -14,6 +14,9 @@ The `input_select` integration allows the user to define a list of values that c
 
 The preferred way to configure an input select is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Dropdown** option.
 
+To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from you configuration, you must add `input_select:` to your `configuration.yaml` first, then you can use the UI.
+
 Input selects can also be configured via `configuration.yaml`:
 
 ```yaml
