@@ -124,6 +124,27 @@ verify_ssl:
 - **start_time**: Start time of event.
 - **end_time**: End time of event.
 
+### Service `caldav.add_event`
+
+You can use the service `caldav.add_event` to create a new calendar event in a calendar. Calendar id's are typically the URL of the calendar. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `calendar_id` | no | The id of the calendar you want. | https://example.com/caldav/mycalendar/
+| `summary` | no | Acts as the title of the event. | Bowling
+| `description` | yes | The description of the event. | Birthday bowling
+| `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
+| `end_date_time` | yes | The date and time the event should end. | 2019-03-10 23:00:00
+| `start_date` | yes | The date the whole day event should start. | 2019-03-10
+| `end_date` | yes | The date the whole day event should end. | 2019-03-11
+| `in` | yes | Days or weeks that you want to create the event in. | "days": 2
+
+<div class='note'>
+
+You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
+
+</div>
+
 ## Examples
 
 All events of the calendars "private" and "holidays". Note that all day events are not included.
