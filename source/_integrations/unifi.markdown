@@ -77,6 +77,10 @@ Note that POE control actually configures the network port of the switch which t
 
 Get entities reporting receiving and transmitting bandwidth per network client.
 
+### Uptime sensor
+
+Get entities reporting uptime per network client.
+
 ## Debugging integration
 
 If you have problems with UniFi or the integration you can add debug prints to the log.
