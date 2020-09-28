@@ -53,10 +53,10 @@ light:
 The effect list is dynamically pulled from the Hyperion server. The following
 extra effects will be available:
 
-   * BOBLIGHTSERVER: Use a Boblight-Server configured in Hyperion.
-   * GRABBER: Use a 'Platform Capture' grabber that is configured in Hyperion.
-   * V4L: Use a 'USB Capture' V4L device that is configured in Hyperion.
-   * Solid: Use a solid color only.
+- BOBLIGHTSERVER: Use a Boblight-Server configured in Hyperion.
+- GRABBER: Use a 'Platform Capture' grabber that is configured in Hyperion.
+- V4L: Use a 'USB Capture' V4L device that is configured in Hyperion.
+- Solid: Use a solid color only.
 
 ## Examples
 
