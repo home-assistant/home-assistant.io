@@ -144,6 +144,32 @@ enable_quirks:
 
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
+
+## Services
+### Service `permit`
+This service opens network for joining new devices
+
+|  Data | Optional | Description |
+| ---- | ---- | ----------- |
+| `duration` |  yes | For how long to allow new devices to join, default 60s
+| `ieee` | yes | allow new devices to join via an existing device
+| `src_ieee` | | The IEEE address of the joining ZB3 device. Use with `install_code`
+| `install_code` | | Install Code of the joining device. Use with `src_ieee`
+| `qr_code` | | QR code containing IEEE and Install Code of the joining ZB3 device
+
+* currently `qr_cde` supports QR Install Codes from:
+- Aqara
+- Consciot
+- Embrighten 
+
+### Service `remove`
+This service remove an existing device from the network
+
+|  Data | Optional | Description |
+| ---- | ---- | ----------- |
+| `ieee` | no | What device to remove 
+
+
 ### OTA firmware updates
 
 ZHA component does have the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
