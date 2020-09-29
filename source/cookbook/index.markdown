@@ -7,7 +7,7 @@ hide_github_edit: true
 ---
 
 This is a community curated list of different ways to use Home Assistant. Most
-of these examples are using the [automation][automations].
+of these examples are using [the automation integration][automations].
 
 <div class='note'>
 
