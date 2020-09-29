@@ -213,8 +213,77 @@ Home Assistant 0.118.0.
   <summary><b>KNX</b></summary>
   <p>
 
-Awaiting an updated breaking changes section by the code contributor.
-TODO: Update
+We changed the way how we handle binary sensors in the underlying library. It
+is no longer possible to support automations based on the `binary_sensor`
+schema. Instead, you can use the new `counter` state attribute for any given
+KNX binary sensor.
+
+Before this change:
+
+```yaml
+-  name: cover_abstell
+   state_address: "2/0/33"
+   automation:
+     - counter: 1
+       hook: 'on'
+       action:
+         - entity_id: cover.sonne_abstellkammer
+           service: cover.open_cover
+     - counter: 1
+       hook: 'off'
+       action:
+         - entity_id: cover.sonne_abstellkammer
+           service: cover.close_cover
+```
+
+After this change:
+
+
+```yaml
+# binary_sensor.yaml
+- name: cover_abstell
+  state_address: "2/0/33"
+```
+
+```yaml
+# automation.yaml
+automation:
+  - alias: 'Binary sensor test counter=1 on'
+    trigger:
+      platform: numeric_state
+      entity_id: binary_sensor.cover_abstell
+      attribute: counter
+      above: 0
+      below: 2
+    condition:
+      - condition: state
+        entity_id: binary_sensor.cover_abstell
+        state: 'on'
+    action:
+      - service: cover.open_cover
+        entity_id: cover.sonne_abstellkammer
+
+  - alias: 'Binary sensor test counter=1 off'
+    trigger:
+      platform: numeric_state
+      entity_id: binary_sensor.cover_abstell
+      attribute: counter
+      above: 0
+      below: 2
+    condition:
+      - condition: state
+        entity_id: binary_sensor.cover_abstell
+        state: 'off'
+    action:
+      - service: cover.close_cover
+        entity_id: cover.sonne_abstellkammer
+```
+
+If you intend to use the counter feature (counter > 1) make sure you also
+enable `ignore_internal_state` (default: `true`) for your `binary_sensor` and
+set the new `context_timeout` attribute to the time in between you want it to
+react to your sensor clicks (defaults to `1` - which should be fine).
+Otherwise, the counter will not work correctly.
 
 ([@marvin-w] - [#40304]) ([knx docs])
 
