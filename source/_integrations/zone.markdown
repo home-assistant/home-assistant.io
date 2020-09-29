@@ -70,7 +70,13 @@ To find the latitude/longitude of a certain place you can use [Google Maps](http
 
 ## Home zone
 
-If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
+If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**. 
+
+<div class='note'>
+  
+This needs to be the exact name in order to overwrite the default configuration, but you can still name it differently by adding a friendly_name in customize.yaml.
+
+</div>
 
 <div class='note'>
 
