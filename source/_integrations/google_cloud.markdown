@@ -135,7 +135,7 @@ tts:
     speed: 0.9
     pitch: -2.5
     gain: -5.0
-	text_type: ssml
+    text_type: ssml
     profiles:
       - telephony-class-application
       - wearable-class-device
