@@ -86,20 +86,6 @@ sensors:
           description: Time elapsed on current print job, in seconds.
         "Time Remaining":
           description: Time remaining on current print job, in seconds.
-binary_sensors:
-  description: Configuration for the binary sensors.
-  required: false
-  type: map
-  keys:
-    monitored_conditions:
-      description: The sensors to activate.
-      type: list
-      default: all (`Printing`, `Printing Error`)
-      keys:
-        "Printing":
-          description: State of the printer.
-        "Printing Error":
-          description: Error while printing.
 {% endconfiguration %}
 
 <div class='note'>
