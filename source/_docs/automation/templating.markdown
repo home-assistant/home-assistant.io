@@ -27,7 +27,7 @@ automation 2:
     platform: mqtt
     topic: /notify/+
   action:
-    service_template: >
+    service: >
       notify.{{ trigger.topic.split('/')[-1] }}
     data:
       message: '{{ trigger.payload }}'

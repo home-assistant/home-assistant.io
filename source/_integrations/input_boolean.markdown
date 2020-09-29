@@ -14,6 +14,9 @@ The `input_boolean` integration allows the user to define boolean values that ca
 
 The preferred way to configure input booleans is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the "**Toggle**" option.
 
+To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from you configuration, you must add `input_boolean:` to your `configuration.yaml` first, then you can use the UI.
+
 Input booleans can also be configured via `configuration.yaml`:
 
 ```yaml

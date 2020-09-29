@@ -73,17 +73,13 @@ Next you need to create a Lambda function.
 - Scroll down little bit, you need to input the `Skill ID` from the skill you created in previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`.)
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
 - Clear the example code and copy the Python script from: [https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da)
-- Scroll down again and you will find `Environment variables`, add the following environment variables as needed:
+- Click the `Deploy` button of the `Function code` window.
+- Scroll down again and you will find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
   - BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   - NOT_VERIFY_SSL *(optional)*: set to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
   - DEBUG *(optional)*: set to *True* to log debugging messages.
   - LONG_LIVED_ACCESS_TOKEN *(optional, not recommended)*: you will connect your Alexa Custom skill with your Home Assistant user account in the later steps, so that you don't need to use long-lived access token here. However, the access token you got from login flow is only valid for 30 minutes. It will be hard for you to test lambda function with the access token in test data. So for your convinces, you can remove the access token from the test data, [generate a long-lived access token][generate-long-lived-access-token] put here, then the function will fall back to reading the token from environment variables. (tips: You did not enable the security storage for your environment variables, so your token saved here is not that safe. You should only use it for debugging and testing purpose. You should remove and delete the long-lived access token after you finish the debugging.)
-
-<p class='img'>
-  <img src='/images/integrations/alexa/lambda_function_env_var.png' alt='Screenshot: Environment variables in Lambda function'>
-</p>
-
-- Now scroll up to the top and click the `Save` button.
+- Save your environmental variables by clicking the `Save` button.
 - Next, copy the ARN displayed in the top of the page, which is the identify of this Lambda function. Set the end point of the custom Alexa Skill you created earlier to this value.
 
 ### Account Linking
