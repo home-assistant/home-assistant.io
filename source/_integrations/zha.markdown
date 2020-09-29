@@ -166,10 +166,12 @@ from the same group:
 | `qr_code` | qr_code | QR code containing IEEE and Install Code of the joining ZB3 device
 
 <div class='note'>
-Currently `qr_code` supports QR Install Codes from:
-- Aqara
-- Consciot
-- Embrighten
+  Currently `qr_code` supports QR Install Codes from:
+  <ul>
+    <li>Aqara</li>
+    <li>Consciot</li>
+    <li>Embrighten</li>
+  </ul>
 </div>
 
 ### Service `zha.remove`
