@@ -108,6 +108,7 @@ navigating you around this release.
 - [Release 0.115.2 - September 19](#release-01152---september-19)
 - [Release 0.115.3 - September 25](#release-01153---september-25)
 - [Release 0.115.4 - September 28](#release-01154---september-28)
+- [Release 0.115.5 - September 29](#release-01155---september-29)
 - [All changes](#all-changes)
 
 ## Media Browser
@@ -1858,6 +1859,14 @@ discovery. Users currently using that should set up all devices through UI.
 [plugwise docs]: /integrations/plugwise/
 [shelly docs]: /integrations/shelly/
 [stream docs]: /integrations/stream/
+[tts docs]: /integrations/tts/
+
+## Release 0.115.5 - September 29
+
+- Fix ID3 tagging in TTS ([@frenck] - [#40740]) ([tts docs])
+
+[#40740]: https://github.com/home-assistant/core/pull/40740
+[@frenck]: https://github.com/frenck
 [tts docs]: /integrations/tts/
 
 ## All changes
