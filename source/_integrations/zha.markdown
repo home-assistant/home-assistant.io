@@ -146,29 +146,39 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 
 ## Services
-### Service `permit`
-This service opens network for joining new devices
+
+### Service `zha.permit`
+
+This service opens network for joining new devices.
 
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
 | `duration` |  yes | For how long to allow new devices to join, default 60s
 | `ieee` | yes | allow new devices to join via an existing device
-| `src_ieee` | | The IEEE address of the joining ZB3 device. Use with `install_code`
-| `install_code` | | Install Code of the joining device. Use with `src_ieee`
-| `qr_code` | | QR code containing IEEE and Install Code of the joining ZB3 device
 
-* currently `qr_cde` supports QR Install Codes from:
+To join a new device using an install code (ZB3 devices) use the following data attributes (must use parameters only
+from the same group:
+
+|  Data | Parameter Group | Description |
+| ---- | ---- | ----------- |
+| `src_ieee` | install_code | The IEEE address of the joining ZB3 device. Use with `install_code`
+| `install_code` | install_code | Install Code of the joining device. Use with `src_ieee`
+| `qr_code` | qr_code | QR code containing IEEE and Install Code of the joining ZB3 device
+
+<div class='note'>
+Currently `qr_code` supports QR Install Codes from:
 - Aqara
 - Consciot
-- Embrighten 
+- Embrighten
+</div>
 
-### Service `remove`
-This service remove an existing device from the network
+### Service `zha.remove`
+
+This service remove an existing device from the network.
 
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
-| `ieee` | no | What device to remove 
-
+| `ieee` | no | IEEE address of the device to remove 
 
 ### OTA firmware updates
 
