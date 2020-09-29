@@ -28,3 +28,6 @@ After completing the configuration flow, the Advantage Air integration will dyna
 
 The `advantage_air` climate platform will create a climate entity for each air conditioning system found, and for each zone that is temperature controlled.
 
+### Cover
+
+The `advantage_air` cover platform will create a cover entity for each zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
