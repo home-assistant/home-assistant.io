@@ -17,32 +17,31 @@ To use your Modbus thermostat in your installation, add the following to your `c
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-  - platform: modbus
-    name: Watlow F4T
-    hub: hub1
-    slave: 1
-    data_type: uint
-    data_count: 1
-    scale: 0.1
-    offset: 0
-    precision: 1
-    max_temp: 30
-    min_temp: 15
-    temp_step: 1
-    target_temp_register: 2782
-    current_temp_register: 27586
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+
+    climates:
+      - name: Watlow F4T
+        slave: 1
+        data_type: uint
+        data_count: 1
+        scale: 0.1
+        offset: 0
+        precision: 1
+        max_temp: 30
+        min_temp: 15
+        temp_step: 1
+        target_temp_register: 2782
+        current_temp_register: 27586
 ```
 
 {% configuration %}
 name:
   description: Name of the device
   required: true
-  type: string
-hub:
-  description: The name of the hub.
-  required: false
-  default: default
   type: string
 slave:
   description: The number of the slave (Optional for tcp and upd Modbus, use 1).
