@@ -109,6 +109,7 @@ navigating you around this release.
 - [Release 0.115.3 - September 25](#release-01153---september-25)
 - [Release 0.115.4 - September 28](#release-01154---september-28)
 - [Release 0.115.5 - September 29](#release-01155---september-29)
+- [Release 0.115.6 - September 30](#release-01156---september-30)
 - [All changes](#all-changes)
 
 ## Media Browser
@@ -1868,6 +1869,14 @@ discovery. Users currently using that should set up all devices through UI.
 [#40740]: https://github.com/home-assistant/core/pull/40740
 [@frenck]: https://github.com/frenck
 [tts docs]: /integrations/tts/
+
+## Release 0.115.6 - September 30
+
+- Use custom app to play camera stream using Google Assistant ([@bramkragten] - [#40750]) ([google_assistant docs])
+
+[#40750]: https://github.com/home-assistant/core/pull/40750
+[@bramkragten]: https://github.com/bramkragten
+[google_assistant docs]: /integrations/google_assistant/
 
 ## All changes
 
