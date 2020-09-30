@@ -31,6 +31,14 @@ There is currently support for the following device types within Home Assistant:
 
 To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in USB path manually.
 
+To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
+
+```yaml
+logger:
+  log:
+    RFXtrx: debug
+```
+
 ## Supported protocols
 
 Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) and enable the required protocol.
@@ -75,15 +83,9 @@ Also, several switches and other devices will also expose sensor entities with b
 
 #### Binary Sensors
 
-The `rfxtrx` platform support binary sensors that
-communicate in the frequency range of 433.92 MHz.
-The RFXtrx binary sensor integration provides support for them.
+The `rfxtrx` platform support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
-Many cheap sensors available on the web today are based on a particular RF chip
-called *PT-2262*. Depending on the running firmware on the RFXcom box, some of
-them may be recognized under the X10 protocol, but most of them are recognized
-under the *Lighting4* protocol. The RFXtrx binary sensor integration provides
-some special options for them, while other RFXtrx protocols should work too.
+Customization can be used to set the [class of the device](/integrations/binary_sensor/): [customization](/configuration/customizing-devices/)
 
 ### Add device by event code
 
@@ -331,6 +333,10 @@ If you need to generate codes for switches and lights, you can use a template (u
 - Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
+
+## Configuration import
+
+When RFXtrx integration is configured in `configuration.yaml`, the configuration will be imported once. After import, the configuration can be removed from `configuration.yaml`.
 
 {% configuration %}
 device:
