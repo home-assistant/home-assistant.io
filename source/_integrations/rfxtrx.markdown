@@ -89,6 +89,10 @@ some special options for them, while other RFXtrx protocols should work too.
 
 To manually add a device, in the options window an event code can be added in the field **Enter event code to add**.
 
+#### Generate codes
+
+See [Gemerate codes](#Generate codes) how to generate event codes.
+
 #### RFY
 
 The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however, it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
@@ -98,6 +102,10 @@ The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) i
 To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
 
 To convert a switch to a dimmable light, make sure the event contain a dimming command. You can usually convert a command by changing one byte.
+
+<img src='/images/integrations/rfxtrx/switch_light.png' />
+
+Copy the event code from the state attribute of the switch which shows up on the bottom of the window when clicking on the switch entity. Examples of byte changes:
 
 *ARC:*<br>
 0b11000248bc0cfe09 **01** 0f70<br>
