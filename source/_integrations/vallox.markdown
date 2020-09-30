@@ -79,7 +79,7 @@ automation:
         platform: state
     action:
       - service: input_select.select_option
-        data_template:
+        data:
           entity_id: input_select.ventilation_profile
           option: "{{ states('sensor.vallox_current_profile') }}"
 ```
