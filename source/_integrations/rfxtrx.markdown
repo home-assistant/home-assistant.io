@@ -188,205 +188,13 @@ INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Found possible m
 
 This automatic guess should work most of the time, but there is no guarantee on that. You should activate it only when you want to configure your new devices and leave it off otherwise. 
 
+#### Replace device
 
+Some battery powered devices send commands or data with a randomly generated id. When batteries are replaced, the id changes. In order to use the device, it needs to be re-added either through automatic add or manually. This will create a new device. To transfer user configured names and entity ids of the old device, select the old device in the options menu under *Select device to configure*. In the device options menu, select from the *Select device to replace* menu the new device and press *Submit*. The names and ids of the old device will be transferred to the new device and the old device will be automaticallt deleted.
 
+### Delete device
 
-
-
-
-To enable RFXtrx in your installation, something like the following to your `configuration.yaml` file.
-
-*Direct serial connection*
-
-```yaml
-# Example configuration.yaml entry for local serial device
-rfxtrx:
-  device: /dev/ttyUSB0
-```
-
-*Network connection*
-
-```yaml
-# Example configuration.yaml entry for TCP connected device using ser2net
-rfxtrx:
-  host: 192.168.0.2
-  port: 50000
-```
-
-*Network connection with multiple devices*
-
-```yaml
-# Example configuration with several devices
-rfxtrx:
-  host: 192.168.0.2
-  port: 50000
-  devices:
-    # Siemens/LightwaveRF Shutter
-    0b1100ce3213c7f210010f70:
-    # RFY Shutter
-    071a00000a000101:
-
-    # Light 1
-    0b11000f10e9e5660b010f70:
-    # Light TV
-    0b1100100f29e5660c010f70:
-
-    # Binary Sensor
-    0913000022670e013b70:
-
-    # Binary Sensor with data bits setup
-    0913000022670e013b70:
-      device_class: opening
-      data_bits: 4
-      command_on: 0xe
-      command_off: 0x7
-
-    # Switch 1
-    0b1100ce3213c7f210010f70:
-    # Switch 2
-    0b11000a02ef2gf210010f50:
-    # Switch 3
-    0b1111e003af16aa10000060:
-      fire_event: true
-
-    # Sensor
-    0a52080000301004d240259:
-```
-
-*Use remote to enable scene (using event_data)*
-
-```yaml
-rfxtrx:
-  host: 192.168.0.2
-  port: 50000
-  devices:
-    # Light 1
-    0b1100ce3213c7f210010f70:
-    # LIght 2
-    0b11000a02ef2gf210010f50:
-    # Keychain remote
-    0b1111e003af16aa10000060:
-      fire_event: true
-scene:
-  name: Livingroom
-  entities:
-    switch.light1: on
-    switch.light2: on
-
-automation:
-  - alias: Use remote to enable scene
-    trigger:
-      platform: event
-      event_type: button_pressed
-      event_data: {"state": "on", "entity_id": "switch.keychain_remote"}
-    action:
-      service: scene.turn_on
-      entity_id: scene.livingroom
-```
-
-{% configuration %}
-device:
-  description: "The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0` or `/dev/ttyUSB0`. Required if you are using a locally connected USB device."
-  required: false
-  type: string
-host:
-  description: "The hostname the remote RFXtrx is available on if connecting via TCP. If this is set, a port is required."
-  required: false
-  type: string
-port:
-  description: "The TCP port the remote RFXtrx is available on. If this is set, a host is required."
-  required: false
-  type: integer
-debug:
-  description: "If you want to receive debug output."
-  required: false
-  default: false
-  type: boolean
-devices:
-  description: A list of devices.
-  required: false
-  type: map
-  keys:
-    EVENT_CODE:
-      description: An code string describing the device. It may include state, but state will be ignored.
-      required: true
-      type: map
-      keys:
-        device_class:
-          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
-          required: false
-          type: device_class
-        fire_event:
-          description: Fires an event even if the state is the same as before. Can be used for automations.
-          required: false
-          type: boolean
-          default: false
-        off_delay:
-          description: For binary sensors that only sends 'On' state updates, this variable sets a delay after which the binary sensor state will be updated back to 'Off'.
-          required: false
-          type: integer
-        data_bits:
-          description: Defines how many bits are used for commands inside the data packets sent by the device.
-          required: false
-          type: integer
-        command_on:
-          description: Defines the data bits value that is sent by the device upon an 'On' command.
-          required: false
-          type: string
-        command_off:
-          description: Defines the data bits value that is sent by the device upon an 'Off' command.
-          required: false
-          type: string
-        signal_repetitions:
-          description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
-          required: false
-          type: integer
-automatic_add:
-  description: To enable the automatic addition of new binary sensors.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
-
-<div class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes.
-This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
-</div>
-
-## Setting up your devices
-
-Once you have set up your [RFXtrx hub](/integrations/rfxtrx/), the easiest way
-to find your binary sensors is to enable automatic add in  `configuration.yaml`:
-
-```yaml
-rfxtrx:
-  automatic_add: true
-  host: 192.168.0.2
-  port: 50000
-```
-
-Open your Home Assistant frontend and go to the "states" page.
-Then make sure to trigger your sensor. You should see several new entities
-appear in the *Current entities* list, by looking at the entities attribute, you can look at the last received event, which can be added to the configuration.
-
-For example: "0913000022670e013b70". Then you should update your configuration to:
-
-```yaml
-rfxtrx:
-  automatic_add: false
-  host: 192.168.0.2
-  port: 50000
-  devices:
-    0913000022670e013b70:
-```
-
-
-
-
-
-
-
-
+To delete device(s) from the configuration, select one or more devices under *Select device to delete*. Press *Submit* to delete the selected devices.
 
 ## Events
 
@@ -519,7 +327,76 @@ If you need to generate codes for switches and lights, you can use a template (u
 {% endraw %}
 
 
-- Use this code to add a new switch in your `configuration.yaml`.
+- Use this code to add a new switch in options menu.
 - Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
+
+{% configuration %}
+device:
+  description: "The path to your device, e.g., `/dev/serial/by-id/usb-RFXCOM_RFXtrx433_A1Y0NJGR-if00-port0` or `/dev/ttyUSB0`. Required if you are using a locally connected USB device."
+  required: false
+  type: string
+host:
+  description: "The hostname the remote RFXtrx is available on if connecting via TCP. If this is set, a port is required."
+  required: false
+  type: string
+port:
+  description: "The TCP port the remote RFXtrx is available on. If this is set, a host is required."
+  required: false
+  type: integer
+debug:
+  description: "If you want to receive debug output."
+  required: false
+  default: false
+  type: boolean
+devices:
+  description: A list of devices.
+  required: false
+  type: map
+  keys:
+    EVENT_CODE:
+      description: An code string describing the device. It may include state, but state will be ignored.
+      required: true
+      type: map
+      keys:
+        device_class:
+          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: device_class
+        fire_event:
+          description: Fires an event even if the state is the same as before. Can be used for automations.
+          required: false
+          type: boolean
+          default: false
+        off_delay:
+          description: For binary sensors that only sends 'On' state updates, this variable sets a delay after which the binary sensor state will be updated back to 'Off'.
+          required: false
+          type: integer
+        data_bits:
+          description: Defines how many bits are used for commands inside the data packets sent by the device.
+          required: false
+          type: integer
+        command_on:
+          description: Defines the data bits value that is sent by the device upon an 'On' command.
+          required: false
+          type: string
+        command_off:
+          description: Defines the data bits value that is sent by the device upon an 'Off' command.
+          required: false
+          type: string
+        signal_repetitions:
+          description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
+          required: false
+          type: integer
+automatic_add:
+  description: To enable the automatic addition of new binary sensors.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+<div class='note warning'>
+If a device ID consists of only numbers, please make sure to surround it with quotes.
+This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
+</div>
