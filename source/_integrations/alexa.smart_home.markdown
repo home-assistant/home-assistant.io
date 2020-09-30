@@ -306,7 +306,7 @@ alexa:
               required: false
               type: list
             exclude_entities:
-              description: List of entities to include (e.g., `light.attic`).
+              description: List of entities to exclude (e.g., `light.attic`).
               required: false
               type: list
         entity_config:
