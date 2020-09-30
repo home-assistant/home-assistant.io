@@ -33,7 +33,6 @@ TODO:
 
 - Social media image
 - Introduction
-- Frontend changes
 
 Possible PRs to use in the blog post or noteworthy changes:
 
@@ -60,6 +59,11 @@ Possible PRs to use in the blog post or noteworthy changes:
 
 - [Table of contents](#table-of-contents)
 - [Lorem ipsum](#lorem-ipsum)
+- [Entities card editor](#entities-card-editor)
+- [User management combined with person management](#user-management-combined-with-person-management)
+- [H.256 stream support for Android](#h256-stream-support-for-android)
+- [Chromecast Media player](#chromecast-media-player)
+- [Restore snapshots](#restore-snapshots)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -72,9 +76,39 @@ Possible PRs to use in the blog post or noteworthy changes:
 
 Lorem ipsum
 
+## Entities card editor
+You can now also edit the entity rows of your entity card. That means you can not only set an entity id, but can also set the name, icon and secondary info.
+Also using special rows will not longer force you use the YAML editor, but you can still use the UI editor and edit the special rows. UI editors for the special rows will come in the future.
+
+## User management combined with person management
+We combined the user and person UI, this means that the user config panel will only be visible for users that have advanced mode enabled.
+
+The person detail dialog has now a toggle that allows you to give the person acces to Home Assistant.
+If you toggle it on you can set a username and a password for the person. If you toggle it off, the user will be removed.
+
+This makes it easier to manage the people in Home Assistant, everything in one place.
+
+## H.256 stream support for Android 
+@uvjustin added support for H.256 streaming in the Android app, it will use a native video player that is shown on top of the Home Assistant UI. This player will only work in the more info dialog, and can not be used In Lovelace cards.
+
+## Chromecast Media player
+We now have our own media player for the Chromecast. It is build in the same app we use for showing Lovelace dashboards, this means that if you play media via Home Assistant and you where showing a Lovelace view, the Lovelace view will be restored after the media is finished playing!
+
+
+## Restore snapshots
+You can now upload snapshots from the UI and restores them.
+You can do this in the supervisor UI in the snapshots panel. But you can also do this during onboarding!
+
+This means you no longer have to setup Home Assistant, add and setup the Samba add-on to then restore your snapshot. You can just select your snapshot in the first step and it will be restored.
+
+This makes moving to an other system a breeze!
+
 ## Other noteworthy changes
 
-- Lorem ipsum
+- @Misiu Added weekday support to time condition automation editor
+- @ludeeus Added performance metrics to the supervisor UI
+- The Material Design Icons are updated to v5.6.55, the `scooter` icon is replaced by a new icon, the old icon is available as `human-scooter`
+
 
 ## New Integrations
 
