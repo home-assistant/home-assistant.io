@@ -33,6 +33,9 @@ TODO:
 
 - Social media image
 - Introduction
+- Core/backend topics
+- screenshots
+- noteworthy changes
 
 Possible PRs to use in the blog post or noteworthy changes:
 
@@ -72,15 +75,13 @@ Possible PRs to use in the blog post or noteworthy changes:
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
 
-## Lorem ipsum
-
-Lorem ipsum
-
 ## Entities card editor
+
 You can now also edit the entity rows of your entity card. That means you can not only set an entity id, but can also set the name, icon and secondary info.
 Also using special rows will not longer force you use the YAML editor, but you now can still use the UI editor and edit the special rows. UI editors for the special rows will come in the future.
 
 ## User management combined with person management
+
 We combined the user and person UI, this means that the user config panel will only be visible for users that have advanced mode enabled.
 
 The person detail dialog has now a toggle that allows you to give the person access to Home Assistant.
@@ -88,14 +89,17 @@ If you toggle it on you can set a username and a password for the person. If you
 
 This makes it easier to manage the people in Home Assistant, everything in one place.
 
-## H.256 stream support for Android 
+## H.256 stream support for Android
+
 @uvjustin added support for H.256 streaming in the Android app, it will use a native video player that is shown on top of the Home Assistant UI. This player will only work in the more info dialog, and can not be used In Lovelace cards.
 
 ## Chromecast Media player
+
 We now have our own media player for the Chromecast. It is build in the same app we use for showing Lovelace dashboards, this means that if you play media via Home Assistant and you were showing a Lovelace view, the Lovelace view will be restored after the media is finished playing!
 
 
 ## Restore snapshots
+
 You can now upload snapshots from the UI and restores them.
 You can do this in the supervisor UI in the snapshots panel. But you can also do this during onboarding!
 
@@ -424,6 +428,26 @@ This makes all services to use consistently named parameters.
   </p>
 </details>
 
+<details>
+  <summary><b>TekSavvy</b></summary>
+  <p>
+
+The TekSavvy integration has been removed. The API that was used by this
+integration is no longer available.
+
+([@mikeodr] - [#40762]) ([teksavvy docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>TekSavvy</b></summary>
+
+  <p>
+
+  </p>
+</details>
+
 ## All changes
 
 <details>
@@ -673,6 +697,37 @@ This makes all services to use consistently named parameters.
 - Update pyatag to 0.3.4.4 ([@MatsNl] - [#40720]) ([atag docs])
 - Add template cover opening and closing states ([@TheNr1Guest] - [#40677]) ([template docs])
 - Upgrade paho-mqtt to 1.5.1 ([@frenck] - [#40703]) ([mqtt docs]) ([shiftr docs])
+- Add Neighbors & Endpoint Names to zha/devices reply ([@Samantha-uk] - [#40748]) ([zha docs])
+- Bump ZHA quirks lib to 0.0.45 ([@dmulcahey] - [#40769]) ([zha docs])
+- Normalise headers in onewire integration ([@epenet] - [#40774]) ([onewire docs])
+- Update xknx to 0.15.0 ([@marvin-w] - [#40649]) ([knx docs])
+- Use direct service calls in flux tests instead of switch common ([@frenck] - [#40704]) ([flux docs])
+- Update devolo-home-control-api to 0.15.0 ([@Shutgun] - [#40764]) ([devolo_home_control docs])
+- Code cleanups for async_track_template_result ([@bdraco] - [#40737])
+- Add unique_id to the light switch ([@tetienne] - [#40603]) ([switch docs])
+- Fix logbook with empty filter and remove unused code ([@bdraco] - [#40565]) ([logbook docs]) ([recorder docs])
+- Setup recorder model relationships to avoid calling flush ([@bdraco] - [#40467]) ([recorder docs])
+- Remove TekSavvy Component, no longer available ([@mikeodr] - [#40762]) ([teksavvy docs]) (breaking-change)
+- Improve command_line switch tests ([@frenck] - [#40749]) ([command_line docs])
+- Use common strings for velbus config flow ([@Cereal2nd] - [#40660]) ([velbus docs])
+- Upgrade sentry-sdk to 0.18.0 ([@frenck] - [#40784]) ([sentry docs])
+- Refactor group to extend domains that can be grouped ([@bdraco] - [#40607]) ([group docs])
+- Disable hourly sensor by default in NWS ([@MatthewFlamm] - [#40566]) ([nws docs])
+- Fix and clean tox.ini ([@MartinHjelmare] - [#40789])
+- Fix DWD namings ([@creichel] - [#40791]) ([dwd_weather_warnings docs])
+- Tibber, combine two fetches into one fetch ([@Danielhiversen] - [#40787]) ([tibber docs])
+- Create MQTTMatcher once per subscription instead of each message ([@bdraco] - [#40345]) ([mqtt docs])
+- Use the Home Assistant Cast app to play media on Chromecast ([@bramkragten] - [#40782]) ([cast docs])
+- Improve deCONZ state updates ([@Kane610] - [#40601]) ([deconz docs])
+- Switch group to use None for the state unknown case ([@bdraco] - [#40792]) ([group docs])
+- Log timestamp overflow in stream ([@uvjustin] - [#39844]) ([stream docs])
+- Return target duration of 1 when no segments ([@uvjustin] - [#40518]) ([stream docs])
+- Add Surveillance Station home mode switch for Synology DSM ([@Quentame] - [#40490]) ([synology_dsm docs]) (new-platform)
+- Remove message and domain from logbook state_changed events ([@bdraco] - [#40070]) ([logbook docs]) (breaking-change)
+- Update frontend to 20200930.0 ([@bramkragten] - [#40794]) ([frontend docs])
+- Include config flow modules in coverage ([@Danielhiversen] - [#40798])
+- Add deCONZ service to clean up orphaned device and entity entries ([@Kane610] - [#40629]) ([deconz docs])
+- Discover additional ozw thermostats lacking mode support ([@firstof9] - [#40799]) ([ozw docs])
 
 </details>
 
@@ -704,6 +759,7 @@ This makes all services to use consistently named parameters.
 [#39819]: https://github.com/home-assistant/core/pull/39819
 [#39822]: https://github.com/home-assistant/core/pull/39822
 [#39838]: https://github.com/home-assistant/core/pull/39838
+[#39844]: https://github.com/home-assistant/core/pull/39844
 [#39853]: https://github.com/home-assistant/core/pull/39853
 [#39854]: https://github.com/home-assistant/core/pull/39854
 [#39859]: https://github.com/home-assistant/core/pull/39859
@@ -769,6 +825,7 @@ This makes all services to use consistently named parameters.
 [#40057]: https://github.com/home-assistant/core/pull/40057
 [#40058]: https://github.com/home-assistant/core/pull/40058
 [#40060]: https://github.com/home-assistant/core/pull/40060
+[#40070]: https://github.com/home-assistant/core/pull/40070
 [#40075]: https://github.com/home-assistant/core/pull/40075
 [#40076]: https://github.com/home-assistant/core/pull/40076
 [#40082]: https://github.com/home-assistant/core/pull/40082
@@ -820,6 +877,7 @@ This makes all services to use consistently named parameters.
 [#40329]: https://github.com/home-assistant/core/pull/40329
 [#40330]: https://github.com/home-assistant/core/pull/40330
 [#40344]: https://github.com/home-assistant/core/pull/40344
+[#40345]: https://github.com/home-assistant/core/pull/40345
 [#40352]: https://github.com/home-assistant/core/pull/40352
 [#40353]: https://github.com/home-assistant/core/pull/40353
 [#40355]: https://github.com/home-assistant/core/pull/40355
@@ -842,11 +900,13 @@ This makes all services to use consistently named parameters.
 [#40439]: https://github.com/home-assistant/core/pull/40439
 [#40448]: https://github.com/home-assistant/core/pull/40448
 [#40453]: https://github.com/home-assistant/core/pull/40453
+[#40467]: https://github.com/home-assistant/core/pull/40467
 [#40469]: https://github.com/home-assistant/core/pull/40469
 [#40472]: https://github.com/home-assistant/core/pull/40472
 [#40474]: https://github.com/home-assistant/core/pull/40474
 [#40480]: https://github.com/home-assistant/core/pull/40480
 [#40486]: https://github.com/home-assistant/core/pull/40486
+[#40490]: https://github.com/home-assistant/core/pull/40490
 [#40492]: https://github.com/home-assistant/core/pull/40492
 [#40493]: https://github.com/home-assistant/core/pull/40493
 [#40495]: https://github.com/home-assistant/core/pull/40495
@@ -858,6 +918,7 @@ This makes all services to use consistently named parameters.
 [#40512]: https://github.com/home-assistant/core/pull/40512
 [#40514]: https://github.com/home-assistant/core/pull/40514
 [#40515]: https://github.com/home-assistant/core/pull/40515
+[#40518]: https://github.com/home-assistant/core/pull/40518
 [#40519]: https://github.com/home-assistant/core/pull/40519
 [#40528]: https://github.com/home-assistant/core/pull/40528
 [#40530]: https://github.com/home-assistant/core/pull/40530
@@ -870,6 +931,8 @@ This makes all services to use consistently named parameters.
 [#40560]: https://github.com/home-assistant/core/pull/40560
 [#40561]: https://github.com/home-assistant/core/pull/40561
 [#40562]: https://github.com/home-assistant/core/pull/40562
+[#40565]: https://github.com/home-assistant/core/pull/40565
+[#40566]: https://github.com/home-assistant/core/pull/40566
 [#40570]: https://github.com/home-assistant/core/pull/40570
 [#40573]: https://github.com/home-assistant/core/pull/40573
 [#40574]: https://github.com/home-assistant/core/pull/40574
@@ -882,23 +945,29 @@ This makes all services to use consistently named parameters.
 [#40592]: https://github.com/home-assistant/core/pull/40592
 [#40594]: https://github.com/home-assistant/core/pull/40594
 [#40600]: https://github.com/home-assistant/core/pull/40600
+[#40601]: https://github.com/home-assistant/core/pull/40601
 [#40602]: https://github.com/home-assistant/core/pull/40602
+[#40603]: https://github.com/home-assistant/core/pull/40603
 [#40604]: https://github.com/home-assistant/core/pull/40604
 [#40606]: https://github.com/home-assistant/core/pull/40606
+[#40607]: https://github.com/home-assistant/core/pull/40607
 [#40608]: https://github.com/home-assistant/core/pull/40608
 [#40610]: https://github.com/home-assistant/core/pull/40610
 [#40617]: https://github.com/home-assistant/core/pull/40617
 [#40623]: https://github.com/home-assistant/core/pull/40623
 [#40624]: https://github.com/home-assistant/core/pull/40624
+[#40629]: https://github.com/home-assistant/core/pull/40629
 [#40635]: https://github.com/home-assistant/core/pull/40635
 [#40640]: https://github.com/home-assistant/core/pull/40640
 [#40644]: https://github.com/home-assistant/core/pull/40644
 [#40647]: https://github.com/home-assistant/core/pull/40647
+[#40649]: https://github.com/home-assistant/core/pull/40649
 [#40652]: https://github.com/home-assistant/core/pull/40652
 [#40653]: https://github.com/home-assistant/core/pull/40653
 [#40654]: https://github.com/home-assistant/core/pull/40654
 [#40655]: https://github.com/home-assistant/core/pull/40655
 [#40659]: https://github.com/home-assistant/core/pull/40659
+[#40660]: https://github.com/home-assistant/core/pull/40660
 [#40663]: https://github.com/home-assistant/core/pull/40663
 [#40664]: https://github.com/home-assistant/core/pull/40664
 [#40668]: https://github.com/home-assistant/core/pull/40668
@@ -912,6 +981,7 @@ This makes all services to use consistently named parameters.
 [#40689]: https://github.com/home-assistant/core/pull/40689
 [#40694]: https://github.com/home-assistant/core/pull/40694
 [#40703]: https://github.com/home-assistant/core/pull/40703
+[#40704]: https://github.com/home-assistant/core/pull/40704
 [#40708]: https://github.com/home-assistant/core/pull/40708
 [#40709]: https://github.com/home-assistant/core/pull/40709
 [#40712]: https://github.com/home-assistant/core/pull/40712
@@ -919,6 +989,22 @@ This makes all services to use consistently named parameters.
 [#40720]: https://github.com/home-assistant/core/pull/40720
 [#40727]: https://github.com/home-assistant/core/pull/40727
 [#40734]: https://github.com/home-assistant/core/pull/40734
+[#40737]: https://github.com/home-assistant/core/pull/40737
+[#40748]: https://github.com/home-assistant/core/pull/40748
+[#40749]: https://github.com/home-assistant/core/pull/40749
+[#40762]: https://github.com/home-assistant/core/pull/40762
+[#40764]: https://github.com/home-assistant/core/pull/40764
+[#40769]: https://github.com/home-assistant/core/pull/40769
+[#40774]: https://github.com/home-assistant/core/pull/40774
+[#40782]: https://github.com/home-assistant/core/pull/40782
+[#40784]: https://github.com/home-assistant/core/pull/40784
+[#40787]: https://github.com/home-assistant/core/pull/40787
+[#40789]: https://github.com/home-assistant/core/pull/40789
+[#40791]: https://github.com/home-assistant/core/pull/40791
+[#40792]: https://github.com/home-assistant/core/pull/40792
+[#40794]: https://github.com/home-assistant/core/pull/40794
+[#40798]: https://github.com/home-assistant/core/pull/40798
+[#40799]: https://github.com/home-assistant/core/pull/40799
 [@2Fake]: https://github.com/2Fake
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
@@ -947,6 +1033,7 @@ This makes all services to use consistently named parameters.
 [@RobBie1221]: https://github.com/RobBie1221
 [@RogerSelwyn]: https://github.com/RogerSelwyn
 [@SNoof85]: https://github.com/SNoof85
+[@Samantha-uk]: https://github.com/Samantha-uk
 [@Shutgun]: https://github.com/Shutgun
 [@SukramJ]: https://github.com/SukramJ
 [@TheGardenMonkey]: https://github.com/TheGardenMonkey
@@ -960,12 +1047,15 @@ This makes all services to use consistently named parameters.
 [@basnijholt]: https://github.com/basnijholt
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
 [@cgtobi]: https://github.com/cgtobi
 [@chemelli74]: https://github.com/chemelli74
+[@creichel]: https://github.com/creichel
 [@ctalkington]: https://github.com/ctalkington
 [@daniel-jong]: https://github.com/daniel-jong
 [@danielkucera]: https://github.com/danielkucera
 [@dermotduffy]: https://github.com/dermotduffy
+[@dmulcahey]: https://github.com/dmulcahey
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
 [@epenet]: https://github.com/epenet
@@ -986,6 +1076,7 @@ This makes all services to use consistently named parameters.
 [@mafrosis]: https://github.com/mafrosis
 [@marciogranzotto]: https://github.com/marciogranzotto
 [@marvin-w]: https://github.com/marvin-w
+[@mikeodr]: https://github.com/mikeodr
 [@nagyrobi]: https://github.com/nagyrobi
 [@newAM]: https://github.com/newAM
 [@nzapponi]: https://github.com/nzapponi
@@ -1001,11 +1092,13 @@ This makes all services to use consistently named parameters.
 [@sqldiablo]: https://github.com/sqldiablo
 [@squishykid]: https://github.com/squishykid
 [@stephan192]: https://github.com/stephan192
+[@tetienne]: https://github.com/tetienne
 [@thomasgermain]: https://github.com/thomasgermain
 [@timkoers]: https://github.com/timkoers
 [@timmo001]: https://github.com/timmo001
 [@tkdrob]: https://github.com/tkdrob
 [@twdkeule]: https://github.com/twdkeule
+[@uvjustin]: https://github.com/uvjustin
 [@vangorra]: https://github.com/vangorra
 [@vigonotion]: https://github.com/vigonotion
 [@vzahradnik]: https://github.com/vzahradnik
@@ -1028,6 +1121,7 @@ This makes all services to use consistently named parameters.
 [canary docs]: /integrations/canary/
 [cast docs]: /integrations/cast/
 [comfoconnect docs]: /integrations/comfoconnect/
+[command_line docs]: /integrations/command_line/
 [concord232 docs]: /integrations/concord232/
 [deconz docs]: /integrations/deconz/
 [denon docs]: /integrations/denon/
@@ -1044,6 +1138,7 @@ This makes all services to use consistently named parameters.
 [ffmpeg_noise docs]: /integrations/ffmpeg_noise/
 [fibaro docs]: /integrations/fibaro/
 [firmata docs]: /integrations/firmata/
+[flux docs]: /integrations/flux/
 [forked_daapd docs]: /integrations/forked_daapd/
 [freebox docs]: /integrations/freebox/
 [fritzbox docs]: /integrations/fritzbox/
@@ -1051,6 +1146,7 @@ This makes all services to use consistently named parameters.
 [goalzero docs]: /integrations/goalzero/
 [gogogate2 docs]: /integrations/gogogate2/
 [griddy docs]: /integrations/griddy/
+[group docs]: /integrations/group/
 [growatt_server docs]: /integrations/growatt_server/
 [hassio docs]: /integrations/hassio/
 [hdmi_cec docs]: /integrations/hdmi_cec/
@@ -1128,6 +1224,8 @@ This makes all services to use consistently named parameters.
 [splunk docs]: /integrations/splunk/
 [spotify docs]: /integrations/spotify/
 [ssdp docs]: /integrations/ssdp/
+[stream docs]: /integrations/stream/
+[switch docs]: /integrations/switch/
 [synology docs]: /integrations/synology/
 [synology_dsm docs]: /integrations/synology_dsm/
 [system_log docs]: /integrations/system_log/
@@ -1135,6 +1233,7 @@ This makes all services to use consistently named parameters.
 [tag docs]: /integrations/tag/
 [tahoma docs]: /integrations/tahoma/
 [tankerkoenig docs]: /integrations/tankerkoenig/
+[teksavvy docs]: /integrations/teksavvy/
 [template docs]: /integrations/template/
 [tensorflow docs]: /integrations/tensorflow/
 [tibber docs]: /integrations/tibber/
