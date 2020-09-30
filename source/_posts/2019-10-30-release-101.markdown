@@ -224,7 +224,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. Auth providers for trusted networks and API passwords are still available. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
 
   - __Stride__ - The Stride notification integration was discontinued in February 2019 due to a take over by Slack. - ([@hmmbob] - [#27934]) ([stride docs])
-  - __Hipchat__ - The Hipchat notification integration was discontinued in February 2019, also due to a take over by Slack. - ([@fabaff] - [#27399]) ([hipchat docs])
+  - __Hipchat__ - The Hipchat notification integration was discontinued in February 2019, also due to a take over by Slack. - ([@fabaff] - [#27399])
 - __Deprecated__ - Python 3.6 support is deprecated (to be removed completely by December 2019), as version 3.8.0 is now out -  ([@scop] - [#27680])
 - __Scene__ - Scenes have to be configured more strictly from now on. Each entity must be configured with a valid state. Furthermore, the attributes that can be used must be `device state attributes`. This means that they should be listed under _developer-tools -> states_. - ([scene docs])
 - __Ecobee__ - Adds `turn_on` method to ecobee climate platform. Previously, calling `climate.turn_on` would cause the ecobee thermostat to turn on in heat mode, regardless of the mode when the thermostat was turned off. Now, the thermostat will turn on to the last "active" HVAC mode (i.e., "heat", "cool", or "auto") (or, if the thermostat was "off" when Home Assistant started, to "auto"). - ([@marthoc] - [#27103]) ([ecobee docs])
@@ -370,7 +370,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - move import to top-level ([@exxamalte] - [#27353]) ([onkyo docs])
 - move import to top-level ([@exxamalte] - [#27352]) ([systemmonitor docs])
 - Allow Google Assistant relative volume control ([@RyanEwen] - [#26585]) ([google_assistant docs])
-- Remove hipchat ([@fabaff] - [#27399]) ([hipchat docs]) (breaking change)
+- Remove hipchat ([@fabaff] - [#27399]) (breaking change)
 - Move imports in waze_travel_time component ([@eifinger] - [#27384]) ([waze_travel_time docs])
 - Move imports in wemo component ([@Quentame] - [#27393]) ([wemo docs])
 - Move imports in wink component ([@Quentame] - [#27392]) ([wink docs])
@@ -1666,7 +1666,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [hassio docs]: /integrations/hassio/
 [hikvision docs]: /integrations/hikvision/
 [hikvisioncam docs]: /integrations/hikvisioncam/
-[hipchat docs]: /integrations/hipchat/
 [hive docs]: /integrations/hive/
 [homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/
