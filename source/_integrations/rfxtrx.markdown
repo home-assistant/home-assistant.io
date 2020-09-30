@@ -51,7 +51,7 @@ To configure options for RFXtrx integration go to **Configuration** >> **Integra
 
 ### Automatic add
 
-In the options menu, select **Enable automatic add** to enable automation addition of detected devices. This is the easiest way to detect binary sensors, sensors or switches from a physical device. Once automatic add is enabled, newly detected devices are automatically added and can be found by clicking devices on the RFXtrx integration card.
+In the options menu, select *Enable automatic add* to enable automation addition of detected devices. This is the easiest way to detect binary sensors, sensors or switches from a physical device. Once automatic add is enabled, newly detected devices are automatically added and can be found by clicking devices on the RFXtrx integration card.
 
 #### Covers
 
@@ -87,11 +87,9 @@ some special options for them, while other RFXtrx protocols should work too.
 
 ### Add device by event code
 
-To manually add a device, in the options window an event code can be added in the field **Enter event code to add**.
+To manually add a device, in the options window an event code can be added in the field *Enter event code to add*.
 
-#### Generate codes
-
-See [Gemerate codes](#Generate codes) how to generate event codes.
+See [Generate codes](#generate-codes) how to generate event codes.
 
 #### RFY
 
@@ -118,6 +116,83 @@ Copy the event code from the state attribute of the switch which shows up on the
 *Waveman:*<br>
 710030e4102 **01** 50<br>
 710030e4102 **02** 50
+
+### Configure device options
+
+To configure device options select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
+
+#### Signal repetitions
+
+Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
+
+#### Device events
+
+To enable device events use the checkbox *Enable device event*. See [Events](#events) for more information about device events.
+
+#### Off Delay
+
+Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
+
+- Most motion sensors send a signal each time they detect motion. They stay "on" for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep.
+- Some doorbells may also only send "on" signals when their toggle switch is pressed, but no "off" signal when the switch is released.
+
+For those devices, use the *off_delay* parameter. It defines a delay after, which a device will go back to an "Off" state. That "Off" state will be fired internally by Home Assistant, just as if the device fired it by itself. If a motion sensor can only send signals once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.
+
+#### Options for PT-2262 devices under the Lighting4 protocol
+
+When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the field lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available in order to circumvent the problem:
+
+- **data_bits**
+- **command_on**
+- **command_off**
+
+Let's try to add a new PT-2262 sensor using the "automatic_add" option and have a look at Home Assistant system log.
+
+Have your sensor trigger the "On" state for the first time.
+Some messages will appear:
+
+```text
+INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 0913000022670e013970 (Device_id: 22670e Class: LightingDevice Sub: 0)
+```
+
+Here the sensor has the id *22670e*.
+
+Now have your sensor trigger the "Off" state and look for the following message in the Home Assistant log. You should see that your device has been detected as a *new* device when triggering its "Off" state:
+
+```text
+INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 09130000226707013d70 (Device_id: 226707 Class: LightingDevice Sub: 0)
+```
+
+Here the device id is *226707*, which is almost similar to the *22670e* we had on the "On" event a few seconds ago.
+
+From those two values, you can guess that the actual id of your device is *22670*, and that *e* and *7* are commands for "On" and "Off" states respectively. As one hexadecimal digit uses 4 bits, we can conclude that the device is using 4 data bits.
+
+So, here is the actual configuration section for the binary sensor:
+
+```yaml
+data_bits: 4
+command_on: 0xe
+command_off: 0x7
+```
+
+The *automatic_add* option makes the RFXtrx binary sensor integration calculate
+and display the configuration options for you in the Home Assistant logs:
+
+```text
+INFO (Thread-6) [homeassistant.components.rfxtrx] rfxtrx: found possible device 226707 for 22670e with the following configuration:
+data_bits=4
+command_on=0xe
+command_off=0x7
+INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Found possible matching deviceid 22670e.
+```
+
+This automatic guess should work most of the time, but there is no guarantee on that. You should activate it only when you want to configure your new devices and leave it off otherwise. 
+
+
+
+
+
+
 
 To enable RFXtrx in your installation, something like the following to your `configuration.yaml` file.
 
@@ -312,121 +387,6 @@ rfxtrx:
 
 
 
-
-
-#### Off Delay
-
-Binary sensors have only two states - "on" and "off". Many door or window
-opening sensors will send a signal each time the door/window is open or closed.
-However, depending on their hardware or on their purpose,
-some sensors are only able to signal their "on" state:
-
-- Most motion sensors send a signal each time they detect motion. They stay "on" for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep.
-- Some doorbells may also only send "on" signals when their toggle switch is pressed, but no "off" signal when the switch is released.
-
-For those devices, use the *off_delay* parameter.
-It defines a delay after, which a device will go back to an "Off" state.
-That "Off" state will be fired internally by Home Assistant, just as if
-the device fired it by itself. If a motion sensor can only send signals
-once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.
-
-Example configuration:
-
-```yaml
-rfxtrx:
-  automatic_add: false
-  host: 192.168.0.2
-  port: 50000
-  devices:
-    091300006ca2c6001080:
-      device_class: motion
-      off_delay:
-        seconds: 5
-```
-
-#### Options for PT-2262 devices under the Lighting4 protocol
-
-When a data packet is transmitted by a PT-2262 device using the Lighting4
-protocol, there is no way to automatically extract the device identifier and the
-command from the packet. Each device has its own id/command length combination
-and the field lengths are not included in the data. One device that sends 2
-different commands will be seen as 2 devices on Home Assistant. For such cases,
-the following options are available in order to circumvent the problem:
-
-- **data_bits** (*Optional*)
-- **command_on** (*Optional*)
-- **command_off** (*Optional*)
-
-Let's try to add a new PT-2262 sensor using the "automatic_add"
-option and have a look at Home Assistant system log.
-
-Have your sensor trigger the "On" state for the first time.
-Some messages will appear:
-
-```text
-INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 0913000022670e013970 (Device_id: 22670e Class: LightingDevice Sub: 0)
-```
-
-Here the sensor has the id *22670e*.
-
-Now have your sensor trigger the "Off" state and look for the following
-message in the Home Assistant log. You should see that your device
-has been detected as a *new* device when triggering its "Off" state:
-
-```text
-INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Added binary sensor 09130000226707013d70 (Device_id: 226707 Class: LightingDevice Sub: 0)
-```
-
-Here the device id is *226707*, which is almost similar to
-the *22670e* we had on the "On" event a few seconds ago.
-
-From those two values, you can guess that the actual id of your device is
-*22670*, and that *e* and *7* are commands for "On" and "Off" states
-respectively. As one hexadecimal digit uses 4 bits,
-we can conclude that the device is using 4 data bits.
-
-So, here is the actual configuration section for the binary sensor:
-
-```yaml
-rfxtrx:
-  automatic_add: false
-  host: 192.168.0.2
-  port: 50000
-  devices:
-    0913000022670e013b70:
-      device_class: opening
-      data_bits: 4
-      command_on: 0xe
-      command_off: 0x7
-```
-
-The *automatic_add* option makes the RFXtrx binary sensor integration calculate
-and display the configuration options for you in the Home Assistant logs:
-
-```text
-INFO (Thread-6) [homeassistant.components.rfxtrx] rfxtrx: found possible device 226707 for 22670e with the following configuration:
-data_bits=4
-command_on=0xe
-command_off=0x7
-INFO (Thread-6) [homeassistant.components.binary_sensor.rfxtrx] Found possible matching deviceid 22670e.
-```
-
-This automatic guess should work most of the time, but there is
-no guarantee on that. You should activate it only when you
-want to configure your new devices and leave it off otherwise.
-
-#### Known working devices
-
-The following devices are known to work with the RFXtrx binary sensor component.
-There are too many other to list.
-
-- Motion detectors:
-  - Kerui P817 and P829.
-  - Chuango PIR-700.
-
-- Door / window sensors:
-  - Kerui D026 door / window sensor: can trigger on "open" and "close". Has a tamper switch.
-  - Nexa LMST-606.
 
 ## Events
 
