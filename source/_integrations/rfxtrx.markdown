@@ -9,9 +9,11 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_release: pre 0.7
+ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
   - '@elupus'
+  - '@Robbie1221'
 ha_domain: rfxtrx
 ---
 
@@ -24,6 +26,28 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
 - [Switch](#switch)
+
+## Configuration
+
+To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in usb path manually.
+
+## Supported protocols
+
+Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) and enable the required protocol.
+
+### ser2net
+
+You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant configuration.
+
+```text
+50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT
+```
+
+## Settings options
+
+To configure options for RFXtrx integration go to **Configuration** >> **Integrations** and press **Options** on the RFXtrx card.
+
+<img src='/images/integrations/rfxtrx/options.png' />
 
 To enable RFXtrx in your installation, something like the following to your `configuration.yaml` file.
 
@@ -183,18 +207,6 @@ automatic_add:
 If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
 </div>
-
-## Supported protocols
-
-Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) and enable the required protocol.
-
-### ser2net
-
-You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant configuration.
-
-```text
-50000:raw:0:/dev/ttyUSB0:38400 8DATABITS NONE 1STOPBIT
-```
 
 ## Setting up your devices
 
