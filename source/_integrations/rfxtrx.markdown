@@ -29,13 +29,13 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in usb path manually.
+To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in USB path manually.
 
 ## Supported protocols
 
 Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. Your 433.92 product not showing in the logs? Visit the RFXtrx website to [download RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) and enable the required protocol.
 
-### ser2net
+## ser2net
 
 You can host your device on another computer by setting up ser2net and example configuration for ser2net looks like this and then using host/port in your Home Assistant configuration.
 
@@ -48,6 +48,68 @@ You can host your device on another computer by setting up ser2net and example c
 To configure options for RFXtrx integration go to **Configuration** >> **Integrations** and press **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
+
+### Automatic add
+
+In the options menu, select **Enable automatic add** to enable automation addition of detected devices. This is the easiest way to detect binary sensors, sensors or switches from a physical device. Once automatic add is enabled, newly detected devices are automatically added and can be found by clicking devices on the RFXtrx integration card.
+
+#### Covers
+
+The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
+
+#### Lights
+
+The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.
+
+Make sure you trigger a dimming command to get switches detected as lights otherwise, they will show up as switches.
+
+#### Switches
+
+The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
+
+#### Sensors
+
+The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.
+
+Also, several switches and other devices will also expose sensor entities with battery status as well as the signal level.
+
+#### Binary Sensors
+
+The `rfxtrx` platform support binary sensors that
+communicate in the frequency range of 433.92 MHz.
+The RFXtrx binary sensor integration provides support for them.
+
+Many cheap sensors available on the web today are based on a particular RF chip
+called *PT-2262*. Depending on the running firmware on the RFXcom box, some of
+them may be recognized under the X10 protocol, but most of them are recognized
+under the *Lighting4* protocol. The RFXtrx binary sensor integration provides
+some special options for them, while other RFXtrx protocols should work too.
+
+### Add device by event code
+
+To manually add a device, in the options window an event code can be added in the field **Enter event code to add**.
+
+#### RFY
+
+The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however, it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
+
+#### Convert switch event to dimming event
+
+To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
+
+To convert a switch to a dimmable light, make sure the event contain a dimming command. You can usually convert a command by changing one byte.
+
+*ARC:*<br>
+0b11000248bc0cfe09 **01** 0f70<br>
+0b11000248bc0cfe09 **02** 0f70
+
+*LightwaveRF:*<br>
+0a14000101f20302 **01** 0080<br>
+0a14000101f20302 **10** 0080
+
+*Waveman:*<br>
+710030e4102 **01** 50<br>
+710030e4102 **02** 50
 
 To enable RFXtrx in your installation, something like the following to your `configuration.yaml` file.
 
@@ -235,59 +297,14 @@ rfxtrx:
     0913000022670e013b70:
 ```
 
-### Covers
 
-The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
 
-##### RFY
 
-The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) is required for RFY support, however, it does not support receive for the RFY protocol - as such devices cannot be automatically added. Instead, configure the device in the [rfxmngr](http://www.rfxcom.com/downloads.htm) tool. Make a note of the assigned ID and Unit Code and then add a device to the configuration with the following id `071a0000[id][unit_code]`. E.g., if the id was `0a` `00` `01`, and the unit code was `01` then the fully qualified id would be `071a00000a000101`, if you set your id/code to single digit in the rfxmngr, e.g., id: `1` `02` `04` and unit code: `1` you will need to add `0` before, so `102031` becomes `071a000001020301`.
 
-### Lights
 
-The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.
 
-Make sure you trigger a dimming command to get switches detected as lights otherwise, they will show up as switches.
 
-#### Convert switch event to dimming event
 
-To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
-
-To convert a switch to a dimmable light, make sure the event contain a dimming command. You can usually convert a command by changing one byte.
-
-*ARC:*<br>
-0b11000248bc0cfe09 **01** 0f70<br>
-0b11000248bc0cfe09 **02** 0f70
-
-*LightwaveRF:*<br>
-0a14000101f20302 **01** 0080<br>
-0a14000101f20302 **10** 0080
-
-*Waveman:*<br>
-710030e4102 **01** 50<br>
-710030e4102 **02** 50
-
-### Switches
-
-The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
-
-### Sensors
-
-The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.
-
-Also, several switches and other devices will also expose sensor entities with battery status as well as the signal level.
-
-### Binary Sensors
-
-The `rfxtrx` platform support binary sensors that
-communicate in the frequency range of 433.92 MHz.
-The RFXtrx binary sensor integration provides support for them.
-
-Many cheap sensors available on the web today are based on a particular RF chip
-called *PT-2262*. Depending on the running firmware on the RFXcom box, some of
-them may be recognized under the X10 protocol, but most of them are recognized
-under the *Lighting4* protocol. The RFXtrx binary sensor integration provides
-some special options for them, while other RFXtrx protocols should work too.
 
 #### Off Delay
 
