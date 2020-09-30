@@ -2,7 +2,7 @@
 #
 
 # General use redirects
-/join-chat https://discord.gg/c5DvZ4e
+/join-chat https://discord.gg/BzQNTqK
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 
 # Older development pages
@@ -879,7 +879,6 @@
 /components/sensor.tautulli /integrations/tautulli
 /components/sensor.tcp /integrations/tcp#sensor
 /components/sensor.ted5000 /integrations/ted5000
-/components/sensor.teksavvy /integrations/teksavvy
 /components/sensor.tellduslive /integrations/tellduslive
 /components/sensor.tellstick /integrations/tellstick#sensor
 /components/sensor.temper /integrations/temper
@@ -1875,7 +1874,6 @@
 /components/tautulli /integrations/tautulli
 /components/tcp /integrations/tcp
 /components/ted5000 /integrations/ted5000
-/components/teksavvy /integrations/teksavvy
 /components/telegram /integrations/telegram
 /components/telegram_bot /integrations/telegram_bot
 /components/tellduslive /integrations/tellduslive

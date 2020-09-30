@@ -67,7 +67,7 @@ If you are having issues and want to report a problem, always start with making 
 
 ## Device services
 
-Available services: `configure` and `deconz.device_refresh`.
+Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
 
 ### Service `deconz.configure`
 
@@ -102,6 +102,12 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
 Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
+
+#### Service `deconz.remove_orphaned_entries`
+
+Remove entries from entity and device registry which are no longer provided by deCONZ.
+
+Note: it is recommended to use this service after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
 
 ## Remote control devices
 

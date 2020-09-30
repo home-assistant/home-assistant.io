@@ -8,7 +8,7 @@ ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
 ha_codeowners:
-  - '@ProtoThis'
+  - '@hacf-fr'
   - '@Quentame'
 ha_config_flow: true
 ---
@@ -73,9 +73,12 @@ disks:
 
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
+You can change the scan interal within the configuration options (default is 15 min).
+
+Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetch as frequently.
+
 </div>
 
-You can change the scan interal within the configuration options (default is 15 min).
 
 ## Separate User Configuration
 
@@ -139,3 +142,11 @@ Security:
 For each disk:
 - `disk_exceed_bad_sector_thr`: Displays on to indicate if the disk exceeded the maximum bad sector threshold. (Does not work with DSM 5.x)
 - `disk_below_remain_life_thr`: Displays on to indicate if the disk dropped below the remain life threshold. (Does not work with DSM 5.x)
+
+
+## Switch
+- `home_mode`: Displays a toggle to enable/disable the [Surveillance Station](https://www.synology.com/en-us/surveillance) Home mode.
+
+
+## Cameras
+- `{camera_name}`: Displays cameras added in [Surveillance Station](https://www.synology.com/en-us/surveillance).
