@@ -269,6 +269,7 @@ The following software has built-in support for MQTT discovery:
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [SmartHome](https://github.com/roncoa/SmartHome)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
