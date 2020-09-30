@@ -11,9 +11,26 @@ categories: Release-Notes
 og_image: /images/blog/2020-10-0.116/social.png
 ---
 
+These are the beta release notes for Home Assistant 0.116.0.
+
+If you encounter any issues, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/Lovelace:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the Supervisor:<br>
+  <https://github.com/home-assistant/supervisor/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+description (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
 TODO:
 
-- Add beta notice to the top
 - Social media image
 - Introduction
 - Frontend changes
