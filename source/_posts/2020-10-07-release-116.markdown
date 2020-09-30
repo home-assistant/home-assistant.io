@@ -78,12 +78,12 @@ Lorem ipsum
 
 ## Entities card editor
 You can now also edit the entity rows of your entity card. That means you can not only set an entity id, but can also set the name, icon and secondary info.
-Also using special rows will not longer force you use the YAML editor, but you can still use the UI editor and edit the special rows. UI editors for the special rows will come in the future.
+Also using special rows will not longer force you use the YAML editor, but you now can still use the UI editor and edit the special rows. UI editors for the special rows will come in the future.
 
 ## User management combined with person management
 We combined the user and person UI, this means that the user config panel will only be visible for users that have advanced mode enabled.
 
-The person detail dialog has now a toggle that allows you to give the person acces to Home Assistant.
+The person detail dialog has now a toggle that allows you to give the person access to Home Assistant.
 If you toggle it on you can set a username and a password for the person. If you toggle it off, the user will be removed.
 
 This makes it easier to manage the people in Home Assistant, everything in one place.
@@ -92,7 +92,7 @@ This makes it easier to manage the people in Home Assistant, everything in one p
 @uvjustin added support for H.256 streaming in the Android app, it will use a native video player that is shown on top of the Home Assistant UI. This player will only work in the more info dialog, and can not be used In Lovelace cards.
 
 ## Chromecast Media player
-We now have our own media player for the Chromecast. It is build in the same app we use for showing Lovelace dashboards, this means that if you play media via Home Assistant and you where showing a Lovelace view, the Lovelace view will be restored after the media is finished playing!
+We now have our own media player for the Chromecast. It is build in the same app we use for showing Lovelace dashboards, this means that if you play media via Home Assistant and you were showing a Lovelace view, the Lovelace view will be restored after the media is finished playing!
 
 
 ## Restore snapshots
