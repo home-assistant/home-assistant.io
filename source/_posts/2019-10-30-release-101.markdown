@@ -223,7 +223,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Removed__ - The following integrations have been removed:
   - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. Auth providers for trusted networks and API passwords are still available. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])
 
-  - __Stride__ - The Stride notification integration was discontinued in February 2019 due to a take over by Slack. - ([@hmmbob] - [#27934]) ([stride docs])
+  - __Stride__ - The Stride notification integration was discontinued in February 2019 due to a take over by Slack. - ([@hmmbob] - [#27934])
   - __Hipchat__ - The Hipchat notification integration was discontinued in February 2019, also due to a take over by Slack. - ([@fabaff] - [#27399])
 - __Deprecated__ - Python 3.6 support is deprecated (to be removed completely by December 2019), as version 3.8.0 is now out -  ([@scop] - [#27680])
 - __Scene__ - Scenes have to be configured more strictly from now on. Each entity must be configured with a valid state. Furthermore, the attributes that can be used must be `device state attributes`. This means that they should be listed under _developer-tools -> states_. - ([scene docs])
@@ -672,7 +672,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Bump abodepy version ([@shred86] - [#27931]) ([abode docs])
 - Add support for AdGuard Home v0.99.0 ([@frenck] - [#27926]) ([adguard docs]) (breaking change)
 - remove duplicate unique_id, add unique_id for issues ([@zxdavb] - [#27916]) ([geniushub docs]) (breaking change)
-- Remove stride ([@hmmbob] - [#27934]) ([stride docs]) (breaking change)
+- Remove stride ([@hmmbob] - [#27934]) (breaking change)
 - Import shuffle ([@balloob] - [#27935]) ([http docs]) ([persistent_notification docs]) ([stream docs])
 - Update pysonos to 0.0.24 ([@timmccor] - [#27937]) ([sonos docs])
 - Bump pybotvac ([@Santobert] - [#27933]) ([neato docs])
@@ -1832,7 +1832,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [statsd docs]: /integrations/statsd/
 [steam_online docs]: /integrations/steam_online/
 [stream docs]: /integrations/stream/
-[stride docs]: /integrations/stride/
 [sun docs]: /integrations/sun/
 [supla docs]: /integrations/supla/
 [switch docs]: /integrations/switch/

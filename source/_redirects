@@ -1835,7 +1835,6 @@
 /components/stiebel_eltron /integrations/stiebel_eltron
 /components/stream /integrations/stream
 /components/streamlabswater /integrations/streamlabswater
-/components/stride /integrations/stride
 /components/suez_water /integrations/suez_water
 /components/sun /integrations/sun
 /components/supervisord /integrations/supervisord
