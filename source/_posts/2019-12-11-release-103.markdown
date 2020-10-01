@@ -516,7 +516,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move velux imports at top-level ([@Quentame] - [#29085]) ([velux docs])
 - Move upnp imports at top-level ([@Quentame] - [#29083]) ([upnp docs])
 - Move dlna_dmr imports at top-level ([@Quentame] - [#29082]) ([dlna_dmr docs])
-- Move imports to top for xfinity ([@springstan] - [#29077]) ([xfinity docs])
+- Move imports to top for xfinity ([@springstan] - [#29077])
 - Move imports to top for xeoma ([@springstan] - [#29076]) ([xeoma docs])
 - Move imports to top for version ([@springstan] - [#29075]) ([version docs])
 - Move imports to top for yale_smart_alarm ([@springstan] - [#29074]) ([yale_smart_alarm docs])
@@ -1802,7 +1802,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [wled docs]: /integrations/wled/
 [workday docs]: /integrations/workday/
 [xeoma docs]: /integrations/xeoma/
-[xfinity docs]: /integrations/xfinity/
 [xiaomi docs]: /integrations/xiaomi/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
