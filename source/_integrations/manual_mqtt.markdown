@@ -241,9 +241,11 @@ version:
 code_arm_required:
   description: Whether a code is required to transition to an armed state.
   type: boolean
+  default: true
 code_disarm_required:
   description: Whether a code is required to disarm the alarm
   type: boolean
+  default: false
 state_topic:
   description: The MQTT topic Home Assistant will publish state updates to.
   type: string
