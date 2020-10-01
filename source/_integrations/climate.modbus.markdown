@@ -110,6 +110,11 @@ temperature_unit:
   required: false
   type: string
   default: C
+scan_interval:
+  description: Defines the update interval of the sensor in seconds.
+  required: false
+  type: integer
+  default: 15
 {% endconfiguration %}
 
 
