@@ -90,7 +90,7 @@ To use this presence detection in your installation, add the following to your `
 device_tracker:
   - platform: ping
     hosts:
-      hostone: 192.168.2.10
+      hostname: 192.168.2.10
 ```
 
 {% configuration %}
