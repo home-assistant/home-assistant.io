@@ -4,6 +4,7 @@ description: Instructions on how to integrate data from the CityBikes API into H
 ha_category:
   - Transport
 ha_release: 0.49
+ha_iot_class: Cloud Polling
 ha_domain: citybikes
 ---
 
