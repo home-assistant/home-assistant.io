@@ -420,6 +420,7 @@ For example:
   sequence:
     - ...
 ```
+{ endraw %}
 
 ### Repeat Loop Variable
 
