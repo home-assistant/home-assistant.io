@@ -46,10 +46,6 @@ file_path:
   default: /var/log/fail2ban.log
 {% endconfiguration %}
 
-### Set up Fail2Ban
-
-For most setups, you can follow [this tutorial](/cookbook/fail2ban/) to set up `fail2ban` on your system. It will walk you through creating jails and filters, allowing you to monitor IP addresses that have been banned for too many failed SSH login attempts, as well as too many failed Home Assistant login attempts.
-
 ### Fail2Ban with Docker
 
 <div class='note'>
@@ -72,7 +68,7 @@ logger:
 
 #### Edit the `jail.local` file
 
-Next, we need to edit the `jail.local` file that is included with the Let's Encrypt Docker linked above.  Note, for this tutorial, we'll only be implementing the `[hass-iptables]` jail from the [previously linked tutorial](/cookbook/fail2ban/).
+Next, we need to edit the `jail.local` file that is included with the Let's Encrypt Docker linked above.  Note, for this tutorial, we'll only be implementing the `[hass-iptables]` jail.
 
 Edit `/mnt/user/appdata/letsencrypt/fail2ban/jail.local` and append the following to the end of the file:
 
