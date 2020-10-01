@@ -24,7 +24,7 @@ devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the cen
 
 Menu: **Configuration** -> **Integrations**.
 
-Click on the `+` sign to add an integration and click on **devolo Home Control**. You will be asked for your [mydevolo](https://www.mydevolo.com) credentials. After entering them, the devolo Home Control integration will be available.
+Click on the `+` sign to add an integration and click on **devolo Home Control**. You will be asked for your [mydevolo](https://www.mydevolo.com) credentials. After entering them, the devolo Home Control integration will be available. Please do not change the URLs provided in the advanced mode unless you know what you are doing.
 
 ## Switches
 

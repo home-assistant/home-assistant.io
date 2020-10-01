@@ -1,5 +1,5 @@
 ---
-title: Valloxs
+title: Vallox
 description: Instructions on how to integrate Vallox ventilation units into Home Assistant.
 ha_category:
   - Fan
@@ -78,10 +78,10 @@ automation:
       - entity_id: sensor.vallox_current_profile
         platform: state
     action:
-      - data_template:
-        entity_id: input_select.ventilation_profile
-        option: "{{ states('sensor.vallox_current_profile') }}"
-        service: input_select.select_option
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.ventilation_profile
+          option: "{{ states('sensor.vallox_current_profile') }}"
 ```
 {% endraw %}
 

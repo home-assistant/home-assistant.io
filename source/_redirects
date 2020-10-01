@@ -2,6 +2,7 @@
 #
 
 # General use redirects
+/join-chat https://discord.gg/BzQNTqK
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 
 # Older development pages
@@ -1834,7 +1835,6 @@
 /components/stiebel_eltron /integrations/stiebel_eltron
 /components/stream /integrations/stream
 /components/streamlabswater /integrations/streamlabswater
-/components/stride /integrations/stride
 /components/suez_water /integrations/suez_water
 /components/sun /integrations/sun
 /components/supervisord /integrations/supervisord
@@ -2078,6 +2078,7 @@
 /integrations/sensor.mqtt /integrations/mqtt#sensor
 /integrations/switch.mqtt /integrations/mqtt#switch
 /integrations/vacuum.mqtt /integrations/mqtt#vacuum
+/integrations/zigbee /integrations/xbee
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942

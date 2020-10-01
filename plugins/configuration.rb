@@ -104,7 +104,7 @@ module Jekyll
             unless [true, false, 'inclusive', 'exclusive'].include? attr['required']
 
           isTrue = attr['required'].to_s == 'true'
-          startSymbol = isTrue ? '' : '('
+          startSymbol = isTrue ? ' ' : ' ('
           endSymbol = isTrue ? '' : ')'
           showDefault = isDefault && (defaultValue.length <= MIN_DEFAULT_LENGTH)
           shortDefaultValue = ""
