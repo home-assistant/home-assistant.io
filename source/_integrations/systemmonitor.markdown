@@ -52,7 +52,7 @@ file.
 | memory_free            |                           |                           |
 | swap_use_percent       |                           |                           |
 | swap_use               |                           |                           |
-| swap_free              |                           |                           |
+| swap_free              | Path, e.g., `/`           | yes                       |
 | load_1m                |                           |                           |
 | load_5m                |                           |                           |
 | load_15m               |                           |                           |
