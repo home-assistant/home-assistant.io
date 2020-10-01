@@ -85,8 +85,6 @@ Also, several switches and other devices will also expose sensor entities with b
 
 The `rfxtrx` platform support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
-Customization can be used to set the [class of the device](/integrations/binary_sensor/): [customization](docs/configuration/customizing-devices/)
-
 ### Add device by event code
 
 To manually add a device, in the options window an event code can be added in the field *Enter event code to add*.
