@@ -13,7 +13,7 @@ ha_config_flow: true
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
 
-Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further [below](#For-TVs-older-than-2013).
+Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further [below](#for-tvs-older-than-2013).
 
 ## Configuration
 
@@ -28,8 +28,8 @@ To ensure a clean re-configuration, please perform the following steps:
 - Ensure that all braviatv entries in `configuration.yaml` have been removed and `bravia.conf` does not exist in your `.homeassistant` folder.
 - Remove the entities you are reconfiguring from Home Assistant.
 - Restart Home Assistant.
-- Perform the [TV does not generate new pin](#TV-does-not-generate-new-pin) steps.
-- Retry [configuration](###Setup-via-the-User-Interface).
+- Perform the [TV does not generate new pin](#tv-does-not-generate-new-pin) steps.
+- Retry [configuration](#configuration).
 
 ### TV does not generate new pin:
 
