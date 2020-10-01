@@ -61,7 +61,7 @@ the [WTH community forum posts][wth].
 If you are not a developer, new to git, GitHub or open source in general,
 documentation can be a great way to get started. A relatively easy way to
 contribute, is by reviewing the documentation of integrations you use or are
-familiar with, checking if everything is still up to date and if free of
+familiar with, checking if everything is still up to date and is free of
 spelling/grammar mistakes.
 
 Every single documentation page on our website has a "Edit this page on GitHub",
