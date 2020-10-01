@@ -34,7 +34,7 @@ host:
   required: true
   type: string
 count:
-  description: Number of packets to send.
+  description: Number of packages to be sent up to a maximum of 100.
   required: false
   type: integer
   default: 5
@@ -43,6 +43,11 @@ name:
   required: false
   type: string
   default: Ping Binary sensor
+scan_interval:
+  description: Minimum time interval between updates in secconds.
+  required: false
+  type: int
+  default: 300 seconds 
 {% endconfiguration %}
 
 The sensor exposes the different round trip times values measured by `ping` as attributes:
