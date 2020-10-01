@@ -38,7 +38,7 @@ the [`hacktoberfest` label][all].
 
 Or view all our Hacktoberfest issues across [all Home Assistant projects][all].
 
-Additionally, we recently held or [month of "What the heck?!"][wth-blog]. During
+Additionally, we recently held the [month of "What the heck?!"][wth-blog]. During
 this month a lot of suggestions and annoyances got reported by our community.
 While, those topic may not be approved as a change yet, it might be a great
 source of inspiration to contribute something the community wants. Check out
