@@ -4,6 +4,7 @@ description: Setup for Azure Event Hub integration
 ha_category:
   - History
 ha_release: 0.94
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@eavanvalkenburg'
 ha_domain: azure_event_hub
