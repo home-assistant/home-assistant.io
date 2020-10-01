@@ -59,7 +59,7 @@ To configure options for RFXtrx integration go to **Configuration** >> **Integra
 
 ### Automatic add
 
-In the options menu, select *Enable automatic add* to enable automation addition of detected devices. This is the easiest way to detect binary sensors, sensors or switches from a physical device. Once automatic add is enabled, newly detected devices are automatically added and can be found by clicking devices on the RFXtrx integration card.
+In the options menu, select *Enable automatic add* to enable automatic addition of detected devices. This is the easiest way to detect binary sensors, sensors or switches from a physical device. Once automatic add is enabled, newly detected devices are automatically added and can be found by clicking devices on the RFXtrx integration card.
 
 #### Covers
 
