@@ -166,11 +166,3 @@ ifttt_notify:
       data: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
 {% endraw %}
-
-### Additional Channel Examples
-
-Additional examples of using IFTTT channels can be found below.
-
-Channel | Description
------ | -----
-[Manything](/integrations/ifttt.manything/) | Automates turning recording ON and OFF based on Home Assistant AWAY and HOME values.
