@@ -236,7 +236,7 @@ Finally, when the integration starts it will send a JSON map to the `config_topi
 {% configuration %}
 version:
   description: The version of the integration / MQTT Protocol
-  type: int
+  type: integer
   default: 1
 code_arm_required:
   description: Whether a code is required to transition to an armed state.
