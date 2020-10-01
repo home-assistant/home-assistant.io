@@ -4,6 +4,7 @@ description: Instructions on how to integrate Radarr sensors with Home Assistant
 ha_category:
   - Downloading
 ha_release: 0.47
+ha_iot_class: Local Polling
 ha_domain: radarr
 ---
 
