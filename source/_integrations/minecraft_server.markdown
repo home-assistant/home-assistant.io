@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: minecraft_server
 ---
 
-Minecraft servers allow players to play the sandbox video game [Minecraft](https://www.minecraft.net) by [Mojang AB](https://www.mojang.com) online or via a local area network with other players. The `Minecraft Server` integration lets you retrieve information from a Minecraft server (Java edition) within Home Assistant.
+Minecraft servers allow players to play the sandbox video game [Minecraft](https://www.minecraft.net/en-us) by [Mojang AB](https://www.mojang.com) online or via a local area network with other players. The `Minecraft Server` integration lets you retrieve information from a Minecraft server (Java edition) within Home Assistant.
 
 <div class='note'>
 The server must be version 1.7 or higher, since older versions don't expose any information.
