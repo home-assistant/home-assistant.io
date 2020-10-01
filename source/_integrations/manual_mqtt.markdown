@@ -1,6 +1,6 @@
 ---
-title: Manual MQTT
-description: Instructions on how to integrate manual alarms into Home Assistant with MQTT support.
+title: Manual MQTT Alarm
+description: Instructions on how to turn Home Assistant into an alarm system but integrating the manual alarm with MQTT control support.
 ha_category:
   - Alarm
 ha_release: '0.50'
@@ -11,21 +11,39 @@ The `mqtt` platform extends the [manual alarm](/integrations/manual) by adding s
 
 It's essentially the opposite of the [MQTT Alarm Panel](/integrations/alarm_control_panel.mqtt/) which allows Home Assistant to observe an existing, fully-featured alarm where all of the alarm logic is embedded in that physical device.
 
-The integration will accept the following commands from your Alarm Panel via the `command_topic`:
+The integration expects your Alarm Panel to send commands via MQTT to the `command_topic` in the form of a JSON map.  The integration requires the map to have an `action` key, and optionally takes a `code` key.  The integration will accept the following actions from your Alarm Panel:
 
 - `DISARM`
 - `ARM_HOME`
 - `ARM_AWAY`
 - `ARM_NIGHT`
 
+An example command message would look like: `{"action":"DISARM", "code":"1234"}`
+
+If your Alarm Panel sends the incorrect code to arm or disarm the alarm, the integration will publish the string `INVALID` to the `status_topic`.
+
 When the state of the manual alarm changes, Home Assistant will publish one of the following states to the `state_topic`:
 
-- 'disarmed'
-- 'armed_home'
-- 'armed_away'
-- 'armed_night'
-- 'pending'
-- 'triggered'
+- `disarmed`
+- `armed_home`
+- `armed_away`
+- `armed_night`
+- `arming_home`
+- `arming_away`
+- `arming_night`
+- `triggered`
+
+When the integration starts, it will publish the configuration parameters to the `config_topic`.  The configuration is a JSON map that contains the following keys (see below for descriptions of these):
+
+- `version`
+- `code_arm_required`
+- `code_disarm_required`
+- `state_topic`
+- `status_topic`
+- `command_topic`
+- `delay_times`
+- `arming_times`
+- `trigger_times`
 
 ## Configuration
 
@@ -35,8 +53,6 @@ To use your panel in your installation, add the following to your `configuration
 # Example configuration.yaml entry
 alarm_control_panel:
   - platform: manual_mqtt
-    state_topic: home/alarm
-    command_topic: home/alarm/set
 ```
 
 The following configuration variables from the base manual alarm platform are available:
@@ -72,8 +88,8 @@ delay_time:
   required: false
   type: integer
   default: 0
-pending_time:
-  description: The time in seconds of the pending time before effecting a state change.
+arming_time:
+  description: The time in seconds of the arming time before effecting a state change to an armed state.
   required: false
   type: integer
   default: 60
@@ -96,8 +112,8 @@ armed_home/armed_away/armed_night/disarmed/triggered:
       description: State specific setting for **delay_time** (all states except **triggered**).
       required: false
       type: integer
-    pending_time:
-      description: State specific setting for **pending_time** (all states except **disarmed**).
+    arming_time:
+      description: State specific setting for **arming_time** (all states except **disarmed** and **triggered**).
       required: false
       type: integer
     trigger_time:
@@ -113,12 +129,24 @@ Additionally, the following MQTT configuration variables are also available.
 {% configuration %}
 state_topic:
   description: The MQTT topic Home Assistant will publish state updates to.
-  required: true
+  required: false
   type: string
+  default: home/alarm
 command_topic:
   description: The MQTT topic Home Assistant will subscribe to, to receive commands from a remote device to change the alarm state.
-  required: true
+  required: false
+  type: JSON map
+  default: home/alarm/set
+config_topic:
+  description: The MQTT topic Home Assistant will use to publish the alarm configuration for the Alarm Panel to use.
+  required: false
+  type: JSON map
+  default: home/alarm/config
+status_topic:
+  description: The MQTT topic Home Assistant will use to publish immediate status when a state transition command fails.
+  required: false
   type: string
+  default: home/alarm/status
 qos:
   description: The maximum QoS level for subscribing and publishing to MQTT messages.
   required: false
@@ -159,18 +187,21 @@ In the configuration example below:
 # Example configuration.yaml entry
 alarm_control_panel:
   - platform: manual_mqtt
-    state_topic: home/alarm
-    command_topic: home/alarm/set
-    pending_time: 30
+    code: '1234'
+    arming_time: 30
     delay_time: 20
     trigger_time: 4
     disarmed:
       trigger_time: 0
     armed_home:
-      pending_time: 0
+      arming_time: 0
       delay_time: 0
-    triggered:
-      pending_time: 0
+```
+
+This will result in the following configuration JSON sent to the `config_topic` when the intrgration begins:
+
+```txt
+{"version": 1, "code_arm_required": true, "code_disarm_required": true, "state_topic": "home/alarm", "status_topic": "home/alarm/status", "comand_topic": "home/alarm/set", "delay_times": {"disarmed": 20, "armed_away": 20, "armed_home": 0, "armed_night": 20}, "arming_times": {"armed_away": 30, "armed_home": 0, "armed_night": 30}, "trigger_times": {"disarmed": 0, "armed_away": 4, "armed_home": 4, "armed_night": 4}}
 ```
 
 Refer to the [Manual Alarm Control page](/integrations/manual#examples) for more real-life examples on how to use this panel.
@@ -179,12 +210,14 @@ Refer to the [Manual Alarm Control page](/integrations/manual#examples) for more
 
 The state of this alarm can be controlled using [MQTT](/integrations/mqtt/). Ensure you've configured that before adding this component.
 
-To change the state of the alarm, publish one of the following messages to the `command_topic`:
+To change the state of the alarm, publish a JSON map with one of the following actions and an optional code to the `command_topic`:
 
  - `DISARM`
  - `ARM_HOME`
  - `ARM_AWAY`
  - `ARM_NIGHT`
+
+The JSON should look like: `{"action":"DISARM", "code":"1234"}`.  If you send the wrong code, you will receive a notification back on the `status_topic` with the string `INVALID`.
 
 To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
@@ -192,5 +225,48 @@ To receive state updates from HA, subscribe to the `state_topic`. Home Assistant
  - `armed_home`
  - `armed_away`
  - `armed_night`
- - `pending`
+ - `arming_home`
+ - `arming_away`
+ - `arming_night`
  - `triggered`
+
+Finally, when the integration starts it will send a JSON map to the `config_topic` which provides the necessary information for the alarm application to discover how HA was configured in order to provide a better user experience.  The config topics have the following definitions:
+
+
+{% configuration %}
+version:
+  description: The version of the integration / MQTT Protocol
+  type: int
+  default: 1
+code_arm_required:
+  description: Whether a code is required to transition to an armed state.
+  type: boolean
+code_disarm_required:
+  description: Whether a code is required to disarm the alarm
+  type: boolean
+state_topic:
+  description: The MQTT topic Home Assistant will publish state updates to.
+  type: string
+command_topic:
+  description: The MQTT topic Home Assistant will subscribe to, to receive commands from a remote device to change the alarm state.
+  type: string
+status_topic:
+  description: The MQTT topic Home Assistant will use to publish immediate status when a state transition command fails.
+  type: string
+arming_times/delay_times/trigger_times:
+  description: The transition times when transitioning into a particular state
+  type: map
+  keys:
+    disarmed:
+      description: Timer-specific setting for transitioning to **disarmed** state.  Not included in `arming_times`
+      type: integer
+    armed_away:
+      description: Timer-specific setting for transitioning to **armed_away** state.
+      type: integer
+    armed_home:
+      description: Timer-specific setting for transitioning to **armed_home** state.
+      type: integer
+    armed_night:
+      description: Timer-specific setting for transitioning to **armed_night** state.
+      type: integer
+{% endconfiguration %}
