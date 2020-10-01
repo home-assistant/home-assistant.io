@@ -33,6 +33,11 @@ host:
   description: The IP address or hostname of the system you want to track.
   required: true
   type: string
+name:
+  description: You can specify a name of the component.
+  required: false
+  type: string
+  default: ping_HOST
 count:
   description: Number of packages to be sent up to a maximum of 100.
   required: false
@@ -57,13 +62,14 @@ The sensor exposes the different round trip times values measured by `ping` as a
 - `round trip time min`
 - `round trip time max`
 
-The default polling interval is 5 minutes. As many integrations [based on the entity class](/docs/configuration/platform_options), it is possible to overwrite this scan interval by specifying a `scan_interval` configuration key (value in seconds). In the example below we setup the `ping` binary sensor to poll the devices every 30 seconds.
+The default polling interval is 5 minutes. As many integrations [based on the entity class](/docs/configuration/platform_options), it is possible to overwrite this scan interval by specifying a `scan_interval` configuration key (value in seconds). In the example below we setup the `ping` binary sensor to poll the device every 30 seconds.
 
 ```yaml
 # Example configuration.yaml entry to ping host 192.168.0.1 with 2 packets every 30 seconds.
 binary_sensor:
   - platform: ping
     host: 192.168.0.1
+    name: "device name"
     count: 2
     scan_interval: 30
 ```
