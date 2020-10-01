@@ -33,11 +33,6 @@ host:
   description: The IP address or hostname of the system you want to track.
   required: true
   type: string
-name:
-  description: You can specify a name of the component.
-  required: false
-  type: string
-  default: ping_HOST
 count:
   description: Number of packages to be sent up to a maximum of 100.
   required: false
@@ -47,7 +42,7 @@ name:
   description: Let you overwrite the name of the device.
   required: false
   type: string
-  default: Ping Binary sensor
+  default: Ping Binary sensor [hostname]
 scan_interval:
   description: Minimum time interval between updates in secconds.
   required: false
