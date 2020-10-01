@@ -64,7 +64,7 @@ Remembering these simple rules will help save you from many headaches and endles
 
 ## Trigger State Object
 
-Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
+Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric state`](#numeric-state) and [`template`](#template) triggers:
 
 * `trigger.from_state` will return the **previous** [state object](/docs/configuration/state_object/) of the entity.
 * `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.
