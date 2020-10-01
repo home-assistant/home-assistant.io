@@ -135,12 +135,12 @@ state_topic:
 command_topic:
   description: The MQTT topic Home Assistant will subscribe to, to receive commands from a remote device to change the alarm state.
   required: false
-  type: JSON map
+  type: string
   default: home/alarm/set
 config_topic:
   description: The MQTT topic Home Assistant will use to publish the alarm configuration for the Alarm Panel to use.
   required: false
-  type: JSON map
+  type: string
   default: home/alarm/config
 status_topic:
   description: The MQTT topic Home Assistant will use to publish immediate status when a state transition command fails.
@@ -230,7 +230,7 @@ To receive state updates from HA, subscribe to the `state_topic`. Home Assistant
  - `arming_night`
  - `triggered`
 
-Finally, when the integration starts it will send a JSON map to the `config_topic` which provides the necessary information for the alarm application to discover how HA was configured in order to provide a better user experience.  The config topics have the following definitions:
+Finally, when the integration starts it will send a JSON map to the `config_topic` which provides the necessary information for the alarm application to discover how HA was configured in order to provide a better user experience.  The `config_topic` keys have the following definitions:
 
 
 {% configuration %}
