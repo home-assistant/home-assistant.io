@@ -32,9 +32,21 @@ We've collected a bunch of tasks/suggestions/bugs that we'd love to get
 some help on. You can find those by filtering/searching for issues with
 the [`hacktoberfest` label][all].
 
-- [Frontend Hacktoberfest issues][frontend]
-- [Core Hacktoberfest issues][core]
-- [Documentation Hacktoberfest issues][docs]`
+- **[Core Hacktoberfest issues][core]**
+  
+  For example, help us migrate
+  [unittest tests to pytest style test][testcase] functions or lend a hand with
+  using as many references as possible
+  in the [configuration flow translations][translations].
+
+- **[Frontend Hacktoberfest issues][frontend]**
+  
+  We could use some help with [moving all `paper-dialogs` to `ha-dialogs`][paper].
+
+- **[Documentation Hacktoberfest issues][docs]**
+
+  [Find and fix broken links][links] on our website or help to complete the
+  addition of the [right IoT Class to every integration][class].
 
 Or view all our Hacktoberfest issues across [all Home Assistant projects][all].
 
@@ -68,10 +80,15 @@ Happy Hacktoberfest 🎉
 
 [all]: https://github.com/search?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Ahacktoberfest+org%3Ahome-assistant
 [brands]: https://github.com/home-assistant/brands/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Ahacktoberfest
+[class]: https://github.com/home-assistant/home-assistant.io/issues/14661
 [core]: https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Ahacktoberfest
 [docs-how-to]: https://community.home-assistant.io/t/editing-the-documentation-and-creating-a-pull-request-on-github/9573
 [docs]: https://github.com/home-assistant/home-assistant.io/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Ahacktoberfest
 [frontend]: https://github.com/home-assistant/frontend/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Ahacktoberfest
 [hacktoberfest]: https://hacktoberfest.digitalocean.com/
+[links]: https://github.com/home-assistant/home-assistant.io/issues/14663
+[paper]: https://github.com/home-assistant/frontend/issues/6138
+[testcase]: https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Aunittest.TestCase
+[translations]: https://github.com/home-assistant/core/issues/40578
 [wth-blog]: https://www.home-assistant.io/blog/2020/08/18/the-month-of-what-the-heck/
 [wth]: https://community.home-assistant.io/c/what-the-heck/52/l/latest?order=votes
