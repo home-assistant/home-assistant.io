@@ -8,6 +8,7 @@ ha_category:
   - Sensor
   - Light
   - Switch
+  - Climate
 ha_release: 0.21
 ha_iot_class: Local Push
 ha_codeowners:
@@ -26,6 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
+- [Climate](#climate)
 
 However, due to the wide range of message types, not all devices will work without code changes.
 The following devices have been confirmed to work out of the box:
@@ -380,3 +382,49 @@ switch nodon01_1:
     name: enocean_nodon01_1
     channel: 1
 ```
+## Climate
+
+The enocean climate platform is for controlling pattery powerd actuators with EER profile A5-20-01.
+
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: enocean
+    name: example_room_name
+    id: [0x01,0x90,0x84,0x3C]
+    target_temp: 20.5
+    pid_parameter: {"Kp": 0.2, "Ki" : 0.02, "Kd" : 0.01}
+    setpointselection: pid
+```
+The temperature sensor supports these additional configuration properties.
+
+{% configuration %}
+id:
+  description: The ID of the device. This is the 4 bytes long identifier of your device.
+  required: true
+  type: list
+name:
+  description: An identifier for the device.
+  required: false
+  type: string
+  default: EnOcean Valve
+target_temp:
+  description: The target room temperature.
+  required: false
+  type: integer
+  default: 0
+setpointselection:
+  description: Sets the mode how the setpoint on the valve is set. Can be set to "pos" or "pid". If set to "pid" an pid controller calculates the setpoint of the valve. If set to "pos" the valve will open if the setpoint is not reached, and closed if the setpoint is reached.
+  required: false
+  type: string
+  default: pos
+pid_parameter:
+  description: Configuration for the internal pid controller if used.
+  required: false
+  type: List
+  default: {"Kp": 0, "Ki": 0, "Kd": 0}
+{% endconfiguration %}
+
+To get the device work proper the "teach in" process has to be done. For devices configured in configuration.yaml the teach in telegram will be sent automaticaly.
