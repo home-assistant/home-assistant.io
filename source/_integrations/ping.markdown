@@ -51,7 +51,7 @@ name:
 scan_interval:
   description: Minimum time interval between updates in secconds.
   required: false
-  type: int
+  type: integer
   default: 300 seconds 
 {% endconfiguration %}
 
