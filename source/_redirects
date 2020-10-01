@@ -76,6 +76,7 @@
 /developers/rest_api https://developers.home-assistant.io/docs/api/rest/
 /developers/server_sent_events https://developers.home-assistant.io/docs/external_api_server_sent_events/
 /developers/websocket_api https://developers.home-assistant.io/docs/api/websocket/
+/developers/code_of_conduct/ /code_of_conduct
 
 # Platform pages to integration pages migration
 /components/air_pollutants /integrations/air_quality
@@ -2066,6 +2067,11 @@
 /integrations/switch.knx /integrations/knx#switch
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
+/integrations/hassio/ /hassio
+/integrations/cloud.alexa/ /cloud/alexa
+/getting-started/automation-create-first/ /getting-started/automation
+/getting-started/automation-2/ /getting-started/automation
+
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2135,6 +2141,7 @@
 /lovelace/views /lovelace/dashboards-and-views
 /lovelace/yaml-mode /lovelace/dashboards-and-views
 /lovelace/calendar-card /lovelace/calendar
+/integrations/lovelace/ /lovelace
 
 # Removed documentation
 /docs/installation/hassbian /getting-started

@@ -1,9 +1,6 @@
 ---
 title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
-redirect_from:
- - /getting-started/automation-create-first/
- - /getting-started/automation-2/
 ---
 
 Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**.
