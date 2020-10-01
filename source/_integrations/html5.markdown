@@ -4,6 +4,7 @@ description: Instructions on how to use the HTML5 push notifications platform fr
 ha_category:
   - Notifications
 ha_release: 0.27
+ha_iot_class: Cloud Push
 ha_domain: html5
 ---
 
