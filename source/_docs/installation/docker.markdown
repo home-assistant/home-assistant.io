@@ -1,7 +1,6 @@
 ---
 title: "Installation on Docker"
 description: "Instructions to install Home Assistant on a Docker."
-redirect_from: /getting-started/installation-docker/
 ---
 
 <div class='note warning'>
