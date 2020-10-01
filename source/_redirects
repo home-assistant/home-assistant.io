@@ -174,7 +174,7 @@
 /components/binary_sensor.rainmachine /integrations/rainmachine
 /components/binary_sensor.random /integrations/random#binary-sensor
 /components/binary_sensor.raspihats /integrations/raspihats#binary-sensor
-/components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensor
+/components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensors
 /components/binary_sensor.ring /integrations/ring#binary-sensor
 /components/binary_sensor.rpi_gpio /integrations/rpi_gpio#binary-sensor
 /components/binary_sensor.rpi_pfio /integrations/rpi_pfio#binary-sensor
