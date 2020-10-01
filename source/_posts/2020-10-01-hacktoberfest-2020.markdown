@@ -9,7 +9,7 @@ categories: Community
 og_image: /images/blog/2020-10-01-hacktoberfest-2020/social.png
 ---
 
-<img src='/images/blog/2020-10-01-hacktoberfest-2020/social.png' style='border: 0;box-shadow: none;'>
+<img src='/images/blog/2020-10-01-hacktoberfest-2020/social.png' class='no-shadow'>
 
 October has started, which means: [Hacktoberfest][hacktoberfest]!
 
