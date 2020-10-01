@@ -322,6 +322,7 @@ Closest to some entity:
 
 ### Formatting
 
+- `bool` will format the output as boolean.
 - `float` will format the output as float.
 
 ### Numeric functions and filters
