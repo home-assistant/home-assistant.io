@@ -389,7 +389,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.hive docs]: /integrations/hive#binary-sensor
 [binary_sensor.ihc docs]: /integrations/ihc#binary-sensor
 [binary_sensor.maxcube docs]: /integrations/maxcube
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [binary_sensor.wink docs]: /integrations/wink#binary-sensor
 [binary_sensor.workday docs]: /integrations/workday
 [binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/

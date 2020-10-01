@@ -426,7 +426,7 @@ light:
 [binary_sensor.arest docs]: /integrations/arest#binary-sensor
 [binary_sensor.digital_ocean docs]: /integrations/digital_ocean#binary-sensor
 [binary_sensor.modbus docs]: /integrations/binary_sensor.modbus/
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [binary_sensor.verisure docs]: /integrations/verisure
 [calendar.google docs]: /integrations/calendar.google/
 [camera.arlo docs]: /integrations/arlo#camera

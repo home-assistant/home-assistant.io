@@ -781,7 +781,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [@rcloran]: https://github.com/rcloran
 [@rwa]: https://github.com/rwa
 [@tinloaf]: https://github.com/tinloaf
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [calendar.todoist docs]: /integrations/todoist
 [history docs]: /integrations/history/
 [light.zha docs]: /integrations/zha

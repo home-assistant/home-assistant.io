@@ -530,7 +530,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.gc100 docs]: /integrations/gc100#binary-sensor
 [binary_sensor.linode docs]: /integrations/linode#binary-sensor
 [binary_sensor.random docs]: /integrations/random#binary-sensor
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [binary_sensor.ring docs]: /integrations/ring#binary-sensor
 [binary_sensor.tellduslive docs]: /integrations/tellduslive
 [binary_sensor.trend docs]: /integrations/trend
