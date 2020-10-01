@@ -272,7 +272,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Add Touchline climate platform ([@abondoe] - [#10547]) ([climate.touchline docs]) (new-platform)
 - Upgrade pysnmp to 4.4.4 ([@fabaff] - [#11485]) ([device_tracker.snmp docs]) ([sensor.snmp docs]) ([switch.snmp docs])
 - Add new iGlo component ([@jesserockz] - [#11171]) ([light.iglo docs]) (new-platform)
-- Add missing configuration variables ([@fabaff] - [#11390]) ([sensor.metoffice docs])
+- Add missing configuration variables ([@fabaff] - [#11390]) ([metoffice docs])
 - Clean up Alexa.intent and DialogFlow.intent ([@balloob] - [#11492]) ([alexa.intent docs])
 - Fix time functions would throw errors in python scripts ([@tomwaters] - [#11414]) ([python_script docs])
 - Upgrade pywebpush to 1.5.0 ([@Chris-V] - [#11497]) ([notify.html5 docs])
@@ -707,6 +707,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.squeezebox docs]: /integrations/squeezebox
 [media_player.yamaha docs]: /integrations/yamaha
+[metoffice docs]: /integrations/metoffice/
 [modbus docs]: /integrations/modbus/
 [notify.html5 docs]: /integrations/html5
 [notify.pushbullet docs]: /integrations/pushbullet
@@ -730,7 +731,6 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [sensor.isy994 docs]: /integrations/isy994#sensors
 [sensor.knx docs]: /integrations/sensor.knx/
 [sensor.luftdaten docs]: /integrations/luftdaten#sensor
-[sensor.metoffice docs]: /integrations/sensor.metoffice/
 [sensor.miflora docs]: /integrations/miflora
 [sensor.mqtt docs]: /integrations/sensor.mqtt/
 [sensor.openweathermap docs]: /integrations/openweathermap#sensor

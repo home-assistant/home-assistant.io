@@ -1764,7 +1764,7 @@
 /components/sensor.command_line /integrations/sensor.command_line
 /components/sensor.ios /integrations/sensor.ios
 /components/sensor.knx /integrations/sensor.knx
-/components/sensor.metoffice /integrations/sensor.metoffice
+/components/sensor.metoffice /integrations/metoffice
 /components/sensor.modbus /integrations/sensor.modbus
 /components/sensor.mqtt /integrations/sensor.mqtt
 /components/sensor.mysensors /integrations/sensor.mysensors
