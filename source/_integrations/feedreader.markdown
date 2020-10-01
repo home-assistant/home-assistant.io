@@ -4,6 +4,7 @@ description: Instructions on how to integrate RSS feeds into Home Assistant.
 ha_category:
   - Other
 ha_release: 0.18
+ha_iot_class: Cloud Polling
 ha_domain: feedreader
 ---
 
