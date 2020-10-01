@@ -305,7 +305,7 @@ thousands state changed events per day, templates may re-render more than desira
 
 A `rate_limit` directive can be used to limit how often the template re-renders.
 
-`rate_limit` returns a `timedelta` object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
+`rate_limit` returns an empty string and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
 In the below example, re-renders are limited to once per minute:
 
