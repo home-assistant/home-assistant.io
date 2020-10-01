@@ -24,4 +24,3 @@ For detailed setup instructions, please refer to the [MQTT broker](/docs/mqtt/br
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
 
-See the [MQTT example component](/cookbook/python_component_mqtt_basic/) how to integrate your own component.
