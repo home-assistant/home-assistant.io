@@ -1835,7 +1835,6 @@
 /components/stiebel_eltron /integrations/stiebel_eltron
 /components/stream /integrations/stream
 /components/streamlabswater /integrations/streamlabswater
-/components/stride /integrations/stride
 /components/suez_water /integrations/suez_water
 /components/sun /integrations/sun
 /components/supervisord /integrations/supervisord
@@ -2066,6 +2065,7 @@
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/switch.knx /integrations/knx#switch
 /integrations/weather.knx /integrations/knx#weather
+/integrations/zigbee /integrations/xbee
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
