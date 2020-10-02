@@ -1,7 +1,6 @@
 ---
 title: "Installation of Home Assistant"
 description: "Instructions on how to install Home Assistant to launch on start."
-redirect_from: /getting-started/installation/
 ---
 
 <div class='note'>

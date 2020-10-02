@@ -4,6 +4,7 @@ description: Instructions on how to add Tides information to Home Assistant.
 ha_category:
   - Environment
 ha_release: 0.52
+ha_iot_class: Cloud Polling
 ha_domain: worldtidesinfo
 ---
 

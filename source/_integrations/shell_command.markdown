@@ -3,6 +3,7 @@ title: Shell Command
 description: Instructions on how to integrate Shell commands into Home Assistant.
 ha_category:
   - Automation
+ha_iot_class: Local Push
 ha_release: 0.7.6
 ha_quality_scale: internal
 ha_codeowners:

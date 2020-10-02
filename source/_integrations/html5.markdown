@@ -4,6 +4,7 @@ description: Instructions on how to use the HTML5 push notifications platform fr
 ha_category:
   - Notifications
 ha_release: 0.27
+ha_iot_class: Cloud Push
 ha_domain: html5
 ---
 
@@ -83,7 +84,7 @@ The `html5` platform can only function if all of the following requirements are 
 * Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
 * If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
 * If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e., `pywebpush` probably won't automatically install).
-* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self signed).
+* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
 * You are willing to accept the notification permission in your browser.
 
 ### Configuring the platform
@@ -311,7 +312,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
 
 ### Making notifications work with NGINX proxy
 
-If you use [NGINX](/ecosystem/nginx/) as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of authentication token that cannot be passed through the proxy.
+If you use NGINX as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of an authentication token that cannot be passed through the proxy.
 
 To solve the issue put additional location into your NGINX site's configuration:
 

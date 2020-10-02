@@ -1,7 +1,6 @@
 ---
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
-redirect_from: /getting-started/automation-trigger/
 ---
 
 ### What are triggers
@@ -287,7 +286,7 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    attribute: elevation
     # Can be a positive or negative number
     below: -4.0
   action:
@@ -297,7 +296,7 @@ automation:
 
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](https://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
+If you want to get more precise, you can use this [solar calculator](https://www.esrl.noaa.gov/gmd/grad/solcalc/), which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
 Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 

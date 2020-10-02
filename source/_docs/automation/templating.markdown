@@ -1,7 +1,6 @@
 ---
 title: "Automation Templating"
 description: "Advanced automation documentation using templating."
-redirect_from: /getting-started/automation-templating/
 ---
 
 In Home Assistant 0.19 we introduced a new powerful feature: variables in scripts and automations. This makes it possible to adjust your condition and action based on the information of the trigger.
@@ -64,7 +63,7 @@ Remembering these simple rules will help save you from many headaches and endles
 
 ## Trigger State Object
 
-Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
+Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric state`](#numeric-state) and [`template`](#template) triggers:
 
 * `trigger.from_state` will return the **previous** [state object](/docs/configuration/state_object/) of the entity.
 * `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.

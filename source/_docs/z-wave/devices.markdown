@@ -1,7 +1,6 @@
 ---
 title: "Z-Wave Devices"
 description: "What you need to know about Z-Wave devices."
-redirect_from: /getting-started/z-wave-devices/
 ---
 
 ## Devices, Nodes, Entities
