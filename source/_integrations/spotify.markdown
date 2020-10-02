@@ -41,7 +41,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 
 ## Configuration
 
-To add `Spotify` to Home Assistant, add the following to your `configuration.yaml` file:
+To add Spotify to Home Assistant, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
