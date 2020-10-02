@@ -102,9 +102,11 @@ LED colors on switches.
 
 
 #### Example BitSet service call
+
 The dictionary passed as the value should be of the form <BIT POSITION OR LABEL>: <1 for on or 0 for off>
 
 Here is an example of what to send to the service for a BitSet parameter:
+
 ```yaml
 node_id: 4
 parameter: 5
