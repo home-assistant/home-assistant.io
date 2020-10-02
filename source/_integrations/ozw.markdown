@@ -102,7 +102,7 @@ LED colors on switches.
 
 
 #### Example BitSet value
-The dictionary passed as the value should be of the form <BIT NUMBER OR LABEL>: <1 for on or 0 for off>
+The dictionary passed as the value should be of the form <BIT POSITION OR LABEL>: <1 for on or 0 for off>
 
 Here is an example of what to send:
 ```yaml
