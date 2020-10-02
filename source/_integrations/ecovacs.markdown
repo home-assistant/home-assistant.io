@@ -20,34 +20,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To add your Ecovacs devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
-
-```yaml
-ecovacs:
-  username: YOUR_ECOVACS_USERNAME
-  password: YOUR_ECOVACS_PASSWORD
-  country: YOUR_TWO_LETTER_COUNTRY_CODE
-  continent: YOUR_TWO_LETTER_CONTINENT_CODE
-```
-
-{% configuration %}
-username:
-  description: Your username to login to your Ecovacs account.
-  required: true
-  type: string
-password:
-  description: Your password to login to your Ecovacs account.
-  required: true
-  type: string
-country:
-  description: Your two-letter country code (us, uk, etc).
-  required: true
-  type: string
-continent:
-  description: Your two-letter continent code (na, eu, etc).
-  required: true
-  type: string
-{% endconfiguration %}
+To add the Ecovacs integration to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Ecovacs**.
 
 Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [sucks library protocol documentation](https://github.com/wpietri/sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
 
