@@ -5,6 +5,7 @@ ha_category:
   - Voice
 featured: true
 ha_release: 0.56
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
 ha_domain: google_assistant
