@@ -80,10 +80,10 @@ client_secret:
 
 ## Using multiple Spotify accounts
 
-The integration support multiple `Spotify` accounts at once. You don't need to
-create another `Spotify` application in the `Spotify` Developer Portal and no
-modification to the `configuration.yaml` file is needed. Multiple `Spotify`
-accounts can be linked to a _single_ `Spotify` application.
+The integration support multiple Spotify accounts at once. You don't need to
+create another Spotify application in the Spotify Developer Portal and no
+modification to the `configuration.yaml` file is needed. Multiple Spotify
+accounts can be linked to a _single_ Spotify application.
 
 To add an additional Spotify account to Home Assistant, repeat _only_ the steps
 in the [Activating the Spotify integration](#activating-the-spotify-integration)
