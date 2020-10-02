@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Switch
 ha_release: pre 0.7
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: wemo
 ---
