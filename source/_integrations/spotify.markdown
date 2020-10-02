@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: spotify
 ---
 
-The `Spotify` media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
+The Spotify media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
 
 ## Prerequisites
 
