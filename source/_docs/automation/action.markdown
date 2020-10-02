@@ -1,7 +1,6 @@
 ---
 title: "Automation Actions"
 description: "Automations result in action."
-redirect_from: /getting-started/automation-action/
 ---
 
 The action of an automation rule is what is being executed when a rule fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via services or events. For services you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).

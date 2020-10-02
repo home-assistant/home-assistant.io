@@ -1,7 +1,6 @@
 ---
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
-redirect_from: /getting-started/automation-trigger/
 ---
 
 ### What are triggers
