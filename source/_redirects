@@ -46,12 +46,12 @@
 /developers/frontend_add_card https://developers.home-assistant.io/docs/frontend/extending/adding-state-card
 /developers/frontend_add_more_info https://developers.home-assistant.io/docs/frontend/extending/adding-more-info-dialogs
 /developers/frontend_creating_custom_panels https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels
-/developers/frontend_creating_custom_ui https://developers.home-assistant.io/docs/frontend_creating_custom_ui/
+/developers/frontend_creating_custom_ui https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card
 /developers/frontend https://developers.home-assistant.io/docs/frontend
 /developers/hassio/addon_communication https://developers.home-assistant.io/docs/hassio_addon_communication/
 /developers/hassio/addon_config https://developers.home-assistant.io/docs/hassio_addon_config/
 /developers/hassio/addon_development https://developers.home-assistant.io/docs/hassio_addon_index/
-/developers/hassio/addon_presentation https://developers.home-assistant.io/docs/hassio_addon_presentation/
+/developers/hassio/addon_presentation https://developers.home-assistant.io/docs/add-ons/presentation/
 /developers/hassio/addon_publishing https://developers.home-assistant.io/docs/hassio_addon_publishing/
 /developers/hassio/addon_repository https://developers.home-assistant.io/docs/hassio_addon_repository/
 /developers/hassio/addon_testing https://developers.home-assistant.io/docs/hassio_addon_testing/
