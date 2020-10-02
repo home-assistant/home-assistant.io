@@ -13,18 +13,20 @@ ha_codeowners:
 ha_domain: plex
 ---
 
-The `plex` integration allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. The Media Players will allow you to control media playback and see the current playing item.
+The `Plex` integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. Plex Media Players will allow you to control media playback and see the current playing item.
 
-Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is also available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
+Support for playing music directly on linked [Sonos](/integrations/sonos/) speakers is available for users with an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription. More information [here](#sonos-playback).
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Media Player](#media-player)
 
-If your Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
+If a Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-The Plex integration is set up via **Configuration** -> **Integrations**. You will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the server linked to the associated account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the Integrations page. Home Assistant will show as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
+### Automatic Configuration
+
+The Plex integration is set up via **Configuration** -> **Integrations**. During the configuration, you will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the Plex server linked to the provided account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the **Integrations** page. Upon completeion, Home Assistant will be displayed as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
 
 
 ### Integration Options
@@ -57,14 +59,14 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 ## Sensor
 
-The `plex` sensor platform will monitor activity on a given Plex Media Server. It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details, it will show you who is watching what.
+The `Plex` sensor platform monitors activity on a given Plex Media Server. The sensor state provides the a count of users currently watching media from the `Plex` server. Clicking the sensor shows who is watching what media.
 
 
 ## Media Player
 
-The `plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls if supported by the device.
+The `Plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
 
-By default the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
+By default the `Plex` integration will create Media Player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
 ### Service `play_media`
 
@@ -186,12 +188,12 @@ media_content_id: '{ "library_name": "Adult Movies", "title": "die hard", year=1
 
 ## Sonos Playback
 
-To play Plex music directly to Sonos speakers, the following requirements must be met:
+To play `Plex` music directly to Sonos speakers, the following requirements must be met:
 
-1. Have an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription.
-2. Remote access enabled for your Plex server.
-3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
-4. [Sonos](/integrations/sonos/) integration configured.
+1. Have an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription
+2. Remote access enabled for your Plex server
+3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/)
+4. [Sonos](/integrations/sonos/) integration configured
 
 ### Service `plex.play_on_sonos`
 
@@ -254,5 +256,5 @@ play_plex_on_tv:
 
 ## Notes
 
-* The `plex` integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
-* Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
+* The `Plex` integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
+* Movies must be located under the 'Movies' section in a `Plex` library to properly view the 'playing' state.
