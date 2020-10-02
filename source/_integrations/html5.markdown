@@ -311,7 +311,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
 
 ### Making notifications work with NGINX proxy
 
-If you use [NGINX](/docs/ecosystem/nginx/) as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of authentication token that cannot be passed through the proxy.
+If you use NGINX as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of an authentication token that cannot be passed through the proxy.
 
 To solve the issue put additional location into your NGINX site's configuration:
 
