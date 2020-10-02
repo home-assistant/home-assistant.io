@@ -60,7 +60,7 @@ The first thing you need to do after you sign in to the [AWS console](https://co
 Next you need to create a Lambda function.
 
 - Click `Service` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT** Your current region will be displayed in the top right corner Make sure you select the right region based on your Amazon account's country:
+- **IMPORTANT** Your current region will be displayed in the top right corner. Make sure you select the right region based on your Amazon account's country:
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
@@ -70,7 +70,7 @@ Next you need to create a Lambda function.
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
 - Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Skills Kit` in the left part of the panel to add a Alexa Skills Kit trigger to your Lambda function.
-- Scroll down little bit, you need to input the `Skill ID` from the skill you created in previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`)
+- Scroll down a little bit, you need to input the `Skill ID` from the skill you created in the previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`).
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
 - Clear the example code and copy the Python script from this [GitHub Gist](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da).
 - Click the `Deploy` button of the `Function code` window.
