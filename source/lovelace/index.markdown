@@ -1,8 +1,6 @@
 ---
 title: "Lovelace"
 description: "Lovelace is a powerful and configurable dashboard for Home Assistant."
-redirect_from:
-  - /integrations/lovelace/
 ---
 
 Lovelace is the Home Assistant dashboard. It's a fast, customizable and powerful way for users to manage their homes, working on mobile and desktop.

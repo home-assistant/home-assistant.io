@@ -1085,6 +1085,7 @@
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio
+/integrations/lovelace /lovelace
 
 # Renaming components to integrations
 /components /integrations
@@ -2063,6 +2064,7 @@
 /integrations/cover.knx /integrations/knx#cover
 /integrations/light.knx /integrations/knx#light
 /integrations/notify.knx /integrations/knx#notify
+/integrations/notify.mqtt /cookbook/notify.mqtt
 /integrations/scene.knx /integrations/knx#scene
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/switch.knx /integrations/knx#switch
@@ -2075,6 +2077,7 @@
 /getting-started/automation-trigger /docs/automation/trigger
 /getting-started/automation-templating /docs/automation/templating
 /getting-started/basic /docs/configuration/basic
+/getting-started/browsers /docs/frontend/browsers
 /getting-started/customizing-devices /docs/configuration/customizing-devices
 /getting-started/devices /docs/configuration/devices
 /getting-started/installation /docs/installation
@@ -2172,3 +2175,7 @@
 /docs/installation/raspberry-pi-all-in-one /getting-started
 /getting-started/hassbian /getting-started
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
+
+# Blog
+/blog/2019/05/29/release-94 /blog/2019/06/05/release-94
+/state-of-the-union /blog/2019/11/22/state-of-the-union
