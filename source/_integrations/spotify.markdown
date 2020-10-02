@@ -16,8 +16,8 @@ The Spotify media player integration allows you to control [Spotify](https://www
 
 ## Prerequisites
 
-- `Spotify` account
-- `Spotify` application configured for Home Assistant (see [below](#create-a-spotify-application))
+- Spotify account
+- Spotify application configured for Home Assistant (see [below](#create-a-spotify-application))
 
 <div class='note'>
   Spotify integrated media controls (play, pause, skip) requires a Premium account.
