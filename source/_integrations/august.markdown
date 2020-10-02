@@ -122,3 +122,26 @@ Using the lock operation sensors, you can detect when a user operates a lock and
 ```
 
 {% endraw %}
+
+## Token Expiration Handling
+
+The August lock access_token is stored in a file called august.conf. When it expires, the integration fails, and you see errors in the home-assistant.log file.   For example:
+
+{% raw %}
+
+```
+2020-10-02 07:47:12 ERROR (MainThread) [august.authenticator_async] Token has expired.
+2020-10-02 07:47:14 ERROR (MainThread) [homeassistant.components.august] Access token is no longer valid
+```
+
+{% endraw %}
+
+
+Here are the steps to get a new access token (tested on Home Assistant Core `0.114.4`):
+
+1. Delete the august.conf file.
+1. Restart Home Assistant.
+1. Check your email to find a message from August that contains a verification code.
+1. When the Home Assistant UI reconnects, check the Notifications panel for a message.  Open the message, choose Configure, and enter the verification code.
+
+No further steps are required.  A new august.conf file is created and the august lock becomes available again. 
