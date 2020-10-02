@@ -81,7 +81,7 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Iridium]: https://iridiumbrowser.de/
 [Konqueror]: https://konqueror.org/
 [Lynx]: https://lynx.browser.org/
-[Midori]: https://www.midori-browser.org/
+[Midori]: https://astian.org/midori-browser/
 [Opera]: https://www.opera.com/
 [Safari]: https://www.apple.com/safari/
 [surf]: https://surf.suckless.org/
