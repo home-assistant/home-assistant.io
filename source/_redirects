@@ -174,7 +174,7 @@
 /components/binary_sensor.rainmachine /integrations/rainmachine
 /components/binary_sensor.random /integrations/random#binary-sensor
 /components/binary_sensor.raspihats /integrations/raspihats#binary-sensor
-/components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensor
+/components/binary_sensor.rfxtrx /integrations/rfxtrx#binary-sensors
 /components/binary_sensor.ring /integrations/ring#binary-sensor
 /components/binary_sensor.rpi_gpio /integrations/rpi_gpio#binary-sensor
 /components/binary_sensor.rpi_pfio /integrations/rpi_pfio#binary-sensor
@@ -829,7 +829,7 @@
 /components/sensor.reddit /integrations/reddit
 /components/sensor.rejseplanen /integrations/rejseplanen
 /components/sensor.rest /integrations/rest
-/components/sensor.rfxtrx /integrations/rfxtrx#sensor
+/components/sensor.rfxtrx /integrations/rfxtrx#sensors
 /components/sensor.ring /integrations/ring#sensor
 /components/sensor.ripple /integrations/ripple
 /components/sensor.rmvtransport /integrations/rmvtransport
@@ -1160,7 +1160,6 @@
 /components/binary_sensor.mysensors /integrations/binary_sensor.mysensors
 /components/binary_sensor.rest /integrations/binary_sensor.rest
 /components/binary_sensor.rflink /integrations/binary_sensor.rflink
-/components/binary_sensor.rfxtrx /integrations/binary_sensor.rfxtrx
 /components/binary_sensor.template /integrations/binary_sensor.template
 /components/binary_sensor.xiaomi_aqara /integrations/binary_sensor.xiaomi_aqara
 /components/bitcoin /integrations/bitcoin
@@ -1765,12 +1764,12 @@
 /components/sensor.command_line /integrations/sensor.command_line
 /components/sensor.ios /integrations/sensor.ios
 /components/sensor.knx /integrations/sensor.knx
-/components/sensor.metoffice /integrations/sensor.metoffice
+/components/sensor.metoffice /integrations/metoffice
 /components/sensor.modbus /integrations/sensor.modbus
 /components/sensor.mqtt /integrations/sensor.mqtt
 /components/sensor.mysensors /integrations/sensor.mysensors
 /components/sensor.rflink /integrations/sensor.rflink
-/components/sensor.rfxtrx /integrations/sensor.rfxtrx
+/components/sensor.rfxtrx /integrations/rfxtrx#sensors
 /components/sensor.websocket_api /integrations/sensor.websocket_api
 /components/sensor.xiaomi_aqara /integrations/sensor.xiaomi_aqara
 /components/sensor.xiaomi_miio /integrations/sensor.xiaomi_miio
