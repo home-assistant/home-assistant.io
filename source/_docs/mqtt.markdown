@@ -23,4 +23,3 @@ For detailed setup instructions, please refer to the [MQTT broker](/docs/mqtt/br
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
-

@@ -17,7 +17,7 @@ A great place to find popular configurations is on this
 
 </div>
 
-[automation]: /getting-started/automation/
+[automations]: /getting-started/automation/
 [github-search]: https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories
 
 {% assign cookbook = site.cookbook | sort: 'title' %}
