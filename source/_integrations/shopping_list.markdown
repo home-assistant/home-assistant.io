@@ -6,6 +6,7 @@ ha_category:
 ha_release: '0.50'
 ha_config_flow: true
 ha_quality_scale: internal
+ha_iot_class: Local Push
 ha_domain: shopping_list
 ---
 
