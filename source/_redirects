@@ -2028,6 +2028,8 @@
 /integrations/telegram_chatbot /integrations/telegram_bot
 
 # Moved documentation
+/details/database /docs/backend/database
+/details/updater /docs/backend/updater
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -2066,6 +2068,12 @@
 /integrations/switch.knx /integrations/knx#switch
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
+/getting-started/automation-action /docs/automation/action
+/getting-started/automation-condition /docs/automation/condition
+/getting-started/automation-examples /docs/automation/examples
+/getting-started/automation-troubleshooting /docs/automation/troubleshooting
+/getting-started/automation-trigger /docs/automation/trigger
+/getting-started/automation-templating /docs/automation/templating
 /getting-started/basic /docs/configuration/basic
 /getting-started/customizing-devices /docs/configuration/customizing-devices
 /getting-started/devices /docs/configuration/devices
