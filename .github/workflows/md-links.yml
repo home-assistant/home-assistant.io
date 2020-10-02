@@ -1,0 +1,19 @@
+---
+name: md-links
+
+"on":
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  md-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+      - name: markdown-link-check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-verbose-mode: "yes"
+          folder-path: "source"
