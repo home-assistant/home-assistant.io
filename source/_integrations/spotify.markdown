@@ -87,7 +87,7 @@ accounts can be linked to a _single_ Spotify application.
 
 To add an additional Spotify account to Home Assistant, repeat _only_ the steps
 in the [Activating the Spotify integration](#activating-the-spotify-integration)
-section. However, make sure you go to the `Spotify` website and log out before
+section. However, make sure you go to the Spotify website and log out before
 you do so.
 
 ## URI Links for Playlists
