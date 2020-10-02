@@ -268,7 +268,7 @@ Talk to you soon on Discord and in your pull request comments!
 [forecast]: /integrations/darksky
 [Bluetooth]: /integrations/bluetooth_le_tracker
 [Slack]: /integrations/slack
-[template]: /integrations/generic
+[template]: /integrations/generic_ip_camera
 [Bug]: /integrations/wink/
 [support]: /integrations/homematic/
 [node]: /integrations/zwave/

@@ -7,7 +7,7 @@ ha_category:
   - Climate
   - Cover
   - Light
-  - Notify
+  - Notifications
   - Scene
   - Sensor
   - Switch

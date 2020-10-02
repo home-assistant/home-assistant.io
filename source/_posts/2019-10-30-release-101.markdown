@@ -1654,7 +1654,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [glances docs]: /integrations/glances/
 [gntp docs]: /integrations/gntp/
 [goalfeed docs]: /integrations/goalfeed/
-[google docs]: /integrations/google/
+[google docs]: /integrations/calendar.google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_travel_time docs]: /integrations/google_travel_time/
 [gpsd docs]: /integrations/gpsd/
