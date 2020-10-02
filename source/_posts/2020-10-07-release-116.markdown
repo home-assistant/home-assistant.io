@@ -129,7 +129,7 @@ The following integration got support for a new platform:
 
 - [Synology DSM][synology_dsm docs] now supports cameras, added by [@shenxn]
 - [HVV Departures][hvv_departures docs] added binary sensors to show elevator
-  statuses. Added by [@DaAwesomeP]
+  statuses. Added by [@vigonotion]
 - Support for covers was added to [Modbus][modbus docs], by [@vzahradnik]
 - [Firmata][firmata docs] to support analog input and PWM/analog output
   Added by [@DaAwesomeP]
