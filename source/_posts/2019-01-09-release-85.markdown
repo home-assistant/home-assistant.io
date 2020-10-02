@@ -205,7 +205,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add native ESPHome API service call feature ([@OttoWinter] - [#19401]) ([esphome docs])
 - Upgade colorlog to 4.0.2 ([@fabaff] - [#19390])
 - Provide charging indicator for mychevy ([@sdague] - [#19348]) ([mychevy docs]) ([sensor.mychevy docs])
-- Add GTT Sensor ([@eliseomartelli] - [#18449]) ([sensor.gtt docs]) (new-platform)
+- Add GTT Sensor ([@eliseomartelli] - [#18449]) (new-platform)
 - Upgrade volvooncall to 0.8.7 ([@molobrakos] - [#19398]) ([volvooncall docs])
 - Cast lametric cycles parameter to int ([@deftdawg] - [#19370]) ([notify docs])
 - Satel integra monitor outputs ([@c-soft] - [#19149]) ([satel_integra docs]) ([binary_sensor.satel_integra docs])
@@ -846,7 +846,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.geo_rss_events docs]: /integrations/geo_rss_events
 [sensor.glances docs]: /integrations/glances
 [sensor.gtfs docs]: /integrations/gtfs
-[sensor.gtt docs]: /integrations/gtt
 [sensor.homematic docs]: /integrations/homematic
 [sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
 [sensor.huawei_lte docs]: /integrations/huawei_lte#sensor
