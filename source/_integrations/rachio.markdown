@@ -31,7 +31,7 @@ They will be automatically added if the Rachio integration integration is loaded
 
 <div class='note'>
 
-In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](https://www.home-assistant.io/docs/configuration/remote/) for more information.
+In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information.
 
 </div>
 
