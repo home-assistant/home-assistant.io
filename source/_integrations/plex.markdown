@@ -190,10 +190,10 @@ media_content_id: '{ "library_name": "Adult Movies", "title": "die hard", year=1
 
 To play `Plex` music directly to Sonos speakers, the following requirements must be met:
 
-1. Have an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription
-2. Remote access enabled for your Plex server
-3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/)
-4. [Sonos](/integrations/sonos/) integration configured
+1. Have an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription.
+2. Remote access enabled for your Plex server.
+3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
+4. [Sonos](/integrations/sonos/) integration configured.
 
 ### Service `plex.play_on_sonos`
 
