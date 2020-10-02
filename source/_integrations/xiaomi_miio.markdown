@@ -53,27 +53,20 @@ Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum
 
 ### Alternative methods
 
-<div class='note'>
-
-If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019). Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
-<br/> <br/>
-The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
-<br/> <br/>
-After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
-<br/> <br/>
-These instructions are written for the Mi Home app - not for the new RoboRock app.
-<br/> <br/>
-This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
-</div>
+- The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
+- After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
+- These instructions are written for the Mi Home app - not for the new RoboRock app.
+- This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
 
 ### Android (not rooted)
 
-> If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).
+> If using an Android device to retrieve the Access Token, version `v5.8.7` of Mi Home is confirmed working (October 2020).
 
-1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
-2. If your Robovac is already set up, you must reset its WiFi settings for it to get a new token.
-3. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
-4. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
+1. To begin, set up your Robovac / Mi-Remote with the latest version of Mi Home on your primary Android device as you normally would.
+2. Using `v5.8.7` of Mi Home, locate a text file called `<date>.log` under the `Smarthome/logs` folder where the 32 character token is stored.
+3. Search for the text "token", followed by the "name" tag where the name says 'Mi Remote' (or the name you've given to your device). Use this token, matching your device, not the token you find followed by name "Mi Control Hub" when you are not configuring that.
+4. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. In version `5.8.7` of Mi Home the token is stored in clear text.
+ </div>
 
 ### Linux and Rooted Android
 
