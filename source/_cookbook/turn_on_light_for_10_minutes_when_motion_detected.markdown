@@ -18,6 +18,7 @@ automation:
   action:
     service: light.turn_on
     entity_id: light.kitchen_light
+  mode: single
 
 - alias: Turn off kitchen light 10 minutes after last movement
   trigger:
@@ -29,6 +30,7 @@ automation:
   action:
     service: light.turn_off
     entity_id: light.kitchen_light
+  mode: single
 ```
 
 Or in the case of multiple sensors/triggers:
@@ -49,6 +51,7 @@ automation:
   - service: timer.start
     data:
       entity_id: timer.hallway
+  mode: single
 
 - alias: Turn off hallway lights 10 minutes after trigger
   trigger:
@@ -62,6 +65,7 @@ automation:
       entity_id:
         - light.hallway_0
         - light.hallway_1
+  mode: single
 
 timer:
   hallway:
@@ -85,6 +89,7 @@ You can also restrict lights from turning on based on time of day and implement 
     entity_id: group.office_lights
     data: 
       transition: 15
+  mode: single
 
 
 - alias: Motion Sensor Lights Off
@@ -99,4 +104,5 @@ You can also restrict lights from turning on based on time of day and implement 
       entity_id: group.office_lights
       data: 
         transition: 160
+  mode: single
 ```
