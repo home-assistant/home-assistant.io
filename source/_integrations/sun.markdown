@@ -4,6 +4,7 @@ description: Instructions on how to track the sun within Home Assistant.
 ha_category:
   - Environment
 ha_release: pre 0.7
+ha_iot_class: Cloud Polling
 ha_quality_scale: internal
 ha_codeowners:
   - '@Swamp-Ig'
