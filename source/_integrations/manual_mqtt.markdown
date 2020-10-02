@@ -31,7 +31,10 @@ When the state of the manual alarm changes, Home Assistant will publish one of t
 - `arming_home`
 - `arming_away`
 - `arming_night`
+- `pending`
 - `triggered`
+
+Note that the `pending` state is during the delay from an armed state going into a triggered state.  For example, if you have a delay from `armed_away` (to let you enter the code), when the alarm gets triggered it will sit in `pending` state for the delay, before going into the `triggered` state.
 
 When the integration starts, it will publish the configuration parameters to the `config_topic`.  The configuration is a JSON map that contains the following keys (see below for descriptions of these):
 
@@ -228,6 +231,7 @@ To receive state updates from HA, subscribe to the `state_topic`. Home Assistant
  - `arming_home`
  - `arming_away`
  - `arming_night`
+ - `pending`
  - `triggered`
 
 Finally, when the integration starts it will send a JSON map to the `config_topic` which provides the necessary information for the alarm application to discover how HA was configured in order to provide a better user experience.  The `config_topic` keys have the following definitions:
