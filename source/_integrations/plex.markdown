@@ -256,5 +256,5 @@ play_plex_on_tv:
 
 ## Notes
 
-* The `Plex` integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
+* The Plex integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
 * Movies must be located under the 'Movies' section in a `Plex` library to properly view the 'playing' state.
