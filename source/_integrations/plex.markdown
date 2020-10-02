@@ -59,7 +59,7 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 ## Sensor
 
-The `Plex` sensor platform monitors activity on a given Plex Media Server. The sensor state provides the a count of users currently watching media from the `Plex` server. Clicking the sensor shows who is watching what media.
+The `Plex` sensor platform monitors activity on a given Plex Media Server. The sensor state provides the a count of users currently watching media from the Plex server. Clicking the sensor shows who is watching what media.
 
 
 ## Media Player
@@ -188,7 +188,7 @@ media_content_id: '{ "library_name": "Adult Movies", "title": "die hard", year=1
 
 ## Sonos Playback
 
-To play `Plex` music directly to Sonos speakers, the following requirements must be met:
+To play Plex music directly to Sonos speakers, the following requirements must be met:
 
 1. Have an active [Plex Pass](https://www.plex.tv/plex-pass/) subscription.
 2. Remote access enabled for your Plex server.
