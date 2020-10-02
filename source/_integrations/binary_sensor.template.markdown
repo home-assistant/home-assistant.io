@@ -319,7 +319,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-If the template accesses every state on the system or all states under a specific domain, a default rate limit of one update per second is applied. If the template only accesses specific states, no rate limit is applied. The rate limit can be disabled by inserting `{{ rate_limit(seconds=0) }}` into the template.
+If the template accesses every state on the system or all states under a specific domain, a default rate limit of one update per second is applied. If the template only accesses specific states, no rate limit is applied. The rate limit can be disabled by inserting {% raw %}`{{ rate_limit(seconds=0) }}`{% endraw %} into the template.
 
 ### Working without entities
 
