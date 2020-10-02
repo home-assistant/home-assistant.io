@@ -20,7 +20,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 - Spotify application configured for Home Assistant (see [below](#create-a-spotify-application))
 
 <div class='note'>
-  Spotify integrated media controls (play, pause, skip) requires a Premium account.
+  Spotify integrated media controls (pause, play, next, etc.) requires a Premium account.
   If you do not have a Premium account, the integration's frontend will not show the controls.
 </div>
 
@@ -29,7 +29,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 - Login to [Spotify Developer](https://developer.spotify.com).
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
 - Select **Create An App**. Enter any name and description.
-- Once your application is created, view it and copy your `Client ID` and `Client Secret`, which are used in the Home Assistant configuration file.
+- Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file.
 - On the Spotify page, enter the **Edit Settings** dialog of your newly created application and add a *Redirect URI*:
   - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
   - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
@@ -98,4 +98,4 @@ The `media_content_id` can be obtained from the Spotify desktop-app by clicking 
 
 ## Unsupported Devices
 
-- **Sonos**: Although Sonos is a `Spotify Connect` device, it is not supported by the official `Spotify` API.
+- **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.
