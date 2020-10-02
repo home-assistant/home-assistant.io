@@ -344,7 +344,7 @@ Please note: It is possible that custom integrations (also known as
 custom components) use deprecated icons. These can throw warnings that need
 to be addressed in the custom integration.
 
-[mdi]: https://www.materialdesignicons.com
+[mdi]: https://materialdesignicons.com
 [mdi-upgrade]: https://dev.materialdesignicons.com/upgrade#4.9.95-to-5.0.45
 [simple-icons]: https://simpleicons.org/
 [hass-simpleicons]: https://github.com/vigonotion/hass-simpleicons
