@@ -2048,6 +2048,7 @@
 /docs/ecosystem/notebooks/installation https://data.home-assistant.io
 /docs/ecosystem/notebooks/stats https://data.home-assistant.io
 /docs/frontend/mobile https://companion.home-assistant.io
+/docs/script/editor /docs/scripts/editor
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -2056,6 +2057,7 @@
 /ecosystem/notebooks/installation https://data.home-assistant.io
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
+/integrations/auth /docs/authentication
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/cover.knx /integrations/knx#cover
@@ -2073,6 +2075,9 @@
 /getting-started/installation-docker /docs/installation/docker
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
+/getting-started/scripts /docs/scripts
+/getting-started/scripts-service-calls /docs/scripts/service-calls
+/getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
 /getting-started/troubleshooting /docs/installation/troubleshooting
 /getting-started/troubleshooting-configuration /docs/configuration/troubleshooting
