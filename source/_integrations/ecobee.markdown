@@ -40,7 +40,7 @@ Log in to the regular consumer portal and click the overflow menu button in the 
 
 Your new application will now appear on the left. Upon clicking on the application, API key will appear on the right. Copy this key and use it in the configuration section below. Click **X** to close the Developer section.
 
-## Automatic Configuration
+## Configuration
 
 1. In the **Configuration** > **Integrations** menu, click **+** and then select `ecobee` from the pop-up menu
 2. In the pop-up box, enter the API key you obtained from ecobee.com
