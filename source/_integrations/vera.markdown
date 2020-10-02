@@ -12,6 +12,7 @@ ha_category:
   - Switch
   - Climate
 ha_release: pre 0.7
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: vera
 ha_codeowners:
