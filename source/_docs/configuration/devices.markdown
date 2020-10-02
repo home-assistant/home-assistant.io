@@ -1,7 +1,6 @@
 ---
 title: "Adding devices to Home Assistant"
 description: "Steps to help you get your devices in Home Assistant."
-redirect_from: /getting-started/devices/
 ---
 
 Home Assistant will be able to automatically discover many devices and services available on your network if you have [the discovery component](/integrations/discovery/) enabled (the default setting).
