@@ -2066,6 +2066,20 @@
 /integrations/switch.knx /integrations/knx#switch
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
+/getting-started/basic docs/configuration/basic
+/getting-started/customizing-devices /docs/configuration/customizing-devices
+/getting-started/devices /docs/configuration/devices
+/topics/events /docs/configuration/events
+/topics/packages /docs/configuration/packages
+/topics/platform_options /docs/configuration/platform_options
+/topics/secrets /docs/configuration/secrets
+/getting-started/securing /docs/configuration/securing
+/topics/splitting_configuration /docs/configuration/splitting_configuration
+/topics/state_object /docs/configuration/state_object
+/topics/templating /docs/configuration/templating
+/getting-started/troubleshooting-configuration /docs/configuration/troubleshooting
+/getting-started/yaml /docs/configuration/yaml
+
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942

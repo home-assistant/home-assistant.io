@@ -1,7 +1,6 @@
 ---
 title: "Customizing entities"
 description: "Simple customization for entities in the frontend."
-redirect_from: /getting-started/customizing-devices/
 ---
 
 ## Changing the entity_id
