@@ -319,6 +319,8 @@ binary_sensor:
 ```
 {% endraw %}
 
+If the template accesses every state on the system or all states under a specific domain, a default rate limit of one update per second is applied. If the template only accesses specific states, no rate limit is applied. The rate limit can be disabled by inserting `{{ rate_limit(seconds=0) }}` into the template.
+
 ### Working without entities
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates. 
