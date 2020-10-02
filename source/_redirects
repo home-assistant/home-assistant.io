@@ -2066,7 +2066,7 @@
 /integrations/switch.knx /integrations/knx#switch
 /integrations/weather.knx /integrations/knx#weather
 /integrations/zigbee /integrations/xbee
-/getting-started/basic docs/configuration/basic
+/getting-started/basic /docs/configuration/basic
 /getting-started/customizing-devices /docs/configuration/customizing-devices
 /getting-started/devices /docs/configuration/devices
 /getting-started/securing /docs/configuration/securing
