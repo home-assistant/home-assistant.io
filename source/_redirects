@@ -2091,6 +2091,11 @@
 /getting-started/troubleshooting-configuration /docs/configuration/troubleshooting
 /getting-started/updating /docs/installation/updating
 /getting-started/yaml /docs/configuration/yaml
+/getting-started/z-wave /docs/z-wave
+/getting-started/z-wave-devices /docs/z-wave/devices
+/getting-started/z-wave-installation /docs/z-wave/installation
+/getting-started/z-wave-panel /docs/z-wave/control-panel
+/getting-started/z-wave-device-specific /docs/z-wave/device-specific
 /topics/events /docs/configuration/events
 /topics/packages /docs/configuration/packages
 /topics/platform_options /docs/configuration/platform_options
