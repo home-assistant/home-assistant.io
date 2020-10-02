@@ -4,8 +4,6 @@ description: "Instructions on how to add MQTT notifications to Home Assistant."
 logo: mqtt.png
 ha_category: Notifications
 ha_iot_class: Configurable
-redirect_from:
-  /integrations/notify.mqtt/
 ---
 
 The MQTT notification support is different than the other [notification](/integrations/notify/) platforms. It is a service. This means that you don't have to create a configuration entry but you need to provide more details when calling the service.

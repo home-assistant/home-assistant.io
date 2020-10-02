@@ -1,7 +1,6 @@
 ---
 title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
-redirect_from: /getting-started/basic/
 ---
 
 As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You may adjust this during onboarding, or afterwards at Configuration -> General.

@@ -9,7 +9,7 @@ The `vacuum` integration enables the ability to control home cleaning robots wit
 
 ## Configuration
 
-To use this integration in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/integrations/vacuum.xiaomi_miio/).
+To use this integration in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/integrations/xiaomi_miio#xiaomi-mi-robot-vacuum).
 
 ```yaml
 # Example configuration.yaml entry

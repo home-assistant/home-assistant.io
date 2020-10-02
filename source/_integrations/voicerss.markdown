@@ -42,7 +42,7 @@ format:
   default: 8khz_8bit_mono
 {% endconfiguration %}
 
-Check the [VoiceRSS API documentation](http://www.voicerss.org/api/documentation.aspx) for allowed values.
+Check the [VoiceRSS API documentation](http://www.voicerss.org/api/) for allowed values.
 
 ## Full configuration example
 

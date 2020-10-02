@@ -1,7 +1,6 @@
 ---
 title: "Updating Home Assistant"
 description: "Step to update Home Assistant."
-redirect_from: /getting-started/updating/
 ---
 
 <div class='note warning'>

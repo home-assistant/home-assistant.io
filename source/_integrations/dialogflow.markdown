@@ -5,6 +5,7 @@ ha_category:
   - Voice
 ha_release: 0.56
 ha_config_flow: true
+ha_iot_class: Cloud Push
 ha_domain: dialogflow
 ---
 

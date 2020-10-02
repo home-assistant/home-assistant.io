@@ -207,10 +207,6 @@ You can send TTS notifications to Snips using the `snips.say` and `snips.say_act
 | `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
 | `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
 
-### Snips Support
-
-There is an active [Forum](https://forum.snips.ai) for further support.
-
 ### Configuration Examples
 
 #### Turn on a light
