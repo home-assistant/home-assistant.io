@@ -26,4 +26,4 @@ An ESPHome device can be set up via the **Integrations** menu: **Configuration**
 
 **Note:** If the node has a password set, Home Assistant prompt for it. 
 
-Upon completion, all entities for that specific ESPHome device will be accessible through Home Assitant.
+Upon completion, all entities for that specific ESPHome device will be accessible through Home Assistant.
