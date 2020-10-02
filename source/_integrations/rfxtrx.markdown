@@ -21,9 +21,9 @@ There is currently support for the following device types within Home Assistant:
 
 - [Cover](#covers)
 - [Light](#lights)
+- [Switch](#switches)
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
-- [Switch](#switch)
 
 To enable RFXtrx in your installation, something like the following to your `configuration.yaml` file.
 

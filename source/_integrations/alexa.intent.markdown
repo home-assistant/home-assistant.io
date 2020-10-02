@@ -23,7 +23,7 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
 
 ### Create Your Amazon Alexa Custom Skill
 
-- Log in to [Amazon developer console][amazon-dev-console]
+- Log in to the [Amazon developer console][amazon-dev-console]
 - Click the Alexa button at the top of the console
 - Click the yellow "Add a new skill" button in the top right
   - Skill Type: Custom Interaction Model (default)
@@ -60,7 +60,7 @@ The first thing you need to do after you sign in to the [AWS console](https://co
 Next you need to create a Lambda function.
 
 - Click `Service` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT** Your current region will be displayed on the top right corner, make sure you select right region base on your Amazon account's country:
+- **IMPORTANT** Your current region will be displayed in the top right corner. Make sure you select the right region based on your Amazon account's country:
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
@@ -70,9 +70,9 @@ Next you need to create a Lambda function.
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
 - Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Skills Kit` in the left part of the panel to add a Alexa Skills Kit trigger to your Lambda function.
-- Scroll down little bit, you need to input the `Skill ID` from the skill you created in previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`.)
+- Scroll down a little bit, you need to input the `Skill ID` from the skill you created in the previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`).
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
-- Clear the example code and copy the Python script from: [https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da)
+- Clear the example code and copy the Python script from this [GitHub Gist](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da).
 - Click the `Deploy` button of the `Function code` window.
 - Scroll down again and you will find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
   - BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
@@ -84,11 +84,12 @@ Next you need to create a Lambda function.
 
 ### Account Linking
 
-Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are actioned. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
+Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are actioned. In order to link the account, you have to make sure your Home Assistant instance can be accessed from the Internet.
 
-- Sign in to the [Alexa Developer Console][alexa-dev-console] and go to the `Alexa Skills` page.
+- Log in to the [Amazon developer console][amazon-dev-console]
+- Go to the `Alexa Skills` page.
 - Find the skill you just created and click `Edit` in the `Actions` column.
-- Click `ACCOUNT LINKING` in the left navigation bar of build page
+- Click `ACCOUNT LINKING` in the left navigation bar of the build page
 - Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
@@ -110,7 +111,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 </p>
 
 - Click `Save` button in the top right corner.
-- Next, you will use the Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
+- Next, you will use the Alexa Mobile App or [Alexa web-based app](http://alexa.amazon.com/) to link your account.
   - Open the Alexa app, navigate to `Skills` -> `Your Skills` -> `Dev Skills`
   - Click the Custom skill you just created.
   - Click `Enable`.

@@ -1,7 +1,6 @@
 ---
 title: "Storing secrets"
 description: "Storing secrets outside of your configuration.yaml."
-redirect_from: /topics/secrets/
 ---
 
 The `configuration.yaml` file is a plain-text file, thus it is readable by anyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. By using `!secret` you can remove any private information from your configuration files. This separation can also help you to keep easier track of your passwords and API keys, as they are all stored at one place and no longer spread across the `configuration.yaml` file or even multiple YAML files if you [split up your configuration](/docs/configuration/splitting_configuration/).

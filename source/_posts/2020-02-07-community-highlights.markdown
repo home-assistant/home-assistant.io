@@ -46,7 +46,7 @@ _Thanks, [Robbie Trencheny](https://twitter.com/robbie) & [cgtobi](https://twitt
 
 ## An auto-generating Lovelace UI theme
 
-Dwain Scheeren shared a preview of his Lovelace theme on the [Home Assistant Community Forum]((https://community.home-assistant.io/t/dwains-theme-an-auto-generating-lovelace-ui-theme/168593)). The cool think about this theme, is that it automatically generates itself!
+Dwain Scheeren shared a preview of his Lovelace theme on the [Home Assistant Community Forum](https://community.home-assistant.io/t/dwains-theme-an-auto-generating-lovelace-ui-theme/168593). The cool think about this theme, is that it automatically generates itself!
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Wdh0q8K3JSk" frameborder="0" allowfullscreen></iframe>

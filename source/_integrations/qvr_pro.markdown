@@ -10,7 +10,7 @@ ha_codeowners:
   - '@oblogic7'
 ---
 
-[QVR Pro](https://www.qnap.com/solution/qvr-pro-official) allows you to create 
+[QVR Pro](https://www.qnap.com/en/software/qvr-pro) allows you to create 
 an independent and expandable surveillance environment on your QNAP NAS.  The 
 `qvr_pro` component allows you to view your QVR Pro channels in Home Assistant.
 
