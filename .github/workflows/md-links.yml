@@ -17,3 +17,4 @@ jobs:
         with:
           use-verbose-mode: "yes"
           folder-path: "source"
+          file-extension: ".markdown"
