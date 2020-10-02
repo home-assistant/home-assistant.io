@@ -1,7 +1,6 @@
 ---
 title: "Automation Examples"
 description: "Some automation examples to get you started."
-redirect_from: /getting-started/automation-examples/
 ---
 
 Just some sample automation rules to get you started.
