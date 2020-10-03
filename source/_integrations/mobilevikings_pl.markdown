@@ -5,7 +5,6 @@ ha_release: 0.116
 ha_category:
   - Network
 ha_iot_class: Cloud Polling
-ha_quality_scale: No score
 ha_config_flow: false
 ha_codeowners: @TheLastGimbus
 ha_domain: mobilevikings_pl
