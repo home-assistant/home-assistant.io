@@ -43,7 +43,7 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 - Device tracker: Allow 'None' MAC addresses to be loaded from `known_devices` file ([@kellerza])
 - Cover: Bugfixes ([@turbokongen], [@danielperna84])
 - Sensor: Support for displaying details about [crypto currencies][Coinmarketcap] ([@fabaff])
-- Device tracker: Support for [automatic] to track your vehicles ([@Teagan42])
+- Device tracker: Support for automatic to track your vehicles ([@Teagan42])
 - Devie tracker: Add exclude option to [Nmap] device tracker ([@danieljkemp])
 - Device tracker: Improved login errors for Asus device tracker ([@kellerza])
 - Sensor: Support for displaying the status of [Xbox] Live accounts ([@mKerix])
@@ -146,7 +146,6 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 [mqtt-fan]: /integrations/fan.mqtt/
 [Xbox]: /integrations/xbox_live
 [Nmap]: /integrations/nmap_tracker
-[automatic]: /integrations/automatic
 [Owntracks]: /integrations/owntracks
 [OpenweatherMap]: /integrations/openweathermap#sensor
 [OctoPrint]: /integrations/octoprint/
