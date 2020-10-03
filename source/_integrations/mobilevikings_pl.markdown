@@ -6,7 +6,8 @@ ha_category:
   - Network
 ha_iot_class: Cloud Polling
 ha_config_flow: false
-ha_codeowners: @TheLastGimbus
+ha_codeowners: 
+  - '@TheLastGimbus'
 ha_domain: mobilevikings_pl
 ---
 
