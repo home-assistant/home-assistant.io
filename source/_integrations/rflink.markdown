@@ -6,7 +6,6 @@ ha_category:
   - Hub
 ha_iot_class:
   - Assumed State
-  - Local Push
 ha_release: 0.38
 ha_domain: rflink
 ---
