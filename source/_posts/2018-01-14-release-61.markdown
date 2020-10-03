@@ -329,7 +329,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - add velux roller shutter to tahoma ([@thijsdejong] - [#11586]) ([tahoma docs])
 - Added support for enable/disable motion detection ([@abjorshammar] - [#11583]) ([camera.uvc docs])
 - Avoid returning empty media_image_url string ([@JackWindows] - [#11557]) ([media_player.cast docs])
-- Core support for hass.io calls & Bugfix check_config ([@pvizeli] - [#11571]) ([__init__ docs]) ([hassio docs]) ([updater docs])
+- Core support for hass.io calls & Bugfix check_config ([@pvizeli] - [#11571]) ([homeassistant docs]) ([hassio docs]) ([updater docs])
 - Fix Tahoma stop command for 2 types of shutters ([@thijsdejong] - [#11588]) ([cover.tahoma docs])
 - Pushbullet email support (fix) ([@tschmidty69] - [#11590]) ([notify.pushbullet docs])
 - Fix state for trigger with forced updates ([@armills] - [#11595]) ([automation.state docs])
@@ -610,7 +610,6 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [@veleek]: https://github.com/veleek
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@yienxu]: https://github.com/yienxu
-[__init__ docs]: /integrations/__init__/
 [alarm_control_panel.alarmdecoder docs]: /integrations/alarmdecoder#alarm-control-panel
 [alarm_control_panel.concord232 docs]: /integrations/concord232#alarm-control-panel
 [alarm_control_panel.egardia docs]: /integrations/egardia
@@ -673,6 +672,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [google_assistant.http docs]: /integrations/google_assistant/
 [google_assistant.smart_home docs]: /integrations/google_assistant
 [group docs]: /integrations/group/
+[homeassistant docs]: /integrations/homeassistant
 [hassio docs]: /integrations/hassio/
 [history docs]: /integrations/history/
 [hive docs]: /integrations/hive/
