@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Presence Detection
 ha_release: 0.43
+ha_iot_class: Local Polling
 ha_quality_scale: internal
 ha_domain: ping
 ---
