@@ -323,26 +323,53 @@ If the template accesses every state on the system or all states under a specifi
 
 ### Working without entities
 
-The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates. 
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template does not include any entities, and references `now()` or `utcnow()`, by default it will be updated once per minute. If the template does not include any entities, `now()`, or `utcnow()`, the template will not update automaticlly.
 
-There's a couple of options to manage this issue. This first example creates a `sensor.time` from the [Time & Date](/integrations/time_date/) component which updates every minute, and the binary sensor is triggered by this updating. The binary sensor returns true if in the first half of the hour:
+The `track_time_pattern` directive can be used to control when the template should be updated.
+
+`track_time_pattern` accepts the same arguments as [Time Pattern Triggers](/docs/automation/trigger/#time-pattern-trigger) along with either `None` or `off` to disable all template updates.
+
+In the below example, the template will be updated on the half hour:
 
 {% raw %}
 ```yaml
-sensor:
-  - platform: time_date
-    display_options:
-      - 'time'
-
 binary_sensor:
   - platform: template
     sensors:
       half_hour:
-        value_template: '{{ (states("sensor.time")[3:] | int) < 30 }}'
+        value_template: '{{ track_time_pattern(minutes=30) }}{{ now() }}'
 ```
 {% endraw %}
 
-An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates:
+In the case where the template should only be updated at the top of the hour:
+
+{% raw %}
+```yaml
+binary_sensor:
+- platform: template
+  sensors:
+    in_the_midnight_hour:
+      value_template: >-
+        {{ track_time_pattern(hours=0) }}
+        {{ now().hour == 0 }}
+```
+{% endraw %}
+
+In the case where the template should only be updated at 30 second mark for minutes divisible by 5:
+
+{% raw %}
+```yaml
+binary_sensor:
+- platform: template
+  sensors:
+    is_charging:
+      value_template: >-
+        {{ track_time_pattern(minutes="/5", seconds=30) }}
+        {{ states("sensor.inflow_power") | float > 5 }}
+```
+{% endraw %}
+
+For more complex updates, automatic template updates can be disabled with `track_time_pattern(None)` and updates can be done manually by calling the `homeassistant.update_entity` service:
 
 {% raw %}
 ```yaml
@@ -350,7 +377,7 @@ binary_sensor:
 - platform: template
   sensors:
     half_hour:
-      value_template: '{{ now().minute < 30 }}'
+      value_template: '{{ track_time_pattern(None) }}{{ now().minute < 30 }}'
 
 automation:
   - alias: 'Update half_hour'
@@ -360,42 +387,5 @@ automation:
     action:
       - service: homeassistant.update_entity
         entity_id: binary_sensor.half_hour
-```
-{% endraw %}
-
-In the case where the template should be updated every minute, just reading `states("sensor.time")` can achieve the desired result without the need to create an automation:
-
-{% raw %}
-```yaml
-sensor:
-  - platform: time_date
-    display_options:
-      - 'time'
-
-binary_sensor:
-- platform: template
-  sensors:
-    minute_is_odd:
-      value_template: >-
-        {% set dummy = states("sensor.time") %}
-        {{ now().minute % 2 == 1 }}
-```
-{% endraw %}
-
-A similar trick of ignoring the sensor value can be used with `states("sensor.date")` for templates that should update at midnight.
-The `time_date` sensors are always true so here we use `and` to ignore the result in a more condensed way:
-
-{% raw %}
-```yaml
-sensor:
-  - platform: time_date
-    display_options:
-      - 'date'
-
-binary_sensor:
-- platform: template
-  sensors:
-    weekend:
-      value_template: {{ states("sensor.date") and now().isoweekday() > 5 }}
 ```
 {% endraw %}
