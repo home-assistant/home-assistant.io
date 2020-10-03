@@ -4,6 +4,7 @@ description: Instructions on how to integrate Edimax switches into Home Assistan
 ha_category:
   - Switch
 ha_release: pre 0.7
+ha_iot_class: Local Polling
 ha_domain: edimax
 ---
 
