@@ -62,7 +62,7 @@ switch 2:
 ## Grouping devices
 
 Once you have several devices set up, it is time to organize them into groups.
-Each group consists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the Set State page in the Developer Tools (<img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" />).
+Each group consists of a name and a list of entity IDs. Entity IDs can be retrieved from the web interface by using the “States” page in the Developer Tools.
 
 ```yaml
 # Example configuration.yaml entry showing two styles
