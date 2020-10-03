@@ -9,6 +9,7 @@ ha_domain: ezviz
 ha_codeowners:
   - '@baqs'
 ---
+ATTENTION: Since Home Assistant **version 0.115** the Ezviz integration has been <a href="https://www.home-assistant.io/blog/2020/09/17/release-115/#breaking-changes">temporarily disabled</a>, as it has a dependency that contains code that breaks Home Assistant. 
 
 The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.
 It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
