@@ -4,6 +4,7 @@ description: Instructions on how to setup automatic alerts within Home Assistant
 ha_category:
   - Automation
 ha_release: 0.38
+ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: alert
 ---
