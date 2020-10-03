@@ -66,8 +66,8 @@ client_secret:
 - Go to the **Configurations** page in the Home Assistant frontend.
 - Click on **Integrations**.
 - Click the orange **+** on the bottom-right.
-- Click on `Spotify`.
-- Once the new `Spotify` tab opens, enter your `Spotify` credentials and allow Home Assistant to access `Spotify`.
+- Click on "Spotify".
+- Once the new Spotify tab opens, enter your Spotify credentials and allow Home Assistant to access your Spotify account.
 
 <div class='note'>
 
