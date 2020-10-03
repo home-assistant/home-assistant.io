@@ -28,7 +28,6 @@ If a Plex server has been claimed by a Plex account via the [claim interface](ht
 
 The Plex integration is set up via **Configuration** -> **Integrations**. During the configuration, you will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the Plex server linked to the provided account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the **Integrations** page. Upon completeion, Home Assistant will be displayed as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
 
-
 ### Integration Options
 
 Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
@@ -40,7 +39,6 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 **Ignore new managed/shared users**: Enable to ignore new Plex accounts granted access to the server.
 
 **Ignore Plex Web clients**: Do not create `media_player` entities for Plex Web clients.
-
 
 ### Manual Configuration
 
@@ -56,15 +54,13 @@ Alternatively, you can manually configure a Plex server connection by selecting 
 
 **Token**: A valid authorization token for your Plex server. If provided without 'Host', a connection URL will be retreived from Plex.
 
-
 ## Sensor
 
-The `Plex` sensor platform monitors activity on a given Plex Media Server. The sensor state provides the a count of users currently watching media from the Plex server. Clicking the sensor shows who is watching what media.
-
+The Plex sensor platform monitors activity on a given Plex Media Server. The sensor state provides the a count of users currently watching media from the Plex server. Clicking the sensor shows who is watching what media.
 
 ## Media Player
 
-The `Plex` media_player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
+The Plex media player platform will create Media Player entities for each connected client device. These entities will display media information, playback progress, and playback controls (if supported by the streaming device).
 
 By default, the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
@@ -83,6 +79,7 @@ Required fields within the `media_content_id` payloads are marked as such, other
 | `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: MUSIC
@@ -118,6 +115,7 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 | `media_content_type`   | `EPISODE`                                                                                                                                                                          |
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: EPISODE
@@ -151,6 +149,7 @@ For movies it's usually sufficient to provide the title. However, if the title y
 * `year`: Restrict search to a specific year
 
 ##### Examples:
+
 ```yaml
 entity_id: media_player.plex_player
 media_content_type: movie
@@ -172,7 +171,6 @@ media_content_id: '{ "library_name": "Adult Movies", "title": "die hard", year=1
 # Would find the sequel, "Die Hard: With a Vengeance"
 ```
 
-
 ### Compatibility
 
 | Client                           | Limitations                                                                                                                                                     |
@@ -184,7 +182,6 @@ media_content_id: '{ "library_name": "Adult Movies", "title": "die hard", year=1
 | iOS                              | None                                                                                                                                                            |
 | NVidia Shield                    | Controlling playback when the Shield is both a client and a server will work but with error logging                                                             |
 | Plex Web                         | None                                                                                                                                                            |
-
 
 ## Sonos Playback
 
@@ -256,5 +253,5 @@ play_plex_on_tv:
 
 ## Notes
 
-* The Plex integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
-* Movies must be located under the 'Movies' section in a Plex library to properly view the 'playing' state.
+- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Configuration** > **Integrations**.
+- Movies must be located under the 'Movies' section in a Plex library to properly view the 'playing' state.
