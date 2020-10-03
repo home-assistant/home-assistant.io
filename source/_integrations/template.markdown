@@ -321,65 +321,23 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update, so we add in a reference to the `sensor.date` sensor from the [Time & Date](/integrations/time_date/), which will update once a day.
+When a template contains no entities, and references `now()`, by default it will be updated once per minute. If the template does not include any entities, `now()`, or `utcnow()`, the template will not update automaticlly.
+
+The `track_time_pattern` directive can be used to control when the template should be updated.
+
+The below example will update once per day at `00:00:00`:
 
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: time_date
-    display_options:
-      - 'date'
   - platform: template
     sensors:
       nonsmoker:
-        value_template: '{{ states('sensor.date') and (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        value_template: '{{ track_time_pattern(hours=0, minutes=0, seconds=0) }}{{(( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
         friendly_name: 'Not smoking'
         unit_of_measurement: "Days"
 ```
 
 {% endraw %}
 
-In this case it is also possible to convert the entity-less template above into one that will be updated automatically:
-
-{% raw %}
-
-````yaml
-sensor:
-  - platform: template
-    sensors:
-      nonsmoker:
-        value_template: "{{ (( as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) - as_timestamp(strptime('06.07.2018', '%d.%m.%Y')) ) / 86400 ) | round(2) }}"
-        friendly_name: 'Not smoking'
-        unit_of_measurement: "Days"
-````
-
-{% endraw %}
-
-Useful entities to choose might be `sensor.date` which update once per day or `sensor.time`, which updates once per minute.  
-Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have a negative impact on performance.
-
-An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
-
-{% raw %}
-
-```yaml
-sensor:
-  - platform: template
-    sensors:
-      nonsmoker:
-        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-        friendly_name: 'Not smoking'
-        unit_of_measurement: "Days"
-
-automation:
-  - alias: 'nonsmoker_update'
-    trigger:
-      - platform: time_pattern
-        minutes: '/5'
-    action:
-      - service: homeassistant.update_entity
-        entity_id: sensor.nonsmoker
-```
-
-{% endraw %}
+See [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration for additional examples.
