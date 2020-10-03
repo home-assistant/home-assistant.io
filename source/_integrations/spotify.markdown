@@ -36,7 +36,7 @@ To create the required Spotify application:
 - Click **Save** after adding the URI.
 
 <div class='note'>
-  Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
+  Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses. Please make sure that your local URL is also set at **Configuration** > **General** > **Internal URL**.
 </div>  
 
 ## Configuration
