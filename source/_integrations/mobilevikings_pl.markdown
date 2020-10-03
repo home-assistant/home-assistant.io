@@ -29,7 +29,7 @@ sensor:
       - data_available
 ```
 
-Multiple numbers on one account is not supported yet (feel free to open issue on that if you need this)
+Multiple numbers on one account is not supported yet (feel free to open issue on GitHub if you need this :) )
 
 {% configuration %}
 username:
