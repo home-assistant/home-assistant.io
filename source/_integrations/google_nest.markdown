@@ -63,7 +63,7 @@ Once your developer account is setup and `google_nest` has been configured, you 
 1. You should get redirected to Google to choose an account.  This should be the same developer account you configured above.
 1. The *Google Nest permissions* screen will allow you to choose which devices to configure.
 1. You will get redirected back to another account selection page.
-1. Confirm you want to allow persistent access to Home Assitant.
+1. Confirm you want to allow persistent access to Home Assistant.
 
 ## Sensor
 
