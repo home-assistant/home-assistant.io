@@ -45,12 +45,10 @@ media_extractor:
 
 This configuration sets query for all service calls like to 'bestaudio' with the mp3 extension:
 
-```json
-{
-  "entity_id": "media_player.my_sonos",
-  "media_content_id": "https://soundcloud.com/bruttoband/brutto-11",
-  "media_content_type": "music"
-}
+```yaml
+entity_id: media_player.my_sonos
+media_content_id: https://soundcloud.com/bruttoband/brutto-11
+media_content_type: music
 ```
 
 Query examples with explanations:
@@ -61,11 +59,11 @@ Query examples with explanations:
  * **worst**: Worst video + audio stream
  * **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best m4a audio, otherwise best ogg audio and only then any best audio
 
-More info about queries [here](https://github.com/rg3/youtube-dl#format-selection)
+More info about queries can be found [here](https://github.com/ytdl-org/youtube-dl#format-selection).
 
 ### Use the service
 
-Use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose `media_extractor` from the dropdown menu **Domain** and `play_media` from **Service**, enter something like the JSON sample from above into the **Service Data** field, and hit **CALL SERVICE**.
+Navigate to the **Services** tab inside **Developer Tools**. From the "Service" dropdown menu select `media_extractor.play_media` and then press the "Fill Example Data" button at the bottom of the page. Use the "Entity ID" dropdown to select your media player and then press the **Call Service** button.
 
 This will download the file from the given URL.
 
