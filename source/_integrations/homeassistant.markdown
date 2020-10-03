@@ -2,6 +2,8 @@
 title: Home Assistant Core Integration
 description: Description of the homeassistant integration.
 ha_release: 0.0
+ha_category:
+  - Other
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
