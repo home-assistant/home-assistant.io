@@ -289,7 +289,7 @@ context_timeout:
   description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. Maximum value is 10.0.
   required: false
   type: float
-  default: 1.0
+  default: None
 {% endconfiguration %}
 
 ### Support for automations
@@ -297,6 +297,18 @@ context_timeout:
 You can use a built in event in order to trigger an automation (e.g. to switch on a light when a switch was pressed).
 
 Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you want to switch one light on when the button was pressed once and two other lights when the button was pressed twice.
+
+In order to achieve this you can leverage the `counter` attribute of the binary sensor. To use it simply define the binary sensor in your `configuration.yaml` as follows:
+
+```yaml
+knx:
+  binary_sensor:
+    - name: Livingroom.Switch
+      state_address: '6/0/2'
+      context_timeout: 1.0
+```
+
+And in your `automation.yaml` add the following:
 
 ```yaml
 # Example automation.yaml entry
@@ -329,28 +341,7 @@ automation:
         service: homeassistant.turn_on
       - entity_id: light.hue_bloom_2
         service: homeassistant.turn_on
-```
-
-{% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
-counter:
-  description: Set to 2 if your only want the action to be executed if the button was pressed twice. To 3 for three times button pressed.
-  required: false
-  type: integer
-  default: 1
-hook:
-  description: Indicates if the automation should be executed on what state of the binary sensor. Values are "on" or "off".
-  required: false
-  type: string
-  default: "on"
-action:
-  description: Specify a list of actions analog to the [automation rules](/docs/automation/action/).
-  required: false
-  type: list
-{% endconfiguration %}
+``` 
 
 ## Climate
 
