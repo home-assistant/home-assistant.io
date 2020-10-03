@@ -4,7 +4,7 @@ description: Automatically update your Cloudflare DNS records.
 ha_category:
   - Network
 ha_release: 0.74
-ha_iot_class: ~
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@ludeeus'
 ha_domain: cloudflare
