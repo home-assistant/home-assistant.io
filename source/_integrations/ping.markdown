@@ -42,12 +42,7 @@ name:
   description: Let you overwrite the name of the device.
   required: false
   type: string
-  default: Ping Binary sensor [hostname]
-scan_interval:
-  description: Minimum time interval between updates in secconds.
-  required: false
-  type: integer
-  default: 300 seconds 
+  default: Binary sensor Ping [hostname]
 {% endconfiguration %}
 
 The sensor exposes the different round trip times values measured by `ping` as attributes:
