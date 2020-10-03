@@ -104,7 +104,7 @@ To set both the date and time in the same call, use `date` and `time` together, 
 
 #### input_datetime.reload
 
-`input_dateteime.reload` service allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
+`input_datetime.reload` service allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
 
 ## Examples
 
