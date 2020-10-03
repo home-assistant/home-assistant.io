@@ -4,6 +4,7 @@ description: Instructions on how to setup groups within Home Assistant.
 ha_category:
   - Organization
 ha_release: pre 0.7
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
