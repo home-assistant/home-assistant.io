@@ -19,11 +19,11 @@ Before you can go ahead and create your own automations, it's important to learn
 
 The example consists of three different parts: a [trigger](/docs/automation/trigger/), a [condition](/docs/automation/condition/) and an [action](/docs/automation/action/).
 
-The first line is the **trigger** of the automation rule. Triggers describe events that should trigger the automation rule. In this case, it is a person arriving home, which can be observed in Home Assistant by observing the state of Paulus changing from 'not_home' to 'home'.
+The first line is the **trigger** of the automation rule. Triggers describe events that should start execution of the automation rule. In this case, it is a person arriving home, which can be observed in Home Assistant by Paulus' **state** going from 'not_home' to 'home'.
 
-The second line is the **condition**. Conditions are optional tests that can limit an automation rule to only work in your specific use cases. A condition will test against the current state of the system. This includes the current time, devices, people and other things like the sun. In this case, we only want to act when the sun has set.
+The second line is the **condition**. Conditions are optional tests that can limit an automation rule to only work in your specific use cases. A condition will test against the current **state** of an entity in the system. This includes the current time, devices, people and other things like the sun. In the example above, we only want to act when the sun has set.
 
-The third part is the **action**, which will be performed when a rule is triggered and all conditions are met. For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
+The third part is the **action**, which will be performed when a rule is triggered and all conditions are met. For example, it can turn a light on, set the temperature on your thermostat or activate a scene. In the example above, we only want to turn lights on in the living room.
 
 <div class='note'>
 The difference between a condition and a trigger can be confusing as they are very similar. Triggers look at the actions, while conditions look at the results: turning a light on versus a light being on.
@@ -31,14 +31,14 @@ The difference between a condition and a trigger can be confusing as they are ve
 
 ### Exploring the internal state
 
-Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. The <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> icon will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
+Automation rules interact directly with the internal **state** of entities in Home Assistant. These and their current state are exposed via the [developer tools](/docs/tools/dev-tools/), which are available on the sidebar, in the frontend. The [**states** tab](/docs/tools/dev-tools/#states) will show all currently available entities and their states . An entity can be anything, a light, a switch, a person and even the sun. A state consists of the following parts:
 
 | Name | Description | Example |
 | ---- | ----- | ---- |
-| Entity ID | Unique identifier for the entity. | `light.kitchen`
+| Entity | Unique identifier for the entity. | `light.kitchen`
 | State | The current state of the device. | `home`
 | Attributes | Extra data related to the device and/or current state. | `brightness`
 
 State changes can be used as the source of triggers and the current state can be used in conditions.
 
-Actions are all about calling services. To explore the available services open the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> Services developer tool. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
+Actions are all about calling services. To explore the available services go to the [**services** tab](/docs/tools/dev-tools/#services) in developer tool. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name,for example the service `light.turn_on` which is capable of turning on any light that is identified as an entity in your system. Services can be passed parameters to, for example, indicate which device to turn on or what color to use.
