@@ -34,3 +34,4 @@ When you're done working on the site, run the following command to move the post
 ```bash
 bundle exec rake integrate
 ```
+#2020©Home Assistant.All Rights Reserved.
