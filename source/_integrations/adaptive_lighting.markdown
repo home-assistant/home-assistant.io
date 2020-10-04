@@ -9,7 +9,7 @@ ha_domain: adaptive_lighting
 ha_config_flow: true
 ---
 
-The `adaptive_lighting` platform syncs the color and brightness of your lights to natural lighting brightness and color temperature. This helps maintain your circadian rhythm, which can help you have better sleep and feel better.
+The `adaptive_lighting` platform syncs the color and brightness of your lights to natural lighting brightness and color temperature. This helps maintain your circadian rhythm, which can help you have better sleep and feel better. You can see [the README](https://github.com/claytonjn/hass-circadian_lighting/blame/db7d0574dd7e4fdad5bd9b9c08db24f85bdddedb/README.md#L2-L20) of the project that this component was based off of for more details.
 
 ## Configuration
 
