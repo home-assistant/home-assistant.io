@@ -98,12 +98,10 @@ LED colors on switches.
 | `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
 | `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                              |
 | `parameter`            | yes      | Parameter number to set (integer).                                                                              |
-| `value`                | yes      | Value to set for parameter. (String or integer value for list, string or boolean for bool parameters, dictionary for bitset parameters (see example below), integer for others). |
+| `value`                | yes      | Value to set for parameter. (String or integer value for list, string or boolean for bool parameters, list of dicts for bitset parameters (see example below), integer for others). |
 
 
 #### Example BitSet service call
-
-The dictionary passed as the value should be of the form <BIT POSITION OR LABEL>: <1 for on or 0 for off>
 
 Here is an example of what to send to the service for a BitSet parameter:
 
@@ -111,9 +109,12 @@ Here is an example of what to send to the service for a BitSet parameter:
 node_id: 4
 parameter: 5
 value:
-  1: 1
-  "Humidity": 0
-  3: 0
+  - position: 1
+    value: true
+  - label: Humidity
+    value: false
+  - position: 3
+    value: false
 ```
 
 ## Events
