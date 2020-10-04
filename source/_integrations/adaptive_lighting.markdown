@@ -116,8 +116,14 @@ switch:
 
 ### Services
 
-You can call `adaptive_lighting.apply` to manually adjust a light.
+`adaptive_lighting.apply` applies adaptive lighting settings to lights on demand.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
+| `entity_id`               |       no | The entity ID of the switch with the settings to apply.                 |
+| `lights`                  |       no | A list of lights to apply the settings to.                              |
+| `transition`              |      yes | The number of seconds for the transition.                               |
+| `adapt_brightness`        |      yes | Whether to change the brightness of the light or not.                   |
+| `adapt_color_temp`        |      yes | Whether to adapt the color temperature on supporting lights.            |
+| `adapt_rgb_color`         |      yes | Whether to adapt the color temperature with RGB.                        |
+| `turn_on_lights`          |      yes | Whether turn on lights that are currently off.                          |
