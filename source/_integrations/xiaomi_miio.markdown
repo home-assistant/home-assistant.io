@@ -323,6 +323,7 @@ Supported devices:
 | Air Purifier MA1       | zhimi.airpurifier.ma1  | |
 | Air Purifier 2S        | zhimi.airpurifier.ma2  | |
 | Air Purifier 2S        | zhimi.airpurifier.mc1  | |
+| Air Purifier 2H        | zhimi.airpurifier.mc2  | |
 | Air Purifier Super     | zhimi.airpurifier.sa1  | |
 | Air Purifier Super 2   | zhimi.airpurifier.sa2  | |
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4  | |
@@ -464,6 +465,33 @@ Supported devices:
   - `filter_rfid_tag`
   - `filter_type`
   - `illuminance`
+  - `buzzer`
+  
+### Air Purifier 2H (zhimi.airpurifier.mc2)
+
+- Power (on, off)
+- Operation modes (auto, silent, favorite)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED (on, off)
+- Favorite Level (0...16)
+- Attributes
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `aqi`
+  - `mode`
+  - `filter_hours_used`
+  - `filter_life_remaining`
+  - `favorite_level`
+  - `child_lock`
+  - `led`
+  - `motor_speed`
+  - `average_aqi`
+  - `learn_mode`
+  - `extra_features`
+  - `turbo_mode_supported`
+  - `button_pressed`
   - `buzzer`
 
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
