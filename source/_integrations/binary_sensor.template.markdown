@@ -311,7 +311,7 @@ binary_sensor:
   - platform: template
     sensors:
       has_unavailable_states:
-        value_template: '{% states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
+        value_template: '{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
 ```
 {% endraw %}
 
