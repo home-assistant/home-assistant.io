@@ -49,11 +49,11 @@ disable_brightness_adjust:
   type: boolean
 disable_entity:
   description: An entity to toggle disabling adaptive lighting.
-  required: false
+  required: inclusive
   type: string
 disable_state:
   description: The state of the entity to disable adaptive lighting.
-  required: false
+  required: inclusive
   type: [list, string]
 initial_transition:
   description: How long the first transition is.
@@ -90,6 +90,14 @@ only_once:
   required: false
   default: false
   type: boolean
+sleep_brightness:
+  description: Brightness to use in sleep mode.
+  required: false
+  type: integer
+sleep_color_temp:
+  description: Color temperature to use in sleep mode.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 Full example:
