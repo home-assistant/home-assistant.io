@@ -30,6 +30,11 @@ notify:
 ```
 
 {% configuration %}
+name:
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  required: false
+  type: string
+  default: notify
 access_token:
   description: Your Mastodon access token.
   required: true
