@@ -91,7 +91,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b) to get a map of valid weather stations. Once a station is found, copy the name according to the below picture and paste it in your `configuration.yaml` file as the `station` variable.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/get_trafikverket_weather_station_example.png' />
+  <img src='/images/screenshots/get_trafikverket_weather_station_example.png' />
 </p>
 
 ## Examples

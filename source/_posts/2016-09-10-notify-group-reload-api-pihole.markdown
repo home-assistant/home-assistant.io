@@ -15,7 +15,7 @@ It's already time for 0.28 thanks to our super short release cycles. Now, it' of
 This release brings you a huge improvement of the [automation] and [group] handling. Both can be reloaded without a Home Assistant restart by calling their new reload services. The automations can be controlled directly from the frontend.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/automation-switches.png' />
+  <img src='/images/screenshots/automation-switches.png' />
 </p>
 
 ### Raspberry Pi installation guide
