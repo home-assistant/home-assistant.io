@@ -27,7 +27,7 @@ When the profile is complete, Profiler will generate a Python `cprof` which can 
 [SnakeViz](https://jiffyclub.github.io/snakeviz/)
 [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
-Additionally, the profile will generate a `callgrind.out` file that can be viewed with:
+Additionally, the profiler will generate a `callgrind.out` file that can be viewed with:
 
 [kcachegrind](https://kcachegrind.github.io/) or qcachegrind
 
