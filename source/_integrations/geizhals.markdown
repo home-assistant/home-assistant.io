@@ -1,7 +1,6 @@
 ---
 title: Geizhals
 description: Instructions on how to integrate a Geizhals sensor into Home Assistant.
-logo: geizhals.png
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
