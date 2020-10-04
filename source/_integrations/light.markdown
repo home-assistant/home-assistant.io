@@ -18,7 +18,7 @@ The `.default` suffix should be added to the entity identifier of each light to 
 
 ### Service `light.turn_on`
 
-Turns one light on or multiple lights on using [groups]({{site_root}}/integrations/group/).
+Turns one light on or multiple lights on using [groups](/integrations/group/).
 
 Most lights do not support all attributes. You can check the integration documentation of your particular light for hints, but in general, you will have to try things out and see what works.
 

@@ -65,8 +65,8 @@ api_key:
 {% endconfiguration %}
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/ecobee-sensor-badges.png' />
-  <img src='{{site_root}}/images/screenshots/ecobee-thermostat-card.png' />
+  <img src='/images/screenshots/ecobee-sensor-badges.png' />
+  <img src='/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
 You must [restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. After restarting, navigate to the **Configuration** > **Integrations** menu, hit **Configure** next to the discovered `ecobee` entry, and continue to authorize the app according to the above **Automatic Configuration**, starting at step 2.

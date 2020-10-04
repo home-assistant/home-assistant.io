@@ -15,7 +15,7 @@ Please see [Automating Home Assistant](/docs/automation/) for in-depth
 documentation on how to use the automation integration.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/automation-switches.png' />
+  <img src='/images/screenshots/automation-switches.png' />
 </p>
 
 ## Configuration
