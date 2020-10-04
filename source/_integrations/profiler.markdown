@@ -22,7 +22,7 @@ Start the profiler for the specified number of seconds.
 | ---------------------- | -------- | ----------- |
 | `seconds` | yes | The number of seconds to run the profile. Defaults to 60.0
 
-When the profile is complete, Profiler will generate a python `cprof` which can be viewed with:
+When the profile is complete, Profiler will generate a Python `cprof` which can be viewed with:
 
 [SnakeViz](https://jiffyclub.github.io/snakeviz/)
 [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
