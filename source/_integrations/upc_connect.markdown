@@ -8,6 +8,7 @@ ha_codeowners:
   - '@pvizeli'
   - '@fabaff'
 ha_domain: upc_connect
+ha_iot_class: Local Polling
 ---
 
 The `upc_connect` platform offers presence detection by looking at connected devices to a [Connect Box](https://www.upc.ch/en/internet/learn-about-internet/) from [Liberty Global](https://www.libertyglobal.com) (also known as UPC Cablecom in Switzerland) which is an Internet provider in Switzerland, Austria and the Netherlands (under Ziggo).
