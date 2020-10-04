@@ -50,7 +50,7 @@ disable_brightness_adjust:
 disable_entity:
   description: An entity to toggle disabling adaptive lighting.
   required: false
-  type: boolean
+  type: string
 disable_state:
   description: The state of the entity to disable adaptive lighting.
   required: false
