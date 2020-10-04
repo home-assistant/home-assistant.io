@@ -44,7 +44,7 @@ disable_entity:
   required: inclusive
   type: string
 disable_state:
-  description: The state of the entity to disable adaptive lighting.
+  description: When the sleep entity is this state (or one of the states in the list), disable Adaptive Lighting.
   required: inclusive
   type: [list, string]
 initial_transition:
@@ -90,23 +90,23 @@ sleep_entity:
   required: inclusive
   type: string
 sleep_state:
-  description: When the sleep entity is one of/this state(s), use the sleep brightness and temperature.
+  description: When the sleep entity is this state (or one of the states in the list), use the sleep brightness and temperature.
   required: inclusive
   type: [list, string]
 sunrise_offset:
-  description: Positive or negative offset from the sunrise time.
+  description: Change the sunrise time with a positive or negative offset.
   required: false
   type: time
 sunrise_time:
-  description: Set a fixed time for sunrise.
+  description: Override the sunrise time with a fixed time.
   required: false
   type: time
 sunset_offset:
-  description: Positive or negative offset from the sunset time.
+  description: Change the sunset time with a positive or negative offset.
   required: false
   type: time
 sunrise_time:
-  description: Set a fixed time for sunset.
+  description: Override the sunset time with a fixed time.
   required: false
   type: time
 transition:
