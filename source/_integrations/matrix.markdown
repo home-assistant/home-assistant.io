@@ -15,15 +15,21 @@ This integration allows you to send messages to matrix rooms, as well as to reac
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
+## Setup the integration via the frontend
+
+Menu: *Configuration* -> *Integrations*
+
+Configure the integration:
+* Enter your **homeserver address** (ie *https://matrix.org*)
+* Enter your **username** (You must specify a full matrix ID here, including the homeserver domain, ie *@my_matrix_user:matrix.org*) and **Password**
 
 ## Configuration
+
+Rooms and commands must be set manually in configuration.yaml.
 
 ```yaml
 # Example configuration.yaml entry
 matrix:
-  homeserver: https://matrix.org
-  username: "@my_matrix_user:matrix.org"
-  password: supersecurepassword
   rooms:
     - "#hasstest:matrix.org"
   commands:
@@ -32,23 +38,6 @@ matrix:
 ```
 
 {% configuration %}
-username:
-  description: "The matrix username that Home Assistant should use to log in. *Note*: You must specify a full matrix ID here, including the homeserver domain, e.g., '@my_matrix_bot:matrix.org'. Please note also that the '@' character has a special meaning in YAML, so this must always be given in quotes."
-  required: true
-  type: string
-password:
-  description: The password for your Matrix account.
-  required: true
-  type: string
-homeserver:
-  description: "The full URL for your homeserver. If you use the default matrix.org homeserver, this is 'https://matrix.org'."
-  required: true
-  type: string
-verify_ssl:
-  description: Verify the homeservers certificate.
-  required: false
-  type: string
-  default: true
 rooms:
   description: "The list of rooms that the bot should join and listen for commands (see below) in. While you can limit the list of rooms that a certain command applies to on a per-command basis (see below), you must still list all rooms here that commands should be received in. Rooms can be given either by their internal ID (e.g., '!cURbafjkfsMDVwdRDQ:matrix.org') or any of their aliases (e.g., '#matrix:matrix.org')."
   required: false
