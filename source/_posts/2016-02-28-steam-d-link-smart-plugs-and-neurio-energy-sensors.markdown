@@ -42,7 +42,7 @@ It's been another two weeks which means it's time for release: 0.14!
 </p>
 
 ### Backwards incompatible changes
- - Component: Simple Alarm has been removed. Still available in [the cookbook].
+ - Component: Simple Alarm has been removed. Still available in the cookbook.
  - Script: Turning on a [script] that is already on is now a no-op instead of skipping current delay.
  - Wemo switches now have to be set up via the main [Wemo component]
  - Command line platforms for [switch][switch.cmd], [sensor][sensor.cmd] and [binary_sensor][binary_sensor.cmd] have been renamed to `command_line`.
@@ -66,7 +66,6 @@ It's been another two weeks which means it's time for release: 0.14!
 [Wemo]: /integrations/wemo
 [Steam]: /integrations/steam_online
 [Wink]: /integrations/wink#binary-sensor
-[the cookbook]: /cookbook/python_component_simple_alarm/
 [script]: /integrations/script/
 [Wemo component]: /integrations/wemo/
 [switch.cmd]: /integrations/switch.command_line/
