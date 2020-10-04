@@ -18,7 +18,7 @@ Available services: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.
 
 <div class='note'>
 
-Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
+Not all climate services may be available for your platform. You can check which climate services are available under **Developer Tools** -> **Services**.
 
 </div>
 
