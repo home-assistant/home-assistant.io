@@ -183,7 +183,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for disabling tradfri groups ([@cnrd] - [#7593]) ([tradfri docs]) ([light.tradfri docs])
 - Update docstrings and comments ([@fabaff] - [#7626]) ([image_processing.openalpr_cloud docs]) ([image_processing.openalpr_local docs])
 - Upgrade Sphinx to 1.6.1 ([@fabaff] - [#7624])
-- Update docstrings ([@fabaff] - [#7630]) ([image_processing.demo docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs]) ([image_processing.opencv docs])
+- Update docstrings ([@fabaff] - [#7630]) ([image_processing docs]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs]) ([image_processing.microsoft_face_detect docs]) ([image_processing.microsoft_face_identify docs]) ([image_processing.opencv docs])
 - Kodi specific service to call Kodi API methods ([@azogue] - [#7603]) ([media_player.kodi docs])
 - Updated limitlessled requirement to v1.0.8 ([@corneyl] - [#7629])
 - Osram lightify Removed wrong assignment ([@commento] - [#7615]) ([light.osramlightify docs])
@@ -358,7 +358,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [eight_sleep docs]: /integrations/eight_sleep/
 [homematic docs]: /integrations/homematic/
 [image_processing docs]: /integrations/image_processing
-[image_processing.demo docs]: /integrations/image_processing.demo/
 [image_processing.dlib_face_detect docs]: /integrations/dlib_face_detect
 [image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
 [image_processing.microsoft_face_detect docs]: /integrations/microsoft_face_detect
