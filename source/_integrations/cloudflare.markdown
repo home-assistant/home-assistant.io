@@ -6,7 +6,9 @@ ha_category:
 ha_release: 0.74
 ha_codeowners:
   - '@ludeeus'
+  - '@ctalkington'
 ha_domain: cloudflare
+ha_config_flow: true
 ---
 
 With the `cloudflare` integration, you can keep your Cloudflare records up to date.
@@ -31,37 +33,7 @@ You can find your global API key in your Cloudflare account settings.
 
 ## Configuration
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-cloudflare:
-  email: YOUR_EMAIL_ADDRESS
-  api_key: YOUR_GLOBAL_API_KEY
-  zone: EXAMPLE.COM
-  records:
-    - ha
-    - www
-```
-
-{% configuration cloudflare %}
-email:
-  description: The email address for your Cloudflare account.
-  required: true
-  type: string
-api_key:
-  description: The global API key for your Cloudflare account.
-  required: true
-  type: string
-zone:
-  description: The DNS zone (domain) you want to update.
-  required: true
-  type: string
-records:
-  description: A list of records (subdomains) you want to update.
-  required: true
-  type: list
-{% endconfiguration %}
+Go to the integrations page in your configuration and click on new integration -> Cloudflare.
 
 ## Additional information
 
@@ -87,20 +59,6 @@ Other settings should not cause any issues.
 ### SSH over Cloudflare
 
 For SSH usage (according to [this](https://blog.cloudflare.com/cloudflare-now-supporting-more-ports/) source), you need to connect directly to your server (bypassing Cloudflare). To do that, create a `CNAME` DNS record, e.g., `ssh.example.com`, with proxy status as "DNS only" (to do that click on orange icon, it will change color to gray) and then connect to `ssh.example.com` using your server SSH port.
-
-### Using Cloudflare domain only for Home Assistant
-
-If you want to update just a main domain, place in the records list only your domain, e.g., `example.com`. It will update your `A` DNS record with your IP every hour.
-
-```yaml
-# Example configuration.yaml entry for one domain
-cloudflare:
-  email: YOUR_EMAIL_ADDRESS
-  api_key: YOUR_GLOBAL_API_KEY
-  zone: EXAMPLE.COM
-  records:
-    - EXAMPLE.COM
-```
 
 #### The minimum DNS record settings (if you have set up HTTPS already)
 
