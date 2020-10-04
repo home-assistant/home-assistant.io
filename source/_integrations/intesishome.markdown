@@ -27,7 +27,7 @@ climate:
 
 {% configuration %}
 username:
-  description: "Your username for [IntesisHome.com](https://accloud.intesis.com/login) / [Airconwithme](https://airconwithme.com)"
+  description: "Your username for [IntesisHome.com](https://accloud.intesis.com) / [Airconwithme](https://airconwithme.com)"
   required: true
   type: string
 password:
