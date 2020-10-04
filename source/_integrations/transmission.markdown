@@ -21,13 +21,13 @@ The `transmission` integration allows you to monitor your downloads with [Transm
 To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to **Edit** -> **Preferences** and choose the tab **Remote**. Check **Allow remote access**, enter your username and your password, and uncheck the network restriction as needed.
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/transmission/transmission_perf.png' />
+  <img src='/images/integrations/transmission/transmission_perf.png' />
 </p>
 
 If everything is set up correctly, the details will show up in the frontend.
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/transmission/transmission.png' />
+  <img src='/images/integrations/transmission/transmission.png' />
 </p>
 
 ## Configuration
