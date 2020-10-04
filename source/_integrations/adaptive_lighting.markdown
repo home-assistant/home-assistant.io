@@ -1,6 +1,6 @@
 ---
 title: Adaptive Lighting
-description: Instructions for setting up Adaptive Lighting with Home Assistant
+description: How to set up Adaptive Lighting with Home Assistant
 ha_category:
   - Automation
 ha_release: 0.116
@@ -9,19 +9,11 @@ ha_domain: adaptive_lighting
 ha_config_flow: true
 ---
 
-The `adaptive_lighting` platform syncs the color and brightness of your lights to your circadian rhythm. You can set it up using the UI.
-
-The integration will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
-
-During the day (in between `start time` and `sunset time`), it will fade the lights from the `start_colortemp` to the `sunset_colortemp`.  After sunset (between `sunset_time` and `stop_time`), the lights will fade from the `sunset_colortemp` to the `stop_colortemp`. If the lights are still on after the `stop_time` it will continue to change the light to the `stop_colortemp` until the light is turned off. The fade effect is created by updating the lights periodically.
-
-The color temperature is specified kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
-
-If you want to update at variable intervals, you can leave the switch turned off and use automation rules that call the service `switch.<name>_update` whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
+The `adaptive_lighting` platform syncs the color and brightness of your lights to natural lighting brightness and color temperature. This helps maintain your circadian rhythm, which can help you have better sleep and feel better.
 
 ## Configuration
 
-The integration is configurable through the frontend. (**Configuration** -> **Integrations** -> **Adaptive Lighting**, **Adaptive Lighting** -> **Options**)
+This integration is configurable through the frontend. (**Configuration** -> **Integrations** -> **Adaptive Lighting**, **Adaptive Lighting** -> **Options**)
 
 You can configure more advanced options with `configuration.yaml`.
 
@@ -60,11 +52,6 @@ initial_transition:
   required: false
   default: 1
   type: time
-transition:
-  description: How long the transition is when the lights change, in seconds.
-  required: false
-  default: 60
-  type: integer
 max_brightness:
   description: The maximum percent of brightness to set the lights to.
   required: false
@@ -98,28 +85,66 @@ sleep_color_temp:
   description: Color temperature to use in sleep mode.
   required: false
   type: integer
+sleep_entity:
+  description: An entity to toggle sleep mode.
+  required: inclusive
+  type: string
+sleep_state:
+  description: When the sleep entity is one of/this state(s), use the sleep brightness and temperature.
+  required: inclusive
+  type: [list, string]
+sunrise_offset:
+  description: Positive or negative offset from the sunrise time.
+  required: false
+  type: time
+sunrise_time:
+  description: Set a fixed time for sunrise.
+  required: false
+  type: time
+sunset_offset:
+  description: Positive or negative offset from the sunset time.
+  required: false
+  type: time
+sunrise_time:
+  description: Set a fixed time for sunset.
+  required: false
+  type: time
+transition:
+  description: How long the transition is when the lights change, in seconds.
+  required: false
+  default: 60
+  type: integer
 {% endconfiguration %}
 
 Full example:
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: flux
-    lights:
-      - light.desk
-      - light.lamp
-    name: Fluxer
-    start_time: '7:00'
-    stop_time: '23:00'
-    start_colortemp: 4000
-    sunset_colortemp: 3000
-    stop_colortemp: 1900
-    brightness: 200
-    disable_brightness_adjust: true
-    mode: xy
-    transition: 30
-    interval: 60
+adaptive_lighting:
+  - name: All settings
+    lights: light.living_room_lights
+    disable_brightness_adjust: false
+    disable_entity: input_select.sleep_mode
+    disable_state:
+      - 'off'
+      - 'half'
+    initial_transition:
+      seconds: 10
+    interval: "00:00:30"
+    max_brightness: 90
+    max_color_temp: 5500
+    min_brightness: 1
+    min_color_temp: 2500
+    only_once: false
+    sleep_brightness: 1
+    sleep_color_temp: 1000
+    sleep_entity: input_boolean.sleep_mode
+    sleep_state: "total"
+    sunrise_offset: 1800
+    sunrise_time: "08:00:00"
+    sunset_offset: 0
+    sunset_time: null
+    transition: 10
 ```
 
 ### Services
