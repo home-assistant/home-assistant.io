@@ -220,3 +220,14 @@ Turn climate device off. This is only supported if the climate device has the HV
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+
+## Attributes
+
+The climate entity has extra attributes to represent the state of the thermostat.
+
+| Name | Description |
+| ---- | ----------- |
+| `hvac_action` | Current state: `heat` / `cool` / `idle`.
+| `fan` | If the fan is currently on or off: `on` / `off`.
+
+It depends on the thermostat you are using which states are available.
