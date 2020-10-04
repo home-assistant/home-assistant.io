@@ -42,7 +42,7 @@ host:
   default: 127.0.0.1
   type: string
 port:
-  description: "The network port to connect to, see also: (https://manual.pilight.org/development/api.html)."
+  description: "The network port to connect to, see also: (https://manual.pilight.org/development/socket/index.html)."
   required: false
   default: 5001
   type: integer
