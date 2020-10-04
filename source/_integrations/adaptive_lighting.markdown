@@ -45,50 +45,51 @@ name:
 disable_brightness_adjust:
   description: Whether to disable adjusting brightness of lights.
   required: false
+  default: false
   type: boolean
 disable_entity:
-  description: An entity to disable adaptive lighting.
-  required: false
-  type: time
-start_colortemp:
-  description: The color temperature at the start.
-  required: false
-  default: 4000
-  type: integer
-sunset_colortemp:
-  description: The sun set color temperature.
-  required: false
-  default: 3000
-  type: integer
-stop_colortemp:
-  description: The color temperature at the end.
-  required: false
-  default: 1900
-  type: integer
-brightness:
-  description: The brightness of the lights.
-  required: false
-  type: integer
-disable_brightness_adjust:
-  description: If true, brightness will not be adjusted besides color temperature.
+  description: An entity to toggle disabling adaptive lighting.
   required: false
   type: boolean
-  default: false
-mode:
-  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
+disable_state:
+  description: The state of the entity to disable adaptive lighting.
   required: false
-  default: xy
-  type: string
+  type: [list, string]
+initial_transition:
+  description: How long the first transition is.
+  required: false
+  default: 1
+  type: time
 transition:
-  description: Transition time in seconds for the light changes (high values may not be supported by all light models).
+  description: How long the transition is when the lights change, in seconds.
   required: false
-  default: 30
+  default: 60
   type: integer
-interval:
-  description: Frequency in seconds at which the lights should be updated.
+max_brightness:
+  description: The maximum percent of brightness to set the lights to.
   required: false
-  default: 30
+  default: 100
   type: integer
+max_color_temp:
+  description: The warmest color temperature to set the lights to.
+  required: false
+  default: 5500
+  type: integer
+min_brightness:
+  description: The minimum percent of brightness to set the lights to.
+  required: false
+  default: 1
+  type: integer
+min_color_temp:
+  description: The coldest color temperature to set the lights to.
+  required: false
+  default: 2500
+  type: integer
+only_once:
+  description: Whether to keep adjusting the lights, or to only adjust the lights as soon as they're turned on.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 Full example:
@@ -112,3 +113,11 @@ switch:
     transition: 30
     interval: 60
 ```
+
+### Services
+
+You can call `adaptive_lighting.apply` to manually adjust a light.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific vacuum. Use `entity_id: all` to target all.        |
