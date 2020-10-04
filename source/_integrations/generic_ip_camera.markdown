@@ -15,7 +15,11 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 ## Configuration
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+Home Assistant offers the Generic IP Camera through **Configuration -> Integrations -> Generic IP Camera**.
+
+The **Still Image URL** field is mandatory, the others are optional. Click next to continue.
+
+Alternatively, Home Assistant can load this integration via `configuration.yaml`; add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
