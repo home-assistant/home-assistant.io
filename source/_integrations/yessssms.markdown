@@ -50,6 +50,11 @@ notify:
 ```
 
 {% configuration %}
+name:
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  required: false
+  type: string
+  default: notify
 username:
   description: This is your login name (usually your phone number). Veryfy that you can use your credentials on the Yesss.at website.
   required: true
