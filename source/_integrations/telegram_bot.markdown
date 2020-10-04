@@ -32,7 +32,7 @@ Send a notification.
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `result_code`             |      yes | The response result code of the sent message. In `telegram_sent` event data: `{{trigger.event.data.result_code}}` |
+| `internal_request_id`     |      yes | Internal ID of requests to send messages. In `telegram_sent` event data: `{{trigger.event.data.internal_request_id}}` |
 
 ### Service `telegram_bot.send_photo` and `telegram_bot.send_sticker`
 
@@ -52,7 +52,7 @@ Send a photo.
 | 'timeout'                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `result_code`             |      yes | The response result code of the sent message. In `telegram_sent` event data: `{{trigger.event.data.result_code}}` |
+| `internal_request_id`     |      yes | Internal ID of requests to send messages. In `telegram_sent` event data: `{{trigger.event.data.internal_request_id}}` |
 
 ### Service `telegram_bot.send_video`
 
@@ -72,7 +72,7 @@ Send a video.
 | 'timeout'                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `result_code`             |      yes | The response result code of the sent message. In `telegram_sent` event data: `{{trigger.event.data.result_code}}` |
+| `internal_request_id`     |      yes | Internal ID of requests to send messages. In `telegram_sent` event data: `{{trigger.event.data.internal_request_id}}` |
 
 ### Service `telegram_bot.send_document`
 
@@ -92,7 +92,7 @@ Send a document.
 | 'timeout'                 |      yes | Timeout for send document. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `result_code`             |      yes | The response result code of the sent message. In `telegram_sent` event data: `{{trigger.event.data.result_code}}` |
+| `internal_request_id`     |      yes | Internal ID of requests to send messages. In `telegram_sent` event data: `{{trigger.event.data.internal_request_id}}` |
 
 ### Service `telegram_bot.send_location`
 
@@ -106,7 +106,7 @@ Send a location.
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
-| `result_code`             |      yes | The response result code of the sent message. In `telegram_sent` event data: `{{trigger.event.data.result_code}}` |
+| `internal_request_id`     |      yes | Internal ID of requests to send messages. In `telegram_sent` event data: `{{trigger.event.data.internal_request_id}}` |
 
 ### Service `telegram_bot.edit_message`
 
@@ -440,7 +440,7 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
     platform: event
     event_type: telegram_sent
     event_data:
-      result_code: 123
+      internal_request_id: 123
   action:
     - service: input_number.set_value
       data_template:
