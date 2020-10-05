@@ -26,7 +26,7 @@ The Samba add-on creates smb shares which can be accessed from another computer.
 
 Configuring the add-on is straight-forward. You only need to set a user and password of your choice on the configuration page, save, and then start the add-on. The add-on will not start without setting a password!
 
-For connecting from Windows 10, you can enter the ip address or hostname of your Home Assistant instance in File Explorer's address bar with two backslashes, as shown in the example screenshot.
+For connecting from Windows 10, you can enter the IP address or hostname of your Home Assistant instance in File Explorer's address bar with two backslashes, as shown in the example screenshot.
 
 ![explorer address bar](TBD image of file explorer address bar.jpg)
 
@@ -35,7 +35,7 @@ You should then be prompted for the credentials you entered in the Samba add-on 
 ![directories](TBD image of directories.jpg)
 
 For OS X, connecting to the shares is a matter of using the Finder menu > Go > Connect to Server...
-You would then enter the ip address of your Home Assistant OS instance as `smb://your.ha.ip.address` and enter your credentials when prompted.
+You would then enter the IP address of your Home Assistant OS instance as `smb://your.ha.ip.address` and enter your credentials when prompted.
 
 ---
 
@@ -73,7 +73,7 @@ A full snapshot includes the following directories:
 
 * config
 * share
-* add-ons (these are manually installed or created add-ons, and not those installed from the store)
+* addons (these are manually installed or created add-ons, and not those installed from the store)
 * ssl
 * media
 
@@ -108,7 +108,7 @@ A large database file or a collection of camera media captured by MotionEye will
 
 When the restore is complete, you will lose connection to the UI and it will return just as though you had restarted Home Assistant.
 
-### Creating snapshots using the custom cli
+### Creating snapshots using the custom CLI
 
 1. `ha sn list` - lists snapshots and their slugnames
 2. `ha sn restore slugname` - restores a specific snapshot
@@ -121,7 +121,7 @@ Use `ha help` to see more info.
 
 The snapshots won't be very convenient if they are on the device which you cannot access. Copy them off in batches manually from /backup on occasion. Or even better, create an automation to handle that, or make use of an add-on like Google Drive backup or Dropbox Sync.
 
- - [Hass.io Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
+ - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 
  - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
 
