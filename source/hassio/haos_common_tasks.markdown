@@ -95,7 +95,7 @@ Restoring a snapshot on a fresh install of Home Assistant OS requires that you f
 2. Select "Upload Snapshot" from the icon in the upper right of the page.
 3. Click on the folder icon to navigate to your snapshot .tar file
 
-When the upload is completed, the snapshot panel should display your newly uploaded file. If not, use the "Reload" option from the icon in the upper right of the page. From there you can select it and then choose to restore it in full or in part, by manually selecting individual folders or add-ons.
+When the upload is completed, you will be presented with the snapshot restore dialog for restoring it, and can then choose to restore in full or in part by manually selecting individual items.
 
 If a snapshot is significantly large, it can be faster and more efficient to make use of the Samba add-on in order to transfer files to the `/backup` directory. 
 
