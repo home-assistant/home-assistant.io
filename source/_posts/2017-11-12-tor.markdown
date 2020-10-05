@@ -88,7 +88,7 @@ Simply download and install the [Tor Browser](https://www.torproject.org/project
 Some other clients:
 
 - [Orbot](https://guardianproject.info/apps/orbot/) for Android
-- ~~[Orfox](https://play.google.com/store/apps/details?id=info.guardianproject.orfox&hl=nl) for Android~~ Orfox for Android has been deprecated. Please use [Tor Browser for Android](https://www.torproject.org/download/#android). More information about the deprecation [here](https://trac.torproject.org/projects/tor/ticket/29955).
+- Orfox for Android has been deprecated. Please use [Tor Browser for Android](https://www.torproject.org/download/#android). More information about the deprecation [here](https://trac.torproject.org/projects/tor/ticket/29955).
 - [Onion Browser](https://mike.tig.as/onionbrowser/) for iOS
 
 ## Cranking up security
