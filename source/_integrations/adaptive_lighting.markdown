@@ -26,7 +26,7 @@ adaptive_lighting:
 
 {% configuration %}
 lights:
-  description: List of light entities.
+  description: List of light entities for Adaptive Lighting to control.
   required: true
   type: list
 name:
@@ -34,19 +34,26 @@ name:
   required: false
   default: default
   type: string
-disable_brightness_adjust:
-  description: Whether to disable adjusting brightness of lights.
+adapt_brightness:
+  description: Whether Adaptive Lighting should adjust brightness of lights.
   required: false
-  default: false
+  default: true
   type: boolean
-disable_entity:
-  description: An entity to toggle disabling adaptive lighting.
+adapt_color_temp:
+  description: Whether Adaptive Lighting should adjust color temperature of lights.
+  required: false
+  default: true
+  type: boolean
+adapt_rgb_color:
+  description: Whether Adaptive Lighting should adjust RGB color of lights (when color temperature doesn't work).
+  required: false
+  default: true
+  type: boolean
+detect_non_ha_changes:
+  description: Whether to detect changes and stop adjusting lights, even not from `light.turn_on`. Requires `take_over_control` to be enabled.
   required: inclusive
-  type: string
-disable_state:
-  description: When the sleep entity is this state (or one of the states in the list), disable Adaptive Lighting.
-  required: inclusive
-  type: [list, string]
+  default: true
+  type: boolean
 initial_transition:
   description: How long the first transition is.
   required: false
@@ -70,32 +77,22 @@ min_brightness:
 min_color_temp:
   description: The coldest color temperature to set the lights to, in Kelvin.
   required: false
-  default: 2500
+  default: 2000
   type: integer
 only_once:
   description: Whether to keep adjusting the lights, or to only adjust the lights as soon as they're turned on.
   required: false
   default: false
   type: boolean
-sleep_brightness:
-  description: Brightness to use in sleep mode.
+prefer_rgb_color:
+  description: Whether to use RGB color adjustment instead of native light color temperature.
   required: false
-  type: integer
-sleep_color_temp:
-  description: Color temperature to use in sleep mode.
-  required: false
-  type: integer
-sleep_entity:
-  description: An entity to toggle sleep mode.
-  required: inclusive
-  type: string
-sleep_state:
-  description: When the sleep entity is this state (or one of the states in the list), use the sleep brightness and temperature.
-  required: inclusive
-  type: [list, string]
+  default: false
+  type: boolean
 sunrise_offset:
   description: Change the sunrise time with a positive or negative offset.
   required: false
+  default: 0
   type: time
 sunrise_time:
   description: Override the sunrise time with a fixed time.
@@ -104,15 +101,21 @@ sunrise_time:
 sunset_offset:
   description: Change the sunset time with a positive or negative offset.
   required: false
+  default: 0
   type: time
 sunrise_time:
   description: Override the sunset time with a fixed time.
   required: false
   type: time
+take_over_control:
+  description: If another source calls `light.turn_on` while the lights are on and being adjusted, disable Adaptive Lighting.
+  required: false
+  default: true
+  type: boolean
 transition:
   description: How long the transition is when the lights change, in seconds.
   required: false
-  default: 60
+  default: 45
   type: integer
 {% endconfiguration %}
 
