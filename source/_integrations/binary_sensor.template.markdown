@@ -297,10 +297,6 @@ time any state changed event happens if any part of the state is accessed. When 
 is only re-rendered when a state is added or removed from the system. On busy systems with many entities or hundreds of
 thousands state changed events per day, templates may re-render more than desirable.
 
-A `rate_limit` directive can be used to limit how often the template re-renders.
-
-`rate_limit` returns an empty string and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
-
 In the below example, re-renders are limited to once per minute:
 
 {% raw %}
@@ -309,11 +305,11 @@ binary_sensor:
   - platform: template
     sensors:
       has_unavailable_states:
-        value_template: '{{ rate_limit(minutes=1) }}{% states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
+        value_template: '{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
 ```
 {% endraw %}
 
-If the template accesses every state on the system or all states under a specific domain, a default rate limit of one update per second is applied. If the template only accesses specific states, no rate limit is applied. The rate limit can be disabled by inserting {% raw %}`{{ rate_limit(seconds=0) }}`{% endraw %} into the template.
+If the template accesses every state on the system or all states under a specific domain, a rate limit of one update per minute is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
 
 ### Working without entities
 
