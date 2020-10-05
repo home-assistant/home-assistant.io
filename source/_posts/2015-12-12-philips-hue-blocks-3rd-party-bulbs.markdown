@@ -19,7 +19,7 @@ Philips Hue FAQ entries regarding reversing the decision.
 <!--more-->
 Philips Hue was one of the first to get smart lights accepted by the mainstream. Their Zigbee-based hub is rock solid, never crashes, great API and worked with other Zigbee light bulbs too. They are a bit expensive but the platform was worth every penny, till now.
 
-Yesterday a thread on [/r/homeautomation][reddit-hue] published that Philips Hue now blocks all but their own bulbs and those of "friends of Hue". I have been able to confirm this in the ~~Philips Hue FAQ~~ (Update Dec 14: they have removed the entries - [mirror here][philips-hue-faq-mirror]):
+Yesterday a thread on [/r/homeautomation][reddit-hue] published that Philips Hue now blocks all but their own bulbs and those of "friends of Hue". I have been able to confirm this in the Philips Hue FAQ (Update Dec 14: they have removed the entries - [mirror here][philips-hue-faq-mirror]):
 
 <p class='img'>
 <img src='/images/blog/2015-12-philips-hue-3rd-party/philips-hue-faq.png'>
