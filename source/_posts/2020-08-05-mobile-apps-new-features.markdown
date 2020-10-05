@@ -130,7 +130,7 @@ Another avenue of improvement is making things a bit easier. You’ll now find e
 
 #### A look ahead at iOS 14
 
-Coming to iOS 14 is Widgets, and no doubt there’s some huge potential here. A good analogy for what they can do is to think of them as Apple Watch complications; relatively static displays that can be updated with a multitude of data. One thing we’d love is to get an idea of the information and displays you’re interested in seeing here as Widgets get built out over the next few months. Please let us know any ideas you have on [this thread](https://community.home-assistant.io/t/what-kind-of-ios-14-widgets-would-you-like-to-see).
+Coming to iOS 14 is Widgets, and no doubt there’s some huge potential here. A good analogy for what they can do is to think of them as Apple Watch complications; relatively static displays that can be updated with a multitude of data. One thing we’d love is to get an idea of the information and displays you’re interested in seeing here as Widgets get built out over the next few months. Please let us know any ideas you have on [this thread](https://community.home-assistant.io/t/what-kind-of-ios-14-big-sur-widgets-would-you-like-to-see).
 
 iOS 14 is also introducing [Local Push Connectivity](https://developer.apple.com/documentation/networkextension/local_push_connectivity), which adds support for push notifications on your local network that do not require a trip to the cloud. This, like Critical Alerts, requires explicit approval from Apple, but we’re hopeful about improving the experience with your boats and RVs!
 
