@@ -133,7 +133,6 @@ Supported abbreviations:
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'init':                'initial',
-    'json_attr':           'json_attributes',
     'json_attr_t':         'json_attributes_topic',
     'json_attr_tpl':       'json_attributes_template',
     'max_mirs':            'max_mireds',
