@@ -180,7 +180,7 @@ The hub does not have to be in the same subnet as your Home Assistant server.
 
 This option is recommended only if Option 1 does not work. The MAC address should match that written on the back of the Hub.
 
-- Requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens).
+- Requires a **hub token** obtained from [my.geniushub.co.uk](https://my.geniushub.co.uk/).
 - Uses the v1 API - which is well-documented.
 - Polls Heat Genius' own servers (so is slower, say ~5-10s response time).
 - You should use the Hub's MAC address (although any valid MAC will do).
