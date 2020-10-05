@@ -16,11 +16,13 @@ ha_domain: transmission
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
 
-## Configuration
+## Setup
 
 Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox. 
 
-Now in Home Assistant, navigate to **Configuration** -> **Integrations** and click the plus button to add a new integration and search for **Transmission**. For legacy support old Transmission configuration is imported and set up as a new integration. Make sure to remove `monitored_conditions` as they are now automatically added to Home Assistant.
+## Configuration
+
+In Home Assistant, navigate to **Configuration** -> **Integrations** and click the plus button to add a new integration and search for **Transmission**. For legacy support old Transmission configuration is imported and set up as a new integration. Make sure to remove `monitored_conditions` as they are now automatically added to Home Assistant.
 
 Alternatively, the integration can be set up via YAML by adding the following lines to your `configuration.yaml`:
 
