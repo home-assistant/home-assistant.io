@@ -45,17 +45,12 @@ adapt_color_temp:
   default: true
   type: boolean
 adapt_rgb_color:
-  description: Whether Adaptive Lighting should adjust RGB color of lights (when color temperature doesn't work).
+  description: Whether Adaptive Lighting should adjust RGB color of lights.
   required: false
   default: true
   type: boolean
-detect_non_ha_changes:
-  description: Whether to detect changes and stop adjusting lights, even not from `light.turn_on`. Requires `take_over_control` to be enabled.
-  required: inclusive
-  default: true
-  type: boolean
 initial_transition:
-  description: How long the first transition is.
+  description: How long the first transition is when the lights go from `off` to `on`.
   required: false
   default: 1
   type: time
@@ -110,6 +105,11 @@ sunrise_time:
 take_over_control:
   description: If another source calls `light.turn_on` while the lights are on and being adjusted, disable Adaptive Lighting.
   required: false
+  default: true
+  type: boolean
+detect_non_ha_changes:
+  description: Whether to detect changes and stop adjusting lights, even not from `light.turn_on`. Needs `take_over_control` to be enabled.
+  required: inclusive
   default: true
   type: boolean
 transition:
