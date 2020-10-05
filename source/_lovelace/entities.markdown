@@ -365,6 +365,14 @@ entities:
     name: Home Assistant
     url: https://www.home-assistant.io/
     icon: mdi:home-assistant
+  - type: button
+    name: Power cycle LibreELEC
+    icon: mdi:power-cycle
+    tap_action:
+      action: call-service
+      confirmation:
+        text: Are you sure you want to restart?
+      service: script.libreelec_power_cycle
 ```
 
 <div class='note'>
