@@ -17,7 +17,6 @@ To enable this platform in your installation, add the following to your `configu
 # Example configuration.yaml entry
 media_player:
   - platform: group
-    name: TVs
     entities:
       - media_player.kitchen_tv
       - media_player.livivng_room_tv
@@ -44,7 +43,7 @@ script:
     alias: Run TTS
     sequence:
       service: tts.google_translate_say
-      entity_id: media_player.tvs
+      entity_id: media_player.media_group
       data:
-        message: 'May the Force be with you.'
+        message: 'The cake is a lie.'
 ```
