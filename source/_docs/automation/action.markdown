@@ -45,11 +45,11 @@ Conditions can also be part of an action. You can combine multiple service calls
 
 ```yaml
 automation:
-- alias: 'Enciende Despacho'
+- alias: 'Office at evening'
   trigger:
     platform: state
-    entity_id: sensor.mini_despacho
-    to: 'ON'
+    entity_id: sensor.office_occupancy
+    to: 'on'
   action:
     - service: notify.notify
       data:
@@ -59,7 +59,7 @@ automation:
         - condition: template
           value_template: '{% raw %}{{ state_attr('sun.sun', 'elevation') < 4 }}{% endraw %}'
         - condition: template
-          value_template: '{% raw %}{{ states('sensor.sensorluz_7_0') < 10 }}{% endraw %}'
+          value_template: '{% raw %}{{ states('sensor.office_illuminance') < 10 }}{% endraw %}'
     - service: scene.turn_on
-      entity_id: scene.DespiertaDespacho
+      entity_id: scene.office_at_evening
 ```
