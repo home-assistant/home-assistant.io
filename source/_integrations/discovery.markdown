@@ -115,7 +115,7 @@ mDNS forwarding is a configurable option in some routers. It can also be called 
 ### Windows
 
 #### 64-bit Python
-There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this integration on a 64-bit version of Python and Windows.
+There is currently a <a href='https://web.archive.org/web/20200623234241/https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this integration on a 64-bit version of Python and Windows.
 
 ### Could not install dependency netdisco
 
