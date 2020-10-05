@@ -124,6 +124,10 @@ name:
   required: true
   description: Main Label.
   type: string
+icon:
+  required: false
+  description: An icon to display to the left of the label.
+  type: string
 action_name:
   required: false
   description: Button label.
