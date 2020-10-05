@@ -21,7 +21,9 @@ ha_codeowners:
 ha_domain: zha
 ---
 
-ZHA (Zigbee Home Automation) integration component for Home Assistant allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators that are compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a hardware independent Zigbee stack, which in turn relies on separate radio libraries to interface with Zigbee coordinator modules from different manufacturers).
+The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.
+
+ZHA uses an open-source Python library implementing a hardware-independent Zigbee stack called [zigpy](https://github.com/zigpy/zigpy). All coordinators compatible with zigpy can be used with ZHA.
 
 There is currently support for the following device types within Home Assistant:
 
