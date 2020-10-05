@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: intesishome
 ---
 
-The `IntesisHome` climate platform lets you control [IntesisHome](https://www.intesishome.com/) and [Airconwithme](https://airconwithme.com/) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
+The `IntesisHome` climate platform lets you control [IntesisHome](https://www.intesishome.com) and [Airconwithme](https://airconwithme.com) devices. IntesisHome provides integrations with air conditioners, including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
 
 Note: IntesisHome products are a separate product line to IntesisBox. This platform does not support IntesisBox devices (which can be controlled locally using the WMP protocol).
 
