@@ -3,6 +3,7 @@ title: ClickSend SMS
 description: Instructions on how to add ClickSend notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Polling
 ha_release: 0.48
 ha_domain: clicksend
 ---
