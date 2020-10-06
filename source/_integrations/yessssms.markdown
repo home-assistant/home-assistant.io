@@ -7,6 +7,7 @@ ha_release: 0.57
 ha_codeowners:
   - '@flowolf'
 ha_domain: yessssms
+ha_iot_class: Cloud Push
 ---
 
 The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) and others to send SMS via their web-site.
