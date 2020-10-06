@@ -17,13 +17,13 @@ This will log into your Growatt account and grab the first "Plant", after which 
 
 ## Configuration
 
-Add the following to your `configuration.yaml` file:
+You can set this integration up using the integration page.
+Or you can add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: growatt_server
-    username: GROWATT_SERVER_USERNAME
+growatt_server:
+  - username: GROWATT_SERVER_USERNAME
     password: GROWATT_SERVER_PASSWORD
 ```
 
@@ -52,14 +52,12 @@ name:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: growatt_server
-    name: 'growatt home'
+growatt_server:
+  - name: 'growatt home'
     plant_id: 12345678
     username: username
     password: password
-  - platform: growatt_server
-    name: 'growatt work'
+  - name: 'growatt work'
     plant_id: 87654321
     username: username
     password: password
