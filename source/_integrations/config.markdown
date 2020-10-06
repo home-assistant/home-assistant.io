@@ -4,6 +4,7 @@ description: Instructions on how to setup the configuration panel for Home Assis
 ha_category:
   - Front End
 ha_release: 0.39
+ha_iot_class: ~
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
