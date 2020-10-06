@@ -3,7 +3,7 @@ title: Apple Push Notification Service (APNS)
 description: Instructions on how to add APNS notifications to Home Assistant.
 ha_category:
   - Notifications
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_release: 0.31
 ha_domain: apns
 ---
