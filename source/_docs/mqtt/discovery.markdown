@@ -19,6 +19,7 @@ Supported by MQTT discovery:
 - [Locks](/integrations/lock.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
+- [Tag Scanners](/integrations/tag_scanner.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
 To enable MQTT discovery, add the following to your `configuration.yaml` file:
