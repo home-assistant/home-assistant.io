@@ -27,9 +27,19 @@ Due to a limitation in the Cloudflare API, you can not use this integration with
 
 </div>
 
-## Setup
+## Requirements
 
-You can find your global API key in your Cloudflare account settings.
+<div class='note warning'>
+
+On older versions of Home Assistant, this integration used the account email and Global API Key to authenticate.
+
+As of Home Assistant 0.117, API Tokens are now used to authenticate.
+
+</div>
+
+Setup requires an API Token created with the "Edit Zone DNS" template.
+
+[Cloudflare API Tokens Guide](https://developers.cloudflare.com/api/tokens/create)
 
 ## Configuration
 
@@ -40,10 +50,6 @@ Go to the integrations page in your configuration and click on new integration -
 ### Usage of external service
 
 This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
-
-### API Key
-
-Please note that the `api_key` is the [global API key](https://support.cloudflare.com/hc/en-us/articles/200167836-Managing-API-Tokens-and-Keys#12345682) of your Cloudflare account (not the API Token).
 
 ### Home Assistant Companion App
 
