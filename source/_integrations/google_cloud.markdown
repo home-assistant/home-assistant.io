@@ -3,6 +3,7 @@ title: Google Cloud Platform
 description: Google Cloud Platform integration.
 ha_category: Text-to-speech
 ha_release: 0.95
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@lufton'
 ha_domain: google_cloud
