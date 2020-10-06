@@ -65,6 +65,10 @@ cover:
         description: Defines a template to specify which icon to use.
         required: false
         type: template
+      entity_picture_template:
+        description: Defines a template for the entity picture of the cover.
+        required: false
+        type: template
       availability_template:
         description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
         required: false
