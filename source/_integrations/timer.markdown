@@ -110,13 +110,7 @@ Reload `timer`'s configuration without restarting Home Assistant itself. This se
 
 ### Use the service
 
-Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose **timer** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
-
-```json
-{
-  "entity_id": "timer.timer0"
-}
-```
+Navigate to **Developer Tools** -> **Services** and select the `timer.start` service, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and click **Call Service** button.
 
 ## Examples
 
