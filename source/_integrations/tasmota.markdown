@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: tasmota
 ---
 
-This integration allows you to Tasmota devices over MQTT.
+This integration allows you to control Tasmota devices over MQTT.
 
 ## Requirements
 
