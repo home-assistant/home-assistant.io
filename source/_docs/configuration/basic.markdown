@@ -26,6 +26,7 @@ homeassistant:
   media_dirs:
     media: /media
     recordings: /mnt/recordings
+  legacy_templates: false
 ```
 
 NOTE: You will not be able to edit anything in Configuration -> General in the UI if you are using YAML configuration for any of the following: name, latitude, longitute, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url.
@@ -91,6 +92,11 @@ media_dirs:
   description: A mapping of local media sources and their paths on disk.
   required: false
   type: map
+legacy_templates:
+  description: Enable this option to restore pre-0.117 template rendering. Which renders all templates to string, instead of native types.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Reload Core Service
