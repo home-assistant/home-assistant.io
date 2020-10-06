@@ -20,7 +20,7 @@ The brand-new [iFrame panel component][iframe_panel] allows you to add other web
 
 I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] data ([PEP484]) to the Home Assistant core. This will help us identify issues before they are released.
 
-<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/directv/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Frontend: Support for [iFrame panels][iframe_panel] to adding other sites to sidebar ([@balloob])
 - Allow components to register [custom frontend panels][custom-panels] ([@balloob])

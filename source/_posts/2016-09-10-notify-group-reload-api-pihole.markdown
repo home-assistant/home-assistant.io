@@ -32,7 +32,7 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 
 ### All changes
 
-<img src='/images/supported_brands/xbox-live.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/automatic.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/pi_hole.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='/images/supported_brands/xbox-live.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://brands.home-assistant.io/automatic/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/pi_hole.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 - Light: Added bitfield to Flux LED since we are supporting effects ([@tchellomello])
 - Device tracker: [Owntracks] waypoint import ([@pavoni])
