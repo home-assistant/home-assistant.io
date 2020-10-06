@@ -63,7 +63,7 @@ device:
 
 In this section, you will find some real-life examples of how to use this sensor.
 
-### Full configuration with tag ID exracted from JSON data
+### Full configuration with tag ID extracted from JSON data
 
 This is an example of a configuration where the tag ID is extracted from a JSON formatted MQTT message.
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
