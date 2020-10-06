@@ -4,6 +4,7 @@ description: Keep your computer registered with the Google Domains dynamic DNS.
 ha_category:
   - Network
 ha_release: 0.57
+ha_iot_class: Cloud Push
 ha_domain: google_domains
 ---
 
