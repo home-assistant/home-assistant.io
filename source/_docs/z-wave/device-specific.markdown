@@ -689,7 +689,7 @@ Zen30 (Double Switch):
     <Item label="maximum level" value="1"/>
   </Value>
   <Value type="list" genre="config" index="18" label="Enable/Disable Double-tap for Dimmer" size="1" min="0" max="2" value="0">
-    <Help>Enable/Disable Double-tap for Dimmer.  Enables/Disables the double-tap fucntion and assign brightness to single tap.  enabled: single tap turns on to maximum brightness level.  disabled (last level): single tap returns to last brightness level.  disabled (full/max level): single tap returns to full brightmess.  Default: enabled</Help>
+    <Help>Enable/Disable Double-tap for Dimmer.  Enables/Disables the double-tap function and assign brightness to single tap.  enabled: single tap turns on to maximum brightness level.  disabled (last level): single tap returns to last brightness level.  disabled (full/max level): single tap returns to full brightness.  Default: enabled</Help>
     <Item label="enabled" value="0"/>
     <Item label="disabled (last level)" value="1"/>
     <Item label="disabled (full/max level)" value="2"/>

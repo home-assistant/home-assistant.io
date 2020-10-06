@@ -18,6 +18,8 @@ The ADS (automation device specification) describes a device-independent and fie
 
 There is currently support for the following device types within Home Assistant:
 
+- [Configuration](#configuration)
+- [Service](#service)
 - [Binary Sensor](#binary-sensor)
 - [Light](#light)
 - [Sensor](#sensor)
@@ -99,7 +101,7 @@ device_class:
 
 ## Light
 
-The `ads` light platform allows you to control your connecte ADS lights.
+The `ads` light platform allows you to control your connected ADS lights.
 
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:

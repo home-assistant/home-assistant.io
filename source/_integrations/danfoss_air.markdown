@@ -38,7 +38,7 @@ host:
 
 The following binary sensor is supported.
 
-- **Bypass active:** Indicator if heat recovery is currrently bypassed.
+- **Bypass active:** Indicator if heat recovery is currently bypassed.
 
 ## Sensor
 
