@@ -73,7 +73,7 @@ panels:
           type: string
           default: Template Alarm Control Panel
         unique_id:
-          description: An ID that uniquely identifies this alarm control panel. Set this to an unique value to allow customisation trough the UI.
+          description: An ID that uniquely identifies this alarm control panel. Set this to an unique value to allow customization trough the UI.
           required: false
           type: string
         value_template:
