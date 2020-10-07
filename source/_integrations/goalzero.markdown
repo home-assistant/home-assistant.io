@@ -1,5 +1,5 @@
 ---
-title: GoalZero
+title: Goal Zero Yeti
 description: Instructions on how to integrate Goal Zero Yeti with Home Assistant
 ha_category:
   - Energy

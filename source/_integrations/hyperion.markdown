@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.7.6
 ha_iot_class: Local Push
 ha_domain: hyperion
+ha_codeowners:
+  - '@dermotduffy'
 ---
 
 The `hyperion` platform allows you to integrate your
