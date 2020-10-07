@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.116: Beta release notes"
-description: "Beta release notes"
+title: "0.116: Entities card row editor, restore snapshots and performance metrics"
+description: "Snapshots can now be uploaded and restored during onboarding. Entities card rows now have a UI editor, automation editor weekday support, and Supervisor performance metrics"
 date: 2020-10-07 00:00:00
 date_formatted: "October 7, 2020"
 author: Franck Nijhof
