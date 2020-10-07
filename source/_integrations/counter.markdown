@@ -4,6 +4,7 @@ description: Instructions on how to integrate counters into Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.53
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'

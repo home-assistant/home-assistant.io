@@ -117,7 +117,7 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 ## APIs
 
-On top of the `http` integration is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
+On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest), [Python API](https://developers.home-assistant.io/docs/api_lib_index) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) available. There is also support for [Server-sent events](/developers/server_sent_events/).
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
@@ -125,9 +125,9 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
+Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
 
-All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
+All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
 ## IP filtering and banning
 

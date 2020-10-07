@@ -4,6 +4,7 @@ description: Instructions on how to setup your Weather platforms with Home Assis
 ha_category:
   - Weather
 ha_release: 0.32
+ha_iot_class: ~
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'

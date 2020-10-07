@@ -106,7 +106,7 @@ homeassistant:
 [Fast.com]: /integrations/fastdotcom
 [pilight]: /integrations/pilight/
 [GPSD]: /integrations/gpsd
-[heat control]: /integrations/thermostat.heat_control/
+[heat control]: /integrations/generic_thermostat
 [Proximity]: /integrations/proximity/
 [Flux]: /integrations/flux
 [Proliphix]: /integrations/proliphix/

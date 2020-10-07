@@ -4,6 +4,7 @@ description: Instructions on how to setup the configuration panel for Home Assis
 ha_category:
   - Front End
 ha_release: 0.39
+ha_iot_class: ~
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -36,7 +37,7 @@ This section enables you to manage the name, location, and unit system of your H
 This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, scripts, automations, and the Home Assistant process itself with a single mouse click.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/server-management.png' />
+  <img src='/images/screenshots/server-management.png' />
 </p>
 
 ### Persons

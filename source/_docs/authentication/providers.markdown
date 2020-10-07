@@ -1,7 +1,6 @@
 ---
 title: "Authentication Providers"
 description: "Guide on configuring different auth providers."
-redirect_from: /integrations/auth/
 ---
 
 When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.

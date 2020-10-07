@@ -244,7 +244,7 @@ devices:
 ### Configuration Notes
 
 - Either `pin` or `zone` is required for each actuator or sensor. Do not use both in the same definition.
-- `pin` represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`. Pin based configuration is only allowed with ESP8266 based devices.
+- `pin` represents the number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/release/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7`, `8`, and `9`. Pin based configuration is only allowed with ESP8266 based devices.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
 - `zone` represents the value corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) boards. Valid zone values are `1`, `2`, `3`, `4`, `5`, `6`, and `out` for the Konnected Alarm Panel (`out` represents the dedicated ALARM/OUT terminal) and `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `out1`, `alarm1`, and `alarm2_out2` for the Konnected Alarm Panel Pro.
 - **The Konnected Alarm Panel Pro does not support configuration via `pin`.**

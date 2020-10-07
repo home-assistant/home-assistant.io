@@ -31,7 +31,7 @@ The difference between a condition and a trigger can be confusing as they are ve
 
 ### Exploring the internal state
 
-Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. The <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> icon will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
+Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. **Developer Tools** -> **States** will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
 
 | Name | Description | Example |
 | ---- | ----- | ---- |

@@ -147,7 +147,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update CODEOWNERS */axis.py ([@Kane610] - [#9823])
 - fix climate services (missing indentation, wrongly formatted example) ([@rytilahti] - [#9805])
 - Run initial generation for development mode ([@armills] - [#9826])
-- Add service descriptions ([@cgarwood] - [#9806]) ([__init__ docs])
+- Add service descriptions ([@cgarwood] - [#9806]) ([homeassistant docs])
 - Bugfix: Include MQTT schema ([@tinloaf] - [#9802]) ([climate.mqtt docs])
 - Bugfix/9811 jinja autoescape ([@GenericStudent] - [#9842])
 - Changed yaml.load into yaml.safe_load ([@GenericStudent] - [#9841])
@@ -414,7 +414,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@webworxshop]: https://github.com/webworxshop
 [@zabuldon]: https://github.com/zabuldon
 [@ziotibia81]: https://github.com/ziotibia81
-[__init__ docs]: /integrations/__init__/
 [abode docs]: /integrations/abode/
 [alarm_control_panel.arlo docs]: /integrations/arlo
 [alarm_control_panel.egardia docs]: /integrations/egardia
@@ -455,6 +454,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ffmpeg docs]: /integrations/ffmpeg/
 [google_assistant docs]: /integrations/google_assistant/
 [hassio docs]: /integrations/hassio/
+[homeassistant docs]: /integrations/homeassistant
 [homematic docs]: /integrations/homematic/
 [http docs]: /integrations/http/
 [knx docs]: /integrations/knx/

@@ -112,7 +112,7 @@ Improper use of this service may continuously keep your central heating system a
 </div>
 
 Set the central heating control setpoint override on the OpenTherm Gateway.
-In a normal situation, the thermostat will calculate and control the central heating setpoint on the boiler. Setting this to any value other than 0 will enable the override and allow the OpenTherm Gateway to control this setting. While the override is active, the OpenTherm Gateway will also request your boiler to activate the central heating circuit. For your boiler's actual maximum and minimum supported setpoint value, please see the [`slave_ch_max_setp`](#slave_ch_max_setp) and [`slave_ch_min_setp`](#slave_ch_min_setp) variables. Due to the potential consequences of leaving this setting enabled for prolonged periods, the override will be disabled when Home Assistant is shut down or restarted.
+In a normal situation, the thermostat will calculate and control the central heating setpoint on the boiler. Setting this to any value other than 0 will enable the override and allow the OpenTherm Gateway to control this setting. While the override is active, the OpenTherm Gateway will also request your boiler to activate the central heating circuit. For your boiler's actual maximum and minimum supported setpoint value, please see the `slave_ch_max_setp` and `slave_ch_min_setp` [sensors](#sensors). Due to the potential consequences of leaving this setting enabled for prolonged periods, the override will be disabled when Home Assistant is shut down or restarted.
 **You will only need this if you are writing your own software thermostat.**
 
 | Service data attribute | Optional | Description |

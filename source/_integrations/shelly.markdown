@@ -7,6 +7,7 @@ ha_release: 0.115
 ha_codeowners:
   - '@balloob'
   - '@bieniu'
+ha_iot_class: Local Polling
 ha_domain: shelly
 featured: true
 ha_config_flow: true

@@ -47,10 +47,6 @@ sensors:
           description: Name to use in the frontend.
           required: false
           type: string
-        entity_id:
-          description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
-          required: false
-          type: [string, list]
         unique_id:
           description: An ID that uniquely identifies this binary sensor. Set this to an unique value to allow customisation through the UI.
           required: false
@@ -280,8 +276,6 @@ binary_sensor:
   - platform: template
     sensors:
       sun_up:
-        entity_id:
-          - sun.sun
         value_template: >-
           {{ is_state("sun.sun", "above_horizon") }}
         icon_template: >-

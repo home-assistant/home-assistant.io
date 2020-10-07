@@ -5,6 +5,7 @@ ha_category:
   - Switch
   - Fan
 ha_release: 0.66
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@markperdue'

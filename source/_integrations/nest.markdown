@@ -272,7 +272,7 @@ Please note due to limitations with the European Nest Thermostat E, integration 
 </div>
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
+  <img src='/images/screenshots/nest-thermostat-card.png' />
 </p>
 
 ## Sensor

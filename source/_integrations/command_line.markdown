@@ -89,7 +89,7 @@ binary_sensor:
 
 ### Check RasPlex
 
-Check if [RasPlex](https://www.rasplex.com/) is `online`.
+Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 
 ```yaml
 binary_sensor:

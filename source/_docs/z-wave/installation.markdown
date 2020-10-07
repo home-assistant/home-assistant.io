@@ -1,7 +1,6 @@
 ---
 title: "Z-Wave"
 description: "Installation of the Z-Wave component."
-redirect_from: /getting-started/z-wave-installation/
 ---
 
 Z-Wave can be configured using the Z-Wave *Integration* in the *Configuration* menu, or manually using an entry in `configuration.yaml`

@@ -1,7 +1,6 @@
 ---
 title: "Templating"
 description: "Instructions on how to use the templating feature of Home Assistant."
-redirect_from: /topics/templating/
 ---
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of:

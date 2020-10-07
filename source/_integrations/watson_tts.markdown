@@ -32,7 +32,7 @@ tts:
 You can get these tokens after you generated the credentials on the IBM Cloud console:
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/watson_tts_screen.png' />
+  <img src='/images/screenshots/watson_tts_screen.png' />
 </p>
 
 {% configuration %}
