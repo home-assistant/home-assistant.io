@@ -4,6 +4,7 @@ description: Instructions on how to setup Yandex SpeechKit TTS with Home Assista
 ha_category:
   - Text-to-speech
 ha_release: 0.36
+ha_iot_class: Cloud Push
 ha_domain: yandextts
 ---
 
