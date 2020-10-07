@@ -118,8 +118,8 @@ condition in the UI, now has the ability to select the weekdays the condition
 should test against.
 
 <p class='img'>
-<img src='/images/blog/2020-10-0.116/metrics.png' alt='Screenshot of the new Supervisor performance metrics.'>
-Supervisor UI now shows performance metrics.
+<img src='/images/blog/2020-10-0.116/weekday-conditions.png' alt='Screenshot of the new weekday conditions.'>
+You can now select the days to match in time conditions.
 </p>
 
 ## Python 3.7 deprecated
@@ -141,7 +141,7 @@ We are currently working on ensuring Python 3.9 is fully supported and tested.
 
 ## Other noteworthy changes
 
-- MQTT now supports tag scanning, thanks to [@emontnemery].
+- [MQTT now supports tag scanning](/integrations/tag.mqtt), thanks to [@emontnemery].
 - The Hyperion integration had a large overhaul by [@dermotduffy], ensuring
   this integration now actually works!
 - [@Misiu] ensured the OpenWeatherMap integration supports all languages
@@ -184,7 +184,6 @@ The following integrations are now available via the Home Assistant UI:
 
 - [AlarmDecoder][alarmdecoder docs], done by [@ajschmidt8]
 - [Canary][canary docs], done by [@ctalkington]
-- [ZoneMinder][zoneminder docs], done by [@vangorra]
 
 ## If you need help...
 
@@ -199,6 +198,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
+
+<details>
+  <summary><b>Custom Lovelace Cards</b></summary>
+  <p>
+
+This release contains breaking changes for custom card developers, check the
+[developers blog](https://developers.home-assistant.io/blog/2020/10/02/lazyMoreInfo)
+for more information.
+
+If you have a custom card that stopped working this release, please report
+this with the custom card author.
+
+  </p>
+</details>
 
 <details>
   <summary><b>AlarmDecoder</b></summary>
@@ -495,8 +508,8 @@ review these and update as needed.
   <summary><b>ZHA</b></summary>
   <p>
 
-Not a breaking change, but `ieee_address` parameter was renamed to
-`ieee` for `zha.permit` and `zha.remove` services.
+The `ieee_address` parameter was renamed to `ieee` for `zha.permit`
+and `zha.remove` services.
 
 This makes all services to use consistently named parameters.
 
@@ -824,6 +837,9 @@ This makes all services to use consistently named parameters.
 - Add additionalAttributes to Alexa discovery payload ([@balloob] - [#41370]) ([alexa docs]) (beta fix)
 - Bump up zha dependency to 0.26.0 ([@Adminiuga] - [#41371]) ([zha docs]) (beta fix)
 - Fix elkm1 changed by ([@gwww] - [#41378]) ([elkm1 docs]) (beta fix)
+- Reduce Somfy polling ([@balloob] - [#41389]) ([somfy docs]) (beta fix)
+- Revert zoneminder config flow ([@MartinHjelmare] - [#41395]) ([zoneminder docs]) (beta fix)
+- Warn when using Python 3.7 ([@balloob] - [#41400]) (beta fix)
 
 </details>
 
@@ -1140,6 +1156,9 @@ This makes all services to use consistently named parameters.
 [#41370]: https://github.com/home-assistant/core/pull/41370
 [#41371]: https://github.com/home-assistant/core/pull/41371
 [#41378]: https://github.com/home-assistant/core/pull/41378
+[#41389]: https://github.com/home-assistant/core/pull/41389
+[#41395]: https://github.com/home-assistant/core/pull/41395
+[#41400]: https://github.com/home-assistant/core/pull/41400
 [@2Fake]: https://github.com/2Fake
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
