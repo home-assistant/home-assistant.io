@@ -438,7 +438,7 @@ The following overview contains a couple of options to get the needed values:
 {% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
 ```
 
-To evaluate a response, go to the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> template developer tools, create your output in "Template", and check the result.
+To evaluate a response, go to **Developer Tools** -> **Template**, create your output in "Template editor", and check the result.
 
 {% raw %}
 ```yaml
