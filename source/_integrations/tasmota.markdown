@@ -2,6 +2,7 @@
 title: Tasmota (beta)
 description: Instructions on how to integrate Tasmota with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Switch
 ha_release: '0.117'
 ha_iot_class: Local Push
@@ -21,7 +22,7 @@ This integration allows you to control Tasmota devices over MQTT.
 
 ## Limitations
 
-- Only relays are supported. Relays will be added as Home Assistant switch entities.
+- Only relays and switchedare supported. Relays will be added as Home Assistant `switch` entities. Switches will be added as Home Assistant `binary_sensor` entities.
 
 ## Configuration
 
