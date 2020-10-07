@@ -3,6 +3,7 @@ title: Facebox
 description: Detect and recognize faces with Facebox.
 ha_category:
   - Image Processing
+ha_iot_class: Local Push
 ha_release: 0.7
 ha_domain: facebox
 ---
