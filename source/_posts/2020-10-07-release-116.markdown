@@ -36,7 +36,7 @@ As always, enjoy the release!
 - [User and person management combined](#user-and-person-management-combined)
 - [Restore snapshots](#restore-snapshots)
 - [Performance metrics in the Supervisor UI](#performance-metrics-in-the-supervisor-ui)
-- [H.256 stream support for Android](#h256-stream-support-for-android)
+- [H.265 stream support for Android](#h265-stream-support-for-android)
 - [Automation editor has now weekday support](#automation-editor-has-now-weekday-support)
 - [Python 3.7 deprecated](#python-37-deprecated)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -105,9 +105,9 @@ idea of how much resources are used. Thanks [@ludeeus]!
 Supervisor UI now shows performance metrics.
 </p>
 
-## H.256 stream support for Android
+## H.265 stream support for Android
 
-[@uvjustin] added support for H.256 streaming in the Android app, it will use a
+[@uvjustin] added support for H.265 streaming in the Android app, it will use a
 native video player that is shown on top of the Home Assistant UI. This player
 will only work in the more info dialog, and can not be used In Lovelace cards.
 
