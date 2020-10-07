@@ -1,5 +1,5 @@
 ---
-title: Hayward OmniLogic
+title: Hayward Omnilogic
 description: Instructions on how to configure Hayward OmniLogic integration.
 ha_category:
   - Sensor
@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@oliver84'
+  - '@djtimca'
+  - '@gentoosu'
 ha_domain: omnilogic
 ---
 

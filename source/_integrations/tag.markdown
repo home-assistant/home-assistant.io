@@ -8,6 +8,7 @@ ha_codeowners:
   - '@balloob'
   - '@dmulcahey'
 ha_domain: tag
+ha_quality_scale: internal
 ---
 
 <p class='img'>

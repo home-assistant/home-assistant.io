@@ -8,6 +8,7 @@ ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@OnFreund'
+  - '@cgtobi'
 ha_domain: kodi
 ha_config_flow: true
 ---

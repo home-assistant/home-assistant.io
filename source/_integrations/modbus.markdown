@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@adamchengtkc'
   - '@janiversen'
+  - '@vzahradnik'
 ha_domain: modbus
 ---
 

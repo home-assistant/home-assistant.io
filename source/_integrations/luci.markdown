@@ -5,7 +5,6 @@ ha_category:
   - Presence Detection
 ha_release: pre 0.7
 ha_codeowners:
-  - '@fbradyirl'
   - '@mzdrale'
 ha_domain: luci
 ---
