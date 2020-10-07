@@ -5,6 +5,7 @@ ha_category:
   - Notifications
 ha_release: pre 0.7
 ha_domain: slack
+ha_iot_class: Cloud Push
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
