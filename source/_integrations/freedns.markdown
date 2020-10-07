@@ -3,6 +3,7 @@ title: FreeDNS
 description: Keep your DNS record up to date with FreeDNS.
 ha_category:
   - Network
+ha_iot_class: Cloud Push
 ha_release: 0.67
 ha_domain: freedns
 ---
