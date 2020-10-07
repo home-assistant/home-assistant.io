@@ -19,6 +19,7 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
+ha_quality_scale: silver
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.

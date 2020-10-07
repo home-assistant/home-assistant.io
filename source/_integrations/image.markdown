@@ -7,6 +7,7 @@ ha_release: 0.115
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: image
+ha_quality_scale: internal
 ---
 
 The Image integration allows Home Assistant to handle image assets in Home Assistant, for example,
