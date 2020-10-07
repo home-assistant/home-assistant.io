@@ -23,7 +23,7 @@ Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode
 
 <div class='note'>
 
-Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
+Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking **Developer Tools** -> **Services**.
 
 </div>
 
