@@ -2,7 +2,7 @@
 layout: post
 title: "0.116: Beta release notes"
 description: "Beta release notes"
-date: 2020-09-29 00:00:00
+date: 2020-10-07 00:00:00
 date_formatted: "October 7, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -11,62 +11,34 @@ categories: Release-Notes
 og_image: /images/blog/2020-10-0.116/social.png
 ---
 
-These are the beta release notes for Home Assistant 0.116.0.
+<a href='/integrations/#version/0.116'><img src='/images/blog/2020-10-0.116/social.png' style='border: 0;box-shadow: none;'></a>
 
-If you encounter any issues, please report them on GitHub:
+Home Assistant Core 0.116!
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+So, how have you been? Fully processed the massive 0.115 birthday release yet?
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+Honestly, I haven't. There was soo much in 0.115, and to me, it feels like that
+release was yesterday. 😅  
 
-Issues introduced in the beta are processed with priority.
+So, today, a nice size, manageable release that brings some smaller things to
+the table. Lots of fixes, UI tweaks and improvements; hopefully a smooth sail!
 
-TODO:
+The biggest changes can be found in the Supervisor. [@ludeeus] has been smashing
+on his keyboard to add the option to upload and restore snapshots during
+onboarding. A much-upvoted WTH. As a bonus, he also added performance
+metrics to the Supervisor UI. Nice work!
 
-- Social media image
-- Introduction
-- Core/backend topics
-- screenshots
-- noteworthy changes
+As always, enjoy the release!
 
-Possible PRs to use in the blog post or noteworthy changes:
+../Frenck
 
-- Allow setting of hvac_mode when setting temperature in ozw ([@firstof9] - [#39853]) ([ozw docs])
-- Add template filter timedelta_seconds to create a timedelta from seconds ([@jschlyter] - [#39608])
-- Shelly: Power and Energy sensors in roller mode ([@chemelli74] - [#39709]) ([shelly docs])
-- Add UniFi Uptime sensor ([@timkoers] - [#40058]) ([unifi docs])
-- Fix support for Aqara WXKG06LM ([@fabricepipart] - [#40694]) ([deconz docs]) ([xiaomi_aqara docs])
-- Add MQTT tag scanner ([@emontnemery] - [#40709]) ([mqtt docs])
-- Refactor permit services to allow joining using install codes ([@Adminiuga] - [#40652]) ([zha docs]) (breaking-change)
-- Add deconz option to disable automatic addition of new devices ([@Kane610] - [#40545]) ([deconz docs])
-- Add template cover opening and closing states ([@TheNr1Guest] - [#40677]) ([template docs])
-- Add temperature and uptime to Synology DSM ([@thomasgermain] - [#39419]) ([synology_dsm docs])
-- Add bimonthly period feature for utility_meter component ([@hareeshmu] - [#39931]) ([utility_meter docs])
-- Add Influxdb precision option ([@twdkeule] - [#38454]) ([influxdb docs])
-- Add support for selecting multiple entity ids from logbook ([@bdraco] - [#40075]) ([logbook docs])
-- Add all supported languages to OpenWeatherMap ([@Misiu] - [#40448]) ([openweathermap docs])
-- Fix/Refactor Hyperion Integration ([@dermotduffy] - [#39738]) ([hyperion docs]) (breaking-change)
-- Reduce the number of template re-renders when we are only counting states ([@bdraco] - [#40272])
-- Ensure all jinja2 errors are trapped and displayed in the developer tools ([@bdraco] - [#40624]) ([websocket_api docs])
-- Add entity glob matching support to history ([@bdraco] - [#40387]) ([history docs])
-
-## Table of contents
-
-- [Table of contents](#table-of-contents)
-- [Lorem ipsum](#lorem-ipsum)
 - [Entities card editor](#entities-card-editor)
-- [User management combined with person management](#user-management-combined-with-person-management)
-- [H.256 stream support for Android](#h256-stream-support-for-android)
-- [Chromecast Media player](#chromecast-media-player)
+- [User and person management combined](#user-and-person-management-combined)
 - [Restore snapshots](#restore-snapshots)
+- [Performance metrics in the Supervisor UI](#performance-metrics-in-the-supervisor-ui)
+- [H.256 stream support for Android](#h256-stream-support-for-android)
+- [Automation editor has now weekday support](#automation-editor-has-now-weekday-support)
+- [Python 3.7 deprecated](#python-37-deprecated)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -77,42 +49,112 @@ Possible PRs to use in the blog post or noteworthy changes:
 
 ## Entities card editor
 
-You can now also edit the entity rows of your entity card. That means you can not only set an entity id, but can also set the name, icon and secondary info.
-Also using special rows will not longer force you use the YAML editor, but you now can still use the UI editor and edit the special rows. UI editors for the special rows will come in the future.
+You can now edit the entity rows of your entity card. That means you can
+not only set an entity id, but also set the name, icon and secondary info.
 
-## User management combined with person management
+<p class='img'>
+<img src='/images/blog/2020-10-0.116/entity-card-edit.png' alt='Screenshot of the new editor for the entity card.'>
+You can now edit the entity row; adjust the name, icon and secondary info.
+</p>
 
-We combined the user and person UI, this means that the user config panel will only be visible for users that have advanced mode enabled.
+Also, using special rows will no longer force you use the YAML editor, however,
+you you can still use the UI editor and edit the special rows. UI editors for
+the special rows will come in the future.
 
-The person detail dialog has now a toggle that allows you to give the person access to Home Assistant.
-If you toggle it on you can set a username and a password for the person. If you toggle it off, the user will be removed.
+## User and person management combined
 
-This makes it easier to manage the people in Home Assistant, everything in one place.
+We combined the user and person UI, this means that the user configuration
+panel will only be visible for users that have advanced mode enabled.
 
-## H.256 stream support for Android
+The person detail dialog now has a toggle that allows you to give the person
+access to Home Assistant. If you toggle it on, you can set a username and a
+password for the person. If you toggle it off, the user will be removed.
 
-@uvjustin added support for H.256 streaming in the Android app, it will use a native video player that is shown on top of the Home Assistant UI. This player will only work in the more info dialog, and can not be used In Lovelace cards.
+This makes it easier to manage the people in Home Assistant,
+everything in one place.
 
-## Chromecast Media player
-
-We now have our own media player for the Chromecast. It is build in the same app we use for showing Lovelace dashboards, this means that if you play media via Home Assistant and you were showing a Lovelace view, the Lovelace view will be restored after the media is finished playing!
-
+<p class='img'>
+<img src='/images/blog/2020-10-0.116/user-person.png' alt='Screenshot of the person "allow to login" option.'>
+The person edit dialog now has a toggle to allow a person to log in.
+</p>
 
 ## Restore snapshots
 
-You can now upload snapshots from the UI and restores them.
-You can do this in the supervisor UI in the snapshots panel. But you can also do this during onboarding!
+You can now upload snapshots from the UI and restores them. You can do this in
+the supervisor UI in the snapshots panel. But you can also do this during
+onboarding!
 
-This means you no longer have to setup Home Assistant, add and setup the Samba add-on to then restore your snapshot. You can just select your snapshot in the first step and it will be restored.
+<p class='img'>
+<img src='/images/blog/2020-10-0.116/snapshot-restore.gif' alt='Screen recording of restoring a snapshot during onboarding.'>
+Screen recording of restoring a snapshot during onboarding.
+</p>
 
-This makes moving to an other system a breeze!
+This means you no longer have to set up Home Assistant, add and set up the Samba
+add-on to then restore your snapshot. Instead, you can just select your snapshot
+in the first step of the onboarding and it will be restored.
+
+This makes moving to another system a breeze!
+
+## Performance metrics in the Supervisor UI
+
+The Supervisor now shows performance metrics in its UI, so you'll have a better
+idea of how much resources are used. Thanks [@ludeeus]!
+
+<p class='img'>
+<img src='/images/blog/2020-10-0.116/metrics.png' alt='Screenshot of the new Supervisor performance metrics.'>
+Supervisor UI now shows performance metrics.
+</p>
+
+## H.256 stream support for Android
+
+[@uvjustin] added support for H.256 streaming in the Android app, it will use a
+native video player that is shown on top of the Home Assistant UI. This player
+will only work in the more info dialog, and can not be used In Lovelace cards.
+
+## Automation editor has now weekday support
+
+[@misiu] added a nice feature to the automation editor. Using a time
+condition in the UI, now has the ability to select the weekdays the condition
+should test against.
+
+<p class='img'>
+<img src='/images/blog/2020-10-0.116/metrics.png' alt='Screenshot of the new Supervisor performance metrics.'>
+Supervisor UI now shows performance metrics.
+</p>
+
+## Python 3.7 deprecated
+
+Python 3.9 has been released on 5 October. This means that Python 3.7 support
+is now deprecated and will be removed after two months (which will be
+effective in 0.118).
+
+This is only a concern if you are running Home Assistant Core directly on
+Python. You can check the Python version Home Assistant uses by going to the
+information screen in **Configuration** -> **Info**.
+
+If you run Home Assistant OS, Supervised or Container, you don't have to worry
+about this, as the Home Assistant project takes care of this for you. As a
+matter of fact, if you use one of those methods, you are already running
+Python 3.8.
+
+We are currently working on ensuring Python 3.9 is fully supported and tested.
 
 ## Other noteworthy changes
 
-- @Misiu Added weekday support to time condition automation editor
-- @ludeeus Added performance metrics to the supervisor UI
-- The Material Design Icons are updated to v5.6.55, the `scooter` icon is replaced by a new icon, the old icon is available as `human-scooter`
-
+- MQTT now supports tag scanning, thanks to [@emontnemery].
+- The Hyperion integration had a large overhaul by [@dermotduffy], ensuring
+  this integration now actually works!
+- [@Misiu] ensured the OpenWeatherMap integration supports all languages
+  it can provide.
+- The utility meter now supports a bi-weekly cycle, thanks to [@hareeshmu].
+- [@timkoers] added uptime sensors for network clients to the UniFi integration.
+- The Shelly integration now shows power and energy sensors for roller mode
+  devices, thanks to [@firstof9].
+- You can now filter history by using glob matching filters. For example, you
+  can now exclude `sensor.*_temperature` from being recorded. Thanks [@bdraco]!
+- deCONZ has a new option; You can now disable the automatic addition of new
+  devices. Furthermore, [@Kane610] also added a service to clean up up
+  orphaned devices. Thanks!
 
 ## New Integrations
 
@@ -159,28 +201,6 @@ integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 <details>
-  <summary><b>System Monitor</b></summary>
-  <p>
-
-Not really a breaking change, since the overall logic did not change. Arguments
-that were previously mandatory for sensors of this integration are still
-mandatory and optional arguments remain optional.
-
-However, we now enforce those mandatory arguments to be present,
-since otherwise this integration creates entities that cannot do anything,
-e.g., the sensor for IPv4 addresses cannot do anything if no network interface
-is specified from which to take the IP.
-
-If the integration fails to load, check the log to see which arguments are
-missing in your configuration. The documentation also has been updated to
-clearly show which arguments are mandatory.
-
-([@spacegaier] - [#39687]) ([systemmonitor docs])
-
-  </p>
-</details>
-
-<details>
   <summary><b>AlarmDecoder</b></summary>
   <p>
 
@@ -196,55 +216,14 @@ set up AlarmDecoder via the UI.
 </details>
 
 <details>
-  <summary><b>Synology</b></summary>
+  <summary><b>Automation</b></summary>
   <p>
 
-The Synology integration is now deprecated. You should now use the Synology DSM
-instead. Support for cameras has been added to the Synology DSM integration
-making it a full replacement.
+State conditions with attribute specified: When testing against a non-string
+attribute value, you now need to specify the value in your configuration in the
+same type as it is in the attribute (instead of as a string).
 
-([@shenxn] - [#39958]) ([synology docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>ZoneMinder</b></summary>
-  <p>
-
-Configuration of ZoneMinder must now be done via the UI. If you have a
-YAML configuration for ZoneMinder, it will be imported on upgrade. After the
-upgrade, it can be safely removed from the YAML configuration.
-
-([@vangorra] - [#37060]) ([zoneminder docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Pilight</b></summary>
-  <p>
-
-Lights using the Pilight integration will now turn on to the last used
-brightness instead of its maximum brightness.
-
-If you want to retain you lights turning on to its maximum brightness you can
-set the default intensity in the `light_profiles.csv` file.
-
-The steps to set this up:
-
-1. In the your main `config` folder (where you'll find `configuration.yaml`)
-   create a new file called `light_profiles.csv`.
-2. For each of lights add an line with its entity id and the brightness
-   you want, as a value from `0` to `255`.
-
-Example:
-
-```txt
-light.<deviceentityid>.default,0,0,255
-```
-
-([@daniel-jong] - [#39549]) ([pilight docs])
+([@balloob] - [#41261])
 
   </p>
 </details>
@@ -260,6 +239,45 @@ configuration after ugprading. YAML support will be fully removed in
 Home Assistant 0.118.0.
 
 ([@ctalkington] - [#40055]) ([canary docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>HomeKit Controller, Plant, SmartThings, Xiaomi</b></summary>
+  <p>
+
+Some integrations (`homekit_controller`, `plant`, `smartthings`
+and `xiaomi_miio`) previously used `lux` as their unit of measurement for
+entities that covered illuminance. Now, these entities use `lx` as their unit
+of measurement to be consistent with other integrations.
+
+This could be a breaking change for using such entities in,
+for example, `influxdb`.
+
+([@springstan] - [#40171])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Hyperion</b></summary>
+  <p>
+
+Fixes the Hyperion Integration to work with the current Hyperion-NG release.
+Refactors to rely on the
+[hyperion-py](https://github.com/dermotduffy/hyperion-py) client.
+
+The `default_color`, `hdmi_priority` and `effect_list` parameters no longer have
+any effect. Instead, users should use [light profiles](/integrations/light/)
+as default color.
+
+The `effect_list` is now automatically populated.
+
+The `hdmi_priority` parameter no longer make sense with Hyperion-NG and will
+be removed in a future release.
+
+([@dermotduffy] - [#39738]) ([hyperion docs])
 
   </p>
 </details>
@@ -292,7 +310,6 @@ Before this change:
 ```
 
 After this change:
-
 
 ```yaml
 # binary_sensor.yaml
@@ -346,40 +363,114 @@ Otherwise, the counter will not work correctly.
 </details>
 
 <details>
-  <summary><b>HomeKit Controller, Plant, SmartThings, Xiaomi</b></summary>
+  <summary><b>Logbook</b></summary>
   <p>
 
-Some integrations (`homekit_controller`, `plant`, `smartthings`
-and `xiaomi_miio`) previously used `lux` as their unit of measurement for
-entities that covered illuminance. Now, these entities use `lx` as their unit
-of measurement to be consistent with other integrations.
+Message and domain are now removed from the logbook `state_changed` events.
 
-This could be a breaking change for using such entities in,
-for example, `influxdb`.
+These are now handled by the frontend as we move closer to making the logbook
+localized.
 
-([@springstan] - [#40171])
+([@bdraco] - [#40070]) ([logbook docs])
 
   </p>
 </details>
 
 <details>
-  <summary><b>Hyperion</b></summary>
+  <summary><b>Material Design Icons</b></summary>
   <p>
 
-Fixes the Hyperion Integration to work with the current Hyperion-NG release.
-Refactors to rely on the
-[hyperion-py](https://github.com/dermotduffy/hyperion-py) client.
+The Material Design Icons are updated to v5.6.55, the `mdi:scooter` icon is
+replaced by a new icon, the old icon is available as `mdi:human-scooter`
 
-The `default_color`, `hdmi_priority` and `effect_list` parameters no longer have
-any effect. Instead, users should use [light profiles](/integrations/light/)
-as default color.
+  </p>
+</details>
 
-The `effect_list` is now automatically populated.
+<details>
+  <summary><b>Pilight</b></summary>
+  <p>
 
-The `hdmi_priority` parameter no longer make sense with Hyperion-NG and will
-be removed in a future release.
+Lights using the Pilight integration will now turn on to the last used
+brightness instead of its maximum brightness.
 
-([@dermotduffy] - [#39738]) ([hyperion docs])
+If you want to retain you lights turning on to its maximum brightness you can
+set the default intensity in the `light_profiles.csv` file.
+
+The steps to set this up:
+
+1. In the your main `config` folder (where you'll find `configuration.yaml`)
+   create a new file called `light_profiles.csv`.
+2. For each of lights add an line with its entity id and the brightness
+   you want, as a value from `0` to `255`.
+
+Example:
+
+```txt
+light.<deviceentityid>.default,0,0,255
+```
+
+([@daniel-jong] - [#39549]) ([pilight docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Synology</b></summary>
+  <p>
+
+The Synology integration is now deprecated. You should now use the Synology DSM
+instead. Support for cameras has been added to the Synology DSM integration
+making it a full replacement.
+
+([@shenxn] - [#39958]) ([synology docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>System Monitor</b></summary>
+  <p>
+
+Not really a breaking change, since the overall logic did not change. Arguments
+that were previously mandatory for sensors of this integration are still
+mandatory and optional arguments remain optional.
+
+However, we now enforce those mandatory arguments to be present,
+since otherwise this integration creates entities that cannot do anything,
+e.g., the sensor for IPv4 addresses cannot do anything if no network interface
+is specified from which to take the IP.
+
+If the integration fails to load, check the log to see which arguments are
+missing in your configuration. The documentation also has been updated to
+clearly show which arguments are mandatory.
+
+([@spacegaier] - [#39687]) ([systemmonitor docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>TekSavvy</b></summary>
+  <p>
+
+The TekSavvy integration has been removed. The API that was used by this
+integration is no longer available.
+
+([@mikeodr] - [#40762])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Universal Devices ISY994 / LCN</b></summary>
+  <p>
+
+The Kelvin unit no longer includes the degree sign in accordance with
+scientific standards. If you use the `isy994` and `lcn` integrations you may
+need to update automations or data collectors that depend on the unit of
+measurement.
+
+([@RichieFrame] - [#40574]) ([isy994 docs])
 
   </p>
 </details>
@@ -401,20 +492,6 @@ review these and update as needed.
 </details>
 
 <details>
-  <summary><b>Universal Devices ISY994 / LCN</b></summary>
-  <p>
-
-The Kelvin unit no longer includes the degree sign in accordance with
-scientific standards. If you use the `isy994` and `lcn` integrations you may
-need to update automations or data collectors that depend on the unit of
-measurement.
-
-([@RichieFrame] - [#40574]) ([isy994 docs])
-
-  </p>
-</details>
-
-<details>
   <summary><b>ZHA</b></summary>
   <p>
 
@@ -424,26 +501,6 @@ Not a breaking change, but `ieee_address` parameter was renamed to
 This makes all services to use consistently named parameters.
 
 ([@Adminiuga] - [#40652]) ([zha docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>TekSavvy</b></summary>
-  <p>
-
-The TekSavvy integration has been removed. The API that was used by this
-integration is no longer available.
-
-([@mikeodr] - [#40762]) ([teksavvy docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>TekSavvy</b></summary>
-
-  <p>
 
   </p>
 </details>
@@ -570,16 +627,16 @@ integration is no longer available.
 - Update xknx to 0.14.2 ([@marvin-w] - [#40304]) ([knx docs]) (breaking-change)
 - Apply code review for canary config flow ([@ctalkington] - [#40355]) ([canary docs])
 - Add reauth source constant for config entries ([@ctalkington] - [#40352])
-- Add supervisor install add-on helper ([@MartinHjelmare] - [#40138]) ([hassio docs])
+- Add supervisor install add-on helper ([@MartinHjelmare] - [#40138])
 - Upgrade youtube_dl to version 2020.09.20 ([@BKPepe] - [#40395]) ([media_extractor docs])
 - Remove myself as Luci code owner ([@fbradyirl] - [#40398]) ([luci docs])
-- Fix supervisor get addon info ([@MartinHjelmare] - [#40412]) ([hassio docs])
+- Fix supervisor get addon info ([@MartinHjelmare] - [#40412])
 - Add zodiac integration ([@JulienTant] - [#38935]) ([zodiac docs]) (new-integration)
 - Update voluptuous to 0.12.0 ([@spacegaier] - [#40401])
 - Update Solax Library to 0.2.4 ([@squishykid] - [#40330]) ([solax docs])
 - Use centralized KnxEntity for all KNX platforms ([@marvin-w] - [#40381]) ([knx docs])
 - bump pynws to 1.3.0 ([@MatthewFlamm] - [#40386]) ([nws docs])
-- Add supervisor add-on uninstall helper ([@MartinHjelmare] - [#40413]) ([hassio docs])
+- Add supervisor add-on uninstall helper ([@MartinHjelmare] - [#40413])
 - Use more state attribute name constants ([@scop] - [#40428])
 - Improve timeout error handling for Splunk ([@Bre77] - [#40384]) ([splunk docs])
 - Add debug logging to Bond fireplace entity ([@prystupa] - [#40318]) ([bond docs])
@@ -601,8 +658,8 @@ integration is no longer available.
 - Revert "Support learning different command types with remote" ([@frenck] - [#40486]) ([remote docs])
 - Upgrade sentry-sdk to 0.17.7 ([@frenck] - [#40492]) ([sentry docs])
 - Upgrade isort to 5.5.3 ([@frenck] - [#40493])
-- Add supervisor helper to start add-on ([@MartinHjelmare] - [#40495]) ([hassio docs])
-- Add supervisor add-on stop helper ([@MartinHjelmare] - [#40501]) ([hassio docs])
+- Add supervisor helper to start add-on ([@MartinHjelmare] - [#40495])
+- Add supervisor add-on stop helper ([@MartinHjelmare] - [#40501])
 - Support all available languages in voicerss integration ([@nagyrobi] - [#40502]) ([voicerss docs])
 - Add all supported languages to OpenWeatherMap ([@Misiu] - [#40448]) ([openweathermap docs])
 - Adjust safe_theme for better readability ([@spacegaier] - [#40223]) ([frontend docs])
@@ -624,7 +681,7 @@ integration is no longer available.
 - Bump simplisafe-python to 9.3.3 ([@bachya] - [#40560]) ([simplisafe docs])
 - Improve handling of sources without a name in Denon ([@asimonen] - [#40514]) ([denon docs])
 - Add @darkfox as Rejseplanen code owner ([@DarkFox] - [#40329])
-- Add modifications for snapshot uploads ([@ludeeus] - [#40503]) ([hassio docs])
+- Add modifications for snapshot uploads ([@ludeeus] - [#40503])
 - Upgrade Tibber library to 0.15.3 ([@Danielhiversen] - [#40570]) ([tibber docs])
 - Use HA constants for Rfxtrx units ([@elupus] - [#40562]) ([rfxtrx docs])
 - Upgrade tqdm to 4.49.0 ([@frenck] - [#40573])
@@ -638,7 +695,7 @@ integration is no longer available.
 - Throttle ebusd sensors instead of the whole component ([@danielkucera] - [#40610]) ([ebusd docs])
 - Bump pychromecast to 7.4.1 ([@emontnemery] - [#40587]) ([cast docs])
 - Add installation type to discovery endpoint ([@ludeeus] - [#40585]) ([api docs])
-- Allow non-authenticated calls to snapshots during onboarding ([@ludeeus] - [#40582]) ([hassio docs])
+- Allow non-authenticated calls to snapshots during onboarding ([@ludeeus] - [#40582])
 - Log the remote ip address for incoming websocket connections when debug is on ([@bdraco] - [#40581]) ([websocket_api docs])
 - Add bare hostname as valid known hostname in get_url helper ([@frenck] - [#40510])
 - Use direct service calls in light platform tests ([@frenck] - [#40604]) ([light docs])
@@ -672,7 +729,7 @@ integration is no longer available.
 - Add tests for modbus binary sensor ([@janiversen] - [#40367]) ([modbus docs])
 - Bump up zha dependency ([@Adminiuga] - [#40689]) ([zha docs])
 - Re-enable hdmi_cec component ([@newAM] - [#40671]) ([hdmi_cec docs])
-- Allow non-authenticated calls to supervisor logs during onboarding ([@ludeeus] - [#40617]) ([hassio docs])
+- Allow non-authenticated calls to supervisor logs during onboarding ([@ludeeus] - [#40617])
 - Improve config flow descriptions in Shelly integration ([@bieniu] - [#40396]) ([shelly docs])
 - Bump snapcast dependency to 2.1.1 ([@mafrosis] - [#40561]) ([snapcast docs])
 - Abort execution of template renders that overwhelm the system ([@bdraco] - [#40647]) ([websocket_api docs])
@@ -707,7 +764,7 @@ integration is no longer available.
 - Add unique_id to the light switch ([@tetienne] - [#40603]) ([switch docs])
 - Fix logbook with empty filter and remove unused code ([@bdraco] - [#40565]) ([logbook docs]) ([recorder docs])
 - Setup recorder model relationships to avoid calling flush ([@bdraco] - [#40467]) ([recorder docs])
-- Remove TekSavvy Component, no longer available ([@mikeodr] - [#40762]) ([teksavvy docs]) (breaking-change)
+- Remove TekSavvy Component, no longer available ([@mikeodr] - [#40762]) (breaking-change)
 - Improve command_line switch tests ([@frenck] - [#40749]) ([command_line docs])
 - Use common strings for velbus config flow ([@Cereal2nd] - [#40660]) ([velbus docs])
 - Upgrade sentry-sdk to 0.18.0 ([@frenck] - [#40784]) ([sentry docs])
@@ -728,6 +785,45 @@ integration is no longer available.
 - Include config flow modules in coverage ([@Danielhiversen] - [#40798])
 - Add deCONZ service to clean up orphaned device and entity entries ([@Kane610] - [#40629]) ([deconz docs])
 - Discover additional ozw thermostats lacking mode support ([@firstof9] - [#40799]) ([ozw docs])
+- Seperate state change tracking from async_track_template_result into async_track_state_change_filtered ([@bdraco] - [#40803]) (beta fix)
+- Implement template rate_limit directive ([@bdraco] - [#40667]) (breaking-change) (beta fix)
+- Accept new Plex websocket callback payloads ([@jjlawren] - [#40773]) ([plex docs]) (beta fix)
+- Fix Netatmo climate error when no boiler status is set ([@cgtobi] - [#40815]) ([netatmo docs]) (beta fix)
+- Bump simplisafe-python to 9.4.1 ([@bachya] - [#40819]) ([simplisafe docs]) (beta fix)
+- Bump up zha dependencies ([@Adminiuga] - [#40914]) ([zha docs]) (beta fix)
+- Revert using own cast app for media ([@bramkragten] - [#40937]) ([cast docs]) (beta fix)
+- Update frontend to 20201001.0 ([@bramkragten] - [#40974]) ([frontend docs]) (beta fix)
+- Prevent sqlalchemy from refetching the old_state_id as it will never change ([@bdraco] - [#40982]) ([recorder docs]) (beta fix)
+- Plex websocket callback async cleanup ([@jjlawren] - [#40992]) ([plex docs]) (beta fix)
+- Prevent template loop detection from triggering when all templates are self referencing ([@bdraco] - [#41013]) ([template docs]) (beta fix)
+- Better parsing of the ZHA device profile id ([@Adminiuga] - [#41024]) ([zha docs]) (beta fix)
+- Change Swap free mandatory arg ([@Mariusthvdb] - [#41025]) ([systemmonitor docs]) (beta fix)
+- Ensure lights added after group is created have the correct state ([@bdraco] - [#41034]) ([group docs]) (beta fix)
+- Bump aioshelly to 0.3.4 ([@balloob] - [#41065]) ([shelly docs]) (beta fix)
+- Add full command details to exception Debug log ([@Samantha-uk] - [#41070]) ([zha docs]) (beta fix)
+- Fix SmartHab import flow ([@outadoc] - [#41093]) ([smarthab docs]) (beta fix)
+- Fix referenced entity extraction when service call entity contains a template ([@frenck] - [#41107]) (beta fix)
+- Bump up ZHA dependency ([@Adminiuga] - [#41109]) ([zha docs]) (beta fix)
+- Treat optional input as optional in ZoneMinder config flow ([@rohankapoorcom] - [#41156]) ([zoneminder docs]) (beta fix)
+- Handle Shelly channel names (if available) for emeters devices ([@chemelli74] - [#40820]) ([shelly docs]) (beta fix)
+- Simplify template tracking and make it easier to follow ([@bdraco] - [#41030]) (beta fix)
+- Fix TTS handling of non-ID3 metadata tags ([@blueshiftlabs] - [#41191]) ([tts docs]) (beta fix)
+- Remove deprecation invalidation version from cast integration ([@frenck] - [#41197]) ([cast docs]) (beta fix)
+- Remove manual rate_limit control directive from templates ([@bdraco] - [#41225]) (beta fix)
+- Bump apprise version to avoid sync in async issues ([@raman325] - [#41253]) ([apprise docs]) (beta fix)
+- Allow any value when triggering on state attribute ([@balloob] - [#41261]) ([homeassistant docs]) (breaking-change) (beta fix)
+- Add extended validation for script repeat/choose ([@balloob] - [#41265]) (beta fix)
+- Updated frontend to 20201001.1 ([@bramkragten] - [#41273]) ([frontend docs]) (beta fix)
+- Update pysmartthings ([@andrewsayre] - [#41294]) ([smartthings docs]) (beta fix)
+- Exclude media_dirs from YAML config check ([@bramkragten] - [#41299]) (beta fix)
+- Prevent collecting states already referenced by domain or all ([@bdraco] - [#41308]) (beta fix)
+- Don't set upnp config_entry.unique_id from setup entry ([@StevenLooman] - [#40988]) ([upnp docs]) (beta fix)
+- Fix TTS ID3 Tag capability check ([@frenck] - [#41343]) ([tts docs]) (beta fix)
+- Resolve memory leak in recorder ([@bdraco] - [#41349]) ([recorder docs]) (beta fix)
+- Set longer timeout during synology_dsm config flow ([@Quentame] - [#41364]) ([synology_dsm docs]) (beta fix)
+- Add additionalAttributes to Alexa discovery payload ([@balloob] - [#41370]) ([alexa docs]) (beta fix)
+- Bump up zha dependency to 0.26.0 ([@Adminiuga] - [#41371]) ([zha docs]) (beta fix)
+- Fix elkm1 changed by ([@gwww] - [#41378]) ([elkm1 docs]) (beta fix)
 
 </details>
 
@@ -970,6 +1066,7 @@ integration is no longer available.
 [#40660]: https://github.com/home-assistant/core/pull/40660
 [#40663]: https://github.com/home-assistant/core/pull/40663
 [#40664]: https://github.com/home-assistant/core/pull/40664
+[#40667]: https://github.com/home-assistant/core/pull/40667
 [#40668]: https://github.com/home-assistant/core/pull/40668
 [#40671]: https://github.com/home-assistant/core/pull/40671
 [#40672]: https://github.com/home-assistant/core/pull/40672
@@ -995,6 +1092,7 @@ integration is no longer available.
 [#40762]: https://github.com/home-assistant/core/pull/40762
 [#40764]: https://github.com/home-assistant/core/pull/40764
 [#40769]: https://github.com/home-assistant/core/pull/40769
+[#40773]: https://github.com/home-assistant/core/pull/40773
 [#40774]: https://github.com/home-assistant/core/pull/40774
 [#40782]: https://github.com/home-assistant/core/pull/40782
 [#40784]: https://github.com/home-assistant/core/pull/40784
@@ -1005,6 +1103,43 @@ integration is no longer available.
 [#40794]: https://github.com/home-assistant/core/pull/40794
 [#40798]: https://github.com/home-assistant/core/pull/40798
 [#40799]: https://github.com/home-assistant/core/pull/40799
+[#40803]: https://github.com/home-assistant/core/pull/40803
+[#40815]: https://github.com/home-assistant/core/pull/40815
+[#40819]: https://github.com/home-assistant/core/pull/40819
+[#40820]: https://github.com/home-assistant/core/pull/40820
+[#40914]: https://github.com/home-assistant/core/pull/40914
+[#40937]: https://github.com/home-assistant/core/pull/40937
+[#40974]: https://github.com/home-assistant/core/pull/40974
+[#40982]: https://github.com/home-assistant/core/pull/40982
+[#40988]: https://github.com/home-assistant/core/pull/40988
+[#40992]: https://github.com/home-assistant/core/pull/40992
+[#41013]: https://github.com/home-assistant/core/pull/41013
+[#41024]: https://github.com/home-assistant/core/pull/41024
+[#41025]: https://github.com/home-assistant/core/pull/41025
+[#41030]: https://github.com/home-assistant/core/pull/41030
+[#41034]: https://github.com/home-assistant/core/pull/41034
+[#41065]: https://github.com/home-assistant/core/pull/41065
+[#41070]: https://github.com/home-assistant/core/pull/41070
+[#41093]: https://github.com/home-assistant/core/pull/41093
+[#41107]: https://github.com/home-assistant/core/pull/41107
+[#41109]: https://github.com/home-assistant/core/pull/41109
+[#41156]: https://github.com/home-assistant/core/pull/41156
+[#41191]: https://github.com/home-assistant/core/pull/41191
+[#41197]: https://github.com/home-assistant/core/pull/41197
+[#41225]: https://github.com/home-assistant/core/pull/41225
+[#41253]: https://github.com/home-assistant/core/pull/41253
+[#41261]: https://github.com/home-assistant/core/pull/41261
+[#41265]: https://github.com/home-assistant/core/pull/41265
+[#41273]: https://github.com/home-assistant/core/pull/41273
+[#41294]: https://github.com/home-assistant/core/pull/41294
+[#41299]: https://github.com/home-assistant/core/pull/41299
+[#41308]: https://github.com/home-assistant/core/pull/41308
+[#41343]: https://github.com/home-assistant/core/pull/41343
+[#41349]: https://github.com/home-assistant/core/pull/41349
+[#41364]: https://github.com/home-assistant/core/pull/41364
+[#41370]: https://github.com/home-assistant/core/pull/41370
+[#41371]: https://github.com/home-assistant/core/pull/41371
+[#41378]: https://github.com/home-assistant/core/pull/41378
 [@2Fake]: https://github.com/2Fake
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
@@ -1035,18 +1170,21 @@ integration is no longer available.
 [@SNoof85]: https://github.com/SNoof85
 [@Samantha-uk]: https://github.com/Samantha-uk
 [@Shutgun]: https://github.com/Shutgun
+[@StevenLooman]: https://github.com/StevenLooman
 [@SukramJ]: https://github.com/SukramJ
 [@TheGardenMonkey]: https://github.com/TheGardenMonkey
 [@TheNr1Guest]: https://github.com/TheNr1Guest
 [@adamkrol93]: https://github.com/adamkrol93
 [@ajschmidt8]: https://github.com/ajschmidt8
 [@alengwenus]: https://github.com/alengwenus
+[@andrewsayre]: https://github.com/andrewsayre
 [@asimonen]: https://github.com/asimonen
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@basnijholt]: https://github.com/basnijholt
 [@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
+[@blueshiftlabs]: https://github.com/blueshiftlabs
 [@bramkragten]: https://github.com/bramkragten
 [@cgtobi]: https://github.com/cgtobi
 [@chemelli74]: https://github.com/chemelli74
@@ -1065,6 +1203,7 @@ integration is no longer available.
 [@firstof9]: https://github.com/firstof9
 [@frenck]: https://github.com/frenck
 [@gjbadros]: https://github.com/gjbadros
+[@gwww]: https://github.com/gwww
 [@hareeshmu]: https://github.com/hareeshmu
 [@imduffy15]: https://github.com/imduffy15
 [@janiversen]: https://github.com/janiversen
@@ -1080,10 +1219,12 @@ integration is no longer available.
 [@nagyrobi]: https://github.com/nagyrobi
 [@newAM]: https://github.com/newAM
 [@nzapponi]: https://github.com/nzapponi
+[@outadoc]: https://github.com/outadoc
 [@prystupa]: https://github.com/prystupa
 [@puddly]: https://github.com/puddly
 [@rajlaud]: https://github.com/rajlaud
 [@raman325]: https://github.com/raman325
+[@rohankapoorcom]: https://github.com/rohankapoorcom
 [@scop]: https://github.com/scop
 [@shenxn]: https://github.com/shenxn
 [@soldag]: https://github.com/soldag
@@ -1104,10 +1245,12 @@ integration is no longer available.
 [@vzahradnik]: https://github.com/vzahradnik
 [airvisual docs]: /integrations/airvisual/
 [alarmdecoder docs]: /integrations/alarmdecoder/
+[alexa docs]: /integrations/alexa/
 [almond docs]: /integrations/almond/
 [ambient_station docs]: /integrations/ambient_station/
 [androidtv docs]: /integrations/androidtv/
 [api docs]: /integrations/api/
+[apprise docs]: /integrations/apprise/
 [arduino docs]: /integrations/arduino/
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
@@ -1134,6 +1277,7 @@ integration is no longer available.
 [ebusd docs]: /integrations/ebusd/
 [ecobee docs]: /integrations/ecobee/
 [edl21 docs]: /integrations/edl21/
+[elkm1 docs]: /integrations/elkm1/
 [ffmpeg docs]: /integrations/ffmpeg/
 [ffmpeg_noise docs]: /integrations/ffmpeg_noise/
 [fibaro docs]: /integrations/fibaro/
@@ -1148,10 +1292,10 @@ integration is no longer available.
 [griddy docs]: /integrations/griddy/
 [group docs]: /integrations/group/
 [growatt_server docs]: /integrations/growatt_server/
-[hassio docs]: /integrations/hassio/
 [hdmi_cec docs]: /integrations/hdmi_cec/
 [history docs]: /integrations/history/
 [home_connect docs]: /integrations/home_connect/
+[homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/
 [homekit_controller docs]: /integrations/homekit_controller/
 [homematicip_cloud docs]: /integrations/homematicip_cloud/
@@ -1211,6 +1355,7 @@ integration is no longer available.
 [shiftr docs]: /integrations/shiftr/
 [simplisafe docs]: /integrations/simplisafe/
 [smappee docs]: /integrations/smappee/
+[smarthab docs]: /integrations/smarthab/
 [smartthings docs]: /integrations/smartthings/
 [smarty docs]: /integrations/smarty/
 [snapcast docs]: /integrations/snapcast/
@@ -1233,13 +1378,14 @@ integration is no longer available.
 [tag docs]: /integrations/tag/
 [tahoma docs]: /integrations/tahoma/
 [tankerkoenig docs]: /integrations/tankerkoenig/
-[teksavvy docs]: /integrations/teksavvy/
 [template docs]: /integrations/template/
 [tensorflow docs]: /integrations/tensorflow/
 [tibber docs]: /integrations/tibber/
 [tplink docs]: /integrations/tplink/
 [trend docs]: /integrations/trend/
+[tts docs]: /integrations/tts/
 [unifi docs]: /integrations/unifi/
+[upnp docs]: /integrations/upnp/
 [utility_meter docs]: /integrations/utility_meter/
 [vallox docs]: /integrations/vallox/
 [velbus docs]: /integrations/velbus/
