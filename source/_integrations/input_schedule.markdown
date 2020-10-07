@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: input_schedule
 ---
 
-The `input_schedule` integration allows the user to define time periods throughout the day when the `input_schedule` entity is set to on or off. An automation rule can be used to tie this schedule to other entities. Changes to the time periods will then impact the other entities, without the need to change the automation rule (see more in the example below).
+The `input_schedule` integration allows the user to define time periods throughout the day when the `input_schedule` entity is set to on or off. An automation rule can be used to tie this schedule to other entities. Changes to the time periods will then impact the other entities, without the need to change the automation rule iteslf.
 
 Input schedules can be configured via `configuration.yaml`:
 
