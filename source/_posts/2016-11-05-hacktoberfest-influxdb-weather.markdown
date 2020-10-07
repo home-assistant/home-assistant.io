@@ -103,7 +103,7 @@ We've added a warning to 0.32 to catch platforms accidentally slowing down Home 
 
 Our website has now an additional category called "Ecosystem". This will become the place where tools, apps, and other helper for the Home Assistant ecosystem can store their documentation or guides.
 
-- [iOS](/ecosystem/ios/)
+- [iOS]
 - SceneGen
 
 ### Breaking changes
@@ -180,7 +180,7 @@ Our website has now an additional category called "Ecosystem". This will become 
 [icloud]: /integrations/icloud
 [synologydsm]: /integrations/synologydsm
 [dovado-sensor]: /integrations/dovado#sensor
-[ios]: /ecosystem/ios/
+[ios]: /docs/ecosystem/ios/
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
 [req-insteon]: https://github.com/home-assistant/home-assistant/issues/3811
 [updater]: /blog/2016/10/25/explaining-the-updater/
