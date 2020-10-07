@@ -88,4 +88,4 @@ device_config:
 
 ### Using Z-Wave devices in automation
 
-If you want to use a Z-Wave device from the Fibaro controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'fibaro_id' in their attributes, and you'll find the entity id on the left.
+If you want to use a Z-Wave device from the Fibaro controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under **Developer Tools** -> **States**. Look for entities that contain 'fibaro_id' in their attributes, and you'll find the entity id on the left.
