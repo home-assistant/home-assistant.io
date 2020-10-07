@@ -5,6 +5,7 @@ logo: pushsafer.png
 ha_category:
   - Notifications
 ha_release: 0.39
+ha_iot_class: Cloud Push
 ha_domain: pushsafer
 ---
 
