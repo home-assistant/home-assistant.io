@@ -3,6 +3,7 @@ title: Unify Circuit
 description: Instructions on how to send a notification to a Unify Circuit Conversation.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.111
 ha_codeowners:
   - '@braam'
