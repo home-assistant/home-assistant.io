@@ -30,6 +30,11 @@ There is currently support for the following device types within Home Assistant:
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is powered by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - SKYFi based units (using the SKYFi app). These devices need to provide the password found on a sticker under the front cover during setup.
 
+<div class='note'>
+
+Only BRP072Cxx/SKYFi based units need API-key/password, the other models are auto detected.
+  
+</div>
 
 ## Configuration
 
