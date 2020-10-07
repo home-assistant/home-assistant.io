@@ -33,6 +33,7 @@ mqtt:
 
 - [Certificate](/docs/mqtt/certificate/)
 - [Discovery](/docs/mqtt/discovery/)
+- [Sensors](/integrations/sensor.mqtt)
 - [Publish & Dump services](/docs/mqtt/service/)
 - [Birth and last will messages](/docs/mqtt/birth_will/)
 - [Testing your setup](/docs/mqtt/testing/)
