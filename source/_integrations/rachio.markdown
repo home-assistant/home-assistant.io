@@ -29,6 +29,12 @@ They will be automatically added if the Rachio integration integration is loaded
 3. Click "Get API Key"
 4. Copy the API key from the dialog that opens.
 
+<div class='note'>
+
+In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information.
+
+</div>
+
 ## Configuration
 
 To add `Rachio` go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Rachio**.

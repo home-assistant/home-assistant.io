@@ -15,7 +15,7 @@ If the ILO or specified jsonpath query returns only a single value (e.g., a temp
 Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](https://seveas.github.io/python-hpilo/).
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/hp_ilo.png' />
+  <img src='/images/screenshots/hp_ilo.png' />
 </p>
 
 ## Configuration
@@ -114,7 +114,7 @@ sensor:
 ```
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/hp_ilo_sensors.png' />
+  <img src='/images/screenshots/hp_ilo_sensors.png' />
 </p>
 
 ## Hardware specifics

@@ -7,7 +7,7 @@ ha_category:
   - Climate
   - Cover
   - Light
-  - Notify
+  - Notifications
   - Scene
   - Sensor
   - Switch
@@ -182,7 +182,7 @@ payload:
   description: Payload to send to the bus. When `type` is not set, raw bytes are sent. Integers are then treated as DPT 1/2/3 payloads. For DPTs > 6 bits send a list. Each value represents 1 octet (0-255). Pad with 0 to DPT byte length.
   type: [integer, list]
 type:
-  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](/integrations/sensor.knx).
+  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](#sensor).
   type: [string, integer, float]
 {% endconfiguration %}
 
@@ -222,7 +222,7 @@ knx:
 
 {% configuration %}
 type:
-  description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](/integrations/sensor.knx/) (e.g., "temperature" or "humidity").
+  description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
   type: string
   required: true
 entity_id:

@@ -4,6 +4,7 @@ description: Instructions on how to setup groups within Home Assistant.
 ha_category:
   - Organization
 ha_release: pre 0.7
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -12,7 +13,7 @@ ha_domain: group
 
 Groups allow the user to combine multiple entities into one.
 
-Check the **States** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
+Check **Developer Tools** -> **States** and browse the **Current entities:** listing for all available entities.
 
 ```yaml
 # Example configuration.yaml entry

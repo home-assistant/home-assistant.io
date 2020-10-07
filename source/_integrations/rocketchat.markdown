@@ -45,6 +45,6 @@ rocketchat_notification:
 #### Message variables
 
 - **message** (*Required*): Message to be displayed.
-- **data** (*Optional*): Dictionary containing any of the variables defined in the [Rocket.Chat documentation](https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage#message-object-example)
+- **data** (*Optional*): Dictionary containing any of the variables defined in the [Rocket.Chat documentation](https://docs.rocket.chat/api/rest-api/methods/chat/postmessage)
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

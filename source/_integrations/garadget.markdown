@@ -67,7 +67,7 @@ If provided, the **access_token** will be used, otherwise the **username** and *
 ## Example
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/garadget/cover_garadget_details.png' />
+  <img src='/images/integrations/garadget/cover_garadget_details.png' />
 </p>
 
 {% raw %}

@@ -6,6 +6,7 @@ ha_category:
   - Remote
   - Sensor
 ha_release: 0.45
+ha_iot_class: Local Push
 ha_domain: kira
 ---
 

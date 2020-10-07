@@ -321,7 +321,7 @@ Supported devices:
 | Air Purifier 2 (mini)  | zhimi.airpurifier.m1   | |
 | Air Purifier (mini)    | zhimi.airpurifier.m2   | |
 | Air Purifier MA1       | zhimi.airpurifier.ma1  | |
-| Air Purifier 2S        | zhimi.airpurifier.ma2  | |
+| Air Purifier MA2       | zhimi.airpurifier.ma2  | |
 | Air Purifier 2S        | zhimi.airpurifier.mc1  | |
 | Air Purifier Super     | zhimi.airpurifier.sa1  | |
 | Air Purifier Super 2   | zhimi.airpurifier.sa2  | |

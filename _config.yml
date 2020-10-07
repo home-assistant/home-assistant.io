@@ -45,7 +45,6 @@ commonmark:
 highlighter: none
 
 plugins:
-  - jekyll-redirect-from
   - jekyll-time-to-read
 
 paginate: 10 # Posts per page on the blog index

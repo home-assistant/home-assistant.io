@@ -1,7 +1,6 @@
 ---
 title: "Database"
 description: "Details about the database used by Home Assistant."
-redirect_from: /details/database/
 ---
 
 Database is used in by Home Assistant as history and tracker only, to store the events and its parameters. The default database used by Home Assistant is [SQLite](https://www.sqlite.org/), and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/home-assistant_v2.db`). If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder` component](/integrations/recorder/).

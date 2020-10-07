@@ -12,6 +12,8 @@ ha_domain: scene
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
 
+Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be configured via `configuration.yaml`:
+
 ```yaml
 # Example configuration.yaml entry
 scene:

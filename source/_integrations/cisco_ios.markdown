@@ -4,6 +4,7 @@ description: Instructions on how to integrate Cisco IOS routers into Home Assist
 ha_category:
   - Presence Detection
 ha_release: 0.33
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@fbradyirl'
 ha_domain: cisco_ios

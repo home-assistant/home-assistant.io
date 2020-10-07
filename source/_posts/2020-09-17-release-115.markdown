@@ -130,10 +130,10 @@ Thanks to [@jjlawren] for the initial implementation and to [@cgtobi],
 integrations and backend refining.
 
 But a media browser isn't just backend, it also needs to look good. Thankfully,
-we had [@NKDZCK] on the case, with the help of [@bramkragten]. They came up with
+we had [@zsarnett] on the case, with the help of [@bramkragten]. They came up with
 a beautiful design so you can browse your media in style.
 
-[@nkdzck]: https://github.com/NKDZCK
+[@zsarnett]: https://github.com/zsarnett
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/4tQvMezHJkQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -173,7 +173,7 @@ If you click its media browser button, you will be presented with the available
 local sources.
 
 Sometimes you just want to play your media without having to turn on the TV. To
-cover that case, [@NKDZCK] added a new media browser to the Home Assistant
+cover that case, [@zsarnett] added a new media browser to the Home Assistant
 interface, which can be used to play your media. That way, you can quickly see
 what that motion event that you just received was about.
 
