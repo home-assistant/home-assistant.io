@@ -1705,7 +1705,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [lastfm docs]: /integrations/lastfm/
 [lg_soundbar docs]: /integrations/lg_soundbar/
 [lifx docs]: /integrations/lifx/
-[lifx_legacy docs]: /integrations/lifx_legacy/
+[lifx_legacy docs]: /integrations/lifx/
 [light docs]: /integrations/light/
 [linky docs]: /integrations/linky/
 [linode docs]: /integrations/linode/
