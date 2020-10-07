@@ -178,7 +178,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
    * Logi Circle services have been moved from the camera domain to the logi_circle domain
 
    Please check the documentation for further details. ([@evanjd] - [#20624]) ([logi_circle docs])
-- __Introduction__ - The introduction integration has been removed. It used to be part of the initially created configuration but no longer served a purpose. ([@balloob] - [#22944]) ([introduction docs])
+- __Introduction__ - The introduction integration has been removed. It used to be part of the initially created configuration but no longer served a purpose. ([@balloob] - [#22944])
 - __media_player__ - The `media_player` component will now guard against calling services that are not supported by the entity. This means that if you attempt to invoke `media_player.turn_on`, but the entity does not indicate it can be turned on through `supported_features`, the service will not be called and will not log any message. This is a breaking change as in the past it would have called the `turn_on` implementation. There may be platforms that do not properly set `supported_features` which may result in service calls not being invoked where they would have previously.([@andrewsayre] - [#22878]) ([media_player docs])
 - __Load requirements and dependencies from manifests__ - Developers - Setup entity platform will set up its component now despite DEPENDENCIES. ([@rohankapoorcom] - [#22717])
 - __Satel Integra__ -  The component now supports multiple partitions and this required a configuration change. Instead of a single parameters partition and `single_home_mode` there are now section partitions. Please see the documentation for further details. ([@c-soft] - [#21992]) ([satel_integra docs])  (new-platform)
@@ -380,7 +380,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Cherry pick test fix ([@awarecan] - [#22939])
 - Hide unsupported Sonos favorites ([@amelchio] - [#22940]) ([sonos docs])
 - Add linked battery sensor to HomeKit ([@adrum] - [#22788]) ([homekit docs])
-- Remove introduction component ([@balloob] - [#22944]) ([introduction docs]) (breaking change)
+- Remove introduction component ([@balloob] - [#22944]) (breaking change)
 - Fix broken platform components ([@balloob] - [#22943]) ([automation docs]) ([mqtt docs]) ([telegram_bot docs])
 - Add color setting trait ([@balloob] - [#22894]) ([google_assistant docs])
 - Fix HomeKit fan speed conversion ([@cdce8p] - [#22951]) ([homekit docs])
@@ -1028,7 +1028,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [influxdb docs]: /integrations/influxdb/
 [insteon_local docs]: /integrations/insteon/
 [insteon_plm docs]: /integrations/insteon/
-[introduction docs]: /integrations/introduction/
 [lcn docs]: /integrations/lcn/
 [light docs]: /integrations/light/
 [lightwave docs]: /integrations/lightwave/
