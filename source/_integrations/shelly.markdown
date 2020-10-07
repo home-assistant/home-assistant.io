@@ -2,6 +2,9 @@
 title: Shelly
 description: Integrate Shelly devices
 ha_category:
+  - Cover
+  - Light
+  - Sensor
   - Switch
 ha_release: 0.115
 ha_codeowners:
