@@ -4,6 +4,7 @@ description: Instructions on how to integrate Yamaha Network Receivers into Home
 ha_category:
   - Media Player
 ha_release: 0.16
+ha_iot_class: Local Polling
 ha_domain: yamaha
 ---
 
