@@ -11,7 +11,6 @@ ha_release: 0.31
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rohankapoorcom'
-  - '@vangorra'
 ha_domain: zoneminder
 ---
 
@@ -26,8 +25,11 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'ZoneMinder' and click 'Configure'.
-2. Enter the information appropriate for the server and click 'Submit'.
+```yaml
+# Example configuration.yaml entry
+zoneminder:
+  - host: ZM_HOST
+```
 
 {% configuration %}
 host:
@@ -64,9 +66,23 @@ password:
   type: string
 {% endconfiguration %}
 
-## Service
+### Full configuration
 
-Once loaded, the `zoneminder` integration will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
+```yaml
+# Example configuration.yaml entry
+zoneminder:
+  - host: ZM_HOST
+    path: ZM_PATH
+    path_zms: ZM_PATH_ZMS
+    ssl: true
+    verify_ssl: true
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+```
+
+### Service
+
+Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
 
 | Service data attribute | Optional | Description                       |
 |:-----------------------|:---------|:----------------------------------|
@@ -92,6 +108,8 @@ Each binary_sensor created will be named after the hostname used when configurin
 ## Camera
 
 The `zoneminder` camera platform lets you monitor the current stream of your [ZoneMinder](https://www.zoneminder.com) cameras.
+
+### Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 
