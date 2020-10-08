@@ -7,7 +7,7 @@ ha_release: 0.48
 ha_domain: telegram_bot
 ---
 
-Telegram implementation to support **sending messages only**. Your Home Assistant instance does not have to be exposed to the Internet and there is no polling to receive messages sent to the bot.
+Telegram implementation to support **sending messages only**. Your Home Assistant instance does not have to be exposed to the internet and there is no polling to receive messages or commands sent to the bot.
 
 ## Configuration
 
@@ -19,13 +19,12 @@ telegram_bot:
   - platform: broadcast
     api_key: YOUR_API_KEY
     allowed_chat_ids:
-      - 12345
-      - 67890
+      - 123456789 # example id of a user or a group
 ```
 
 {% configuration %}
 allowed_chat_ids:
-  description: A list of users in the `user_id` Telegram format that are authorized to interact with the webhook.
+  description: The id representing the user or group to which messages can be send. The message will only be sent to the first id in the list.
   required: true
   type: list
 api_key:
