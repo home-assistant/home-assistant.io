@@ -27,7 +27,7 @@ telegram_bot:
 
 {% configuration %}
 allowed_chat_ids:
-  description: The id representing the user or group to which messages can be send. Default the message will be send to the first alllowed chat_id. By using the `target` service data attribute the message can be send to other chat_ids from the list.
+  description: A list of ids representing the users and group chats to which messages can be send. Default the message will be send to the first alllowed chat_id. By using the `target` service data attribute the message can be send to other chat_ids from the list.
   required: true
   type: list
 api_key:
