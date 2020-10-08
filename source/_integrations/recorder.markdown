@@ -218,6 +218,7 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | :----------------------------- | :----------------------------------------------------------------------------------------------------- |
 | SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                           |
 | MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
+| MariaDB (omit pymysql, Socket) | `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
 | MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                               |
 | MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
 | MySQL (Socket)                 | `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
