@@ -9,6 +9,8 @@ ha_domain: telegram_bot
 
 Telegram implementation to support **sending messages only**. Your Home Assistant instance does not have to be exposed to the internet and there is no polling to receive messages or commands sent to the bot.
 
+Information on how to send a message via the service `telegram_bot.send_message` can be found [here](/integrations/telegram_bot/#service-telegram_botsend_message).
+
 ## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
@@ -19,12 +21,13 @@ telegram_bot:
   - platform: broadcast
     api_key: YOUR_API_KEY
     allowed_chat_ids:
-      - 123456789 # example id of a user or a group
+      - 123456789 # example id of a user
+      - -987654321  # example id of a group, starts with a -
 ```
 
 {% configuration %}
 allowed_chat_ids:
-  description: The id representing the user or group to which messages can be send. The message will only be sent to the first id in the list.
+  description: The id representing the user or group to which messages can be send. Default the message will be send to the first alllowed chat_id. By using the `target` service data attribute the message can be send to other chat_ids from the list.
   required: true
   type: list
 api_key:
