@@ -4,6 +4,7 @@ description: Matrix chatbot support
 ha_category:
   - Hub
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.69
 ha_codeowners:
   - '@tinloaf'
