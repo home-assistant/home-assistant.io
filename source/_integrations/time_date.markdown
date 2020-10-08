@@ -29,7 +29,14 @@ sensor:
       - 'beat'
 ```
 
-- **display_options** array (*Required*): The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://www.swatch.com/en_us/internet-time).
+
+{% configuration %}
+display_options:
+  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://www.swatch.com/en_us/internet-time).
+  required: true
+  type: list
+{% endconfiguration %}
+
 
 <p class='img'>
   <img src='/images/screenshots/time_date.png' />
