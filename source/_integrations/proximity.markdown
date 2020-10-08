@@ -3,6 +3,7 @@ title: Proximity
 description: Instructions on how to setup Proximity monitoring within Home Assistant.
 ha_category:
   - Automation
+  - Presence Detection
 ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
