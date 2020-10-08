@@ -43,6 +43,8 @@ Whilst there are a number of `display_options` exposed by this sensor, they cann
 
 The following can be used to create a time and date sensor whose output can be properly customised to use your own preferred formatting, specified in the call to timestamp_custom() using standard [Python datetime formatting](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior).
 
+{% raw %}
+
 ```yaml
 sensor:
   # Minimal configuration of the standard time and date sensor
@@ -57,3 +59,5 @@ sensor:
         value_template: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-m, %I:%M %p') }}"
         icon_template: mdi:calendar-clock
 ```        
+
+{% endraw %}
