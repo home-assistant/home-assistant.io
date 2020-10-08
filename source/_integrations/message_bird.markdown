@@ -5,6 +5,7 @@ ha_category:
   - Notifications
 ha_release: 0.16
 ha_domain: message_bird
+ha_iot_class: Cloud Push
 ---
 
 The `MessageBird` notification platform sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.
