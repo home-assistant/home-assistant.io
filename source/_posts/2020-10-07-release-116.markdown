@@ -18,7 +18,7 @@ Home Assistant Core 0.116!
 So, how have you been? Fully processed the massive 0.115 birthday release yet?
 
 Honestly, I haven't. There was soo much in 0.115, and to me, it feels like that
-release was yesterday. 😅  
+release was yesterday. 😅
 
 So, today, a nice size, manageable release that brings some smaller things to
 the table. Lots of fixes, UI tweaks and improvements; hopefully a smooth sail!
@@ -43,6 +43,7 @@ As always, enjoy the release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 0.116.1 - October 8](#release-01161---october-8)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -184,6 +185,35 @@ The following integrations are now available via the Home Assistant UI:
 
 - [AlarmDecoder][alarmdecoder docs], done by [@ajschmidt8]
 - [Canary][canary docs], done by [@ctalkington]
+
+## Release 0.116.1 - October 8
+
+- Update Pyhiveapi Library Version ([@KJonline] - [#40804]) ([hive docs])
+- Ensure recorder commit can retry after encountering invalid data ([@bdraco] - [#41426]) ([recorder docs])
+- Downgrade Paho MQTT to 1.5.0 ([@balloob] - [#41479]) ([mqtt docs])
+- Bump pyatmo version to 4.1.0 ([@cgtobi] - [#41487]) ([netatmo docs])
+- Fix async_unload_entry for devolo Home Control ([@Shutgun] - [#41488]) ([devolo_home_control docs])
+- Update frontend to 20201001.2 ([@bramkragten] - [#41491]) ([frontend docs])
+- Add missing on states to media player groups ([@bdraco] - [#41496])
+
+[#40804]: https://github.com/home-assistant/core/pull/40804
+[#41426]: https://github.com/home-assistant/core/pull/41426
+[#41479]: https://github.com/home-assistant/core/pull/41479
+[#41487]: https://github.com/home-assistant/core/pull/41487
+[#41488]: https://github.com/home-assistant/core/pull/41488
+[#41491]: https://github.com/home-assistant/core/pull/41491
+[@KJonline]: https://github.com/KJonline
+[@Shutgun]: https://github.com/Shutgun
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[devolo_home_control docs]: /integrations/devolo_home_control/
+[frontend docs]: /integrations/frontend/
+[hive docs]: /integrations/hive/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[recorder docs]: /integrations/recorder/
 
 ## If you need help...
 
