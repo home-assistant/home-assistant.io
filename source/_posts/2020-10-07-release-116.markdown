@@ -202,6 +202,7 @@ The following integrations are now available via the Home Assistant UI:
 [#41487]: https://github.com/home-assistant/core/pull/41487
 [#41488]: https://github.com/home-assistant/core/pull/41488
 [#41491]: https://github.com/home-assistant/core/pull/41491
+[#41496]: https://github.com/home-assistant/core/pull/41496
 [@KJonline]: https://github.com/KJonline
 [@Shutgun]: https://github.com/Shutgun
 [@balloob]: https://github.com/balloob
