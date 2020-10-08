@@ -10,7 +10,7 @@ og_image: /images/conference/social.png
 <img src='/images/conference/conference-header.png' alt='Home Assistant Conference header' class='no-shadow'>
 <br><br>
 
-The Home Assistant Conference is an online event where the Home Assistant community will share their ideas, creations and milestones. The event will take place on December 13, 2020 and will be free to participate.
+The Home Assistant Conference is an online event where the Home Assistant community will share their ideas, creations and major milestones. The event will take place on December 13, 2020 and will be free to participate.
 
 We're still working out the details, so check back on this page for updates.
 
@@ -20,7 +20,7 @@ We're currently looking for people that want to speak at the conference. Talks w
 
 Talks can be about things you created, like a great automation, an amazing Lovelace dashboard, or a cool new feature. It can also be about your experience with Home Assistant, like how it has improved peoples lives, how you use it for education or some other unique use case.
 
-If you're interested in speaking, [fill in the form](#). The deadline for submitting a talk is October 31, 2020.
+If you're interested in speaking, [fill in the form](https://docs.google.com/forms/d/e/1FAIpQLScbmyX3fVOVHYZlI42Bhg8CPPV-jcWja2NvwyyYMaNRl8wvmA/viewform). The deadline for submitting a talk is October 31, 2020.
 
 ## Speakers & Schedule
 
