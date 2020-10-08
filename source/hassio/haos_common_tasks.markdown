@@ -89,11 +89,12 @@ A partial snapshot consists of any number of the above default directories and i
 
 ### Restoring a Snapshot on a new install
 
-Restoring a snapshot on a fresh install of Home Assistant OS requires that you first upload the snapshot to the backup directory on the new instance. From the Supervisor Snapshot panel, these can be uploaded using the following steps:
+You can restore a snapshot during on a new installation during the onboarding process. Follow the link at the bottom of the account creation page to upload your snapshot from a previous installation.
 
-1. Go to Supervisor > Snapshots in the UI 
-2. Select "Upload Snapshot" from the icon in the upper right of the page.
-3. Click on the folder icon to navigate to your snapshot .tar file
+For restoring a snapshot at any other time, vist the Supervisor Snapshot panel in your UI and use the following steps:
+
+1. Select "Upload Snapshot" from the icon in the upper right of the page.
+1. Click on the folder icon to navigate to your snapshot .tar file
 
 When the upload is completed, you will be presented with the snapshot restore dialog for restoring it, and can then choose to restore in full or in part by manually selecting individual items.
 
