@@ -8,7 +8,7 @@ ha_category:
   - Switch
   - Binary Sensor
   - Sensor
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_codeowners:
   - '@danielhiversen'
