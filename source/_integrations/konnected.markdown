@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Switch
   - Sensor
+ha_iot_class: Local Polling
 ha_release: '0.70'
 ha_codeowners:
   - '@heythisisnate'
