@@ -93,9 +93,9 @@ message:
   type: template
 done_message:
   description: >
-    A message sent after an alert transitions from `on` to `idle` with
+    A message sent after an alert transitions from `on` or `off` to `idle` with
     [template](/docs/configuration/templating/) support. Is only sent if an alert notification
-    was sent for transitioning from `off` to `on`.
+    was sent for transitioning from `idle` to `on`.
   required: false
   type: template
 notifiers:
