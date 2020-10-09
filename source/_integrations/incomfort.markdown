@@ -86,7 +86,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of the Lan2RF gateway, if any. Most likely: `admin`
+  description: "The username of the Lan2RF gateway, if any. Most likely: `admin`."
   required: inclusive
   type: string
 password:
