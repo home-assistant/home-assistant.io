@@ -374,7 +374,3 @@ entities:
         text: Are you sure you want to restart?
       service: script.libreelec_power_cycle
 ```
-
-<div class='note'>
-Please be aware that the entity types divider and weblink aren't yet supported by the UI editor and a warning about `Expected a value of type...` is shown. You can ignore the warning and save your edits to verify.
-</div>
