@@ -29,7 +29,14 @@ sensor:
       - 'beat'
 ```
 
-- **display_options** array (*Required*): The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://www.swatch.com/en_us/internet-time).
+
+{% configuration %}
+display_options:
+  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://www.swatch.com/en_us/internet-time).
+  required: true
+  type: list
+{% endconfiguration %}
+
 
 Sensors including the time update every minute, the date sensor updates each day at midnight, and the beat sensor updates with each beat (86.4 seconds).
 
