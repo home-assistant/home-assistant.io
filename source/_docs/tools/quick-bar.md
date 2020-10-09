@@ -1,15 +1,15 @@
 ---
-title: "Quick Open Dialog"
+title: "Quick Bar"
 description: "Dialog for quickly accessing entities or running common commands"
 ---
 
-The "Quick Open Dialog" allows you to quickly look up entities or run commands without needing to navigate away from your current view. (Similar to "quick open" feature in VS Code, Chrome Developer Tools, etc).
+The "Quick Bar" allows you to quickly look up entities or run commands without needing to navigate away from your current view. (Similar to "quick open" feature in VS Code, Chrome Developer Tools, etc).
 
 It can be launched in the web application using [hotkeys](#hotkeys).
 
 <p class='img'>
-  <img src='/images/docs/quick-open/quick-open-dialog.gif' alt='Quick open dialog'>
-  Quick open bar for accessing entities and running commands
+  <img src='/images/docs/quick-bar/quick-bar-demo.gif' alt='Quick Bar'>
+  Quick Bar for accessing entities and running commands
 </p>
 
 ## Hotkeys
@@ -30,7 +30,7 @@ Type these from anywhere in the application to launch the dialog.
 When the dialog has already been launched, you can switch to other modes without losing your filter text.
 
 <p class='img'>
-  <img src='/images/docs/quick-open/quick-open-switch-modes.gif' alt='Quick open dialog'>
+  <img src='/images/docs/quick-bar/quick-bar-switch-modes.gif' alt='Quick Bar'>
   Switch modes without losing filter text
 </p>
 
@@ -45,8 +45,8 @@ When the dialog has already been launched, you can switch to other modes without
 Similar to Developer Tools -> States view, but more lightweight, and accessible from anywhere in the application.
 
 <p class='img'>
-  <img src='/images/docs/quick-open/quick-open-entity-filter.gif' alt='Quick open dialog'>
-  Filter for entities in quick open dialog's entity filter mode
+  <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>
+  Filter for entities in Quick Bar's entity filter mode
 </p>
 
 Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-complete-substring)) to get back a filtered list of entities. Clicking on an entity will open the "More Info" dialog for that entity. 
@@ -59,8 +59,8 @@ This is helpful when, say, you are in the middle of writing an automation and ne
 Run various commands from anywhere without navigating to another view.
 
 <p class='img'>
-  <img src='/images/docs/quick-open/quick-open-command-bar.gif' alt='Quick open dialog'>
-  Run commands in quick open dialog's command mode
+  <img src='/images/docs/quick-bar/quick-bar-command-mode.gif' alt='Quick Bar'>
+  Run commands in Quick Bar's "command mode"
 </p>
 
 Currently-supported commands:
@@ -75,7 +75,7 @@ Currently-supported commands:
 
 In Developer Tools -> States, if you're trying to find "light.chandelier" you would have to type out a complete, exact substring to match it (e.g. "light.cha" or "chandel").
 
-But the Quick Open Dialog checks *each letter* of your filter, finding entities that contain those letters, _in that order_. So, you can instead use "bits and pieces" of the entity id to narrow down matches more quickly (e.g. "ligcha", "ltlier", or "ltcdl").
+But the Quick Bar checks *each letter* of your filter, finding entities that contain those letters, _in that order_. So, you can instead use "bits and pieces" of the entity id to narrow down matches more quickly (e.g. "ligcha", "ltlier", or "ltcdl").
 
 This is similar to many modern developer-based applications like Sublime, VSCode, Chrome Developer Tools and GitHub file search do "quick file filter" searches.
 
