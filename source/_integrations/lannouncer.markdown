@@ -4,6 +4,7 @@ description: Instructions on how to add Lannouncer notifications to Home Assista
 logo: lannouncer.png
 ha_category:
   - Notifications
+ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: lannouncer
 ---
