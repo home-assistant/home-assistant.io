@@ -167,7 +167,7 @@ Remove the bot from the chat group where it was added.
 |---------------------------|----------|--------------------------------------------------|
 | `chat_id`                 |       no | The chat_id from where to remove the bot.  |
 
-## `telegram` notification platform
+## Telegram notification platform
 
 The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
@@ -175,8 +175,8 @@ The required YAML configuration now reduces to:
 
 ```yaml
 notify:
-  - name: NOTIFIER_NAME
-    platform: telegram
+  - platform: telegram
+    name: NOTIFIER_NAME
     chat_id: USER_CHAT_ID
 ```
 
@@ -423,4 +423,4 @@ Telegram callbacks also support arguments and commands the same way as normal me
 
 {% endraw %}
 
-In this case, having a callback with `/repeat 1 2 3` with pop a notification saying `I repeat: [1, 2, 3]`
+In this case, having a callback with `/repeat 1 2 3` will pop a notification saying `I repeat: [1, 2, 3]`
