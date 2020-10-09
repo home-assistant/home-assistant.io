@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_domain: hyperion
 ---
 
+<<<<<<< HEAD
 The `hyperion` platform allows you to integrate your
 [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is
 an open source Ambilight implementation which runs on many platforms.
@@ -15,6 +16,9 @@ an open source Ambilight implementation which runs on many platforms.
 NOTE: [Hyperion-NG](https://github.com/hyperion-project/hyperion.ng) is
 supported, the original [discontinued Hyperion](https://github.com/hyperion-project/hyperion) is not supported by
 this integration.
+=======
+The `hyperion` platform allows you to integrate your [Hyperion](https://docs.hyperion-project.org/) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
+>>>>>>> 0c4fbf2a1f154ac3876d25de6964712b50f7544d
 
 ## Configuration
 
