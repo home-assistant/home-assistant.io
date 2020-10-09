@@ -38,7 +38,7 @@ You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending
   - **path** - the path to the AlarmDecoder device (i.e. `/dev/ttyUSB0`)
   - **baud rate** - the baud rate of the AlarmDecoder device (i.e. `115200`)
 
-## Configuration
+## Settings
 
 Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **Configuration -> Integrations** page.
 
