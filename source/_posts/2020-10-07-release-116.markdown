@@ -44,6 +44,7 @@ As always, enjoy the release!
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 0.116.1 - October 8](#release-01161---october-8)
+- [Release 0.116.2 - October 9](#release-01162---october-9)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -215,6 +216,37 @@ The following integrations are now available via the Home Assistant UI:
 [mqtt docs]: /integrations/mqtt/
 [netatmo docs]: /integrations/netatmo/
 [recorder docs]: /integrations/recorder/
+
+## Release 0.116.2 - October 9
+
+- Fix Netatmo non specified sensor types ([@cgtobi] - [#41517]) ([netatmo docs])
+- Update Arris TG2492LG dependency version ([@vanbalken] - [#41465]) ([arris_tg2492lg docs])
+- Fix omnilogic temperature sensor with metric setting ([@djtimca] - [#41509]) ([omnilogic docs])
+- Restore group support to plant entities ([@bdraco] - [#41519]) ([group docs]) ([plant docs])
+- Bump yeelight to 0.5.4 ([@shenxn] - [#41524]) ([yeelight docs])
+- Fix description reference in PoolSense config flow ([@bieniu] - [#41535]) ([poolsense docs])
+- Fix missing weather sensors ([@cgtobi] - [#41540]) ([netatmo docs])
+
+[#41465]: https://github.com/home-assistant/core/pull/41465
+[#41509]: https://github.com/home-assistant/core/pull/41509
+[#41517]: https://github.com/home-assistant/core/pull/41517
+[#41519]: https://github.com/home-assistant/core/pull/41519
+[#41524]: https://github.com/home-assistant/core/pull/41524
+[#41535]: https://github.com/home-assistant/core/pull/41535
+[#41540]: https://github.com/home-assistant/core/pull/41540
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@cgtobi]: https://github.com/cgtobi
+[@djtimca]: https://github.com/djtimca
+[@shenxn]: https://github.com/shenxn
+[@vanbalken]: https://github.com/vanbalken
+[arris_tg2492lg docs]: /integrations/arris_tg2492lg/
+[group docs]: /integrations/group/
+[netatmo docs]: /integrations/netatmo/
+[omnilogic docs]: /integrations/omnilogic/
+[plant docs]: /integrations/plant/
+[poolsense docs]: /integrations/poolsense/
+[yeelight docs]: /integrations/yeelight/
 
 ## If you need help...
 
