@@ -48,7 +48,7 @@ sensors:
           required: false
           type: string
         unique_id:
-          description: An ID that uniquely identifies this binary sensor. Set this to an unique value to allow customisation through the UI.
+          description: An ID that uniquely identifies this binary sensor. Set this to an unique value to allow customization through the UI.
           required: false
           type: string
         device_class:
