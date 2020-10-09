@@ -24,9 +24,6 @@ To integrate this into Home Assistant, add the following section to your `config
 telegram_bot:
   - platform: webhooks
     api_key: YOUR_API_KEY
-    trusted_networks:
-      - 149.154.160.0/20
-      - 91.108.4.0/22
     allowed_chat_ids:
       - 123456789 # example id of a user
       - -987654321  # example id of a group, starts with a -
@@ -66,3 +63,21 @@ trusted_networks:
 {% endconfiguration %}
 
 To get your `chat_id` and `api_key` follow the instructions [here](/integrations/telegram). As well as authorizing the chat, if you have added your bot to a group you will also need to authorize any user that will be interacting with the webhook. When an unauthorized user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the users id by looking in the "from" section of this error message.
+
+## Full configuration example
+
+The configuration sample below shows how an entry can look like:
+
+```yaml
+# Example configuration.yaml entry
+telegram_bot:
+  - platform: webhooks
+    api_key: YOUR_API_KEY
+    parse_mode: html
+    trusted_networks:
+      - 149.154.160.0/20
+      - 91.108.4.0/22
+    allowed_chat_ids:
+      - 123456789 # example id of a user
+      - -987654321  # example id of a group, starts with a -
+```
