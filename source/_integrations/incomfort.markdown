@@ -90,7 +90,7 @@ username:
   required: inclusive
   type: string
 password:
-  description: The password of the Lan2RF gateway, if any. Most likely: `intergas`
+  description: "The password of the Lan2RF gateway, if any. Most likely: `intergas`."
   required: inclusive
   type: string
 {% endconfiguration %}
