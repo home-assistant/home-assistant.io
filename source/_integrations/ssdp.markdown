@@ -3,6 +3,7 @@ title: Simple Service Discovery Protocol (SSDP)
 description: Discover integrations on the network using the SSDP protocol.
 ha_category:
   - Network
+ha_iot_class: Local Push
 ha_release: 0.94
 ha_domain: ssdp
 ---
