@@ -5,10 +5,14 @@ description: "Instructions to get Home Assistant configured."
 
 Alright, you made it here. The tough part is done.
 
-With Home Assistant installed, it's time to configure it. Here you will create the owner account of Home Assistant. This account will be an administrator and will always be able to change everything. Enter a name, username, password and click on "create account".
+With Home Assistant installed, it's time to configure it. 
+
+If this is your first time installing Home Assistant, or if you want a fresh install keep reading. However, if you have a snapshot saved of a previous setup that you want to load, this is your chance to do so using the link at the bottom - scroll down for the details.
+
+On with configuration... Here you will create the owner account of Home Assistant. This account will be an administrator and will always be able to change everything. Enter a name, username, password and click on "create account".
 
 <p class='img'>
-<img src='/images/getting-started/username.png' />
+<img src='/images/getting-started/username_or_restore_snapshot.png' />
 Set your username and password.
 </p>
 
@@ -43,5 +47,16 @@ The integrations page in the configurations panel shows you all your configured 
 When each integration is done setting up, it will ask you to put the new devices in areas. Areas allow you to organize all the devices in your home.
 
 When you're done, navigate back to the web interface and voila, your devices are ready for you to control.
+
+### Restoring from previous snapshot
+
+Instead of going through the entire configuration and starting fresh, if you have a snapshot image saved you can now restore it using the link "Alternatively you can restore from a previous snapshot".
+
+A file upload dialog box will allow you choose a file from the computer you are connected too and load it on to your newly installed operating system. Once you select a file and click open, the file will be analyzed and if it contains a valid snapshot - it's information will be displayed so you can verify this is indeed the one you want to use. 
+
+Click "Restore Selected" and confirm once again.
+
+The snapshot will then be loaded along with its configurations and addons (the process may take several minutes depending on the size of the snapshot).
+
 
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)
