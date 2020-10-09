@@ -6,6 +6,7 @@ ha_category:
   - Lock
   - Sensor
   - Notifications
+ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
   - '@dannerph'
