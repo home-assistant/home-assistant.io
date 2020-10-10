@@ -56,7 +56,7 @@ A file upload dialog box will allow you choose a file from the computer you are 
 
 Click "Restore Selected" and confirm once again.
 
-The snapshot will then be loaded along with its configurations and addons (the process may take several minutes depending on the size of the snapshot).
+The snapshot will then be loaded along with its configurations and add-ons (the process may take several minutes depending on the size of the snapshot).
 
 
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)
