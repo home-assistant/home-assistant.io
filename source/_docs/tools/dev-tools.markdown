@@ -5,8 +5,8 @@ description: "Description of the Developer Tools."
 
 The frontend contains a section called "Developer Tools".
 
-<p class='img'>
-<img src='/images/screenshots/developer-tools.png' />
+<p>
+<img src="https://appdevelopermagazine.com/images/news_images/iOS-Developer-Tools-Release-App-Developer-Magazine_86yd5z8g.jpg" alt="developer tools"> <br>
 Screenshot of Home Assistant's Developer Tools.
 </p>
 
