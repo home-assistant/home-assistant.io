@@ -48,7 +48,7 @@ Send a photo.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| 'timeout'                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
@@ -67,7 +67,7 @@ Send a video.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| 'timeout'                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
@@ -86,7 +86,7 @@ Send a document.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| 'timeout'                 |      yes | Timeout for send document. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for send document. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
