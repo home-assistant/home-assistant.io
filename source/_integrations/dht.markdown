@@ -11,13 +11,15 @@ ha_domain: dht
 
 The `dht` sensor platform allows you to get the current temperature and humidity from a DHT11, DHT22 or AM2302 device.
 
-## Configuration
+## Setup
 
-To use your DHTxx sensor in your installation, you must first install the ```libgpiod2``` library.
+To use your DHTxx sensor in your installation, you must first install the `libgpiod2` library.
 
 ```shell
 sudo apt install libgpiod2
 ```
+
+## Configuration
 
 Add the following to your `configuration.yaml` file:
 
@@ -34,7 +36,7 @@ sensor:
 
 {% configuration %}
 sensor:
-  description: The sensor type, supported devices are DHT11, DHT22, and AM2302.
+  description: The sensor type, supported devices are DHT11, DHT22 and AM2302.
   required: true
   type: string
 pin:
