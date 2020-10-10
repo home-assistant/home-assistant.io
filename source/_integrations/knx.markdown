@@ -286,6 +286,11 @@ reset_after:
   description: Reset back to OFF state after specified milliseconds.
   required: false
   type: integer
+ignore_internal_state:
+  description: If set to true the update callbacks are always executed regardless of the current binary sensor state. If some of your automations are triggered multiple times make sure this setting is False.
+  required: false
+  type: boolean
+  default: True
 context_timeout:
   description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. Maximum value is 10.0.
   required: false
