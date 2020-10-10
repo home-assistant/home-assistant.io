@@ -263,10 +263,13 @@ allComponents.pop(); // remove placeholder element at the end
       var text = $(this).val();
       // sanitize input
       text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
-      if (typeof text === "string" && text.length !== 0) {
+      if (typeof text === "string" && text.length >= 1) {
         updateHash('#search/' + text);
-        applyFilter();
       }
+      else {
+        updateHash('#all');
+      }
+      applyFilter();
     }, 500));
 
     window.addEventListener('hashchange', applyFilter);
