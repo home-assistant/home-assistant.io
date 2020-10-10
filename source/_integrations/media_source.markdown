@@ -24,8 +24,7 @@ media_source:
 
 ## Local Media
 
-By default, the integration creates a local folder where Home Assistant looks for
-media to show in the media browser.
+By default, the integration by default looks for media in a specified folder.
 
 For Home Assistant OS, Supervised and Container users, this folder is by default
 configured in the path `/media`.
