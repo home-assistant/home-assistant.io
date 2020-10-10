@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Cover
   - Light
+  - Lock
   - Scene
   - Sensor
   - Switch
@@ -28,6 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
+- [Lock](#lock)
 - [Scene](#scene)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -343,6 +345,14 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue LightStrip Plus
 - Busch Jaeger Zigbee Light Link univ. relai (6711 U) with Zigbee Light Link control element 6735-84
 - Xiaomi Aqara Smart LED Bulb (white) E27 ZNLDP12LM
+
+## Lock
+
+Locks are devices such as the Danalock Zigbee lock.
+
+Note that devices in the `lock` platform identify as lights, so there is a manually curated list that defines which "lights" are locks. You therefore add a lock device as a light device in deCONZ (Phoscon App).
+
+The `entity_id` name will be `lock.device_name`, where `device_name` is defined in deCONZ.
 
 ## Scene
 
