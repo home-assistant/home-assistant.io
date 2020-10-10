@@ -24,28 +24,28 @@ media_source:
 
 ## Local Media
 
-By default, a local media source is configured which Home Assistant looks for
+By default, the integration creates a local folder where Home Assistant looks for
 media to show in the media browser.
 
 For Home Assistant OS, Supervised and Container users, this folder is by default
-configured on path `/media`.
+configured in the path `/media`.
 
-Home Assistant OS and Supervised users can access this folder using,
+Home Assistant OS and Supervised users can access this folder by using,
 for example, the Samba add-on. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
 
 If you are a Home Assistant Core user, the default directory called is called
-`media` under the configuration path (where you `configuration.yaml` is).
+`media` under the configuration path (where your `configuration.yaml` is located).
 
-Files served from `media` are protected by the Home Assistant authentication
-unlike those served from `www`.
+Files served from `media` are protected by Home Assistant authentication
+unlike those served from `www` that are freely avaliable to any unauthenticated user.
 
 ## Using custom or additional media folders
 
 It is also possible to set up custom and additional media directories. To do
 so, you'll need to adjust the [core configuration][basic-configuration].
 
-This example adds two media folders to Home Assistant:
+This example adds two media folders avaliable to Home Assistant:
 
 ```yaml
 # Example configuration.yaml
