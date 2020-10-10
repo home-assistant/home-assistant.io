@@ -37,7 +37,7 @@ If you are a Home Assistant Core user, the default directory called is called
 `media` under the configuration path (where your `configuration.yaml` is located).
 
 Files served from `media` are protected by Home Assistant authentication
-unlike those served from `www` that are freely avaliable to any unauthenticated user.
+unlike those served from `www`.
 
 ## Using custom or additional media folders
 
