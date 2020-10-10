@@ -40,13 +40,19 @@ docker rm home-assistant  # remove it from Docker's list of containers
 docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable  # finally, start a new one
 ```
 
-### Raspberry Pi 3 (Raspberry Pi OS)
+### Raspberry Pi 3/4 (Raspberry Pi OS)
 
+Raspberry Pi 3:
 ```bash
 docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/raspberrypi3-homeassistant:stable
 ```
 
-You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration, for example if you choose your configuration path to be `/home/pi/homeassistant`, then command would be:
+Raspberry Pi 4:
+```bash
+docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/raspberrypi4-homeassistant:stable
+```
+
+You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration. For example, if you choose your configuration path to be `/home/pi/homeassistant`, the command for **Raspberry Pi 3** would be:
 
 ```bash
 docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /home/pi/homeassistant:/config --net=host homeassistant/raspberrypi3-homeassistant:stable
