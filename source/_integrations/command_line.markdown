@@ -143,6 +143,6 @@ Available services: `reload`.
 
 #### Service `command_line.reload`
 
-Reload all command_line entities.
+Reload all `command_line` entities.
 
 This service takes no service data attributes.
