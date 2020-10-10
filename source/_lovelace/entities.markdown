@@ -6,6 +6,8 @@ description: "The Entities card is the most common type of card. It groups items
 
 The Entities card is the most common type of card. It groups items together into lists.
 
+To add the Entities card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Entities** from the card picker.
+
 {% configuration %}
 type:
   required: true
