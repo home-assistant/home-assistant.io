@@ -3,9 +3,8 @@ title: Subaru
 description: Instructions on how to integrate Subaru car into Home Assistant.
 ha_category:
   - Car
-  - Lock
   - Sensor
-ha_release: 0.111
+ha_release: 0.117
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -17,8 +16,7 @@ The `Subaru` integration connects to the [MySubaru](https://www.mysubuaru.com) c
 
 This integration provides the following platforms:
 
-- Lock - Lock and Unlock Doors.
-- Sensors - Such as Outside temperature, odometer, estimated range, and EV information (battery level, range, charging rate).
+- Sensors - Such as outside temperature, average fuel consumption, tire pressure, odometer, estimated range, and EV information (battery level, range, charging rate).
 
 ## Configuration
 
@@ -33,7 +31,7 @@ When prompted, enter the following configuration parameters:
 - **PIN:** The PIN associated with your MySubaru account. 
   - Note: If your account includes multiple vehicles, the same PIN will need to be used for all vehicles.
 
-First-time validation of your credentials may take up to 15 seconds. 
+First-time validation of your credentials may take up to 30 seconds. 
 
 ## Options
 
