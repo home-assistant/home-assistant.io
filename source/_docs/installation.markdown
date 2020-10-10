@@ -46,7 +46,7 @@ These install options are fully supported by Home Assistant's documentation. For
 
 <div class='note'>
 
-The only installation methods that allow you to use Home Assistant Add-ons is using the Home Assistant image. All other methods only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
+The only installation method that allows you to use Home Assistant Add-ons is using the Home Assistant OS method. All other methods (including Home Assistant Container) only install the base Home Assistant packages, however the software from the add-ons may still usually be installed manually like any other program.
 
 </div>
 
