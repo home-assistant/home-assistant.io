@@ -409,7 +409,11 @@ and Switch the ElkM1 integration offers these additional services:
 - `elkm1.alarm_arm_home_instant`
 - `elkm1.alarm_arm_night_instant`
 - `elkm1.alarm_arm_vacation`
+- `elkm1.alarm_bypass`
+- `elkm1.alarm_clear_bypass`
 - `elkm1.alarm_display_message`
+- `elkm1.sensor_zone_bypass`
+- `elkm1.sensor_zone_trigger`
 - `elkm1.speak_phrase`
 - `elkm1.speak_word`
 
@@ -423,6 +427,16 @@ respectively.
 | `entity_id` | yes | ElkM1 area which to arm.
 | `code` | no | Alarm code to arm the system (4 or 6 digits).
 
+### Services `elkm1.alarm_bypass` and `elkm1.alarm_clear_bypass`
+
+For all zones associated with the specified alarm panel these services respectively
+bypass or clear the bypass the zones.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ElkM1 area which to bypass or clear bypass.
+| `code` | no | Alarm code to bypass the alarm panel (4 or 6 digits).
+
 ### Service `elkm1.alarm_display_message`
 
 Display text on an area's keypads.
@@ -435,6 +449,25 @@ Display text on an area's keypads.
 | `timeout` | yes | Time to display message, 0=forever, max 65535, default 0
 | `line1` | yes | Up to 16 characters of text (truncated if too long). Default blank.
 | `line2` | yes | Up to 16 characters of text (truncated if too long). Default blank.
+
+### Service `elkm1.sensor_zone_bypass`
+
+Bypass a zone. Note that the only mechanism ElkM1 offers to clear the bypass
+is to clear all the bypassed zones in a given alarm panel (area).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ElkM1 zone which to bypass.
+| `code` | no | Alarm code to bypass the zone (4 or 6 digits).
+
+### Service `elkm1.sensor_zone_trigger`
+
+Cause a zone on the panel to trigger. This command creates a virtual momentary 
+open condition on the zone as if the EOL hardwired loop had been physically opened.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ElkM1 zone which to trigger.
 
 ### Service `elkm1.speak_phrase`
 
