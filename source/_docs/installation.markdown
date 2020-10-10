@@ -53,7 +53,7 @@ The only installation method that allows you to use Home Assistant Add-ons is us
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
 [Home Assistant OS](/hassio/installation/)|[A supported platform](/hassio/installation/)|Anybody
-[Home Assistant Container](/docs/installation/docker/)|Docker|Anybody already running Docker
+[Home Assistant Container](/docs/installation/docker/)|Docker|Anybody already running Docker and only want to run Home Assistant Core (i.e., no supervisor or add-ons available).
 
 ## Alternative installs
 
