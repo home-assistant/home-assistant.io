@@ -48,7 +48,7 @@ The following will take you through the steps required to install Home Assistant
 
 6. You will be able to reach your installation at `http://homeassistant.local:8123` (if your router supports mDNS, otherwise see below).
 
-7. From here, you have two options - either configure your home-assistant from scratch, or restore a saved snapshot with all its settings and add-ons that you saved in the past.
+7. From here, you have two options - either configure your Home Assistant from scratch, or restore a saved snapshot with all its settings and add-ons that you saved in the past.
 
 <div class='note warning'>
 
