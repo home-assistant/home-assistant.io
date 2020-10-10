@@ -7,6 +7,7 @@ ha_category:
   - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.31
+ha_iot_class: Local Polling
 ha_domain: concord232
 ---
 
