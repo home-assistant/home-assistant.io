@@ -42,7 +42,7 @@ NUC i7/i9 | Pure power, you should not have *any* performance issues
 
 ## Recommended
 
-These install options are fully supported by Home Assistant's documentation. For example, if an integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
+Using the Home Assistant OS method is the fully supported installation option by Home Assistant's documentation. For example, if an integration requires that you install something to make it work then the integration page will document the steps required. The Home Assistant Container method, on the other hand, may have limited documentation available, for example if you want to install and use add-ons.
 
 <div class='note'>
 
