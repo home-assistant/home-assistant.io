@@ -46,7 +46,8 @@ The available profiles are usually listed somewhere in the device manual.
 
 Support for tech-in messages is not implemented.
 
-## Configuration
+## 
+
 
 To integrate an EnOcean controller with Home Assistant, add the integration from the UI.
 
@@ -430,4 +431,4 @@ pid_parameter:
   default: {"Kp": 0, "Ki": 0, "Kd": 0}
 {% endconfiguration %}
 
-To get the device work proper the "teach in" process has to be done. For devices configured in configuration.yaml the teach in telegram will be sent automaticaly.
+To get the device work proper the "teach in" process has to be done. For devices configured in `configuration.yaml` the teach in telegram will be sent automaticaly.
