@@ -52,7 +52,7 @@ When you're done, navigate back to the web interface and voila, your devices are
 
 Instead of going through the entire configuration and starting fresh, if you have a snapshot image saved you can now restore it using the link "Alternatively you can restore from a previous snapshot".
 
-A file upload dialog box will allow you choose a file from the computer you are connected too and load it on to your newly installed operating system. Once you select a file and click open, the file will be analyzed and if it contains a valid snapshot - it's information will be displayed so you can verify this is indeed the one you want to use. 
+A file upload dialog box will allow you choose a file from the computer you are connected to and load it on to your newly installed operating system. Once you select a file and click open, the file will be analyzed and if it contains a valid snapshot - it's information will be displayed so you can verify this is indeed the one you want to use. 
 
 Click "Restore Selected" and confirm once again.
 
