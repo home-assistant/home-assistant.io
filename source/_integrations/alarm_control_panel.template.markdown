@@ -96,10 +96,12 @@ panels:
           description: Defines an action to run when the alarm is armed to night mode.
           required: false
           type: action
+        code_arm_required:
+          description: If true, the code is required to arm the alarm.
+          required: false
+          type: boolean
+          default: false
 {% endconfiguration %}
-
-
-
 
 ## Considerations
 
