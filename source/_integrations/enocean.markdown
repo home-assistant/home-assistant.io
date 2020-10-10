@@ -404,7 +404,7 @@ The temperature sensor supports these additional configuration properties.
 id:
   description: The ID of the device. This is the 4 bytes long identifier of your device.
   required: true
-  type: list
+  type: string
 name:
   description: An identifier for the device.
   required: false
@@ -418,12 +418,15 @@ target_temp:
 setpointselection:
   description: Sets the mode how the setpoint on the valve is set. Can be set to "pos" or "pid". If set to "pid" an pid controller calculates the setpoint of the valve. If set to "pos" the valve will open if the setpoint is not reached, and closed if the setpoint is reached.
   required: false
-  type: string
+  type: map
+    keys:
+      pid: Internal PID controller sets the output value.
+      pos: Position is set by the PID controller of the valve.
   default: pos
 pid_parameter:
   description: Configuration for the internal pid controller if used.
   required: false
-  type: List
+  type: string
   default: {"Kp": 0, "Ki": 0, "Kd": 0}
 {% endconfiguration %}
 
