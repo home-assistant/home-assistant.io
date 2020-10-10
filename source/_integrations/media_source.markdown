@@ -44,7 +44,7 @@ unlike those served from `www` that are freely avaliable to any unauthenticated 
 It is also possible to set up custom and additional media directories. To do
 so, you'll need to adjust the [core configuration][basic-configuration].
 
-This example adds two media folders avaliable to Home Assistant:
+This example makes two different folders avaliable to the integration:
 
 ```yaml
 # Example configuration.yaml
