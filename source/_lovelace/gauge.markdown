@@ -78,7 +78,7 @@ Title and Unit of Measurement Example:
 
 ```yaml
 type: gauge
-name: CPU Usuage
+name: CPU Usage
 unit: '%'
 entity: sensor.cpu_usage
 ```
