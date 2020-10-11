@@ -74,10 +74,35 @@ initial_hvac_mode:
   description: Set the initial HVAC mode. Valid values are `off`, `heat` or `cool`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
   required: false
   type: string
-away_temp:
-  description: "Set the temperature used by `preset_mode: away`. If this is not specified, the preset mode feature will not be available."
+presets:
+  description: "The list of all enabled `preset_mode`. If this is not specified, the preset mode feature will not be available."
   required: false
-  type: float
+  type: [list, map]
+  keys:
+    away:
+      description: "Set the temperature used by `preset_mode: away`. If this is not specified, this preset will not be available."
+      required: inclusive
+      type: float
+    comfort:
+      description: "Set the temperature used by `preset_mode: comfort`. If this is not specified, this preset will not be available."
+      required: inclusive
+      type: float
+    eco:
+      description: "Set the temperature used by `preset_mode: eco`. If this is not specified, this preset will not be available."
+      required: inclusive
+      type: float
+    home:
+      description: "Set the temperature used by `preset_mode: home`. If this is not specified, this preset will not be available."
+      required: inclusive
+      type: float
+    sleep:
+      description: "Set the temperature used by `preset_mode: sleep`. If this is not specified, this preset will not be available."
+      required: inclusive
+      type: float
+default_preset:
+  description: Set initial `preset_mode`. As of version 0.59, it will retain the `preset_mode` set before restart if available.
+  required: false
+  type: string
 precision:
   description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
   required: false
@@ -89,7 +114,7 @@ Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it m
 
 Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' HVAC modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
-Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
+Please note that when changing the preset mode to one of defined presets, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
 ## Full configuration example
 
@@ -110,6 +135,12 @@ climate:
     keep_alive:
       minutes: 3
     initial_hvac_mode: "off"
-    away_temp: 16
+    presets:
+      away: 16
+      comfort: 21
+      eco: 19
+      home: 20
+      sleep: 18
+    default_preset: eco
     precision: 0.1
 ```
