@@ -421,14 +421,14 @@ setpointselection:
   required: false
   type: map
     keys:
-      pid:
-        description: Internal PID controller sets the output value.
-        required: false
-        type: string
-      pos:
-        description: Position is set by the PID controller of the valve.
-        required: false
-        type: string
+      - pid:
+          description: Internal PID controller sets the output value.
+          required: false
+          type: string
+      - pos:
+          description: Position is set by the PID controller of the valve.
+          required: false
+          type: string
   default: pos
 pid_parameter:
   description: Configuration for the internal pid controller if used.
