@@ -64,7 +64,7 @@ mutable:
   default: true
   type: boolean
 name:
-  description: "Make it possible to provide a name for the vehicles. Note: Use all lower case letters when inputing your VIN number."
+  description: "Make it possible to provide a name for the vehicles. Note: Use all lower case letters when inputting your VIN number."
   required: false
   type: string
 resources:
