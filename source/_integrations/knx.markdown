@@ -417,8 +417,8 @@ knx:
 
 `setpoint_shift_mode` allows the two following DPTs to be used:
 
-- DPT6.002 (for 1 byte signed integer)
-- DPT9.002 (for 2 byte float)
+- DPT6002 (for 1 byte signed integer)
+- DPT9002 (for 2 byte float)
 
 Example:
 
