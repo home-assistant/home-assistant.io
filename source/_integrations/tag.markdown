@@ -52,17 +52,16 @@ To use a tag scan as the trigger for an automation use the ```tag``` platform:
 ```yaml
 
 automation:
-- id: '12000'
-  alias: Lamp NFC
-  initial_state: 'on'
-  trigger:
-    platform: tag
-    tag_id: lamp_nfc_tag
-  condition: []
-  action:
-  - service: light.toggle
-    entity_id:
-    - light.some_lamp
+  - id: '12000'
+    alias: Lamp NFC
+    initial_state: 'on'
+    trigger:
+      platform: tag
+      tag_id: lamp_nfc_tag
+    condition: []
+    action:
+      - service: light.toggle
+        entity_id: light.some_lamp
 ```
 {% endraw %}
 
