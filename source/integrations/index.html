@@ -207,7 +207,7 @@ allComponents.pop(); // remove placeholder element at the end
       jQuery('.filter-button-group a.active').removeClass('active');
       jQuery(`.filter-button-group a[href*="${hash}"]`).addClass('active');
       if (hash === "") {
-        jQuery('.filter-button-group a[href*="#all"]').addClass('active');
+        jQuery('.filter-button-group a[href*="#featured"]').addClass('active');
       }
 
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
