@@ -48,6 +48,7 @@ theme:
   description: "Set to any theme within `themes.yaml`"
   type: string
 dark_mode:
+  default: false
   required: false
   description: "Inverts the picture when the dark mode is activated. Will be overwritten by `state_filter`."
   type: boolean
