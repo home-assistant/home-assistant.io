@@ -141,7 +141,7 @@ binary_sensor:
 
 Available services: `reload`.
 
-#### Service `command_line.reload`
+### Service `command_line.reload`
 
 Reload all `command_line` entities.
 
