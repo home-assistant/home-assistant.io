@@ -3,9 +3,9 @@ title: "Installation in Python virtual environment"
 description: "How to install Home Assistant in a Python virtual environment."
 ---
 
-If you already have Python 3.7 or later installed, you can easily give Home Assistant a spin.
+If you already have Python 3.8 or later installed, you can easily give Home Assistant a spin.
 
-It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.7/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
+It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.8/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
 
 <div class='note'>
 
@@ -24,7 +24,7 @@ It should not contain any OS specific instructions.
 
  1. Create a virtual environment in your current directory:
     ```bash
-    python3 -m venv homeassistant
+    python3.8 -m venv homeassistant
     ```
  2. Open the virtual environment:
     ```bash
@@ -106,7 +106,7 @@ Looking for more advanced guides? Check our [Raspberry Pi OS guide](/docs/instal
 
 ### After upgrading Python
 
-If you've upgraded Python (for example, you were running 3.7.1 and now you've installed 3.7.3) then you'll need to build a new virtual environment. Simply rename your existing virtual environment directory:
+If you've upgraded Python (for example, you were running 3.8.1 and now you've installed 3.8.6) then you'll need to build a new virtual environment. Simply rename your existing virtual environment directory:
 
 ```bash
 mv homeassistant homeassistant.old
