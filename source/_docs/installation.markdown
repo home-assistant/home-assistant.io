@@ -61,9 +61,9 @@ If you use these install methods, we assume that you know how to manage and admi
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[Home Assistant Core](/docs/installation/raspberry-pi/)|Any Linux, Python 3.7.1 or later|Those familiar with their operating system
+[Home Assistant Core](/docs/installation/raspberry-pi/)|Any Linux, Python 3.8 or later|Those familiar with their operating system
 [Home Assistant Supervised](https://github.com/home-assistant/supervised-installer) | [Requirements](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md#supported-operating-system-system-dependencies-and-versions) | Those very familiar with their operating system
-[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.7.1 or later|**Developers**
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.8 or later|**Developers**
 
 ## Community provided guides
 
