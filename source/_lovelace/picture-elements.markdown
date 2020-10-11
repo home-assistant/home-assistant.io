@@ -50,7 +50,7 @@ theme:
 dark_mode:
   default: false
   required: false
-  description: "Inverts the picture when the dark mode is activated. Will be overwritten by `state_filter`."
+  description: "Inverts the picture when the dark mode is activated."
   type: boolean
 {% endconfiguration %}
 
