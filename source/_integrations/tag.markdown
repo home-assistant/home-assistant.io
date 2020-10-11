@@ -42,6 +42,31 @@ Home Assistant has a dedicated panel that allows you to manage your tags. You ca
 
 ![Tag user interface in Home Assistant](/images/blog/2020-09-15-home-assistant-tags/tag-ui.gif)
 
+
+## Using Scanned Tags as a Trigger
+
+To use a tag scan as the trigger for an automation use the ```tag``` platform:
+
+{% raw %}
+
+```yaml
+
+automation:
+- id: '12000'
+  alias: Lamp NFC
+  initial_state: 'on'
+  trigger:
+    platform: tag
+    tag_id: lamp_nfc_tag
+  condition: []
+  action:
+  - service: light.toggle
+    entity_id:
+    - light.some_lamp
+```
+{% endraw %}
+
+
 ## Building an RFID jukebox
 
 One of the most fun applications of tags is to pick music in your living room. To make this super easy, you can use the below automation:
