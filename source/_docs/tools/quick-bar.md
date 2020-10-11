@@ -42,7 +42,7 @@ When the dialog has already been launched, you can switch to other modes without
 ## Entity Filter Mode 
 *Hotkey: Ctrl+P (Windows) or ⌘+P (macOS)*
 
-Similar to Developer Tools -> States view, but more lightweight, and accessible from anywhere in the application.
+Similar to Developer Tools -> States view, but more lightweight, and accessible from anywhere in the frontend.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>
