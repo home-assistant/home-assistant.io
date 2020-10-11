@@ -5,6 +5,7 @@ ha_category:
   - Voice
 ha_release: 0.48
 ha_domain: snips
+ha_iot_class: Local Push
 ---
 
 <div class='note warning'>
