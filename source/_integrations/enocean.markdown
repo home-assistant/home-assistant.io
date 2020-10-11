@@ -427,7 +427,7 @@ setpointselection:
         type: string
       pos:
         description: Position is set by the PID controller of the valve.
-        requred: false
+        required: false
         type: string
   default: pos
 pid_parameter:
