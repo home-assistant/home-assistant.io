@@ -291,6 +291,11 @@ context_timeout:
   required: false
   type: float
   default: 1.0
+ ignore_internal_state:
+  description: Whenever a state is sent on the KNX-bus it willcause a state change event in HA - even if the state hasen't changed.
+  required: false
+  type: [boolean, string, integer]
+  default: True
 {% endconfiguration %}
 
 ### Support for automations
