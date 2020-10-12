@@ -46,9 +46,9 @@ voice:
   type: string
   default: unconfigured
 speed:
-  description: The rate of the speech (speed of talk). Valid values are " -10 " to " 10 "
+  description: The rate of the speech (speed of talk). Valid values are " -10 " to " 10 ". Value needs to be in quotes.
   required: false
-  type: string (needs to be in quotes)
+  type: string
   default: " 0 "
 {% endconfiguration %}
 
