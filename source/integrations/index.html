@@ -206,6 +206,13 @@ allComponents.pop(); // remove placeholder element at the end
 
       rendered = Mustache.render(template, data);
 
+      // set active class on active menu item
+      jQuery('.filter-button-group a.active').removeClass('active');
+      jQuery(`.filter-button-group a[href*="${hash}"]`).addClass('active');
+      if (hash === "") {
+        jQuery('.filter-button-group a[href*="#featured"]').addClass('active');
+      }
+
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
       $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
       logoLazyLoad.update();
