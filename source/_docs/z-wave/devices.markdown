@@ -38,7 +38,7 @@ From 2 April 2017 all newly approved Z-Wave devices will have to support the Sec
 
 Your Z-Wave mesh network is built with the devices that are mains powered (whether directly, or via a USB adapter), these relay traffic for other nodes, building the network. These devices are always awake and you can query them, or send configuration changes, at any time.
 
-Battery powered devices spend most of their time asleep, unable to relay traffic, to be queried, or receive changes. Changes sent while a device is asleep will be queued and sent the next time the device wakes. Details of the default wake interval, and how to manually wake the device (if supported) will be detailed in the devices's manual. Some battery powered devices (primarily locks and thermostats) support beaming (the *Beam* command class) that allows them to be remotely woken. This does require that all devices in the network responsible for relaying the commands between the controller and the device also support beaming.
+Battery powered devices spend most of their time asleep, unable to relay traffic, to be queried, or receive changes. Changes sent while a device is asleep will be queued and sent the next time the device wakes. Details of the default wake interval, and how to manually wake the device (if supported) will be detailed in the device's manual. Some battery powered devices (primarily locks and thermostats) support beaming (the *Beam* command class) that allows them to be remotely woken. This does require that all devices in the network responsible for relaying the commands between the controller and the device also support beaming.
 
 <div class='note'>
 
