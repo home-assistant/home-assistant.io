@@ -71,7 +71,7 @@ light:
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this light. Set this to an unique value to allow customization trough the UI.
+        description: An ID that uniquely identifies this light. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
