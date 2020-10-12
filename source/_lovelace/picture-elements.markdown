@@ -47,11 +47,14 @@ theme:
   required: false
   description: "Set to any theme within `themes.yaml`"
   type: string
-dark_mode:
-  default: false
+dark_mode_image:
   required: false
-  description: "Inverts the picture when the dark mode is activated."
-  type: boolean
+  description: "This image is used when the dark mode is activated and no state image is set."
+  type: string
+dark_mode_filter:
+  required: false
+  description: "This CSS filter is used when the dark mode is activated."
+  type: string
 {% endconfiguration %}
 
 ## Elements
