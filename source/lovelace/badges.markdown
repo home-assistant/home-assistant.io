@@ -7,7 +7,7 @@ Badges are widgets that sit at the top of a Lovelace panel, above all the cards.
 
 ### State Label Badge
 
-The State Label badge allows you to dislay a state badge. This badge supports [actions](/lovelace/actions/).
+The State Label badge allows you to display a state badge. This badge supports [actions](/lovelace/actions/).
 
 ```yaml
 type: state-label
