@@ -21,5 +21,7 @@ Devices that are currently at home won't show on the map.
 </div>
 
 <div class='note'>
-This map always shows the location of all tracked devices. If you want to hide certain entities, you should look into the [Map Card](/lovelace/map).
+  
+This map always shows the location of all tracked devices. If you want to hide certain entities, you should look into the [Map Card](/lovelace/map/).
+
 </div>
