@@ -420,15 +420,15 @@ setpointselection:
   description: Sets the mode how the setpoint on the valve is set. Can be set to "pos" or "pid". If set to "pid" an pid controller calculates the setpoint of the valve. If set to "pos" the valve will open if the setpoint is not reached, and closed if the setpoint is reached.
   required: false
   type: map
-    keys:
-      - pid:
-          description: Internal PID controller sets the output value.
-          required: false
-          type: string
-      - pos:
-          description: Position is set by the PID controller of the valve.
-          required: false
-          type: string
+  keys:
+    pid:
+      description: Internal PID controller sets the output value.
+      required: false
+      type: string
+    pos:
+      description: Position is set by the PID controller of the valve.
+      required: false
+      type: string
   default: pos
 pid_parameter:
   description: Configuration for the internal pid controller if used.
