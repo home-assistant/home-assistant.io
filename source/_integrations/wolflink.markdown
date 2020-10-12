@@ -21,7 +21,8 @@ The integration fetches all data based on parameters, that are exposed by your h
 
 ### Tested devices
 
-This integration is with Wolf Link Home Pro connected to a FGB-28 device.
+- Wolf Link Home Pro connected to a FGB-28 device
+- Wolf ISM7e / Link Pro connected to a COB-20 device
 
 ## Configuration
 
