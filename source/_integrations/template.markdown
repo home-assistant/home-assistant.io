@@ -51,7 +51,7 @@ sensor:
         required: false
         type: template
       unique_id:
-        description: An ID that uniquely identifies this sensor. Set this to an unique value to allow customization through the UI.
+        description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       unit_of_measurement:
