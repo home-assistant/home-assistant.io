@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.88
 ha_quality_scale: internal
 ha_domain: person
+ha_iot_class: Calculated
 ---
 
 The `person` integration allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
