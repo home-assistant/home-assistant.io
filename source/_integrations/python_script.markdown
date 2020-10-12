@@ -95,7 +95,7 @@ For more examples, visit the [Scripts section](https://community.home-assistant.
 
 Available services: `reload`.
 
-#### Service `python_script.reload`
+### Service `python_script.reload`
 
 Reload all available python_scripts from the `<config>/python_scripts` folder. Use this when creating a new Python script and you're not restarting Home Assistant.
 
