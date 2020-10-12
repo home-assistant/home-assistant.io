@@ -4,7 +4,7 @@ description: Instructions on how to integrate compensation sensors into Home Ass
 ha_category:
   - Utility
   - Sensor
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_release: '0.117'
 ha_quality_scale: internal
 ha_codeowners:
