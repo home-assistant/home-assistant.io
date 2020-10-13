@@ -29,6 +29,7 @@ lights:
   description: List of light entities for Adaptive Lighting to control.
   required: true
   type: list
+  default: []
 name:
   description: The name to use when displaying this switch.
   required: false
@@ -54,6 +55,11 @@ initial_transition:
   required: false
   default: 1
   type: time
+interval:
+  description: How often to adjust the lights.
+  required: false
+  default: 90
+  type: integer
 max_brightness:
   description: The maximum percent of brightness to set the lights to.
   required: false
@@ -102,6 +108,16 @@ sunrise_time:
   description: Override the sunset time with a fixed time.
   required: false
   type: time
+sleep_brightness:
+  description: Brightness of lights while the sleep mode is enabled.
+  required: false
+  default: 1
+  type: integer
+sleep_color_temp:
+  description: Color temperature of lights while the sleep mode is enabled.
+  required: false
+  default: 1000
+  type: integer
 take_over_control:
   description: If another source calls `light.turn_on` while the lights are on and being adjusted, disable Adaptive Lighting.
   required: false
@@ -110,7 +126,7 @@ take_over_control:
 detect_non_ha_changes:
   description: Whether to detect changes and stop adjusting lights, even not from `light.turn_on`. Needs `take_over_control` to be enabled.
   required: inclusive
-  default: true
+  default: false
   type: boolean
 transition:
   description: How long the transition is when the lights change, in seconds.
