@@ -20,12 +20,9 @@ To enable the compensation sensor, add the following lines to your `configuratio
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: compensation
-    name: Yamaha Zone 1 Volume
+compensation:
+  media_player_db_volume:
     entity_id: media_player.yamaha_receiver
-    attribute: volume_level
-    unit_of_measurement: dB
     data_points:
       - 0.2 -> -80.0
       - 1.0 -> 0.0
@@ -50,7 +47,7 @@ attribute:
   required: false
   type: string
 degree:
-  description: The degree of a polynomial. e.g. Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc.
+  description: "The degree of a polynomial. e.g., Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
   required: false
   default: 1
   type: integer
