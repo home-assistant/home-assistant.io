@@ -1,25 +1,23 @@
 ---
 title: "Docker Configuration"
-description: "More information on why docker configuration marks the installation as unsupported."
+description: "More information on why Docker configuration marks the installation as unsupported."
 ---
 
 ## The issue
 
-The supervisor have some expectations to how the docker runtime is configured,
-this is due to stability and performance of the host running the supervisor.
+The Supervisor has some expectations of how the Docker is configured to maintain the stability and performance of the host running the Supervisor.
 
-The logging driver for docker needs to be set to `journald` and the storage driver
-needs to be set to `overlay2`
+The logging driver for Docker needs to be set to `journald` and the storage driver
+needs to be set to `overlay2`.
 
 ## The solution
 
-If you are running an older version of our Home Assistant OS, update it the
-supervisor panel.
+If you are running an older version of our Home Assistant OS, update it to the latest version in the Supervisor panel.
 
-If this is not our Home Assistant OS, you need to modify the docker daemon
-configuration on the host, that configuration is located at `/etc/docker/daemon.json`
-if that file does not exist you can create it, and make sure it at least have the
-following content:
+If you are running Home Assistant Supervised, you need to modify the Docker daemon
+configuration on the host. The configuration is located at `/etc/docker/daemon.json`.
+If that file doesn't exist, you can create it and make sure it at least has the
+following contents:
 
 ```json
 {
