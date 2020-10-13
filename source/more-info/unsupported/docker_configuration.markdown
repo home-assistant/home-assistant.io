@@ -5,7 +5,7 @@ description: "More information on why docker configuration marks the installatio
 
 ## The issue
 
-The supervisor have some expecting to how the docker runtime is configured,
+The supervisor have some expectations to how the docker runtime is configured,
 this is due to stability and performance of the host running the supervisor.
 
 The logging driver for docker needs to be set to `journald` and the storage driver
