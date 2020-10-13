@@ -3,7 +3,7 @@ title: "Notify using TTS"
 description: "Instructions on how to set up a Notify integration using TTS service and media_player within Home Assistant."
 ha_category:
   - Notifications
-ha_release: 0.116
+ha_release: 0.117
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: notify
