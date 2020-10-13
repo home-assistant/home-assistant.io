@@ -12,6 +12,11 @@ ha_domain: xbox
 
 The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
 
+There is currently support for the following device types within Home Assistant:
+
+- [Media Player](#media-player)
+- [Remote](#remote)
+
 Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**.
 
 ## Manual Configuration
@@ -77,4 +82,43 @@ media_content_id: "Home"
 entity_id: media_player.xboxone
 media_content_type: ""
 media_content_id: "9WZDNCRFJ3TJ" # Netflix
+```
+
+## Remote
+
+The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
+
+### Service `send_command`
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | no       | `entity_id` of the Xbox remote.                                                      |
+| `command`              | no       | List of the controller commands or text input to be sent.<br />Commands: A, B, X, Y, Up, Down, Left, Right |
+| `num_repeats`          | yes      | Number of times to repeat the commands.                                |
+| `delay_secs`           | yes      | Interval in seconds between one send and another.                      |
+
+Example 1: Send a single command
+
+```yaml
+entity_id: media_player.xboxone
+command: "A"
+```
+
+Example 2: Send a command repeatedly
+
+```yaml
+entity_id: media_player.xboxone
+command: "A"
+num_repeats: 20
+```
+
+Example 3: Send a sequence of commands
+
+```yaml
+entity_id: media_player.xboxone
+command:
+  - Right
+  - Right
+  - A
+delay_sec: 0.1
 ```
