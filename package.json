@@ -6,7 +6,7 @@
   "devDependencies": {
     "remark-cli": "^8.0.1",
     "remark-frontmatter": "^3.0.0",
-    "remark-lint": "^7.0.1",
+    "remark-lint": "^8.0.0",
     "remark-lint-fenced-code-flag": "^2.0.1",
     "remark-lint-no-shell-dollars": "^2.0.2",
     "remark-stringify": "^8.1.1",
