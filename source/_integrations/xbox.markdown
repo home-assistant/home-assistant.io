@@ -48,3 +48,33 @@ client_secret:
   required: true
   type: string
 {% endconfiguration %}
+
+## Media Player
+
+The Xbox media player platform will create Media Player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation allowing you to launch any installed application.
+
+### Service `play_media`
+
+Launches an application on the Xbox console using the application's product ID. Also supports "Home" and "TV" to navigate to the dashboard or Live TV respectively.
+
+You can find Product IDs by using the **Developer Tools -> Events** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
+
+| Service data attribute | Description                           |
+| ---------------------- | --------------------------------------|
+| `entity_id`            | `entity_id` of the Xbox media player  |
+| `media_content_id`   | "Home"/"TV"/{product_id}                |
+| `media_content_type` | Any Value                               |
+
+##### Examples:
+
+```yaml
+entity_id: media_player.xboxone
+media_content_type: ""
+media_content_id: "Home"
+```
+
+```yaml
+entity_id: media_player.xboxone
+media_content_type: ""
+media_content_id: "9WZDNCRFJ3TJ" # Netflix
+```
