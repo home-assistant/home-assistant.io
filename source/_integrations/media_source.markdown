@@ -48,10 +48,11 @@ This example makes two different folders available to the integration:
 
 ```yaml
 # Example configuration.yaml
-homeassistant:
-  media_dirs:
-    local: /media
-    recording: /mnt/recordings
+homeassistant
+  media_source:
+    media_dirs:
+      local: /media
+      recording: /mnt/recordings
 ```
 
 [basic-configuration]: /docs/configuration/basic/#media_dirs
