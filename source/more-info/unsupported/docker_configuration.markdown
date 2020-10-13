@@ -26,6 +26,7 @@ following contents:
 }
 ```
 
-When the file is saved you need to restart the docker service on the host.
+When the Docker configuration file is changed and saved, you need to restart the
+Docker service on the host machine.
 
 You can also just re-run our [convenience installation script](https://github.com/home-assistant/supervised-installer)
