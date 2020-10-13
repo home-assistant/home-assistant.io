@@ -15,4 +15,4 @@ If the D-Bus daemon is not running, start it.
 If that does not help, reboot your operating system.
 
 As a last resort you need to reinstall the host running the supervisor
-with one of the supported operating systems. See [about OS](/more-info/unsupported/os)
+with one of the supported operating systems, [see instructions here](/more-info/unsupported/os)
