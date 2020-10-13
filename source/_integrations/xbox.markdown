@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: xbox
 ---
 
-The Xbox integration allows you to control Xbox consoles from Home Assistant.
+The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
 
 Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**.
 
