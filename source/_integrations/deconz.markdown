@@ -5,6 +5,7 @@ ha_category:
   - Hub
   - Binary Sensor
   - Cover
+  - Fan
   - Light
   - Lock
   - Scene
@@ -319,6 +320,12 @@ The `entity_id` name will be `cover.device_name`, where `device_name` is defined
 - IKEA Kadrilj
 - Keen vents
 - Xiaomi Aqara Curtain controller
+
+## Fan
+
+Fans from deCONZ are currently a combination of a light and fan fixture.
+
+Note that devices in the fan platform identify as lights, so there is a manually curated list that defines which "lights" are fans. You, therefore, add a fan device as a light device in deCONZ (Phoscon App).
 
 ## Light
 
