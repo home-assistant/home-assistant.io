@@ -63,7 +63,7 @@ After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Toke
 <br/> <br/>
 These instructions are written for the Mi Home app - not for the new RoboRock app.
 <br/> <br/>
-This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
+This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote.
 </div>
 
 ### Android (not rooted)
