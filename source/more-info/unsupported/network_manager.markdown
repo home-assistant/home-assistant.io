@@ -62,3 +62,7 @@ You can also just re-run our
 
 If you have not done anything with the network on the host manually, you should just
 re-run the convenience installation script.
+
+When you have changed your network configuration manually or with the script,
+you should restart the host so the change will be populated to all services that
+needs it.
