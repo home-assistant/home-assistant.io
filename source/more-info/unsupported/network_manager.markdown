@@ -48,7 +48,14 @@ addr-gen-mode=stable-privacy
 method=auto
 ```
 
-In addition to these two files you also need to adjust `/etc/network/interfaces`
+`/etc/network/interfaces`:
+
+```txt
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+```
 
 You can also just re-run our
 [convenience installation script](https://github.com/home-assistant/supervised-installer).
