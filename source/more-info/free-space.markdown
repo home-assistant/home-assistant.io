@@ -16,9 +16,9 @@ There are several things you can do to free up some space:
 
 The Home Assistant database can get huge!
 
-Luckily there is a tool you can use to [purge the contents of the database](https://www.home-assistant.io/integrations/recorder/#service-purge)
+Luckily there is a tool you can use to [purge the contents of the database](/integrations/recorder/#service-purge)
 
-You can also [filter](https://www.home-assistant.io/integrations/recorder/#configure-filter)
+You can also [filter](/integrations/recorder/#configure-filter)
 what you send to the database.
 
 ## Delete old snapshots
@@ -46,7 +46,7 @@ documentation for your hypervisor on how to expand disks for virtual machines
 and on the next boot Home Assistant will auto-expand to use the newly added space.
 
 If you are not running a VM, you need to replace your storage medium
-(typically this will be a SD card).
+(typically, this will be an SD card).
 
 **Before you start, always make sure you have a recent full snapshot,
 and that you have moved that off the storage medium! to learn about that
