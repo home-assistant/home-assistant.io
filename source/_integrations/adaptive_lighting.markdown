@@ -212,7 +212,7 @@ adaptive_lighting:
 | `manual_control`          |       no | Whether to mark (true) or unmark (false) the light as "manually controlled".                       |
 
 
-### Automation examples
+## Automation examples
 
 Reset the `manual_control` status of a light after an hour.
 ```yaml
