@@ -34,8 +34,6 @@ To connect to the Samba server from another device, you will use the IP address 
 
 For connecting from Windows 10, you can enter the IP address or hostname in File Explorer's address bar with two backslashes, as shown in the example screenshot.
 
-![explorer address bar](TBD image of file explorer address bar.jpg)
-
 You should then be prompted for the credentials you entered in the Samba add-on configuration. You also have the option of having the credentials stored so that you do not need to enter them again. After that, you'll have access to the directories which you can then mount as a drive or pin to Quick Access.
 
 
@@ -46,17 +44,17 @@ You would then enter the IP address or hostname of your Home Assistant OS instan
 
 ### Installing and using the SSH add-on (requires enabling advanced mode for the HA user)
 
-The Terminal & SSH add-on provides access over an ssh connection, and also inludes nano and vi editors. It can be installed from the add-on store's Official add-on repository after enabling advanced mode for your Home Assistant user's profile. Addtionally, this add-on provides access to the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info). The Terminal & SSH add-on does *not* provide access to the underlying host file system. 
+The Terminal & SSH add-on provides access over an SSH connection, and also inludes nano and vi editors. It can be installed from the add-on store's Official add-on repository after enabling advanced mode for your Home Assistant user's profile. Addtionally, this add-on provides access to the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info). The Terminal & SSH add-on does *not* provide access to the underlying host file system. 
 
 To use the add-on, enter a password or public key on its configuration page, then save and start the add-on. 
 
-The Terminal & SSH addon also provides a web terminal which allows you to access a terminal via the Home Assistant user interface. In order to access from an ssh client, a port needs to be entered in the network section of the add-on's configuration page.
+The Terminal & SSH add-on also provides a web terminal which allows you to access a terminal via the Home Assistant user interface. In order to access from an ssh client, a port needs to be entered in the network section of the add-on's configuration page.
 
 ---
 
 ### Installing and using the Visual Studio Code (VSC) add-on
 
-The Visual Studio Code add-on provides access through a feature packed web-based version of the Visual Studio Code (VSC) editor and currently only supports AMD64 and aarch64/ARM64 machines. This add-on can be installed from the Community add-on repository. The add-on also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built in terminal, which allows for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info).
+The Visual Studio Code add-on provides access through a feature packed web-based version of the Visual Studio Code editor and currently only supports AMD64 and aarch64/ARM64 machines. This add-on can be installed in the add-on store from the Community add-on repository. The add-on also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built in terminal, which allows for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info).
 
 There is no configuration required for editing files within your /config directory. In order to enable access to other directories, it is necessary to edit the add-on's configuration from its configuration tab. See the add-on documentation for details. 
 
@@ -64,7 +62,7 @@ There is no configuration required for editing files within your /config directo
 
 ### Installing and using the File Editor add-on
 
-A more basic and light weight alternative to Visual Studio Code, the File Editor add-on provides access through Hass-Configurator, which is a web-based filesystem-browser and text-editor. YAML files are automatically checked for syntax errors while editing. This add-on can be installed from the Official add-on repository.
+A more basic and light weight alternative to Visual Studio Code, the File Editor add-on provides access through Hass-Configurator, which is a web-based filesystem-browser and text-editor. YAML files are automatically checked for syntax errors while editing. This add-on can be installed via the add-on store from the official add-on repository.
 
 There is no configuration required for editing files within your /config directory. In order to enable access to further directories, editing the add-on configuration is required. See the add-on documentation for details. 
 
@@ -72,7 +70,7 @@ There is no configuration required for editing files within your /config directo
 
 ## Home Assistant OS Snapshots
 
-Snapshots are a backup of your Home Assistant and addon data and configuration which are stored in a compressed archive file (.tar). Snapshots are made from the Supervisor Snapshot panel. There is also a service available which allows you to trigger the creation of a snapshot from an automation. Backups are stored in the /backup directory.
+Snapshots are a backup of your Home Assistant and add-on data and configuration. They are stored in a compressed archive file (.tar). Snapshots are made from the Supervisor Snapshot panel. There is also a service available which allows you to trigger the creation of a snapshot from an automation. Backups are stored in the /backup directory.
 
 A full snapshot includes the following directories:
 
@@ -107,9 +105,9 @@ If the snapshot you are uploading is more than 1GB in size, it can be faster and
 
 The length of time it takes to create or restore snapshots will depend on how much you have to compress or decompress. 
 
-If you're looking to slim down your snapshots, check if your configuration contains a large database file (`home-assistant_v2.db` in the config directory). See the [`recorder`](https://www.home-assistant.io/components/recorder/) integration page for options to keep your database data down to a size that won't cause issues. Note the keep days, purge interval, and include/exclude options.
+If you're looking to slim down your snapshots, check if your configuration directory contains a large database file (`home-assistant_v2.db`). See the [`recorder`](https://www.home-assistant.io/components/recorder/) integration page for options to keep your database data down to a size that won't cause issues. Note the keep days, purge interval, and include/exclude options.
 
-When the restore is complete, you will lose connection to the UI and it will return just as though you had restarted Home Assistant.
+When the restore is complete, Home Assistant will restart to apply the new settings. You will lose the connection to the UI and it will return once the restart is completed.
 
 ### Creating snapshots using the Home Assistant Command Line Interface
 
@@ -131,5 +129,4 @@ You often need a snapshot in case your system has crashed. If you only store the
  - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
 
  - [Remote Backup (uses scp)](https://github.com/overkill32/hassio-remote-backup)
-
 
