@@ -56,7 +56,7 @@ The Terminal & SSH add-on also provides a web terminal which allows you to acces
 
 The Visual Studio Code add-on provides access through a feature packed web-based version of the Visual Studio Code editor and currently only supports AMD64 and aarch64/ARM64 machines. This add-on can be installed in the add-on store from the Community add-on repository. The add-on also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built in terminal, which allows for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info).
 
-There is no configuration required for editing files within your /config directory. In order to enable access to other directories, it is necessary to edit the add-on's configuration from its configuration tab. See the add-on documentation for details. 
+There is no configuration required for editing files within your `/config` directory. In order to enable access to other directories, it is necessary to edit the add-on's configuration from its configuration tab. See the add-on documentation for details. 
 
 ---
 
@@ -64,7 +64,7 @@ There is no configuration required for editing files within your /config directo
 
 A more basic and light weight alternative to Visual Studio Code, the File Editor add-on provides access through Hass-Configurator, which is a web-based filesystem-browser and text-editor. YAML files are automatically checked for syntax errors while editing. This add-on can be installed via the add-on store from the official add-on repository.
 
-There is no configuration required for editing files within your /config directory. In order to enable access to further directories, editing the add-on configuration is required. See the add-on documentation for details. 
+There is no configuration required for editing files within your `/config` directory. In order to enable access to further directories, editing the add-on configuration is required. See the add-on documentation for details. 
 
 ---
 
