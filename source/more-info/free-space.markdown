@@ -18,8 +18,9 @@ The Home Assistant database can get huge!
 
 Luckily there is a tool you can use to [purge the contents of the database](/integrations/recorder/#service-purge)
 
-You can also [filter](/integrations/recorder/#configure-filter)
-what you send to the database.
+You can [filter](/integrations/recorder/#configure-filter) what you send to
+the database, and even change how long it stores the data
+[with the `purge_keep_days` setting](/integrations/recorder/#purge_keep_days)
 
 ## Delete old snapshots
 
