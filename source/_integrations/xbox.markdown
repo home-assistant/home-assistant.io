@@ -16,6 +16,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Media Player](#media-player)
 - [Remote](#remote)
+- [Media Source](#media-source)
 
 Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**.
 
@@ -122,3 +123,7 @@ command:
   - A
 delay_sec: 0.1
 ```
+
+## Media Source
+
+The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source integration, you are also able to send these clips to supported media players like Chromecast.
