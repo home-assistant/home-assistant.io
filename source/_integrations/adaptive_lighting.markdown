@@ -210,3 +210,27 @@ adaptive_lighting:
 | `entity_id`               |       no | The `entity_id` of the switch in which to (un)mark the light as being "manually controlled".       |
 | `lights`                  |       no | A light (or list of lights) to apply the settings to.                                              |
 | `manual_control`          |       no | Whether to mark (true) or unmark (false) the light as "manually controlled".                       |
+
+
+### Automation examples
+
+Reset the `manual_control` status of a light after an hour.
+```yaml
+- alias: "Adaptive lighting: reset manual_control after 1 hour"
+  mode: parallel
+  trigger:
+    platform: event
+    event_type: adaptive_lighting.manual_control
+  variables:
+    light: "{{ trigger.event.data.entity_id }}"
+    switch: "{{ trigger.entity_id }}"
+  action:
+    - delay: "01:00:00"
+    - condition: template
+      value_template: "{{ light in state_attr('switch', 'manual_control') }}"
+    - service: adaptive_lighting.set_manually_controlled
+      data:
+        entity_id: "{{ switch }}"
+        lights: "{{ light }}"
+        manual_control: false
+```
