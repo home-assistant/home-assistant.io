@@ -41,8 +41,9 @@ you do those can be uninstalled to free up some space.
 
 If all else fails, you need to expand your storage.
 
-If you are running Home Assistant as a VM, you can just give it more and on the
-next boot Home Assistant will auto-expand to use the newly added space.
+If you are running Home Assistant as a VM, you can give it more, look at the
+documentation for your hypervisor on how to expand disks for virtual machines
+and on the next boot Home Assistant will auto-expand to use the newly added space.
 
 If you are not running a VM, you need to replace your storage medium
 (typically this will be a SD card).
