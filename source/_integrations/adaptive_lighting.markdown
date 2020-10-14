@@ -180,9 +180,10 @@ adaptive_lighting:
 | `adapt_rgb_color`         |      yes | Whether to adapt the color temperature with RGB.                        |
 | `turn_on_lights`          |      yes | Whether turn on lights that are currently off.                          |
 
-`adaptive_lighting.set_manually_controlled` changes whether lights are manually controlled.
+`adaptive_lighting.set_manually_controlled` changes whether lights are automatically adjusted.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | The entity ID of the switch with the settings to apply.                 |
-| `lights`                  |       no | A list of lights to apply the settings to.                              |
+| `entity_id`               |       no | The entity ID of the switch with the settings to apply.                                            |
+| `lights`                  |       no | A list of lights to apply the settings to.                                                         |
+| `manually_controlled`     |       no | Whether to add (true) or remove (false) this/these lights in the list of lights to not adjust.     |
