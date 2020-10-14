@@ -25,7 +25,7 @@ what you send to the database.
 
 Open the Home Assistant UI and go to "Supervisor" in the sidebar, and then to
 the "Snapshots" tab, here you will see all your snapshots, these can be
-downloaded and placed somewhere safe, when you have done that, you can delete
+downloaded and placed somewhere safe. When you have done that, you can delete
 them in the UI and it will free up some space for you.
 
 ## Uninstall unused add-ons
