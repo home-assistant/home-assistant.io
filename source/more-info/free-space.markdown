@@ -47,5 +47,6 @@ next boot Home Assistant will auto-expand to use the newly added space.
 If you are not running a VM, you need to replace your storage medium
 (typically this will be a SD card).
 
-**Before you bark upon that journey, make sure you have a recent full snapshot,
-and that you have moved that off the storage medium!**
+**Before you start, always make sure you have a recent full snapshot,
+and that you have moved that off the storage medium! to learn about that
+[have a look at this page](/hassio/haos_common_tasks/#copying-your-snapshots-to-another-location)
