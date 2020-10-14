@@ -228,7 +228,7 @@ Reset the `manual_control` status of a light after an hour.
     - delay: "01:00:00"
     - condition: template
       value_template: "{{ light in state_attr('switch', 'manual_control') }}"
-    - service: adaptive_lighting.set_manually_controlled
+    - service: adaptive_lighting.set_manual_control
       data:
         entity_id: "{{ switch }}"
         lights: "{{ light }}"
