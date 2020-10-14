@@ -3,7 +3,7 @@ title: Adaptive Lighting
 description: How to set up Adaptive Lighting with Home Assistant
 ha_category:
   - Automation
-ha_release: 0.116
+ha_release: 0.117
 ha_quality_scale: internal
 ha_domain: adaptive_lighting
 ha_config_flow: true
@@ -180,7 +180,7 @@ adaptive_lighting:
 | `adapt_rgb_color`         |      yes | Whether to adapt the color temperature with RGB.                        |
 | `turn_on_lights`          |      yes | Whether turn on lights that are currently off.                          |
 
-`adaptive_lighting.set_manually_controlled` changes whether lights are automatically adjusted.
+`adaptive_lighting.set_manual_control` changes whether lights are automatically adjusted.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
