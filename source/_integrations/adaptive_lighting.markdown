@@ -148,7 +148,7 @@ only_once:
   default: false
   type: boolean
 take_over_control:
-  description: If another source calls `light.turn_on` while the lights are on and being adaptive, disable Adaptive Lighting.
+  description: If another source calls `light.turn_on` while the lights are on and being adapted, disable Adaptive Lighting.
   required: false
   default: true
   type: boolean
