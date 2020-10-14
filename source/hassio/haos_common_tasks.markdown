@@ -13,12 +13,12 @@ One of the first things to take care of after installing Home Assistant OS is to
 
 Using any of the add-ons listed below,the following directories are made available for access:
 
-- addons
-- backup
-- config
-- media
-- share
-- ssl
+- `addons`
+- `backup`
+- `config`
+- `media`
+- `share`
+- `ssl`
 
 
 
@@ -74,11 +74,11 @@ Snapshots are a backup of your Home Assistant and add-on data and configuration.
 
 A full snapshot includes the following directories:
 
-* config
-* share
-* addons (these are manually installed or created add-ons, and not those installed from the store)
-* ssl
-* media
+* `config`
+* `share`
+* `addons` (only manually installed or created add-ons, not those installed from the store)
+* `ssl`
+* `media`
 
 A partial snapshot consists of any number of the above default directories and installed add-ons.
 
@@ -129,4 +129,3 @@ You often need a snapshot in case your system has crashed. If you only store the
  - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
 
  - [Remote Backup (uses scp)](https://github.com/overkill32/hassio-remote-backup)
-
