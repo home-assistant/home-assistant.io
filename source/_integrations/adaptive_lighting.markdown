@@ -26,9 +26,11 @@ The first switch `switch.adaptive_lighting_default` (with name `"default"`) turn
 It has several attributes that show the current light settings.
 The second switch is `switch.adaptive_lighting_sleep_mode_default` (with name `"default"`) that when activated, turns on "sleep mode".
 
-Although having your lights automatically adapt is great most of the time, there might be times at which you want to set the lights to a different color.
-For this purpose, the integration (when `take_over_control` is enabled) automatically detect whether someone (person toggling the light switch) or something (automation) changes the lights.
-If this happens *and* the light is already on, the light that was changed gets marked as "manually controlled" and the Adaptive Lighting component will stop adapting your lights until the light turns off and on again (or if you use the service call `adaptive_lighting.set_manual_control`).
+## Taking back control
+
+Although having your lights automatically adapt is great most of the time, there might be times at which you want to set the lights to a different color/brightness and keep it that way.
+For this purpose, the integration (when `take_over_control` is enabled) automatically detects whether someone (e.g., person toggling the light switch) or something (automation) changes the lights.
+If this happens *and* the light is already on, the light that was changed gets marked as "manually controlled" and the Adaptive Lighting component will stop adapting that light until it turns off and on again (or if you use the service call `adaptive_lighting.set_manual_control`).
 This mechanism works by listening to all `light.turn_on` calls and by noting that the component did not make the call.
 Additionally, there is an option to detect all state changes (when `detect_non_ha_changes` is enabled), so also changes to the lights that were not made by a `light.turn_on` call (e.g., through an app or via something not controlled by Home Assistant.)
 It does this by comparing a light's state to Adaptive Lighting's previously used settings.
