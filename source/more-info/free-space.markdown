@@ -30,8 +30,7 @@ them in the UI and it will free up some space for you.
 
 ## Uninstall unused add-ons
 
-Add-ons can take a lot of space, not just the add-on itself but the data
-they can store.
+Add-ons can take a lot of space, not just the add-on itself but also their data.
 
 Open the Home Assistant UI and go to "Supervisor" in the sidebar, you will be
 on the "Dashboard" tab when you click on the "Supervisor", here you will see
