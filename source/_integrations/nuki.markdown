@@ -18,10 +18,9 @@ Then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-lock:
-  - platform: nuki
-    host: 192.168.1.120
-    token: fe2345ef
+nuki:
+  host: 192.168.1.120
+  token: fe2345ef
 ```
 
 {% configuration %}
