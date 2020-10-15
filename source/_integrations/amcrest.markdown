@@ -33,7 +33,7 @@ For configuration go to the `Integrations pane` on your Home Assistant instance.
 It is recommended that you remove these configurations after import.
 </div>
 
-Parameters configurable through the config flow:
+Parameters configurable through the `Integrations pane`:
 {% configuration %}
 host:
   description: >
