@@ -215,6 +215,7 @@ adaptive_lighting:
 ## Automation examples
 
 Reset the `manual_control` status of a light after an hour.
+{% raw %}
 ```yaml
 - alias: "Adaptive lighting: reset manual_control after 1 hour"
   mode: parallel
@@ -227,13 +228,14 @@ Reset the `manual_control` status of a light after an hour.
   action:
     - delay: "01:00:00"
     - condition: template
-      value_template: "{% raw %}{{ light in state_attr(switch, 'manual_control') }}{% endraw %}"
+      value_template: "{{ light in state_attr(switch, 'manual_control') }}"
     - service: adaptive_lighting.set_manual_control
       data:
         entity_id: "{{ switch }}"
         lights: "{{ light }}"
         manual_control: false
 ```
+{% endraw %}
 
 Toggle multiple Adaptive Lighting switches to "sleep mode" using an `input_boolean.sleep_mode`.
 ```yaml
