@@ -46,6 +46,7 @@ As always, enjoy the release!
 - [Release 0.116.1 - October 8](#release-01161---october-8)
 - [Release 0.116.2 - October 9](#release-01162---october-9)
 - [Release 0.116.3 - October 15](#release-01163---october-15)
+- [Release 0.116.4 - October 15](#release-01164---october-15)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [All changes](#all-changes)
@@ -289,6 +290,20 @@ The following integrations are now available via the Home Assistant UI:
 [simplisafe docs]: /integrations/simplisafe/
 [synology_dsm docs]: /integrations/synology_dsm/
 [websocket_api docs]: /integrations/websocket_api/
+
+## Release 0.116.4 - October 15
+
+- Bump ONVIF and pin Zeep ([@hunterjm] - [#41907]) ([onvif docs])
+- Cap AVC profile level at 4.1 in stream master playlist ([@uvjustin] - [#41592]) ([stream docs])
+
+[#41592]: https://github.com/home-assistant/core/pull/41592
+[#41879]: https://github.com/home-assistant/core/pull/41879
+[#41907]: https://github.com/home-assistant/core/pull/41907
+[@hunterjm]: https://github.com/hunterjm
+[@pvizeli]: https://github.com/pvizeli
+[@uvjustin]: https://github.com/uvjustin
+[onvif docs]: /integrations/onvif/
+[stream docs]: /integrations/stream/
 
 ## If you need help...
 
