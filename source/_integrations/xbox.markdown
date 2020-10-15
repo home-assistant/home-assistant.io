@@ -144,7 +144,7 @@ There are 4 binary sensors that are added, 3 of which are disabled by default. T
 
 ## Sensor
 
-Just like the binary sensors, the Xbox binary sensor platform automatically keeps track of your "**Favorite** friends".
+Just like the binary sensors, the Xbox sensor platform automatically keeps track of your "**Favorite** friends".
 
 There are 4 sensors that are added, **all** of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
 
