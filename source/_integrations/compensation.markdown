@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: compensation
 ---
 
-The Compensation integration consumes the state from other sensors. It exports the compensated value as state and the following values as attributes: `entity_id` and `coefficients`.
+The Compensation integration consumes the state from other sensors. It exports the compensated value as state and the following values as attributes: `entity_id` and `coefficients`.  A single polynomial, linear by default, is fit to all data points provided.
 
 ## Configuration
 
