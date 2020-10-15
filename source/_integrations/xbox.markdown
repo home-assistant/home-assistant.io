@@ -20,6 +20,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#media-player)
 - [Remote](#remote)
 - [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
 - [Media Source](#media-source)
 
 Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**.
@@ -134,12 +135,25 @@ The Xbox binary sensor platform automatically keeps track of your "**Favorite** 
 
 There are 4 binary sensors that are added, 3 of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
 
-| Entity ID | Default | Description                                                                                                                                                   |
-| ----------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `binary_sensor.{gamertag}`                | Enabled  | Shows the online status of your friend.<br />Includes attributes for `status`, `gamer_score`, `account_tier`, and `tenure`.  |
-| `binary_sensor.{gamertag}_in_game`        | Disabled | Shows if your friend is currently playing a game.                                                                            |
-| `binary_sensor.{gamertag}_in_party`       | Disabled | Shows if your friend is currently in a party.                                                                                |
-| `binary_sensor.{gamertag}_in_multiplayer` | Disabled | Shows if your friend is currently in a multiplayer session.                                                                  |
+| Entity ID | Default | Description                                                                                  |
+| ----------------------------------------- | -------- | ------------------------------------------------------------|
+| `binary_sensor.{gamertag}`                | Enabled  | Shows the online status of your friend.                     |
+| `binary_sensor.{gamertag}_in_game`        | Disabled | Shows if your friend is currently playing a game.           |
+| `binary_sensor.{gamertag}_in_party`       | Disabled | Shows if your friend is currently in a party.               |
+| `binary_sensor.{gamertag}_in_multiplayer` | Disabled | Shows if your friend is currently in a multiplayer session. |
+
+## Sensor
+
+Just like the binary sensors, the Xbox binary sensor platform automatically keeps track of your "**Favorite** friends".
+
+There are 4 sensors that are added, **all** of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
+
+| Entity ID | Default | Description                                                                                      |
+| ---------------------------------| -------- | -------------------------------------------------------------------------|
+| `sensor.{gamertag}_status`       | Disabled | Shows the text status of your friend as it appears in your friends list. |
+| `sensor.{gamertag}_gamer_score`  | Disabled | Shows your friend's gamer score.                                         |
+| `sensor.{gamertag}_account_tier` | Disabled | Shows your friend's Xbox Live account tier (Gold or Silver).             |
+| `sensor.{gamertag}_gold_tenure`  | Disabled | Shows how long your friend has had Xbox Live Gold.                       |
 
 ## Media Source
 
