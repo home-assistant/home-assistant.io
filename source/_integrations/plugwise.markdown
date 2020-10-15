@@ -151,7 +151,6 @@ Smile P1 (DSMR):
  - v4.x
  - v3.x
  - v2.x
- - v2.x
 
 Stretch (power switches):
 
