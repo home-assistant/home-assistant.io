@@ -45,7 +45,7 @@ Home Assistant has a dedicated panel that allows you to manage your tags. You ca
 
 ## Using Scanned Tags as a Trigger
 
-To use a tag scan as the trigger for an automation use the ```tag``` platform:
+To use a tag scan as the trigger for an automation use the `tag` platform:
 
 {% raw %}
 
