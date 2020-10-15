@@ -90,7 +90,7 @@ transition:
   default: 45
   type: integer
 interval:
-  description: Period between adapting the lights, in seconds.
+  description: How often to adapt the lights, in seconds.
   required: false
   default: 90
   type: integer
