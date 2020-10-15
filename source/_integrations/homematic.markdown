@@ -382,6 +382,27 @@ action:
       WEEK_PROGRAM_POINTER: 1
 ```
 
+Set the week program of a wall thermostat with explicit `rx_mode` (BidCos-RF only):
+
+```yaml
+...
+action:
+  service: homematic.put_paramset
+  data:
+    interface: wireless
+    address: LEQ1234567
+    paramset_key: MASTER
+    rx_mode: WAKEUP
+    paramset:
+      WEEK_PROGRAM_POINTER: 1
+```
+
+BidCos-RF devices have an optional parameter for put_paramset which defines the way the configuration data is sent to the device.
+
+`rx_mode` `BURST`, which is the default value, will wake up every device when submitting the configuration data and hence makes all devices use some battery. It is instant, i.e. the data is sent almost immediately.
+
+`rx_mode` `WAKEUP` will send the configuration data only after a device submitted updated values to CCU, which usually happens every 3 minutes. It will not wake up every device and thus saves devices battery.
+
 Manually set lock on KeyMatic devices:
 
 ```yaml
