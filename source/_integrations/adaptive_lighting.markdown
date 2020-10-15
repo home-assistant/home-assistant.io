@@ -234,3 +234,20 @@ Reset the `manual_control` status of a light after an hour.
         lights: "{{ light }}"
         manual_control: false
 ```
+
+Toggle multiple Adaptive Lighting switches to "sleep mode" using an `input_boolean.sleep_mode`.
+```yaml
+- alias: "Adaptive lighting: toggle 'sleep mode'"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.sleep_mode
+    - platform: homeassistant
+      event: start  # in case the states aren't properly restored
+  variables:
+    sleep_mode: "{{ states('input_boolean.sleep_mode') }}"
+  action:
+    service: "switch.turn_{{ sleep_mode }}"
+    entity_id:
+      - switch.adaptive_lighting_sleep_mode_living_room
+      - switch.adaptive_lighting_sleep_mode_bedroom
+```
