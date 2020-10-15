@@ -16,6 +16,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Media Player](#media-player)
 - [Remote](#remote)
+- [Binary Sensor](#binary-sensor)
 - [Media Source](#media-source)
 
 Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**.
@@ -123,6 +124,19 @@ command:
   - A
 delay_sec: 0.1
 ```
+
+## Binary Sensor
+
+The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** in order to have that person automatically pulled into Home Assistant.
+
+There are 4 binary sensors that are added, 3 of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
+
+| Entity ID | Default | Description                                                                                                                                                   |
+| ----------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `binary_sensor.{gamertag}`                | Enabled  | Shows the online status of your friend.<br />Includes attributes for `status`, `gamer_score`, `account_tier`, and `tenure`.  |
+| `binary_sensor.{gamertag}_in_game`        | Disabled | Shows if your friend is currently playing a game.                                                                            |
+| `binary_sensor.{gamertag}_in_party`       | Disabled | Shows if your friend is currently in a party.                                                                                |
+| `binary_sensor.{gamertag}_in_multiplayer` | Disabled | Shows if your friend is currently in a multiplayer session.                                                                  |
 
 ## Media Source
 
