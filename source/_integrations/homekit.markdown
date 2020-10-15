@@ -96,7 +96,7 @@ homekit:
         description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
         required: false
         type: boolean
-        default: false        
+        default: false
       advertise_ip:
         description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
         required: false
