@@ -238,6 +238,7 @@ Reset the `manual_control` status of a light after an hour.
 {% endraw %}
 
 Toggle multiple Adaptive Lighting switches to "sleep mode" using an `input_boolean.sleep_mode`.
+{% raw %}
 ```yaml
 - alias: "Adaptive lighting: toggle 'sleep mode'"
   trigger:
@@ -253,3 +254,4 @@ Toggle multiple Adaptive Lighting switches to "sleep mode" using an `input_boole
       - switch.adaptive_lighting_sleep_mode_living_room
       - switch.adaptive_lighting_sleep_mode_bedroom
 ```
+{% endraw %}
