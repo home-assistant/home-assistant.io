@@ -105,12 +105,12 @@ max_brightness:
   default: 100
   type: integer
 min_color_temp:
-  description: The coldest color temperature to set the lights to, in Kelvin.
+  description: The warmest color temperature to set the lights to, in Kelvin.
   required: false
   default: 2000
   type: integer
 max_color_temp:
-  description: The warmest color temperature to set the lights to, in Kelvin.
+  description: The coldest color temperature to set the lights to, in Kelvin.
   required: false
   default: 5500
   type: integer
