@@ -26,7 +26,10 @@ automation:
     event_data:
       mood: happy
     context:
-      user_id: MY_USER_ID
+      user_id:
+      # any of these will match
+        - MY_USER_ID
+        - ANOTHER_USER_ID
 ```
 
 ### Home Assistant trigger
