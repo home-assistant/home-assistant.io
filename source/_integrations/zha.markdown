@@ -216,6 +216,14 @@ To add a new device:
 
 ## Troubleshooting
 
+To help resolve any kinks or compatibility problems by reporting bugs as issues with debug logs. Please follow the instructions in this troubleshooting section.
+
+### Knowing which devices are supported
+
+There is no official compatibility list of supported devices for the simple reason that practically all devices Zigbee Home Automation that are fully compliant with the standards and specifications as set by the [Zigbee Alliance](https://zigbeealliance.org) the should technically be compatible with this ZHA integration. The fact however remains that some hardware manufacturers do not always fully comply with each set specification which can cause a few devices to only partially work or not work at all with ZHA, but developers can create workarounds for such issues via a solution for 'ZHA exception and deviation handling' that this implementation features, please see that section for more information.
+
+Tip to new users is that while there is no official list of supported devices, some ZHA users take comfort that blakadder maintains an unofficial Zigbee Device Compatibility Repository which anyone can submit compatibility reports to, it can be found at [zigbee.blakadder.com](https://zigbee.blakadder.com) and currently contains independent compatibility lists and device pairing tips for several home automation gateway/bridge/hub software, including but not limited to open source Zigbee implementations such as; ZHA, Tasmota, Zigbee2MQTT, and ZiGate.
+
 ### Reporting issues
 
 When reporting issues, please provide the following information in addition to information requested by issue template:
