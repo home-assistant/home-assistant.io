@@ -57,7 +57,6 @@ automation:
     trigger:
       platform: tag
       tag_id: lamp_nfc_tag
-    condition: []
     action:
       - service: light.toggle
         entity_id: light.some_lamp
