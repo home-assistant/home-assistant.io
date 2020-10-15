@@ -131,6 +131,11 @@ If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path c
 - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 - Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
 
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sezePzMmiHs" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
 {% configuration %}
 database_path:
   description: _Full_ path to the database which will keep persistent network data.
