@@ -57,7 +57,7 @@ homeassistant:
 ## Playing media from a Media Source
 
 To play media from a media source via a service call, use the uri scheme `media-source://media_source/<media_dir>/<path>`.
-Default `media_dir`is `local`
+Default `media_dir`is `local`.
 
 Example:
 ```yaml
@@ -66,5 +66,6 @@ data:
   entity_id: media_player.living_room_tv
   media_content_type: video/mp4
   media_content_id: media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4
+```
 
 [basic-configuration]: /docs/configuration/basic/#media_dirs
