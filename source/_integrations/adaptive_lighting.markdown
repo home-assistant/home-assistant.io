@@ -80,7 +80,7 @@ prefer_rgb_color:
   default: false
   type: boolean
 initial_transition:
-  description: How long the first transition is when the lights go from `off` to `on` (or when "sleep mode" is (de)activated).
+  description: How long the first transition is when the lights go from `off` to `on` (or when "sleep mode" is toggled).
   required: false
   default: 1
   type: time
