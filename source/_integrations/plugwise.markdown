@@ -142,18 +142,18 @@ Adam (zone_control):
 
 Anna (thermostat):
 
- - v4.0
- - v3.1
- - v1.8
+ - v4.x
+ - v3.x
+ - v1.x
 
 Smile P1 (DSMR):
 
- - v4.0
- - v3.3
- - v2.5
- - v2.1
+ - v4.x
+ - v3.x
+ - v2.x
+ - v2.x
 
 Stretch (power switches):
 
- - v3.1
- - v2.3
+ - v3.x
+ - v2.x
