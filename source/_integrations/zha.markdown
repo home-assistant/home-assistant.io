@@ -40,7 +40,7 @@ There is also support for grouping of lights, switches, and fans (i.e. support f
 
 ## ZHA exception and deviation handling
 
-Zigbee devices that deviate from or do not fully conform to the standard specifications set by the [Zigbee Alliance](https://zigbeealliance.org) may require the development of custom [ZHA Device Handlers](https://github.com/dmulcahey/zha-device-handlers) (ZHA custom quirks handler implementation) to for all their functions to work properly with the ZHA integration in Home Assistant. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices.
+Zigbee devices that deviate from or do not fully conform to the standard specifications set by the [Zigbee Alliance](https://zigbeealliance.org) may require the development of custom [ZHA Device Handlers](https://github.com/dmulcahey/zha-device-handlers) (ZHA custom quirks handler implementation) for all their functions to work properly with the ZHA integration in Home Assistant. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices.
 
 The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Shepherd Converters as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
 
@@ -118,7 +118,7 @@ radio type. In the pop-up:
 - port speed (not applicable for all radios)
 - data flow control (not applicable for all radios)
 
-Most devices need at very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
+Most devices need at the very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
 device path from `/dev/serial/by-id` folder,
 e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`
 
@@ -267,7 +267,7 @@ Using a Philips Hue Dimmer Switch is probably the easiest way to factory-reset y
 1. Turn on your Hue bulb you want to reset
 2. Hold the Dimmer Switch near your bulb (< 10 cm)
 3. Press and hold the (I)/(ON) and (O)/(OFF) buttons of the Dimmer Switch for about 10 seconds until your bulb starts to blink
-4. Your bulb should stop blinking and eventually turning on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory settings.
+4. Your bulb should stop blinking and eventually turn on again. At the same time, a green light on the top left of your remote indicates that your bulb has been successfully reset to factory settings.
 
 #### hue-thief
 
