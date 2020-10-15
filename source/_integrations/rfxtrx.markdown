@@ -17,7 +17,7 @@ ha_codeowners:
 ha_domain: rfxtrx
 ---
 
-The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
+The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in USB path manually.
+To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in the USB path manually.
 
 To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
 
@@ -63,31 +63,31 @@ In the options menu, select *Enable automatic add* to enable automatic addition 
 
 #### Covers
 
-The `rfxtrx` platform supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
+The RFXtrx integration supports Siemens/LightwaveRF and RFY roller shutters that communicate in the frequency range of 433.92 MHz.
 
 #### Lights
 
-The `rfxtrx` platform support lights that communicate in the frequency range of 433.92 MHz.
+The RFXtrx integration support lights that communicate in the frequency range of 433.92 MHz.
 
 Make sure you trigger a dimming command to get switches detected as lights otherwise, they will show up as switches.
 
 #### Switches
 
-The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
+The RFXtrx integration support switches that communicate in the frequency range of 433.92 MHz.
 
 #### Sensors
 
-The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.
+The RFXtrx integration support sensors that communicate in the frequency range of 433.92 MHz.
 
 Also, several switches and other devices will also expose sensor entities with battery status as well as the signal level.
 
 #### Binary Sensors
 
-The `rfxtrx` platform support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
+The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
-### Add device by event code
+### Add a device by event code
 
-To manually add a device, in the options window an event code can be added in the field *Enter event code to add*.
+To manually add a device, in the options window, an event code can be added in the field *Enter event code to add*.
 
 See [Generate codes](#generate-codes) how to generate event codes.
 
@@ -99,11 +99,11 @@ The [RFXtrx433e](http://www.rfxcom.com/RFXtrx433E-USB-43392MHz-Transceiver/en) i
 
 To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
 
-To convert a switch to a dimmable light, make sure the event contain a dimming command. You can usually convert a command by changing one byte.
+To convert a switch to a dimmable light, make sure the event contains a dimming command. You can usually convert a command by changing one byte.
 
 <img src='/images/integrations/rfxtrx/switch_light.png' />
 
-Copy the event code from the state attribute of the switch which shows up on the bottom of the window when clicking on the switch entity. Examples of byte changes:
+Copy the event code from the state attribute of the switch, which shows up on the bottom of the window when clicking on the switch entity. Examples of byte changes:
 
 *ARC:*<br>
 0b11000248bc0cfe09 **01** 0f70<br>
@@ -119,7 +119,7 @@ Copy the event code from the state attribute of the switch which shows up on the
 
 ### Configure device options
 
-To configure device options select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
+To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
 
 #### Signal repetitions
 
@@ -127,7 +127,7 @@ Because the RFXtrx device sends its actions via radio and from most receivers it
 
 #### Device events
 
-To enable device events use the checkbox *Enable device event*. See [Events](#events) for more information about device events.
+To enable device events, use the checkbox *Enable device event*. See [Events](#events) for more information about device events.
 
 #### Off Delay
 
@@ -190,7 +190,7 @@ This automatic guess should work most of the time, but there is no guarantee on 
 
 #### Replace device
 
-Some battery powered devices send commands or data with a randomly generated id. When batteries are replaced, the id changes. In order to use the device, it needs to be re-added either through automatic add or manually. This will create a new device. To transfer user configured names and entity ids of the old device, select the old device in the options menu under *Select device to configure*. In the device options menu, select from the *Select device to replace* menu the new device and press *Submit*. The names and ids of the old device will be transferred to the new device and the old device will be automatically deleted.
+Some battery-powered devices send commands or data with a randomly generated id. When batteries are replaced, the id changes. In order to use the device, it needs to be re-added either through automatic add or manually. This will create a new device. To transfer user-configured names and entity ids of the old device, select the old device in the options menu under *Select device to configure*. In the device options menu, select from the *Select device to replace* menu the new device and press *Submit*. The names and ids of the old device will be transferred to the new device and the old device will be automatically deleted.
 
 ### Delete device
 
@@ -227,7 +227,7 @@ values':
   Rssi numeric': 7
 ```
 
-You can setup automations to react to these events. When you do don't include more fields than needed. Always include the device identifying fields, `packet_type`, `sub_type` and `id_string`.
+You can set up automations to react to these events. When you do, don't include more fields than needed. Always include the device identifying fields, `packet_type`, `sub_type` and `id_string`.
 
 So, for example, to trigger an action when somebody presses the doorbell, you would set up an automation with the following trigger:
 
@@ -291,10 +291,10 @@ action:
 
 ## Generate codes
 
-If you need to generate codes for switches and lights, you can use a template (useful for example COCO switches).
+If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
 - Go to home-assistant-IP:8123/dev-template
-- Use the follwing codes to generate an event:
+- Use the following codes to generate an event:
 
 *Switch: ARC*
 
@@ -327,7 +327,7 @@ If you need to generate codes for switches and lights, you can use a template (u
 {% endraw %}
 
 
-- Use this code to add a new switch in options menu.
+- Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e., push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
