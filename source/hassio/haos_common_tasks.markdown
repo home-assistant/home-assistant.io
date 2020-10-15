@@ -34,6 +34,8 @@ To connect to the Samba server from another device, you will use the IP address 
 
 For connecting from Windows 10, you can enter the IP address or hostname in File Explorer's address bar with two backslashes, as shown in the example screenshot.
 
+<img src='/images/hassio/screenshots/file_explorer.png' />
+
 You should then be prompted for the credentials you entered in the Samba add-on configuration. You also have the option of having the credentials stored so that you do not need to enter them again. After that, you'll have access to the directories which you can then mount as a drive or pin to Quick Access.
 
 
