@@ -20,7 +20,7 @@ New in this release is that if the available free space on your device drops bel
 
 To help you free up some space, we have added a [new page to our documentation][more-info_free-space] that will help guide you through that.
 
-If you run Home Assistant Supervised, the system can get marked as unsupported if the host system does not have all the [required services running]required_services]. It was hard to find the reason for why a system is marked as unsupported. It is written to the logs during startup but the logs that you find in the UI do not go back that far. To make it more accessible, the message that your system is unsupported will now allow you to open a new dialog.
+If you run Home Assistant Supervised, the system can get marked as unsupported if the host system does not have all the [required services running][required_services]. It was hard to find the reason for why a system is marked as unsupported. It is written to the logs during startup but the logs that you find in the UI do not go back that far. To make it more accessible, the message that your system is unsupported will now allow you to open a new dialog.
 
 ![unsupported dialog](/images/blog/2020-10-17-supervisor-248/unsupported_dialog.png)
 
