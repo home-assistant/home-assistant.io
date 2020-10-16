@@ -89,7 +89,7 @@ Optional:
     service: media_player.play_media
 ```
 
-### [Plex](https://www.home-assistant.io/integrations/plex/)
+### Plex
 
 To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](https://www.home-assistant.io/integrations/plex/#service-play_media) and prepend the `media_content_id` with "`plex://`":
 ```yaml
