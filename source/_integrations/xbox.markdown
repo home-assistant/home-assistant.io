@@ -158,3 +158,7 @@ There are 4 sensors that are added, **all** of which are disabled by default. Th
 ## Media Source
 
 The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source integration, you are also able to send these clips to supported media players like Chromecast.
+
+<div class="note">
+It can take up to a couple of days for newly installed applications to appear in the media browser.
+</div>
