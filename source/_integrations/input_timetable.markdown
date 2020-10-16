@@ -50,6 +50,7 @@ configuration without restarting Home Assistant itself.
 | `set` | `time`<br>`state`<br>`entity_id(s)`<br>`area_id(s)` | Add a state change at a given time to the specific `input_timetable` entities 
 | `unset` | `time`<br>`entity_id(s)`<br>`area_id(s)` | Remove a state change at a given time from the specific `input_timetable` entities
 | `reset` | `entity_id(s)`<br>`area_id(s)` | Remove all state changes from the specific `input_timetable` entities
+| `reconfig` | `timetable`<br>`entity_id(s)`<br>`area_id(s)` | Set the entire state change list of the specific `input_timetable` entities
 | `reload` | Reload `input_timetable` configuration |
 
 ### Initial State
