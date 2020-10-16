@@ -5,7 +5,7 @@ description: "More information on why systemd marks the installation as unsuppor
 
 ## The issue
 
-The Supervisor use Systemd over DBus to control the Host system and get information.
+The Supervisor uses Systemd over DBus to control the Host system and get information.
 Without Systemd, we miss a lot of information and functionality.
 
 ## The solution

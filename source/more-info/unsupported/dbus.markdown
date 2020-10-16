@@ -5,7 +5,7 @@ description: "More information on why missing D-Bus marks the installation as un
 
 ## The issue
 
-D-Bus is at how the Supervisor can do most of the communication with the host,
+D-Bus is how the Supervisor does most of the communication with the host,
 without this multiple things that the Supervisor needs to do will fail.
 
 ## The solution
