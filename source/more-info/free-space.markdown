@@ -47,7 +47,8 @@ documentation for your hypervisor on how to expand disks for virtual machines.
 Home Assistant will auto-expand to use the newly added space.
 
 If you are not running a VM, you need to replace your storage medium
-(typically, this will be an SD card).
+(typically, this will be an SD card). You can use [snapshots](https://www.home-assistant.io/hassio/haos_common_tasks/#home-assistant-os-snapshots) to quickly
+restore your Home Assistant installation on a new storage medium.
 
 **Before you start, always make sure you have a recent full snapshot,
 and that you have moved that off the storage medium! to learn about that
