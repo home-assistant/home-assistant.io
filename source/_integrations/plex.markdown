@@ -70,6 +70,14 @@ Plays a song, album, artist, playlist, TV show/season/episode, movie, or video o
 
 Required fields within the `media_content_id` payloads are marked as such, others are optional.
 
+<div class='note info'>
+  
+  Refer to these links if casting to non-Plex players:
+  * Chromecast: https://www.home-assistant.io/integrations/cast/#plex
+  * Sonos: https://www.home-assistant.io/integrations/plex#sonos-playback
+  
+</div>
+
 #### Music
 
 | Service data attribute | Description                                                                                                                                                                                          |
