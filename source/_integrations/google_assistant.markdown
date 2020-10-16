@@ -29,7 +29,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 </div>
 
-You will need to create a service account [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)  which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide the service account, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration.  See Step 2 after the note for more details.
+You will need to create a service account [Create Service account key](https://console.cloud.google.com/apis/credentials/serviceaccountkey)  which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting)). If you don't provide the service account, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device in Home Assistant that you wish to control via the Google Assistant integration.  See Step 2 after the note for more details.
 
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
     1. Click `New Project` and give your project a name.
