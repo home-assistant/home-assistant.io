@@ -2,7 +2,7 @@
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
 ha_category: Climate
-ha_release: 0.116
+ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
