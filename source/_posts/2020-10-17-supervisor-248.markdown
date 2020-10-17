@@ -50,7 +50,7 @@ Thanks to [@skateman][skateman], you can now use private (password protected) co
 
 ![private registry](/images/blog/2020-10-17-supervisor-248/private_registry.png)
 
-You can find this in the store tab of the Supervisor panel, by clicking the three dots in the top right corner.
+You can find this in the store tab of the Supervisor panel, by clicking the three dots in the top right corner, this option is only available if advanced-mode is enabled.
 
 ## Stricter Network Manager check
 
