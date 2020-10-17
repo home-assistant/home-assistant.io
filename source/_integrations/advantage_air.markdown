@@ -45,6 +45,10 @@ The `advantage_air` sensor platform will create sensor entities for a variety of
 
 The `advantage_air` binary sensor platform will create a binary sensor for each zone that has a motion sensor.
 
+### Switch
+
+The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
+
 ## Component services
 
 ### set_time_to
