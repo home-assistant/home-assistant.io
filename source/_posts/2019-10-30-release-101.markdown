@@ -619,7 +619,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 - Move imports in blockchain component ([@Bouni] - [#27852]) ([blockchain docs])
 - Move blackbird imports ([@Bouni] - [#27849]) ([blackbird docs])
 - cryptography + numpy for python 3.8 ([@pvizeli] - [#27861]) ([iqvia docs]) ([opencv docs]) ([tensorflow docs]) ([trend docs])
-- Move imports in bom component ([@Bouni] - [#27854]) ([bom docs])
+- Move imports in bom component ([@Bouni] - [#27854])
 - Move imports in bmw_connected_drive component ([@Bouni] - [#27853]) ([bmw_connected_drive docs])
 - Move imports in blink component ([@Bouni] - [#27850]) ([blink docs])
 - Move imports in blinksticklight component ([@Bouni] - [#27851]) ([blinksticklight docs])
@@ -1568,7 +1568,6 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [bme280 docs]: /integrations/bme280/
 [bme680 docs]: /integrations/bme680/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
-[bom docs]: /integrations/bom/
 [broadlink docs]: /integrations/broadlink/
 [brottsplatskartan docs]: /integrations/brottsplatskartan/
 [browser docs]: /integrations/browser/

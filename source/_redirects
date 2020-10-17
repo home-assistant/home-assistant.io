@@ -655,7 +655,6 @@
 /components/sensor.bme280 /integrations/bme280
 /components/sensor.bme680 /integrations/bme680
 /components/sensor.bmw_connected_drive /integrations/bmw_connected_drive
-/components/sensor.bom /integrations/bom#sensor
 /components/sensor.broadlink /integrations/broadlink#sensor
 /components/sensor.brottsplatskartan /integrations/brottsplatskartan
 /components/sensor.canary /integrations/canary#sensor
@@ -1067,7 +1066,6 @@
 /components/vlc-telnet /integrations/vlc_telnet
 /components/water_heater.econet /integrations/econet
 /components/water_heater.wink /integrations/wink#water-heater
-/components/weather.bom /integrations/bom
 /components/weather.buienradar /integrations/buienradar
 /components/weather.ecobee /integrations/ecobee
 /components/weather.ipma /integrations/ipma
@@ -1176,7 +1174,6 @@
 /components/bme280 /integrations/bme280
 /components/bme680 /integrations/bme680
 /components/bmw_connected_drive /integrations/bmw_connected_drive
-/components/bom /integrations/bom
 /components/braviatv /integrations/braviatv
 /components/broadcast /integrations/telegram_broadcast
 /components/broadlink /integrations/broadlink
