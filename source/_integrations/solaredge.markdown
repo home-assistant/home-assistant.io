@@ -56,7 +56,7 @@ In case you would like to convert the values for example to kWh instead of the d
 {% raw %}
 ```yaml
 # Example configuration.yaml entry for template platform
-sensors:
+sensor:
   platform: template
   sensors:
     solaredge_energy_this_year_template:
