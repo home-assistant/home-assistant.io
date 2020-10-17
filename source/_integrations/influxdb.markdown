@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: influxdb
 ---
 
-The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
+The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database or store states at specified intervals. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
 
 Additionally, you can now make use of an InfluxDB 2.0 installation with this integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
 
@@ -154,6 +154,23 @@ tags_attributes:
   description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
   required: false
   default: 0
+time_interval:
+  type: list
+  description: A list of time intervals at which selected states get recorded in InfluxDB. Each time_interval also has a possibility to filter entities/domains/globs.
+  required: false
+  keys: 
+    duration:
+      type: string,dict
+      description: Duration of the interval between storage of states. Either a timedelta dict containing one or more of days, hours, minutes, seconds or a time interval string HH:MM:SS or HH:MM
+      required: true
+    include:
+      type: list
+      description: Configure which integrations should be included in recordings to InfluxDB for this time_interval. If set, all other entities will not be recorded to InfluxDB. ([Configure Filter]    (#configure-filter))
+      required: false
+    exclude:
+      type: list
+      description: Configure which integrations should be excluded in recordings to InfluxDB for this time_interval. If set, all other entities will not be recorded to InfluxDB. ([Configure Filter]    (#configure-filter))
+      required: false
 ignore_attributes:
   type: [string, list]
   description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB.
@@ -264,6 +281,13 @@ influxdb:
     entities:
        - entity.id3
        - entity.id4
+  time_interval:
+    - duration: "00:00:30" #30 seconds, all entities
+    - duration:
+        minutes: 1
+      include:
+        entities:
+          - entity.id3
   tags:
     instance: prod
     source: hass
@@ -298,6 +322,13 @@ influxdb:
       - sun
     entities:
       - weather.home
+  time_interval:
+    - duration: "00:00:30" #30 seconds, all entities
+    - duration:
+        minutes: 1
+      include:
+        entities:
+          - entity.id3
 ```
 
 ## Sensor
