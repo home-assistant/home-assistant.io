@@ -63,6 +63,7 @@ charset:
 {% endconfiguration %}
 
 ### Gmail with App Password
+
 If you’re going to use Gmail, it’s always good practice to create a [App Password](https://support.google.com/mail/answer/185833?hl=en).
 
 1. Go to your [Google Account](https://myaccount.google.com/)
