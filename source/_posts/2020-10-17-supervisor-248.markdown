@@ -54,7 +54,7 @@ You can find this in the store tab of the Supervisor panel, by clicking the thre
 
 ## Stricter Network Manager check
 
-With version 248 there has been added more checks to ensure that Network Manager is not only enabled on the system but that it also manages at least one network interface. If you are running our Home Assistant OS this does not apply to you.
+With version 248 there has been added more checks to ensure that Network Manager is not only enabled on the system but that it also manages at least one network interface. If you are running our Home Assistant OS, this does not apply to you.
 
 This stricter check allows us to provide a stable way for the Supervisor and for add-on developers to get the IP Address of the host.
 
