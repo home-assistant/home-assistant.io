@@ -43,13 +43,13 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - Enable Webhook and set your Dialogflow webhook URL as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
 - Click "Save"
 - Create a new intent
-- Below "User says" write one phrase that you, the user, will tell Dialogflow, e.g., `What is the temperature at home?`
-- In "Action" set some key (this will be the bind with Home Assistant configuration), e.g.,: GetTemperature
-- In "Response" set "Cannot connect to Home Assistant or it is taking to long" (fall back response)
-- At the end of the page, click on "Fulfillment" and check "Use webhook"
+- Below "User says" type one phrase that you, the user, will say to Dialogflow, e.g., `What is the temperature at home?`
+- In "Action" enter an action name. This should match the name of an IntentScript within your Home Assistant configuration, e.g. in the example below "Temperature"
+- In "Response" enter "Cannot connect to Home Assistant or it is taking to long" (fall back response)
+- At the bottom of the page, expand "Fulfillment" and check "Use webhook"
 - Click "Save"
-- On the top right, where is written "Try it now...", write, or say, the phrase you have previously defined and hit enter
-- Dialogflow has send a request to your Home Assistant server
+- At the top right of the screen where it says "Try it now...", type, or say, the phrase you have previously defined and hit enter
+- Dialogflow will now send a request to your Home Assistant server and display the response.
 
 <div class='note warning'>
 
