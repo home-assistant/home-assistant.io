@@ -55,7 +55,6 @@ source/_integrations/blebox.markdown @gadgetmobile
 source/_integrations/blink.markdown @fronzbot
 source/_integrations/bmp280.markdown @belidzs
 source/_integrations/bmw_connected_drive.markdown @gerard33 @rikroe
-source/_integrations/bom.markdown @maddenp
 source/_integrations/bond.markdown @prystupa
 source/_integrations/braviatv.markdown @bieniu
 source/_integrations/broadlink.markdown @danielhiversen @felipediel
