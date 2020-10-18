@@ -35,7 +35,7 @@ To receive debug logging from the RFXCOM device, add the following lines to `con
 
 ```yaml
 logger:
-  log:
+  logs:
     RFXtrx: debug
 ```
 
