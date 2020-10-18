@@ -282,14 +282,19 @@ device_class:
   required: false
   type: string
 reset_after:
-  description: Reset back to OFF state after specified milliseconds.
+  description: Reset back to OFF state after specified seconds.
   required: false
-  type: integer
+  type: float
+ignore_internal_state:
+  description: Specifies if state updates should ignore the internal state and always trigger the Home Assistant callback.
+  required: true
+  type: boolean
+  default: False
 context_timeout:
   description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. Maximum value is 10.0.
   required: false
   type: float
-  default: 1.0
+  default: None
 {% endconfiguration %}
 
 ### Support for automations
@@ -449,6 +454,7 @@ The following values are valid for the `hvac_mode` attribute:
 
 The following presets are valid for the `preset_mode` attribute:
 
+- Auto (maps internally to PRESET_NONE within Home Assistant)
 - Comfort (maps internally to PRESET_COMFORT within Home Assistant)
 - Standby (maps internally to PRESET_AWAY within Home Assistant)
 - Night (maps internally to PRESET_SLEEP within Home Assistant)
@@ -550,7 +556,11 @@ operation_mode_standby_address:
   required: false
   type: string  
 operation_modes:
-  description: Overrides the supported operation modes. Provide the supported `hvac_mode` and `preset_mode` values for your device.
+  description: Overrides the supported operation modes. Provide the supported `preset_mode` values for your device.
+  required: false
+  type: list
+controller_modes:
+  description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
   required: false
   type: list
 on_off_address:
@@ -885,6 +895,10 @@ type:
   description: A type from the following table must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
   type: string
+always_callback:
+  description: Defines if each update of the internal state should trigger a callback within Home Assistant no matter if the payload is equal.
+  type: boolean
+  default: False
 {% endconfiguration %}
 
 | KNX DPT | type                          | size in byte | range                      | unit           |
@@ -1072,6 +1086,10 @@ state_address:
   description: Separate KNX group address for retrieving the switch state. *DPT 1*
   required: false
   type: string
+reset_after:
+  description: Reset the switch back to OFF after specified seconds.
+  required: false
+  type: float
 {% endconfiguration %}
 
 Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
