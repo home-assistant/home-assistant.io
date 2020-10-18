@@ -63,7 +63,7 @@ logger:
 
 ## Troubleshooting
 
-If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](http://deconz.dresden-elektronik.de/deconz-firmware/?C=M;O=D).
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [deCONZ software version](https://github.com/dresden-elektronik/deconz-rest-plugin/releases) and [latest firmware for hardware](http://deconz.dresden-elektronik.de/deconz-firmware/?C=M;O=D). The firmware update button in the add-on's Phoscon interface does not currently work. Follow the official firmware update process [here](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Update-deCONZ-manually) instead.
 
 ## Device services
 
