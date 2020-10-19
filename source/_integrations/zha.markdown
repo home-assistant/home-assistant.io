@@ -205,7 +205,7 @@ You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`
 
 Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself.
 
-### Defining ZigBee channel to use
+### Defining Zigbee channel to use
 
 ```yaml
 zha:
