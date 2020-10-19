@@ -1,7 +1,6 @@
 ---
 title: LANnouncer
 description: Instructions on how to add Lannouncer notifications to Home Assistant.
-logo: lannouncer.png
 ha_category:
   - Notifications
 ha_iot_class: Local Push
