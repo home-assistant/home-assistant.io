@@ -286,7 +286,7 @@ reset_after:
   required: false
   type: float
 ignore_internal_state:
-  description: Specifies if state updates should ignore the internal state and always trigger the Home Assistant callback.
+  description: Specifies if telegrams should ignore the internal state and always trigger a Home Assistant state update.
   required: true
   type: boolean
   default: False
@@ -896,7 +896,7 @@ type:
   required: true
   type: string
 always_callback:
-  description: Defines if each update of the internal state should trigger a callback within Home Assistant no matter if the payload is equal.
+  description: Defines if telegrams with equal payload as the previously received telegram should trigger a state update within Home Assistant.
   type: boolean
   default: False
 {% endconfiguration %}
