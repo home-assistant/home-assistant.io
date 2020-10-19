@@ -96,7 +96,7 @@ The device IDs begin with `28-`.
 
 It is also possible to use `owfs`, the filesystem portion of the package, to access 1-wire sensors but not advised as it will be depreciated in an upcoming release. See this [pull request](https://github.com/home-assistant/core/pull/42041) for more information.
 
-The [owfs project pagen on GitHub](https://github.com/owfs/owfs) says:
+The [owfs project page on GitHub](https://github.com/owfs/owfs) says:
 
 > Despite the project name, the owfs package itself is **NOT** recommended for any real use, it has well known issues with races etc.
 
