@@ -92,9 +92,9 @@ The device IDs begin with `28-`.
 
 `owsever` on Linux hosts is part of the [owfs 1-Wire file system](https://owfs.org/). When a 1-wire interface adapter is used, you can access sensors on a remote or local Linux host that is running `owserver`. `owserver` by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
 
-### owfs - (Soon to be depreciated)
+### owfs - (Soon to be deprecated)
 
-It is also possible to use `owfs`, the filesystem portion of the package, to access 1-wire sensors but not advised as it will be depreciated in an upcoming release. See this [pull request](https://github.com/home-assistant/core/pull/42041) for more information.
+It is also possible to use `owfs`, the filesystem portion of the package, to access 1-wire sensors but not advised as it will be deprecated in an upcoming release. See this [pull request](https://github.com/home-assistant/core/pull/42041) for more information.
 
 The [owfs project page on GitHub](https://github.com/owfs/owfs) says:
 
