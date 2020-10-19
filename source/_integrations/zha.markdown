@@ -205,6 +205,18 @@ You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`
 
 Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself.
 
+### Defining Zigbee channel to use
+
+```yaml
+zha:
+  zigpy_config:
+    network:
+      channel: 15             # What channel the radio should try to use.
+      channels: [15, 20, 25]  # Channel mask
+```
+
+This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)
+
 ## Adding devices
 
 To add a new device:
