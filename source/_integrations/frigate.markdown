@@ -6,7 +6,7 @@ ha_category:
   - Image Processing
   - Binary Sensor
 ha_iot_class: Local Polling
-ha_release: '0.100'
+ha_release: '0.116.5'
 ha_domain: frigate
 ---
 
