@@ -10,7 +10,7 @@ ha_release: '0.100'
 ha_domain: frigate
 ---
 
-[FRIGATE](https://github.com/blakeblackshear/frigate) uses OpenCV and Tensorflow to perform realtime object detection locally for IP cameras. It is designed for integration with HomeAssistant or others via MQTT camera and binary sensors. Use of a Google Coral Accelerator is optional, but highly recommended. By average, on a 64 bit high quality CPU you will be able to process only 2-3 FPS. With the Coral, you can process 100+ FPS with very low CPU load.
+[FRIGATE](https://github.com/blakeblackshear/frigate) uses OpenCV and TensorFlow to perform realtime object detection locally for IP cameras. It is designed for integration with Home Assistant or others via MQTT camera and binary sensors. Use of a Google Coral Accelerator is optional, but highly recommended. By average, on a 64 bit high quality CPU you will be able to process only 2-3 FPS. With the Coral, you can process 100+ FPS with very low CPU load.
 
 <p class='img'>
 <img src='https://github.com/blakeblackshear/frigate/blob/master/diagram.png'/>
@@ -38,7 +38,7 @@ name:
     required: true
     type: string
 topic:
-    description: The topic of each camera on MQTT. Replace the <camera_name> with the camera name configured on the frigate config file.
+    description: The topic of each camera on MQTT. Replace the <camera_name> with the camera name configured on the frigate configuration file.
     required: true
     type: string
 {% endconfiguration %}
@@ -61,7 +61,7 @@ name:
     required: true
     type: string
 state_topic:
-    description: The topic of each camera and object type detection on MQTT. Replace the <camera_name> with the camera name configured on the frigate config file and do the same with the object type.
+    description: The topic of each camera and object type detection on MQTT. Replace the <camera_name> with the camera name configured on the frigate configuration file and do the same with the object type.
     required: true
     type: string
 {% endconfiguration %}
@@ -88,7 +88,7 @@ binary_sensor:
 
 ## Combining the RSTP stream and detection stream
 
-You also can add the RSTP stream of the camera to HomeAssistant combined with the latest detection image of the camera, witch comes with the detected objects bounding boxes drawn. Add the following to your `configuration.yaml` file:
+You also can add the RSTP stream of the camera to Home Assistant combined with the latest detection image of the camera, witch comes with the detected objects bounding boxes drawn. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,7 +98,7 @@ camera:
     stream_source: rstp://<IP_CAMERAS_INTERNAL_RSTP_STREAM>
     still_image_url: http://<FRIGATE_SERVER_IP>:<FRIGATE_SERVER_PORT>/<CAMERA_NAME>/latest.jpg
 ```
-Now you can add this camera to the lovelace for example as a picture-glance card to watch an almost real time stream of images with the detected objects drawn with the bounding boxes and navigate easily to the real time stream of the camera with one touch over the image. For more information about how to integrate a generic IP camera please refer to [its own integration page](https://www.home-assistant.io/integrations/generic_ip_camera/).
+Now you can add this camera to the Lovelace for example as a picture-glance card to watch an almost real time stream of images with the detected objects drawn with the bounding boxes and navigate easily to the real time stream of the camera with one touch over the image. For more information about how to integrate a generic IP camera please refer to [its own integration page](https://www.home-assistant.io/integrations/generic_ip_camera/).
 
 {% configuration %}
 still_image_url:
@@ -117,7 +117,7 @@ name:
 
 ## Debugging
 
-Frigate also supports the integration of the debugging topics to HomeAssistant:
+Frigate also supports the integration of the debugging topics to Home Assistant:
 
 ```yaml
 # Example configuration.yaml entry
