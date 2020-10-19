@@ -12,6 +12,10 @@ ha_domain: frigate
 
 [FRIGATE](https://github.com/blakeblackshear/frigate) uses OpenCV and Tensorflow to perform realtime object detection locally for IP cameras. It is designed for integration with HomeAssistant or others via MQTT camera and binary sensors. Use of a Google Coral Accelerator is optional, but highly recommended. By average, on a 64 bit high quality CPU you will be able to process only 2-3 FPS. With the Coral, you can process 100+ FPS with very low CPU load.
 
+<p class='img'>
+<img src='https://github.com/blakeblackshear/frigate/blob/master/diagram.png'/>
+</p>
+
 ## Setup
 
 You need to have FRIGATE running somewhere. It's easiest to run as a [Docker](https://hub.docker.com/r/blakeblackshear/frigate) container. Follow the instructions of the [projects page](https://github.com/blakeblackshear/frigate).
@@ -23,9 +27,9 @@ To enable this integration in your installation add the following to your `confi
 ```yaml
 # Example configuration.yaml entry for person detection MQTT camera
 camera:
-  - name: <camera_name> Last Person
+  - name: <CAMERA_NAME> Last Person
     platform: mqtt
-    topic: frigate/<camera_name>/person/snapshot
+    topic: frigate/<CAMERA_NAME>/person/snapshot
 ```
 
 {% configuration %}
@@ -44,9 +48,9 @@ You can also add a binary sensor for each object type you configured on frigate 
 ```yaml
 # Example configuration.yaml entry for person detection binary sensor
 binary_sensor:
-  - name: <camera_name> Person
+  - name: <CAMERA_NAME> Person
     platform: mqtt
-    state_topic: "frigate/<camera_name>/person"
+    state_topic: "frigate/<CAMERA_NAME>/person"
     device_class: motion
     availability_topic: "frigate/available"
 ```
@@ -90,9 +94,9 @@ You also can add the RSTP stream of the camera to HomeAssistant combined with th
 # Example configuration.yaml entry
 camera:
   - platform: generic
-    name: <camera_name>
-    stream_source: rstp://<ip_cameras_internal_rstp_stream>
-    still_image_url: http://<frigate_server_ip>:5000/<camera_name>/latest.jpg
+    name: <CAMERA_NAME>
+    stream_source: rstp://<IP_CAMERAS_INTERNAL_RSTP_STREAM>
+    still_image_url: http://<FRIGATE_SERVER_IP>:<FRIGATE_SERVER_PORT>/<CAMERA_NAME>/latest.jpg
 ```
 Now you can add this camera to the lovelace for example as a picture-glance card to watch an almost real time stream of images with the detected objects drawn with the bounding boxes and navigate easily to the real time stream of the camera with one touch over the image. For more information about how to integrate a generic IP camera please refer to [its own integration page](https://www.home-assistant.io/integrations/generic_ip_camera/).
 
@@ -120,23 +124,23 @@ Frigate also supports the integration of the debugging topics to HomeAssistant:
 sensor:
 - platform: rest
   name: Frigate Debug
-  resource: http://<frigate_server_ip>:<frigate_server_port>/debug/stats
+  resource: http://<FRIGATE_SERVER_IP>:<FRIGATE_SERVER_PORT>/debug/stats
   scan_interval: 5
   json_attributes:
-    - <camera_name>
+    - <CAMERA_NAME>
     - detection_fps
     - detectors
   value_template: 'OK'  
 - platform: template
   sensors:
     <camera_name>_fps:
-      value_template: '{{ states.sensor.frigate_debug.attributes["<camera_name>"]["fps"] }}'
+      value_template: '{{ states.sensor.frigate_debug.attributes["<CAMERA_NAME>"]["fps"] }}'
       unit_of_measurement: 'FPS'
     <camera_name>_skipped_fps:
-      value_template: '{{ states.sensor.frigate_debug.attributes["<camera_name>"]["skipped_fps"] }}'
+      value_template: '{{ states.sensor.frigate_debug.attributes["<CAMERA_NAME>"]["skipped_fps"] }}'
       unit_of_measurement: 'FPS'
     <camera_name>_detection_fps:
-      value_template: '{{ states.sensor.frigate_debug.attributes["<camera_name>"]["detection_fps"] }}'
+      value_template: '{{ states.sensor.frigate_debug.attributes["<CAMERA_NAME>"]["detection_fps"] }}'
       unit_of_measurement: 'FPS'
     frigate_detection_fps:
       value_template: '{{ states.sensor.frigate_debug.attributes["detection_fps"] }}'
@@ -169,6 +173,6 @@ automation:
           message: "A person was detected."
           data:
             photo:
-              - url: http://<frigate_server_ip>:<frigate_server_port>/<camera_name>/person/best.jpg
+              - url: http://<FRIGATE_SERVER_IP>:<FRIGATE_SERVER_PORT>/<CAMERA_NAME>/person/best.jpg
                 caption: A person was detected.  
 ```
