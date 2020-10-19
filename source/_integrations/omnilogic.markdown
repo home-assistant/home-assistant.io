@@ -17,7 +17,10 @@ ha_domain: omnilogic
 
 There is currently support for the following device types within Home Assistant:
 
-- Sensor
+- **Sensor** - Air Temperature, Water Temperature, Variable Pump Speeds, Chlorinator Setting, Salt Levels, pH Levels, ORP Levels
+- **Lights** - Colorlogic version 1 and version 2 lighting systems
+- **Switch** - Relays, Pumps (Single, Dual, and Variable Speed)
+- **Water Heater** - Pool heaters
 
 ## Configuration
 
@@ -25,15 +28,28 @@ Home Assistant offers Hayward OmniLogic integration through **Configuration** ->
 
 ## Known limitations
 
-- The platform only supports sensors at the initial release. Future releases will include light/switch/water heater for control of lights, pumps, relays and heaters.
+- The platform does not support alarms from the Omnilogic system.
 
-## Debugging integration
+## Options
 
-If you have problems with the integration you can add debug prints to the log to aid in troubleshooting.
+Within the **Configuration** -> **Integrations** -> **Hayward OmniLogic** options screen you can set your polling interval (6 seconds recommended) and correct any pH Sensor offsets by adding a +/- float number to correct the pH sensor readings.
 
-```yaml
-logger:
-  default: info
-  logs:
-    omnilogic: debug
-    homeassistant.components.omnilogic: debug
+## Services
+
+These services are available for the Hayward OmniLogic Component:
+
+### omnilogic.set_pump_speed
+
+|**Parameter**|**Description**|**Example**|
+|-|-|-|
+|entity_id|The entity_id of the target variable speed pump.|switch.pool_pump|
+|speed|The target speed for the variable speed pump.|85|
+
+### omnilogic.set_v2_lights
+
+|**Parameter**|**Description**|**Example**|
+|-|-|-|
+|entity_id|The entity_id of the lights (must be V2).|light.pool_lights|
+|speed (Optional)|The effect speed you would like to set (0-8).|4|
+|brightness (Optional)|The effect brightness you would like to set (0-4).|4|
+
