@@ -88,13 +88,21 @@ The device IDs begin with `28-`.
 
 ## Interface adapter setup
 
-### owfs
-
-When an interface adapter is used, sensors can be accessed on Linux hosts via [owfs 1-Wire file system](https://owfs.org/). When using an interface adapter and the owfs, the `mount_dir` option must be configured to correspond to a directory, where owfs device tree has been mounted. On systems where Home Assistant runs in a Docker container. `owfs` cannot escape that environment and hence cannot populate the `mount_dir`. Use the owserver method on these systems instead.
-
 ### owserver
 
-When an interface adapter is used, you can also access sensors on a remote or local Linux host that is running owserver.  owserver by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
+`owsever` on Linux hosts is part of the [owfs 1-Wire file system](https://owfs.org/). When a 1-wire interface adapter is used, you can access sensors on a remote or local Linux host that is running `owserver`. `owserver` by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
+
+### owfs - (Soon to be deprecated)
+
+It is also possible to use `owfs`, the filesystem portion of the package, to access 1-wire sensors but not advised as it will be deprecated in an upcoming release. See this [pull request](https://github.com/home-assistant/core/pull/42041) for more information.
+
+The [owfs project page on GitHub](https://github.com/owfs/owfs) says:
+
+> Despite the project name, the owfs package itself is **NOT** recommended for any real use, it has well known issues with races etc.
+
+If you still choose to use `owfs`, the `mount_dir` option must be configured to correspond to a directory, where owfs device tree has been mounted. On systems where Home Assistant runs in a Docker container `owfs` cannot escape that environment and hence cannot populate the `mount_dir`. Use the `owserver` method on these systems instead.
+
+
 
 ## Configuration
 
