@@ -253,7 +253,7 @@ The `request_sync` service may fail with a 404 if the `project_id` of the HomeGr
   4. Once you begin to create a new `service_account` in the [Google Cloud API Console], ensure you select the project created in  [Actions on Google console] by verifying the `project_id`.  
   5. Enable HomeGraph API to the new project.
 
-Verify that the Google Assistant is available on `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` If its working it should return `405: Method Not Allowed` when opened in a browser or via curl
+Verify that the Google Assistant is available on `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` If it is working it should return `405: Method Not Allowed` when opened in a browser or via curl.
 
 #### 403 errors on request sync
 
