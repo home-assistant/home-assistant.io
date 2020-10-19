@@ -20,6 +20,6 @@ This integration provides the following platforms:
 
 ## Configuration
 
-Home Assistant offers the Tesla integration through **Configuration** -> **Integrations** -> **Fordpass**.
+Home Assistant offers the FordPass integration through **Configuration** -> **Integrations** -> **Fordpass**.
 
 Enter username, password and the VIN number of your vehicle and then continue.
