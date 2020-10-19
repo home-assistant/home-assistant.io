@@ -37,9 +37,9 @@ As of Home Assistant 0.117, API Tokens are now used to authenticate.
 
 </div>
 
-Setup requires an API Token created with the "Edit Zone DNS" template.
+Setup requires an API Token created with Zone:Zone:Read and Zone:DNS:Edit permissions for all zones in your account.
 
-Due to some shortcomings in Cloudflare’s implementation of API Tokens, tokens created for this integration currently require Zone:Zone:Read and Zone:DNS:Edit permissions for all zones in your account.
+An easy way to create this is to start with the "Edit zone DNS" template then add Zone:Zone:Read to the permissions.
 
 [Cloudflare API Tokens Guide](https://developers.cloudflare.com/api/tokens/create)
 
