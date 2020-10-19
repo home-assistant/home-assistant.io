@@ -309,7 +309,20 @@ binary_sensor:
 ```
 {% endraw %}
 
-If the template accesses every state on the system or all states under a specific domain, a rate limit of one update per minute is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
+In the below example, re-renders are limited to once per second:
+
+{% raw %}
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      has_sensor_unavailable_states:
+        value_template: '{{ states.sensor | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
+```
+{% endraw %}
+
+
+If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
 
 ### Working without entities
 
