@@ -3,7 +3,7 @@ title: Gree
 description: Instructions on how to integrate Gree Smart devices within Home Assistant.
 ha_category:
   - Climate
-ha_release: 0.113
+ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -21,4 +21,4 @@ Gree Smart compatible devices are detected and added automatically.
 
 ### Supported models
 
-Any Gree Smart device working with the Gree+ app should be supported, including non-Gree branded devices including some sold by Trane.
+Any Gree Smart device working with the Gree+ app should be supported, including non-Gree branded devices, including some sold by Trane.
