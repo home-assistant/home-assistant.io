@@ -1,14 +1,15 @@
 ---
 title: "Network Manager"
-description: "More information on why network manager marks the installation as unsupported."
+description: "More information on why the Network Manager marks the installation as unsupported."
 ---
 
 ## The issue
 
-The Supervisor utilizes Network Manager on the host to offer this information
-to add-ons and to give you the option to manage the network interfaces with CLI/UI.
+The Supervisor utilizes the Network Manager on the host to offer network information
+to add-ons and to give you the option to manage the network interfaces using the UI
+or via the command-line.
 
-For it to be able to do this, you need to have Network Manager installed, active
+This requires the the Network Manager to be installed, active
 and in control of at least one network interface on the host.
 
 ## The solution
@@ -18,7 +19,7 @@ If you have not already, install Network Manager on the host.
 When it is installed, you need to make sure it manages at least one interface
 [see the documentation for the network manager](https://wiki.debian.org/NetworkManager).
 
-Here are some example files that can be used to make network manager control all
+Here are some example files that can be used to make the Network Manager control all
 physical interfaces.
 
 `/etc/NetworkManager/NetworkManager.conf`:
@@ -60,7 +61,7 @@ iface lo inet loopback
 You can also just re-run our
 [convenience installation script](https://github.com/home-assistant/supervised-installer).
 
-If you have not done anything with the network on the host manually, you should just
+If you haven't done anything manually with the network on the host, you should just
 re-run the convenience installation script.
 
 When you have changed your network configuration manually or with the script,
