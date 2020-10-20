@@ -66,6 +66,15 @@ this operation.
 | ---------------------- | -------- | -------------------------------------------------- |
 | `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1. |
 
+### Service `ozw.cancel_command`
+
+This service will cancel a pending command. Typically used if the add or remove node
+services have been called but no node was added or removed.
+
+| Service Data Attribute | Required | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1. |
+
 ### Service `ozw.set_usercode`
 
 This service will set the usercode to X at code slot Y.
