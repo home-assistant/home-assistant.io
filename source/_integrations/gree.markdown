@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: gree
 ---
 
-The `gree` platform allows you to control a [Gree Smart HVAC](http://global.gree.com/).
+The Gree integration allows you to control a [Gree Smart HVAC](http://global.gree.com/).
  
 ## Configuration
 
