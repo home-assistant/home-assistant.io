@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
-    "remark-cli": "^8.0.1",
+    "remark-cli": "^9.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-lint": "^8.0.0",
     "remark-lint-fenced-code-flag": "^2.0.1",
