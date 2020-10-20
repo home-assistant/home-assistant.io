@@ -39,6 +39,7 @@ This service allows you to pass in the URL of an image, get the predominant colo
 |`brightness_pct`  | **No**   | `75`                                  | The percentage (`0` - `100`) of brightness we'll set the light to             |
 
 Example usage in an automation, taking the album art present on a Chromecast and supplying it to `light.shelf_leds` whenever it changes:
+{% raw %}
 ```yaml
 #automation.yaml
 - alias: Chromecast to Shelf Lights
@@ -71,6 +72,7 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
         brightness_pct: 100
         transition: 5
 ```
+{% endraw %}
 
 ### File Service Call
 
