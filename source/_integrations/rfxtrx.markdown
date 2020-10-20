@@ -121,6 +121,10 @@ Copy the event code from the state attribute of the switch, which shows up on th
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
 
+<div class='note warning'>
+If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
+</div>
+
 #### Signal repetitions
 
 Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the RFXtrx device to try to send each signal repeatedly.
