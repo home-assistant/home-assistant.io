@@ -1,7 +1,7 @@
 ---
 title: "Supervisor 249: Resolution center, Stability & Private container registries"
 description: "Resolution center, Stability & Private container registries"
-date: 2020-10-16 00:00:00
+date: 2020-10-21 00:00:00
 date_formatted: "October 21, 2020"
 comments: true
 author: Joakim Sørensen
