@@ -3,7 +3,7 @@ title: "Quick Bar"
 description: "Dialog for quickly accessing entities or running commands."
 ---
 
-The "Quick Bar" allows you to quickly look up entities or run commands without needing to navigate away from your current view. (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc).
+The "Quick Bar" allows you to quickly lookup entities or run commands without needing to navigate away from your current view. (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc.)
 
 It can be launched in the frontend using [hotkeys](#hotkeys).
 
@@ -39,10 +39,11 @@ When the dialog has already been launched, you can switch to other modes without
 | Entity Filter | Use [hotkey](#hotkeys) (or prepend ">" to input field) | Command
 | Command | Use [hotkey](#hotkeys) (or remove ">" from input field) | Entity Filter
 
-## Entity Filter Mode 
+## Entity Filter Mode
+
 *Hotkey: Ctrl+P (Windows) or ⌘+P (macOS)*
 
-Similar to Developer Tools -> States view, but more lightweight, and accessible from anywhere in the frontend.
+Similar to Developer Tools -> States view, but more lightweight and accessible from anywhere in the frontend.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>
@@ -54,6 +55,7 @@ Once launched, start typing your entity id (or ["bits and pieces" of your entity
 This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
 
 ## Command Mode
+
 *Hotkey: Ctrl+Shift+P (Windows) or ⌘+Shift+P (macOS)*
 
 Run various commands from anywhere without navigating to another view.
@@ -73,10 +75,10 @@ Currently-supported commands:
 
 ### Search by "bits and pieces" rather than complete substring
 
-In Developer Tools -> States, if you're trying to find "light.chandelier" you would have to type out a complete, exact substring to match it (e.g. "light.cha" or "chandel").
+In Developer Tools -> States, if you're trying to find "light.chandelier" you would have to type out a complete, exact substring to match it (e.g., "light.cha" or "chandel").
 
-But the Quick Bar checks *each letter* of your filter, finding entities that contain those letters, _in that order_. So, you can instead use "bits and pieces" of the entity id to narrow down matches more quickly (e.g. "ligcha", "ltlier", or "ltcdl").
+But the Quick Bar checks *each letter* of your filter, finding entities that contain those letters, _in that order_. So, you can instead use "bits and pieces" of the entity id to narrow down matches more quickly (e.g., "ligcha", "ltlier", or "ltcdl").
 
 This is similar to many modern developer-based applications like Sublime, VSCode, Chrome Developer Tools and GitHub file search do "quick file filter" searches.
 
-This can be really helpful when you have LOTS of entities with the same substring (e.g. "\*.living_room_\*"), but you only care about a particular _domain_. For example, rather than type out "media_player.living_" to narrow down media players in your living room, you can just type, say, "med.livroom" and get back the same set with less typing.
+This can be really helpful when you have LOTS of entities with the same substring (e.g., "\*.living_room_\*"), but you only care about a particular _domain_. For example, rather than type out "media_player.living_" to narrow down media players in your living room, you can just type, say, "med.livroom" and get back the same set with less typing.
