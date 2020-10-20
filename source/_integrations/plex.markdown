@@ -70,6 +70,15 @@ Plays a song, album, artist, playlist, TV show/season/episode, movie, or video o
 
 Required fields within the `media_content_id` payloads are marked as such, others are optional.
 
+<div class='note info'>
+  
+Refer to these links if casting to non-Plex players:
+
+- [Chromecast](/integrations/cast/#plex)
+- [Sonos](/integrations/plex#sonos-playback)
+  
+</div>
+
 #### Music
 
 | Service data attribute | Description                                                                                                                                                                                          |
