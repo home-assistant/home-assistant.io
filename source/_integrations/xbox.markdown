@@ -29,7 +29,7 @@ Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assist
 
 ## Media Player
 
-The Xbox media player platform will create Media Player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation allowing you to launch any installed application.
+The Xbox media player platform will create Media Player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
 ### Service `play_media`
 
@@ -94,7 +94,7 @@ delay_sec: 0.1
 
 ### Picture Elements Card
 
-Below is a picture elements card that can be added to Lovelace in order to provide an xbox controller interface in your frontend. It utilizes the services detailed above. Simply replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
+Below is a picture elements card that can be added to Lovelace to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
 <p class='img'>
   <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in Lovelace.'>
@@ -271,7 +271,7 @@ It can take up to a couple of days for newly installed applications to appear in
 ## Manual Configuration
 
 <div class="note">
-These steps are not required, nor will they be supported if issues are encountered. It is recommended to simply add the integration directly in the Integrations page.
+These steps are not required, nor will they be supported if issues are encountered. It is recommended to add the integration directly in the Integrations page.
 </div>
 
 If you prefer not to use the Home Assistant account linking service, you may manually configure a local implementation using the following steps:
