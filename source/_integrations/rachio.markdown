@@ -101,7 +101,7 @@ It is not currently possible to have zones from multiple controllers in the same
 | `entity_id` | no | List of zones to run. Will be run in order listed.
 | `duration` | no | Duration in minutes to run the zones. If a list of durations is provided, each duration will apply to the corresponding zone listed above. Alternatively, one duration can be provided and will be used for all zones.
 
-## Examples:
+### Examples:
 
 ```yaml
 #Example sctipt to start multiple zones with individual duration for each zone.
