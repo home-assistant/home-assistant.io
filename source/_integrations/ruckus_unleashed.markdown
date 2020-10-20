@@ -3,7 +3,7 @@ title: Ruckus Unleashed
 description: Instructions on how to integrate your Ruckus Unleashed device into Home Assistant.
 ha_category:
   - Presence Detection
-ha_release: 0.116
+ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -30,7 +30,7 @@ You will have to create a user on the device which is a **Monitoring Admin**. Lo
 
 ## Troubleshooting
 
-For this platform to work, the Ruckus Unleashed device will need to be accessible over SSH. If you are having trouble with Home Assistant not connecting, make sure the user you created above can login to SSH and can run privileged commands.
+For this platform to work, the Ruckus Unleashed device will need to be accessible over SSH. If you are having trouble with Home Assistant not connecting, make sure the user you created above can log in to SSH and can run privileged commands.
 
 Terminal:
 
