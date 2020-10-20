@@ -39,13 +39,7 @@ All configuration options are offered from the frontend. Choose `Options` under 
 relevant entry on the `Integrations` page.
 
 Options supported:
-
-{% configuration %}
-  priority:
-    description: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
-    type: integer
-    default: 128
-{% endconfiguration %}
+- **priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
 
 ## Hyperion Instances
 
