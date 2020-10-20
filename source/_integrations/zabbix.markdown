@@ -11,7 +11,7 @@ ha_domain: zabbix
 
 The `zabbix` integration is the main integration to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
 
-It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low Level Discovery (LLD). In order to make setup in Zabbix easy you can use this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) for the host.
+It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low-Level Discovery (LLD). In order to make setup in Zabbix easy, you can use this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) for the host.
 
 There is currently also support for the following device types within Home Assistant:
 
