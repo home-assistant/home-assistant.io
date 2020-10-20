@@ -13,6 +13,7 @@ ha_codeowners:
 The `colorthief` integration will extract the predominant color from a given image and apply that color to a target light.
 Useful as part of an automation.
 
+
 ## Configuration
 
 To enable the colortheif service in your installation, add the following to your `configuration.yaml` file:
@@ -34,7 +35,7 @@ This service allows you to pass in the URL of an image, get the predominant colo
 |------------------|----------|---------------------------------------|-------------------------------------------------------------------------------|
 |`url`             | **Yes**  | `https://example.com/images/logo.png` | The full URL (including schema, `http://`, `https://`) of the image to process|
 |`light_entity_id` | **Yes**  | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                  |
-|`transistion`     | **No**   | `10`                                  | The number of seconds to transition from current color to new color           |
+|`transition`      | **No**   | `10`                                  | The number of seconds to transition from current color to new color           |
 |`brightness_pct`  | **No**   | `75`                                  | The percentage (`0` - `100`) of brightness we'll set the light to             |
 
 Example usage in an automation, taking the album art present on a Chromecast and supplying it to `light.shelf_leds` whenever it changes:
@@ -81,5 +82,5 @@ This service is very similar to the URL service above, except it processes a fil
 |------------------|----------|--------------------|--------------------------------------------------------------------|
 |`file_path`       | **Yes**  | `/tmp/album.png`   | The full path to the image file we'll process                      |
 |`light_entity_id` | **Yes**  | `light.shelf_leds` | The RGB capable light we'll set the color of                       |
-|`transistion`     | **No**   | `10`               | The number of seconds to transition from current color to new color|
+|`transition`      | **No**   | `10`               | The number of seconds to transition from current color to new color|
 |`brightness_pct`  | **No**   | `75`               | The percentage (`0` - `100`) of brightness we'll set the light to  |
