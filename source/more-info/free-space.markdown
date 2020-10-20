@@ -3,7 +3,7 @@ title: "Clear up storage"
 description: "More information on how to clear up storage in Home Assistant."
 ---
 
-Reaching your storage limit sucks, this page will help you when that happens.
+Reaching your storage limit, this page will help you when that happens.
 
 There are several things you can do to free up some space:
 
