@@ -21,8 +21,8 @@ The best approach here is to take a full snapshot of your current installation
 from the Supervisor panel, then reinstall your host with one of the supported
 operating systems.
 
-If the host is a virtual machine or a supported board you can use our [appliance images](/hassio/installation/).
+If the host is a virtual machine or a supported board, you can use our [appliance images](/hassio/installation/).
 
-If not you can get [Debian from here](https://www.debian.org/) and use our [convenience installation script](https://github.com/home-assistant/supervised-installer), make sure you make it compliant with [ADR-0014](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md), the convenience script will handle most of that for you.
+If not, you can get [Debian from here](https://www.debian.org/) and use our [convenience installation script](https://github.com/home-assistant/supervised-installer). Make sure you make it compliant with [ADR-0014](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md), the convenience script will handle most of that for you.
 
 When the new host is set up and you can reach the Home Assistant frontend, you can upload and restore the snapshot you made earlier.
