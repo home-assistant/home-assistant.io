@@ -25,7 +25,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `target`               |      yes | Some platforms allow specifying a recipient that will receive the notification. See your platform page if it is supported.
 | `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
 
-The notify integration supports specifying [templates](/topics/templating/) with `data_template`. This will allow you to use the current state of Home Assistant in your notifications.
+The notify integration supports specifying [templates](/topics/templating/). This will allow you to use the current state of Home Assistant in your notifications.
 
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
@@ -52,7 +52,7 @@ The automation equivalent would be:
 ```yaml
 action:
   service: notify.notify
-  data_template:
+  data:
     message: "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
 ```
 

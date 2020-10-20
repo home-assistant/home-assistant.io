@@ -22,7 +22,7 @@ The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.c
 
 This integration provides the following platforms:
 
-- Binary sensors - such as parking and charger connection.
+- Binary sensors - such as update available, parking, and charger connection.
 - Sensors - such as Battery level, Inside/Outside temperature, odometer, estimated range, and charging rate.
 - Device tracker - to track location of your car
 - Lock - Door lock, rear trunk lock, front trunk (frunk) lock and charger door lock. Enables you to control Tesla's door, trunks and charger door lock

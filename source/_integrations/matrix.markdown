@@ -131,7 +131,7 @@ automation:
         command: introduction
     action:
       service: notify.matrix_notify
-      data_template:
+      data:
         message: "Hello {{trigger.event.data.args['name']}}"
 ```
 {% endraw %}

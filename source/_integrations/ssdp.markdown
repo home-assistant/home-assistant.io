@@ -24,11 +24,12 @@ ssdp:
 
 The following integrations are automatically discovered by the SSDP integration:
 
- - [deCONZ](../deconz/)
+ - [deCONZ](/integrations/deconz/)
  - [DirecTV](/integrations/directv/)
- - [Huawei LTE](../huawei_lte/)
- - [Philips Hue](../hue/)
+ - [Huawei LTE](/integrations/huawei_lte/)
+ - [Philips Hue](/integrations/hue/)
  - [Roku](/integrations/roku/)
- - [Samsung TV](../samsungtv/)
- - [UPnP](../upnp/)
- - [Sony Songpal](../songpal/)
+ - [Samsung SyncThru Printer](/integrations/syncthru/)
+ - [Samsung TV](/integrations/samsungtv/)
+ - [UPnP](/integrations/upnp/)
+ - [Sony Songpal](/integrations/songpal/)

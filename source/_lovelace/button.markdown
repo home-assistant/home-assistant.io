@@ -45,6 +45,11 @@ show_icon:
   description: Show icon.
   type: boolean
   default: "true"
+show_state:
+  required: false
+  description: Show state.
+  type: boolean
+  default: "false"
 icon_height:
   required: false
   description: Set the height for the icon. This is in pixels which is handled by the configuration UI. (Advanced users can use other CSS values if they like)
@@ -89,6 +94,7 @@ Title and Script Service Example:
 ```yaml
 type: button
 name: Turn Off Lights
+show_state: false
 tap_action:
   action: call-service
   service: script.turn_on

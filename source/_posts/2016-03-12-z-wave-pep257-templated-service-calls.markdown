@@ -25,6 +25,8 @@ Besides bug fixes, this release also brings:
  - Device Tracker: [OwnTracks] will allow filtering inaccurate GPS locations ([@HydrelioxGitHub])
  - Binary Sensor: Wemo Motion now supported ([@pavoni], [@ryanlaux])
 
+{% raw %}
+
 ```yaml
 # Example using templates for service and data in service call.
 # Works for automation, Alexa, universal media player, template switch.
@@ -33,15 +35,17 @@ automation:
       - platform: state
         entity_id: switch.bathroom
     action:
-      service_template: >
-        {% raw %}{% if is_state('switch.bathroom', 'on') %}
+      service: >
+        {% if is_state('switch.bathroom', 'on') %}
           switch.turn_on
         {% else %}
           switch.turn_off
-        {% endif %}{% endraw %}
-      data_template:
-        entity_id: switch.{% raw %}{{ states('input_select.is') }}{% endraw %}
+        {% endif %}
+      data:
+        entity_id: switch.{{ states('input_select.is') }}
 ```
+
+{% endraw %}
 
 ### Breaking Changes
 

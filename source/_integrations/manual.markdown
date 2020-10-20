@@ -74,7 +74,7 @@ armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
       required: false
       type: integer
     arming_time:
-      description: State specific setting for **arming_time** (all states except **disarmed**)
+      description: State specific setting for **arming_time** (all states except **disarmed** and **triggered**)
       required: false
       type: integer
     trigger_time:
@@ -133,7 +133,7 @@ In the configuration example below:
 alarm_control_panel:
   - platform: manual
     name: Home Alarm
-    code: 1234
+    code: '1234'
     arming_time: 30
     delay_time: 20
     trigger_time: 4
@@ -216,7 +216,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       to: 'disarmed'
   action:
     - service: notify.notify
-      data_template:
+      data:
         message: "ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}"
 ```
 {% endraw %}
@@ -230,7 +230,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       to: 'pending'
   action:
     - service: notify.notify
-      data_template:
+      data:
         message: "ALARM! The alarm is in pending status at {{ states('sensor.date_time') }}"
 ```
 {% endraw %}
@@ -244,7 +244,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       to: 'armed_away'
   action:
     - service: notify.notify
-      data_template:
+      data:
         message: "ALARM! The alarm is armed in Away mode {{ states('sensor.date_time') }}"
 ```
 {% endraw %}
@@ -258,7 +258,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       to: 'armed_home'
   action:
     - service: notify.notify
-      data_template:
+      data:
         # Using multi-line notation allows for easier quoting
         message: >
           ALARM! The alarm is armed in Home mode {{ states('sensor.date_time') }}

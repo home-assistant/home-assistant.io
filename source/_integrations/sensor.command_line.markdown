@@ -3,6 +3,7 @@ title: "Command line Sensor"
 description: "Instructions on how to integrate command line sensors into Home Assistant."
 ha_category:
   - Utility
+  - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: command_line
@@ -64,7 +65,7 @@ In this section you find some real-life examples of how to use this sensor.
 There are several ways to get the temperature of your hard drive. A simple solution is to use [hddtemp](https://savannah.nongnu.org/projects/hddtemp/).
 
 ```bash
-$ hddtemp -n /dev/sda
+hddtemp -n /dev/sda
 ```
 
 To use this information, the entry for a command-line sensor in the `configuration.yaml` file will look like this.
@@ -84,6 +85,7 @@ sensor:
 Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -94,6 +96,7 @@ sensor:
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) | round(1) }}'
 ```
+
 {% endraw %}
 
 ### Monitoring failed login attempts on Home Assistant
@@ -147,7 +150,7 @@ The example is doing the same as the [aREST sensor](/integrations/arest#sensor) 
 The one-line script to retrieve a value is shown below. Of course would it be possible to use this directly in the `configuration.yaml` file but need extra care about the quotation marks.
 
 ```bash
-$ python3 -c "import requests; print(requests.get('http://10.0.0.48/analog/2').json()['return_value'])"
+python3 -c "import requests; print(requests.get('http://10.0.0.48/analog/2').json()['return_value'])"
 ```
 
 The script (saved as `arest-value.py`) that is used looks like the example below.
@@ -175,22 +178,24 @@ sensor:
 [Templates](/docs/configuration/templating/) are supported in the `command:` configuration variable. This could be used if you want to include the state of a specific sensor as an argument to your external script.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: command_line
     name: wind direction
-    command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}'
+    command: "sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states('sensor.wind_direction') }}"
     unit_of_measurement: "Direction"
 ```
-{% endraw %}
 
+{% endraw %}
 
 ### Usage of JSON attributes in command output
 
 The example shows how you can retrieve multiple values with one sensor (where the additional are attributes) by using `value_json` and `json_attributes`.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -202,4 +207,5 @@ sensor:
     command: 'python3 /home/pi/.homeassistant/scripts/datetime.py'
     value_template: '{{ value_json.time }}'
 ```
+
 {% endraw %}

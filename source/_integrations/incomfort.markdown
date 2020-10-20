@@ -42,7 +42,7 @@ To send an alert if the CV pressure is too low or too high, consider the followi
     below: 1.0
   action:
   - service: notify.pushbullet_notifier
-    data_template:
+    data:
       title: "Warning: Low CH Pressure"
       message: >-
         {{ trigger.to_state.attributes.friendly_name }}

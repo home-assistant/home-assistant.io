@@ -42,7 +42,7 @@ To enable this integration in your installation, add the following to your `conf
 proximity:
   home: 
     ignored_zones:
-      - twork
+      - work
     devices:
       - device_tracker.car1
     tolerance: 50

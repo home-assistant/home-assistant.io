@@ -6,7 +6,6 @@ ha_category:
 ha_release: '0.91'
 ha_codeowners:
   - '@awarecan'
-  - '@robbiet480'
 ha_domain: aws
 ---
 

@@ -1,6 +1,8 @@
 ---
 title: Geolocation
 description: Instructions on how to integrate geolocation aware platforms into Home Assistant.
+ha_category:
+  - Geolocation
 logo: geo_location.png
 ha_release: 0.78
 ha_domain: geo_location
@@ -23,7 +25,6 @@ The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be 
 | NSW Rural Fire Service Incidents                      | `nsw_rural_fire_service_feed` |
 | Queensland Bushfire Alert                             | `qld_bushfire`                |
 | U.S. Geological Survey Earthquake Hazards Program     | `usgs_earthquakes_feed`       |
-| The World Wide Lightning Location Network             | `wwlln`                       |
 
 Conditions can be used to further filter entities, for example by inspecting their state attributes.
 
@@ -59,7 +60,7 @@ automation:
       value_template: "{{ trigger.to_state.attributes.type == 'Bush Fire' }}"
     action:
       - service: persistent_notification.create
-        data_template:
+        data:
           message: "{{ trigger.to_state.name }} - {{ trigger.to_state.attributes.status }}"
           title: "Bush Fire Alert"
 ```

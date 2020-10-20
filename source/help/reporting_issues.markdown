@@ -8,7 +8,7 @@ If you have an installation, a setup or a configuration issue please use our [Fo
 
 If you found a bug then please report it in one of our [trackers](/help/#bugs-feature-requests-and-alike). To help you and our developers to identify the issue quickly, please fill out the provided template. The "weird" content you will see is there to render your entry in a nice format after submitting. It's just [markdown](https://guides.github.com/features/mastering-markdown/).
 
-Please refer to the **Info** page, which is accessible in the **Developer tools** in the Home Assistant frontend.
+Please refer to the **Info** page, which is accessible inside the **Configuration** panel in the Home Assistant frontend.
 
 ## First Home Assistant release with the issue
 

@@ -1,5 +1,5 @@
 ---
-title: Valloxs
+title: Vallox
 description: Instructions on how to integrate Vallox ventilation units into Home Assistant.
 ha_category:
   - Fan
@@ -62,8 +62,26 @@ automation:
       entity_id: input_select.ventilation_profile
     action:
       service: vallox.set_profile
-      data_template:
+      data:
         profile: "{{ states('input_select.ventilation_profile') }}"
+```
+{% endraw %}
+
+In order to also update the input select in case some external event changes the Vallox profile (web interface, mechanical switch, reboot, etc...) you can use the following automation:
+
+{% raw %}
+```yaml
+automation:
+  - alias: Update Vallox input_select
+    description: Update input_select when external event changes the profile
+    trigger:
+      - entity_id: sensor.vallox_current_profile
+        platform: state
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.ventilation_profile
+          option: "{{ states('sensor.vallox_current_profile') }}"
 ```
 {% endraw %}
 

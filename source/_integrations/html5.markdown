@@ -4,8 +4,7 @@ description: Instructions on how to use the HTML5 push notifications platform fr
 ha_category:
   - Notifications
 ha_release: 0.27
-ha_codeowners:
-  - '@robbiet480'
+ha_iot_class: Cloud Push
 ha_domain: html5
 ---
 
@@ -85,7 +84,7 @@ The `html5` platform can only function if all of the following requirements are 
 * Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
 * If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
 * If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e., `pywebpush` probably won't automatically install).
-* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self signed).
+* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
 * You are willing to accept the notification permission in your browser.
 
 ### Configuring the platform
@@ -95,15 +94,17 @@ The `html5` platform can only function if all of the following requirements are 
 3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [see below](#verify-your-domain).
 4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project and select the project you created.
 5. Then, click the cogwheel on top left and select "Project settings".
-6. Select 'Cloud Messaging' tab.
+6. Select the ['Cloud Messaging' tab](https://console.firebase.google.com/project/_/settings/cloudmessaging).
 7. Generate a new key pair under the Web configuration listing at the bottom of the page. To view the private key click the three dots to the right and 'Show private key'.
+8. Select the ['Service Accounts' tab](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk).
+9. Get the email address for the project under the text that says "Firebase service account".
 
 ### Setting up your browser
 
 Assuming you have already configured the platform:
 
 1. Open Home Assistant in Chrome or Firefox.
-2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address. If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
+2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
 3. Slide it to the on position.
 4. Name the device you're using in the alert that appears.
 5. Within a few seconds you should be prompted to allow notifications from Home Assistant.
@@ -173,7 +174,7 @@ Example of adding a tag to your notification. This won't create new notification
         entity_id: sensor.sensor
     action:
       service: notify.notify
-      data_template:
+      data:
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
       data:
         data:
@@ -311,7 +312,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
 
 ### Making notifications work with NGINX proxy
 
-If you use [NGINX](/ecosystem/nginx/) as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of authentication token that cannot be passed through the proxy.
+If you use NGINX as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of an authentication token that cannot be passed through the proxy.
 
 To solve the issue put additional location into your NGINX site's configuration:
 

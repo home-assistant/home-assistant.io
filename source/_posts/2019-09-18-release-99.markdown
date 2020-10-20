@@ -254,7 +254,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   ([@SukramJ] - [#26449]) ([homematicip_cloud docs])
 
-- **Linky** - This platform has been moved to an integration. - ([@Quentame] - [#26076]) ([linky docs])
+- **Linky** - This platform has been moved to an integration. - ([@Quentame] - [#26076])
 
   New example configuration entry:
 
@@ -312,7 +312,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove throttle from update ([@michaeldavie] - [#26216]) ([environment_canada docs])
 - Bump dependency to add PLAY_STATE_STOPPED ([@schmittx] - [#26239]) ([apple_tv docs])
 - Cleanup strings ([@andrewsayre] - [#26243]) ([smartthings docs])
-- Fix WWLLN entity management ([@exxamalte] - [#26250]) ([wwlln docs])
+- Fix WWLLN entity management ([@exxamalte] - [#26250])
 - Enable cert_expiry config entries ([@Cereal2nd] - [#25624]) ([cert_expiry docs])
 - Velbus config entries remove decorator ([@Cereal2nd] - [#26256]) ([velbus docs])
 - Bump androidtv to 0.0.25 and add tests ([@JeffLIrion] - [#26202]) ([androidtv docs])
@@ -371,7 +371,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - IGN Sismologia icon for geolocation entities ([@exxamalte] - [#26408]) ([ign_sismologia docs])
 - Migrate legacy typehints in core to PEP-526 ([@frenck] - [#26403]) ([device_tracker docs])
 - Add X10 devices as ISY994 switches ([@taylorsilva] - [#26342]) ([isy994 docs])
-- Add config flow to linky ([@Quentame] - [#26076]) ([linky docs]) (breaking change)
+- Add config flow to linky ([@Quentame] - [#26076]) (breaking change)
 - Correct file permissions in slide integration ([@frenck] - [#26390]) ([slide docs])
 - Use literal string interpolation in honeywell ([@zxdavb] - [#26386]) ([honeywell docs])
 - Initial commit ([@zxdavb] - [#26385]) ([geniushub docs])
@@ -397,13 +397,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Unify device_state_attributes handling for Homematic IP Cloud ([@SukramJ] - [#26449]) ([homematicip_cloud docs]) (breaking change)
 - Add yeelight nightlight support via separate light entity ([@zewelor] - [#26224]) ([yeelight docs])
 - Add set scene service calls to yeelight ([@zewelor] - [#26255]) ([yeelight docs])
-- Add device_info to Linky integration ([@Quentame] - [#26477]) ([linky docs])
+- Add device_info to Linky integration ([@Quentame] - [#26477])
 - Update radiotherm climate attributes ([@dieselrabbit] - [#26465]) ([radiotherm docs]) (breaking change)
 - Add Viessmann ViCare Climate platform ([@oischinger] - [#26151]) ([vicare docs]) (new-integration)
 - Add new integration for Jandy iAqualink pool control ([@flz] - [#26034]) ([iaqualink docs]) (new-integration)
 - Add protocol and model as an optional restriction for tellstick sensors ([@brange] - [#26026]) ([tellstick docs])
 - Fix KNX light tunable white rounding error ([@farmio] - [#26364]) ([knx docs])
-- Bump aiowwlln to 2.0.1 ([@bachya] - [#26486]) ([wwlln docs])
+- Bump aiowwlln to 2.0.1 ([@bachya] - [#26486])
 - Vicare: Avoid invalid temperature values ([@oischinger] - [#26485]) ([vicare docs])
 - Use PEP 526 type annotations, add some type hints ([@scop] - [#26464])
 - Restructure Z-Wave Climate ([@Santobert] - [#25724]) ([zwave docs])
@@ -804,7 +804,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vivotek docs]: /integrations/vivotek/
 [webhook docs]: /integrations/webhook/
 [withings docs]: /integrations/withings/
-[wwlln docs]: /integrations/wwlln/
 [xiaomi docs]: /integrations/xiaomi_aqara
 [yeelight docs]: /integrations/yeelight/
 [zha docs]: /integrations/zha/

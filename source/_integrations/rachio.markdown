@@ -29,6 +29,12 @@ They will be automatically added if the Rachio integration integration is loaded
 3. Click "Get API Key"
 4. Copy the API key from the dialog that opens.
 
+<div class='note'>
+
+In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information.
+
+</div>
+
 ## Configuration
 
 To add `Rachio` go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Rachio**.
@@ -77,6 +83,19 @@ panel_iframe:
 The `rachio` switch platform allows you to toggle zones and schedules connected to your [Rachio irrigation system](https://rachio.com/) on and off.
 
 Once configured, a switch will be added for every zone that is enabled on every controller in the account provided and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24 hour rain delay on the device.
+
+## Service
+
+Rachio has one service that allows for setting the moisture percentage of a zone or group of zones. As Rachio only uses moisture levels for zones in a Flex Daily schedule, this service is only available when at least one zone is part of a Flex Daily schedule. 
+
+### Service `rachio.set_zone_moisture_percent`
+
+Set the zone moisture percentage for a zone or group of zones.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String, list or group of zones to set moisture percentage.
+| `percent` | no | Integer of the desired moisture percentage. Accepts 0-100.
 
 ## Examples
 

@@ -17,4 +17,4 @@ This integration is by default enabled, unless you've disabled or removed the [`
 system_health:
 ```
 
-System Health integration data can be viewed in Developer Tools on the "Info" tab.
+System Health integration data can be viewed in Configuration -> General Configuration, on the "Info" tab.

@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 
 - **Alarm Control Panel**: Reports on the current alarm status and can be used to arm and disarm the system.
 - **Binary Sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image.
+- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#service-turn_off) and [`camera.turn_on`](/integrations/camera/#service-turn_on) services.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - **Light**: Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
@@ -78,7 +78,6 @@ They are grouped into the below events:
 - **abode_test**: Fired when a sensor is in test mode.
 - **abode_capture**: Fired when an image is captured.
 - **abode_device**: Fired for device changes/additions/deletions.
-- **abode_automation_edit**: Fired for changes to automations.
 
 All events have the fields:
 

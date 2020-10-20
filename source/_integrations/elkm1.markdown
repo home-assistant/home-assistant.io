@@ -14,6 +14,7 @@ ha_iot_class: Local Push
 ha_domain: elkm1
 ha_config_flow: true
 ha_codeowners:
+  - '@gwww'
   - '@bdraco'
 ---
 
@@ -29,6 +30,9 @@ There is currently support for the following device types within Home Assistant:
 - **Scene** - Elk-M1 tasks are represented as `scene` entities.
 - **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
 - **Switch** - Elk-M1 outputs are represented as `switch` entities.
+
+If you would like your `alarm_control_panel` devices to keep track of the user whose code was last used to change the status of that partition (via the attributes `changed_by` and `changed_by_id`) you must configure your Elk's global setting location 35, “System Log Data Update” transmission, so that the M1 sends the updated partition status whenever it changes. (It may work anyway if you have exactly one area configured and do not have that setting enabled.)
+
 
 ## Configuration
 

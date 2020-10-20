@@ -32,8 +32,8 @@ Home Assistant will provide device status, and volume control for each room. If 
 
 Mopidy can be run with multiple configuration files, each extending the previous file. This is helpful when we're running multiple instances with varying functionality.
 
-
 ### core.conf
+
 The core configuration is shared between all instances:
 
 ```conf
@@ -52,6 +52,7 @@ password = <redacted>
 ```
 
 ### local.conf
+
 Add the local configuration on computers that have local media files:
 
 ```conf
@@ -60,6 +61,7 @@ media_dir = <your/music/here>
 ```
 
 ### snapcast.conf
+
 Finally, the Mopidy instance that connects with Snapcast needs special configuration. Run on a different port to avoid conflicts if you have a second Mopidy instance running on your computer. The audio output is sent to a named pipe - Snapcast will read from there. Note that you may have to adjust the audio output attribute depending on your system and audio sources.
 
 ```conf
@@ -80,19 +82,19 @@ output = audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioc
 To run a room-specific instance:
 
 ```bash
-$ mopidy --config $CONF_DIR/core.conf
+mopidy --config $CONF_DIR/core.conf
 ```
 
 To run a room-specific instance with local media:
 
 ```bash
-$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf
+mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf
 ```
 
 To run the special Snapcast-connected instance (with local media):
 
 ```bash
-$ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf:$CONF_DIR/snapcast.conf
+mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf:$CONF_DIR/snapcast.conf
 ```
 
 ## Run Snapcast
@@ -100,13 +102,13 @@ $ mopidy --config $CONF_DIR/core.conf:$CONF_DIR/local.conf:$CONF_DIR/snapcast.co
 Start the `snapserver` on the same server running Mopidy with the snapcast configuration.
 
 ```bash
-$ snapserver   # or use systemd
+snapserver   # or use systemd
 ```
 
 Start the `snapclient` on computers that will be playing audio.
 
 ```bash
-$ snapclient   # or use systemd, add -h <server host> if necessary
+snapclient   # or use systemd, add -h <server host> if necessary
 ```
 
 ## Configure Snapcast

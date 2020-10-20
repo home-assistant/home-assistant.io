@@ -23,7 +23,7 @@ media_player:
 ```yaml
 action:
   - service: media_player.play_media
-    data_template:
+    data:
       entity_id:
         - media_player.linn_bedroom
       media_content_id: "http://172.24.32.13/Doorbell.mp3"
@@ -34,9 +34,19 @@ action:
 
 ```yaml
   - service: media_player.play_media
-    data_template:
+    data:
       entity_id:
         - media_player.linn_bedroom
       media_content_id: "http://media-ice.musicradio.com:80/ClassicFMMP3"
       media_content_type: music
 ```
+
+## Services
+
+### Media control services
+Available services: `invoke_pin`
+
+| Service data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            |     yes | The name of the openhome device to invoke the pin on.|
+| `pin`                  |      no | Which pin to invoke.                              |

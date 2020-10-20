@@ -272,7 +272,7 @@ Please note due to limitations with the European Nest Thermostat E, integration 
 </div>
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
+  <img src='/images/screenshots/nest-thermostat-card.png' />
 </p>
 
 ## Sensor
@@ -329,7 +329,7 @@ The following conditions are available by device:
 
 <div class='note warning'>
 
-This feature is not designed to transform your Home Assistant into a security system, neither Home Assistant nor Nest be liable to You for damages,
+This feature is not designed to transform your Home Assistant into a security system, neither Home Assistant nor Nest are liable for damages,
 or consequential damages of any character arising as a result of use this feature.
 
 This feature does not depend on the [Nest Secure alarm system](https://nest.com/alarm-system/overview/) and is not a reflection of the status of that system,

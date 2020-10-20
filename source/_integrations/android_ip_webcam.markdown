@@ -103,7 +103,7 @@ switches:
       description: Control the focus.
     gps_active:
       description: Control the GPS.
-    motion_detection:
+    motion_detect:
       description: Control the motion detector.
     night_vision:
       description: Control the night vision.
@@ -151,6 +151,7 @@ android_ip_webcam:
       - ffc
       - focus
       - gps_active
+      - motion_detect
       - night_vision
       - overlay
       - torch

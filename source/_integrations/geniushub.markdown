@@ -85,7 +85,7 @@ Each such entity has a state attribute that will contain a list of any such issu
     above: 0
   action:
   - service: notify.pushbullet_notifier
-    data_template:
+    data:
       title: "Genius Hub has errors"
       message: >-
         Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
@@ -103,7 +103,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
     entity_id: binary_sensor.dual_channel_receiver_2_1
   action:
   - service: notify.pushbullet_notifier
-    data_template:
+    data:
       title: "Warning: CH State Change!"
       message: >-
         {{ trigger.to_state.attributes.friendly_name }} has changed
@@ -180,7 +180,7 @@ The hub does not have to be in the same subnet as your Home Assistant server.
 
 This option is recommended only if Option 1 does not work. The MAC address should match that written on the back of the Hub.
 
-- Requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens).
+- Requires a **hub token** obtained from [my.geniushub.co.uk](https://my.geniushub.co.uk/).
 - Uses the v1 API - which is well-documented.
 - Polls Heat Genius' own servers (so is slower, say ~5-10s response time).
 - You should use the Hub's MAC address (although any valid MAC will do).

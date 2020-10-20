@@ -13,7 +13,7 @@ The `template` platform creates switches that combines components.
 
 For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed.
 
-This can simplify the GUI and make it easier to write automations. You can mark the integrations you have combined as `hidden` so they don't appear themselves.
+This can simplify the GUI and make it easier to write automations.
 
 ## Configuration
 
@@ -50,14 +50,15 @@ switch:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: A list of entity IDs so the switch only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+      unique_id:
+        description: An ID that uniquely identifies this switch. Set this to an unique value to allow customisation trough the UI.
         required: false
-        type: [string, list]
+        type: string
       value_template:
-        description: Defines a template to set the state of the switch.
-        required: true
+        description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+        required: false
         type: template
+        default: optimistic
       availability_template:
         description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
         required: false
@@ -84,6 +85,10 @@ switch:
 ## Considerations
 
 If you are using the state of a platform that takes extra time to load, the Template Switch may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on') }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+
+### Working without entities
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
 
 ## Examples
 

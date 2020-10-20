@@ -5,6 +5,7 @@ ha_category:
   - Voice
 ha_release: 0.56
 ha_config_flow: true
+ha_iot_class: Cloud Push
 ha_domain: dialogflow
 ---
 
@@ -102,15 +103,15 @@ intent_script:
       text: Turning {{ Room }} lights {{ OnOff }}
     action:
       - service: notify.pushbullet
-        data_template:
+        data:
           message: Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}
-      - service_template: >
+      - service: >
           {%- if OnOff == "on" -%}
             switch.turn_on
           {%- else -%}
             switch.turn_off
           {%- endif -%}
-        data_template:
-          entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
+        data:
+          entity_id: "switch.light_{{ Room | striptags | replace(' ', '_') }}"
 ```
 {% endraw %}

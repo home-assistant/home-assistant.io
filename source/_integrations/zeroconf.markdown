@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.18
 ha_quality_scale: internal
 ha_codeowners:
-  - '@robbiet480'
   - '@Kane610'
 ha_domain: zeroconf
 ---
@@ -34,4 +33,9 @@ zeroconf:
      required: false
      type: boolean
      default: false
+   ipv6:
+     description: By default, `zeroconf` will enable IPv6 support. If your network has trouble with IPv6 being enabled, you can set this option to `false`.
+     required: false
+     type: boolean
+     default: true
 {% endconfiguration %}

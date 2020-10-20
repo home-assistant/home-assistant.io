@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.34
 ha_iot_class: Local Push
 ha_domain: dsmr
+ha_codeowners:
+  - '@Robbie1221'
 ---
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
@@ -35,7 +37,6 @@ USB serial converters:
 - Cheap (Banggood/ebay) Generic PL2303
 - <https://sites.google.com/site/nta8130p1smartmeter/webshop>
 - <https://www.sossolutions.nl/slimme-meter-kabel>
-- <https://tweakers.net/gallery/269738/aanbod/>
 - <https://nl.aliexpress.com/item/32945187155.html>
 
 Serial to network proxies:

@@ -4,8 +4,6 @@ description: "Instructions on how to add MQTT notifications to Home Assistant."
 logo: mqtt.png
 ha_category: Notifications
 ha_iot_class: Configurable
-redirect_from:
-  /integrations/notify.mqtt/
 ---
 
 The MQTT notification support is different than the other [notification](/integrations/notify/) platforms. It is a service. This means that you don't have to create a configuration entry but you need to provide more details when calling the service.
@@ -31,7 +29,7 @@ The same will work for automations.
 
 ### REST API
 
-Using the [REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) to send a message to a given topic.
+Using the [REST API](https://developers.home-assistant.io/docs/api/rest/ to send a message to a given topic.
 
 ```bash
 $ curl -X POST \
@@ -63,7 +61,7 @@ script:
   notify_mqtt:
     sequence:
       - service: mqtt.publish
-        data_template:
+        data:
           payload: "{{ message }}"
           topic: home/"{{ target }}"
           retain: true

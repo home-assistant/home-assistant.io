@@ -8,8 +8,8 @@ ha_iot_class: Local Polling
 ha_domain: onkyo
 ---
 
-The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/), [Integra](http://www.integrahometheater.com/)
-and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant.
+The `onkyo` platform allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
+and some recent [Pioneer](https://www.pioneerelectronics.com) receivers from Home Assistant.
 Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
 
 ## Configuration

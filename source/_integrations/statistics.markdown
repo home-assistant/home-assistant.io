@@ -3,6 +3,7 @@ title: Statistics
 description: Instructions on how to integrate statistical sensors into Home Assistant.
 ha_category:
   - Utility
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_quality_scale: internal
@@ -61,5 +62,5 @@ precision:
 {% endconfiguration %}
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
+  <img src='/images/screenshots/stats-sensor.png' />
 </p>

@@ -3,6 +3,7 @@ title: Apprise
 description: Instructions on how to add Apprise notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.101
 ha_codeowners:
   - '@caronc'

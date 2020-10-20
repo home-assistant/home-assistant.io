@@ -14,7 +14,7 @@ ha_domain: dweet
 The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/dweet-freeboard.png' />
+  <img src='/images/screenshots/dweet-freeboard.png' />
 </p>
 
 <div class='note warning'>
@@ -60,6 +60,7 @@ The `dweet` sensor platform allows you to get details from your devices which ar
 To use Dweet.io sensors in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -67,6 +68,7 @@ sensor:
     device: THING_NAME
     value_template: '{{ value_json.VARIABLE }}'
 ```
+
 {% endraw %}
 
 {% configuration %}
@@ -110,7 +112,7 @@ sensor:
 You can easily send dweets from the command-line to test your sensor with `curl`.
 
 ```bash
-$ curl -H 'Content-Type: application/json' -d '{"temperature": 40, "humidity": 65}' https://dweet.io/dweet/for/ha-sensor
+curl -H 'Content-Type: application/json' -d '{"temperature": 40, "humidity": 65}' https://dweet.io/dweet/for/ha-sensor
 ```
 
 will give you a response like the one below:

@@ -18,6 +18,9 @@ ha_domain: wled
 implementation of an ESP8266/ESP32 webserver to control
 NeoPixel (WS2812B, WS2811, SK6812, APA102, and similar) LED's.
 
+While Home Assistant supports WLED 0.8.4 and higher, the use of WLED 0.10 and
+newer is recommended to get the optimal experience.
+
 ## Configuration
 
 This integration can be configured using the integrations in the
@@ -45,6 +48,21 @@ entity.
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
 
+### Using WLED segments
+
+WLED can split a single LED strip into multiple segments.
+These segments can be controlled separately in WLED and in Home Assistant as
+well. The fully-featured segment control has been introduced in WLED 0.10
+but has been partly around via APIs since WLED 0.8.6.
+
+If WLED has 1 segment defined (the default), that one segment controls the whole
+LED strip. Home Assistant creates a single light entity to control the
+strip.
+
+If WLED has 2 or more segments, each segment gets its own light entity in
+Home Assistant. Additionally, a master light entity is created. This master
+entity controls the strip power and overall brightness applied to all segments.
+
 ## Sensors
 
 This integration provides sensors for the following information from WLED:
@@ -52,8 +70,8 @@ This integration provides sensors for the following information from WLED:
 - Estimated current (in mA).
 - Uptime (disabled by default)
 - Free memory (in bytes, disabled by default).
-- Wi-Fi Signal Strength (in %m disabled by default).
-- Wi-Fi Signal Strength (RSSI in dBm).
+- Wi-Fi Signal Strength (in %, disabled by default).
+- Wi-Fi Signal Strength (RSSI in dBm, disabled by default).
 - Wi-Fi Channel (disabled by default).
 - Wi-Fi BSSID (disabled by default).
 
@@ -79,6 +97,7 @@ This service allows for controlling the WLED effect.
 | `entity_id`            | no       | A WLED entity ID, or list entity IDs, to apply the effect to. Use `entity_id: all` to target all WLED entities. |
 | `effect`               | no       | Name or ID of the WLED light effect.                                                                            |
 | `intensity`            | no       | Intensity of the effect.                                                                                        |
+| `palette`              | no       | Name or ID of the WLED light palette.                                                                           |
 | `speed`                | no       | Speed of the effect. Number between `0` (slow) and `255` (fast).                                                |
 | `reverse`              | no       | Reverse the effect. Either `true` to reverse or `false` otherwise.                                              |
 

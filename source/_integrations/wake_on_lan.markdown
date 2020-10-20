@@ -32,10 +32,11 @@ Available services: `send_magic_packet`.
 
 Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `mac`                     |       no | MAC address of the device to wake up.                 |
-| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet. |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `mac`                     |       no | MAC address of the device to wake up.                   |
+| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet.   |
+| `broadcast_port`          |      yes | Optional port where to send the magic packet.           |
 
 Sample service data:
 
@@ -87,6 +88,10 @@ broadcast_address:
   required: false
   default: 255.255.255.255
   type: string
+broadcast_port:
+  description: The port to send the magic packet to.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 ### Examples

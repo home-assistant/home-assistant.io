@@ -35,15 +35,15 @@ fan:
           service: script.fan_off
         set_speed:
           service: script.fan_speed
-          data_template:
+          data:
             speed: "{{ speed }}"
         set_oscillating:
           service: script.fan_oscillating
-          data_template:
+          data:
             oscillating: "{{ oscillating }}"
         set_direction:
           service: script.fan_direction
-          data_template:
+          data:
             direction: "{{ direction }}"
         speeds:
           - '1'
@@ -61,6 +61,10 @@ fan:
     keys:
       friendly_name:
         description: Name to use in the frontend.
+        required: false
+        type: string
+      unique_id:
+        description: An ID that uniquely identifies this fan. Set this to an unique value to allow customisation trough the UI.
         required: false
         type: string
       value_template:
@@ -110,3 +114,7 @@ fan:
         type: [string, list]
         default: ['low', 'medium', 'high']
 {% endconfiguration %}
+
+### Working without entities
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.

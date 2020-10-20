@@ -32,7 +32,7 @@ tts:
 You can get these tokens after you generated the credentials on the IBM Cloud console:
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/watson_tts_screen.png' />
+  <img src='/images/screenshots/watson_tts_screen.png' />
 </p>
 
 {% configuration %}
@@ -63,7 +63,7 @@ Say to all `media_player` device entities:
 
 ```yaml
 - service: tts.watson_tts_say
-  data_template:
+  data:
     message: 'Hello from Watson'
 ```
 
@@ -71,7 +71,7 @@ or
 
 ```yaml
 - service: tts.watson_tts_say
-  data_template:
+  data:
     message: >
       <speak>
           Hello from Watson
@@ -82,7 +82,7 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.watson_tts_say
-  data_template:
+  data:
     entity_id: media_player.living_room
     message: >
       <speak>
@@ -94,7 +94,7 @@ Say with break:
 
 ```yaml
 - service: tts.watson_tts_say
-  data_template:
+  data:
     message: >
       <speak>
           Hello from

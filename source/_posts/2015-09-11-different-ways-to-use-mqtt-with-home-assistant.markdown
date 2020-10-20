@@ -18,9 +18,9 @@ This post will give you a small overview of some other possibilities on how to u
 
 <!--more-->
 
-### Manual usage
+## Manual usage
 
-The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let's create a "Mood" sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snipplets to add to the `configuration.yaml` file consists of two parts: one for the broker and one for the sensor.
+The simplest but not the coolest way as a human to interact with a Home Assistant sensor is launching a command manually. Let's create a "Mood" sensor. For simplicity Home Assistant and the MQTT broker are both running on the same host. The needed configuration snippets to add to the `configuration.yaml` file consists of two parts: one for the broker and one for the sensor.
 
 ```yaml
 mqtt:
@@ -37,7 +37,7 @@ After a restart of Home Assistant the "Mood" sensor will show up in the frontend
 Now we can set the mood. The commandline tool (`mosquitto_pub`) which is shipped with `mosquitto` is used to send an MQTT message.
 
 ```bash
-$ mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
+mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
 ```
 
 <p class='img'>
@@ -47,7 +47,7 @@ $ mosquitto_pub  -h 127.0.0.1 -t "home-assistant/fabian/mood" -m "bad"
 
 This is a really bad example. Don't do this in the real world because you won't be able to create diagrams of historical data. Better use a numerical value.
 
-### Python MQTT bindings
+## Python MQTT bindings
 
 The last section was pretty boring, I know. Nobody wants to send MQTT messages by hand if there is a computer on the desk. If you are playing the lottery this section is for you. If not, read it anyway because the lottery is just an example :-).
 
@@ -100,7 +100,7 @@ Every 5 seconds a message with a new number is sent to the broker and picked up 
 
 With only a few lines of Python and an MQTT broker you can create your own "smartdevice" or send information to Home Assistant which you haven't think of. Of course this is not limited to Python. If there is an MQTT library available, the device can be used with Home Assistant now.
 
-### Arduino
+## Arduino
 
 To get started with real hardware that is capable to send MQTT messages, the Arduino platform is an inexpensive way to do it. In this section an Arduino UNO with an Ethernet shield and a photo resistor is used. The photo resistor is connected to analog pin 0 (A0) and has an output from 0 to 1024.
 

@@ -11,7 +11,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@kane610'
+  - '@Kane610'
 ha_domain: unifi
 ---
 
@@ -39,11 +39,11 @@ The UniFi controller allows you to create multiple users on it besides the main 
 
 ### UniFi OS
 
-For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. 
+For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro needs the port to be 443. 
 
 ### Conflicts with MQTT
 
-The UniFi controller can either be a dedicated hardware device (UniFi's cloud key), or as software any Linux system. If you run the UniFi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
+The UniFi controller can either be a dedicated hardware device (UniFi's cloud key), or as software on any Linux system. If you run the UniFi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
 It is recommended that you run the UniFi controller in a dedicated virtual machine to avoid that situation.
 
@@ -76,6 +76,10 @@ Note that POE control actually configures the network port of the switch which t
 ### Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per network client.
+
+### Uptime sensor
+
+Get entities reporting uptime per network client.
 
 ## Debugging integration
 

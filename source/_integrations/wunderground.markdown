@@ -12,7 +12,7 @@ The `wunderground` platform uses [Weather Underground](https://www.wunderground.
 
 <div class='note warning'>
 
-Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). They no longer offer free API keys, and all keys must be paid for. At this time existing free keys will continue to work, but will be disabled Dec 31, 2018, except you own a personal weather station and provide your data to WU (PWS Uploader). As of Sept 6, 2018 Weather Underground states they are declaring the [End of Service for the Weather Underground API](https://apicommunity.wunderground.com/weatherapi/topics/end-of-service-for-the-weather-underground-api). They say they will develop new plans for non-commercial users. No timeline for this has been announced.
+Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). They no longer offer free API keys, and all keys must be paid for. At this time existing free keys will continue to work, but will be disabled Dec 31, 2018, except you own a personal weather station and provide your data to WU (PWS Uploader). As of Sept 6, 2018 Weather Underground states they are declaring the End of Service for the Weather Underground API. They say they will develop new plans for non-commercial users. No timeline for this has been announced.
 
 Please consider this when using the following information.
 
@@ -143,7 +143,7 @@ monitored_conditions:
     temp_low_1d_f:
       description: "[<sup>[1d]</sup>](#1d): Forecasted low temperature in Fahrenheit"
     UV:
-      description: Current levels of UV radiation. See [here](https://www.wunderground.com/resources/health/uvindex.asp) for explanation.
+      description: Current levels of UV radiation. See [here](https://api.wunderground.com/resources/health/uvindex.asp) for explanation.
     visibility_km:
       description: Average visibility in km
     visibility_mi:

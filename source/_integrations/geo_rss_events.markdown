@@ -15,7 +15,7 @@ The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows inform
 This sensor is particularly useful if events occur unexpectedly in the vicinity of the home while the GeoRSS feed also contains many events representing distant unrelated entries. Typical examples are bush fires alerts or earthquakes.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/geo-rss-incidents-group-screenshot.png' />
+  <img src='/images/screenshots/geo-rss-incidents-group-screenshot.png' />
 </p>
 
 The reference point for comparing the distance is by default defined by `latitude` and `longitude` in the basic configuration.

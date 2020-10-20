@@ -7,6 +7,7 @@ ha_category:
   - Climate
   - Cover
   - Light
+  - Lock
   - Sensor
   - Scene
   - Switch
@@ -23,6 +24,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover
 - Climate
 - Light
+- Lock
 - Sensor
 - Scene
 - Switch

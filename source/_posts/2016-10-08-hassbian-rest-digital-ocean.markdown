@@ -10,18 +10,18 @@ categories: Release-Notes
 
 Yes, after only nine days comes 0.30. Don't worry, we will try to keep our usual release cycle and not start to release every day.
 
-We guess that you already know: The [Raspberry Pi image][pi-image] is available now. For Hassbian, [@Landrash] has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to receive [feedback][hassbian-forum], [issue report][hassbian-forum], and [suggestions][hassbian-forum] to improve it. 
+We guess that you already know: The [Raspberry Pi image][pi-image] is available now. For Hassbian, [@Landrash] has combined the most essential parts for a Home Assistant setup in an easy-to-use image for the Raspberry Pi device family. Hassbian is quite young, thus we are looking forward to receive [feedback][hassbian-forum], [issue report][hassbian-forum], and [suggestions][hassbian-forum] to improve it.
 
 A large amount of resources of the development are still focusing on the effort to move Home Assistant further to asynchronous programming. It's a labor-intensive task, comes with segmentation faults, and unstable instances when certain combinations of sensors are used. The benefit will be more speed in the near future.
 
-To reduce the run-time of your tests, [@balloob] did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half. 
+To reduce the run-time of your tests, [@balloob] did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half.
 
 ### Documentation
 
 All configuration sample entries are now minimized. This should help to avoid problem for starters and newbies as they only get what's needed and not a full sample with all optional entries. If there is an issue with an entry in your `configuration.yaml` file the error message will provide you an URL that point to the documentation.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/config-validation-url.png' />
+  <img src='/images/screenshots/config-validation-url.png' />
 </p>
 
 As soon as the [Hacktoberfest] started there were a lot of incoming Pull Requests for the documentation. A huge "Thank you" to all participants. Especially, we would like to give a cookie to [@hillaryfraley]. She created around a dozen Pull Requests so far and didn't only fix typos but complete sections. The [Hacktoberfest] is still on-going and we are looking forward to get more Pull Requests.
@@ -31,7 +31,7 @@ As soon as the [Hacktoberfest] started there were a lot of incoming Pull Request
 With the [statistics sensor][stats-sensor] we would like to introduce a new sensor that is similar to the [template sensor][template-sensor] or the [trend sensor][trend-sensor]. This sensor is consuming values from another sensor and is doing some statistical analysis of the data. Over a group of samples is the average/mean, the min/max, the total, the standard deviation, and the variance calculated which can be used in your automation rules. If the source is a binary sensor then the state changes are counted.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
+  <img src='/images/screenshots/stats-sensor.png' />
 </p>
 
 As the results are processed on-the-fly you still need to use the data from your database for an in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
@@ -75,7 +75,7 @@ sensor
 - Sensor: [Forecast][darksky] update interval is now configurable ([@KlaasH])
 - Core: Failed login attempts are reported as persistent notifications ([@fabaff])
 - Climate: Temperature convert now available in the Climate object ([@pvizeli])
-- Notify: Update to accept a list ([@robbiet480]) 
+- Notify: Update to accept a list ([@robbiet480])
 - Device tracker: Support for tracking of your [Volvo] ([@molobrakos])
 - Switch: Flux improvements ([@jawilson])
 - InfluxDB: Time-out for connections ([@simonszu])
@@ -92,7 +92,7 @@ sensor
 - Sensor: Support for [Västtrafik][vasttrafik] public transport ([@persandstrom])
 - Notify: Pushetta no longer sends message on start up ([@Danielhiversen])
 - Sensor: [Forecast.io][forecast] sensor was replaced by [Dark Sky][darksky] ([@fabaff])
-- Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
+- Device Tracker: The `known_device.yaml` file is now validated ([@kellerza])
 - Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
 
 ### Release 0.30.1 - October 8
@@ -116,9 +116,9 @@ sensor
 - All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
   - `use_trigger_values` is gone. You have to copy your triggers to conditions and adjust for the correct config.
   - `condition_type` is gone. Use `condition: or` instead.
-  - To specify the type of a condition, use `condition:` instead of `platform:`. 
+  - To specify the type of a condition, use `condition:` instead of `platform:`.
 - The [Forecast.io][forecast] was renamed to [Dark Sky][darksky]. Replace your `- platform: forecast` with `- platform: darksky`.
-- The [aREST][arest] configuration between the [sensor][arest-sensor] and the [switch][arest-switch] platform was aligned. 
+- The [aREST][arest] configuration between the [sensor][arest-sensor] and the [switch][arest-switch] platform was aligned.
 
 ### If you need help...
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
@@ -168,7 +168,7 @@ sensor
 [hassbian-forum]: https://community.home-assistant.io/c/installation/hassbian
 [mention-bot]: https://github.com/mention-bot
 [mysensors-cover]: /integrations/cover.mysensors/
-[notebook]: http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/database-statistics.ipynb
+[notebook]: https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/database-statistics.ipynb
 [pi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
 [pwrctrl-switch]: /integrations/anel_pwrctrl
 [rest-sensor]: /integrations/rest
@@ -178,4 +178,3 @@ sensor
 [trend-sensor]: /integrations/trend
 [vasttrafik]: /integrations/vasttrafik
 [Volvo]: /integrations/volvooncall
-

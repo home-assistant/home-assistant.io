@@ -4,6 +4,7 @@ description: Instructions on how to integrate Yale Smart Alarms into Home Assist
 ha_category:
   - Alarm
 ha_release: 0.78
+ha_iot_class: Cloud Polling
 ha_domain: yale_smart_alarm
 ---
 
