@@ -140,33 +140,6 @@ camera:
 
 The `octoprint` binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.
 
-To set it up, add the following information to your `configuration.yaml` file:
-
-```yaml
-binary_sensor:
-  - platform: octoprint
-    monitored_conditions:
-      - Printing
-      - Printing Error
-```
-
-{% configuration %}
-monitored_conditions:
-  description: States to monitor.
-  required: true
-  type: list
-  keys:
-    printing:
-      description: State of the printer.
-    printing error:
-      description: Error while printing.
-name:
-  description: The name of the sensor.
-  required: false
-  type: string
-  default: OctoPrint
-{% endconfiguration %}
-
 ## Sensor
 
 The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.
