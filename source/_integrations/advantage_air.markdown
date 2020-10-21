@@ -10,11 +10,11 @@ ha_codeowners:
 ha_domain: advantage_air
 ---
 
-The `Advantage Air` integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
+The Advantage Air integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
 
 ## Configuration
 
-The wall mounted Android table running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
+The wall-mounted Android table running the [MyPlace](https://play.google.com/store/apps/details?id=com.air.advantage.myair5), [e-zone](https://play.google.com/store/apps/details?id=com.air.advantage.ezone), or [zone10e](https://play.google.com/store/apps/details?id=com.air.advantage.zone10) must have a static IP, which you will enter on the integrations page in Home Assistant.
 
 Menu: **Configuration** -> **Integrations**.
 
@@ -26,19 +26,19 @@ After completing the configuration flow, the Advantage Air integration will dyna
 
 ### Climate
 
-The `advantage_air` climate platform will create a climate entity for each air conditioning system found, and for each zone that is temperature controlled.
+The integration will create a climate entity for each air conditioning system found and for each zone that is temperature-controlled.
 
 ### Cover
 
-The `advantage_air` cover platform will create a cover entity for each zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
+The integration will create a cover entity for each zone that is not temperature controlled, allowing you to adjust the opening level manually from 0% to 100% in 5% increments.
 
 ### Sensor
 
-The `advantage_air` sensor platform will create sensor entities for a variety of aspects:
+The integration will create sensor entities for a variety of aspects:
 
 - The air filter sensor shows if it needs to be replaced.
-- Two sensor entity will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` service to change these.
-- Each zone that is temperature controlled will have a sensor to show how open the damper is.
+- Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` service to change these.
+- Each zone that is temperature-controlled will have a sensor to show how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
 ### Binary Sensor
@@ -49,13 +49,13 @@ The `advantage_air` binary sensor platform will create a binary sensor for each 
 
 The `advantage_air` switch platform will create a switch entity to toggle fresh air mode, if it is supported.
 
-## Component services
+## Services
 
-### set_time_to
+### Service `advantage_air.set_time_to`
 
 Set the On/Off Timer using the relevant sensor entity.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
-| `entity_id` | no | Number of minutes between `0` and `720`.
+| `entity_id` | yes | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
+| `minutes` | no | Number of minutes between `0` and `720`.
