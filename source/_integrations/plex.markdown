@@ -64,7 +64,7 @@ The Plex media player platform will create Media Player entities for each connec
 
 By default, the Plex integration will create Media Player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
-### Service `play_media`
+### Service `media_player.play_media`
 
 Plays a song, album, artist, playlist, TV show/season/episode, movie, or video on a connected client.
 
@@ -233,7 +233,7 @@ Refresh a Plex library to scan for new and updated media.
 | `server_name` | No | Name of Plex server to use if multiple servers configured. | "My Plex Server" |
 | `library_name` | Yes | Name of Plex library to update. | "TV Shows" |
 
-### Service 'plex.scan_for_clients'
+### Service `plex.scan_for_clients`
 
 Scan for new controllable Plex clients. This may be necessary in scripts or automations which control a Plex `media_player` entity, but where the underlying device must be turned on first.
 

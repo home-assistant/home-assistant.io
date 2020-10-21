@@ -3,6 +3,7 @@ title: Orvibo
 description: Instructions on how to integrate Orvibo sockets within Home Assistant.
 ha_category:
   - Switch
+ha_iot_class: Local Push
 ha_release: 0.8
 ha_domain: orvibo
 ---

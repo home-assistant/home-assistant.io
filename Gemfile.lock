@@ -86,7 +86,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.4)
-    rouge (3.23.0)
+    rouge (3.24.0)
     ruby-enum (0.8.0)
       i18n
     ruby2_keywords (0.0.2)
@@ -109,7 +109,7 @@ GEM
     tilt (2.0.10)
     tzinfo (2.0.2)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2020.1)
+    tzinfo-data (1.2020.3)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
 

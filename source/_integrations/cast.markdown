@@ -26,11 +26,11 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
 cast_downstairs_on_kitchen:
   alias: Show Downstairs on kitchen
   sequence:
-  - data:
-      dashboard_path: lovelace
-      entity_id: media_player.kitchen
-      view_path: downstairs
-    service: cast.show_lovelace_view
+    - data:
+        dashboard_path: lovelace
+        entity_id: media_player.kitchen
+        view_path: downstairs
+      service: cast.show_lovelace_view
 ```
 <div class='note'>
 
@@ -53,15 +53,15 @@ Optional:
 'cast_youtube_to_my_chromecast':
   alias: Cast YouTube to My Chromecast
   sequence:
-  - data:
-      entity_id: media_player.my_chromecast
-      media_content_type: cast
-      media_content_id: '
-        {
-          "app_name": "youtube",
-          "media_id": "dQw4w9WgXcQ"
-        }'
-    service: media_player.play_media
+    - data:
+        entity_id: media_player.my_chromecast
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "youtube",
+            "media_id": "dQw4w9WgXcQ"
+          }'
+      service: media_player.play_media
 ```
 
 ### [Supla](https://www.supla.fi/)
@@ -78,15 +78,15 @@ Optional:
 'cast_supla_to_my_chromecast':
   alias: Cast supla to My Chromecast
   sequence:
-  - data:
-      entity_id: media_player.my_chromecast
-      media_content_type: cast
-      media_content_id: '
-        {
-          "app_name": "supla",
-          "media_id": "3601824"
-        }'
-    service: media_player.play_media
+    - data:
+        entity_id: media_player.my_chromecast
+        media_content_type: cast
+        media_content_id: '
+          {
+            "app_name": "supla",
+            "media_id": "3601824"
+          }'
+      service: media_player.play_media
 ```
 
 ### Plex

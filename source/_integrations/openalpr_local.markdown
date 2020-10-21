@@ -3,6 +3,7 @@ title: OpenALPR Local
 description: Instructions on how to integrate licences plates with OpenALPR local into Home Assistant.
 ha_category:
   - Image Processing
+ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: openalpr_local
 ---

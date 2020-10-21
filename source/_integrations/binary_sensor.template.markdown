@@ -48,7 +48,7 @@ sensors:
           required: false
           type: string
         unique_id:
-          description: An ID that uniquely identifies this binary sensor. Set this to an unique value to allow customisation through the UI.
+          description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
           required: false
           type: string
         device_class:
@@ -321,12 +321,11 @@ binary_sensor:
 ```
 {% endraw %}
 
-
 If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
 
 ### Working without entities
 
-The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates. 
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates.
 
 There's a couple of options to manage this issue. This first example creates a `sensor.time` from the [Time & Date](/integrations/time_date/) component which updates every minute, and the binary sensor is triggered by this updating. The binary sensor returns true if in the first half of the hour:
 

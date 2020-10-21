@@ -31,8 +31,89 @@ There is currently support for the following device types within Home Assistant:
 - **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
 - **Switch** - Elk-M1 outputs are represented as `switch` entities.
 
-If you would like your `alarm_control_panel` devices to keep track of the user whose code was last used to change the status of that partition (via the attributes `changed_by` and `changed_by_id`) you must configure your Elk's global setting location 35, “System Log Data Update” transmission, so that the M1 sends the updated partition status whenever it changes. (It may work anyway if you have exactly one area configured and do not have that setting enabled.)
+## ElkM1 Configuration and Version
 
+In order for the ElkM1 integration to work to its fullest with Home Assistant the
+ElkM1 panel must be configured correctly. This section describes the configuration
+required on the ElkM1 panel.
+
+### ElkM1 Version
+
+ElkM1 should be running:
+
+- Version 4.6.8, or
+- Version 5.2.0 or higher.
+
+Force arm away and stay are available in 5.3.0 or higher.
+
+Many features will work with lower versions of the ElkM1. Check the "ElkM1 RS232 Protocol" manual for details.
+
+### Global Setting 35
+
+The ElkM1 integration tracks the user number and name of the last user name to
+arm or disarm the panel. The `changed_by` and `changed_by_id` attributes of
+the `alarm_control_panel` hold those two attributes.
+
+On the ElkM1 panel Global Setting 35, "Transmit Event Log" must be
+enabled for this to fully work.
+
+Note that without Global Setting 35 set and in a single area system,
+`changed_by` and `changed_by_id` are updated when a user enters a valid
+code on a physical keypad.
+
+### Global Setting 36 — 40
+
+If you are using the features below then these respective global options
+should be enabled:
+
+| Option # | Option Name | Description |
+| ---------------------- | -------- | ----------- |
+| 36 | Transmit Zone Changes | If you are using Zones this allows Home Assistant to track the status of the Zones.
+| 37 | Transmit Output Changes | If you are using Outputs this allows Home Assistant to track the status of the Outputs.
+| 38 | Transmit Automation Task Changes | If you are using ElkM1 Tasks this allows Home Assistant to track the status of the Tasks.
+| 39 | Transmit Light Changes | If you are using ElkM1 Lights this allows Home Assistant to track the status of the lights.
+| 40 | Transmit Keypad Changes | Oddly, this option tracks keypad changes and alarm status. If you are wishing to track keypresses on ElkM1 keypad or if you are wishing to track the armed, disarmed, and alarm state of the ElkM1 then this option should be set.
+
+## System Trouble Status
+
+The ElkM1 is able to report general system trouble statuses. This is
+reported using the `system_trouble_status` attribute of the
+panel sensor (often named `sensor.elkm1`) in Home Assistant.
+
+The format of the `system_trouble_status` attribute is a comma separated list
+of the active troubles. Only active trouble statuses are in the list.
+If the trouble is for a zone then `zone <number>` is appended to the trouble name.
+
+For example, if zone 42 wireless sensor lost communication with the panel then
+`system_trouble_status` would be "Lost Transmitter zone 42". If in addition there
+was an AC failure then `system_trouble_status` would be the string
+"AC Fail, Lost Transmitter zone 42".
+
+The complete list of trouble statuses are:
+
+- AC Fail
+- Box Tamper (zone is part of status)
+- Fail To Communicate
+- EEProm Memory Error
+- Low Battery Control
+- Transmitter Low Battery (zone is part of status)
+- Over Current
+- Telephone Fault
+- Output 2
+- Missing Keypad
+- Zone Expander
+- Output Expander
+- ELKRP Remote Access
+- Common Area Not Armed
+- Flash Memory Error
+- Security Alert (zone is part of status)
+- Serial Port Expander
+- Lost Transmitter (zone is part of status)
+- GE Smoke CleanMe
+- Ethernet
+- Display Message In Keypad Line 1
+- Display Message In Keypad Line 2
+- Fire (zone is part of status)
 
 ## Configuration
 
@@ -319,3 +400,56 @@ elkm1:
     thermostat:
       enabled: false
 ```
+
+## Services
+
+Besides the standard Home Assistant services for Climate, Light, Scene, Sensor,
+and Switch the ElkM1 integration offers these additional services:
+
+- `elkm1.alarm_arm_home_instant`
+- `elkm1.alarm_arm_night_instant`
+- `elkm1.alarm_arm_vacation`
+- `elkm1.alarm_display_message`
+- `elkm1.speak_phrase`
+- `elkm1.speak_word`
+
+### Services `elkm1.alarm_arm_home_instant`, `elkm1.alarm_arm_night_instant`, and `elkm1.alarm_arm_vacation`
+
+Arms the ElkM1 area in "home instant", "night instant", or "vacation" modes
+respectively.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ElkM1 area which to arm.
+| `code` | no | Alarm code to arm the system (4 or 6 digits).
+
+### Service `elkm1.alarm_display_message`
+
+Display text on an area's keypads.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ElkM1 area which to display the message.
+| `clear` | yes | 0=clear message, 1=clear message with * key, 2=Display until timeout; default 2
+| `beep` | yes | 0=no beep, 1=beep; default 0
+| `timeout` | yes | Time to display message, 0=forever, max 65535, default 0
+| `line1` | yes | Up to 16 characters of text (truncated if too long). Default blank.
+| `line2` | yes | Up to 16 characters of text (truncated if too long). Default blank.
+
+### Service `elkm1.speak_phrase`
+
+Speak a phrase. The list of phrases is defined in the ElkM1 ASCII Protocol documentation.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `phrase` | no | Phrase to speak.
+| `prefix` | yes | Prefix to identify panel when multiple panels configured.
+
+### Service `elkm1.speak_word`
+
+Speak a word. The list of words is defined in the ElkM1 ASCII Protocol documentation.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `word` | no | Word to speak.
+| `prefix` | yes | Prefix to identify panel when multiple panels configured.
