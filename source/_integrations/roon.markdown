@@ -28,3 +28,31 @@ You need the Hostname or IP address of the machine that runs your Roon Core. Thi
 3. Home Assistant will then contact your Roon Core and ask to be authorized. You will need to enable this extension in the Room Application. Go to **Settings** and then **Extensions**, there you will see an entry for Home Assistant with a button next to it. Click **Enable**.
 4. Roon core will then provide Home Assistant with the details of your media players.
 5. In Home Assistant you can then pick an area for each of your music players, and add them to Home Assistant.
+
+### Service `sync`
+
+Add another player to this player's sync group.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | id of the Roon player which will have an extra player added.
+| `link_name` | no | Roon name of the player to add to the sync group.
+
+### Service `unsync`
+
+Remove a player from this player's sync group.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | id of the Roon player which will have a player removed.
+| `unlink_name` | no | Roon name of the player to remove from the sync group.
+
+
+### Service `transfer`
+
+Transfer the playing media from this player to another.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | id of the source Roon player.
+| `transfer_name` | no | Roon name of the destination player.
