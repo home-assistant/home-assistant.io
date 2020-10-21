@@ -3,6 +3,7 @@ title: Statistics
 description: Instructions on how to integrate statistical sensors into Home Assistant.
 ha_category:
   - Utility
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_quality_scale: internal
@@ -50,7 +51,7 @@ sampling_size:
   default: 20
   type: integer
 max_age:
-  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded.
+  description: Maximum age of measurements. Setting this to a time interval will cause older values to be discarded. Please note that you might have to increase the [sampling_size](/integrations/statistics#sampling_size) parameter. If you e.g., have a sensor value updated every second you will, by default, only get a max_age of 20s.
   required: false
   type: time
 precision:
@@ -61,5 +62,5 @@ precision:
 {% endconfiguration %}
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/stats-sensor.png' />
+  <img src='/images/screenshots/stats-sensor.png' />
 </p>

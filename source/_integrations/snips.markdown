@@ -5,6 +5,7 @@ ha_category:
   - Voice
 ha_release: 0.48
 ha_domain: snips
+ha_iot_class: Local Push
 ---
 
 <div class='note warning'>
@@ -151,13 +152,13 @@ intent_script:
   ActivateLightColor:
     action:
       - service: light.turn_on
-        data_template:
-          entity_id: light.{{ objectLocation | replace(" ","_") }}
-          color_name: {{ objectColor }}
+        data:
+          entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
+          color_name: '{{ objectColor }}'
 ```
 {% endraw %}
 
-In the `data_template` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
+In the `data` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
 
 ### Special slots
 
@@ -175,7 +176,7 @@ SetTimer:
     text: 'Set a timer'
   action:
     service: script.set_timer
-    data_template:
+    data:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
       siteId: "{{ site_id }}"
@@ -206,10 +207,6 @@ You can send TTS notifications to Snips using the `snips.say` and `snips.say_act
 | `custom_data`          |      yes | custom data that will be included with all messages in this session. |
 | `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
 | `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
-
-### Snips Support
-
-There is an active [Forum](https://forum.snips.ai) for further support.
 
 ### Configuration Examples
 

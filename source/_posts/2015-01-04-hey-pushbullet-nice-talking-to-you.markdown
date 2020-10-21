@@ -13,7 +13,7 @@ One of the things that was missing in Home Assistant for a while was a way to co
 The new notify component will take in messages and tells them to the user. For now this will be powered by the very awesome [PushBullet](https://www.pushbullet.com/) but any other messaging platform can be easily added.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/pushbullet_moto360.png' />
+  <img src='/images/screenshots/pushbullet_moto360.png' />
   A message triggered by the simple_alarm component is shown by PushBullet on the Moto360.
 </p>
 

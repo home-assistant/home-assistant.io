@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.17
 ha_iot_class: Cloud Push
 ha_domain: loopenergy
+ha_codeowners:
+  - '@pavoni'
 ---
 
 Integrate your [Loop Energy](https://www.your-loop.com/) meter information into Home Assistant. To use this sensor you need the client serial number and secret keys for your devices.

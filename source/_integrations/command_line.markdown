@@ -89,7 +89,7 @@ binary_sensor:
 
 ### Check RasPlex
 
-Check if [RasPlex](https://www.rasplex.com/) is `online`.
+Check if [RasPlex](https://github.com/RasPlex/RasPlex) is `online`.
 
 ```yaml
 binary_sensor:
@@ -136,3 +136,13 @@ binary_sensor:
     payload_on: 'active'
     payload_off: 'inactive'
 ```
+
+## Services
+
+Available services: `reload`.
+
+### Service `command_line.reload`
+
+Reload all `command_line` entities.
+
+This service takes no service data attributes.

@@ -47,10 +47,10 @@ sensors:
           description: Name to use in the frontend.
           required: false
           type: string
-        entity_id:
-          description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+        unique_id:
+          description: An ID that uniquely identifies this binary sensor. Set this to a unique value to allow customization through the UI.
           required: false
-          type: [string, list]
+          type: string
         device_class:
           description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
@@ -106,13 +106,12 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### Entity IDs
+### Sensor state updates
 
-The template engine will attempt to work out what entities should trigger an
-update of the sensor. This can fail, for example if your template loops over
-the contents of a group. In this case you can use `entity_id` to provide a
-list of entity IDs that will cause the sensor to update or you can run the
-service `homeassistant.update_entity` to update the sensor at will.
+The template engine works out what entities are used to trigger an update of the sensor and recalculates the result when one of those entities change.
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, create an interval-based
+automation that calls the service `homeassistant.update_entity` for the sensor requiring updates. See the [example below](#working-without-entities).
 
 ## Examples
 
@@ -141,9 +140,7 @@ binary_sensor:
 ### Switch as Sensor
 
 Some movement sensors and door/window sensors will appear as a switch. By using
-a Template Binary Sensor, the switch can be displayed as a binary sensors. The
-original switch can then be hidden by
-[customizing](/getting-started/customizing-devices/).
+a Template Binary Sensor, the switch can be displayed as a binary sensors.
 
 {% raw %}
 
@@ -279,8 +276,6 @@ binary_sensor:
   - platform: template
     sensors:
       sun_up:
-        entity_id:
-          - sun.sun
         value_template: >-
           {{ is_state("sun.sun", "above_horizon") }}
         icon_template: >-
@@ -291,4 +286,118 @@ binary_sensor:
           {% endif %}
 ```
 
+{% endraw %}
+
+### Rate limiting updates
+
+When there are entities present in the template, the template will be re-rendered when one of the entities changes states.
+
+When `states` is used in a template by itself to iterate all states on the system, the template is re-rendered each
+time any state changed event happens if any part of the state is accessed. When merely counting states, the template
+is only re-rendered when a state is added or removed from the system. On busy systems with many entities or hundreds of
+thousands state changed events per day, templates may re-render more than desirable.
+
+In the below example, re-renders are limited to once per minute:
+
+{% raw %}
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      has_unavailable_states:
+        value_template: '{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
+```
+{% endraw %}
+
+In the below example, re-renders are limited to once per second:
+
+{% raw %}
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      has_sensor_unavailable_states:
+        value_template: '{{ states.sensor | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
+```
+{% endraw %}
+
+If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
+
+### Working without entities
+
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates.
+
+There's a couple of options to manage this issue. This first example creates a `sensor.time` from the [Time & Date](/integrations/time_date/) component which updates every minute, and the binary sensor is triggered by this updating. The binary sensor returns true if in the first half of the hour:
+
+{% raw %}
+```yaml
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+
+binary_sensor:
+  - platform: template
+    sensors:
+      half_hour:
+        value_template: '{{ (states("sensor.time")[3:] | int) < 30 }}'
+```
+{% endraw %}
+
+An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates:
+
+{% raw %}
+```yaml
+binary_sensor:
+- platform: template
+  sensors:
+    half_hour:
+      value_template: '{{ now().minute < 30 }}'
+
+automation:
+  - alias: 'Update half_hour'
+    trigger:
+      - platform: time_pattern
+        minutes: /30
+    action:
+      - service: homeassistant.update_entity
+        entity_id: binary_sensor.half_hour
+```
+{% endraw %}
+
+In the case where the template should be updated every minute, just reading `states("sensor.time")` can achieve the desired result without the need to create an automation:
+
+{% raw %}
+```yaml
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+
+binary_sensor:
+- platform: template
+  sensors:
+    minute_is_odd:
+      value_template: >-
+        {% set dummy = states("sensor.time") %}
+        {{ now().minute % 2 == 1 }}
+```
+{% endraw %}
+
+A similar trick of ignoring the sensor value can be used with `states("sensor.date")` for templates that should update at midnight.
+The `time_date` sensors are always true so here we use `and` to ignore the result in a more condensed way:
+
+{% raw %}
+```yaml
+sensor:
+  - platform: time_date
+    display_options:
+      - 'date'
+
+binary_sensor:
+- platform: template
+  sensors:
+    weekend:
+      value_template: {{ states("sensor.date") and now().isoweekday() > 5 }}
+```
 {% endraw %}

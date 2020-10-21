@@ -11,39 +11,39 @@ ha_domain: airvisual
 ha_config_flow: true
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.airvisual.com/air-quality-monitor).
+The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).
 
 ## Using the AirVisual Cloud API
 
-AirVisual API keys can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
+AirVisual API keys can be obtained [here](https://www.iqair.com/air-pollution-data-api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
 <div class='note warning'>
 
-The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Note that each item in the `geographies` list will consume an API call with each update.
+The "Community" API key is limited to 10,000 calls per month. In order to accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
+
+For example:
+
+- One instance of the integration: API calls every 5 minutes
+- Two instances of the integration: API calls every 10 minutes
+- etc.
 
 </div>
 
 ## Using an AirVisual Node/Pro Unit
 
-The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.airvisual.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
+The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
 
 ## Configuration
 
-To enable the integration and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
+Home Assistant offers AirVisual Node/Pro Unit integration through **Configuration -> Integrations -> AirVisual**. Choose "Integration Type: AirVisual Node/Pro" and follow the instructions to get it set up.
+
+The Cloud API integration can be done via the Integrations UI at **Configuration -> Integrations -> AirVisual** (Choose "Integration Type: Geographical Location") or via YAML. To enable the integration and gather data via latitude/longitude using YAML, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 airvisual:
     api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-To enable the integration and gather from a Node/Pro unit, add the following lines to your `configuration.yaml` file:
-
-```yaml
-airvisual:
-    ip_address: YOUR_NODE_PRO_IP_ADDRESS
-    password: YOUR_NODE_PRO_SAMBA_PASSWORD
 ```
 
 Note that an API key-based entry can be mixed with one or more Node/Pro-based entries
@@ -125,7 +125,7 @@ airvisual:
 
 ## Determining the City/State/Country
 
-To easily determine the proper values for a particular location, use the [AirVisual region directory](https://airvisual.com/world). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`. Use this information to fill out `configuration.yaml`.
+To easily determine the proper values for a particular location, use the [AirVisual region directory](https://www.iqair.com/world-air-quality). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`. Use this information to fill out `configuration.yaml`.
 
 For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the proper configuration would look like this:
 

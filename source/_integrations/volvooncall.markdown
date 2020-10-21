@@ -64,7 +64,7 @@ mutable:
   default: true
   type: boolean
 name:
-  description: "Make it possible to provide a name for the vehicles. Note: Use all lower case letters when inputing your VIN number."
+  description: "Make it possible to provide a name for the vehicles. Note: Use all lower case letters when inputting your VIN number."
   required: false
   type: string
 resources:
@@ -88,6 +88,7 @@ The list of currently available resources:
 - `odometer`
 - `trip_meter1`
 - `trip_meter2`
+- `average_speed`
 - `fuel_amount`
 - `fuel_amount_level`
 - `average_fuel_consumption`
@@ -103,19 +104,20 @@ The list of currently available resources:
 - `engine_start`
 - `last_trip`
 - `is_engine_running`
-- `doors.hood_open`
-- `doors.front_left_door_open`
-- `doors.front_right_door_open`
-- `doors.rear_left_door_open`
-- `doors.rear_right_door_open`
-- `windows.front_left_window_open`
-- `windows.front_right_window_open`
-- `windows.rear_left_window_open`
-- `windows.rear_right_window_open`
-- `tyre_pressure.front_left_tyre_pressure`
-- `tyre_pressure.front_right_tyre_pressure`
-- `tyre_pressure.rear_left_tyre_pressure`
-- `tyre_pressure.rear_right_tyre_pressure`
+- `doors_hood_open`
+- `doors_tailgate_open`
+- `doors_front_left_door_open`
+- `doors_front_right_door_open`
+- `doors_rear_left_door_open`
+- `doors_rear_right_door_open`
+- `windows_front_left_window_open`
+- `windows_front_right_window_open`
+- `windows_rear_left_window_open`
+- `windows_rear_right_window_open`
+- `tyre_pressure_front_left_tyre_pressure`
+- `tyre_pressure_front_right_tyre_pressure`
+- `tyre_pressure_rear_left_tyre_pressure`
+- `tyre_pressure_rear_right_tyre_pressure`
 - `any_door_open`
 - `any_window_open`
 

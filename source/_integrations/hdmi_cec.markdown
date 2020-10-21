@@ -244,5 +244,5 @@ value is ignored.
 
 ## Useful References
 
-* [CEC overview](http://wiki.kwikwai.com/index.php?title=The_HDMI-CEC_bus)
+* [CEC overview](https://kwikwai.com/knowledge-base/the-hdmi-cec-bus/)
 * [CEC-o-matic](http://www.cec-o-matic.com/)

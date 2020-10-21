@@ -4,6 +4,7 @@ description: Matrix chatbot support
 ha_category:
   - Hub
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.69
 ha_codeowners:
   - '@tinloaf'
@@ -131,7 +132,7 @@ automation:
         command: introduction
     action:
       service: notify.matrix_notify
-      data_template:
+      data:
         message: "Hello {{trigger.event.data.args['name']}}"
 ```
 {% endraw %}

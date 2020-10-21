@@ -1,7 +1,6 @@
 ---
 title: "Templating"
 description: "Instructions on how to use the templating feature of Home Assistant."
-redirect_from: /topics/templating/
 ---
 
 This is an advanced feature of Home Assistant. You'll need a basic understanding of:
@@ -35,7 +34,7 @@ script:
   msg_who_is_home:
     sequence:
       - service: notify.notify
-        data_template:
+        data:
           message: >
             {% if is_state('device_tracker.paulus', 'home') %}
               Ha, Paulus is home!
@@ -58,7 +57,6 @@ Extensions allow templates to access all of the Home Assistant specific states a
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') == None`. 
-
 <div class='note warning'>
 
   Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
@@ -108,7 +106,12 @@ Other state examples:
 
 {{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
+{{ as_local(states.binary_sensor.garage_door.last_changed) }}
+
 {{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+
+{{ as_local(states.sensor.time.last_changed) }}
+
 ```
 {% endraw %}
 
@@ -174,8 +177,10 @@ The same thing can also be expressed as a filter:
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
 - `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
+- `as_local()` converts datetime object to local time. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+- `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 - Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
 - Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
 - Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
@@ -343,6 +348,10 @@ Some of these functions can also be used in a [filter](https://jinja.palletsproj
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
+### String filters
+
+- Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
+
 ### Regular expressions
 
 - Filter `string|regex_match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
@@ -397,7 +406,7 @@ Just use the "Square bracket notation" to get the value.
 
 {% raw %}
 ```yaml
-'{{ value_json['values']['temp'] }}'
+"{{ value_json['values']['temp'] }}"
 ```
 {% endraw %}
 
@@ -429,7 +438,7 @@ The following overview contains a couple of options to get the needed values:
 {% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
 ```
 
-To evaluate a response, go to the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> template developer tools, create your output in "Template", and check the result.
+To evaluate a response, go to **Developer Tools** -> **Template**, create your output in "Template editor", and check the result.
 
 {% raw %}
 ```yaml

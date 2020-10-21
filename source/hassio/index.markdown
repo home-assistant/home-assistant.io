@@ -1,7 +1,6 @@
 ---
 title: "Home Assistant"
 description: "Manage your Home Assistant and custom add-ons."
-redirect_from: /integrations/hassio/
 ---
 
 Home Assistant turns your Raspberry Pi (or another device) into the ultimate home automation hub. With Home Assistant, you can focus on integrating your devices and writing automations.
@@ -32,14 +31,14 @@ Home Assistant users can update via the 'Supervisor' panel in the UI when a new 
 Home Assistant dashboard with upgrade notification (under the hamburger menu -> Supervisor)
 </p>
 
-[Google Assistant]: /addons/google_assistant/
-[Snips.ai]: /addons/snips/
-[Let's Encrypt]: /addons/lets_encrypt/
-[Duck DNS]: /addons/duckdns/
+[google assistant]: /addons/google_assistant/
+[snips.ai]: /addons/snips/
+[let's encrypt]: /addons/lets_encrypt/
+[duck dns]: /addons/duckdns/
 [forums]: https://community.home-assistant.io/c/hass-io
 [comm-add-ons]: https://community.home-assistant.io/tags/hassio-repository
 [all]: /addons/
 [chat]: https://discord.gg/K3UVxJd
-[Home Assistant Operating System]: https://github.com/home-assistant/operating-system
-[Home Assistant Core]: https://www.home-assistant.io/docs/installation/
+[home assistant operating system]: https://github.com/home-assistant/operating-system
+[home assistant core]: https://www.home-assistant.io/docs/installation/
 [install]: /hassio/installation/

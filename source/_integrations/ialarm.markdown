@@ -4,6 +4,7 @@ description: Instructions on how to integrate iAlarms alarms into Home Assistant
 logo: antifurto365-ialarm.png
 ha_category:
   - Alarm
+ha_iot_class: Local Polling
 ha_release: '0.60'
 ha_domain: ialarm
 ---

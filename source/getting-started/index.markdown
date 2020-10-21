@@ -35,15 +35,15 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 We will need a few things to get started with installing Home Assistant. The Raspberry Pi 4 Model B is a good, affordable starting point for your home automation journey. Links below lead to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 4 Model B (2GB)](https://amzn.to/2XULT2z) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
+- [Raspberry Pi 4 Model B (2GB)](https://amzn.to/2XULT2z) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 3A)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32 GB or bigger card is recommended.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
 - Ethernet cable. Home Assistant can work with Wi-Fi, but an Ethernet connection would be more reliable.
 
 ### Software requirements
 
-- Download and extract the Home Assistant image for [your device](/hassio/installation/)
-- Download [balenaEtcher] to write the image to an SD card
+- Download and extract the Home Assistant image for [your device](/hassio/installation/).
+- Download [balenaEtcher] to write the image to an SD card.
 
 [balenaEtcher]: https://www.balena.io/etcher
 
@@ -52,7 +52,7 @@ We will need a few things to get started with installing Home Assistant. The Ras
 1. Put the SD card in your card reader.
 2. Open balenaEtcher, select the Home Assistant image and flash it to the SD card.
 3. Unmount the SD card and remove it from your card reader.
-4. Follow this step if you want to configure Wi-Fi or a static IP address (this step requires a USB stick). Otherwise, move to step 5.
+4. The most reliable networking setup for your Raspberry Pi is to connect it using an Ethernet cable; however, if you want to configure Wi-Fi or a static IP address (this step requires a USB stick) you can try this:
    - Format a USB stick to FAT32 with the volume name `CONFIG`.
    - Create a folder named `network` in the root of the newly-formatted USB stick.
    - Within that folder, create a file named `my-network` without a file extension.
@@ -62,10 +62,22 @@ We will need a few things to get started with installing Home Assistant. The Ras
 5. Insert the SD card into your Raspberry Pi. If you are going to use an Ethernet cable, connect that too.
 6. Connect your power supply to the Raspberry Pi.
 7. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes.
-8. Home Assistant will be available at `http://homeassistant.local:8123`. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `http://homeassistant:8123` or `http://X.X.X.X:8123` (replace `X.X.X.X` with your Pi's IP address).
+8. On another computer, navigate to `http://homeassistant.local:8123` to access Home Assistant. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `http://homeassistant:8123` or `http://X.X.X.X:8123` (replace `X.X.X.X` with your Pi's IP address).
+
+<p class='img'>
+<img src='/images/getting-started/preparing-home-assistant.png' />
+As the installation process does its thing your screen should look like this (may take a few minutes to load after the Raspberry Pi boots)
+</p>
+
 9. If you used a USB stick for configuring the network, you can now remove it.
 
 [the examples]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
+
+<div class='note'>
+ 
+ The Raspberry Pi will not show a user interface for Home Assistant if you connect a display. You need to use another computer to access Home Assistant.
+
+</div>
 
 ### [Next step: Onboarding &raquo;][next-step]
 

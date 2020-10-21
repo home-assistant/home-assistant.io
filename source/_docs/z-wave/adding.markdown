@@ -3,6 +3,10 @@ title: "Z-Wave Devices - Adding and Removing"
 description: "How to add and remove Z-Wave devices."
 ---
 
+## Recommendation before adding any devices
+
+Z-Wave devices behave as a mesh and can store network relationship details on the device itself.  This means used devices or even brand new devices could already be enrolled in another network, for example, a test network for a brand new device or a previous network for devices that aren't new. This could cause headaches when you're attempting to add/enrol the device to your network. It is recommended that if possible, perform a factory reset AND device perform exclusion or disenroll for the device you're attempting to add to Home Assistant. Steps can found further below on this page under "Removing Devices".
+
 ## Adding Non-Secure Devices
 
 To add (include) a non-secure Z-Wave [device](/docs/z-wave/devices/) to your system:
@@ -38,22 +42,23 @@ Each individual value in the defined key can be anywhere from 0x00 to 0xFF. Defi
 
 ### Network Key
 
-An easy script to generate a random key:
+An easy Linux script to generate a random key:
+(remember you can run this in Home Assistant OS or Supervised, you can use the Terminal Add-on)
 
 ```bash
-$ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
 On macOS, this script will generate a random key:
 
 ```bash
-$ cat /dev/urandom | LC_CTYPE=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+cat /dev/urandom | LC_CTYPE=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
 If the above command doesn't work then replace `LC_CTYPE=C` with `LC_ALL=C`:
 
 ```bash
-$ cat /dev/urandom | LC_ALL=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
+cat /dev/urandom | LC_ALL=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
 
 <div class='note warning'>
@@ -77,10 +82,10 @@ Secure devices require additional bandwidth, and too many secure devices can slo
 
 To remove (exclude) a Z-Wave device from your system:
 
-1. Go to the Z-Wave control panel in the Home Assistant frontend
+1. Go to the Z-Wave control panel in the Home Assistant frontend. (Home Assistant > Configuration > Integrations > Z-Wave > Configure)
 2. Click the **Remove Node** button in the *Z-Wave Network Management* card - this will place the controller in exclusion mode
 3. Activate your device to be excluded by following the instructions provided with the device
-4. The device will now be removed, but that won't show until you restart Home Assistant 
+4. The device should now be removed, but that won't show until you restart Home Assistant. Look for a confirmation signal on the device if available, or confirm on the Home Assistant logs.
 5. Run a *Heal Network* so all the other nodes learn about its removal
 
 If your device isn't responding to this process, possibly because you've factory reset it or it has failed, you can remove it using **Remove Failed Node**. This only works for devices marked as `"is_failed": true`, but you can trick the system into thinking that this the case:
@@ -88,16 +93,17 @@ If your device isn't responding to this process, possibly because you've factory
 1. Go to the *States* menu under *Developer tools* in the Home Assistant frontend
 2. Click on the name of the `zwave.` entity you want to remove
 3. Make note of the entity's "node_id" value as you will need to re-add the "node_id" attribute and value in step 4.
-4. At the top, edit the JSON attributes to replace `false` with `true` for `"is_failed": false,` so that it reads `"is_failed": true.` Also add the "node_id" value to the number listed in the entity's attribute. The JSON attributes should look something like below:
+4. At the top, edit the JSON attributes to replace `false` with `true` for `"is_failed": false,` so that it reads `"is_failed": true.` Also add the "node_id" value to the number listed in the entity's attribute. The YAML attributes should look something like below:
 
     ```yaml
-    {"node_id":6, "is_failed":true}
+    node_id: 6
+    is_failed: true
     ```
 
 5. Click **Set State**
 6. Go to the Z-Wave control panel in the Home Assistant frontend
 7. Click the **Remove Failed Node** button in the *Z-Wave Node Management* card
-8. The device will now be removed, but that won't show until you restart Home Assistant 
+8. The device will now be removed, but that won't show until you restart Home Assistant
 
 ## Troubleshooting
 

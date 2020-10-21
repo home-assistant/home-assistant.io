@@ -67,7 +67,7 @@ If provided, the **access_token** will be used, otherwise the **username** and *
 ## Example
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/garadget/cover_garadget_details.png' />
+  <img src='/images/integrations/garadget/cover_garadget_details.png' />
 </p>
 
 {% raw %}
@@ -134,4 +134,7 @@ cover:
     state_topic: "garadget/device_name/status"
     payload_open: "open"
     payload_close: "close"
+    value_template: "{{ value_json.status }}"
 ```
+
+Replace device_name with the name of the device provided when configuring garadget.

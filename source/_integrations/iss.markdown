@@ -3,6 +3,7 @@ title: International Space Station (ISS)
 description: Know if or when ISS will be above your home location
 ha_category:
   - Binary Sensor
+ha_iot_class: Cloud Polling
 ha_release: 0.36
 ha_domain: iss
 ---
@@ -54,6 +55,9 @@ the possibility to show the location of the ISS on OpenStreetMap.
 {% raw %}
 ```yaml
 # Example configuration.yaml entry
+  - platform: iss
+    show_on_map: true
+    
 camera:
   - platform: generic
     name: ISS

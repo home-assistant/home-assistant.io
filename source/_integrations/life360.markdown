@@ -227,7 +227,7 @@ automation:
       event_type: life360_update_overdue
     action:
       service: notify.email_me
-      data_template:
+      data:
         title: Life360 update overdue
         message: >
           Update for {{
@@ -241,7 +241,7 @@ automation:
       event_type: life360_update_restored
     action:
       service: notify.email_me
-      data_template:
+      data:
         title: Life360 update restored
         message: >
           Update for {{

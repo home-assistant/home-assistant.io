@@ -13,18 +13,17 @@ So, part 1 of [ESP8266 and MicroPython](/blog/2016/07/28/esp8266-and-micropython
 
 <!--more-->
 
-Beside [HTTP POST](https://en.wikipedia.org/wiki/POST_(HTTP)) requests, MQTT is the quickest way (from the author's point of view) to publish information with DIY devices. 
+Beside [HTTP POST](https://en.wikipedia.org/wiki/POST_(HTTP)) requests, MQTT is the quickest way (from the author's point of view) to publish information with DIY devices.
 
-You have to make a decision: Do you want to pull or to [poll](https://en.wikipedia.org/wiki/Polling_(computer_science)) the information for the sensor? For slowly changing values like temperature it's perfectly fine to wait a couple of seconds to retrieve the value. If it's a motion detector the state change should be available instantly in Home Assistant or it could be missed. This means the sensor must take initiative and send the data to Home Assistant. 
+You have to make a decision: Do you want to pull or to [poll](https://en.wikipedia.org/wiki/Polling_(computer_science)) the information for the sensor? For slowly changing values like temperature it's perfectly fine to wait a couple of seconds to retrieve the value. If it's a motion detector the state change should be available instantly in Home Assistant or it could be missed. This means the sensor must take initiative and send the data to Home Assistant.
 
-An example for pulling is [aREST](/integrations/arest#sensor). This is a great way to work with the ESP8266 based units and the Ardunio IDE. 
+An example for pulling is [aREST](/integrations/arest#sensor). This is a great way to work with the ESP8266 based units and the Ardunio IDE.
 
-### MQTT
+## MQTT
 
-You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple). 
+You can find a simple examples for publishing and subscribing with MQTT in the [MicroPython](https://github.com/micropython/micropython-lib) library overview in the section for [umqtt](https://github.com/micropython/micropython-lib/tree/master/umqtt.simple).
 
 The example below is adopted from the work of [@davea](https://github.com/davea) as we don't want to re-invent the wheel. The configuration feature is crafty and simplyfies the code with the usage of a file called `/config.json` which stores the configuration details. The ESP8266 device will send the value of a pin every 5 seconds.
-
 
 ```python
 import machine
@@ -37,7 +36,7 @@ from umqtt.simple import MQTTClient
 # These defaults are overwritten with the contents of /config.json by load_config()
 CONFIG = {
     "broker": "192.168.1.19",
-    "sensor_pin": 0, 
+    "sensor_pin": 0,
     "client_id": b"esp8266_" + ubinascii.hexlify(machine.unique_id()),
     "topic": b"home",
 }
@@ -90,7 +89,7 @@ if __name__ == '__main__':
 Subscribe to the topic `home/#` or create a [MQTT sensor](/integrations/sensor.mqtt/) to check if the sensor values are published.
 
 ```bash
-$ mosquitto_sub -h 192.168.1.19 -v -t "home/#"
+mosquitto_sub -h 192.168.1.19 -v -t "home/#"
 ```
 
 ```yaml
@@ -101,4 +100,3 @@ sensor:
 ```
 
 [@davea](https://github.com/davea) created [sonoff-mqtt](https://github.com/davea/sonoff-mqtt). This code will work on ESP8622 based devices too and shows how to use a button to control a relay.
-

@@ -12,6 +12,7 @@ ha_category:
   - Switch
   - Climate
 ha_release: pre 0.7
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: vera
 ha_codeowners:
@@ -54,7 +55,7 @@ You can find the Vera device id either via the advanced properties of the device
 
 ### Using Z-Wave devices in automation
 
-If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the entity id on the left.
+If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under **Developer Tools** -> **States**. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the entity id on the left.
 
 ### Sensor
 
@@ -64,4 +65,4 @@ Please note that some Vera sensors (such as _motion_ and _flood_  sensors) are _
 
 Home Assistant will display the state of these sensors regardless of the _armed_ state.
 
-To allow you to change the _armed state_ - Home Assistant will create a switch as well as a sensor for each _Armable_ sensor. You can hide these switches using customization if you wish.
+To allow you to change the _armed state_ - Home Assistant will create a switch as well as a sensor for each _Armable_ sensor.

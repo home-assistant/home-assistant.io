@@ -1,7 +1,6 @@
 ---
 title: "Automation Examples"
 description: "Some automation examples to get you started."
-redirect_from: /getting-started/automation-examples/
 ---
 
 Just some sample automation rules to get you started.
@@ -70,8 +69,8 @@ automation:
       event_data:
         entity_id: binary_sensor.cube_158d000103a3de
     action:
-      service_template: notify.pushover
-      data_template: 
+      service: notify.pushover
+      data: 
         title: "Cube event detected"
         message: "Cube has triggered this event: {{ trigger.event }}"
 ```

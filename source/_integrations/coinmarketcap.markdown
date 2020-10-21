@@ -36,4 +36,4 @@ display_currency_decimals:
   default: 2
 {% endconfiguration %}
 
-All supported currencies can be found [here](https://coinmarketcap.com/api/documentation/v1/#section/Standards-and-Conventions), a list of currency IDs can be found [here](https://api.coinmarketcap.com/v2/ticker/).
+All supported currencies can be found [here](https://coinmarketcap.com/api/documentation/v1/#section/Standards-and-Conventions), a list of currency IDs can be found [here](https://coinmarketcap.com/api/v1/#section/Standards-and-Conventions).
