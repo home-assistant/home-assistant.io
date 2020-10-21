@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Switch
   - Sensor
+ha_iot_class: Local Polling
 ha_release: '0.70'
 ha_codeowners:
   - '@heythisisnate'
@@ -304,7 +305,7 @@ konnected:
 
 ## Unique IDs and the Entity Registry
 
-Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI on the _Entity Registry_ page (under _Configuration_).
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Configuration** -> **Entities**.
 
 Unique IDs are internally generated as follows:
 

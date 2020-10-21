@@ -3,6 +3,7 @@ title: Namecheap FreeDNS
 description: Keep your namecheap dynamic DNS up to date
 ha_category:
   - Network
+ha_iot_class: Cloud Push
 ha_release: 0.56
 ha_domain: namecheapdns
 ---

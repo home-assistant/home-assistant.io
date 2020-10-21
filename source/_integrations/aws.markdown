@@ -3,6 +3,7 @@ title: Amazon Web Services (AWS)
 description: Instructions on how to integrate Amazon Web Services with Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: '0.91'
 ha_codeowners:
   - '@awarecan'

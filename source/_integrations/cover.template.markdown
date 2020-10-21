@@ -50,7 +50,7 @@ cover:
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this cover. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
@@ -63,6 +63,10 @@ cover:
         type: template
       icon_template:
         description: Defines a template to specify which icon to use.
+        required: false
+        type: template
+      entity_picture_template:
+        description: Defines a template for the entity picture of the cover.
         required: false
         type: template
       availability_template:

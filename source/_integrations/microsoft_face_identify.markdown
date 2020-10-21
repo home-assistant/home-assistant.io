@@ -3,6 +3,7 @@ title: Microsoft Face Identify
 description: Instructions on how to integrate Microsoft Face Identify into Home Assistant.
 ha_category:
   - Image Processing
+ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: microsoft_face_identify
 ---
@@ -37,7 +38,7 @@ image_processing:
 
 {% configuration %}
 group:
-  description: Micrsoft face group to detect person from it.
+  description: Microsoft face group to detect person from it.
   required: true
   type: string
 confidence:

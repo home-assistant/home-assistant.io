@@ -8,8 +8,10 @@ The Glance card is useful to group multiple sensors in a compact overview. Keep 
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_glance_card.png' alt='Screenshot of the glance card'>
-Screenshot of the glance card.
+Screenshot of the Glance card.
 </p>
+
+To add the Glance card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Glance** from the card picker.
 
 {% configuration %}
 type:

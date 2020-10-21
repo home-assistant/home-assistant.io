@@ -352,7 +352,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Redesign AlarmControlPanel for Homematic IP ([@SukramJ] - [#23565]) ([homematicip_cloud docs])
 - Ambiclimate ([@Danielhiversen] - [#22827]) ([ambiclimate docs]) (new-integration) (new-platform)
 - Move I/O to executor thread pool ([@cyrosy] - [#23589]) ([discord docs])
-- Update bomradarloop to v0.1.3 ([@maddenp] - [#23599]) ([bom docs])
+- Update bomradarloop to v0.1.3 ([@maddenp] - [#23599])
 - updated manifest.json with correct version of hangup ([@teliov] - [#23596]) ([hangouts docs])
 - Add and improve Homekit controller pairing messages and errors ([@Jc2k] - [#23532]) ([homekit_controller docs])
 - Added message to data_template at notify REST ([@4lloyd] - [#23108]) ([rest docs])
@@ -759,7 +759,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automation docs]: /integrations/automation/
 [bizkaibus docs]: /integrations/bizkaibus/
 [bluesound docs]: /integrations/bluesound/
-[bom docs]: /integrations/bom/
 [caldav docs]: /integrations/caldav/
 [cast docs]: /integrations/cast/
 [counter docs]: /integrations/counter/

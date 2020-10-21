@@ -42,7 +42,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - Control Home Assistant with [keyboard shortcuts][keyboard_remote] ([@deisi])
 - More voluptuous config validations ([@fabaff], [@kellerza], [@balloob])
 - New [Nuimo] controller support added ([@gross1989])
-- Sensor: [BOM] Weather component ([@tinglis1])
+- Sensor: BOM Weather component ([@tinglis1])
 - Automation: Option added to hide entity ([@milaq])
 - Sensor: [Emoncms] feeds now supported ([@joyrider])
 - Sensor: Mi Flora [plant] sensor now supported ([@open-homeautomation])
@@ -160,7 +160,6 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wokar]: https://github.com/wokar
 
-[BOM]: /integrations/bom#sensor
 [climate]: /integrations/vera
 [email]: /integrations/imap_email_content/
 [Emoncms]: /integrations/emoncms

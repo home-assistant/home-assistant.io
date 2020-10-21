@@ -5,6 +5,7 @@ ha_category:
   - Hub
   - Fan
   - Sensor
+ha_iot_class: Local Polling
 ha_release: 0.95
 ha_codeowners:
   - '@z0mbieprocess'

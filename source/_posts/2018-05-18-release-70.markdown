@@ -88,7 +88,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Gogogate2 0.1.1 ([@dlbroadfoot] - [#14294]) ([cover.gogogate2 docs])
 - Snips: Added slot values for siteId and probability ([@tschmidty69] - [#14315]) ([snips docs])
 - Add help for conversation/process service ([@stephanerosi] - [#14323])
-- Fix BOM weather '-' value ([@nickw444] - [#14042]) ([sensor.bom docs]) ([weather.bom docs])
+- Fix BOM weather '-' value ([@nickw444] - [#14042])
 - Make sure zwave nodes/entities enter the registry is proper state. ([@andrey-git] - [#14251]) ([zwave docs])
 - Improving icloud device tracker ([@evgeniy-khatko] - [#14078]) ([device_tracker docs])
 - Adds useful attributes to RainMachine programs and zones ([@bachya] - [#14087]) ([switch.rainmachine docs])
@@ -404,7 +404,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [qwikswitch docs]: /integrations/qwikswitch/
 [sabnzbd docs]: /integrations/sabnzbd/
 [sensor.bmw_connected_drive docs]: /integrations/bmw_connected_drive
-[sensor.bom docs]: /integrations/bom#sensor
 [sensor.buienradar docs]: /integrations/sensor.buienradar/
 [sensor.darksky docs]: /integrations/darksky
 [sensor.fints docs]: /integrations/fints
@@ -435,7 +434,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [telegram_bot docs]: /integrations/telegram_bot/
 [tts docs]: /integrations/tts/
 [updater docs]: /integrations/updater/
-[weather.bom docs]: /integrations/bom
 [websocket_api docs]: /integrations/websocket_api/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [zha docs]: /integrations/zha/
