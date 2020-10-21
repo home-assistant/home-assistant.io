@@ -21,10 +21,11 @@ Around sunrise, the opposite will happen.
 Additionally, the integration provides a way to define and set your lights in "sleep mode".
 When "sleep mode" is enabled, the lights will be at a minimal brightness and have a very warm color.
 
-The integration creates two switches.
-The first switch `switch.adaptive_lighting_default` (with name `"default"`) turns the Adaptive Lighting on or off.
-It has several attributes that show the current light settings.
-The second switch is `switch.adaptive_lighting_sleep_mode_default` (with name `"default"`) that when activated, turns on "sleep mode".
+The integration creates 4 switches (in this example the component's name is `"living_room"`):
+1. `switch.adaptive_lighting_living_room`, which turns the Adaptive Lighting integration on or off. It has several attributes that show the current light settings.
+2. `switch.adaptive_lighting_sleep_mode_living_room`, which when activated, turns on "sleep mode" (you can set a specific `sleep_brightness` and `sleep_color_temp`).
+3. `switch.adaptive_lighting_adapt_brightness_living_room`, which sets whether the integration should adapt the brightness of the lights (if supported by the light).
+4. `switch.adaptive_lighting_adapt_color_living_room`, which sets whether the integration should adapt the color of the lights (if supported by the light).
 
 ## Taking back control
 
