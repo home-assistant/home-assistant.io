@@ -31,7 +31,7 @@ You need the Hostname or IP address of the machine that runs your Roon Core. Thi
 
 #### Service `media_player.play_media`
 
-Roon doesn't use file names or urls to track media and so the roon integration is currently limited in how it supports this call.
+Roon doesn't use file names or URLs to track media and so the roon integration is currently limited in how it supports this call.
 
 | Service data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
