@@ -106,15 +106,15 @@ client_secret:
   required: true
   type: string
 project_id:
-  description: Your Device Access project_id.  This enables the SDM API.
+  description: Your Device Access project_id. This enables the SDM API.
   required: false
   type: string
 subscription_id:
-  description: Your Pub/sub subscription_id used to receive events.  This is required to use the SDM API.
+  description: Your Pub/sub subscription_id used to receive events. This is required to use the SDM API.
   type: string
   required: false
 structure:
-  description: The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.  Not currently supported by the SDM API.
+  description: The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account. Not currently supported by the SDM API.
   required: false
   type: list
 {% endconfiguration %}
@@ -124,7 +124,7 @@ structure:
 Once your developer account is set up and `nest` has been configured, you need to connect devices with the following steps:
 
 1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Google Nest Device Access'.
-1. You should get redirected to Google to choose an account.  This should be the same developer account you configured above.
+1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
 1. The *Google Nest permissions* screen will allow you to choose which devices to configure.
 1. You will get redirected back to another account selection page.
 1. Confirm you want to allow persistent access to Home Assistant.
