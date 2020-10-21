@@ -60,21 +60,6 @@ lights:
   required: false
   type: list
   default: []
-adapt_brightness:
-  description: Whether Adaptive Lighting should adjust brightness of lights (if supported by the light).
-  required: false
-  default: true
-  type: boolean
-adapt_color_temp:
-  description: Whether Adaptive Lighting should adjust color temperature of lights (if supported by the light).
-  required: false
-  default: true
-  type: boolean
-adapt_rgb_color:
-  description: Whether Adaptive Lighting should adjust RGB color of lights (if supported by the light).
-  required: false
-  default: true
-  type: boolean
 prefer_rgb_color:
   description: Whether to use RGB color adjustment instead of native light color temperature.
   required: false
