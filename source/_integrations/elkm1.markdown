@@ -122,7 +122,7 @@ The complete list of trouble statuses are:
 
 To add `ElkM1` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Elk-M1 Control**.
 
-Alternatively, configuration throught the `configuration.yaml` file
+Alternatively, configuration through the `configuration.yaml` file
 is supported (example below).
 
 Both methods of configuration support "auto configuration". This works by
