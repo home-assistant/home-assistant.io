@@ -31,6 +31,9 @@ There is currently support for the following device types within Home Assistant:
 - **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
 - **Switch** - Elk-M1 outputs are represented as `switch` entities.
 
+The implementation follows the Elk Products ElkM1 "ASCII Protocol & Interface 
+Specification, Revision 1.84" document. This document can be found on the Internet.
+
 ## ElkM1 Configuration and Version
 
 In order for the ElkM1 integration to work to its fullest with Home Assistant the
@@ -119,7 +122,15 @@ The complete list of trouble statuses are:
 
 To add `ElkM1` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Elk-M1 Control**.
 
-Alternatively, add the following section to your `configuration.yaml` file:
+Alternatively, configuration through the `configuration.yaml` file
+is supported (example below).
+
+Both methods of configuration support "auto configuration". This works by
+reporting only elements on the ElkM1 that have a "Name" configured.
+So, for example, if counter #11 on the panel was configured with
+the name "Test counter" then this element would show up in Home Assistant. If
+an element is being used but does not have a name configured then
+it will not appear in Home Assistant through the auto-configuration feature.
 
 ```yaml
 # Example configuration.yaml entry
@@ -401,6 +412,16 @@ elkm1:
       enabled: false
 ```
 
+## Events
+
+The ElkM1 integration supports the following event: `elkm1.keypad_key_pressed`.
+The event is generated whenever a key is pressed on an ElkM1 keypad.
+The `event_data` contains the following:
+
+- `keypad_id`: The number of the keypad that reported the keypress.
+- `key_name`: The name of the key that was pressed.
+- `key`: The number of the key that was pressed.
+
 ## Services
 
 Besides the standard Home Assistant services for Climate, Light, Scene, Sensor,
@@ -412,8 +433,11 @@ and Switch the ElkM1 integration offers these additional services:
 - `elkm1.alarm_bypass`
 - `elkm1.alarm_clear_bypass`
 - `elkm1.alarm_display_message`
+- `elkm1.sensor_counter_refresh`
+- `elkm1.sensor_counter_set`
 - `elkm1.sensor_zone_bypass`
 - `elkm1.sensor_zone_trigger`
+- `elkm1.set_time`
 - `elkm1.speak_phrase`
 - `elkm1.speak_word`
 
@@ -450,6 +474,25 @@ Display text on an area's keypads.
 | `line1` | yes | Up to 16 characters of text (truncated if too long). Default blank.
 | `line2` | yes | Up to 16 characters of text (truncated if too long). Default blank.
 
+### Service `elkm1.sensor_counter_refresh`
+
+Refresh the value of a counter. Note that under certain conditions the
+panel does not automatically send a new value under certain
+conditions. This service retrieves the current counter value.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ElkM1 counter to refresh.
+
+### Service `elkm1.sensor_counter_set`
+
+Set counter to value.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ElkM1 counter to refresh.
+| `value` | no | Value to set the counter to Can be 0-65536.
+
 ### Service `elkm1.sensor_zone_bypass`
 
 Bypass a zone. Note that the only mechanism ElkM1 offers to clear the bypass
@@ -468,6 +511,14 @@ open condition on the zone as if the EOL hardwired loop had been physically open
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | ElkM1 zone which to trigger.
+
+### Service `elkm1.set_time`
+
+Set the time on the panel. Uses the current time on the instance of Home Assistant.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `prefix` | yes | Prefix to identify panel when multiple panels configured.
 
 ### Service `elkm1.speak_phrase`
 
