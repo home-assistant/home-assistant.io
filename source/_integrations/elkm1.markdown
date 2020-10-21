@@ -130,7 +130,7 @@ reporting only elements on the ElkM1 that have a "Name" configured.
 So, for example, if counter #11 on the panel was configured with
 the name "Test counter" then this element would show up in Home Assistant. If
 an element is being used but does not have a name configured then
-it will not appear in Home Assistant through the auto configuration feature.
+it will not appear in Home Assistant through the auto-configuration feature.
 
 ```yaml
 # Example configuration.yaml entry
