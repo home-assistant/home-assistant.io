@@ -15,13 +15,13 @@ ha_codeowners:
 ha_domain: nest
 ---
 
-The `nest` integration allows you to access all supported [Google Nest](https://store.google.com/us/category/connected_home?) devices.  There are two APIs:
+The `nest` integration allows you to access all supported [Google Nest](https://store.google.com/us/category/connected_home?) devices. There are two APIs:
 
 1. New [Device Access](https://developers.google.com/nest/device-access) program and [Smart Device Management](https://developers.google.com/nest/device-access/api) (SDM) API.
-1. Legacy [Works With Nest](https://developers.nest.com/) API.  This API does not accept new users, but existing users can keep using it.
+1. Legacy [Works With Nest](https://developers.nest.com/) API. This API does not accept new users, but existing users can keep using it.
 
 <div class='note warning'>
-The two APIs support different features and devices.  The SDM API integration is currently under development, and does not yet support everything in the API either.
+The two APIs support different features and devices. The SDM API integration is currently under development and does not yet support everything in the API either.
 </div>
 
 There is currently support for the following device types within Home Assistant:
@@ -33,39 +33,39 @@ There is currently support for the following device types within Home Assistant:
 
 ## Device Access: Developer Account Setup
 
-You will need to follow the instructions in [Device Access Registration](https://developers.google.com/nest/device-access/registration) which includes the following steps in the
+You will need to follow the instructions in [Device Access Registration](https://developers.google.com/nest/device-access/registration), which includes the following steps in the
 Quick Start Guide:
 
-  * Accept the Terms of Service
-  * Pay a fee (currently US$5)
-  * Register in the Device Access Console to get a `project_id`
-  * Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`
-  * Enable pubsub events in the Device Access Console (creates a topic)
-  * Create a pull subscription to get a `subscription_id`
+- Accept the Terms of Service.
+- Pay a fee (currently US$5).
+- Register in the Device Access Console to get a `project_id`.
+- Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`.
+- Enable pubsub events in the Device Access Console (creates a topic).
+- Create a pull subscription to get a `subscription_id`.
 
-Additionally, Home Assistant must be configured with a URL (e.g. external exposed [`http`](/integrations/http/), Nabu Casa, etc).  When setting up the OAuth credentials, also make sure the Home AssistantURL is the list of *Authorized redirect URIs* so the redirect back to Home Assistant can get an OAuth authorization code.
+Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
 
-Follow all of the instructions in [Device Access: Quick Start Guide](https://developers.google.com/nest/device-access/get-started) carefully as it is easy to make a configuration mistake that is difficult to debug.  It is recommended to exercise the entire guide, including the command to test out the API, to make sure that it is working before configuring Home Assistant.
+Follow all of the instructions in [Device Access: Quick Start Guide](https://developers.google.com/nest/device-access/get-started) carefully as it is easy to make a configuration mistake that is difficult to debug. It is recommended to exercise the entire guide, including the command to test out the API, to make sure that it is working before configuring Home Assistant.
 
-It may be easiest to create a [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console.  Make sure to use the *topic name* from the device access console and a unique subscription name.  Note the message retention is how long messages will queue while offline, so keep that short (e.g. under an hour) to avoid a potentially large backlog of updates.
+It may be easiest to create a [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console. Make sure to use the *topic name* from the device access console and a unique subscription name. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
 
 ## Works With Nest: Developer Account Setup (Legacy)
 
 <div class='note warning'>
-New users are not currently able to set up a Works With Nest Developer account, and instead should use the Device Access program.  The instructions below only apply if you already have an account.
+New users cannot set up a "Works With Nest Developer" account and instead should use the Device Access program. The instructions below only apply if you already have an account.
 </div>
 
 1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
 2. Fill in account details:
   * The "Company Information" can be anything. We recommend using your name.
 3. Submit changes
-4. Click "[Products](https://developers.nest.com/products)" at top of page.
+4. Click "[Products](https://developers.nest.com/products)" at the top of page.
 5. Click "[Create New Product](https://developers.nest.com/products/new)"
 6. Fill in details:
   * Product name must be unique. We recommend [email] - Home Assistant.
   * The description, users, URLs can all be anything you want.
   * Leave the "Redirect URI" Field blank
-7. For permissions check every box and if it's an option select the read/write option. Note: there are important permissions under the "Other Permissions" category. If you are only adding a thermostat, do not just select the permissions under "Thermostat". You still need to check the boxes under "Other Permissions" in order to give you access to features like away mode, ETA, structure read/write, and postal code.
+7. For permissions, check every box and if it's an option, select the read/write option. Note: there are important permissions under the "Other Permissions" category. If you are only adding a thermostat, do not just select the permissions under "Thermostat". You still need to check the boxes under "Other Permissions" to give you access to features like away mode, ETA, structure read/write, and postal code.
   * The description requires a specific format to be accepted.
     * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
 8. Click "Create Product"
@@ -121,7 +121,7 @@ structure:
 
 ## Device Setup (SDM API)
 
-Once your developer account is setup and `nest` has been configured, you need to connect devices with the following steps:
+Once your developer account is set up and `nest` has been configured, you need to connect devices with the following steps:
 
 1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Google Nest Device Access'.
 1. You should get redirected to Google to choose an account.  This should be the same developer account you configured above.
@@ -256,7 +256,7 @@ The `nest` binary sensor platform lets you monitor various states of your [Nest]
 
 <div class='note'>
 
-You must have the [Nest component](/integrations/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
+You must have the [Nest component](/integrations/nest/) configured to use these sensors. The binary sensors will be set up if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
 
 </div>
 
@@ -273,7 +273,7 @@ nest:
       - 'target'
 ```
 
-By default all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/integrations/nest/).
+By default, all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/integrations/nest/).
 
 {% configuration %}
 monitored_conditions:
@@ -306,7 +306,7 @@ The `nest` platform allows you to watch still frames from a video stream (not li
 
 <div class='note'>
 
-The `nest` camera will automatically be setup when you do.
+The `nest` camera will automatically be set up when you do.
 
 </div>
 
@@ -326,13 +326,13 @@ Please note due to limitations with the European Nest Thermostat E, integration 
 
 ### Sensor
 
-The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.  The SDM API supports these sensor traits:
+The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices. The SDM API supports these sensor traits:
 
-  * [Temperature](https://developers.google.com/nest/device-access/traits/device/temperature)
-  * [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
+- [Temperature](https://developers.google.com/nest/device-access/traits/device/temperature)
+- [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
 
 <div class='note'>
-The SDM API will monitor all devices automatically once configured.  The Legacy API has additional configuration for `nest sensor`.
+The SDM API will monitor all devices automatically once configured. The Legacy API has additional configuration for `nest sensor`.
 </div>
 
 #### Configuration
@@ -348,7 +348,7 @@ nest:
       - 'target'
 ```
 
-By default all sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/integrations/nest/).
+By default all, sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/integrations/nest/).
 
 {% configuration %}
 monitored_conditions:
