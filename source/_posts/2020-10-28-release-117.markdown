@@ -190,6 +190,7 @@ The following integrations are now available via the Home Assistant UI:
 
 - [RFXtrx][rfxtrx docs], done by [@RobBie1221]
 - [UpCloud][upcloud docs], done by [@scop]
+- [Cloudflare][cloudflare docs], done by [@ctalkington]
 
 ## If you need help...
 
