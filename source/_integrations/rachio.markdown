@@ -91,17 +91,15 @@ Once configured, a switch will be added for every zone that is enabled on every 
 Allows a list of zones to be passed with a corresponding list of durations to create a custom schedule directly from Home Assistant.
 
 <div class='note'>
-
 It is not currently possible to have zones from multiple controllers in the same custom schedule.
-
 </div>
 
  Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | List of zones to run. Will be run in order listed.
+| `entity_id` | no | List of zones to run. Will be run in the order listed.
 | `duration` | no | Duration in minutes to run the zones. If a list of durations is provided, each duration will apply to the corresponding zone listed above. Alternatively, one duration can be provided and will be used for all zones.
 
-### Examples:
+### Examples
 
 ```yaml
 #Example sctipt to start multiple zones with individual duration for each zone.
@@ -110,9 +108,13 @@ script:
     sequence: 
       - service: rachio.start_multiple_zone_schedule
         data:
-          entity_id: switch.front_yard_west, switch.front_yard_east, switch.side_yard_west
+          entity_id:
+            - switch.front_yard_west
+            - switch.front_yard_east
+            - switch.side_yard_west
           duration: 20, 15, 10
 ```
+
 ```yaml
 #Example sctipt to start multiple zones with one duration for all zones.
 script:
@@ -120,14 +122,17 @@ script:
     sequence: 
       - service: rachio.start_multiple_zone_schedule
         data:
-          entity_id: switch.front_yard_west, switch.front_yard_east, switch.side_yard_west
+          entity_id:
+            - switch.front_yard_west
+            - switch.front_yard_east
+            - switch.side_yard_west
           duration: 20
 ```
 ### Service `rachio.set_zone_moisture_percent`
 
 Set the zone moisture percentage for a zone or group of zones.
 
-Rachio allows for setting the moisture percentage of a zone or group of zones. As Rachio only uses moisture levels for zones in a Flex Daily schedule, this service is only available when at least one zone is part of a Flex Daily schedule. 
+Rachio allows for setting the moisture percentage of a zone or group of zones. As Rachio only uses moisture levels for zones in a Flex Daily schedule, this service is only available when at least one zone is part of a Flex Daily schedule.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
