@@ -9,7 +9,9 @@ author_twitter: ludeeus
 categories: Release-Notes
 og_image: /images/blog/2020-10-21-supervisor-249/social.png
 ---
+
 _The Supervisor is shipped with our Home Assistant Operating System and controls all hardware and software on your device. Bringing an effortless experience in managing, upgrading and maintaining your Home Assistant instance. It provides single-click upgrades for the Operating System and Home Assistant Core, but also provides easy to use and install add-ons and allows users to easily manage it via the Home Assistant User interface. It is what allows you to focus on what really matters; automating your home._
+
 The Supervisor generally does not have enough changes that we can fill a blogpost with each release, it also does not have a fixed release schedule. A new Supervisor update is released when it's needed, but that does not mean that there is nothing going on in this part of the ecosystem! One month ago, we put out the [The Supervisor joins the party][supervisor-joins-the-party] post that went over the highlights from the past year. Now it’s time for version 249, rolling out to everyone as we speak and it’s full of new goodies, enjoy!
 
 ## Resolution center
