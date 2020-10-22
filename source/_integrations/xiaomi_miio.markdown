@@ -39,7 +39,7 @@ For many of these devices you need an access token, the first section will descr
 ### Xiaomi Cloud Tokens Extractor
 
 One of Home Assistant users wrote a tokens extractor tool, which is currently the easiest way to retrieve tokens for all devices assigned to Xiaomi account.
-[In the repository](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) there's executable for convenient use on Windows or python script to be run on any platform. If you do not wish to run executable, then you can run it using the source code:
+[In the repository](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) there's executable for convenient use on Windows or Python script to be run on any platform. If you do not wish to run executable, then you can run it using the source code:
 
 1. Install requirements:
 
