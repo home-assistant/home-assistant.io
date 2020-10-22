@@ -1,7 +1,6 @@
 ---
 title: TP-Link EAP
 description: Instructions on how to use a TP-Link EAP access point as a device tracker.
-logo: tp-link.jpg
 ha_category:
   - Presence Detection
 ha_iot_class: Local Polling
@@ -10,14 +9,13 @@ ha_release: 0.117
 ha_domain: tplink_eap
 ---
 
-This platform allows you to detect presence by looking at devices connected to a [TP-Link EAP](https://www.tp-link.com/us/business-networking/ceiling-mount-access-point/).
+This integration allows you to detect presence by looking at devices connected to a [TP-Link EAP](https://www.tp-link.com/us/business-networking/ceiling-mount-access-point/).
 
 <div class='note warning'>
-This integration uses the web interface to retrieve data from the device. The device webserver does not support concurrent connection.
-If you try to login to the interface, your session will be terminated when the integration will poll the device status.
+This integration uses the web interface to retrieve data from the device. The device web server does not support concurrent connections.
+If you try to login into the interface, your session will be terminated when the integration will poll the device status.
 <br>
-If you need to edit the device configuration, it is advised to temporarily disable this integration while making your
- changes.
+If you need to edit the device configuration, it is advised to temporarily disable this integration while making your changes.
 </div>
 
 ## Configuration
