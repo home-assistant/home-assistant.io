@@ -152,9 +152,6 @@ Full example:
 adaptive_lighting:
 - name: "default"
   lights: []
-  adapt_brightness: true
-  adapt_color_temp: true
-  adapt_rgb_color: true
   prefer_rgb_color: false
   transition: 45
   initial_transition: 1
