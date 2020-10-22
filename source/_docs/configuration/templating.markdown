@@ -462,10 +462,6 @@ To evaluate a response, go to **Developer Tools** -> **Template**, create your o
 
 If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
 
-### Templates without entities using `now()`
-
-Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/integrations/template/#working-without-entities)
-
 ### Priority of operators
 
 The default priority of operators is that the filter (`|`) has priority over everything except brackets. This means that:
