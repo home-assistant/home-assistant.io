@@ -15,6 +15,12 @@ ha_codeowners:
 ha_domain: hue
 ---
 
+<div class='note warning'>
+
+Please be aware that the Philips Hue Outdoor Power Supply from 2018 to 2020 has been recalled. For more information, visit the [Philips Hue Recall Page](https://www.philips-hue.com/en-us/support/outdoor-power-supply?cjevent=4de30f2512ea11eb8112055b0a240611).
+
+</div>
+
 The Philips Hue integration allows you to control and monitor the lights and motion sensors connected to your Hue bridge. The Hue integration is automatically discovered. If not, add it via the add integration menu.
 
 There is currently support for the following device types within Home Assistant:
