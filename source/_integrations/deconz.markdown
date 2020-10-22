@@ -67,7 +67,7 @@ If you are having issues and want to report a problem, always start with making 
 
 ## Device services
 
-Available services: `configure` and `deconz.device_refresh`.
+Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
 
 ### Service `deconz.configure`
 
@@ -103,9 +103,17 @@ Refresh with devices added to deCONZ after Home Assistants latest restart.
 
 Note: deCONZ automatically signals Home Assistant when new sensors are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
 
+#### Service `deconz.remove_orphaned_entries`
+
+Remove entries from entity and device registry which are no longer provided by deCONZ.
+
+Note: it is recommended to use this service after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+
 ## Remote control devices
 
-Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event` and in case of the Aqara Magic Cube also `gesture`. Id will be the device name from deCONZ and Event will be the momentary state of the switch. Gesture is used for some Aqara Magic Cube specific events like: flip 90 degrees, flip 180 degrees, clockwise and counter clockwise rotation. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.
+Remote controls (ZHASwitch category) will not be exposed as regular entities, but as events named `deconz_event` with a payload of `id` and `event`. Id will be the device name from deCONZ and Event will be the momentary state of the switch.
+
+Depending on the device some device-specific attributes may also be included in the payload. In case of the Aqara Magic Cube, an additional `gesture` attribute will be exposed. For the tint remote, the `angle` and `xy` attributes will be included in the payload. Gesture is used for some Aqara Magic Cube specific events like: flip 90 degrees, flip 180 degrees, clockwise and counterclockwise rotation. However, a sensor entity will be created that shows the battery level of the switch, as reported by deCONZ, named sensor.device_name_battery_level.
 
 Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.
 
@@ -233,6 +241,30 @@ automation:
 
 {% endraw %}
 
+#### Changing color through the Müller Licht tint remote control
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: React to color wheel changes
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: tint_remote_1
+          event: 6002
+    action:
+      - service: light.turn_on
+        data:
+          xy_color:
+            - '{{ trigger.event.data.xy.0 }}'
+            - '{{ trigger.event.data.xy.1 }}'
+          entity_id: light.example_color_light_1
+    mode: restart
+```
+
+{% endraw %}
 ## Binary Sensor
 
 The following sensor types are supported:

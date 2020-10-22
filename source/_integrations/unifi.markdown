@@ -15,7 +15,7 @@ ha_codeowners:
 ha_domain: unifi
 ---
 
-[UniFi](https://unifi-sdn.ubnt.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
+[UniFi](https://www.ui.com/software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -49,7 +49,7 @@ It is recommended that you run the UniFi controller in a dedicated virtual machi
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ubnt.com/) [UniFi](https://www.ubnt.com/enterprise/#unifi) controller.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi](https://unifi-network.ui.com/) controller.
 
 ### Troubleshooting and Time Synchronization
 
@@ -76,6 +76,10 @@ Note that POE control actually configures the network port of the switch which t
 ### Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per network client.
+
+### Uptime sensor
+
+Get entities reporting uptime per network client.
 
 ## Debugging integration
 

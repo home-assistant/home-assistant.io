@@ -210,7 +210,7 @@ sensor:
 - platform: template
   sensors:
     bedroom_valve:
-      value_template: '{% raw %}{{ state_attr('climate.leq123456', 'Valve') }}{% endraw %}'
+      value_template: "{% raw %}{{ state_attr('climate.leq123456', 'valve') }}{% endraw %}"
       entity_id: climate.leq123456
       friendly_name: 'Bedroom valve'
 ```

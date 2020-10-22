@@ -38,6 +38,15 @@ description:
 
       <a
         class="material-card picture-promo"
+        href="/conference/"
+        style="
+          background-image: url(/images/conference/frontpage-card.png);
+          padding-top: 43%;
+        "
+      ></a>
+
+      <a
+        class="material-card picture-promo"
         href="/blog/2020/10/01/hacktoberfest-2020/"
         style="
           background-image: url(/images/frontpage/hacktoberfest.png);
@@ -87,7 +96,7 @@ description:
       <div class="recent-posts material-card text">
         <h1>Recent Blog Posts</h1>
 
-        {% for post in site.posts limit: 7 %}
+        {% for post in site.posts limit: 4 %}
         <li class="post">
           <a href="{{ post.url }}">{{ post.title }}</a>
           <small class="blog-date">{{ post.date_formatted }}</small>

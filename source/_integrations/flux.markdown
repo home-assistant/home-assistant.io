@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.21
 ha_quality_scale: internal
 ha_domain: flux
+ha_iot_class: Calculated
 ---
 
 The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.

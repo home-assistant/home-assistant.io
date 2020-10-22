@@ -1,5 +1,5 @@
 ---
-title: Tag
+title: Tags
 description: Instructions on how to get started with tags in Home Assistant
 ha_category:
   - Automation
@@ -8,6 +8,8 @@ ha_codeowners:
   - '@balloob'
   - '@dmulcahey'
 ha_domain: tag
+ha_quality_scale: internal
+ha_iot_class: ~
 ---
 
 <p class='img'>

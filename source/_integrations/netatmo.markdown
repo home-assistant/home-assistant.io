@@ -29,29 +29,10 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To enable the Netatmo component, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-netatmo:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: The `client id` from your Netatmo app.
-  required: true
-  type: string
-client_secret:
-  description: The `client secret` from your Netatmo app.
-  required: true
-  type: string
-{% endconfiguration %}
-
-**After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
-
 Menu: **Configuration** -> **Integrations**.
+
+Click on the `+` sign to add an integration and click on **Netatmo**.
+After completing the configuration flow, the Netatmo integration will be available.
 
 ### Extra configuration of the integration
 
@@ -59,27 +40,7 @@ Configuration of Netatmo public weather stations is offered from the front end. 
 
 In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
-To edit an existing area simply enter its name and follow the dialog. 
-
-### Get API and Secret Key
-
-To get your API credentials, you have to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
-Open the [app creator](https://dev.netatmo.com/apps/createanapp#form) form.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_create.png' />
-</p>
-You have to fill the form, but only two fields are required: Name and Description. It doesn't really matter what you put into those. Just write something that make sense to you. To submit your new app, click on create at the bottom of the form.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_app.png' />
-</p>
-
-That's it. You can copy and paste your new `client id` and `client secret` in your Home Assistant configuration file just as described above, in the configuration example.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_api.png' />
-</p>
+To edit an existing area, enter its name and follow the dialog.
 
 ## Camera
 
@@ -238,6 +199,40 @@ Example:
 ```
 
 {% endraw %}
+
+## Development / Testing with your own client ID
+
+To enable the Netatmo component with your own development credentials, you have
+to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/).
+
+Sign in using your username and password from your regular Netatmo account.
+
+Next, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+netatmo:
+  client_id: YOUR_CLIENT_ID
+  client_secret: YOUR_CLIENT_SECRET
+```
+
+{% configuration %}
+client_id:
+  description: The `client id` from your Netatmo app.
+  required: true
+  type: string
+client_secret:
+  description: The `client secret` from your Netatmo app.
+  required: true
+  type: string
+{% endconfiguration %}
+
+**After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
+
+Menu: **Configuration** -> **Integrations**.
+
+Click on the `+` sign to add an integration and click on **Netatmo**.
+After completing the configuration flow, the Netatmo integration will be available.
 
 ## Troubleshooting
 

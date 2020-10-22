@@ -3,6 +3,7 @@ title: Universal Media Player
 description: Instructions on how to create a universal media player in Home Assistant.
 ha_category:
   - Media Player
+ha_iot_class: Calculated
 ha_release: 0.11
 ha_quality_scale: internal
 ha_domain: universal
@@ -50,7 +51,7 @@ name:
   type: string
 children:
   description: Ordered list of child media players this entity will control.
-  required: true
+  required: false
   type: list
 state_template:
   description: "A [template](/topics/templating/) can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans."
