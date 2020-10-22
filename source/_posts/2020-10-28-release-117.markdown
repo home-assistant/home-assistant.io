@@ -160,6 +160,7 @@ Other candidates for this section:
 - Allow Cast to play Plex media ([@jjlawren] - [#41869]) ([cast docs])
 - Add browse media support to squeezebox integration ([@rajlaud] - [#40642]) ([squeezebox docs])
 - Add button that dismisses all notifications ([#7223](https://github.com/home-assistant/frontend/pull/7223)) @mattmattmatt
+- Add user constraint to even triggers ([#7182](https://github.com/home-assistant/frontend/pull/7182)) @mattmattmatt
 
 
 ## New Integrations
