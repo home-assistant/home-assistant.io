@@ -299,14 +299,25 @@ Templates using `states` (without a domain) still have a rate limit of 1 update 
 <details>
   <summary><b>Templates - auto-updating `now()`</b></summary>
   <p>
-It is no longer necessary to reference `sensor.time`, `sensor.date` or manually
-update template entities that do not listen for state changes when `now()` or
-`utcnow()` is present in the template.
+The `entity_id:` attribute was recently removed from template entities because
+the templates are now able to find all referenced entities automatically. This
+removal introduced a new problem where templates using the current time could
+no longer use `entity_id: sensor.time` to ensure periodic updates.
+
+With apologies to those who have spent the last couple of releases adding
+workarounds to their templates, we are now introducing an auto-refresh feature
+to time-based templates.
+
+It is thus no longer necessary to reference `sensor.time`, `sensor.date` or manually
+update template entities when `now()` or `utcnow()` is present in the template.
 
 The template will automatically be updated when:
 
 - A referenced entity changes state.
 - At the start of each minute when `now()` or `utcnow()` is present in the template.
+
+Please note, if you have a time-based template where you _do not_ want it to
+update periodically it will now have to be reworked to not use `now()`.
 
 ([@bdraco] - [#41147] [#42225])
 
