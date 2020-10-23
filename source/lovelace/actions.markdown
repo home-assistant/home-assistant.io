@@ -33,7 +33,7 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `list`, `none`)"
       type: string
       default: "`toggle`"
     navigation_path:
@@ -55,6 +55,11 @@ tap_action:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
+      default: none
+    actions:
+      required: false
+      description: "List of actions that will be displayed to the user in a popup to chose from when `action` defined as `list`"
+      type: list
       default: none
     confirmation:
       required: false
@@ -80,7 +85,7 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `list`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
@@ -103,6 +108,11 @@ hold_action:
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
+    actions:
+      required: false
+      description: "List of actions that will be displayed to the user in a popup to chose from when `action` defined as `list`"
+      type: list
+      default: none  
     confirmation:
       required: false
       description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
@@ -127,7 +137,7 @@ double_tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `list`, `none`)"
       type: string
       default: "`more-info`"
     navigation_path:
@@ -149,6 +159,11 @@ double_tap_action:
       required: false
       description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
+      default: none
+    actions:
+      required: false
+      description: "List of actions that will be displayed to the user in a popup to chose from when `action` defined as `list`"
+      type: list
       default: none
     confirmation:
       required: false
@@ -189,7 +204,7 @@ exemptions:
 {% configuration exemptions %}
 user:
   required: true
-  description: User id that can see the view tab. For each user´s id listed, the confirmation dialog will NOT be shown.
+  description: User ID that can see the view tab. For each user's ID listed, the confirmation dialog will NOT be shown.
   type: string
 {% endconfiguration %}
 
