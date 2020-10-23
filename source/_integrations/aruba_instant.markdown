@@ -3,7 +3,7 @@ title: Aruba Instant
 description: Instructions on how to integrate Aruba Instant access points into Home Assistant.
 ha_category:
   - Presence Detection
-ha_release: 0.115
+ha_release: 0.118
 ha_domain: aruba_instant
 ---
 
@@ -13,12 +13,14 @@ Supported devices (tested):
 
 - Aruba AP-215
 - Aruba AP-315
+- Aruba AP-325
 
 However, this integration should work with most Aruba Instant APs.
 
 <div class='note warning'>
 <ul>
-  <li>This device tracker uses the Aruba REST API and requires Aruba Instant AP code 8.5 or greater.</li>
+  <li>This device tracker uses the Aruba REST API <b> and requires Aruba Instant AP code 8.5 or greater.</b></li>
+  <li>Access Points that run a version prior to 8.5 will need to use the existing aruba integration</li>
   <li>This device tracker will not work with ArubaOS controllers or Instant On access points.</li>
 </ul>
 </div>
@@ -42,7 +44,7 @@ An Aruba Instant wireless client entity has some extra attributes to describe th
 | Name | Sample Value | Description |
 | ---- | ------------ | ----------- |
 | `source_type` | router | HA attribute - source of the entity data.
-| `name` | Chromecast | Displays the name of the client if known.
+| `name` | Chromecast | Displays the name of the client if known, otherwise *null*.
 | `ip` | 192.168.1.123 | Displays the IP address of the client.
 | `mac` | de:ad:be:ef:ca:fe | Displays the MAC address of the client.
 | `os` | Linux | Indicates the OS running on the client system.
@@ -56,7 +58,7 @@ An Aruba Instant wireless client entity has some extra attributes to describe th
 | `signal_text` | Good | Friendly text of speed stength.
 | `speed` | 72 | 	Indicates the current speed at which data is transmitted in Mbps. When the client is associated with an IAP, it constantly negotiates the speed of data transfer. A value of 0 means that the IAP has not received any packets from the client for some time.
 | `speed_text` | Good | Friendly text of speed value
-| `friendly_name` | Chromecast | HA attribute - friendly name drived from access point information, can be changed.
+| `friendly_name` | Chromecast | HA attribute - friendly name drived from access point information, can be overridden in Home Assistant.
 
 
 
