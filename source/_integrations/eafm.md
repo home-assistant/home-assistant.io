@@ -1,5 +1,5 @@
 ---
-title: UK Environment Agency Flood Monitoring
+title: UK Environment Agency Flood Monitoring (England Only)
 description: Monitor nearby water levels and be prepared for flooding with the UK Environment Agency API integration.
 logo: environment_agency.jpg
 ha_category:
