@@ -44,6 +44,30 @@ script:
 ```
 {% endraw %}
 
+### Jinja Include and Import features
+
+If you have templates that you want to re-use, you can build a standalone file that contains that template or a [macro](https://jinja.palletsprojects.com/en/master/templates/#macros), put it into `/config/templates` and then use the `import` or `include` methods to pull it into your current template.
+
+For example, you can create the file `/config/templates/macros.html` which contains:
+{% raw %}
+```txt
+# Example /config/templates/macros.html
+{% macro test_macro() -%}
+  This is a test macro!
+{%- endmacro %}
+```
+{% endraw %}
+
+and then include this in your template:
+{% raw %}
+```yaml
+# Example configuration.yaml
+template: >
+  {% import 'macros.html' as macros -%}
+  {%- macros.test_macro() %}
+```
+{% endraw %}
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
