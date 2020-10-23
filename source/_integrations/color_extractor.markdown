@@ -31,7 +31,7 @@ Passing the key `color_extract_url` to the service call will download the linked
 |Key                  | Example                               | Description                                                                   |
 |---------------------|---------------------------------------|-------------------------------------------------------------------------------|
 |`color_extract_url`  | `https://example.com/images/logo.png` | The full URL (including schema, `http://`, `https://`) of the image to process|
-|`color_extract_path` | `/tmp/album.png`                      | The full path to the image ile on local storage we'll process                 |
+|`color_extract_path` | `/tmp/album.png`                      | The full path to the image file on local storage we'll process                |
 |`entity_id`          | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                  |
 
 <div class="note">
