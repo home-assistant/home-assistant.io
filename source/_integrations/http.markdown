@@ -91,6 +91,11 @@ ssl_profile:
   required: false
   type: string
   default: modern
+follow_symlinks:
+  description: Follow symbolic links.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 <div class='note'>
@@ -115,6 +120,7 @@ http:
     - 10.0.0.200
   ip_ban_enabled: true
   login_attempts_threshold: 5
+  follow_symlinks: false
 ```
 
 The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) blog post gives you details about the encryption of your traffic using free certificates from [Let's Encrypt](https://letsencrypt.org/).
@@ -167,6 +173,10 @@ If you want to use Home Assistant to host or serve static files then create a di
   Files served from the `www`/`local` folder, aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
 
 </div>
+
+### Symbolic Links
+
+If you use symbolic links in your `www/` folder, then you will need to set `follow_symlinks: True` in the configuration file.
 
 ## Binary Sensor
 
