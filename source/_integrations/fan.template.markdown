@@ -114,7 +114,3 @@ fan:
         type: [string, list]
         default: ['low', 'medium', 'high']
 {% endconfiguration %}
-
-### Working without entities
-
-If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
