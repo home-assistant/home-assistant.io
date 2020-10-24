@@ -42,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
 - Air Quality
-- Humidifier (HomeKit humidifiers and dehumidifiers)
+- Humidifier (HomeKit humidifiers, dehumidifiers, and diffusers)
 - Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
 <div class='note'>
