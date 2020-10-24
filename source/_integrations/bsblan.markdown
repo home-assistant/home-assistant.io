@@ -31,7 +31,7 @@ Menu: **Configuration** -> **Integrations**.
 Click on the `+` sign to add an integration and click on **BSBLan**.
 Fill in the IP address of the device in your network and, if needed,
 the port number. The default value should be `80`.
-For authentication passkey is supported and also http authentication with username and password.
+For authentication passkey is supported and also HTTP authentication with username and password.
 
 After completing the configuration flow, the BSBLan Climate integration will be
 available.
