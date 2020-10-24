@@ -174,8 +174,10 @@ The same thing can also be expressed as a filter:
 
 - `now()` returns a datetime object that represents the current time in your time zone.
   - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
+  - Using `now()` will cause templates to be refreshed at the start of every new minute.
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
+  - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
 - `as_timestamp()` converts datetime object or string to UNIX timestamp. This function also be used as a filter.
 - `as_local()` converts datetime object to local time. This function also be used as a filter.
 - `strptime(string, format)` parses a string based on a [format](https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object.
@@ -459,10 +461,6 @@ To evaluate a response, go to **Developer Tools** -> **Template**, create your o
 ### `entity_id` that begins with a number
 
 If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
-
-### Templates without entities using `now()`
-
-Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/integrations/template/#working-without-entities)
 
 ### Priority of operators
 

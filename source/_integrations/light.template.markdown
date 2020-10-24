@@ -146,10 +146,6 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### Working without entities
-
-If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
-
 ## Examples
 
 In this section you will find some real-life examples of how to use this light.
