@@ -27,7 +27,7 @@ This integration allows you to control Tasmota devices over MQTT.
 Lights, relays, sensors and switches are supported.
 
 - Lights will be added as Home Assistant `light` entities.
-- Relays will be added as Home Assistant `switch` entities, if `SetOption30 = 1`. If `SetOption30 = 0`, relays will be added as `light` entities.
+- Relays will be added as Home Assistant `switch` entities, if `SetOption30 = 0`. If `SetOption30 = 1`, relays will be added as `light` entities.
 - Sensors will be added as Home Assistant `sensor` entities.
 - Switches will be added as Home Assistant `binary_sensor` entities, if a `switchtopic` is set or there is no corresponding power device (light, relay, etc.).
 
