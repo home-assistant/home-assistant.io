@@ -5,6 +5,7 @@ ha_category:
   - DIY
 ha_release: 0.12
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@garbled1'
 ha_domain: onewire
@@ -92,29 +93,7 @@ The device IDs begin with `28-`.
 
 ## Configuration
 
-To enable One wire sensors in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: onewire
-```
-
-{% configuration %}
-names:
-  description: ID and friendly name of your sensors.
-  required: false
-  type: string
-host:
-  description: Remote or localhost running owserver.
-  required: false
-  type: string
-port:
-  description: "The port number of the owserver (requires `host`)."
-  required: false
-  type: integer
-  default: 4304
-{% endconfiguration %}
+Go to the integrations page in your configuration and click on new integration -> 1-Wire.
 
 ### Configuration Example
 
