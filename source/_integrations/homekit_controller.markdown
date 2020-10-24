@@ -13,6 +13,7 @@ ha_category:
   - Sensor
   - Fan
   - Health
+  - Humidifier
 ha_release: 0.68
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -41,6 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
 - Air Quality
+- Humidifier (HomeKit humidifiers and dehumidifiers)
 - Automation Triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
 <div class='note'>
