@@ -36,7 +36,7 @@ api_secret:
   required: true
   type: string
 sensor_id:
-  description: The sensor ID will be auto-detected but can be set if you have more then one sensor.
-  required: false
+  description: In previous versions of hte neurio API the sensor ID was auto-detected. Current versions of the API require the sensor_id. Sensor_id is in the form of a hex string 0x0000XXXXXXXXXXXX and can be found here https://mypwrview.generac.com/#settings/sensors
+  required: true
   type: string
 {% endconfiguration %}
