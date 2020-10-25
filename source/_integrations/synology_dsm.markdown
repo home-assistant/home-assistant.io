@@ -139,6 +139,9 @@ For each volume:
 Security:
 - `security_status`: Displays safe to indicate if the NAS is safe.
 
+Upgrade:
+- `update_available`: Displays on if a DSM update is available.
+
 For each disk:
 - `disk_exceed_bad_sector_thr`: Displays on to indicate if the disk exceeded the maximum bad sector threshold. (Does not work with DSM 5.x)
 - `disk_below_remain_life_thr`: Displays on to indicate if the disk dropped below the remain life threshold. (Does not work with DSM 5.x)
