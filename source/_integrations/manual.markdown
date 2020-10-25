@@ -149,7 +149,7 @@ In the rest of this section, you find some real-life examples on how to use this
 
 ### Sensors
 
-Using sensors to trigger the alarm.
+Using sensors to trigger the alarm. In this example we will also show that you can override the delay time which is set in the configuration.yaml so doors will have 30 seconds delay even if the windows sensors will trigger it immediately.
 
 ```yaml
 automation:
@@ -164,9 +164,6 @@ automation:
     - platform: state
       entity_id: sensor.door
       to: 'open'
-    - platform: state
-      entity_id: sensor.window
-      to: 'open'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
@@ -174,6 +171,8 @@ automation:
   action:
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.ha_alarm
+    data:
+      delay: 30
 ```
 
 Sending a notification when the alarm is triggered.
