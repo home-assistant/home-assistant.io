@@ -1,5 +1,5 @@
 ---
-title: AVM FRITZ!Box
+title: AVM FRITZ!Box Smarthome
 description: Instructions on how to integrate the AVM Fritzbox Smart Home components.
 ha_category:
   - Binary Sensor
