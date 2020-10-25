@@ -1,7 +1,6 @@
 ---
 title: Color Extractor
 description: Instructions how to integrate the Color Extractor into Home Assistant.
-logo: home-assistant.png
 ha_release: 0.117
 ha_category:
   - Image Processing
