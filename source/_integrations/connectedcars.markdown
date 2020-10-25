@@ -14,9 +14,7 @@ ha_domain: connectedcars
 ---
 
 The ConnectedCars.io integration uses the [ConnectedCars.io](https://connectedcars.io/) web service as a source for car data.
-This is mainly used by the Volkswagen group in Denmark and is the backside of [MinVolkswagen](https://site.volkswagen.dk/minvolkswagen/).
-
-Thanks to [niklascp](https://pypi.org/user/niklascp/) for creating the PyPi lib so I did not have to..
+This is mainly used by the Volkswagen group in Denmark and is the backing site of [MinVolkswagen](https://site.volkswagen.dk/minvolkswagen/).
 
 ## Setup
 
@@ -25,12 +23,14 @@ You have to get a ConnectedCars.io account and have a connection device installe
 ## Configuration
 
 To add ConnectedCars.io to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **ConnectedCars**.
-Simply put you `username`, `password` and `namespace`.
+Enter your `username`, `password` and `namespace`.
 The `namespace` can be found if you log in to [ConnectedCars.io GraphQL](https://api.connectedcars.io/graphql/graphiql/#) - look to the upper right corner after login.
-Vin is still not used, the integration adds the car entities by itself.
+Vin is currently not used, the integration adds the car entities by itself.
 
 <div class="note warning">
 
-The integration is set to update every 5 minutes, there should maybe be a setting for this in the future.
+The integration is set to update every 5 minutes.
 
 </div>
+
+Thanks to [niklascp](https://pypi.org/user/niklascp/) for creating the PyPi lib.
