@@ -181,10 +181,10 @@ adaptive_lighting:
 | `entity_id`               |       no | The `entity_id` of the switch with the settings to apply.               |
 | `lights`                  |       no | A light (or list of lights) to apply the settings to.                   |
 | `transition`              |      yes | The number of seconds for the transition.                               |
-| `adapt_brightness`        |      yes | Whether to change the brightness of the light or not.                   |
-| `adapt_color_temp`        |      yes | Whether to adapt the color temperature on supporting lights.            |
-| `adapt_rgb_color`         |      yes | Whether to adapt the color temperature with `rgb_color`.                |
-| `turn_on_lights`          |      yes | Whether to turn on lights that are currently off.                       |
+| `adapt_brightness` | yes | Whether to change the brightness of the light or not.                                        |
+| `adapt_color`      | yes | Whether to adapt the color on supporting lights.                                             |
+| `prefer_rgb_color` | yes | Whether to prefer RGB color adjustment over of native light color temperature when possible. |
+| `turn_on_lights`   | yes | Whether to turn on lights that are currently off.                                            |
 
 `adaptive_lighting.set_manual_control` can mark (or unmark) whether a light is "manually controlled", meaning that when a light has `manual_control`, the light is not adapted.
 
