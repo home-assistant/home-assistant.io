@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: connectedcars
 ---
 
-The `connectedcars` integration uses the [ConnectedCars.io](https://connectedcars.io/) web service as a source for car data.
+The ConnectedCars.io integration uses the [ConnectedCars.io](https://connectedcars.io/) web service as a source for car data.
 This is mainly used by the Volkswagen group in Denmark and is the backside of [MinVolkswagen](https://site.volkswagen.dk/minvolkswagen/).
 
 Thanks to [niklascp](https://pypi.org/user/niklascp/) for creating the PyPi lib so I did not have to..
