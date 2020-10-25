@@ -20,7 +20,7 @@ Thanks to [niklascp](https://pypi.org/user/niklascp/) for creating the PyPi lib 
 
 ## Setup
 
-You have to get an ConnectedCars.io account and have a connection device installed in the car. In Denmark this is free-of-charge (at moment of writing) on Volkswagen cars [MinVolkswagen](https://site.volkswagen.dk/minvolkswagen/).
+You have to get a ConnectedCars.io account and have a connection device installed in the car. In Denmark, this is free-of-charge (at the moment of writing) on Volkswagen cars [MinVolkswagen](https://site.volkswagen.dk/minvolkswagen/).
 
 ## Configuration
 
