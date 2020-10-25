@@ -9,6 +9,13 @@ ha_codeowners:
 ha_domain: ptvsd
 ---
 
+<div class="note warning">
+
+The PTVSD integration has been deprecated and will be removed in Home Assistant 0.120.0.
+A full-featured replacement is available, by using the [`debugpy` integration](/integrations/debugpy).
+
+</div>
+
 The `ptvsd` integration allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.
 
 This is useful in testing changes on a local development install, or connecting to a production server to debug issues.
