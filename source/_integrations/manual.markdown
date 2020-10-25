@@ -149,7 +149,7 @@ In the rest of this section, you find some real-life examples on how to use this
 
 ### Sensors
 
-Using sensors to trigger the alarm. In this example we will also show that you can override the delay time which is set in the configuration.yaml so doors will have 30 seconds delay even if the windows sensors will trigger it immediately.
+Using sensors to trigger the alarm. In this example we will also show that you can override the delay time which is set in the `configuration.yaml` so doors will have 30 seconds delay even if the windows sensors will trigger it immediately.
 
 ```yaml
 automation:
