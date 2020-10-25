@@ -133,7 +133,7 @@ Once inside the Python folder, type `pip install six` and press ENTER. Wait for 
 3. Run the script
 Type `python .\roomba\getpassword.py`, hit ENTER and wait a few seconds. Now your Roomba should be detected by the script. From here on you should follow on-screen directions (something about making sure your Roomba is turned on and parked in the base, and then holding the “Home” button for a few seconds to hear a bleep. This should cause the wifi indicator on your Romba to flash - then hit ENTER to continue and wait a few seconds more).
 
-- Your Roomba’s BLID and password now appears in the bottom of the DOS window! Copy this info to a txt-file, grab a screenshot or whatever method you like best.
+- Your Roomba’s BLID and password now appears in the bottom of the DOS window! Copy this info to a txt-file, grab a screenshot or whatever method you like best. In case of no or bad response: Make shure no apps are connected to Roomba. Or try holding down the the standby button on the Roomba until it reboots.
 
 - From here on you can follow the instructions found on the Home Asistant website on how to add your Roomba to your “configuration.yaml” file (https://www.home-assistant.io/components/vacuum.roomba/). Then you’re ready to reboot your Home Assistant and enjoy Roomba integration.
 
