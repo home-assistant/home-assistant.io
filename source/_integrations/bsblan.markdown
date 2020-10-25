@@ -44,5 +44,5 @@ To see a more detailed listing of the reported systems which are successfully us
 - [`Elco`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#312-elco)
 - [`Other Manufacturers (e.g. Fujitsu, Atlantic, Weishaupt)`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#313-other-manufacturers)
 
-The integration is tested with the stable firmware version `1.00`. Newer firmware versions do not work because the parameters are changed of the specific info that is needed.
+The integration is tested with the stable firmware version `1.00`. A newer firmware versions will not work, because the parameters are changed of the specific info that is needed.
 Please use the latest release. [release 1.0](https://github.com/fredlcore/bsb_lan/releases/tag/v1.0)
