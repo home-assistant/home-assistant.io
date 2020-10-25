@@ -41,13 +41,13 @@ Quick Start Guide:
 - Register in the Device Access Console to get a `project_id`.
 - Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`.
 - Enable pubsub events in the Device Access Console (creates a topic).
-- Create a pull subscription to get a `subscription_id`.
+- Create a pull subscription to get a `subscriber_id` ("Subscription ID" in Google Cloud Console).
 
 Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
 
 Follow all of the instructions in [Device Access: Quick Start Guide](https://developers.google.com/nest/device-access/get-started) carefully as it is easy to make a configuration mistake that is difficult to debug. It is recommended to exercise the entire guide, including the command to test out the API, to make sure that it is working before configuring Home Assistant.
 
-It may be easiest to create a [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console. Make sure to use the *topic name* from the device access console and a unique subscription name. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
+It may be easiest to create a [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console. Make sure to use the *topic name* from the device access console and a unique subscription ID. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
 
 ## Works With Nest: Developer Account Setup (Legacy)
 
@@ -83,7 +83,7 @@ nest:
   client_secret: CLIENT_SECRET
   # Fields required by Device Access (SDM) API.  Otherwise, use legacy API.
   project_id: PROJECT_ID
-  subscriber_id: SUBSCRIBER_ID
+  subscriber_id: SUBSCRIBER_ID # ("Subscription ID" in Google Cloud Console)
 ```
 
 ```yaml
@@ -106,11 +106,11 @@ client_secret:
   required: true
   type: string
 project_id:
-  description: Your Device Access project_id. This enables the SDM API.
+  description: Your Device Access Project ID. This enables the SDM API.
   required: false
   type: string
-subscription_id:
-  description: Your Pub/sub subscription_id used to receive events. This is required to use the SDM API.
+subscriber_id:
+  description: Your Pub/sub Subscription ID used to receive events. This is required to use the SDM API.
   type: string
   required: false
 structure:
