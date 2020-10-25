@@ -37,14 +37,14 @@ You will need to follow the instructions in [Device Access Registration](https:/
 Quick Start Guide:
 
 - Accept the Terms of Service.
-- Pay a fee (currently US$5). 
+- Pay a fee (currently US$5).
 - Register in the Device Access Console to get a `project_id`.
 - Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`.
 - Enable pubsub events in the Device Access Console (creates a topic).
 - Create a pull subscription to get a `subscription_id`.
 
 <div class='note warning'>
-It is not currently possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
+It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
 </div>
 
 Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
