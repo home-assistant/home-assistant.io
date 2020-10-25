@@ -44,7 +44,7 @@ Quick Start Guide:
 - Create a pull subscription to get a `subscriber_id` ("Subscription ID" in Google Cloud Console).
 
 <div class='note warning'>
-It is not currently possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
+It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
 </div>
 
 Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
