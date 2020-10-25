@@ -27,7 +27,7 @@ You have to get a ConnectedCars.io account and have a connection device installe
 To add ConnectedCars.io to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **ConnectedCars**.
 Simply put you `username`, `password` and `namespace`.
 The `namespace` can be found if you log in to [ConnectedCars.io GraphQL](https://api.connectedcars.io/graphql/graphiql/#) - look to the upper right corner after login.
-Vin is still not used, the integration adds the cars entities by itself.
+Vin is still not used, the integration adds the car entities by itself.
 
 <div class="note warning">
 
