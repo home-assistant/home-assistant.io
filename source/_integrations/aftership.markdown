@@ -40,6 +40,11 @@ api_key:
   description: The API key for AfterShip.
   required: true
   type: string
+refresh_time:
+  description: Refresh time/interval (in minutes).
+  required: false
+  default: 5
+  type: integer
 {% endconfiguration %}
 
 ## Service `add_tracking`
