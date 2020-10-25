@@ -401,7 +401,7 @@ The `nest` platform allows you to watch still frames from a video stream (not li
 
 <div class='note'>
 
-The `nest` camera will automatically be setup when you do.
+The Legacy API integration allows you to watch still frames from a video stream (not live stream). The Legacy API also supports the `camera.turn_on` and `camera.turn_off` services.
 
 </div>
 
