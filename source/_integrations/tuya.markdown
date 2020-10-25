@@ -78,13 +78,18 @@ Through the integration options it is possible to change various behaviors, some
 
 ### Common Options
 
-- **Discovery device polling interval** (default=605): define the interval between 2 consecutive call to API discovery method, that is used to get the status for all 
+- **Discovery device polling interval** (default=605): define the interval between 2 consecutive call to `API discovery method`, that is used to get the status for all 
 registered devices with single call. If you set interval value too low, Tuya API will return errors so it is suggested to use default value until
 you now that is possible to use lower values.
 
-- **Query device polling interval** (default=120): define the interval between 2 consecutive call to API query method, that is used to get the status for a specific device. 
-This method is used when only one device (excluded switch) is registered because is not possible to make multiple call. If you set interval 
-value too low, Tuya API will return errors so it is suggested to use default value until you now that is possible to use lower values.
+- **Query device polling interval** (default=120): this option is available only if you have devices that can use `API query method`. 
+It define the interval between 2 consecutive call to `API query method`, that is used to get the status for a specific device. 
+This method is always used when is available only one device that can use it. If you set interval value too low, Tuya API will return errors 
+so it is suggested to use default value until you now that is possible to use lower values.
+
+- **Device that will use query method**: this option is available only if you have devices that can use `API query method`. 
+Because it is not possible make multiple call to `API query method`, if you have more than one device that can use it you can choose which 
+one will use. This will give better status refresh for this specific device.
 
 - **Device to configure (multi-select list)**: this option is available only if you have `light` or `climate` device. Selecting a device to 
 configure to option page related to the device will be opened. You can also select more than one devices to configure them simultaneously, 
