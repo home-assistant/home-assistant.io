@@ -44,7 +44,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
   - [Proactive Events](#proactive-events)
   - [Configure Filter](#configure-filter)
   - [Alexa Display Categories](#alexa-display-categories)
-- [Supported Platforms](#supported-platforms)
+  - [Supported Platforms](#supported-platforms)
   - [Alarm Control Panel](#alarm-control-panel)
     - [Arming](#arming)
     - [Disarming](#disarming)
