@@ -127,7 +127,7 @@ structure:
 
 Once your developer account is set up and `nest` has been configured, you need to connect devices with the following steps:
 
-1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Google Nest Device Access'.
+1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Nest'.
 1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
 1. The *Google Nest permissions* screen will allow you to choose which devices to configure.
 1. You will get redirected back to another account selection page.
