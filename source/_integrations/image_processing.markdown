@@ -4,6 +4,7 @@ description: Instructions on how to setup image processing with Home Assistant.
 ha_category:
   - Image Processing
 ha_release: 0.36
+ha_iot_class: Calculated
 ha_domain: image_processing
 ---
 
