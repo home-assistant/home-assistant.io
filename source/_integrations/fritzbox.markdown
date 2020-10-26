@@ -1,6 +1,6 @@
 ---
-title: AVM FRITZ!DECT
-description: Instructions on how to integrate the AVM Fritz!DECT components.
+title: AVM FRITZ!SmartHome
+description: Instructions on how to integrate AVM Fritz!DECT components into Home Assistant.
 ha_category:
   - Binary Sensor
   - Climate
@@ -12,7 +12,7 @@ ha_domain: fritzbox
 ha_config_flow: true
 ---
 
-The [AVM FRITZ!DECT](https://en.avm.de/products/fritzdect/) integration for Home Assistant allows you to integrate the FRITZ!DECT devices like switches, sensors and thermostats.
+The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To add the AVM FRITZ!DECT integration (which is a part of the AVM FRITZ!Box integration) to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ!Box**.
+To add the AVM FRITZ!SmartHome integration (which is a part of the AVM FRITZ!Box integration) to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ!Box**.
 
 If you have enabled SSDP discovery, it’s likely that you just have to confirm the detected device with username and password.
 
@@ -60,7 +60,7 @@ devices:
       type: string
       default: fritz.box
     username:
-      description: The username for Smart Home access. **("Smart Home" persmission is needed!)** 
+      description: The username for Smart Home access. **(User needs "Smart Home" persmission!)** 
       required: false
       type: string
       default: admin
@@ -73,7 +73,7 @@ devices:
 
 ## Switches & Thermostats
 
-To get AVM FRITZ!DECT switch (e.g. FRITZ!DECT 400/440) and thermostat (e.g. FRITZ!DECT 301) follow the [configuration instructions](#configuration) above.
+To get AVM FRITZ!DECT switches (e.g. FRITZ!DECT 400/440) or thermostats (e.g. FRITZ!DECT 301) follow the [configuration instructions](#configuration) above.
 
 ### Attributes
 
