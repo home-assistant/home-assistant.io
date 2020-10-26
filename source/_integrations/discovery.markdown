@@ -23,7 +23,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Logitech Harmony Hub](/integrations/harmony)
  * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
  * [NETGEAR routers](/integrations/netgear)
- * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
