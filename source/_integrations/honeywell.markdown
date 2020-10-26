@@ -12,7 +12,7 @@ ha_domain: honeywell
 
 The `honeywell` climate platform integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.
 
-It can also add available sensors as entities in home assistant.
+It can also add available sensors as entities in Home Assistant.
 
 It uses the [somecomfort](https://github.com/kk7ds/somecomfort) client library. It does not support the home security functionality of TCC.
 
