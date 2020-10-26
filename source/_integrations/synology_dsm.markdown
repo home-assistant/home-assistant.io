@@ -50,6 +50,11 @@ ssl:
   required: false
   default: true
   type: boolean
+verify_ssl:
+  description: Determine if SSL-Certificate should be verified.
+  required: false
+  default: false
+  type: boolean
 username:
   description: The account username to connect to the Synology NAS. Using a separate account is advised, see the [Separate User Configuration](#separate-user-configuration) section below for details.
   required: true
