@@ -4,6 +4,7 @@ description: Instructions on how to integrate a ONVIF camera within Home Assista
 ha_category:
   - Camera
 ha_release: 0.47
+ha_iot_class: Local Push
 ha_domain: onvif
 ha_codeowners:
   - '@hunterjm'
