@@ -12,6 +12,7 @@ Supported by MQTT discovery:
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
+- [Device Trackers](/integrations/device_tracker.mqtt/)
 - [Device Triggers](/integrations/device_trigger.mqtt/)
 - [Fans](/integrations/fan.mqtt/)
 - [HVACs](/integrations/climate.mqtt/)
@@ -404,4 +405,37 @@ Setting up a climate integration (heat only):
   "target_temp":"21.50",
   "current_temp":"23.60",
 }
+```
+
+### Presence detection (device tracker)
+
+Setting up a device tracker:
+
+- Configuration topic: `homeassistant/device_tracker/paulus/config`
+- Example configuration payload:
+
+```json
+{
+  "name":"Paulus",
+  "state_topic": "homeassistant/device_tracker/paulus/state",
+  "payload_home": "home",
+  "payload_not_home": "not_home",
+  "source_type": "bluetooth",
+ }
+```
+
+- State topic: `homeassistant/device_tracker/paulus/state`
+- Example state payload: `home` or `not_home` or `location name`
+
+If the device supports gps co-ordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+
+- Attributes topic: `homeassistant/device_tracker/paulus/attributes`
+- Example attributes payload:
+
+```json
+{
+  "latitude": 32.87336,
+  "longitude": -117.22743,
+  "gps_accuracy": 1.2,
+ }
 ```
