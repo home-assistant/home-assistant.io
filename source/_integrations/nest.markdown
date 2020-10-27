@@ -304,17 +304,12 @@ The following conditions are available by device:
   - person\_detected
   - sound\_detected
 
-### Camera (Legacy API Only)
+### Camera
 
-The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
+The SDM API integration allows you to watch a live stream, but does not yet
+support still frames in Home Assistant.
 
-<div class='note'>
-
-The `nest` camera will automatically be set up when you do.
-
-</div>
-
-Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since the 0.75 release.
+The Legacy API integration allows you to watch still frames from a video stream (not live stream). The Legacy API also supports the `camera.turn_on` and `camera.turn_off` services.
 
 ### Climate (Legacy API Only)
 
