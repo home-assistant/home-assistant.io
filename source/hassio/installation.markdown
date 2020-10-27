@@ -1,9 +1,9 @@
 ---
-title: "Installing Home Assistant"
-description: "Instructions on how to install Home Assistant."
+title: "Installing Home Assistant OS"
+description: "Instructions on how to install Home Assistant OS."
 ---
 
-The following will take you through the steps required to install Home Assistant.
+The following will take you through the steps required to install Home Assistant OS.
 
 1. Download the appropriate install option:
 
@@ -25,7 +25,7 @@ The following will take you through the steps required to install Home Assistant
 
      - [Raspberry Pi][pi1], [Raspberry Pi Zero-W][pi0-w], [Raspberry Pi 2][pi2]
 
-2. Install Home Assistant:
+2. Install Home Assistant OS:
 
    - **For the device images:** Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
    - **For the virtual appliance images:** Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
@@ -80,7 +80,7 @@ Best practice for updating a Home Assistant installation:
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
 5. Select _Dashboard_ from the _Supervisor_ menu, and then select _Update_.
 
-## Run a specific version on Home Assistant
+## Run a specific version of Home Assistant
 
 For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
 that is available on your device by connecting a keyboard and screen.
@@ -93,7 +93,7 @@ Use the web-based terminal or SSH to your Home Assistant system, or connect to t
 ha core update --version=0.XX.X
 ```
 
-## Run the beta version on Home Assistant
+## Run the beta version of Home Assistant
 
 If you would like to test next release before anyone else, you can install the beta version released every three weeks:
 
