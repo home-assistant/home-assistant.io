@@ -29,7 +29,8 @@ Lights, relays, sensors and switches are supported.
 - Lights will be added as Home Assistant `light` entities.
 - Relays will be added as Home Assistant `switch` entities, if `SetOption30 = 0`. If `SetOption30 = 1`, relays will be added as `light` entities.
 - Sensors will be added as Home Assistant `sensor` entities.
-- Switches will be added as Home Assistant `binary_sensor` entities, if a `switchtopic` is set or there is no corresponding power device (light, relay, etc.).
+- Switches will be added as Home Assistant `binary_sensor` entities or `automation triggers` depending by the `switchmode` used. To enable them, `switchtopic` needs to be set. If there are no corresponding power device (light, relay, etc.) the `switch`will be added automatically.
+- Buttons will be added as Home Assistant `automation triggers` when `SetOption73` is enabled.
 
 ## Configuration
 
