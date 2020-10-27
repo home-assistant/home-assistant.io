@@ -21,7 +21,6 @@ This integration allows you to control Tasmota devices over MQTT.
 - MQTT server and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
 - Tasmota devices flashed with 9.0.0.3 or later
 - Tasmota devices configured for native discovery (`SetOption19 0`)
-- Tasmota devices configured to send tele/%topic%/STATE in addition to stat/%topic%/RESULT for commands (`SetOption59 1`)
 
 ## Limitations
 
@@ -30,7 +29,8 @@ Lights, relays, sensors and switches are supported.
 - Lights will be added as Home Assistant `light` entities.
 - Relays will be added as Home Assistant `switch` entities, if `SetOption30 = 0`. If `SetOption30 = 1`, relays will be added as `light` entities.
 - Sensors will be added as Home Assistant `sensor` entities.
-- Switches will be added as Home Assistant `binary_sensor` entities, if a `switchtopic` is set or there is no corresponding power device (light, relay, etc.).
+- Switches will be added as Home Assistant `binary_sensor` entities or `automation triggers` depending by the `switchmode` used. To enable them, `switchtopic` needs to be set. If there are no corresponding power device (light, relay, etc.) the `switch` will be added automatically.
+- Buttons will be added as Home Assistant `automation triggers` when `SetOption73` is enabled.
 
 ## Configuration
 
