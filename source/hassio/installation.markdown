@@ -105,23 +105,23 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_rpi0-w-4.14.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_rpi-4.14.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_rpi2-4.14.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_rpi3-4.14.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_rpi3-64-4.14.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_rpi4-4.14.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_rpi4-64-4.14.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_tinker-4.14.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_odroid-c2-4.14.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_odroid-n2-4.14.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_odroid-xu4-4.14.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_intel-nuc-4.14.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_ova-4.14.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_ova-4.14.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_ova-4.14.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_ova-4.14.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.14/hassos_ova-4.14.ova
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi0-w-4.15.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi-4.15.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi2-4.15.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi3-4.15.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi3-64-4.15.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi4-4.15.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi4-64-4.15.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_tinker-4.15.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-c2-4.15.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-n2-4.15.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-xu4-4.15.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_intel-nuc-4.15.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vdi.gz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.qcow2.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
