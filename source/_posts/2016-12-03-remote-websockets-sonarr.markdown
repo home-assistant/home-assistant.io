@@ -214,7 +214,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homematic]: /integrations/homematic/
 [nest-cam]: /integrations/nest#camera
 [nest]: /integrations/nest/
-[nginx]: /ecosystem/nginx/
+[nginx]: /docs/ecosystem/nginx
 [nut]: /integrations/nut
 [philips]: /integrations/philips_js
 [remote]: /integrations/remote/
