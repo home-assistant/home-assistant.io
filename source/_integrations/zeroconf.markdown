@@ -6,7 +6,7 @@ ha_category:
 ha_release: 0.18
 ha_quality_scale: internal
 ha_codeowners:
-  - '@Kane610'
+  - '@bdraco'
 ha_domain: zeroconf
 ha_iot_class: Local Push
 ---

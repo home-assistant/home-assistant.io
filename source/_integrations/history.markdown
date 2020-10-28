@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: history
-ha_iot_class: ~
+ha_iot_class:
 ---
 
 The `history` integration will track everything that is going on within Home

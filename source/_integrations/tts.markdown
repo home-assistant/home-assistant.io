@@ -4,7 +4,7 @@ description: Instructions on how to set up Text-to-Speech (TTS) with Home Assist
 ha_category:
   - Text-to-speech
 ha_release: 0.35
-ha_iot_class: ~
+ha_iot_class:
 ha_codeowners:
   - '@pvizeli'
 ha_domain: tts
