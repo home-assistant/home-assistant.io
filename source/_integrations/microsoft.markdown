@@ -10,6 +10,15 @@ ha_domain: microsoft
 The `microsoft` text-to-speech platform uses [Microsoft Text-to-Speech engine](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/home) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Bing Speech API.
 You will need an API key, which is free. You can use your [Azure subscription](https://azure.microsoft.com) or get an API key on the [Cognitive Services site](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
+<div class="note warning">
+
+_According to the [Microsoft Azure website](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-api/), the Bing Speech API is no longer supported and isn't available from the Marketplace anymore:_
+_"The Speech service and SDK is replacing Bing Speech. For information on switching to the Speech service, see Migrating from Bing Speech to the Speech service."_
+
+This integration will still be available as long as Microsoft keeps the Bing Speech API active. Consider migrating to the new `microsoft_speech` integration, which uses the new Azure Speech service.
+
+</div>
+
 ## Configuration
 
 To enable text-to-speech with Microsoft, add the following lines to your `configuration.yaml`:
