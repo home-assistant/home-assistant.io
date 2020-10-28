@@ -36,7 +36,13 @@ Darn, we do have an amazing community, don't we? 😍
 
 ../Frenck
 
+PS: Oh, later today might be fun! We are looking into trying to do a
+Home Assistant live stream / mini-release party / Q&A on the
+[Home Assistant YouTube channel][youtube].
+So, keep an eye on our social media for the announcement.
+
 [podcast]: https://hasspodcast.io/ha075/
+[youtube]: https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w
 
 - [Stefan Agner joins Nabu Casa!](#stefan-agner-joins-nabu-casa)
 - [Quick Bar](#quick-bar)
