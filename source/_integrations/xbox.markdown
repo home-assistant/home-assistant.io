@@ -15,7 +15,7 @@ ha_domain: xbox
 
 The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
 
-Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**. Ensure you login using the Microsoft account that is linked to your Xbox consoles.
+Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**. Ensure you login using the Microsoft account that is linked to your Xbox consoles.
 
 - [Media Player](#media-player)
   - [Service `play_media`](#service-play_media)
@@ -274,13 +274,12 @@ It can take up to a couple of days for newly installed applications to appear in
 These steps are not required, nor will they be supported if issues are encountered. It is recommended to add the integration directly in the Integrations page.
 </div>
 
-If you prefer not to use the Home Assistant account linking service, you may manually configure a local implementation using the following steps:
+If you prefer not to use the Home Assistant account linking service, you may manually configure a local implementation if your instance is exposed externally over HTTPS using the following steps:
 
 - Register a new application in [Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
   - Name your app
   - Select "Personal Microsoft accounts only" under supported account types
-  - For Redirect URI, add: `<INTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
-  Use your internal Home Assistant URL, if you didn't configure one manually, use your local IP address. Examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`.
+  - For Redirect URI, add: `https://<EXTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
 - Copy your Application (client) ID for later use
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and save for later use
