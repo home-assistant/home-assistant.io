@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.117: Beta release notes"
-description: "Beta release notes for Home Assistant Core 0.117.0"
-date: 2020-10-21 00:00:00
+title: "0.117: Quick Bar, compact header, a YAML editor, XBox and Template types"
+description: "A quick navigation/search bar accessible anywhere, a compact header built-in, edit your full script/automation YAML in the UI, Counter & Timer Helpers and a beta change to templates"
+date: 2020-10-28 00:00:00
 date_formatted: "October 28, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -13,37 +13,38 @@ og_image: /images/blog/2020-10-0.117/social.png
 
 <a href='/integrations/#version/0.117'><img src='/images/blog/2020-10-0.117/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant 0.117.0.
+And the train just keeps on rolling... Home Assistant Core 0.117!
 
-If you encounter any issues, please report them on GitHub:
+Some big releases lately, and this is a big one for sure. However,
+interesting this release is the amount of little improvements! I guess that
+is the result of [Hacktoberfest](/blog/2020/10/01/hacktoberfest-2020/)!
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+We have seen a crazy and absurd amount of contributions this October, lots
+of new faces too! 500+ pull requests on the documentation, 700+
+on the core and 150+ on the frontend processed up until now! Amazing!
+You guys rock!
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+Also, the [Home Assistant Conference](/conference) has been announced! If you
+want to speak at the very first, online, Home Assistant Conference, be sure
+to [submit your talk](/conference#open-call-for-speakers) before 31 October.
 
-Issues introduced in the beta are processed with priority.
+And finally, while writing this, I'm enjoying Home Assistant Podcast, as they
+have released [their episode for 0.117][podcast] already. 🎙  Thanks for all
+you do guys, always a pleasure to listen to.
 
-TODO:
+Darn, we do have an amazing community, don't we? 😍
 
-- Introduction
-- Core/backend topics
-- frontend topics
-- screenshots
-- noteworthy changes
+../Frenck
 
-Table of contents:
+[podcast]: https://hasspodcast.io/ha075/
 
-- [Quick search/nav/open](#quick-searchnavopen)
-- [Native types support for templates](#native-types-support-for-templates)
-- [Xbox](#xbox)
+- [Stefan Agner joins Nabu Casa!](#stefan-agner-joins-nabu-casa)
+- [Quick Bar](#quick-bar)
+- [Compact header](#compact-header)
+- [Script and automation YAML editor](#script-and-automation-yaml-editor)
+- [Xbox integration](#xbox-integration)
+- [Counters & Timers available as helpers in the UI](#counters--timers-available-as-helpers-in-the-ui)
+- [Native types support for templates (Beta)](#native-types-support-for-templates-beta)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -53,29 +54,141 @@ Table of contents:
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## Quick search/nav/open
+## Stefan Agner joins Nabu Casa!
 
-Nice new feature to open up a quick search dialog from the frontend. Bit
-like VSCode
+Today we are pleased to announce that Nabu Casa hired [Stefan Agner][@agners] to
+work on the Home Assistant project.
+
+Stefan is specialized in embedded systems and the Linux kernel, and he will be
+mainly working on improving and extending the Home Assistant Operating System.
+
+In his spare time, he loves to hack on all things embedded. From making the ARM
+Linux kernel getting built by Clang to building sensor nodes using MicroPython.
+
+If not hacking, he's probably out and about for a hike or a good beer with
+friends.
+
+Welcome Stefan! We are excited to have you!
+
+[@agners]: https://github.com/agners
+
+## Quick Bar
+
+Let me quickly find that entity that is not on my Lovelace Dashboard...
+hold on... Configuration -> Entities, search for it... click the right one...
+Got it!
+
+That isn't efficient, right? [@donkawechico] to the rescue! He added an exciting
+new feature to our frontend: the Quick Bar.
+
+This new dialog allows you to quickly open an entity or run a command.
+
+It can be launched anywhere in Home Assistant; with the keyboard shortcuts
+`e` for entities and `c` for commands. You can switch between the entities and
+command modes by removing or adding the `>` at the start of the search input.
+
+The Quick Bar is similar to the Command Pallet you might know from Visual Studio
+Code. He even copied the filter algorithm from Visual Studio Code, so you can
+search what you need even faster.
 
 <p class='img'>
-<img src='/images/blog/2020-10-0.116/entity-card-edit.png' alt='Screenshot of the lorem ipsum card.'>
-You can now lorem ipsum; adjust the lorem and ipsum info.
+<img src='/images/blog/2020-10-0.117/quick-bar.gif' alt='Screencapture of the Quick Bar.'>
+Screencapture of the Quick Bar.
 </p>
+
+The commands are currently limited to reloading YAML configuration and
+restarting Home Assistant, but expect this to grow rapidly grow!
+The same goes for the keyboard shortcuts; the plan is to add more so you can
+quickly perform actions and navigate Home Assistant from anywhere with
+a couple of key presses!
+
+[Check the documentation for more information and usage tips](/docs/tools/quick-bar/).
+
+[@donkawechico]: https://github.com/donkawechico
 
 ## Compact header
 
-https://github.com/home-assistant/frontend/pull/7369
+[@maykar] recently archived his immensely popular custom header repository,
+promising to bring parts of it to the core of Home Assistant.
 
-## Native types support for templates
+Well, he did; this release, our Lovelace header is compact! 🤩
+
+He combined the two bars we had in 1 by replacing the dashboard title with the
+tabs that used to be shown below it. He did a lot of work to make the
+tabs take up the least amount of space, while still being user friendly.
+
+We think it looks great! And, finally, welcome to core [@maykar]!
+
+<p class='img'>
+<img src='/images/blog/2020-10-0.117/compact-header.png' alt='Screenshot of the compact header.'>
+Screenshot of the compact header.
+</p>
+
+[@maykar]: https://github.com/maykar
+
+## Script and automation YAML editor
+
+[@thomasloven] added the ability to edit an entire automation or script in the
+UI with YAML.
+
+This is the perfect blend for people that want the best of both worlds, editing
+in the UI with the normal UI editor and for some more complicated automations,
+maybe edit it directly in YAML, all from the UI.
+
+<p class='img'>
+<img src='/images/blog/2020-10-0.117/yaml-automation-editor.png' alt='Screenshot of the new YAML automation editor.'>
+Screenshot of the new YAML automation editor.
+</p>
+
+He also added a very useful copy button to make it easy to share your
+automation with the community. You can then easily paste it back in the
+YAML editor and continue editing after switching to the UI mode.
+
+## Xbox integration
+
+Xbox now has a full blown integration in Home Assistant, which delivers remote
+control and tons of other features.
+
+This awesome addition is created by [@hunterjm] and he made this nice little
+video demonstrating his creation:
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/7eDcJi31fIY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+## Counters & Timers available as helpers in the UI
+
+A nice addition to the helpers you can create and manage in the UI:
+Counters & Timers are now available! Thanks, [@danimart1991]!
+
+<p class='img'>
+<img src='/images/blog/2020-10-0.117/counter-timer.png' alt='Screenshot of the new Counter & Timer helpers.'>
+Screenshot of the new Counter & Timer helpers.</p>
+
+[@danimart1991]: https://github.com/danimart1991
+
+## Native types support for templates (Beta)
 
 Ever tried to make a list of entities or set a RGB color via an template?
 If so, you probably would have learned, that it is not that simple. In Home
 Assistant, the result of a template always have been a piece of text (a string),
 even if you made a list.
 
-This release adds support for native Python types in template. This means that
-template now actually can create lists, or return a number!
+This release adds support for native Python types in templates. This means that
+templates now actually can create lists, or return a number!
+
+For 0.117, native template types will be a opt-in beta feature, that will
+become the default in the next release.
+
+You can enable it, by disabling the `legacy_template` rendering in your
+`configuration.yaml`:
+
+```yaml
+homeassistant:
+  legacy_templates: false
+```
+
+After that, you can do things like this:
 
 {% raw %}
 
@@ -98,69 +211,62 @@ script:
 
 {% endraw %}
 
-This is an extremely powerful change to our template engine that allow for
-more advanced future and can significantly reduce the complexity of existing
-templates in your set up.
+This is an extremely powerful change to our template engine, that allow for
+more advanced future additions and can significantly reduce the complexity of
+existing templates in your set up.
 
-Please be sure to check the breaking changes section, as this feature might
-impact your existing templates.
+It should be mostly compatible with your existing templates, however, if you
+enable this feature, please be sure to check the breaking changes section.
 
-## Scriptomation YAML editor
-
-https://github.com/home-assistant/frontend/pull/7273
-
-
-## Counters & Timers available as helpers in the UI
-
-Counters & Timers are now available as a helpers in the UI.
-
-https://github.com/home-assistant/frontend/pull/7346
-https://github.com/home-assistant/frontend/pull/7366
-
-## Xbox
-
-Xbox now a full blown integration, created by [@hunterjm].
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Xbox Integration coming to a <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> near you in 0.117! <a href="https://t.co/Ruh4XopOJF">pic.twitter.com/Ruh4XopOJF</a></p>&mdash; Jason Hunter (@hunterjm) <a href="https://twitter.com/hunterjm/status/1318352626497486849?ref_src=twsrc%5Etfw">October 20, 2020</a>
-</blockquote>
+We'd love to hear you experience with using this feature!
 
 ## Other noteworthy changes
 
-- [@frenck] wrote this lorem ipsum. Awesome!
+It is Hacktoberfest, and a lot smaller, but noteworthy changes this release!
 
-Something something... New Nest API suuport. Minimal, no thermostat yet. But,
-there is a base now, which will be extended the upcoming releases.
+First a shout out to [@spacegaier], he did a LOT of improvements (29!) this
+release. Visual tweaks, quality of live improvements and random fixes, like:
 
-Other candidates for this section:
-- Improve deCONZ platforms ([@Kane610] - [#40986]) ([deconz docs])
-- Improve deCONZ fan platform handling unsupported commands ([@Kane610] - [#41779]) ([deconz docs])
-- Improve deCONZ climate platform handling unsupported commands ([@Kane610] - [#41780]) ([deconz docs])
-- Add fan support to deCONZ ([@Kane610] - [#40806]) ([deconz docs]) (new-platform)
-- Improve logging to identify which deCONZ device is at fault ([@Kane610] - [#40808]) ([deconz docs])
-- Add voltage, power factor and energy returned sensors to Shelly integration ([@bieniu] - [#40681]) ([shelly docs])
-- Add cancel_command service for OpenZWave ([@cgarwood] - [#41285]) ([ozw docs])
-- Add OZW WS API support for locks ([@raman325] - [#41186]) ([ozw docs])
-- Add Netatmo weather trend sensors ([@cgtobi] - [#41318]) ([netatmo docs])
-- Add battery state for devolo Home Control devices ([@Shutgun] - [#41329]) ([devolo_home_control docs])
-- Allow playing Spotify URLs with Sonos ([@amelchio] - [#41366]) ([sonos docs])
-- Add active voltage sensors to Sense integration ([@kbickar] - [#41112]) ([emulated_kasa docs]) ([sense docs])
-- Publish state changes to Zabbix ([@rusitschka] - [#36659]) ([zabbix docs])
-- Allow users to update their iCloud password when auth fails ([@raman325] - [#39138]) ([icloud docs])
-- Add media_player.repeat_set service ([@amelchio] - [#41435]) ([demo docs]) ([media_player docs])
-- Add Sonos support for media_player.repeat_set service ([@amelchio] - [#41735]) ([sonos docs])
-- Add Palette to WLED Effect Service ([@timmo001] - [#41724]) ([wled docs])
-- Discover Plex clients using GDM ([@jjlawren] - [#39053]) ([plex docs])
-- Allow HomeKit to be configured in include mode from the UI ([@bdraco] - [#41662]) ([homekit docs])
-- Support HomeKit accessory mode ([@bdraco] - [#41679]) ([homekit docs])
-- Add media browser capability to volumio ([@OnFreund] - [#40785]) ([volumio docs])
-- Add device actions to water_heater ([@Liopun] - [#41417]) ([water_heater docs])
-- Add low battery sensor for SimpliSafe locks ([@bachya] - [#42010]) ([simplisafe docs])
-- Sort Kodi BrowseMedia children TV Shows and Movies ([@casenjo] - [#41377]) ([media_player docs])
-- Implement time tracking in templates ([@bdraco] - [#41147]) (breaking-change)
-- Allow Cast to play Plex media ([@jjlawren] - [#41869]) ([cast docs])
-- Add browse media support to squeezebox integration ([@rajlaud] - [#40642]) ([squeezebox docs])
-- Add button that dismisses all notifications ([#7223](https://github.com/home-assistant/frontend/pull/7223)) @mattmattmatt
+- Colors in the log for errors and warnings
+- Automatically fill the Lovelace resource type based on the extension of the URL
+- Make more text translateable
+- Make attributes more user friendly
+- Show the number of hidden entities in the entities configuration page
+- And a lot more!
 
+But wait, there is more!
+
+- [@allenporter] started working on adding Google Nest Device Access to
+  the Nest integration. It is a base to extend on, for example, there is no
+  thermostat yet. Looking forward to the upcoming releases!
+- You can save now automations, scripts and scenes with `ctrl`/`cmd` + `s`.
+  Thanks, [@gilsonmandalogo]!
+- [@mattmattmatt] added the ability to dismiss all notifications at once, and
+  the notifications pane will close when the last notification was dismissed.
+- We improved compatibility and Home Assistant is now usable on more, mostly
+  older, devices.
+- You can now search for the entity name in the entity picked besides the
+  entity id, thanks [@zsarnett]!
+- Thanks to [@cgarwood], you can see the configuration of OZW nodes straight
+  from the UI!
+- [@bieniu] added voltage, power factor and energy sensors to Shelly integration.
+- The Media Player platform now has a `repeat_set` service that allows for
+  changing the repeat mode. Sonos is the first integration that supports this
+  service. Thanks [@amelchio]!
+- [@amelchio] also added support for playing Spotify URIs with the Sonos
+  integration.
+- Thanks to [@timmo001], the WLED integration now supports color pallets.
+- You can now monitor the battery state for your devolo Home Control devices,
+  thanks, [@Shutgun]!
+- The Netatmo integration got some nice weather trend sensors, thanks [@cgtobi]!
+- Chromecast devices can now play Plex media using the standard `play_media`
+  service. Nice work [@jjlawren]!
+- The media browser now supports the Squeezebox and Volumio integrations,
+  thanks to [@rajlaud] and [@OnFreund].
+
+[@mattmattmatt]: https://github.com/mattmattmatt
+[@gilsonmandalogo]: https://github.com/gilsonmandalogo
+[@zsarnett]: https://github.com/zsarnett
 
 ## New Integrations
 
@@ -168,7 +274,7 @@ We welcome the following new integration this release:
 
 - [Advantage Air][advantage_air docs], added by [@Bre77]
 - [Gree][gree docs], added by [@cmroche]
-- [Profiler][profiles docs], added by [@bdraco]
+- [Profiler][profiler docs], added by [@bdraco]
 - [Ruckus Unleashed][ruckus_unleashed docs], added by [@gabe565]
 - [Tasmota][tasmota docs], added by [@emontnemery]
 - [Xbox][xbox docs], added by [@hunterjm]
@@ -178,7 +284,7 @@ We welcome the following new integration this release:
 The following integration got support for a new platform:
 
 - [deCONZ][deCONZ docs] now has support for locks and fans, added by [@Kane610]
-- [SimpliSafe] now has a bunch of nice sensors, thanks to [@nzapponi]
+- [SimpliSafe][simplisafe docs] now has a bunch of nice sensors, thanks to [@nzapponi]
 - [TTS][tts docs] platforms can now be configured for notifications,
   thanks to [@dgomes]
 - And similar, [Persistent Notification][persistent_notification docs] can now
@@ -207,146 +313,6 @@ integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 <details>
-  <summary><b>RFXtrx</b></summary>
-  <p>
-
-The integration is now set up via the UI. YAML support has been limited to
-an (automatic) one-time import. You can safely remove the YAML configuration
-after upgrading.
-
-Options are now set through the UI (global options/add device/remove device/change device options).
-
-For newly added or detected devices, `device_class` cannot be set.
-
-Instead, it should be set by customizing entities:
-<https://www.home-assistant.io/docs/configuration/customizing-devices/>
-
-The debug key is removed as option for the integration. Instead, log level
-for the library can be set by configuring the logger (see below).
-
-```yaml
-logger:
-  logs:
-    RFXtrx: debug
-```
-
-No configuration changes are necessary, to keep existing configs working, the key is still accepted.
-
-([@RobBie1221] - [#39117]) ([rfxtrx docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Templates - native types</b></summary>
-  <p>
-
-Template results are now rendered to native Python types.
-
-Previously, a template would always result in a string (text). This made it hard
-to use things like lists, or numbers as a result of a template. For example,
-returning a list of entities or a RGB/HS/XY color.
-
-This change may impact your existing templates, as templates now can return
-other types; For example, string, float, integer, boolean, lists or dictionaries.
-
-The following templates can be impacted by this:
-
-- Entities with templated attributes. Attributes keep their native Python type,
-  thus if the attribute is used/processed in a template again later,
-  the type might be different.
-- Templates working with lists or mappings (dictionaries). Previously, such
-  collection would be returned as a text, for example `[1, 2, 3, 4, 5]`. We've
-  seen examples where such results are decoded using text processing again
-  (e.g., by splitting the result on a `,` to get the separate values). The
-  additional processing is no longer needed, as the returned value will be a
-  collection now.
-- Note: The entity state in Home Assistant is always a text (string). Even with
-  native types being supported in Templates now, if a results is stored as a
-  entity state, they will be converted to an string.
-
-If the new templates cause you to much problems at the time (e.g., you need
-time to migrate), you can enable the old behavior again by setting the following
-core configuration:
-
-```yaml
-homeassistant:
-  legacy_templates: true
-```
-
-Please note, this is a transitional option, which will be removed in the future.
-
-([@frenck] - [#41227])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Templates - rate limits</b></summary>
-  <p>
-
-Previously we implemented a rate limit of 1 update per minute for
-`states.DOMAIN` in templates. This has been changed to an update once every second.
-
-Templates using `states` (without a domain) still have a rate limit of 1 update per minute.
-
-([@bdraco] - [#42004])
-
-  </p>
-
-</details>
-
-<details>
-  <summary><b>Templates - auto-updating `now()`</b></summary>
-  <p>
-The `entity_id:` attribute was recently removed from template entities because
-the templates are now able to find all referenced entities automatically. This
-removal introduced a new problem where templates using the current time could
-no longer use `entity_id: sensor.time` to ensure periodic updates.
-
-With apologies to those who have spent the last couple of releases adding
-workarounds to their templates, we are now introducing an auto-refresh feature
-to time-based templates.
-
-It is thus no longer necessary to reference `sensor.time`, `sensor.date` or manually
-update template entities when `now()` or `utcnow()` is present in the template.
-
-The template will automatically be updated when:
-
-- A referenced entity changes state.
-- At the start of each minute when `now()` or `utcnow()` is present in the template.
-
-Please note, if you have a time-based template where you _do not_ want it to
-update periodically it will now have to be reworked to not use `now()`.
-
-([@bdraco] - [#41147] [#42225])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>MQTT</b></summary>
-  <p>
-
-MQTT Discovery is now enabled by default.
-
-([@emontnemery] - [#41361]) ([mqtt docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Netatmo</b></summary>
-  <p>
-
-Sensors for raw battery values and string representation have been dropped.
-
-([@cgtobi] - [#41321]) ([netatmo docs])
-
-  </p>
-</details>
-
-<details>
   <summary><b>Cast</b></summary>
   <p>
 
@@ -358,6 +324,74 @@ If you use any of those above, you'll need to migrate to use the new
 configuration method. Please see the cast documentation on how to set this up.
 
 ([@emontnemery] - [#41402]) ([cast docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Cloudflare</b></summary>
+  <p>
+
+Cloudflare is now available exclusively via the Integrations UI. This means its
+no longer configured in YAML. Existing configurations are not imported as API
+Tokens are now used to authenticate. Refer to integration documentation on how
+to setup via UI.
+
+([@ctalkington] - [#41167]) ([cloudflare docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Elkm1</b></summary>
+  <p>
+
+The `bypassed` attribute of a zone sensor is removed as it is no longer used.
+The bypassed status of a zone can be determined when the `logical_status` of
+a zone has a value of `bypassed`.
+
+Auto-configure now only configures elements that have a name or description
+associated with them. The previous mechanism for automatically detecting if
+element are configured on the ElkM1 panel was to note any element that have
+attributes different than the elkm1-lib's defaults. This is error prone and
+made the library fragile when defaults change.
+
+([@gwww] - [#41584] [#42064]) ([elkm1 docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>ISY994</b></summary>
+  <p>
+
+This update to PyISY adds native support for decimal precision in ISY Variable
+sensors, any template sensors created to adjust the rounding or precision shown
+in Home Assistant should be updated/removed.
+
+The way logging is handled in PyISY has been changed. If you previously set a
+different logging level for `homeassistant.components.isy994` in your `logger`
+configuration, you will also need to set the level for `pyisy` and/or
+`pyisy.events`.
+
+Two changes may cause some entities to change platforms; however, this should
+only affect NodeServer nodes:
+
+- ISY Nodes that use the ON/OFF unit of measurement and cannot be
+  categorized/sorted by another method have been moved from `switch` to
+  `binary_sensor` since it cannot be confirmed if the device supports DON/DOF
+  commands. The `isy994.send_node_command` service may be used to control these
+  devices if you know they are controllable.
+
+- The status of all nodes is now downloaded before sorting devices, as a result
+  some nodes which defaulted to `sensor` will now be correctly sorted.
+
+Sensor values which use the ISY994's "index" unit of measurement (UOM=25) now
+report the "formatted" text value shown in the ISY Admin Console, instead of the
+integer index. If you have any automations or templates relying on these values,
+they must be updated.
+
+([@shbatm] - [#42043] [#42050]) ([isy994 docs])
 
   </p>
 </details>
@@ -420,107 +454,23 @@ modbus:
 </details>
 
 <details>
-  <summary><b>Elkm1</b></summary>
+  <summary><b>MQTT</b></summary>
   <p>
 
-The `bypassed` attribute of a zone sensor is removed as it is no longer used.
-The bypassed status of a zone can be determined when the `logical_status` of
-a zone has a value of `bypassed`.
+MQTT Discovery is now enabled by default.
 
-Auto-configure now only configures elements that have a name or description
-associated with them. The previous mechanism for automatically detecting if
-element are configured on the ElkM1 panel was to note any element that have
-attributes different than the elkm1-lib's defaults. This is error prone and
-made the library fragile when defaults change.
-
-([@gwww] - [#41584] [#42064]) ([elkm1 docs])
+([@emontnemery] - [#41361]) ([mqtt docs])
 
   </p>
 </details>
 
 <details>
-  <summary><b>SimpliSafe</b></summary>
+  <summary><b>Netatmo</b></summary>
   <p>
 
-Per [ADR-0010](https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md),
-this PR deprecates YAML configuration for SimpliSafe until 0.119. If you already
-use the SimpliSafe integration, you do not need to take action.
-Your configuration has already been imported into the UI.
+Sensors for raw battery values and string representation have been dropped.
 
-([@bachya] - [#41896]) ([simplisafe docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>UpCloud</b></summary>
-  <p>
-
-The UpCloud integration is now configured via the UI. Existing YAML configuration
-is automatically imported after upgrading and can be safely removed afterward.
-
-([@scop] - [#37941]) ([upcloud docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>Sonarr</b></summary>
-  <p>
-
-Sonarr has fully transitioned to configuration via UI. YAML configuration is 
-now no longer supported after being deprecated for several releases already.
-
-([@ctalkington] - [#41904]) ([sonarr docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>RainMachine</b></summary>
-  <p>
-
-Per [ADR-0010](https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md),
-this PR deprecates YAML configuration for RainMachine until 0.119. If you
-already use the RainMachine integration, you do not need to take action.
-Your configuration has already been imported into the UI.
-
-([@bachya] - [#41971]) ([rainmachine docs])
-
-  </p>
-</details>
-
-<details>
-  <summary><b>ISY994</b></summary>
-  <p>
-
-This update to PyISY adds native support for decimal precision in ISY Variable
-sensors, any template sensors created to adjust the rounding or precision shown
-in Home Assistant should be updated/removed.
-
-The way logging is handled in PyISY has been changed. If you previously set a
-different logging level for `homeassistant.components.isy994` in your `logger`
-configuration, you will also need to set the level for `pyisy` and/or
-`pyisy.events`.
-
-Two changes may cause some entities to change platforms; however, this should
-only affect NodeServer nodes:
-
-- ISY Nodes that use the ON/OFF unit of measurement and cannot be
-  categorized/sorted by another method have been moved from `switch` to
-  `binary_sensor` since it cannot be confirmed if the device supports DON/DOF
-  commands. The `isy994.send_node_command` service may be used to control these
-  devices if you know they are controllable.
-
-- The status of all nodes is now downloaded before sorting devices, as a result
-  some nodes which defaulted to `sensor` will now be correctly sorted.
-
-Sensor values which use the ISY994's "index" unit of measurement (UOM=25) now
-report the "formatted" text value shown in the ISY Admin Console, instead of the
-integer index. If you have any automations or templates relying on these values,
-they must be updated.
-
-([@shbatm] - [#42043] [#42050]) ([isy994 docs])
+([@cgtobi] - [#41321]) ([netatmo docs])
 
   </p>
 </details>
@@ -558,15 +508,170 @@ sensor:
 </details>
 
 <details>
-  <summary><b>Cloudflare</b></summary>
+  <summary><b>RainMachine</b></summary>
   <p>
 
-Cloudflare is now available exclusively via the Integrations UI. This means its
-no longer configured in YAML. Existing configurations are not imported as API
-Tokens are now used to authenticate. Refer to integration documentation on how
-to setup via UI.
+Per [ADR-0010](https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md),
+this PR deprecates YAML configuration for RainMachine until 0.119. If you
+already use the RainMachine integration, you do not need to take action.
+Your configuration has already been imported into the UI.
 
-([@ctalkington] - [#41167]) ([cloudflare docs])
+([@bachya] - [#41971]) ([rainmachine docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>RFXtrx</b></summary>
+  <p>
+
+The integration is now set up via the UI. YAML support has been limited to
+an (automatic) one-time import. You can safely remove the YAML configuration
+after upgrading.
+
+Options are now set through the UI (global options/add device/remove device/change device options).
+
+For newly added or detected devices, `device_class` cannot be set.
+
+Instead, it should be set by customizing entities:
+<https://www.home-assistant.io/docs/configuration/customizing-devices/>
+
+The debug key is removed as option for the integration. Instead, log level
+for the library can be set by configuring the logger (see below).
+
+```yaml
+logger:
+  logs:
+    RFXtrx: debug
+```
+
+No configuration changes are necessary, to keep existing configs working, the key is still accepted.
+
+([@RobBie1221] - [#39117]) ([rfxtrx docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>SimpliSafe</b></summary>
+  <p>
+
+Per [ADR-0010](https://github.com/home-assistant/architecture/blob/master/adr/0010-integration-configuration.md),
+this PR deprecates YAML configuration for SimpliSafe until 0.119. If you already
+use the SimpliSafe integration, you do not need to take action.
+Your configuration has already been imported into the UI.
+
+([@bachya] - [#41896]) ([simplisafe docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Sonarr</b></summary>
+  <p>
+
+Sonarr has fully transitioned to configuration via UI. YAML configuration is 
+now no longer supported after being deprecated for several releases already.
+
+([@ctalkington] - [#41904]) ([sonarr docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Templates - Auto-updating now()</b></summary>
+  <p>
+
+The `entity_id:` attribute was recently removed from template entities because
+the templates are now able to find all referenced entities automatically. This
+removal introduced a new problem where templates using the current time could
+no longer use `entity_id: sensor.time` to ensure periodic updates.
+
+With apologies to those who have spent the last couple of releases adding
+workarounds to their templates, we are now introducing an auto-refresh feature
+to time-based templates.
+
+It is thus no longer necessary to reference `sensor.time`, `sensor.date` or manually
+update template entities when `now()` or `utcnow()` is present in the template.
+
+The template will automatically be updated when:
+
+- A referenced entity changes state.
+- At the start of each minute when `now()` or `utcnow()` is present in the template.
+
+Please note, if you have a time-based template where you _do not_ want it to
+update periodically it will now have to be reworked to not use `now()`.
+
+([@bdraco] - [#41147] [#42225])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Templates - Native types (BETA)</b></summary>
+  <p>
+
+Template results can now rendered to native Python types, but only when the
+legacy template rendering is disabled.
+
+```yaml
+homeassistant:
+  legacy_templates: false
+```
+
+**This feature will be opt-in for this release, the breaking changes below
+only apply if you explicitly enable this new feature.**
+
+A template would always result in a string (text). This made it hard
+to use things like lists, or numbers as a result of a template. For example,
+returning a list of entities or a RGB/HS/XY color.
+
+This change may impact your existing templates, as templates now can return
+other types; For example, string, float, integer, boolean, lists or dictionaries.
+
+The following templates can be impacted by this:
+
+- Entities with templated attributes. Attributes keep their native Python type,
+  thus if the attribute is used/processed in a template again later,
+  the type might be different.
+- Templates working with lists or mappings (dictionaries). Previously, such
+  collection would be returned as a text, for example `[1, 2, 3, 4, 5]`. We've
+  seen examples where such results are decoded using text processing again
+  (e.g., by splitting the result on a `,` to get the separate values). The
+  additional processing is no longer needed, as the returned value will be a
+  collection now.
+- Note: The entity state in Home Assistant is always a text (string). Even with
+  native types being supported in Templates now, if a results is stored as a
+  entity state, they will be converted to an string.
+
+([@frenck] - [#41227])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Templates - Rate limits</b></summary>
+  <p>
+
+Previously we implemented a rate limit of 1 update per minute for
+`states.DOMAIN` in templates. This has been changed to an update once every second.
+
+Templates using `states` (without a domain) still have a rate limit of 1 update per minute.
+
+([@bdraco] - [#42004])
+
+  </p>
+
+</details>
+
+<details>
+  <summary><b>UpCloud</b></summary>
+  <p>
+
+The UpCloud integration is now configured via the UI. Existing YAML configuration
+is automatically imported after upgrading and can be safely removed afterward.
+
+([@scop] - [#37941]) ([upcloud docs])
 
   </p>
 </details>
@@ -1144,7 +1249,7 @@ to setup via UI.
 - Fix Tasmota stale docstring + print level ([@emontnemery] - [#41992]) ([tasmota docs])
 - Use common strings in emulated roku ([@GauthamVarmaK] - [#41745]) ([emulated_roku docs])
 - Use common strings in denonavr integration ([@GauthamVarmaK] - [#41746]) ([denonavr docs])
-- Remove BOM integration because it uses webscraping ([@balloob] - [#41941]) ([bom docs])
+- Remove BOM integration because it uses webscraping ([@balloob] - [#41941])
 - Bump oemthermostat to 1.1.1 ([@Cadair] - [#41998]) ([oem docs])
 - Use common string in GeoNet NZ Volcano ([@ronal2do] - [#41981]) ([geonetnz_volcano docs])
 - Prevent doorbird from creating many executor jobs ([@bdraco] - [#41985]) ([doorbird docs])
@@ -1253,6 +1358,66 @@ to setup via UI.
 - Update frontend to 20201021.0 ([@bramkragten] - [#42173]) ([frontend docs])
 - Fix deCONZ device refresh service ([@Kane610] - [#42175]) ([deconz docs])
 - Add counter and timer to default_config ([@frenck] - [#42174]) ([default_config docs])
+- Remove coordinator success from SimpliSafe availability calculation ([@bachya] - [#42180]) ([simplisafe docs]) (beta fix)
+- Updated frontend to 20201021.1 ([@bramkragten] - [#42185]) ([frontend docs]) (beta fix)
+- Remove duplicated finalize_stream code in stream ([@uvjustin] - [#42171]) ([stream docs]) (beta fix)
+- Avoid overloading the executor with service.yaml loads ([@bdraco] - [#42172]) (beta fix)
+- Bump simplisafe-python to 9.5.1 ([@bachya] - [#42179]) ([simplisafe docs]) (beta fix)
+- Fix precision of climate devices in devolo Home Control ([@Shutgun] - [#41832]) ([devolo_home_control docs]) (beta fix)
+- Add Netatmo sensor enable default ([@cgtobi] - [#41928]) ([netatmo docs]) (beta fix)
+- Support reloading Tasmota config entries ([@emontnemery] - [#42097]) ([tasmota docs]) (beta fix)
+- Set Vizio unique ID for discovery flow early and abort if configured to prevent duplicate discovery flows ([@raman325] - [#42194]) ([vizio docs]) (beta fix)
+- Fix bug for SimpliSafe 2 systems repeatedly saying "your settings have been synchronised" ([@nzapponi] - [#42197]) ([simplisafe docs]) (beta fix)
+- Fix issue in python > 3.8.2 ([@teharris1] - [#42213]) ([insteon docs]) (beta fix)
+- Bump bimmer-connected to 0.7.8 to fix login issue ([@rikroe] - [#42215]) ([bmw_connected_drive docs]) (beta fix)
+- Refresh now() templates on second=0 ([@amelchio] - [#42225]) (beta fix)
+- Ensure websocket event serializer cache is effective if subscription iden differs ([@bdraco] - [#42226]) ([websocket_api docs]) (beta fix)
+- Update frontend to 20201021.2 ([@bramkragten] - [#42242]) ([frontend docs]) (beta fix)
+- Update ZHA dependencies ([@Adminiuga] - [#42245]) ([zha docs]) (beta fix)
+- Fix MaryTTS filename extensions ([@BrianWithAHat] - [#42228]) ([marytts docs]) (beta fix)
+- Fix polling of color for ZHA lights not updating ([@TheJulianJES] - [#42248]) ([zha docs]) (beta fix)
+- Fix is_on test for Tesla Charger switch ([@alandtse] - [#42251]) ([tesla docs]) (beta fix)
+- Fix Tasmota relay acting as on/off light ([@emontnemery] - [#42259]) ([tasmota docs]) (beta fix)
+- Ensure event listener integrations do the queue insert as a callback ([@bdraco] - [#42265]) ([influxdb docs]) ([watson_iot docs]) ([zabbix docs]) (beta fix)
+- Only log xiaomi_miio update exceptions once ([@rytilahti] - [#41226]) ([xiaomi_miio docs]) (beta fix)
+- Update nest integration with fixes from initial PR ([@allenporter] - [#42250]) ([nest docs]) (beta fix)
+- Fix Tesla attribute refreshing ([@alandtse] - [#42257]) ([tesla docs]) (beta fix)
+- Fix AVError and allow more missing DTS packets in stream ([@uvjustin] - [#42277]) ([stream docs]) (beta fix)
+- Fix Tasmota CT light ([@emontnemery] - [#42287]) ([tasmota docs]) (beta fix)
+- Fix reconfiguring of Tasmota lights ([@emontnemery] - [#42288]) ([tasmota docs]) (beta fix)
+- Upgrade spotipy to 2.16.1 ([@frenck] - [#42293]) ([spotify docs]) (beta fix)
+- Fix for Fibaro HC3 support, climate temp sensor and target temp ([@airthusiast] - [#42300]) ([fibaro docs]) (beta fix)
+- Fix iCloud matching accounts ([@Mic92] - [#42303]) ([icloud docs]) (beta fix)
+- Bump pyhik to 0.2.8 ([@mezz64] - [#42322]) ([hikvision docs]) (beta fix)
+- Fix parameter issue in LCN cover close/stop ([@alengwenus] - [#42342]) ([lcn docs]) (beta fix)
+- Ensure config entry platforms are excluded from reload ([@bdraco] - [#42367]) (beta fix)
+- Change AfterShip polling interval from 5m to 15m ([@dudyn5ky1] - [#42360]) ([aftership docs]) (beta fix)
+- Store original result on template results ([@balloob] - [#42391]) (beta fix)
+- Bump hatasmota to 0.0.23 ([@emontnemery] - [#42394]) ([tasmota docs]) (beta fix)
+- Bump libhdate depndency ([@tsvi] - [#42396]) ([jewish_calendar docs]) (beta fix)
+- Fix CI ([@balloob] - [#42397]) (beta fix)
+- Fix MQTT publish from a script with templates ([@balloob] - [#42398]) ([mqtt docs]) (beta fix)
+- Allow skip parsing template result ([@frenck] - [#42401]) ([api docs]) ([shell_command docs]) ([template docs]) (beta fix)
+- Catch ValueError in google_translate ([@balloob] - [#42405]) ([google_translate docs]) (beta fix)
+- Do not set up DSM when setting up Nest legacy ([@balloob] - [#42406]) ([nest docs]) (beta fix)
+- Skip template result parsing in several places ([@frenck] - [#42408]) ([rest_command docs]) (beta fix)
+- Add missing config flow translation key for Nest ([@frenck] - [#42423]) ([nest docs]) (beta fix)
+- Add retry for unavailable static tplink devices after HA starts ([@TheGardenMonkey] - [#42247]) ([tplink docs]) (beta fix)
+- Make sure to clean up httpx session on failed connection to Axis device ([@Kane610] - [#42428]) ([axis docs]) (beta fix)
+- Fix DLNA DMR media receiver when using Python 3.9 ([@tsvi] - [#42430]) ([dlna_dmr docs]) (beta fix)
+- Remove title string from Xbox translations ([@hunterjm] - [#42431]) ([xbox docs]) (beta fix)
+- Bump simplisafe-python to 9.6.0 ([@bachya] - [#42437]) ([simplisafe docs]) (beta fix)
+- Improve Squeezebox media browser performance ([@rajlaud] - [#42439]) ([squeezebox docs]) (beta fix)
+- Add device info default values to Panasonic Viera ([@joogps] - [#42441]) ([panasonic_viera docs]) (beta fix)
+- Fix hassio-version ([@pvizeli] - [#42449]) (beta fix)
+- Fix DSM Surveillance Station when only home mode is enabled ([@Quentame] - [#42456]) ([synology_dsm docs]) (beta fix)
+- Fix initial state of pi4ioe ([@balloob] - [#42459]) ([pi4ioe5v9xxxx docs]) (beta fix)
+- Bump hatasmota to 0.0.24 ([@emontnemery] - [#42472]) ([tasmota docs]) (beta fix)
+- Update frontend to 20201021.3 ([@bramkragten] - [#42486]) ([frontend docs]) (beta fix)
+- Make result wrappers more robust ([@balloob] - [#42488]) (beta fix)
+- Bump cryptography to 3.2 ([@balloob] - [#42489]) (beta fix)
+- Improve mqtt test ([@balloob] - [#42490]) ([mqtt docs]) (beta fix)
+- Fix race in Tasmota discovery ([@emontnemery] - [#42492]) ([tasmota docs]) (beta fix)
 
 </details>
 
@@ -1488,6 +1653,7 @@ to setup via UI.
 [#41220]: https://github.com/home-assistant/core/pull/41220
 [#41221]: https://github.com/home-assistant/core/pull/41221
 [#41223]: https://github.com/home-assistant/core/pull/41223
+[#41226]: https://github.com/home-assistant/core/pull/41226
 [#41227]: https://github.com/home-assistant/core/pull/41227
 [#41228]: https://github.com/home-assistant/core/pull/41228
 [#41229]: https://github.com/home-assistant/core/pull/41229
@@ -1774,6 +1940,7 @@ to setup via UI.
 [#41824]: https://github.com/home-assistant/core/pull/41824
 [#41826]: https://github.com/home-assistant/core/pull/41826
 [#41829]: https://github.com/home-assistant/core/pull/41829
+[#41832]: https://github.com/home-assistant/core/pull/41832
 [#41833]: https://github.com/home-assistant/core/pull/41833
 [#41834]: https://github.com/home-assistant/core/pull/41834
 [#41835]: https://github.com/home-assistant/core/pull/41835
@@ -1826,6 +1993,7 @@ to setup via UI.
 [#41925]: https://github.com/home-assistant/core/pull/41925
 [#41926]: https://github.com/home-assistant/core/pull/41926
 [#41927]: https://github.com/home-assistant/core/pull/41927
+[#41928]: https://github.com/home-assistant/core/pull/41928
 [#41930]: https://github.com/home-assistant/core/pull/41930
 [#41933]: https://github.com/home-assistant/core/pull/41933
 [#41934]: https://github.com/home-assistant/core/pull/41934
@@ -1906,6 +2074,7 @@ to setup via UI.
 [#42091]: https://github.com/home-assistant/core/pull/42091
 [#42092]: https://github.com/home-assistant/core/pull/42092
 [#42095]: https://github.com/home-assistant/core/pull/42095
+[#42097]: https://github.com/home-assistant/core/pull/42097
 [#42108]: https://github.com/home-assistant/core/pull/42108
 [#42119]: https://github.com/home-assistant/core/pull/42119
 [#42122]: https://github.com/home-assistant/core/pull/42122
@@ -1924,14 +2093,71 @@ to setup via UI.
 [#42163]: https://github.com/home-assistant/core/pull/42163
 [#42167]: https://github.com/home-assistant/core/pull/42167
 [#42168]: https://github.com/home-assistant/core/pull/42168
+[#42171]: https://github.com/home-assistant/core/pull/42171
+[#42172]: https://github.com/home-assistant/core/pull/42172
 [#42173]: https://github.com/home-assistant/core/pull/42173
 [#42174]: https://github.com/home-assistant/core/pull/42174
 [#42175]: https://github.com/home-assistant/core/pull/42175
+[#42179]: https://github.com/home-assistant/core/pull/42179
+[#42180]: https://github.com/home-assistant/core/pull/42180
+[#42185]: https://github.com/home-assistant/core/pull/42185
+[#42194]: https://github.com/home-assistant/core/pull/42194
+[#42197]: https://github.com/home-assistant/core/pull/42197
+[#42213]: https://github.com/home-assistant/core/pull/42213
+[#42215]: https://github.com/home-assistant/core/pull/42215
+[#42225]: https://github.com/home-assistant/core/pull/42225
+[#42226]: https://github.com/home-assistant/core/pull/42226
+[#42228]: https://github.com/home-assistant/core/pull/42228
+[#42242]: https://github.com/home-assistant/core/pull/42242
+[#42245]: https://github.com/home-assistant/core/pull/42245
+[#42247]: https://github.com/home-assistant/core/pull/42247
+[#42248]: https://github.com/home-assistant/core/pull/42248
+[#42250]: https://github.com/home-assistant/core/pull/42250
+[#42251]: https://github.com/home-assistant/core/pull/42251
+[#42257]: https://github.com/home-assistant/core/pull/42257
+[#42259]: https://github.com/home-assistant/core/pull/42259
+[#42265]: https://github.com/home-assistant/core/pull/42265
+[#42277]: https://github.com/home-assistant/core/pull/42277
+[#42287]: https://github.com/home-assistant/core/pull/42287
+[#42288]: https://github.com/home-assistant/core/pull/42288
+[#42293]: https://github.com/home-assistant/core/pull/42293
+[#42300]: https://github.com/home-assistant/core/pull/42300
+[#42303]: https://github.com/home-assistant/core/pull/42303
+[#42322]: https://github.com/home-assistant/core/pull/42322
+[#42342]: https://github.com/home-assistant/core/pull/42342
+[#42360]: https://github.com/home-assistant/core/pull/42360
+[#42367]: https://github.com/home-assistant/core/pull/42367
+[#42391]: https://github.com/home-assistant/core/pull/42391
+[#42394]: https://github.com/home-assistant/core/pull/42394
+[#42396]: https://github.com/home-assistant/core/pull/42396
+[#42397]: https://github.com/home-assistant/core/pull/42397
+[#42398]: https://github.com/home-assistant/core/pull/42398
+[#42401]: https://github.com/home-assistant/core/pull/42401
+[#42405]: https://github.com/home-assistant/core/pull/42405
+[#42406]: https://github.com/home-assistant/core/pull/42406
+[#42408]: https://github.com/home-assistant/core/pull/42408
+[#42423]: https://github.com/home-assistant/core/pull/42423
+[#42428]: https://github.com/home-assistant/core/pull/42428
+[#42430]: https://github.com/home-assistant/core/pull/42430
+[#42431]: https://github.com/home-assistant/core/pull/42431
+[#42437]: https://github.com/home-assistant/core/pull/42437
+[#42439]: https://github.com/home-assistant/core/pull/42439
+[#42441]: https://github.com/home-assistant/core/pull/42441
+[#42449]: https://github.com/home-assistant/core/pull/42449
+[#42456]: https://github.com/home-assistant/core/pull/42456
+[#42459]: https://github.com/home-assistant/core/pull/42459
+[#42472]: https://github.com/home-assistant/core/pull/42472
+[#42486]: https://github.com/home-assistant/core/pull/42486
+[#42488]: https://github.com/home-assistant/core/pull/42488
+[#42489]: https://github.com/home-assistant/core/pull/42489
+[#42490]: https://github.com/home-assistant/core/pull/42490
+[#42492]: https://github.com/home-assistant/core/pull/42492
 [@2Fake]: https://github.com/2Fake
 [@4ybaka]: https://github.com/4ybaka
 [@Adminiuga]: https://github.com/Adminiuga
 [@Antetokounpo]: https://github.com/Antetokounpo
 [@Bre77]: https://github.com/Bre77
+[@BrianWithAHat]: https://github.com/BrianWithAHat
 [@Cadair]: https://github.com/Cadair
 [@CoMPaTech]: https://github.com/CoMPaTech
 [@ColinRobbins]: https://github.com/ColinRobbins
@@ -1953,6 +2179,7 @@ to setup via UI.
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MatejMecka]: https://github.com/MatejMecka
 [@MatthewFlamm]: https://github.com/MatthewFlamm
+[@Mic92]: https://github.com/Mic92
 [@NikoM87]: https://github.com/NikoM87
 [@Olen]: https://github.com/Olen
 [@OnFreund]: https://github.com/OnFreund
@@ -1967,8 +2194,12 @@ to setup via UI.
 [@Spartan-II-117]: https://github.com/Spartan-II-117
 [@SukramJ]: https://github.com/SukramJ
 [@TheGardenMonkey]: https://github.com/TheGardenMonkey
+[@TheJulianJES]: https://github.com/TheJulianJES
 [@TopdRob]: https://github.com/TopdRob
 [@abmantis]: https://github.com/abmantis
+[@airthusiast]: https://github.com/airthusiast
+[@alandtse]: https://github.com/alandtse
+[@alengwenus]: https://github.com/alengwenus
 [@allenporter]: https://github.com/allenporter
 [@amelchio]: https://github.com/amelchio
 [@arianahl]: https://github.com/arianahl
@@ -2001,6 +2232,7 @@ to setup via UI.
 [@djtimca]: https://github.com/djtimca
 [@dmonego]: https://github.com/dmonego
 [@drkp]: https://github.com/drkp
+[@dudyn5ky1]: https://github.com/dudyn5ky1
 [@dvermd]: https://github.com/dvermd
 [@ehendrix23]: https://github.com/ehendrix23
 [@eliotw]: https://github.com/eliotw
@@ -2056,6 +2288,7 @@ to setup via UI.
 [@pvizeli]: https://github.com/pvizeli
 [@rajlaud]: https://github.com/rajlaud
 [@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
 [@ronal2do]: https://github.com/ronal2do
 [@ronanmu]: https://github.com/ronanmu
 [@rusitschka]: https://github.com/rusitschka
@@ -2071,6 +2304,7 @@ to setup via UI.
 [@sycx2]: https://github.com/sycx2
 [@tbarnekov]: https://github.com/tbarnekov
 [@tefinger]: https://github.com/tefinger
+[@teharris1]: https://github.com/teharris1
 [@tetienne]: https://github.com/tetienne
 [@thaohtp]: https://github.com/thaohtp
 [@thijsdejong]: https://github.com/thijsdejong
@@ -2079,6 +2313,7 @@ to setup via UI.
 [@timmo001]: https://github.com/timmo001
 [@tkacikdominik]: https://github.com/tkacikdominik
 [@tkdrob]: https://github.com/tkdrob
+[@tsvi]: https://github.com/tsvi
 [@uvjustin]: https://github.com/uvjustin
 [@vigonotion]: https://github.com/vigonotion
 [@vzahradnik]: https://github.com/vzahradnik
@@ -2092,6 +2327,7 @@ to setup via UI.
 [acmeda docs]: /integrations/acmeda/
 [adguard docs]: /integrations/adguard/
 [advantage_air docs]: /integrations/advantage_air/
+[aftership docs]: /integrations/aftership/
 [agent_dvr docs]: /integrations/agent_dvr/
 [airly docs]: /integrations/airly/
 [airvisual docs]: /integrations/airvisual/
@@ -2103,6 +2339,7 @@ to setup via UI.
 [ambient_station docs]: /integrations/ambient_station/
 [androidtv docs]: /integrations/androidtv/
 [anel_pwrctrl docs]: /integrations/anel_pwrctrl/
+[api docs]: /integrations/api/
 [apns docs]: /integrations/apns/
 [arcam_fmj docs]: /integrations/arcam_fmj/
 [atag docs]: /integrations/atag/
@@ -2120,7 +2357,7 @@ to setup via UI.
 [bluesound docs]: /integrations/bluesound/
 [bme280 docs]: /integrations/bme280/
 [bme680 docs]: /integrations/bme680/
-[bom docs]: /integrations/bom/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [bond docs]: /integrations/bond/
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
@@ -2153,6 +2390,7 @@ to setup via UI.
 [digitalloggers docs]: /integrations/digitalloggers/
 [directv docs]: /integrations/directv/
 [discovery docs]: /integrations/discovery/
+[dlna_dmr docs]: /integrations/dlna_dmr/
 [doorbird docs]: /integrations/doorbird/
 [dsmr docs]: /integrations/dsmr/
 [dte_energy_bridge docs]: /integrations/dte_energy_bridge/
@@ -2209,6 +2447,7 @@ to setup via UI.
 [harmony docs]: /integrations/harmony/
 [hassio docs]: /integrations/hassio/
 [heos docs]: /integrations/heos/
+[hikvision docs]: /integrations/hikvision/
 [hikvisioncam docs]: /integrations/hikvisioncam/
 [hisense_aehw4a1 docs]: /integrations/hisense_aehw4a1/
 [history docs]: /integrations/history/
@@ -2231,17 +2470,20 @@ to setup via UI.
 [image_processing docs]: /integrations/image_processing/
 [imap_email_content docs]: /integrations/imap_email_content/
 [influxdb docs]: /integrations/influxdb/
+[insteon docs]: /integrations/insteon/
 [ios docs]: /integrations/ios/
 [ipp docs]: /integrations/ipp/
 [iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
 [izone docs]: /integrations/izone/
+[jewish_calendar docs]: /integrations/jewish_calendar/
 [juicenet docs]: /integrations/juicenet/
 [kankun docs]: /integrations/kankun/
 [kef docs]: /integrations/kef/
 [kira docs]: /integrations/kira/
 [kodi docs]: /integrations/kodi/
 [konnected docs]: /integrations/konnected/
+[lcn docs]: /integrations/lcn/
 [lg_netcast docs]: /integrations/lg_netcast/
 [life360 docs]: /integrations/life360/
 [lifx docs]: /integrations/lifx/
@@ -2254,6 +2496,7 @@ to setup via UI.
 [logentries docs]: /integrations/logentries/
 [logi_circle docs]: /integrations/logi_circle/
 [lutron_caseta docs]: /integrations/lutron_caseta/
+[marytts docs]: /integrations/marytts/
 [maxcube docs]: /integrations/maxcube/
 [mcp23017 docs]: /integrations/mcp23017/
 [media_player docs]: /integrations/media_player/
@@ -2306,6 +2549,7 @@ to setup via UI.
 [panel_iframe docs]: /integrations/panel_iframe/
 [persistent_notification docs]: /integrations/persistent_notification/
 [philips_js docs]: /integrations/philips_js/
+[pi4ioe5v9xxxx docs]: /integrations/pi4ioe5v9xxxx/
 [pilight docs]: /integrations/pilight/
 [ping docs]: /integrations/ping/
 [plaato docs]: /integrations/plaato/
@@ -2406,8 +2650,10 @@ to setup via UI.
 [volumio docs]: /integrations/volumio/
 [wake_on_lan docs]: /integrations/wake_on_lan/
 [water_heater docs]: /integrations/water_heater/
+[watson_iot docs]: /integrations/watson_iot/
 [weather docs]: /integrations/weather/
 [webhook docs]: /integrations/webhook/
+[websocket_api docs]: /integrations/websocket_api/
 [wemo docs]: /integrations/wemo/
 [wiffi docs]: /integrations/wiffi/
 [withings docs]: /integrations/withings/
