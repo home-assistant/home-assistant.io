@@ -97,7 +97,7 @@ Screencapture of the Quick Bar.
 </p>
 
 The commands are currently limited to reloading YAML configuration and
-restarting Home Assistant, but expect this to grow rapidly grow!
+restarting Home Assistant, but expect this to grow rapidly!
 The same goes for the keyboard shortcuts; the plan is to add more so you can
 quickly perform actions and navigate Home Assistant from anywhere with
 a couple of key presses!
@@ -218,7 +218,10 @@ existing templates in your set up.
 It should be mostly compatible with your existing templates, however, if you
 enable this feature, please be sure to check the breaking changes section.
 
-We'd love to hear you experience with using this feature!
+We'd love to hear you experience with using this feature! And, if you run into,
+problems, [please let us know][problem].
+
+[problem]: https://github.com/home-assistant/core/issues/
 
 ## Other noteworthy changes
 
@@ -245,7 +248,7 @@ But wait, there is more!
   the notifications pane will close when the last notification was dismissed.
 - We improved compatibility and Home Assistant is now usable on more, mostly
   older, devices.
-- You can now search for the entity name in the entity picked besides the
+- You can now search for the entity name in the entity picker besides the
   entity id, thanks [@zsarnett]!
 - Thanks to [@cgarwood], you can see the configuration of OZW nodes straight
   from the UI!
