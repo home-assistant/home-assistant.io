@@ -1,5 +1,5 @@
 ---
-title: Gree
+title: Gree Climate
 description: Instructions on how to integrate Gree Smart devices within Home Assistant.
 ha_category:
   - Climate

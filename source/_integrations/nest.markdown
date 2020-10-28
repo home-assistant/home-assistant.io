@@ -12,6 +12,7 @@ ha_release: 0.7
 ha_config_flow: true
 ha_codeowners:
   - '@awarecan'
+  - '@allenporter'
 ha_domain: nest
 ---
 

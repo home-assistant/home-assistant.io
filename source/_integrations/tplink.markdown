@@ -10,6 +10,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
+  - '@thegardenmonkey'
 ha_domain: tplink
 ---
 

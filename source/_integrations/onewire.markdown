@@ -7,6 +7,7 @@ ha_release: 0.12
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@garbled1'
+  - '@epenet'
 ha_domain: onewire
 ---
 

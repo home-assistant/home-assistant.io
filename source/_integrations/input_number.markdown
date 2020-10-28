@@ -4,7 +4,7 @@ description: Instructions on how to integrate the Input Number integration into 
 ha_category:
   - Automation
 ha_release: 0.55
-ha_iot_class: ~
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

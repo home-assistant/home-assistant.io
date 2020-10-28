@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
   - '@elupus'
-  - '@Robbie1221'
+  - '@RobBie1221'
 ha_domain: rfxtrx
 ---
 
