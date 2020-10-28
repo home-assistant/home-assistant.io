@@ -70,7 +70,7 @@ Example usage in an automation, taking the album art present on a Chromecast and
 With a nicer transition period of 5 seconds and setting brightness to 100% each time (part of the [`light.turn_on`](/integrations/light#service-lightturn_on) service parameters):
 ```yaml
 #automation.yaml
-- alias:
+- alias: Nicer Chromecast to Shelf Lights
 
   trigger:
     - platform: state
