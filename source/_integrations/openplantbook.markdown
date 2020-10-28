@@ -15,23 +15,27 @@ The `openplantbook` component allows you to search and get data from the [OpenPl
 
 ## Configuration
 
-The integration is set up using the GUI.  You must have a valid `client_id` and `secret` from OpenPlantbook to set up the integration.
+The integration is set up using the GUI.  You must have a valid `Client ID` and `Client Secret` from OpenPlantbook to set up the integration.
 
-{% configuration %}
-client_id:
-  type: string
-  description: The Client ID from https://open.plantbook.io/apikey/show/
-secret:
-  type: string
-  description: The Client Secret from https://open.plantbook.io/apikey/show/
-{% endconfiguration %}
+### 1. Register at OpenPlantbook
 
+* Go to https://open.plantbook.io/apikey/show/
+* You can either create an account, or log in using other 3. party services like Github, Google or Facebook.
+* After signing in, click on "API keys" on the left side Navigation menu.
+* Click "Generate" under API Credentials to create a new Client ID and Client Secret.
 
-## Examples
+### 2. Set up the integration in Home Assistant
 
-Two service calls are added by this integration:
+* Go to Configuration -> Integrations.
+* Click on the + in the bottom right corner to add a new integration.
+* Search and select the OpenPlantbook integration from the list.
+* Add the Client ID and Secret from the fist step, and click `Submit`.
 
-`openplantbook.search` searches the API for plants matching a string. The search result is added to the entity `openplantbook.search_result` with the number of returned results as the `state` and a list of results in the state attributes.
+## Services
+
+Two services are added by this integration:
+
+`openplantbook.search` searches the API for plants with an `alias` matching a search string. The search result is added to the entity `openplantbook.search_result` with the number of returned results as the `state` and a list of results in the state attributes.
 
 ```yaml
 service: openplantbook.search
@@ -63,7 +67,7 @@ Number of plants found: 40
 (...)
 
 
-`openplantbook.get` gets detailed data for a single plant. It takes the `pid` from `openplantbook.search_result` as a parameter and the result is added to the entity `openplantbook.<species name>` with the different max/min values etc. set as attributes.
+`openplantbook.get` gets detailed data for a single plant. It takes a `spieces` (the same value that is used as `pid` in the `openplantbook.search_result`) as a parameter and the result is added to the entity `openplantbook.<species name>` with the different max/min values etc. set as attributes.
 
 ```yaml
 service: openplantbook.get
@@ -94,7 +98,7 @@ Details for plant Capsicum annuum
 * Image: https://.../capsicum%20annuum.jpg
 
 ## Caching
-All plant data is cached as it is not expected to change much.  However fresh plant data is fetched if the `get` service is run on a species where the previous get was done more than 24 hours ago. If you have done many requests, and have a lot of entries under the `openplantbook.<species>` hierarchy, you can clean up the cache by issuing a `openplantbook.clean_cache` service.  The service takes one paramater - the age of the data to keep cached (defaults to 24).
+All plant data is cached as it is not expected to change much.  However fresh plant data is fetched if the `get` service is run on a species where the data from a previous get is more than 24 hours old. If you have done many requests, and have a lot of entries under the `openplantbook.<species>` hierarchy, you can clean up the cache by issuing a `openplantbook.clean_cache` service.  The service accepts one (optional) paramater `hours` - the age of the data to keep cached (defaults to 24).
 
 
 ```yaml
