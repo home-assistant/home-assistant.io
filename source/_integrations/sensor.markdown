@@ -6,7 +6,7 @@ ha_category:
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: sensor
-ha_iot_class: ~
+ha_iot_class:
 ---
 
 Sensors are gathering information about states and conditions.

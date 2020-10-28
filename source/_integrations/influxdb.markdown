@@ -102,14 +102,19 @@ precision:
   description: Set this to specify the time precision sent to influxdb. Setting a coarser precision allows InfluxDb to compress your data better. If not set, defaults to ns.
   required: false
   default: ns
+measurement_attr:
+  type: string
+  description: "State object attribute(s) to use as measurement name. Possible values: `unit_of_measurement`, `domain__device_class` or `entity_id`."
+  required: false
+  default: unit_of_measurement
 default_measurement:
   type: string
-  description: Measurement name to use when an entity doesn't have a unit. 
+  description: Measurement name to use when the measurement_attr state attribute does not exist, e.g. when an entity doesn't have a unit. 
   required: false
   default: uses the entity id of the entity
 override_measurement:
   type: string
-  description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
+  description: Measurement name to use instead of measurement_attr or default measurement. This will store all data points in a single measurement.
   required: false
 exclude:
   type: list

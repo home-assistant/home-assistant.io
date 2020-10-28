@@ -89,6 +89,21 @@ Optional:
       service: media_player.play_media
 ```
 
+### Plex
+
+To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-play_media) and prepend the `media_content_id` with `plex://`:
+
+```yaml
+'cast_plex_to_chromecast':
+  alias: Cast Plex to Chromecast
+  sequence:
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.chromecast
+      media_content_type: movie
+      media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
+```
+
 ## Advanced use
 
 ### Manual configuration

@@ -5,7 +5,9 @@ ha_category:
   - Hub
   - Binary Sensor
   - Cover
+  - Fan
   - Light
+  - Lock
   - Scene
   - Sensor
   - Switch
@@ -28,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
+- [Lock](#lock)
 - [Scene](#scene)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -318,6 +321,12 @@ The `entity_id` name will be `cover.device_name`, where `device_name` is defined
 - Keen vents
 - Xiaomi Aqara Curtain controller
 
+## Fan
+
+Fans from deCONZ are currently a combination of a light and fan fixture.
+
+Note that devices in the fan platform identify as lights, so there is a manually curated list that defines which "lights" are fans. You, therefore, add a fan device as a light device in deCONZ (Phoscon App).
+
 ## Light
 
 The `entity_id` names will be `light.device_name`, where `device_name` is defined in deCONZ. Light groups created in deCONZ will be created in Home Assistant as lights named `light.group_name_in_deconz`, allowing the user to control groups of lights with only a single API call to deCONZ.
@@ -343,6 +352,14 @@ The `entity_id` names will be `light.device_name`, where `device_name` is define
 - Philips Hue LightStrip Plus
 - Busch Jaeger Zigbee Light Link univ. relai (6711 U) with Zigbee Light Link control element 6735-84
 - Xiaomi Aqara Smart LED Bulb (white) E27 ZNLDP12LM
+
+## Lock
+
+Locks are devices such as the Danalock Zigbee lock.
+
+Note that devices in the `lock` platform identify as lights, so there is a manually curated list that defines which "lights" are locks. You therefore add a lock device as a light device in deCONZ (Phoscon App).
+
+The `entity_id` name will be `lock.device_name`, where `device_name` is defined in deCONZ.
 
 ## Scene
 
