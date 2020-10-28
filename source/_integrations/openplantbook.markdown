@@ -37,13 +37,13 @@ Two service calls are added by this integration:
 
 ```yaml
 service: openplantbook.search
-service_data:
+data:
   alias: Capsicum
 ```
 
 {% endraw %}
 
-The result can then be read back from the `openplantbook.search_result` once the search completes:
+The result can then be read back from the attributes of the entity `openplantbook.search_result` once the search completes:
 
 {% raw %}
 
@@ -64,16 +64,16 @@ Number of plants found: 40
   * capsicum baccatum -> Capsicum baccatum
   * capsicum bomba yellow red -> Capsicum Bomba yellow red
   * capsicum chinense -> Capsicum chinense
+(...)
 
 
-
-`openplantbook.get` gets detailed data for a single plant. The result is added to the entity `openplantbook.<species name>` with parameters for different max/min values set as attributes.
+`openplantbook.get` gets detailed data for a single plant. It takes the `pid` from `openplantbook.search_result` as a parameter and the result is added to the entity `openplantbook.<species name>` with the different max/min values etc. set as attributes.
 
 {% raw %}
 
 ```yaml
 service: openplantbook.get
-service_data:
+data:
   species: capsicum annuum
 ```
 
@@ -101,3 +101,17 @@ Details for plant Capsicum annuum
 * Max temperature: 35
 * Image: https://.../capsicum%20annuum.jpg
 
+## Caching
+All plant data is cached as it is not expected to change much.  However fresh plant data is fetched if the `get` service is run on a species where the previous get was done more than 24 hours ago. If you have done many requests, and have a lot of entries under the `openplantbook.<species>` hierarchy, you can clean up the cache by issuing a `openplantbook.clean_cache` service.  The service takes one paramater - the age of the data to keep cached (defaults to 24).
+
+
+{% raw %}
+
+```yaml
+service: openplantbook.clean_cache
+data:
+  hours: 6
+```
+
+{% endraw %}
+This will remove all `openplantbook.*` entries older than 6 hours from the cache.
