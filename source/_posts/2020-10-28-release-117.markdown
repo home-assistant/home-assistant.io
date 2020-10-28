@@ -248,7 +248,7 @@ But wait, there is more!
 - [@allenporter] started working on adding Google Nest Device Access to
   the Nest integration. It is a base to extend on, for example, there is no
   thermostat yet. Looking forward to the upcoming releases!
-- You can save now automations, scripts and scenes with `ctrl`/`cmd` + `s`.
+- You can now save automations, scripts and scenes with `ctrl`/`cmd` + `s`.
   Thanks, [@gilsonmandalogo]!
 - [@mattmattmatt] added the ability to dismiss all notifications at once, and
   the notifications pane will close when the last notification was dismissed.
@@ -264,7 +264,7 @@ But wait, there is more!
   service. Thanks [@amelchio]!
 - [@amelchio] also added support for playing Spotify URIs with the Sonos
   integration.
-- Thanks to [@timmo001], the WLED integration now supports color pallets.
+- Thanks to [@timmo001], the WLED integration now supports color palettes.
 - You can now monitor the battery state for your devolo Home Control devices,
   thanks, [@Shutgun]!
 - The Netatmo integration got some nice weather trend sensors, thanks [@cgtobi]!
