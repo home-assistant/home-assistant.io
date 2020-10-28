@@ -93,7 +93,7 @@ sensor:
     password: YOUR_PASSWORD
     search: FROM <sender@email.com>, SUBJECT <subject here>
     # Or use X-GM-RAW search-term like this, to find unread emails from the last 7 days in your inbox
-    # search: "X-GM-RAW 'in: inbox newer_than:7d is:unread'"
+    # search: 'X-GM-RAW "in: inbox newer_than:7d is:unread"'
 
 # Example configuration.yaml entry for Office 365
 sensor:
