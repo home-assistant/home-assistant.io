@@ -111,7 +111,7 @@ This service allows for loading a preset saved on the WLED device.
 | Service Data Attribute | Required | Description                                                                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | A WLED entity ID to load the preset from.                                                                       |
-| `effect`               | no       | ID of the preset slot to load from. Number between `1` and `16`.                                                |
+| `preset`               | no       | ID of the preset slot to load from.                                                                             |
 
 More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
 
