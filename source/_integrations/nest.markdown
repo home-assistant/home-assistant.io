@@ -26,9 +26,9 @@ The two APIs support different features and devices. The SDM API integration is 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor) (Legacy API Only)
-- [Camera](#camera) (Legacy API Only)
-- [Climate](#climate) (Legacy API Only)
+- [Binary Sensor](#binary-sensor-legacy-api-only) (Legacy API Only)
+- [Camera](#camera) (Both APIs)
+- [Climate](#climate-legacy-api-only) (Legacy API Only)
 - [Sensor](#sensor) (Both APIs)
 
 ## Device Access: Developer Account Setup
