@@ -234,7 +234,7 @@ problems, [please let us know][problem].
 It is Hacktoberfest, and a lot smaller, but noteworthy changes this release!
 
 First a shout out to [@spacegaier], he did a LOT of improvements (29!) this
-release. Visual tweaks, quality of live improvements and random fixes, like:
+release. Visual tweaks, quality of life improvements and random fixes, like:
 
 - Colors in the log for errors and warnings
 - Automatically fill the Lovelace resource type based on the extension of the URL
