@@ -239,3 +239,7 @@ automation:
         data:
           icon: "/home/homeassistant/images/doorbell.png"
 ```
+
+## Notes
+
+- If Home Assistant and your TV are not on the same subnet, you need to open Port 3000 with Protocol TCP from Home Assistant to your TV.
