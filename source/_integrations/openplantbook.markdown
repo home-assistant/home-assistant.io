@@ -67,7 +67,7 @@ Number of plants found: 40
 (...)
 
 
-`openplantbook.get` gets detailed data for a single plant. It takes a `spieces` (the same value that is used as `pid` in the `openplantbook.search_result`) as a parameter and the result is added to the entity `openplantbook.<species name>` with the different max/min values etc. set as attributes.
+`openplantbook.get` gets detailed data for a single plant. It takes a `species` (the same value that is used as `pid` in the `openplantbook.search_result`) as a parameter and the result is added to the entity `openplantbook.<species name>` with the different max/min values etc. set as attributes.
 
 ```yaml
 service: openplantbook.get
