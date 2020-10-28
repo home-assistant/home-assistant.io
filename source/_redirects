@@ -71,7 +71,6 @@
 /developers/multiple_instances https://developers.home-assistant.io
 /developers/platform_example_light https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_light
 /developers/platform_example_sensor https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_sensor
-/developers/python_api https://developers.home-assistant.io/docs/external_api_rest_python/
 /developers/releasing https://developers.home-assistant.io/docs/releasing/
 /developers/rest_api https://developers.home-assistant.io/docs/api/rest/
 /developers/server_sent_events https://developers.home-assistant.io/docs/external_api_server_sent_events/
