@@ -65,6 +65,10 @@ Floor Temperature:
   description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
   type: boolean
   default: Disabled
+Force Update:
+  description: "Should sensors and binary_sensors force an update of the entity even if the value stays the same? Useful to force storage of all data points in a database"
+  type: boolean
+  default: Disabled
 {% endconfiguration %}
 
 ## Services
