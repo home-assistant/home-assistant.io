@@ -156,6 +156,13 @@ You can verify that the `emulated_hue` integration has been loaded and is respon
 
 Verify that the URLs above are using port 80, rather than port 8300 (i.e., `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
 
+In builds 0.115 and forward `input_boolean` entities may no longer be discovered respond as expected by Alexa. To work around this issue add 
+
+```yaml
+  lights_all_dimmable: true
+```
+to the `emulated_hue` configuration.
+
 ### Platform specific instructions
 
 #### Home Assistant Core
