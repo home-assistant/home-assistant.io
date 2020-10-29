@@ -4,7 +4,7 @@ description: Instructions on how to set up Microsoft Speech with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_iot_class: Cloud Push
-ha_release: 0.116
+ha_release: 0.118
 ha_domain: microsoft_speech
 ---
 
