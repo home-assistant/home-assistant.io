@@ -33,6 +33,7 @@ This integration is a meta-component and configures a default set of integration
 - [Sun](/integrations/sun/) (`sun`)
 - [System Health](/integrations/system_health/) (`system_health`)
 - [Tag](/integrations/tag/) (`tag`)
+- [Timer](/integrations/timer/) (`timer`)
 - [Updater](/integrations/updater/) (`updater`)
 - [Zero-configuration networking (zeroconf)](/integrations/zeroconf/) (`zeroconf`)
 - [Zone](/integrations/zone/) (`zone`)
