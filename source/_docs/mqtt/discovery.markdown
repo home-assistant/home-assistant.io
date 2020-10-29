@@ -22,12 +22,12 @@ Supported by MQTT discovery:
 - [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-To enable MQTT discovery, add the following to your `configuration.yaml` file:
+MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  discovery: true
+  discovery: false
   discovery_prefix: homeassistant
 ```
 
@@ -35,7 +35,7 @@ mqtt:
 discovery:
   description: If the MQTT discovery should be enabled or not.
   required: false
-  default: false
+  default: true
   type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
