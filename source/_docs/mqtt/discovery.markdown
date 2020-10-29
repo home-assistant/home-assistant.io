@@ -35,7 +35,7 @@ mqtt:
 discovery:
   description: If the MQTT discovery should be enabled or not.
   required: false
-  default: false
+  default: true
   type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
