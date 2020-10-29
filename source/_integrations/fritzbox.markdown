@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To add the AVM FRITZ!SmartHome integration (which is a part of the AVM FRITZ!Box integration) to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ!Box**.
+To add the AVM FRITZ!SmartHome integration to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ! SmartHome**.
 
 If you have enabled SSDP discovery, it’s likely that you just have to confirm the detected device with username and password.
 
