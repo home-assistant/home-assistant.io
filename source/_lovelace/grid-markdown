@@ -25,7 +25,7 @@ square:
 columns:
   required: false
   description: Number of columns in the grid.
-  type: number
+  type: integer
   default: 3
 cards:
   required: true
