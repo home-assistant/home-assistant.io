@@ -8,7 +8,7 @@ ha_quality_scale: ~
 ha_config_flow: true
 ha_codeowners:
   - '@matejmecka'
-ha_domain: energenie_pimote
+ha_domain: energenie
 ---
 ### Energenie
 
