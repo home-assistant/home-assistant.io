@@ -13,6 +13,7 @@ This integration is a meta-component and configures a default set of integration
 - [Automation](/integrations/automation/) (`automation`)
 - [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
 - [Configuration](/integrations/config/) (`config`)
+- [Counter](/integrations/counter/) (`counter`)
 - [Frontend](/integrations/frontend/) (`frontend`)
 - [History](/integrations/history/) (`history`)
 - [Image](/integrations/image/) (`image`)
