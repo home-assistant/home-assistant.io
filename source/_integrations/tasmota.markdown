@@ -19,7 +19,7 @@ This integration allows you to control Tasmota devices over MQTT.
 ## Requirements
 
 - MQTT server and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
-- Tasmota devices flashed with 9.0.0.3 or later
+- Tasmota devices flashed with pre-release version 9.0.0.3, or later.
 - Tasmota devices configured for native discovery (`SetOption19 0`)
 
 ## Limitations
