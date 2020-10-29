@@ -18,31 +18,8 @@ Center for Disease Control (CDC).
 
 ## Configuration
 
-To enable the platform, add the following lines to your `configuration.yaml`
-file:
-
-```yaml
-sensor:
-  - platform: flunearyou
-```
-
-{% configuration %}
-monitored_conditions:
-  description: The sensor categories to display.
-  required: false
-  type: list
-  default: ['cdc_report', 'user_report']
-latitude:
-  description: The latitude of the location to monitor.
-  required: false
-  type: float
-  default: The latitude defined under the `homeassistant` key in `configuration.yaml`.
-longitude:
-  description: The longitude of the location to monitor.
-  required: false
-  type: float
-  default: The longitude defined under the `homeassistant` key in `configuration.yaml`.
-{% endconfiguration %}
+This integration can be configured via the Home Assistant UI by navigating to
+**Configuration** -> **Integrations**.
 
 ## Sensor Types
 
