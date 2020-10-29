@@ -31,6 +31,7 @@ You will have to create a user on the device which is a **Monitoring Admin**. Lo
 ## Troubleshooting
 
 For this platform to work, the Ruckus Unleashed device will need to be accessible over SSH. If you are having trouble with Home Assistant not connecting, make sure the user you created above can log in to SSH and can run privileged commands.
+Remember to configure the IP address of your master access point. See Access Points on the management web interface. And perhaps consider to set a preferred master (Admin & Services>System>System Info>Preferred master)
 
 Terminal:
 
