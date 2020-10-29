@@ -121,8 +121,6 @@ but all selected devices must be of the same type.
 
 - **Max target temperature**: set the maximum allowed `target temperature` for the entity.
 
-- **Sensor for current temperature**: any HA sensor entity that provide `current temperature`, used when not available from device.
-
 ## Service
 
 These services are available for the `tuya` component:
