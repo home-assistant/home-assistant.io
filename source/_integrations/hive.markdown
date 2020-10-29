@@ -89,7 +89,7 @@ You can use the service `hive.boost_hot_water` to set your hot water to boost fo
 | ---------------------- | -------- | ----------------------------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g., `water_heater.hot_water`                   |
 | `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00`. |
-| `on_off`               | no       | String, The mode to set the boost to on or odd e.g., `on`               |
+| `on_off`               | no       | String, The mode to set the boost to on or off e.g., `on`               |
 
 Examples:
 
