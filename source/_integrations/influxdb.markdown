@@ -589,7 +589,7 @@ SELECT * FROM "°C" WHERE time > now() - 1h;
 
 ### Everythign else
 
-Everything else can be queried using the entity_id as its measurement name.
+Everything else can be queried using the `entity_id` as its measurement name.
 
 ```sql
 SELECT * FROM "binary_sensor.front_doorbell" WHERE time > now() - 24h;
