@@ -577,13 +577,13 @@ For sensors with a unit of measurement defined, then that is used as the measure
 
 For example a query on a `%` battery for `sensor.multi_sensor_battery_level`:
 
-```
+```sql
 SELECT * FROM "%" WHERE time > now() - 12h AND "entity_id" = 'multi_sensor_battery_level';
 ```
 
 Or for temperatures represented in `°C`:
 
-```
+```sql
 SELECT * FROM "°C" WHERE time > now() - 1h;
 ```
 
@@ -592,10 +592,10 @@ SELECT * FROM "°C" WHERE time > now() - 1h;
 Everything else can be queried using the entity_id as its measurement name.
 
 
-```
+```sql
 SELECT * FROM "binary_sensor.front_doorbell" WHERE time > now() - 24h;
 ```
 
-```
+```sql
 SELECT "temperature" FROM "climate.kitchen" WHERE time > now() - 24h;
 ```
