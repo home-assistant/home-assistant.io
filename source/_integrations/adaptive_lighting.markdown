@@ -4,7 +4,7 @@ description: How to set up Adaptive Lighting with Home Assistant
 ha_category:
   - Automation
   - Light
-ha_release: 0.117
+ha_release: 0.118
 ha_domain: adaptive_lighting
 ha_codeowners:
   - '@basnijholt'
