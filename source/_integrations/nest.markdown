@@ -191,7 +191,7 @@ script:
 
 ### Troubleshooting
 
-- See [No URL Available](https://www.home-assistant.io/more-info/no-url-available) for guidance on setup issues related to urls.
+- See [No URL Available](https://www.home-assistant.io/more-info/no-url-available) for guidance on setup issues related to URLs.
 
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external url.
 
