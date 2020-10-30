@@ -569,7 +569,7 @@ Note that when working with Flux queries, the resultset is broken into tables, y
 
 This is a lot more tables compared to 1.xx queries, where you essentially had one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors though. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
 
-## Querying your data in Infux
+## Querying your data in Influx
 
 ### Sensors
 
