@@ -71,6 +71,10 @@ Entities appear automatically for each connected POE client. If no POE client de
 
 Note that POE control actually configures the network port of the switch which the client is connected to.
 
+### Control DPI Traffic Restrictions
+
+Entities appear automatically for each restriction group. If there are no restrictions in a group, no entity will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
+
 ## Sensor
 
 ### Bandwidth sensor
