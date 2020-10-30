@@ -55,6 +55,7 @@ So, keep an eye on our social media for the announcement.
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 0.117.1 - October 30](#release-01171---october-30)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -306,6 +307,41 @@ The following integrations are now available via the Home Assistant UI:
 - [RFXtrx][rfxtrx docs], done by [@RobBie1221]
 - [UpCloud][upcloud docs], done by [@scop]
 - [Cloudflare][cloudflare docs], done by [@ctalkington]
+
+## Release 0.117.1 - October 30
+
+- Fix adding Virtual DSM system in synology_dsm ([@mib1185] - [#42523]) ([synology_dsm docs])
+- Enable polling for DSMR derivative entity ([@RobBie1221] - [#42524]) ([dsmr docs])
+- Bump aiohomekit to 0.2.54 ([@Jc2k] - [#42532]) ([homekit_controller docs])
+- Fix RMV giving wrong data and ignoring given parameters ([@cgtobi] - [#42561]) ([rmvtransport docs])
+- Update frontend to 20201021.4 ([@bramkragten] - [#42590]) ([frontend docs])
+- Fix MQTT template light ([@emontnemery] - [#42598]) ([mqtt docs])
+- Bump hatasmota to 0.0.25 ([@emontnemery] - [#42605]) ([tasmota docs])
+- Update greeclimate to 0.9.2 ([@cmroche] - [#42616]) ([gree docs])
+
+[#42523]: https://github.com/home-assistant/core/pull/42523
+[#42524]: https://github.com/home-assistant/core/pull/42524
+[#42532]: https://github.com/home-assistant/core/pull/42532
+[#42561]: https://github.com/home-assistant/core/pull/42561
+[#42590]: https://github.com/home-assistant/core/pull/42590
+[#42598]: https://github.com/home-assistant/core/pull/42598
+[#42605]: https://github.com/home-assistant/core/pull/42605
+[#42616]: https://github.com/home-assistant/core/pull/42616
+[@Jc2k]: https://github.com/Jc2k
+[@RobBie1221]: https://github.com/RobBie1221
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@cmroche]: https://github.com/cmroche
+[@emontnemery]: https://github.com/emontnemery
+[@mib1185]: https://github.com/mib1185
+[dsmr docs]: /integrations/dsmr/
+[frontend docs]: /integrations/frontend/
+[gree docs]: /integrations/gree/
+[homekit_controller docs]: /integrations/homekit_controller/
+[mqtt docs]: /integrations/mqtt/
+[rmvtransport docs]: /integrations/rmvtransport/
+[synology_dsm docs]: /integrations/synology_dsm/
+[tasmota docs]: /integrations/tasmota/
 
 ## If you need help...
 
@@ -579,7 +615,7 @@ Your configuration has already been imported into the UI.
   <summary><b>Sonarr</b></summary>
   <p>
 
-Sonarr has fully transitioned to configuration via UI. YAML configuration is 
+Sonarr has fully transitioned to configuration via UI. YAML configuration is
 now no longer supported after being deprecated for several releases already.
 
 ([@ctalkington] - [#41904]) ([sonarr docs])
