@@ -1,10 +1,15 @@
 ---
 title: "Grid Card"
-sidebar_label: Grid Card
+sidebar_label: Grid
 description: "The Grid card allows you to show multiple cards in a grid."
 ---
 
 The Grid card allows you to show multiple cards in a grid. It will first fill the columns, automatically adding new rows as needed.
+
+<p class='img'>
+  <img src='/images/lovelace/lovelace_grid.png' alt='Screenshot of the grid card'>
+  Screenshot of the Grid card.
+</p>
 
 To add the Grid card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Grid Card** from the card picker.
 
