@@ -573,7 +573,7 @@ This is a lot more tables compared to 1.xx queries, where you essentially had on
 
 ### Sensors
 
-For sensors with a unit of measurement defined, then that is used as the measurement name, but entries are tagged with the second part of the `entity_id`. Therefore you need to add a WHERE clause to the query to filter out values. 
+For sensors with a unit of measurement defined the unit of measurement is used as the measurement name and entries are tagged with the second part of the `entity_id`. Therefore you need to add a WHERE clause to the query to filter out values. 
 
 For example a query on a `%` battery for `sensor.multi_sensor_battery_level`:
 
@@ -590,7 +590,6 @@ SELECT * FROM "°C" WHERE time > now() - 1h;
 ### Everythign else
 
 Everything else can be queried using the entity_id as its measurement name.
-
 
 ```sql
 SELECT * FROM "binary_sensor.front_doorbell" WHERE time > now() - 24h;
