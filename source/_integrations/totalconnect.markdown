@@ -17,16 +17,6 @@ The `totalconnect` integration provides connectivity with TotalConnect alarm sys
 
 To enable TotalConnect via the user interface, go to **Configuration** > **Integrations** > the "plus" button > Total Connect.
 
-To enable TotalConnect via `configuration.yaml` add the following lines:
-
-```yaml
-totalconnect:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  usercodes:
-    123456: "7890"
-```
-
 {% configuration %}
 username:
   description: Username used to sign into the TotalConnect app/web client.
@@ -37,7 +27,7 @@ password:
   required: true
   type: string
 usercodes:
-  description: Code typed into the alarm panel for this user at each location.  In the example, 123456 is the TotalConnect location number and 7890 is the code.  
+  description: Code typed into the alarm panel for this user at each location.    
   required: true
   type: string
 {% endconfiguration %}
