@@ -3,11 +3,11 @@
 
 [![Deploys by netlify](https://www.netlify.com/img/global/badges/netlify-color-bg.svg)](https://www.netlify.com)
 
-# Home Assistant website
+# Website for Home Assistants
 
 This is the source for the [Home-Assistant.io website](https://home-assistant.io).
 
-## Setup
+## The Setup
 
 Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documenting).
 
