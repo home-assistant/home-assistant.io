@@ -17,7 +17,7 @@ Home Assistant currently supports free web services some of which require regist
 
 ## Condition mapping
 
-The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://materialdesignicons.com/) available and mapped in the [frontend](https://github.com/home-assistant/frontend/blob/c1dba462e8d1b060b86c3c15c269af966506a711/src/panels/lovelace/cards/hui-weather-forecast-card.ts#L186).
+The `weather` platform only knows the below listed conditions. The reason for this is that for these conditions is an icon from [Material Design Icons](https://materialdesignicons.com/) available and mapped in the frontend.
 
 - 'clear-night'
 - 'cloudy'
