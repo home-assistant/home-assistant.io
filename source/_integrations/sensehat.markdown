@@ -152,6 +152,7 @@ _SenseHAT_ is not going to work straing in Home Assistant Operating System. To e
     - add ``https://github.com/home-assistant/hassio-addons-development`` to your add-ons repositories
     - select *Custom deps deployment* and enable it
 - Configure "Custom deps deployment" add-on
+
     ```yaml
     pypi:
     - >-
@@ -165,6 +166,7 @@ _SenseHAT_ is not going to work straing in Home Assistant Operating System. To e
     - raspberrypi-dev
     - raspberrypi-libs
     ```
+
 - Start the plugin and check the logs to make sure everything is fine. Set it to "Start at boot"
 - Reboot and enjoy your lights
 
