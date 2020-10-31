@@ -150,7 +150,7 @@ Things got complicated for poor _SenseHAT_ with Home Assistant Operating System.
     - add ``https://github.com/home-assistant/hassio-addons-development`` to your add-ons repositories
     - select *Custom deps deployment* and enable it
 - Configure "Custom deps deployment" add-on
-    ```
+    ```yaml
     pypi:
     - >-
       git+https://github.com/RPi-Distro/RTIMULib#egg=rtimulib&subdirectory=Linux/python
