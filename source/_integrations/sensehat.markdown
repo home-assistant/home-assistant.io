@@ -87,13 +87,13 @@ sensor:
   - platform: template
     sensors:
       sensehat_temperature:
-        value_template: '{{ states('sensor.temperature') | round(1) }}'
+        value_template: '{{ states("sensor.temperature") | round(1) }}'
         unit_of_measurement: '°C'
       sensehat_pressure:
-        value_template: '{{ states('sensor.pressure') | round(1) }}'
+        value_template: '{{ states("sensor.pressure") | round(1) }}'
         unit_of_measurement: 'mb'
       sensehat_humidity:
-        value_template: '{{ states('sensor.humidity') | round(1) }}'
+        value_template: '{{ states("sensor.humidity") | round(1) }}'
         unit_of_measurement: '%'
 ```
 
@@ -140,8 +140,35 @@ group:
   kitchen:
     - group.sense_hat
 ```
+## Installation
+### On HassOs
 
-### Directions for installing on Raspberry Pi Raspbian Based installation:
+Things got complicated for poor _SenseHAT_ with HassOs. I found finally a way to use it.
+
+- Follow instructions [here](https://www.home-assistant.io/hassio/enable_i2c/) to enable i2c on HassOs
+- Install "Custom deps deployment" addon. To do so
+    - add ``https://github.com/home-assistant/hassio-addons-development`` to your add-ons repositories
+    - select *Custom deps deployment* and enable it
+- Configure "Custom deps deployment" addon
+    ```
+    pypi:
+    - >-
+      git+https://github.com/RPi-Distro/RTIMULib#egg=rtimulib&subdirectory=Linux/python
+    apk:
+    - gcc
+    - g++
+    - py3-sensehat
+    - i2c-tools-dev
+    - python3-dev
+    - raspberrypi-dev
+    - raspberrypi-libs
+    ```
+- Start the plugin and check the logs to make sure everything is fine. Set it to "Start at boot"
+- Reboot and enjoy your lights
+
+Steps verified with HassOS 4.15. At the moment of this writing, sensors of the SenseHat are still not working, but at least now they can be seen.
+
+### On Raspberry Pi Raspbian Based installation:
 
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
