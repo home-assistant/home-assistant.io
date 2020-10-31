@@ -141,15 +141,15 @@ group:
     - group.sense_hat
 ```
 ## Installation
-### On HassOs
+### On Home Assistant Operating System
 
-Things got complicated for poor _SenseHAT_ with HassOs. I found finally a way to use it.
+Things got complicated for poor _SenseHAT_ with Home Assistant Operating System. I found finally a way to use it.
 
-- Follow instructions [here](https://www.home-assistant.io/hassio/enable_i2c/) to enable i2c on HassOs
-- Install "Custom deps deployment" addon. To do so
+- Follow instructions [here](https://www.home-assistant.io/hassio/enable_i2c/) to enable i2c on Home Assistant Operating System
+- Install "Custom deps deployment" add-on. To do so
     - add ``https://github.com/home-assistant/hassio-addons-development`` to your add-ons repositories
     - select *Custom deps deployment* and enable it
-- Configure "Custom deps deployment" addon
+- Configure "Custom deps deployment" add-on
     ```
     pypi:
     - >-
@@ -166,7 +166,7 @@ Things got complicated for poor _SenseHAT_ with HassOs. I found finally a way to
 - Start the plugin and check the logs to make sure everything is fine. Set it to "Start at boot"
 - Reboot and enjoy your lights
 
-Steps verified with HassOS 4.15. At the moment of this writing, sensors of the SenseHat are still not working, but at least now they can be seen.
+Steps verified with Home Assistant Operating System 4.15. At the moment of this writing, sensors of the SenseHat are still not working, but at least now they can be seen.
 
 ### On Raspberry Pi Raspbian Based installation:
 
