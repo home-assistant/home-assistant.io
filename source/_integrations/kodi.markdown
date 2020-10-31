@@ -274,6 +274,23 @@ script:
 ```
 {% endraw %}
 
+```
+{% endraw %}
+
+#### Simple script to play a music playlist
+
+{% raw %}
+```yaml
+script:
+  play_kodi_m3u:
+    alias: Play my m3u playlist
+    sequence:
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.kodi
+          media_content_type: DIRECTORY
+          media_content_id: special://profile/playlists/music/myplaylist.m3u
+
 #### Trigger a Kodi video library update
 
 ```yaml
