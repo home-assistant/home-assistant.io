@@ -451,3 +451,5 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
         entity_id: input_number.message_id
         value: '{{ trigger.event.data.message_id }}'
 ```
+
+{% endraw %}
