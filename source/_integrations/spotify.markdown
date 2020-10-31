@@ -92,25 +92,20 @@ in the [Activating the Spotify integration](#activating-the-spotify-integration)
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which is part of the
 [media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service, for example:
+
 ```yaml
-# as part of a script
-  alias: Jazz Guitar
-  sequence:
-  - service: media_player.play_media
-    data:
-      entity_id: media_player.spotify
-      media_content_id: 'https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg'
-      media_content_type: playlist
+# Example script to play playlist
+script:
+  play_jazz_guitar:
+    sequence:
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.spotify
+          media_content_id: 'https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg'
+          media_content_type: playlist
 ```
 
 The `media_content_id` value can be obtained from the Spotify desktop app by clicking on the more options ("...") next to the album art picture, selecting "Share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app).
-
-<div class='note'>
-
-  There is currently a problem targeting Google Nest Home media player devices (in `entity_id`). 
-  These do not currently play Spotify playlists, but other controls do work.
-
-</div>
 
 ## Unsupported Devices
 
