@@ -79,9 +79,17 @@ This integration provides sensors for the following information from WLED:
 
 The integration will create a number of switches:
 
-- Nightlight.
-- Sync Receive.
-- Sync Send.
+### Nightlight
+
+Toggles the WLED Timer. 
+Can be configured on the WLED itself under settings > LED Preferences > Timed light.
+
+### Sync Receive and Sync Send
+
+Toggles the synchronisation between multiple WLED devices. 
+Can be configured on the WLED itself under settings > Sync Interfaces > WLED Broadcast.
+
+[WLED Sync documentation](https://github.com/Aircoookie/WLED/wiki/Sync-WLED-devices-(UDP-Notifier))
 
 ## Services
 
