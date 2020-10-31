@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Input Datetime integration int
 ha_category:
   - Automation
 ha_release: 0.55
+ha_iot_class: ~
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -104,7 +105,7 @@ To set both the date and time in the same call, use `date` and `time` together, 
 
 #### input_datetime.reload
 
-`input_dateteime.reload` service allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
+`input_datetime.reload` service allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
 
 ## Examples
 

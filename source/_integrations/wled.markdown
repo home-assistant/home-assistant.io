@@ -96,9 +96,22 @@ This service allows for controlling the WLED effect.
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | A WLED entity ID, or list entity IDs, to apply the effect to. Use `entity_id: all` to target all WLED entities. |
 | `effect`               | no       | Name or ID of the WLED light effect.                                                                            |
-| `intensity`            | no       | Intensity of the effect.                                                                                        |
+| `intensity`            | no       | Intensity of the effect. Number between `0` and `255`.                                                          |
+| `palette`              | no       | Name or ID of the WLED light palette.                                                                           |
 | `speed`                | no       | Speed of the effect. Number between `0` (slow) and `255` (fast).                                                |
 | `reverse`              | no       | Reverse the effect. Either `true` to reverse or `false` otherwise.                                              |
 
 A list of all available effects (and the behavior of the intensity for each
 effect) [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes#effects).
+
+### Service `wled.preset`
+
+This service allows for loading a preset saved on the WLED device.
+
+| Service Data Attribute | Required | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | A WLED entity ID to load the preset from.                                                                       |
+| `preset`               | no       | ID of the preset slot to load from.                                                                             |
+
+More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
+

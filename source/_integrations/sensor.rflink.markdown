@@ -4,8 +4,8 @@ description: "Instructions on how to integrate RFLink sensors into Home Assistan
 logo: rflink.png
 ha_category:
   - Sensor
+ha_iot_class: Local Push
 ha_release: 0.38
-ha_iot_class: Local Polling
 ha_domain: rflink
 ---
 

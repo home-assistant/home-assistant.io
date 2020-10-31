@@ -6,6 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: light
+ha_iot_class: ~
 ---
 
 This integration allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
@@ -18,7 +19,7 @@ The `.default` suffix should be added to the entity identifier of each light to 
 
 ### Service `light.turn_on`
 
-Turns one light on or multiple lights on using [groups]({{site_root}}/integrations/group/).
+Turns one light on or multiple lights on using [groups](/integrations/group/).
 
 Most lights do not support all attributes. You can check the integration documentation of your particular light for hints, but in general, you will have to try things out and see what works.
 

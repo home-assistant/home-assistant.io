@@ -7,6 +7,7 @@ ha_release: 0.101
 ha_codeowners:
   - '@bendikrb'
 ha_domain: sinch
+ha_iot_class: Cloud Push
 ---
 
 The `sinch` platform uses [Sinch](https://www.sinch.com/products/messaging/sms/) to deliver notifications from Home Assistant.

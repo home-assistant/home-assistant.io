@@ -4,6 +4,7 @@ description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.11
+ha_iot_class: Cloud Push
 ha_domain: free_mobile
 ---
 
@@ -33,6 +34,11 @@ notify:
 ```
 
 {% configuration %}
+name:
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  required: false
+  type: string
+  default: notify
 username:
   description: This is the id given by FreeMobile to access to your online account.
   required: true

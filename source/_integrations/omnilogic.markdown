@@ -1,5 +1,5 @@
 ---
-title: Hayward OmniLogic
+title: Hayward Omnilogic
 description: Instructions on how to configure Hayward OmniLogic integration.
 ha_category:
   - Sensor
@@ -8,12 +8,12 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@oliver84'
+  - '@djtimca'
+  - '@gentoosu'
 ha_domain: omnilogic
 ---
 
-OmniLogic by [Hayward](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) 
-
-Elite automation for fully featured new pool and spas. OmniLogic® brings backyard control to the forefront of pool technology. Enjoy the luxuries of full automation from the most intuitive app with effortless upgrades to always keep your backyard on the cutting edge.
+[Hayward OmniLogic](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) smart pool and spa technology control.
 
 There is currently support for the following device types within Home Assistant:
 

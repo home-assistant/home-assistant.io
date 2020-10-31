@@ -26,7 +26,7 @@ Supported devices (see Requirements section below):
 
 ## Configuration
 
-To use Bond controlled devices in your installation, add your Bond hub host and access token from the integrations page.
+To use Bond controlled devices in your installation, add your Bond hub host and access token from the integrations page. Instructions for how to obtain an access token can be found on the [Bond Local API](http://docs-local.appbond.com/#section/Getting-Started/Get-Device-Information) documentation, which includes a section for how to obtain the [IP address of the device](http://docs-local.appbond.com/#section/Getting-Started/Finding-the-Bond-IP) which you will need to obtain the access token.
 
 Menu: **Configuration** -> **Integrations**.
 

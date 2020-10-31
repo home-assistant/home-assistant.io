@@ -5,7 +5,9 @@ logo: interlogix.png
 ha_category:
   - Alarm
   - Binary Sensor
+ha_iot_class: Local Polling
 ha_release: 0.31
+ha_iot_class: Local Polling
 ha_domain: concord232
 ---
 

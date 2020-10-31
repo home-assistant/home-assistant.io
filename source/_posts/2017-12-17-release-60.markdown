@@ -141,7 +141,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Report availability for TP-Link smart bulbs ([@DanNixon] - [#10976]) ([light.tplink docs])
 - Fix incorrect comment. ([@emosenkis] - [#11111])
 - Update Warrant ([@balloob] - [#11101]) ([cloud docs])
-- Fixed typo in automation.py ([@ryanm101] - [#11116]) ([config.automation docs])
+- Fixed typo in automation.py ([@ryanm101] - [#11116]) ([config docs])
 - Add media position properties ([@pschmitt] - [#10076])
 - update pyripple ([@nkgilley] - [#11122]) ([sensor.ripple docs])
 - Skip HASS emulated Hue bridges from detection. ([@andreacampi] - [#11128]) ([hue docs])
@@ -316,7 +316,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.tado docs]: /integrations/tado
 [cloud docs]: /integrations/cloud/
 [cloud.const docs]: /integrations/cloud/
-[config.automation docs]: /integrations/config.automation/
+[config docs]: /integrations/config
 [cover.tellstick docs]: /integrations/tellstick#cover
 [device_tracker docs]: /integrations/device_tracker/
 [device_tracker.meraki docs]: /integrations/meraki

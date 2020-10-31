@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: history
+ha_iot_class: ~
 ---
 
 The `history` integration will track everything that is going on within Home
@@ -24,8 +25,8 @@ history:
 ```
 
 <p class='img'>
-  <a href='{{site_root}}/images/screenshots/component_history_24h.png'>
-    <img src='{{site_root}}/images/screenshots/component_history_24h.png' />
+  <a href='/images/screenshots/component_history_24h.png'>
+    <img src='/images/screenshots/component_history_24h.png' />
   </a>
 </p>
 

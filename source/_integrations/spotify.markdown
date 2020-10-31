@@ -12,25 +12,25 @@ ha_codeowners:
 ha_domain: spotify
 ---
 
-The `spotify` media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
+The Spotify media player integration allows you to control [Spotify](https://www.spotify.com/) playback from Home Assistant.
 
 ## Prerequisites
 
 - Spotify account
-- Spotify application, properly configured (see below).
+- Spotify application configured for Home Assistant (see [below](#create-a-spotify-application))
 
 <div class='note'>
-  Controlling the Spotify integration (pause, play, next, etc.) requires a Premium account.
-  If you do not have a Premium account, the integration in the frontend will not show the controls.
+  Spotify integrated media controls (pause, play, next, etc.) requires a Premium account.
+  If you do not have a Premium account, the integration's frontend will not show the controls.
 </div>
 
-To create the required Spotify application:
+### Create a Spotify application
 
 - Login to [Spotify Developer](https://developer.spotify.com).
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant configuration file.
-- On the Spotify page, enter the **Edit Settings** dialog of your newly created application and add a **Redirect URI**:
+- On the Spotify page, enter the **Edit Settings** dialog of your newly created application and add a *Redirect URI*:
   - If you are not using SSL: `http://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
   - If you are using SSL: `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback`
 - Click **Save** after adding the URI.
@@ -41,7 +41,7 @@ To create the required Spotify application:
 
 ## Configuration
 
-To add Spotify to your installation, add the following to your `configuration.yaml` file:
+To add Spotify to Home Assistant, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -63,12 +63,11 @@ client_secret:
 
 ## Activating the Spotify integration
 
-After you have set up the above:
-
 - Go to the **Configurations** page in the Home Assistant frontend.
-- Go to **Integrations**.
-- Add a new **Spotify** integration.
-- Follow the steps shown to authenticate Home Assistant with your Spotify account.
+- Click on **Integrations**.
+- Click the orange **+** on the bottom-right.
+- Click on "Spotify".
+- Once the new Spotify tab opens, enter your Spotify credentials and allow Home Assistant to access your Spotify account.
 
 <div class='note'>
 
@@ -82,18 +81,18 @@ After you have set up the above:
 ## Using multiple Spotify accounts
 
 The integration support multiple Spotify accounts at once. You don't need to
-create another Spotify Application in the Spotify Developer portal and no
+create another Spotify application in the Spotify Developer Portal and no
 modification to the `configuration.yaml` file is needed. Multiple Spotify
-accounts can be linked on a _single_ Spotify application.
+accounts can be linked to a _single_ Spotify application.
 
 To add an additional Spotify account to Home Assistant, repeat _only_ the steps
 in the [Activating the Spotify integration](#activating-the-spotify-integration)
-chapter. However, make sure you go to the Spotify website and log out before
+section. However, make sure you go to the Spotify website and log out before
 you do so.
 
 ## URI Links for Playlists
 
-You can send playlists to Spotify using the `"media_content_type": "playlist"`, which are part of the
+You can send playlists to Spotify using the `"media_content_type": "playlist"`, which is part of the
 [media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service.
 The `media_content_id` can be obtained from the Spotify desktop-app by clicking on the more options ("...") next to the album art picture, selecting "share" and then "Copy Spotify URI" or "Copy Playlist Link" (also available in the Spotify phone and web app).
 

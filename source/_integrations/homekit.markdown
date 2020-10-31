@@ -87,6 +87,11 @@ homekit:
         description: The local network IP address. Only necessary if the default from Home Assistant does not work.
         required: false
         type: string
+      mode:
+        description: HomeKit can expose an entity via a bridge, or a single entity as an accessory which is needed for Television Media Players. ([Accessory mode](#accessory-mode))
+        required: false
+        type: string
+        default: '`bridge`'
       safe_mode:
         description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
         required: false
@@ -151,6 +156,10 @@ homekit:
                 description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
                 type: string
+              linked_obstruction_sensor:
+                description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+                required: false
+                type: string                
               low_battery_threshold:
                 description: Minimum battery level before the accessory starts reporting a low battery.
                 required: false
@@ -296,6 +305,16 @@ A common situation might be if you decide to disable parts of the configuration 
 If you create a HomeKit integration via the UI (i.e., **Configuration** >> **Integrations**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
+
+### Accessory mode
+
+When exposing a Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include the `media_player` entity. This can be accomplished in the UI with the following steps.
+
+1. Create a new bridge via the UI (i.e., **Configuration** >> **Integrations**)
+2. Before pairing the bridge, access the options for the bridge.
+3. Change the mode to `accessory`
+4. Select the `media_player` entity with the `tv` device class.
+5. Complete the options flow and pair as normal.
 
 ## Disable Auto Start
 

@@ -49,7 +49,7 @@ Example of the new views in the frontend. <a href='/integrations/group/'>Learn m
 [Nest]: /integrations/nest/
 [onewire]: /integrations/onewire
 [OwnTracks]: /integrations/owntracks
-[Rfxtrx]: /integrations/light.rfxtrx/
+[Rfxtrx]: /integrations/rfxtrx#lights
 [Statsd]: /integrations/statsd/
 [Template]: /integrations/template
 [Thermostat]: /integrations/climate/

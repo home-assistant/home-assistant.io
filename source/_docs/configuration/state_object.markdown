@@ -1,7 +1,6 @@
 ---
 title: "State Objects"
 description: "Describes all there is to know about state objects in Home Assistant."
-redirect_from: /topics/state_object/
 ---
 
 Your devices are represented in Home Assistant as entities. The entities will write their current state to the state machine for other entities/templates/frontend to access. States are a current representation of the entity.

@@ -1,9 +1,9 @@
 ---
-title: "Installing Home Assistant"
-description: "Instructions on how to install Home Assistant."
+title: "Installing Home Assistant OS"
+description: "Instructions on how to install Home Assistant OS."
 ---
 
-The following will take you through the steps required to install Home Assistant.
+The following will take you through the steps required to install Home Assistant OS.
 
 1. Download the appropriate install option:
 
@@ -12,7 +12,7 @@ The following will take you through the steps required to install Home Assistant
      - [Raspberry Pi 3 Model B and B+ 32-bit][pi3-32] (32-bit is required for GPIO support)
      - [Raspberry Pi 3 Model B and B+ 64-bit][pi3-64]
      - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] (32-bit is required for GPIO support)
-     - [Raspberry Pi 4 Model B (1 GB, 2 GB 4GB and 8 GB model) 64-bit][pi4-64] (64-bit is required for 8 GB model)
+     - [Raspberry Pi 4 Model B (1 GB, 2 GB, 4 GB and 8 GB model) 64-bit][pi4-64] (64-bit is required for 8 GB model)
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
      - [Intel NUC][intel-nuc]
@@ -25,7 +25,7 @@ The following will take you through the steps required to install Home Assistant
 
      - [Raspberry Pi][pi1], [Raspberry Pi Zero-W][pi0-w], [Raspberry Pi 2][pi2]
 
-2. Install Home Assistant:
+2. Install Home Assistant OS:
 
    - **For the device images:** Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
    - **For the virtual appliance images:** Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
@@ -47,6 +47,8 @@ The following will take you through the steps required to install Home Assistant
    <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
 
 6. You will be able to reach your installation at `http://homeassistant.local:8123` (if your router supports mDNS, otherwise see below).
+
+7. From here, you have two options - either configure your Home Assistant from scratch, or restore a saved snapshot with all its settings and add-ons that you saved in the past.
 
 <div class='note warning'>
 
@@ -78,7 +80,7 @@ Best practice for updating a Home Assistant installation:
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
 5. Select _Dashboard_ from the _Supervisor_ menu, and then select _Update_.
 
-## Run a specific version on Home Assistant
+## Run a specific version of Home Assistant
 
 For this you would need to install the [Terminal & SSH add-on][ssh] or use the console
 that is available on your device by connecting a keyboard and screen.
@@ -91,7 +93,7 @@ Use the web-based terminal or SSH to your Home Assistant system, or connect to t
 ha core update --version=0.XX.X
 ```
 
-## Run the beta version on Home Assistant
+## Run the beta version of Home Assistant
 
 If you would like to test next release before anyone else, you can install the beta version released every three weeks:
 
@@ -103,23 +105,23 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi0-w-4.13.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi-4.13.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi2-4.13.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi3-4.13.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi3-64-4.13.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi4-4.13.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_rpi4-64-4.13.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_tinker-4.13.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_odroid-c2-4.13.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_odroid-n2-4.13.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_odroid-xu4-4.13.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_intel-nuc-4.13.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.13/hassos_ova-4.13.ova
+[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi0-w-4.15.img.gz
+[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi-4.15.img.gz
+[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi2-4.15.img.gz
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi3-4.15.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi3-64-4.15.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi4-4.15.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi4-64-4.15.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_tinker-4.15.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-c2-4.15.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-n2-4.15.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-xu4-4.15.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_intel-nuc-4.15.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vdi.gz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.qcow2.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/

@@ -3,6 +3,7 @@ title: LlamaLab Automate
 description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.27
 ha_domain: llamalab_automate
 ---

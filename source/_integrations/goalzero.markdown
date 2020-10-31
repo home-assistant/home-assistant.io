@@ -1,8 +1,9 @@
 ---
-title: GoalZero
+title: Goal Zero Yeti
 description: Instructions on how to integrate Goal Zero Yeti with Home Assistant
 ha_category:
   - Energy
+ha_iot_class: Local Polling
 ha_release: 0.116
 ha_config_flow: true
 ha_domain: goalzero

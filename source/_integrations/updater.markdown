@@ -4,6 +4,7 @@ description: Detecting when Home Assistant updates are available.
 ha_category:
   - Binary Sensor
 ha_release: 0.8
+ha_iot_class: Cloud Polling
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

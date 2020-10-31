@@ -1,7 +1,6 @@
 ---
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
-redirect_from: /getting-started/scripts/
 ---
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
@@ -65,6 +64,8 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 The variable command allows you to set/override variables that will be accessible by templates in actions after it.
 
+{% raw %}
+
 ```yaml
 - variables:
     entities: light.kitchen, light.living_room
@@ -75,6 +76,8 @@ The variable command allows you to set/override variables that will be accessibl
     entity_id: "{{ entities }}"
     brightness: "{{ brightness }}"
 ```
+
+{% endraw %}
 
 ## Test a Condition
 
@@ -420,6 +423,7 @@ For example:
   sequence:
     - ...
 ```
+{% endraw %}
 
 ### Repeat Loop Variable
 
