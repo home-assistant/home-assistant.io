@@ -170,8 +170,6 @@ _SenseHAT_ is not going to work straing in Home Assistant Operating System. To e
 - Start the plugin and check the logs to make sure everything is fine. Set it to "Start at boot"
 - Reboot and enjoy your lights
 
-Steps verified with Home Assistant Operating System 4.15. At the moment of this writing, sensors of the SenseHat are still not working, but at least now they can be seen.
-
 ### Raspberry Pi Raspbian Based installation:
 
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
