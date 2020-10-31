@@ -140,8 +140,10 @@ group:
   kitchen:
     - group.sense_hat
 ```
-## Installation
-### On Home Assistant Operating System
+
+## Install on:
+
+### Home Assistant Operating System
 
 Things got complicated for poor _SenseHAT_ with Home Assistant Operating System. I found finally a way to use it.
 
@@ -168,7 +170,7 @@ Things got complicated for poor _SenseHAT_ with Home Assistant Operating System.
 
 Steps verified with Home Assistant Operating System 4.15. At the moment of this writing, sensors of the SenseHat are still not working, but at least now they can be seen.
 
-### On Raspberry Pi Raspbian Based installation:
+### Raspberry Pi Raspbian Based installation:
 
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
