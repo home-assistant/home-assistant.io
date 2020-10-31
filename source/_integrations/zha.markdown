@@ -289,7 +289,7 @@ Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://git
 
 ### ZHA Start up issue with Home Assistant or Home Assistant Container
 
-On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
+On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanager on the host system.
 
 To remove modemmanager from a Debian/Ubuntu host run this command:
 
@@ -311,7 +311,7 @@ Create a `docker-compose.yml` with the following data:
 version: '2'
 services:
   homeassistant:
-    # customisable name
+    # customizable name
     container_name: home-assistant
 
     # must be image for your platform, this is the rpi3 variant
