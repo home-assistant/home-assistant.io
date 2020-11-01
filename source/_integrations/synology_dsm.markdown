@@ -159,3 +159,17 @@ For each disk:
 
 ## Cameras
 - `{camera_name}`: Displays cameras added in [Surveillance Station](https://www.synology.com/en-us/surveillance).
+
+## Services
+
+- `synology_dsm.reboot`: Reboots the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
+
+  | Service data attribute | Optional | Description |
+  | ---------------------- | -------- | ----------- |
+  | `serial` | yes, if only one DSM configured | serial of DSM |
+
+- `synology_dsm.shutdown`: Shutdowns the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
+
+  | Service data attribute | Optional | Description |
+  | ---------------------- | -------- | ----------- |
+  | `serial` | yes, if only one DSM configured | serial of DSM |
