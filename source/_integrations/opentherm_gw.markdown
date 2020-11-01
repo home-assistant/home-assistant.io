@@ -66,7 +66,7 @@ Floor Temperature:
   type: boolean
   default: Disabled
 Force Update:
-  description: "Should sensors and binary_sensors force an update of the entity even if the value stays the same? Useful to force storage of all data points in a database"
+  description: "Should update of the entities be forced when a message is received from the gateway even if the value stays the same? Useful to force storage of all data points in a database. Defaults to `False`"
   type: boolean
   default: Disabled
 {% endconfiguration %}
