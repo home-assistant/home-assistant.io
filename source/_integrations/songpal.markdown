@@ -43,7 +43,6 @@ songpal:
   - name: my speakers
     endpoint: http://IP_ADDRESS:54480/sony
 ```
-See [API References](https://developer.sony.com/develop/audio-control-api/api-references/api-overview-2)
 
 {% configuration %}
 name:
