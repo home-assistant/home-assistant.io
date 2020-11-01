@@ -180,7 +180,7 @@ There is currently support for the following device types within Home Assistant:
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
-### Configuration
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -340,7 +340,7 @@ You must have the [Nest component](/integrations/nest/) configured to use these 
 
 </div>
 
-## Configuration
+#### Configuration
 
 To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
@@ -380,7 +380,7 @@ The following conditions are available by device:
   - person\_detected
   - sound\_detected
 
-## Camera
+### Camera
 
 The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
@@ -404,7 +404,7 @@ Please note due to limitations with the European Nest Thermostat E, integration 
   <img src='/images/screenshots/nest-thermostat-card.png' />
 </p>
 
-## Sensor
+### Sensor
 
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
@@ -414,7 +414,7 @@ The sensors will be setup if the `nest` integration is configured and the requir
 
 </div>
 
-## Configuration
+#### Configuration
 
 To enable sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
