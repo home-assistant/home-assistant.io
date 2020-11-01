@@ -42,7 +42,7 @@ Home Assistant is integrated with the following devices through the SDM API:
   - Doorbells also expose a Chime event with a `binary_sensor` entity
   - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max 
 
-You are in control of the information and capabilities exposed to Home Assitant.  You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device.  The integration is flexible enough to adapt based on what you allow.
+You are in control of the information and capabilities exposed to Home Assitant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
 Others devices like Smoke and CO Alarms or Security systems are not currently
 supported by the SDM API.
@@ -133,7 +133,7 @@ Given a camera named `Front Yard` then binary sensors are created such as `binar
 
 ## Camera
 
-All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API, which returns a rtsp live stream which can be viewed from Home Assistant.  The live stream url is cached by the camera and refreshed regularly when the link expires.
+All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API, which returns a rtsp live stream which can be viewed from Home Assistant. The live stream url is cached by the camera and refreshed regularly when the link expires.
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
@@ -145,7 +145,7 @@ Given a thermostat named `Upstairs` then the climate entity is created with a na
 
 ## Sensor
 
-All Google Nest Thermostat models have traits exposed from the SDM API. The initial values of the sensors are fetched on startup, then updated regularly using the Cloud Pubsub subscriber.  The following traits are supported with sensors:
+All Google Nest Thermostat models have traits exposed from the SDM API. The initial values of the sensors are fetched on startup, then updated regularly using the Cloud Pubsub subscriber. The following traits are supported with sensors:
 
 - [Temperature](https://developers.google.com/nest/device-access/traits/device/temperature)
 - [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
