@@ -20,6 +20,7 @@ The `nest` integration allows you to integrate your [Google Nest](https://store.
 There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera)
+- [Climate](#climate)
 - [Sensor](#sensor)
 
 <div class='note'>
@@ -31,6 +32,7 @@ Note that this integration continues to support the Legacy Works With Nest API w
 Home Assistant is integrated with the following devices through the SDM API:
 
 - Thermostat Devices
+  - Every thermostat is exposed as a `climate` entity
   - Temperature and Humidity sensors each have a `sensor` entity
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
@@ -119,6 +121,13 @@ All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Ma
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
+## Climate
+
+All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant throught the Cloud Pubsub subscriber.
+
+Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
+
+
 ## Sensor
 
 All Google Nest Thermostat models have traits exposed from the SDM API. The initial values of the sensors are fetched on startup, then updated regularly using the Cloud Pubsub subscriber. The following traits are supported with sensors:
@@ -171,7 +180,7 @@ There is currently support for the following device types within Home Assistant:
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
-## Configuration
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -331,7 +340,7 @@ You must have the [Nest component](/integrations/nest/) configured to use these 
 
 </div>
 
-#### Configuration
+## Configuration
 
 To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
@@ -371,7 +380,7 @@ The following conditions are available by device:
   - person\_detected
   - sound\_detected
 
-### Camera
+## Camera
 
 The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
@@ -395,7 +404,7 @@ Please note due to limitations with the European Nest Thermostat E, integration 
   <img src='/images/screenshots/nest-thermostat-card.png' />
 </p>
 
-### Sensor
+## Sensor
 
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
@@ -405,7 +414,7 @@ The sensors will be setup if the `nest` integration is configured and the requir
 
 </div>
 
-#### Configuration
+## Configuration
 
 To enable sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
