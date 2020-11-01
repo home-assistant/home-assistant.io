@@ -123,7 +123,7 @@ Given a camera named `Front Yard` then the camera is created with a name such as
 
 ## Climate
 
-All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant throught the Cloud Pubsub subscriber.
+All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant through the Cloud Pubsub subscriber.
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
