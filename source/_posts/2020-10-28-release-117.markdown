@@ -56,6 +56,7 @@ So, keep an eye on our social media for the announcement.
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 0.117.1 - October 30](#release-01171---october-30)
+- [Release 0.117.2 - November 1](#release-01172---november-1)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -342,6 +343,45 @@ The following integrations are now available via the Home Assistant UI:
 [rmvtransport docs]: /integrations/rmvtransport/
 [synology_dsm docs]: /integrations/synology_dsm/
 [tasmota docs]: /integrations/tasmota/
+
+## Release 0.117.2 - November 1
+
+- Bump pwmled to v1.6.6 ([@soldag] - [#42607]) ([rpi_gpio_pwm docs])
+- Fix Fibaro HC2 climate device missing temperature ([@airthusiast] - [#42627])
+- Fix geo_rss_events import statement ([@exxamalte] - [#42629]) ([geo_rss_events docs])
+- Bump pycfdns to 1.2.1 ([@ludeeus] - [#42634]) ([cloudflare docs])
+- Make sure Tasmota status sensors are disabled ([@emontnemery] - [#42643]) ([tasmota docs])
+- attempt to renew subscription immediately to stop endless loop if it fails after setup ([@hunterjm] - [#42651]) ([onvif docs])
+- Bump up ZHA dependencies ([@Adminiuga] - [#42679]) ([zha docs])
+- Fix canary camera entity inheritance ([@ctalkington] - [#42691]) ([canary docs])
+- Use pylutron_caseta 0.7.1 ([@mdonoughe] - [#42701]) ([lutron_caseta docs])
+
+[#42607]: https://github.com/home-assistant/core/pull/42607
+[#42627]: https://github.com/home-assistant/core/pull/42627
+[#42629]: https://github.com/home-assistant/core/pull/42629
+[#42634]: https://github.com/home-assistant/core/pull/42634
+[#42643]: https://github.com/home-assistant/core/pull/42643
+[#42651]: https://github.com/home-assistant/core/pull/42651
+[#42679]: https://github.com/home-assistant/core/pull/42679
+[#42691]: https://github.com/home-assistant/core/pull/42691
+[#42701]: https://github.com/home-assistant/core/pull/42701
+[@Adminiuga]: https://github.com/Adminiuga
+[@airthusiast]: https://github.com/airthusiast
+[@ctalkington]: https://github.com/ctalkington
+[@emontnemery]: https://github.com/emontnemery
+[@exxamalte]: https://github.com/exxamalte
+[@hunterjm]: https://github.com/hunterjm
+[@ludeeus]: https://github.com/ludeeus
+[@mdonoughe]: https://github.com/mdonoughe
+[@soldag]: https://github.com/soldag
+[canary docs]: /integrations/canary/
+[cloudflare docs]: /integrations/cloudflare/
+[geo_rss_events docs]: /integrations/geo_rss_events/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[onvif docs]: /integrations/onvif/
+[rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
+[tasmota docs]: /integrations/tasmota/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
