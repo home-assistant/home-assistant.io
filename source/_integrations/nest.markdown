@@ -195,7 +195,7 @@ There is currently support for the following device types within Home Assistant:
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
-### Configuration
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -345,7 +345,7 @@ You must have the [Nest component](/integrations/nest/) configured to use the pl
 
 </div>
 
-## Binary Sensor
+### Binary Sensor
 
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
@@ -355,7 +355,7 @@ You must have the [Nest component](/integrations/nest/) configured to use these 
 
 </div>
 
-## Configuration
+#### Configuration
 
 To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
@@ -395,7 +395,7 @@ The following conditions are available by device:
   - person\_detected
   - sound\_detected
 
-## Camera
+### Camera
 
 The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
@@ -407,7 +407,7 @@ The Legacy API integration allows you to watch still frames from a video stream 
 
 Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since the 0.75 release.
 
-## Climate
+### Climate
 
 The `nest` climate platform lets you control a thermostat from [Nest](https://nest.com).
 
@@ -419,7 +419,7 @@ Please note due to limitations with the European Nest Thermostat E, integration 
   <img src='/images/screenshots/nest-thermostat-card.png' />
 </p>
 
-## Sensor
+### Sensor
 
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
@@ -429,7 +429,7 @@ The sensors will be setup if the `nest` integration is configured and the requir
 
 </div>
 
-## Configuration
+#### Configuration
 
 To enable sensors and customize which sensors are setup, you can extend the [Nest component](/integrations/nest/) configuration in your `configuration.yaml` file with the following settings:
 
@@ -469,7 +469,7 @@ The following conditions are available by device:
   - `color_status`: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
 - Nest Camera: none
 
-## Security State
+### Security State
 
 <div class='note warning'>
 
