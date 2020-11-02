@@ -28,7 +28,6 @@ MQTT discovery is enabled by default. To disable MQTT discovery, add the followi
 # Example configuration.yaml entry
 mqtt:
   discovery: false
-  discovery_prefix: homeassistant
 ```
 
 {% configuration %}
