@@ -20,6 +20,7 @@ The `nest` integration allows you to integrate your [Google Nest](https://store.
 There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera)
+- [Climate](#climate)
 - [Sensor](#sensor)
 
 <div class='note'>
@@ -31,6 +32,7 @@ Note that this integration continues to support the Legacy Works With Nest API w
 Home Assistant is integrated with the following devices through the SDM API:
 
 - Thermostat Devices
+  - Every thermostat is exposed as a `climate` entity
   - Temperature and Humidity sensors each have a `sensor` entity
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
@@ -111,7 +113,6 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 - See [No URL Available](https://www.home-assistant.io/more-info/no-url-available) for guidance on setup issues related to URLs.
 
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL
-
 
 ## Camera
 
