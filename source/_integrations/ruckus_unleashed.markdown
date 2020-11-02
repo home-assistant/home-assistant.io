@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: ruckus_unleashed
 ---
 
-This platform allows you to connect to a [Ruckus Unleashed](https://support.ruckuswireless.com/product_families/19-ruckus-unleashed) router.
+This platform allows you to connect to a [Ruckus Unleashed](https://support.ruckuswireless.com/product_families/19-ruckus-unleashed) access point.
 
 There is currently support for the following device types within Home Assistant:
 
