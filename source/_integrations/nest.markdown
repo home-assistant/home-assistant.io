@@ -19,9 +19,7 @@ The `nest` integration allows you to integrate your [Google Nest](https://store.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
 - [Camera](#camera)
-- [Climate](#climate)
 - [Sensor](#sensor)
 
 <div class='note'>
@@ -33,13 +31,10 @@ Note that this integration continues to support the Legacy Works With Nest API w
 Home Assistant is integrated with the following devices through the SDM API:
 
 - Thermostat Devices
-  - Every thermostat is exposed as a `climate` entity
   - Temperature and Humidity sensors each have a `sensor` entity
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
   - The camera live stream is available as a `camera` entity
-  - Person, Motion, Sound events have a `binary_sensor` entity
-  - Doorbells also expose a Chime event with a `binary_sensor` entity
   - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max 
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
@@ -118,30 +113,11 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL
 
 
-## Binary Sensor
-
-Google Nest devices expose a `binary_sensor` to expose various states, triggered in response to updates over the pubsub feed.
-
-The following event based binary sensors are exposed from the SDM API:
-
-- [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events): Motion has been detected by the camera.
-- [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events): A person has been detected by the camera.
-- [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events): Sound has been detected by the camera.
-- [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events): The doorbell has been pressed
-
-Given a camera named `Front Yard` then binary sensors are created such as `binary_sensor.front_yard_camera_motion`.
-
 ## Camera
 
-All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API, which returns a RTSP live stream which can be viewed from Home Assistant. The live stream URL is cached by the camera and refreshed regularly when the link expires.
+All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API, which returns a RTSP live stream which can be viewed from Home Assistant.
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
-
-## Climate
-
-All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant through the Cloud Pubsub subscriber.
-
-Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
 ## Sensor
 
