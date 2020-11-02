@@ -21,7 +21,7 @@ You need to determine your update URL or your access token.
 5. The access token is the part at the end of the link: `https://freedns.afraid.org/dynamic/update.php?YOUR_UPDATE_TOKEN`
 6. Either put the token as `access_token` _or_ the whole URL into the `url` attribute.
 
-## Configuration (V1)
+## Configuration (API V1)
 
 To use the integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -43,7 +43,7 @@ You need to determine your update URL or your access token.
 6. Put the whole URL into the `url` attribute.
 7. (Instead of using the randomized token URL in the Version 2 there are other options to use for URL)
 
-## Configuration
+## Configuration (API V2)
 
 To use the integration in your installation, add the following to your `configuration.yaml` file:
 
