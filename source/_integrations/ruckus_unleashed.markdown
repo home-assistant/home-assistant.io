@@ -15,7 +15,7 @@ This platform allows you to connect to a [Ruckus Unleashed](https://support.ruck
 
 There is currently support for the following device types within Home Assistant:
 
-- **Presence Detection** - The platform will look at devices connected to the router and will create a `device_tracker` for each discovered device.
+- **Presence Detection** - The platform will look at devices connected to the access point and will create a `device_tracker` for each discovered device.
 
 ## Configuration
 
