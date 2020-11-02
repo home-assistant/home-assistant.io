@@ -13,7 +13,7 @@ Keeps track on `number` entities in your environment, their state, and allows yo
 
 ### Services
 
-The Analog Switch entities registers the following services:
+The Number entities registers the following services:
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
