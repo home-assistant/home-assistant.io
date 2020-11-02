@@ -5,6 +5,8 @@ description: "Steps to help you get automation setup in Home Assistant."
 
 Home Assistant offers a wide range of automation configurations. In this section, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available](/cookbook/#example-configurationyaml).
 
+Please see [Automation Integration](/integrations/automation/) for configuration options and services.
+
 ### Automation basics
 
 Before you can go ahead and create your own automations, it's important to learn the basics. To explore these, let's have a look at the following example home automation rule:
@@ -29,7 +31,7 @@ The difference between a condition and a trigger can be confusing as they are ve
 
 ### Exploring the internal state
 
-Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. The <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> icon will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
+Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. **Developer Tools** -> **States** will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
 
 | Name | Description | Example |
 | ---- | ----- | ---- |
@@ -39,18 +41,4 @@ Automation rules interact directly with the internal state of Home Assistant, so
 
 State changes can be used as the source of triggers and the current state can be used in conditions.
 
-Actions are all about calling services. To explore the available services open the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> Services developer tool. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
-
-### Automation initial state
-
-When you create a new automation, it will be enabled unless you explicitly add `initial_state: false` to it or turn it off manually via UI/another automation/developer tools. In case automations need to be always enabled or disabled when Home Assistant starts, then you can set the `initial_state` in your automations. Otherwise, the previous state will be restored.
-
-Please note that if for some reason Home Assistant cannot restore the previous state, it will result in the automation being enabled.
-
-```text
-automation:
-- alias: Automation Name
-  initial_state: false
-  trigger:
-  ...
-```
+Actions are all about calling services. To explore the available services open the **Developer Tools** -> **Services**. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.

@@ -4,6 +4,7 @@ description: Instructions on how to setup automatic alerts within Home Assistant
 ha_category:
   - Automation
 ha_release: 0.38
+ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: alert
 ---
@@ -14,8 +15,15 @@ remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
 water leak sensors, or any condition that may need your attention.
 
-Alerts will add an entity to the front end only when they are firing.
-This entity allows you to silence an alert until it is resolved.
+Alerts will add an entity to the front end.
+This entity allows you to silence an alert until it is resolved and has three
+possible states:
+
+State | Description
+-|-
+`idle` | The condition for the alert is false.
+`on` | The condition for the alert is true.
+`off` | The condition for the alert is true but it was acknowledged.
 
 ### Basic Example
 
@@ -79,15 +87,15 @@ skip_first:
   default: false
 message:
   description: >
-    A message to be sent after an alert transitions from `off` to `on`
+    A message to be sent after an alert transitions from `idle` to `on`
     with [template](/docs/configuration/templating/) support.
   required: false
   type: template
 done_message:
   description: >
-    A message sent after an alert transitions from `on` to `off` with
+    A message sent after an alert transitions from `on` or `off` to `idle` with
     [template](/docs/configuration/templating/) support. Is only sent if an alert notification
-    was sent for transitioning from `off` to `on`.
+    was sent for transitioning from `idle` to `on`.
   required: false
   type: template
 notifiers:

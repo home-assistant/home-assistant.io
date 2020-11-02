@@ -4,6 +4,7 @@ description: Instructions on how to integrate RSS feeds into Home Assistant.
 ha_category:
   - Other
 ha_release: 0.18
+ha_iot_class: Cloud Polling
 ha_domain: feedreader
 ---
 
@@ -72,7 +73,7 @@ automation:
       event_type: feedreader
     action:
       service: persistent_notification.create
-      data_template:
+      data:
         title: "New HA Podcast available"
         message: {% raw %}"New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"{% endraw %}
         notification_id: {% raw %}"{{ trigger.event.data.title }}"{% endraw %}

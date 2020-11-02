@@ -4,6 +4,7 @@ description: Instructions on how to setup Google Translate Text-to-Speech with H
 ha_category:
   - Text-to-speech
 ha_release: 0.35
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@awarecan'
 ha_domain: google_translate

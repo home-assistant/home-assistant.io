@@ -89,7 +89,9 @@ Within this delay the device registration should be completed in the App, otherw
   * Combined Alarm Control Panal with INTERNAL and EXTERNAL Security zones (*HmIP-SecurityZone*)
 
 * homematicip_cloud.binary_sensor
+  * Access Point Cloud Connection (*HmIP-HAP, HmIP-HAP-B1*)
   * Acceleration Sensor (*HMIP-SAM*)
+  * Inclination and vibration Sensor (*HMIP-STV*)
   * Window and door contact (*HmIP-SWDO, HmIP-SWDO-PL, HmIP-SWDO-I, HmIP-SWDM, HmIP-SWDM-B2*)
   * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
   * Contact Interface (*HmIP-SCI*)
@@ -107,6 +109,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
   * Remote Control for brand switches – 2-button (*HmIP-BRC2*) (battery only)
   * Pluggable Power Supply Monitoring (*HmIP-PMFS*)
+  * Wired Inbound module – 32x channels (*HMIPW-DRI32*)
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
@@ -131,6 +134,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Blind Actuator for brand switches (*HmIP-BBL*)
   * Blind Actuator for flush-mount (*HmIP-FBL*)
   * Garage door module for Tormatic (*HmIP-MOD_TM*)
+  * Module for Hoermann drives (*HMIP-MOD-HO*)
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
@@ -140,7 +144,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
 
 * homematicip_cloud.sensor
-  * Cloud Access point duty-cycle (*HmIP-HAP, HmIP-HAP-B1*)
+  * Access Point Duty Cycle (*HmIP-HAP, HmIP-HAP-B1*)
   * Wall Mounted Thermostat (*HmIP-WTH, HmIP-WTH2, HmIP-WTH-B*)
   * Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
   * Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
@@ -158,12 +162,14 @@ Within this delay the device registration should be completed in the App, otherw
   * Pluggable Switch (*HmIP-PS*)
   * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, HmIP-PSM-IT, HmIP-PSM-UK, HmIP-PSM-PE*)
   * Switch Actuator and Meter – flush-mount (*HmIP-FSM, HmIP-FSM16*)
+  * Switch Actuator with Push-button Input – flush-mount (*HmIP-FSI16*)
   * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8*)
   * Multi IO Box - 2x (*HmIP-MIOB*)
   * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
   * Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
   * Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
   * Switch Actuator for heating systems – 2 channels (*HmIP-WHS2*)
+  * Wired Switch Actuator – 8x channels (*HMIPW-DRS8*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)

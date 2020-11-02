@@ -3,6 +3,7 @@ title: FFmpeg Noise
 description: Instructions on how to integrate an FFmpeg-based noise binary sensor
 ha_category:
   - Image Processing
+ha_iot_class: Calculated
 ha_release: 0.27
 ha_domain: ffmpeg_noise
 ---
@@ -68,5 +69,5 @@ output:
 To experiment with values:
 
 ```bash
-$ ffmpeg -i YOUR_INPUT -vn -filter:a silencedetect=n=-30dB:d=1 -f null -
+ffmpeg -i YOUR_INPUT -vn -filter:a silencedetect=n=-30dB:d=1 -f null -
 ```

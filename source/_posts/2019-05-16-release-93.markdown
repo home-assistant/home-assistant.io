@@ -254,7 +254,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Drop unnecessary block_till_done, improve tests for MQTT Cover tests ([@emontnemery] - [#23255])
 - Drop unnecessary block_till_done ([@emontnemery] - [#23256])
 - Add ctags file to .gitignore ([@bachya] - [#23279])
-- Upgrade xmltodict to 0.12.0 ([@BKPepe] - [#23277]) ([bluesound docs]) ([startca docs]) ([ted5000 docs]) ([yr docs]) ([zestimate docs])
+- Upgrade xmltodict to 0.12.0 ([@BKPepe] - [#23277]) ([bluesound docs]) ([startca docs]) ([ted5000 docs]) ([zestimate docs])
 - Upgrade pyotp to 2.2.7 ([@BKPepe] - [#23274]) ([otp docs])
 - Add homematicip cloud temperature sensor from thermostats ([@SukramJ] - [#23263]) ([homematicip_cloud docs]) (breaking change)
 - Improve MQTT tests ([@emontnemery] - [#23296])
@@ -352,7 +352,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Redesign AlarmControlPanel for Homematic IP ([@SukramJ] - [#23565]) ([homematicip_cloud docs])
 - Ambiclimate ([@Danielhiversen] - [#22827]) ([ambiclimate docs]) (new-integration) (new-platform)
 - Move I/O to executor thread pool ([@cyrosy] - [#23589]) ([discord docs])
-- Update bomradarloop to v0.1.3 ([@maddenp] - [#23599]) ([bom docs])
+- Update bomradarloop to v0.1.3 ([@maddenp] - [#23599])
 - updated manifest.json with correct version of hangup ([@teliov] - [#23596]) ([hangouts docs])
 - Add and improve Homekit controller pairing messages and errors ([@Jc2k] - [#23532]) ([homekit_controller docs])
 - Added message to data_template at notify REST ([@4lloyd] - [#23108]) ([rest docs])
@@ -759,7 +759,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [automation docs]: /integrations/automation/
 [bizkaibus docs]: /integrations/bizkaibus/
 [bluesound docs]: /integrations/bluesound/
-[bom docs]: /integrations/bom/
 [caldav docs]: /integrations/caldav/
 [cast docs]: /integrations/cast/
 [counter docs]: /integrations/counter/
@@ -870,7 +869,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [xmpp docs]: /integrations/xmpp/
 [yeelight docs]: /integrations/yeelight/
-[yr docs]: /integrations/yr/
 [zeroconf docs]: /integrations/zeroconf/
 [zestimate docs]: /integrations/zestimate/
 [zha docs]: /integrations/zha/

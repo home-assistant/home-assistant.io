@@ -3,6 +3,7 @@ title: Huawei Router
 description: Instructions on how to integrate Huawei Routers into Home Assistant.
 ha_category:
   - Presence Detection
+ha_iot_class: Local Polling
 ha_release: 0.51
 ha_codeowners:
   - '@abmantis'
@@ -32,7 +33,7 @@ host:
   required: true
   type: string
 username:
-  description: The username to login into the router (the same used trough the router's web interface).
+  description: The username to login into the router (the same used through the router's web interface).
   required: true
   type: string
 password:

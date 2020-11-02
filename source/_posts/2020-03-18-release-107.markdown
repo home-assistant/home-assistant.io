@@ -709,7 +709,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Emoncms API now provides a Unit of Measurement ([@borpin] - [#32042]) ([emoncms docs]) (breaking change)
 - Add async_setup_entry/async_unload_entry for remote platform ([@ctalkington] - [#31974]) ([remote docs])
 - Add github sensor latest tag attribute ([@Mariusthvdb] - [#32360]) ([github docs])
-- Modernize WWLLN config flow ([@bachya] - [#32194]) ([wwlln docs])
+- Modernize WWLLN config flow ([@bachya] - [#32194])
 - Mock all invocations of coronavirus.get_cases ([@balloob] - [#32487])
 - Use unique_id in Plex config entries ([@jjlawren] - [#32489]) ([plex docs])
 - UniFi - Add block network access control to config option ([@Kane610] - [#32004]) ([unifi docs])
@@ -763,7 +763,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Reflect new repo name ([@marengaz] - [#32611])
 - Convert august to async ([@bdraco] - [#32586]) ([august docs])
 - Freeze config entry data ([@balloob] - [#32615]) ([axis docs]) ([heos docs]) ([homematicip_cloud docs]) ([met docs]) ([mikrotik docs]) ([mqtt docs]) ([plex docs]) ([samsungtv docs]) ([smartthings docs]) ([transmission docs]) ([upnp docs])
-- Validate WWLLN window size in config schema ([@bachya] - [#32621]) ([wwlln docs])
+- Validate WWLLN window size in config schema ([@bachya] - [#32621])
 - Add PollControl cluster support to ZHA ([@Adminiuga] - [#32618]) ([zha docs])
 - Upgrade hass_nabucasa to 0.32.2 ([@balloob] - [#32522]) ([cloud docs])
 - Add a commit interval setting to recorder ([@bdraco] - [#32596]) ([recorder docs])
@@ -792,7 +792,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Throw ConfigEntryNotReady when august servers are offline or u… ([@bdraco] - [#32635]) ([august docs])
 - Bump aiohomekit for more reconnect fixes ([@Jc2k] - [#32657]) ([homekit_controller docs])
 - Bump python-ecobee-api to 0.2.2 ([@jjlawren] - [#32667]) ([ecobee docs])
-- Use bomradarloop v0.1.4 ([@maddenp] - [#32660]) ([bom docs])
+- Use bomradarloop v0.1.4 ([@maddenp] - [#32660])
 - Add codeowner for directv. ([@ctalkington] - [#32661]) ([directv docs]) ([directv docs])
 - Add entity_service calibrate_meter to utility_meter ([@dgomes] - [#32658]) ([utility_meter docs])
 - Updated frontend to 20200311.0 ([@bramkragten] - [#32675]) ([frontend docs])
@@ -1314,7 +1314,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
-[bom docs]: /integrations/bom/
 [braviatv docs]: /integrations/braviatv/
 [brother docs]: /integrations/brother/
 [buienradar docs]: /integrations/buienradar/
@@ -1449,7 +1448,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vicare docs]: /integrations/vicare/
 [vizio docs]: /integrations/vizio/
 [workday docs]: /integrations/workday/
-[wwlln docs]: /integrations/wwlln/
 [yandex_transport docs]: /integrations/yandex_transport/
 [zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/

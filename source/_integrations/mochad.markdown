@@ -5,6 +5,7 @@ ha_category:
   - Hub
   - Light
   - Switch
+ha_iot_class: Local Polling
 ha_release: 0.32
 ha_domain: mochad
 ---

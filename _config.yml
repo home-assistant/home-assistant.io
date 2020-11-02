@@ -45,7 +45,6 @@ commonmark:
 highlighter: none
 
 plugins:
-  - jekyll-redirect-from
   - jekyll-time-to-read
 
 paginate: 10 # Posts per page on the blog index
@@ -100,9 +99,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 109
-current_patch_version: 6
-date_released: 2020-05-07
+current_minor_version: 116
+current_patch_version: 4
+date_released: 2020-10-15
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.

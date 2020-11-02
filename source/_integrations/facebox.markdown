@@ -3,6 +3,7 @@ title: Facebox
 description: Detect and recognize faces with Facebox.
 ha_category:
   - Image Processing
+ha_iot_class: Local Push
 ha_release: 0.7
 ha_domain: facebox
 ---
@@ -92,7 +93,7 @@ source:
 
 ## Automations
 
-Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [data_template](/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
+Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [template](/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
 
 {% raw %}
 ```yaml
@@ -105,7 +106,7 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
       name: 'Ringo_Starr'
   action:
     service: notify.platform
-    data_template:
+    data:
       message: Ringo_Starr recognised with probability {{ trigger.event.data.confidence }}
       title: Door-cam notification
 ```

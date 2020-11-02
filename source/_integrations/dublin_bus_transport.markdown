@@ -39,4 +39,4 @@ name:
   type: string
 {% endconfiguration %}
 
-The public RTPI information is coming from [Dub Linked](https://data.dublinked.ie/).
+The public RTPI information is coming from [Dub Linked](https://data.smartdublin.ie/).

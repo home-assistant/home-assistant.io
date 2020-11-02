@@ -30,7 +30,7 @@ still_image_url:
   required: true
   type: string
 stream_source:
-  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`."
+  description: "The URL your camera serves the live stream on, e.g., `rtsp://192.168.1.21:554/`. Can be a [template](/topics/templating/)."
   required: false
   type: string
 name:

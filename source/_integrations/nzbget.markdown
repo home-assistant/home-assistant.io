@@ -6,6 +6,7 @@ ha_category:
 logo: nzbget.png
 ha_iot_class: Local Polling
 ha_release: 0.17
+ha_config_flow: true
 ha_codeowners:
   - '@chriscla'
 ha_domain: nzbget
@@ -15,45 +16,7 @@ The `nzbget` platform will allow you to monitor and control your downloads with 
 
 ## Configuration
 
-To enable this component, add the following to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-nzbget:
-  host: YOUR_NZBGET_HOST
-  username: YOUR_NZBGET_USERNAME
-  password: YOUR_NZBGET_PASSWORD
-```
-
-{% configuration %}
-host:
-  required: true
-  type: string
-  description: IP address where your NZBGet installation is running.
-port:
-  required: false
-  type: integer
-  description: The port of your NZBGet installation.
-  default: 6789
-ssl:
-  required: false
-  type: boolean
-  description: Whether or not to use SSL to access NZBGet.
-  default: false
-name:
-  required: false
-  type: string
-  description: The prefix to use for your sensor.
-  default: NZBGet
-username:
-  required: false
-  type: string
-  description: The username to access your NZBGet installation.
-password:
-  required: false
-  type: string
-  description: The password to access your NZBGet installation.
-{% endconfiguration %}
+Go to the integrations page in your configuration and click on new integration -> NZBGet.
 
 ## Sensor
 
@@ -92,7 +55,7 @@ Example automation to send a Telegram message on a completed download:
     category: tv
   action:
     service: notify.telegram_notifier
-    data_template:
+    data:
       title: "Download completed!"
       message: "{{trigger.event.data.name}}"
 ```

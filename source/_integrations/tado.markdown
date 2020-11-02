@@ -127,3 +127,56 @@ Find your `home_id` by browsing to `https://my.tado.com/api/v2/me?username=YOUR_
 ```
 
 In this example `12345` is the `home_id` you'll need to configure.
+
+### Finding your `home_id` alternative
+
+If the above method returns an unauthorized error. The `home_id` can also be found using Chrome developer tools. Whilst logged into https://my.tado.com/webapp, take the following steps: 
+
+- Select the "Network"' tab
+- Filter for "home"
+- Under "Name", select "users"
+- Click on the "Response" tab
+
+The `home_id` appears in the response for users as `"id":12345`
+
+In this example `12345` is the `home_id` you'll need to configure.
+
+## Services
+
+### Service `tado.set_climate_timer`
+
+You can use the service `tado.set_climate_timer` to set your Tado climate device, for example a radiator valve, to switch on for a set time period. 
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `temperature`          | no       | String, The required target temperature e.g., `20.5`                   |
+
+### Service `tado.set_water_heater_timer`
+
+You can use the service `tado.set_water_heater_timer` to set your water heater to switch on for a set time period. 
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
+| `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
+
+Examples:
+
+```yaml
+# Example script to set a timer for the water heater with no temperature specified
+script:
+  boost_heating:
+    sequence:
+      - service: tado.set_climate_timer
+        data:
+          entity_id: climate.heating
+          time_period: "01:30:00"
+          temperature: 25
+      - service: tado.set_water_heater_timer
+        data:
+          entity_id: water_heater.hot_water
+          time_period: "01:30:00"
+```

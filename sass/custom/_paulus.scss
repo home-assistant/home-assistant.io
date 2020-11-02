@@ -214,7 +214,8 @@ dt:hover a.title-link {
     position: absolute;
     top: 5px;
     left: -25px;
-    padding-right: 40px;
+    padding-right: 5px;
+    padding-left: 5px;
     font-family: "FontAwesome";
     font-size: 15px;
     color: #999;
@@ -491,46 +492,81 @@ twitter-widget {
 
 // Configuration variables
 div.config-vars {
-  // Future re-design
-  // h3 {
-  //   border: 0;
-  //   border-top: 1px solid $primary-color;
-  //   padding-top: 1.4rem;
-  // }
+  padding-bottom: 16px;
 
-  dl {
-    margin-bottom: 1.5em;
+  .config-vars-item {
+    border-bottom: 1px solid #d9dbde;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 
-    &.nested {
-      border-left: 1px dotted $primary-color;
-      padding-left: 6px;
+  .nested .config-vars-item:last-child {
+    border: none;
+  }
+
+  .config-vars-label {
+    padding-bottom: 4px;
+    position: relative;
+
+    &:hover a.title-link::before {
+      position: absolute;
+      top: 5px;
+      left: -25px;
+      padding-right: 40px;
+      font-family: "FontAwesome";
+      font-size: 15px;
+      color: #999;
+      content: "";
+    }
+  }
+
+  .config-vars-label-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #222222bd;
+  }
+
+  .config-vars-type {
+    color: #8792a2;
+    font-size: 13px;
+  }
+
+  .config-vars-required {
+    color: #8792a2;
+    font-size: 13px;
+    text-transform: lowercase;
+
+    .true {
+      color: #e56f4a;
+      text-transform: uppercase;
+      font-size: 11px;
     }
 
-    dt {
-      font-weight: bold;
+    .default {
+      text-transform: None;
     }
+  }
 
-    dd {
-      margin: 0 0 0.5em 1em;
+  .config-vars-description-and-children {
+    font-size: 14px;
+    color: #4f566b;
+  }
 
-      p.desc {
-        margin: 0;
+  .config-vars-description p {
+    margin: 0;
+  }
 
-        span.type,
-        span.required {
-          font-style: italic;
+  .config-vars-default {
+    padding-top: 8px;
 
-          &::after {
-            content: " "
-          }
-        }
-      }
-
-      p.default {
-        font-style: italic;
-        margin: 0;
-      }
+    p {
+      margin: 0;
+      display: inline;
     }
+  }
+
+  .nested {
+    margin-left: 48px;
   }
 }
 

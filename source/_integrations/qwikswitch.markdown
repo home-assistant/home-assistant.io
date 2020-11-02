@@ -7,6 +7,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_iot_class: Local Push
 ha_release: '0.20'
 ha_codeowners:
   - '@kellerza'
