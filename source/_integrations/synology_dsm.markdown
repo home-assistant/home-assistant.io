@@ -162,14 +162,14 @@ For each disk:
 
 ## Services
 
-- `synology_dsm.reboot`: Reboots the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
+- `synology_dsm.reboot`: Reboot the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
 
-  | Service data attribute | Optional | Description |
+  | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
-  | `serial` | yes, if only one DSM configured | serial of DSM |
+  | `serial` | yes, when multiple NAS are configured | serial of DSM |
 
-- `synology_dsm.shutdown`: Shutdowns the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
+- `synology_dsm.shutdown`: Shutdown the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
 
-  | Service data attribute | Optional | Description |
+  | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
-  | `serial` | yes, if only one DSM configured | serial of DSM |
+  | `serial` | yes, when multiple NAS are configured | serial of DSM |
