@@ -87,13 +87,13 @@ sensor:
   - platform: template
     sensors:
       sensehat_temperature:
-        value_template: '{{ states("sensor.temperature") | round(1) }}'
+        value_template: '{{ states('sensor.temperature') | round(1) }}'
         unit_of_measurement: '°C'
       sensehat_pressure:
-        value_template: '{{ states("sensor.pressure") | round(1) }}'
+        value_template: '{{ states('sensor.pressure') | round(1) }}'
         unit_of_measurement: 'mb'
       sensehat_humidity:
-        value_template: '{{ states("sensor.humidity") | round(1) }}'
+        value_template: '{{ states('sensor.humidity') | round(1) }}'
         unit_of_measurement: '%'
 ```
 
