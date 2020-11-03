@@ -5,6 +5,9 @@ description: "Details about YAML to configure Home Assistant."
 
 Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
 
+If you are just getting started with YAML DrZzs and Frenck have created a great video on the basics:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FfjSA2o_0KA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 For integrations that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings. This especially applies to integrations that are not yet available to configure through the UI.
 
 The following example entry assumes that you would like to set up the [notify integration](/integrations/notify) with the [pushbullet platform](/integrations/pushbullet).
