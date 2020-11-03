@@ -76,6 +76,10 @@ password:
   description: The Facebox password if you have set one.
   required: false
   type: string
+protocol:
+  description: The Facebox protocol if you run facebox behind reverse proxy with HTTPS. (Default: HTTP)
+  required: false
+  type: string
 source:
   description: The list of image sources.
   required: true
