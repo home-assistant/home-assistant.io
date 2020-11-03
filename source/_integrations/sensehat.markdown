@@ -147,7 +147,7 @@ group:
 
 _SenseHAT_ is not going to work straing in Home Assistant Operating System. To enable it you can follow these steps.
 
-- Follow instructions [here](https://www.home-assistant.io/hassio/enable_i2c/) to enable i2c on Home Assistant Operating System
+- Follow instructions [here](/hassio/enable_i2c/) to enable i2c on Home Assistant Operating System
 - Install "Custom deps deployment" add-on. To do so
     - add ``https://github.com/home-assistant/hassio-addons-development`` to your add-ons repositories
     - select *Custom deps deployment* and enable it
