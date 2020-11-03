@@ -10,6 +10,7 @@ ha_domain: synology_dsm
 ha_codeowners:
   - '@hacf-fr'
   - '@Quentame'
+  - '@mib1185'
 ha_config_flow: true
 ---
 
