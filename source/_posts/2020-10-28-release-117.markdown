@@ -57,6 +57,7 @@ So, keep an eye on our social media for the announcement.
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 0.117.1 - October 30](#release-01171---october-30)
 - [Release 0.117.2 - November 1](#release-01172---november-1)
+- [Release 0.117.3 - November 4](#release-01173---november-4)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -382,6 +383,57 @@ The following integrations are now available via the Home Assistant UI:
 [rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
 [tasmota docs]: /integrations/tasmota/
 [zha docs]: /integrations/zha/
+
+## Release 0.117.3 - November 4
+
+- Please set exact cryptography version cryptography==3.2 ([@onkelbeh] - [#42611])
+- Fix broken maxcube component ([@onkelbeh] - [#42674]) ([maxcube docs])
+- Fix Vizio host string for zeroconf discovery ([@raman325] - [#42738]) ([vizio docs])
+- Bump bimmer_connected to 0.7.10: fix login issues, add (PH)EV services ([@rikroe] - [#42747]) ([bmw_connected_drive docs])
+- Bump pyairvisual to 5.0.4 ([@bachya] - [#42760]) ([airvisual docs])
+- Fix incorrect property usage for SimpliSafe ([@bachya] - [#42770]) ([simplisafe docs])
+- Force color or white mode exclusivity for Tasmota lights ([@emontnemery] - [#42772]) ([tasmota docs])
+- Bump pyatmo to 4.2.0 ([@cgtobi] - [#42774]) ([netatmo docs])
+- Fix broken 2fa authentication in synology_dsm ([@mib1185] - [#42775]) ([synology_dsm docs])
+- Bump bimmer_connected to 0.7.11 ([@rikroe] - [#42788]) ([bmw_connected_drive docs])
+- Filter rfxtrx replace devices in option flow on existing config entry ([@RobBie1221] - [#42800]) ([rfxtrx docs])
+- Fix rest sensors with resource templates ([@bdraco] - [#42818]) ([rest docs])
+- Fix evohome scheduling coroutines ([@balloob] - [#42821]) ([evohome docs])
+
+[#42611]: https://github.com/home-assistant/core/pull/42611
+[#42674]: https://github.com/home-assistant/core/pull/42674
+[#42738]: https://github.com/home-assistant/core/pull/42738
+[#42747]: https://github.com/home-assistant/core/pull/42747
+[#42760]: https://github.com/home-assistant/core/pull/42760
+[#42770]: https://github.com/home-assistant/core/pull/42770
+[#42772]: https://github.com/home-assistant/core/pull/42772
+[#42774]: https://github.com/home-assistant/core/pull/42774
+[#42775]: https://github.com/home-assistant/core/pull/42775
+[#42788]: https://github.com/home-assistant/core/pull/42788
+[#42800]: https://github.com/home-assistant/core/pull/42800
+[#42818]: https://github.com/home-assistant/core/pull/42818
+[#42821]: https://github.com/home-assistant/core/pull/42821
+[@RobBie1221]: https://github.com/RobBie1221
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cgtobi]: https://github.com/cgtobi
+[@emontnemery]: https://github.com/emontnemery
+[@mib1185]: https://github.com/mib1185
+[@onkelbeh]: https://github.com/onkelbeh
+[@raman325]: https://github.com/raman325
+[@rikroe]: https://github.com/rikroe
+[airvisual docs]: /integrations/airvisual/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[evohome docs]: /integrations/evohome/
+[maxcube docs]: /integrations/maxcube/
+[netatmo docs]: /integrations/netatmo/
+[rest docs]: /integrations/rest/
+[rfxtrx docs]: /integrations/rfxtrx/
+[simplisafe docs]: /integrations/simplisafe/
+[synology_dsm docs]: /integrations/synology_dsm/
+[tasmota docs]: /integrations/tasmota/
+[vizio docs]: /integrations/vizio/
 
 ## If you need help...
 
