@@ -42,24 +42,13 @@ Each individual value in the defined key can be anywhere from 0x00 to 0xFF. Defi
 
 ### Network Key
 
-An easy Linux script to generate a random key:
-(remember you can run this in Home Assistant OS or Supervised, you can use the Terminal Add-on)
-
-```bash
-cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
-```
-
-On macOS, this script will generate a random key:
-
-```bash
-cat /dev/urandom | LC_CTYPE=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
-```
-
-If the above command doesn't work then replace `LC_CTYPE=C` with `LC_ALL=C`:
+Quickly generate a random key by running:
 
 ```bash
 cat /dev/urandom | LC_ALL=C tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
+
+(remember you can run this in Home Assistant OS or Supervised, you can use the Terminal Add-on)
 
 <div class='note warning'>
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
