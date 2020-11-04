@@ -3,6 +3,7 @@ title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
 ha_category:
   - Binary Sensor
+  - Sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -13,7 +14,7 @@ ha_domain: proxmoxve
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
 
-After configuring this component, the binary sensors automatically appear.
+After configuring this component, the sensors automatically appear.
 
 ## Configuration
 
@@ -100,9 +101,39 @@ proxmoxve:
 
 ## Binary Sensor
 
-The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
+The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different. There are als additional attributes added to each binary sensor for the node running on, VM name, VM id, VM type, CPU count and memory size.
 
-The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
+The created sensor will be called `binary_sensor.NODE_VMNAME_running`.
+
+example for additional attributes
+```yaml
+node: pve
+vmid: 207
+vmname: devhost
+type: lxc
+cpu: 8
+memory: 16384
+```
+
+## Sensor
+
+The integration will automatically create multiple sensors for each tracked virtual machine or container about their cpu, memory and disk utilisation.
+
+The created sensors will be called `sensor.NODE_VMNAME_SENSORNAME`.
+
+| sensor name | unit of measurement | description | available for |
+| --- | --- | --- | --- |
+| cpu_use_percent | % | CPU use | lxc, qemu |
+| cpu | None | CPU count | lxc, qemu |
+| memory_free | MiB | Memory free | lxc, qemu |
+| memory_use | MiB | Memory use | lxc, qemu |
+| memory_use_percent | % | Memory use (percent) | lxc, qemu |
+| mem | MiB | Memory size | lxc, qemu |
+| disk_free | GiB | Disk free | lxc |
+| disk_use | GiB | Disk use | lxc |
+| disk_use_percent | % | Disk use (percent) | lxc |
+| disk | GiB | Disk size | lxc, qemu |
+
 
 ## Proxmox Permissions
 
