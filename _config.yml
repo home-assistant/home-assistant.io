@@ -100,7 +100,7 @@ social:
 # Home Assistant release details
 current_major_version: 0
 current_minor_version: 117
-current_patch_version: 3
+current_patch_version: 4
 date_released: 2020-11-04
 
 # Either # or the anchor link to latest release notes in the blog post.

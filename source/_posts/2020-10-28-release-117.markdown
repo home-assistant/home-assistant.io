@@ -58,6 +58,7 @@ So, keep an eye on our social media for the announcement.
 - [Release 0.117.1 - October 30](#release-01171---october-30)
 - [Release 0.117.2 - November 1](#release-01172---november-1)
 - [Release 0.117.3 - November 4](#release-01173---november-4)
+- [Release 0.117.4 - November 4](#release-01174---november-4)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -434,6 +435,22 @@ The following integrations are now available via the Home Assistant UI:
 [synology_dsm docs]: /integrations/synology_dsm/
 [tasmota docs]: /integrations/tasmota/
 [vizio docs]: /integrations/vizio/
+
+## Release 0.117.4 - November 4
+
+- Update greeclimate to 0.9.5 ([@cmroche] - [#42796]) ([gree docs])
+- Cleanup dispatchers when unloading rfxtrx ([@RobBie1221] - [#42803]) ([rfxtrx docs])
+- Call coordinator.shutdown() when ConfigEntryNotReady ([@bieniu] - [#42833]) ([brother docs])
+
+[#42796]: https://github.com/home-assistant/core/pull/42796
+[#42803]: https://github.com/home-assistant/core/pull/42803
+[#42833]: https://github.com/home-assistant/core/pull/42833
+[@RobBie1221]: https://github.com/RobBie1221
+[@bieniu]: https://github.com/bieniu
+[@cmroche]: https://github.com/cmroche
+[brother docs]: /integrations/brother/
+[gree docs]: /integrations/gree/
+[rfxtrx docs]: /integrations/rfxtrx/
 
 ## If you need help...
 
