@@ -36,7 +36,7 @@ Screenshot of the new onboarding flow.
 
 We have several new sensors to welcome to the app, all of which are disabled by default. The first set of sensors were actually introduced in 2.5.0:
 
-- [Traffic Stat sensors](https://companion.home-assistant.io/docs/core/sensors#traffic-stats-sensor) - Sensors whose state represent the amount of data sent and received by the device. Mobile data may not be accurate, it depends on the data tat we get from the API.
+- [Traffic Stat sensors](https://companion.home-assistant.io/docs/core/sensors#traffic-stats-sensor) - Sensors whose state represent the amount of data sent and received by the device. Mobile data may not be accurate, it depends on the data that we get from the API.
 
 The following sensors are new in 3.0.0:
 
