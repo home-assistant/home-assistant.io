@@ -59,6 +59,7 @@ So, keep an eye on our social media for the announcement.
 - [Release 0.117.2 - November 1](#release-01172---november-1)
 - [Release 0.117.3 - November 4](#release-01173---november-4)
 - [Release 0.117.4 - November 4](#release-01174---november-4)
+- [Release 0.117.5 - November 5](#release-01175---november-5)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -451,6 +452,34 @@ The following integrations are now available via the Home Assistant UI:
 [brother docs]: /integrations/brother/
 [gree docs]: /integrations/gree/
 [rfxtrx docs]: /integrations/rfxtrx/
+
+## Release 0.117.5 - November 5
+
+- Bump hatasmota to 0.0.25.1 ([@emontnemery] - [#42850]) ([tasmota docs])
+- Clean up SimpliSafe binary sensor implementation ([@bachya] - [#42841]) ([simplisafe docs])
+- Fix missing sensor exceptions in SimpliSafe ([@bachya] - [#42845]) ([simplisafe docs])
+- Fix missing/incorrect SimpliSafe entities ([@bachya] - [#42846]) ([simplisafe docs])
+- Fix Netatmo public weather sensor bug ([@cgtobi] - [#42858]) ([netatmo docs])
+- Revert "Fix broken maxcube component" ([@onkelbeh] - [#42859]) ([maxcube docs])
+- Bump bimmer_connected to 0.7.12 ([@rikroe] - [#42875]) ([bmw_connected_drive docs])
+
+[#42841]: https://github.com/home-assistant/core/pull/42841
+[#42845]: https://github.com/home-assistant/core/pull/42845
+[#42846]: https://github.com/home-assistant/core/pull/42846
+[#42850]: https://github.com/home-assistant/core/pull/42850
+[#42858]: https://github.com/home-assistant/core/pull/42858
+[#42859]: https://github.com/home-assistant/core/pull/42859
+[#42875]: https://github.com/home-assistant/core/pull/42875
+[@bachya]: https://github.com/bachya
+[@cgtobi]: https://github.com/cgtobi
+[@emontnemery]: https://github.com/emontnemery
+[@onkelbeh]: https://github.com/onkelbeh
+[@rikroe]: https://github.com/rikroe
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[maxcube docs]: /integrations/maxcube/
+[netatmo docs]: /integrations/netatmo/
+[simplisafe docs]: /integrations/simplisafe/
+[tasmota docs]: /integrations/tasmota/
 
 ## If you need help...
 
