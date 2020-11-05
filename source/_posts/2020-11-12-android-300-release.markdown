@@ -9,7 +9,7 @@ categories: Release-Notes
 og_image: /images/blog/2020-11-05-android-300-release/Companion.png
 ---
 
-Hey everyone its been a little while since we last spoke. We have a brand new release that we are excited to get into your hands and will be available in the next day in the Google Play store.
+Hey everyone its been a little while since we last spoke. We have a brand new release that we are excited to get into your hands and will roll out over the next day or so in the Google Play store.
 
 Before we get into the release details I'd like to mention that this month marks the [1 year anniversary](https://youtu.be/tc17q1Zn0Xs?t=3487) of the Home Assistant Companion app being offered in the Google Play Store! Just to think how far along the entire app has come from its initial alpha state to what is currently being offered in today's release. Can you believe its already been a year?
 
