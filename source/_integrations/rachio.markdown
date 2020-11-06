@@ -53,7 +53,7 @@ api_key:
   required: true
   type: string
 manual_run_mins:
-  description: Duration in minutes to run when activating a zone switch
+  description: Duration in minutes to run when activating a zone switch.
   required: false
   default: 10
   type: integer
