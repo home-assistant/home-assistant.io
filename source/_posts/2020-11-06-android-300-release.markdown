@@ -6,7 +6,7 @@ date_formatted: "November 06, 2020"
 comments: true
 author: Daniel Shokouhi
 categories: Release-Notes
-og_image: /images/blog/2020-11-05-android-300-release/Companion.png
+og_image: /images/blog/2020-11-06-android-300-release/Companion.png
 ---
 
 Hey everyone its been a little while since we last spoke. We have a brand new Home Assistant Companion for Android release that we are excited to get into your hands and will roll out over the next day or so in the Google Play store.
@@ -27,7 +27,7 @@ The first big change is that our onboarding screen has changed, we now ask the u
 
 
 <p class='img'>
-<img src='/images/blog/2020-11-05-android-300-release/onboarding.png' alt='Screenshot of the new onboarding flow'></a>
+<img src='/images/blog/2020-11-06-android-300-release/onboarding.png' alt='Screenshot of the new onboarding flow'></a>
 Screenshot of the new onboarding flow.
 </p>
 
@@ -50,7 +50,7 @@ We didn't stop at just adding new sensors, we also made enhancements to the over
 
 
 <p class='img'>
-<img src='/images/blog/2020-11-05-android-300-release/location_sensor_settings.png' alt='Screenshot of location settings'></a>
+<img src='/images/blog/2020-11-06-android-300-release/location_sensor_settings.png' alt='Screenshot of location settings'></a>
 Screenshot of location settings.
 </p>
 
@@ -79,7 +79,7 @@ We now integrate with Android 11's power menu device control feature. The follow
 
 
 <p class='img'>
-<img src='/images/blog/2020-11-05-android-300-release/power_menu.png' alt='Screenshot of power menu'></a>
+<img src='/images/blog/2020-11-06-android-300-release/power_menu.png' alt='Screenshot of power menu'></a>
 Screenshot of power menu.
 </p>
 
@@ -100,7 +100,7 @@ There have been several improvements to notifications as well.
 We have also spent time making improvements to all other areas most notably inside App Configuration:
 
 <p class='img'>
-<img src='/images/blog/2020-11-05-android-300-release/settings.png' alt='Screenshot of settings'></a>
+<img src='/images/blog/2020-11-06-android-300-release/settings.png' alt='Screenshot of settings'></a>
 Screenshot of settings.
 </p>
 
@@ -112,7 +112,7 @@ Screenshot of settings.
 - A new widget to control any [media player](https://companion.home-assistant.io/docs/integrations/android-widgets#media-player)
 
 <p class='img'>
-<img src='/images/blog/2020-11-05-android-300-release/media_player_widget.png' alt='Screenshot of media player widget'></a>
+<img src='/images/blog/2020-11-06-android-300-release/media_player_widget.png' alt='Screenshot of media player widget'></a>
 Screenshot of media player widget.
 </p>
 
