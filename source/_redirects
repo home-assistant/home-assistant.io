@@ -2097,6 +2097,7 @@
 /getting-started/z-wave-installation /docs/z-wave/installation
 /getting-started/z-wave-panel /docs/z-wave/control-panel
 /getting-started/z-wave-device-specific /docs/z-wave/device-specific
+/hassio/zwave /docs/z-wave
 /topics/events /docs/configuration/events
 /topics/packages /docs/configuration/packages
 /topics/platform_options /docs/configuration/platform_options
