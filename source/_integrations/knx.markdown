@@ -286,13 +286,18 @@ reset_after:
   description: Reset back to OFF state after specified seconds.
   required: false
   type: float
+invert:
+  description: Invert the telegrams payload before processing. This is applied before `context_timeout` or `reset_after` is evaluated.
+  required: false
+  type: boolean
+  default: False
 ignore_internal_state:
   description: Specifies if telegrams should ignore the internal state and always trigger a Home Assistant state update.
   required: false
   type: boolean
   default: False
 context_timeout:
-  description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. Maximum value is 10.0.
+  description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. If set `ignore_internal_state` will be set to `True` internally. Maximum value is 10.0.
   required: false
   type: float
   default: None
@@ -1088,6 +1093,11 @@ state_address:
   description: Separate KNX group address for retrieving the switch state. *DPT 1*
   required: false
   type: string
+invert:
+  description: Invert the telegrams payload before processing or sending. This is applied before `reset_after` is evaluated so the reset will send "1" to the bus.
+  required: false
+  type: boolean
+  default: False
 reset_after:
   description: Reset the switch back to OFF after specified seconds.
   required: false
