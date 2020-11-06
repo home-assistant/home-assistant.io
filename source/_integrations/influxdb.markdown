@@ -587,7 +587,7 @@ Or for temperatures represented in `°C`:
 SELECT * FROM "°C" WHERE time > now() - 1h;
 ```
 
-### Everythign else
+### Everything else
 
 Everything else can be queried using the `entity_id` as its measurement name.
 
