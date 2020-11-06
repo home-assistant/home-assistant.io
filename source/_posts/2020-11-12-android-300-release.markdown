@@ -127,3 +127,5 @@ Screenshot of media player widget.
 
 
 Big thank you to everyone involved. Hope you take the time to digest all the new features. Looking forward to all the new use cases and feature requests everyone has been having.
+
+The full changelog can be found on [GitHub](https://github.com/home-assistant/android/releases/tag/3.0.0).
