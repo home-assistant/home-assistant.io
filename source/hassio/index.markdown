@@ -1,5 +1,5 @@
 ---
-title: "Home Assistant"
+title: "Home Assistant OS"
 description: "Manage your Home Assistant and custom add-ons."
 ---
 
