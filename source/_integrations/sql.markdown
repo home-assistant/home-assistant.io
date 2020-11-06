@@ -160,7 +160,7 @@ sensor:
 
 #### MS SQL
 
-Use the same db_url as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
+Use the same `db_url` as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
 
 {% raw %}
 ```yaml
