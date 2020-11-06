@@ -5,8 +5,8 @@ description: "Using Z-Wave with Home Assistant."
 
 Home Assistant currently offers two Z-Wave integrations. 
 
-1. [Z-Wave](https://www.home-assistant.io/integrations/zwave/) based on OpenZWave 1.4 (EOL)
-2. [OpenZWave (Beta)](https://www.home-assistant.io/integrations/ozw/) based on OpenZWave 1.6
+1. [Z-Wave](https://www.home-assistant.io/integrations/zwave/) based on "OpenZWave 1.4 (EOL)"
+2. [OpenZWave (Beta)](https://www.home-assistant.io/integrations/ozw/) based on "OpenZWave 1.6"
 
 <div class='note'>
   
