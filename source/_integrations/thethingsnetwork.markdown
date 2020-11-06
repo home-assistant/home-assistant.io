@@ -120,7 +120,7 @@ sensor:
   - platform: thethingsnetwork
     device_id: ha-demo
     values:
-      sensor_value: unit of measurement
+      current: ampere
       voltage: V
 ```
 
