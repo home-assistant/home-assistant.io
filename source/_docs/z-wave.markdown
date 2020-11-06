@@ -3,6 +3,17 @@ title: "Z-Wave"
 description: "Using Z-Wave with Home Assistant."
 ---
 
+Home Assistant currently offers two Z-Wave integrations. 
+
+1. [Z-Wave](https://www.home-assistant.io/integrations/zwave/) based on OpenZWave 1.4 (EOL)
+2. [OpenZWave (Beta)](https://www.home-assistant.io/integrations/ozw/) based on OpenZWave 1.6
+
+<div class='note'>
+  
+OpenZWave 1.4 is end-of-life. This means it is no longer maintained and your devices might not be supported. The [OpenZWave (Beta)](https://www.home-assistant.io/integrations/ozw/) integration will replace the [Z-Wave](https://www.home-assistant.io/integrations/zwave/) integration.
+ 
+ </div>
+
 [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Z-Wave support requires a [supported Z-Wave USB stick or module](/docs/z-wave/controllers/) to be plugged into the host.
 
 There is currently support for climate, covers, lights, locks, sensors, switches, and thermostats. All will be picked up automatically after configuring this platform.
