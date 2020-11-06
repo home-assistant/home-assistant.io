@@ -20,6 +20,10 @@ ha_codeowners:
 ha_domain: zwave
 ---
 
+<div class='note warning'>
+This **Z-Wave** integration is based on [OpenZWave 1.4](http://www.openzwave.com/). OpenZWave 1.4 is no longer being maintained and has been marked end-of-life (EOL) since 2019. This means certain Z-Wave devices might not be supported by this integration. Home Assistant offers a new Z-Wave integration named [OpenZWave Beta](https://www.home-assistant.io/integrations/ozw/) which is based on **OpenZWave 1.6**.
+</div>
+
 The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
 There is currently support for the following device types within Home Assistant:
