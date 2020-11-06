@@ -160,7 +160,9 @@ For each disk:
 ## Cameras
 - `{camera_name}`: Displays cameras added in [Surveillance Station](https://www.synology.com/en-us/surveillance).
 
-## Services `synology_dsm.reboot`
+## Services
+
+### Service `synology_dsm.reboot`
 
 Reboot the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
 
@@ -168,7 +170,7 @@ Reboot the by `serial` specified DSM. If only one DSM is configured, `serial` is
   | ---------------------- | -------- | ----------- |
   | `serial` | yes, when multiple NAS are configured | serial of DSM |
 
-## Services `synology_dsm.shutdown`
+### Service `synology_dsm.shutdown`
 
 Shutdown the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
 
