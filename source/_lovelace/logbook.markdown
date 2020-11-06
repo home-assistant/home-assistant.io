@@ -29,7 +29,7 @@ Theme:
 
 ### YAML
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI
+This is for if you use YAML mode or prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
@@ -51,11 +51,11 @@ hours_to_show:
   default: 24
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: "Set to any theme within `themes.yaml`."
   type: string
 {% endconfiguration %}
 
-Example
+Example:
 
 ```yaml
 type: logbook
