@@ -351,7 +351,7 @@ automation:
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
 <div class='note warning'>
-  
+
 Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
 
 </div>
@@ -373,7 +373,7 @@ which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago
 
 ### Time trigger
 
-The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are two allowed formats:
+The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are three allowed formats:
 
 #### Time String
 
@@ -425,6 +425,20 @@ automation:
 
 {% endraw %}
 
+#### Sensors of datetime device class
+
+The Entity ID of a [sensor](/integrations/sensor/) with the "datetime" device class.
+
+```yaml
+automation:
+  - trigger:
+      platform: time
+      at: sensor.phone_next_alarm
+    action:
+      service: light.turn_on
+      entity_id: light.bedroom
+```
+
 #### Multiple Times
 
 Multiple times can be provided in a list. Both formats can be intermixed.
@@ -471,7 +485,7 @@ Do not prefix numbers with a zero - using `'00'` instead of '0' for example will
 
 ### Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. 
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
 
 ```yaml
 automation:
@@ -486,7 +500,7 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS. 
+Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
 Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
 
@@ -551,7 +565,7 @@ It is possible to specify multiple entities for the same trigger. To do so add m
 automation:
   trigger:
     - platform: state
-      entity_id: 
+      entity_id:
         - sensor.one
         - sensor.two
         - sensor.three
