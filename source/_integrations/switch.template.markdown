@@ -55,7 +55,7 @@ switch:
         required: false
         type: string
       value_template:
-        description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+        description: Defines a template to set the state of the switch. If the template returns `true`, the device is `on`. If the template returns any other value, the device will be `off`. If not defined, the switch will optimistically assume all commands are successful. 
         required: false
         type: template
         default: optimistic
