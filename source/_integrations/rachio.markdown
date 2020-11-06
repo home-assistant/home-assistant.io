@@ -25,8 +25,8 @@ They will be automatically added if the Rachio integration integration is loaded
 ## Getting your Rachio API Key
 
 1. Log in at [https://app.rach.io/](https://app.rach.io/).
-2. Click the "Account Settings" menu item at the bottom of the left sidebar
-3. Click "Get API Key"
+2. Go to **Settings**.
+3. Click **Get API Key**.
 4. Copy the API key from the dialog that opens.
 
 <div class='note'>
@@ -53,7 +53,7 @@ api_key:
   required: true
   type: string
 manual_run_mins:
-  description: For how long, in minutes, to turn on a station when the switch is enabled.
+  description: Duration in minutes to run when activating a zone switch.
   required: false
   default: 10
   type: integer
