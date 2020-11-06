@@ -1,6 +1,7 @@
 ---
 title: Elexa Guardian
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
+ha_iot_class: Local Polling
 ha_release: '0.111'
 ha_category:
   - Binary Sensor

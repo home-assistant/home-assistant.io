@@ -4,6 +4,7 @@ description: Instructions on how to integrate OpenWRT routers into Home Assistan
 ha_category:
   - Presence Detection
 ha_release: 0.7.6
+ha_iot_class: Local Polling
 ha_domain: ubus
 ---
 

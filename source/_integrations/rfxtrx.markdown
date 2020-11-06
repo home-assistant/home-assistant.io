@@ -8,6 +8,7 @@ ha_category:
   - Switch
   - Binary Sensor
   - Sensor
+ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
 ha_codeowners:
@@ -120,6 +121,10 @@ Copy the event code from the state attribute of the switch, which shows up on th
 ### Configure device options
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
+
+<div class='note warning'>
+If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
+</div>
 
 #### Signal repetitions
 

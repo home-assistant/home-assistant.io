@@ -7,6 +7,7 @@ ha_release: 0.67
 ha_codeowners:
   - '@fabaff'
 ha_domain: mastodon
+ha_iot_class: Cloud Push
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.

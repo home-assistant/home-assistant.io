@@ -19,6 +19,7 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
+ha_quality_scale: silver
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
@@ -416,8 +417,8 @@ knx:
 
 `setpoint_shift_mode` allows the two following DPTs to be used:
 
-- DPT6.002 (for 1 byte signed integer)
-- DPT9.002 (for 2 byte float)
+- DPT6002 (for 1 byte signed integer)
+- DPT9002 (for 2 byte float)
 
 Example:
 

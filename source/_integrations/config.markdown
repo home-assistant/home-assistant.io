@@ -44,11 +44,11 @@ This section enables you to control Home Assistant from within Home Assistant. C
 
 This section enables you to associate users with their device tracker entities using the person component.
 
-### Entity Registry
+### Entities
 
 This section enables you to override the name, change the entity ID or disable an entity in Home Assistant.
 
-### Area Registry
+### Areas
 
 This section enables you to organize entities to physical areas of your home.
 
@@ -64,6 +64,6 @@ Similar to the automation editor, this section enables you to create and modify 
 
 This section enables you to control your Z-Wave network and devices from within Home Assistant. You can add and remove devices, as well as change device specific configuration variables.
 
-### Customization
+### Customizations
 
 This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, and modify other attributes.

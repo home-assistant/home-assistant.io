@@ -71,7 +71,6 @@
 /developers/multiple_instances https://developers.home-assistant.io
 /developers/platform_example_light https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_light
 /developers/platform_example_sensor https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_sensor
-/developers/python_api https://developers.home-assistant.io/docs/external_api_rest_python/
 /developers/releasing https://developers.home-assistant.io/docs/releasing/
 /developers/rest_api https://developers.home-assistant.io/docs/api/rest/
 /developers/server_sent_events https://developers.home-assistant.io/docs/external_api_server_sent_events/
@@ -655,7 +654,6 @@
 /components/sensor.bme280 /integrations/bme280
 /components/sensor.bme680 /integrations/bme680
 /components/sensor.bmw_connected_drive /integrations/bmw_connected_drive
-/components/sensor.bom /integrations/bom#sensor
 /components/sensor.broadlink /integrations/broadlink#sensor
 /components/sensor.brottsplatskartan /integrations/brottsplatskartan
 /components/sensor.canary /integrations/canary#sensor
@@ -1067,7 +1065,6 @@
 /components/vlc-telnet /integrations/vlc_telnet
 /components/water_heater.econet /integrations/econet
 /components/water_heater.wink /integrations/wink#water-heater
-/components/weather.bom /integrations/bom
 /components/weather.buienradar /integrations/buienradar
 /components/weather.ecobee /integrations/ecobee
 /components/weather.ipma /integrations/ipma
@@ -1176,7 +1173,6 @@
 /components/bme280 /integrations/bme280
 /components/bme680 /integrations/bme680
 /components/bmw_connected_drive /integrations/bmw_connected_drive
-/components/bom /integrations/bom
 /components/braviatv /integrations/braviatv
 /components/broadcast /integrations/telegram_broadcast
 /components/broadlink /integrations/broadlink

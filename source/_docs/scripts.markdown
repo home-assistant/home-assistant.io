@@ -64,6 +64,8 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 The variable command allows you to set/override variables that will be accessible by templates in actions after it.
 
+{% raw %}
+
 ```yaml
 - variables:
     entities: light.kitchen, light.living_room
@@ -74,6 +76,8 @@ The variable command allows you to set/override variables that will be accessibl
     entity_id: "{{ entities }}"
     brightness: "{{ brightness }}"
 ```
+
+{% endraw %}
 
 ## Test a Condition
 

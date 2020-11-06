@@ -10,6 +10,7 @@ ha_domain: synology_dsm
 ha_codeowners:
   - '@hacf-fr'
   - '@Quentame'
+  - '@mib1185'
 ha_config_flow: true
 ---
 
@@ -49,6 +50,11 @@ ssl:
   description: Determine if HTTPS should be used.
   required: false
   default: true
+  type: boolean
+verify_ssl:
+  description: Determine if SSL-Certificate should be verified.
+  required: false
+  default: false
   type: boolean
 username:
   description: The account username to connect to the Synology NAS. Using a separate account is advised, see the [Separate User Configuration](#separate-user-configuration) section below for details.
@@ -138,6 +144,9 @@ For each volume:
 
 Security:
 - `security_status`: Displays safe to indicate if the NAS is safe.
+
+Upgrade:
+- `update_available`: Displays on if a DSM update is available.
 
 For each disk:
 - `disk_exceed_bad_sector_thr`: Displays on to indicate if the disk exceeded the maximum bad sector threshold. (Does not work with DSM 5.x)
