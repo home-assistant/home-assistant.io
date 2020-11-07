@@ -11,7 +11,7 @@ ha_domain: anomaly
 ---
 
 The highly configurable `anomaly` platform allows you to create sensors which show anomalies in
-numeric `state` or`state_attributes` from other entities. This sensor measures the average of
+the numeric `state` or`state_attributes` of other entities. This sensor measures the average of
 the most recent samples vs the longer trailing sample average. The sensor requires samples
 in excess of the max samples or sample duration to establish a difference.
 Thus it can take some time to show an accurate state. It can be useful
