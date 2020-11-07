@@ -9,7 +9,6 @@ ha_codeowners:
   - '@matejmecka'
 ha_domain: energenie
 ---
-### Energenie
 
 This integration allows you to use and control your Energenie Pimote devices via Home Assistant.
 
