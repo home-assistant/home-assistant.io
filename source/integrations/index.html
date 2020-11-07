@@ -103,7 +103,7 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
+      {url:"{{ component.url }}", title:"{{component.title}}", simplified_title: "{{component.simplified_title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}"},
     {% endif -%}
   {%- endfor -%}
   false
@@ -176,7 +176,8 @@ allComponents.pop(); // remove placeholder element at the end
           search = decodeURIComponent(hash).substring(8).toLowerCase();
           filter = function (comp) {
             return (comp.titleLC.indexOf(search) !== -1) ||
-              (comp.cat.find(c => c.includes("#")) != undefined);
+              (comp.cat.find(c => c.includes("#")) != undefined) ||
+              (comp.simplified_title.toLowerCase().indexOf(search) !== -1);
           };
 
         } else if (hash === '#featured' || hash === '') {
