@@ -111,7 +111,7 @@ automation:
       event_type: system_log_event
     condition:
       condition: template
-      value_template: '{{ "service" in trigger.event.data.message }}'
+      value_template: '{{ "service" in trigger.event.data.message[0] }}'
     action:
       service: persistent_notification.create
       data:
