@@ -119,7 +119,7 @@ sunrise_offset:
   required: false
   default: 0
   type: time
-sunrise_time:
+sunset_time:
   description: Override the sunset time with a fixed time.
   required: false
   type: time
