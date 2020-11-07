@@ -11,7 +11,7 @@ ha_domain: energenie
 ---
 ### Energenie
 
-This integration allows users to use their Energenie Pimote devices to be controlled via Home Assistant.
+This integration allows you to use and control your Energenie Pimote devices via Home Assistant.
 
 <div class='note'>
 This integration requires the Pimote addon installed on the Raspberry pi, along with previous setup!
@@ -22,4 +22,3 @@ This integration requires the Pimote addon installed on the Raspberry pi, along 
 Make sure you have previously paired them or if you have not follow consult the following [guide](https://www.raspberrypi-spy.co.uk/2017/08/controlling-energenie-power-sockets-with-the-pi-mote-addon/).
 
 In the settings go to `Integrations`, click on the `+` sign to add an integration and click on *Energenie*. After filling out the socket number and name the integration is ready to go!
-
