@@ -226,12 +226,12 @@ light_button_double_check_time_millis:
   description: The minimum time that the light button pin need to be activ in milliseconds to avoid electrical perturbation.
   required: false
   default: 25
-  type: int
+  type: integer
 light_button_double_check_time_millis:
   description: The time in milliseconds for port debouncing
   required: false
   default: 150
-  type: int
+  type: integer
 invert_relay:
   description: Invert the relay pin output so that it is active-high (True).
   required: false
