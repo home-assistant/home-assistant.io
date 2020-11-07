@@ -28,16 +28,18 @@ A few notes:
 
 ## Configuration
 
-Supported devices will be automatically discovered and can be set up through UI. If you want to manually configure it in YAML configuration, add the following to your `configuration.yaml` file:
+Supported devices will be automatically discovered and can be set up through UI. If you want to manually configure it in YAML configuration, add the following to your `configuration.yaml` file: 
 
-for soundbars and receivers
+Please note that `sound bars and receivers`, `wireless speakers` has different endpoint.
+
+for `soundbars and receivers`:
 ```yaml
 songpal:
   - name: my soundbar
     endpoint: http://IP_ADDRESS:10000/sony
 ```
 
-for wireless speakers:
+for `wireless speakers`:
 ```yaml
 songpal:
   - name: my speakers
