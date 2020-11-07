@@ -17,21 +17,6 @@ The `totalconnect` integration provides connectivity with TotalConnect alarm sys
 
 To enable TotalConnect via the user interface, go to **Configuration** > **Integrations** > the "plus" button > Total Connect.
 
-{% configuration %}
-username:
-  description: Username used to sign into the TotalConnect app/web client.
-  required: true
-  type: string
-password:
-  description: Password used to sign into the TotalConnect app/web client.
-  required: true
-  type: string
-usercodes:
-  description: Code typed into the alarm panel for this user at each location.    
-  required: true
-  type: string
-{% endconfiguration %}
-
 To find your TotalConnect location number:
  - Use a web browser to log in to the TotalConnect website as the administrator
  - Click on your location
