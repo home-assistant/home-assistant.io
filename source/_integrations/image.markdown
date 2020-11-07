@@ -4,7 +4,6 @@ description: The image integration handle image assets in Home Assistant.
 ha_category:
   - Other
 ha_release: 0.115
-ha_iot_class: ~
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: image
