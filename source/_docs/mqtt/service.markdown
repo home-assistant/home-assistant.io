@@ -13,7 +13,7 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 | `topic` | no | Topic to publish payload to.
 | `payload` | yes | Payload to publish.
 | `payload_template` | yes | Template to render as payload value. Ignored if payload given.
-| `qos` | yes | Quality of Service to use.
+| `qos` | yes | Quality of Service to use. (default: 0)
 | `retain` | yes | If message should have the retain flag set. (default: false)
 
 <div class='note'>
