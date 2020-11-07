@@ -102,3 +102,51 @@ The Hue API doesn't activate scenes directly; rather, they must be associated wi
 Neither group names nor scene names are guaranteed unique in Hue. If you are observing unexpected behavior from calling Hue scenes in Home Assistant, make the names of your Hue scenes more specific in the Hue app.
 
 The Hue hub has limited space for scenes and will delete scenes if new ones get created that would overflow that space. The API documentation says this is based on the scenes that are "least recently used."
+
+## Using Switches in Automations
+
+This integration will detect button presses from the various switch accessories in Hue for use in automations. In the example below, when the off button on the `living_room_switch` dimmer is pressed briefly, the `living_room_tv` media player will also be switched off.
+
+```yaml
+alias: TV - Turn off when light switch "off" is pressed
+trigger:
+  - platform: event
+    event_type: hue_event
+    event_data:
+      id: living_room_switch
+      event: 4002 # switch off, short press
+condition:
+  condition: state
+  entity_id: media_player.living_room_tv
+  state: 'on'
+action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.living_room_tv
+```
+
+<div class="note">
+Holding the button produces a different event code so will not trigger the above automation.
+</div>
+
+The simplest way to determine the correct event data for a trigger is to use the "Events" developer tool. In the "Listen to events" section, enter `hue_event` and click "Start Listening" then perform the action you want to use as the trigger. The event may take a few seconds to appear in the interface. In particular, you will need to `id` and `event`.
+
+To help in determining the triggers available for your device, see the table below. All events listed are triggered when a button is released. Other events may also be available.
+
+| Device Type           | Action            | Short Press Event | Long Press Event |
+| --------------------- | ----------------- | ----------------- | ---------------- |
+| Hue Dimmer Switch     | On                | `1002`            | `1003`           |
+|                       | Up                | `2002`            | `2003`           |
+|                       | Down              | `3002`            | `3003`           |
+|                       | Off               | `4002`            | `4003`           |
+| Hue Smart Button      | On                | `1002`            | `1003`           |
+| Hue Tap Switch        | Button 1          | `34`              |                  |
+|                       | Button 2          | `16`              |                  |
+|                       | Button 3          | `17`              |                  |
+|                       | Button 4          | `18`              |                  |
+| Friends of Hue Switch | Button 1          | `20`              | `16`             |
+|                       | Button 1 (Double) | `101`             | `100`            |
+|                       | Button 2          | `21`              | `17`             |
+|                       | Button 2 (Double) | `99`              | `98`             |
+|                       | Button 3          | `23`              | `19`             |
+|                       | Button 4          | `22`              | `18`             |
