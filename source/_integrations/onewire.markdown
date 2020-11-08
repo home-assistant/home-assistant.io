@@ -49,9 +49,6 @@ Each 1-wire component data sheet describes the different properties the componen
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 latches (latch.A/B) and 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
 | 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 latches (latch.0-7) and 8 PIOs (PIO.0/7) <sup>[4](#note_4)</sup> |
 
-
-
-
 Notes:
 
 - <a name="note_1">The TAI-8570</a> Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also a barometer, hygrometer and illuminance sensors. This onewire platform can read and present values from that device, but the sensors will default to disabled <sup>[4](#note_4)</sup>.
