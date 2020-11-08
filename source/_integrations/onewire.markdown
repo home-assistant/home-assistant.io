@@ -42,7 +42,12 @@ Each 1-wire component data sheet describes the different properties the componen
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
 | EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture, Wetness <sup>[3](#note_3)</sup> |  
 
+#### Switches:
 
+| Family | Device           | Physical Quantity  |
+| -------|:-----|:-----|
+| 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 latches (latch.A/B) and 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
+| 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 latches (latch.0-7) and 8 PIOs (PIO.0/7) <sup>[4](#note_4)</sup> |
 
 Notes:
 
@@ -52,8 +57,6 @@ Notes:
   For this component, the more basic quantities (temperature, VAD, VDD and IAD) are exported as separate sensors. Please note that some of the sensors will default to disabled <sup>[4](#note_4)</sup>.
 
 - <a name="note_3">Hobbyboards</a> is a company that has been selling DIY boards of different kinds. The company has been away from the market for some time, so no reference to the boards can be made. This platform has an implementation for some of those.
-
-- <a name="note_4">Some sensors are disabled by default</a> to avoid overloading the bus. These can be activated by opening the integrations page in your configuration, listing your 1-Wire integration devices and updating the entity.
 
 - <a name="note_4">Some sensors are disabled by default</a> to avoid overloading the bus. These can be activated by opening the integrations page in your configuration, listing your 1-Wire integration devices and updating the entity.
 
