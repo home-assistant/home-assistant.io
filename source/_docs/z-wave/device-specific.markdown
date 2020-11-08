@@ -177,7 +177,7 @@ To provide Central Scene support you need to **stop your Z-Wave network** and mo
 
 ### Inovelli Scene Capable On/Off and Dimmer Wall Switches
 
-For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg_*.xml` file with the following:
 
 ```xml
       <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -188,18 +188,13 @@ For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLAS
       </CommandClass>
 ```
 
-Once this is complete, you should see the follow `zwave.scene_activated` events:
+For Inovelli LZW30-SN and LZW31-SN switches with a third button for configuration, you'll need to add a third scene for that under the COMMAND_CLASS_CENTRAL_SCENE CommandClass:
 
-**Action**|**scene\_id**|**scene\_data**
-:-----:|:-----:|:-----:
-Double tap off|1|3
-Double tap on|2|3
-Triple tap off|1|4
-Triple tap on|2|4
-4x tap off|1|5
-4x tap on|2|5
-5x tap off|1|6
-5x tap on|2|6
+```xml
+        <Value type="int" genre="user" instance="1" index="3" label="Config Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+```
+
+Once this is complete, `zwave.scene_activated` events will fire according to which button press you perform. For information on what button press corresponds to what scene_id and scene_data in the event, see [Inovelli Knowledge Base > How To: Setting Up Scenes In Home Assistant](https://support.inovelli.com/portal/en/kb/articles/how-to-setting-up-scenes-in-home-assistant).
 
 ### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v3 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
 
