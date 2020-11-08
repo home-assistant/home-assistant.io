@@ -49,6 +49,7 @@ The port string used in the user interface or the configuration file can have 2 
 
 - For a serial device: /dev/ttyUSB00
 - For a TCP/IP device: 127.0.0.1:3678
+- For the VMBSIG module: tls://192.168.1.9:27015
 
 {% configuration %}
 port:
