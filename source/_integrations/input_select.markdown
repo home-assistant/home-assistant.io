@@ -81,7 +81,11 @@ This integration provides three services to modify the state of the `input_selec
 | `select_option` | `option` | This can be used to select a specific option.
 | `set_options` | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities.
 | `select_previous` | | Select the previous option.
+| `select_previous_nowrap` | | Select the previous, stopping at the first.
 | `select_next` | | Select the next option.
+| `select_next_nowrap` | | Select the next option, stopping at the last.
+| `select_first` | | Select the first option.
+| `select_last` | | Select the last option.
 | `reload` | | Reload `input_select` configuration |
 
 ### Scenes
