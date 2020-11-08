@@ -239,3 +239,7 @@ automation:
         data:
           icon: "/home/homeassistant/images/doorbell.png"
 ```
+
+## Notes
+
+If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on port 3000 with the TCP protocol from Home Assistant to your TV.
