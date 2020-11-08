@@ -51,10 +51,6 @@ This usually only works if the Target Device is connected to the same network. R
 The Service to Route the packet is most likely named "IP Helper" which may support WakeOnLan, but not all Routers support this.
 </div>
 
-<div class='note'>
-On OPNsense you can work around this by installing the os-wol Package. WOL can then be triggered via [REST API](https://wiki.opnsense.org/development/api/plugins/wol.html) from Home Assistant, by using the [RESTful Command](https://www.home-assistant.io/integrations/rest_command) Integration.
-</div>
-
 ## Switch
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
