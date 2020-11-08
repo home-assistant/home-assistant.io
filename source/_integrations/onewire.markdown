@@ -19,6 +19,15 @@ Different families have different functionality and can measure different quanti
 
 ### Supported devices:
 
+#### Binary sensors:
+
+| Family | Device           | Physical Quantity  |
+| -------|:-----|:-----|
+| 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 sensed (sensed.A/B) <sup>[4](#note_4)</sup> |
+| 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 sensed (sensed.0-7) <sup>[4](#note_4)</sup> |
+
+#### Sensors:
+
 | Family | Device           | Physical Quantity  |
 | -------|:-----|:-----|
 | 10     | [DS18S20](https://www.maximintegrated.com/en/products/sensors/DS18S20.html)  | Temperature                     |
@@ -31,6 +40,8 @@ Different families have different functionality and can measure different quanti
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
 | EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture |  
 
+
+
 Notes:
 
 - The TAI-8570 Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also a barometer, hygrometer and illuminance sensors. This onewire platform can read and present values from that device.
@@ -39,6 +50,8 @@ Notes:
   For this component, the more basic quantities temperature, VAD, VDD and IAD is exported as separate sensors.
 
 - Hobbyboards is a company that has been selling DIY boards of different kinds. The company has been away from the market for some time, so no reference to the boards can be made. This platform has an implementation for some of those.
+
+- <a name="note_4">Some sensors are disabled by default</a> to avoid overloading the bus. These can be activated by opening the integrations page in your configuration, listing your 1-Wire integration devices and updating the entity.
 
 ## Interfacing with the 1-wire bus
 
