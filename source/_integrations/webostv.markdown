@@ -242,4 +242,4 @@ automation:
 
 ## Notes
 
-- If Home Assistant and your TV are not on the same network, you need to create a Firewall Rule, which allows a Connection on Port 3000 with Protocol TCP from Home Assistant to your TV.
+If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on port 3000 with the TCP protocol from Home Assistant to your TV.
