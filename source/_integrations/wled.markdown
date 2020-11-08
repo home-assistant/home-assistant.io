@@ -111,3 +111,12 @@ This service allows for controlling the WLED effect.
 
 A list of all available effects (and the behavior of the intensity for each
 effect) [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/List-of-effects-and-palettes#effects).
+
+### Service `wled.preset`
+
+This service allows for loading a WLED preset.
+
+| Service Data Attribute | Required | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | A WLED entity ID, or list entity IDs, to apply the effect to. Use `entity_id: all` to target all WLED entities. |
+| `preset`               | yes      | A preset ID to load. Number between `0` and `65535`.                                                               |
