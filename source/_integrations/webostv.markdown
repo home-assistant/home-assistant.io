@@ -108,6 +108,10 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
+<div class='note'>
+This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
+</div>
+
 ```yaml
 # Example configuration.yaml entry
 wake_on_lan: # enables `wake_on_lan` domain

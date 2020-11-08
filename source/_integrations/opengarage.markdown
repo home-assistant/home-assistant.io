@@ -2,6 +2,7 @@
 title: OpenGarage
 description: Instructions on how to integrate OpenGarage.io covers within Home Assistant.
 ha_category:
+  - Cover
   - DIY
 ha_iot_class: Local Polling
 ha_release: 0.44

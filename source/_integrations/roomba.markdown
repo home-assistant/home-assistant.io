@@ -104,6 +104,6 @@ docker exec -it CONTAINER_NAME_OR_ID python -c 'import roomba.entry_points; room
 
 <div class='note'>
   
-The command to retrieve the credentials does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package and [password](https://github.com/pschmitt/roombapy/blob/1.6.1/roomba/entry_points.py#L20) funciton deployed with Home Assistant.
+The command to retrieve the credentials does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package and [password](https://github.com/pschmitt/roombapy/blob/1.6.1/roomba/entry_points.py#L20) function deployed with Home Assistant.
 
 </div>

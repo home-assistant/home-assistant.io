@@ -26,9 +26,9 @@ The two APIs support different features and devices. The SDM API integration is 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor) (Legacy API Only)
-- [Camera](#camera) (Legacy API Only)
-- [Climate](#climate) (Legacy API Only)
+- [Binary Sensor](#binary-sensor-legacy-api-only) (Legacy API Only)
+- [Camera](#camera) (Both APIs)
+- [Climate](#climate-legacy-api-only) (Legacy API Only)
 - [Sensor](#sensor) (Both APIs)
 
 ## Device Access: Developer Account Setup
@@ -42,6 +42,10 @@ Quick Start Guide:
 - Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`.
 - Enable pubsub events in the Device Access Console (creates a topic).
 - Create a pull subscription to get a `subscriber_id` ("Subscription ID" in Google Cloud Console).
+
+<div class='note warning'>
+It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
+</div>
 
 Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
 
@@ -123,7 +127,7 @@ structure:
 
 Once your developer account is set up and `nest` has been configured, you need to connect devices with the following steps:
 
-1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Google Nest Device Access'.
+1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Nest'.
 1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
 1. The *Google Nest permissions* screen will allow you to choose which devices to configure.
 1. You will get redirected back to another account selection page.
@@ -300,17 +304,12 @@ The following conditions are available by device:
   - person\_detected
   - sound\_detected
 
-### Camera (Legacy API Only)
+### Camera
 
-The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
+The SDM API integration allows you to watch a live stream, but does not yet
+support still frames in Home Assistant.
 
-<div class='note'>
-
-The `nest` camera will automatically be set up when you do.
-
-</div>
-
-Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since the 0.75 release.
+The Legacy API integration allows you to watch still frames from a video stream (not live stream). The Legacy API also supports the `camera.turn_on` and `camera.turn_off` services.
 
 ### Climate (Legacy API Only)
 
