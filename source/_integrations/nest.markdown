@@ -20,6 +20,7 @@ The `nest` integration allows you to integrate your [Google Nest](https://store.
 There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera)
+- [Climate](#climate)
 - [Sensor](#sensor)
 
 <div class='note'>
@@ -31,6 +32,7 @@ Note that this integration continues to support the Legacy Works With Nest API w
 Home Assistant is integrated with the following devices through the SDM API:
 
 - Thermostat Devices
+  - Every thermostat is exposed as a `climate` entity
   - Temperature and Humidity sensors each have a `sensor` entity
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
@@ -112,12 +114,17 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL
 
-
 ## Camera
 
 All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API, which returns a RTSP live stream which can be viewed from Home Assistant.
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
+
+## Climate
+
+All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant through the Cloud Pubsub subscriber.
+
+Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
 ## Sensor
 
