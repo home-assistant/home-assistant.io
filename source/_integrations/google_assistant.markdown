@@ -25,7 +25,7 @@ The Google Assistant integration (without Home Assistant Cloud) requires a bit m
 
 <div class='note warning'>
 
-To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/). If you haven't already configured that, you should do so before continuing. If you make DNS changes to accomplish this, please ensure you have allowed up to the full 48 hours for DNS changes to propagate, otherwise Google may not be able to reach your server. Once you have confirmed you can reach your Home Assistant from outside your home network, you can set up the google integration:
+To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/). If you haven't already configured that, you should do so before continuing. If you make DNS changes to accomplish this, please ensure you have allowed up to the full 48 hours for DNS changes to propagate, otherwise, Google may not be able to reach your server. Once you have confirmed you can reach your Home Assistant from outside your home network, you can set up the Google integration:
 
 </div>
 
