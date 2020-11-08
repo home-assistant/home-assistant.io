@@ -74,6 +74,9 @@ initial_hvac_mode:
   description: Set the initial HVAC mode. Valid values are `off`, `heat` or `cool`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
   required: false
   type: string
+away_temp:
+  description: "Set the temperature used by `preset_mode: away`. Deprecated, use: `presets` configuration. Only for backward compatibility. Note: if you use both `away_temp` and `presets` configuration `away_temp` is simply ignored."
+  type: float
 presets:
   description: "The list of all enabled `preset_mode`. If this is not specified, the preset mode feature will not be available."
   required: false
