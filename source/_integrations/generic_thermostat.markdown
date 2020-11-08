@@ -75,7 +75,7 @@ initial_hvac_mode:
   required: false
   type: string
 away_temp:
-  description: "Set the temperature used by `preset_mode: away`. Deprecated, use: `presets` configuration. Only for backward compatibility. Note: if you use both `away_temp` and `presets` configuration `away_temp` is simply ignored."
+  description: "**Deprecated. Configuration moved to presets, see below.** Set the temperature used by `preset_mode: away`. **Note: if you use both `away_temp` and `presets` configuration `away_temp` is ignored.**"
   type: float
 presets:
   description: "The list of all enabled `preset_mode`. If this is not specified, the preset mode feature will not be available."
