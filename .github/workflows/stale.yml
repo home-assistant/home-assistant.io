@@ -24,7 +24,7 @@ jobs:
 
             If this issue is still relevant, please let us know by leaving a comment 👍
 
-            This issue now has been marked as stale and will be closed if no further
+            This issue has now has been marked as stale and will be closed if no further
             activity occurs. Thank you for your contributions.
           stale-pr-label: "stale"
           exempt-pr-labels: "has-parent"
