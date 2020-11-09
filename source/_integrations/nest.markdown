@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 <div class='note'>
-Note that this integration continues to support the Legacy Works With Nest API which is not accepting new users. The documentation for this API is at the bottom of this page so existing users can keep using it.
+This integration continues to support the Legacy Works With Nest API which is not accepting new users. The documentation for this API is at the bottom of this page so existing users can keep using it.
 </div>
 
 ## Overview: Supported Devices
@@ -46,25 +46,33 @@ supported by the SDM API.
 
 ## Account Setup
 
-You will need to follow the instructions in [Device Access Registration](https://developers.google.com/nest/device-access/registration), which includes the following steps in the
-Quick Start Guide:
+You will need to follow the instructions in [Device Access
+Registration](https://developers.google.com/nest/device-access/registration) to authorize your account to access your
+devices. Follow these steps in the Quick Start Guide:
 
 - Accept the Terms of Service.
 - Pay a fee (currently US$5).
 - Register in the Device Access Console to get a `project_id`.
 - Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`.
-- Enable pubsub events in the Device Access Console (creates a topic).
-- Create a pull subscription to get a `subscriber_id` ("Subscription ID" in Google Cloud Console).
 
 <div class='note warning'>
 It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
 </div>
 
+Then you need to configure a Pub/Sub subscriber with a service account following the SDM API Event instructions under [Events: Service
+Accounts](https://developers.google.com/nest/device-access/api/events#authorization). The basic steps are:
+
+- [Enable events](https://developers.google.com/nest/device-access/api/events) in the Device Access Console which creates a Pub/Sub topic.
+- [Enable the Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console.
+- [Create a Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) in the Google Cloud
+  Platform console. Make sure to create a pull subscription and get a `subscriber_id` ("Subscription ID" in Google
+- [Create a service account](https://cloud.google.com/docs/authentication/production#create_service_account) and make sure to give it the *Pub/Sub Subscriber* role, and download the service account json file for use in configuration.
+
 Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
 
 Follow all of the instructions in [Device Access: Quick Start Guide](https://developers.google.com/nest/device-access/get-started) carefully as it is easy to make a configuration mistake that is difficult to debug. It is recommended to exercise the entire guide, including the command to test out the API, to make sure that it is working before configuring Home Assistant.
 
-It may be easiest to create a [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console. Make sure to use the *topic name* from the device access console and a unique subscription ID. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
+When you get to the steps about configuring events make sure to follow guide under [Events](https://developers.google.com/nest/device-access/api/events) that configures the [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console with a service account. Make sure to use the *topic name* from the device access console and a unique subscription ID. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
 
 ## Configuration
 
@@ -75,9 +83,11 @@ It may be easiest to create a [Pub/Sub subscription](https://console.cloud.googl
 nest:
   client_id: CLIENT_ID
   client_secret: CLIENT_SECRET
-  project_id: PROJECT_ID    # ("Project ID" in the Device Access Console)
+  project_id: PROJECT_ID # ("Project ID" in the Device Access Console)
   subscriber_id: SUBSCRIBER_ID # ("Subscription ID" in Google Cloud Console)
+  subscriber_service_account: !include SERVICE_ACCOUNT_JSON_FILE
 ```
+
 
 {% configuration %}
 client_id:
@@ -90,13 +100,32 @@ client_secret:
   type: string
 project_id:
   description: Your Device Access Project ID. This enables the SDM API.
-  required: false
+  required: true
   type: string
 subscriber_id:
-  description: Your Pub/sub Subscription ID used to receive events. This is required to use the SDM API.
+  description: Your Pub/Sub Subscription ID used to receive events. This is required to use the SDM API.
   type: string
-  required: false
+  required: true
+subscriber_service_account:
+  description: Credentials for the service account used for the Pub/Sub subscriber. The easiest way to populate this is to use `!include FILENAME.JSON` for the service account key you created from the cloud console. The json file typically contains more parameters than listed here, but these are required to enforce that the file is actually for a service account.
+  type: map
+  required: true
+  keys:
+    private_key:
+      description: The private key used to authenticate the service account in PEM format.
+      required: true
+      type: string
+    client_email:
+      description: The service account email address.
+      required: true
+      type: string
+
 {% endconfiguration %}
+
+<div class='note'>
+When using the legacy API (see bottom of page) some required fields here are actually optional. The project_id configuration field enables the SDM API and then certain fields in the configuration also become required. They are marked as required here to make the configuration easier to follow.
+
+</div>
 
 ## Device Setup
 
