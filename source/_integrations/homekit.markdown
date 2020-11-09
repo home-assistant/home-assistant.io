@@ -632,7 +632,7 @@ Check if the domain of your entity is [supported](#supported-components). If it 
 
 #### HomeKit doesn't work on second Home Assistant instance
 
-To use the HomeKit integration with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
+To use the HomeKit integration with two different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
 
 #### Specific entity doesn't work
 
