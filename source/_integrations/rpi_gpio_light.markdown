@@ -22,12 +22,11 @@ To enable Raspberry Pi Light in your installation, add the following to your `co
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: rpi_gpio
-    lights:
-      - name: my light
-        relay_pin: 18
-        light_button_pin: 17
+rpi_gpio_light:
+  lights:
+    - name: my light
+      relay_pin: 18
+      light_button_pin: 17
 ```
 
 {% configuration %}
@@ -78,21 +77,20 @@ lights:
 ## Full example
 
 ```yaml
-light:
-  - platform: rpi_gpio
-    lights:
-      - name: bedroom
-        relay_pin: 18
-        light_button_pin: 17
-      - name: kitchen
-        relay_pin: 23
-        light_button_pin: 27
-      - name: living romm
-        relay_pin: 24
-        light_button_pin: 22
-    light_button_pull_mode: DOWN
-    invert_light_button: true
-    invert_relay: true
-    light_button_bouncetime_millis: 250
-    light_button_double_check_time_millis: 50
+rpi_gpio_light:
+  lights:
+    - name: bedroom
+      relay_pin: 18
+      light_button_pin: 17
+    - name: kitchen
+      relay_pin: 23
+      light_button_pin: 27
+    - name: living romm
+      relay_pin: 24
+      light_button_pin: 22
+  light_button_pull_mode: DOWN
+  invert_light_button: true
+  invert_relay: true
+  light_button_bouncetime_millis: 250
+  light_button_double_check_time_millis: 50
 ```
