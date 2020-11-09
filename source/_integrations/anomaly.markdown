@@ -122,14 +122,6 @@ Calculation:
 3. The change percent is then calculated as the (change amount divided by the trailing average) * 100
 
 The following attributes are available in the States page:
-* require_both
-* positive_only
-* negative_only
-* min_change_amount
-* min_change_percent
-* sample_duration
-* max_samples
-* trailing_sample_duration
 * sample_count
 * sample_average
 * trailing_sample_average
