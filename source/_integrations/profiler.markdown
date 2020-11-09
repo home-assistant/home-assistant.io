@@ -53,3 +53,25 @@ The `hpy` file can be viewed with any text editor. A visual representation can b
 from guppy import hpy
 hpy().pb()
 ```
+
+### Service `profiler.start_log_objects`
+
+Start logging the growth of objects in memory.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `scan_interval` | yes | The the frequency between logging objects. Defaults to 30.0
+
+Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks.
+
+### Service `profiler.stop_log_objects`
+
+Stop logging the growth of objects in memory.
+
+### Service `profiler.dump_log_objects`
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `type` | no | The type of object to dump to the log.
+
+When `start_log_objects` highlights the growth of a collection of objects in memory, this service can help investigate. The `repr` of each object that matches `type` will be logged.
