@@ -11,7 +11,6 @@ jobs:
       - uses: actions/stale@v3.0.13
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          debug-only: true
           days-before-stale: 60
           days-before-close: 7
           operations-per-run: 30
@@ -25,7 +24,7 @@ jobs:
 
             If this issue is still relevant, please let us know by leaving a comment 👍
 
-            This issue now has been marked as stale and will be closed if no further
+            This issue has now has been marked as stale and will be closed if no further
             activity occurs. Thank you for your contributions.
           stale-pr-label: "stale"
           exempt-pr-labels: "has-parent"
