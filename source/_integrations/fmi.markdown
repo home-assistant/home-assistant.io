@@ -12,7 +12,7 @@ ha_domain: fmi
 ha_quality_scale: internal
 ---
 
-The `fmi` integration uses the [FMI](https://en.ilmatieteenlaitos.fi/open-data) web service as a source for weather data for a given location.
+The `fmi` integration uses the [FMI](https://en.ilmatieteenlaitos.fi/open-data) web service as a source for weather data for a given location. This service uses open data license [CC40BY] (https://en.ilmatieteenlaitos.fi/open-data-licence)
 
 ## Configuration
 
