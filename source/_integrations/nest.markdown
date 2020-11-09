@@ -66,7 +66,7 @@ Accounts](https://developers.google.com/nest/device-access/api/events#authorizat
 - [Enable the Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console.
 - [Create a Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) in the Google Cloud
   Platform console. Make sure to create a pull subscription and get a `subscriber_id` ("Subscription ID" in Google
-- [Create a service account](https://cloud.google.com/docs/authentication/production#create_service_account) and make sure to give it the *Pub/Sub Subscriber* role, and download the service account json file for use in configuration.
+- [Create a service account](https://cloud.google.com/docs/authentication/production#create_service_account) and make sure to give it the *Pub/Sub Subscriber* role, and download the service account JSON file for use in configuration.  
 
 Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
 
@@ -107,7 +107,7 @@ subscriber_id:
   type: string
   required: true
 subscriber_service_account:
-  description: Credentials for the service account used for the Pub/Sub subscriber. The easiest way to populate this is to use `!include FILENAME.JSON` for the service account key you created from the cloud console. The json file typically contains more parameters than listed here, but these are required to enforce that the file is actually for a service account.
+  description: Credentials for the service account used for the Pub/Sub subscriber. The easiest way to populate this is to use `!include FILENAME.JSON` for the service account key you created from the cloud console. The JSON file typically contains more parameters than listed here, but these are required to enforce that the file is actually for a service account.
   type: map
   required: true
   keys:
