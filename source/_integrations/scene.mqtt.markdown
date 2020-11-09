@@ -117,18 +117,16 @@ switch:
     retain: true
 ```
 
-### Use with Zigbee2MQTT Scenes
+### Use with a JSON Payload
 
-Assuming you have [Zigbee2MQTT Scenes](https://www.zigbee2mqtt.io/information/scenes.html) configured, you can use the following configuration as an example:
+The example below shows a configuration using a JSON payload.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 scene:
   - platform: mqtt
     name: Living Room Blue Scene
     unique_id: living_room_blue_scene
-    command_topic: zigbee2mqtt/living_room_group/set
-    payload_on: '{"scene_recall": 1}'
+    command_topic: "home/living_room/set"
+    payload_on: '{"activate_scene": "Blue Scene"}'
 ```
-{% endraw %}
