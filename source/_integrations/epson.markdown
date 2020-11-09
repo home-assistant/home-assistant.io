@@ -38,11 +38,6 @@ name:
   required: false
   type: string
   default: 'EPSON Projector'
-ssl:
-  description: "Enable SSL. **Feature not tested.**"
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
 ### Supported features
