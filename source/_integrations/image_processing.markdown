@@ -5,6 +5,7 @@ ha_category:
   - Image Processing
 ha_release: 0.36
 ha_domain: image_processing
+ha_iot_class: ~
 ---
 
 Image processing enables Home Assistant to process images from [cameras](/integrations/#camera). Only camera entities are supported as sources.

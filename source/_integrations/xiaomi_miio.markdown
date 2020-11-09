@@ -40,7 +40,7 @@ For many of these devices you need an access token, the first section will descr
 
 1. Install the Xiaomi Home app.
 2. Sign In/make an account.
-3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chines characters) under settings -> Region (language can later be set on English).
+3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chinese characters) under settings -> Region (language can later be set on English).
 4. Select your Gateway in Xiaomi Home app.
 5. Then the 3 dots at the top right of the screen.
 6. Then click on about.

@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.117
 ha_quality_scale: internal
 ha_domain: profiler
+ha_codeowners:
+  - '@bdraco'
+ha_config_flow: true
 ---
 
 The Profiler integration provides a profile which is a set of statistics that identifies how much time each part of Home Assistant is taking. It can help track down a performance issue or provide insight about a misbehaving integration.

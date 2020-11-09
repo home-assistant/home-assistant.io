@@ -568,3 +568,33 @@ sensor:
 Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
 
 This is a lot more tables compared to 1.xx queries, where you essentially had one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors though. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
+
+## Querying your data in Influx
+
+### Sensors
+
+For sensors with a unit of measurement defined the unit of measurement is used as the measurement name and entries are tagged with the second part of the `entity_id`. Therefore you need to add a WHERE clause to the query to filter out values. 
+
+For example a query on a `%` battery for `sensor.multi_sensor_battery_level`:
+
+```sql
+SELECT * FROM "%" WHERE time > now() - 12h AND "entity_id" = 'multi_sensor_battery_level';
+```
+
+Or for temperatures represented in `°C`:
+
+```sql
+SELECT * FROM "°C" WHERE time > now() - 1h;
+```
+
+### Everything else
+
+Everything else can be queried using the `entity_id` as its measurement name.
+
+```sql
+SELECT * FROM "binary_sensor.front_doorbell" WHERE time > now() - 24h;
+```
+
+```sql
+SELECT "temperature" FROM "climate.kitchen" WHERE time > now() - 24h;
+```

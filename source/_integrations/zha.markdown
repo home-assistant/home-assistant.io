@@ -38,14 +38,6 @@ There is currently support for the following device types within Home Assistant:
 
 There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created.
 
-## ZHA exception and deviation handling
-
-The ZHA implementation in Home Assistant relies on a library called "[ZHA Device Handlers](https://github.com/zigpy/zha-device-handlers)" to resolve issues with Zigbee devices that do not fully conform with the Zigbee standards. The few devices that deviate from the Zigbee specifications set by the [Zigbee Alliance](https://zigbeealliance.org) may therefore require proper bug reports with debug logs from users to assistant the developers in writing custom [ZHA Device Handlers](https://github.com/zigpy/zha-device-handlers/blob/dev/README.md) for all of a device functions to work properly with the ZHA integration.
-
-Such a custom "ZHA Device Handler" are Python scripts that internally is also referred to as a "quirk" because they fix "quirks" as in deviations from the standard specifications. ZHA Device Handles do this by transparently acting as a translator, translating and converting non-compliant device messages and instead present them to the application as coming from a virtual compliant device. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices. The ZHA Device Handlers that are made can then be reused by all users in future versions of Home Assistant.
-
-The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Herdsman Converters (formerly Zigbee-Shepherd Converters) as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
-
 ## Compatible hardware
 
 ZHA integration uses a hardware independent Zigbee stack implementation with modular design which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
@@ -238,6 +230,14 @@ There is no official compatibility list of supported devices for the simple reas
 
 Tip to new users is that while there is no official list of supported devices, some ZHA users take comfort that blakadder maintains an unofficial Zigbee Device Compatibility Repository which anyone can submit compatibility reports to, it can be found at [zigbee.blakadder.com](https://zigbee.blakadder.com) and currently contains independent compatibility lists and device pairing tips for several home automation gateway/bridge/hub software, including but not limited to open source Zigbee implementations such as; ZHA, Tasmota, Zigbee2MQTT, and ZiGate.
 
+### ZHA exception and deviation handling
+
+The ZHA implementation in Home Assistant relies on a library called "[ZHA Device Handlers](https://github.com/zigpy/zha-device-handlers)" to resolve issues with Zigbee devices that do not fully conform with the Zigbee standards. The few devices that deviate from the Zigbee specifications set by the [Zigbee Alliance](https://zigbeealliance.org) may therefore require proper bug reports with debug logs from users to assistant the developers in writing custom [ZHA Device Handlers](https://github.com/zigpy/zha-device-handlers/blob/dev/README.md) for all of a device functions to work properly with the ZHA integration.
+
+Such a custom "ZHA Device Handler" are Python scripts that internally is also referred to as a "quirk" because they fix "quirks" as in deviations from the standard specifications. ZHA Device Handles do this by transparently acting as a translator, translating and converting non-compliant device messages and instead present them to the application as coming from a virtual compliant device. These ZHA Device Handlers for Home Assistant can thus be used to parse custom messages to and from Zigbee devices. The ZHA Device Handlers that are made can then be reused by all users in future versions of Home Assistant.
+
+The custom quirks implementations for zigpy implemented as ZHA Device Handlers for Home Assistant are a similar concept to that of [Hub-connected Device Handlers for the SmartThings Classics platform](https://docs.smartthings.com/en/latest/device-type-developers-guide/) as well as that of [Zigbee-Herdsman Converters (formerly Zigbee-Shepherd Converters) as used by Zigbee2mqtt](https://www.zigbee2mqtt.io/how_tos/how_to_support_new_devices.html), meaning they are each virtual representations of a physical device that expose additional functionality that is not provided out-of-the-box by the existing integration between these platforms.
+
 ### Reporting issues
 
 When reporting issues, please provide the following information in addition to information requested by issue template:
@@ -289,7 +289,7 @@ Follow the instructions on [https://github.com/vanviegen/hue-thief/](https://git
 
 ### ZHA Start up issue with Home Assistant or Home Assistant Container
 
-On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
+On Linux hosts ZHA can fail to start during HA startup or restarts because the Zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanager on the host system.
 
 To remove modemmanager from a Debian/Ubuntu host run this command:
 
@@ -311,7 +311,7 @@ Create a `docker-compose.yml` with the following data:
 version: '2'
 services:
   homeassistant:
-    # customisable name
+    # customizable name
     container_name: home-assistant
 
     # must be image for your platform, this is the rpi3 variant

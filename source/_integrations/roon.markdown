@@ -41,7 +41,6 @@ Roon doesn't use file names or URLs to track media and so the roon integration i
 | `media_content_id`     |       no | The text for roon to search for in your library.                   |
 | `media_content_type`   |       no | A media type. Currently supported are `radio`, `playlist` and `genre`  |
 
-
  For example to play BBC Radio 4 you would set `media_content_type` to `radio` and `media_content_id` to `BBC Radio 4`
 
 ### Service `roon.join`

@@ -12,6 +12,7 @@ ha_release: 0.7
 ha_config_flow: true
 ha_codeowners:
   - '@awarecan'
+  - '@allenporter'
 ha_domain: nest
 ---
 
@@ -37,7 +38,7 @@ Home Assistant is integrated with the following devices through the SDM API:
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
   - The camera live stream is available as a `camera` entity
-  - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max 
+  - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
@@ -110,7 +111,7 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 
 ## Troubleshooting
 
-- See [No URL Available](https://www.home-assistant.io/more-info/no-url-available) for guidance on setup issues related to URLs.
+- See [No URL Available](/more-info/no-url-available) for guidance on setup issues related to URLs.
 
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL
 
@@ -318,7 +319,9 @@ script:
 
 ### Troubleshooting
 
-- If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
+- For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL.
+
+- If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) by the Legacy API instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
 
 ## Platforms
 

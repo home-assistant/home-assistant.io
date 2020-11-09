@@ -46,6 +46,11 @@ Sample service data:
 }
 ```
 
+<div class='note'>
+This usually only works if the Target Device is connected to the same network. Routing the WakeOnLan packet to a different subnet requires a special configuration on your router or may not be possible.
+The Service to Route the packet is most likely named "IP Helper" which may support WakeOnLan, but not all Routers support this.
+</div>
+
 ## Switch
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.

@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
   - '@elupus'
-  - '@Robbie1221'
+  - '@RobBie1221'
 ha_domain: rfxtrx
 ---
 
@@ -36,9 +36,11 @@ To receive debug logging from the RFXCOM device, add the following lines to `con
 
 ```yaml
 logger:
-  log:
+  logs:
     RFXtrx: debug
 ```
+
+**Please note**: `RFXtrx` is case-sensitive.
 
 ## Supported protocols
 

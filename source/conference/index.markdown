@@ -20,7 +20,7 @@ We're currently looking for people that want to speak at the conference. Talks w
 
 Talks can be about things you created, like a great automation, an amazing Lovelace dashboard, or a cool new feature. It can also be about your experience with Home Assistant, like how it has improved peoples lives, how you use it for education or some other unique use case.
 
-If you're interested in speaking, [fill in the form](https://forms.gle/2bxEzk4kWx4fPVMPA). The deadline for submitting a talk is October 31, 2020.
+_The deadline for submitting a talk was October 31, 2020._
 
 ## Speakers & Schedule
 
