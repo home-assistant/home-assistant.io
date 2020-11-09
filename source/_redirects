@@ -2020,6 +2020,7 @@
 # Breaking changes
 /integrations/switch.pca /integrations/elv
 /integrations/synologydsm /integrations/synology_dsm
+/integrations/generic_ip_camera /integrations/generic
 /integrations/telegram_chatbot /integrations/telegram_bot
 
 # Moved documentation
