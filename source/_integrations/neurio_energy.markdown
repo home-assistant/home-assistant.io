@@ -19,6 +19,7 @@ sensor:
   platform: neurio_energy
   api_key: CLIENT_ID
   api_secret: CLIENT_SECRET
+  sensor_id: SENSOR_ID
 ```
 
 Two sensors will be created with the following names:
@@ -36,7 +37,7 @@ api_secret:
   required: true
   type: string
 sensor_id:
-  description: The sensor ID will be auto-detected but can be set if you have more then one sensor.
-  required: false
+  description: "The sensor ID, a hex number as shown on the [PWRView webpage](https://mypwrview.generac.com/#settings/sensors), e.g., `0x0000XXXXXXXXXXXX`."
+  required: true
   type: string
 {% endconfiguration %}
