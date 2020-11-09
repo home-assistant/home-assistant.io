@@ -7,6 +7,7 @@ ha_release: 0.115
 ha_domain: media_source
 ha_codeowners:
   - '@hunterjm'
+ha_iot_class:
 ---
 
 The Media Source integration platform allows integrations to expose media for
