@@ -12,7 +12,11 @@ This tracker discovers new devices on boot and in regular intervals and tracks B
 
 Devices discovered are stored with 'BLE_' as the prefix for device mac addresses in `known_devices.yaml`.
 
+## Setup
+
 This platform requires pybluez to be installed, which is already the case if you're using Home Assistant OS, Supervised or Container. For Home Assistant Core installs see below on the required steps.
+
+## Configuration
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -54,7 +58,7 @@ For additional configuration variables check the [Device tracker page](/integrat
 
 ## Home Assistant Core installs
 
-On Debian based Home Assistant Core installs, run
+On Debian based Home Assistant Core installations, run:
 
 ```bash
 sudo apt install bluetooth
