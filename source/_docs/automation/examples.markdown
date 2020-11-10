@@ -18,18 +18,14 @@ automation:
       - platform: sun
         event: sunset
         offset: '-01:00:00'
-      - platform: state
-        entity_id: all
-        to: 'home'
     condition:
       # Prefix the first line of each condition configuration
       # with a '-'' to enter multiple
-      - condition: state
-        entity_id: all
-        state: 'home'
       - condition: time
         after: '16:00:00'
         before: '23:00:00'
+      - condition: template
+          value_template: '{{ states.person | selectattr(''state'',''=='',''home'') | list | count > 0 }}'
     action:
       # With a single service call, we don't need a '-' before service - though you can if you want to
       service: homeassistant.turn_on
@@ -38,9 +34,8 @@ automation:
 # Turn off lights when everybody leaves the house
   - alias: 'Rule 2 - Away Mode'
     trigger:
-      platform: state
-      entity_id: all
-      to: 'not_home'
+    - platform: template
+      value_template: '{{ states.person | selectattr(''state'',''=='',''home'') | list | count == 0 }}'
     action:
       service: light.turn_off
       entity_id: all
@@ -51,7 +46,7 @@ automation:
       platform: zone
       event: leave
       zone: zone.home
-      entity_id: device_tracker.paulus
+      entity_id: person.paulus
     condition:
       condition: time
       after: '20:00'
