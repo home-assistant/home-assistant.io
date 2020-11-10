@@ -141,7 +141,7 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 
 To configure options for DSMR integration go to **Configuration** >> **Integrations** and press **Options** on the DSMR card.
 
-## Time between updates
+#### Time between updates
 
 Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
 
