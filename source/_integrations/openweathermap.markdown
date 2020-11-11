@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
   - '@freekode'
+  - '@nzapponi'
 ha_domain: openweathermap
 ---
 
