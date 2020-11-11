@@ -26,7 +26,7 @@ The Home Assistant Conference will be hosted on [Hopin](https://hopin.to/events/
 
 The conference will also be available as a free YouTube live stream. The live stream will be limited to the keynotes and the "everyone" track. You won't have access to the chat and have that online conference feeling, so we recommend getting a ticket!
 
-To be notified when the live stream is online, [visit YouTube](https://www.youtube.com/watch?v=xSB_MuKkgxE) and click on "Set Reminder".
+To be notified when the live stream is online, [visit YouTube](https://www.youtube.com/watch?v=xSB_MuKkgxE) and click "Set Reminder".
 
 Recordings of the keynote and all tracks and sessions will be made available on YouTube after the conference.
 
