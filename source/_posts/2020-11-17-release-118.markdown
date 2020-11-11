@@ -141,7 +141,7 @@ The following integration got support for a new platform:
 The following integrations are now available via the Home Assistant UI:
 
 - [1-Wire][onewire docs], done by [@epenet]
-- [Espon][epson docs], done by [@pszafer]
+- [Epson][epson docs], done by [@pszafer]
 
 ## If you need help...
 
