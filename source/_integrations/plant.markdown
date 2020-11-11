@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Calculated
 ha_release: 0.44
 ha_quality_scale: internal
-ha_codeowners:
-  - '@ChristianKuehnel'
 ha_domain: plant
 ---
 

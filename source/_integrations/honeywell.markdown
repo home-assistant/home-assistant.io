@@ -5,8 +5,6 @@ ha_category:
   - Climate
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@zxdavb'
 ha_domain: honeywell
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Color Extractor
+title: ColorExtractor
 description: Instructions how to integrate the Color Extractor into Home Assistant.
 ha_release: 0.118
 ha_category:
