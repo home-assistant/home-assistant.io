@@ -99,9 +99,13 @@ pi_hole:
 
 ## Services
 
-The platform provides the following services to interact with your Pi-hole. Use switch entities when calling the services.
+The platform provides the following services to interact with your Pi-hole. If you're planning to use the switch-entity, remember to add your Pi-hole **API key**. Use the switch entitiy, when calling the service.
 
-_Note: Switch entity requires `api_key` to be configured._
+<div class='note'>
+
+The switch-entity wil **only** be created, if the `api_key` is defined in your configuration. If you accidentally initiated the Pi-hole integration without the `api_key`, make sure to remove the Pi-hole integration in "Configuration" > "Integrations", followed by adding `api_key` to the `pi_hole`-config in `configuration.yaml`. Restart Home Assistant, and you're good to go.
+
+</div>
 
 ### Service `pi_hole.disable`
 
