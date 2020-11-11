@@ -16,31 +16,18 @@ You can check the attributes of the sensor to see your exact forecast.
 
 ## Configuration
 
-To add the aurora binary sensor to your installation, add the following to your `configuration.yaml` file:
+To add the aurora binary sensor to your installation, search for the Aurora integration through the Configuration -> Integrations menu.
 
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: aurora
-```
+Enter a name for your Aurora location as well as the longitude and latitude of the location (default to your Home Assistant location).
 
-{% configuration %}
-forecast_threshold:
-  description: Provide your own threshold number above which the sensor will trigger.
-  required: false
-  type: integer
-  default: 75
-name:
-  description: The name of the sensor.
-  required: false
-  type: string
-  default: Aurora Visibility
-{% endconfiguration %}
+Click Submit to add the integration to your environment.
 
-## Full example
+You can configure multiple locations by adding the integration multiple times.
 
-```yaml
-binary_sensor:
-  - platform: aurora
-    forecast_threshold: 50
-```
+## Options
+
+Once installed you can adjust the threshold for this location by clicking on the Options link on the integration.
+
+## Sensors
+
+The integration will add a single binary sensor for each location you configure which will be in the state on when there is a forecast probability of Aurora viewing above your threshold and off when it is below your selected threshold.
