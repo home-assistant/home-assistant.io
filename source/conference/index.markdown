@@ -16,11 +16,11 @@ The conference will contain three different tracks: everyone, advanced users and
 
 Paulus Schoutsen, the founder of Home Assistant, will give the opening and closing keynote, aided by other Home Assistant developers.
 
-After the talks, attendees will be able to attend various sessions about different topics like automations, lovelace and Q&A with Home Assistant developers.
+After the talks, attendees will be able to join various sessions about different topics like automations, Lovelace and Q&A with Home Assistant developers.
 
 ## Attending
 
-The Home Assistant Conference will be hosted on Hopin, an online conference platform. Tickets to attend will cost $1, which will cover the cost of the platform.
+The Home Assistant Conference will be hosted on [Hopin](https://hopin.to/events/home-assistant-conference), an online conference platform. Tickets to attend will cost $1, which will cover the cost of the platform.
 
 <a class="btn" href="https://hopin.to/events/home-assistant-conference">Get your ticket</a>
 
