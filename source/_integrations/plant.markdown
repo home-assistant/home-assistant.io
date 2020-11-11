@@ -21,6 +21,9 @@ To use your `plant` sensor in your installation, add the following to your `conf
 # Example configuration.yaml entry
 plant:
   name_of_your_plant:
+    name: My Plants Name
+    species: latin species name
+    image: /local/images/plants/my_plant.jpg
     sensors:
       moisture: sensor.my_sensor_moisture
       battery: sensor.my_sensor_battery
@@ -107,6 +110,19 @@ entity_id:
       required: false
       default: 3
       type: integer
+    name:
+      description: Human readable name of the plant.
+      required: false
+      type: string
+    species:
+      description: Latin name for the plant.
+      required: false
+      type: string
+    image:
+      description: URL to an image to use in the frontend.
+      required: false
+      type: string
+
 {% endconfiguration %}
 
 ## Examples
@@ -115,6 +131,11 @@ This is a practical example that uses a multiple of `MQTT sensors` to supply the
 Another good source of this data would be the [Mi Flora](/integrations/miflora) component.
 
 If the sensor data is within the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
+
+## Species and image
+The `species` config allows the frontend and different integrations to display more information about a plant.  
+
+If `image` is omitted, and a local file is found at `/config/www/images/plants/<species>.jpg` the `image` field in the attributes of the plant will be automatically filled with the appropriate relative url to use this image in the frontend.
 
 ## Data Source
 
