@@ -133,9 +133,9 @@ Another good source of this data would be the [Mi Flora](/integrations/miflora) 
 If the sensor data is within the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
 
 ## Species and image
-The `species` config allows the frontend and different integrations to display more information about a plant.  
+The `species` configuration allows the frontend and different integrations to display more information about a plant.  
 
-If `image` is omitted, and a local file is found at `/config/www/images/plants/<species>.jpg` the `image` field in the attributes of the plant will be automatically filled with the appropriate relative url to use this image in the frontend.
+If `image` is omitted, and a local file is found at `/config/www/images/plants/<species>.jpg` the `image` field in the attributes of the plant will be automatically filled with the appropriate relative URL to use this image in the frontend.
 
 ## Data Source
 
