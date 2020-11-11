@@ -35,7 +35,7 @@ Issues introduced in the beta are processed with priority.
 
 - [Table of contents](#table-of-contents)
 - [Lorem ipsum](#lorem-ipsum)
-- [Lorem ipsum](#lorem-ipsum-1)
+- [Home Assistant OS](#home-assistant-os)
 - [Native types support for templates (Beta)](#native-types-support-for-templates-beta)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -50,14 +50,22 @@ Issues introduced in the beta are processed with priority.
 
 Lorem ipsum!
 
-## Lorem ipsum
-
-Lorem ipsum
-
 <p class='img'>
 <img src='/images/blog/2020-11-0.118/lorem-ipsum.gif' alt='Screenshot of the lorem ipsum.'>
 Screenshot of the lorem ipsum.
 </p>
+
+## Home Assistant OS
+
+The last few days two new Home Assistant OS releases have been released. While
+4.16 continues to make small improvements in the 4.x release series, the
+latest pre-release 5.5 comes closer to our goals to declare 5.x release series
+stable. In particular, this release includes the Linux 5.4 kernel for all
+Raspberry Pis! We also intend to declare 64-bit the recommended installation
+method for Raspberry Pi 4. Release 5.5 is also the first release to support
+Hardkernel's ODROID-C4, a very cost effective single board computer featuring
+the Amlogic S905X3 SoC and 4GB of DDR4 memory (thanks @ubergeek801). Testers
+welcome!
 
 ## Native types support for templates
 
