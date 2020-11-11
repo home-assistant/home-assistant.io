@@ -13,7 +13,8 @@ og_image: /images/blog/2020-11-0.118/social.png
 
 <a href='/integrations/#version/0.118'><img src='/images/blog/2020-11-0.118/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant 0.118.0.
+These are the beta release notes for Home Assistant 0.118.0 (and is thus a
+work in progress).
 
 If you encounter any issues, please report them on GitHub:
 
@@ -35,8 +36,11 @@ Issues introduced in the beta are processed with priority.
 
 - [Table of contents](#table-of-contents)
 - [Lorem ipsum](#lorem-ipsum)
+- [Home Assistant Conference](#home-assistant-conference)
+- [Grid Card](#grid-card)
+- [Logbook Card](#logbook-card)
+- [Native types support for templates](#native-types-support-for-templates)
 - [Home Assistant OS](#home-assistant-os)
-- [Native types support for templates (Beta)](#native-types-support-for-templates-beta)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -55,17 +59,17 @@ Lorem ipsum!
 Screenshot of the lorem ipsum.
 </p>
 
-## Home Assistant OS
+## Home Assistant Conference
 
-The last few days two new Home Assistant OS releases have been released. While
-4.16 continues to make small improvements in the 4.x release series, the
-latest pre-release 5.5 comes closer to our goals to declare 5.x release series
-stable. In particular, this release includes the Linux 5.4 kernel for all
-Raspberry Pis! We also intend to declare 64-bit the recommended installation
-method for Raspberry Pi 4. Release 5.5 is also the first release to support
-Hardkernel's ODROID-C4, a very cost effective single board computer featuring
-the Amlogic S905X3 SoC and 4GB of DDR4 memory (thanks @ubergeek801). Testers
-welcome!
+More details now available on the [Conference page](/conference).
+
+## Grid Card
+
+Add Grid card (#7476) @balloob
+
+## Logbook Card
+
+Logbook Card (#6976) @zsarnett
 
 ## Native types support for templates
 
@@ -105,9 +109,22 @@ existing templates in your set up.
 It should be mostly compatible with your existing templates, however, be sure
 to check the breaking changes section for known possible breaking scenarios.
 
+## Home Assistant OS
+
+The last few days two new Home Assistant OS releases have been released. While
+4.16 continues to make small improvements in the 4.x release series, the
+latest pre-release 5.5 comes closer to our goals to declare 5.x release series
+stable. In particular, this release includes the Linux 5.4 kernel for all
+Raspberry Pis! We also intend to declare 64-bit the recommended installation
+method for Raspberry Pi 4. Release 5.5 is also the first release to support
+Hardkernel's ODROID-C4, a very cost effective single board computer featuring
+the Amlogic S905X3 SoC and 4GB of DDR4 memory (thanks @ubergeek801). Testers
+welcome!
+
 ## Other noteworthy changes
 
 - [@frenck] Lorem ipsum!
+- The new Nest DSM integration now supports thermostats!
 
 Stuff to pick from for this section:
 
@@ -122,6 +139,19 @@ Stuff to pick from for this section:
 - Add image support to nest SDM api ([@allenporter] - [#42556]) ([nest docs])
 - Add support for OpenWeatherMap One Call API ([@nzapponi] - [#39839]) ([openweathermap docs]) (breaking-change)
 - Allow ZHA coordinator binding/unbinding ([@Adminiuga] - [#42854]) ([zha docs])
+
+Stuff from the frontend to pick from for this section:
+
+- Add navigation commands to quick bar commands (#7380) @donkawechico
+- Show user friendly attribute names in picker (#7337) @spacegaier
+- Add button to duplicate script (#7511) @cnorick
+- Replace date picker for entities card (#6899) @thomasloven
+- Entities Card: Add Header & Footer Editor (#6751) @zsarnett
+- Add "last_changed" and "last_updated" to dev tools state view (#7375) @spacegaier
+- Calendar: Adds an Update Size and Makes list view start today and adds in local for first day of week (#7541) @zsarnett
+- Formats number state with selected language in compute_state_display (#7516) @joshmcrty
+- Calendar Panel: Persist Calendars in Local Storage (#7540) @zsarnett
+- Add last-updated as a secondaryinfo option to entity rows (#7433) @iantrich
 
 ## New Integrations
 
@@ -394,11 +424,51 @@ as your configuration has already been imported into the UI.
   </p>
 </details>
 
+<details>
+  <summary><b>Notion</b></summary>
+  <p>
+
+Per ADR-0010, this release deprecates YAML configuration for Flu Near You
+until 0.119.
+
+Existing YAML configuration will be imported automatically when upgrading
+and can be safely removed from your configuration files afterward.
+
+([@bachya] - [#43026]) ([notion docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>FRITZ!</b></summary>
+  <p>
+
+The default value for password was set to "admin" in the
+`fritz` and `fritzbox_callmonitor` integrations. This has been corrected and
+moved to be the default value for the configuration option of `username`.
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Tile</b></summary>
+  <p>
+
+Per ADR-0010, this release deprecates YAML configuration for Tile until 0.119.
+
+Existing YAML configuration will be imported automatically when upgrading
+and can be safely removed from your configuration files afterward.
+
+([@bachya] - [#43064]) ([tile docs])
+
+  </p>
+</details>
+
 ## Farewell to the following
 
-- The **Lorem ipsum** integration has been removed.
+- The **iAlarm** integration has been removed.
   It was using webscraping to gather its data, which is not allowed.
-  ([@frenck] - [#12345])
+  ([@frenck] - [#43010])
 
 ## All changes
 
@@ -557,7 +627,7 @@ as your configuration has already been imported into the UI.
 - Fix shelly import ([@balloob] - [#42783]) ([shelly docs])
 - Catch unhandled exception in websocket_api ([@SigmaPic] - [#42693]) ([websocket_api docs])
 - Bump uEagle to 0.0.2 ([@jcalbert] - [#42780]) ([rainforest_eagle docs])
-- Migrate system health to use integration_platform ([@balloob] - [#42785]) ([lovelace docs]) ([system_health docs]) (breaking-change)
+- Migrate system health to use integration_platform ([@balloob] - [#42785]) ([lovelace docs]) ([system_health docs])
 - Upgrade sentry-sdk to 0.19.2 ([@frenck] - [#42786]) ([sentry docs])
 - Update definition of onewire device specifications ([@epenet] - [#42460]) ([onewire docs])
 - Add support for OpenWeatherMap One Call API ([@nzapponi] - [#39839]) ([openweathermap docs]) (breaking-change)
@@ -642,6 +712,69 @@ as your configuration has already been imported into the UI.
 - Remove temporary variable from supported_features ([@springstan] - [#42685])
 - Add ozw config flow add-on management ([@MartinHjelmare] - [#42421]) ([hassio docs]) ([ozw docs])
 - Deprecate YAML config for AirVisual (0.119 removal) ([@bachya] - [#42581]) ([airvisual docs]) (breaking-change)
+- Reload sonarr config entry on options update ([@ctalkington] - [#41958]) ([sonarr docs])
+- Support datetime sensor in time trigger ([@balloob] - [#42899]) ([homeassistant docs])
+- Remove iAlarm integration (ADR-0004) ([@frenck] - [#43010]) (breaking-change)
+- Add data entry flow show progress step ([@MartinHjelmare] - [#42419])
+- Obtain zone entity id in Risco sensors through entity registry ([@OnFreund] - [#43007]) ([risco docs])
+- Fix vasttrafik sensor displaying incorrect departure times ([@ttuffin] - [#43011]) ([vasttrafik docs])
+- Extend WS API result when enabling an entity ([@emontnemery] - [#42667]) ([config docs])
+- Add services to log and dump objects to the profiler to help track down memory leaks ([@bdraco] - [#42951]) ([profiler docs])
+- Add missing device class strings (binary sensor) ([@oncleben31] - [#42326]) ([binary_sensor docs])
+- Make all translations cacheable ([@bdraco] - [#42892])
+- Fix volume calculation of Onkyo MediaPlayer ([@ZzetT] - [#42236]) ([onkyo docs])
+- Remove stale fixture from mqtt-statestream tests ([@dmonego] - [#42233]) ([mqtt_statestream docs])
+- Remove Tuya climate ext. temperature entity option ([@ollo69] - [#42546]) ([tuya docs])
+- Expose Dyson PureCool filter life remaining percentage ([@Flameeyes] - [#42765]) ([dyson docs])
+- Add support for additional SimpliSafe sensors ([@bachya] - [#43017]) ([simplisafe docs])
+- Update inheritance for onewire entities ([@epenet] - [#43019]) ([onewire docs])
+- Bump python-openzwave-mqtt to 1.3.2 ([@cgarwood] - [#43020]) ([ozw docs])
+- Migrate Recollect Waste integration to use aiorecollect library ([@bachya] - [#43022]) ([recollect_waste docs])
+- Increase timeout for setup of rfxtrx ([@RobBie1221] - [#43003]) ([rfxtrx docs])
+- Deprecate YAML config for Notion (0.119 removal) ([@bachya] - [#43026]) ([notion docs]) (breaking-change)
+- Streamline Notion CoordinatorEntity ([@bachya] - [#43027]) ([notion docs])
+- Bump pymfy to 0.9.1 ([@tetienne] - [#43021]) ([somfy docs])
+- Bump aioasuswrt version to handle telnet asus routers ([@JJdeVries] - [#43031]) ([asuswrt docs])
+- Address review feedback for Epson ([@pszafer] - [#43012]) ([epson docs])
+- Catch correct error when Spotify has a request error ([@balloob] - [#43032]) ([spotify docs])
+- Set an appropriate SCAN_INTERVAL for Broadlink A1 sensor ([@felipediel] - [#41309]) ([broadlink docs])
+- Clean up yaml configurations for all fritz integrations ([@springstan] - [#39995]) ([fritz docs]) ([fritzbox_callmonitor docs]) ([fritzbox_netmonitor docs]) (breaking-change)
+- Add function to remove holidays from workday sensor ([@epleypa] - [#41988]) ([workday docs])
+- Change instructions for unlocking Broadlink devices ([@felipediel] - [#42023]) ([broadlink docs])
+- Rewrite the pilight/test_sensor.py tests to use async pytest functions ([@erogleva] - [#42418]) ([pilight docs])
+- Include device_id in ZHA event ([@balloob] - [#43037]) ([zha docs])
+- Add set and check repeat mode to mpd component ([@9R] - [#42808]) ([mpd docs])
+- Add available state for Epson integration ([@pszafer] - [#43038]) ([epson docs])
+- Correct handling of existing MQTT subscriptions ([@emontnemery] - [#43056]) ([mqtt docs])
+- Update zigpy-zigate to 0.7.0 ([@doudz] - [#43043]) ([zha docs])
+- Fix mfi test ([@balloob] - [#43060]) ([mfi docs])
+- Remove setting log level of dsmr_parser inside dsmr integration ([@RobBie1221] - [#43059]) ([dsmr docs])
+- Improve restore of deleted devices ([@emontnemery] - [#42703])
+- Add system health streaming updates ([@balloob] - [#42831]) ([cloud docs]) ([lovelace docs]) ([system_health docs])
+- Update nest sdm camera to refresh in background ([@allenporter] - [#42865]) ([nest docs])
+- Add proxy support for browse media images ([@rajlaud] - [#42193]) ([squeezebox docs])
+- System health improvement ([@balloob] - [#43066]) ([cloud docs]) ([homeassistant docs]) ([lovelace docs]) ([system_health docs])
+- Fix mfi test ([@balloob] - [#43067]) ([mfi docs])
+- Fix API change with Notion batteries ([@bachya] - [#43073]) ([notion docs])
+- Streamline Tile CoordinatorEntity ([@bachya] - [#43065]) ([tile docs])
+- Limit concurrency of async_get_integration to avoid creating extra threads ([@bdraco] - [#43085])
+- Cleanup and naming schema fixes for Shelly ([@thecode] - [#42987]) ([shelly docs])
+- Upgrade pylutron-caseta to 0.7.2 ([@mdonoughe] - [#43075]) ([lutron_caseta docs])
+- Update bravia-tv to 1.0.8 ([@dcnielsen90] - [#43069]) ([braviatv docs])
+- Add MIN_TIME_BETWEEN_UPDATES to dsmr integration ([@RobBie1221] - [#43057]) ([dsmr docs])
+- Remove YAML config for Tile ([@bachya] - [#43064]) ([tile docs]) (breaking-change)
+- Remove Octoprint log spam when printer endpoint status code is 409 ([@rrada] - [#42985]) ([octoprint docs])
+- Remove brand names from translations ([@balloob] - [#43092])
+- Chunk translation clean script to avoid too long url error ([@balloob] - [#43090])
+- Bump hatasmota to 0.0.29 ([@emontnemery] - [#43013]) ([tasmota docs])
+- Add watchdog to reset nest subscriber ([@allenporter] - [#43034]) ([nest docs])
+- Use internal url for Squeezebox if possible ([@balloob] - [#43089]) ([squeezebox docs])
+- Show media progress in sisyphus ([@jkeljo] - [#42996]) ([sisyphus docs])
+- Update frontend to 20201111.0 ([@bramkragten] - [#43101]) ([frontend docs])
+- Modify wait timeout in stream ([@uvjustin] - [#42794]) ([stream docs])
+- Bump up ZHA dependencies ([@Adminiuga] - [#43104]) ([zha docs])
+- Add reboot and shutdown service to synology_dsm ([@mib1185] - [#42697]) ([synology_dsm docs])
+- Bump greeclimate to 0.9.6 ([@cmroche] - [#43106]) ([gree docs])
 
 </details>
 
@@ -649,6 +782,7 @@ as your configuration has already been imported into the UI.
 [#39678]: https://github.com/home-assistant/core/pull/39678
 [#39697]: https://github.com/home-assistant/core/pull/39697
 [#39839]: https://github.com/home-assistant/core/pull/39839
+[#39995]: https://github.com/home-assistant/core/pull/39995
 [#40108]: https://github.com/home-assistant/core/pull/40108
 [#40181]: https://github.com/home-assistant/core/pull/40181
 [#40251]: https://github.com/home-assistant/core/pull/40251
@@ -661,6 +795,7 @@ as your configuration has already been imported into the UI.
 [#41159]: https://github.com/home-assistant/core/pull/41159
 [#41165]: https://github.com/home-assistant/core/pull/41165
 [#41232]: https://github.com/home-assistant/core/pull/41232
+[#41309]: https://github.com/home-assistant/core/pull/41309
 [#41375]: https://github.com/home-assistant/core/pull/41375
 [#41397]: https://github.com/home-assistant/core/pull/41397
 [#41522]: https://github.com/home-assistant/core/pull/41522
@@ -671,8 +806,11 @@ as your configuration has already been imported into the UI.
 [#41863]: https://github.com/home-assistant/core/pull/41863
 [#41875]: https://github.com/home-assistant/core/pull/41875
 [#41893]: https://github.com/home-assistant/core/pull/41893
+[#41958]: https://github.com/home-assistant/core/pull/41958
 [#41960]: https://github.com/home-assistant/core/pull/41960
 [#41961]: https://github.com/home-assistant/core/pull/41961
+[#41988]: https://github.com/home-assistant/core/pull/41988
+[#42023]: https://github.com/home-assistant/core/pull/42023
 [#42032]: https://github.com/home-assistant/core/pull/42032
 [#42037]: https://github.com/home-assistant/core/pull/42037
 [#42061]: https://github.com/home-assistant/core/pull/42061
@@ -690,6 +828,7 @@ as your configuration has already been imported into the UI.
 [#42176]: https://github.com/home-assistant/core/pull/42176
 [#42178]: https://github.com/home-assistant/core/pull/42178
 [#42183]: https://github.com/home-assistant/core/pull/42183
+[#42193]: https://github.com/home-assistant/core/pull/42193
 [#42199]: https://github.com/home-assistant/core/pull/42199
 [#42206]: https://github.com/home-assistant/core/pull/42206
 [#42208]: https://github.com/home-assistant/core/pull/42208
@@ -702,6 +841,8 @@ as your configuration has already been imported into the UI.
 [#42229]: https://github.com/home-assistant/core/pull/42229
 [#42231]: https://github.com/home-assistant/core/pull/42231
 [#42232]: https://github.com/home-assistant/core/pull/42232
+[#42233]: https://github.com/home-assistant/core/pull/42233
+[#42236]: https://github.com/home-assistant/core/pull/42236
 [#42239]: https://github.com/home-assistant/core/pull/42239
 [#42241]: https://github.com/home-assistant/core/pull/42241
 [#42243]: https://github.com/home-assistant/core/pull/42243
@@ -724,6 +865,7 @@ as your configuration has already been imported into the UI.
 [#42323]: https://github.com/home-assistant/core/pull/42323
 [#42324]: https://github.com/home-assistant/core/pull/42324
 [#42325]: https://github.com/home-assistant/core/pull/42325
+[#42326]: https://github.com/home-assistant/core/pull/42326
 [#42333]: https://github.com/home-assistant/core/pull/42333
 [#42335]: https://github.com/home-assistant/core/pull/42335
 [#42348]: https://github.com/home-assistant/core/pull/42348
@@ -744,6 +886,8 @@ as your configuration has already been imported into the UI.
 [#42407]: https://github.com/home-assistant/core/pull/42407
 [#42410]: https://github.com/home-assistant/core/pull/42410
 [#42414]: https://github.com/home-assistant/core/pull/42414
+[#42418]: https://github.com/home-assistant/core/pull/42418
+[#42419]: https://github.com/home-assistant/core/pull/42419
 [#42421]: https://github.com/home-assistant/core/pull/42421
 [#42426]: https://github.com/home-assistant/core/pull/42426
 [#42432]: https://github.com/home-assistant/core/pull/42432
@@ -780,6 +924,7 @@ as your configuration has already been imported into the UI.
 [#42535]: https://github.com/home-assistant/core/pull/42535
 [#42539]: https://github.com/home-assistant/core/pull/42539
 [#42544]: https://github.com/home-assistant/core/pull/42544
+[#42546]: https://github.com/home-assistant/core/pull/42546
 [#42556]: https://github.com/home-assistant/core/pull/42556
 [#42562]: https://github.com/home-assistant/core/pull/42562
 [#42570]: https://github.com/home-assistant/core/pull/42570
@@ -810,6 +955,7 @@ as your configuration has already been imported into the UI.
 [#42652]: https://github.com/home-assistant/core/pull/42652
 [#42657]: https://github.com/home-assistant/core/pull/42657
 [#42666]: https://github.com/home-assistant/core/pull/42666
+[#42667]: https://github.com/home-assistant/core/pull/42667
 [#42671]: https://github.com/home-assistant/core/pull/42671
 [#42680]: https://github.com/home-assistant/core/pull/42680
 [#42685]: https://github.com/home-assistant/core/pull/42685
@@ -817,7 +963,9 @@ as your configuration has already been imported into the UI.
 [#42690]: https://github.com/home-assistant/core/pull/42690
 [#42693]: https://github.com/home-assistant/core/pull/42693
 [#42696]: https://github.com/home-assistant/core/pull/42696
+[#42697]: https://github.com/home-assistant/core/pull/42697
 [#42702]: https://github.com/home-assistant/core/pull/42702
+[#42703]: https://github.com/home-assistant/core/pull/42703
 [#42704]: https://github.com/home-assistant/core/pull/42704
 [#42705]: https://github.com/home-assistant/core/pull/42705
 [#42706]: https://github.com/home-assistant/core/pull/42706
@@ -833,18 +981,22 @@ as your configuration has already been imported into the UI.
 [#42746]: https://github.com/home-assistant/core/pull/42746
 [#42756]: https://github.com/home-assistant/core/pull/42756
 [#42757]: https://github.com/home-assistant/core/pull/42757
+[#42765]: https://github.com/home-assistant/core/pull/42765
 [#42769]: https://github.com/home-assistant/core/pull/42769
 [#42780]: https://github.com/home-assistant/core/pull/42780
 [#42782]: https://github.com/home-assistant/core/pull/42782
 [#42783]: https://github.com/home-assistant/core/pull/42783
 [#42785]: https://github.com/home-assistant/core/pull/42785
 [#42786]: https://github.com/home-assistant/core/pull/42786
+[#42794]: https://github.com/home-assistant/core/pull/42794
 [#42797]: https://github.com/home-assistant/core/pull/42797
 [#42801]: https://github.com/home-assistant/core/pull/42801
 [#42802]: https://github.com/home-assistant/core/pull/42802
+[#42808]: https://github.com/home-assistant/core/pull/42808
 [#42815]: https://github.com/home-assistant/core/pull/42815
 [#42819]: https://github.com/home-assistant/core/pull/42819
 [#42827]: https://github.com/home-assistant/core/pull/42827
+[#42831]: https://github.com/home-assistant/core/pull/42831
 [#42832]: https://github.com/home-assistant/core/pull/42832
 [#42843]: https://github.com/home-assistant/core/pull/42843
 [#42849]: https://github.com/home-assistant/core/pull/42849
@@ -853,13 +1005,16 @@ as your configuration has already been imported into the UI.
 [#42861]: https://github.com/home-assistant/core/pull/42861
 [#42862]: https://github.com/home-assistant/core/pull/42862
 [#42864]: https://github.com/home-assistant/core/pull/42864
+[#42865]: https://github.com/home-assistant/core/pull/42865
 [#42877]: https://github.com/home-assistant/core/pull/42877
 [#42883]: https://github.com/home-assistant/core/pull/42883
 [#42887]: https://github.com/home-assistant/core/pull/42887
 [#42891]: https://github.com/home-assistant/core/pull/42891
+[#42892]: https://github.com/home-assistant/core/pull/42892
 [#42894]: https://github.com/home-assistant/core/pull/42894
 [#42895]: https://github.com/home-assistant/core/pull/42895
 [#42897]: https://github.com/home-assistant/core/pull/42897
+[#42899]: https://github.com/home-assistant/core/pull/42899
 [#42915]: https://github.com/home-assistant/core/pull/42915
 [#42917]: https://github.com/home-assistant/core/pull/42917
 [#42919]: https://github.com/home-assistant/core/pull/42919
@@ -870,6 +1025,7 @@ as your configuration has already been imported into the UI.
 [#42940]: https://github.com/home-assistant/core/pull/42940
 [#42941]: https://github.com/home-assistant/core/pull/42941
 [#42944]: https://github.com/home-assistant/core/pull/42944
+[#42951]: https://github.com/home-assistant/core/pull/42951
 [#42955]: https://github.com/home-assistant/core/pull/42955
 [#42957]: https://github.com/home-assistant/core/pull/42957
 [#42962]: https://github.com/home-assistant/core/pull/42962
@@ -878,11 +1034,52 @@ as your configuration has already been imported into the UI.
 [#42972]: https://github.com/home-assistant/core/pull/42972
 [#42973]: https://github.com/home-assistant/core/pull/42973
 [#42977]: https://github.com/home-assistant/core/pull/42977
+[#42985]: https://github.com/home-assistant/core/pull/42985
+[#42987]: https://github.com/home-assistant/core/pull/42987
 [#42990]: https://github.com/home-assistant/core/pull/42990
 [#42994]: https://github.com/home-assistant/core/pull/42994
 [#42995]: https://github.com/home-assistant/core/pull/42995
+[#42996]: https://github.com/home-assistant/core/pull/42996
 [#42999]: https://github.com/home-assistant/core/pull/42999
 [#43001]: https://github.com/home-assistant/core/pull/43001
+[#43003]: https://github.com/home-assistant/core/pull/43003
+[#43007]: https://github.com/home-assistant/core/pull/43007
+[#43010]: https://github.com/home-assistant/core/pull/43010
+[#43011]: https://github.com/home-assistant/core/pull/43011
+[#43012]: https://github.com/home-assistant/core/pull/43012
+[#43013]: https://github.com/home-assistant/core/pull/43013
+[#43017]: https://github.com/home-assistant/core/pull/43017
+[#43019]: https://github.com/home-assistant/core/pull/43019
+[#43020]: https://github.com/home-assistant/core/pull/43020
+[#43021]: https://github.com/home-assistant/core/pull/43021
+[#43022]: https://github.com/home-assistant/core/pull/43022
+[#43026]: https://github.com/home-assistant/core/pull/43026
+[#43027]: https://github.com/home-assistant/core/pull/43027
+[#43031]: https://github.com/home-assistant/core/pull/43031
+[#43032]: https://github.com/home-assistant/core/pull/43032
+[#43034]: https://github.com/home-assistant/core/pull/43034
+[#43037]: https://github.com/home-assistant/core/pull/43037
+[#43038]: https://github.com/home-assistant/core/pull/43038
+[#43043]: https://github.com/home-assistant/core/pull/43043
+[#43056]: https://github.com/home-assistant/core/pull/43056
+[#43057]: https://github.com/home-assistant/core/pull/43057
+[#43059]: https://github.com/home-assistant/core/pull/43059
+[#43060]: https://github.com/home-assistant/core/pull/43060
+[#43064]: https://github.com/home-assistant/core/pull/43064
+[#43065]: https://github.com/home-assistant/core/pull/43065
+[#43066]: https://github.com/home-assistant/core/pull/43066
+[#43067]: https://github.com/home-assistant/core/pull/43067
+[#43069]: https://github.com/home-assistant/core/pull/43069
+[#43073]: https://github.com/home-assistant/core/pull/43073
+[#43075]: https://github.com/home-assistant/core/pull/43075
+[#43085]: https://github.com/home-assistant/core/pull/43085
+[#43089]: https://github.com/home-assistant/core/pull/43089
+[#43090]: https://github.com/home-assistant/core/pull/43090
+[#43092]: https://github.com/home-assistant/core/pull/43092
+[#43101]: https://github.com/home-assistant/core/pull/43101
+[#43104]: https://github.com/home-assistant/core/pull/43104
+[#43106]: https://github.com/home-assistant/core/pull/43106
+[@9R]: https://github.com/9R
 [@Adminiuga]: https://github.com/Adminiuga
 [@AlexSchmitz222]: https://github.com/AlexSchmitz222
 [@BKPepe]: https://github.com/BKPepe
@@ -892,7 +1089,9 @@ as your configuration has already been imported into the UI.
 [@CurrentThread]: https://github.com/CurrentThread
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@DiederikvandenB]: https://github.com/DiederikvandenB
+[@Flameeyes]: https://github.com/Flameeyes
 [@GenericStudent]: https://github.com/GenericStudent
+[@JJdeVries]: https://github.com/JJdeVries
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@Kane610]: https://github.com/Kane610
 [@MartinHjelmare]: https://github.com/MartinHjelmare
@@ -907,6 +1106,7 @@ as your configuration has already been imported into the UI.
 [@SigmaPic]: https://github.com/SigmaPic
 [@SteveBrandt]: https://github.com/SteveBrandt
 [@SukramJ]: https://github.com/SukramJ
+[@ZzetT]: https://github.com/ZzetT
 [@absurdist81]: https://github.com/absurdist81
 [@adamjernst]: https://github.com/adamjernst
 [@adriansuwala]: https://github.com/adriansuwala
@@ -918,18 +1118,25 @@ as your configuration has already been imported into the UI.
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
 [@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
 [@bwarden]: https://github.com/bwarden
+[@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
 [@chemelli74]: https://github.com/chemelli74
+[@cmroche]: https://github.com/cmroche
 [@ctalkington]: https://github.com/ctalkington
 [@czechmark]: https://github.com/czechmark
+[@dcnielsen90]: https://github.com/dcnielsen90
 [@dcnoren]: https://github.com/dcnoren
 [@dgomes]: https://github.com/dgomes
+[@dmonego]: https://github.com/dmonego
+[@doudz]: https://github.com/doudz
 [@edomat]: https://github.com/edomat
 [@effelle]: https://github.com/effelle
 [@emlove]: https://github.com/emlove
 [@emontnemery]: https://github.com/emontnemery
 [@epenet]: https://github.com/epenet
+[@epleypa]: https://github.com/epleypa
 [@erogleva]: https://github.com/erogleva
 [@exxamalte]: https://github.com/exxamalte
 [@felipediel]: https://github.com/felipediel
@@ -952,6 +1159,7 @@ as your configuration has already been imported into the UI.
 [@mib1185]: https://github.com/mib1185
 [@nzapponi]: https://github.com/nzapponi
 [@ollo69]: https://github.com/ollo69
+[@oncleben31]: https://github.com/oncleben31
 [@onkelbeh]: https://github.com/onkelbeh
 [@oxygen0211]: https://github.com/oxygen0211
 [@palfrey]: https://github.com/palfrey
@@ -959,10 +1167,12 @@ as your configuration has already been imported into the UI.
 [@pavoni]: https://github.com/pavoni
 [@pszafer]: https://github.com/pszafer
 [@pvizeli]: https://github.com/pvizeli
+[@rajlaud]: https://github.com/rajlaud
 [@raman325]: https://github.com/raman325
 [@randyxxl]: https://github.com/randyxxl
 [@reaper7]: https://github.com/reaper7
 [@ronanmu]: https://github.com/ronanmu
+[@rrada]: https://github.com/rrada
 [@sbyx]: https://github.com/sbyx
 [@schachar]: https://github.com/schachar
 [@scheric]: https://github.com/scheric
@@ -973,9 +1183,11 @@ as your configuration has already been imported into the UI.
 [@springstan]: https://github.com/springstan
 [@syssi]: https://github.com/syssi
 [@taiyeoguns]: https://github.com/taiyeoguns
+[@tetienne]: https://github.com/tetienne
 [@thecode]: https://github.com/thecode
 [@tim-werner]: https://github.com/tim-werner
 [@tkdrob]: https://github.com/tkdrob
+[@ttuffin]: https://github.com/ttuffin
 [@ubergeek801]: https://github.com/ubergeek801
 [@uvjustin]: https://github.com/uvjustin
 [@walthowd]: https://github.com/walthowd
@@ -988,10 +1200,13 @@ as your configuration has already been imported into the UI.
 [androidtv docs]: /integrations/androidtv/
 [apns docs]: /integrations/apns/
 [arwn docs]: /integrations/arwn/
+[asuswrt docs]: /integrations/asuswrt/
 [august docs]: /integrations/august/
 [automation docs]: /integrations/automation/
 [avea docs]: /integrations/avea/
 [axis docs]: /integrations/axis/
+[binary_sensor docs]: /integrations/binary_sensor/
+[braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [bsblan docs]: /integrations/bsblan/
 [cast docs]: /integrations/cast/
@@ -1005,6 +1220,7 @@ as your configuration has already been imported into the UI.
 [dexcom docs]: /integrations/dexcom/
 [directv docs]: /integrations/directv/
 [dsmr docs]: /integrations/dsmr/
+[dyson docs]: /integrations/dyson/
 [eight_sleep docs]: /integrations/eight_sleep/
 [elkm1 docs]: /integrations/elkm1/
 [enigma2 docs]: /integrations/enigma2/
@@ -1016,13 +1232,17 @@ as your configuration has already been imported into the UI.
 [forked_daapd docs]: /integrations/forked_daapd/
 [fritz docs]: /integrations/fritz/
 [fritzbox docs]: /integrations/fritzbox/
+[fritzbox_callmonitor docs]: /integrations/fritzbox_callmonitor/
+[fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
 [frontend docs]: /integrations/frontend/
 [garmin_connect docs]: /integrations/garmin_connect/
 [gdacs docs]: /integrations/gdacs/
 [google_assistant docs]: /integrations/google_assistant/
 [google_pubsub docs]: /integrations/google_pubsub/
+[gree docs]: /integrations/gree/
 [group docs]: /integrations/group/
 [hassio docs]: /integrations/hassio/
+[homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/
 [homekit_controller docs]: /integrations/homekit_controller/
 [homematicip_cloud docs]: /integrations/homematicip_cloud/
@@ -1047,15 +1267,19 @@ as your configuration has already been imported into the UI.
 [miflora docs]: /integrations/miflora/
 [mochad docs]: /integrations/mochad/
 [modbus docs]: /integrations/modbus/
+[mpd docs]: /integrations/mpd/
 [mqtt docs]: /integrations/mqtt/
 [mqtt_statestream docs]: /integrations/mqtt_statestream/
 [nest docs]: /integrations/nest/
 [netatmo docs]: /integrations/netatmo/
 [netio docs]: /integrations/netio/
 [neurio_energy docs]: /integrations/neurio_energy/
+[notion docs]: /integrations/notion/
 [nx584 docs]: /integrations/nx584/
 [obihai docs]: /integrations/obihai/
+[octoprint docs]: /integrations/octoprint/
 [onewire docs]: /integrations/onewire/
+[onkyo docs]: /integrations/onkyo/
 [onvif docs]: /integrations/onvif/
 [opensky docs]: /integrations/opensky/
 [opentherm_gw docs]: /integrations/opentherm_gw/
@@ -1076,6 +1300,7 @@ as your configuration has already been imported into the UI.
 [recollect_waste docs]: /integrations/recollect_waste/
 [remote docs]: /integrations/remote/
 [rest docs]: /integrations/rest/
+[rfxtrx docs]: /integrations/rfxtrx/
 [risco docs]: /integrations/risco/
 [roku docs]: /integrations/roku/
 [roon docs]: /integrations/roon/
@@ -1090,23 +1315,29 @@ as your configuration has already been imported into the UI.
 [skybell docs]: /integrations/skybell/
 [smartthings docs]: /integrations/smartthings/
 [somfy docs]: /integrations/somfy/
+[sonarr docs]: /integrations/sonarr/
 [spotify docs]: /integrations/spotify/
+[squeezebox docs]: /integrations/squeezebox/
 [ssdp docs]: /integrations/ssdp/
+[stream docs]: /integrations/stream/
 [synology_dsm docs]: /integrations/synology_dsm/
 [system_health docs]: /integrations/system_health/
 [tasmota docs]: /integrations/tasmota/
 [telegram_bot docs]: /integrations/telegram_bot/
 [template docs]: /integrations/template/
 [tibber docs]: /integrations/tibber/
+[tile docs]: /integrations/tile/
 [tuya docs]: /integrations/tuya/
 [twilio docs]: /integrations/twilio/
 [unifi docs]: /integrations/unifi/
 [utility_meter docs]: /integrations/utility_meter/
+[vasttrafik docs]: /integrations/vasttrafik/
 [velbus docs]: /integrations/velbus/
 [velux docs]: /integrations/velux/
 [websocket_api docs]: /integrations/websocket_api/
 [wirelesstag docs]: /integrations/wirelesstag/
 [wled docs]: /integrations/wled/
+[workday docs]: /integrations/workday/
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [yeelight docs]: /integrations/yeelight/
 [zerproc docs]: /integrations/zerproc/
