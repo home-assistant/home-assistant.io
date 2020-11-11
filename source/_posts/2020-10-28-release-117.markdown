@@ -60,6 +60,7 @@ So, keep an eye on our social media for the announcement.
 - [Release 0.117.3 - November 4](#release-01173---november-4)
 - [Release 0.117.4 - November 4](#release-01174---november-4)
 - [Release 0.117.5 - November 5](#release-01175---november-5)
+- [Release 0.117.6 - November 11](#release-01176---november-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -480,6 +481,24 @@ The following integrations are now available via the Home Assistant UI:
 [netatmo docs]: /integrations/netatmo/
 [simplisafe docs]: /integrations/simplisafe/
 [tasmota docs]: /integrations/tasmota/
+
+## Release 0.117.6 - November 11
+
+- Remove unneeded state restoration of the physical device in rpi_gpio_pwm integration ([@soldag] - [#42804]) ([rpi_gpio_pwm docs])
+- Bump pwmled to v1.6.7 ([@soldag] - [#42903]) ([rpi_gpio_pwm docs])
+- Bump gTTS-token to 1.1.4 ([@hmmbob] - [#43015]) ([google_translate docs])
+- Fix Plex auth issues by setting header ([@jjlawren] - [#43081]) ([plex docs])
+
+[#42804]: https://github.com/home-assistant/core/pull/42804
+[#42903]: https://github.com/home-assistant/core/pull/42903
+[#43015]: https://github.com/home-assistant/core/pull/43015
+[#43081]: https://github.com/home-assistant/core/pull/43081
+[@hmmbob]: https://github.com/hmmbob
+[@jjlawren]: https://github.com/jjlawren
+[@soldag]: https://github.com/soldag
+[google_translate docs]: /integrations/google_translate/
+[plex docs]: /integrations/plex/
+[rpi_gpio_pwm docs]: /integrations/rpi_gpio_pwm/
 
 ## If you need help...
 
