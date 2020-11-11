@@ -319,8 +319,6 @@ A very thorough explanation of this is available in the Wikipedia article about 
 Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
-{% raw %}
-
 ```yaml
 automation:
   trigger:
@@ -328,7 +326,16 @@ automation:
     tag_id: A7-6B-90-5F
 ```
 
-{% endraw %}
+Or trigger on multiple possible tags:
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id:
+      - A7-6B-90-5F
+      - A7-6B-15-AC
+```
 
 Additionally, you can also only trigger if a card is scanned by a specific
 device/scanner by setting the `device_id`:
