@@ -16,7 +16,7 @@ You can check the attributes of the sensor to see your exact forecast.
 
 ## Configuration
 
-To add the aurora binary sensor to your installation, search for the Aurora integration through the Configuration -> Integrations menu
+To add the aurora binary sensor to your installation, search for the Aurora integration through the Configuration -> Integrations menu.
 
 Enter a name for your Aurora location as well as the longitude and latitude of the location (default to your Home Assistant location).
 
@@ -30,4 +30,4 @@ Once installed you can adjust the threshold for this location by clicking on the
 
 ## Sensors
 
-The integration will add a single binary sensor for each location you configure which will be in state on when there is a forecast probability of Aurora viewing above your threshold and off when it is below your selected threshold.
+The integration will add a single binary sensor for each location you configure which will be in the state on when there is a forecast probability of Aurora viewing above your threshold and off when it is below your selected threshold.
