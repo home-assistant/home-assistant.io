@@ -137,6 +137,18 @@ Docker users have to allow Docker access to the device by adding `--device /dev/
 $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
 
+### Options
+
+To configure options for DSMR integration go to **Configuration** >> **Integrations** and press **Options** on the DSMR card.
+
+#### Time between updates
+
+Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
+
+<div class='note warning'>
+Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
+</div>
+
 ### Technical overview
 
 DSMR is a standard to which Dutch smartmeters must comply. It specifies that the smartmeter must send out a 'telegram' every 10 seconds (every second for DSMR 5.0 devices) over a serial port.
