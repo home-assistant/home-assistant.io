@@ -164,7 +164,7 @@ For each disk:
 
 ### Service `synology_dsm.reboot`
 
-Reboot the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
+Reboot the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
 
   | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
@@ -172,7 +172,7 @@ Reboot the by `serial` specified DSM. If only one DSM is configured, `serial` is
 
 ### Service `synology_dsm.shutdown`
 
-Shutdown the by `serial` specified DSM. If only one DSM is configured, `serial` is not requiered.
+Shutdown the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
 
   | Service data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
