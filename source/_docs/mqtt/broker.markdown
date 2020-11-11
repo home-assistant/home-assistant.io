@@ -68,6 +68,11 @@ tls_insecure:
   description: Set the verification of the server hostname in the server certificate.
   type: boolean
   default: false
+clean_session:
+  required: false
+  description: Set the verification of the server hostname in the server certificate.
+  type: boolean
+  default: false  
 {% endconfiguration %}
 
 <div class='note'>
