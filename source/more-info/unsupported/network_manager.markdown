@@ -9,7 +9,7 @@ The Supervisor utilizes the Network Manager on the host to offer network informa
 to add-ons and to give you the option to manage the network interfaces using the UI
 or via the command-line.
 
-This requires the the Network Manager to be installed, active
+This requires NetworkManager to be installed, active
 and in control of at least one network interface on the host.
 
 ## The solution
