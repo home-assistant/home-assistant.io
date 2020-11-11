@@ -13,7 +13,7 @@ ha_domain: energenie
 This integration allows you to use and control your Energenie Pimote devices via Home Assistant.
 
 <div class='note'>
-This integration requires the Pimote addon installed on the Raspberry pi, along with previous setup!
+This integration requires the Pimote addon installed on the Raspberry Pi with having it paired with the following [script](https://bitbucket.org/MattHawkinsUK/rpispy-pool-monitor/raw/master/utils/energenie_pair.py)
 </div>
 
 ### Configuration via the frontend
