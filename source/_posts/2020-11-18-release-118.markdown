@@ -2,8 +2,8 @@
 layout: post
 title: "0.118: Beta release notes"
 description: "Beta release notes"
-date: 2020-11-09 00:00:00
-date_formatted: "November 17, 2020"
+date: 2020-11-11 00:00:00
+date_formatted: "November 18, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
