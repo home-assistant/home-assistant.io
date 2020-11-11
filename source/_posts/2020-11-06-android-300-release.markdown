@@ -2,7 +2,7 @@
 title: "Home Assistant Companion Android App Release 3.0.0"
 description: "What's new with the Home Assistant Companion Android App in 3.0.0"
 date: 2020-11-06 00:00:00
-date_formatted: "November 06, 2020"
+date_formatted: "November 6, 2020"
 comments: true
 author: Daniel Shokouhi
 categories: Release-Notes
