@@ -6,16 +6,17 @@ ha_category:
   - Binary Sensor
   - Cover
   - Switch
+  - Light
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: rpi_gpio
 ---
 
-The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
+The `rpi_gpio` integration is the base for all related GPIO devices.
 
 ## Binary Sensor
 
-The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The `rpi_gpio` binary sensor device allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
 ### Configuration
 
@@ -23,8 +24,8 @@ To use your Raspberry Pi's GPIO in your installation, add the following to your 
 
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  - platform: rpi_gpio
+rpi_gpio:
+  binary_sensor:
     ports:
       11: PIR Office
       12: PIR Bedroom
@@ -63,7 +64,7 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 
 ## Cover
 
-The `rpi_gpio` cover platform allows you to use a Raspberry Pi to control your cover such as Garage doors.
+The `rpi_gpio` cover device allows you to use a Raspberry Pi to control your cover such as Garage doors.
 
 It uses two pins on the Raspberry Pi.
 
@@ -78,8 +79,8 @@ To enable Raspberry Pi Covers in your installation, add the following to your `c
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: rpi_gpio
+rpi_gpio:
+  cover:
     covers:
       - relay_pin: 10
         state_pin: 11
@@ -129,8 +130,8 @@ covers:
 
 ```yaml
 # Example configuration.yaml entry
-cover:
-  - platform: rpi_gpio
+rpi_gpio:
+  cover:
     relay_time: 0.2
     invert_relay: false
     state_pull_mode: 'UP'
@@ -149,7 +150,7 @@ If you don't have Home Assistant running on your Raspberry Pi and you want to us
 
 ## Switch
 
-The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The `rpi_gpio` switch device allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
 ### Configuration
 
@@ -157,8 +158,8 @@ To use your Raspberry Pi's GPIO in your installation, add the following to your 
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: rpi_gpio
+rpi_gpio:
+  switch:
     ports:
       11: Fan Office
       12: Light Desk
@@ -192,9 +193,98 @@ For example, if you have a relay connected to pin 11 its GPIO # is 17.
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: rpi_gpio
+rpi_gpio:
+  switch:
     ports:
       17: Speaker Relay
 ```
+## Light
 
+The `rpi_gpio` light device allows you to use a Raspberry Pi to control your lights.
+
+It uses two pins on the Raspberry Pi.
+
+- The `light_button_pin` will detect if the light button pushed
+- the `relay_pin` will turn on the light relay.
+
+
+### Configuration
+
+To enable Raspberry Pi Light in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+rpi_gpio:
+  light:
+    lights:
+      - name: my light
+        relay_pin: 18
+        light_button_pin: 17
+```
+
+{% configuration %}
+light_button_double_check_time_millis:
+  description: The minimum time that the light button pin need to be activ in milliseconds to avoid electrical perturbation.
+  required: false
+  default: 25
+  type: integer
+light_button_double_check_time_millis:
+  description: The time in milliseconds for port debouncing
+  required: false
+  default: 150
+  type: integer
+invert_relay:
+  description: Invert the relay pin output so that it is active-high (True).
+  required: false
+  default: false
+  type: boolean
+light_button_pull_mode:
+  description: The direction the light button pin is pulling. It can be UP or DOWN.
+  required: false
+  default: UP
+  type: string
+invert_light_button:
+  description: Invert the value of the light button pin so that 0 means closed.
+  required: false
+  default: false
+  type: boolean
+lights:
+  description: List of your lights.
+  required: true
+  type: list
+  keys:
+    relay_pin:
+      description: The pin of your Raspberry Pi where the relay is connected.
+      required: true
+      type: integer
+    light_button_pin:
+      description: The pin of your Raspberry Pi where the light button is connected.
+      required: true
+      type: integer
+    name:
+      description: The name to use in the frontend.
+      required: false
+      type: string
+{% endconfiguration %}
+
+## Full example
+
+```yaml
+rpi_gpio:
+  light:
+    lights:
+      - name: bedroom
+        relay_pin: 18
+        light_button_pin: 17
+      - name: kitchen
+        relay_pin: 23
+        light_button_pin: 27
+      - name: living romm
+        relay_pin: 24
+        light_button_pin: 22
+    light_button_pull_mode: DOWN
+    invert_light_button: true
+    invert_relay: true
+    light_button_bouncetime_millis: 250
+    light_button_double_check_time_millis: 50
+```
