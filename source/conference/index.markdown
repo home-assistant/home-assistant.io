@@ -10,18 +10,26 @@ og_image: /images/conference/social.png
 <img src='/images/conference/conference-header.png' alt='Home Assistant Conference header' class='no-shadow'>
 <br><br>
 
-The Home Assistant Conference is an online event where the Home Assistant community will share their ideas, creations and major milestones. The event will take place on December 13, 2020 and will be free to participate.
+The Home Assistant Conference is an online event to celebrate the community. It’s where the Home Assistant community will share their ideas, creations and major milestones. The event will take place on December 13, 2020.
 
-We're still working out the details, so check back on this page for updates.
+The conference will contain three different tracks: everyone, advanced users and developers. For each track we have 5-6 speakers to share their creations, deep-dive into certain topics or share their epic automations.
 
-## Open call for speakers
+Paulus Schoutsen, the founder of Home Assistant, will give the opening and closing keynote, aided by other Home Assistant developers.
 
-We're currently looking for people that want to speak at the conference. Talks will need to be either 15 or 30 minutes. You will stream them from your house during the event.
+After the talks, attendees will be able to join various sessions about different topics like automations, Lovelace and Q&A with Home Assistant developers.
 
-Talks can be about things you created, like a great automation, an amazing Lovelace dashboard, or a cool new feature. It can also be about your experience with Home Assistant, like how it has improved peoples lives, how you use it for education or some other unique use case.
+## Attending
 
-_The deadline for submitting a talk was October 31, 2020._
+The Home Assistant Conference will be hosted on [Hopin](https://hopin.to/events/home-assistant-conference), an online conference platform. Tickets to attend will cost $1, which will cover the cost of the platform.
+
+<a class="btn" href="https://hopin.to/events/home-assistant-conference">Get your ticket</a>
+
+The conference will also be available as a free YouTube live stream. The live stream will be limited to the keynotes and the "everyone" track. You won't have access to the chat and have that online conference feeling, so we recommend getting a ticket!
+
+To be notified when the live stream is online, [visit YouTube](https://www.youtube.com/watch?v=xSB_MuKkgxE) and click "Set Reminder".
+
+Recordings of the keynote and all tracks and sessions will be made available on YouTube after the conference.
 
 ## Speakers & Schedule
 
-This will come soon.
+_To be announced._

@@ -221,7 +221,7 @@
 /components/camera.doorbird /integrations/doorbird#camera
 /components/camera.familyhub /integrations/familyhub
 /components/camera.foscam /integrations/foscam
-/components/camera.generic /integrations/generic_ip_camera
+/components/camera.generic /integrations/generic
 /components/camera.local_file /integrations/local_file
 /components/camera.logi_circle /integrations/logi_circle#camera
 /components/camera.mjpeg /integrations/mjpeg
@@ -384,7 +384,7 @@
 /components/fan.wink /integrations/wink#fan
 /components/fan.zha /integrations/zha
 /components/fan.zwave /integrations/zwave
-/components/generic /integrations/generic_ip_camera
+/components/generic /integrations/generic
 /components/geo_location.geo_json_events /integrations/geo_json_events
 /components/geo_location.nsw_rural_fire_service_feed /integrations/nsw_rural_fire_service_feed
 /components/geo_location.usgs_earthquakes_feed /integrations/usgs_earthquakes_feed
@@ -1367,7 +1367,7 @@
 /components/garadget /integrations/garadget
 /components/gc100 /integrations/gc100
 /components/geizhals /integrations/geizhals
-/components/generic_ip_camera /integrations/generic_ip_camera
+/components/generic_ip_camera /integrations/generic
 /components/generic_thermostat /integrations/generic_thermostat
 /components/geniushub /integrations/geniushub
 /components/geo_json_events /integrations/geo_json_events
@@ -2018,6 +2018,7 @@
 # Breaking changes
 /integrations/switch.pca /integrations/elv
 /integrations/synologydsm /integrations/synology_dsm
+/integrations/generic_ip_camera /integrations/generic
 /integrations/telegram_chatbot /integrations/telegram_bot
 
 # Moved documentation

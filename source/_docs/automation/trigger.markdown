@@ -314,6 +314,37 @@ Although the actual amount of light depends on weather, topography and land cove
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 
+### Tag trigger
+
+Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+scanned using the Home Assistant Companion mobile application.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+```
+
+{% endraw %}
+
+Additionally, you can also only trigger if a card is scanned by a specific
+device/scanner by setting the `device_id`:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+    device_id: 0e19cd3cf2b311ea88f469a7512c307d
+```
+
+{% endraw %}
+
 ### Template trigger
 
 Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before the trigger will fire again.
