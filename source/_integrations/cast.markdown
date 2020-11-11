@@ -147,3 +147,31 @@ If this is not possible, it's necessary to:
 
 - Enable mDNS forwarding between the subnets.
 - Enable source NAT to make requests from Home Assistant to the Chromecast appear to come from the same subnet as the Chromecast.
+
+#### Easy docker-compose for mDNS forwording
+```yaml
+version: '3'
+services:
+  home-assistant:
+    # your home assistant configuration
+    # without
+    # network_mode: host
+    # but with
+    ports:
+     - "8123:8123" # webgui
+    networks:
+     - default
+
+  mdns-repeater:
+    image: monstrenyatko/mdns-repeater
+    container_name: mdns-repeater
+    restart: unless-stopped
+    command: mdns-repeater-app -f <INTERFACENAME> homeassistant
+    network_mode: "host"
+
+networks:
+  default:
+    driver_opts:
+      com.docker.network.bridge.name: homeassistant
+```
+The `<INTERFACENAME>` for example `eth0` or `wlan0`.
