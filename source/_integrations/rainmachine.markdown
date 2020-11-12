@@ -22,47 +22,10 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - [Switch](#switch)
 
-## Base Configuration
+## Configuration
 
-To connect to your RainMachine device, add the following to your `configuration.yaml` file:
-
-```yaml
-rainmachine:
-  controllers:
-    - ip_address: 192.168.1.100
-      password: YOUR_PASSWORD
-```
-
-{% configuration %}
-ip_address:
-  description: The IP address or hostname of your RainMachine unit.
-  required: false
-  type: string
-password:
-  description: Your RainMachine password.
-  required: true
-  type: string
-port:
-  description: The TCP port used by your unit for the REST API.
-  required: false
-  type: integer
-  default: 8080
-ssl:
-  description: Whether communication with the local device should occur over HTTPS.
-  required: false
-  type: boolean
-  default: true
-scan_interval:
-  description: The frequency (in seconds) between data updates.
-  required: false
-  type: integer
-  default: 60
-zone_run_time:
-  description: The default number of seconds that a zone should run when turned on.
-  required: false
-  type: integer
-  default: 600
-{% endconfiguration %}
+This integration can be configured via the Home Assistant UI by navigating to
+**Configuration** -> **Integrations**.
 
 ## Services
 
