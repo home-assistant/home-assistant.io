@@ -114,7 +114,7 @@ If you would like to test next release before anyone else, you can install the b
 [pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi4-64-4.16.img.gz
 [tinker]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_tinker-4.16.img.gz
 [odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_odroid-c2-4.16.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/5.5/hassos_odroid-c2-5.5.img.gz
+[odroid-c4]: https://github.com/home-assistant/operating-system/releases/download/5.5/hassos_odroid-c4-5.5.img.gz
 [odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_odroid-n2-4.16.img.gz
 [odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_odroid-xu4-4.16.img.gz
 [intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_intel-nuc-4.16.img.gz
