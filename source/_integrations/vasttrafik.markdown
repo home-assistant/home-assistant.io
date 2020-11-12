@@ -29,7 +29,7 @@ In cases where the wrong station is being selected (see [34851](https://github.c
 To retrieve the ID using curl:
 1. Login to the Västtrafik API and go to "Hantera nycklar" next to the application your created for Home Assistant.
 2. Make a copy of your AccessToken and execute the following curl command, replacing "<ACCESS_TOKEN>" and "<STATION_NAME>" as necessary:
-```
+```shell
 curl -H "Authorization: Bearer <ACCESS_TOKEN>" "https://api.vasttrafik.se/bin/rest.exe/v2/location.name?input=<STATION_NAME>&format=json
 ```
 3. In the output locate the key called "StopLocation", and under this key you will find a list of stops. Copy the ID for your desired stop and use it in your configuration.
