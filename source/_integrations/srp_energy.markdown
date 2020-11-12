@@ -1,7 +1,6 @@
 ---
 title: "SRP Energy"
 description: "How to integrate SRP Energy within Home Assistant."
-logo: srp_energy.png
 ha_category:
   - Energy
 ha_release: 0.13
