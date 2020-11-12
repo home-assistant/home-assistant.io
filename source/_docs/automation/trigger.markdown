@@ -32,6 +32,18 @@ automation:
         - ANOTHER_USER_ID
 ```
 
+It is also possible to listen for multiple events at once. This is useful for
+event that contain no, or similar, data and contexts.
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type:
+      - automation_reloaded
+      - scene_reloaded
+```
+
 ### Home Assistant trigger
 
 Fires when Home Assistant starts up or shuts down.
