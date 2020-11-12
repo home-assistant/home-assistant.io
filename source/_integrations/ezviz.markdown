@@ -15,6 +15,13 @@ It also exposes an RTSP stream, by using the local camera IPs (so the device hos
 
 As there is no official documentation for the API, the component retrieves data from the API used in the Ezviz mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
+
+```yaml
+The Ezviz integration has been temporarily disabled, as it has a dependency that contains code that breaks Home Assistant.
+
+Issue https://github.com/home-assistant/core/pull/38444
+```
+
 ## Configuration
 
 The configuration (see below) needs your Ezviz username & password you use within the Ezviz mobile application.
