@@ -70,9 +70,9 @@ tls_insecure:
   default: false
 clean_session:
   required: false
-  description: Set the verification of the server hostname in the server certificate.
+  description: Determines the client type. False: Persistant connection. True: Non persistant connection.
   type: boolean
-  default: false  
+  default: true  
 {% endconfiguration %}
 
 <div class='note'>
