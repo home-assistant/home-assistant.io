@@ -292,7 +292,7 @@ now be added to the light domain instead of the switch domain.
 </details>
 
 <details>
-  <summary><b>Espon</b></summary>
+  <summary><b>Epson</b></summary>
   <p>
 
 The Epson integration is now configured via the UI. Existing YAML configuration
