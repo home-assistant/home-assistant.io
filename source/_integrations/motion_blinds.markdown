@@ -15,18 +15,7 @@ The integration allows you to control [Motion Blinds](https://motion-blinds.com)
 
 To add a Motion Bridge to your installation, click Configuration in the sidebar, then click Integrations. Click the + icon in the lower right. Then search for "Motion Blinds" and enter the setup.
 
-{% configuration %}
-host:
-  description: IP address of the Motion Bridge, e.g., 192.168.1.100.
-  required: true
-  type: string
-API Key:
-  description: The API Key of your Motion Bridge, see [Retrieving the API Key](#retrieving-the-api-key).
-  required: true
-  type: string
-{% endconfiguration %}
-
-Note that a static IP address is required in order for this integration to keep working properly.
+You will be asked for the IP address of the Motion Bridge, e.g., 192.168.1.100. Note that a static IP address is required in order for this integration to keep working properly.
 
 ## Retrieving the API Key
 
@@ -37,7 +26,7 @@ Open the app, click the 3 dots in the top right corner, go to "settings", go to 
 
 Please note that "-" characters need to be included in the key when providing it to Home Assistant. The key needs to be similar to `12ab345c-d67e-8f`
 
-![alt text](https://raw.githubusercontent.com/starkillerOG/motion-blinds/main/pictures/Motion_App__get_key_1.jpg)
-![alt text](https://raw.githubusercontent.com/starkillerOG/motion-blinds/main/pictures/Motion_App__get_key_2.jpg)
-
-[Motion Blinds]: /integrations/motion_blinds
+<p class='img'>
+<img src='/images/integrations/motion_blinds/Motion_App__get_key_1.jpg' />
+<img src='/images/integrations/motion_blinds/Motion_App__get_key_2.jpg' />
+</p>
