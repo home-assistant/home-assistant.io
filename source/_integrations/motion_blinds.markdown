@@ -11,7 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The `motion_blinds` platform allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion) within Home Assistant.
+The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
 
 To add a Motion Bridge to your installation, click Configuration in the sidebar, then click Integrations. Click the + icon in the lower right. Then search for "Motion Blinds" and enter the setup.
 
