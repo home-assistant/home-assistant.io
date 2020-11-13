@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 <div class='note'>
-Note that this integration continues to support the Legacy Works With Nest API which is not accepting new users. The documentation for this API is at the bottom of this page so existing users can keep using it.
+This integration continues to support the Legacy Works With Nest API which is not accepting new users. The documentation for this API is at the bottom of this page so existing users can keep using it.
 </div>
 
 ## Overview: Supported Devices
@@ -122,6 +122,7 @@ subscriber_id:
 - To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
 
 ```yaml
+
 logger:
   default: info
   logs:
@@ -136,6 +137,8 @@ logger:
     google_nest_sdm.event: debug
     google.cloud.pubsub_v1: debug
     google.cloud.pubsub_v1.subscriber._protocol.streaming_pull_manager: debug
+    google.cloud.pubsub_v1.subscriber._protocol.streaming_pull_manager: debug
+
 ```
 
 ## Camera
