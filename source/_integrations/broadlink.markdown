@@ -118,7 +118,7 @@ script:
             - volume down
 ```
 
-After calling this service, you will be prompted to press the buttons in the same order as provided. Check the notifications to stay on track and and make sure you are pressing the right button at the right time.
+After calling this service, you will be prompted to press the buttons in the same order as provided. Check the notifications to stay on track and make sure you are pressing the right button at the right time.
 
 #### Learning an alternative code
 
