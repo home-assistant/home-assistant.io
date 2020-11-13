@@ -67,6 +67,29 @@ The Cloud Text-to-Speech API is priced monthly based on the amount of characters
 | Standard (non-WaveNet) voices | 0 to 4 million characters | $4.00 USD / 1 million characters  |
 | WaveNet voices                | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
+### SSML
+
+This integration allows the use of [Speech Synthesis Markup Language (SSML)](https://cloud.google.com/text-to-speech/docs/ssml) to allow for more customization in your audio response by providing details on pauses, and audio formatting for acronyms, dates, times, abbreviations, or text that should be censored. Check the example below (based on Google's documentation example) and [Google's SSML tutorial](https://cloud.google.com/text-to-speech/docs/ssml-tutorial) to learn how to use it.
+
+```yaml
+service: tts.google_cloud_say
+entity_id: "all"
+data:
+  message: >
+    <speak>
+      Here are <say-as interpret-as="characters">SSML</say-as> samples.
+      I can pause <break time="3s"/>.
+      I can play a sound
+      <audio src="https://www.example.com/MY_MP3_FILE.mp3">didn't get your MP3 audio file</audio>.
+      I can speak in cardinals. Your number is <say-as interpret-as="cardinal">10</say-as>.
+      Or I can speak in ordinals. You are <say-as interpret-as="ordinal">10</say-as> in line.
+      Or I can even speak in digits. The digits for ten are <say-as interpret-as="characters">10</say-as>.
+      I can also substitute phrases, like the <sub alias="World Wide Web Consortium">W3C</sub>.
+      Finally, I can speak a paragraph with two sentences.
+      <p><s>This is sentence one.</s><s>This is sentence two.</s></p>
+    </speak>
+```
+
 ### Text-to-Speech configuration
 
 {% configuration %}
