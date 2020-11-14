@@ -6,7 +6,7 @@ description: The Conditional card displays another card based on entity states.
 
 The Conditional card displays another card based on entity states.
 
-To add the Conditional card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Conditional** from the card picker. All options for this card can be configured via the user interface.
+To add the Conditional card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Conditional** from the card picker. Options `attribute`, `above`, `below` for this card, cannot be configured via the user interface.
 
 {% configuration %}
 type:
@@ -22,6 +22,10 @@ conditions:
       required: true
       description: Home Assistant entity ID.
       type: string
+    attribute:
+      required: false
+      description: Attribute of the entity to use instead of the state.
+      type: string
     state:
       required: false
       description: Entity state is equal to this value.*
@@ -30,13 +34,21 @@ conditions:
       required: false
       description: Entity state is unequal to this value.*
       type: string
+    above:
+      required: false
+      description: Entity state is above this value.*
+      type: any
+    below:
+      required: false
+      description: Entity state is below this value.*
+      type: any
 card:
   required: true
   description: Card to display if all conditions match.
   type: map
 {% endconfiguration %}
 
-*one is required (`state` or `state_not`)
+*one is required (`state` or `state_not` or `above` or `below`)
 
 Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
@@ -49,6 +61,10 @@ conditions:
     state: "on"
   - entity: switch.decorative_lights
     state_not: "off"
+  - entity: sun.sun
+    attribute: "elevation"
+    above: 10
+    below: 80
 card:
   type: entities
   entities:
