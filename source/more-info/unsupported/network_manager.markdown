@@ -26,7 +26,7 @@ physical interfaces.
 
 ```txt
 [main]
-dns=systemd-resolved
+dns=default
 plugins=keyfile
 autoconnect-retries-default=0
 rc-manager=file
@@ -41,8 +41,9 @@ backend=journal
 `/etc/NetworkManager/system-connections/default`:
 
 ```txt
+[connection]
 id=Supervisor default
-uuid=f62bf7c2-e565-49ff-bbfc-a4cf791e6add
+uuid=b653440a-544a-4e4f-aef5-6c443171c4f8
 type=802-3-ethernet
 llmnr=2
 mdns=2
