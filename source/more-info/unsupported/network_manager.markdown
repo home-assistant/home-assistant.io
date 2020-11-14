@@ -26,7 +26,7 @@ physical interfaces.
 
 ```txt
 [main]
-dns=systemd-resolved
+dns=default
 plugins=keyfile
 autoconnect-retries-default=0
 rc-manager=file
