@@ -20,7 +20,7 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 - Sensors: `e-Sensor`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
-- Wi-Fi Controlled Switches: `SC1`
+- Wi-Fi Controlled Switches: `BG1`, `SC1`
 
 ## Configuration
 
