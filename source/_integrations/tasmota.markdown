@@ -23,13 +23,13 @@ This integration allows you to control [Tasmota](https://tasmota.github.io/docs/
 - Tasmota devices flashed with version 9.1, or later.
 - Tasmota devices configured for native discovery (`SetOption19 0`)
 
-## Limitations
+## Supported Features
 
 Lights, relays, sensors, switches and buttons are supported.
 
 - Lights will be added as Home Assistant `light` entities. Single channel Dimmers, RGB lights, RGB lights with Color Temperature control and RGB lights with White control are supported.
 - Relays will be added as Home Assistant `switch` entities, if `SetOption30 = 0`. If `SetOption30 = 1`, relays will be added as `light` entities.
-- Sensors will be added as Home Assistant `sensor` entities. 
+- Sensors will be added as Home Assistant `sensor` entities.
 - Switches will be added as Home Assistant `binary_sensor` entities or `automation triggers` depending by the `switchmode` used when `SetOption114` is enabled.
 - Buttons will be added as Home Assistant `automation triggers` when `SetOption73` is enabled.
 - The integration will also create up to eight Status Sensors, each one with a different information. Please note all the Status Sensors are disabled by default.
