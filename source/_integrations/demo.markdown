@@ -31,7 +31,7 @@ Available demo platforms:
 - [Media Player](/integrations/media_player/) (`media_player`)
 - [Notification](/integrations/notify/) (`notify`)
 - [Remote](/integrations/remote/) (`remote`)
-- [Sensor](/integrations/sensor/) (`sensor`)
+- [Sensor](/integrations/sensor/) (`sensors`)
 - [Switch](/integrations/switch/) (`switch`)
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Weather](/integrations/weather/) (`weather`)
