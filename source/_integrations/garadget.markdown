@@ -43,16 +43,16 @@ covers:
       required: true
       type: string
     username:
-      description: Your Garadget account username.
-      required: true
+      description: Your Garadget account username. Use with `password` to obtain the `access_token` automatically.
+      required: false
       type: string
     password:
-      description: Your Garadget account password.
-      required: true
+      description: Your Garadget account password. Use with `username` to obtain the `access_token` automatically.
+      required: false
       type: string
     access_token:
-      description: A generated `access_token` from your Garadget account.
-      required: true
+      description: A generated `access_token` from your Garadget account. To obtain an `access_token`, use the network tab of the developer tools for your web browser while logged into the Garadget website. When supplied, the `username` and `password` values are not required.
+      required: false
       type: string
     name:
       description: Name to use in the frontend, will use name configured in Garadget otherwise.
@@ -60,8 +60,6 @@ covers:
       default: Garadget
       type: string
 {% endconfiguration %}
-
-If provided, the **access_token** will be used, otherwise the **username** and **password** will be used to automatically generate an access token at start time.
 
 ## Example
 
