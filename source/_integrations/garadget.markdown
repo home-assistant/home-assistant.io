@@ -37,29 +37,28 @@ covers:
   description: List of your doors.
   required: true
   type: list
-  covers:
-      keys:
-        device:
-          description: This is the device id from your Garadget portal.
-          required: true
-          type: string
-        username:
-          description: Your Garadget account username.
-          required: true
-          type: string
-        password:
-          description: Your Garadget account password.
-          required: true
-          type: string
-        access_token:
-          description: A generated `access_token` from your Garadget account.
-          required: true
-          type: string
-        name:
-          description: me to use in the frontend, will use name configured in Garadget otherwise.
-          required: false
-          default: Garadget
-          type: string
+  keys:
+    device:
+      description: This is the device id from your Garadget portal.
+      required: true
+      type: string
+    username:
+      description: Your Garadget account username.
+      required: true
+      type: string
+    password:
+      description: Your Garadget account password.
+      required: true
+      type: string
+    access_token:
+      description: A generated `access_token` from your Garadget account.
+      required: true
+      type: string
+    name:
+      description: me to use in the frontend, will use name configured in Garadget otherwise.
+      required: false
+      default: Garadget
+      type: string
 {% endconfiguration %}
 
 If provided, the **access_token** will be used, otherwise the **username** and **password** will be used to automatically generate an access token at start time.
