@@ -77,6 +77,16 @@ discovery:
   required: false
   type: boolean
   default: true
+retry_max_attempts:
+  description: Maximum number of retry attempts to contact unavailable devices.
+  required: false
+  type: integer
+  default: 300
+retry_delay:
+  description: Number of seconds between retry attempts.
+  required: false
+  type: integer
+  default: 2
 light:
   description: List of light devices.
   required: false
@@ -121,6 +131,8 @@ dimmer:
 # Example configuration.yaml entry with manually specified addresses
 tplink:
   discovery: false
+  retry_max_attempts: 5
+  retry_delay: 1
   light:
     - host: 192.168.200.1
     - host: 192.168.200.2
