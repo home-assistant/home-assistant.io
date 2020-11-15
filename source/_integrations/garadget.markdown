@@ -39,7 +39,7 @@ covers:
   type: list
   keys:
     device:
-      description: This is the device id from your Garadget portal.
+      description: This is the device id from your Garadget portal. It can be found in the Settings section of the Garadget website or mobile application.
       required: true
       type: string
     username:
