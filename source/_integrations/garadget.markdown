@@ -55,7 +55,7 @@ covers:
       required: true
       type: string
     name:
-      description: me to use in the frontend, will use name configured in Garadget otherwise.
+      description: Name to use in the frontend, will use name configured in Garadget otherwise.
       required: false
       default: Garadget
       type: string
