@@ -57,8 +57,9 @@ surepetcare:
 
 ## Getting the IDs of your flaps, feeders and pets
 
-There are (at least) two ways:
+There are (at least) three ways, sorted in "descending convenience order":
 
+- Use the [surepy](https://github.com/benleb/surepy) tool (uses the same library as this integration) from [@benleb](https://github.com/benleb). A Python tool to get your token simply by running a single command (check `surepy --help` for the exact command).
 - Use the [sp_cli.py](https://github.com/rcastberg/sure_petcare/blob/master/sp_cli.py) from [@rcastberg](https://github.com/rcastberg) to fetch the IDs from the Sure Petcare API. With the default setting, the IDs will be written as JSON to `~/.surepet.cache`.
 - Visit [surepetcare.io](https://surepetcare.io) and log in with your Sure Petcare credentials. Open the developer tools in Chrome/Firefox, switch to the "Network" tab and refresh the page. Now look for calls to `start` (`pets`, `<household id>` and others are also possible, but `start` shows you all information at once). Click on this call and in the JSON displayed you will find all the needed IDs.
 

@@ -1736,7 +1736,7 @@ discovery. Users currently using that should set up all devices through UI.
 
 ## Release 0.115.3 - September 25
 
-- Use Cloud State as alternative state if condition unknown ([@thehaxxa] - [#37121]) ([bom docs])
+- Use Cloud State as alternative state if condition unknown ([@thehaxxa] - [#37121])
 - Guard SolarEdge for inverters without batteries ([@mhaack] - [#40295]) ([solaredge docs])
 - Ignore packets with missing dts in peek_first_pts ([@uvjustin] - [#40299]) ([stream docs])
 - Axis - Fix list applications breaks if empty response ([@Kane610] - [#40360]) ([axis docs])
@@ -1806,7 +1806,6 @@ discovery. Users currently using that should set up all devices through UI.
 [@uvjustin]: https://github.com/uvjustin
 [@vangorra]: https://github.com/vangorra
 [axis docs]: /integrations/axis/
-[bom docs]: /integrations/bom/
 [dsmr docs]: /integrations/dsmr/
 [frontend docs]: /integrations/frontend/
 [gogogate2 docs]: /integrations/gogogate2/
@@ -2119,7 +2118,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Upgrade pre-commit to 2.7.0 ([@frenck] - [#39180])
 - Upgrade discogs_client to 2.3.0 ([@fabaff] - [#39164]) ([discogs docs])
 - Upgrade py-cpuinfo to 7.0.0 ([@fabaff] - [#39155]) ([cpuspeed docs]) (breaking-change)
-- Support Rainbow radar site in BOM camera ([@maddenp] - [#39129]) ([bom docs])
+- Support Rainbow radar site in BOM camera ([@maddenp] - [#39129])
 - Update bug report template for new Logs location ([@lukashass] - [#39183])
 - Add pin code support to the Risco integration ([@OnFreund] - [#39177]) ([risco docs])
 - Report usage of extract_entities by custom components ([@bdraco] - [#39185])
@@ -2383,7 +2382,7 @@ discovery. Users currently using that should set up all devices through UI.
 - Remove vizio test assertions for integration details in test_init ([@raman325] - [#39579]) ([vizio docs])
 - Improve Yeelight code ([@shenxn] - [#39543]) ([yeelight docs])
 - Add get_migration_config to zwave websocket api ([@cgarwood] - [#39577]) ([zwave docs]) (new-integration)
-- Round sensor readings for bom ([@springstan] - [#39513]) ([bom docs])
+- Round sensor readings for bom ([@springstan] - [#39513])
 - Reintroduce custom met.no url ([@Danielhiversen] - [#39583]) ([met docs])
 - Add Plex service to refresh a library ([@jjlawren] - [#39094]) ([plex docs])
 - Add the ability to reload rpi_gpio platforms from yaml ([@Misiu] - [#39548]) ([rpi_gpio docs])
@@ -3588,7 +3587,6 @@ discovery. Users currently using that should set up all devices through UI.
 [awair docs]: /integrations/awair/
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
-[bom docs]: /integrations/bom/
 [bond docs]: /integrations/bond/
 [broadlink docs]: /integrations/broadlink/
 [brother docs]: /integrations/brother/

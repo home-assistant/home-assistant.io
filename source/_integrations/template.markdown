@@ -321,7 +321,7 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update, so we add in a reference to the `sensor.date` sensor from the [Time & Date](/integrations/time_date/), which will update once a day.
+This template contains no entities that will trigger an update but the `now()` will cause it to update every minute:
 
 {% raw %}
 
@@ -333,53 +333,9 @@ sensor:
   - platform: template
     sensors:
       nonsmoker:
-        value_template: '{{ states('sensor.date') and (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        value_template: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
         friendly_name: 'Not smoking'
         unit_of_measurement: "Days"
-```
-
-{% endraw %}
-
-In this case it is also possible to convert the entity-less template above into one that will be updated automatically:
-
-{% raw %}
-
-````yaml
-sensor:
-  - platform: template
-    sensors:
-      nonsmoker:
-        value_template: "{{ (( as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) - as_timestamp(strptime('06.07.2018', '%d.%m.%Y')) ) / 86400 ) | round(2) }}"
-        friendly_name: 'Not smoking'
-        unit_of_measurement: "Days"
-````
-
-{% endraw %}
-
-Useful entities to choose might be `sensor.date` which update once per day or `sensor.time`, which updates once per minute.  
-Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have a negative impact on performance.
-
-An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
-
-{% raw %}
-
-```yaml
-sensor:
-  - platform: template
-    sensors:
-      nonsmoker:
-        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-        friendly_name: 'Not smoking'
-        unit_of_measurement: "Days"
-
-automation:
-  - alias: 'nonsmoker_update'
-    trigger:
-      - platform: time_pattern
-        minutes: '/5'
-    action:
-      - service: homeassistant.update_entity
-        entity_id: sensor.nonsmoker
 ```
 
 {% endraw %}

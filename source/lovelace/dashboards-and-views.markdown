@@ -113,12 +113,12 @@ dashboards:
       type: string
     show_in_sidebar:
       required: false
-      description: Should this view be shown in the sidebar.
+      description: Should this dashboard be shown in the sidebar.
       type: boolean
       default: true
     require_admin:
       required: false
-      description: Should this view be only accessible for admin users.
+      description: Should this dashboard be only accessible for admin users.
       type: boolean
       default: false
 {% endconfiguration %}

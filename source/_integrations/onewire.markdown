@@ -7,6 +7,7 @@ ha_release: 0.12
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@garbled1'
+  - '@epenet'
 ha_domain: onewire
 ---
 
@@ -34,7 +35,7 @@ Notes:
 
 - The TAI-8570 Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also a barometer, hygrometer and illuminance sensors. This onewire platform can read and present values from that device.
 
-- Each 1-wire component data sheet describes the different properties the component provides. The owfs software adds some extra tools to make it easier for DIY implementers to use the component. By hobbyists, it is quite common to use DS2438 Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity and luminosity on the 1-wire bus by just adding some standard components to the DS2438. For different component types, there are ready-made algorithms implemented in owfs. Those are exposed by the owfs software and can be read by this platform. The B1-R1-A/pressure is exposed as a barometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description of these properties, refer to the [owfs documentation](https://owfs.org/index_php_page_ds2438.html).
+- Each 1-wire component data sheet describes the different properties the component provides. The [owfs software](https://github.com/owfs/owfs) adds some extra tools to make it easier for DIY implementers to use the component. By hobbyists, it is quite common to use DS2438 Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity and luminosity on the 1-wire bus by just adding some standard components to the DS2438. For different component types, there are ready-made algorithms implemented in owfs. Those are exposed by the owfs software and can be read by this platform. The B1-R1-A/pressure is exposed as a barometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description of these properties, refer to the [owfs documentation](https://owfs.org/index_php_page_ds2438.html).
   For this component, the more basic quantities temperature, VAD, VDD and IAD is exported as separate sensors.
 
 - Hobbyboards is a company that has been selling DIY boards of different kinds. The company has been away from the market for some time, so no reference to the boards can be made. This platform has an implementation for some of those.
@@ -44,9 +45,9 @@ Notes:
 The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or by using a dedicated interface adapter, for example
 [DS9490R](https://datasheets.maximintegrated.com/en/ds/DS9490-DS9490R.pdf) or adapters based on [DS2482-100](https://datasheets.maximintegrated.com/en/ds/DS2482-100.pdf) that can be directly attached to the IO pins on the Raspberry Pi.
 
-It is also possible for this platform to interface with a remote 1-wire host over a network connection using ofws and owserver.
+It is also possible for this platform to interface with a remote 1-wire host over a network connection using owfs and owserver.
 
-## Raspberry Pi set up
+### Raspberry Pi set up
 
 In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt`. This file can not be edited through ssh. You have to put your SD card to a PC, and edit the file directly.
 To edit `/boot/config.txt` on the Home Assistant Operating System, use [this documentation](https://developers.home-assistant.io/docs/operating-system/debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
@@ -81,28 +82,14 @@ You can read about further parameters in this documentation: [Raspberry Pi Tutor
 When using the GPIO pins on Raspberry Pi directly as a 1-wire bus, the description above uses two kernel modules. `1w_gpio`, that implements the 1-wire protocol, and `1w_therm`, that understands the DS18B20 (family 28) components inner structure and reports temperature.
 There is no support for other device types (families) and hence this onewire platform only supports temperature measurements from family 28 devices.
 
-## Raspberry Pi checking connected devices via ssh
+### Raspberry Pi checking connected devices via ssh
 
 If you set up ssh, you can check the connected one-wire devices in the following folder: /sys/bus/w1/devices
 The device IDs begin with `28-`.
 
 ## Interface adapter setup
 
-### owserver
-
-`owsever` on Linux hosts is part of the [owfs 1-Wire file system](https://owfs.org/). When a 1-wire interface adapter is used, you can access sensors on a remote or local Linux host that is running `owserver`. `owserver` by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
-
-### owfs - (Soon to be deprecated)
-
-It is also possible to use `owfs`, the filesystem portion of the package, to access 1-wire sensors but not advised as it will be deprecated in an upcoming release. See this [pull request](https://github.com/home-assistant/core/pull/42041) for more information.
-
-The [owfs project page on GitHub](https://github.com/owfs/owfs) says:
-
-> Despite the project name, the owfs package itself is **NOT** recommended for any real use, it has well known issues with races etc.
-
-If you still choose to use `owfs`, the `mount_dir` option must be configured to correspond to a directory, where owfs device tree has been mounted. On systems where Home Assistant runs in a Docker container `owfs` cannot escape that environment and hence cannot populate the `mount_dir`. Use the `owserver` method on these systems instead.
-
-
+`owserver` on Linux hosts is part of the [owfs 1-Wire file system](https://owfs.org/). When a 1-wire interface adapter is used, you can access sensors on a remote or local Linux host that is running `owserver`. `owserver` by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
 
 ## Configuration
 
@@ -117,10 +104,6 @@ sensor:
 {% configuration %}
 names:
   description: ID and friendly name of your sensors.
-  required: false
-  type: string
-mount_dir:
-  description: Location of device tree if owfs driver used.
   required: false
   type: string
 host:

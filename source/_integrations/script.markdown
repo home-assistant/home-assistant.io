@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: script
-ha_iot_class: ~
+ha_iot_class:
 ---
 
 The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
@@ -59,7 +59,7 @@ variables:
   type: map
   keys:
     PARAMETER_NAME:
-      description: The value of the variable. Any YAML is valid.
+      description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
       type: any
 fields:
   description: Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below.

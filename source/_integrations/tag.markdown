@@ -9,7 +9,7 @@ ha_codeowners:
   - '@dmulcahey'
 ha_domain: tag
 ha_quality_scale: internal
-ha_iot_class: ~
+ha_iot_class:
 ---
 
 <p class='img'>

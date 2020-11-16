@@ -13,7 +13,7 @@ The following sections introduce all trigger types and further details to get st
 
 ### Event trigger
 
-Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
+Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
 
 Events can be fired by integrations or via the API. There is no limitation to the types. A list of built-in events can be found [here](/docs/configuration/events/).
 
@@ -25,6 +25,11 @@ automation:
     # optional
     event_data:
       mood: happy
+    context:
+      user_id:
+      # any of these will match
+        - MY_USER_ID
+        - ANOTHER_USER_ID
 ```
 
 ### Home Assistant trigger
@@ -308,6 +313,37 @@ Although the actual amount of light depends on weather, topography and land cove
 - Astronomical twilight: -12° > Solar angle > -18°
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
+
+### Tag trigger
+
+Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+scanned using the Home Assistant Companion mobile application.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+```
+
+{% endraw %}
+
+Additionally, you can also only trigger if a card is scanned by a specific
+device/scanner by setting the `device_id`:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+    device_id: 0e19cd3cf2b311ea88f469a7512c307d
+```
+
+{% endraw %}
 
 ### Template trigger
 
