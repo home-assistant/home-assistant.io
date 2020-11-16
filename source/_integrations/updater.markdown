@@ -4,6 +4,7 @@ description: Detecting when Home Assistant updates are available.
 ha_category:
   - Binary Sensor
 ha_release: 0.8
+ha_iot_class: Cloud Polling
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -71,7 +72,7 @@ automation:
       to: 'on'
   action:
     - service: notify.notify
-      data_template:
+      data:
         message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 ```
 

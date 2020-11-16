@@ -94,7 +94,7 @@ automation:
         entity_id: sensor.phone
     action:
       - service: notify.notify
-        data_template:
+        data:
           title: "Phone"
           message: >-
             {% if is_state("sensor.phone", "idle") %}

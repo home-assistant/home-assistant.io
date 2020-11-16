@@ -7,6 +7,7 @@ ha_release: 0.57
 ha_codeowners:
   - '@flowolf'
 ha_domain: yessssms
+ha_iot_class: Cloud Push
 ---
 
 The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) and others to send SMS via their web-site.
@@ -50,8 +51,13 @@ notify:
 ```
 
 {% configuration %}
+name:
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  required: false
+  type: string
+  default: notify
 username:
-  description: This is your login name (usually your phone number). Veryfy that you can use your credentials on the Yesss.at website.
+  description: This is your login name (usually your phone number, but in some cases it could be your e-mail). Veryfy that you can use your credentials on the Yesss.at website.
   required: true
   type: string
 password:
@@ -75,9 +81,9 @@ For an alternative provider you would set the `provider` option. An example conf
 notify:
   - name: sms_to_self
     platform: yessssms
-    username: 06641234567
+    username: "+436641234567"
     password: tops3cr3tpass0rd
-    recipient: 06641234567
+    recipient: "+436641234567"
     provider: educom
 ```
 

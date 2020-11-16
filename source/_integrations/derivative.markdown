@@ -4,8 +4,9 @@ description: Instructions on how to integrate Derivative Sensor into Home Assist
 ha_category:
   - Utility
   - Energy
+  - Sensor
 ha_release: 0.105
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 logo: derivative.png
 ha_qa_scale: internal
 ha_codeowners:
@@ -48,12 +49,12 @@ unit_prefix:
   default: None
   type: string
 unit_time:
-  description: SI unit of time of the derivative. Available units are s, min, h, d.
+  description: SI unit of time of the derivative. Available units are s, min, h, d. If this parameter is set, the attribute **unit_of_measurement** will be set like x/y where x is the unit of the sensor given via the **source** parameter and y is the value given here.
   required: false
   default: h
   type: string
 unit:
-  description: Unit of Measurement to be used for the derivative.
+  description: Unit of Measurement to be used for the derivative. This will overwrite the automatically set **unit_of_measurement** as explained above.
   required: false
   type: string
 time_window:
@@ -77,6 +78,6 @@ sensor:
     source: sensor.temperature
     name: Temperature change per hour
     round: 1
-    unit_time: h
+    unit_time: h # the resulting "unit_of_measurement" will be °C/h if the sensor.temperate has set °C as it's unit
     time_window: "00:30:00"  # we look at the change over the last half hour
 ```

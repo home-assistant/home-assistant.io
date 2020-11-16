@@ -1,12 +1,13 @@
 ---
 title: Remote Python Debugger
-description: Remote Python Debugger (debugpy) for Visual Studio Code 
+description: Remote Python Debugger (debugpy) for Visual Studio Code
 ha_category:
   - Utility
 ha_release: 0.112
 ha_codeowners:
   - '@frenck'
 ha_domain: debugpy
+ha_quality_scale: internal
 ---
 
 The remote Python debugger integration allows you to use the Visual Studio Code

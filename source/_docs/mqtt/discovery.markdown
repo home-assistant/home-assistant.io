@@ -19,22 +19,22 @@ Supported by MQTT discovery:
 - [Locks](/integrations/lock.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
+- [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-To enable MQTT discovery, add the following to your `configuration.yaml` file:
+MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  discovery: true
-  discovery_prefix: homeassistant
+  discovery: false
 ```
 
 {% configuration %}
 discovery:
   description: If the MQTT discovery should be enabled or not.
   required: false
-  default: false
+  default: true
   type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
@@ -42,12 +42,6 @@ discovery_prefix:
   default: homeassistant
   type: string
 {% endconfiguration %}
-
-<div class='note'>
-
-The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the MQTT discovery messages after every Home Assistant restart for the devices to show up.
-
-</div>
 
 The discovery topic need to follow a specific format:
 
@@ -79,6 +73,7 @@ Supported abbreviations:
     'aux_cmd_t':           'aux_command_topic',
     'aux_stat_tpl':        'aux_state_template',
     'aux_stat_t':          'aux_state_topic',
+    'avty'                 'availability',
     'avty_t':              'availability_topic',
     'away_mode_cmd_t':     'away_mode_command_topic',
     'away_mode_stat_tpl':  'away_mode_state_template',
@@ -138,9 +133,10 @@ Supported abbreviations:
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'init':                'initial',
-    'json_attr':           'json_attributes',
     'json_attr_t':         'json_attributes_topic',
     'json_attr_tpl':       'json_attributes_template',
+    'max_mirs':            'max_mireds',
+    'min_mirs':            'min_mireds',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
     'mode_cmd_t':          'mode_command_topic',
@@ -272,11 +268,15 @@ The following software has built-in support for MQTT discovery:
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [SmartHome](https://github.com/roncoa/SmartHome)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 - [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
+- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
+- [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 
 ## Examples
 

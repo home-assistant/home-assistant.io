@@ -452,7 +452,7 @@ Added a Coronavirus integration to help monitor the ongoing epidemic. [More info
 ## All changes
 
 - Change scan_interval defaults for Tesla ([@alandtse] - [#31194]) ([tesla docs]) (breaking change)
-- Removes I/O from linky tests ([@balloob] - [#31299]) ([linky docs])
+- Removes I/O from linky tests ([@balloob] - [#31299])
 - Reorganize insteon code ([@teharris1] - [#31183]) ([insteon docs]) (breaking change)
 - Upgrade pre-commit to 2.0.1 ([@frenck] - [#31308])
 - Add opening and closing states to MQTT covers ([@rickvdl] - [#31259]) ([mqtt docs])
@@ -584,7 +584,7 @@ Added a Coronavirus integration to help monitor the ongoing epidemic. [More info
 - Fix spelling of VIVOTEK ([@frenck] - [#31773]) ([vivotek docs])
 - Fix spelling of apcupsd in manifest ([@frenck] - [#31770]) ([apcupsd docs])
 - Fix spelling of AVM FRITZ!Box in manifest ([@frenck] - [#31765]) ([fritz docs])
-- Implement PlatformNotReady to Linky + fix TypeError ([@Quentame] - [#31768]) ([linky docs])
+- Implement PlatformNotReady to Linky + fix TypeError ([@Quentame] - [#31768])
 - UniFi - Change handling of updated options ([@Kane610] - [#31762]) ([unifi docs]) (breaking change)
 - Rename codecov so it will be picked up ([@balloob] - [#31775])
 - Fix spelling of ASUSWRT in manifest ([@frenck] - [#31764]) ([asuswrt docs])

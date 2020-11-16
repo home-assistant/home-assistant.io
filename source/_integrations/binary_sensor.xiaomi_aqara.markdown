@@ -147,7 +147,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     to: 'on'
   action:
     - service: notify.html5
-      data_template:
+      data:
         title: Gas alarm!
         message: 'Gas with a density of {% raw %}{{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }}{% endraw %} detected.'
 ```
@@ -274,7 +274,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
   action:
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
-    data_template:
+    data:
       brightness: {% raw %}>-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
           {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60 >= 10 %}
@@ -296,7 +296,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
   action:
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
-    data_template:
+    data:
       brightness: {% raw %}>-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
           {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60 <= 255 %}

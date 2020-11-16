@@ -80,7 +80,7 @@ automation:
           temperature: 24
 ```
 
-Generally, in Home Assistant, you can use the `homeassistant/turn_off` service to turn devices off. For the Remotec ZXT-120, you must instead make a service call like the following.
+Generally, in Home Assistant, you can use the `homeassistant.turn_off` service to turn devices off. For the Remotec ZXT-120, you must instead make a service call like the following.
 
 ```yaml
 automation:
@@ -99,13 +99,11 @@ automation:
 
 ### Test if it works
 
-A simple way to test if your Z-Wave climate device is working is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose the applicable Climate service from the list of **Available services:** and enter something like the sample below into the **Service Data** field and then press **CALL SERVICE**.
+A simple way to test if your Z-Wave climate device is working is to use **Developer Tools** -> **Services**. Choose the applicable Climate service from the list of **Available services:** and enter something like the sample below into the **Service Data** field and then press **CALL SERVICE**.
 
-```json
-{
-  "entity_id": "climate.remotec_zxt120_heating_1_id",
-  "hvac_mode": "Heat"
-}
+```yaml
+entity_id: climate.remotec_zxt120_heating_1_id
+hvac_mode: Heat
 ```
 
 ## Cover

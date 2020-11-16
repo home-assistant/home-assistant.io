@@ -3,6 +3,7 @@ title: Universal Media Player
 description: Instructions on how to create a universal media player in Home Assistant.
 ha_category:
   - Media Player
+ha_iot_class: Calculated
 ha_release: 0.11
 ha_quality_scale: internal
 ha_domain: universal
@@ -50,7 +51,7 @@ name:
   type: string
 children:
   description: Ordered list of child media players this entity will control.
-  required: true
+  required: false
   type: list
 state_template:
   description: "A [template](/topics/templating/) can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans."
@@ -73,6 +74,8 @@ It is recommended that the command `turn_on`, the command `turn_off`, and the at
 It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` service should toggle the mute setting.
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
+
+When using `state_template`, if you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see the [example](/integrations/binary_sensor.template/#working-without-entities) in the template binary_sensor.
 
 ## Usage examples
 
@@ -114,12 +117,12 @@ media_player:
         entity_id: switch.living_room_mute
     select_source:
       service: media_player.select_source
-      data_template:
+      data:
         entity_id: media_player.receiver
         source: '{{ source }}'
     volume_set:
       service: media_player.volume_set
-      data_template:
+      data:
         entity_id: media_player.receiver
         volume_level: '{{ volume_level }}'
 
@@ -228,6 +231,48 @@ automation:
   action:
   - service: media_player.turn_off
     entity_id: media_player.kodi_tv
+```
+
+{% endraw %}
+
+#### Harmony Remote Example
+
+The complete configuration is:
+
+{% raw %}
+
+```yaml
+media_player:
+  - platform: universal
+    name: Media Room TV
+    attributes:
+      state: remote.alexander_down_guest
+      source_list: remote.alexander_down_guest|activity_list
+      source: remote.alexander_down_guest|current_activity
+    commands:
+      turn_on:
+        service: remote.turn_on
+        entity_id: remote.alexander_down_guest
+      turn_off:
+        service: remote.turn_off
+        entity_id: remote.alexander_down_guest
+      volume_up:
+        service: remote.send_command
+        entity_id: remote.alexander_down_guest
+        data:
+          device: Receiver
+          command: VolumeUp
+      volume_down:
+        service: remote.send_command
+        entity_id: remote.alexander_down_guest
+        data:
+          device: Receiver
+          command: VolumeDown
+      select_source:
+        service: remote.turn_on
+        data:
+          entity_id: remote.alexander_down_guest
+          activity: '{{ source }}'
 ```
 
 {% endraw %}

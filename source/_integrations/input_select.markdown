@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Input Select integration into 
 ha_category:
   - Automation
 ha_release: 0.13
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -13,6 +14,9 @@ ha_domain: input_select
 The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
 The preferred way to configure an input select is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Dropdown** option.
+
+To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from you configuration, you must add `input_select:` to your `configuration.yaml` first, then you can use the UI.
 
 Input selects can also be configured via `configuration.yaml`:
 
@@ -169,7 +173,7 @@ input_select:
    # entity_id: input_select.thermostat_mode
   action:
      service: input_select.select_option
-     data_template:
+     data:
       entity_id: input_select.thermostat_mode
       option: "{{ trigger.payload }}"
 
@@ -181,7 +185,7 @@ input_select:
     entity_id: input_select.thermostat_mode
   action:
     service: mqtt.publish
-    data_template:
+    data:
       topic: "thermostatMode"
       retain: true
       payload: "{{ states('input_select.thermostat_mode') }}"

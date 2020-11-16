@@ -23,14 +23,14 @@ There is currently support for the following platforms within Home Assistant:
 
 - Presence detection - device tracker for connected devices
 - Notifications - via SMS
-- Sensors - device, signal, and traffic information; number of unread SMS
+- Sensors - device, network, signal, SMS count, traffic, and battery information
 - Switch - mobile data on/off
-- Binary sensor - mobile connection status
+- Binary sensor - mobile and Wi-Fi connection status, SMS storage full/not
 
 ## Configuration
 
 The integration can be enabled in two ways, either using the frontend
-or using YAML. Additionally, if the [SSDP integration](../ssdp/) is
+or using YAML. Additionally, if the [SSDP integration](/integrations/ssdp) is
 enabled in Home Assistant, automatically discovered Huawei LTE devices
 which support and have UPnP enabled are made available for further
 optional configuration in the frontend.
@@ -164,5 +164,7 @@ Devices we know to be working with this integration based on the [documentation 
 - Huawei B525s-23a
 - Huawei E5186s-22a
 - Huawei B618
+- Huawei B529s-23a
+- Huawei B535s
 
 This is not a complete list. The integration can probably connect to other Huawei LTE devices running similar firmware.

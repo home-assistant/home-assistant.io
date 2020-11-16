@@ -107,6 +107,11 @@ days:
   description: Number of days for the search for upcoming appointments.
   default: 1
   type: integer
+verify_ssl:
+  description: Verify the SSL certificate or not. If using self-signed certificates, this usually needs to be set to "False".
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Sensor attributes

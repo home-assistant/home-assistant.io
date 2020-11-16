@@ -4,6 +4,7 @@ description: Instructions on how to integrate the configurator in your component
 ha_category:
   - Other
 ha_release: 0.7
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

@@ -7,13 +7,15 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@armills'
+  - '@OnFreund'
+  - '@cgtobi'
 ha_domain: kodi
+ha_config_flow: true
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
-The preferred way to set up the Kodi platform is by enabling the [discovery component](/integrations/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+The preferred way to set up the Kodi platform is by through discovery, which requires an enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -22,66 +24,46 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
+The Kodi media player is configured through the integrations screen. If your Kodi is discovered, you'll see it there and can click to set it up.
+If you do not see your device, you can click on the `+` button and choose Kodi.
+The flow will guide you through the setup. Most of the settings are advanced, and the defaults should work.
+
+If you previously had Kodi configured through `configuration.yaml`, it's advisable to remove it, and configure from the UI.
+If you do not remove it, your configuration will be imported with the following limitations:
+* Your turn on/off actions will not be imported. This functionality is now available through device triggers.
+* You may have duplicate entities.
+* Kodi must be on when Home Assistant is loading for the first time for the configuration to be imported.
+
+### Turning On/Off
+
+You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence; see the [Kodi turn on/off samples](#kodi-turn-onoff-samples) section for scripts that can be used.
+
+These automations can be configured through the UI (see [Device Triggers](/docs/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor.  Automations would be of the form:
 
 ```yaml
-# Example configuration.yaml entry
-media_player:
-  - platform: kodi
-    host: IP_ADDRESS
-```
+automation:
+  - id: kodi_turn_on
+    alias: "Kodi: turn on"
+    trigger:
+      - platform: device
+        device_id: !secret kodi_device_id
+        domain: kodi
+        entity_id: media_player.kodi
+        type: turn_on
+    action:
+      - service: script.kodi_turn_on
 
-{% configuration %}
-host:
-  description: The host name or address of the device that is running XBMC/Kodi.
-  required: true
-  type: string
-port:
-  description: The HTTP port number.
-  required: false
-  type: integer
-  default: 8080
-tcp_port:
-  description: The TCP port number. Used for WebSocket connections to Kodi.
-  required: false
-  type: integer
-  default: 9090
-name:
-  description: The name of the device used in the frontend.
-  required: false
-  type: string
-proxy_ssl:
-  description: Connect to Kodi with HTTPS and WSS. Useful if Kodi is behind an SSL proxy.
-  required: false
-  type: boolean
-  default: false
-username:
-  description: The XBMC/Kodi HTTP username.
-  required: false
-  type: string
-password:
-  description: The XBMC/Kodi HTTP password.
-  required: false
-  type: string
-turn_on_action:
-  description: Home Assistant script sequence to call when turning on.
-  required: false
-  type: list
-turn_off_action:
-  description: Home Assistant script sequence to call when turning off.
-  required: false
-  type: list
-enable_websocket:
-  description: Enable websocket connections to Kodi via the TCP port. The WebSocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
-  required: false
-  type: boolean
-  default: true
-timeout:
-  description: Set timeout for connections to Kodi. Defaults to 5 seconds.
-  required: false
-  type: integer
-  default: 5
-{% endconfiguration %}
+  - id: kodi_turn_off
+    alias: "Kodi: turn off"
+    trigger:
+      - platform: device
+        device_id: !secret kodi_device_id
+        domain: kodi
+        entity_id: media_player.kodi
+        type: turn_off
+    action:
+      - service: script.kodi_turn_off
+```
 
 ### Services
 
@@ -120,17 +102,16 @@ result: <data received from the Kodi API>
 
 ### Kodi turn on/off samples
 
-With the `turn_on_action` and `turn_off_action` parameters you can run any combination of Home Assistant actions to turn on/off your Kodi instance. Here are a few examples of this usage, including the **migration instructions for the old `turn_off_action` list of options**.
+The following scripts can be used in automations for turning on/off your Kodi instance; see [Turning on/off](#turning-onoff).  You could also simply use these sequences directly in the automations without creating scripts.
 
 #### Turn on Kodi with Wake on LAN
 
 With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
 
 ```yaml
-media_player:
-  - platform: kodi
-    host: 192.168.0.123
-    turn_on_action:
+script:
+  turn_on_kodi_with_wol:
+    sequence:
       - service: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
@@ -141,69 +122,64 @@ media_player:
 
 Here are the equivalent ways to configure each of the old options to turn off Kodi (`quit`, `hibernate`, `suspend`, `reboot`, or `shutdown`):
 
-- **Quit** method (before was `turn_off_action: quit`)
+- **Quit** method
 
 ```yaml
-media_player:
-  - platform: kodi
-    host: 192.168.0.123
-    turn_off_action:
-      service: kodi.call_method
-      data:
-        entity_id: media_player.kodi
-        method: Application.Quit
+script:
+  kodi_quit:
+    sequence:
+      - service: kodi.call_method
+        data:
+          entity_id: media_player.kodi
+          method: Application.Quit
 ```
 
-- **Hibernate** method (before was `turn_off_action: hibernate`)
+- **Hibernate** method
 
 ```yaml
-media_player:
-  - platform: kodi
-    host: 192.168.0.123
-    turn_off_action:
-      service: kodi.call_method
-      data:
-        entity_id: media_player.kodi
-        method: System.Hibernate
+script:
+  kodi_hibernate:
+    sequence:
+      - service: kodi.call_method
+        data:
+          entity_id: media_player.kodi
+          method: System.Hibernate
 ```
 
-- **Suspend** method (before was `turn_off_action: suspend`)
+- **Suspend** method
 
 ```yaml
-media_player:
-  - platform: kodi
-    host: 192.168.0.123
-    turn_off_action:
-      service: kodi.call_method
-      data:
-        entity_id: media_player.kodi
-        method: System.Suspend
+script:
+  kodi_suspend:
+    sequence:
+      - service: kodi.call_method
+        data:
+          entity_id: media_player.kodi
+          method: System.Suspend
 ```
 
-- **Reboot** method (before was `turn_off_action: reboot`)
+- **Reboot** method
 
 ```yaml
-media_player:
-  - platform: kodi
-    host: 192.168.0.123
-    turn_off_action:
-      service: kodi.call_method
-      data:
-        entity_id: media_player.kodi
-        method: System.Reboot
+script:
+  kodi_reboot:
+    sequence:
+      - service: kodi.call_method
+        data:
+          entity_id: media_player.kodi
+          method: System.Reboot
 ```
 
-- **Shutdown** method (before was `turn_off_action: shutdown`)
+- **Shutdown** method
 
 ```yaml
-media_player:
-  - platform: kodi
-    host: 192.168.0.123
-    turn_off_action:
-      service: kodi.call_method
-      data:
-        entity_id: media_player.kodi
-        method: System.Shutdown
+script:
+  kodi_shutdown:
+    sequence:
+      - service: kodi.call_method
+        data:
+          entity_id: media_player.kodi
+          method: System.Shutdown
 ```
 
 #### Turn on and off the TV with the Kodi JSON-CEC Add-on
@@ -211,28 +187,29 @@ media_player:
 For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi's, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:
 
 ```yaml
-media_player:
-  - platform: kodi
-    host: 192.168.0.123
-    turn_on_action:
-      service: kodi.call_method
-      data:
-        entity_id: media_player.kodi
-        method: Addons.ExecuteAddon
-        addonid: script.json-cec
-        params:
-          command: activate
-    turn_off_action:
-    - service: media_player.media_stop
-      data:
-        entity_id: media_player.kodi
+script:
+  turn_on_kodi_with_cec:
+  sequence:
     - service: kodi.call_method
       data:
         entity_id: media_player.kodi
         method: Addons.ExecuteAddon
         addonid: script.json-cec
         params:
-          command: standby
+          command: activate
+
+  turn_off_kodi_with_cec:
+    sequence:
+      - service: media_player.media_stop
+        data:
+          entity_id: media_player.kodi
+      - service: kodi.call_method
+        data:
+          entity_id: media_player.kodi
+          method: Addons.ExecuteAddon
+          addonid: script.json-cec
+          params:
+            command: standby
 ```
 
 <div class='note'>
@@ -257,7 +234,7 @@ script:
           entity_id: media_player.kodi
       - alias: Play TV channel
         service: media_player.play_media
-        data_template:
+        data:
           entity_id: media_player.kodi
           media_content_type: "CHANNEL"
           media_content_id: >

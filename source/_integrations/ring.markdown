@@ -56,13 +56,19 @@ downloader:
   download_dir: downloads
 ```
 
-Then you can use the following `action` in your automation (this will save the video file under `<config>/downloads/ring_<camera_name>/`):
+Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/ring_<camera_name>/`:
 
 {% raw %}
 ```yaml
-action:
+automation:
+  alias: 'Save the video when the doorbell is pushed'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.front_doorbell_ding
+    to: 'on'
+  action:
   - service: downloader.download_file
-    data_template:
+    data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
       filename: "{{state_attr('camera.front_door', 'friendly_name')}}"

@@ -7,6 +7,7 @@ ha_release: 0.97
 ha_codeowners:
   - '@bachya'
 ha_domain: apache_kafka
+ha_iot_class: Local Push
 ---
 
 The `apache_kafka` integration sends all state changes to a
@@ -34,6 +35,19 @@ port:
   description: The port to use.
   required: true
   type: integer
+username:
+  description: The username of Apache Kafka cluster for authentication.
+  required: false
+  type: string
+password:
+  description: The password of Apache Kafka cluster for authentication.
+  required: false
+  type: string
+security_protocol:
+  description: The protocol used to communicate with brokers. Use `SASL_SSL` for authentication.
+  required: false
+  default: PLAINTEXT
+  type: string
 topic:
   description: The Kafka topic to send data to.
   required: true

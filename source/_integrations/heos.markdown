@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: heos
 ---
 
-The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
+The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/shop/amplifiersmrs/heosavr) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
 
 - Each device is represented as a media player entity
 - View the currently playing media
@@ -44,7 +44,7 @@ A connection to a single device enables control for all devices on the network. 
 
 ### Service `heos.sign_in`
 
-Use the sign-in service to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
+Use the sign-in service (go to Developer Tools -> Services and then run the `heos.sign_in` with your username and password. Use the "Fill example data" first, then change it with your data. Check the logs right after, there you should see if the sign-in was successful or not) to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
 
 ```yaml
 username: "example@example.com"

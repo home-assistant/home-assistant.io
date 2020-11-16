@@ -11,6 +11,8 @@ The Button card allows you to add buttons to perform tasks.
 Screenshot of three Button Cards.
 </p>
 
+To add the Button card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Button** from the card picker. All options for this card can be configured via the user interface.
+
 ### Card Settings
 
 {% configuration_basic %}
@@ -34,11 +36,8 @@ Hold Action:
   description: The action taken on card tap and hold. For more information, see the [action documentation](/lovelace/actions/#hold-action).
 {% endconfiguration_basic %}
 
-## Code Editor or YAML mode
 
-Use these YAML configuration variables if you are setting up your cards in the Code Editor or in YAML mode.
-
-For more information, see the [YAML Mode documentation](https://www.home-assistant.io/lovelace/yaml-mode/).
+Alternatively, the card can be configured using [YAML](https://www.home-assistant.io/lovelace/yaml-mode/):
 
 ```yaml
 type: button
@@ -74,6 +73,11 @@ show_icon:
   description: If false, the icon is not shown on the card.
   type: boolean
   default: "true"
+show_state:
+  required: false
+  description: Show state.
+  type: boolean
+  default: "false"
 icon_height:
   required: false
   description: The height of the icon. Any CSS value may be used.
@@ -118,6 +122,7 @@ Button Card with a button name and a script that runs when card is tapped:
 ```yaml
 type: button
 name: Turn Off Lights
+show_state: false
 tap_action:
   action: call-service
   service: script.turn_on

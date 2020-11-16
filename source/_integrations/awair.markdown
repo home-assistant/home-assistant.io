@@ -7,6 +7,7 @@ ha_config_flow: true
 ha_release: 0.84
 ha_iot_class: Cloud Polling
 ha_codeowners:
+  - '@ahayworth'
   - '@danielsjf'
 ha_domain: awair
 ---

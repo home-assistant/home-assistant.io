@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
 ha_domain: panel_custom
+ha_iot_class:
 ---
 
 The `panel_custom` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar if wished and can be highly customized. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels/).
@@ -77,8 +78,4 @@ trust_external_script:
   required: false
   default: false
   type: boolean
-webcomponent_path:
-  description: "*DEPRECATED* The HTML path to your component. If omitted will default to `<config dir>/panels/<component name>.html` This cannot be used in combination with either `js_url` and `module_url`."
-  required: false
-  type: string
 {% endconfiguration %}

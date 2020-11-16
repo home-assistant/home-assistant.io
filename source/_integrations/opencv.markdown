@@ -3,6 +3,7 @@ title: OpenCV
 description: Instructions on how to integrate OpenCV image processing into Home Assistant.
 ha_category:
   - Image Processing
+ha_iot_class: Local Push
 ha_release: 0.47
 ha_domain: opencv
 ---

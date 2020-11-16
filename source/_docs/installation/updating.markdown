@@ -1,12 +1,11 @@
 ---
 title: "Updating Home Assistant"
 description: "Step to update Home Assistant."
-redirect_from: /getting-started/updating/
 ---
 
 <div class='note warning'>
 
-The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install: [Home Assistant](/hassio/) or [Home Assistant Core](/docs/installation/virtualenv/#upgrading-home-assistant).
+The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install: [Home Assistant](/hassio/) or [Home Assistant Core](/docs/installation/virtualenv/#upgrade).
 
 </div>
 

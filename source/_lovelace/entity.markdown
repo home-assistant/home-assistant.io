@@ -8,8 +8,10 @@ The Entity card gives you a quick overview of your entity's state.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_entity_card.png' alt='Screenshot of the entity card'>
-  Screenshot of the entity card.
+  Screenshot of the Entity card.
 </p>
+
+To add the Entity card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Entity** from the card picker.
 
 {% configuration %}
 type:
@@ -49,6 +51,8 @@ footer:
 {% endconfiguration %}
 
 ## Example
+
+Alternatively, the card can be configured using YAML:
 
 ```yaml
 - type: entity

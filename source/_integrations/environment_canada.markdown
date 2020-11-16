@@ -161,7 +161,7 @@ If you would like to have alerts announced via a text-to-speech service, you can
 weather_alert_tts:
   sequence:
    - service: tts.amazon_polly_say
-      data_template:
+      data:
         message: "{{ states('sensor.warnings') }} in effect."
 ```
 {% endraw %}

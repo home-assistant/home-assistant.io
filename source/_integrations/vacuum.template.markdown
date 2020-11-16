@@ -39,6 +39,10 @@ vacuum:
         description: Name to use in the frontend.
         required: false
         type: string
+      unique_id:
+        description: An ID that uniquely identifies this vacuum. Set this to a unique value to allow customization through the UI.
+        required: false
+        type: string
       value_template:
         description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
         required: false
@@ -158,7 +162,7 @@ vacuum:
             service: script.vacuum_locate_vacuum
         set_fan_speed:
             service: script.vacuum_set_fan_speed
-            data_template:
+            data:
               speed: "{{ fan_speed }}"
         fan_speeds:
             - Low

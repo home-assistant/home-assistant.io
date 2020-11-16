@@ -25,7 +25,7 @@ If a state topic and position topic are not defined, the cover will work in opti
 
 Optimistic mode can be forced, even if a `state_topic` / `position_topic` is defined. Try to enable it if experiencing incorrect cover operation (Google Assistant gauge may need optimistic mode as it often send request to your Home Assistant immediately after send set_cover_position in which case MQTT could be too slow).
 
-The `mqtt` cover platform optionally supports an `availability_topic` to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (i.e., publishes `payload_not_available` to `availability_topic`), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
+The `mqtt` cover platform optionally supports a list of `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT cover device. During normal operation, if the MQTT cover device goes offline (i.e., publishes a matching `payload_not_available` to any `availability` topic), Home Assistant will display the cover as "unavailable". If these messages are published with the `retain` flag set, the cover will receive an instant update after subscription and Home Assistant will display correct availability state of the cover when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the cover as "unavailable" when Home Assistant starts up.
 
 To use your MQTT cover in your installation, add the following to your `configuration.yaml` file:
 
@@ -37,8 +37,27 @@ cover:
 ```
 
 {% configuration %}
+availability:
+  description: "A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`."
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
 availability_topic:
-  description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If `availability_topic` is not defined, the cover availability state will always be `available`. If `availability_topic` is defined, the cover availability state will be `unavailable` by default."
+  description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
   type: string
 command_topic:
@@ -216,7 +235,7 @@ tilt_optimistic:
   type: boolean
   default: "`true` if `tilt_status_topic` is not defined, else `false`"
 tilt_status_template:
-  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. "
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic."
   required: false
   type: string
 tilt_status_topic:
@@ -250,7 +269,8 @@ cover:
     name: "MQTT Cover"
     command_topic: "home-assistant/cover/set"
     state_topic: "home-assistant/cover/state"
-    availability_topic: "home-assistant/cover/availability"
+    availability:
+      - topic: "home-assistant/cover/availability"
     qos: 0
     retain: true
     payload_open: "OPEN"
@@ -281,7 +301,8 @@ cover:
     name: "MQTT Cover"
     command_topic: "home-assistant/cover/set"
     position_topic: "home-assistant/cover/position"
-    availability_topic: "home-assistant/cover/availability"
+    availability:
+      - "home-assistant/cover/availability"
     set_position_topic: "home-assistant/cover/set_position"
     qos: 0
     retain: true
@@ -311,7 +332,8 @@ cover:
     name: "MQTT Cover"
     command_topic: "home-assistant/cover/set"
     state_topic: "home-assistant/cover/state"
-    availability_topic: "home-assistant/cover/availability"
+    availability:
+      - topic: "home-assistant/cover/availability"
     qos: 0
     retain: true
     payload_open: "OPEN"

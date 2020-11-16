@@ -7,13 +7,15 @@ ha_category:
 ha_release: 0.34
 ha_iot_class: Local Push
 ha_domain: dsmr
+ha_codeowners:
+  - '@Robbie1221'
 ---
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.
 
 - Currently support DSMR V2.2, V3, V4, V5 and V5 Belgian through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
-- For official information about the P1 port refer to: <https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf>
+- For official information about the P1 port refer to: [P1 Companion Standard](https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf)
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 
 <p class='img'>
@@ -33,14 +35,13 @@ This integration is known to work for:
 USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
-- <https://sites.google.com/site/nta8130p1smartmeter/webshop>
-- <https://www.sossolutions.nl/slimme-meter-kabel>
-- <https://tweakers.net/gallery/269738/aanbod/>
-- <https://nl.aliexpress.com/item/32945187155.html>
+- [Smartmeter Webshop](https://sites.google.com/site/nta8130p1smartmeter/webshop)
+- [SOS Solutions](https://www.sossolutions.nl/slimme-meter-kabel)
+- [AliExpress](https://nl.aliexpress.com/item/32945187155.html)
 
 Serial to network proxies:
 
-- ser2net - <http://ser2net.sourceforge.net/>
+- [ser2net](http://ser2net.sourceforge.net)
 
 DIY solutions (ESP8266 based):
 

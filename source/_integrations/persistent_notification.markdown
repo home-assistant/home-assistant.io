@@ -3,6 +3,7 @@ title: Persistent Notification
 description: Instructions on how to integrate persistent notifications into Home Assistant.
 ha_category:
   - Other
+ha_iot_class: Local Push
 ha_release: 0.23
 ha_quality_scale: internal
 ha_codeowners:
@@ -36,14 +37,14 @@ action:
     title: "Custom subject"
 ```
 
-If you want to show some runtime information, you have to use [templates](/topics/templating/ inside `data_template`.
+If you want to show some runtime information, you have to use [templates](/topics/templating/).
 
 {% raw %}
 
 ```yaml
 action:
   service: persistent_notification.create
-  data_template:
+  data:
     title: >
       Thermostat is {{ state_attr('climate.thermostat', 'hvac_action') }}
     message: "Temperature {{ state_attr('climate.thermostat', 'current_temperature') }}"

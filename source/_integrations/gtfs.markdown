@@ -5,8 +5,6 @@ ha_category:
   - Transport
 ha_iot_class: Local Polling
 ha_release: 0.17
-ha_codeowners:
-  - '@robbiet480'
 ha_domain: gtfs
 ---
 

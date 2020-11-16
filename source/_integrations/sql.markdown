@@ -3,7 +3,9 @@ title: SQL
 description: Instructions how to integrate SQL sensors into Home Assistant.
 ha_category:
   - Utility
+  - Sensor
 ha_release: 0.63
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@dgomes'
 ha_domain: sql
@@ -16,7 +18,7 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -108,7 +110,7 @@ SELECT * FROM states WHERE entity_id = 'binary_sensor.xyz789' GROUP BY state ORD
 
 ### Database size
 
-#### Database size in Postgres
+#### Postgres
 
 {% raw %}
 ```yaml
@@ -137,5 +139,21 @@ sensor:
         query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
         column: 'value'
         unit_of_measurement: kB
+```
+{% endraw %}
+
+#### SQLite
+
+If you are using the `recorder` integration then you don't need to specify the location of the database. For all other cases, add `db_url: sqlite:////path/to/database.db`.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: sql
+    queries:
+      - name: DB Size
+        query: 'SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();'
+        column: 'size'
+        unit_of_measurement: 'MiB'
 ```
 {% endraw %}

@@ -12,7 +12,7 @@ The `recorder` integration is responsible for storing details in a database, whi
 
 <div class='note'>
 
-This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to store the data elsewhere (e.g., another system) or limit the amount of stored data (e.g., by excluding devices).
+This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to set the [commit_interval](/integrations/recorder#commit_interval) to higher value, e.g. 30s, limit the amount of stored data (e.g., by excluding devices) or store the data elsewhere (e.g., another system).
 
 </div>
 
@@ -47,6 +47,11 @@ recorder:
       required: false
       default: 3
       type: integer
+    db_integrity_check:
+      description: When using SQLite, if Home Assistant does not restart cleanly or the recorder fails to shut down, a `quick_check` is performed on the database to ensure it is usable. If `db_integrity_check` is disabled, the system will only perform necessary sanity checks and skip the `quick_check`. Home Assistant may not be able to automatically recover and start the recorder in the event the database is malformed if `db_integrity_check` is disabled.
+      required: false
+      default: true
+      type: boolean      
     auto_purge:
       description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
       required: false
@@ -209,19 +214,22 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 ## Custom database engines
 
-| Database engine                | `db_url`                                                                                     |
-| :----------------------------- | :------------------------------------------------------------------------------------------- |
-| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                 |
-| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
-| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                     |
-| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                       |
-| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                             |
-| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                               |
-| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                             |
-| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                               |
-| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                     |
-| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                   |
-| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;` |
+| Database engine                | `db_url`                                                                                               |
+| :----------------------------- | :----------------------------------------------------------------------------------------------------- |
+| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                           |
+| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
+| MariaDB (omit pymysql, Socket) | `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
+| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                               |
+| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
+| MySQL (Socket)                 | `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
+| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                                       |
+| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                         |
+| MariaDB (Socket)               | `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8` |
+| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                                       |
+| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                         |
+| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                               |
+| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                             |
+| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`           |
 
 <div class='note'>
 

@@ -19,9 +19,9 @@ switch:
  switches:
    #Switch for Foscam Motion Detection
    foscam_motion:
-     command_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
-     command_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
-     command_state: 'curl -k --silent "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep -oP "(?<=isEnable>).*?(?=</isEnable>)"'
+     command_on: 'curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
+     command_off: 'curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
+     command_state: 'curl -k --silent --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep "isEnable" | cut -b 15'
      value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
 ```
 
@@ -30,9 +30,9 @@ The service `shell_command.foscam_turn_off` sets the camera to point down and aw
 ```yaml
 shell_command:
   #Created a preset point in Foscam Web Interface named Off which essentially points the camera down and away
-  foscam_turn_off: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=ptzGotoPresetPoint&name=Off&usr=admin&pwd=password"'
+  foscam_turn_off: 'curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=ptzGotoPresetPoint&name=Off&usr=admin&pwd=password"'
   #Created a preset point in Foscam Web Interface named Main which points in the direction I would like to record
-  foscam_turn_on: 'curl -k "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=ptzGotoPresetPoint&name=Main&usr=admin&pwd=password"'
+  foscam_turn_on: 'curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=ptzGotoPresetPoint&name=Main&usr=admin&pwd=password"'
 ```
 
 The `script.foscam_off` and `script.foscam_on` can be used to set the motion detection appropriately, and then move the camera. These scripts can be called as part of an automation with `device_tracker` triggers to set `home` and `not_home` modes for your Foscam and disable motion detection recording while `home`.

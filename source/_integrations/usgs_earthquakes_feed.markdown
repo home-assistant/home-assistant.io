@@ -13,13 +13,13 @@ ha_domain: usgs_earthquakes_feed
 The `usgs_earthquakes_feed` platform lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/usgs-earthquake-hazards-program-feed-entities.png' />
+  <img src='/images/screenshots/usgs-earthquake-hazards-program-feed-entities.png' />
 </p>
 
 Entities are generated, updated and removed automatically with each update from the feed. Each entity defines latitude and longitude and will be shown on the map automatically. The distance in kilometers is available as the state of each entity.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/usgs-earthquake-hazards-program-feed-map.png' />
+  <img src='/images/screenshots/usgs-earthquake-hazards-program-feed-map.png' />
 </p>
 
 The data is updated every 5 minutes.

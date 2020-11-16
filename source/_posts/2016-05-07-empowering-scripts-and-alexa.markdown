@@ -19,7 +19,7 @@ automation:
     topic: some/notify/topic
   action:
     service: notify.notify
-    data_template:
+    data:
       message: {{ trigger.payload }}
 
 automation 2:
@@ -28,7 +28,7 @@ automation 2:
     entity_id: light.hue
   action:
     service: notify.notify
-    data_template:
+    data:
       message: {{ trigger.to_state.name }} is now {{ trigger.to_state.state }}
 ```
 

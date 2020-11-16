@@ -18,6 +18,7 @@ In order to integrate the camera with Home Assistant, it is necessary to install
 
 * [Yi 720p](https://github.com/fritz-smh/yi-hack)
 * [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
+* [Recent Yi 1080p Home / 1080p Dome](https://github.com/roleoroleo/yi-hack-MStar)
 * [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
 
 Once installed, please ensure that you have enabled FTP.
@@ -35,7 +36,7 @@ Raspbian users: Don't forget to install `ffmpeg` support on your platform, other
 </div>
 
 <div class='note warning'>
-The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrives the video which was saved 1 minute earlier.
+The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
 </div>
 
 <div class='note warning'>

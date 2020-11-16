@@ -10,13 +10,7 @@ The `mosquitto` broker package ships commandline tools (often as `*-clients` pac
 mosquitto_pub -h 127.0.0.1 -t home-assistant/switch/1/on -m "Switch is ON"
 ```
 
-If you are using the embedded MQTT broker, the command looks a little different because you need to add the MQTT protocol version and your [broker credentials](/docs/mqtt/broker#embedded-broker).
-
-```bash
-mosquitto_pub -V mqttv311 -u homeassistant -P <broker password> -t "hello" -m world
-```
-
-Another way to send MQTT messages by hand is to use the "Developer Tools" in the Frontend. Choose the "MQTT" tab. Enter something similar to the example below into the "Topic" field.
+Another way to send MQTT messages manually is to use the "MQTT" Integration in the frontend. Choose the "Configuration" tab, click "Integrations" and click the "Configure" option under the "MQTT" integration. Enter something similar to the example below into the "topic" field under "Publish a packet*.
 
 ```bash
    home-assistant/switch/1/power
@@ -45,10 +39,4 @@ For reading all messages sent on the topic `home-assistant` to a broker running 
 
 ```bash
 mosquitto_sub -h 127.0.0.1 -v -t "home-assistant/#"
-```
-
-For the embedded MQTT broker the command looks like:
-
-```bash
-mosquitto_sub -v -V mqttv311 -u homeassistant -P <broker password> -t "#"
 ```

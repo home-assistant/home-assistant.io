@@ -903,7 +903,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Added missing file ([@cyberjunky] - [#31189])
 - update remove service ([@dmulcahey] - [#31164]) ([zha docs])
 - Fix ps4 errors if pin begins with a 0 ([@ktnrg45] - [#31198]) ([ps4 docs])
-- Use config_entry.unique_id in Linky ([@Quentame] - [#31051]) ([linky docs])
+- Use config_entry.unique_id in Linky ([@Quentame] - [#31051])
 - Add Garmin Connect integration ([@cyberjunky] - [#30792]) ([garmin_connect docs]) (new-integration)
 - Constrain SimpliSafe's check for emergency token usage ([@bachya] - [#31214]) ([simplisafe docs])
 - Update Hue discovery ([@balloob] - [#31215]) ([hue docs])
@@ -1448,7 +1448,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
 [frontend docs]: /integrations/frontend/
 [garmin_connect docs]: /integrations/garmin_connect/
-[generic docs]: /integrations/generic/
+[generic docs]: /integrations/generic_ip_camera/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [geniushub docs]: /integrations/geniushub/
 [geonetnz_volcano docs]: /integrations/geonetnz_volcano/

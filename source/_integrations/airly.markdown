@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: airly
+ha_quality_scale: platinum
 ---
 
 The `airly` integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location.

@@ -21,7 +21,7 @@ This integration allows you to write Python scripts that are exposed as services
 
 <div class='note'>
 
-It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](https://appdaemon.readthedocs.io/en/latest/)
+It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) or [pyscript](https://github.com/custom-components/pyscript)
 
 </div>
 
@@ -90,3 +90,13 @@ turn_on_light:
 ```
 
 For more examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+
+## Services
+
+Available services: `reload`.
+
+### Service `python_script.reload`
+
+Reload all available python_scripts from the `<config>/python_scripts` folder. Use this when creating a new Python script and you're not restarting Home Assistant.
+
+This service takes no service data attributes.

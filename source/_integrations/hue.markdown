@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
   - '@balloob'
+  - '@frenck'
 ha_domain: hue
 ---
 
@@ -21,63 +22,18 @@ There is currently support for the following device types within Home Assistant:
 - Lights
 - Motion sensors (including temperature and light level sensors)
 - Hue switches (as device triggers for automations and also exposed as battery sensors when they are battery-powered)
+  - Hue Dimmer Switch
+  - Hue Tap Switch
+  - Hue Smart Button
+  - Friends of Hue Switch
 
-To set up this integration, click Configuration in the sidebar and then click Integrations. You should see "Philips Hue" in the discovered section (if you do not, click the + icon in the lower right and find Philips Hue). Click configure and you will be presented with the initiation dialog. This will prompt you to press the button on your Hue bridge to register the hub with Home Assistant. After you click submit, you will have the opportunity to select the area that your bridge is located.
+To set up this integration, click Configuration in the sidebar and then click Integrations. You should see "Philips Hue" in the discovered section (if you do not, click the + icon in the lower right and find Philips Hue). Click configure and you will be presented with the initiation dialog. This will prompt you select the Hue hub to configure and next to press the button on your Hue bridge to register the hub with Home Assistant. After you click submit, you will have the opportunity to select the area that your bridge is located.
 
 When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the IP address of the bridge. If the IP address for the bridge changes, you will need to register it with Home Assistant again. To avoid this, you may set up a DHCP reservation on your router for your Hue bridge so that it always has the same IP address.
 
 Once registration is complete you should see the Hue lights listed as `light` entities, the Hue motion sensors listed as `binary_sensor` entities, and the Hue temperature and light level sensors (which are built in to the motion sensors) listed as `sensor` entities. If you don't, you may have to restart Home Assistant once more.
 
-If you want to enable the integration without relying on [discovery](/integrations/discovery/), add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-hue:
-  bridges:
-    - host: DEVICE_IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The IP address of the bridge (e.g., 192.168.1.10). Required if not using the `discovery` integration to discover Hue bridges.
-  required: true
-  type: string
-allow_unreachable:
-  description: This will allow unreachable bulbs to report their state correctly.
-  required: false
-  type: boolean
-  default: false
-allow_hue_groups:
-  description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
-
-## Examples
-
-```yaml
-# Example configuration.yaml entry specifying optional parameters
-hue:
-  bridges:
-    - host: DEVICE_IP_ADDRESS
-      allow_unreachable: true
-      allow_hue_groups: true
-```
-
-### Multiple Hue bridges
-
-Multiple Hue bridges work transparently with discovery, so you don't have to do anything special to set them up.
-
-```yaml
-# Example configuration.yaml entry
-hue:
-  bridges:
-    - host: BRIDGE1_IP_ADDRESS
-    - host: BRIDGE2_IP_ADDRESS
-```
-
-### Using Hue Groups in Home Assistant
+## Using Hue Groups in Home Assistant
 
 The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be useful to use Hue groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaneously.
 
@@ -109,11 +65,9 @@ Home Assistant will automatically detect your new `LightGroup` and add it to the
 
 More information can be found on the [Philips Hue API documentation](https://www.developers.meethue.com/documentation/groups-api#22_create_group) website.
 
-### Using Hue Scenes in Home Assistant
+## Using Hue Scenes in Home Assistant
 
-The Hue platform has its own concept of scenes for setting the colors of a group of lights simultaneously. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them—many that you've never used, and almost all very poorly named.
-
-To avoid user interface overload, we don't expose scenes directly. Instead there is a `hue.hue_activate_scene` service which can be used in an automation or script.
+The Hue platform has its own concept of scenes for setting the colors of a group of lights simultaneously. A Hue bridge could potentially have dozens of scenes stored on it, and many scenes across different rooms might share the same name (the default scenes, for example). To avoid user interface overload, we don't expose scenes directly. Instead there is a `hue.hue_activate_scene` service which can be used in an automation or script.
 This will have all the bulbs transitioned at once, instead of one at a time like when using standard scenes in Home Assistant.
 
 For instance:

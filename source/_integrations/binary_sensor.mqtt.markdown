@@ -18,8 +18,7 @@ Stateless devices such as buttons, remote controls etc are better represented by
 
 ## Configuration
 
-The `mqtt` binary sensor platform optionally supports an `availability_topic` to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (i.e., publishes `payload_not_available` to `availability_topic`), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability_topic`
-is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
+The `mqtt` binary sensor platform optionally supports a list of  `availability` topics to receive online and offline messages (birth and LWT messages) from the MQTT device. During normal operation, if the MQTT sensor device goes offline (i.e., publishes `payload_not_available` to an `availability` topic), Home Assistant will display the binary sensor as `unavailable`. If these messages are published with the `retain` flag set, the binary sensor will receive an instant update after subscription and Home Assistant will display the correct availability state of the binary sensor when Home Assistant starts up. If the `retain` flag is not set, Home Assistant will display the binary sensor as `unavailable` when Home Assistant starts up. If no `availability` topic is defined, Home Assistant will consider the MQTT device to be `available` and will display its state.
 
 To use an MQTT binary sensor in your installation,
 add the following to your `configuration.yaml` file:
@@ -32,8 +31,27 @@ binary_sensor:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
 availability_topic:
-  description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability_topic` is not defined, the binary sensor will always be considered `available` and its state will be `on`, `off` or `unknown`. If `availability_topic` is defined, the binary sensor will be considered as `unavailable` by default and the sensor's state will be `unavailable`."
+  description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability` is not defined, the binary sensor will always be considered `available` and its state will be `on`, `off` or `unknown`. If `availability` is defined, the binary sensor will be considered as `unavailable` by default and the sensor's initial state will be `unavailable`. Must not be used together with `availability`."
   required: false
   type: string
 device:
@@ -74,7 +92,7 @@ device_class:
   required: false
   type: string
 expire_after:
-  description: "Defines the number of seconds after the sensor's state expires if it's not updated. After expiry, the sensor's state becomes `unavailable` if `availability_topic` is defined and `unknown` otherwise."
+  description: Defines the number of seconds after the sensor's state expires, if it's not updated. After expiry, the sensor's state becomes `unavailable`.
   required: false
   type: integer
 force_update:
@@ -133,7 +151,7 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) that returns a string to be compared to `payload_on`/`payload_off`. Available variables: `entity_id`. Remove this option when 'payload_on' and 'payload_off' are sufficient to match your payloads (i.e no pre-processing of original message is required)."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) that returns a string to be compared to `payload_on`/`payload_off` or an empty string, in which case the MQTT message will be removed. Available variables: `entity_id`. Remove this option when 'payload_on' and 'payload_off' are sufficient to match your payloads (i.e no pre-processing of original message is required)."
   required: false
   type: string
 {% endconfiguration %}
@@ -142,14 +160,17 @@ value_template:
 
 In this section, you will find some real-life examples of how to use this sensor.
 
-### Full configuration
+### Full configuration with JSON data
 
+This is an example of a configuration where the state is extracted from a JSON formatted MQTT message.
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
 To set the state of the binary sensor manually:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m "OFF"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/window/availability -m "online"
+mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m '{"state":"ON"}'
+mosquitto_pub -h 127.0.0.1 -t home-assistant/window/contact -m '{"state":"OFF"}'
 ```
 
 The example below shows a full configuration for a binary sensor:
@@ -163,13 +184,13 @@ binary_sensor:
     name: "Window Contact Sensor"
     state_topic: "home-assistant/window/contact"
     payload_on: "ON"
-    payload_off: "OFF"
-    availability_topic: "home-assistant/window/availability"
-    payload_available: "online"
-    payload_not_available: "offline"
+    availability:
+      - topic: "home-assistant/window/availability"
+        payload_available: "online"
+        payload_not_available: "offline"
     qos: 0
     device_class: opening
-    value_template: '{{ value.x }}'
+    value_template: '{{ value_json.state }}'
 ```
 
 {% endraw %}

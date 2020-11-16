@@ -3,16 +3,20 @@ title: Zone
 description: Instructions on how to set up zones within Home Assistant.
 ha_category:
   - Organization
+  - Presence Detection
 ha_release: 0.69
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: zone
+ha_iot_class:
 ---
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
 
-The `zone` integration uses YAML sequences to configure multiple zones:
+Zones can be added and managed through the user interface at **Configuration -> Zones**. 
+
+Zones can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -78,7 +82,7 @@ Devices that are in the zone **'Home'** will not appear on the map in the Home A
 
 ## Icons
 
-It is preferred to pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:worker`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
+It is preferred to pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
 
 ## State
 
