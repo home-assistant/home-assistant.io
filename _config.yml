@@ -46,6 +46,7 @@ highlighter: none
 
 plugins:
   - jekyll-time-to-read
+  - jekyll-toc
 
 paginate: 10 # Posts per page on the blog index
 paginate_path: "blog/posts/:num" # Directory base for pagination URLs eg. /posts/2/
@@ -123,6 +124,7 @@ defaults:
       featured: false
   # Defaults for blogs posts
   - scope:
+      path: ""
       type: posts
     values:
       layout: post
@@ -130,9 +132,26 @@ defaults:
       footer: true
       sharing: true
       sidebar: true
+  # Enable table of contents for integrations
+  #
+  # To set toc as a default value, we need to set the scope with an empty path
+  # and the collection as type
+  # https://github.com/toshimaru/jekyll-toc/issues/116#issuecomment-644205770
+  #
+  - scope:
+      path: ""
+      type: integrations
+    values:
+      toc: true
 
 # Support for files Jekyll will normally exclude
 include:
   - "_headers"
   - "_redirects"
   - ".well-known"
+
+# Table of contents
+# https://github.com/toshimaru/jekyll-toc
+toc:
+  min_level: 2 # default: 1
+  max_level: 3 # default: 6
