@@ -36,13 +36,9 @@ Hold Action:
   description: The action taken on card tap and hold. For more information, see the [action documentation](/lovelace/actions/#hold-action).
 {% endconfiguration_basic %}
 
+### YAML
 
-Alternatively, the card can be configured using [YAML](https://www.home-assistant.io/lovelace/yaml-mode/):
-
-```yaml
-type: button
-entity: light.living_room
-```
+This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI
 
 {% configuration %}
 type:
@@ -105,6 +101,13 @@ theme:
   description: The card theme, which may be set to any theme from the `themes.yaml` file. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 {% endconfiguration %}
+
+Example:
+
+```yaml
+type: button
+entity: light.living_room
+```
 
 ## Options For Exemptions
 
