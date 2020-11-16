@@ -42,6 +42,33 @@ exclude:
   type: list
 {% endconfiguration %}
 
+Additionally, it is also possible to override the current temperature sent by the iZone controller with another sensor present in HA. This can be used to resolve an issue whereby the iZone system cannot read the in-vent temperature sensor attached to the A/C, and therefore sends a 0.0 value to Home Assistant.
+
+```yaml
+# Full manual example configuration.yaml entry
+izone:
+  sensors: 
+    "000036424":
+      entity_id: sensor.living_room_temperature
+```
+
+{% configuration %}
+sensors:
+  description: List of iZone device IDs with which to replace the iZone current temperature sensor.
+  required: false
+  type: map
+  keys:
+    device_id:
+      description: Device ID of the iZone unit to replace the temperature sensor for. This can be found through auto discovery (9 digit number appended to the climate.izone_... component or it is shown in the iZone controller settings.
+      required: false
+      type: list
+      keys:
+        entity_id:
+          description: The entity id of the temperature sensor to replace the iZone internal one.
+          required: false
+          type: entity_id
+{% endconfiguration %}
+
 ## Network settings
 
 The iZone system uses UDP broadcasts over the local network to find and communicate with iZone devices. For this to work properly, UDP port  12107 must be able to be broadcasted on, 7005 needs to be listened to for broadcasted messages, and TCP port 80 for HTTP data to the bridge. The integration currently listens on `0.0.0.0` and broadcasts to all broadcast IPv4 local addresses, which is not configurable.
