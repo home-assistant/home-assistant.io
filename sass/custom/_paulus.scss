@@ -424,11 +424,16 @@ p.note, div.note {
     margin-bottom: 10px;
 
     ul.section-nav {
-      margin-left: 16px;
+      margin-left: 0px;
 
       li.toc-entry {
+        list-style-type: none;
+        li {
+          list-style-type: circle;
+          margin-left: 1em;
+        }
         ul {
-          margin-left: 16px;
+          margin-left: 1em;
         }
       }
     }
