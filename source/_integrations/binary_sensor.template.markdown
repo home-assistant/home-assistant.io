@@ -83,19 +83,11 @@ sensors:
               required: true
               type: template
         delay_on:
-          description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
-          required: false
-          type: time
-        delay_on_template:
-          description: Defines the template for the amount of time the template state must be ***met*** before this sensor will switch to `on`. This overrides `delay_on`.
+          description: The amount of time the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
           required: false
           type: time
         delay_off:
-          description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`.
-          required: false
-          type: time
-        delay_off_template:
-          description: Defines the template for the amount of time the template state must be ***not met*** before this sensor will switch to `off`. This overrides `delay_off`.
+          description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`. This can also be a template.
           required: false
           type: time
 {% endconfiguration %}
