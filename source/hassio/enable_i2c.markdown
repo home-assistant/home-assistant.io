@@ -28,7 +28,7 @@ and make sure the first partition is available.
   ```txt
   i2c-dev
   ```
-- In the root of the USB drive edit the file called `config.txt` add two lines
+- In the root of the `hassos-boot` partition, edit the file called `config.txt` add two lines
   to it:
   ```txt
   dtparam=i2c_vc=on
