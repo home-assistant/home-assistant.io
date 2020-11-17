@@ -75,9 +75,9 @@ If you want to allow other household users to control the devices:
     1. Enter the email address of the user you want to add.
     2. Click Select a role and choose Project < Viewer.
     3. Click SAVE
-    4. Copy and share the link with the new user.
-    5. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
-5. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
+    4. Copy and share the Actions project link (`https://console.actions.google.com/project/YOUR_PROJECT_ID/simulator`) with the new user.
+5. Have the new user open the link with their own Google account, agree to the Terms of Service popup, then select "Start Testing", select VERSION - Draft in the dropdown, and click "Done".
+6. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 
 ### Enable Device Sync
 
