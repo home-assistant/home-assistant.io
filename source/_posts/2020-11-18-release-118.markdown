@@ -100,7 +100,7 @@ Screenshot of Grid Card.
 
 *_Note that the square option won't work with all cards._
 
-## Quick bar navigation
+## Quick Bar navigation
 
 The Quickbar, which was introduced in Home Assistant 0.117, really took off! We
 are happy to see you like it.
@@ -198,7 +198,7 @@ interfaces and even VLANs.
 This should cover most of the future request we had around networking.
 
 <p class='img'>
-<img src='/images/blog/2020-11-0.118/supervisor-network.gif' alt='New Supervisor Network configuration UI'>
+<img src='/images/blog/2020-11-0.118/supervisor-network.png' alt='New Supervisor Network configuration UI'>
 New Supervisor Network configuration UI
 </p>
 
