@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@mvn23'
 ha_domain: opentherm_gw
+ha_quality_scale: platinum
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
@@ -213,7 +214,7 @@ The value you provide here will be used with the GPIO `home` (5) and `away` (6) 
 
 ## Sensors
 
-The following `sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the `gateway_id` of the gateway to which it belongs. All `sensor` entities are disabled by default.
+The following `sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `sensor` entities are disabled by default.
 <p class='note'>
 Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
 </p>
@@ -413,7 +414,7 @@ Not all boilers and thermostats properly support all OpenTherm features, so not 
 
 ## Binary Sensors
 
-The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the `gateway_id` of the gateway to which it belongs. All `binary_sensor` entities are disabled by default.
+The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `binary_sensor` entities are disabled by default.
 <p class='note'>
 Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
 </p>
