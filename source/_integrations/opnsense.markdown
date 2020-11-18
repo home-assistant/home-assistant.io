@@ -4,6 +4,7 @@ description: Instructions on how to configure OPNsense integration
 ha_category:
   - Hub
   - Presence Detection
+  - Sensor
 ha_release: 0.105
 ha_codeowners:
   - '@mtreinish'
@@ -15,7 +16,9 @@ ha_iot_class: Local Polling
 and routing platform. There is currently support for the following device types
 within Home Assistant:
 
-- [Presence Detection](#presence-detection)
+- [Configuration](#configuration)
+- [Presence detection](#presence-detection)
+- [Sensor](#sensor)
 
 ## Configuration
 
@@ -33,10 +36,11 @@ Where the `api_key` and `api_secret` values are acquired from your OPNsense
 router using the web interface. For more information on this procedure, refer
 to the OPNsense [documentation](https://docs.opnsense.org/development/how-tos/api.html#creating-keys).
 
-User with API Key requires privileges for Type: 
+User with API Key requires privileges for Type:
 
 - GUI Name: Diagnostics: ARP Table
 - GUI Name: Diagnostics: Network Insight
+- GUI Name: System: Static Routes
 
 {% configuration %}
 url:
@@ -56,6 +60,11 @@ verify_ssl:
   type: boolean
   required: false
   default: false
+gateways:
+  description: List of the OPNsense router's gateways to check state.
+  type: list
+  required: false
+  default: []
 tracker_interfaces:
   description: List of the OPNsense router's interfaces to use for tracking devices.
   type: list
@@ -63,7 +72,10 @@ tracker_interfaces:
   default: []
 {% endconfiguration %}
 
-
 ## Presence detection
 
 This platform allows you to detect presence by looking at devices connected to an OPNsense router.
+
+## Sensor
+
+This platform allows you to check state of an OPNsense router's gateways.
