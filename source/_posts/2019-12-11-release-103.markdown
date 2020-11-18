@@ -789,7 +789,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for gogogate2 ([@springstan] - [#29411]) ([gogogate2 docs])
 - Move imports to top for hydrawise ([@springstan] - [#29421]) ([hydrawise docs])
 - Move imports to top for ihc ([@springstan] - [#29425]) ([ihc docs])
-- Move imports to top for ialarm ([@springstan] - [#29422]) ([ialarm docs])
+- Move imports to top for ialarm ([@springstan] - [#29422])
 - Move imports to top for gitter ([@springstan] - [#29412]) ([gitter docs])
 - Move imports to top for homeworks ([@springstan] - [#29418]) ([homeworks docs])
 - Move imports to top for gpmdp ([@springstan] - [#29413]) ([gpmdp docs])
@@ -1574,7 +1574,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue docs]: /integrations/hue/
 [hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
 [hydrawise docs]: /integrations/hydrawise/
-[ialarm docs]: /integrations/ialarm/
 [icloud docs]: /integrations/icloud/
 [idteck_prox docs]: /integrations/idteck_prox/
 [ifttt docs]: /integrations/ifttt/

@@ -5,6 +5,7 @@ ha_category:
   - DIY
 ha_release: 0.12
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@garbled1'
   - '@epenet'
@@ -17,28 +18,48 @@ Every 1-wire device has a (globally) unique ID that identifies the device on the
 
 Different families have different functionality and can measure different quantities.
 
+Each 1-wire component data sheet describes the different properties the component provides. The [owfs software](https://github.com/owfs/owfs) adds some extra tools to make it easier for DIY implementers to use the component. 
+
 ### Supported devices:
+
+#### Binary sensors:
+
+| Family | Device           | Physical Quantity  |
+| -------|:-----|:-----|
+| 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 sensed (sensed.A/B) <sup>[4](#note_4)</sup> |
+| 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 sensed (sensed.0-7) <sup>[4](#note_4)</sup> |
+
+#### Sensors:
 
 | Family | Device           | Physical Quantity  |
 | -------|:-----|:-----|
 | 10     | [DS18S20](https://www.maximintegrated.com/en/products/sensors/DS18S20.html)  | Temperature                     |
-| 12     | [DS2406(TAI-8570)](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | Temperature (pressure when using TAI-8570) |
+| 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)            | Temperature and pressure when using TAI-8570 <sup>[1](#note_1)</sup> |
 | 1D     | [DS2423](https://datasheets.maximintegrated.com/en/ds/DS2423.pdf)            | Counter                         |
 | 22     | [DS1822](https://datasheets.maximintegrated.com/en/ds/DS1822.pdf)            |                                 |
-| 26     | [DS2438](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)            | Temperature, Voltage, Current (pressure when using B1-R1-A, illuminance when using S2-R1-A, humidity when using compatible Honeywell or Humirel sensor) |
+| 26     | [DS2438](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)            | Temperature, Voltage, Current (pressure when using B1-R1-A, illuminance when using S2-R1-A, humidity when using compatible Honeywell or Humirel sensor) <sup>[2](#note_2)</sup> |
 | 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature                     |
 | 3B     | [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)            | Temperature                     |
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
-| EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture |  
+| EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture, Wetness <sup>[3](#note_3)</sup> |  
+
+#### Switches:
+
+| Family | Device           | Physical Quantity  |
+| -------|:-----|:-----|
+| 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 latches (latch.A/B) and 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
+| 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 latches (latch.0-7) and 8 PIOs (PIO.0/7) <sup>[4](#note_4)</sup> |
 
 Notes:
 
-- The TAI-8570 Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also a barometer, hygrometer and illuminance sensors. This onewire platform can read and present values from that device.
+- <a name="note_1">The TAI-8570</a> Pressure Sensor is based on a 1-wire composite device by AAG Electronica. It contains, above 1-wire components, also a barometer, hygrometer and illuminance sensors. This onewire platform can read and present values from that device, but the sensors will default to disabled <sup>[4](#note_4)</sup>.
 
-- Each 1-wire component data sheet describes the different properties the component provides. The [owfs software](https://github.com/owfs/owfs) adds some extra tools to make it easier for DIY implementers to use the component. By hobbyists, it is quite common to use DS2438 Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity and luminosity on the 1-wire bus by just adding some standard components to the DS2438. For different component types, there are ready-made algorithms implemented in owfs. Those are exposed by the owfs software and can be read by this platform. The B1-R1-A/pressure is exposed as a barometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description of these properties, refer to the [owfs documentation](https://owfs.org/index_php_page_ds2438.html).
-  For this component, the more basic quantities temperature, VAD, VDD and IAD is exported as separate sensors.
+- <a name="note_2">For hobbyists</a>, it is quite common to use DS2438 Smart Battery Monitor as a multipurpose measurement node that can place temperature, humidity and luminosity on the 1-wire bus by just adding some standard components to the DS2438. For different component types, there are ready-made algorithms implemented in owfs. Those are exposed by the owfs software and can be read by this platform. The B1-R1-A/pressure is exposed as a barometric pressure sensor. S2-R1-A/illuminance is presented as an illuminance sensor. For a more detailed description of these properties, refer to the [owfs documentation](https://owfs.org/index_php_page_ds2438.html).
+  For this component, the more basic quantities (temperature, VAD, VDD and IAD) are exported as separate sensors. Please note that some of the sensors will default to disabled <sup>[4](#note_4)</sup>.
 
-- Hobbyboards is a company that has been selling DIY boards of different kinds. The company has been away from the market for some time, so no reference to the boards can be made. This platform has an implementation for some of those.
+- <a name="note_3">Hobbyboards</a> is a company that has been selling DIY boards of different kinds. The company has been away from the market for some time, so no reference to the boards can be made. This platform has an implementation for some of those.
+
+- <a name="note_4">Some sensors are disabled by default</a> to avoid overloading the bus. These can be activated by opening the integrations page in your configuration, listing your 1-Wire integration devices and updating the entity.
 
 ## Interfacing with the 1-wire bus
 
@@ -93,29 +114,7 @@ The device IDs begin with `28-`.
 
 ## Configuration
 
-To enable One wire sensors in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: onewire
-```
-
-{% configuration %}
-names:
-  description: ID and friendly name of your sensors.
-  required: false
-  type: string
-host:
-  description: Remote or localhost running owserver.
-  required: false
-  type: string
-port:
-  description: "The port number of the owserver (requires `host`)."
-  required: false
-  type: integer
-  default: 4304
-{% endconfiguration %}
+Go to the integrations page in your configuration and click on new integration -> 1-Wire.
 
 ### Configuration Example
 

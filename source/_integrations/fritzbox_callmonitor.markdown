@@ -44,6 +44,7 @@ port:
 username:
   description: FRITZ!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
   required: false
+  default: admin
   type: string
 password:
   description: FRITZ!Box user's user password. This is required to use the phone book lookup feature.

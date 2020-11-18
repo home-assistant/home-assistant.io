@@ -29,6 +29,8 @@ You need the Hostname or IP address of the machine that runs your Roon Core. Thi
 4. Roon core will then provide Home Assistant with the details of your media players.
 5. In Home Assistant you can then pick an area for each of your music players, and add them to Home Assistant.
 
+## Services
+
 #### Service `media_player.play_media`
 
 Roon doesn't use file names or URLs to track media and so the roon integration is currently limited in how it supports this call.
@@ -39,5 +41,31 @@ Roon doesn't use file names or URLs to track media and so the roon integration i
 | `media_content_id`     |       no | The text for roon to search for in your library.                   |
 | `media_content_type`   |       no | A media type. Currently supported are `radio`, `playlist` and `genre`  |
 
-
  For example to play BBC Radio 4 you would set `media_content_type` to `radio` and `media_content_id` to `BBC Radio 4`
+
+### Service `roon.join`
+
+Group players together.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ID of the player that will be the master of the group.
+| `join_ids` | no | id(s) of the players that will join the master.
+
+### Service `roon.unjoin`
+
+Remove players from a group.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | ID of the player that is the master of the group.
+| `unlink_name` | yes | id(s) of the players that will be unjoined from the group. If not specified, all players will be unjoined from the master.
+
+### Service `roon.transfer`
+
+Transfer playback from one player to another.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | id of the source player.
+| `transfer_name` | no | id of the destination player.

@@ -16,23 +16,36 @@ ha_codeowners:
 ha_domain: nest
 ---
 
-The `nest` integration allows you to access all supported [Google Nest](https://store.google.com/us/category/connected_home?) devices. There are two APIs:
-
-1. New [Device Access](https://developers.google.com/nest/device-access) program and [Smart Device Management](https://developers.google.com/nest/device-access/api) (SDM) API.
-1. Legacy [Works With Nest](https://developers.nest.com/) API. This API does not accept new users, but existing users can keep using it.
-
-<div class='note warning'>
-The two APIs support different features and devices. The SDM API integration is currently under development and does not yet support everything in the API either.
-</div>
+The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor-legacy-api-only) (Legacy API Only)
-- [Camera](#camera-legacy-api-only) (Legacy API Only)
-- [Climate](#climate-legacy-api-only) (Legacy API Only)
-- [Sensor](#sensor) (Both APIs)
+- [Camera](#camera)
+- [Climate](#climate)
+- [Sensor](#sensor)
 
-## Device Access: Developer Account Setup
+<div class='note'>
+Note that this integration continues to support the Legacy Works With Nest API which is not accepting new users. The documentation for this API is at the bottom of this page so existing users can keep using it.
+</div>
+
+## Overview: Supported Devices
+
+Home Assistant is integrated with the following devices through the SDM API:
+
+- Thermostat Devices
+  - Every thermostat is exposed as a `climate` entity
+  - Temperature and Humidity sensors each have a `sensor` entity
+  - Example devices: All Google Nest Thermostat models
+- Display, Camera, and Doorbell Devices
+  - The camera live stream is available as a `camera` entity
+  - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max
+
+You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
+
+Others devices like Smoke and CO Alarms or Security systems are not currently
+supported by the SDM API.
+
+## Account Setup
 
 You will need to follow the instructions in [Device Access Registration](https://developers.google.com/nest/device-access/registration), which includes the following steps in the
 Quick Start Guide:
@@ -54,51 +67,17 @@ Follow all of the instructions in [Device Access: Quick Start Guide](https://dev
 
 It may be easiest to create a [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console. Make sure to use the *topic name* from the device access console and a unique subscription ID. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
 
-## Works With Nest: Developer Account Setup (Legacy)
-
-<div class='note warning'>
-New users cannot set up a "Works With Nest Developer" account and instead should use the Device Access program. The instructions below only apply if you already have an account.
-</div>
-
-1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
-2. Fill in account details:
-  * The "Company Information" can be anything. We recommend using your name.
-3. Submit changes
-4. Click "[Products](https://developers.nest.com/products)" at the top of page.
-5. Click "[Create New Product](https://developers.nest.com/products/new)"
-6. Fill in details:
-  * Product name must be unique. We recommend [email] - Home Assistant.
-  * The description, users, URLs can all be anything you want.
-  * Leave the "Redirect URI" Field blank
-7. For permissions, check every box and if it's an option, select the read/write option. Note: there are important permissions under the "Other Permissions" category. If you are only adding a thermostat, do not just select the permissions under "Thermostat". You still need to check the boxes under "Other Permissions" to give you access to features like away mode, ETA, structure read/write, and postal code.
-  * The description requires a specific format to be accepted.
-    * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
-8. Click "Create Product"
-9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
-10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
-
-Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
-
 ## Configuration
+
+```yaml
 
 ```yaml
 # Example configuration.yaml entry
 nest:
   client_id: CLIENT_ID
   client_secret: CLIENT_SECRET
-  # Fields required by Device Access (SDM) API.  Otherwise, use legacy API.
-  project_id: PROJECT_ID
+  project_id: PROJECT_ID    # ("Project ID" in the Device Access Console)
   subscriber_id: SUBSCRIBER_ID # ("Subscription ID" in Google Cloud Console)
-```
-
-```yaml
-# Example configuration.yaml entry to show only devices at your vacation and primary homes
-nest:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-  structure:
-    - Vacation
-    - Primary
 ```
 
 {% configuration %}
@@ -118,28 +97,123 @@ subscriber_id:
   description: Your Pub/sub Subscription ID used to receive events. This is required to use the SDM API.
   type: string
   required: false
+{% endconfiguration %}
+
+## Device Setup
+
+Once your developer account is set up and you have a valid `nest` entry in `configuration.yaml` , you need to connect devices with the following steps:
+
+1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Nest'.
+1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
+1. The *Google Nest permissions* screen will allow you to choose which devices to configure. You can leave out any device that you do not wish to use with Home Assistant.
+1. You will get redirected back to another account selection page.
+1. Confirm you want to allow persistent access to Home Assistant.
+
+## Troubleshooting
+
+- See [No URL Available](/more-info/no-url-available) for guidance on setup issues related to URLs.
+
+- For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL
+
+## Camera
+
+All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max expose a [CameraLiveStream](https://developers.google.com/nest/device-access/traits/device/camera-live-stream) via the SDM API, which returns a RTSP live stream which can be viewed from Home Assistant.
+
+Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
+
+## Climate
+
+All Google Nest Thermostat models are exposed as a `climate` entity that use the [Thermostat Traits](https://developers.google.com/nest/device-access/traits/device/thermostat-hvac) in the SDM API. State changes to the thermostat are reported to Home Assistant through the Cloud Pubsub subscriber.
+
+Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
+
+## Sensor
+
+All Google Nest Thermostat models have traits exposed from the SDM API. The initial values of the sensors are fetched on startup, then updated regularly using the Cloud Pubsub subscriber. The following traits are supported with sensors:
+
+- [Temperature](https://developers.google.com/nest/device-access/traits/device/temperature)
+- [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
+
+Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
+
+# Legacy Works With Nest API
+
+This section contains instructions for the Legacy [Works with Nest](https://developers.nest.com/) API. 
+
+<div class='note warning'>
+New users are not currently able to set up a Works With Nest Developer account. The documentation is preserved here for existing users of the API.
+</div>
+
+<details>
+<summary>Click here for documentation for the Legacy Works with Nest API</summary>
+
+The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
+
+
+There is currently support for the following device types within Home Assistant:
+
+- [Binary Sensor](#binary-sensor)
+- [Camera](#camera)
+- [Climate](#climate)
+- [Sensor](#sensor)
+
+### Setting up developer account
+
+
+1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
+2. Fill in account details:
+  * The "Company Information" can be anything. We recommend using your name.
+3. Submit changes
+4. Click "[Products](https://developers.nest.com/products)" at top of page.
+5. Click "[Create New Product](https://developers.nest.com/products/new)"
+6. Fill in details:
+  * Product name must be unique. We recommend [email] - Home Assistant.
+  * The description, users, URLs can all be anything you want.
+  * Leave the "Redirect URI" Field blank
+7. For permissions check every box and if it's an option select the read/write option. Note: there are important permissions under the "Other Permissions" category. If you are only adding a thermostat, do not just select the permissions under "Thermostat". You still need to check the boxes under "Other Permissions" in order to give you access to features like away mode, ETA, structure read/write, and postal code.
+  * The description requires a specific format to be accepted.
+    * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
+8. Click "Create Product"
+9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
+10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
+
+Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
+
+## Configuration
+
+```yaml
+# Example configuration.yaml entry
+nest:
+  client_id: CLIENT_ID
+  client_secret: CLIENT_SECRET
+```
+
+```yaml
+# Example configuration.yaml entry to show only devices at your vacation and primary homes
+nest:
+  client_id: CLIENT_ID
+  client_secret: CLIENT_SECRET
+  structure:
+    - Vacation
+    - Primary
+```
+
+{% configuration %}
+client_id:
+  description: Your Nest developer client ID.
+  required: true
+  type: string
+client_secret:
+  description: Your Nest developer client secret.
+  required: true
+  type: string
 structure:
-  description: The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account. Not currently supported by the SDM API.
+  description: The structure or structures you would like to include devices from. If not specified, this will include all structures in your Nest account.
   required: false
   type: list
 {% endconfiguration %}
 
-## Device Setup (SDM API)
-
-Once your developer account is set up and `nest` has been configured, you need to connect devices with the following steps:
-
-1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Nest'.
-1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
-1. The *Google Nest permissions* screen will allow you to choose which devices to configure.
-1. You will get redirected back to another account selection page.
-1. Confirm you want to allow persistent access to Home Assistant.
-
-## Services (Legacy API Only)
-
-They Legacy API supports additional services for home/away/eta that are not
-supported by the SDM API.
-
-### Service `set_away_mode` (Legacy API Only)
+### Service `set_away_mode`
 
 You can use the service `nest/set_away_mode` to set the structure(s) to "Home" or "Away".
 
@@ -172,7 +246,7 @@ script:
             - Apartment
 ```
 
-### Service `set_eta` (Legacy API Only)
+### Service `set_eta`
 
 You can use the service `nest/set_eta` to set or update the estimated time of arrival window. Calling this service will automatically set the structure(s) to "Away". Structures must have an associated Nest thermostat in order to use ETA function.
 
@@ -210,7 +284,7 @@ script:
             - Apartment
 ```
 
-### Service `cancel_eta` (Legacy API Only)
+### Service `cancel_eta`
 
 You can use the service `nest/cancel_eta` to cancel an existing estimated time of arrival window. Structures must have an associated Nest thermostat in order to use ETA function.
 
@@ -243,7 +317,7 @@ script:
             - Apartment
 ```
 
-## Troubleshooting (Legacy API Only)
+### Troubleshooting
 
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL.
 
@@ -257,13 +331,13 @@ You must have the [Nest component](/integrations/nest/) configured to use the pl
 
 </div>
 
-### Binary Sensor (Legacy API Only)
+### Binary Sensor
 
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
 <div class='note'>
 
-You must have the [Nest component](/integrations/nest/) configured to use these sensors. The binary sensors will be set up if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
+You must have the [Nest component](/integrations/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
 
 </div>
 
@@ -280,7 +354,7 @@ nest:
       - 'target'
 ```
 
-By default, all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/integrations/nest/).
+By default all binary sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the [Nest component](/integrations/nest/).
 
 {% configuration %}
 monitored_conditions:
@@ -307,19 +381,19 @@ The following conditions are available by device:
   - person\_detected
   - sound\_detected
 
-### Camera (Legacy API Only)
+### Camera
 
 The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
 <div class='note'>
 
-The `nest` camera will automatically be set up when you do.
+The Legacy API integration allows you to watch still frames from a video stream (not live stream). The Legacy API also supports the `camera.turn_on` and `camera.turn_off` services.
 
 </div>
 
 Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since the 0.75 release.
 
-### Climate (Legacy API Only)
+### Climate
 
 The `nest` climate platform lets you control a thermostat from [Nest](https://nest.com).
 
@@ -333,13 +407,12 @@ Please note due to limitations with the European Nest Thermostat E, integration 
 
 ### Sensor
 
-The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices. The SDM API supports these sensor traits:
-
-- [Temperature](https://developers.google.com/nest/device-access/traits/device/temperature)
-- [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
+The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
 <div class='note'>
-The SDM API will monitor all devices automatically once configured. The Legacy API has additional configuration for `nest sensor`.
+
+The sensors will be setup if the `nest` integration is configured and the required configuration for the `nest sensor` is set.
+
 </div>
 
 #### Configuration
@@ -355,7 +428,7 @@ nest:
       - 'target'
 ```
 
-By default all, sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/integrations/nest/).
+By default all sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/integrations/nest/).
 
 {% configuration %}
 monitored_conditions:
@@ -382,7 +455,7 @@ The following conditions are available by device:
   - `color_status`: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
 - Nest Camera: none
 
-### Security State (Legacy Only)
+### Security State
 
 <div class='note warning'>
 
@@ -407,3 +480,5 @@ If a Nest Cam detects the presence of a person (see `person_detected` in [binary
 A `deter` state is re-evaluated after several minutes and relaxed to `ok` if no further `person_detected` events have occurred.
 
 The `security_state` automatically switches to `ok` when the structure state is `home`.
+
+</details>

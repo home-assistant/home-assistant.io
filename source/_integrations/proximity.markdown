@@ -34,6 +34,7 @@ The Proximity entity which is created has the following values:
   - 'km'
   - 'm'
   - 'mi'
+  - 'yd'
   - 'ft'
 - `nearest`: The device which is nearest to the zone
 
@@ -70,7 +71,7 @@ zone:
       required: false
       type: integer
     unit_of_measurement:
-      description: The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectively].
+      description: The unit of measurement for distance. Valid values are (km, m, mi, yd, ft) [kilometers, meters, miles, yards and feet respectively].
       required: false
       type: string
       default: km

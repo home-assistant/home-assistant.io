@@ -93,7 +93,6 @@
 /components/alarm_control_panel.envisalink /integrations/envisalink
 /components/alarm_control_panel.homekit_controller /integrations/homekit_controller
 /components/alarm_control_panel.homematicip_cloud /integrations/homematicip_cloud
-/components/alarm_control_panel.ialarm /integrations/ialarm
 /components/alarm_control_panel.lupusec /integrations/lupusec
 /components/alarm_control_panel.manual /integrations/manual
 /components/alarm_control_panel.manual_mqtt /integrations/manual_mqtt
@@ -1435,7 +1434,6 @@
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
 /components/hydrawise /integrations/hydrawise
 /components/hyperion /integrations/hyperion
-/components/ialarm /integrations/ialarm
 /components/iaqualink /integrations/iaqualink
 /components/icloud /integrations/icloud
 /components/idteck_prox /integrations/idteck_prox
