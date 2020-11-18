@@ -61,10 +61,10 @@ celebrate major milestones! The event will take place on Sunday, December 13.
 [Paulus Schoutsen][@balloob], the founder of Home Assistant, will give the
 opening and closing keynote, aided by other Home Assistant developers.
 In between, we have three different tracks of talks (for everyone, advanced
-users and developers) with a total of 16 different talks and of speakers.
+users and developers) with a total of 16 different talks.
 
 Check out the [conference schedule](https://hopin.to/events/home-assistant-conference#schedule)
-to see the subjects of the talks and the list speakers.
+to see the subjects of the talks and the list of speakers.
 
 The Home Assistant Conference will be hosted on [Hopin](https://hopin.to/events/home-assistant-conference),
 an online conference platform. Tickets to attend will cost $1, which will cover
@@ -106,7 +106,7 @@ The Quickbar, which was introduced in Home Assistant 0.117, really took off! We
 are happy to see you like it.
 
 If you haven't tried the new Quick Bar yet... you should! It is a quick and
-easy way to get to entities or run command commands. From anywhere in Home
+easy way to get to entities or run commands. From anywhere in Home
 Assistant; press `e` for entities or `c` for commands.
 
 This release, support for navigating Home Assistant via the Quick Bar was added.
@@ -163,7 +163,7 @@ Another new Lovelace card this release. [@zsarnett] added the Logbook Card.
 
 This card allows you to show the logs of one (or more) entities on a Lovelace
 Dashboard. This can be really helpful if you want to monitor, for example, the
-motion events  of a sensor or on a camera.
+motion events of a sensor or a camera.
 
 <p class='img'>
 <img src='/images/blog/2020-11-0.118/logbook-card.png' alt='Screenshot of the new Logbook Card'>
@@ -191,11 +191,11 @@ Screenshot of the new Header/Footer editor.
 
 ## Supervisor Network Configuration
 
-Excepted to be available soon, a new Supervisor version which includes a new
+Expected to be available soon, a new Supervisor version which includes a new
 network layer with added support for wireless networks, multiple network
 interfaces and even VLANs.
 
-This should cover most of the future request we had around networking.
+This should cover most of the feature requests we had around networking.
 
 <p class='img'>
 <img src='/images/blog/2020-11-0.118/supervisor-network.png' alt='New Supervisor Network configuration UI'>
@@ -203,7 +203,7 @@ New Supervisor Network configuration UI
 </p>
 
 The next step is that we use all the information from our new network backend
-to simplify some Add-ons. Also, updates for Snapshot/Restore these network
+to simplify some add-ons. Also, updates for Snapshot/Restore of these network
 settings are planned.
 
 ## Home Assistant OS
@@ -224,7 +224,7 @@ and 4GB of DDR4 memory (thanks @ubergeek801). Testers welcome!
 
 - The new Nest SDM integration now supports thermostats! Thanks, [@allenporter]!
 - Entity pickers in the UI will now show the full name of the entities.
-  Thank [@spacegaier]
+  Thanks, [@spacegaier]!
 - The Roon media player now supports media browsing but also has support
   for grouping and transferring between different players. Thanks [@pavoni]
 - [@cnorick] added a button to duplicate Scripts from the UI.
@@ -234,9 +234,9 @@ and 4GB of DDR4 memory (thanks @ubergeek801). Testers welcome!
   for loading WLED presets.
 - Date pickers in entity cards have been replaced with a modern, good looking
   version. Thanks, [@thomasloven]!
-- [@joshmcrty] Made numbers shown in the frontend are now being formatted in a
+- [@joshmcrty] Made numbers shown in the frontend formatted in a
   way that matches your language settings.
-- [@spacegaier] has been busy improving the frontend more accessible to people
+- [@spacegaier] has been busy improving the frontend, making it more accessible to people
   with disabilities. In this case, ARIA (Accessible Rich Internet Applications)
   labels have been added, so screen readers can use our `+` buttons. Thanks!
 
@@ -255,7 +255,7 @@ We welcome the following new integration this release:
 
 The following integration got support for a new platform:
 
-- [1-Wire][onewire docs] now has supports binary sensors and switches,
+- [1-Wire][onewire docs] now supports binary sensors and switches,
   added by [@epenet]
 
 ## Integrations now available to set up from the UI
@@ -283,7 +283,7 @@ for that specific item.
   <summary><b>PTVSD</b></summary>
   <p>
 
-The `ptvsd` integration is been marked as deprecated and will be removed in
+The `ptvsd` integration has been marked as deprecated and will be removed in
 Home Assistant Core 0.120. A full-featured replacement is available with the
 [`debugpy`](/integrations/debugpy) integration, which is now considered stable.
 
