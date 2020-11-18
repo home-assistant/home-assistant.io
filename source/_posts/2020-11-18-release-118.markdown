@@ -41,6 +41,7 @@ Issues introduced in the beta are processed with priority.
 - [Logbook Card](#logbook-card)
 - [Native types support for templates](#native-types-support-for-templates)
 - [Home Assistant OS](#home-assistant-os)
+- [Supervisor Network](#supervisor-network)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -120,6 +121,19 @@ method for Raspberry Pi 4. Release 5.5 is also the first release to support
 Hardkernel's ODROID-C4, a very cost effective single board computer featuring
 the Amlogic S905X3 SoC and 4GB of DDR4 memory (thanks @ubergeek801). Testers
 welcome!
+
+## Supervisor Network
+
+Soon we release a new Supervisor version which include a new Network layer which
+support WLAN, VLAN and multiple network interfaces. This should cover most of
+the future request. Next step is that we use all the information from our Network
+backand to simplify some Add-ons. Also a Snapshot/Restore is on the roadmap for
+the Network layer.
+
+<p class='img'>
+<img src='/images/blog/2020-11-0.118/supervisor-network.gif' alt='New Supervisor Network configuration UI'>
+New Supervisor Network configuration UI
+</p>
 
 ## Other noteworthy changes
 
