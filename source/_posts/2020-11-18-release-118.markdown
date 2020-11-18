@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.118: Beta release notes"
-description: "Beta release notes"
-date: 2020-11-11 00:00:00
+title: "0.118: Grid and logbook cards, quick navigation, native template types"
+description: "New Grid & Logbook Lovelace cards, navigate around using the Quick bar, Shelly now support live push updates, Header & Footer editors and Nest thermostat support returns!"
+date: 2020-11-18 00:00:00
 date_formatted: "November 18, 2020"
 author: Franck Nijhof
 author_twitter: frenck
@@ -13,35 +13,34 @@ og_image: /images/blog/2020-11-0.118/social.png
 
 <a href='/integrations/#version/0.118'><img src='/images/blog/2020-11-0.118/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant 0.118.0 (and is thus a
-work in progress).
+Home Assistant Core 0.118!
 
-If you encounter any issues, please report them on GitHub:
+The second last release of 2020, while the end of the year is slowly closing in.
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+This also means we have only one more release left this year... And we plan
+to finish the year with a big bang! Also announced: the
+[Home Assistant Conference](/conference). I am really excited about that one!
+The last major release of this year will be during the conference on December 13.
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+Back to 0.118! Some nice additions this release: Navigating around with the
+Quick bar (oh, I just love that feature), some new Lovelace cards, native types
+in templates is now the default and the Nest thermostat is back! 🎉
 
-Issues introduced in the beta are processed with priority.
+All in all, a fine release, with an exciting one ahead of us.
+
+../Frenck
 
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
-- [Lorem ipsum](#lorem-ipsum)
 - [Home Assistant Conference](#home-assistant-conference)
 - [Grid Card](#grid-card)
-- [Logbook Card](#logbook-card)
+- [Quick bar navigation](#quick-bar-navigation)
 - [Native types support for templates](#native-types-support-for-templates)
+- [Logbook Card](#logbook-card)
+- [Header & Footer Editor](#header--footer-editor)
+- [Supervisor Network Configuration](#supervisor-network-configuration)
 - [Home Assistant OS](#home-assistant-os)
-- [Supervisor Network](#supervisor-network)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -51,35 +50,83 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## Lorem ipsum
-
-Lorem ipsum!
-
-<p class='img'>
-<img src='/images/blog/2020-11-0.118/lorem-ipsum.gif' alt='Screenshot of the lorem ipsum.'>
-Screenshot of the lorem ipsum.
-</p>
-
 ## Home Assistant Conference
 
-More details now available on the [Conference page](/conference).
+Exciting news! Home Assistant is hosting an [online conference](/conference)
+this year!
+
+An event to celebrate our community, share ideas, history, creations and
+celebrate major milestones! The event will take place on Sunday, December 13.
+
+[Paulus Schoutsen][@balloob], the founder of Home Assistant, will give the
+opening and closing keynote, aided by other Home Assistant developers.
+In between, we have three different tracks of talks (for everyone, advanced
+users and developers) with a total of 16 different talks and of speakers.
+
+Check out the [conference schedule](https://hopin.to/events/home-assistant-conference#schedule)
+to see the subjects of the talks and the list speakers.
+
+The Home Assistant Conference will be hosted on [Hopin](https://hopin.to/events/home-assistant-conference),
+an online conference platform. Tickets to attend will cost $1, which will cover
+the cost of the platform.
+
+<a class="btn" href="https://hopin.to/events/home-assistant-conference">Get your ticket</a>
+
+The conference will also be available as a free YouTube live stream. The live
+stream will be limited to the keynotes and the "everyone" track. You won't have
+access to the chat and have that online conference feeling, so we recommend
+getting a ticket!
+
+For the latest information, check our dedicated [Home Assistant Conference](/conference) page.
+
+<a href="/conference"><img src='/images/conference/conference-header.png' alt='Home Assistant Conference header' class='no-shadow'></a>
 
 ## Grid Card
 
-Add Grid card (#7476) @balloob
+Ever since the start of Lovelace, users have been making grids. However, this was
+not easy as it involved fiddling by combining horizontal and vertical stacks —
+a confusing and frustrating experience.
 
-## Logbook Card
+[@balloob] to the rescue! This release adds a new Grid Card. You won't have to
+write a complicated YAML soup combining both horizontal and vertical stacks.
 
-Logbook Card (#6976) @zsarnett
+The Grid Card offers straight forward options to mimic these setups and adds
+an option to force each card to be square to boot.
+
+<p class='img'>
+<img src='/images/blog/2020-11-0.118/grid-card.png' alt='Screenshot of the Grid Card'>
+Screenshot of Grid Card.
+</p>
+
+*_Note that the square option won't work with all cards._
+
+## Quick bar navigation
+
+The Quickbar, which was introduced in Home Assistant 0.117, really took off! We
+are happy to see you like it.
+
+If you haven't tried the new Quick Bar yet... you should! It is a quick and
+easy way to get to entities or run command commands. From anywhere in Home
+Assistant; press `e` for entities or `c` for commands.
+
+This release, support for navigating Home Assistant via the Quick Bar was added.
+You can now jump to any place, from any place. Amazing job [@donkawechico]
+
+<p class='img'>
+<img src='/images/blog/2020-11-0.118/quickbar-navigate.png' alt='Screenshot of navigating around using the Quick Bar'>
+Screenshot of navigating around using the Quick Bar.
+</p>
+
+[@donkawechico]: https://github.com/donkawechico
 
 ## Native types support for templates
 
 Announced in 0.117, but now by default enabled. Native template types allow
 templates to result in not just strings (text), but also other types.
 
-Ever tried to make a list of entities or set a RGB color via an template?
+Ever tried to make a list of entities or set an RGB color via a template?
 If so, you probably would have learned, that it is not that simple. In Home
-Assistant, the result of a template always have been a piece of text (a string),
+Assistant, the result of a template always has been a piece of text (a string),
 even if you made a list.
 
 {% raw %}
@@ -103,69 +150,100 @@ script:
 
 {% endraw %}
 
-This is an extremely powerful change to our template engine, that allow for
+This is an extremely powerful change to our template engine, that allows for
 more advanced future additions and can significantly reduce the complexity of
 existing templates in your set up.
 
-It should be mostly compatible with your existing templates, however, be sure
+It should be mostly compatible with your existing templates; However, be sure
 to check the breaking changes section for known possible breaking scenarios.
 
-## Home Assistant OS
+## Logbook Card
 
-The last few days two new Home Assistant OS releases have been released. While
-4.16 continues to make small improvements in the 4.x release series, the
-latest pre-release 5.5 comes closer to our goals to declare 5.x release series
-stable. In particular, this release includes the Linux 5.4 kernel for all
-Raspberry Pis! We also intend to declare 64-bit the recommended installation
-method for Raspberry Pi 4. Release 5.5 is also the first release to support
-Hardkernel's ODROID-C4, a very cost effective single board computer featuring
-the Amlogic S905X3 SoC and 4GB of DDR4 memory (thanks @ubergeek801). Testers
-welcome!
+Another new Lovelace card this release. [@zsarnett] added the Logbook Card.
 
-## Supervisor Network
+This card allows you to show the logs of one (or more) entities on a Lovelace
+Dashboard. This can be really helpful if you want to monitor, for example, the
+motion events  of a sensor or on a camera.
 
-Soon we release a new Supervisor version which include a new Network layer which
-support WLAN, VLAN and multiple network interfaces. This should cover most of
-the future request. Next step is that we use all the information from our Network
-backand to simplify some Add-ons. Also a Snapshot/Restore is on the roadmap for
-the Network layer.
+<p class='img'>
+<img src='/images/blog/2020-11-0.118/logbook-card.png' alt='Screenshot of the new Logbook Card'>
+Screenshot of the new Logbook Card.
+</p>
+
+[@zsarnett]: https://github.com/zsarnett
+
+## Header & Footer Editor
+
+Entity cards in Lovelace have support for customizing the header and footer of
+that card. This is really useful for adding a nice image, a couple of buttons
+or a graph to the card.
+
+Up until now, you needed some YAML magic to achieve that. Thanks to
+[@zsarnett] we now have a Header & Footer editor available in the UI making
+this feature much easier to use.
+
+<p class='img'>
+<img src='/images/blog/2020-11-0.118/header-footer-editor.png' alt='Screenshot of the new Header/Footer editor.'>
+Screenshot of the new Header/Footer editor.
+</p>
+
+[@zsarnett]: https://github.com/zsarnett
+
+## Supervisor Network Configuration
+
+Excepted to be available soon, a new Supervisor version which includes a new
+network layer with added support for wireless networks, multiple network
+interfaces and even VLANs.
+
+This should cover most of the future request we had around networking.
 
 <p class='img'>
 <img src='/images/blog/2020-11-0.118/supervisor-network.gif' alt='New Supervisor Network configuration UI'>
 New Supervisor Network configuration UI
 </p>
 
+The next step is that we use all the information from our new network backend
+to simplify some Add-ons. Also, updates for Snapshot/Restore these network
+settings are planned.
+
+## Home Assistant OS
+
+The last few days, two new Home Assistant OS releases have been released.
+
+While 4.16 continues to make small improvements in the 4.x release series, the
+latest pre-release 5.5 comes closer to our goals to declare 5.x release series
+stable. In particular, this release includes the Linux 5.4 kernel for all
+Raspberry Pis! We also intend to declare 64-bit the recommended installation
+method for Raspberry Pi 4.
+
+Release 5.5 is also the first release to support Hardkernel's ODROID-C4,
+a very cost-effective single board computer featuring the Amlogic S905X3 SoC
+and 4GB of DDR4 memory (thanks @ubergeek801). Testers welcome!
+
 ## Other noteworthy changes
 
-- [@frenck] Lorem ipsum!
-- The new Nest DSM integration now supports thermostats!
+- The new Nest SDM integration now supports thermostats! Thanks, [@allenporter]!
+- Entity pickers in the UI will now show the full name of the entities.
+  Thank [@spacegaier]
+- The Roon media player now supports media browsing but also has support
+  for grouping and transferring between different players. Thanks [@pavoni]
+- [@cnorick] added a button to duplicate Scripts from the UI.
+- The Shelly integration now has real-time status updates, which has been
+  implemented by [@thecode]!
+- [@apop880] prepared the WLED integration for Christmas by adding a service
+  for loading WLED presets.
+- Date pickers in entity cards have been replaced with a modern, good looking
+  version. Thanks, [@thomasloven]!
+- [@joshmcrty] Made numbers shown in the frontend are now being formatted in a
+  way that matches your language settings.
+- [@spacegaier] has been busy improving the frontend more accessible to people
+  with disabilities. In this case, ARIA (Accessible Rich Internet Applications)
+  labels have been added, so screen readers can use our `+` buttons. Thanks!
 
-Stuff to pick from for this section:
-
-- Add more builtins to safe list (python_script) ([@jaydesl] - [#42146]) ([python_script docs])
-- Add media browser support to roon media player ([@pavoni] - [#42061]) ([roon docs])
-- Handle multiple setups of devolo Home Control ([@Shutgun] - [#41752]) ([devolo_home_control docs])
-- Add next alarm time sensor to Garmin ([@schachar] - [#40420]) ([garmin_connect docs])
-- Add wired devices to Homematic IP Cloud ([@SukramJ] - [#41232]) ([homematicip_cloud docs])
-- Add WLED preset service ([@apop880] - [#42217]) ([wled docs])
-- Add platform services to Roon media player to allow grouping, ungrouping and transfer between players ([@pavoni] - [#42133]) ([roon docs])
-- Use own CoAP lib and support for multicast updates ([@thecode] - [#42718]) ([shelly docs])
-- Add image support to nest SDM api ([@allenporter] - [#42556]) ([nest docs])
-- Add support for OpenWeatherMap One Call API ([@nzapponi] - [#39839]) ([openweathermap docs]) (breaking-change)
-- Allow ZHA coordinator binding/unbinding ([@Adminiuga] - [#42854]) ([zha docs])
-
-Stuff from the frontend to pick from for this section:
-
-- Add navigation commands to quick bar commands (#7380) @donkawechico
-- Show user friendly attribute names in picker (#7337) @spacegaier
-- Add button to duplicate script (#7511) @cnorick
-- Replace date picker for entities card (#6899) @thomasloven
-- Entities Card: Add Header & Footer Editor (#6751) @zsarnett
-- Add "last_changed" and "last_updated" to dev tools state view (#7375) @spacegaier
-- Calendar: Adds an Update Size and Makes list view start today and adds in local for first day of week (#7541) @zsarnett
-- Formats number state with selected language in compute_state_display (#7516) @joshmcrty
-- Calendar Panel: Persist Calendars in Local Storage (#7540) @zsarnett
-- Add last-updated as a secondaryinfo option to entity rows (#7433) @iantrich
+[@cnorick]: https://github.com/cnorick
+[@joshmcrty]: https://github.com/joshmcrty
+[@spacegaier]: https://github.com/spacegaier
+[@thomasloven]: https://github.com/thomasloven
 
 ## New Integrations
 
