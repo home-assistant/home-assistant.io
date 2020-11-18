@@ -41,6 +41,13 @@ backend=journal
 `/etc/NetworkManager/system-connections/default`:
 
 ```txt
+[connection]
+id=Supervisor default
+uuid=b653440a-544a-4e4f-aef5-6c443171c4f8
+type=802-3-ethernet
+llmnr=2
+mdns=2
+
 [ipv4]
 method=auto
 

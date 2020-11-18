@@ -178,7 +178,7 @@ With both types of waits it is possible to set a timeout after which the script 
 ```
 {% endraw %}
 
-You can also get the script to abort after the timeout by using optional `continue_on_timeout`.
+You can also get the script to abort after the timeout by using optional `continue_on_timeout: false`.
 
 {% raw %}
 ```yaml
@@ -194,7 +194,7 @@ You can also get the script to abort after the timeout by using optional `contin
 ```
 {% endraw %}
 
-Without `continue_on_timeout` the script will always continue.
+Without `continue_on_timeout: false` the script will always continue since the default for `continue_on_timeout` is `true`.
 
 ### Wait Variable
 

@@ -234,7 +234,7 @@ device_override:
   type: list
   keys:
     address:
-      description: is found on the device itself in the form 1A.2B.3C or 1a2b3c.
+      description: "Is found on the device itself in the form `1A.2B.3C` or `1a2b3c`. If there's no letter in the address you need to use quotation marks, e.g., `\"123456\"`, to avoid it becoming a number in YAML."
       required: true
       type: string
     cat:
