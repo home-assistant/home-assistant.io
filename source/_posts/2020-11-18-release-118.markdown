@@ -208,11 +208,11 @@ settings are planned.
 
 ## Home Assistant OS
 
-The last few days, two new Home Assistant OS releases have been released.
+The last few days, two new Home Assistant OS releases have been published.
 
-While 4.16 continues to make small improvements in the 4.x release series, the
+While 4.17 continues to make small improvements in the 4.x release series, the
 latest pre-release 5.5 comes closer to our goals to declare 5.x release series
-stable. In particular, this release includes the Linux 5.4 kernel for all
+stable. In particular, this pre-release includes the Linux 5.4 kernel for all
 Raspberry Pis! We also intend to declare 64-bit the recommended installation
 method for Raspberry Pi 4.
 
