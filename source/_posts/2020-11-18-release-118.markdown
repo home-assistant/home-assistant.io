@@ -556,6 +556,41 @@ and can be safely removed from your configuration files afterward.
   </p>
 </details>
 
+<details>
+  <summary><b>KNX</b></summary>
+  <p>
+
+The parameter `context_timeout` is now optional for binary sensors and will
+default to None. If you've previously not specified this parameter you'll have
+to adjust your configuration and add it like this:
+
+```yaml
+knx:
+  binary_sensor:
+    - name: sensor
+      state_address: "1/2/3"
+      context_timeout: 1.0
+```
+
+This prevents users that do not use this feature from waiting one second until
+automations are triggered.
+
+The parameter `reset_after` for binary sensors expects seconds now instead of
+milliseconds to streamline the different configuration options.
+(`context_timeout` also uses seconds).
+
+The parameter `ignore_internal_state` for binary sensors now defaults to `False`
+as most users do not use this feature. It defaulted to `True` before.
+
+If you have validation errors of your configuration after the update and you
+are using the `operation_modes` parameter for your climate devices, please add
+all erroneous entries to the new `controller_modes` parameter.
+
+([@marvin-w] - [#42026]) ([knx docs])
+
+  </p>
+</details>
+
 ## Farewell to the following
 
 - The **iAlarm** integration has been removed.
@@ -800,7 +835,7 @@ and can be safely removed from your configuration files afterward.
 - Replace stale bot with GitHub Action ([@frenck] - [#42994])
 - Add device trigger support for device trackers ([@mdonoughe] - [#42324]) ([device_tracker docs]) ([zone docs])
 - Update devolo-home-control-api to 0.16.0 ([@Shutgun] - [#42944])
-- Force color or white mode exclusivity for MQTT lights ([@emontnemery] - [#42887]) ([mqtt docs])
+- Force color or white mode exclusivity for MQTT lights ([@emontnemery] - [#42887]) ([mqtt docs]) (breaking-change)
 - Remove temporary variable from supported_features ([@springstan] - [#42685])
 - Add ozw config flow add-on management ([@MartinHjelmare] - [#42421]) ([hassio docs]) ([ozw docs])
 - Deprecate YAML config for AirVisual (0.119 removal) ([@bachya] - [#42581]) ([airvisual docs]) (breaking-change)
@@ -867,6 +902,46 @@ and can be safely removed from your configuration files afterward.
 - Bump up ZHA dependencies ([@Adminiuga] - [#43104]) ([zha docs])
 - Add reboot and shutdown service to synology_dsm ([@mib1185] - [#42697]) ([synology_dsm docs])
 - Bump greeclimate to 0.9.6 ([@cmroche] - [#43106]) ([gree docs])
+- Update xknx to 0.15.3 ([@marvin-w] - [#42026]) ([knx docs]) (breaking-change) (beta fix)
+- Move setup_url_for_address to pyWeMo library ([@joshuaboniface] - [#42722]) ([wemo docs]) (beta fix)
+- Bump dependency for HomematicIP Cloud ([@SukramJ] - [#43018]) ([homematicip_cloud docs]) (beta fix)
+- Use media player image proxy for roku media browser ([@ctalkington] - [#43070]) ([roku docs]) (beta fix)
+- Add system health section for the Supervisor ([@ludeeus] - [#43074]) ([hassio docs]) ([homeassistant docs]) (beta fix)
+- Bump pycsspeechtts to 1.0.4 ([@hmmbob] - [#43105]) ([microsoft docs]) (beta fix)
+- Fix incorrect Notion battery state calculation ([@bachya] - [#43108]) ([notion docs]) (beta fix)
+- Make Appliance Type Case-insensitive ([@thecode] - [#43114]) ([shelly docs]) (beta fix)
+- Streamline SimpliSafe errors ([@bachya] - [#43117]) ([simplisafe docs]) (beta fix)
+- Fix bug preventing Notion entities from updating their bridge ([@bachya] - [#43122]) ([notion docs]) (beta fix)
+- Added missing system health translation for "Views" ([@spacegaier] - [#43126]) ([lovelace docs]) (beta fix)
+- Add missing 'hassio' translation string ([@ludeeus] - [#43127]) ([homeassistant docs]) (beta fix)
+- Bump hatasmota to 0.0.30 ([@emontnemery] - [#43140]) ([tasmota docs]) (beta fix)
+- Fix playing of Spotify URIs on Sonos ([@amelchio] - [#43154]) ([sonos docs]) (beta fix)
+- Guard against empty ssdp locations ([@bdraco] - [#43156]) ([ssdp docs]) (beta fix)
+- update zigpy_zigate to v0.7.1 ([@doudz] - [#43159]) ([zha docs]) (beta fix)
+- Prevent spider from doing I/O in the event loop ([@balloob] - [#43182]) (beta fix)
+- Revert opensky flight latitude and longitude ([@balloob] - [#43185]) ([opensky docs]) (beta fix)
+- Catch the right nest stream refresh exception error ([@allenporter] - [#43189]) ([nest docs]) (beta fix)
+- Revert "Remove YAML config for Tile (#43064)" ([@bachya] - [#43199]) ([tile docs]) (beta fix)
+- Fix typo in lw12wifi shoud_poll ([@bdraco] - [#43213]) ([lw12wifi docs]) (beta fix)
+- Bump elkm1-lib to 0.8.8 ([@gwww] - [#43230]) ([elkm1 docs]) (beta fix)
+- Remove OpenCV dependecy from Environment Canada ([@michaeldavie] - [#43235]) ([environment_canada docs]) (beta fix)
+- Remove pts adjustments in stream ([@uvjustin] - [#42399]) ([stream docs]) (beta fix)
+- Bump hass-nabucasa to 0.37.2 ([@MartinHjelmare] - [#43146]) ([cloud docs]) (beta fix)
+- Update greeclimate to 0.10.2 ([@cmroche] - [#43206]) ([gree docs]) (beta fix)
+- Update greeclimate to 0.10.3 ([@cmroche] - [#43248]) ([gree docs]) (beta fix)
+- Bump env_canada to 0.2.4, fix config validation ([@michaeldavie] - [#43251]) ([environment_canada docs]) (beta fix)
+- Update zigpy-zigate to 0.7.2 ([@doudz] - [#43252]) ([zha docs]) (beta fix)
+- Bump pyvera to 0.3.11 ([@pavoni] - [#43262]) ([vera docs]) (beta fix)
+- Bump requests to 2.25.0 ([@spacegaier] - [#43279]) (beta fix)
+- Update pytradfri to 7.0.3 ([@balloob] - [#43289]) ([tradfri docs]) (beta fix)
+- Fix Enigma2 available entity property ([@reaper7] - [#43292]) (beta fix)
+- Update pytradfri to 7.0.4 ([@balloob] - [#43297]) ([tradfri docs]) (beta fix)
+- Updated frontend to 20201111.1 ([@bramkragten] - [#43298]) ([frontend docs]) (beta fix)
+- Bump bimmer_connected to 0.7.13 ([@rikroe] - [#43294]) ([bmw_connected_drive docs]) (beta fix)
+- Bump aioguardian to 1.0.4 ([@bachya] - [#43299]) ([guardian docs]) (beta fix)
+- Abort vizio discovery flow without unique ID ([@raman325] - [#43303]) ([vizio docs]) (beta fix)
+- Bump hatasmota to 0.0.31 ([@emontnemery] - [#43319]) ([tasmota docs]) (beta fix)
+- Updated frontend to 20201111.2 ([@bramkragten] - [#43334]) ([frontend docs]) (beta fix)
 
 </details>
 
@@ -903,6 +978,7 @@ and can be safely removed from your configuration files afterward.
 [#41961]: https://github.com/home-assistant/core/pull/41961
 [#41988]: https://github.com/home-assistant/core/pull/41988
 [#42023]: https://github.com/home-assistant/core/pull/42023
+[#42026]: https://github.com/home-assistant/core/pull/42026
 [#42032]: https://github.com/home-assistant/core/pull/42032
 [#42037]: https://github.com/home-assistant/core/pull/42037
 [#42061]: https://github.com/home-assistant/core/pull/42061
@@ -974,6 +1050,7 @@ and can be safely removed from your configuration files afterward.
 [#42379]: https://github.com/home-assistant/core/pull/42379
 [#42388]: https://github.com/home-assistant/core/pull/42388
 [#42395]: https://github.com/home-assistant/core/pull/42395
+[#42399]: https://github.com/home-assistant/core/pull/42399
 [#42404]: https://github.com/home-assistant/core/pull/42404
 [#42407]: https://github.com/home-assistant/core/pull/42407
 [#42410]: https://github.com/home-assistant/core/pull/42410
@@ -1064,6 +1141,7 @@ and can be safely removed from your configuration files afterward.
 [#42714]: https://github.com/home-assistant/core/pull/42714
 [#42718]: https://github.com/home-assistant/core/pull/42718
 [#42719]: https://github.com/home-assistant/core/pull/42719
+[#42722]: https://github.com/home-assistant/core/pull/42722
 [#42723]: https://github.com/home-assistant/core/pull/42723
 [#42726]: https://github.com/home-assistant/core/pull/42726
 [#42727]: https://github.com/home-assistant/core/pull/42727
@@ -1141,6 +1219,7 @@ and can be safely removed from your configuration files afterward.
 [#43012]: https://github.com/home-assistant/core/pull/43012
 [#43013]: https://github.com/home-assistant/core/pull/43013
 [#43017]: https://github.com/home-assistant/core/pull/43017
+[#43018]: https://github.com/home-assistant/core/pull/43018
 [#43019]: https://github.com/home-assistant/core/pull/43019
 [#43020]: https://github.com/home-assistant/core/pull/43020
 [#43021]: https://github.com/home-assistant/core/pull/43021
@@ -1162,7 +1241,9 @@ and can be safely removed from your configuration files afterward.
 [#43066]: https://github.com/home-assistant/core/pull/43066
 [#43067]: https://github.com/home-assistant/core/pull/43067
 [#43069]: https://github.com/home-assistant/core/pull/43069
+[#43070]: https://github.com/home-assistant/core/pull/43070
 [#43073]: https://github.com/home-assistant/core/pull/43073
+[#43074]: https://github.com/home-assistant/core/pull/43074
 [#43075]: https://github.com/home-assistant/core/pull/43075
 [#43085]: https://github.com/home-assistant/core/pull/43085
 [#43089]: https://github.com/home-assistant/core/pull/43089
@@ -1170,7 +1251,41 @@ and can be safely removed from your configuration files afterward.
 [#43092]: https://github.com/home-assistant/core/pull/43092
 [#43101]: https://github.com/home-assistant/core/pull/43101
 [#43104]: https://github.com/home-assistant/core/pull/43104
+[#43105]: https://github.com/home-assistant/core/pull/43105
 [#43106]: https://github.com/home-assistant/core/pull/43106
+[#43108]: https://github.com/home-assistant/core/pull/43108
+[#43114]: https://github.com/home-assistant/core/pull/43114
+[#43117]: https://github.com/home-assistant/core/pull/43117
+[#43122]: https://github.com/home-assistant/core/pull/43122
+[#43126]: https://github.com/home-assistant/core/pull/43126
+[#43127]: https://github.com/home-assistant/core/pull/43127
+[#43140]: https://github.com/home-assistant/core/pull/43140
+[#43146]: https://github.com/home-assistant/core/pull/43146
+[#43154]: https://github.com/home-assistant/core/pull/43154
+[#43156]: https://github.com/home-assistant/core/pull/43156
+[#43159]: https://github.com/home-assistant/core/pull/43159
+[#43182]: https://github.com/home-assistant/core/pull/43182
+[#43185]: https://github.com/home-assistant/core/pull/43185
+[#43189]: https://github.com/home-assistant/core/pull/43189
+[#43199]: https://github.com/home-assistant/core/pull/43199
+[#43206]: https://github.com/home-assistant/core/pull/43206
+[#43213]: https://github.com/home-assistant/core/pull/43213
+[#43230]: https://github.com/home-assistant/core/pull/43230
+[#43235]: https://github.com/home-assistant/core/pull/43235
+[#43248]: https://github.com/home-assistant/core/pull/43248
+[#43251]: https://github.com/home-assistant/core/pull/43251
+[#43252]: https://github.com/home-assistant/core/pull/43252
+[#43262]: https://github.com/home-assistant/core/pull/43262
+[#43279]: https://github.com/home-assistant/core/pull/43279
+[#43289]: https://github.com/home-assistant/core/pull/43289
+[#43292]: https://github.com/home-assistant/core/pull/43292
+[#43294]: https://github.com/home-assistant/core/pull/43294
+[#43297]: https://github.com/home-assistant/core/pull/43297
+[#43298]: https://github.com/home-assistant/core/pull/43298
+[#43299]: https://github.com/home-assistant/core/pull/43299
+[#43303]: https://github.com/home-assistant/core/pull/43303
+[#43319]: https://github.com/home-assistant/core/pull/43319
+[#43334]: https://github.com/home-assistant/core/pull/43334
 [@9R]: https://github.com/9R
 [@Adminiuga]: https://github.com/Adminiuga
 [@AlexSchmitz222]: https://github.com/AlexSchmitz222
@@ -1235,20 +1350,24 @@ and can be safely removed from your configuration files afterward.
 [@frenck]: https://github.com/frenck
 [@gtdiehl]: https://github.com/gtdiehl
 [@gwww]: https://github.com/gwww
+[@hmmbob]: https://github.com/hmmbob
 [@hunterjm]: https://github.com/hunterjm
 [@janiversen]: https://github.com/janiversen
 [@jaydesl]: https://github.com/jaydesl
 [@jcalbert]: https://github.com/jcalbert
 [@jjlawren]: https://github.com/jjlawren
 [@jkeljo]: https://github.com/jkeljo
+[@joshuaboniface]: https://github.com/joshuaboniface
 [@jsloyer]: https://github.com/jsloyer
 [@lindsaymarkward]: https://github.com/lindsaymarkward
 [@liudger]: https://github.com/liudger
 [@ludeeus]: https://github.com/ludeeus
 [@manuel-jrs]: https://github.com/manuel-jrs
+[@marvin-w]: https://github.com/marvin-w
 [@mdonoughe]: https://github.com/mdonoughe
 [@mezz64]: https://github.com/mezz64
 [@mib1185]: https://github.com/mib1185
+[@michaeldavie]: https://github.com/michaeldavie
 [@nzapponi]: https://github.com/nzapponi
 [@ollo69]: https://github.com/ollo69
 [@oncleben31]: https://github.com/oncleben31
@@ -1263,6 +1382,7 @@ and can be safely removed from your configuration files afterward.
 [@raman325]: https://github.com/raman325
 [@randyxxl]: https://github.com/randyxxl
 [@reaper7]: https://github.com/reaper7
+[@rikroe]: https://github.com/rikroe
 [@ronanmu]: https://github.com/ronanmu
 [@rrada]: https://github.com/rrada
 [@sbyx]: https://github.com/sbyx
@@ -1272,6 +1392,7 @@ and can be safely removed from your configuration files afterward.
 [@sdague]: https://github.com/sdague
 [@shbatm]: https://github.com/shbatm
 [@shenxn]: https://github.com/shenxn
+[@spacegaier]: https://github.com/spacegaier
 [@springstan]: https://github.com/springstan
 [@syssi]: https://github.com/syssi
 [@taiyeoguns]: https://github.com/taiyeoguns
@@ -1298,6 +1419,7 @@ and can be safely removed from your configuration files afterward.
 [avea docs]: /integrations/avea/
 [axis docs]: /integrations/axis/
 [binary_sensor docs]: /integrations/binary_sensor/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [braviatv docs]: /integrations/braviatv/
 [broadlink docs]: /integrations/broadlink/
 [bsblan docs]: /integrations/bsblan/
@@ -1317,6 +1439,7 @@ and can be safely removed from your configuration files afterward.
 [elkm1 docs]: /integrations/elkm1/
 [enigma2 docs]: /integrations/enigma2/
 [enphase_envoy docs]: /integrations/enphase_envoy/
+[environment_canada docs]: /integrations/environment_canada/
 [epson docs]: /integrations/epson/
 [esphome docs]: /integrations/esphome/
 [evohome docs]: /integrations/evohome/
@@ -1333,6 +1456,7 @@ and can be safely removed from your configuration files afterward.
 [google_pubsub docs]: /integrations/google_pubsub/
 [gree docs]: /integrations/gree/
 [group docs]: /integrations/group/
+[guardian docs]: /integrations/guardian/
 [hassio docs]: /integrations/hassio/
 [homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/
@@ -1343,6 +1467,7 @@ and can be safely removed from your configuration files afterward.
 [iqvia docs]: /integrations/iqvia/
 [isy994 docs]: /integrations/isy994/
 [jewish_calendar docs]: /integrations/jewish_calendar/
+[knx docs]: /integrations/knx/
 [lacrosse docs]: /integrations/lacrosse/
 [launch_library docs]: /integrations/launch_library/
 [lcn docs]: /integrations/lcn/
@@ -1353,9 +1478,11 @@ and can be safely removed from your configuration files afterward.
 [lovelace docs]: /integrations/lovelace/
 [luftdaten docs]: /integrations/luftdaten/
 [lutron_caseta docs]: /integrations/lutron_caseta/
+[lw12wifi docs]: /integrations/lw12wifi/
 [media_extractor docs]: /integrations/media_extractor/
 [met docs]: /integrations/met/
 [mfi docs]: /integrations/mfi/
+[microsoft docs]: /integrations/microsoft/
 [miflora docs]: /integrations/miflora/
 [mochad docs]: /integrations/mochad/
 [modbus docs]: /integrations/modbus/
@@ -1408,6 +1535,7 @@ and can be safely removed from your configuration files afterward.
 [smartthings docs]: /integrations/smartthings/
 [somfy docs]: /integrations/somfy/
 [sonarr docs]: /integrations/sonarr/
+[sonos docs]: /integrations/sonos/
 [spotify docs]: /integrations/spotify/
 [squeezebox docs]: /integrations/squeezebox/
 [ssdp docs]: /integrations/ssdp/
@@ -1419,6 +1547,7 @@ and can be safely removed from your configuration files afterward.
 [template docs]: /integrations/template/
 [tibber docs]: /integrations/tibber/
 [tile docs]: /integrations/tile/
+[tradfri docs]: /integrations/tradfri/
 [tuya docs]: /integrations/tuya/
 [twilio docs]: /integrations/twilio/
 [unifi docs]: /integrations/unifi/
@@ -1426,7 +1555,10 @@ and can be safely removed from your configuration files afterward.
 [vasttrafik docs]: /integrations/vasttrafik/
 [velbus docs]: /integrations/velbus/
 [velux docs]: /integrations/velux/
+[vera docs]: /integrations/vera/
+[vizio docs]: /integrations/vizio/
 [websocket_api docs]: /integrations/websocket_api/
+[wemo docs]: /integrations/wemo/
 [wirelesstag docs]: /integrations/wirelesstag/
 [wled docs]: /integrations/wled/
 [workday docs]: /integrations/workday/
