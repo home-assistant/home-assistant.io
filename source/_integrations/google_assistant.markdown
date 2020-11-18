@@ -278,6 +278,10 @@ Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL
 When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
 
     proxy_pass http://localhost:8123;
+    
+#### Scenes are not available to other household members
+
+As scenes are not linked to an area in Home Assistant they do not inherit a room in Google Home. This stops other users in your Google Home from accessing them. To fix this you can set a room for the scene using `entity_config`
 
 ### Unlink and relink
 
