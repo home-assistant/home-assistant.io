@@ -1,6 +1,6 @@
 ---
 title: "Docker Hub Rate Limit"
-description: "Docker Hub are rate limiting how many pull you can do."
+description: "Docker Hub is rate-limiting how many pull you can do."
 ---
 
 ## The issue
@@ -11,15 +11,20 @@ Home Assistant uses Docker Hub as the container registry. When your IP address i
 
 ## The solutions
 
-If you are running watchtower or similar solutions to keep your containers up to date, you need to reconfigure those to check less often than the default configuration for these. You should also consider removing them completely if you are running a Supervised installation since running those alongside the Supervisor is [not supported][unsupported-container].
+If you are running watchtower or similar solutions to keep your containers up to date, you need to reconfigure them to check less often than the default configuration. If you are running a Supervised installation, you should also consider removing them completely since running those alongside the Supervisor is [not supported][unsupported-container].
 
-When this is done you need to wait until the limit has lifted, this can take up to 6 hours.
+When this is done, you need to wait until the limit has lifted, this can take up to 6 hours.
 
-If you are sharing the IP address with other parties, their usage will also affect you. The Supervisor supports logging in to Docker Hub with an account, with this approach all the fetches between the Supervisor and Docker Hub will be using Authentication and will not be limited by the anonymous rate limits. Authenticated users are also rate limited but that is a dedicated limit tied to your account.
+If you are sharing the IP address with other parties, their usage will also affect you. The Supervisor supports logging in to Docker Hub with an account, with this approach, all the fetches between the Supervisor and Docker Hub will be using authentication and will not be limited by the anonymous rate limits. Authenticated users are also rate limited, but that is a dedicated limit tied to your account.
 
 _If you do not have a Docker Hub account [you can create one here][dockerhub-signup]._
 
-To use your Docker Hub credentials with the Supervisor go to the Supervisor panel in the Home Assistant UI, then to the "Add-on Store" tab, once you are there click the three dots in the top right corner of the screen, and select "Registries" (This option is only available for advanced users).
+To use your Docker Hub credentials with the Supervisor:
+
+- You need to have the advanced user toggle enabled in your user profile setting.
+- Go to the Supervisor panel in the Home Assistant UI.
+- Next, to the "Add-on Store" tab.
+- Click the three dots in the top right corner of the screen, and select "Registries".
 
 In the dialog that opens up, click on "Add new registry" and enter `hub.docker.com` as the registry followed by your credentials:
 
