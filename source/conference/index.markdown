@@ -32,4 +32,7 @@ Recordings of the keynote and all tracks and sessions will be made available on 
 
 ## Speakers & Schedule
 
-_To be announced._
+The speakers and talks schedule is currently being finalized. Most of the
+schedule is complete and listed on our Hopin page.
+
+[View the Home Assistant Conference schedule on Hopin](https://hopin.to/events/home-assistant-conference#schedule)
