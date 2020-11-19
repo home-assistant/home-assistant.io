@@ -35,6 +35,7 @@ The following optional parameters can be used with any platform:
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
 |----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `interval_seconds`   | 12      | Seconds between each scan for new devices. This only applies to local device trackers, not applications that push updates. |
+| `zone`               | home    | Zone in which a device is seen, if a scanner detects the device. This only applies to local device trackers, not applications that push updates. |
 | `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (e.g., the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
 
 <div class='note'>
@@ -53,6 +54,7 @@ device_tracker:
     username: YOUR_USERNAME
     interval_seconds: 10
     consider_home: 180
+    zone: dacha
     new_device_defaults:
       track_new_devices: true
 ```
@@ -97,7 +99,7 @@ In the example above, `devicename` refers to the detected name of the device.  F
 
 ## Device states
 
-The state of your tracked device will be `'home'` if it is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
+The state of your tracked device will be `'home'` if it is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth based presence detection. If you configure a `zone` for a network or Bluetooth based scanner, this zone is used instead of `'home'`, if the device is seen on the network. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
 
 ## `device_tracker.see` service
 
