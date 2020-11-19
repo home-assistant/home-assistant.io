@@ -248,6 +248,7 @@ source/_integrations/met.markdown @danielhiversen @thimic
 source/_integrations/meteo_france.markdown @hacf-fr @oncleben31 @Quentame
 source/_integrations/meteoalarm.markdown @rolfberkenbosch
 source/_integrations/metoffice.markdown @MrHarcombe
+source/_integrations/microsoft_graph.markdown @jlweston85
 source/_integrations/miflora.markdown @danielhiversen @ChristianKuehnel @basnijholt
 source/_integrations/mikrotik.markdown @engrbm87
 source/_integrations/mill.markdown @danielhiversen
