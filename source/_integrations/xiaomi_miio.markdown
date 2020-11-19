@@ -1442,7 +1442,7 @@ vacuum_kitchen:
 Valid room numbers can be retrieved using miio command-line tool:
 
 ```bash
-miio protocol call <ip of the vacuum> get_room_mapping
+miiocli vacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapping
 ```
 
 It will only give room numbers and not the room names. To map the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient.
