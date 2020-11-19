@@ -175,8 +175,6 @@ New users are not currently able to set up a Works With Nest Developer account. 
 <summary>Click here for documentation for the Legacy Works with Nest API</summary>
 
 The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
->>>>>>> Update nest troubleshooting instructions
-
 
 There is currently support for the following device types within Home Assistant:
 
