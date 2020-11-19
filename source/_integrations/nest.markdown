@@ -81,7 +81,7 @@ nest:
   client_id: CLIENT_ID
   client_secret: CLIENT_SECRET
   project_id: PROJECT_ID    # ("Project ID" in the Device Access Console)
-  subscriber_id: projects/.../subscriptions/SUBSCRIBER_ID # ("Subscription ID" in Google Cloud Console.  Replace with full path.)
+  subscriber_id: projects/.../subscriptions/SUBSCRIBER_ID # ("Subscription ID" in Google Cloud Console. Replace with full path.)
 ```
 
 {% configuration %}
