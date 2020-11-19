@@ -32,5 +32,5 @@ _If you do not want to use the UI, this can also be done with the [CLI]_
 
 [docker-rate-limit]: https://docs.docker.com/docker-hub/download-rate-limit/
 [dockerhub-signup]: https://hub.docker.com/signup
-[unsupported-container]: /source/more-info/unsupported/container.markdown
+[unsupported-container]: /more-info/unsupported/container.markdown
 [CLI]: https://github.com/home-assistant/cli
