@@ -1,4 +1,4 @@
----
+****---
 layout: post
 title: "0.118: Grid and logbook cards, quick navigation, native template types"
 description: "New Grid & Logbook Lovelace cards, navigate around using the Quick bar, Shelly now support live push updates, Header & Footer editors and Nest thermostat support returns!"
@@ -32,10 +32,11 @@ All in all, a fine release, with an exciting one ahead of us.
 
 ## Table of contents
 
+- [og_image: /images/blog/2020-11-0.118/social.png](#og_image-imagesblog2020-11-0118socialpng)
 - [Table of contents](#table-of-contents)
 - [Home Assistant Conference](#home-assistant-conference)
 - [Grid Card](#grid-card)
-- [Quick bar navigation](#quick-bar-navigation)
+- [Quick Bar navigation](#quick-bar-navigation)
 - [Native types support for templates](#native-types-support-for-templates)
 - [Logbook Card](#logbook-card)
 - [Header & Footer Editor](#header--footer-editor)
@@ -45,6 +46,7 @@ All in all, a fine release, with an exciting one ahead of us.
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 0.118.1 - November 19](#release-01181---november-19)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -264,6 +266,30 @@ The following integrations are now available via the Home Assistant UI:
 
 - [1-Wire][onewire docs], done by [@epenet]
 - [Epson][epson docs], done by [@pszafer]
+
+## Release 0.118.1 - November 19
+
+- Bump wolf_smartset to 0.1.8 and handle server fetch error ([@adamkrol93] - [#43351]) ([wolflink docs])
+- Bump hatasmota to 0.0.32 ([@emontnemery] - [#43360]) ([tasmota docs])
+- Fix homekit bridges when no name was provided ([@bdraco] - [#43364]) ([homekit docs])
+- Bump pyvizio to 0.1.57 ([@raman325] - [#43374]) ([vizio docs])
+- Add back system_health_info to the base of lovelace ([@ludeeus] - [#43382]) ([lovelace docs])
+
+[#43351]: https://github.com/home-assistant/core/pull/43351
+[#43360]: https://github.com/home-assistant/core/pull/43360
+[#43364]: https://github.com/home-assistant/core/pull/43364
+[#43374]: https://github.com/home-assistant/core/pull/43374
+[#43382]: https://github.com/home-assistant/core/pull/43382
+[@adamkrol93]: https://github.com/adamkrol93
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@ludeeus]: https://github.com/ludeeus
+[@raman325]: https://github.com/raman325
+[homekit docs]: /integrations/homekit/
+[lovelace docs]: /integrations/lovelace/
+[tasmota docs]: /integrations/tasmota/
+[vizio docs]: /integrations/vizio/
+[wolflink docs]: /integrations/wolflink/
 
 ## If you need help...
 
