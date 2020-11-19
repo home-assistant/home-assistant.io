@@ -57,6 +57,10 @@ monitored_conditions:
       description: The maximum power.
     min:
       description: The minimum power.
+    from:
+      description: from parameter as timestamp for middleware-url all php-timeformate (like today, now, monday,...)
+    to:
+      description: to parameter as timestamp for middleware-url all php-timeformate (like today, now, monday,...)
 {% endconfiguration %}
 
 ## Full examples
@@ -67,6 +71,8 @@ sensor:
   - platform: volkszaehler
     host: demo.volkszaehler.org
     uuid: '57acbef0-88a9-11e4-934f-6b0f9ecd95a8'
+    from: today
+    to: now
     monitored_conditions:
       - average
       - consumption
