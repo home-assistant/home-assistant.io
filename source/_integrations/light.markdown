@@ -32,7 +32,7 @@ Most lights do not support all attributes. You can check the integration documen
 | `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma-separated floats that represent the color in XY. You can find a great chart here: [Hue Color Chart](https://developers.meethue.com/documentation/core-concepts#color_gets_more_complicated).
 | `rgb_color` | yes | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets. Note that the specified RGB value will not change the light brightness, only the color.
 | `white_value` | yes | Integer between 0 and 255 for how bright a dedicated white LED should be.
-| `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be.
+| `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be. Home assistant expects the value to be within the range of 154-500.
 | `kelvin` | yes | Alternatively, you can specify the color temperature in Kelvin.
 | `color_name` | yes | A human-readable string of a color name, such as `blue` or `goldenrod`. All [CSS3 color names](https://www.w3.org/TR/css-color-3/#svg-color) are supported.
 | `brightness` | yes | Integer between 0 and 255 for how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.
