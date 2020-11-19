@@ -66,7 +66,7 @@ sensors:
         entity_id:
           description: The entity id of the temperature sensor to replace the iZone internal one.
           required: false
-          type: entity_id
+          type: string
 {% endconfiguration %}
 
 ## Network settings
