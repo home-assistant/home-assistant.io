@@ -5,9 +5,9 @@ description: "Docker Hub are rate limiting how many pull you can do."
 
 ## The issue
 
-Docker Hub enforces a limit on how much you are allowed to fetch container information from their container registry [read more about how it's handled here][docker-rate-limit].
+Docker Hub enforces a limit on how much you are allowed to fetch container information from their container registry. [Read more about how it's handled here][docker-rate-limit].
 
-When your IP address is rate limited updating our containers will fail.
+Home Assistant uses Docker Hub as the container registry. When your IP address is rate limited updating our containers will fail.
 
 ## The solutions
 
