@@ -458,7 +458,7 @@ automation:
 
 #### Sensors of datetime device class
 
-The Entity ID of a [sensor](/integrations/sensor/) with the "datetime" device class.
+The Entity ID of a [sensor](/integrations/sensor/) with the "timestamp" device class.
 
 ```yaml
 automation:
