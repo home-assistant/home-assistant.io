@@ -105,6 +105,8 @@ subscriber_id:
 
 ## Device Setup
 
+Once your developer account is set up and you have a valid `nest` entry in `configuration.yaml` , you need to connect devices with the following steps:
+
 1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Under **Set up a new integration** locate 'Nest'.
 1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
 1. The *Google Nest permissions* screen will allow you to choose which devices to configure. You can leave out any device that you do not wish to use with Home Assistant.
@@ -169,7 +171,6 @@ This section contains instructions for the Legacy [Works with Nest](https://deve
 <div class='note warning'>
 New users are not currently able to set up a Works With Nest Developer account. The documentation is preserved here for existing users of the API.
 </div>
-
 
 <details>
 <summary>Click here for documentation for the Legacy Works with Nest API</summary>
@@ -347,6 +348,8 @@ script:
 ### Troubleshooting
 
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL.
+
+- If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) by the Legacy API instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
 
 ## Platforms
 
