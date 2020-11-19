@@ -520,7 +520,7 @@ as your configuration has already been imported into the UI.
   <summary><b>Notion</b></summary>
   <p>
 
-Per ADR-0010, this release deprecates YAML configuration for Flu Near You
+Per ADR-0010, this release deprecates YAML configuration for Notion
 until 0.119.
 
 Existing YAML configuration will be imported automatically when upgrading
