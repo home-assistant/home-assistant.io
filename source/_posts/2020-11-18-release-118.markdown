@@ -1,4 +1,4 @@
-****---
+---
 layout: post
 title: "0.118: Grid and logbook cards, quick navigation, native template types"
 description: "New Grid & Logbook Lovelace cards, navigate around using the Quick bar, Shelly now support live push updates, Header & Footer editors and Nest thermostat support returns!"
@@ -32,7 +32,6 @@ All in all, a fine release, with an exciting one ahead of us.
 
 ## Table of contents
 
-- [og_image: /images/blog/2020-11-0.118/social.png](#og_image-imagesblog2020-11-0118socialpng)
 - [Table of contents](#table-of-contents)
 - [Home Assistant Conference](#home-assistant-conference)
 - [Grid Card](#grid-card)
