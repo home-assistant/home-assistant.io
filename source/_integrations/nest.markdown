@@ -67,6 +67,10 @@ steps are:
 
 Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
 
+<div class='note'>
+If you use Nabu Casa for Home Assistant external access, use the https://xxxxxxxxxxx.ui.nabu.casa/auth/external/callback syntax for the Authorized redirect URIs after all parts of the Google Device Access are complete.
+</div>
+
 Follow all of the instructions in [Device Access: Quick Start Guide](https://developers.google.com/nest/device-access/get-started) carefully as it is easy to make a configuration mistake that is difficult to debug. It is recommended to exercise the entire guide, including the command to test out the API, to make sure that it is working before configuring Home Assistant.
 
 When you get to the steps about configuring events make sure to follow guide under [Events](https://developers.google.com/nest/device-access/api/events) that configures the [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console. Make sure to use the *topic name* from the device access console and a unique subscription ID in the cloud console. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
