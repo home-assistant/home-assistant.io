@@ -3,7 +3,7 @@ title: "SRP Energy"
 description: "How to integrate SRP Energy within Home Assistant."
 ha_category:
   - Energy
-ha_release: 0.13
+ha_release: 0.119
 ha_iot_class: Cloud Polling
 ---
 
@@ -13,16 +13,10 @@ You need a Username, Password, and AccountId which you can create at [Srp](https
 
 ## Configuration
 
-To add Srp Energy to your installation, add the following to your `configuration.yaml` file:
+Add Srp Energy to your installation from the configuraiton integration.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: srp_energy
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    id: YOUR_ACCOUNT_ID
-```
+Navigate to `configuration`, then `integrations` and click `add`. Click `Srp Energy` to start the configuration. 
+After completing the configuration flow, the `srp_energy` integration will be available.
 
 {% configuration %}
 username:
@@ -37,6 +31,10 @@ id:
   description: Your account id for SRP.
   required: true
   type: string
+is_tou:
+  description: Your account is time of use planP.
+  required: false
+  type: boolean
 {% endconfiguration %}
 
 Details about the API are available in the [SRP Energy Developers API documentation](https://srpenergy-api-client-python.readthedocs.io/en/latest/?badge=latest).
