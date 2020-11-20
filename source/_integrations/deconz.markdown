@@ -268,6 +268,37 @@ automation:
 ```
 
 {% endraw %}
+
+#### Colored Flashing - RGB Philips Hue bulb using deconz.configure
+Note: Requires `on: true` to change color while the bulb is off. If `on:true` is specified, the bulb remains on after flashing is complete. The previous color is not saved.
+
+{% raw %}
+
+```yaml
+script:
+  hue_lamp_flash:
+    alias: Hue Lamp Flash
+    sequence:
+    - service: deconz.configure
+      data:
+        field: /state
+        data:
+          'on': true
+          hue: 65535
+          sat: 255
+          bri: 255
+          alert: breathe
+      entity_id: light.hue_lamp
+    - delay: '15'
+    - service: deconz.configure
+      data:
+        data:
+          'on': false
+      entity_id: light.hue_lamp
+    mode: single
+```
+
+{% endraw %}
 ## Binary Sensor
 
 The following sensor types are supported:
