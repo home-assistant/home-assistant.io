@@ -3,9 +3,8 @@ title: Growl (GnGNTP)
 description: Instructions for adding GNTP/Growl notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Local Push
 ha_release: 0.16
-ha_codeowners:
-  - '@robbiet480'
 ha_domain: gntp
 ---
 

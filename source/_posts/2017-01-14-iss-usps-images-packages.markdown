@@ -53,7 +53,7 @@ The new [image processing component][image] currently works with [number plates]
 - Notify: [Lannouncer][lannouncer] TTS support ([@michaelarnauts])
 - Image processing: Support for [Image processing][image] ([@pvizeli])
 - Device tracker: [UPC][upc] Connect box platform support ([@pvizeli])
-- Weather: [Australian BOM][bom] (Bureau of Meteorology) support ([@Zac-HD])
+- Weather: Australian BOM (Bureau of Meteorology) support ([@Zac-HD])
 - Notify: Support for [MySensors][mysensors] notifications ([@MartinHjelmare])
 - TTS: New [Yandex SpeechKit TTS][yandex] integration ([@lupin-de-mid])
 - Notify: [Facebook Messenger][facebook] support ([@gopalkildoliya])
@@ -163,7 +163,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [apns]: /integrations/apns
 [beaglebone]: /integrations/bbb_gpio/
 [bl-switch]: /integrations/broadlink#switch
-[bom]: /integrations/bom
 [dublin]: /integrations/dublin_bus_transport/
 [facebook]: /integrations/facebook
 [image]: /integrations/image_processing/

@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: sensor
+ha_iot_class:
 ---
 
 Sensors are gathering information about states and conditions.
@@ -25,6 +26,10 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
 - **timestamp**: Datetime object or timestamp string.
+- **current**: Current in A.
+- **energy**: Energy in Wh or kWh.
+- **power_factor**: Power Factor in %.
+- **voltage**: Voltage in V.
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />

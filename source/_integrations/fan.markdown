@@ -4,6 +4,7 @@ description: Instructions on how to setup Fan devices within Home Assistant.
 ha_category:
   - Fan
 ha_release: 0.27
+ha_iot_class:
 ha_quality_scale: internal
 ha_domain: fan
 ---
@@ -19,13 +20,13 @@ Available services:
 
 <div class='note'>
 
-Not all fan services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
+Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** -> **Services**.
 
 </div>
 
 ### Service `fan.set_speed`
 
-Sets the speed for fan device
+Sets the speed for fan device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -48,7 +49,7 @@ automation:
 
 ### Service `fan.set_direction`
 
-Sets the rotation for fan device
+Sets the rotation for fan device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -71,7 +72,7 @@ automation:
 
 ### Service `fan.oscillate`
 
-Sets the oscillation for fan device
+Sets the oscillation for fan device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

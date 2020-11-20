@@ -3,6 +3,7 @@ title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
 ha_category:
   - Utility
+  - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.53
 ha_quality_scale: internal
@@ -131,8 +132,7 @@ binary_sensor:
       below: 50
 ```
 
-Finally, here's an example for `template` observation platform,
-as seen in the configuration it requires `value_template` and does not use `entity_id`.
+Finally, here's an example for `template` observation platform, as seen in the configuration it requires `value_template`.
 
 {% raw %}
 ```yaml
@@ -149,3 +149,7 @@ binary_sensor:
       prob_given_true: 0.95
 ```
 {% endraw %}
+
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is updated. 
+
+In this example, since the template is only evaluated on state change of `device_tracker.paulus` the template won't change state after 5 mins like intended. The ways to force template reevaluation are documented in the [template binary_sensor](/integrations/binary_sensor.template/#working-without-entities).

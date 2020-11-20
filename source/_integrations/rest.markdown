@@ -104,6 +104,10 @@ headers:
   description: The headers for the requests.
   required: false
   type: [string, list]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [string, list]  
 json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the "text/xml" or "application/xml" content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)
   required: false
@@ -320,7 +324,7 @@ sensor:
 ```
 {% endraw %}
 
-This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
+This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. This avoids flooding the REST service by only requesting the result once, then creating multiple attributes from that single result using templates. By default, the sensor state would be set to the full JSON — here, that would exceed the 255-character maximum allowed length for the state, so we override that default by using `value_template` to set a static value of `OK`.
 
 {% raw %}
 ```json

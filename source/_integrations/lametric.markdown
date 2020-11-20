@@ -5,6 +5,7 @@ logo: lametric.png
 ha_category:
   - Hub
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.49
 ha_codeowners:
   - '@robbiet480'
@@ -68,22 +69,26 @@ lifetime:
   type: integer
   default: 10
 icon:
-  description: An icon or animation.
+  description: An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons). Note that icons always begin with "i" while animations begin with "a". This is part of the name, you can't just use the number!
   required: false
   type: string
 cycles:
-  description: Defines how often the notification is displayed.
+  description: Defines how long the notification will be displayed. Set to 0 to require manual dismissal
   required: false
   type: integer
   default: 1
 priority:
-  description: Defines the priority of the notification.
+  description: Defines the priority of the notification. Allowed values are info, warning, and critical
   required: false
   type: string
   default: warning
+icon_type:
+  description: Defines the nature of notification. Allowed values are none, info, and alert
+  required: false
+  type: string
+  default: info
 {% endconfiguration %}
 
-Check out the list of all icons at [https://developer.lametric.com/icons](https://developer.lametric.com/icons). Note that icons always begin with "i" while animations begin with "a". This is part of the name, you can't just use the number!
 
 ## Examples
 
@@ -98,6 +103,7 @@ notify:
   icon: a7956
   cycles: 3
   priority: info
+  icon_type: none
 ```
 
 ### Changing sounds and icons
@@ -120,6 +126,7 @@ To add a notification sound, icon, cycles, or priority override, it has to be do
         icon: 'i51'
         cycles: 0
         priority: 'critical'
+        icon_type: 'none'
 ```
 
 ### Only notify specific device

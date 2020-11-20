@@ -1,5 +1,5 @@
 ---
-title: DOODS - Distributed Outside Object Detection Service
+title: DOODS - Dedicated Open Object Detection Service
 description: Detect and recognize objects with DOODS.
 ha_category:
   - Image Processing
@@ -45,6 +45,10 @@ source:
 url:
     description: The URL of the DOODS server.
     required: true
+    type: string
+auth_key:
+    description: The authentication key as set in the DOODS configuration file or as a Docker environment variable (DOODS_AUTH_KEY)
+    required: false
     type: string
 timeout:
     description: Timeout for requests (in seconds).
@@ -151,6 +155,7 @@ image_processing:
     url: "http://<my doods server>:8080"
     timeout: 60
     detector: default
+    auth_key: 2up3rL0ng4uthK3y
     source:
       - entity_id: camera.front_yard
     file_out:

@@ -1,46 +1,46 @@
 ---
-title: "Enable i2c on the Home Assistant Operating System"
-description: "Instructions on how to enable I2C on a Raspberry PI"
+title: "Enable I2C on the Home Assistant Operating System"
+description: "Instructions on how to enable I2C on a Raspberry Pi"
 ---
 
-Home Assistant using the Home Assistant Operating System, is a managed environment.
-Which means you can't use existing methods to enable the I2C bus on a Raspberry Pi.
-
-If you're attempting to add an external sensor, you will have to [enable the I2C interface in the Home Assistant configuration](https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/raspberrypi.md#i2c) using a USB stick.
+Home Assistant using the Home Assistant Operating System is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi.
 
 ## Step by step instructions
 
 You will need:
 
-- USB drive
-- A way to add files to the USB drive
-- A way to connect the drive to your Raspberry Pi
+- SD card reader
+- SD card with Home Assistant Operating System flashed on it
 
-### Step 1 - Prepare the USB drive
+### Step 1 - Access the Home Assistant OS boot partition
 
-Connect the USB drive to a device capable of adding and editing files to the USB drive.
-
-Format a USB stick with FAT32/EXT4/NTFS and name the drive `CONFIG` (uppercase).
+Shutdown/turn-off your Home Assistant installation and unplug the SD card.
+Plug the SD card into an SD card reader and find a drive/file system named
+`hassos-boot`. The file system might be shown/mounted automatically. If not,
+use your operating systems disk management utility to find the SD card reader
+and make sure the first partition is available.
 
 ### Step 2 - Add files to enable I2C
 
-- In the root of the USB drive add a folder called `/modules`.
-- Inside that folder add a text file called `rpi-i2c.conf` with the following contents:
+- In the root of the `hassos-boot` partition, add a new folder called `CONFIG`.
+- In the `CONFIG` folder, add another new folder called `modules`.
+- Inside the `modules` folder add a text file called `rpi-i2c.conf` with the following content:
   ```txt
-  i2c-bcm2708
   i2c-dev
   ```
-- In the root of the USB drive add a file called `config.txt` with the following contents:
+- In the root of the USB drive edit the file called `config.txt` add two lines
+  to it:
   ```txt
-  dtparam=i2c1=on 
+  dtparam=i2c_vc=on
   dtparam=i2c_arm=on
   ```
 
-### Step 3 - Load the new USB configuration
+### Step 3 - Start with the new configuration
 
-- Insert the USB drive into your Raspberry Pi.
-- Now go to your Home Assistant web interface, in the sidebar click **Supervisor** > **System**.
-- Now click `Import from USB`.
-- This will restart your Home Assistant instance, and load the new USB configuration.
+- Insert the SD card back into your Raspberry Pi.
+- On startup, the `hassos-config.service` will automatically pickup the new
+  `rpi-i2c.conf` configuration.
+- Another reboot might be necessary to make sure the just imported `rpi-i2c.conf` is
+  present at boot time.
 
-When the service has restarted, you will have a working I2C interface.
+The I2C devices should now be present under /dev.

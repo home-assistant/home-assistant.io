@@ -11,6 +11,10 @@ The Button card allows you to add buttons to perform tasks.
 Screenshot of the Button card.
 </p>
 
+To add the Button card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Button** from the card picker. All options for this card can be configured via the user interface.
+
+Alternatively, the card can be configured using YAML:
+
 ```yaml
 type: button
 entity: light.living_room
@@ -45,6 +49,11 @@ show_icon:
   description: Show icon.
   type: boolean
   default: "true"
+show_state:
+  required: false
+  description: Show state.
+  type: boolean
+  default: "false"
 icon_height:
   required: false
   description: Set the height for the icon. This is in pixels which is handled by the configuration UI. (Advanced users can use other CSS values if they like)
@@ -89,6 +98,7 @@ Title and Script Service Example:
 ```yaml
 type: button
 name: Turn Off Lights
+show_state: false
 tap_action:
   action: call-service
   service: script.turn_on

@@ -4,6 +4,7 @@ description: Instructions for how to integrate the Join by Joaoapps service with
 ha_category:
   - Hub
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.24
 ha_domain: joaoapps_join
 ---
@@ -76,22 +77,24 @@ notify:
 The notify service has several optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `tts`, `tts_language` and `vibration`.
 You can use them like so:
 
-```json
-{
-	"message": "Hello from Home Assistant!",
-	"title": "Home Assistant",
-	"data": {
-		"icon": "https://goo.gl/xeetdy",
-		"smallicon": "https://goo.gl/xeetdy",
-		"vibration": "0,65,706,86,657,95,668,100",
-		"image": "https://www.home-assistant.io/images/favicon-192x192-full.png",
-		"sound": "https://goo.gl/asasde.mp3",
-		"url": "https://home-assistant.io",
-		"notification_id": "hass-notification",
-		"tts": "Notification from Home Assistant",
-		"tts_language": "english"
-	}
-}
+```yaml
+message: Hello from Home Assistant!
+title: Home Assistant
+data:
+  icon: https://goo.gl/xeetdy
+  smallicon: https://goo.gl/xeetdy
+  vibration: 0,65,706,86,657,95,668,100
+  image: https://www.home-assistant.io/images/favicon-192x192-full.png
+  sound: https://goo.gl/asasde.mp3
+  url: https://home-assistant.io
+  notification_id: hass-notification
+  tts: Notification from Home Assistant
+  tts_language: english
+  actions:
+    Netflix:
+    Tweet:
+      - Tweet from HASS!
+    Sleep:
 ```
 
 The services exposed in the `joaoapps_join` integration can be used with the

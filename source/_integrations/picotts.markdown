@@ -3,6 +3,7 @@ title: Pico TTS
 description: Instructions on how to setup Pico Text-to-Speech with Home Assistant.
 ha_category:
   - Text-to-speech
+ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: picotts
 ---

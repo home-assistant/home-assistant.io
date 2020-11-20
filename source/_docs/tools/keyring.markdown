@@ -6,7 +6,7 @@ description: "Script to store secrets in a keyring"
 Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. The secrets can be managed from the command line via the `keyring` script.
 
 ```bash
-$ hass --script keyring --help
+hass --script keyring --help
 ```
 
 To store a password in keyring, replace your password or API key with `!secret` and an identifier in `configuration.yaml` file.
@@ -19,7 +19,7 @@ integration1:
 Create an entry in your keyring.
 
 ```bash
-$ hass --script keyring set integration1_key
+hass --script keyring set integration1_key
 ```
 
 If you launch Home Assistant now, you will be prompted for the keyring password to unlock your keyring.
@@ -31,7 +31,5 @@ Please enter password for encrypted keyring:
 ```
 
 <div class='note warning'>
-
-  If you are using the Python Keyring, [autostarting](/getting-started/autostart/) of Home Assistant will no longer work.
-
+If you are using the Python Keyring, automatic starting of Home Assistant Core will no longer work.
 </div>

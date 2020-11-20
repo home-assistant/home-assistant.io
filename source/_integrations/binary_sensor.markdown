@@ -4,6 +4,7 @@ description: Instructions on how-to setup binary sensors with Home Assistant.
 ha_category:
   - Binary Sensor
 ha_release: 0.9
+ha_iot_class:
 ha_quality_scale: internal
 ha_domain: binary_sensor
 ---
@@ -40,7 +41,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **vibration**: `on` means vibration detected, `off` means no vibration (clear)
 - **window**: `on` means open, `off` means closed
 
-For analog sensors please check the [integration overview](/integrations/#sensor).
+For analog sensors please check the [integration overview](/integrations/sensor).
 
 <p class='img'>
 <img src='/images/screenshots/binary_sensor_classes_icons.png' />

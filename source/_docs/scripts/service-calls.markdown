@@ -1,7 +1,6 @@
 ---
 title: "Service Calls"
 description: "Instructions on how to call services in Home Assistant."
-redirect_from: /getting-started/scripts-service-calls/
 ---
 
 Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script or via the Amazon Echo.
@@ -42,7 +41,7 @@ A full list of the parameters for a service can be found on the documentation pa
 You can use [templating] support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.
 
 ```yaml
-service_template: >
+service: >
   {% raw %}{% if states('sensor.temperature') | float > 15 %}
     switch.turn_on
   {% else %}
@@ -67,23 +66,13 @@ Templates can also be used for the data that you pass to the service call.
 
 ```yaml
 service: thermostat.set_temperature
-data_template:
+data:
   entity_id: >
     {% raw %}{% if is_state('device_tracker.paulus', 'home') %}
       thermostat.upstairs
     {% else %}
       thermostat.downstairs
     {% endif %}{% endraw %}
-  temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
-```
-
-It is even possible to use `data` and `data_template` concurrently but be aware that `data_template` will overwrite attributes that are provided in both.
-
-```yaml
-service: thermostat.set_temperature
-data:
-  entity_id: thermostat.upstairs
-data_template:
   temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
 ```
 

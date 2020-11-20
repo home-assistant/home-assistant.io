@@ -8,6 +8,5 @@ For testing the performance of Home Assistant the Benchmark script runs until yo
 Firing and handling of a million events.
 
 ```bash
-$ hass --script benchmark async_million_events
+hass --script benchmark async_million_events
 ```
-

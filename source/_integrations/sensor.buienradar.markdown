@@ -75,7 +75,7 @@ monitored_conditions:
     groundtemperature:
       description: "The current ground temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     windspeed:
-      description: "The wind speed in [m/s](https://en.wikipedia.org/wiki/M/s)."
+      description: "The wind speed in [km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour)."
     windforce:
       description: "The wind speed/force in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)."
     winddirection:
@@ -97,9 +97,9 @@ monitored_conditions:
     irradiance:
       description: "Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2))."
     rainlast24hour:
-      description: The rail over the last 24 hours (in mm).
+      description: The rain over the last 24 hours (in mm).
     rainlasthour:
-      description: The rail over the last hour (in mm). 
+      description: The rain over the last hour (in mm). 
     temperature_1d:
       description: "The forecasted temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     mintemp_1d:

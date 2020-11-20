@@ -3,9 +3,10 @@ title: Agent DVR
 description: Access and control Agent DVR from Home Assistant.
 ha_category:
   - Camera
+  - Alarm
 ha_config_flow: true
 ha_release: '0.110'
-ha_iot_class: Local Pull
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@ispysoftware'
 ha_domain: agent_dvr
@@ -23,6 +24,10 @@ For configuration, go to the `Integrations panel` on your Home Assistant instanc
 <div class='note'>
   Please ensure you are using Agent DVR v2.6.1.0 +
 </div>
+
+## Alarm Control Panel
+
+Reports on the current alarm status and can be used to arm and disarm the system.
 
 ## Services
 

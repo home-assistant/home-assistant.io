@@ -6,6 +6,8 @@ description: "The Entities card is the most common type of card. It groups items
 
 The Entities card is the most common type of card. It groups items together into lists.
 
+To add the Entities card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Entities** from the card picker.
+
 {% configuration %}
 type:
   required: true
@@ -74,7 +76,7 @@ image:
   type: string
 secondary_info:
   required: false
-  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
+  description: "Show additional info. Values: `entity-id`, `last-changed`, `last-updated`, `last-triggered` (only for automations and scripts), `position` or `tilt-position` (only for supported covers), `brightness` (only for lights)."
   type: string
 format:
   required: false
@@ -123,6 +125,10 @@ type:
 name:
   required: true
   description: Main Label.
+  type: string
+icon:
+  required: false
+  description: An icon to display to the left of the label.
   type: string
 action_name:
   required: false
@@ -223,8 +229,8 @@ type:
 style:
   required: false
   description: Style the element using CSS.
-  type: string
-  default: "height: 1px, background-color: var(--secondary-text-color)"
+  type: map
+  default: "height: 1px, background-color: var(--divider-color)"
 {% endconfiguration %}
 
 ### Section
@@ -361,8 +367,12 @@ entities:
     name: Home Assistant
     url: https://www.home-assistant.io/
     icon: mdi:home-assistant
+  - type: button
+    name: Power cycle LibreELEC
+    icon: mdi:power-cycle
+    tap_action:
+      action: call-service
+      confirmation:
+        text: Are you sure you want to restart?
+      service: script.libreelec_power_cycle
 ```
-
-<div class='note'>
-Please be aware that the entity types divider and weblink aren't yet supported by the UI editor and a warning about `Expected a value of type...` is shown. You can ignore the warning and save your edits to verify.
-</div>

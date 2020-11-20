@@ -35,15 +35,15 @@ fan:
           service: script.fan_off
         set_speed:
           service: script.fan_speed
-          data_template:
+          data:
             speed: "{{ speed }}"
         set_oscillating:
           service: script.fan_oscillating
-          data_template:
+          data:
             oscillating: "{{ oscillating }}"
         set_direction:
           service: script.fan_direction
-          data_template:
+          data:
             direction: "{{ direction }}"
         speeds:
           - '1'
@@ -61,6 +61,10 @@ fan:
     keys:
       friendly_name:
         description: Name to use in the frontend.
+        required: false
+        type: string
+      unique_id:
+        description: An ID that uniquely identifies this fan. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:

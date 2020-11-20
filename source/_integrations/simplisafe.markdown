@@ -2,6 +2,7 @@
 title: SimpliSafe
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
 ha_release: 0.81
+ha_iot_class: Cloud Polling
 ha_category:
   - Alarm
   - Lock
@@ -16,34 +17,22 @@ The `simplisafe` integration integrates [SimpliSafe home security](https://simpl
 There is currently support for the following device types within Home Assistant:
 
 - **Alarm Control Panel**: reports on the current alarm status and can be used to arm and disarm the system.
-- **Lock**: Reports on `Door Locks` and can be used to lock and unlock a lock.
+- **CO Detector**: reports on the carbon monoxide sensor status*.
+- **Entry Sensor**: reports on the current entry sensor status*.
+- **Freeze Sensor**: reports on the freeze sensor temperature*.
+- **Glass Break Sensor**: reports on the glass breakage sensor status*.
+- **Lock**: reports on `Door Locks` and can be used to lock and unlock a lock.
+- **Motion Sensor**: triggers [events](#events) if the alarm is armed or if secret alerts are enabled in SimpliSafe.
+- **Siren**: reports on the siren status*.
+- **Smoke Detector**: reports on the smoke sensor status*.
+- **Water Sensor**: reports on water sensor status*.
+
+* Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
 ## Configuration
 
-To enable this component, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-simplisafe:
-  accounts:
-    - username: user@email.com
-      password: password123
-```
-
-{% configuration %}
-username:
-  description: The email address of a SimpliSafe account.
-  required: true
-  type: string
-password:
-  description: The password of a SimpliSafe account.
-  required: true
-  type: string
-code:
-  description: A code to enable or disable the alarm in the frontend. *Under normal operation, the integration doesn’t need a SimpliSafe keypad code.*
-  required: false
-  type: string
-{% endconfiguration %}
+This integration can be configured via the Home Assistant UI by navigating to
+**Configuration** -> **Integrations**.
 
 ## Services
 

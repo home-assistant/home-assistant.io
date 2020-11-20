@@ -3,6 +3,7 @@ title: Baidu
 description: Instructions on how to setup Baidu TTS with Home Assistant.
 ha_category:
   - Text-to-speech
+ha_iot_class: Cloud Push
 ha_release: 0.59
 ha_domain: baidu
 ---
@@ -51,7 +52,7 @@ volume:
   type: integer
   default: 5
 person:
-  description: The voice type. You choose one from 0, 1, 3 or 4.
+  description: The voice type. You choose one from 0, 1, 3, 4, 5, 103, 106, 110 or 111.
   required: false
   type: integer
   default: 0

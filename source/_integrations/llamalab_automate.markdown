@@ -3,6 +3,7 @@ title: LlamaLab Automate
 description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.27
 ha_domain: llamalab_automate
 ---
@@ -41,6 +42,19 @@ device:
   required: false
   type: string
 {% endconfiguration %}
+
+Example Automation:
+
+```yaml
+- service: notify.entity_id
+      data:
+        message: "This is the message"
+        data:
+          priority: Normal
+```
+
+Message delivery `priority` in the nested `data` section is optional (default value: Normal).
+Value "High" attempts to awaken the receiving device.
 
 Receiving cloud messages in Automate:
 

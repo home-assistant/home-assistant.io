@@ -4,6 +4,7 @@ description: Instructions on how to integrate Yamaha Network Receivers into Home
 ha_category:
   - Media Player
 ha_release: 0.16
+ha_iot_class: Local Polling
 ha_domain: yamaha
 ---
 
@@ -14,6 +15,7 @@ Supported devices:
 - [HTR-4065](https://www.yamaha.com/cchtr4065/)
 - [RX-V473](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v473/specs.html)
 - [RX-V573](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v573/specs.html)
+- [RX-V585](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
 - [RX-V773](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v773/specs.html)
 - And more
@@ -136,3 +138,12 @@ Enable or disable an output port (HDMI) on the receiver.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
 | `port` | no | Port to enable or disable, e.g., `hdmi1`.
 | `enabled` | no | To enable set true, otherwise set to false.
+
+### Service `select_scene`
+
+Select a scene on the receiver.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
+| `scene` | no | Scene to select, e.g., `BD/DVD Movie Viewing`, `TV Viewing`, `NET Audio Listening` or `Radio Listening`.

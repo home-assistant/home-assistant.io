@@ -8,11 +8,12 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: history
+ha_iot_class:
 ---
 
 The `history` integration will track everything that is going on within Home
-Assistant and allows the user to browse through it. It depends on the `recorder`
-component for storing the data and uses the same database setting.
+Assistant and allows the user to browse through it. It depends on the [`recorder`](/integrations/recorder/)
+integration for storing the data and uses the same database setting.
 If any entities are excluded from being recorded,
 no history will be available for these entities.
 
@@ -24,8 +25,8 @@ history:
 ```
 
 <p class='img'>
-  <a href='{{site_root}}/images/screenshots/component_history_24h.png'>
-    <img src='{{site_root}}/images/screenshots/component_history_24h.png' />
+  <a href='/images/screenshots/component_history_24h.png'>
+    <img src='/images/screenshots/component_history_24h.png' />
   </a>
 </p>
 
@@ -44,6 +45,10 @@ exclude:
       description: The list of entity ids to be excluded from the history.
       required: false
       type: list
+    entity_globs:
+      description: Include all entities matching a listed pattern when creating logbook entries (e.g., `sensor.weather_*`).
+      required: false
+      type: list
     domains:
       description: The list of domains to be excluded from the history.
       required: false
@@ -57,6 +62,10 @@ include:
       description: The list of entity ids to be included in the history.
       required: false
       type: list
+    entity_globs:
+      description: Include all entities matching a listed pattern when creating logbook entries (e.g., `sensor.weather_*`).
+      required: false
+      type: list
     domains:
       description: The list of domains to be included in the history.
       required: false
@@ -64,7 +73,7 @@ include:
 {% endconfiguration %}
 
 Without any `include` or `exclude` configuration the history displays graphs for
- every entity (well that's not exactly true - for instance `hidden` entities or
+ every entity (well that's not exactly true -
  `scenes` are never shown) on a given date. If you are only interested in some
  of the entities you have several options:
 
@@ -83,6 +92,8 @@ history:
     entities:
       - sensor.last_boot
       - sensor.date
+    entity_globs:
+      - binary_sensor.*_occupancy
 ```
 
 Define domains and entities to display by using the `include` configuration
@@ -135,6 +146,18 @@ history:
       - sun.sun
       - light.front_porch
 ```
+
+Filters are applied as follows:
+
+1. No includes or excludes - pass all entities
+2. Includes, no excludes - only include specified entities
+3. Excludes, no includes - only exclude specified entities
+4. Both includes and excludes - include specified entities and exclude specified entities from the remaining.
+
+The following characters can be used in entity globs:
+
+`*` - The asterisk represents zero, one, or multiple characters
+`.` - The period represents a single character
 
 #### Implementation details
 

@@ -1,7 +1,6 @@
 ---
 title: "Installation of Home Assistant"
 description: "Instructions on how to install Home Assistant to launch on start."
-redirect_from: /getting-started/installation/
 ---
 
 <div class='note'>
@@ -53,8 +52,8 @@ The only installation methods that allow you to use Home Assistant Add-ons is us
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[Home Assistant](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
-[Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
+[Home Assistant OS](/hassio/installation/)|[A supported platform](/hassio/installation/)|Anybody
+[Home Assistant Container](/docs/installation/docker/)|Docker|Anybody already running Docker
 
 ## Alternative installs
 
@@ -62,54 +61,12 @@ If you use these install methods, we assume that you know how to manage and admi
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.7 or later|Those familiar with their operating system
-[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.7 or later|Developers
+[Home Assistant Core](/docs/installation/raspberry-pi/)|Any Linux, Python 3.8 or later|Those familiar with their operating system
+[Home Assistant Supervised](https://github.com/home-assistant/supervised-installer) | [Requirements](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md#supported-operating-system-system-dependencies-and-versions) | Those very familiar with their operating system
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.8 or later|**Developers**
 
 ## Community provided guides
 
-These guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform or because required Python packages aren't available for that platform.
+Additional installation guides can be found on our [Community Forum](https://community.home-assistant.io/tags/c/community-guides/51/installation).
 
-<div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/docs/installation/armbian/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/armbian.png' />
-    </div>
-    <div class='title'>armbian</div>
-  </a>
-  <a class='option-card' href='/docs/installation/archlinux/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/archlinux.png' />
-    </div>
-    <div class='title'>ArchLinux</div>
-  </a>
-  <a class='option-card' href='/docs/installation/fedora/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/fedora.png' />
-    </div>
-    <div class='title'>Fedora</div>
-  </a>
-  <a class='option-card' href='/docs/installation/centos/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/centos.png' />
-    </div>
-    <div class='title'>CentOS/RHEL</div>
-  </a>
-  <a class='option-card' href='/docs/installation/macos/'>
-    <div class='img-container'>
-      <img src='https://brands.home-assistant.io/ios/icon.png' />
-    </div>
-    <div class='title'>macOS</div>
-  </a>
-  <a class='option-card' href='/docs/installation/synology/'>
-    <div class='img-container'>
-      <img src='https://brands.home-assistant.io/synology/logo.png' />
-    </div>
-    <div class='title'>Synology</div>
-  </a>
-  <a class='option-card' href='/docs/installation/freenas/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/freenas.png' />
-    </div>
-    <div class='title'>FreeNAS</div>
-  </a>
-</div>
+These Community Guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform.

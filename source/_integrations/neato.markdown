@@ -15,7 +15,14 @@ ha_codeowners:
 ha_domain: neato
 ---
 
-The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
+The `neato` integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
+
+There is support for the following platform types within Home Assistant:
+
+- **Camera** - allows you to view the latest cleaning map.
+- **Sensor** - allows you to view the battery level.
+- **Switch** - allows you to enable or disable the schedule.
+- [**Vacuum**](#vacuum)
 
 To activate `neato` in your installation, you can set it up from the integration screen or add it to your `configuration.yaml` file.
 
@@ -61,7 +68,7 @@ After the update to firmware 4.0 (which adds cleaning maps) there is also suppor
 
 ## Vacuum
 
-The `neato` vacuum platform allows you to control your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
+The `neato` vacuum platform allows you to control your [Neato Botvac Connected][botvac-connected].
 The status will contain attributes on the robots last clean session.
 
 <div class='note'>
@@ -104,17 +111,4 @@ Some information about the capabilities might be found on the [Neato Developer P
 | `category`             | yes      | Whether to use a persistent map or not for cleaning (i.e., No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found). |
 | `zone`                 | yes      | Only supported on the Botvac D7. Name of the zone to clean from the Neato app. Use unique names for the zones to avoid the wrong zone from running. Defaults to no zone i.e., complete house cleanup.                                                                  |
 
-
-## Camera
-
-The `neato` camera platform allows you to view the latest cleaning map of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
-
-## Sensor
-
-The `neato` sensor platform allows you to view the battery level for your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
-
-## Switch
-
-The `neato` switch platform allows you to enable or disable the schedule of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
-
-To add `neato` switch, camera and vacuum to your installation, follow instructions above.
+[botvac-connected]: https://neatorobotics.com/products

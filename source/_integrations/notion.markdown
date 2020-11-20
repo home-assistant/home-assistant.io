@@ -18,23 +18,5 @@ home monitoring sensor kits.
 
 ## Configuration
 
-To add your Notion kits to your Home Assistant installation, add the following to your
-`configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-notion:
-  username: YOUR_EMAIL_ADDRESS
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: An email address for an active Notion account.
-  required: true
-  type: string
-password:
-  description: The password for the account.
-  required: true
-  type: string
-{% endconfiguration %}
+This integration can be configured via the Home Assistant UI by navigating to
+**Configuration** -> **Integrations**.

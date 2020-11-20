@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Input Text integration into Ho
 ha_category:
   - Automation
 ha_release: 0.53
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -13,6 +14,9 @@ ha_domain: input_text
 The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
 The preferred way to configure an input text is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Text** option.
+
+To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from you configuration, you must add `input_text:` to your `configuration.yaml` first, then you can use the UI.
 
 It can also be configured via `configuration.yaml`:
 
@@ -128,8 +132,7 @@ automation:
       entity_id: input_select.scene_bedroom
     action:
       - service: input_text.set_value
-        # Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
-        data_template:
+        data:
           entity_id: input_text.bedroom
           value: "{{ states('input_select.scene_bedroom') }}"
 ```

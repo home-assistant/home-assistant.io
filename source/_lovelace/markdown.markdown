@@ -10,8 +10,10 @@ The renderer uses [Marked.js](https://marked.js.org), which supports [several sp
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_markdown.png' alt='Screenshot of the markdown card'>
-Screenshot of the markdown card.
+Screenshot of the Markdown card.
 </p>
+
+To add the Markdown card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Markdown** from the card picker.
 
 {% configuration %}
 type:
@@ -44,6 +46,8 @@ theme:
 {% endconfiguration %}
 
 ## Example
+
+The card can also be configured using YAML, some examples below:
 
 ```yaml
 type: markdown

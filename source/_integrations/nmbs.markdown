@@ -59,6 +59,6 @@ show_on_map:
 {% endconfiguration %}
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/nmbs-card-example.png' />
+  <img src='/images/screenshots/nmbs-card-example.png' />
   <p>Example using the <a href="https://github.com/custom-cards/entity-attributes-card">Lovelace Attributes custom card</a> </p>
 </p>

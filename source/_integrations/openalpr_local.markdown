@@ -3,41 +3,42 @@ title: OpenALPR Local
 description: Instructions on how to integrate licences plates with OpenALPR local into Home Assistant.
 ha_category:
   - Image Processing
+ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: openalpr_local
 ---
 
-[OpenALPR](https://www.openalpr.com/) integration for Home Assistant allows you
-to process license plates from a camera. You can use them to open a garage door
-or trigger any other [automation](/integrations/automation/).
+The [OpenALPR](https://www.openalpr.com/) integration for Home Assistant allows you
+to process vehicle license plates from a camera. You can use this information to 
+trigger [automations](/integrations/automation/) like opening a garage door.
 
 For using the result inside an automation rule, take a look at the
-[component](/integrations/image_processing) page.
+[image processing integration](/integrations/image_processing) page.
 
-### Local installation
+## Local installation
 
-If you want process all data locally, you need version 2.3.1 or higher of the
-`alpr` commandline tool.
+If you want process all data locally, you will need version 2.3.1 or higher of the
+`alpr` command line tool.
 
-If you don't find binaries for your distribution you can compile from source.
+If you don't find binaries for your distribution, you can compile the tool from source.
 Documentation of how to build OpenALPR is found
 [here](https://github.com/openalpr/openalpr/wiki).
 
-On a Debian system you can use this `cmake` command to build only the command
+On a Debian system you can use the following `cmake` command to build only the command
 line tool:
 
 ```bash
-$ cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE \
+cmake -DWITH_TEST=FALSE -DWITH_BINDING_JAVA=FALSE --DWITH_BINDING_PYTHON=FALSE \
   --DWITH_BINDING_GO=FALSE -DWITH_DAEMON=FALSE -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 ```
 
-For other operating system please refer to the
+For other operating systems, please refer to the
 [OpenALPR wiki](https://github.com/openalpr/openalpr/wiki).
 
-Verify your `alpr` installation with:
+Verify your `alpr` installation with a command like the following:
 
 ```bash
-$ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
+wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
 
 ### Configuration
@@ -53,7 +54,7 @@ image_processing:
 
 {% configuration %}
 region:
-  description: Country or region. List of supported [values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
+  description: Country or region. List of [supported values](https://github.com/openalpr/openalpr/tree/master/runtime_data/config).
   required: true
   type: string
 alpr_bin:
@@ -62,7 +63,7 @@ alpr_bin:
   type: string
   default: alpr
 confidence:
-  description: The minimum of confidence in percent to process with Home Assistant.
+  description: The minimum confidence in percent to process with Home Assistant.
   required: false
   type: integer
   default: 80
@@ -72,7 +73,7 @@ source:
   type: list
   keys:
     entity_id:
-      description: A camera entity id to get picture from.
+      description: A camera entity id to get the picture from.
       required: true
       type: string
     name:

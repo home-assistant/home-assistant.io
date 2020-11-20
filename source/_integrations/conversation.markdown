@@ -5,6 +5,7 @@ ha_category:
   - Voice
 ha_release: 0.7
 ha_quality_scale: internal
+ha_iot_class: Calculated
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: conversation
@@ -79,7 +80,7 @@ intent_script:
       text: Changed the lights to {{ color }}.
     action:
       service: light.turn_on
-      data_template:
+      data:
         rgb_color:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"

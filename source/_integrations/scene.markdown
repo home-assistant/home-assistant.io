@@ -8,9 +8,12 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: scene
+ha_iot_class:
 ---
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
+
+Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be configured via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -18,19 +21,19 @@ scene:
   - name: Romantic
     icon: "mdi:flower-tulip"
     entities:
-      light.tv_back_light: on
+      light.tv_back_light: "on"
       light.ceiling:
-        state: on
+        state: "on"
         xy_color: [0.33, 0.66]
         brightness: 200
   - name: Movies
     entities:
       light.tv_back_light:
-        state: on
+        state: "on"
         brightness: 125
       light.ceiling: off
       media_player.sony_bravia_tv:
-        state: on
+        state: "on"
         source: HDMI 1
 ```
 
@@ -86,11 +89,11 @@ automation:
     data:
       entities:
         light.tv_back_light:
-          state: on
+          state: "on"
           brightness: 100
         light.ceiling: off
         media_player.sony_bravia_tv:
-          state: on
+          state: "on"
           source: HDMI 1
 ```
 
@@ -145,11 +148,11 @@ automation:
       scene_id: my_scene
       entities:
         light.tv_back_light:
-          state: on
+          state: "on"
           brightness: 100
         light.ceiling: off
         media_player.sony_bravia_tv:
-          state: on
+          state: "on"
           source: HDMI 1
 ```
 

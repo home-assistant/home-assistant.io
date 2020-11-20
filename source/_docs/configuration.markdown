@@ -28,10 +28,20 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 
 </div>
 
+## Editing `configuration.yaml`
+
+There are many ways you can edit `configuration.yaml`. Here are three options to get you started:
+
+The simplest is to use the "File Editor" add-on. This will allow you to edit your configuration from within Home Assistant itself.
+
+You can also use Samba (you may need to install the "Samba" add-on) and your favorite file editor.
+
+The most basic is to use SSH to connect to the system (you may need to install the SSH add-on) and then use `nano` (or `vim`) to edit the file.
+
 ## Reloading changes
 
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [timers](/integrations/timer/), and [zones](/integrations/zone/) without restarting.
+You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [history stats](/integrations/history_stats/), [HomeKit](/integrations/homekit/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [MQTT](/integrations/mqtt/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [statistics](/integrations/statistics/), [template sensors](/integrations/template/), [timers](/integrations/timer/), [zones](/integrations/zone/), and more without restarting.
 
 <div class='note warning'>
 

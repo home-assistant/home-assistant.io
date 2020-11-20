@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.19
 ha_quality_scale: internal
 ha_domain: climate
+ha_iot_class:
 ---
 
 The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
@@ -18,7 +19,7 @@ Available services: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.
 
 <div class='note'>
 
-Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
+Not all climate services may be available for your platform. You can check which climate services are available under **Developer Tools** -> **Services**.
 
 </div>
 
@@ -77,9 +78,9 @@ Set target temperature of climate device
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
-| `temperature` | no | New target temperature for climate device (commonly referred to as a *setpoint*). Do not use if `hvac_mode` is `heat_cool`.
-| `target_temp_high` | yes | The highest temperature that the climate device will allow. Required if `hvac_mode` is `heat_cool`.
-| `target_temp_low` | yes | The lowest temperature that the climate device will allow. Required if `hvac_mode` is `heat_cool`.
+| `temperature` | yes | New target temperature for climate device (commonly referred to as a *setpoint*). Do not use if `hvac_mode` is `heat_cool`.
+| `target_temp_high` | yes | The highest temperature that the climate device will allow. Required if `hvac_mode` is `heat_cool`. Required together with `target_temp_low`.
+| `target_temp_low` | yes | The lowest temperature that the climate device will allow. Required if `hvac_mode` is `heat_cool`.  Required together with `target_temp_high`.
 | `hvac_mode` | yes | HVAC mode to set the climate device to. This defaults to current HVAC mode if not set, or set incorrectly.
 
 #### Automation examples
@@ -220,3 +221,14 @@ Turn climate device off. This is only supported if the climate device has the HV
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+
+## Attributes
+
+The climate entity has extra attributes to represent the state of the thermostat.
+
+| Name | Description |
+| ---- | ----------- |
+| `hvac_action` | Current state: `heating` / `cooling` / `idle`.
+| `fan` | If the fan is currently on or off: `on` / `off`.
+
+It depends on the thermostat you are using which states are available.

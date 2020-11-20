@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Input Number integration into 
 ha_category:
   - Automation
 ha_release: 0.55
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -13,6 +14,9 @@ ha_domain: input_number
 The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
 The preferred way to configure an input number is via the user interface at **Configuration** -> **Helpers**. Click the add button and then choose the **Number** option.
+
+To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+If you removed `default_config:` from you configuration, you must add `input_number:` to your `configuration.yaml` first, then you can use the UI.
 
 Input numbers can also be configured via `configuration.yaml`:
 
@@ -126,8 +130,7 @@ automation:
       entity_id: input_number.bedroom_brightness
     action:
       - service: light.turn_on
-        # Note the use of 'data_template:' below rather than the normal 'data:' if you weren't using an input variable
-        data_template:
+        data:
           entity_id: light.bedroom
           brightness: "{{ trigger.to_state.state | int }}"
 ```
@@ -164,8 +167,7 @@ automation:
       to: CUSTOM
     action:
       - service: light.turn_on
-        # Again, note the use of 'data_template:' rather than the normal 'data:' if you weren't using an input variable.
-        data_template:
+        data:
           entity_id: light.bedroom
           brightness: "{{ states('input_number.bedroom_brightness') | int }}"
 ```
@@ -194,7 +196,7 @@ automation:
       topic: 'setTemperature'
     action:
       service: input_number.set_value
-      data_template:
+      data:
         entity_id: input_number.target_temp
         value: "{{ trigger.payload }}"
 
@@ -206,7 +208,7 @@ automation:
       entity_id: input_number.target_temp
     action:
       service: mqtt.publish
-      data_template:
+      data:
         topic: 'setTemperature'
         retain: true
         payload: "{{ states('input_number.target_temp') | int }}"
@@ -242,7 +244,7 @@ automation:
      entity_id: switch.something
      to: 'on'
    action:
-     - delay: '00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}'
+     - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
      - service: switch.turn_off
        entity_id: switch.something
 ```

@@ -32,10 +32,11 @@ Available services: `send_magic_packet`.
 
 Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 
-| Service data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `mac`                     |       no | MAC address of the device to wake up.                 |
-| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet. |
+| Service data attribute    | Optional | Description                                             |
+|---------------------------|----------|---------------------------------------------------------|
+| `mac`                     |       no | MAC address of the device to wake up.                   |
+| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet.   |
+| `broadcast_port`          |      yes | Optional port where to send the magic packet.           |
 
 Sample service data:
 
@@ -44,6 +45,11 @@ Sample service data:
    "mac":"00:40:13:ed:f1:32"
 }
 ```
+
+<div class='note'>
+This usually only works if the Target Device is connected to the same network. Routing the WakeOnLan packet to a different subnet requires a special configuration on your router or may not be possible.
+The Service to Route the packet is most likely named "IP Helper" which may support WakeOnLan, but not all Routers support this.
+</div>
 
 ## Switch
 
@@ -87,6 +93,10 @@ broadcast_address:
   required: false
   default: 255.255.255.255
   type: string
+broadcast_port:
+  description: The port to send the magic packet to.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 ### Examples

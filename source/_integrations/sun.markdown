@@ -7,6 +7,7 @@ ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
   - '@Swamp-Ig'
+ha_iot_class: Calculated
 ha_domain: sun
 ---
 

@@ -8,6 +8,7 @@ ha_release: 0.109
 ha_domain: arris_tg2492lg
 ha_codeowners:
   - '@vanbalken'
+ha_iot_class: Local Polling
 ---
 
 This platform allows you to detect presence by looking at connected devices to an Arris TG2492LG router.

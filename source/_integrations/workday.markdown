@@ -3,6 +3,7 @@ title: Workday
 description: Steps to configure the binary workday sensor.
 ha_category:
   - Utility
+  - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.41
 ha_quality_scale: internal
@@ -40,7 +41,7 @@ country:
   required: true
   type: string
 province:
-  description: Province code according to [holidays](https://pypi.org/project/holidays/) notation.
+  description: Province/State code according to [holidays](https://pypi.org/project/holidays/) notation.
   required: false
   type: string
 workdays:
@@ -60,6 +61,10 @@ days_offset:
   default: 0
 add_holidays:
   description: "Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`."
+  required: false
+  type: list
+remove_holidays:
+  description: "Remove holidays (treat holiday as workday). Needs to formatted as `YYYY-MM-DD`."
   required: false
   type: list
 {% endconfiguration %}
@@ -104,6 +109,20 @@ binary_sensor:
     excludes: [sat, sun, holiday]
     add_holidays:
       - '2020-02-24'
+```
+
+This example excludes Saturdays, Sundays and holidays. Two holidays are removed: November 26, 2020 and December 25, 2020.
+
+```yaml
+# Example 2 configuration.yaml entry
+binary_sensor:
+  - platform: workday
+    country: US
+    workdays: [mon, tue, wed, thu, fri]
+    excludes: [sat, sun, holiday]
+    remove_holidays:
+      - '2020-11-26'
+      - '2020-12-25'
 ```
 
 ## Automation example

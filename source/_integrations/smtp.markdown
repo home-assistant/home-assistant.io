@@ -3,6 +3,7 @@ title: SMTP
 description: Instructions on how to add e-mail notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: pre 0.7
 ha_codeowners:
   - '@fabaff'
@@ -37,7 +38,7 @@ recipient:
   required: true
   type: [list, string]
 server:
-  description: SMTP server which is used to end the notifications.
+  description: SMTP server which is used to send the notifications.
   required: false
   type: string
   default: localhost  
@@ -128,7 +129,7 @@ The optional `html` field makes a custom text/HTML multi-part message, allowing 
       - delay:
             seconds: 1
       - service: notify.NOTIFIER_NAME
-        data_template:
+        data:
             message: 'Intruder alert at apartment!!'
             data:
               images:

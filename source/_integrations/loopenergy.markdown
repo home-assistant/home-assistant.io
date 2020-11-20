@@ -6,7 +6,15 @@ ha_category:
 ha_release: 0.17
 ha_iot_class: Cloud Push
 ha_domain: loopenergy
+ha_codeowners:
+  - '@pavoni'
 ---
+
+<div class='note warning'>
+
+Loop Energy has said that on November 13, 2020, they will [switch off the servers which this integration uses](https://email.loop.homes/action-required-how-to-claim-your-free-loop-upgrade-1). This integration will stop working then.
+
+</div>
 
 Integrate your [Loop Energy](https://www.your-loop.com/) meter information into Home Assistant. To use this sensor you need the client serial number and secret keys for your devices.
 
