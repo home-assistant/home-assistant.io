@@ -81,7 +81,7 @@ For the latest information, check our dedicated [Home Assistant Conference](/con
 
 <a href="/conference"><img src='/images/conference/conference-header.png' alt='Home Assistant Conference header' class='no-shadow'></a>
 
-#### Edit: We all hate ads! But we do like to show off our users!
+### Edit: We all hate ads! But we do like to show off our users!
 
 For those who don’t keep up with the release notes, we added an announcement about the conference in the Configuration panel. It was always set to disappear automatically when the conference is over, but when you are ready to be rid of it, just press the x! 
 
