@@ -63,21 +63,21 @@ Origin: "device_tracker.myphone"
 Destination: "sensor.dest_address"
 Region: "US"
 
-# Tracking entity to zone friendly name
+#### Tracking entity to zone friendly name
 In this example we are using the entity ID of a zone as the origin and the friendly name of a zone as the destination
 Name: Home To Eddie's House
 Origin: zone.home
 Destination: Eddies House
 Region: "US"
 
-# Tracking entity in Imperial Units
+#### Tracking entity in Imperial Units
 Origin: person.paulus
 Destination: "725 5th Ave, New York, NY 10022, USA"
 Region: "US"
 Units: imperial
 Vehicle Type: motorcycle
 
-# Avoiding toll, subscription
+#### Avoiding toll, subscription
 Name: Westerscheldetunnel
 Origin: 51.330436, 3.802043
 Destination: 51.445677, 3.749929
