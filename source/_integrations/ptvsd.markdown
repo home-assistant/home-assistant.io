@@ -7,6 +7,7 @@ ha_release: 0.93
 ha_codeowners:
   - '@swamp-ig'
 ha_domain: ptvsd
+ha_iot_class: Local Push
 ---
 
 <div class="note warning">

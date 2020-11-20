@@ -6,6 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: recorder
+ha_iot_class: Local Push
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` ](/integrations/history/) integration.
