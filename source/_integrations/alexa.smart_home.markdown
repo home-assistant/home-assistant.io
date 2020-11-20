@@ -348,10 +348,13 @@ The supported locales are:
 - `en-US`
 - `es-ES`
 - `es-MX`
+- `es-US`
 - `fr-CA`
 - `fr-FR`
+- `hi-IN`
 - `it-IT`
 - `ja-JP`
+- `pt-BR`
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
