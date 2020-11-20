@@ -357,7 +357,6 @@ source/_integrations/rpi_power.markdown @shenxn @swetoast
 source/_integrations/ruckus_unleashed.markdown @gabe565
 source/_integrations/safe_mode.markdown @home-assistant/core
 source/_integrations/saj.markdown @fredericvl
-source/_integrations/salt.markdown @bjornorri
 source/_integrations/samsungtv.markdown @escoand
 source/_integrations/scene.markdown @home-assistant/core
 source/_integrations/schluter.markdown @prairieapps
