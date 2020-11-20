@@ -87,7 +87,6 @@ For those who don’t keep up with the release notes, we added an announcement a
 
 We realize it is invoking concern of future ads and that it could have had a better execution. In fact, within some of the (yes, sometimes heated) discussions about it during the beta, there were some good thoughts and examples shared for working toward a truer "community news" integration. Such an integration could pull in future and ongoing community events, news, and project highlights, which could be enabled or disabled like any other integration. For now, it is this banner which will be removed on the next release.
 
-
 ## Grid Card
 
 Ever since the start of Lovelace, users have been making grids. However, this was
