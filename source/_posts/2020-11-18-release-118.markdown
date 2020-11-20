@@ -46,6 +46,7 @@ All in all, a fine release, with an exciting one ahead of us.
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 0.118.1 - November 19](#release-01181---november-19)
+- [Release 0.118.2 - November 20](#release-01182---november-20)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -289,6 +290,18 @@ The following integrations are now available via the Home Assistant UI:
 [tasmota docs]: /integrations/tasmota/
 [vizio docs]: /integrations/vizio/
 [wolflink docs]: /integrations/wolflink/
+
+## Release 0.118.2 - November 20
+
+- Increase Advantage Air retry limit for older systems ([@Bre77] - [#43417]) ([advantage_air docs])
+- Fix time trigger based on entities ignoring entities if initially in the past ([@balloob] - [#43431]) ([homeassistant docs])
+
+[#43417]: https://github.com/home-assistant/core/pull/43417
+[#43431]: https://github.com/home-assistant/core/pull/43431
+[@Bre77]: https://github.com/Bre77
+[@balloob]: https://github.com/balloob
+[advantage_air docs]: /integrations/advantage_air/
+[homeassistant docs]: /integrations/homeassistant/
 
 ## If you need help...
 
