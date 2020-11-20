@@ -345,12 +345,13 @@ If you need to verify domain ownership with Google Webmaster Central/Search Cons
 6. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
 7. Go back to Google Webmaster Central/Search Console and proceed with the verification.
 
-##### DNS verifcation (only if you control your DNS record or use DuckDNS)
+##### DNS verification (only if you control your DNS record or use DuckDNS)
+
 1. Enter your domain's base URL, like `https://example.com:8123/`
 2. Select DNS verification. If you're asked to choose your DNS provider, choose "Any DNS provider" or "Other".
 3. Add the TXT record to your DNS. If you use DuckDNS, use the format:
-```text
-https://www.duckdns.org/update?domains={your Duck DNS subdomain (the part before .duckdns.org)}&token={your Duck DNS token}&txt={google-site-verification record}
-```
+   ```text
+   https://www.duckdns.org/update?domains={your Duck DNS subdomain (the part before .duckdns.org)}&token={your Duck DNS token}&txt={google-site-verification record}
+   ```
 4. Wait until the changes take effect. This can be anywhere from seconds to hours, so be patient. You can use [this site to test it](https://www.digwebinterface.com/).
 5. Go back to Google Webmaster Central/Search Console and proceed with the verification.
