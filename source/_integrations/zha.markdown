@@ -69,6 +69,11 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - Digi XBee Series 3 (xbee3-24) modules
   - Digi XBee Series 2C (S2C) modules
   - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
+- ZiGate based radios (via the [zigpy-zigate](https://github.com/zigpy/zigpy-zigate) library for zigpy and require firmware 3.1d or later)
+  - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
+  - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
+  - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
+  - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/)
 
 ### Experimental support for additional Zigbee radio modules
 
@@ -76,11 +81,6 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [CC2531 USB stick hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
   - [CC2530 + CC2591/CC2592 USB stick hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
   - [CC2538 + CC2592 dev board hardware flashed with Z-Stack Home 1.2.x coordinator firmware](https://www.zigbee2mqtt.io/information/supported_adapters)
-- ZiGate based radios (via the [zigpy-zigate](https://github.com/zigpy/zigpy-zigate) library for zigpy and require firmware 3.1a or later)
-  - [ZiGate USB-TTL](https://zigate.fr/produit/zigate-ttl/)
-  - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
-  - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
-  - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/)
 
 ## Configuration - GUI
 
