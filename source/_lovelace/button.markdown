@@ -13,7 +13,7 @@ Screenshot of three Button Cards.
 
 To add the Button card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Button** from the card picker. All options for this card can be configured via the user interface.
 
-### Card Settings
+## Card Settings
 
 {% configuration_basic %}
 Entity:
@@ -38,7 +38,7 @@ Hold Action:
 
 ### YAML
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI
+This is for if you use YAML mode or prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
