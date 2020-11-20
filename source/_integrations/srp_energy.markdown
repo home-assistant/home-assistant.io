@@ -35,6 +35,7 @@ is_tou:
   description: Your account is time of use planP.
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 Details about the API are available in the [SRP Energy Developers API documentation](https://srpenergy-api-client-python.readthedocs.io/en/latest/?badge=latest).
