@@ -83,7 +83,7 @@ For the latest information, check our dedicated [Home Assistant Conference](/con
 
 ### Edit: We all hate ads! But we do like to show off our users!
 
-For those who don’t keep up with the release notes, we added an announcement about the conference in the Configuration panel. It was always set to disappear automatically when the conference is over, but when you are ready to be rid of it, just press the x! 
+For those who don’t keep up with the release notes, we added an announcement about the conference in the Configuration panel. It was always set to disappear automatically when the conference is over, but when you are ready to be rid of it, just press the x!
 
 We realize it is invoking concern of future ads and that it could have had a better execution. In fact, within some of the (yes, sometimes heated) discussion about it during the beta, there were some good thoughts and examples shared for working toward a truer "community news" integration which can pull in future and ongoing community events, news, and project highlight which could be enabled or disabled like any other integration...but for now it is this banner which will be removed on the next release.
 
