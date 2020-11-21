@@ -13,30 +13,26 @@ ha_config_flow: true
 
 The Microsoft Graph integration allows Home Assistant to create sensors from various properties of your Office 365 tenant via Microsoft's Graph API. All queries are performed using the authenticated user's account and depend on the permissions granted when creating the Azure AD application.
 
-- [Configuration](#configuration)
-- [Sensor](#sensor)
-  - [Microsoft Teams](#microsoft-teams)
-
 ## Configuration
 
 You will need to register an application in Azure AD and retrieve the client ID and client secret:
 
-- Register a new application in [Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
-  - Name your app
-  - Select "Accounts in any organizational directory (Any Azure AD directory - Multitenant)" under supported account types
+- Register a new application in [Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+  - Name your app.
+  - Select "Accounts in any organizational directory (Any Azure AD directory - Multitenant)" under supported account types.
   - For Redirect URI, add: `https://<EXTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
-- Copy your Application (client) ID for later use
-- On the App Page, navigate to "Certificates & secrets"
-  - Generate a new client secret and *save for later use* (you will *not* be able to see this again)
+- Copy your Application (client) ID for later use.
+- On the App Page, navigate to "Certificates & secrets".
+  - Generate a new client secret and *save for later use* (you will *not* be able to see this again).
 
 Then set the relevant permissions on the application on the API Permissions page. All of the following are required to function correctly:
 
-- Presence.Read
-- Presence.Read.All
-- User.Read
-- User.ReadBasic.All
+- `Presence.Read`
+- `Presence.Read.All`
+- `User.Read`
+- `User.ReadBasic.All`
 
-On the Authentication page under 'Implicit grant', ensure both 'Access tokens' and 'ID tokens' are enabled.
+Under 'Implicit grant', on the Authentication page, ensure both 'Access tokens' and 'ID tokens' are enabled.
 
 Add the client id and secret to your `configuration.yaml`:
 
@@ -70,7 +66,7 @@ There are 2 sensors that are added, both of which are enabled by default.
 
 | Sensor | Default | Description                                                                         |
 | -------------| -------- | ---------------------------------------------------------------------------- |
-| Availability | Enabled  | Shows your availability (e.g. Available, AvailableIdle, Away).               |
+| Availability | Enabled  | Shows your availability (e.g., Available, AvailableIdle, Away).               |
 | Activity     | Enabled  | Shows your activity (e.g. InACall, InAConferenceCall, Inactive, InAMeeting). |
 
 See possible availability and activity values [here](https://docs.microsoft.com/en-us/graph/api/resources/presence?view=graph-rest-beta#properties).
