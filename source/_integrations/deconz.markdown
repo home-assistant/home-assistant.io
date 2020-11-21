@@ -275,12 +275,16 @@ Note: Requires `on: true` to change color while the bulb is off. If `on:true` is
 {% raw %}
 
 ```yaml
-script:
-  hue_lamp_flash:
-    alias: Hue Lamp Flash
-    sequence:
+automation:
+  - alias: Flash Hue Bulb with Doorbell Motion
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_motion
+      to: 'on'
+    action:
     - service: deconz.configure
       data:
+        entity: light.hue_lamp
         field: /state
         data:
           'on': true
@@ -288,13 +292,13 @@ script:
           sat: 255
           bri: 255
           alert: breathe
-      entity_id: light.hue_lamp
-    - delay: '15'
+    - delay: 00:00:15
     - service: deconz.configure
       data:
+        entity: light.hue_lamp
+        field: /state
         data:
           'on': false
-      entity_id: light.hue_lamp
     mode: single
 ```
 
