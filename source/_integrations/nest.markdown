@@ -58,7 +58,7 @@ You will need to follow the instructions in [Device Access Registration](https:/
 It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
 </div>
 
-Then you need to configure a Pub/Sub subscriber following the SDM API Event isntructions under [Device Access: Events](https://developers.google.com/nest/device-access/api/events) though not using a service account. The basic
+Then you need to configure a Pub/Sub subscriber following the SDM API Event instructions under [Device Access: Events](https://developers.google.com/nest/device-access/api/events) though not using a service account. The basic
 steps are:
 
 - [Enable events](https://developers.google.com/nest/device-access/subscribe-to-events#enable_events) in the [Device Access Console](https://console.nest.google.com/device-access/project-list) which creates a Pub/Sub topic.
