@@ -35,16 +35,6 @@ sensor:
     type: time
     start: '{{ now().replace(hour=0, minute=0, second=0) }}'
     end: '{{ now() }}'
-    
-  - platform: history_stats
-    name: TV YouTube
-    entity_id: sensor.tv_source
-    state:
-      - "YouTube"
-      - "YouTube Kids"
-    type: time
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
 ```
 {% endraw %}
 
