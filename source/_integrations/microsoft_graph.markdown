@@ -36,6 +36,8 @@ Then set the relevant permissions on the application on the API Permissions page
 - User.Read
 - User.ReadBasic.All
 
+On the Authentication page under 'Implicit grant', ensure both 'Access tokens' and 'ID tokens' are enabled.
+
 Add the client id and secret to your `configuration.yaml`:
 
 ```yaml
