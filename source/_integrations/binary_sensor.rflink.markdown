@@ -49,6 +49,11 @@ devices:
           description: Alternative RFLink ID's this device is known by.
           required: false
           type: list
+        type:
+          description: Sets the entities binary sensor `type`.
+          required: false
+          type: string
+          default: standard
         device_class:
           description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
@@ -67,6 +72,13 @@ devices:
 ### Sensor state
 
 Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
+
+### Sensor type
+
+You can configure a binary sensor as `inverted` if the meaning of the `on`/`off` signals received are reversed from your needs.
+The `type` attribute accepts the values:
+* `standar`: for entities that follows the [binary_sensor specification](/integrations/binary_sensor/#device-class)
+* `inverted`: for entities with reversed `on`/`off` signals
 
 ### Device support
 
@@ -89,4 +101,8 @@ binary_sensor:
          name: PIR Living Room
          device_class: motion
          off_delay: 5
+       eurodomest_04fb6f_02:
+         name: Entrance door
+         type: inverted
+         device_class: door
 ```
