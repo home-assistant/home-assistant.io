@@ -13,13 +13,11 @@ ha_config_flow: true
 
 The Microsoft Graph integration allows Home Assistant to create sensors from various properties of your Office 365 tenant via Microsoft's Graph API. All queries are performed using the authenticated user's account and depend on the permissions granted when creating the Azure AD application.
 
-Home Assistant authenticates with Microsoft through OAuth2. Set up your credentials by completing the steps in [Manual Configuration](#manual-configuration) and then add the integration in **Configuration -> Integrations -> Microsoft Graph**. Ensure you log in using a Microsoft account that belongs to your organization's tenant.
-
-- [Manual Configuration](#manual-configuration)
+- [Configuration](#configuration)
 - [Sensor](#sensor)
   - [Microsoft Teams](#microsoft-teams)
 
-## Manual Configuration
+## Configuration
 
 You will need to register an application in Azure AD and retrieve the client ID and client secret:
 
@@ -68,9 +66,9 @@ The Microsoft Graph sensor platform automatically tracks various resources from 
 
 There are 2 sensors that are added, both of which are enabled by default.
 
-| Entity ID | Default | Description                                                                                        |
-| ---------------------------------| ------ | -----------------------------------------------------------------------------|
-| `sensor.ms_teams_availability` | Enabled  | Shows your availability (e.g. Available, AvailableIdle, Away).               |
-| `sensor.ms_teams_activity`     | Enabled  | Shows your activity (e.g. InACall, InAConferenceCall, Inactive, InAMeeting). |
+| Sensor | Default | Description                                                                         |
+| -------------| -------- | ---------------------------------------------------------------------------- |
+| Availability | Enabled  | Shows your availability (e.g. Available, AvailableIdle, Away).               |
+| Activity     | Enabled  | Shows your activity (e.g. InACall, InAConferenceCall, Inactive, InAMeeting). |
 
 See possible availability and activity values [here](https://docs.microsoft.com/en-us/graph/api/resources/presence?view=graph-rest-beta#properties).
