@@ -270,13 +270,15 @@ automation:
 {% endraw %}
 
 #### Colored Flashing - RGB Philips Hue bulb using deconz.configure
-Note: Requires `on: true` to change color while the bulb is off. If `on:true` is specified, the bulb remains on after flashing is complete. The previous color is not saved.
+
+Note: Requires on: true to change color while the Philips Hue bulb is off. If on:true is specified, the bulb remains on after flashing is complete. The previous color is not saved or restored.
 
 {% raw %}
 
 ```yaml
 automation:
   - alias: Flash Hue Bulb with Doorbell Motion
+    mode: single
     trigger:
     - platform: state
       entity_id: binary_sensor.doorbell_motion
@@ -299,7 +301,6 @@ automation:
         field: /state
         data:
           'on': false
-    mode: single
 ```
 
 {% endraw %}
