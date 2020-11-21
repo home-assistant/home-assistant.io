@@ -36,7 +36,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 - Click **Save** after adding the URI.
 
 <div class='note'>
-  Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses. You can get the IP & port for this address from the **Configuration > General** panel in Home Assistant. You should copy the Internal URL here into the External URL field. 
+  Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses. You can get the IP & port for this address from the **Configuration > General** panel in Home Assistant.
 </div>  
 
 ## Configuration
