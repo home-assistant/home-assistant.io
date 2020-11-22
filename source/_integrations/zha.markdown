@@ -176,11 +176,21 @@ from the same group:
 
 ### Service `zha.remove`
 
-This service remove an existing device from the network.
+This service removes an existing device from the network.
 
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
 | `ieee` | no | IEEE address of the device to remove 
+
+### Service `zha.reconfigure_device`
+
+This service reconfigures an existing device of the network. Use this if you are having issues
+with the device and heal it. If the device in question is a battery powered device please ensure it is awake and accepting commands when you use this
+service.
+
+|  Data | Optional | Description |
+| ---- | ---- | ----------- |
+| `ieee` | no | IEEE address of the device to reconfigure
 
 ### OTA firmware updates
 
