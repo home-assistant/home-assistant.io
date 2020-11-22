@@ -16,7 +16,7 @@ ha_config_flow: true
 ha_domain: plugwise
 ---
 
-This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway or USB-stick and components to be integrated. For USB you will need to know which port your stick is connected to. For the networked Plugwise Smile you will need its password and IP address.
+This enables [Plugwise](https://www.plugwise.com) components with a Smile gateway or Stick and the various connected devices to be integrated. For the Stick you will need to know which port it is connected to, for the networked Smile you will need its IP address and Smile ID.
 
 This integration supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and other Plugwise products through the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) product or using the USB-stick. See below list for more details.
 
