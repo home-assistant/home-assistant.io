@@ -90,6 +90,9 @@ automation:
 
 {% endraw %}
 
+To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
+Then scan a tag on the reader and note down the `device_id` from the `data` section. 
+
 ## Printing tags
 
 NFC tags come in many different shapes and formats. [NFC Stickers](https://amzn.to/3bQU0nN) are great to make existing objects scannable, like books or photos. But another fun use case is to get printable NFC cards. The great thing about these cards is that they are very accessible. Kids as young as 1 year old will be able to use it.
