@@ -63,6 +63,7 @@ client_secret:
 
 ## Activating the Spotify integration
 
+- Access Home Assistant using the URL that you used in the **Redirect URI** step above 
 - Go to the **Configuration** page in the Home Assistant frontend.
 - Click on **Integrations**.
 - Click the orange **+** on the bottom-right.
