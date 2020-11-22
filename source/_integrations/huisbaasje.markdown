@@ -13,9 +13,9 @@ ha_domain: huisbaasje
 ---
 
 The Huisbaasje integrations allows you to track your energy consumption collected
-by the monitoring device installed on your energy meters. 
+by the monitoring device installed on your energy meters.
 
-## Configuration via the frontend
+## Configuration
 
 Menu: **Configuration** -> **Integrations**.
 
