@@ -49,40 +49,39 @@ devices:
           description: Alternative RFLink ID's this device is known by.
           required: false
           type: list
-        type:
-          description: Sets the entities binary sensor `type`.
-          required: false
-          type: string
-          default: standard
         device_class:
           description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         off_delay:
-          description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+          description: For sensors that only sends one kind of activation signal, this variable sets a delay after which the sensor state will be updated back to 'Off'.
           required: false
           type: integer
         force_update:
-          description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
+          description: Sends update events even if its status does not change. Useful for sensors that only sends one kind of activation signal.
           required: false
           type: boolean
           default: false
+        inverted:
+          description: Inverts the sensor activation signal.
+          required: false
+          type: boolean
+          default: False
 {% endconfiguration %}
 
 ### Sensor state
 
 Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
 
-### Sensor type
-
-You can configure a binary sensor as `inverted` if the meaning of the `on`/`off` signals received are reversed from your needs.
-The `type` attribute accepts the values:
-* `standar`: for entities that follows the [binary_sensor specification](/integrations/binary_sensor/#device-class)
-* `inverted`: for entities with reversed `on`/`off` signals
-
 ### Device support
 
 See [device support](/integrations/rflink/#device-support)
+
+### Inverted sensors
+
+You can configure a binary sensor as `inverted` if the meaning of the *activation*/*deactivation* signals received are reversed from your needs.
+When the `inverted` attribute is configured to `True` the sensor state will be activated when an `off`/`alloff` signal is received, and deactivated for `on`/`allon` signals.
+Note that the `off_delay` attribute refers to the status change and has no relation to this attribute or the type of signal received.
 
 ### Additional configuration examples
 
@@ -103,6 +102,6 @@ binary_sensor:
          off_delay: 5
        eurodomest_04fb6f_02:
          name: Entrance door
-         type: inverted
+         inverted: True
          device_class: door
 ```
