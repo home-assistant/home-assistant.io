@@ -143,13 +143,13 @@ script:
           preset_mode: asleep
 ```
 
-#### Manually add a device using the USB stick
+#### Manually add a device using the Stick
 
 Service: `plugwise.device_add`
 
 Mandatory option `mac` holding the full 16 character MAC address of the device.
 
-#### Manually remove a device using the USB stick
+#### Manually remove a device using the Stick
 
 Service: `plugwise.device_remove`
 
