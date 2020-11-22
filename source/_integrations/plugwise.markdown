@@ -18,7 +18,7 @@ ha_domain: plugwise
 
 This enables [Plugwise](https://www.plugwise.com) components with a Smile gateway or Stick and the various connected devices to be integrated. For the Stick you will need to know which port it is connected to, for the networked Smile you will need its IP address and Smile ID.
 
-This integration supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and other Plugwise products through the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) product or using the USB-stick. See below list for more details.
+This integration supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and various legacy products (Circle, Stealth, etc.) through the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) or Stick. See below list for more details.
 
 Platforms available - depending on your Smile and setup include:
 
@@ -27,7 +27,7 @@ Platforms available - depending on your Smile and setup include:
  - `binary_sensor` (for domestic hot water and secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles either connected to a Stretch or through the USB-stick)
 
-For Smile connectivity, the password can be found on the bottom of your Smile or Stretch, it should consist of 6 characters. To find your IP address use the Plugwise App: 
+For Smile connectivity, the Smile-ID can be found on the bottom of your Smile or Stretch, it should consist of 6 characters. To find your IP address use the Plugwise App: 
 
  - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
  - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
@@ -59,9 +59,9 @@ When you have an Anna and an Adam, make sure to only configure the Adam integrat
 
 ### Stick (USB)
 
-In the setup wizard at the 'USB Device Path', it will list all detected serial ports available to Home Assistant. You need to pick the serial port of the connected Plugwise USB-Stick. If required, the selection list contains the possibility to manually enter the device path.
+In the setup wizard at the 'USB Device Path', it will list all detected serial ports available to Home Assistant. You need to pick the serial port of the connected Plugwise Stick. If required, the selection list contains the possibility to manually enter the device path.
 
-When you press `Submit` and the integration will try to initialize the USB-Stick at the supplied device path. If the connection to the USB-stick is initialized successfully, it will automatically do a discovery of all linked Plugwise nodes stored at the Circle+ device. An error will be displayed in the wizard if Home Assistant can't access the USB-stick or the connection fails.
+When you press `Submit` and the integration will try to initialize the Stick at the supplied device path. If the connection to the USB-stick is initialized successfully, it will automatically do a discovery of all linked Plugwise nodes stored at the Circle+ device. An error will be displayed in the wizard if Home Assistant can't access the USB-stick or the connection fails.
 
 The integration will automatically save the connection by the serial path (e.g., `/dev/serial/by-id/*`) to keep the connection consistent between system restarts.
 
@@ -183,4 +183,4 @@ Stretch (power switches):
  - v3.x
  - v2.x
 
-USB-stick
+Stick
