@@ -25,7 +25,7 @@ Platforms available - depending on your Smile and setup include:
  - `climate` (for the Anna and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
  - `binary_sensor` (for domestic hot water and secondary heater)
- - `switch` (for Plugs connected to Adam or Stealths and Circles either connected to a Stretch or through the USB-stick)
+ - `switch` (for Plugs connected to Adam or Stealths and Circles either connected to a Stretch or to a Stick)
 
 For Smile connectivity, the Smile-ID can be found on the bottom of your Smile or Stretch, it should consist of 6 characters. To find your IP address use the Plugwise App: 
 
