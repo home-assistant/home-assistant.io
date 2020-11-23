@@ -14,7 +14,7 @@ Last week TP-Link released an update for their HS100 and HS110 plugs that remove
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">There were security vulnerabilities on the plug for the local management, the latest firmware version fixed these security issues. It is suggested to use the TP-Link official App KASA to manage the plug. If you have issues, pls feel free to let us know.</p>&mdash; TP-LINK UK (@TPLINKUK) <a href="https://twitter.com/TPLINKUK/status/1328687659133399043?ref_src=twsrc%5Etfw">November 17, 2020</a>
 </blockquote>
 
-Lots of users, rightfully so, got angry. They bought the plugs assuming the local API was a feature. Removing this feature and forcing users through the TP-Link cloud sucks. It removes the one feature why TP-Link stood out among the many smart plugs.
+Lots of users, rightfully so, got angry. They bought the plugs assuming the local API was a feature. Removing this feature and forcing users through the TP-Link cloud sucks. It removes the one feature why TP-Link stood out among many smart plugs.
 
 After a week of angry users, it looks like TP-Link has listened… _somewhat_. They are offering a temporary solution to roll back the firmware. We haven't found any public documentation, but there are forum posts by their employees [here](https://community.tp-link.com/en/home/forum/topic/236268#topic-reply-523030) and [here](https://community.tp-link.com/en/home/forum/topic/237614#topic-reply-520984) about it.
 
