@@ -1,9 +1,9 @@
 ---
 title: "The Docker environment is not working properly"
-description: "More information on why a misconfigured Docker environment mark the system as unhealthy."
+description: "More information on why a misconfigured Docker environment marks the system as unhealthy."
 ---
 
-Docker is at the core of most operations that the Supervisor does, it is important that this is configured properly and is working the way the Supervisor expect it to work.
+Docker is at the core of most operations that the Supervisor does, it is important that it is configured properly and is working the way the Supervisor expects.
 
 The Supervisor will be marked as unhealthy if any of these requirements are not met:
 
