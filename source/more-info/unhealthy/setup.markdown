@@ -17,7 +17,7 @@ This can be done from the "System" tab in the Supervisor panel, on the card for 
 This can also be done with the CLI with `ha supervisor restart`.
 
 If this does not help, you can try to reboot the host.
-If you are running HAOS, this can be done from the "System" tab in the Supervisor panel, on the card for "Host System" there is a button to reboot the host.
+If you are running Home Assistant Operating System, this can be done from the "System" tab in the Supervisor panel, on the card for "Host System" there is a button to reboot the host.
 
 To help us make the setup more robust, please enable the sharing of diagnostics and crash logs on the "System" tab in the Supervisor panel.
 
