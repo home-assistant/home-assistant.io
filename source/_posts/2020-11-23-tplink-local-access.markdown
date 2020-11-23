@@ -25,7 +25,7 @@ After a week of angry users, it looks like TP-Link has listened… _somewhat_. T
 
 We are hoping for a better solution, but for now this is what you should do:
 
-1. Submit a ticket to [technical support](https://www.tp-link.com/nl/support/contact-technical-support/#E-mail-Support)
+1. Submit a ticket to [technical support](https://www.tp-link.com/en/support/contact-technical-support/#E-mail-Support)
 2. Go to the forums and send [this user](https://community.tp-link.com/en/home/uc/info/650029) a message with your ticket ID and MAC address.
 
 TP-Link, if you're reading along, please reach out to us at hello@home-assistant.io so we can discuss a better long term solution for local control. Happy to talk!
