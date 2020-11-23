@@ -64,10 +64,10 @@ password:
   description: The password of the user to connect to the QNAP NAS.
   required: true
   type: string
-drivers:
+drives:
   description: "Array of drives to monitor (ex: `0:1`)."
   required: false
-  default: all drivers
+  default: all drives
   type: list
 volumes:
   description: "Array of volumes to monitor (ex: `DataVol1`)."
