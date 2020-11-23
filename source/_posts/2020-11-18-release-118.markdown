@@ -34,6 +34,7 @@ All in all, a fine release, with an exciting one ahead of us.
 
 - [Table of contents](#table-of-contents)
 - [Home Assistant Conference](#home-assistant-conference)
+  - [Edit: We all hate ads! But we do like to show off our users!](#edit-we-all-hate-ads-but-we-do-like-to-show-off-our-users)
 - [Grid Card](#grid-card)
 - [Quick Bar navigation](#quick-bar-navigation)
 - [Native types support for templates](#native-types-support-for-templates)
@@ -47,6 +48,7 @@ All in all, a fine release, with an exciting one ahead of us.
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 0.118.1 - November 19](#release-01181---november-19)
 - [Release 0.118.2 - November 20](#release-01182---november-20)
+- [Release 0.118.3 - November 23](#release-01183---november-23)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -308,6 +310,33 @@ The following integrations are now available via the Home Assistant UI:
 [@balloob]: https://github.com/balloob
 [advantage_air docs]: /integrations/advantage_air/
 [homeassistant docs]: /integrations/homeassistant/
+
+## Release 0.118.3 - November 23
+
+- Fix bug related to possibly missing task ID in Notion API data ([@bachya] - [#43330]) ([notion docs])
+- Fix unhandled exception when IQVIA API fails to return data ([@bachya] - [#43359]) ([iqvia docs])
+- Ensure Plex content_id in play_on_sonos service is a string ([@frenck] - [#43483]) ([plex docs])
+- Gracefully handle no uuid in kodi discovery ([@OnFreund] - [#43494]) ([kodi docs])
+- Bump sleepyq to 0.8.1 ([@ahertz] - [#43505]) ([sleepiq docs])
+- Upgrade Docker base image to 2020.11.1 ([@frenck] - [#43538])
+- Upgrade Docker base image to 2020.11.2 ([@frenck] - [#43560])
+
+[#43330]: https://github.com/home-assistant/core/pull/43330
+[#43359]: https://github.com/home-assistant/core/pull/43359
+[#43483]: https://github.com/home-assistant/core/pull/43483
+[#43494]: https://github.com/home-assistant/core/pull/43494
+[#43505]: https://github.com/home-assistant/core/pull/43505
+[#43538]: https://github.com/home-assistant/core/pull/43538
+[#43560]: https://github.com/home-assistant/core/pull/43560
+[@OnFreund]: https://github.com/OnFreund
+[@ahertz]: https://github.com/ahertz
+[@bachya]: https://github.com/bachya
+[@frenck]: https://github.com/frenck
+[iqvia docs]: /integrations/iqvia/
+[kodi docs]: /integrations/kodi/
+[notion docs]: /integrations/notion/
+[plex docs]: /integrations/plex/
+[sleepiq docs]: /integrations/sleepiq/
 
 ## If you need help...
 
