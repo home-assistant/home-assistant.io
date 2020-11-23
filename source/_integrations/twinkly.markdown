@@ -17,6 +17,12 @@ It only supports to configure the brightness and to turn the device on and off.
 
 ## Configuration
 
-You can setup this integration from the Home Assistant user interface,
-it only requires the host (or IP address) of your twinkly device.
-If configured using an IP address, you should make sure to assign a static IP to your device.
+You can setup this integration from the Home Assistant user interface:
+
+1. In Home Assistant, go to **Configuration > Integrations**.
+1. At the bottom right, click on the **+** button.
+1. In the list select the **Twinkly** integration.
+1. Configure the host (or IP address) of your twinkly device.
+
+   _If configured using an IP address, on your router / DHCP, you should assign a static IP to your Twinkly device._
+
