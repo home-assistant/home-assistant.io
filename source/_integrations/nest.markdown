@@ -170,8 +170,8 @@ Given a thermostat named `Upstairs` then sensors are created with names such as 
 
 All Google Nest Cam models and the Google Nest Hello Video Doorbell support [Device Triggers](/docs/automation/trigger/#device-triggers) that enable automation in Home Assistant:
 
-- `camera_person`: Person detected, when a [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) event is received.
 - `camera_motion`: Motion detected, when a [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events) event is received.
+- `camera_person`: Person detected, when a [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) event is received.
 - `camera_sound`: Sound detected, when a [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) event is recieved.
 - `doorbell_chime`: Doorbell pressed, when a [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) event is recieved.
 
