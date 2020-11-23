@@ -48,6 +48,11 @@ password:
   description: The password for your given admin account.
   required: true
   type: string
+force_login_v2:
+  description: If set True, will force attempt of type 2 login to Netgear router.
+  required: false
+  default: false
+  type: boolean
 devices:
   description: If provided only specified devices will be reported. Can be MAC address or the device name as reported in the NETGEAR UI.
   required: false
