@@ -10,7 +10,7 @@ That said, booting Home Assistant OS completely from a USB drive (SSD or any oth
 
 ## Is the Raspberry Pi 4 with 8GB RAM supported?
 
-The Raspberry Pi 4 with 8GB RAM is supported with Home Assistant OS 5.5 and later using the 32-bit and 64-bit image. The 64-bit is the bettere tested option at this point.
+The Raspberry Pi 4 with 8GB RAM is supported with Home Assistant OS 5.5 and later using the 32-bit and 64-bit image. The 64-bit is the better tested option at this point.
 
 ## How do I run a specific version of Home Assistant?
 
