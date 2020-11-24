@@ -2,9 +2,15 @@
 title: "Home Assistant OS FAQ"
 description: "Frequently Asked Questions for Home Assistant OS"
 ---
-## Is USB Boot for the Pi4 supported? Is the Pi4 with 8GB RAM supported?
+## Is USB Boot for the Raspberry Pi 4 supported?
 
-USB Boot is currently supported when using the 5.X builds of HA OS. These are dev builds which can be found on the [release page](https://github.com/home-assistant/operating-system/releases) The Pi4 with 8GB RAM is now supported when using the 64-bit image.
+Due to the complexity of USB and the USB mass storage device class booting from a USB device is brittle. Since booting from a USB drive this process has to be done multiple times (firmware/boot loader and the operating system), there is a high chance that this process doesn't complete in one of these stages. In general, the Linux USB stack is solid. Due to this, it is recommended to boot Home Assistant OS from an SD card and use a USB attached flash drive as data partition only. The `datactl` command, available on the OS shell, allows moving of the data partition.
+
+That said, booting Home Assistant OS completely from a USB drive (SSD or any other USB mass storage device) works with *some* USB devices. USB Devices that are known to work with Raspberry Pi OS (check the Raspberry Pi Forum) are more likely to work with Home Assistant OS. However, because Home Assistant OS has also U-Boot in the boot chain, there are devices which are known to work with Raspberry Pi OS but do *not* work with Home Assistant OS.
+
+## Is the Raspberry Pi 4 with 8GB RAM supported?
+
+The Raspberry Pi 4 with 8GB RAM is supported with Home Assistant OS 5.5 and later using the 32-bit and 64-bit image. The 64-bit is the better tested option at this point.
 
 ## How do I run a specific version of Home Assistant?
 
