@@ -44,3 +44,13 @@ serial_port:
   required: true
   type: string
 {% endconfiguration %}
+
+### ser2net
+
+To use this integration with a remote transceiver you could use [ser2net](https://linux.die.net/man/8/ser2net).
+
+Example `ser2net.conf` configuration file:
+
+```
+2001:raw:0:/dev/ttyUSB0:9600 8DATABITS NONE 1STOPBIT
+```
