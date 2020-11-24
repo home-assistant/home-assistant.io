@@ -29,12 +29,33 @@ light:
     serial: BS000795-1.1
 ```
 
+To add multiple LEDs from a multi-LED Blinkstick to your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: blinksticklight
+    serial: BS000795-1.1
+    index: 0
+  - platform: blinksticklight
+    serial: BS000795-1.1
+    index: 1
+  - platform: blinksticklight
+    serial: BS000795-1.1
+    index: 2
+```
+
 {% configuration %}
 serial:
   description: The serial number of your stick.
   required: true
   default: 640
   type: string
+index:
+  description: Index of the LED.
+  required: false
+  type: integer
+  default: 0
 name:
   description: Name of the stick.
   required: false
