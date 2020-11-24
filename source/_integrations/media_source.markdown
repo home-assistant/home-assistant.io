@@ -25,7 +25,7 @@ media_source:
 
 ## Local Media
 
-By default, the integration by default looks for media in a specified folder.
+By default, the integration looks for media in a specified folder.
 If other `media_dirs` are not declared you need to use `/media/local` path for 
 example in companion app notification.
 
