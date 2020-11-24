@@ -100,3 +100,19 @@ content: |
 ```
 
 {% endraw %}
+
+## Icons
+
+You can also use [materialdesignicons.com]() icons in the `content` of the card.
+
+For example:
+
+{% raw %}
+
+```yaml
+type: markdown
+content: |
+  <ha-icon icon="mdi:home-assistant"></ha-icon>
+```
+
+{% endraw %}
