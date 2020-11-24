@@ -29,6 +29,7 @@ Known supported devices:
 - Denon AVR-X2300W
 - Denon AVR-X2400H
 - Denon AVR-X2500H
+- Denon AVR-X2700H
 - Denon AVR-X3200W
 - Denon AVR-X3300W
 - Denon AVR-X3400H
