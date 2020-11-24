@@ -139,7 +139,6 @@ logger:
     google_nest_sdm.event: debug
     google.cloud.pubsub_v1: debug
     google.cloud.pubsub_v1.subscriber._protocol.streaming_pull_manager: debug
-    google.cloud.pubsub_v1.subscriber._protocol.streaming_pull_manager: debug
 
 ```
 
