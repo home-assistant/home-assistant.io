@@ -12,7 +12,7 @@ Ignoring job conditions can be useful in a development setting, but running with
 Remove all ignored conditions by using the CLI.
 
 ```bash
-ha jobs options --ignore_conditions []
+ha jobs reset
 ```
 
 When you have removed all of them, reload the Supervisor.
