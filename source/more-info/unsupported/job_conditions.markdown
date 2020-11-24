@@ -15,7 +15,7 @@ Remove all ignored conditions by using the CLI.
 ha jobs options --ignore_conditions []
 ```
 
-Once you have removed all of them, reload th Supervisor.
+Once you have removed all of them, reload the Supervisor.
 
 ```bash
 ha supervisor reload
