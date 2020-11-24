@@ -51,6 +51,4 @@ To use this integration with a remote transceiver you could use [ser2net](https:
 
 Example `ser2net.conf` configuration file:
 
-```
-2001:raw:0:/dev/ttyUSB0:9600 8DATABITS NONE 1STOPBIT
-```
+> 2001:raw:0:/dev/ttyUSB0:9600 8DATABITS NONE 1STOPBIT
