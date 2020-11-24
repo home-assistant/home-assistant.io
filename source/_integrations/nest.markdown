@@ -80,8 +80,10 @@ When you get to the steps about configuring events make sure to follow guide und
 nest:
   client_id: CLIENT_ID
   client_secret: CLIENT_SECRET
-  project_id: PROJECT_ID    # ("Project ID" in the Device Access Console)
-  subscriber_id: projects/.../subscriptions/SUBSCRIBER_ID # ("Subscription ID" in Google Cloud Console. Replace with full path.)
+  # "Project ID" in the Device Access Console
+  project_id: PROJECT_ID
+  # Provide the full path exactly as shown under "Subscription name" in Google Cloud Console
+  subscriber_id: projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID
 ```
 
 {% configuration %}
@@ -98,7 +100,7 @@ project_id:
   required: false
   type: string
 subscriber_id:
-  description: Full path for the Pub/sub Subscription ID used to receive events. This is required to use the SDM API.
+  description: Full path for the Pub/sub Subscription ID used to receive events. This is required to use the SDM API. Enter this exactly as it appers under "Subscription name" in the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list).
   type: string
   required: false
 {% endconfiguration %}
