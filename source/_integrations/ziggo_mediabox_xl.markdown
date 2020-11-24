@@ -8,6 +8,12 @@ ha_release: '0.60'
 ha_domain: ziggo_mediabox_xl
 ---
 
+<div class='note warning'>
+
+This integration is deprecated and will be removed in version 0.120.0.
+
+</div>
+
 The `ziggo_mediabox_xl` integration allows you to control a [Ziggo](https://www.ziggo.nl/) Mediabox XL from Home Assistant.
 
 To add a Ziggo Mediabox XL to your installation, add the following to your `configuration.yaml` file:
