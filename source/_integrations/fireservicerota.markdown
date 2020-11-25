@@ -37,8 +37,9 @@ On how to write automations using these platform read the 'Advanced Configuratio
 ## Configuration
 
 1. From Home Assistant, navigate to ‘Configuration’ then ‘Integrations’. Click the plus icon and type/select ‘FireServiceRota’.
+1. Choose your platform `BrandweerRooster` or `FireServiceRota`.
 1. Enter your login credentials.
-1. Choose your platform `www.brandweerrooster.nl` or `www.fireservicerota.co.uk`.
+
 1. Click the Save button.
 
 ## Entities
