@@ -50,53 +50,53 @@ The following entity types are created:
 
 | Value | Description |
 | ----- | ----------- |
-| `value` | Incident text message.|
+| `value` | Contains the complete incident text message.|
 
 | Attribute | Description |
 | --------- | ----------- |
-| `trigger` | Type of trigger, 'new' or 'update'.|
+| `trigger` | Type of trigger, `new` or `update`.|
 | `state` | The state of the incident. |
 | `created_at` | Date and time when incident was created.|
 | `message_to_speech_url` | The URL of the mp3 file containing the spoken text of the incident.|
-| `prio` | Priority of the incident, 'a1', 'a2', 'b1' or 'b2'.|
-| `type` | Type of incident, e.g. 'incident_alert'.|
-| `responder_mode` | Modes of response, e.g. 'available_in_schedule_is_acknowledgment'.|
+| `prio` | Priority of the incident, `a1`, `a2`, `b1` or `b2`.|
+| `type` | Type of incident, e.g. `incident_alert`.|
+| `responder_mode` | Modes of response, e.g. `available_in_schedule_is_acknowledgment`.|
 | `can_respond_until` | Date and time until response is accepted.|
-| `latitude` | Latitude.|
-| `longitude` | Longitude.|
-| `address_type` | Type of address, e.g. 'home'.|
+| `latitude` | The Latitude of the incident.|
+| `longitude` | The Longitude of the incident.|
+| `address_type` | Type of address, e.g. `home`.|
 | `formatted_address` | Address in string format.|
 
 ### Duty Binary Sensor
 
 | Value | Description |
 | ----- | ----------- |
-| `value` | 'On' = on duty. 'Off' = no duty scheduled.|
+| `value` | `on` = on duty. `off` = no duty scheduled.|
 
 | Attribute | Description |
 | --------- | ----------- |
 | `start_time` | Start date and time of duty schedule.|
 | `end_time` | End date and time of duty schedule.|
-| `available` | 'true of 'false'.|
-| `active` | 'true of 'false'.|
-| `assigned_function_ids` | Function id's, e.g. '540'.|
-| `skill_ids` | Skill id's, e.g. '6, 8'.|
-| `type` | Type, e.g. 'standby_duty'.|
-| `assigned function` | Assigned function, e.g. 'Chauffeur'.|
+| `available` | `true` or `false`.|
+| `active` | `true` or `false`.|
+| `assigned_function_ids` | Function id's, e.g. `540`.|
+| `skill_ids` | Skill id's, e.g. `6, 8`.|
+| `type` | Type, e.g. `standby_duty`.|
+| `assigned function` | Assigned function, e.g. `Chauffeur`.|
 
 ### Incident Response Switch
 
 | Value | Description |
 | ----- | ----------- |
-| `value` | 'On' = response acknowledged. 'Off' = response rejected.|
+| `value` | `on` = response is acknowledged. `off` = the response is rejected.|
 
 | Attribute | Description |
 | --------- | ----------- |
 | `user_name` | Your username.|
 | `assigned_skill_ids` | Assigned skill ID's.|
-| `responded_at` | Time responded.|
-| `start_time` | Incident repsonse start time.|
-| `status` | Status of repsonse, e.g., `pending`.|
+| `responded_at` | Time you responded.|
+| `start_time` | Incident response start time.|
+| `status` | Status of response, e.g., `pending`.|
 | `reported_status` | Reported status, e.g., `shown_up`.|
 | `arrived_at_station` | `true` or `false`.|
 | `available_at_incident_creation` | `true` or `false`.|
