@@ -91,15 +91,14 @@ The following entities are created:
 | Attribute | Description |
 | --------- | ----------- |
 | `user_name` | Your username.|
-| `assigned_skill_ids` | Assigned skill id's.|
+| `assigned_skill_ids` | Assigned skill ID's.|
 | `responded_at` | Time responded.|
 | `start_time` | Incident repsonse start time.|
-| `status` | Status of repsonse, e.g. 'pending'.|
-| `reported_status` | Reported status, e.g. 'shown_up'.|
-| `arrived_at_station` | 'true' or 'false'.|
-| `available_at_incident_creation` | 'true' or 'false'.|
-| `active_duty_function_ids` | Active function id's, e.g. '540'.|
-
+| `status` | Status of repsonse, e.g., `pending`.|
+| `reported_status` | Reported status, e.g., `shown_up`.|
+| `arrived_at_station` | `true` or `false`.|
+| `available_at_incident_creation` | `true` or `false`.|
+| `active_duty_function_ids` | Active function ID's, e.g., `540`.|
 
 ## Advanced Configuration
 
