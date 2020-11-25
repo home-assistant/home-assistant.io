@@ -106,7 +106,7 @@ The following entities are created:
 With Automation you can configure one or more of the following useful actions:
 
 1. Sound an alarm and/or switch on lights when an emergency incident is received.
-1. Use text to speech to play incident details via a mediaplayer while getting dressed.
+1. Use text to speech to play incident details via a media player while getting dressed.
 1. Respond with an response acknowledgement using a door-sensor when leaving the house or by pressing a button to let your teammates know you are underway.
 1. Cast a FireServiceRota dashboard to a Chromecast device. (this requires a Nabu Casa subscription)
 
