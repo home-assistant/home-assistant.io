@@ -216,3 +216,4 @@ logger:
   logs:
     homeassistant.components.fireservicerota: debug
     pyfireservicerota: debug
+```
