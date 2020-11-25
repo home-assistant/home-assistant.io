@@ -67,15 +67,15 @@ The skill(s) and function(s) you have assigned can be found in the following att
 
 ### Incident Response Switch
 
-With this switch you can respond to a incident, by manually controlling the switch via the GUI, or by using an automation action.
+With this switch you can respond to a incident, either by manually controlling the switch via the GUI, or by using an automation action.
 It gets reset to `unknown` value with every incident received. Switching it to `on` means you send a response acknowledgement, switching it back `off` sends a response rejected.
 
 The following attributes are available:
 Time related `start_time`, incident response start time and `responded_at` the time you responded.
 
-Status related are `status`, the status of response, e.g. `pending`, `reported_status` holds reported status, e.g. `shown_up`, `arrived_at_station` can contain `true` or `false`, same for `available_at_incident_creation`.
+Status related are `status`, the status of response, e.g. `pending`, `reported_status` holds the reported status, e.g. `shown_up`, `arrived_at_station` can contain `true` or `false`, same for `available_at_incident_creation`.
 
-The `user_name` attribute contains your fullname. And `assigned_skill_ids` and `active_duty_function_ids` hold you skill and function id's.
+The `user_name` attribute contains your fullname. And `assigned_skill_ids` and `active_duty_function_ids` hold your skill and function id's.
 
 ## Advanced Configuration
 
