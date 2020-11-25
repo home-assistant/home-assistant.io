@@ -55,7 +55,7 @@ The `trigger` attribute with values `new` or `update` denotes if this is a new i
 
 Location related are `latitude` and `longitude` which holds the exact location of the incident, `address_type` e.g. `home` and `formatted_address` which ontains the address in string format.
 
-Lastly `message_to_speech_url` which is an URL of the mp3 file containing the spoken text of the incident, this can be used in a automation.
+Lastly `message_to_speech_url` which is a URL of the mp3 file containing the spoken text of the incident, this can be used in a automation.
 
 ### Duty Binary Sensor
 
