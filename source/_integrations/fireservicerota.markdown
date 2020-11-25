@@ -132,7 +132,12 @@ automation:
       platform: state
       entity_id: sensor.incidents
       attribute: message_to_speech_url
-    condition: "{{ state_attr('sensor.incidents', 'message_to_speech_url') != 'None' }}"
+    condition: not
+    conditions:
+      condition: state
+      entity_id: sensor.incidents
+      attribute: message_to_speech_url
+      state: "None"
     action:
       - service: media_player.play_media
         data_template:
