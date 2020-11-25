@@ -1445,7 +1445,8 @@ Valid room numbers can be retrieved using miio command-line tool:
 miiocli vacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapping
 ```
 
-It will only give room numbers and not the room names. To map the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient.
+It will return the full mapping of room numbers to user-defined names as a list of (number,name) tuples.
+Alternatively, one can just test the clean_segment service with a number and see which room it cleans.
 
 It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing.
 
