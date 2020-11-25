@@ -48,59 +48,34 @@ The following entity types are created:
 
 ### Incidents Sensor
 
-| Value | Description |
-| ----- | ----------- |
-| `value` | Contains the complete incident text message.|
+This is the main entity of the integration containing the incident message as it's `value`, it has several attributes which are described here.
+Generic attributes are `state`, `prio` e.g. `a1`, `a2`, `b1` or `b2`, `a` for ambulance and `b` for the fire department, and `type` with the type of alert, e.g. `incident_alert`.
 
-| Attribute | Description |
-| --------- | ----------- |
-| `trigger` | Type of trigger, `new` or `update`.|
-| `state` | The state of the incident. |
-| `created_at` | Date and time when incident was created.|
-| `message_to_speech_url` | The URL of the mp3 file containing the spoken text of the incident.|
-| `prio` | Priority of the incident, `a1`, `a2`, `b1` or `b2`.|
-| `type` | Type of incident, e.g. `incident_alert`.|
-| `responder_mode` | Modes of response, e.g. `available_in_schedule_is_acknowledgment`.|
-| `can_respond_until` | Date and time until response is accepted.|
-| `latitude` | The Latitude of the incident.|
-| `longitude` | The Longitude of the incident.|
-| `address_type` | Type of address, e.g. `home`.|
-| `formatted_address` | Address in string format.|
+The `trigger` attribute with values `new` or `update` denotes if this is a new incident, or an updated one. Date related are `created_at` and `can_respond_until` the lather is the date and time until a response is accepted.
+
+Location related are `latitude` and `longitude` which holds the exact location of the incident, `address_type` e.g. `home` and `formatted_address` which ontains the address in string format.
+
+Lastly `message_to_speech_url` which is an URL of the mp3 file containing the spoken text of the incident, this can be used in a automation.
 
 ### Duty Binary Sensor
 
-| Value | Description |
-| ----- | ----------- |
-| `value` | `on` = on duty. `off` = no duty scheduled.|
+This entity reflects the duty you have scheduled, `on` = on duty, `off` = no duty. When you have no duty the response switch is disabled which means you cannot respond to a call.
 
-| Attribute | Description |
-| --------- | ----------- |
-| `start_time` | Start date and time of duty schedule.|
-| `end_time` | End date and time of duty schedule.|
-| `available` | `true` or `false`.|
-| `active` | `true` or `false`.|
-| `assigned_function_ids` | Function id's, e.g. `540`.|
-| `skill_ids` | Skill id's, e.g. `6, 8`.|
-| `type` | Type, e.g. `standby_duty`.|
-| `assigned function` | Assigned function, e.g. `Chauffeur`.|
+`start_time` and `end_time` denote the start and end of the active duty schedule, `active` can be `true` or `false`, the `type` attribute hold the type of the schedule e.g. `standby_duty`.
+
+The skill(s) and function(s) you have assigned can be found in the following attributes: `assigned_function_ids` e.g. `540`, `skill_ids` e.g. `6, 8` and `assigned function` e.g. `Chauffeur`.
 
 ### Incident Response Switch
 
-| Value | Description |
-| ----- | ----------- |
-| `value` | `on` = response is acknowledged. `off` = the response is rejected.|
+With this switch you can respond to a incident, by manually controlling the switch via the GUI, or by using an automation action.
+It gets reset to `unknown` value with every incident received. Switching it to `on` means you send a response acknowledgement, switching it back `off` sends a response rejected.
 
-| Attribute | Description |
-| --------- | ----------- |
-| `user_name` | Your username.|
-| `assigned_skill_ids` | Assigned skill ID's.|
-| `responded_at` | Time you responded.|
-| `start_time` | Incident response start time.|
-| `status` | Status of response, e.g., `pending`.|
-| `reported_status` | Reported status, e.g., `shown_up`.|
-| `arrived_at_station` | `true` or `false`.|
-| `available_at_incident_creation` | `true` or `false`.|
-| `active_duty_function_ids` | Active function ID's, e.g., `540`.|
+The following attributes are available:
+Time related `start_time`, incident response start time and `responded_at` the time you responded.
+
+Status related are `status`, the status of response, e.g. `pending`, `reported_status` holds reported status, e.g. `shown_up`, `arrived_at_station` can contain `true` or `false`, same for `available_at_incident_creation`.
+
+The `user_name` attribute contains your fullname. And `assigned_skill_ids` and `active_duty_function_ids` hold you skill and function id's.
 
 ## Advanced Configuration
 
