@@ -132,12 +132,13 @@ automation:
       platform: state
       entity_id: sensor.incidents
       attribute: message_to_speech_url
-    condition: not
-    conditions:
-      condition: state
-      entity_id: sensor.incidents
-      attribute: message_to_speech_url
-      state: "None"
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.incidents
+            attribute: message_to_speech_url
+            state: None
     action:
       - service: media_player.play_media
         data_template:
