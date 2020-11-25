@@ -43,9 +43,9 @@ On how to write automations using these platform read the 'Advanced Configuratio
 
 ## Entities
 
-The following entities are created:
+The following entity types are created:
 
-### sensor.incidents
+### Incidents Sensor
 
 | Value | Description |
 | ----- | ----------- |
@@ -65,7 +65,8 @@ The following entities are created:
 | `longitude` | Longitude.|
 | `address_type` | Type of address, e.g. 'home'.|
 | `formatted_address` | Address in string format.|
-### binary_sensor.duty
+
+### Duty Binary Sensor
 
 | Value | Description |
 | ----- | ----------- |
@@ -82,7 +83,7 @@ The following entities are created:
 | `type` | Type, e.g. 'standby_duty'.|
 | `assigned function` | Assigned function, e.g. 'Chauffeur'.|
 
-### switch.incident_response
+### Incident Response Switch
 
 | Value | Description |
 | ----- | ----------- |
