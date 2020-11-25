@@ -53,7 +53,7 @@ Generic attributes are `state`, `prio` e.g. `a1`, `a2`, `b1` or `b2`, `a` for am
 
 The `trigger` attribute with values `new` or `update` denotes if this is a new incident, or an updated one. Date related are `created_at` and `can_respond_until` the lather is the date and time until a response is accepted.
 
-Location related are `latitude` and `longitude` which holds the exact location of the incident, `address_type` e.g. `home` and `formatted_address` which ontains the address in string format.
+Location related are `latitude` and `longitude` which holds the exact location of the incident, `address_type` e.g. `home` and `formatted_address` which contains the address in string format.
 
 Lastly `message_to_speech_url` which is a URL of the mp3 file containing the spoken text of the incident, this can be used in a automation.
 
