@@ -16,7 +16,7 @@ ha_domain: fireservicerota
 FireServiceRota is a powerful and flexible availability, scheduling and dispatching system for firefighters.
 It's the international brand of the Dutch [BrandweerRooster](https://www.brandweerrooster.nl), which is in use by more than 200 fire stations in The Netherlands.
 
-The `fireservicerota` integration provides you realtime information about incidents (emergency calls) from your local fire station, and the ability to send a response depending on your duty schedule.
+The FireServiceRota integration provides you real-time information about incidents (emergency calls) from your local fire station and the ability to send a response depending on your duty schedule.
 
 You will need a FireServiceRota or BrandweerRooster account.
 
