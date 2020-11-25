@@ -184,12 +184,12 @@ The same thing can also be expressed as a filter:
 - `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g.,  if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
-{% raw %}
-```yaml
-# 77 minutes before curret time. 
-{{ now() - timedelta( hours = 1, minutes = 17 ) }} 
-```
-{% endraw %}
+   {% raw %}
+   ```yaml
+   # 77 minutes before curret time. 
+   {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
+   ```
+   {% endraw %}
 
 - Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
 - Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
