@@ -35,8 +35,8 @@ Please note that "-" characters need to be included in the key when providing it
 
 
 TDBU blinds consist of two bars controlled by two motors designated by Top and Bottom with fabric in between.
-The Top and Bottom can move independent of eachother to cover diffrent parts of the window.
-Controlling the two bars can be done through three diffrent entities that will be created: Top, Bottom and Combined.
+The Top and Bottom can move independent of eachother to cover different parts of the window.
+Controlling the two bars can be done through three different entities that will be created: Top, Bottom and Combined.
 
 ### Top entity
 
