@@ -18,6 +18,7 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
+- Wi-Fi Controlled Thermostats: `Hysen heating controller`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
 - Wi-Fi Controlled Switches: `SC1`
@@ -35,6 +36,7 @@ The entities have the same name as the device by default. To change the name, ic
 The entities are divided into three subdomains:
 
 - [Remote](#remote)
+- [Climate](#climate)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -209,6 +211,15 @@ script:
             - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
 ```
 
+## Climate
+
+The `climate` entities allow you to monitor and control Broadlink thermostats.
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: broadlink
+    mac: MAC_ADDRESS
+```
 ## Sensor
 
 The `sensor` entities allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
