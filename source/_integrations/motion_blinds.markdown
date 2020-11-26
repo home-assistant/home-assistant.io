@@ -30,3 +30,34 @@ Please note that "-" characters need to be included in the key when providing it
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_1.jpg' />
 <img src='/images/integrations/motion_blinds/Motion_App__get_key_2.jpg' />
 </p>
+
+## Top Down Bottom Up (TDBU) blinds
+
+
+TDBU blinds consist of two bars controlled by two motors designated by Top and Bottom with fabric in between.
+The Top and Bottom can move independent of eachother to cover diffrent parts of the window.
+Controlling the two bars can be done through three diffrent entities that will be created: Top, Bottom and Combined.
+
+### Top entity
+
+- 'Up/Open' will move the Top bar to the top of the window (absolute position 100)
+- 'Down/Close' will mobe the Top bar to the position of the Bottom bar therefore making the part of the window that is covered as small as possible, but the two bars will be at the position of the Bottom bar (not at the top of the window).
+- 'Position' is the relative position in which the Top bar can move, so from the top of the window (100) to the position of the Bottom bar (0), note that the position will therefore change if the Bottom bar is moved, since the space in which the Top bar is allowed to move changes.
+- 'Absolute position' is the position of the Top bar with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the Bottom bar.
+- 'Width' is the percentage of the window covered by fabric (the space between the Top and Bottom bars).
+
+### Bottom entity
+
+- 'Up/Open' will move the Bottom bar to the position of the Top bar.
+- 'Down/Close' will mobe the Top bar to the bottom of the window (absolute position 0)
+- 'Position' is the relative position in which the Bottom bar can move, so from the position of the Top bar (100) to the bottom of the window (0), note that the position will therefore change if the Top bar is moved, since the space in which the Bottom bar is allowed to move changes.
+- 'Absolute position' is the position of the Bottom bar with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the Top bar.
+- 'Width' is the percentage of the window covered by fabric (the space between the Top and Bottom bars).
+
+### Combined entity
+
+- 'Up/Open' will move both the Top and Bottom bars to the top of the window, effectively covering as little as possible of the window (Width will be 0 %).
+- 'Down/Close' will mobe the Top bar to the top of the window and the Bottom bar to the bottom of the window, effectively covering the whole window (Width will be 100 %).
+- 'Position' is the relative position of the center between the Bottom and Top bars in which the center can move, so bassically such that the area covered by the Bottom and Top bar can be moved withouth changing its size, such that the Top bar can go to the top of the window and the Bottom bar to the bottom of the window.
+- 'Absolute position' is the position of the center between the Bottom and Top bars with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the width.
+- 'Width' is the percentage of the window covered by fabric (the space between the Top and Bottom bars).
