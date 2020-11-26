@@ -2,6 +2,7 @@
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
 ha_category:
+  - Climate
   - Remote
   - Switch
   - Sensor
@@ -10,17 +11,19 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
   - '@felipediel'
+  - '@majuss'
 ha_domain: broadlink
 ha_config_flow: true
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
+- Wi-Fi Controlled Thermostats: `Hysen heating controller`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
-- Wi-Fi Controlled Switches: `BG1`, `SC1`
+- Wi-Fi Controlled Switches: `SC1`
 
 ## Configuration
 
@@ -34,9 +37,20 @@ The entities have the same name as the device by default. To change the name, ic
 
 The entities are divided into three subdomains:
 
+- [Climate](#climate)
 - [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
+
+## Climate
+
+The `climate` entities allow you to monitor and control Broadlink thermostats.
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: broadlink
+    mac: MAC_ADDRESS
+```
 
 ## Remote
 
