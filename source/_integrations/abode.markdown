@@ -13,6 +13,7 @@ ha_category:
   - Switch
 ha_release: 0.52
 ha_iot_class: Cloud Push
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@shred86'
@@ -36,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use Abode devices in your installation, add your Abode account from the integrations page. Two-factor authentication must be disabled on your Abode account. Alternatively, Abode can be configured by adding the following `abode` section to your `configuration.yaml` file:
+To use Abode devices in your installation, add your Abode account from the integrations page. Alternatively, Abode can be configured by adding the following `abode` section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
