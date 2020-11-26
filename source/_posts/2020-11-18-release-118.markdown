@@ -49,6 +49,7 @@ All in all, a fine release, with an exciting one ahead of us.
 - [Release 0.118.1 - November 19](#release-01181---november-19)
 - [Release 0.118.2 - November 20](#release-01182---november-20)
 - [Release 0.118.3 - November 23](#release-01183---november-23)
+- [Release 0.118.4 - November 26](#release-01184---november-26)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -337,6 +338,34 @@ The following integrations are now available via the Home Assistant UI:
 [notion docs]: /integrations/notion/
 [plex docs]: /integrations/plex/
 [sleepiq docs]: /integrations/sleepiq/
+
+## Release 0.118.4 - November 26
+
+- Make MQTT climate return PRESET_NONE when no preset is set ([@emontnemery] - [#43257]) ([mqtt docs])
+- Update zigpy-zigate to 0.7.3 ([@doudz] - [#43427]) ([zha docs])
+- Fix duplicate check on onewire config flow ([@epenet] - [#43590]) ([onewire docs])
+- Bump avea to 1.5.1 ([@pattyland] - [#43618]) ([avea docs])
+- Disable parsing scientific/complex number notation in template type ([@balloob] - [#43170])
+- Tweak template digit detection ([@balloob] - [#43621])
+- Fix deadlock if an integration from stage_1 fails ([@pvizeli] - [#43657])
+
+[#43170]: https://github.com/home-assistant/core/pull/43170
+[#43257]: https://github.com/home-assistant/core/pull/43257
+[#43427]: https://github.com/home-assistant/core/pull/43427
+[#43590]: https://github.com/home-assistant/core/pull/43590
+[#43618]: https://github.com/home-assistant/core/pull/43618
+[#43621]: https://github.com/home-assistant/core/pull/43621
+[#43657]: https://github.com/home-assistant/core/pull/43657
+[@balloob]: https://github.com/balloob
+[@doudz]: https://github.com/doudz
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@pattyland]: https://github.com/pattyland
+[@pvizeli]: https://github.com/pvizeli
+[avea docs]: /integrations/avea/
+[mqtt docs]: /integrations/mqtt/
+[onewire docs]: /integrations/onewire/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
