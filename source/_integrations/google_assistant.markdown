@@ -130,10 +130,6 @@ secure_devices_pin:
   required: false
   type: string
   default: ""
-api_key:
-  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.  This has been deprecated and will be removed in 0.105, you must setup a `service_account` now.
-  required: false
-  type: string
 service_account:
   description: Service account information. You can use an include statement with your downloaded JSON file, enter data here directly or use secrets file to populate.
   required: true
