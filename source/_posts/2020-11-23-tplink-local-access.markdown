@@ -1,5 +1,5 @@
 ---
-title: "TP-Link offers way to add local API back"
+title: "[Better solution!] TP-Link offers way to add local API back"
 description: "TP-Link last week decided to publish a firmware upgrade that removed access to the local API. They are partially reverting this decision."
 date: 2020-11-23 00:01:00
 date_formatted: "November 23, 2020"
@@ -7,6 +7,13 @@ author: Paulus Schoutsen
 author_twitter: balloob
 categories: Public-Service-Announcement
 og_image: /images/blog/2020-11-23-tplink/forum-post-send-ticket.png
+---
+
+**Update Nov 26:** TP-Link has now announced that they are working on a new firmware that should solve it. DM them for info.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We&#39;re sorry the recent firmware update has problems for the Kasa community. Since its release, we&#39;ve been busy creating a Beta firmware that&#39;ll enable people to continue to use third-party smart home software &amp; platforms using local APIs. Please DM if you&#39;d like the Beta firmware</p>&mdash; TP-LINK UK (@TPLINKUK) <a href="https://twitter.com/TPLINKUK/status/1331970582901100544?ref_src=twsrc%5Etfw">November 26, 2020</a>
+</blockquote>
+
 ---
 
 Last week TP-Link released an update for their HS100 and HS110 plugs that removed the local API. This was done because of a "security concern". I put this in quotes because it has not been verified and this reason has been given before when removing interoperability. TP-Link communicated this via Twitter in response to a user voicing their concern.
