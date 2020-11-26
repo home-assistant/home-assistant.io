@@ -14,41 +14,40 @@ The `hyperion` platform allows you to integrate your
 [Hyperion](https://docs.hyperion-project.org/) into Home Assistant. Hyperion is
 an open source Ambilight implementation which runs on many platforms.
 
-NOTE: [Hyperion-NG](https://github.com/hyperion-project/hyperion.ng) is
+**NOTE**: [Hyperion-NG](https://github.com/hyperion-project/hyperion.ng) is
 supported, the original [discontinued Hyperion](https://github.com/hyperion-project/hyperion) is not supported by
 this integration.
 
 ## Configuration
 
-To use your Hyperion light in your installation, add the following to your `configuration.yaml` file:
+This integration can be configured using the integrations in the
+Home Assistant frontend.
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: hyperion
-    host: IP_ADDRESS
-```
+Menu: **Configuration** -> **Integrations**.
 
-{% configuration %}
-  host:
-    description: The IP address of the device the Hyperion service is running on.
-    required: true
-    type: string
-  port:
-    description: The port used to communicate with the Hyperion service.
-    required: false
-    type: integer
-    default: 19444
-  name:
-    description: The name of the device used in the frontend.
-    required: false
-    type: string
-  priority:
-    description: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
-    required: false
-    type: integer
-    default: 128
-{% endconfiguration %}
+In most cases, Hyperion servers will be automatically discovered by
+Home Assistant. Those automatically discovered devices are listed
+on the integrations page.
+
+If for some reason Hyperion isn't discovered, it can be added manually.
+
+Click on the `+` sign to add an integration and click on **Hyperion**.
+After completing the configuration flow, the Hyperion integration will be
+available.
+
+### Extra configuration of the integration
+
+All configuration options are offered from the frontend. Choose `Options` under the
+relevant entry on the `Integrations` page.
+
+Options supported:
+- **priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
+
+## Hyperion Instances
+
+This integration supports multiple Hyperion instances running on a single Hyperion
+server. As instances are added/removed on the Hyperion UI, they will automatically be
+added/removed from Home Assistant.
 
 ## Effects
 
