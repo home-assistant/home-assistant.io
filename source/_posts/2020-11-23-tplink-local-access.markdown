@@ -9,7 +9,7 @@ categories: Public-Service-Announcement
 og_image: /images/blog/2020-11-23-tplink/forum-post-send-ticket.png
 ---
 
-**Update Nov 26:** TP-Link has now announced that they are working on a new firmware that should solve it. DM them for info.
+**Update Nov 26:** TP-Link has now announced that they are working on a new firmware that should solve it. DM them on Twitter for info.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">We&#39;re sorry the recent firmware update has problems for the Kasa community. Since its release, we&#39;ve been busy creating a Beta firmware that&#39;ll enable people to continue to use third-party smart home software &amp; platforms using local APIs. Please DM if you&#39;d like the Beta firmware</p>&mdash; TP-LINK UK (@TPLINKUK) <a href="https://twitter.com/TPLINKUK/status/1331970582901100544?ref_src=twsrc%5Etfw">November 26, 2020</a>
 </blockquote>
