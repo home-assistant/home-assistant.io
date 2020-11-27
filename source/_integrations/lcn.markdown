@@ -402,7 +402,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configur
 | Constant | Values |
 | -------- | ------ |
 | LED_STATE | `on`, `off`, `blink`, `flicker` |
-| LOGICOP_STATE | `not`, `or`, `and` |
+| LOGICOP_STATE | `none`, `some`, `all` |
 | KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
 ### Keys:
