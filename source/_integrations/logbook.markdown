@@ -13,7 +13,7 @@ ha_iot_class:
 The logbook integration provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
 chronological order. It depends on
-the `recorder` integration for storing the data. This means that if the
+the [`recorder`](/integrations/recorder/) integration for storing the data. This means that if the
 [`recorder`](/integrations/recorder/) integration is set up to use e.g., MySQL or
 PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.

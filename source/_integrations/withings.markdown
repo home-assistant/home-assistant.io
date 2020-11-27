@@ -125,7 +125,7 @@ In a text editor, replace ```USER_PROFILE_NAME``` in the template sensors below 
 
 ```yaml
 # Example configuration.yaml entry
-sensors:
+sensor:
   - platform: template
     sensors:
       withings_weight_lbs_USER_PROFILE_NAME:

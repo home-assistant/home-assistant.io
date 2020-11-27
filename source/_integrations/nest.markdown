@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 <div class='note'>
-Note that this integration continues to support the Legacy Works With Nest API which is not accepting new users. The documentation for this API is at the bottom of this page so existing users can keep using it.
+This integration continues to support the Legacy Works With Nest API which is not accepting new users. The documentation for this API is at the bottom of this page so existing users can keep using it.
 </div>
 
 ## Overview: Supported Devices
@@ -47,25 +47,29 @@ supported by the SDM API.
 
 ## Account Setup
 
-You will need to follow the instructions in [Device Access Registration](https://developers.google.com/nest/device-access/registration), which includes the following steps in the
-Quick Start Guide:
+You will need to follow the instructions in [Device Access Registration](https://developers.google.com/nest/device-access/registration) to authorize access to your devices. Follow these steps in the Quick Start Guide:
 
 - Accept the Terms of Service.
 - Pay a fee (currently US$5).
 - Register in the Device Access Console to get a `project_id`.
 - Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`.
-- Enable pubsub events in the Device Access Console (creates a topic).
-- Create a pull subscription to get a `subscriber_id` ("Subscription ID" in Google Cloud Console).
 
 <div class='note warning'>
 It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
 </div>
 
+Then you need to configure a Pub/Sub subscriber following the SDM API Event instructions under [Device Access: Events](https://developers.google.com/nest/device-access/api/events) though not using a service account. The basic
+steps are:
+
+- [Enable events](https://developers.google.com/nest/device-access/subscribe-to-events#enable_events) in the [Device Access Console](https://console.nest.google.com/device-access/project-list) which creates a Pub/Sub topic.
+- [Enable the Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console.
+- [Create a Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) in the Google Cloud Platform console. Make sure to create a pull subscription and get a `subscriber_id` ("Subscription ID" in Google Cloud Console). The *Topic name* should match the topic name in the device access console.
+
 Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
 
 Follow all of the instructions in [Device Access: Quick Start Guide](https://developers.google.com/nest/device-access/get-started) carefully as it is easy to make a configuration mistake that is difficult to debug. It is recommended to exercise the entire guide, including the command to test out the API, to make sure that it is working before configuring Home Assistant.
 
-It may be easiest to create a [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console. Make sure to use the *topic name* from the device access console and a unique subscription ID. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
+When you get to the steps about configuring events make sure to follow guide under [Events](https://developers.google.com/nest/device-access/api/events) that configures the [Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) from the Google Cloud console. Make sure to use the *topic name* from the device access console and a unique subscription ID in the cloud console. Note the message retention is how long messages will queue while offline, so keep that short (e.g., under an hour) to avoid a potentially large backlog of updates.
 
 ## Configuration
 
@@ -76,8 +80,10 @@ It may be easiest to create a [Pub/Sub subscription](https://console.cloud.googl
 nest:
   client_id: CLIENT_ID
   client_secret: CLIENT_SECRET
-  project_id: PROJECT_ID    # ("Project ID" in the Device Access Console)
-  subscriber_id: SUBSCRIBER_ID # ("Subscription ID" in Google Cloud Console)
+  # "Project ID" in the Device Access Console
+  project_id: PROJECT_ID
+  # Provide the full path exactly as shown under "Subscription name" in Google Cloud Console
+  subscriber_id: projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID
 ```
 
 {% configuration %}
@@ -94,7 +100,7 @@ project_id:
   required: false
   type: string
 subscriber_id:
-  description: Your Pub/sub Subscription ID used to receive events. This is required to use the SDM API.
+  description: Full path for the Pub/sub Subscription ID used to receive events. This is required to use the SDM API. Enter this exactly as it appers under "Subscription name" in the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list).
   type: string
   required: false
 {% endconfiguration %}
@@ -114,6 +120,29 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 - See [No URL Available](/more-info/no-url-available) for guidance on setup issues related to URLs.
 
 - For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL
+
+- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes # of messages that have yet to be acknowledged. This can tell you if the publisher is working, or if the subscriber is working. You can also `View Messages` to see any pending messages. Many old unacknowledged messages may indicate the subscriber is not working properly.
+
+- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
+
+```yaml
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.nest: debug
+    homeassistant.components.nest.climate_sdm: debug
+    homeassistant.components.nest.camera_sdm: debug
+    homeassistant.components.nest.sensor_sdm: debug
+    google_nest_sdm: debug
+    google_nest_sdm.device: debug
+    google_nest_sdm.device_manager: debug
+    google_nest_sdm.google_nest_subscriber: debug
+    google_nest_sdm.event: debug
+    google.cloud.pubsub_v1: debug
+    google.cloud.pubsub_v1.subscriber._protocol.streaming_pull_manager: debug
+
+```
 
 ## Camera
 
@@ -138,7 +167,7 @@ Given a thermostat named `Upstairs` then sensors are created with names such as 
 
 # Legacy Works With Nest API
 
-This section contains instructions for the Legacy [Works with Nest](https://developers.nest.com/) API. 
+This section contains instructions for the Legacy [Works with Nest](https://developers.nest.com/) API.
 
 <div class='note warning'>
 New users are not currently able to set up a Works With Nest Developer account. The documentation is preserved here for existing users of the API.

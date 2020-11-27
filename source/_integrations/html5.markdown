@@ -238,12 +238,9 @@ data:
 You can dismiss notifications by using service html5.dismiss like so:
 
 ```json
-{
-  "target": ["my phone"],
-  "data": {
-    "tag": "notification_tag"
-  }
-}
+target: ['my phone']
+data:
+  tag: notification_tag
 ```
 
 If no target is provided, it dismisses for all.
@@ -339,10 +336,23 @@ If you still have the problem, even with mentioned rule, try to add this code:
 
 If you need to verify domain ownership with Google Webmaster Central/Search Console while configuring this component, follow these steps:
 
+##### HTML file verification (only works for `/local` URLs)
+
 1. Enter your domain and add `/local` at the end, e.g., `https://example.com:8123/local`
 2. Select HTML file verification and download the google*.html file.
-2. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
-3. Place the downloaded `google*.html` file in the `www` directory.
-4. RESTART Home Assistant. **This is important!**
-5. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
-6. Go back to Google Webmaster Central/Search Console and proceed with the verification.
+3. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
+4. Place the downloaded `google*.html` file in the `www` directory.
+5. RESTART Home Assistant. **This is important!**
+6. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
+7. Go back to Google Webmaster Central/Search Console and proceed with the verification.
+
+##### DNS verification (only if you control your DNS record or use DuckDNS)
+
+1. Enter your domain's base URL, like `https://example.com:8123/`
+2. Select DNS verification. If you're asked to choose your DNS provider, choose "Any DNS provider" or "Other".
+3. Add the TXT record to your DNS. If you use DuckDNS, use the format:
+   ```text
+   https://www.duckdns.org/update?domains={your Duck DNS subdomain (the part before .duckdns.org)}&token={your Duck DNS token}&txt={google-site-verification record}
+   ```
+4. Wait until the changes take effect. This can be anywhere from seconds to hours, so be patient. You can use [this site to test it](https://www.digwebinterface.com/).
+5. Go back to Google Webmaster Central/Search Console and proceed with the verification.

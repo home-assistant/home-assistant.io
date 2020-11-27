@@ -122,4 +122,3 @@ This service allows for loading a preset saved on the WLED device.
 | `preset`               | no       | ID of the preset slot to load from.                                                                             |
 
 More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
-

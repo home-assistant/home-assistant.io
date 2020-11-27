@@ -131,3 +131,8 @@ You often need a snapshot in case your system has crashed. If you only store the
  - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
 
  - [Remote Backup (uses scp)](https://github.com/overkill32/hassio-remote-backup)
+ 
+
+### Lost Password and password reset
+
+Please refer to the [I'm locked out!](https://www.home-assistant.io/docs/locked_out/#home-assistant-including-supervised) documentation page.
