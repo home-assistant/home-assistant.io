@@ -40,6 +40,8 @@ There is currently support for the following device types within Home Assistant:
 An official add-on for deCONZ is available in the Home Assistant add-on store.
 Otherwise, use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs.
 
+Connecting deCONZ to Home Assistant requires both the add-on and the deCONZ integration.
+
 ### Supported devices
 
 See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
