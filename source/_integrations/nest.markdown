@@ -55,7 +55,7 @@ You will need to follow the instructions in [Device Access Registration](https:/
 - [Set up Google Cloud Platform](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and enable the
   API
 - Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`.
-- Configure *Authorized redirect URIs* with the url you use to access Home Assistant including the path for the OAuth callback , e.g. `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback` (also see `redirect_url_mismatch` troubleshooting below)
+- Configure *Authorized redirect URIs* with the URL you use to access Home Assistant including the path for the OAuth callback , e.g. `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback` (also see `redirect_url_mismatch` troubleshooting below)
 
 <div class='note warning'>
 It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
@@ -122,7 +122,7 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 
 - *Error 500: redirect_url_mismatch* means that you need visit the [GCP credentials](https://console.developers.google.com/apis/credentials) page and modify your OAuth2.0 Client ID to add the correct Home Asssitant callback URL. The error message tells you the exact URL that needs to be added, including any ports or paths like `/auth/external/callback` path. See [Redirect uri mismatch](https://developers.google.com/nest/device-access/authorize#redirect_uri_mismatch) for more details.
 
-- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double double check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you mway want to walk through the google instructions and issue commands directly against the API until you successfully get back devices.
+- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double double check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the [Get Started: Device Access](https://developers.google.com/nest/device-access/get-started) guide again and issue commands directly against the API until you successfully get back devices.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
 
