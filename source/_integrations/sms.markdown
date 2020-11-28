@@ -103,7 +103,7 @@ bus 000 device 002: ID 1232:15ca
 
 Identify the brand for your GSM modem, copy the `brand_Id` and `product_id` (In this case `brand_id = 12d1` and `product_Id = 15ca`)
 
-Set this content in file `udev\10-gsm-modem.rules` in the configuration USB:
+Create the file `/etc/udev/rules.d/10-gsm-modem.rules` with the following content:
 (Replace `brand_Id` and `product_id` for the numbers reported by `lsusb`)
 
 ```bash
