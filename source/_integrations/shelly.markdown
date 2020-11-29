@@ -67,7 +67,7 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
     platform: event
     event_type: shelly.click
     event_data:
-      device_id: shellyswitch25-AABBCCDD
+      device_id: shellyswitch25-AABBCC
       channel: 1
       click_type: single
   action:
@@ -79,7 +79,7 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
     platform: event
     event_type: shelly.click
     event_data:
-      device_id: shellyswitch25-AABBCCDD
+      device_id: shellyswitch25-AABBCC
       channel: 2
       click_type: long
   action:
