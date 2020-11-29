@@ -30,7 +30,7 @@ port:
   type: integer
   default: 2003
 protocol:
-  description: Type of communication protocol: tcp or udp.
+  description: "Type of communication protocol: `tcp` or `udp`".
   required: false
   type: string
   default: tcp
