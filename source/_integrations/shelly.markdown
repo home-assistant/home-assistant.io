@@ -59,6 +59,8 @@ Shelly device relays are added to the Home Assistant by default as `switch` enti
 
 If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events when the switch is used. You can use these events in your automations.
 
+### Automation examples
+
 ```yaml
 - alias: "Toggle living room light"
   trigger:
@@ -72,7 +74,7 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
     service: light.toggle
     entity: light.living_room
 
-- alias: "Toggle lamp living room"
+- alias: "Toggle living room lamp"
   trigger:
     platform: event
     event_type: shelly.click
