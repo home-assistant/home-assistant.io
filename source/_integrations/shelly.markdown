@@ -98,10 +98,13 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 | `SL`	             | `single_long` |
 | `LS`	             | `long_single` |
 
-You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
+<div class="note">
+Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
+</div>
 
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
-- Support relays, lights (with brightness), sensors and rollers
-- Support for battery-powered devices is currently very limited
+- Support relays, lights, sensors and rollers
+- Support for RGB devices is limited
+- Support for battery-powered devices is limited
