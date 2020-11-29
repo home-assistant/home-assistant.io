@@ -51,6 +51,53 @@ Names are set from the device web page:
 - Channel name for single-channel devices can be set in **Settings** >> **CHANNEL NAME**
 - Channel name for multi-channel devices can be set in **Settings** >> **CHANNEL NAME** after selecting the channel, by clicking on the channel name.
 
+## Appliance type
+
+Shelly device relays are added to the Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if the device uses firmware version 1.9.0 or newer and the **Settings** >> **APPLIANCE TYPE** value is set to `light`.
+
+## Events
+
+If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events when the switch is used. You can use these events in your automations.
+
+```yaml
+- alias: "Toggle living room light"
+  trigger:
+    platform: event
+    event_type: shelly.click
+    event_data:
+      device_id: shellyswitch25-AABBCCDD
+      channel: 1
+      click_type: single
+  action:
+    service: light.toggle
+    entity: light.living_room
+
+- alias: "Toggle lamp living room"
+  trigger:
+    platform: event
+    event_type: shelly.click
+    event_data:
+      device_id: shellyswitch25-AABBCCDD
+      channel: 2
+      click_type: long
+  action:
+    service: light.toggle
+    entity: light.lamp_living_room
+```
+
+### Possible values for `click_type`
+
+| Shelly input event | Click Type    |
+| ------------------ | --------------|
+| `S`                | `single`      |
+| `SS`	             | `double`      |
+| `SSS`              | `triple`      |
+| `L`	               | `long`        |
+| `SL`	             | `single_long` |
+| `LS`	             | `long_single` |
+
+You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
+
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
