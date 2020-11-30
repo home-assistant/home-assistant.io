@@ -22,7 +22,11 @@ If you have never heard of Troy Hunt before, he is a web security specialist
 and mostly for his ["Have I Been Pwned"][hibp] creation.
 
 Troy has been diving into the world of IoT and started automating his home,
-using... Home Assistant! In 5 blogs, he writes about his journey in the big
+using... Home Assistant!
+
+> _"I'm massively impressed with HA and nothing else I've seen along my IoT journey comes even close to comparing. If you're going to do IoT in any meaningful way, you start with HA."_ – Troy Hunt
+
+In 5 blogs, he writes about his journey in the big
 world of IoT:
 
 - [Part 1: It's a Mess... But Then There's Home Assistant][p1]
