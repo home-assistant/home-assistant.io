@@ -80,7 +80,7 @@ mouse:
   type: boolean
   default: true
 door_window:
-  description: Set to `true` to show mouse detectors, `false` to disable.
+  description: Set to `true` to show doors and windows, `false` to disable.
   required: false
   type: boolean
   default: true

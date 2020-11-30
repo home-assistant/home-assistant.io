@@ -3,6 +3,7 @@ title: Remember The Milk
 description: Instructions on how to use Remember The Milk with Home Assistant.
 ha_category:
   - Calendar
+ha_iot_class: Cloud Push
 ha_release: 0.57
 ha_domain: remember_the_milk
 ---

@@ -19,8 +19,8 @@ This release also includes some new platforms (because they keep coming!):
 
  - Light: [blinkstick platform](/integrations/blinksticklight) added ([@alanbowman](https://github.com/alanbowman))
  - Device Tracker: [SNMP platform](/integrations/snmp) added ([@tomduijf](https://github.com/tomduijf))
- - Light: [rfxtrx platform](/integrations/light.rfxtrx/) added ([@badele](https://github.com/badele))
- - Switch: [rfxtrx platform](/integrations/switch.rfxtrx/) added ([@badele](https://github.com/badele))
+ - Light: [rfxtrx platform](/integrations/rfxtrx#lights) added ([@badele](https://github.com/badele))
+ - Switch: [rfxtrx platform](/integrations/rfxtrx#switches) added ([@badele](https://github.com/badele))
  - Notify: [telegram platform](/integrations/telegram) added ([@fabaff](https://github.com/fabaff))
 
 Also, the media player was extended by [@maddox](https://github.com/maddox) to support the play media command. This has been implemented for the [iTunes platform](/integrations/itunes).

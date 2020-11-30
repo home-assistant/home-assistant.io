@@ -2,10 +2,13 @@
 title: Home Assistant Core Integration
 description: Description of the homeassistant integration.
 ha_release: 0.0
+ha_category:
+  - Other
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant
+ha_iot_class:
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.
@@ -20,7 +23,7 @@ Reads the configuration files and checks them for correctness, but **does not** 
 
 ### Service `homeassistant.reload_core_config`
 
-Loads the main configuration file (`configuration.yaml`) and all linked files. Once loaded the new configuration is applied.
+Reloads the core configuration under `homeassistant:` and all linked files. Once loaded the new configuration is applied. New `customize:` information will be applied the next time the state of the entity gets updated.
 
 ### Service `homeassistant.restart`
 

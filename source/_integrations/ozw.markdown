@@ -66,6 +66,15 @@ this operation.
 | ---------------------- | -------- | -------------------------------------------------- |
 | `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1. |
 
+### Service `ozw.cancel_command`
+
+This service will cancel a pending command. Typically used if the add or remove node
+services have been called but no node was added or removed.
+
+| Service Data Attribute | Required | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1. |
+
 ### Service `ozw.set_usercode`
 
 This service will set the usercode to X at code slot Y.
@@ -98,7 +107,24 @@ LED colors on switches.
 | `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
 | `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                              |
 | `parameter`            | yes      | Parameter number to set (integer).                                                                              |
-| `value`                | yes      | Value to set for parameter. (String or integer value for list, string for bool parameters, integer for others). |
+| `value`                | yes      | Value to set for parameter. (String or integer value for list, string or boolean for bool parameters, list of dicts for bitset parameters (see example below), integer for others). |
+
+
+#### Example BitSet service call
+
+Here is an example of what to send to the service for a BitSet parameter:
+
+```yaml
+node_id: 4
+parameter: 5
+value:
+  - position: 1
+    value: true
+  - label: Humidity
+    value: false
+  - position: 3
+    value: false
+```
 
 ## Events
 

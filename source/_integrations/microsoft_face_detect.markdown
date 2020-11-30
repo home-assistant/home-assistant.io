@@ -3,6 +3,7 @@ title: Microsoft Face Detect
 description: Instructions on how to integrate Microsoft Face Detect into Home Assistant.
 ha_category:
   - Image Processing
+ha_iot_class: Cloud Push
 ha_release: 0.38
 ha_domain: microsoft_face_detect
 ---

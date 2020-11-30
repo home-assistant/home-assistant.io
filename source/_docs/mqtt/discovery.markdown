@@ -19,22 +19,22 @@ Supported by MQTT discovery:
 - [Locks](/integrations/lock.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
+- [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-To enable MQTT discovery, add the following to your `configuration.yaml` file:
+MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  discovery: true
-  discovery_prefix: homeassistant
+  discovery: false
 ```
 
 {% configuration %}
 discovery:
   description: If the MQTT discovery should be enabled or not.
   required: false
-  default: false
+  default: true
   type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
@@ -133,7 +133,6 @@ Supported abbreviations:
     'hs_val_tpl':          'hs_value_template',
     'ic':                  'icon',
     'init':                'initial',
-    'json_attr':           'json_attributes',
     'json_attr_t':         'json_attributes_topic',
     'json_attr_tpl':       'json_attributes_template',
     'max_mirs':            'max_mireds',
@@ -269,6 +268,7 @@ The following software has built-in support for MQTT discovery:
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
+- [SmartHome](https://github.com/roncoa/SmartHome)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
@@ -276,6 +276,7 @@ The following software has built-in support for MQTT discovery:
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 
 ## Examples
 

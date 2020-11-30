@@ -7,7 +7,15 @@ ha_release: 0.93
 ha_codeowners:
   - '@swamp-ig'
 ha_domain: ptvsd
+ha_iot_class: Local Push
 ---
+
+<div class="note warning">
+
+The PTVSD integration has been deprecated and will be removed in Home Assistant 0.120.0.
+A full-featured replacement is available, by using the [`debugpy` integration](/integrations/debugpy).
+
+</div>
 
 The `ptvsd` integration allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.
 

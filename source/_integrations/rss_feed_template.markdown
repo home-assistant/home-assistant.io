@@ -3,6 +3,7 @@ title: RSS Feed Template
 description: Use this integration to generate RSS feeds showing your latest data.
 ha_category:
   - Front End
+ha_iot_class: Local Push
 ha_release: 0.44
 ha_quality_scale: internal
 ha_domain: rss_feed_template

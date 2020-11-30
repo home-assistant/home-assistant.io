@@ -3,6 +3,7 @@ title: FFmpeg Noise
 description: Instructions on how to integrate an FFmpeg-based noise binary sensor
 ha_category:
   - Image Processing
+ha_iot_class: Calculated
 ha_release: 0.27
 ha_domain: ffmpeg_noise
 ---

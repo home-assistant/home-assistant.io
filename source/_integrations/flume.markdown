@@ -12,13 +12,13 @@ ha_codeowners:
 ha_domain: flume
 ---
 
-The `flume` sensor will show you the current [flume](https://portal.flumetech.com/) status for the given Device ID.
+The `flume` sensor will show you the current [flume](https://portal.flumewater.com) status for the given Device ID.
 
 Flume monitors the real-time status of your home water meter. Allowing the end-user to detect small leaks, gain real-time information on household water consumption, set water goals and budgets, and receive push notifications when suspicious water activities occur. 
 
 ## Configuration
 
-You can find your Client ID and Client Secret under "API Access" on the [settings page](https://portal.flumetech.com/#settings). 
+You can find your Client ID and Client Secret under "API Access" on the [settings page](https://portal.flumewater.com/#settings). 
 
 To add `Flume` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
 

@@ -32,6 +32,7 @@ Send a notification.
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
 
 ### Service `telegram_bot.send_photo` and `telegram_bot.send_sticker`
 
@@ -48,9 +49,10 @@ Send a photo.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| 'timeout'                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
 
 ### Service `telegram_bot.send_video`
 
@@ -67,9 +69,10 @@ Send a video.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| 'timeout'                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
 
 ### Service `telegram_bot.send_document`
 
@@ -86,9 +89,10 @@ Send a document.
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
-| 'timeout'                 |      yes | Timeout for send document. Will help with timeout errors (poor internet connection, etc) |
+| `timeout`                 |      yes | Timeout for send document. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
 
 ### Service `telegram_bot.send_location`
 
@@ -102,6 +106,7 @@ Send a location.
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
 
 ### Service `telegram_bot.edit_message`
 
@@ -167,7 +172,7 @@ Remove the bot from the chat group where it was added.
 |---------------------------|----------|--------------------------------------------------|
 | `chat_id`                 |       no | The chat_id from where to remove the bot.  |
 
-## `telegram` notification platform
+## Telegram notification platform
 
 The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
@@ -175,8 +180,8 @@ The required YAML configuration now reduces to:
 
 ```yaml
 notify:
-  - name: NOTIFIER_NAME
-    platform: telegram
+  - platform: telegram
+    name: NOTIFIER_NAME
     chat_id: USER_CHAT_ID
 ```
 
@@ -423,4 +428,28 @@ Telegram callbacks also support arguments and commands the same way as normal me
 
 {% endraw %}
 
-In this case, having a callback with `/repeat 1 2 3` with pop a notification saying `I repeat: [1, 2, 3]`
+In this case, having a callback with `/repeat 1 2 3` will pop a notification saying `I repeat: [1, 2, 3]`
+
+Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegram_bot`.
+
+{% raw %}
+
+```yaml
+- alias: 'Notifications about messages sent by Telegram bot'
+  trigger:
+    platform: event
+    event_type: telegram_sent
+    event_data:
+      message_tag: "msg_start"
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.chat_id
+        value: '{{ trigger.event.data.chat_id }}'
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.message_id
+        value: '{{ trigger.event.data.message_id }}'
+```
+
+{% endraw %}

@@ -253,7 +253,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Avoid Sonos error during startup ([@amelchio] - [#10146]) ([media_player.sonos docs])
 - Update netdisco to 1.2.3 ([@balloob] - [#10266])
 - Extracted json saving and loading ([@molobrakos] - [#10216]) ([media_player.plex docs])
-- Change introduction card to use persistent notification ([@balloob] - [#10265]) ([introduction docs])
+- Change introduction card to use persistent notification ([@balloob] - [#10265])
 - Add unit test for wake on lan component. ([@cgtobi] - [#10262])
 - Add link to docs ([@fabaff] - [#10272])
 - Add xy support to Alexa HomeAPI v3 ([@pvizeli] - [#10268])
@@ -530,7 +530,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [binary_sensor.gc100 docs]: /integrations/gc100#binary-sensor
 [binary_sensor.linode docs]: /integrations/linode#binary-sensor
 [binary_sensor.random docs]: /integrations/random#binary-sensor
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [binary_sensor.ring docs]: /integrations/ring#binary-sensor
 [binary_sensor.tellduslive docs]: /integrations/tellduslive
 [binary_sensor.trend docs]: /integrations/trend
@@ -564,7 +564,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.openalpr_local docs]: /integrations/openalpr_local/
 [input_number docs]: /integrations/input_number/
 [input_text docs]: /integrations/input_text/
-[introduction docs]: /integrations/introduction/
 [light.hue docs]: /integrations/hue
 [light.hyperion docs]: /integrations/hyperion
 [light.mqtt docs]: /integrations/light.mqtt/

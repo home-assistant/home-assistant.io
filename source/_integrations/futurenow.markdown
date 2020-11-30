@@ -4,6 +4,7 @@ description: Instructions on how to set up P5 FutureNow relay/dimmer units as li
 logo: p5.png
 ha_category:
   - Light
+ha_iot_class: Local Polling
 ha_release: 0.75
 ha_domain: futurenow
 ---

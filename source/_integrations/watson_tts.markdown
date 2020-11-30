@@ -4,6 +4,7 @@ description: Instructions on how to setup IBM Watson TTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.94
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@rutkai'
 ha_domain: watson_tts
@@ -32,7 +33,7 @@ tts:
 You can get these tokens after you generated the credentials on the IBM Cloud console:
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/watson_tts_screen.png' />
+  <img src='/images/screenshots/watson_tts_screen.png' />
 </p>
 
 {% configuration %}

@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: nissan_leaf
 ---
 
-The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://youplus.nissan.co.uk/GB/en/YouPlus/ConnectedServices.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
+The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
 
 * sensors for the battery status, range and charging status
 * a switch to start and stop the climate control

@@ -44,9 +44,9 @@ entity_id:
   required: true
   type: string
 state:
-  description: The state you want to track.
+  description: The states you want to track.
   required: true
-  type: string
+  type: [list, string]
 name:
   description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/docs/configuration/customizing-devices/#friendly_name) or via [Lovelace](/lovelace/entities/#name).
   required: false

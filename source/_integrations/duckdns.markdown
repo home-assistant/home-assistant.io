@@ -3,6 +3,7 @@ title: Duck DNS
 description: Keep your computer registered with the DuckDNS dynamic DNS.
 ha_category:
   - Network
+ha_iot_class: Cloud Polling
 ha_release: 0.55
 ha_domain: duckdns
 ---

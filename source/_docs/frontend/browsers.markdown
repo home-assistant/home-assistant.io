@@ -1,7 +1,6 @@
 ---
 title: "Browsers"
 description: "Browser Compatibility List"
-redirect_from: /getting-started/browsers/
 ---
 
 Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works. The "Release" column contains the release number which was tested. This doesn't mean that older or newer releases will not work.
@@ -81,7 +80,7 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Iridium]: https://iridiumbrowser.de/
 [Konqueror]: https://konqueror.org/
 [Lynx]: https://lynx.browser.org/
-[Midori]: https://www.midori-browser.org/
+[Midori]: https://astian.org/midori-browser/
 [Opera]: https://www.opera.com/
 [Safari]: https://www.apple.com/safari/
 [surf]: https://surf.suckless.org/

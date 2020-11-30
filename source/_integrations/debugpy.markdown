@@ -8,6 +8,7 @@ ha_codeowners:
   - '@frenck'
 ha_domain: debugpy
 ha_quality_scale: internal
+ha_iot_class: Local Push
 ---
 
 The remote Python debugger integration allows you to use the Visual Studio Code

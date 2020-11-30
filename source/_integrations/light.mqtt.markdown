@@ -37,6 +37,9 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
+Home Assistant internally assumes that a light either has a color or a color temperature.
+The state of MQTT lights with default schema and support for both color and color temperature will include a color if `white_value` is 0 or None and a `color_temp` is white_value > 0.
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -94,7 +97,7 @@ color_temp_command_topic:
   required: false
   type: string
 color_temp_state_topic:
-  description: The MQTT topic subscribed to receive color temperature state updates.
+  description: "The MQTT topic subscribed to receive color temperature state updates. If the light also supports setting colors, also define a `white_value_state_topic`. "
   required: false
   type: string
 color_temp_value_template:
