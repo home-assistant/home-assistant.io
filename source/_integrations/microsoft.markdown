@@ -67,6 +67,12 @@ region:
   default: "`eastus`"
 {% endconfiguration %}
 
+<div class='note'>
+
+Not all Azure regions support high-quality neural voices. Use [this overview](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/regions#standard-and-neural-voices) to determine the availability of standard and neural voices by region/endpoint.
+
+</div>
+
   
 ## Full configuration example
 
