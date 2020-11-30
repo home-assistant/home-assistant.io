@@ -32,7 +32,7 @@ Recordings of the keynote and all tracks and sessions will be made available on 
 
 ## Keynotes & Talks schedule
 
-The line-up consists of 16 talks in between 2 keynotes: a opening and a closing
+The line-up consists of 16 talks in between 2 keynotes: an opening and a closing
 keynote.
 
 The opening keynote will mainly focus on what has been done the last year. The
