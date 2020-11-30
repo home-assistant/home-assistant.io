@@ -99,7 +99,9 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
 | `LS`	             | `long_single` |
 
 <div class="note">
+
 Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
+
 </div>
 
 ## Known issues and limitations
