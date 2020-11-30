@@ -125,7 +125,7 @@ Press `Submit`. The success dialog will appear or an error will be displayed in 
 If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path configuration:
 
 - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
-- PiZigate : `pizigate:/dev/serial0`
+- PiZigate : `pizigate:/dev/ttyS0`
 - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 - Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
 
