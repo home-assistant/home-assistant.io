@@ -51,8 +51,11 @@ You will need to follow the instructions in [Device Access Registration](https:/
 
 - Accept the Terms of Service.
 - Pay a fee (currently US$5).
-- Register in the Device Access Console to get a `project_id`.
+- [Register for Device Access](https://developers.google.com/nest/device-access/get-started#register_for_device_access) to get a `project_id`.
+- [Set up Google Cloud Platform](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and enable the
+  API
 - Authorize your Google Account and create OAuth credentials to get a `client_id` and `client_secret`.
+- Configure *Authorized redirect URIs* with the URL you use to access Home Assistant including the path for the OAuth callback , e.g. `https://<your_home_assistant_url_or_local_ip>:<port>/auth/external/callback` (also see `redirect_url_mismatch` troubleshooting below)
 
 <div class='note warning'>
 It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
@@ -63,9 +66,7 @@ steps are:
 
 - [Enable events](https://developers.google.com/nest/device-access/subscribe-to-events#enable_events) in the [Device Access Console](https://console.nest.google.com/device-access/project-list) which creates a Pub/Sub topic.
 - [Enable the Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console.
-- [Create a Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) in the Google Cloud Platform console. Make sure to create a pull subscription and get a `subscriber_id` ("Subscription ID" in Google Cloud Console). The *Topic name* should match the topic name in the device access console.
-
-Additionally, Home Assistant must be configured with a URL (e.g., external exposed [`http`](/integrations/http/), Nabu Casa, etc). When setting up the OAuth credentials, make sure the Home Assistant URL is in the list of *Authorized redirect URIs*, so the redirect back to Home Assistant can get an OAuth authorization code.
+- [Create a Pub/Sub subscription](https://console.cloud.google.com/cloudpubsub/subscription/list) in the Google Cloud Platform console. Make sure to create a pull subscription and get a `subscriber_id` ("Subscription name" in Google Cloud Console). The *Topic name* should match the topic name in the device access console.
 
 Follow all of the instructions in [Device Access: Quick Start Guide](https://developers.google.com/nest/device-access/get-started) carefully as it is easy to make a configuration mistake that is difficult to debug. It is recommended to exercise the entire guide, including the command to test out the API, to make sure that it is working before configuring Home Assistant.
 
@@ -117,11 +118,15 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 
 ## Troubleshooting
 
-- See [No URL Available](/more-info/no-url-available) for guidance on setup issues related to URLs.
+- For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
-- For trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting) which includes guidance for errors like `redirect_uri_mismatch` where Google needs to know about your external URL
+- *Error 500: redirect_url_mismatch* means that you need visit the [GCP credentials](https://console.developers.google.com/apis/credentials) page and modify your OAuth2.0 Client ID to add the correct Home Asssitant callback URL. The error message tells you the exact URL that needs to be added, including any ports or paths like `/auth/external/callback` path. See [Redirect uri mismatch](https://developers.google.com/nest/device-access/authorize#redirect_uri_mismatch) for more details.
 
-- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes # of messages that have yet to be acknowledged. This can tell you if the publisher is working, or if the subscriber is working. You can also `View Messages` to see any pending messages. Many old unacknowledged messages may indicate the subscriber is not working properly.
+- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double double check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the [Get Started: Device Access](https://developers.google.com/nest/device-access/get-started) guide again and issue commands directly against the API until you successfully get back devices.
+
+- *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
+
+- You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receivng the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
 
 - To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
 
@@ -141,7 +146,6 @@ logger:
     google_nest_sdm.event: debug
     google.cloud.pubsub_v1: debug
     google.cloud.pubsub_v1.subscriber._protocol.streaming_pull_manager: debug
-
 ```
 
 ## Camera
