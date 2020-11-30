@@ -326,17 +326,6 @@ automation:
     tag_id: A7-6B-90-5F
 ```
 
-Or trigger on multiple possible tags:
-
-```yaml
-automation:
-  trigger:
-    platform: tag
-    tag_id:
-      - A7-6B-90-5F
-      - A7-6B-15-AC
-```
-
 Additionally, you can also only trigger if a card is scanned by a specific
 device/scanner by setting the `device_id`:
 
@@ -348,13 +337,15 @@ automation:
     device_id: 0e19cd3cf2b311ea88f469a7512c307d
 ```
 
-Or trigger on multiple possible devices:
+Or trigger on multiple possible devices for multiple tags:
 
 ```yaml
 automation:
   trigger:
     platform: tag
-    tag_id: A7-6B-90-5F
+    tag_id:
+      - A7-6B-90-5F
+      - A7-6B-15-AC
     device_id:
       - 0e19cd3cf2b311ea88f469a7512c307d
       - d0609cb25f4a13922bb27d8f86e4c821
