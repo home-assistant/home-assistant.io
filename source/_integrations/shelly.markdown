@@ -84,7 +84,7 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
       click_type: long
   action:
     service: light.toggle
-    <span class="x x-first x-last">entity_id</span>: light.lamp_living_room
+    entity_id: light.lamp_living_room
 ```
 
 ### Possible values for `click_type`
