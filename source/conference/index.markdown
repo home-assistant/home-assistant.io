@@ -41,6 +41,6 @@ closing keynote will be spoiling all kinds of new goodness that is coming.
 <img src='/images/conference/schedule.png' alt='Home Assistant Conference schedule' class='no-shadow'>
 
 The schedule is also available on our Hopin page. Which has more information
-available about or speakers.
+available about our speakers.
 
 [View the Home Assistant Conference schedule on Hopin](https://hopin.to/events/home-assistant-conference#schedule)
