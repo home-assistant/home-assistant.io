@@ -72,7 +72,7 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
       click_type: single
   action:
     service: light.toggle
-    entity: light.living_room
+    entity_id: light.living_room
 
 - alias: "Toggle living room lamp"
   trigger:
