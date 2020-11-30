@@ -1,5 +1,4 @@
 ---
-
 title: Generic
 description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
