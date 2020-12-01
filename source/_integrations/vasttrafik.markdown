@@ -87,16 +87,16 @@ It is possible to use the full name of the station for the from/heading values, 
 
 In cases where the wrong station is being selected, it is possible to provide the station ID instead. To do this you first need to retrieve the station ID either via Västtrafik's [API-konsole](https://developer.vasttrafik.se/portal/#/api/Reseplaneraren/v2/landerss) or with `curl`.
 
-To retrieve the ID using curl:
+To retrieve the ID using `curl`:
 
-1. Login to the Västtrafik API and go to "Hantera nycklar" next to the application your created for Home Assistant.
-2. Make a copy of your AccessToken and execute the following curl command, replacing "<ACCESS_TOKEN>" and "<STATION_NAME>" as necessary:
+1. Login into the Västtrafik API and go to "Hantera nycklar" next to the application you created for Home Assistant.
+2. Make a copy of your AccessToken and execute the following `curl` command, replacing "<ACCESS_TOKEN>" and "<STATION_NAME>" as necessary:
 
    ```shell
    curl -H "Authorization: Bearer <ACCESS_TOKEN>" "https://api.vasttrafik.se/bin/rest.exe/v2/location.name?input=<STATION_NAME>&format=json
    ```
 
-3. In the output locate the key called "StopLocation", and under this key you will find a list of stops. Copy the ID for your desired stop and use it in your configuration.
+3. In the output locate the key called "StopLocation", and under this key, you will find a list of stops. Copy the ID for your desired stop and use it in your configuration.
 
 ```yaml
 # Example configuration.yaml entry using station ID as departure and station name as destination
