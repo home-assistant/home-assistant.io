@@ -38,8 +38,8 @@ world of IoT:
 - [Part 4: Making it All Work for Humans][p4]
 - [Part 5: Practical Use Case Videos][p5]
 
-The 5th part is the really inspiring part; Troy made 11! short and quick videos,
-showing actual use cases in his home. Really cool!
+The 5th part Troy made 11! short and quick videos, showing actual use cases in
+his home. Really cool and inspiring!
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PL7LAAxaabizMcH3kueW9Ub0oif0FngweI" frameborder="0" allowfullscreen></iframe>
