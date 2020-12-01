@@ -24,7 +24,8 @@ and mostly known for creating ["Have I Been Pwned"][hibp] ([Home Assistant integ
 Troy has been diving into the world of IoT and started automating his home,
 using... Home Assistant!
 
-> _"I'm massively impressed with HA and nothing else I've seen along my IoT journey comes even close to comparing. If you're going to do IoT in any meaningful way, you start with HA."_ – Troy Hunt
+
+> I'm massively impressed with HA and nothing else I've seen along my IoT journey comes even close to comparing. If you're going to do IoT in any meaningful way, you start with HA.
 
 In 5 blogs, he writes about his journey in the big
 world of IoT:
