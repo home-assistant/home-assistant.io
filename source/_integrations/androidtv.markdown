@@ -76,6 +76,11 @@ get_sources:
   required: false
   default: true
   type: boolean
+source_provider:
+  description: Whether to populate the list of sources from running_apps or installed_apps
+  required: false
+  default: running_apps
+  type: string
 apps:
   description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below. If a name is not provided, the app will never be shown in the sources list. ([These app names](https://github.com/JeffLIrion/python-androidtv/blob/748d6b71cad611c624ef7526d9928431167531a3/androidtv/constants.py#L290-L308) are configured in the backend package and do not need to be included in your configuration.)
   required: false
