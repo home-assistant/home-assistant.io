@@ -24,8 +24,10 @@ and mostly known for creating ["Have I Been Pwned"][hibp] ([Home Assistant integ
 Troy has been diving into the world of IoT and started automating his home,
 using... Home Assistant!
 
-
-> I'm massively impressed with HA and nothing else I've seen along my IoT journey comes even close to comparing. If you're going to do IoT in any meaningful way, you start with HA.
+<blockquote>
+    <p>I'm massively impressed with HA and nothing else I've seen along my IoT journey comes even close to comparing. If you're going to do IoT in any meaningful way, you start with HA.</p>
+    <b class=source>Troy Hunt</b>
+</blockquote>
 
 In 5 blogs, he writes about his journey in the big
 world of IoT:
@@ -94,16 +96,16 @@ using your toothbrush... Why? Because we can! 😎
 This isn't a highlight yet, but without a doubt, it is definitely is going to
 become one of the highlights of this year: The Home Assistant Conference.
 
-<a href="/conference"><img src='/images/conference/conference-header.png' alt='Home Assistant Conference header' class='no-shadow'></a>
-
 Sunday, 13 December, we'll be looking back at last year; but more importantly,
 lots of great talks are planned by speakers from our community about all
-different kinds of subjects.
+different kinds of subjects:
+
+<a href="/conference"><img src='/images/conference/schedule.png' alt='Home Assistant Conference Schedule' class='no-shadow'></a>
 
 Above all, some new and exciting stuff is going to be announced as well! So,
 ensure you don't miss it.
 
-[Check out our Home Assistant Conference page for more information.](/conference)
+[Check out our Home Assistant Conference page on how to join!](/conference)
 
 ## Got a tip for the next edition?
 
