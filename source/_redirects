@@ -366,7 +366,6 @@
 /components/device_tracker.tplink /integrations/tplink
 /components/device_tracker.traccar /integrations/traccar
 /components/device_tracker.trackr /integrations/trackr
-/components/device_tracker.ubee /integrations/ubee
 /components/device_tracker.ubus /integrations/ubus
 /components/device_tracker.unifi /integrations/unifi
 /components/device_tracker.unifi_direct /integrations/unifi_direct
@@ -1916,7 +1915,6 @@
 /components/twilio_sms /integrations/twilio_sms
 /components/twitch /integrations/twitch
 /components/twitter /integrations/twitter
-/components/ubee /integrations/ubee
 /components/ubus /integrations/ubus
 /components/ue_smart_radio /integrations/ue_smart_radio
 /components/uk_transport /integrations/uk_transport
