@@ -52,10 +52,11 @@ Supported models:
 - Ubee EVW3200-Wifi
 - Ubee EVW3226 (UPC)
 - Ubee EVW32C-0N
+- Ubee UBC1303BA00
 
 <div class='note info'>
 
-This integration uses <a href='https://github.com/mzdrale/pyubee'>pyUbee library</a>, which was tested with models listed above. If you have different model of <a href='http://www.ubeeinteractive.com/?page_id=20178'>Ubee Router</a> and it doesn't work with this component, please <a href='https://github.com/mzdrale/pyubee/issues/new'>create pyUbee issue</a> to request for support for your model.
+This integration uses <a href='https://github.com/mzdrale/pyubee'>pyUbee library</a>, which was tested with models listed above. If you have different model of <a href='http://www.ubeeinteractive.com/?page_id=20178'>Ubee Router</a> and it doesn't work with this component, you can <a href='https://github.com/mzdrale/pyubee/issues/new'>create pyUbee issue</a> to request for support for your model.
 
 </div>
 
