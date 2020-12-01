@@ -602,7 +602,6 @@
 /components/notify.twitter /integrations/twitter
 /components/notify.webostv /integrations/webostv
 /components/notify.xmpp /integrations/xmpp
-/components/notify.yessssms /integrations/yessssms
 /components/openalpr /integrations/openalpr_local
 /components/pollen /integrations/iqvia
 /components/public_sensor.netatmo /integrations/netatmo
@@ -1998,7 +1997,6 @@
 /components/yandextts /integrations/yandextts
 /components/yeelight /integrations/yeelight
 /components/yeelightsunflower /integrations/yeelightsunflower
-/components/yessssms /integrations/yessssms
 /components/yi /integrations/yi
 /components/zabbix /integrations/zabbix
 /components/zamg /integrations/zamg
