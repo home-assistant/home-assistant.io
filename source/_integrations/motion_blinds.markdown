@@ -3,7 +3,7 @@ title: Motion Blinds
 description: Instructions on how to integrate Motion Blinds from Coulisse B.V. into Home Assistant.
 ha_category:
   - Cover
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_release: 0.119.0
 ha_domain: motion_blinds
 ha_codeowners:
