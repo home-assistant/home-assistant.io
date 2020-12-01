@@ -746,7 +746,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump pyicloud to 0.9.3 ([@Quentame] - [#32582]) ([icloud docs])
 - Upgrade youtube_dl to version 2020.03.08 ([@BKPepe] - [#32581]) ([media_extractor docs])
 - Bump denonavr to 0.8.0 ([@scarface-4711] - [#32578]) ([denonavr docs])
-- Add support for Ubee Router DVW32CB ([@seanvictory] - [#32406]) ([ubee docs])
+- Add support for Ubee Router DVW32CB ([@seanvictory] - [#32406])
 - Bump rflink to 0.0.52 ([@jeyrb] - [#32588]) ([rflink docs])
 - Correct grammatical error in CUSTOM_WARNING ([@davet2001] - [#32569])
 - Add Steam game ID and screenshot paths as attributes ([@i00] - [#32005]) ([steam_online docs])
@@ -1441,7 +1441,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [transmission docs]: /integrations/transmission/
 [tts docs]: /integrations/tts/
 [twitch docs]: /integrations/twitch/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [upnp docs]: /integrations/upnp/
 [utility_meter docs]: /integrations/utility_meter/
