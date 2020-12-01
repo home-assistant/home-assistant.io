@@ -105,7 +105,10 @@ different kinds of subjects:
 Above all, some new and exciting stuff is going to be announced as well! So,
 ensure you don't miss it.
 
-[Check out our Home Assistant Conference page on how to join!](/conference)
+<a class="btn" href="https://hopin.to/events/home-assistant-conference">Get your $1 ticket</a>
+
+Or, check the [Home Assistant Conference page](/conference) for other ways on
+how to watch.
 
 ## Got a tip for the next edition?
 
