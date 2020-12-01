@@ -142,3 +142,10 @@ sources:
   'Favorites': '45'
   'Game': '49'
 ```
+
+### Telnet
+This integration relies on the existance of Telnet in the HomeAssistant environment. The HomeAssistant docker container runs Alpine linux, which has [removed](https://github.com/alpinelinux/aports/commit/23f4c6bd6c) telnet from the default packages. In order for this integration to work, run the following commands on the container:
+```
+apk update
+apk add busybox-extras
+```
