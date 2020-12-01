@@ -1,12 +1,12 @@
 ---
 title: "Community Highlights: 7th edition"
 description: "A 'Dad status' board, illuminating the steps of your stairs and the most beautiful thermostat you've ever seen"
-date: 2020-11-30 00:00:00
-date_formatted: "November 30, 2020"
+date: 2020-12-01 00:00:00
+date_formatted: "December 1, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 categories: Community
-og_image: /images/blog/2020-11-30-community-highlights/social.png
+og_image: /images/blog/2020-12-01-community-highlights/social.png
 ---
 
 The 7th edition of the Home Assistant Community Highlights! Some interesting
