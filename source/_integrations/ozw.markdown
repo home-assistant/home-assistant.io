@@ -3,13 +3,13 @@ title: OpenZWave (beta)
 description: Instructions on how to integrate OpenZWave with Home Assistant.
 ha_category:
   - Switch
-ha_release: '0.110'
+ha_release: "0.110"
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@cgarwood'
-  - '@marcelveldt'
-  - '@MartinHjelmare'
+  - "@cgarwood"
+  - "@marcelveldt"
+  - "@MartinHjelmare"
 ha_domain: ozw
 ---
 
@@ -102,13 +102,12 @@ This service will set the specified configuration parameter to the value specifi
 allow device-specific configurations. Example of this would be setting notification
 LED colors on switches.
 
-| Service Data Attribute | Required | Description                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                              |
-| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                              |
-| `parameter`            | yes      | Parameter number to set (integer).                                                                              |
+| Service Data Attribute | Required | Description                                                                                                                                                                         |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `instance_id`          | no       | The OZW Instance/Controller to use, defaults to 1.                                                                                                                                  |
+| `node_id`              | yes      | Node id of the device to set configuration parameter to (integer).                                                                                                                  |
+| `parameter`            | yes      | Parameter number to set (integer).                                                                                                                                                  |
 | `value`                | yes      | Value to set for parameter. (String or integer value for list, string or boolean for bool parameters, list of dicts for bitset parameters (see example below), integer for others). |
-
 
 #### Example BitSet service call
 
@@ -132,22 +131,23 @@ value:
 
 This event is fired upon scene activation. The data in the event will vary depending on your particular Z-Wave device, however, here is an example from a Zooz ZEN27 Dimmer when the down button is pressed 3 times.
 
-````json
+```json
 {
-    "event_type": "ozw.scene_activated",
-    "data": {
-        "node_id": 9,
-        "scene_id": 1,
-        "scene_label": "Scene 1",
-        "scene_value_id": 5,
-        "scene_value_label": "Pressed 3 Times"
-    },
-    "origin": "LOCAL",
-    "time_fired": "2020-08-16T12:49:50.409702+00:00",
-    "context": {
-        "id": "f917f078dfbe11ea8c0e374c447f29eb",
-        "parent_id": null,
-        "user_id": null
-    }
+  "event_type": "ozw.scene_activated",
+  "data": {
+    "instance_id": 1,
+    "node_id": 9,
+    "scene_id": 1,
+    "scene_label": "Scene 1",
+    "scene_value_id": 5,
+    "scene_value_label": "Pressed 3 Times"
+  },
+  "origin": "LOCAL",
+  "time_fired": "2020-08-16T12:49:50.409702+00:00",
+  "context": {
+    "id": "f917f078dfbe11ea8c0e374c447f29eb",
+    "parent_id": null,
+    "user_id": null
+  }
 }
-````
+```
