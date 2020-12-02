@@ -63,7 +63,7 @@ For services which have support for sending images.
 { "message": "Test plugin",
   "data": {
     "photo": {
-        "url": "http://www.gbsun.de/gbpics/berge/berge106.jpg"
+        "url": "https://raw.githubusercontent.com/home-assistant/home-assistant.io/current/source/images/default-social.png"
     }
   }
 }
@@ -78,7 +78,7 @@ action:
     message: "Test plugin"
     data:
       photo:
-        url: "http://www.gbsun.de/gbpics/berge/berge106.jpg"
+        url: "https://raw.githubusercontent.com/home-assistant/home-assistant.io/current/source/images/default-social.png"
 ```
 
 
