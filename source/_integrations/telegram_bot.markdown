@@ -74,7 +74,7 @@ Send a video.
 
 ### Service `telegram_bot.send_voice`
 
-Send a video.
+Send a voice message.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
