@@ -3,7 +3,7 @@ title: Number
 description: Instructions on how to manage your Number entities with Home Assistant.
 ha_category:
   - Number
-ha_release: 0.118
+ha_release: 0.119
 ha_quality_scale: internal
 ha_domain: number
 ha_iot_class: ~
