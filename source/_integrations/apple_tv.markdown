@@ -10,7 +10,7 @@ ha_release: 0.49
 ha_domain: apple_tv
 ---
 
-The `apple_tv` integration allows you to control an Apple TV (any generation). See the
+The Apple TV integration allows you to control an Apple TV (any generation). See the
 [remote platform](/integrations/apple_tv#remote) if you want to send remote control buttons,
 e.g., arrow keys.
 
@@ -29,17 +29,17 @@ Press on **Apple TV** and configure the integration:
 
 ## FAQ
 
-### My Apple TV does not turn on/off when I press on/off in frontend
+### My Apple TV does not turn on/off when I press on/off in the frontend
 
-That is correct, it only toggles power state in Home Assistant. Turning the device on or off is
-currently not supported. Support for this is however in development, so it will be added at some
-point in the future.
+That is correct; it only toggles the power state in Home Assistant. Turning the device on or off is
+currently not supported. However, support for this is in development so that it will be added at some
+point in the future
 
 ### Is it possible to see if a device is on without interacting with it
 
 No
 
-### When adding a new device, a PIN code is requested but none is shown on the screen
+### When adding a new device, a PIN code is requested, but none is shown on the screen
 
 This can happen when pairing the AirPlay protocol in case the access settings are wrong. On your
 Apple TV, navigate to Settings, find the AirPlay menu and make sure that the access setting
@@ -47,16 +47,16 @@ is set to "Everyone on the same network" and try again.
 
 ### The buttons (play, pause, etc.) does not work
 
-The apps in tvOS themselves decides what commands they support and when they support
-them. It is very likely that the app you are using does not support the action you are trying
+The apps in tvOS themselve decides what commands they support and when they support
+them. Likely, the app you are using does not support the action you are trying
 to perform. Before writing an issue about this, verify if the same action is possible with the
 Remote app in iOS. If that is the case, please write a bug in
 [pyatv](https://github.com/postlund/pyatv/issues/new?assignees=&labels=bug&template=bug_report.md&title=)
 and include logs (see Debugging below).
 
-### I'm trying to play a stream via AirPlay but it doesn't work
+### I'm trying to play a stream via AirPlay, but it doesn't work
 
-The Apple TV is quite picky when it comes to which formats it plays. Best bet is MP4. If it doesn't
+The Apple TV is quite picky when it comes to which formats it plays. The best bet is MP4. If it doesn't
 work, it's likely because of the media format.
 
 ## Remote
@@ -66,17 +66,17 @@ automatically set up when an Apple TV is configured.
 
 At the moment, the following buttons are available (but not necessarily supported by all devices):
 
-- up
-- down
-- left
-- right
-- menu
-- top_menu
-- select
-- volume_up
-- volume_down
-- home
-- home_hold
+- `up`
+- `down`
+- `left`
+- `right`
+- `menu`
+- `top_menu`
+- `select`
+- `volume_up`
+- `volume_down`
+- `home`
+- `home_hold`
 
 A typical service call for press several buttons looks like this.
 
