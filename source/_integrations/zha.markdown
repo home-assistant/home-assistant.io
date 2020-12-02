@@ -230,7 +230,7 @@ You use routers to increase the number of Zigbee devices that can be used in a n
 
 Even the lest powerful Zigbee coordinator hardware supported by Zigpy is CC2530/2531 and its default firmware only support 20 devices connected directly to the coordinator. However, by having routers in your Zigbee network the mesh network size can be extended. You can assume that most if not all mains/AC-powered devices e.g. wall-plugs and always powered-on lightbulbs in your Zigbee network can serve as a router, you can even use CC2530/CC2531 with router firmware as your routers (which in turn has a limit of 21 devices).
 
-An example is using the defaultCC2531 coordinator firmware + two CC2531 routers your device limit will be:
+An example using the default CC2531 coordinator firmware + two CC2531 routers; Your device limit will be:
 
 - Coordinator: 15 devices - 2 routers = 13
 - Router one: + 21 devices
