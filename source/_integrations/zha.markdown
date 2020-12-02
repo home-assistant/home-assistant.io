@@ -224,6 +224,19 @@ To add a new device:
 1. Reset your Zigbee devices according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times, switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
 1. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
+### Using router devices
+
+You use routers to increase the number of Zigbee devices that can be used in a network. The total number of Zigbee devices that you have on a Zigbee network depends on a few things, but you should know that Zigbee coordinator hardware and firmware only plays a larger role in Zigbee networks with a lot of devices. More important is how many directly connected devices ("direct children") versus how many routers are connected to your Zigbee coordinator. Zigpy library which ZHA uses has an upper limit is 32 direct children but if your Zigbee coordinator hardware is powerful enough then you can still have hundreds of Zigbee devices connected through routers.  
+
+Even the least powerful Zigbee coordinator hardware supported by Zigpy is CC2530/2531 and its default firmware, only supports 20 devices connected directly to the coordinator. However, by having routers in your Zigbee network the mesh network size can be extended. You can assume that most, if not all mains/AC-powered devices, e.g., wall-plugs and always powered-on lightbulbs in your Zigbee network, can serve as a router. You can even use CC2530/CC2531 with router firmware, as additional routers (which in their turn have a limit of 21 devices).
+
+An example using the default CC2531 coordinator firmware + two CC2531 routers; Your device limit will be:
+
+- Coordinator: 15 devices - 2 routers = 13
+- Router one: + 21 devices
+- Router two: + 21 devices
+- Total device limit = **55 devices**
+
 ## Troubleshooting
 
 To help resolve any kinks or compatibility problems by reporting bugs as issues with debug logs. Please follow the instructions in this troubleshooting section.
