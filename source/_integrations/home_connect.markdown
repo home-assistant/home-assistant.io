@@ -40,6 +40,9 @@ Note that it depends on the appliance and on API permissions which of the featur
 3. Add the client ID and client secret to your `configuration.yaml` (see below).
 4. Once Home Assistant has restarted, go to Configuration > Integrations.
 5. Select the Home Connect integration.
+6. You will be prompted to open a web page and authenticate your app with Home Connect.
+7. Use your Home Connect account details associated with your developer app (this may not be your developer account details you created but will be the account you use to login to the original Home Connect App from Bosch/Siemens).
+8. You will know it works when you are prompted to allow Home Assistant to access your Home Connect data, including the list of devices accessible to the original Home Connect app.
 
 ### Configuration
 
