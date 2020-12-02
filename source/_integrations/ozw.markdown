@@ -136,6 +136,7 @@ This event is fired upon scene activation. The data in the event will vary depen
 {
     "event_type": "ozw.scene_activated",
     "data": {
+        "instance_id": 1,
         "node_id": 9,
         "scene_id": 1,
         "scene_label": "Scene 1",
