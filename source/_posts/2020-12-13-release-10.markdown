@@ -66,6 +66,7 @@ Screenshot of Lorem ipsum.
 
 Core:
 
+- Refactor Apple TV integration ([@postlund] - [#31952]) ([apple_tv docs]) (breaking-change)
 - Add initial rest query params ([@boxcee] - [#42198]) ([pvoutput docs]) ([rest docs]) ([scrape docs])
 - Add reload support to KNX ([@spacegaier] - [#42429]) ([knx docs])
 - Add support for learning RF commands with Broadlink remotes ([@felipediel] - [#39671]) ([broadlink docs]) ([remote docs])
@@ -87,6 +88,9 @@ Core:
 - Add a service target ([@balloob] - [#43725])
 - Base area IDs on initial name ([@balloob] - [#43804])
 - Make simple deCONZ thermostats work ([@Kane610] - [#43781]) ([deconz docs])
+- Add fan support to deCONZ climate platform ([@Kane610] - [#43721]) ([deconz docs])
+- Add preset support to deCONZ climate platform ([@Kane610] - [#43722]) ([deconz docs])
+
 
 Frontend:
 
@@ -231,6 +235,40 @@ removed in March 2021.
   </p>
 </details>
 
+<details>
+  <summary><b>Apple TV</b></summary>
+  <p>
+
+The Apple TV integration has been completely rewritten. Support for YAML is
+removed, so old configuration must be removed and devices re-added via the
+integrations page.
+
+Furthermore, the old services `apple_tv.apple_tv_authenticate` and
+`apple_tv.apple_tv_scan` are deprecated and replaced by the configration flow.
+
+([@postlund] - [#31952]) ([apple_tv docs])
+
+  </p>
+</details>
+
+<details>
+  <summary><b>Telegram Bot</b></summary>
+  <p>
+
+The telegram bot integration now allows/accepts messages when either the allowed
+group (Chat ID) OR the User ID of the sender matches.
+
+This is a different behavior compared to before as before both Group (Chat ID)
+AND User ID needed to be allowed. This allows members of a group to talk to
+the bot, even if they are not specifically listed as a user.
+
+If you use Telegram groups, make sure you adjust your configuration accordingly.
+
+([@wicol] - [#43241]) ([telegram_bot docs])
+
+  </p>
+</details>
+
 ## Farewell to the following
 
 The following integrations have been removed:
@@ -299,7 +337,7 @@ These integrations where using webscraping, which is no longer allowed.
 - Rewrite ecobee unittest tests to pytest ([@adriansuwala] - [#42584]) ([ecobee docs])
 - Bump python-miio and construct version ([@syssi] - [#43267]) ([eddystone_temperature docs]) ([eq3btsmart docs]) ([xiaomi_miio docs])
 - Xiaomi Device Tracker - Move "Refreshing device list" to debug ([@GuyKh] - [#43276]) ([xiaomi docs])
-- Bump actions/upload-artifact from v2.2.0 to v2.2.1 ([dependabot] - [#43272])
+- Bump actions/upload-artifact from v2.2.0 to v2.2.1 (dependabot - [#43272])
 - Bump Pywemo to 0.5.3 ([@pavoni] - [#43263]) ([wemo docs])
 - Automatically clean up executor as part of closing loop ([@balloob] - [#43284])
 - Convert core tests to async ([@balloob] - [#43287])
@@ -308,7 +346,7 @@ These integrations where using webscraping, which is no longer allowed.
 - Add notification binary_sensor to Plugwise integration ([@CoMPaTech] - [#41473]) ([plugwise docs])
 - Update directv to 0.4.0 ([@ctalkington] - [#43302]) ([directv docs]) ([directv docs])
 - Improvement to allow parsing of station ID in vasttrafik integration. Addresses #34851 ([@ttuffin] - [#43136]) ([vasttrafik docs])
-- Bump codecov/codecov-action from v1.0.14 to v1.0.15 ([dependabot] - [#43304])
+- Bump codecov/codecov-action from v1.0.14 to v1.0.15 (dependabot - [#43304])
 - Add progress translation key to hassfest ([@MartinHjelmare] - [#43311])
 - Update cloud integration to 0.38.0 ([@klaasnicolaas] - [#43314]) ([cloud docs])
 - Add an option to template delay_on/off in template binary sensor ([@mLupine] - [#43259]) ([template docs])
@@ -373,7 +411,7 @@ These integrations where using webscraping, which is no longer allowed.
 - Optimize Sonos current playing state ([@amelchio] - [#43517]) ([sonos docs])
 - Make Brother uptime sensor disabled by default ([@bieniu] - [#43478]) ([brother docs])
 - Add device id to deconz_event ([@Kane610] - [#43552]) ([deconz docs])
-- Bump actions/stale from v3.0.13 to v3.0.14 ([dependabot] - [#43551])
+- Bump actions/stale from v3.0.13 to v3.0.14 (dependabot - [#43551])
 - Update Blinkpy to fix non-updating blink mini cameras ([@fronzbot] - [#43549]) ([blink docs])
 - Optimize reading of Sonos source mode ([@amelchio] - [#43541]) ([sonos docs])
 - Mill Heater: Add support for Energy consumption ([@Danielhiversen] - [#43523]) ([mill docs])
@@ -505,9 +543,32 @@ These integrations where using webscraping, which is no longer allowed.
 - Bump pypck to 0.7.7 ([@alengwenus] - [#43824]) ([lcn docs])
 - Use light turn on service ([@balloob] - [#43847]) ([automation docs])
 - Do not warn for weak referenced entities ([@balloob] - [#43848]) ([homeassistant docs])
+- Migrate notify-leaving-zone to use mobile app device action ([@balloob] - [#43832]) ([automation docs]) ([mobile_app docs])
+- Add new number entity integration ([@Shulyaka] - [#42735]) ([demo docs]) ([number docs]) (new-integration)
+- Make "invalid password" error message clearer ([@spacegaier] - [#43853]) ([config docs])
+- Guard for when refreshing token fails ([@balloob] - [#43855]) ([spotify docs])
+- Cleanup unique_id on onewire integration ([@epenet] - [#43783]) ([onewire docs])
+- Fix using execute on the notify_leaving_zone ([@balloob] - [#43858]) ([automation docs])
+- deCONZ improve options updating entities ([@Kane610] - [#42320]) ([deconz docs])
+- Deprecate the use of keyring and credstash ([@balloob] - [#43854]) (breaking-change)
+- Refactor Apple TV integration ([@postlund] - [#31952]) ([apple_tv docs]) (breaking-change)
+- Add preset support to deCONZ climate platform ([@Kane610] - [#43722]) ([deconz docs])
+- Bump androidtv to 0.0.56 ([@JeffLIrion] - [#43859])
+- Add fan support to deCONZ climate platform ([@Kane610] - [#43721]) ([deconz docs])
+- Use Plex websocket payloads to reduce overhead ([@jjlawren] - [#42332]) ([plex docs])
+- Bump Synology DSM to 1.0.1 ([@Quentame] - [#43860]) ([synology_dsm docs])
+- Allow members of allowed groups to talk to telegram_bot ([@wicol] - [#43241]) ([telegram_bot docs]) (breaking-change)
+- Add support for system health to Airly integrarion ([@bieniu] - [#43220]) ([airly docs])
+- Add support for system health to AccuWeather integration ([@bieniu] - [#43277]) ([accuweather docs])
+- Automatically select "Solid" effect in Hyperion ([@dermotduffy] - [#43799]) ([hyperion docs])
+- Add support for MQTT Scenes ([@kiall] - [#42639]) ([mqtt docs]) (new-platform)
+- Add ozw add-on discovery and mqtt client ([@MartinHjelmare] - [#43838]) ([hassio docs]) ([ozw docs])
+- Add telegram_bot.send_voice service ([@dvv] - [#43433]) ([telegram_bot docs])
+- Updated frontend to 20201202.0 ([@bramkragten] - [#43862]) ([frontend docs])
 
 </details>
 
+[#31952]: https://github.com/home-assistant/core/pull/31952
 [#38206]: https://github.com/home-assistant/core/pull/38206
 [#38882]: https://github.com/home-assistant/core/pull/38882
 [#39398]: https://github.com/home-assistant/core/pull/39398
@@ -528,15 +589,19 @@ These integrations where using webscraping, which is no longer allowed.
 [#42306]: https://github.com/home-assistant/core/pull/42306
 [#42311]: https://github.com/home-assistant/core/pull/42311
 [#42314]: https://github.com/home-assistant/core/pull/42314
+[#42320]: https://github.com/home-assistant/core/pull/42320
+[#42332]: https://github.com/home-assistant/core/pull/42332
 [#42338]: https://github.com/home-assistant/core/pull/42338
 [#42413]: https://github.com/home-assistant/core/pull/42413
 [#42429]: https://github.com/home-assistant/core/pull/42429
 [#42484]: https://github.com/home-assistant/core/pull/42484
 [#42522]: https://github.com/home-assistant/core/pull/42522
 [#42584]: https://github.com/home-assistant/core/pull/42584
+[#42639]: https://github.com/home-assistant/core/pull/42639
 [#42700]: https://github.com/home-assistant/core/pull/42700
 [#42710]: https://github.com/home-assistant/core/pull/42710
 [#42711]: https://github.com/home-assistant/core/pull/42711
+[#42735]: https://github.com/home-assistant/core/pull/42735
 [#42907]: https://github.com/home-assistant/core/pull/42907
 [#42909]: https://github.com/home-assistant/core/pull/42909
 [#42980]: https://github.com/home-assistant/core/pull/42980
@@ -579,11 +644,13 @@ These integrations where using webscraping, which is no longer allowed.
 [#43212]: https://github.com/home-assistant/core/pull/43212
 [#43215]: https://github.com/home-assistant/core/pull/43215
 [#43217]: https://github.com/home-assistant/core/pull/43217
+[#43220]: https://github.com/home-assistant/core/pull/43220
 [#43221]: https://github.com/home-assistant/core/pull/43221
 [#43231]: https://github.com/home-assistant/core/pull/43231
 [#43233]: https://github.com/home-assistant/core/pull/43233
 [#43239]: https://github.com/home-assistant/core/pull/43239
 [#43240]: https://github.com/home-assistant/core/pull/43240
+[#43241]: https://github.com/home-assistant/core/pull/43241
 [#43242]: https://github.com/home-assistant/core/pull/43242
 [#43243]: https://github.com/home-assistant/core/pull/43243
 [#43246]: https://github.com/home-assistant/core/pull/43246
@@ -596,6 +663,7 @@ These integrations where using webscraping, which is no longer allowed.
 [#43271]: https://github.com/home-assistant/core/pull/43271
 [#43272]: https://github.com/home-assistant/core/pull/43272
 [#43276]: https://github.com/home-assistant/core/pull/43276
+[#43277]: https://github.com/home-assistant/core/pull/43277
 [#43282]: https://github.com/home-assistant/core/pull/43282
 [#43283]: https://github.com/home-assistant/core/pull/43283
 [#43284]: https://github.com/home-assistant/core/pull/43284
@@ -634,6 +702,7 @@ These integrations where using webscraping, which is no longer allowed.
 [#43416]: https://github.com/home-assistant/core/pull/43416
 [#43418]: https://github.com/home-assistant/core/pull/43418
 [#43420]: https://github.com/home-assistant/core/pull/43420
+[#43433]: https://github.com/home-assistant/core/pull/43433
 [#43434]: https://github.com/home-assistant/core/pull/43434
 [#43441]: https://github.com/home-assistant/core/pull/43441
 [#43442]: https://github.com/home-assistant/core/pull/43442
@@ -726,6 +795,8 @@ These integrations where using webscraping, which is no longer allowed.
 [#43710]: https://github.com/home-assistant/core/pull/43710
 [#43719]: https://github.com/home-assistant/core/pull/43719
 [#43720]: https://github.com/home-assistant/core/pull/43720
+[#43721]: https://github.com/home-assistant/core/pull/43721
+[#43722]: https://github.com/home-assistant/core/pull/43722
 [#43724]: https://github.com/home-assistant/core/pull/43724
 [#43725]: https://github.com/home-assistant/core/pull/43725
 [#43729]: https://github.com/home-assistant/core/pull/43729
@@ -744,11 +815,13 @@ These integrations where using webscraping, which is no longer allowed.
 [#43778]: https://github.com/home-assistant/core/pull/43778
 [#43779]: https://github.com/home-assistant/core/pull/43779
 [#43781]: https://github.com/home-assistant/core/pull/43781
+[#43783]: https://github.com/home-assistant/core/pull/43783
 [#43786]: https://github.com/home-assistant/core/pull/43786
 [#43787]: https://github.com/home-assistant/core/pull/43787
 [#43790]: https://github.com/home-assistant/core/pull/43790
 [#43792]: https://github.com/home-assistant/core/pull/43792
 [#43796]: https://github.com/home-assistant/core/pull/43796
+[#43799]: https://github.com/home-assistant/core/pull/43799
 [#43804]: https://github.com/home-assistant/core/pull/43804
 [#43809]: https://github.com/home-assistant/core/pull/43809
 [#43810]: https://github.com/home-assistant/core/pull/43810
@@ -762,11 +835,20 @@ These integrations where using webscraping, which is no longer allowed.
 [#43829]: https://github.com/home-assistant/core/pull/43829
 [#43830]: https://github.com/home-assistant/core/pull/43830
 [#43831]: https://github.com/home-assistant/core/pull/43831
+[#43832]: https://github.com/home-assistant/core/pull/43832
 [#43833]: https://github.com/home-assistant/core/pull/43833
+[#43838]: https://github.com/home-assistant/core/pull/43838
 [#43841]: https://github.com/home-assistant/core/pull/43841
 [#43846]: https://github.com/home-assistant/core/pull/43846
 [#43847]: https://github.com/home-assistant/core/pull/43847
 [#43848]: https://github.com/home-assistant/core/pull/43848
+[#43853]: https://github.com/home-assistant/core/pull/43853
+[#43854]: https://github.com/home-assistant/core/pull/43854
+[#43855]: https://github.com/home-assistant/core/pull/43855
+[#43858]: https://github.com/home-assistant/core/pull/43858
+[#43859]: https://github.com/home-assistant/core/pull/43859
+[#43860]: https://github.com/home-assistant/core/pull/43860
+[#43862]: https://github.com/home-assistant/core/pull/43862
 [@100ferhas]: https://github.com/100ferhas
 [@Adminiuga]: https://github.com/Adminiuga
 [@Alex-Klein]: https://github.com/Alex-Klein
@@ -782,10 +864,13 @@ These integrations where using webscraping, which is no longer allowed.
 [@GuyKh]: https://github.com/GuyKh
 [@JJdeVries]: https://github.com/JJdeVries
 [@Jc2k]: https://github.com/Jc2k
+[@JeffLIrion]: https://github.com/JeffLIrion
 [@Kane610]: https://github.com/Kane610
 [@LordBoos]: https://github.com/LordBoos
 [@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Quentame]: https://github.com/Quentame
 [@RobBie1221]: https://github.com/RobBie1221
+[@Shulyaka]: https://github.com/Shulyaka
 [@TheLastProject]: https://github.com/TheLastProject
 [@Toxblh]: https://github.com/Toxblh
 [@abmantis]: https://github.com/abmantis
@@ -816,15 +901,16 @@ These integrations where using webscraping, which is no longer allowed.
 [@czechmark]: https://github.com/czechmark
 [@danielrheinbay]: https://github.com/danielrheinbay
 [@denics]: https://github.com/denics
-[dependabot]: https://github.com/apps/dependabot
 [@dermotduffy]: https://github.com/dermotduffy
 [@dgomes]: https://github.com/dgomes
 [@djtimca]: https://github.com/djtimca
 [@dmulcahey]: https://github.com/dmulcahey
 [@dr1rrb]: https://github.com/dr1rrb
+[@dvv]: https://github.com/dvv
 [@ehendrix23]: https://github.com/ehendrix23
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
 [@etheralm]: https://github.com/etheralm
 [@fabaff]: https://github.com/fabaff
 [@farmio]: https://github.com/farmio
@@ -839,6 +925,7 @@ These integrations where using webscraping, which is no longer allowed.
 [@javache]: https://github.com/javache
 [@javicalle]: https://github.com/javicalle
 [@jjlawren]: https://github.com/jjlawren
+[@kiall]: https://github.com/kiall
 [@klaasnicolaas]: https://github.com/klaasnicolaas
 [@koolsb]: https://github.com/koolsb
 [@liudger]: https://github.com/liudger
@@ -850,6 +937,7 @@ These integrations where using webscraping, which is no longer allowed.
 [@ofalvai]: https://github.com/ofalvai
 [@pattyland]: https://github.com/pattyland
 [@pavoni]: https://github.com/pavoni
+[@postlund]: https://github.com/postlund
 [@rytilahti]: https://github.com/rytilahti
 [@scarface-4711]: https://github.com/scarface-4711
 [@scop]: https://github.com/scop
@@ -868,13 +956,17 @@ These integrations where using webscraping, which is no longer allowed.
 [@tim427]: https://github.com/tim427
 [@timmo001]: https://github.com/timmo001
 [@ttuffin]: https://github.com/ttuffin
+[@wicol]: https://github.com/wicol
 [@zxdavb]: https://github.com/zxdavb
 [abode docs]: /integrations/abode/
+[accuweather docs]: /integrations/accuweather/
 [acmeda docs]: /integrations/acmeda/
+[airly docs]: /integrations/airly/
 [airvisual docs]: /integrations/airvisual/
 [alexa docs]: /integrations/alexa/
 [ambient_station docs]: /integrations/ambient_station/
 [api docs]: /integrations/api/
+[apple_tv docs]: /integrations/apple_tv/
 [asuswrt docs]: /integrations/asuswrt/
 [aurora docs]: /integrations/aurora/
 [automation docs]: /integrations/automation/
@@ -891,6 +983,7 @@ These integrations where using webscraping, which is no longer allowed.
 [debugpy docs]: /integrations/debugpy/
 [deconz docs]: /integrations/deconz/
 [default_config docs]: /integrations/default_config/
+[demo docs]: /integrations/demo/
 [denonavr docs]: /integrations/denonavr/
 [derivative docs]: /integrations/derivative/
 [device_tracker docs]: /integrations/device_tracker/
@@ -950,6 +1043,8 @@ These integrations where using webscraping, which is no longer allowed.
 [nest docs]: /integrations/nest/
 [notify docs]: /integrations/notify/
 [notion docs]: /integrations/notion/
+[number docs]: /integrations/number/
+[onewire docs]: /integrations/onewire/
 [onvif docs]: /integrations/onvif/
 [openuv docs]: /integrations/openuv/
 [openweathermap docs]: /integrations/openweathermap/
@@ -986,6 +1081,7 @@ These integrations where using webscraping, which is no longer allowed.
 [synology_dsm docs]: /integrations/synology_dsm/
 [tag docs]: /integrations/tag/
 [tasmota docs]: /integrations/tasmota/
+[telegram_bot docs]: /integrations/telegram_bot/
 [tellduslive docs]: /integrations/tellduslive/
 [template docs]: /integrations/template/
 [tesla docs]: /integrations/tesla/
