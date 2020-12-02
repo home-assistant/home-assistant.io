@@ -2,7 +2,9 @@
 title: OpenGarage
 description: Instructions on how to integrate OpenGarage.io covers within Home Assistant.
 ha_category:
+  - Cover
   - DIY
+ha_iot_class: Local Polling
 ha_release: 0.44
 ha_domain: opengarage
 ha_codeowners:
@@ -76,7 +78,7 @@ covers:
 
 **Example with more detail:**
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/opengarage/cover_opengarage_details.jpg' />
+  <img src='/images/integrations/opengarage/cover_opengarage_details.jpg' />
 </p>
 
 {% raw %}

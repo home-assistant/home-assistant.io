@@ -7,6 +7,7 @@ ha_release: 0.97
 ha_codeowners:
   - '@bachya'
 ha_domain: apache_kafka
+ha_iot_class: Local Push
 ---
 
 The `apache_kafka` integration sends all state changes to a

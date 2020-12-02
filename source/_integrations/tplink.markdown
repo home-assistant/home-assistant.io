@@ -10,6 +10,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
+  - '@thegardenmonkey'
 ha_domain: tplink
 ---
 
@@ -36,6 +37,7 @@ Plugs are type `switch` when autodiscovery has been disabled.
 - HS103
 - HS105
 - HS110 (This device is capable of reporting energy usage data to template sensors)
+- KP105
 
 ### Strip (Multi-Plug)
 
@@ -140,7 +142,7 @@ Devices that are confirmed to support Consumption Reading;
 2. HS300
 
 In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/template/).
-In the example below, change all of the `my_tp_switch`'s to match your device's entity ID.
+In the example below, change all of the `my_tp_switch`'s to match your device's entity ID (without the domain). For example, if your entity is `switch.whale_heater` then replace `my_tp_switch` with `whale_heater`:
 
 {% raw %}
 ```yaml

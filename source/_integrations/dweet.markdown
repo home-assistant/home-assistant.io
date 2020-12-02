@@ -14,7 +14,7 @@ ha_domain: dweet
 The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/dweet-freeboard.png' />
+  <img src='/images/screenshots/dweet-freeboard.png' />
 </p>
 
 <div class='note warning'>

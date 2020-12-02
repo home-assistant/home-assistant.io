@@ -12,10 +12,10 @@ end
 
 group :jekyll_plugins do
   gem 'jekyll-paginate', '1.1.0'
-  gem 'jekyll-redirect-from', '0.16.0'
   gem 'jekyll-sitemap', '1.4.0'
   gem 'jekyll-time-to-read', '0.1.2'
   gem 'jekyll-commonmark', '1.3.1'
+  gem 'jekyll-toc', '0.15.0'
 end
 
 gem 'sinatra', '2.1.0'

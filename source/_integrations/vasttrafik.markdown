@@ -10,7 +10,7 @@ ha_domain: vasttrafik
 
 The `vasttrafik` sensor will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
 
-You must create an application [here](https://developer.vasttrafik.se/portal/#/applications) to obtain a `key` and a `secret`.
+You must create an application [here](https://developer.vasttrafik.se/portal/#/applications) to obtain a `key` and a `secret`. Make sure to also subscribe to the API by going to `Mina prenumerationer`, selecting your newly created application and the API `Reseplaneraren V2`.
 
 Add the data to your `configuration.yaml` file as shown in the example:
 

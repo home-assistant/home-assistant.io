@@ -8,9 +8,10 @@ The Weather Forecast card displays the weather. Very useful to include on interf
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_weather.png' alt='Screenshot of the weather card'>
-  Screenshot of the weather card.
+  Screenshot of the Weather card.
 </p>
 
+To add the Weather card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Weather** from the card picker.
 
 ### Card Settings
 
@@ -83,7 +84,7 @@ entity: weather.openweathermap
 
 ##### Themeable Icons
 
-The default weather icons are themable via a [Theme](https://www.home-assistant.io/integrations/frontend/#themes). Theme variables include: 
+The default weather icons are themable via a [theme](/integrations/frontend/#themes). Theme variables include: 
 
 ```yaml
 --weather-icon-cloud-front-color
@@ -106,7 +107,7 @@ Example theme configuration:
 
 ##### Personal Icons
 
-Weather icons can be overwritten with your own personal images via a [Theme](https://www.home-assistant.io/integrations/frontend/#themes). Theme variables include:
+Weather icons can be overwritten with your own personal images via a [theme](/integrations/frontend/#themes). Theme variables include:
 
 ```yaml
 --weather-icon-clear-night

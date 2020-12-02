@@ -1,6 +1,6 @@
 ---
-title: AVM FRITZ!Box
-description: Instructions on how to integrate the AVM Fritzbox Smart Home components.
+title: AVM FRITZ!SmartHome
+description: Instructions on how to integrate AVM Fritz!DECT components into Home Assistant.
 ha_category:
   - Binary Sensor
   - Climate
@@ -12,28 +12,28 @@ ha_domain: fritzbox
 ha_config_flow: true
 ---
 
-The [AVM](https://en.avm.de) FRITZ!Box integration for Home Assistant allows you to integrate the switch and climate devices.
+The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Climate
-- [Sensor](#sensor)
+- Sensor
 - Switch
 
 #### Tested Devices
 
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
-- [FRITZ!Box 7490](https://en.avm.de/products/fritzbox/fritzbox-7490/)
-- [FRITZ!Box 7430](https://en.avm.de/products/fritzbox/fritzbox-7430/)
+- [FRITZ!Box 7490](https://en.avm.de/service/fritzbox/fritzbox-7490/overview/)
+- [FRITZ!Box 7430](https://en.avm.de/service/fritzbox/fritzbox-7430/overview/)
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
 
 ## Configuration
 
-To add the AVM FRITZ!Box integration to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ!Box**.
+To add the AVM FRITZ!SmartHome integration to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ! SmartHome**.
 
 If you have enabled SSDP discovery, it’s likely that you just have to confirm the detected device with username and password.
 
@@ -48,18 +48,19 @@ fritzbox:
     - password: YOUR_PASSWORD
 ```
 
+
 {% configuration %}
 devices:
-  description: A list of FRITZ!Box devices.
+  description: A list of FRITZ! devices.
   type: map
   keys:
     host:
-      description: The hostname or IP address of the FRITZ!Box.
+      description: The hostname or IP address of the FRITZ!Box. (e.g. fritz.box or 192.168.178.1)
       required: false
       type: string
       default: fritz.box
     username:
-      description: The username for Smart Home access.
+      description: The username for Smart Home access. **(User needs "Smart Home" persmission!)** 
       required: false
       type: string
       default: admin
@@ -69,9 +70,10 @@ devices:
       type: string
 {% endconfiguration %}
 
-## Switch & Thermostat
 
-To get AVM FRITZ!Box switch and thermostat follow the instructions above.
+## Switches & Thermostats
+
+To get AVM FRITZ!DECT switches (e.g. FRITZ!DECT 400/440) or thermostats (e.g. FRITZ!DECT 301) follow the [configuration instructions](#configuration) above.
 
 ### Attributes
 
@@ -91,9 +93,9 @@ There are several attributes that can be useful for automations and templates.
 | `total_consumption` | The total power consumption since the beginning of operation (only available if the device supports power meter function).
 | `total_consumption_unit` | The unit of the total_consumption (only available if the device supports power meter function).
 
-## Sensor
+## Sensors
 
-To get AVM FRITZ!Box temperature sensor (e.g.,  FRITZ!DECT Repeater 100) follow the instructions for the [FRITZ!Box integration](#setup).
+To get AVM FRITZ!DECT sensors (e.g.,  FRITZ!DECT Repeater 100) follow the [configuration instructions](#configuration) above.
 
 ### Attributes
 

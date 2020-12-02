@@ -116,7 +116,7 @@ automation:
 
 ### Properties
 
-Refer to the [light]({{site_root}}/integrations/light/) documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.
+Refer to the [light](/integrations/light/) documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.
 
 - **RGBWW** (Only supported on v6 bridges)
   - *Color*: There are 25,856 color possibilities along the LimitlessLED color spectrum. For colors, hue and saturation can be used, but not lightness. If you select a color with lightness, Home Assistant will calculate the nearest valid LimitlessLED color. In white mode, the temperature can be set.

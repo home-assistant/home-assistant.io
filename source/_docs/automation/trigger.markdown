@@ -1,7 +1,6 @@
 ---
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
-redirect_from: /getting-started/automation-trigger/
 ---
 
 ### What are triggers
@@ -14,7 +13,7 @@ The following sections introduce all trigger types and further details to get st
 
 ### Event trigger
 
-Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
+Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
 
 Events can be fired by integrations or via the API. There is no limitation to the types. A list of built-in events can be found [here](/docs/configuration/events/).
 
@@ -26,6 +25,11 @@ automation:
     # optional
     event_data:
       mood: happy
+    context:
+      user_id:
+      # any of these will match
+        - MY_USER_ID
+        - ANOTHER_USER_ID
 ```
 
 ### Home Assistant trigger
@@ -287,7 +291,7 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    attribute: elevation
     # Can be a positive or negative number
     below: -4.0
   action:
@@ -297,7 +301,7 @@ automation:
 
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](https://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
+If you want to get more precise, you can use this [solar calculator](https://www.esrl.noaa.gov/gmd/grad/solcalc/), which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
 Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 
@@ -309,6 +313,37 @@ Although the actual amount of light depends on weather, topography and land cove
 - Astronomical twilight: -12° > Solar angle > -18°
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
+
+### Tag trigger
+
+Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+scanned using the Home Assistant Companion mobile application.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+```
+
+{% endraw %}
+
+Additionally, you can also only trigger if a card is scanned by a specific
+device/scanner by setting the `device_id`:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+    device_id: 0e19cd3cf2b311ea88f469a7512c307d
+```
+
+{% endraw %}
 
 ### Template trigger
 
@@ -347,7 +382,7 @@ automation:
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
 <div class='note warning'>
-  
+
 Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
 
 </div>
@@ -369,7 +404,7 @@ which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago
 
 ### Time trigger
 
-The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are two allowed formats:
+The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are three allowed formats:
 
 #### Time String
 
@@ -421,6 +456,20 @@ automation:
 
 {% endraw %}
 
+#### Sensors of datetime device class
+
+The Entity ID of a [sensor](/integrations/sensor/) with the "timestamp" device class.
+
+```yaml
+automation:
+  - trigger:
+      platform: time
+      at: sensor.phone_next_alarm
+    action:
+      service: light.turn_on
+      entity_id: light.bedroom
+```
+
 #### Multiple Times
 
 Multiple times can be provided in a list. Both formats can be intermixed.
@@ -467,7 +516,7 @@ Do not prefix numbers with a zero - using `'00'` instead of '0' for example will
 
 ### Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. 
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
 
 ```yaml
 automation:
@@ -482,7 +531,7 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS. 
+Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
 Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
 
@@ -547,7 +596,7 @@ It is possible to specify multiple entities for the same trigger. To do so add m
 automation:
   trigger:
     - platform: state
-      entity_id: 
+      entity_id:
         - sensor.one
         - sensor.two
         - sensor.three

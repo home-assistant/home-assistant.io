@@ -3,6 +3,7 @@ title: Dlib Face Detect
 description: Instructions on how to integrate Dlib Face Detect into Home Assistant.
 ha_category:
   - Image Processing
+ha_iot_class: Local Push
 ha_release: 0.44
 ha_domain: dlib_face_detect
 ---

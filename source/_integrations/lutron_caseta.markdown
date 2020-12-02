@@ -85,7 +85,7 @@ After setup, shades will appear in Home Assistant using an `entity_id` based on 
 
 For more information on working with shades in Home Assistant, see the [Covers component](/integrations/cover/).
 
-Available services: `cover.open_cover`, `cover.close_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
+Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
 
 ## Light
 
@@ -95,7 +95,7 @@ For non-dimmable lights or switched loads, see the switch section on this page.
 
 For more information on working with lights in Home Assistant, see the [Lights component](/integrations/light/).
 
-Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness` and `brightness_pct`.
+Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness`, `brightness_pct` and `transition`.
 
 ## Scene
 
@@ -119,7 +119,7 @@ Available services: `switch.turn_on` and `switch.turn_off`.
 
 ## Fan
 
-After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bathroom Vanity' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
+After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bedroom Ceiling Fan' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
 
 For more information on working with fans in Home Assistant, see the [Fans component](/components/fan/).
 

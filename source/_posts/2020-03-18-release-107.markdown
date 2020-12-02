@@ -792,7 +792,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Throw ConfigEntryNotReady when august servers are offline or u… ([@bdraco] - [#32635]) ([august docs])
 - Bump aiohomekit for more reconnect fixes ([@Jc2k] - [#32657]) ([homekit_controller docs])
 - Bump python-ecobee-api to 0.2.2 ([@jjlawren] - [#32667]) ([ecobee docs])
-- Use bomradarloop v0.1.4 ([@maddenp] - [#32660]) ([bom docs])
+- Use bomradarloop v0.1.4 ([@maddenp] - [#32660])
 - Add codeowner for directv. ([@ctalkington] - [#32661]) ([directv docs]) ([directv docs])
 - Add entity_service calibrate_meter to utility_meter ([@dgomes] - [#32658]) ([utility_meter docs])
 - Updated frontend to 20200311.0 ([@bramkragten] - [#32675]) ([frontend docs])
@@ -1314,7 +1314,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [axis docs]: /integrations/axis/
 [bayesian docs]: /integrations/bayesian/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
-[bom docs]: /integrations/bom/
 [braviatv docs]: /integrations/braviatv/
 [brother docs]: /integrations/brother/
 [buienradar docs]: /integrations/buienradar/

@@ -134,6 +134,8 @@ The `dyson` fan platform allows you to control your Dyson Purifier fans.
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
 - Pure Cool 2018 (DP04 and TP04)
+- Pure Cool Cryptomic (TP06)
+- Pure Humidify+Cool (PH01)
 
 ### Attributes
 
@@ -145,31 +147,23 @@ There are several attributes which can be used for automations and templates.
 | `auto_mode` | A boolean that indicates if the auto mode of the fan device is on.|
 | `angle_low` | Int (between 5 and 355) that indicates the low angle of oscillation (only for DP04 and TP04).|
 | `angle_high` | Int (between 5 and 355) that indicates the high angle of oscillation (only for DP04 and TP04).|
-| `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04 and TP04).|
+| `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04, TP04 and PH01).|
 | `timer` | Attribute that indicates the status of the auto power off timer, can be either 'OFF' or an integer representing the time remaining until shutdown in minutes (only for DP04 and TP04).|
-| `hepa filter` |  State of the fan's HEPA filter in % (only for DP04 and TP04).|
-| `carbon filter` | State of the fan's carbon filter in % (only for DP04 and TP04).|
+| `hepa filter` | Remaining life of the fan's HEPA filter in % (only for DP04 and TP04 — Combi filter for PH01).|
+| `carbon filter` | Remaining life of the fan's carbon filter in % (only for DP04 and TP04).|
 
 ## Sensor
 
 The `dyson` sensor platform provides temperature and humidity sensors.
 
+For compatible models (i.e. DP04, TP04, PH01), remaining life percentage for the filters (HEPA and Carbon, or Combi) is provided as sensors.
+
 ## Air Quality
 
-The `dyson` air quality platform provides the following levels:
+The `dyson` air quality platform provides the following levels (only for DP04, TP04, PH01):
 
 - Particulate matter 2.5 (<= 2.5 μm) level.
 - Particulate matter 10 (<= 10 μm) level.
 - Air Quality Index (AQI).
 - NO2 (nitrogen dioxide) level.
 - VOC (Volatile organic compounds) level.
-
-Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
-
-### Supported fan devices
-
-- Pure Cool link (desk and tower)
-- Pure Hot+cool link (see climate part) for thermal control
-- Pure Hot+cool 2019 model (HP04)
-- Pure Cool 2018 Models (TP04 and DP04)
-- Pure Cool Cryptomic (TP06)

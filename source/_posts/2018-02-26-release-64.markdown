@@ -557,7 +557,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.folder docs]: /integrations/folder
 [sensor.knx docs]: /integrations/sensor.knx/
 [sensor.pollen docs]: /integrations/iqvia
-[sensor.rfxtrx docs]: /integrations/sensor.rfxtrx/
+[sensor.rfxtrx docs]: /integrations/rfxtrx#sensors
 [sensor.sabnzbd docs]: /integrations/sabnzbd
 [sensor.sma docs]: /integrations/sma#sensors
 [sensor.smappee docs]: /integrations/sma#sensorsppee/
@@ -634,7 +634,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@ryanm101]: https://github.com/ryanm101
 [@uchagani]: https://github.com/uchagani
-[binary_sensor.rfxtrx docs]: /integrations/binary_sensor.rfxtrx/
+[binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
 [logbook docs]: /integrations/logbook/
 [media_player.plex docs]: /integrations/plex#media-player

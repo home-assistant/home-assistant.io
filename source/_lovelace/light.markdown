@@ -11,6 +11,10 @@ The Light card allows you to change the brightness of the light.
 Screenshot of the Light card.
 </p>
 
+To add the Light card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Light** from the card picker. All options for this card can be configured via the user interface.
+
+Alternatively, the card can be configured using YAML:
+
 ```yaml
 type: light
 entity: light.bedroom
@@ -39,6 +43,14 @@ theme:
   required: false
   description: Set to any theme within `themes.yaml`.
   type: string
+hold_action:
+  required: false
+  description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
 ## Examples

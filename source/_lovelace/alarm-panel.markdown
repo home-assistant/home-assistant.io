@@ -4,12 +4,16 @@ sidebar_label: Alarm Panel
 description: "The Alarm Panel card allows you to Arm and Disarm your alarm control panel integrations."
 ---
 
-The Alarm Panel card allows you to Arm and Disarm your alarm control panel integrations.
+The Alarm Panel card allows you to Arm and Disarm your [alarm control panel](/integrations/#alarm) integrations.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_alarm_panel_card.gif' alt='Screenshot of the alarm panel card'>
 Screenshot of the Alarm Panel card.
 </p>
+
+To add the Alarm Panel card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Alarm Panel** from the card picker. All options for this card can be configured via the user interface.
+
+Alternatively, the card can be configured using YAML:
 
 ```yaml
 type: alarm-panel

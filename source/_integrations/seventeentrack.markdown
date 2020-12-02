@@ -50,3 +50,23 @@ show_delivered:
   type: boolean
   default: false
 {% endconfiguration %}
+
+## Examples
+
+### Lovelace summary card
+
+Use the following templated Markdown card to list all packages in transit along their status:
+
+{% raw %}
+```yaml
+type: markdown
+title: Packages in transit
+content: >-
+  {% for package in
+  states.sensor.seventeentrack_packages_in_transit.attributes.packages %}
+
+  **{{ package.friendly_name }}:** {{ package.info_text }}
+
+  {% endfor %}
+```
+{% endraw %}

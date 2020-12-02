@@ -39,7 +39,17 @@ the `update_protection_data` services).
 To configure the `openuv` integration, navigate to **Configuration** -> **Integrations**
 in the Home Assistant UI.
 
-## The Fitzpatrick Scale
+## Sensors
+
+| Name | Type | Value |
+|------|------|-------|
+| Current Ozone Level | Sensor | ozone level in du (Dobson Units) |
+| Current UV Index | Sensor | UV Index (numerical value) |
+| Current UV Level | Sensor | UV Level (as literal) |
+| Max UV Index | Sensor | max UV Index for the day (at solar noon) |
+| Protection Window | Binary Sensor | 'On' when protection window is needed |
+
+### The Fitzpatrick Scale
 
 The approximate number of minutes of a particular skin type can be exposed to
 the sun before burning/tanning starts is based on the
@@ -50,6 +60,15 @@ The above guidelines constitute estimates and are intended to help informed
 decision making. They should not replace analysis, advice or diagnosis from a
 trained medical professional.
 </div>
+
+OpenUV integration provide sensors for safe exposure time (in minutes) based on skin type:
+
+- Skin Type 1 Safe Exposure Time
+- Skin Type 2 Safe Exposure Time
+- Skin Type 3 Safe Exposure Time
+- Skin Type 4 Safe Exposure Time
+- Skin Type 5 Safe Exposure Time
+- Skin Type 6 Safe Exposure Time
 
 ## Services
 

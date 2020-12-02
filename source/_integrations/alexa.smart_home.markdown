@@ -79,7 +79,7 @@ Amazon also provided a [step-by-step guide](https://developer.amazon.com/docs/sm
 
 </div>
 
-OK, let's go. You first need sign in your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tire benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
+OK, let's go. You first need to sign in to your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tire benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
 
 ### Create an IAM Role for Lambda
 
@@ -115,6 +115,7 @@ Next you need create a Lambda function.
 - You will then be prompted to input the `Skill ID` from the skill you created in previous step. (Tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.) Then click `Add`.
 - Click your Lambda function icon in the middle of the diagram (above Layers), scroll down you will see a `Function code` window.
 - Clear the example code, copy the Python script from: [https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b](https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b) (modified code to support Alexa's proactive mode, see details below)
+- Click `Deploy` button to publish updated code.
 - Scroll down a little bit, you will find `Environment variables`, you need add 1 environment variable and, if required, 3 optional variables. This is done by selecting `Manage environment variables` then adding the following:
   - *(required)* Key = BASE_URL, Value = your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   - *(optional)* Key = NOT_VERIFY_SSL, Value = *True*. You can set this to *True* to ignore SSL issues, for example if you don't have a valid SSL certificate or you are using a self-signed certificate.

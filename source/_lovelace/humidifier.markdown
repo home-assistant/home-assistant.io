@@ -11,6 +11,8 @@ The Humidifier card lets you control and monitor humidifiers, dehumidifiers, and
   Screenshot of the humidifier card.
 </p>
 
+To add the Humidifier card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Humidifier** from the card picker. All options for this card can be configured via the user interface.
+
 {% configuration %}
 type:
   required: true
@@ -32,6 +34,8 @@ theme:
 {% endconfiguration %}
 
 ## Example
+
+Alternatively, the card can be configured using YAML:
 
 ```yaml
 - type: humidifier

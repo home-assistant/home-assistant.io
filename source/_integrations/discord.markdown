@@ -3,6 +3,7 @@ title: Discord
 description: Instructions on how to add Discord notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: discord
 ---
@@ -41,7 +42,7 @@ token:
 Bots can send messages to servers and users or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/discord-bot.png' />
+  <img src='/images/screenshots/discord-bot.png' />
 </p>
 
 Now use the Discord Authorization page with the **Client ID** of your [bot](https://discordapp.com/developers/docs/topics/oauth2#bots).
@@ -49,7 +50,7 @@ Now use the Discord Authorization page with the **Client ID** of your [bot](http
 `https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0`
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/discord-auth.png' />
+  <img src='/images/screenshots/discord-auth.png' />
 </p>
 
 Wait for the confirmation which should say "Authorized".
@@ -57,7 +58,7 @@ Wait for the confirmation which should say "Authorized".
 Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Appearance** > **Check developer mode**.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/discord-api.png' />
+  <img src='/images/screenshots/discord-api.png' />
 </p>
 
 Right click channel name and copy the channel ID (**Copy ID**).

@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.7.6
 ha_quality_scale: internal
 ha_domain: manual
+ha_iot_class: Calculated
 ---
 
 The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
