@@ -29,6 +29,7 @@ light:
         value_template: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
         temperature_template: "{{states('input_number.temperature_input') | int}}"
         color_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
+        effect_list_template: "{{ state_attr('light.led_strip', 'effect_list') }}"
         turn_on:
           service: script.theater_lights_on
         turn_off:
@@ -56,6 +57,20 @@ light:
             data:
               value: "{{ s }}"
               entity_id: input_number.s_input
+          - service: light.turn_on
+            data_template:
+              entity_id:
+                - light.led_strip
+              transition: "{{ transition | float }}"
+              hs_color:
+                - "{{ hs[0] }}"
+                - "{{ hs[1] }}"
+        set_effect:
+          - service: light.turn_on
+            data_template:
+              entity_id:
+                - light.led_strip
+              effect: "{{ effect }}"
 ```
 
 {% endraw %}
@@ -99,6 +114,21 @@ light:
         required: false
         type: template
         default: optimistic
+      effect_list_template:
+        description: Defines a template to get the list of supported effects. Must render a list
+        required: false
+        type: template
+        default: optimistic
+      min_mireds_template:
+        description: Defines a template to get the min mireds value of the light.
+        required: false
+        type: template
+        default: optimistic
+      max_mireds_template:
+        description: Defines a template to get the max mireds value of the light.
+        required: false
+        type: template
+        default: optimistic
       icon_template:
         description: Defines a template for an icon or picture, e.g.,  showing a different icon for different states.
         required: false
@@ -132,6 +162,10 @@ light:
         description: Defines an action to run when the light is given a color command.
         required: false
         type: action
+      set_effect:
+        description: Defines an action to run when the light is given a effect command.
+        required: false
+        type: action
 {% endconfiguration %}
 
 ## Considerations
@@ -145,6 +179,8 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+Passing {% raw %}`transition`{% endraw %} and {% raw %}`brightness`{% endraw %} parameters along with {% raw %}`*_color`{% endraw %}, {% raw %}`color_temp`{% endraw %}, {% raw %}`white_value`{% endraw %} or {% raw %}`effect`{% endraw %} is supported.
+
 
 ## Examples
 
