@@ -61,3 +61,14 @@ Controlling the two bars can be done through three different entities that will 
 - 'Position' is the relative position of the center between the Bottom and Top bars in which the center can move, so bassically such that the area covered by the Bottom and Top bar can be moved withouth changing its size, such that the Top bar can go to the top of the window and the Bottom bar to the bottom of the window.
 - 'Absolute position' is the position of the center between the Bottom and Top bars with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the width.
 - 'Width' is the percentage of the window covered by fabric (the space between the Top and Bottom bars).
+
+## Service `motion_blinds.set_absolute_position`
+
+For most blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
+However for TDBU blinds it will set the absolute position relative to the window itself.
+The `cover.set_cover_position` will set the scaled position relative to the space in which the TDBU blind is allowed to move.
+
+| Service data attribute | Optional | Description                                                                                       |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
+| `entity_id`            |       no | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
+| `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
