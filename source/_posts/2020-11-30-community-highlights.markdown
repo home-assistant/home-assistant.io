@@ -19,7 +19,7 @@ wall tablet and how to arm your alarm with a toothbrush!
 ## Troy Hunt is unraveling IoT using Home Assistant
 
 If you have never heard of Troy Hunt before, he is a web security specialist
-and mostly known for creating ["Have I Been Pwned"][hibp] ([Home Assistant integration](/integration/haveibeenpwned/)).
+and mostly known for creating ["Have I Been Pwned"][hibp] ([Home Assistant integration](/integrations/haveibeenpwned/)).
 
 Troy has been diving into the world of IoT and started automating his home,
 using... Home Assistant!
