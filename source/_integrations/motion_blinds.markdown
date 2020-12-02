@@ -4,7 +4,7 @@ description: Instructions on how to integrate Motion Blinds from Coulisse B.V. i
 ha_category:
   - Cover
 ha_iot_class: Local Polling
-ha_release: 0.119.0
+ha_release: 1.0
 ha_domain: motion_blinds
 ha_codeowners:
   - '@starkillerOG'

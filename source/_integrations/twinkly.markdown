@@ -3,7 +3,7 @@ title: Twinkly
 description: Instructions on how to integrate Twinkly LED string to Home Assistant.
 ha_category:
   - Light
-ha_release: 0.119
+ha_release: 1.0
 ha_config_flow: true
 ha_domain: twinkly
 ha_iot_class: Local pull
