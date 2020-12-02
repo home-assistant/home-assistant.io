@@ -36,6 +36,26 @@ For many of these devices you need an access token, the first section will descr
 
 ## Retrieving the Access Token
 
+### Xiaomi Cloud Tokens Extractor
+
+One of Home Assistant users wrote a tokens extractor tool, which is currently the easiest way to retrieve tokens for all devices assigned to Xiaomi account.
+[In the repository](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) there's executable for convenient use on Windows or Python script to be run on any platform. If you do not wish to run executable, then you can run it using the source code:
+
+1. Install requirements:
+
+  ```bash
+  pip3 install pycryptodome pybase64 requests
+  ```
+  
+2. Run script
+
+  ```bash
+  python3 token_extractor.py
+  ```
+  
+3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
+
 ### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
 
 1. Install the Xiaomi Home app.

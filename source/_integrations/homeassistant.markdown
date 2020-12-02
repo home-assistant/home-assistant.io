@@ -71,7 +71,7 @@ action:
     entity_id: light.living_room
 ```
 
-#### Service `homeassistant.turn_on` 
+### Service `homeassistant.turn_on` 
 
 Generic service to turn devices on under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
 

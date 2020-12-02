@@ -30,9 +30,17 @@ To be notified when the live stream is online, [visit YouTube](https://www.youtu
 
 Recordings of the keynote and all tracks and sessions will be made available on YouTube after the conference.
 
-## Speakers & Schedule
+## Keynotes & Talks schedule
 
-The speakers and talks schedule is currently being finalized. Most of the
-schedule is complete and listed on our Hopin page.
+The line-up consists of 16 talks in between 2 keynotes: an opening and a closing
+keynote.
+
+The opening keynote will mainly focus on what has been done the last year. The
+closing keynote will be spoiling all kinds of new goodness that is coming.
+
+<img src='/images/conference/schedule.png' alt='Home Assistant Conference schedule' class='no-shadow'>
+
+The schedule is also available on our Hopin page. Which has more information
+available about our speakers.
 
 [View the Home Assistant Conference schedule on Hopin](https://hopin.to/events/home-assistant-conference#schedule)

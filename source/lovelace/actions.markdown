@@ -199,8 +199,8 @@ double_tap_action:
   confirmation:
     text: Are you sure you want to restart?
     exemptions:
-      - x9405b8c64ee49bb88c42000e0a9dfa8
-      - 88bcfbdc39155d16c3b2d09cbf8b0367
+      - user: x9405b8c64ee49bb88c42000e0a9dfa8
+      - user: 88bcfbdc39155d16c3b2d09cbf8b0367
   service: script.restart
 ```
 

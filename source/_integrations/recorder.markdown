@@ -215,22 +215,22 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 ## Custom database engines
 
-| Database engine                | `db_url`                                                                                               |
-| :----------------------------- | :----------------------------------------------------------------------------------------------------- |
-| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                           |
-| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
-| MariaDB (omit pymysql, Socket) | `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
-| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                               |
-| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
-| MySQL (Socket)                 | `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
-| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                                       |
-| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                         |
-| MariaDB (Socket)               | `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8` |
-| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                                       |
-| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                         |
-| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                               |
-| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                             |
-| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`           |
+| Database engine                | `db_url`                                                                                                  |
+| :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                              |
+| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                                 |
+| MariaDB (omit pymysql, Socket) | `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`         |
+| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8mb4`                                                               |
+| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                                 |
+| MySQL (Socket)                 | `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`         |
+| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8mb4`                                                       |
+| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                         |
+| MariaDB (Socket)               | `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4` |
+| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                                          |
+| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                            |
+| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                                  |
+| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                |
+| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`              |
 
 <div class='note'>
 
