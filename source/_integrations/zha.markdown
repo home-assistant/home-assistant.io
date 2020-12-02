@@ -49,9 +49,9 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 ### Known working Zigbee radio modules
 
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
-  - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
+  - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2) (Note! Not a must but recommend [upgrade the deCONZ application firmware for ConBee II](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Update-deCONZ-manually))
   - [ConBee USB adapter from dresden elektronik](https://phoscon.de/conbee)
-  - [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://www.dresden-elektronik.com/product/raspbee-II.html)
+  - [RaspBee II (a.k.a. RaspBee 2) Raspberry Pi Shield from dresden elektronik](https://www.dresden-elektronik.com/product/raspbee-II.html)  (Note! Not a must but recommend [upgrade the deCONZ application firmware for ConBee II](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Update-deCONZ-manually))
   - [RaspBee Raspberry Pi Shield from dresden elektronik](https://phoscon.de/raspbee)
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [ITEAD Sonoff ZBBridge](https://www.itead.cc/smart-home/sonoff-zbbridge.html) (Note! This first have to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html))
