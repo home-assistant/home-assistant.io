@@ -60,6 +60,19 @@ Screenshot of Lorem ipsum.
 </p>
 -->
 
+## Home Assistant Blueprints
+
+Check Configuration panel -> Blueprints
+
+Examples:
+<https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints>
+
+More information and documentation will be put up as soon as possible.
+
+Some background in this PR:
+
+<https://github.com/home-assistant/core/pull/42469>
+
 ## Other noteworthy changes
 
 - Lorem ipsum! Thanks, [@frenck]!
@@ -90,7 +103,6 @@ Core:
 - Make simple deCONZ thermostats work ([@Kane610] - [#43781]) ([deconz docs])
 - Add fan support to deCONZ climate platform ([@Kane610] - [#43721]) ([deconz docs])
 - Add preset support to deCONZ climate platform ([@Kane610] - [#43722]) ([deconz docs])
-
 
 Frontend:
 
@@ -565,6 +577,9 @@ These integrations where using webscraping, which is no longer allowed.
 - Add ozw add-on discovery and mqtt client ([@MartinHjelmare] - [#43838]) ([hassio docs]) ([ozw docs])
 - Add telegram_bot.send_voice service ([@dvv] - [#43433]) ([telegram_bot docs])
 - Updated frontend to 20201202.0 ([@bramkragten] - [#43862]) ([frontend docs])
+- Improve custom datatype parsing in Modbus sensor and climate ([@vzahradnik] - [#42354]) ([modbus docs])
+- Improve handling of disabled devices ([@emontnemery] - [#43864]) ([config docs])
+- Implement new Google TTS API via dedicated library ([@marvin-w] - [#43863]) ([google_translate docs])
 
 </details>
 
@@ -592,6 +607,7 @@ These integrations where using webscraping, which is no longer allowed.
 [#42320]: https://github.com/home-assistant/core/pull/42320
 [#42332]: https://github.com/home-assistant/core/pull/42332
 [#42338]: https://github.com/home-assistant/core/pull/42338
+[#42354]: https://github.com/home-assistant/core/pull/42354
 [#42413]: https://github.com/home-assistant/core/pull/42413
 [#42429]: https://github.com/home-assistant/core/pull/42429
 [#42484]: https://github.com/home-assistant/core/pull/42484
@@ -849,6 +865,8 @@ These integrations where using webscraping, which is no longer allowed.
 [#43859]: https://github.com/home-assistant/core/pull/43859
 [#43860]: https://github.com/home-assistant/core/pull/43860
 [#43862]: https://github.com/home-assistant/core/pull/43862
+[#43863]: https://github.com/home-assistant/core/pull/43863
+[#43864]: https://github.com/home-assistant/core/pull/43864
 [@100ferhas]: https://github.com/100ferhas
 [@Adminiuga]: https://github.com/Adminiuga
 [@Alex-Klein]: https://github.com/Alex-Klein
@@ -930,6 +948,7 @@ These integrations where using webscraping, which is no longer allowed.
 [@koolsb]: https://github.com/koolsb
 [@liudger]: https://github.com/liudger
 [@mLupine]: https://github.com/mLupine
+[@marvin-w]: https://github.com/marvin-w
 [@mib1185]: https://github.com/mib1185
 [@moinmoin-sh]: https://github.com/moinmoin-sh
 [@mtdcr]: https://github.com/mtdcr
@@ -956,6 +975,7 @@ These integrations where using webscraping, which is no longer allowed.
 [@tim427]: https://github.com/tim427
 [@timmo001]: https://github.com/timmo001
 [@ttuffin]: https://github.com/ttuffin
+[@vzahradnik]: https://github.com/vzahradnik
 [@wicol]: https://github.com/wicol
 [@zxdavb]: https://github.com/zxdavb
 [abode docs]: /integrations/abode/
@@ -1009,6 +1029,7 @@ These integrations where using webscraping, which is no longer allowed.
 [foscam docs]: /integrations/foscam/
 [frontend docs]: /integrations/frontend/
 [google_assistant docs]: /integrations/google_assistant/
+[google_translate docs]: /integrations/google_translate/
 [google_wifi docs]: /integrations/google_wifi/
 [group docs]: /integrations/group/
 [hassio docs]: /integrations/hassio/
@@ -1035,6 +1056,7 @@ These integrations where using webscraping, which is no longer allowed.
 [met docs]: /integrations/met/
 [mill docs]: /integrations/mill/
 [mobile_app docs]: /integrations/mobile_app/
+[modbus docs]: /integrations/modbus/
 [motion_blinds docs]: /integrations/motion_blinds/
 [mqtt docs]: /integrations/mqtt/
 [myq docs]: /integrations/myq/
