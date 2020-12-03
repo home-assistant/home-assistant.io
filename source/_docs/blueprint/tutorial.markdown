@@ -95,7 +95,7 @@ blueprint:
     target_light:
 ```
 
-## Use it via configuration.yaml
+## Use it via `configuration.yaml`
 
 With the bare minimum metadata added, your blueprint is ready to use.
 
