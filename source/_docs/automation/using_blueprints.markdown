@@ -30,7 +30,7 @@ To do this, first [find a blueprint you want to import][blueprint-tag]. If you j
 https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
 ```
 
-Then go to **Configuration** and then **Blueprints**. Click on the blue "Import Blueprint" button in the bottom right.
+Go to **Configuration** and then **Blueprints**. Click on the blue "Import Blueprint" button in the bottom right.
 
 A new dialog will pop-up asking you for the URL. Enter the URL and click on "preview blueprint".
 
