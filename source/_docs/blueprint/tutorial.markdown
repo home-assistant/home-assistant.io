@@ -207,7 +207,7 @@ action:
 
 ## Use it via the UI
 
-To configure it via the UI, go to **Configuration** and then **Blueprints**.
+To configure it via the UI, go to **Configuration** and then **Blueprints**. Find the "Motion Light Tutorial" blueprint and click on "Create Automation".
 
 <p class='note'>
 Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation intgration pick up the latest blueprint changes.
