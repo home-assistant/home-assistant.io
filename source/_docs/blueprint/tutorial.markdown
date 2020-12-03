@@ -82,7 +82,7 @@ action:
 ```
 {% endraw %}
 
-## Describe the configurable parts
+## Add the configurable parts to the metadata
 
 All parts that are marked as configurable need to added to the metadata. The bare minimum is that we add their names:
 
