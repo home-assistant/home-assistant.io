@@ -62,6 +62,16 @@ Controlling the two bars can be done through three different entities that will 
 - 'Absolute position' is the position of the center between the Bottom and Top bars with respect to the window, so 0 = bottom of the window and 100 = top of the window. Note that not all absolute positions are reachable at all moments due to the width.
 - 'Width' is the percentage of the window covered by fabric (the space between the Top and Bottom bars).
 
+### TDBU notes
+
+Because the relative position is used by default in HomeAssistant, scenes will not work properly with TDBU blinds (depending on the current position of the Top en Bottom, a certain position (70) will correspond to a diffrent position with respect to the window).
+Therefore it is recommanded to use scripts or automations with the TDBU Combined entity that use the `motion_blinds.set_absolute_position` with specifying both the `absolute_position` and `width`.
+That will ensure the same absolute position with respect to the window is achieved withouth letting the Bottom or Top bar move to an absolute_position that is not allowed.
+
+When the `motion_blinds.set_absolute_position` service is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen.
+An error will be logged telling that that position is not allowed and the TDBU blind will not move.
+Therefore it is always safe to use any of the services in HomeAssistant with the TDBU blinds.
+
 ## Service `motion_blinds.set_absolute_position`
 
 For most blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
@@ -72,3 +82,4 @@ The `cover.set_cover_position` will set the scaled position relative to the spac
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `entity_id`            |       no | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
 | `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
+| `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
