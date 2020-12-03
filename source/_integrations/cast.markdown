@@ -103,6 +103,66 @@ To cast media directly from a configured Plex server, set the fields [as documen
       media_content_type: movie
       media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
 ```
+### Play (almost) any kind of media
+
+Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media). As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
+
+The media needs to be accessible via HTTP(S). Chromecast devices does not support other protocols like DLNA or playback from an SMB file share.
+
+You can play MP3 streams like netradios, FLAC files or videos from your local network with the `media_player.play_media` service, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a matching content type.
+
+```yaml
+# Play a video file from the local network:
+service: media_player.play_media
+data:
+  entity_id: media_player.chromecast
+  media_content_type: 'video'
+  media_content_id: 'http://192.168.0.100/movies/sample-video.mkv'
+```
+
+```yaml
+# Show a jpeg image:
+service: media_player.play_media
+data:
+  entity_id: media_player.chromecast
+  media_content_type: 'image/jpeg'
+  media_content_id: 'http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!'
+```
+
+Extra media metadata (for example title, subtitle, artist or album name) can be passed in to the service and that will be shown on the Chromecast display.
+For the possible metadata types and values check [google cast docs > MediaInformation > metadata field](https://developers.google.com/cast/docs/reference/messages#MediaInformation).
+
+```yaml
+# Play a movie from the internet, with extra metadata provided:
+service: media_player.play_media
+data:
+  entity_id: media_player.chromecast
+  media_content_type: 'video/mp4'
+  media_content_id: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+  extra: 
+    metadata: 
+      metadataType: 1
+      title: 'Big Buck Bunny'
+      subtitle: 'By Blender Foundation, Licensed under the Creative Commons Attribution license'
+      images:
+        - url: 'https://peach.blender.org/wp-content/uploads/watchtrailer.gif'
+```
+
+```yaml
+# Play a netradio, with extra metadata provided:
+service: media_player.play_media
+data:
+  entity_id: media_player.chromecast
+  media_content_type: 'audio/mp3'
+  media_content_id: 'http://stream.tilos.hu:8000/tilos' 
+  extra: 
+    metadata: 
+      metadataType: 3
+      title: 'Radio TILOS'
+      artist: 'LIVE'
+      images:
+        - url: 'https://tilos.hu/images/kockalogo.png'
+```
 
 ## Advanced use
 
