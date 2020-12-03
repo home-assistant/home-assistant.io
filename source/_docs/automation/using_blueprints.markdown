@@ -24,15 +24,15 @@ Done! If you want to revisit the configuration values, you can find it by going 
 
 Home Assistant can import blueprints from the Home Assistant forums, GitHub and GitHub gists.
 
-To do this, first [find a blueprint you want to import][blueprint-tag]. If you just want to practice importing, you can use this url:
+To do this, first [find a blueprint you want to import][blueprint-tag]. If you just want to practice importing, you can use this URL:
 
-```
+```text
 https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
 ```
 
 Then go to **Configuration** and then **Blueprints**. Click on the blue "Import Blueprint" button in the bottom right.
 
-A new dialog will pop-up asking you for the url. Enter the url and click on "preview blueprint".
+A new dialog will pop-up asking you for the URL. Enter the URL and click on "preview blueprint".
 
 This will load the blueprint and show a preview in the import dialog. You can change the name and finish the import.
 
