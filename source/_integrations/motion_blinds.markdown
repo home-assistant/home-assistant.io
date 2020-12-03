@@ -64,13 +64,13 @@ Controlling the two bars can be done through three different entities that will 
 
 ### TDBU notes
 
-Because the relative position is used by default in HomeAssistant, scenes will not work properly with TDBU blinds (depending on the current position of the Top en Bottom, a certain position (70) will correspond to a diffrent position with respect to the window).
+Because the relative position is used by default in Home Assistant, scenes will not work properly with TDBU blinds (depending on the current position of the Top en Bottom, a certain position (70) will correspond to a different position with respect to the window).
 Therefore it is recommanded to use scripts or automations with the TDBU Combined entity that use the `motion_blinds.set_absolute_position` with specifying both the `absolute_position` and `width`.
 That will ensure the same absolute position with respect to the window is achieved withouth letting the Bottom or Top bar move to an absolute_position that is not allowed.
 
 When the `motion_blinds.set_absolute_position` service is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen.
 An error will be logged telling that that position is not allowed and the TDBU blind will not move.
-Therefore it is always safe to use any of the services in HomeAssistant with the TDBU blinds.
+Therefore it is always safe to use any of the services in Home Assistant with the TDBU blinds.
 
 ## Service `motion_blinds.set_absolute_position`
 
