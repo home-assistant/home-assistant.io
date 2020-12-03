@@ -130,7 +130,7 @@ data:
 ```
 
 Extra media metadata (for example title, subtitle, artist or album name) can be passed in to the service and that will be shown on the Chromecast display.
-For the possible metadata types and values check [google cast docs > MediaInformation > metadata field](https://developers.google.com/cast/docs/reference/messages#MediaInformation).
+For the possible metadata types and values check [Google cast documentation > MediaInformation > metadata field](https://developers.google.com/cast/docs/reference/messages#MediaInformation).
 
 ```yaml
 # Play a movie from the internet, with extra metadata provided:
