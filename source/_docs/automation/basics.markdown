@@ -7,7 +7,7 @@ All automations are made up of a trigger and an action. Optionally combined with
 
 > When Paulus arrives home and it is after sunset: Turn the lights on in the living room.".
 
-We can break up this automation in the following three parts:
+We can break up this automation into the following three parts:
 
 ```text
 (trigger)    When Paulus arrives home
@@ -37,10 +37,10 @@ Automation rules interact directly with the internal state of Home Assistant, so
 
 State changes can be used as the source of triggers and the current state can be used in conditions.
 
-Actions are all about calling services. To explore the available services open the **Developer Tools** -> **Services**. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
+Actions are all about calling services. To explore the available services open the **Developer Tools** -> **Services**. Services allow changing anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
 
 ## Creating automations
 
-Now that you've got a sneak peak of what is possible, it's time to get your feet wet and create your first automation.
+Now that you've got a sneak peek of what is possible, it's time to get your feet wet and create your first automation.
 
 ### [Using the automation editor &raquo;](/docs/automation/editor/)

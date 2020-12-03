@@ -5,21 +5,21 @@ description: "How to use the automation integration with YAML."
 
 Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an automation, go to edit the automation, click on the menu button in the top right and turn on YAML mode.
 
-The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be editted manually.
+The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
-It is also possible to write your automations direclty inside `configuration.yaml` or other YAML files. You can do this by adding a labelled `automation` block to your `configuration.yaml`:
+It is also possible to write your automations directly inside `configuration.yaml` or other YAML files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
 
 ```yaml
 # The configuration required for the UI to work
 automation: !include automations.yaml
 
-# Labelled automation block
+# Labeled automation block
 automation kitchen:
 - trigger:
     platform: ...
 ```
 
-You can add as manny labelled `automation` blocks as you want.
+You can add as many labeled `automation` blocks as you want.
 
 ## YAML Example
 

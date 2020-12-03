@@ -18,7 +18,7 @@ To create your first automation based on a blueprint, go to **Configuration** an
 
 This will open the automation editor with the blueprint selected. Give it a name and configure the blueprint and click on the blue button "Save Automation" in the bottom right.
 
-Done! If you want to revisit the configuration values, you can find it by going to **Configuration** and then **Automations**
+Done! If you want to revisit the configuration values, you can find it by going to **Configuration** and then **Automations**.
 
 ## Importing blueprints
 
