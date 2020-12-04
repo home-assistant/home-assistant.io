@@ -60,7 +60,7 @@ samsungtv:
     turn_on_action:
       - service: wake_on_lan.send_magic_packet
         data:
-          mac: XX:XX:XX:XX:XX:XX
+          mac: MAC_ADDRESS
 ```
 
 ### Usage
