@@ -19,3 +19,36 @@
 //$sidebar-pad-medium: 15px;
 //$sidebar-pad-wide: 20px;
 //$sidebar-width-wide: 300px;
+
+
+#sidebar {
+    margin-top: 92px;
+    .grid {
+        position: fixed;
+        section: {
+            display: contents;
+        }
+        .brand-logo-container {
+            margin-top: 0;
+            margin-right: 24px;
+        }
+    }
+}
+
+.site-header {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
+
+.page {
+    margin-top: 98px;
+}
+
+@media only screen and (max-width: $lap-end) {
+    #sidebar {
+      .grid {
+          position: initial;
+        }
+    }
+  }
