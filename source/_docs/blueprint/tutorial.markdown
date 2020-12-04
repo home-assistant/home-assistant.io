@@ -59,7 +59,7 @@ trigger:
   entity_id: !input motion_sensor
 ```
 
-For the light we can offer some more flexibility. We want to allow the user to be able to define any device or areas as the target. This is done using the `target` property in the service action which can contain references to areas, devices and/or entities.
+For the light we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the service action can contain references to areas, devices and/or entities, so that's what we will use.
 
 Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
@@ -75,8 +75,6 @@ action:
   target: !input target_light
 ```
 {% endraw %}
-
-By limiting our blueprint to working with lights and motion sensors, we unlock a couple of benefits: the UI will be able to limit suggested values to lights and motion sensors instead of all devices. It will also allow the user to pick an area to control the lights in.
 
 ## Add the inputs to the metadata
 
@@ -156,6 +154,8 @@ blueprint:
           entity:
             domain: light
 ```
+
+By limiting our blueprint to working with lights and motion sensors, we unlock a couple of benefits: the UI will be able to limit suggested values to lights and motion sensors instead of all devices. It will also allow the user to pick an area to control the lights in.
 
 ## The final blueprint
 
