@@ -12,9 +12,11 @@ or via the command-line.
 This requires NetworkManager to be installed, active
 and in control of at least one network interface on the host.
 
+The current minimum supported version of NetworkManager is: 1.14.6.
+
 ## The solution
 
-If you have not already, install Network Manager on the host.
+If you have not already, install or update Network Manager on the host.
 
 When it is installed, you need to make sure it manages at least one interface
 [see the documentation for the network manager](https://wiki.debian.org/NetworkManager).
