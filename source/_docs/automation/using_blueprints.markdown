@@ -1,0 +1,45 @@
+---
+title: "Using Automation Blueprints"
+description: "How to crete automations based off blueprints."
+---
+
+Automation blueprints are pre-made automations that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
+
+Quick links:
+ - [Blueprints in the Home Assistant forums][blueprint-tag]
+
+## Blueprint Automations
+
+Automations based on a blueprint only need to be configured to be used. What needs to be configured differs on each blueprint.
+
+To create your first automation based on a blueprint, go to **Configuration** and then **Blueprints**. Find the blueprint that you want to use and click on "Create Automation".
+
+This will open the automation editor with the blueprint selected. Give it a name and configure the blueprint and click on the blue button "Save Automation" in the bottom right.
+
+Done! If you want to revisit the configuration values, you can find it by going to **Configuration** and then **Automations**.
+
+## Importing blueprints
+
+Home Assistant can import blueprints from the Home Assistant forums, GitHub and GitHub gists.
+
+To do this, first [find a blueprint you want to import][blueprint-tag]. If you just want to practice importing, you can use this URL:
+
+```text
+https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
+```
+
+Go to **Configuration** and then **Blueprints**. Click on the blue "Import Blueprint" button in the bottom right.
+
+A new dialog will pop-up asking you for the URL. Enter the URL and click on "preview blueprint".
+
+This will load the blueprint and show a preview in the import dialog. You can change the name and finish the import.
+
+The blueprint can now be used for creating automations.
+
+## Finding new blueprints
+
+The Home Assistant Community forums have a specific tag for blueprints. This tag is used to collect all blueprints.
+
+[Visit the Home Assistant forums][blueprint-tag]
+
+[blueprint-tag]: https://community.home-assistant.io/tag/blueprint

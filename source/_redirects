@@ -2050,6 +2050,7 @@
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /integrations/auth /docs/authentication
+/integrations/automation /docs/automation
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/cover.knx /integrations/knx#cover
