@@ -32,3 +32,15 @@
     {% endif %}
   {% endif %}
 </div>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.querySelector("#sidebar").querySelector(".grid");
+      if (sidebar) {
+        const sidebarHeight = sidebar.clientHeight;
+        const clientHeight = window.innerHeight;
+        if (sidebarHeight > clientHeight) {
+          sidebar.style.display = "contents"
+        }
+      }
+  });
+</script>
