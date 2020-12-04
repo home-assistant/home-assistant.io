@@ -46,7 +46,7 @@ type:
   description: button
   type: string
 entity:
-  required: false
+  required: true
   description: The entity ID the card interacts with, for example, `light.living_room`.
   type: string
 name:
