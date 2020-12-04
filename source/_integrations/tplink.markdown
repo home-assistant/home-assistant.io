@@ -150,24 +150,24 @@ sensor:
   - platform: template
     sensors:
       my_tp_switch_amps:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Current"
-        value_template: '{{ states.switch.my_tp_switch.attributes["current_a"] | float }}'
+        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Current"
+        value_template: "{{ state_attr('switch.my_tp_switch','current_a') | float }}"
         unit_of_measurement: 'A'
       my_tp_switch_watts:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Current Consumption"
-        value_template: '{{ states.switch.my_tp_switch.attributes["current_power_w"] | float }}'
+        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Current Consumption"
+        value_template: "{{ state_attr('switch.my_tp_switch','current_power_w') | float }}"
         unit_of_measurement: 'W'
       my_tp_switch_total_kwh:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Total Consumption"
-        value_template: '{{ states.switch.my_tp_switch.attributes["total_energy_kwh"] | float }}'
+        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Total Consumption"
+        value_template: "{{ state_attr('switch.my_tp_switch','total_energy_kwh') | float }}"
         unit_of_measurement: 'kWh'
       my_tp_switch_volts:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Voltage"
-        value_template: '{{ states.switch.my_tp_switch.attributes["voltage"] | float }}'
+        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Voltage"
+        value_template: "{{ state_attr('switch.my_tp_switch','voltage') | float }}"
         unit_of_measurement: 'V'
       my_tp_switch_today_kwh:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Today's Consumption"
-        value_template: '{{ states.switch.my_tp_switch.attributes["today_energy_kwh"] | float }}'
+        friendly_name_template: "{{ state_attr('switch.my_tp_switch','friendly_name') }} Today's Consumption"
+        value_template: "{{ state_attr('switch.my_tp_switch','today_energy_kwh') | float }}"
         unit_of_measurement: 'kWh'
 ```
 {% endraw %}
