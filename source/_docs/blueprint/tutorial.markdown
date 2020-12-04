@@ -9,9 +9,7 @@ For this tutorial we use a simple automation. The process for converting a compl
 
 ## Our automation
 
-To create a blueprint, we first need to have a working automation with hardcoded values.
-
-The automation for this tutorial that controls a light based off a motion sensor looks like this:
+To create a blueprint, we first need to have a working automation. The automation we're going to use in this tutorial, which controls a light based on a motion sensor, looks like this:
 
 {% raw %}
 ```yaml
@@ -33,13 +31,13 @@ action:
 
 ## Create the blueprint file
 
-All automation blueprints live in the `<config>/blueprints/automation/` folder and are defined as YAML files (with the `.yaml` extension). You can create as many subdirectories in this folder as you want.
+Automation blueprints are YAML files (with the `.yaml` extension) and live in the `<config>/blueprints/automation/` folder. You can create as many subdirectories in this folder as you want.
 
-To get started with our blueprint, we're going to copy the above automation YAML and save it as the file `<config>/blueprints/automation/motion_light_tutorial.yaml`.
+To get started with our blueprint, we're going to copy the above automation YAML and save it in that directory with the name `motion_light_tutorial.yaml`.
 
 ## Add basic blueprint metadata
 
-Home Assistant needs to know what your blueprint is about. This is done by adding a `blueprint:` section. It should contain the `domain` of the integration it is for (`automation`) and `name`, the name of your blueprint. Optionally, you can also include a `description` for your blueprint.
+Home Assistant needs to know about the blueprint. This is achieved by adding a `blueprint:` section. It should contain the `domain` of the integration it is for (`automation`) and `name`, the name of your blueprint. Optionally, you can also include a `description` for your blueprint.
 
 Add this to the top of the file:
 
@@ -49,13 +47,11 @@ blueprint:
   domain: automation
 ```
 
-## Define the configurable parts
+## Define the configurable parts as inputs
 
 Now we have to decide what steps we want to make configurable. We want to make it as re-usable as possible, without losing its original intent of turning on a light based on a motion sensor.
 
-By limiting our blueprint to working with lights and motion sensors, we can later on tell the UI to suggest lights and motion sensors to the user, instead of all their entities.
-
-First we're going to make the motion sensor entity configurable. We do this by replacing the entity ID with a special YAML tag `!input`. This YAML tag has to be combined with the name of the configurable part:
+Configurable parts in blueprints are called inputs. To make the motion sensor entity configurable, we're replacing the entity ID with a special YAML tag `!input`. This YAML tag has to be combined with the name of the input:
 
 ```yaml
 trigger:
@@ -63,11 +59,9 @@ trigger:
   entity_id: !input motion_sensor
 ```
 
-For the motion sensor we just made the entity configurable. But for the light, we could offer some more flexibility. We want to allow the user to supply an area or individual lights.
+For the light we can offer some more flexibility. We want to allow the user to be able to define any device or areas as the target. This is done using the `target` property in the service action which can contain references to areas, devices and/or entities.
 
-To do this, we will use the `target` property in the service action. This property can contain references to areas, devices and/or entities.
-
-Configurable parts are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as configurable:
+Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
 {% raw %}
 ```yaml
@@ -82,9 +76,11 @@ action:
 ```
 {% endraw %}
 
-## Add the configurable parts to the metadata
+By limiting our blueprint to working with lights and motion sensors, we unlock a couple of benefits: the UI will be able to limit suggested values to lights and motion sensors instead of all devices. It will also allow the user to pick an area to control the lights in.
 
-All parts that are marked as configurable need to be added to the metadata. The bare minimum is that we add their names:
+## Add the inputs to the metadata
+
+All parts that are marked as inputs need to be added to the metadata. The minimum is that we add their names as used in the automation:
 
 ```yaml
 blueprint:
@@ -113,13 +109,9 @@ automation tutorial:
 
 Reload automations and your new automation should popup. Because we configured the exact values as the original automation, they should work exactly the same.
 
-## Naming the configurable parts
+## Adding user friendly names to the inputs
 
-You can use blueprints for yourself to make reusable automations. But a great aspect of blueprints is also the possibility to share it with others.
-
-It is possible to describe the configurable parts of the blueprint. This allows Home Assistant to automatically create a UI for it.
-
-The first step is to add a name and description to the fields to help identify the fields.
+Blueprints are easier to use if it's easy to see what each field is used for. We can improve this experience by adding names and descriptions to our inputs:
 
 ```yaml
 blueprint:
@@ -134,9 +126,9 @@ blueprint:
       description: The lights to keep in sync.
 ```
 
-## Describing the configurable parts
+## Describing the inputs
 
-Our blueprint doesn't currently describe what the configurable part should contain. Without this information Home Assistant will offer the user an empty text box.
+Our blueprint doesn't currently describe what the inputs should contain. Without this information Home Assistant will offer the user an empty text box.
 
 To instead allow Home Assistant to offer more assistance, we will use selectors. Selectors describe a type and can be used to help the user pick a matching value.
 
