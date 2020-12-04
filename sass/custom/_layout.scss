@@ -64,4 +64,14 @@ html {
           position: initial;
         }
     }
+    .site-header {
+        .pull-right {
+            position: fixed;
+        }
+    }
+    .hero {
+        > .grid-wrapper {
+            z-index: 0;
+        }
+    }
   }
