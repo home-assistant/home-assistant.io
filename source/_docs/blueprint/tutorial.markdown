@@ -128,7 +128,7 @@ blueprint:
 
 Our blueprint doesn't currently describe what the inputs should contain. Without this information Home Assistant will offer the user an empty text box.
 
-To instead allow Home Assistant to offer more assistance, we will use selectors. Selectors describe a type and can be used to help the user pick a matching value.
+To instead allow Home Assistant to offer more assistance, we will use [selectors](/docs/blueprint/selectors/). Selectors describe a type and can be used to help the user pick a matching value.
 
 The selector for the motion sensor entity should describe that we want entities from the binary sensor domain that have the device class `motion`.
 
