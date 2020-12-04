@@ -1,5 +1,5 @@
 ---
-title: "Blueprint Schema"
+title: "Blueprint schema"
 description: "The schema for a valid blueprint."
 ---
 

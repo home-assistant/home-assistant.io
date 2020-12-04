@@ -1,11 +1,11 @@
 ---
-title: "Blueprint Tutorial"
+title: "Blueprint tutorial"
 description: "Tutorial on creating a blueprint."
 ---
 
-In this tutorial we're going to create a blueprint that controls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
+In this tutorial, we're going to create a blueprint that controls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
 
-For this tutorial we use a simple automation. The process for converting a complex automation is not any different.
+For this tutorial, we use a simple automation. The process for converting a complex automation is not any different.
 
 ## Our automation
 
@@ -44,14 +44,15 @@ Add this to the top of the file:
 ```yaml
 blueprint:
   name: Motion Light Tutorial
+  description: Turn a light on based on detected motion
   domain: automation
 ```
 
 ## Define the configurable parts as inputs
 
-Now we have to decide what steps we want to make configurable. We want to make it as re-usable as possible, without losing its original intent of turning on a light based on a motion sensor.
+Now we have to decide what steps we want to make configurable. We want to make it as re-usable as possible, without losing its original intent of turning on a light-based on a motion sensor.
 
-Configurable parts in blueprints are called inputs. To make the motion sensor entity configurable, we're replacing the entity ID with a special YAML tag `!input`. This YAML tag has to be combined with the name of the input:
+Configurable parts in blueprints are called inputs. To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
 
 ```yaml
 trigger:
@@ -59,7 +60,7 @@ trigger:
   entity_id: !input motion_sensor
 ```
 
-For the light we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the service action can contain references to areas, devices and/or entities, so that's what we will use.
+For the light, we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the service action can contain references to areas, devices and/or entities, so that's what we will use.
 
 Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
@@ -83,6 +84,7 @@ All parts that are marked as inputs need to be added to the metadata. The minimu
 ```yaml
 blueprint:
   name: Motion Light Tutorial
+  description: Turn a light on based on detected motion
   domain: automation
   input:
     motion_sensor:
@@ -126,7 +128,7 @@ blueprint:
 
 ## Describing the inputs
 
-Our blueprint doesn't currently describe what the inputs should contain. Without this information Home Assistant will offer the user an empty text box.
+Our blueprint doesn't currently describe what the inputs should contain. Without this information, Home Assistant will offer the user an empty text box.
 
 To instead allow Home Assistant to offer more assistance, we will use [selectors](/docs/blueprint/selectors/). Selectors describe a type and can be used to help the user pick a matching value.
 
@@ -165,6 +167,7 @@ After we have added all the steps, our blueprint will look like this:
 ```yaml
 blueprint:
   name: Motion Light Tutorial
+  description: Turn a light on based on detected motion
   domain: automation
   input:
     motion_sensor:
@@ -201,9 +204,9 @@ action:
 
 To configure it via the UI, go to **Configuration** and then **Blueprints**. Find the "Motion Light Tutorial" blueprint and click on "Create Automation".
 
-<p class='note'>
+<div class='note'>
 Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation integration pick up the latest blueprint changes.
-</p>
+</div>
 
 ![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 

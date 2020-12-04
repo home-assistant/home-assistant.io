@@ -35,7 +35,7 @@ The `entity` option will limit devices that have an entity matching the entity s
 
 ## Target Selector
 
-Pick a target for service calls. Will be a dictionary containing optionally entity_id, device_id and/or area_id keys with the picked values.
+Pick a target for service calls. Will be a dictionary containing optionally `entity_id`, `device_id` or `area_id` keys with the picked values.
 
 Meant to be specified as the `target` property in a call service step in a script sequence.
 
