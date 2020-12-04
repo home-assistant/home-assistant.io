@@ -3,7 +3,7 @@ title: "Blueprint Tutorial"
 description: "Tutorial on creating a blueprint."
 ---
 
-In this tutorial we're going to create a blueprint that contorls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
+In this tutorial we're going to create a blueprint that controls a light based on a motion sensor. We will do this by taking an existing automation and converting it to a blueprint.
 
 For this tutorial we use a simple automation. The process for converting a complex automation is not any different.
 
@@ -35,11 +35,11 @@ action:
 
 All automation blueprints live in the `<config>/blueprints/automation/` folder and are defined as YAML files (with the `.yaml` extension). You can create as many subdirectories in this folder as you want.
 
-To get started with our blueprint, we're giong to copy the above automation YAML and save it as the file `<config>/blueprints/automation/motion_light_tutorial.yaml`.
+To get started with our blueprint, we're going to copy the above automation YAML and save it as the file `<config>/blueprints/automation/motion_light_tutorial.yaml`.
 
 ## Add basic blueprint metadata
 
-Home Assistant needs to know what your blueprint is about. This is done by adding a `blueprint:` section. It should contain the `domain` of the integration it is for (`automation`) and `name`, the name of your blueprint.
+Home Assistant needs to know what your blueprint is about. This is done by adding a `blueprint:` section. It should contain the `domain` of the integration it is for (`automation`) and `name`, the name of your blueprint. Optionally, you can also include a `description` for your blueprint.
 
 Add this to the top of the file:
 
@@ -51,7 +51,7 @@ blueprint:
 
 ## Define the configurable parts
 
-Now we have to decide what steps we want to make configurable. We want to make it as re-usable as possible, without losing it's original intent of turning on a light based on a motion sensor.
+Now we have to decide what steps we want to make configurable. We want to make it as re-usable as possible, without losing its original intent of turning on a light based on a motion sensor.
 
 By limiting our blueprint to working with lights and motion sensors, we can later on tell the UI to suggest lights and motion sensors to the user, instead of all their entities.
 
@@ -84,7 +84,7 @@ action:
 
 ## Add the configurable parts to the metadata
 
-All parts that are marked as configurable need to added to the metadata. The bare minimum is that we add their names:
+All parts that are marked as configurable need to be added to the metadata. The bare minimum is that we add their names:
 
 ```yaml
 blueprint:
@@ -138,7 +138,7 @@ blueprint:
 
 Our blueprint doesn't currently describe what the configurable part should contain. Without this information Home Assistant will offer the user an empty text box.
 
-To do this, we will use selectors. Selectors describe a type and can be used to help the user pick a value.
+To instead allow Home Assistant to offer more assistance, we will use selectors. Selectors describe a type and can be used to help the user pick a matching value.
 
 The selector for the motion sensor entity should describe that we want entities from the binary sensor domain that have the device class `motion`.
 
@@ -210,10 +210,10 @@ action:
 To configure it via the UI, go to **Configuration** and then **Blueprints**. Find the "Motion Light Tutorial" blueprint and click on "Create Automation".
 
 <p class='note'>
-Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation intgration pick up the latest blueprint changes.
+Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation integration pick up the latest blueprint changes.
 </p>
 
-![Screenshot of the blueprint  UI](/images/blueprints/tutorial-ui.png)
+![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 
 ## Share the love
 
@@ -226,4 +226,3 @@ The final step is to share this blueprint with others. For this tutorial we're g
 - Click the "Create Gist" button
 
 You can now copy the URL of your new Gist and share it with other people. They can import it by going to **Configuration**, **Blueprints** and clicking on the blue "Import Blueprint" button.
-
