@@ -36,9 +36,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector("#sidebar").querySelector(".grid");
       if (sidebar) {
-        const sidebarHeight = sidebar.clientHeight;
-        const clientHeight = window.innerHeight;
-        if (sidebarHeight > clientHeight) {
+        if (sidebar.clientHeight > window.innerHeight) {
           sidebar.style.display = "contents"
         }
       }
