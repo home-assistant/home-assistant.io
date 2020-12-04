@@ -20,14 +20,26 @@
 //$sidebar-pad-wide: 20px;
 //$sidebar-width-wide: 300px;
 
+html {
+    overflow-y: hidden;
+}
+
+.page-content {
+    width: 100%;
+    margin-top: 72px;
+    padding-top: 24px;
+    overflow-y: scroll;
+    height: calc(100% - 72px);;
+}
 
 #sidebar {
-    margin-top: 92px;
+    margin-top: 2px;
     .grid {
         position: fixed;
-        section: {
-            display: contents;
-        }
+        display: inline-block;
+        width: 33.33%;
+        height: 100%;
+
         .brand-logo-container {
             margin-top: 0;
             margin-right: 24px;
@@ -38,12 +50,13 @@
 .site-header {
     position: fixed;
     width: 100%;
+    height: 72px;
+    top: 0;
+    overflow: hidden;
     z-index: 2;
+    display: inline-block;
 }
 
-.page {
-    margin-top: 98px;
-}
 
 @media only screen and (max-width: $lap-end) {
     #sidebar {
