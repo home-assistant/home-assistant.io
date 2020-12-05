@@ -9,7 +9,7 @@ ha_codeowners:
   - '@GenericStudent'
 ---
 
-The `color_extractor` integration will extract the predominant color from a given image and apply that color to a target light.
+When provided with a single `entity_id`, the `color_extractor` integration will extract the predominant color from a given image and apply that color to a target light. When provided with a list of `entity_id`s, `color_extractor` will extract a palette of colors from the given image, and apply each color to a given light.
 Useful as part of an automation.
 
 ## Configuration
@@ -56,7 +56,6 @@ This service is very similar to the URL service above, except it processes a fil
 Example usage in an automation, taking the album art present on a Chromecast and supplying it to `light.shelf_leds` whenever it changes:
 
 {% raw %}
-
 ```yaml
 #automation.yaml
 - alias: Chromecast to Shelf Lights
@@ -71,9 +70,11 @@ Example usage in an automation, taking the album art present on a Chromecast and
         color_extract_url: '{{ states.media_player.chromecast.attributes.entity_picture }}'
         entity_id: light.shelf_leds
 ```
+{% endraw %}
 
 With a nicer transition period of 5 seconds and setting brightness to 100% each time (part of the [`light.turn_on`](/integrations/light#service-lightturn_on) service parameters):
 
+{% raw %}
 ```yaml
 #automation.yaml
 - alias: Nicer Chromecast to Shelf Lights
@@ -90,5 +91,38 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
         brightness_pct: 100
         transition: 5
 ```
-
 {% endraw %}
+
+Example automation using the palette feature, taking the album art present on a Chromecast and apply the palette of colors to the given lights whenever it changes:
+
+{% raw %}
+```yaml
+#automation.yaml
+- alias: Chromecast to living room lights
+
+  trigger:
+    - platform: state
+      entity_id: media_player.chromecast
+
+  action:
+    - service: color_extractor.turn_on
+      data_template:
+        color_extract_url: '{{ states.media_player.chromecast.attributes.entity_picture }}'
+        entity_id:
+          - light.left_shelf
+          - light.right_shelf
+          - light.living_room_lamp
+```
+{% endraw %}
+
+In this automation, if the album art comprises of the following colors:
+ - red
+ - blue
+ - green
+
+then the following will happen:
+ - `left_shelf` light will be set to red
+ - `right_shelf` light will be set to blue
+ - `living_room_lamp` light will be set to green
+
+If a provided image doesn't have enough color range to satisfy the number of lights provided, `color_extractor` will only apply as many colors as we can extract.
