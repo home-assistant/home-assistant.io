@@ -185,14 +185,6 @@ That about wraps it up.
 
 If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
 
-## Debugging multiple configuration files
-
-If you have many configuration files, the `check_config` script allows you to see how Home Assistant interprets them:
-
-- Listing all loaded files: `ha core check --files`
-- Viewing a component's configuration: `ha core check --info light`
-- Or all components' configuration:  `ha core check --info all`
-
 You can get help from the command line using: `ha core check --help`
 
 ## Advanced Usage
