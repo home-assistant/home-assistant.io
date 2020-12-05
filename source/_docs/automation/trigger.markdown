@@ -32,6 +32,18 @@ automation:
         - ANOTHER_USER_ID
 ```
 
+It is also possible to listen for multiple events at once. This is useful for
+event that contain no, or similar, data and contexts.
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type:
+      - automation_reloaded
+      - scene_reloaded
+```
+
 ### Home Assistant trigger
 
 Fires when Home Assistant starts up or shuts down.
@@ -319,8 +331,6 @@ A very thorough explanation of this is available in the Wikipedia article about 
 Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
-{% raw %}
-
 ```yaml
 automation:
   trigger:
@@ -328,12 +338,8 @@ automation:
     tag_id: A7-6B-90-5F
 ```
 
-{% endraw %}
-
 Additionally, you can also only trigger if a card is scanned by a specific
 device/scanner by setting the `device_id`:
-
-{% raw %}
 
 ```yaml
 automation:
@@ -343,7 +349,19 @@ automation:
     device_id: 0e19cd3cf2b311ea88f469a7512c307d
 ```
 
-{% endraw %}
+Or trigger on multiple possible devices for multiple tags:
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id:
+      - A7-6B-90-5F
+      - A7-6B-15-AC
+    device_id:
+      - 0e19cd3cf2b311ea88f469a7512c307d
+      - d0609cb25f4a13922bb27d8f86e4c821
+```
 
 ### Template trigger
 

@@ -17,9 +17,17 @@ This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave
 
 ## Requirements
 
+### Supervisor managed installation
+
+- The official OpenZWave add-on installed available from the add-on store.
+
+### Core installation
+
 - MQTT server and the [MQTT integration](/integrations/mqtt/) set up in Home Assistant.
 - The [ozwdaemon](https://github.com/OpenZWave/qt-openzwave) installed and running in your network.
-  For Home Assistant Supervisor there's an official add-on named OpenZWave available from the add-on store.
+
+### Hardware requirements
+
 - Supported Z-Wave dongle compatible with OpenZWave 1.6. See this [list](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules) of controllers. The Z-Wave controller dongle should be connected to the same host as where the ozwdaemon is running.
 
 ## Configuration
@@ -136,6 +144,7 @@ This event is fired upon scene activation. The data in the event will vary depen
 {
     "event_type": "ozw.scene_activated",
     "data": {
+        "instance_id": 1,
         "node_id": 9,
         "scene_id": 1,
         "scene_label": "Scene 1",

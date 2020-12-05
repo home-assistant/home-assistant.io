@@ -135,6 +135,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Blind Actuator for flush-mount (*HmIP-FBL*)
   * Garage door module for Tormatic (*HmIP-MOD_TM*)
   * Module for Hoermann drives (*HMIP-MOD-HO*)
+  * Hunter Douglas & erfal window blinds (*HMIP-HDM1*)
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
@@ -142,6 +143,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Dimming actuator flush-mount (*HmIP-FDT*)
   * Pluggable Dimmer – trailing edge (*HmIP-PDT*)
   * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
+  * Wired Dimmer module – 3x channels (*HMIPW-DRD3*)
 
 * homematicip_cloud.sensor
   * Access Point Duty Cycle (*HmIP-HAP, HmIP-HAP-B1*)

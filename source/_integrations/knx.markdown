@@ -666,6 +666,10 @@ invert_angle:
   required: false
   default: false
   type: boolean
+device_class:
+  description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Light
