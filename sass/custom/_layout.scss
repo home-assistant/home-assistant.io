@@ -60,6 +60,7 @@ html {
         .pull-right {
             position: fixed;
         }
+        z-index: 999;
     }
     .hero {
         > .grid-wrapper {
