@@ -16,7 +16,6 @@ The location of the folder differs between operating systems:
 | macOS          | `~/.homeassistant`         |
 | Linux          | `~/.homeassistant`         |
 
-If you want to use a different folder for configuration, use the configuration command line parameter: `ha --config path/to/config`.
 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
 
