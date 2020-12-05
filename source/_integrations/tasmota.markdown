@@ -22,6 +22,15 @@ This integration allows you to control [Tasmota](https://tasmota.github.io/docs/
 - Tasmota devices flashed with version 9.1, or later.
 - Tasmota devices configured for native discovery (`SetOption19 0`)
 
+## Known issues
+
+<div class='note warning'>
+
+There is a known issue where Tasmota devices need to be rebooted after 25 days.
+This is fixed by https://github.com/arendst/Tasmota/pull/9995, which will be included in upcoming Tasmota version 9.2.
+
+</div>
+
 ## Supported Features
 
 Lights, relays, sensors, switches and buttons are supported.
