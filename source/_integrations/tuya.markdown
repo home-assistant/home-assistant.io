@@ -114,6 +114,8 @@ but all selected devices must be of the same type.
 
 - **Current Temperature value divider**: `current temperature` reported by device will be divided by this value.
 
+- **Temperature precision**: override default temperature precision.
+
 - **Min target temperature**: set the minimum allowed `target temperature` for the entity.
 
 - **Max target temperature**: set the maximum allowed `target temperature` for the entity.
