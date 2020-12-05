@@ -102,6 +102,8 @@ but all selected devices must be of the same type.
 
 - **Min color temperature**: set minimum `color temperature` expressed in `kelvin` accepted by the light.
 
+- **Temperature precision**: override default temperature precision.
+
 - **Max color temperature**: set maximum `color temperature` expressed in `kelvin` accepted by the light.
 
 - **Max color temperature reported**: set the maximum `color temperature` value reported by the light.
