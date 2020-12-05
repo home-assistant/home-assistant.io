@@ -54,5 +54,8 @@ Names are set from the device web page:
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
+  - in case your device does not offer a firmware update, but the integration still complains about the firmware, have a look at the [Shelly Firmware Archive](http://archive.shelly-faq.de/) (which also contains the latest firmware versions)
+    1. Make sure your device is on the same network by entering its IP into the browser's address bar (the device's configuration page should appear)
+    2. Copy the IP into the *Shelly IP* field, select device and (latest) version, and follow the instructions
 - Support relays, lights (with brightness), sensors and rollers
 - Support for battery-powered devices is currently very limited
