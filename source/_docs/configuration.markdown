@@ -16,7 +16,7 @@ The location of the folder differs between operating systems:
 | macOS          | `~/.homeassistant`         |
 | Linux          | `~/.homeassistant`         |
 
-If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
+If you want to use a different folder for configuration, use the configuration command line parameter: `ha --config path/to/config`.
 
 Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
 
@@ -24,7 +24,7 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 
 <div class='note tip'>
 
-  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
+  Test any changes to your configuration files from the command line with `ha core check`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
 
 </div>
 

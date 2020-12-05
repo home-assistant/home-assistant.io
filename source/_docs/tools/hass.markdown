@@ -3,7 +3,7 @@ title: "hass"
 description: "Description of hass."
 ---
 
-The command-line part of Home Assistant is `hass`.
+The command-line part of Home Assistant is `ha`.
 
 
 ```bash
