@@ -3,27 +3,88 @@ title: "Blueprint schema"
 description: "The schema for a valid blueprint."
 ---
 
-Schema of the blueprint metadata:
+### Schema of the blueprint metadata
 
-```ts
-interface BlueprintInput {
-  name?: string;
-  description?: string;
-  selector?: Selector;
-  default?: any;
-}
+<div class='note'>
 
-interface Blueprint {
-  blueprint: {
-    domain: string;
-    name: string;
-    input?: Record<string, BlueprintInput | null>;
-    description?: string;
-    source_url?: string;
-  }
-}
+Values inside `<>` are required, inside `[]` are optional.
+
+</div>
+
+Blueprint object:
+```yaml
+blueprint:
+  name: <string>
+  description: <string>
+  domain: <automation>
+  input: [string | BlueprintInput | null]
+  source_url: [string]
 ```
 
+Blueprint Input:
+```yaml
+name: [string]
+description: [string]
+selector: [Selector]
+default: [any]
+```
+
+Selectors:
+```yaml
+entity:
+  # All fields are optional
+  integration: [string]
+  domain: [string]
+  device_class: [string]
+
+device:
+  # All fields are optional
+  integration: [string]
+  manufacturer: [string]
+  model: [string]
+  entity: [entity selector]
+
+target:
+  # All fields are optional
+  entity:
+    integration: [string]
+    domain: [string]
+    device_class: [string]
+
+  device:
+    integration: [string]
+    manufacturer: [string]
+    model: [string]
+
+number:
+  # Required
+  min: <int>
+  max: <int>
+  # Optional
+  step: [int]
+  unit_of_measurement: [seconds | minutes]
+  mode: [slider | box]
+
+boolean:
+
+time:
+
+action:
+
+area:
+  # All fields are optional
+  entity:
+    integration: [string]
+    domain: [string]
+    device_class: [string]
+
+  device:
+    integration: [string]
+    manufacturer: [string]
+    model: [string]
+```
+
+## Examples
 The [built-in blueprints](https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints) are great examples.
 
 Here is the built-in motion light blueprint:
