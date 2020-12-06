@@ -49,6 +49,15 @@ html {
     z-index: 999;
 }
 
+table {
+    table-layout: fixed;
+    width: 100%;
+
+    th,td {
+        word-wrap: break-word;
+    }
+}
+
 
 @media only screen and (max-width: $lap-end) {
     #sidebar {
