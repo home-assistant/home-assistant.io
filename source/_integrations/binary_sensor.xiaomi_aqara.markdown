@@ -33,6 +33,16 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 | Cube | cube | MFKZQ01LM | off (always) | `xiaomi_aqara.cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
 | Vibration Sensor | vibration | DJT11LM | off (always) | `xiaomi_aqara.movement` | `movement_type` | `vibrate`, `tilt`, `free_fall` |
 
+{% configuration %}
+
+unit_of_measurement:
+  description: Defines the unit of measurement to be used for any sensor where the unit is *not* set in Emoncms. If no unit is set in Emoncms or in the configuration, the default (W) will be used.
+  required: false
+  default: W
+  type: string
+
+{% endconfiguration %}
+
 ### Automation examples
 
 #### Motion
