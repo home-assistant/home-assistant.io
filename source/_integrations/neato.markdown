@@ -27,7 +27,7 @@ There is support for the following platform types within Home Assistant:
 
 ## Configuration
 
-1. Visit <https://developers.neatorobotics.com/applications> and create a new app.
+1. Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
 <div class='note'>
 You will have to enter an name, a description and your redirect URL.
