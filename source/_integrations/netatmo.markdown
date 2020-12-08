@@ -111,8 +111,6 @@ You can find the available event types at the [official Netatmo API documentatio
 
 Example:
 
-{% raw %}
-
 ```yaml
 # Example automation for webhooks based Netatmo events
 - alias: Netatmo event example
@@ -126,8 +124,6 @@ Example:
       entity_id: counter.event_counter
       service: counter.increment
 ```
-
-{% endraw %}
 
 Example:
 

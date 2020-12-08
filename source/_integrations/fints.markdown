@@ -16,7 +16,6 @@ To find out the configuration for your bank, check their website or call their h
 
 For each account you have with the bank, a separate sensor is created. If you have several accounts with a bank, you can select which ones you want to have, and you can also give the accounts a name.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -26,7 +25,6 @@ sensor:
     pin: YOUR_PIN
     url: URL_FOR_YOUR_BANK
 ```
-{% endraw %}
 
 {% configuration %}
 name:

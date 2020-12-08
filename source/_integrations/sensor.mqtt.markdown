@@ -250,7 +250,6 @@ home/bathroom/analog/brightness 290.00
 
 The configuration will look like the example below:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -258,4 +257,3 @@ sensor:
     name: "Brightness"
     state_topic: "home/bathroom/analog/brightness"
 ```
-{% endraw %}
