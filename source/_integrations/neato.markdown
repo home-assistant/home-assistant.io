@@ -30,9 +30,13 @@ There is support for the following platform types within Home Assistant:
 1. Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
 <div class='note'>
-You will have to enter an name, a description and your redirect URL.
-If homeassistant runs on <https://hass.example.com> your redirect URL would be <https://hass.example.com/auth/external/callback>.
-Please note that you must use a secure redirect URL (https://).
+
+You will have to enter a name, a description and your redirect URL.
+
+If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`.
+
+Please note that you must use a secure redirect URL (`https://`).
+
 </div>
 
 2. Add the newly created `client_id` and `client_secret` to your configuration.yaml:
