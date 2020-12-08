@@ -234,7 +234,7 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 <div class='note'>
 
-Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
+Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8mb4`.
 
 </div>
 
@@ -367,6 +367,6 @@ You will also need to install an ODBC Driver. Microsoft ODBC drivers are recomme
 
 <div class='note'>
 
-If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;`.
+If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8mb4;DRIVER={FreeTDS};Port=1433;`.
 
 </div>
