@@ -23,7 +23,7 @@ The qBittorrent integration will add the following sensors.
 
 **Sensors**:
 
-- `sensor.qbittorrent_status`: The status of your qbittorrent server.
+- `sensor.qbittorrent_status`: The status of your qBittorrent server.
 - `sensor.qbittorrent_down_speed`: The current download speed [MB/s].
 - `sensor.qbittorrent_up_speed`: The current upload speed [MB/s].
 - `sensor.qbittorrent_active_torrents`: The current number of active torrents.
