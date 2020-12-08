@@ -37,8 +37,9 @@
   document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector("#sidebar").querySelector(".grid");
     if (sidebar) {
-      const content = document.querySelector(".page-content").querySelector(".grid-wrapper")
-      if (sidebar.clientHeight > content.clientHeight || sidebar.clientHeight > window.innerHeight) {
+      const content = document.querySelector(".page-content").querySelector(".grid-wrapper");
+      const windowHeight = window.innerHeight - 82;
+      if (sidebar.clientHeight > content.clientHeight || sidebar.clientHeight > windowHeight) {
         sidebar.style.display = "contents"
       }
     }
