@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.84
 ha_config_flow: true
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@geoffreylagaisse'
 ha_domain: qbittorrent
 ---
 
