@@ -68,6 +68,7 @@ covers:
 </p>
 
 {% raw %}
+
 ```yaml
 # Related configuration.yaml entry
 cover:
@@ -107,6 +108,7 @@ customize:
   sensor.garage_door_wifi_signal_strength:
     icon: mdi:wifi
 ```
+
 {% endraw %}
 
 Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your `configuration.yaml` to exclude those entries.

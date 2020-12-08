@@ -96,6 +96,7 @@ source:
 Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [template](/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
 
 {% raw %}
+
 ```yaml
 - id: '12345'
   alias: Ringo Starr recognised
@@ -110,6 +111,7 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
       message: Ringo_Starr recognised with probability {{ trigger.event.data.confidence }}
       title: Door-cam notification
 ```
+
 {% endraw %}
 
 ## Service `facebox.teach_face`
@@ -125,6 +127,7 @@ The service `facebox.teach_face` can be used to teach Facebox faces.
 A valid service data example:
 
 {% raw %}
+
 ```yaml
 {
   "entity_id": "image_processing.facebox_local_file",
@@ -132,11 +135,13 @@ A valid service data example:
   "file_path": "/images/superman_1.jpeg"
 }
 ```
+
 {% endraw %}
 
 You can use an automation to receive a notification when you train a face:
 
 {% raw %}
+
 ```yaml
 - id: '1533703568569'
   alias: Face taught
@@ -153,6 +158,7 @@ You can use an automation to receive a notification when you train a face:
       with file {{ trigger.event.data.service_data.file_path }}'
       title: Face taught notification
 ```
+
 {% endraw %}
 
 Any errors on teaching will be reported in the logs. If you enable [system_log](/integrations/system_log/) events:
@@ -165,6 +171,7 @@ system_log:
 you can create an automation to receive notifications on Facebox errors:
 
 {% raw %}
+
 ```yaml
 - id: '1533703568577'
   alias: Facebox error
@@ -180,4 +187,5 @@ you can create an automation to receive notifications on Facebox errors:
       message: '{{ trigger.event.data.message }}'
       title: Facebox error
 ```
+
 {% endraw %}
