@@ -25,7 +25,7 @@ There is support for the following platform types within Home Assistant:
 - **Switch** - allows you to enable or disable the schedule.
 - [**Vacuum**](#vacuum)
 
-## Setup the integration
+## Configuration
 
 1. Visit <https://developers.neatorobotics.com/applications> and create a new app.
 
