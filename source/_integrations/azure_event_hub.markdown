@@ -119,8 +119,6 @@ Event Hubs have a retention time of at most 7 days, if you do not capture or use
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Azure Event Hub`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 azure_event_hub:
@@ -137,8 +135,6 @@ azure_event_hub:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

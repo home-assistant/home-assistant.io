@@ -44,6 +44,7 @@ name:
 For convenient switching of ventilation profiles in the GUI, consider using an [input_select](../input_select) hooked to an automation, for example:
 
 {% raw %}
+
 ```yaml
 input_select:
   ventilation_profile:
@@ -65,11 +66,13 @@ automation:
       data:
         profile: "{{ states('input_select.ventilation_profile') }}"
 ```
+
 {% endraw %}
 
 In order to also update the input select in case some external event changes the Vallox profile (web interface, mechanical switch, reboot, etc...) you can use the following automation:
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: Update Vallox input_select
@@ -83,6 +86,7 @@ automation:
           entity_id: input_select.ventilation_profile
           option: "{{ states('sensor.vallox_current_profile') }}"
 ```
+
 {% endraw %}
 
 ## Fan Services

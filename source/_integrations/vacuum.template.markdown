@@ -177,6 +177,7 @@ vacuum:
 This example shows how to add custom attributes.
 
 {% raw %}
+
 ```yaml
 vacuum:
   - platform: template
@@ -195,4 +196,5 @@ vacuum:
               Charging
             {% endif %}
 ```
+
 {% endraw %}

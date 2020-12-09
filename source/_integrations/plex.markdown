@@ -238,7 +238,9 @@ Refresh a Plex library to scan for new and updated media.
 Scan for new controllable Plex clients. This may be necessary in scripts or automations which control a Plex `media_player` entity, but where the underlying device must be turned on first.
 
 Example script:
+
 {% raw %}
+
 ```yaml
 play_plex_on_tv:
   sequence:
@@ -258,6 +260,7 @@ play_plex_on_tv:
         media_content_id: '{"library_name": "Movies", "title": "Zoolander"}'
         media_content_type: movie
 ```
+
 {% endraw %}
 
 ## Notes

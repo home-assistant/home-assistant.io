@@ -84,6 +84,7 @@ sensor:
 The sensor returns n/a if no stop event is found within the next 24h. A `template` sensor can help building a more meaningful string.
 
 {% raw %}
+
 ```yaml
 # Sample template sensor
 - platform: template
@@ -97,4 +98,5 @@ The sensor returns n/a if no stop event is found within the next 24h. A `templat
           {{ state_attr('sensor.bus', 'route') }} in {{ state_attr('sensor.bus', 'due') }}m ({{ state_attr('sensor.bus', 'delay') }})
         {% endif %}
 ```
+
 {% endraw %}

@@ -203,6 +203,7 @@ Force synchronization between the Harmony device and the Harmony cloud.
 Template sensors can be utilized to display current activity in the frontend.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -214,11 +215,13 @@ sensor:
         value_template: '{{ state_attr("remote.bedroom", "current_activity") }}'
         friendly_name: 'bedroom'
 ```
+
 {% endraw %}
 
 The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is "PowerOff".
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: "Watch TV started from harmony hub"
@@ -242,4 +245,5 @@ automation:
       service: input_boolean.turn_off
       entity_id: input_boolean.notify
 ```
+
 {% endraw %}

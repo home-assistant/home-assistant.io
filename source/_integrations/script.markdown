@@ -233,6 +233,7 @@ Following is an example of the calling script not waiting. It performs some othe
 This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
 {% raw %}
+
 ```yaml
 script:
   script_1:
@@ -247,4 +248,5 @@ script:
     sequence:
       # Do some things at the same time as the first script...
 ```
+
 {% endraw %}

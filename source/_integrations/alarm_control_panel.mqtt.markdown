@@ -169,6 +169,11 @@ qos:
   required: false
   type: integer
   default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: true

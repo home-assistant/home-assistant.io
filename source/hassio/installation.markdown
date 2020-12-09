@@ -21,10 +21,6 @@ The following will take you through the steps required to install Home Assistant
   
      - [VMDK][vmdk], [VHDX][vhdx], [VDI][vdi], [QCOW2][qcow2], [OVA][Virtual Appliance]
 
-   - Not recommended hardware:
-
-     - [Raspberry Pi][pi1], [Raspberry Pi Zero-W][pi0-w], [Raspberry Pi 2][pi2]
-
 2. Install Home Assistant OS:
 
    - **For the device images:** Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi, we recommend at least a 32 GB SD card to avoid running out of space.
@@ -105,9 +101,6 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi0-w-4.16.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi-4.16.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi2-4.16.img.gz
 [pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi3-4.16.img.gz
 [pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi3-64-4.16.img.gz
 [pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi4-4.16.img.gz
