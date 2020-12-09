@@ -32,7 +32,7 @@ sensor:
 
 {% configuration %}
 display_options:
-  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://www.swatch.com/en_us/internet-time).
+  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://2020.swatch.com/en_my/internet-time/).
   required: true
   type: list
 {% endconfiguration %}
