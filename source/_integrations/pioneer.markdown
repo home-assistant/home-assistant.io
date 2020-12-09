@@ -43,6 +43,16 @@ sources:
   required: false
   default: Empty list (i.e., no source selection will be possible)
   type: list
+alternative_volume_control:
+  description: Whether an alternative method to set volume to a specific amount should be used (enable this if you have problems with said functionality)
+  required: false
+  default: false
+  type: boolean
+max_volume:
+  description: Maximum volume reported by the receiver (can be used in conjunction with `alternative_volume_control` to fix volume issues)
+  required: false
+  default: 185
+  type: integer
 {% endconfiguration %}
 
 Notes:
@@ -142,3 +152,9 @@ sources:
   'Favorites': '45'
   'Game': '49'
 ```
+
+### Alternative volume control method
+
+Some older pioneer receivers do not support directly setting the volume to a specific amount via telnet. If you're experiencing such a problem you might enable the alternative volume control method, which will increase/decrease the volume gradually until the desired level is reached.
+
+You may also want to change the `max_volume` setting to the one reported by the receiver via telnet (not on the device's display), in order to accurately set the volume.
