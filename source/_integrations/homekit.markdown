@@ -328,8 +328,6 @@ Please remember that you can only have a single `automation` entry. Add the auto
 
 </div>
 
-{% raw %}
-
 ```yaml
 # Example for Z-Wave
 homekit:
@@ -348,11 +346,7 @@ automation:
       - service: homekit.start
 ```
 
-{% endraw %}
-
 For a general delay where your integration doesn't generate an event, you can also do:
-
-{% raw %}
 
 ```yaml
 # Example using a delay after the start of Home Assistant
@@ -368,8 +362,6 @@ automation:
       - delay: 00:05  # Waits 5 minutes
       - service: homekit.start
 ```
-
-{% endraw %}
 
 In some cases it might be desirable to check that all entities are available before starting `HomeKit`. This can be accomplished by adding an additional `binary_sensor` as follows:
 
@@ -406,8 +398,6 @@ automation:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 homekit:
@@ -420,8 +410,6 @@ homekit:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

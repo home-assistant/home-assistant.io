@@ -283,7 +283,7 @@ automation:
 
 - `rfxtrx.send`: Send a custom event using the RFXtrx device.
 
-#### Service: Send
+### Service: Send
 
 Simulate a button being pressed:
 
@@ -295,7 +295,6 @@ action:
     event: 0b1111e003af16aa10000060
 ```
 
-
 ## Generate codes
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
@@ -303,7 +302,7 @@ If you need to generate codes for switches and lights, you can use a template (u
 - Go to home-assistant-IP:8123/dev-template
 - Use the following codes to generate an event:
 
-*Switch: ARC*
+### Switch: ARC
 
 {% raw %}
 
@@ -313,7 +312,7 @@ If you need to generate codes for switches and lights, you can use a template (u
 
 {% endraw %}
 
-*Light: ARC*
+### Light: ARC
 
 {% raw %}
 
@@ -323,8 +322,8 @@ If you need to generate codes for switches and lights, you can use a template (u
 
 {% endraw %}
 
+### Light: Lightwave RF
 
-*Light: Lightwave RF*
 {% raw %}
 
 ```yaml
@@ -332,7 +331,6 @@ If you need to generate codes for switches and lights, you can use a template (u
 ```
 
 {% endraw %}
-
 
 - Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.

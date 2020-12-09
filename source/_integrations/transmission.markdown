@@ -93,6 +93,7 @@ Inside of the event, there is the name of the torrent that is started or complet
 Example of configuration of an automation with completed torrents:
 
 {% raw %}
+
 ```yaml
 - alias: Completed Torrent
   trigger:
@@ -104,6 +105,7 @@ Example of configuration of an automation with completed torrents:
       title: "Torrent completed!"
       message: "{{trigger.event.data.name}}"
 ```
+
 {% endraw %}
 
 ## Services
@@ -135,6 +137,7 @@ Removes a torrent from the client.
 All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_total_torrents` -> **Attributes**, or by adding a [Markdown card](/lovelace/markdown/) to Lovelace with the following code:
 
 {% raw %}
+
 ```yaml
 content: >
   {% set payload = state_attr('sensor.transmission_total_torrents', 'torrent_info') %}
@@ -144,4 +147,5 @@ content: >
   {{ name|truncate(20) }} is {{ data.percent_done }}% complete, {{ data.eta }} remaining {% endfor %}
 type: markdown
 ```
+
 {% endraw %}

@@ -368,8 +368,6 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported platforms](#supported-platforms) can be added.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 alexa:
@@ -383,8 +381,6 @@ alexa:
       exclude_entities:
         - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

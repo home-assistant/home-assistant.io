@@ -145,6 +145,7 @@ In order to get the power consumption readings from a TP-Link HS110 device, you'
 In the example below, change all of the `my_tp_switch`'s to match your device's entity ID (without the domain). For example, if your entity is `switch.whale_heater` then replace `my_tp_switch` with `whale_heater`:
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -170,4 +171,5 @@ sensor:
         value_template: "{{ state_attr('switch.my_tp_switch','today_energy_kwh') | float }}"
         unit_of_measurement: 'kWh'
 ```
+
 {% endraw %}

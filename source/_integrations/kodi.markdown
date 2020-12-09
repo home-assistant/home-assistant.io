@@ -223,6 +223,7 @@ This example and the following requires to have the [script.json-cec](https://gi
 #### Simple script to turn on the PVR in some channel as a time function
 
 {% raw %}
+
 ```yaml
 script:
   play_kodi_pvr:
@@ -252,11 +253,13 @@ script:
               10
             {% endif %}
 ```
+
 {% endraw %}
 
 #### Simple script to play a smart playlist
 
 {% raw %}
+
 ```yaml
 script:
   play_kodi_smp:
@@ -272,6 +275,7 @@ script:
           media_content_type: DIRECTORY
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
+
 {% endraw %}
 
 #### Trigger a Kodi video library update
