@@ -167,6 +167,7 @@ data:
 Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
 
 {% raw %}
+
 ```yaml
   - alias: Push/update notification of sensor state with tag
     trigger:
@@ -180,6 +181,7 @@ Example of adding a tag to your notification. This won't create new notification
         data:
           tag: 'notification-about-sensor'
 ```
+
 {% endraw %}
 
 #### Targets

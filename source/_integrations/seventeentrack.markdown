@@ -58,6 +58,7 @@ show_delivered:
 Use the following templated Markdown card to list all packages in transit along their status:
 
 {% raw %}
+
 ```yaml
 type: markdown
 title: Packages in transit
@@ -69,4 +70,5 @@ content: >-
 
   {% endfor %}
 ```
+
 {% endraw %}

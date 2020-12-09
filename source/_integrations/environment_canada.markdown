@@ -157,6 +157,7 @@ scan_interval:
 If you would like to have alerts announced via a text-to-speech service, you can use a script similar to the following:
 
 {% raw %}
+
 ```yaml
 weather_alert_tts:
   sequence:
@@ -164,6 +165,7 @@ weather_alert_tts:
       data:
         message: "{{ states('sensor.warnings') }} in effect."
 ```
+
 {% endraw %}
 
 ## Camera

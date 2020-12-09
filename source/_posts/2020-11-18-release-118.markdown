@@ -50,6 +50,7 @@ All in all, a fine release, with an exciting one ahead of us.
 - [Release 0.118.2 - November 20](#release-01182---november-20)
 - [Release 0.118.3 - November 23](#release-01183---november-23)
 - [Release 0.118.4 - November 26](#release-01184---november-26)
+- [Release 0.118.5 - December 5](#release-01185---december-5)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -366,6 +367,25 @@ The following integrations are now available via the Home Assistant UI:
 [mqtt docs]: /integrations/mqtt/
 [onewire docs]: /integrations/onewire/
 [zha docs]: /integrations/zha/
+
+## Release 0.118.5 - December 5
+
+- Bump pyatmo to v4.2.1 ([@cgtobi] - [#43713]) ([netatmo docs])
+- Increase timeout for snapshot upload ([@ludeeus] - [#43851]) ([hassio docs])
+- Implement new Google TTS API via dedicated library ([@marvin-w] - [#43863]) ([google_translate docs])
+- Pin pip < 20.3 ([@MartinHjelmare] - [#43771])
+
+[#43713]: https://github.com/home-assistant/core/pull/43713
+[#43771]: https://github.com/home-assistant/core/pull/43771
+[#43851]: https://github.com/home-assistant/core/pull/43851
+[#43863]: https://github.com/home-assistant/core/pull/43863
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@cgtobi]: https://github.com/cgtobi
+[@ludeeus]: https://github.com/ludeeus
+[@marvin-w]: https://github.com/marvin-w
+[google_translate docs]: /integrations/google_translate/
+[hassio docs]: /integrations/hassio/
+[netatmo docs]: /integrations/netatmo/
 
 ## If you need help...
 

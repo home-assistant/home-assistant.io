@@ -19,9 +19,11 @@ If the sensor is configured with no hysteresis and the sensor value is equal to 
 It's an alternative to the template binary sensor's `value_template:` to get the abnormal/too high/too low states.
 
 {% raw %}
+
 ```yaml
 {{ states('sensor.furnace') > 2.5 }}
 ```
+
 {% endraw %}
 
 ## Configuration

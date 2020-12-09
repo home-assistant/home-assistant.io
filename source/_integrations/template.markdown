@@ -289,6 +289,7 @@ sensor:
 This example shows how to add custom attributes.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template

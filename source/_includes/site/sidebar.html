@@ -32,3 +32,16 @@
     {% endif %}
   {% endif %}
 </div>
+<script type="text/javascript">
+  // Some sidebars are longer than the screen so they can't be locked.
+  document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.querySelector("#sidebar").querySelector(".grid");
+    if (sidebar) {
+      const content = document.querySelector(".page-content").querySelector(".grid-wrapper");
+      const windowHeight = window.innerHeight - 82;
+      if (sidebar.clientHeight > content.clientHeight || sidebar.clientHeight > windowHeight) {
+        sidebar.style.display = "contents"
+      }
+    }
+  });
+</script>

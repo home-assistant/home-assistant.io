@@ -193,6 +193,7 @@ utility_meter:
 Additionally, you can add template sensors to compute daily and monthly total usage.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -206,4 +207,5 @@ sensor:
         unit_of_measurement: kWh
         value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
 ```
+
 {% endraw %}

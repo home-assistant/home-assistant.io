@@ -30,6 +30,7 @@ You will have to enter a name that is used as prefix for your sensors and a host
 In case you would like to convert the values, for example, to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry for sensor template platform
 sensor:
@@ -38,6 +39,7 @@ sensor:
       solarlog_yield_day_template:
         value_template: "{{ (states('sensor.solarlog_yield_day') | float * 1000) | round(0) }}"
 ```
+
 {% endraw %}
 
 ## Sensors

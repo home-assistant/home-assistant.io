@@ -96,6 +96,7 @@ unit_of_measurement:
 A full configuration entry could look like the sample below.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -105,6 +106,7 @@ sensor:
     value_template: '{{ value_json.VARIABLE }}'
     unit_of_measurement: "°C"
 ```
+
 {% endraw %}
 
 ### Interacting with Dweet.io
