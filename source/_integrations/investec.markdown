@@ -14,7 +14,7 @@ The Investec sensor platform allows you to monitor your account balance data as 
 * Play a song when you reach a savings goal?
 * Sound an alarm if you go into your overdraft?
 
-You can find more information about Investec Programable banking on [their website](https://developer.investec.com/programmable-banking/#programmable-banking). Information on their API can be found on their [api docs site](https://developer.investec.com/programmable-banking/#open-api).
+You can find more information about Investec Programmable banking on [their website](https://developer.investec.com/programmable-banking/#programmable-banking). Information on their API can be found on their [api documentation site](https://developer.investec.com/programmable-banking/#open-api).
 
 ## Access Token
 
@@ -35,5 +35,5 @@ sensor:
     client_secret: YOUR_CLIENT_SECRET
 ```
 
-If all goes well after starting home assistant all your Investec accounts will load as sensor entities.
+If all goes well after starting Home Assistant all your Investec accounts will load as sensor entities.
 
