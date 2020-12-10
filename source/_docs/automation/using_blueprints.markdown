@@ -1,12 +1,12 @@
 ---
 title: "Using Automation Blueprints"
-description: "How to crete automations based off blueprints."
+description: "How to create automations based off blueprints."
 ---
 
 Automation blueprints are pre-made automations that you can easily add to your Home Assistant instance. Each blueprint can be added as many times as you want.
 
 Quick links:
- - [Blueprints in the Home Assistant forums][blueprint-tag]
+ - [Blueprints in the Home Assistant forums][blueprint-forums]
 
 ## Blueprint Automations
 
@@ -22,7 +22,7 @@ Done! If you want to revisit the configuration values, you can find it by going 
 
 Home Assistant can import blueprints from the Home Assistant forums, GitHub and GitHub gists.
 
-To do this, first [find a blueprint you want to import][blueprint-tag]. If you just want to practice importing, you can use this URL:
+To do this, first [find a blueprint you want to import][blueprint-forums]. If you just want to practice importing, you can use this URL:
 
 ```text
 https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
@@ -40,6 +40,6 @@ The blueprint can now be used for creating automations.
 
 The Home Assistant Community forums have a specific tag for blueprints. This tag is used to collect all blueprints.
 
-[Visit the Home Assistant forums][blueprint-tag]
+[Visit the Home Assistant forums][blueprint-forums]
 
-[blueprint-tag]: https://community.home-assistant.io/tag/blueprint
+[blueprint-forums]: https://community.home-assistant.io/c/blueprints/53
