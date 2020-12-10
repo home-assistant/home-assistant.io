@@ -12,6 +12,7 @@ For this tutorial, we use a simple automation. The process for converting a comp
 To create a blueprint, we first need to have a working automation. The automation we're going to use in this tutorial, which controls a light based on a motion sensor, looks like this:
 
 {% raw %}
+
 ```yaml
 trigger:
   platform: state
@@ -27,6 +28,7 @@ action:
   target:
     entity_id: light.kitchen
 ```
+
 {% endraw %}
 
 ## Create the blueprint file
@@ -65,6 +67,7 @@ For the light, we can offer some more flexibility. We want to allow the user to 
 Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
 {% raw %}
+
 ```yaml
 action:
   service: >
@@ -75,6 +78,7 @@ action:
     {% endif %}
   target: !input target_light
 ```
+
 {% endraw %}
 
 ## Add the inputs to the metadata
@@ -164,6 +168,7 @@ By limiting our blueprint to working with lights and motion sensors, we unlock a
 After we have added all the steps, our blueprint will look like this:
 
 {% raw %}
+
 ```yaml
 blueprint:
   name: Motion Light Tutorial
@@ -198,6 +203,7 @@ action:
     {% endif %}
   target: !input target_light
 ```
+
 {% endraw %}
 
 ## Use it via the UI

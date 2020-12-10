@@ -3,37 +3,132 @@ title: "Blueprint schema"
 description: "The schema for a valid blueprint."
 ---
 
-Schema of the blueprint metadata:
+The configuration schema of a blueprint consists of 2 parts:
 
-```ts
-interface BlueprintInput {
-  name?: string;
-  description?: string;
-  selector?: Selector;
-  default?: any;
-}
+- The blueprint high-level metadata, like its name and a description and
+  the input the blueprint needs from the user.
+- The schema of the thing the blueprint describes.
 
-interface Blueprint {
-  blueprint: {
-    domain: string;
-    name: string;
-    input?: Record<string, BlueprintInput | null>;
-    description?: string;
-    source_url?: string;
-  }
-}
+The first part is referred to as the blueprint schema and contains mainly the
+blueprint's metadata. The second part depends on what the blueprint is for.
+
+For example, in the case of creating a blueprint for an automation, the full
+schema for an [automation](/docs/automation/yaml/) applies.
+
+This page is mainly set up to describe the configuration schema of the
+blueprint metadata. Try our [blueprint tutorial](/docs/blueprint/tutorial/)
+in case you are interested in creating your first blueprint.
+
+## The blueprint schema
+
+The only requirement for a blueprint is a name. In its most basic form,
+a blueprint would look like:
+
+```yaml
+blueprint:
+  name: Example blueprint
+  domain: automation
 ```
 
-The [built-in blueprints](https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints) are great examples.
+And this is already a valid blueprint. But typically, one would need
+more. For example, user inputs or a description to describe the blueprint's
+functionality.
 
-Here is the built-in motion light blueprint:
+This is the full blueprint schema:
+
+{% configuration %}
+name:
+  description: The name of the blueprint. Keep this short and descriptive.
+  type: string
+  required: true
+description:
+  description: >
+    The description of the blueprint. While optional, this field is highly
+    recommended. For example, to describe what the blueprint does, or tell more
+    about the options inputs of the blueprint provide. New lines in this
+    description are displayed in the UI, so paragraphs are allowed.
+  type: string
+  required: false
+domain:
+  description: >
+    The domain name this blueprint provides a blueprint for. Currently, only
+    `automation` is supported.
+  type: string
+  required: true
+input:
+  description: >
+    A dictionary of defined user inputs. These are the input fields that the
+    consumer of your blueprint can provide using YAML definition, or via
+    a configuration form in the UI.
+  type: map
+  required: false
+  keys:
+    name:
+      description: The name of the input field.
+      type: string
+      required: false
+    description:
+      description: >
+        A short description of the input field. Keep this short and descriptive.
+      type: string
+      required: false
+    selector:
+      description: >
+        The [selector](/docs/blueprint/selectors/) to use for this input. A
+        selector defines how the input is displayed in the frontend UI.
+      type: selector
+      required: false
+    default:
+      description: >
+        The default value of this input, in case the input is not provided
+        by the user of this blueprint.
+      type: any
+      required: false
+{% endconfiguration %}
+
+## Blueprint inputs
+
+As written in the above schema, a blueprint can accept one (or multiple)
+inputs from the blueprint consumer.
+
+These inputs can be of any type (string, boolean, list, dictionary), can have
+a default value and also provide a [selector](/docs/blueprint/selectors/) that
+ensures a matching input field in the user interface.
+
+Each input field can be referred to, outside of the blueprint metadata, using
+the `!input` custom tag.
+
+The following example shows a minimal blueprint with a single input:
+
+```yaml
+blueprint:
+  name: Example blueprint
+  description: Example showing an input
+  input:
+    my_input:
+      name: Example input
+```
+
+In the above example, `my_input` is the identifier of the input, that can be
+referred to later on using the `!input my_input` custom tag.
+
+In this example, no `selector` was provided. In this case, if this blueprint
+was used in the user interface, a text input field would be shown to the user.
+
+A blueprint can have as many inputs as you like.
+
+## Example blueprints
+
+The [built-in blueprints][blueprint-built-in]
+are great examples to get a bit of a feeling of how blueprints work.
+
+Here is the built-in motion light automation blueprint:
 
 ```yaml
 blueprint:
   name: Motion-activated Light
   description: Turn on a light when motion is detected.
   domain: automation
-  source_url: https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
   input:
     motion_entity:
       name: Motion Sensor
@@ -79,5 +174,10 @@ action:
   - delay: !input no_motion_wait
   - service: light.turn_off
     target: !input light_target
-
 ```
+
+Additional examples, provided by the community, can be found on the
+[community forum][blueprint-tag].
+
+[blueprint-built-in]: https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints
+[blueprint-tag]: https://community.home-assistant.io/tag/blueprint
