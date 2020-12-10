@@ -13,7 +13,7 @@ The first part is referred to as the blueprint schema and contains mainly the
 blueprint's metadata. The second part depends on what the blueprint is for.
 
 For example, in the case of creating a blueprint for an automation, the full
-schema for an [automation](/docs/automation/) applies.
+schema for an [automation](/docs/automation/yaml/) applies.
 
 This page is mainly set up to describe the configuration schema of the
 blueprint metadata. Try our [blueprint tutorial](/docs/blueprint/tutorial/)
