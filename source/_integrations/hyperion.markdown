@@ -42,6 +42,14 @@ relevant entry on the `Integrations` page.
 
 Options supported:
 - **priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
+- **off_mode**: Whether to turn off the "LED Device" component (option=`component`) when
+  the light is turned off, or whether to set a black color at the priority
+  (option=`priority`) configured above. The former option might be preferred when Home
+  Assistant is the only client using Hyperion or when a hard stop of streamed data from
+  Hyperion is required (e.g. streaming from Hyperion to
+  [WLED](https://github.com/Aircoookie/WLED)). The latter might be preferred for
+  interoperability if multiple different clients are controlling the same Hyperion
+  instance at different priorities.
 
 ## Hyperion Instances
 
