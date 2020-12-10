@@ -9,7 +9,7 @@
     "remark-lint": "^8.0.0",
     "remark-lint-fenced-code-flag": "^2.0.1",
     "remark-lint-no-shell-dollars": "^2.0.2",
-    "remark-stringify": "^9.0.0",
+    "remark-stringify": "^9.0.1",
     "textlint": "^11.7.6",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-terminology": "^2.1.4"
