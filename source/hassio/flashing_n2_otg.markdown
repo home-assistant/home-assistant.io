@@ -19,7 +19,7 @@ To flash your eMMC using Petitboot and OTG-USB, you will need the following item
 
 Remove the case of your ODROID-N2+
 
-![Photo of the removed case](/images/hassio/screenshots/case-removed.jpg)
+![Photo of the removed case](/images/hassio/screenshots/case-removed.png)
 
 Next, locate the toggle for boot mode and switch it from MMC to SPI.
 
