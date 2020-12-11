@@ -37,6 +37,8 @@ If Home Assistant runs on `https://hass.example.com` your redirect URL would be 
 
 Please note that you must use a secure redirect URL (`https://`).
 
+You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
+
 </div>
 
 2. Add the newly created `client_id` and `client_secret` to your configuration.yaml:
