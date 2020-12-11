@@ -1,5 +1,5 @@
 ---
-title: "HA OS installation on ODROID-N2+"
+title: "Flashing an ODROID-N2+"
 description: "Using Petitboot and OTG-USB to flash the eMMC on your Odroid N2"
 ---
 
