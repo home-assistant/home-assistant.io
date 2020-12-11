@@ -67,11 +67,7 @@ Check Configuration panel -> Blueprints
 Examples:
 <https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints>
 
-More information and documentation will be put up as soon as possible.
-
-Some background in this PR:
-
-<https://github.com/home-assistant/core/pull/42469>
+[Blueprint Docs](/docs/blueprint/)
 
 ## Other noteworthy changes
 
