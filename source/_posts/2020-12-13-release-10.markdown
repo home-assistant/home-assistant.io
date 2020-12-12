@@ -40,6 +40,11 @@ Issues introduced in the beta are processed with priority.
 
 - [Table of contents](#table-of-contents)
 - [Lorem ipsum](#lorem-ipsum)
+- [Home Assistant Blueprints](#home-assistant-blueprints)
+- [Blueprints](#blueprints)
+  - [Creating blueprints](#creating-blueprints)
+  - [Sharing blueprints](#sharing-blueprints)
+  - [Using blueprints](#using-blueprints)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -62,6 +67,39 @@ Screenshot of Lorem ipsum.
 
 ## Home Assistant Blueprints
 
+## Blueprints
+
+An automation blueprint is an automation configuration with certain parts marked as configurable.
+
+This allows for a seperation of the logic and inputs of an automation.
+
+Imagine a blueprint that controls a light based on motion, that allows you to configure the motion sensor to trigger on, and the light to control. It is now possible to create two automations that each have their own configuration for this blueprint and that act completely independent, yet are based on the same automation configuration.
+
+It also allows users to share their automations, as every user can just input their own.
+
+### Creating blueprints
+
+You can convert any existing automation into a blueprint, we created a really nice [tutorial](/docs/blueprint/tutorial/) on how to make blueprints.
+
+Selectors
+
+Target
+
+### Sharing blueprints
+
+Blueprints are great for sharing your automations and ideas with the community.
+We created a [forum category](https://community.home-assistant.io/c/blueprints/53) where you can post your created blueprints.
+
+### Using blueprints
+
+You can import blueprints by copying the url of the forum topic or from github into the UI.
+Then you can create automations from these blueprints by filling out the required inputs.
+
+<p class='img'>
+<img src='/images/blog/2020-12-0.1/blueprints.png' alt='Screenshot of a blueprint'>
+Screenshot of a blueprint.
+</p>
+
 Check Configuration panel -> Blueprints
 
 Examples:
@@ -74,6 +112,19 @@ Examples:
 - Lorem ipsum! Thanks, [@frenck]!
 
 Core:
+
+- The Apple TV integration now supports tvOS version 13 and above and can be setup from the UI, thanks [@postlund]!
+- The Shelly intgeration got support for inputs, so you can now use the Shelly i3 and Shelly's in detached state, thanks [@thecode]!
+- The deCONZ integrations added support for tilt on covers, and preset and fan for climate devices, thanks [@Kane610]
+- The HomeKit controller integration now has support for humidifiers and dehumidifiers, thanks [@adrum]
+- The Spotify integration now allows you to set the repeat mode, thanks [@frenck]
+- The Nest integration supports camera and doorbell events, thanks [@allenporter]
+- The ID of a newly created area will now be based on the name of the area instead of a random string
+- You can now disabled devices, disabled devices will not show up in the UI and it's entities will not be added to Home Assistant, thanks [@emontnemery]
+- You can now assign an area to entities, this is useful for entities that don't have a device, or when the entities of a device are in different areas.
+- The feedback when pairing a new Zigbee device in the frontend is improved, discovered devices are show earlier with their progress, thanks [@dmulcahey]!
+- There is a new network visualization tab in the Zigbee config panel, that shows how the devices in your network are connected to eachother, thanks [@dmulcahey]
+
 
 - Refactor Apple TV integration ([@postlund] - [#31952]) ([apple_tv docs]) (breaking-change)
 - Add initial rest query params ([@boxcee] - [#42198]) ([pvoutput docs]) ([rest docs]) ([scrape docs])
