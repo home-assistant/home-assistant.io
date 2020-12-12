@@ -15,6 +15,7 @@ The following will take you through the steps required to install Home Assistant
      - [Raspberry Pi 4 Model B (1 GB, 2 GB, 4 GB and 8 GB model) 64-bit][pi4-64] (64-bit is required for 8 GB model)
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2], [Odroid-C4 (Beta)][odroid-c4], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
+       - [Guide: Flashing Odroid-N2 using OTG-USB][otg-usb]
      - [Intel NUC][intel-nuc]
 
    - As a virtual appliance (x86_64/UEFI):
@@ -121,3 +122,4 @@ If you would like to test next release before anyone else, you can install the b
 [ssh]: /addons/ssh/
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
 [configure]: /getting-started/configuration/
+[otg-usb]: hassio/flashing_n2_otg/
