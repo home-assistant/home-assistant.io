@@ -21,7 +21,15 @@ The Wi-Fi module requires a username and password for authentication where the e
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+1. In the **Configuration** > **Integrations** menu, click the `+ ADD INTEGRATION` button on the lower-right of the screen.
+2. Select **SAJ Solar Inverter** from the pop-up menu.
+3. Complete the dialog box and click `SUBMIT`. 
+
+Note: You should set up fixed/static IP address for the inverter.
+
+## Manual configuration
+
+If you prefer to set up the integration in `configuration.yaml`, add the following lines:
 
 ```yaml
 # Example configuration.yaml entry
@@ -56,7 +64,7 @@ password:
 
 ## Sensors
 
-Sensors available in the library:
+Sensors available in the integration:
 
 | name               | Unit | Description                                                                  |
 |--------------------|------|:-----------------------------------------------------------------------------|
