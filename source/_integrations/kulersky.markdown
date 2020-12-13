@@ -4,7 +4,7 @@ description: Instructions for integrating Brightech Kuler Sky Bluetooth floor la
 ha_category:
   - Light
 ha_iot_class: Local Polling
-ha_release: '1.0'
+ha_release: 2020.12
 ha_domain: kulersky
 ha_codeowners:
   - '@emlove'

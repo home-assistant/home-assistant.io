@@ -99,8 +99,8 @@ social:
     account: home_assistant
 
 # Home Assistant release details
-current_major_version: 1
-current_minor_version: 0
+current_major_version: 2020
+current_minor_version: 12
 current_patch_version: 0
 date_released: 2020-12-13
 

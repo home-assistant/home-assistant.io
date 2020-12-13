@@ -157,6 +157,9 @@ $primary-color: #049cdb;
       color: white;
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       .title {
         font-size: 20px;
@@ -166,6 +169,13 @@ $primary-color: #049cdb;
       .subtitle {
         font-size: 12px;
         font-weight: initial;
+      }
+
+      svg {
+        fill: white;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
       }
     }
   }

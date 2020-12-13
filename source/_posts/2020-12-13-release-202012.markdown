@@ -1,50 +1,45 @@
 ---
 layout: post
-title: "1.0: Beta release notes"
-description: "Beta release notes for Home Assistant Core 1.0"
-date: 2020-12-2 00:00:00
+title: "2020.12: Automate with Blueprints!"
+description: "Sharable automations using blueprints, new neural voices for Nabu Casa TTS, disable devices and assign entities to areas!"
+date: 2020-12-13 00:00:00
 date_formatted: "December 13, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2020-12-1.0/social.png
+og_image: /images/blog/2020-12/social.png
 ---
 
-<a href='/integrations/#version/1.0'><img src='/images/blog/2020-12-1.0/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#version/2020.12'><img src='/images/blog/2020-12/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 1.0 (and is thus a
-work in progress).
+Welcome to Home Assistant Core 2020.12!
 
-**Yes, Home Assistant Core 1.0! This major release is going to be announced at the [Home Assistant Conference](/conference) on 13 December**:
+You are looking at our new versioning schema. From now on, the Home Assistant
+Core will be using calendar versioning, consisting of the year, month and
+a patch number to indicate a bug-fix release. This also means our release
+schedule is changing. Home Assistant Core will now be released every first
+Wednesday of the month!
 
-<a class="btn" href="https://hopin.to/events/home-assistant-conference">Get your $1 ticket</a>
+As most things are announced at the [Home Assistant Conference](/conference);
+more things will be added/tweak in these release notes the next couple of days.
 
-If you encounter any issues with the beta release, please report them on GitHub:
+For me, this has been an exiting year! And thanks everybody for contributing
+to this amazing project, not matter what and how you contributed. You are all
+amazing! ❤️
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+With the Holiday season coming, it is time to slow down a bit, enjoy time with
+our family. And in a couple of weeks, a new year will start; Let's make it a
+good one!
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+Happy holidays, stay safe and for the last time this year: Enjoy the release!
 
-Issues introduced in the beta are processed with priority.
+../Frenck
 
-## Table of contents
-
-- [Table of contents](#table-of-contents)
-- [Lorem ipsum](#lorem-ipsum)
-- [Home Assistant Blueprints](#home-assistant-blueprints)
 - [Blueprints](#blueprints)
-  - [Creating blueprints](#creating-blueprints)
   - [Sharing blueprints](#sharing-blueprints)
   - [Using blueprints](#using-blueprints)
+  - [Creating blueprints](#creating-blueprints)
 - [New neural voices for Nabu Casa Cloud TTS](#new-neural-voices-for-nabu-casa-cloud-tts)
 - [Assign areas to entities and readable area IDs](#assign-areas-to-entities-and-readable-area-ids)
 - [Temporarily disable devices](#temporarily-disable-devices)
@@ -59,10 +54,10 @@ Issues introduced in the beta are processed with priority.
 
 ## Blueprints
 
-Say hello; to the major new feature of Home Assistant 1.0.0: Blueprints!
+Say hello; to the major new feature of Home Assistant 2020.12: Blueprints!
 
 <p class='img'>
-<img src='/images/blog/2020-12-1.0/blueprints.png' alt='Screenshot of the blueprints configuration panel'>
+<img src='/images/blog/2020-12/blueprints.png' alt='Screenshot of the blueprints configuration panel'>
 Screenshot of the blueprints configuration panel.
 </p>
 
@@ -104,7 +99,7 @@ into the UI. Then you can create automations from these blueprints by filling
 out the required inputs.
 
 <p class='img'>
-<img src='/images/blog/2020-12-1.0/blueprint-ui.png' alt='Screenshot of a blueprint'>
+<img src='/images/blog/2020-12/blueprint-ui.png' alt='Screenshot of a blueprint'>
 Screenshot of a blueprint.
 </p>
 
@@ -171,7 +166,7 @@ a device as well. For example, your in-wall mounted switch controls a light in
 another room.
 
 <p class='img'>
-<img src='/images/blog/2020-12-1.0/entity-areas.png' alt='Screenshot of disabling a device'>
+<img src='/images/blog/2020-12/entity-areas.png' alt='Screenshot of disabling a device'>
 Screenshot of disabling a device.
 </p>
 
@@ -204,7 +199,7 @@ next year, when you unpack all decorations, enable them again and you're
 ready to go for another Holiday season!
 
 <p class='img'>
-<img src='/images/blog/2020-12-1.0/disable-device.png' alt='Screenshot of disabling a device'>
+<img src='/images/blog/2020-12/disable-device.png' alt='Screenshot of disabling a device'>
 Screenshot of disabling a device.
 </p>
 
