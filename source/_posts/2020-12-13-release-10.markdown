@@ -45,7 +45,8 @@ Issues introduced in the beta are processed with priority.
   - [Creating blueprints](#creating-blueprints)
   - [Sharing blueprints](#sharing-blueprints)
   - [Using blueprints](#using-blueprints)
-- [Assign areas to entities](#assign-areas-to-entities)
+- [New neural voices for Nabu Casa Cloud TTS](#new-neural-voices-for-nabu-casa-cloud-tts)
+- [Assign areas to entities and readable area IDs](#assign-areas-to-entities-and-readable-area-ids)
 - [Temporarily disable devices](#temporarily-disable-devices)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -109,7 +110,37 @@ Examples:
 
 [Blueprint Docs](/docs/blueprint/)
 
-## Assign areas to entities and Area IDs; making areas more useful
+## New neural voices for Nabu Casa Cloud TTS
+
+If you have a [Nabu Casa Home Assistant Cloud][cloud] subscription, this release
+brings in some really nice goodness for you. The Text-to-Speech service offered
+by Nabu Casa has been extended and now supports a lot of new voices in many
+different languages,
+
+This is a great alternative to, for example, the Google TTS integration. The
+resulting audio is absolutely stunning and the neural voices sound supernatural.
+
+This service is automatically enabled when you are signed in to your
+Nabu Casa cloud account and can be called using the [`tts.cloud_say`][cloud_say]
+service in your automations.
+
+For example:
+
+```yaml
+action:
+  service: tts.cloud_say
+  entity_id: media_player.family_room_speaker
+  data:
+    message: These new voices sound absolutely stunning!
+    options:
+      gender: female
+      language: en-US
+```
+
+[cloud_say]: https://www.nabucasa.com/config/tts/
+[cloud]: https://www.nabucasa.com/
+
+## Assign areas to entities and readable area IDs
 
 Areas have been around for a bit already. But, not everything supports
 areas yet. And using it in for example YAML-based automations, is not really
