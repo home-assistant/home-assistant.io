@@ -22,7 +22,7 @@ service: homeassistant.turn_on
 entity_id: group.living_room
 ```
 
-### Targetting other things than entities
+### Targetting areas and devices
 
 Instead of targetting an entity, you can also target a area or device. Or a combination of these.
 This is done with the `target` key.
