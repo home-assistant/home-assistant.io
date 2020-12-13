@@ -367,7 +367,6 @@
 /components/device_tracker.tplink /integrations/tplink
 /components/device_tracker.traccar /integrations/traccar
 /components/device_tracker.trackr /integrations/trackr
-/components/device_tracker.ubee /integrations/ubee
 /components/device_tracker.ubus /integrations/ubus
 /components/device_tracker.unifi /integrations/unifi
 /components/device_tracker.unifi_direct /integrations/unifi_direct
@@ -604,7 +603,6 @@
 /components/notify.twitter /integrations/twitter
 /components/notify.webostv /integrations/webostv
 /components/notify.xmpp /integrations/xmpp
-/components/notify.yessssms /integrations/yessssms
 /components/openalpr /integrations/openalpr_local
 /components/pollen /integrations/iqvia
 /components/public_sensor.netatmo /integrations/netatmo
@@ -1917,7 +1915,6 @@
 /components/twilio_sms /integrations/twilio_sms
 /components/twitch /integrations/twitch
 /components/twitter /integrations/twitter
-/components/ubee /integrations/ubee
 /components/ubus /integrations/ubus
 /components/ue_smart_radio /integrations/ue_smart_radio
 /components/uk_transport /integrations/uk_transport
@@ -2001,7 +1998,6 @@
 /components/yandextts /integrations/yandextts
 /components/yeelight /integrations/yeelight
 /components/yeelightsunflower /integrations/yeelightsunflower
-/components/yessssms /integrations/yessssms
 /components/yi /integrations/yi
 /components/zabbix /integrations/zabbix
 /components/zamg /integrations/zamg
@@ -2055,6 +2051,8 @@
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /integrations/auth /docs/authentication
+/integrations/automation /docs/automation
+/integrations/blueprint /docs/automation/using_blueprints
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/cover.knx /integrations/knx#cover

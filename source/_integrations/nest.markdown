@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Camera
   - Climate
+  - Doorbell
   - Sensor
 ha_iot_class: Cloud Push
 ha_release: 0.7
@@ -237,6 +238,18 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 - [Humidity](https://developers.google.com/nest/device-access/traits/device/humidity)
 
 Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
+
+## Automation and Device Triggers
+
+All Google Nest Cam models and the Google Nest Hello Video Doorbell support [Device Triggers](/docs/automation/trigger/#device-triggers) that enable automation in Home Assistant:
+
+- `camera_motion`: Motion detected, when a [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events) event is received.
+- `camera_person`: Person detected, when a [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) event is received.
+- `camera_sound`: Sound detected, when a [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) event is received.
+- `doorbell_chime`: Doorbell pressed, when a [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) event is received.
+
+See [Automating Home Assistant](/getting-started/automation/) for the getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+
 
 # Legacy Works With Nest API
 

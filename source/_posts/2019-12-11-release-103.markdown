@@ -556,7 +556,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - move service constants to const.py, move custom services to monoprice domain ([@raman325] - [#29099]) ([monoprice docs]) (breaking change)
 - Move imports to top for uptimerobot ([@springstan] - [#29103]) ([uptimerobot docs])
 - Move imports to top for twilio_call ([@springstan] - [#29104]) ([twilio_call docs])
-- Move imports to top for ubee ([@springstan] - [#29105]) ([ubee docs])
+- Move imports to top for ubee ([@springstan] - [#29105])
 - Move flexit imports at top-level ([@Quentame] - [#29097]) ([flexit docs])
 - Move flunearyou imports at top-level ([@Quentame] - [#29096]) ([flunearyou docs])
 - Move folder_watcher imports at top-level ([@Quentame] - [#29095]) ([folder_watcher docs])
@@ -1771,7 +1771,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tts docs]: /integrations/tts/
 [tuya docs]: /integrations/tuya/
 [twilio_call docs]: /integrations/twilio_call/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [unifi_direct docs]: /integrations/unifi_direct/
 [universal docs]: /integrations/universal/

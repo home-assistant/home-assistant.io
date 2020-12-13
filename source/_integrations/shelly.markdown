@@ -51,8 +51,61 @@ Names are set from the device web page:
 - Channel name for single-channel devices can be set in **Settings** >> **CHANNEL NAME**
 - Channel name for multi-channel devices can be set in **Settings** >> **CHANNEL NAME** after selecting the channel, by clicking on the channel name.
 
+## Appliance type
+
+Shelly device relays are added to the Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if the device uses firmware version 1.9.0 or newer and the **Settings** >> **APPLIANCE TYPE** value is set to `light`.
+
+## Events
+
+If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events when the switch is used. You can use these events in your automations.
+
+### Automation examples
+
+```yaml
+- alias: "Toggle living room light"
+  trigger:
+    platform: event
+    event_type: shelly.click
+    event_data:
+      device: shellyswitch25-AABBCC
+      channel: 1
+      click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.living_room
+
+- alias: "Toggle living room lamp"
+  trigger:
+    platform: event
+    event_type: shelly.click
+    event_data:
+      device: shellyswitch25-AABBCC
+      channel: 2
+      click_type: long
+  action:
+    service: light.toggle
+    entity_id: light.lamp_living_room
+```
+
+### Possible values for `click_type`
+
+| Shelly input event | Click Type    |
+| ------------------ | --------------|
+| `S`                | `single`      |
+| `SS`	             | `double`      |
+| `SSS`              | `triple`      |
+| `L`	               | `long`        |
+| `SL`	             | `single_long` |
+| `LS`	             | `long_single` |
+
+<div class="note">
+
+Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
+
+</div>
+
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
-- Support relays, lights (with brightness), sensors and rollers
-- Support for battery-powered devices is currently very limited
+- Support for RGB devices is limited
+- Support for battery-powered devices is limited
