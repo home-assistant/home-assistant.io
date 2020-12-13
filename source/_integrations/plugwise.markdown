@@ -143,18 +143,6 @@ script:
           preset_mode: asleep
 ```
 
-#### Manually add a device using the Stick
-
-Service: `plugwise.device_add`
-
-Mandatory option `mac` holding the full 16 character MAC address of the device.
-
-#### Manually remove a device using the Stick
-
-Service: `plugwise.device_remove`
-
-Mandatory option `mac` holding the full 16 character MAC address of the device.
-
 ### Supported devices
 
 The current implementation of the [Python module](https://pypi.org/projects/plugwise) from [`python-plugwise`](https://github.com/plugwise/python-plugwise) includes:
