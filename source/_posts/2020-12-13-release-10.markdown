@@ -109,14 +109,45 @@ Examples:
 
 [Blueprint Docs](/docs/blueprint/)
 
-## Assign areas to entities
+## Assign areas to entities and Area IDs; making areas more useful
 
-TODO: Lets extract this into more of a topic, combined with the new area ID's...
-Making area's more useful
+Areas have been around for a bit already. But, not everything supports
+area's yet. And using it in, for example YAML-based automations, is not really
+an easy task to do.
 
-- You can now assign an area to entities, this is useful for entities that don't
-  have a device, or when the entities of a device are in different areas.
-- The ID of a newly created area will now be based on the name of the area instead of a random string
+Today that changes, as this release works towards making areas more useful by
+making them more accessible and more universal.
+
+The first change: individual entities can now be assigned to areas.
+
+Previously this was limited to devices only. This also works for entities
+without a device (for example, entities provided by Helpers). Devices provide
+entities, and thus it is now possible to override the area a single entity for
+a device as well. For example, your in-wall mounted switch controls a light in
+another room.
+
+<p class='img'>
+<img src='/images/blog/2020-12-1.0/entity-areas.png' alt='Screenshot of disabling a device'>
+Screenshot of disabling a device.
+</p>
+
+Second improvement: The ID of a newly created area will now be based on the name
+of the area instead of a random string.
+
+Making it easier to use areas in service calls, as you can now use
+area identifiers that actually make sense for a human! In a YAML automation
+or script it will look like this:
+
+```yaml
+action:
+  - service: light.turn_on
+    target:
+      area_id: living_room
+```
+
+To find the area ID for the area you want to target, go to the Configuration
+Panel, and edit the area you want to target. In area edit dialog, the ID is
+shown.
 
 ## Temporarily disable devices
 
@@ -128,7 +159,10 @@ Thanks to [@emontnemery], you can now disable devices in Home Assistant. So,
 next year, when you unpack all decorations, enable them again and you're
 ready to go for another Holiday season!
 
-**TODO**: Insert screenshot of disabling a device
+<p class='img'>
+<img src='/images/blog/2020-12-1.0/disable-device.png' alt='Screenshot of disabling a device'>
+Screenshot of disabling a device.
+</p>
 
 Of course, besides seasonal things, it can also be helpful if you have a broken
 device or temporarily taking down any other device.
@@ -144,7 +178,7 @@ device or temporarily taking down any other device.
   now has support for (de)humidifiers.
 - [deCONZ][deCONZ docs] now supports tilt on covers, and preset and fan
   for climate devices, thanks [@Kane610]!
-- [@frenck] added support for setting the repeat more to the
+- [@frenck] added support for setting the repeat mode to the
   [Spotify][spotify docs] integration.
 - The [Nest integration][nest docs] now supports camera and doorbell events,
   thanks [@allenporter]!
