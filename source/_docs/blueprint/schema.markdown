@@ -180,4 +180,4 @@ Additional examples, provided by the community, can be found on the
 [community forum][blueprint-forums].
 
 [blueprint-built-in]: https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints
-[blueprint-forums]: https://community.home-assistant.io/c/blueprints/53
+[blueprint-forums]: /get-blueprints

@@ -42,4 +42,4 @@ The Home Assistant Community forums have a specific tag for blueprints. This tag
 
 [Visit the Home Assistant forums][blueprint-forums]
 
-[blueprint-forums]: https://community.home-assistant.io/c/blueprints/53
+[blueprint-forums]: /get-blueprints
