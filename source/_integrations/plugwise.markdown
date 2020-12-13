@@ -171,4 +171,7 @@ Stretch (power switches):
  - v3.x
  - v2.x
 
-Stick
+Stick:
+
+ - Circle(+)
+ - Stealth(+)
