@@ -24,7 +24,7 @@ entity_id: group.living_room
 
 ### Targetting areas and devices
 
-Instead of targetting an entity, you can also target a area or device. Or a combination of these.
+Instead of targetting an entity, you can also target an area or device. Or a combination of these.
 This is done with the `target` key.
 
 A `target` is a map thats contains atleast one of the following: `area_id`, `device_id`, `entity_id`.
