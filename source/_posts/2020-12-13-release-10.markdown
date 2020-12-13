@@ -45,6 +45,8 @@ Issues introduced in the beta are processed with priority.
   - [Creating blueprints](#creating-blueprints)
   - [Sharing blueprints](#sharing-blueprints)
   - [Using blueprints](#using-blueprints)
+- [Assign areas to entities](#assign-areas-to-entities)
+- [Temporarily disable devices](#temporarily-disable-devices)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -88,7 +90,7 @@ Target
 ### Sharing blueprints
 
 Blueprints are great for sharing your automations and ideas with the community.
-We created a [forum category](https://community.home-assistant.io/c/blueprints/53) where you can post your created blueprints.
+We created a [forum category](/get-blueprints) where you can post your created blueprints.
 
 ### Using blueprints
 
