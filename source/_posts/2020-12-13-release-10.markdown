@@ -108,8 +108,8 @@ out the required inputs.
 Screenshot of a blueprint.
 </p>
 
-Is it really easy to deploy a blueprint, even multiple times! Blueprints are
-fully available in both the UI and for YAML-based configuration.
+It is really easy to deploy a blueprint, even multiple times! Blueprints are
+fully functional in both the UI and for YAML.
 
 ### Creating blueprints
 
@@ -120,7 +120,7 @@ Essentially, a blueprint is just like an automation, with some added blueprint
 metadata. You can convert any existing automation into a blueprint!
 
 As the last step, be sure to [share your freshly created blueprint](/get-blueprints)
-with the community on the [Blueprint Exchange](/get-blueprints). Help and
+on the community on the [Blueprint Exchange](/get-blueprints), helping and and
 inspiring others.
 
 ## New neural voices for Nabu Casa Cloud TTS
@@ -128,7 +128,7 @@ inspiring others.
 If you have a [Nabu Casa Home Assistant Cloud][cloud] subscription, this release
 brings in some really nice goodness for you. The Text-to-Speech service offered
 by Nabu Casa has been extended and now supports a lot of new voices in many
-different languages,
+different languages.
 
 This is a great alternative to, for example, the Google TTS integration. The
 resulting audio is absolutely stunning and the neural voices sound supernatural.
@@ -756,6 +756,10 @@ These integrations where using webscraping, which is no longer allowed.
 - Fix inability to erase SimpliSafe code ([@bachya] - [#44137]) ([simplisafe docs]) (beta fix)
 - Fix upnp first discovered device is used ([@StevenLooman] - [#44151]) ([upnp docs]) (beta fix)
 - Updated frontend to 20201212.0 ([@bramkragten] - [#44154]) ([frontend docs]) (beta fix)
+- Remove invalidation_version from deprecated ([@balloob] - [#44156]) (beta fix)
+- Bump zeroconf to 0.28.7 to fix thread safety ([@bdraco] - [#44160]) ([zeroconf docs]) (beta fix)
+- Bump the ZHA quirks lib to 0.0.49 ([@dmulcahey] - [#44173]) ([zha docs]) (beta fix)
+- Remove deprecated CONF_ALLOW_UNLOCK, CONF_API_KEY from Google Assistant ([@hmmbob] - [#44087]) ([google_assistant docs]) (beta fix)
 
 </details>
 
@@ -1078,6 +1082,7 @@ These integrations where using webscraping, which is no longer allowed.
 [#44061]: https://github.com/home-assistant/core/pull/44061
 [#44062]: https://github.com/home-assistant/core/pull/44062
 [#44069]: https://github.com/home-assistant/core/pull/44069
+[#44087]: https://github.com/home-assistant/core/pull/44087
 [#44097]: https://github.com/home-assistant/core/pull/44097
 [#44098]: https://github.com/home-assistant/core/pull/44098
 [#44104]: https://github.com/home-assistant/core/pull/44104
@@ -1087,6 +1092,9 @@ These integrations where using webscraping, which is no longer allowed.
 [#44137]: https://github.com/home-assistant/core/pull/44137
 [#44151]: https://github.com/home-assistant/core/pull/44151
 [#44154]: https://github.com/home-assistant/core/pull/44154
+[#44156]: https://github.com/home-assistant/core/pull/44156
+[#44160]: https://github.com/home-assistant/core/pull/44160
+[#44173]: https://github.com/home-assistant/core/pull/44173
 [@100ferhas]: https://github.com/100ferhas
 [@Adminiuga]: https://github.com/Adminiuga
 [@Alex-Klein]: https://github.com/Alex-Klein
@@ -1166,6 +1174,7 @@ These integrations where using webscraping, which is no longer allowed.
 [@frenck]: https://github.com/frenck
 [@fronzbot]: https://github.com/fronzbot
 [@gtdiehl]: https://github.com/gtdiehl
+[@hmmbob]: https://github.com/hmmbob
 [@imbrianj]: https://github.com/imbrianj
 [@iprak]: https://github.com/iprak
 [@jasperslits]: https://github.com/jasperslits
@@ -1363,5 +1372,6 @@ These integrations where using webscraping, which is no longer allowed.
 [xiaomi docs]: /integrations/xiaomi/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yeelight docs]: /integrations/yeelight/
+[zeroconf docs]: /integrations/zeroconf/
 [zha docs]: /integrations/zha/
 [zone docs]: /integrations/zone/
