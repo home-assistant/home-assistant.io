@@ -71,7 +71,7 @@ Screenshot of Lorem ipsum.
 
 An automation blueprint is an automation configuration with certain parts marked as configurable.
 
-This allows for a seperation of the logic and inputs of an automation.
+This allows for a separation of the logic and inputs of an automation.
 
 Imagine a blueprint that controls a light based on motion, that allows you to configure the motion sensor to trigger on, and the light to control. It is now possible to create two automations that each have their own configuration for this blueprint and that act completely independent, yet are based on the same automation configuration.
 
@@ -92,7 +92,7 @@ We created a [forum category](https://community.home-assistant.io/c/blueprints/5
 
 ### Using blueprints
 
-You can import blueprints by copying the url of the forum topic or from github into the UI.
+You can import blueprints by copying the URL of the forum topic or from GitHub into the UI.
 Then you can create automations from these blueprints by filling out the required inputs.
 
 <p class='img'>
@@ -107,63 +107,67 @@ Examples:
 
 [Blueprint Docs](/docs/blueprint/)
 
+## Assign areas to entities
+
+TODO: Lets extract this into more of a topic, combined with the new area ID's...
+Making area's more useful
+
+- You can now assign an area to entities, this is useful for entities that don't
+  have a device, or when the entities of a device are in different areas.
+- The ID of a newly created area will now be based on the name of the area instead of a random string
+
+## Temporarily disable devices
+
+Do you have your Christmas tree set up in Home Assistant? After the Holidays
+are over, you store all those decorations for the next season. But what about
+those devices in Home Assistant?
+
+Thanks to [@emontnemery], you can now disable devices in Home Assistant. So,
+next year, when you unpack all decorations, enable them again and you're
+ready to go for another Holiday season!
+
+**TODO**: Insert screenshot of disabling a device
+
+Of course, besides seasonal things, it can also be helpful if you have a broken
+device or temporarily taking down any other device.
+
 ## Other noteworthy changes
 
-- Lorem ipsum! Thanks, [@frenck]!
+- The [Apple TV integration][apple_tv docs] now supports tvOS version 13 and
+  above and can be setup from the UI, thanks [@postlund]!
+- [@thecode] has been busy with the [Shelly integration][shelly docs] and added
+  support for inputs, so you can now use the Shelly i3 and Shelly's in detached
+  state.
+- Thanks to [@adrum], the [HomeKit controller integration][homekit_controller docs]
+  now has support for (de)humidifiers.
+- [deCONZ][deCONZ docs] now supports tilt on covers, and preset and fan
+  for climate devices, thanks [@Kane610]!
+- [@frenck] added support for setting the repeat more to the
+  [Spotify][spotify docs] integration.
+- The [Nest integration][nest docs] now supports camera and doorbell events,
+  thanks [@allenporter]!
+- Changes made to your [KNX integration's][knx docs] YAML configuration,
+  can now be reloaded without restarting Home Assistant. Thanks [@spacegaier]!
+- The number formatting in the frontend more consistent, thanks to [@joshmcrty]!
+- [@dmulcahey] has been improving the user experience of [ZHA][zha docs].
+  The feedback when pairing a new Zigbee device in the frontend is improved,
+  discovered devices are show earlier with their progress. And the ZHA
+  configuration panel now has a Zigbee network visualization tab! Allowing
+  you to see your network and find connection issues.
+- The [rest integration][rest docs] can now handle request parameters, nicely
+  done [@boxcee]!
+- Learn new RF commands using a Broadlink remote! Thanks, [@felipediel]!
+- [@mLupine] extended templated binary sensors and these now support templating
+  the `delay_on` and `delay_off`!
 
-Core:
-
-- The Apple TV integration now supports tvOS version 13 and above and can be setup from the UI, thanks [@postlund]!
-- The Shelly intgeration got support for inputs, so you can now use the Shelly i3 and Shelly's in detached state, thanks [@thecode]!
-- The deCONZ integrations added support for tilt on covers, and preset and fan for climate devices, thanks [@Kane610]
-- The HomeKit controller integration now has support for humidifiers and dehumidifiers, thanks [@adrum]
-- The Spotify integration now allows you to set the repeat mode, thanks [@frenck]
-- The Nest integration supports camera and doorbell events, thanks [@allenporter]
-- The ID of a newly created area will now be based on the name of the area instead of a random string
-- You can now disabled devices, disabled devices will not show up in the UI and it's entities will not be added to Home Assistant, thanks [@emontnemery]
-- You can now assign an area to entities, this is useful for entities that don't have a device, or when the entities of a device are in different areas.
-- The feedback when pairing a new Zigbee device in the frontend is improved, discovered devices are show earlier with their progress, thanks [@dmulcahey]!
-- There is a new network visualization tab in the Zigbee config panel, that shows how the devices in your network are connected to eachother, thanks [@dmulcahey]
-
-
-- Refactor Apple TV integration ([@postlund] - [#31952]) ([apple_tv docs]) (breaking-change)
-- Add initial rest query params ([@boxcee] - [#42198]) ([pvoutput docs]) ([rest docs]) ([scrape docs])
-- Add reload support to KNX ([@spacegaier] - [#42429]) ([knx docs])
-- Add support for learning RF commands with Broadlink remotes ([@felipediel] - [#39671]) ([broadlink docs]) ([remote docs])
-- Add HomeKit humidifier/dehumidifier ([@adrum] - [#42311]) ([homekit_controller docs])
-- Support gas meter capability for smartthings ([@javache] - [#41310]) ([smartthings docs])
-- Add dsmr_reader telegram timestamp and device classes ([@tim427] - [#42909]) ([dsmr_reader docs])
-- Add an option to template delay_on/off in template binary sensor ([@mLupine] - [#43259]) ([template docs])
-- Add shelly installed firmware info ([@chemelli74] - [#43221]) ([shelly docs])
-- Add Shelly support for REST sensors ([@chemelli74] - [#40429]) ([shelly docs])
-- Support for Shelly Input Events ([@thecode] - [#43479]) ([shelly docs])
-- Support for Shelly Binary Input Sensors ([@thecode] - [#43313]) ([shelly docs])
-- Support openRelativePercent for google assistant covers ([@elupus] - [#43336]) ([google_assistant docs])
-- Add repeat mode support to Spotify ([@frenck] - [#43247]) ([spotify docs])
-- Add tilt support to deCONZ covers ([@Kane610] - [#43607]) ([deconz docs])
-- Add nest SDM API camera/doorbell events ([@allenporter] - [#42700]) ([nest docs])
-- Add nest device triggers for camera and doorbell events ([@allenporter] - [#43548]) ([nest docs])
-- Support disabling devices ([@emontnemery] - [#43293]) ([config docs])
-- OAuth2 to use current request header ([@balloob] - [#43668]) ([toon docs])
-- Add a service target ([@balloob] - [#43725])
-- Base area IDs on initial name ([@balloob] - [#43804])
-- Make simple deCONZ thermostats work ([@Kane610] - [#43781]) ([deconz docs])
-- Add fan support to deCONZ climate platform ([@Kane610] - [#43721]) ([deconz docs])
-- Add preset support to deCONZ climate platform ([@Kane610] - [#43722]) ([deconz docs])
-
-Frontend:
-
-- Add target selector (#7864) @bramkragten
-- Enhance ZHA device pairing feedback (#7843) @dmulcahey
-- Add network visualization to the ZHA config panel (#7802) @dmulcahey
-- Additional number formatting (#7763) @joshmcrty
-- Initial Blueprint UI (#7695) @bramkragten
+[@joshmcrty]: https://github.com/joshmcrty
 
 ## New Integrations
 
 We welcome the following new integration this release:
 
 - [FireServiceRota][fireservicerota docs], added by [@cyberjunky]
+- [Kuler Sky][kulersky docs], added by [@emlove]
 - [Motion Blinds][motion_blinds docs], added by [@starkillerOG]
 - [SRP Energy][srp_energy docs], added by [@briglx]
 - [Twinkly][twinkly docs], added by [@dr1rrb]
@@ -175,7 +179,8 @@ The following integration got support for a new platform:
 - [HomeKit Controller][homekit_controller docs] now has initial support for
   cameras, added by [@Jc2k]
 - [@emontnemery] has added support for fans and covers to the
-  [Tasmota][tasmota docs] integration.
+  [Tasmota][tasmota docs] integration
+- [MQTT][MQTT docs] added support for scenes, added by [@kiall]
 
 ## Integrations now available to set up from the UI
 
@@ -385,7 +390,7 @@ These integrations where using webscraping, which is no longer allowed.
 - Eliminate doorbird switch polling ([@bdraco] - [#43215]) ([doorbird docs])
 - Bump pysmartthings and pysmartapp ([@andrewsayre] - [#43240]) ([smartthings docs])
 - Refactor ZHA light initialization ([@Adminiuga] - [#43149]) ([zha docs])
-- Remove yessssms integration ([@flowolf] - [#43200]) ([yessssms docs])
+- Remove yessssms integration ([@flowolf] - [#43200])
 - Set should_poll for zone entities ([@bdraco] - [#43212]) ([zone docs])
 - Support gas meter capability for smartthings ([@javache] - [#41310]) ([smartthings docs])
 - Add dsmr_reader telegram timestamp and device classes ([@tim427] - [#42909]) ([dsmr_reader docs])
@@ -442,7 +447,7 @@ These integrations where using webscraping, which is no longer allowed.
 - Move Flo logger to a package logger ([@bachya] - [#43449]) ([flo docs])
 - Move Ambient PWS logger to a package logger ([@bachya] - [#43448]) ([ambient_station docs])
 - Move legacy device tracker setup to legacy module ([@MartinHjelmare] - [#43447]) ([device_tracker docs])
-- Remove salt integration for webscraping ([@MartinHjelmare] - [#43452]) ([salt docs]) (breaking-change)
+- Remove salt integration for webscraping ([@MartinHjelmare] - [#43452]) (breaking-change)
 - Move Notion logger to a package logger ([@bachya] - [#43450]) ([notion docs])
 - Add ONVIF PTZ Stop support ([@scop] - [#39734]) ([onvif docs])
 - Remove zigpy monkey patching ([@Adminiuga] - [#43456]) ([zha docs])
@@ -568,7 +573,6 @@ These integrations where using webscraping, which is no longer allowed.
 - Add device information to solarlog integration ([@Ernst79] - [#43680]) ([solarlog docs])
 - Add hyperion config options flow ([@dermotduffy] - [#43673]) ([hyperion docs])
 - Add show progress to ozw config flow ([@MartinHjelmare] - [#43310]) ([ozw docs])
-- Pin pip < 20.3 ([@MartinHjelmare] - [#43771])
 - Add authentication support to bsblan ([@liudger] - [#42306]) ([bsblan docs])
 - Increase Supervisor add-on helper timeout ([@MartinHjelmare] - [#43778]) ([hassio docs])
 - Add support for device class in target selector ([@balloob] - [#43768])
@@ -581,7 +585,7 @@ These integrations where using webscraping, which is no longer allowed.
 - Bump aiorecollect to 0.2.2 ([@bachya] - [#43796]) ([recollect_waste docs])
 - Base area IDs on initial name ([@balloob] - [#43804])
 - Remove unused stuff from ZHA registries ([@abmantis] - [#43786]) ([zha docs])
-- Remove Ubee Router integration (ADR-0004) ([@frenck] - [#43809]) ([ubee docs]) (breaking-change)
+- Remove Ubee Router integration (ADR-0004) ([@frenck] - [#43809]) (breaking-change)
 - Fix config validation tests for upcoming beta ([@frenck] - [#43811])
 - Remove invalidation version from Airvisual ([@frenck] - [#43810]) ([airvisual docs])
 - Move uptime from relative time to absolute time ([@chemelli74] - [#43623]) ([uptime docs]) (breaking-change)
@@ -626,7 +630,52 @@ These integrations where using webscraping, which is no longer allowed.
 - Updated frontend to 20201202.0 ([@bramkragten] - [#43862]) ([frontend docs])
 - Improve custom datatype parsing in Modbus sensor and climate ([@vzahradnik] - [#42354]) ([modbus docs])
 - Improve handling of disabled devices ([@emontnemery] - [#43864]) ([config docs])
-- Implement new Google TTS API via dedicated library ([@marvin-w] - [#43863]) ([google_translate docs])
+- Add Kuler Sky Bluetooth floor lamp integration ([@emlove] - [#42372]) ([kulersky docs]) (beta fix) (new-integration)
+- Fix intesishome passing coroutine to HassJob ([@tehbrd] - [#43837]) ([intesishome docs]) (beta fix)
+- Fix Slack "invalid_blocks_format" bug ([@bachya] - [#43875]) ([slack docs]) (beta fix)
+- Bump auroranoaa library to 0.0.2 ([@djtimca] - [#43898]) ([aurora docs]) (beta fix)
+- Blueprint: descriptions + descriptive errors ([@balloob] - [#43899]) ([automation docs]) ([blueprint docs]) (beta fix)
+- Unsubscribe ozw stop listener on entry unload ([@MartinHjelmare] - [#43900]) ([ozw docs]) (beta fix)
+- Kulersky cleanups ([@emlove] - [#43901]) ([kulersky docs]) (beta fix)
+- Updated frontend to 20201203.0 ([@bramkragten] - [#43907]) ([frontend docs]) (beta fix)
+- Bump hatasmota to 0.1.4 ([@emontnemery] - [#43912]) ([tasmota docs]) (beta fix)
+- Always send ozw network key to add-on config ([@MartinHjelmare] - [#43938]) ([ozw docs]) (beta fix)
+- Handle stale ozw discovery flow ([@MartinHjelmare] - [#43939]) ([ozw docs]) (beta fix)
+- Return unique id of Blink binary sensor ([@brg468] - [#43942]) ([blink docs]) (beta fix)
+- Updated frontend to 20201204.0 ([@bramkragten] - [#43945]) ([frontend docs]) (beta fix)
+- Fix device refresh service can always add devices ([@Kane610] - [#43950]) ([deconz docs]) (beta fix)
+- Fix Ecobee set humidity ([@treylok] - [#43954]) (beta fix)
+- Prevent firing Shelly input events at startup ([@thecode] - [#43986]) ([shelly docs]) (beta fix)
+- Update ring to 0.6.2 ([@balloob] - [#43995]) ([ring docs]) (beta fix)
+- Fix Solaredge integration in case the data is not complete ([@Cereal2nd] - [#43557]) ([solaredge docs]) (beta fix)
+- Update generic_thermostat current_temperature on startup ([@NigelRook] - [#43951]) ([generic_thermostat docs]) (beta fix)
+- Retry tuya setup on auth rate limiting ([@AlexSzlavik] - [#44001]) ([tuya docs]) (beta fix)
+- Bump pymyq to 2.0.11 ([@imbrianj] - [#44003]) ([myq docs]) (beta fix)
+- Fix unit of measurement for asuswrt sensors ([@JJdeVries] - [#44009]) ([asuswrt docs]) (beta fix)
+- Hide HomeKit devices from discovery that are known to be problematic ([@Jc2k] - [#44014]) ([homekit_controller docs]) (beta fix)
+- Add T8400 to ignore list ([@FuzzyMistborn] - [#44017]) ([homekit_controller docs]) (beta fix)
+- Fix how homekit_controller enumerates Hue remote ([@Jc2k] - [#44019]) ([homekit_controller docs]) (beta fix)
+- Bump simplisafe-python to 9.6.1 ([@bachya] - [#44030]) ([simplisafe docs]) (beta fix)
+- Update pyarlo to 0.2.4 ([@TakesTheBiscuit] - [#44034]) ([arlo docs]) (beta fix)
+- Add the missing ATTR_ENABLED attribute to Brother integration list of sensors ([@bieniu] - [#44036]) ([brother docs]) (beta fix)
+- Update ZHA dependencies ([@Adminiuga] - [#44039]) ([zha docs]) (beta fix)
+- Bump simplisafe-python to 9.6.2 ([@bachya] - [#44040]) ([simplisafe docs]) (beta fix)
+- Fix extracting entity and device IDs from scripts ([@balloob] - [#44048]) ([automation docs]) (beta fix)
+- Bump pyatv to 0.7.5 ([@postlund] - [#44051]) ([apple_tv docs]) (beta fix)
+- Exclude coordinator when looking up group members entity IDs ([@Adminiuga] - [#44058]) ([zha docs]) (beta fix)
+- Some lights only support hs, like the lidl christmas lights ([@Kane610] - [#44059]) ([deconz docs]) (beta fix)
+- Fix ignored Axis config entries doesn't break set up of new entries ([@Kane610] - [#44062]) ([axis docs]) (beta fix)
+- Fix yeelight unavailbility ([@zewelor] - [#44061]) ([yeelight docs]) (beta fix)
+- Fix transmission torrent filtering and sorting ([@JPHutchins] - [#44069]) ([transmission docs]) (beta fix)
+- Bump hass-nabucasa to 0.39.0 ([@balloob] - [#44097]) ([cloud docs]) (beta fix)
+- Fix importing blueprints from forums with HTML entities ([@balloob] - [#44098]) ([blueprint docs]) (beta fix)
+- Fix importing blueprint from community ([@bramkragten] - [#44104]) ([blueprint docs]) (beta fix)
+- Update frontend to 20201210.0 ([@bramkragten] - [#44105]) ([frontend docs]) (beta fix)
+- Support more errors to better do retries in UniFi ([@Kane610] - [#44108]) ([unifi docs]) (beta fix)
+- Fix Met.no forecast precipitation ([@brg468] - [#44106]) ([met docs]) (beta fix)
+- Fix inability to erase SimpliSafe code ([@bachya] - [#44137]) ([simplisafe docs]) (beta fix)
+- Fix upnp first discovered device is used ([@StevenLooman] - [#44151]) ([upnp docs]) (beta fix)
+- Updated frontend to 20201212.0 ([@bramkragten] - [#44154]) ([frontend docs]) (beta fix)
 
 </details>
 
@@ -655,6 +704,7 @@ These integrations where using webscraping, which is no longer allowed.
 [#42332]: https://github.com/home-assistant/core/pull/42332
 [#42338]: https://github.com/home-assistant/core/pull/42338
 [#42354]: https://github.com/home-assistant/core/pull/42354
+[#42372]: https://github.com/home-assistant/core/pull/42372
 [#42413]: https://github.com/home-assistant/core/pull/42413
 [#42429]: https://github.com/home-assistant/core/pull/42429
 [#42484]: https://github.com/home-assistant/core/pull/42484
@@ -805,6 +855,7 @@ These integrations where using webscraping, which is no longer allowed.
 [#43551]: https://github.com/home-assistant/core/pull/43551
 [#43552]: https://github.com/home-assistant/core/pull/43552
 [#43555]: https://github.com/home-assistant/core/pull/43555
+[#43557]: https://github.com/home-assistant/core/pull/43557
 [#43564]: https://github.com/home-assistant/core/pull/43564
 [#43572]: https://github.com/home-assistant/core/pull/43572
 [#43578]: https://github.com/home-assistant/core/pull/43578
@@ -872,7 +923,6 @@ These integrations where using webscraping, which is no longer allowed.
 [#43762]: https://github.com/home-assistant/core/pull/43762
 [#43767]: https://github.com/home-assistant/core/pull/43767
 [#43768]: https://github.com/home-assistant/core/pull/43768
-[#43771]: https://github.com/home-assistant/core/pull/43771
 [#43772]: https://github.com/home-assistant/core/pull/43772
 [#43775]: https://github.com/home-assistant/core/pull/43775
 [#43778]: https://github.com/home-assistant/core/pull/43778
@@ -900,6 +950,7 @@ These integrations where using webscraping, which is no longer allowed.
 [#43831]: https://github.com/home-assistant/core/pull/43831
 [#43832]: https://github.com/home-assistant/core/pull/43832
 [#43833]: https://github.com/home-assistant/core/pull/43833
+[#43837]: https://github.com/home-assistant/core/pull/43837
 [#43838]: https://github.com/home-assistant/core/pull/43838
 [#43841]: https://github.com/home-assistant/core/pull/43841
 [#43846]: https://github.com/home-assistant/core/pull/43846
@@ -912,11 +963,54 @@ These integrations where using webscraping, which is no longer allowed.
 [#43859]: https://github.com/home-assistant/core/pull/43859
 [#43860]: https://github.com/home-assistant/core/pull/43860
 [#43862]: https://github.com/home-assistant/core/pull/43862
-[#43863]: https://github.com/home-assistant/core/pull/43863
 [#43864]: https://github.com/home-assistant/core/pull/43864
+[#43875]: https://github.com/home-assistant/core/pull/43875
+[#43898]: https://github.com/home-assistant/core/pull/43898
+[#43899]: https://github.com/home-assistant/core/pull/43899
+[#43900]: https://github.com/home-assistant/core/pull/43900
+[#43901]: https://github.com/home-assistant/core/pull/43901
+[#43907]: https://github.com/home-assistant/core/pull/43907
+[#43912]: https://github.com/home-assistant/core/pull/43912
+[#43938]: https://github.com/home-assistant/core/pull/43938
+[#43939]: https://github.com/home-assistant/core/pull/43939
+[#43942]: https://github.com/home-assistant/core/pull/43942
+[#43945]: https://github.com/home-assistant/core/pull/43945
+[#43950]: https://github.com/home-assistant/core/pull/43950
+[#43951]: https://github.com/home-assistant/core/pull/43951
+[#43954]: https://github.com/home-assistant/core/pull/43954
+[#43986]: https://github.com/home-assistant/core/pull/43986
+[#43995]: https://github.com/home-assistant/core/pull/43995
+[#44001]: https://github.com/home-assistant/core/pull/44001
+[#44003]: https://github.com/home-assistant/core/pull/44003
+[#44009]: https://github.com/home-assistant/core/pull/44009
+[#44014]: https://github.com/home-assistant/core/pull/44014
+[#44017]: https://github.com/home-assistant/core/pull/44017
+[#44019]: https://github.com/home-assistant/core/pull/44019
+[#44030]: https://github.com/home-assistant/core/pull/44030
+[#44034]: https://github.com/home-assistant/core/pull/44034
+[#44036]: https://github.com/home-assistant/core/pull/44036
+[#44039]: https://github.com/home-assistant/core/pull/44039
+[#44040]: https://github.com/home-assistant/core/pull/44040
+[#44048]: https://github.com/home-assistant/core/pull/44048
+[#44051]: https://github.com/home-assistant/core/pull/44051
+[#44058]: https://github.com/home-assistant/core/pull/44058
+[#44059]: https://github.com/home-assistant/core/pull/44059
+[#44061]: https://github.com/home-assistant/core/pull/44061
+[#44062]: https://github.com/home-assistant/core/pull/44062
+[#44069]: https://github.com/home-assistant/core/pull/44069
+[#44097]: https://github.com/home-assistant/core/pull/44097
+[#44098]: https://github.com/home-assistant/core/pull/44098
+[#44104]: https://github.com/home-assistant/core/pull/44104
+[#44105]: https://github.com/home-assistant/core/pull/44105
+[#44106]: https://github.com/home-assistant/core/pull/44106
+[#44108]: https://github.com/home-assistant/core/pull/44108
+[#44137]: https://github.com/home-assistant/core/pull/44137
+[#44151]: https://github.com/home-assistant/core/pull/44151
+[#44154]: https://github.com/home-assistant/core/pull/44154
 [@100ferhas]: https://github.com/100ferhas
 [@Adminiuga]: https://github.com/Adminiuga
 [@Alex-Klein]: https://github.com/Alex-Klein
+[@AlexSzlavik]: https://github.com/AlexSzlavik
 [@BKPepe]: https://github.com/BKPepe
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@CoMPaTech]: https://github.com/CoMPaTech
@@ -926,16 +1020,21 @@ These integrations where using webscraping, which is no longer allowed.
 [@Ernst79]: https://github.com/Ernst79
 [@FlavorFx]: https://github.com/FlavorFx
 [@FrnchFrgg]: https://github.com/FrnchFrgg
+[@FuzzyMistborn]: https://github.com/FuzzyMistborn
 [@GuyKh]: https://github.com/GuyKh
 [@JJdeVries]: https://github.com/JJdeVries
+[@JPHutchins]: https://github.com/JPHutchins
 [@Jc2k]: https://github.com/Jc2k
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@Kane610]: https://github.com/Kane610
 [@LordBoos]: https://github.com/LordBoos
 [@MartinHjelmare]: https://github.com/MartinHjelmare
+[@NigelRook]: https://github.com/NigelRook
 [@Quentame]: https://github.com/Quentame
 [@RobBie1221]: https://github.com/RobBie1221
 [@Shulyaka]: https://github.com/Shulyaka
+[@StevenLooman]: https://github.com/StevenLooman
+[@TakesTheBiscuit]: https://github.com/TakesTheBiscuit
 [@TheLastProject]: https://github.com/TheLastProject
 [@Toxblh]: https://github.com/Toxblh
 [@abmantis]: https://github.com/abmantis
@@ -958,6 +1057,7 @@ These integrations where using webscraping, which is no longer allowed.
 [@bieniu]: https://github.com/bieniu
 [@boxcee]: https://github.com/boxcee
 [@bramkragten]: https://github.com/bramkragten
+[@brg468]: https://github.com/brg468
 [@briglx]: https://github.com/briglx
 [@cgarwood]: https://github.com/cgarwood
 [@chemelli74]: https://github.com/chemelli74
@@ -974,6 +1074,7 @@ These integrations where using webscraping, which is no longer allowed.
 [@dvv]: https://github.com/dvv
 [@ehendrix23]: https://github.com/ehendrix23
 [@elupus]: https://github.com/elupus
+[@emlove]: https://github.com/emlove
 [@emontnemery]: https://github.com/emontnemery
 [@epenet]: https://github.com/epenet
 [@etheralm]: https://github.com/etheralm
@@ -985,6 +1086,7 @@ These integrations where using webscraping, which is no longer allowed.
 [@frenck]: https://github.com/frenck
 [@fronzbot]: https://github.com/fronzbot
 [@gtdiehl]: https://github.com/gtdiehl
+[@imbrianj]: https://github.com/imbrianj
 [@iprak]: https://github.com/iprak
 [@jasperslits]: https://github.com/jasperslits
 [@javache]: https://github.com/javache
@@ -995,7 +1097,6 @@ These integrations where using webscraping, which is no longer allowed.
 [@koolsb]: https://github.com/koolsb
 [@liudger]: https://github.com/liudger
 [@mLupine]: https://github.com/mLupine
-[@marvin-w]: https://github.com/marvin-w
 [@mib1185]: https://github.com/mib1185
 [@moinmoin-sh]: https://github.com/moinmoin-sh
 [@mtdcr]: https://github.com/mtdcr
@@ -1015,15 +1116,18 @@ These integrations where using webscraping, which is no longer allowed.
 [@squishykid]: https://github.com/squishykid
 [@starkillerOG]: https://github.com/starkillerOG
 [@syssi]: https://github.com/syssi
+[@tehbrd]: https://github.com/tehbrd
 [@tetienne]: https://github.com/tetienne
 [@thecode]: https://github.com/thecode
 [@thimic]: https://github.com/thimic
 [@thomasdelaet]: https://github.com/thomasdelaet
 [@tim427]: https://github.com/tim427
 [@timmo001]: https://github.com/timmo001
+[@treylok]: https://github.com/treylok
 [@ttuffin]: https://github.com/ttuffin
 [@vzahradnik]: https://github.com/vzahradnik
 [@wicol]: https://github.com/wicol
+[@zewelor]: https://github.com/zewelor
 [@zxdavb]: https://github.com/zxdavb
 [abode docs]: /integrations/abode/
 [accuweather docs]: /integrations/accuweather/
@@ -1034,10 +1138,12 @@ These integrations where using webscraping, which is no longer allowed.
 [ambient_station docs]: /integrations/ambient_station/
 [api docs]: /integrations/api/
 [apple_tv docs]: /integrations/apple_tv/
+[arlo docs]: /integrations/arlo/
 [asuswrt docs]: /integrations/asuswrt/
 [aurora docs]: /integrations/aurora/
 [automation docs]: /integrations/automation/
 [awair docs]: /integrations/awair/
+[axis docs]: /integrations/axis/
 [beewi_smartclim docs]: /integrations/beewi_smartclim/
 [blink docs]: /integrations/blink/
 [blueprint docs]: /integrations/blueprint/
@@ -1075,8 +1181,8 @@ These integrations where using webscraping, which is no longer allowed.
 [foobot docs]: /integrations/foobot/
 [foscam docs]: /integrations/foscam/
 [frontend docs]: /integrations/frontend/
+[generic_thermostat docs]: /integrations/generic_thermostat/
 [google_assistant docs]: /integrations/google_assistant/
-[google_translate docs]: /integrations/google_translate/
 [google_wifi docs]: /integrations/google_wifi/
 [group docs]: /integrations/group/
 [hassio docs]: /integrations/hassio/
@@ -1089,10 +1195,12 @@ These integrations where using webscraping, which is no longer allowed.
 [input_boolean docs]: /integrations/input_boolean/
 [input_datetime docs]: /integrations/input_datetime/
 [input_number docs]: /integrations/input_number/
+[intesishome docs]: /integrations/intesishome/
 [ios docs]: /integrations/ios/
 [ipma docs]: /integrations/ipma/
 [knx docs]: /integrations/knx/
 [kodi docs]: /integrations/kodi/
+[kulersky docs]: /integrations/kulersky/
 [lastfm docs]: /integrations/lastfm/
 [lcn docs]: /integrations/lcn/
 [local_ip docs]: /integrations/local_ip/
@@ -1129,15 +1237,16 @@ These integrations where using webscraping, which is no longer allowed.
 [remote docs]: /integrations/remote/
 [rest docs]: /integrations/rest/
 [rflink docs]: /integrations/rflink/
+[ring docs]: /integrations/ring/
 [roomba docs]: /integrations/roomba/
 [rpi_power docs]: /integrations/rpi_power/
-[salt docs]: /integrations/salt/
 [scrape docs]: /integrations/scrape/
 [sensehat docs]: /integrations/sensehat/
 [sentry docs]: /integrations/sentry/
 [seventeentrack docs]: /integrations/seventeentrack/
 [shelly docs]: /integrations/shelly/
 [simplisafe docs]: /integrations/simplisafe/
+[slack docs]: /integrations/slack/
 [smartthings docs]: /integrations/smartthings/
 [solaredge docs]: /integrations/solaredge/
 [solarlog docs]: /integrations/solarlog/
@@ -1158,11 +1267,12 @@ These integrations where using webscraping, which is no longer allowed.
 [time_date docs]: /integrations/time_date/
 [toon docs]: /integrations/toon/
 [tplink docs]: /integrations/tplink/
+[transmission docs]: /integrations/transmission/
 [tuya docs]: /integrations/tuya/
 [twinkly docs]: /integrations/twinkly/
 [twitter docs]: /integrations/twitter/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
+[upnp docs]: /integrations/upnp/
 [uptime docs]: /integrations/uptime/
 [utility_meter docs]: /integrations/utility_meter/
 [vasttrafik docs]: /integrations/vasttrafik/
@@ -1173,6 +1283,5 @@ These integrations where using webscraping, which is no longer allowed.
 [xiaomi docs]: /integrations/xiaomi/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yeelight docs]: /integrations/yeelight/
-[yessssms docs]: /integrations/yessssms/
 [zha docs]: /integrations/zha/
 [zone docs]: /integrations/zone/
