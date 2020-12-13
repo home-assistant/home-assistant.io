@@ -47,21 +47,23 @@ supported by the SDM API.
 
 The full detailed instructions for account setup are available in the [Device Access Registration](https://developers.google.com/nest/device-access/registration) Quick Start Guide. The instructions below are included to make this complex setup process a bit easier to follow.
 
-## Device Access Regsitration
+## Device Access Registration
 
-For the first phase, you will turn on the API and create necessary credentials to have Home Assistant talk to the Nest API.
+For the first phase, you will turn on the API and create the necessary credentials to have Home Assistant talk to the Nest API.
 
 1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page.  Click on the button **Go to the Device Access Console**.
 
     <img src='/images/integrations/nest/device_access.png'>
 
-1. Check the box to Accept the Terms of Service and click **Continue to Payment** where you need to pay a fee (currently US$5).
-    <img src='/images/integrations/nest/accept_terms.png'>
+1. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
+
+    ![Screenshot of accepting terms](/images/integrations/nest/accept_terms.png)
+
     <div class='note'>
     It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
     </div>
 
-1. Now the Device Access Console should be visible. Click on **Create project**.
+1. Now the "Device Access Console" should be visible. Click on **Create project**.
     <img src='/images/integrations/nest/create_project.png'>
 
 1. Give your project a name and click **Next**.
@@ -71,17 +73,17 @@ For the first phase, you will turn on the API and create necessary credentials t
 Credentials**.
     <img src='/images/integrations/nest/create_credentials.png'>
 
-1. From the drop down list select *OAuth client ID*
+1. From the drop-down list select *OAuth client ID*.
 
     <img src='/images/integrations/nest/oauth_client_id.png'>
 
 1. Pick a name for your credential.
 
-1. Add **Authorized redirect URIs** for your Home Assistant URL, including the OAuth callback path e.g. `https://<your_home_assistant_url>:<port>/auth/external/callback`. See [Troubleshooting](#troubleshooting) below for more details on the subtle requirements for what kinds of URLs work here.
+1. Add **Authorized redirect URIs** for your Home Assistant URL, including the OAuth callback path e.g., `https://<your_home_assistant_url>:<port>/auth/external/callback`. See [Troubleshooting](#troubleshooting) below for more details on the subtle requirements for what kinds of URLs work here.
 
     <img src='/images/integrations/nest/oauth_redirect_uri.png'>
 
-1. You should now be presented with an *OAuth client created* message. Take note of *Your Client ID* and *Your Client Secret* as these are needed for Home Assistant setup.
+1. You should now be presented with an *OAuth client created* message. Take note of *Your Client ID* and *Your Client Secret* as these are needed for Home Assistant set up.
 
     <img src='/images/integrations/nest/oauth_created.png'>
 
@@ -107,14 +109,14 @@ Credentials**.
 
 ## Pub/Sub subscriber setup
 
-The next phase is to enable the Pub/Sub API by creating a subscription that can keep Home Assistant informed of events or device changes in near real time. See [Device Access: Events](https://developers.google.com/nest/device-access/api/events) for the full detailed instructions.
+The next phase is to enable the Pub/Sub API by creating a subscription that can keep Home Assistant informed of events or device changes in near real-time. See [Device Access: Events](https://developers.google.com/nest/device-access/api/events) for the full detailed instructions.
 
-1. Visit [Enable the Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console and click **Enable**
+1. Visit [Enable the Cloud Pub/Sub API](https://console.developers.google.com/apis/library/pubsub.googleapis.com) in the Cloud Console and click **Enable**.
 
 1. Go to the [Google Cloud Platform: Pub/Sub:
   Subscriptions](https://console.cloud.google.com/cloudpubsub/subscription/list) page and click **Create Subscription**.
 
-1. You will need to pick a *Subscription ID*
+1. You will need to pick a *Subscription ID*.
 
     <img src='/images/integrations/nest/create_subscription.png'>
 
@@ -124,11 +126,11 @@ The next phase is to enable the Pub/Sub API by creating a subscription that can 
 
 1. Select **Pull** as the *Delivery Type*.
 
-1. Lower the message retention duration to be something short (e.g. 10 minutes or under an hour) to avoid a large backlog of updates when Home Assistant is turned off.
+1. Lower the message retention duration to be something short (e.g., 10 minutes or under an hour) to avoid a large backlog of updates when Home Assistant is turned off.
 
 1. Leave the rest of the defaults and click **Create**.
 
-1. Once created, copy the *Subscription name* which you will want to hold on to as you `subscriber_id` for configuring Home Assistant. This typically looks like `projects/MY-CLOUD-ID/subscriptions/EXAMPLE`.  Don't confuse *Subscription name* with *Topic name* since they look similar.
+1. Once created, copy the *Subscription name* which you will want to hold on to as your `subscriber_id` for configuring Home Assistant. This typically looks like `projects/MY-CLOUD-ID/subscriptions/EXAMPLE`. Don't confuse *Subscription name* with *Topic name* since they look similar.
 
 ## Configuration
 
@@ -194,14 +196,14 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
-- *Error 500: redirect_uri_mismatch* means that you need visit the [GCP credentials](https://console.developers.google.com/apis/credentials) page and modify your OAuth2.0 Client ID to add the correct Home Asssitant callback URL. The error message tells you the exact URL that needs to be added, including any ports or paths like `/auth/external/callback` path. See [Redirect uri mismatch](https://developers.google.com/nest/device-access/authorize#redirect_uri_mismatch) for more details.
+- *Error 500: redirect_uri_mismatch* means that you need to visit the [GCP credentials](https://console.developers.google.com/apis/credentials) page and modify your OAuth2.0 Client ID to add the correct Home Assistant callback URL. The error message tells you the exact URL that needs to be added, including any ports or paths like `/auth/external/callback` path. See [Redirect URI mismatch](https://developers.google.com/nest/device-access/authorize#redirect_uri_mismatch) for more details.
 
     - A convienent solution is to use [Nabu Casa](https://www.nabucasa.com/)
     - There are subtle rules for what types of URLs are allowed, namely that they must use a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
     - You can use any publicly known hostname you own
     - As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant IP address.
 
-- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double double check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you mway want to walk through the Google instructions and issue commands directly against the API until you successfully get back devices.
+- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
 
