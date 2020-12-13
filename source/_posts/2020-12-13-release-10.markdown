@@ -77,11 +77,11 @@ This allows for a separation of the logic and inputs of an automation.
 
 Imagine a blueprint that controls a light based on motion, that allows you to configure the motion sensor to trigger on, and the light to control. It is now possible to create two automations that each have their own configuration for this blueprint and that act completely independent, yet are based on the same automation configuration.
 
-It also allows users to share their automations, as every user can just input their own.
+It also allows users to share their automations, as every user can use their own input.
 
 ### Creating blueprints
 
-You can convert any existing automation into a blueprint, we created a really nice [tutorial](/docs/blueprint/tutorial/) on how to make blueprints.
+You can convert any existing automation into a blueprint. We created a really nice [tutorial](/docs/blueprint/tutorial/) on how to make blueprints.
 
 Selectors
 
@@ -112,7 +112,7 @@ Examples:
 ## Assign areas to entities and Area IDs; making areas more useful
 
 Areas have been around for a bit already. But, not everything supports
-area's yet. And using it in, for example YAML-based automations, is not really
+areas yet. And using it in for example YAML-based automations, is not really
 an easy task to do.
 
 Today that changes, as this release works towards making areas more useful by
@@ -122,7 +122,7 @@ The first change: individual entities can now be assigned to areas.
 
 Previously this was limited to devices only. This also works for entities
 without a device (for example, entities provided by Helpers). Devices provide
-entities, and thus it is now possible to override the area a single entity for
+entities, and thus it is now possible to override the area with a single entity for
 a device as well. For example, your in-wall mounted switch controls a light in
 another room.
 
@@ -134,7 +134,7 @@ Screenshot of disabling a device.
 Second improvement: The ID of a newly created area will now be based on the name
 of the area instead of a random string.
 
-Making it easier to use areas in service calls, as you can now use
+This makes it easier to use areas in service calls, as you can now use
 area identifiers that actually make sense for a human! In a YAML automation
 or script it will look like this:
 
@@ -184,11 +184,11 @@ device or temporarily taking down any other device.
   thanks [@allenporter]!
 - Changes made to your [KNX integration's][knx docs] YAML configuration,
   can now be reloaded without restarting Home Assistant. Thanks [@spacegaier]!
-- The number formatting in the frontend more consistent, thanks to [@joshmcrty]!
+- The number formatting in the frontend is more consistent, thanks to [@joshmcrty]!
 - [@dmulcahey] has been improving the user experience of [ZHA][zha docs].
   The feedback when pairing a new Zigbee device in the frontend is improved,
-  discovered devices are show earlier with their progress. And the ZHA
-  configuration panel now has a Zigbee network visualization tab! Allowing
+  discovered devices are shown earlier with their progress, and the ZHA
+  configuration panel now has a Zigbee network visualization tab! This allows
   you to see your network and find connection issues.
 - The [rest integration][rest docs] can now handle request parameters, nicely
   done [@boxcee]!
@@ -264,7 +264,7 @@ The Certificate Expiry integration has both of them, so to adhere to
 Home Assistant architectural design rules, the offending relative time
 sensor is now removed.
 
-If your configuration was based on it, please switch to the other one.
+If your configuration was based on the relative time sensor, please switch to the other one.
 
 ([@chemelli74] - [#42338]) ([cert_expiry docs])
 
