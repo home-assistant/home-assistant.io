@@ -93,7 +93,7 @@ Credentials**.
 
     <img src='/images/integrations/nest/enable_events.png'>
 
-1. Take note of the *Project ID* as you will need it later. At this point you have the `project_id`, `client_id` and `client_secret` config options needed for Home Assistant.
+1. Take note of the *Project ID* as you will need it later. At this point you have the `project_id`, `client_id` and `client_secret` configuration options needed for Home Assistant.
 
 1. At this point you should have a `Project ID`, `OAuth Client ID`, and an `OAuth Secret`.
 
@@ -197,11 +197,11 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 - *Error 500: redirect_uri_mismatch* means that you need visit the [GCP credentials](https://console.developers.google.com/apis/credentials) page and modify your OAuth2.0 Client ID to add the correct Home Asssitant callback URL. The error message tells you the exact URL that needs to be added, including any ports or paths like `/auth/external/callback` path. See [Redirect uri mismatch](https://developers.google.com/nest/device-access/authorize#redirect_uri_mismatch) for more details.
 
     - A convienent solution is to use [Nabu Casa](https://www.nabucasa.com/)
-    - There are subtle rules for what types of URLs are allowed, namely that they must use a publically known hostname, though your Home Assistant ports do not need to be exposed to the internet.
-    - You can use any publically known hostname you own
-    - As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant ip address.
+    - There are subtle rules for what types of URLs are allowed, namely that they must use a publicly known hostname, though your Home Assistant ports do not need to be exposed to the internet.
+    - You can use any publicly known hostname you own
+    - As a hack, you can use hosts tricks to temporarily assign a public hostname to your Home Assistant IP address.
 
-- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double double check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you mway want to walk through the google instructions and issue commands directly against the API until you successfully get back devices.
+- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double double check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you mway want to walk through the Google instructions and issue commands directly against the API until you successfully get back devices.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
 
