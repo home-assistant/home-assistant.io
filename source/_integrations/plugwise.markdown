@@ -43,7 +43,7 @@ Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna
 
 ## Configuration
 
-From the Home Assistant front page, go to **Configuration** and then select **Integrations** from the list. If you have a Smile it most probably is visible as a discovered device for you to click to configure. Otherwise use the plus button in the bottom right to add a new integration, just search for **Plugwise** and choose Networked or USB approprately on the first question.
+From the Home Assistant front page, go to **Configuration** and then select **Integrations** from the list. If you have a Smile it most probably is visible as a discovered device for you to click to configure. Otherwise use the plus button in the bottom right to add a new integration, just search for **Plugwise** and choose Networked or USB appropriately on the first question.
 
 ### Smile (Networked component)
 
