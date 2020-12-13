@@ -22,6 +22,28 @@ service: homeassistant.turn_on
 entity_id: group.living_room
 ```
 
+### Targeting areas and devices
+
+Instead of targeting an entity, you can also target an area or device. Or a combination of these.
+This is done with the `target` key.
+
+A `target` is a map thats contains atleast one of the following: `area_id`, `device_id`, `entity_id`.
+Each of these can be a list.
+
+When the service is called, the area's and devices will be resolved to entities.
+
+```yaml
+service: homeassistant.turn_on
+target:
+  area_id: livingroom
+  device_id:
+    - ff22a1889a6149c5ab6327a8236ae704
+    - 52c050ca1a744e238ad94d170651f96b
+  entity_id:
+    - light.hallway
+    - light.landing
+```
+
 ### Passing data to the service call
 
 You can also specify other parameters beside the entity to target. For example, the light turn on service allows specifying the brightness.
