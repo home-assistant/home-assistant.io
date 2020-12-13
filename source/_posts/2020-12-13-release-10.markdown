@@ -57,58 +57,71 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## Lorem ipsum
-
-Lorem ipsum
-
-<!--
-<p class='img'>
-<img src='/images/blog/2020-12-0.1/lorem.png' alt='Screenshot of the Lorem ipsum'>
-Screenshot of Lorem ipsum.
-</p>
--->
-
-## Home Assistant Blueprints
-
 ## Blueprints
 
-An automation blueprint is an automation configuration with certain parts marked as configurable.
+Say hello; to the major new feature of Home Assistant 1.0.0: Blueprints!
 
-This allows for a separation of the logic and inputs of an automation.
+<p class='img'>
+<img src='/images/blog/2020-12-1.0/blueprints.png' alt='Screenshot of the blueprints configuration panel'>
+Screenshot of the blueprints configuration panel.
+</p>
 
-Imagine a blueprint that controls a light based on motion, that allows you to configure the motion sensor to trigger on, and the light to control. It is now possible to create two automations that each have their own configuration for this blueprint and that act completely independent, yet are based on the same automation configuration.
+An automation blueprint is a pre-created automation with user-settable options.
+This allows for a separation of the logic and inputs of an automation. It
+sounds a bit complicated, but as a matter of fact, it will make things
+re-usable and easier.
 
-It also allows users to share their automations, as every user can use their own input.
+Imagine a blueprint that controls a light based on motion, that allows you to
+configure the motion sensor to trigger on, and the light to control.
 
-### Creating blueprints
-
-You can convert any existing automation into a blueprint. We created a really nice [tutorial](/docs/blueprint/tutorial/) on how to make blueprints.
-
-Selectors
-
-Target
+It is now possible to create two automations that each have their own
+configuration for this blueprint and act completely independently, yet are
+based on the same automation configuration.
 
 ### Sharing blueprints
 
 Blueprints are great for sharing your automations and ideas with the community.
-We created a [forum category](/get-blueprints) where you can post your created blueprints.
+
+We created a [Blueprint Exchange forum category](/get-blueprints) where you can
+post your created blueprints. For others to use!
+
+We believe that the power of blueprint relies in sharing. You can now share
+complex automations that others can use, even if they are using the UI editors.
+
+For example, a blueprint can be shared for a specific Zigbee remote control
+that maps all buttons to a light. A blueprint that sends a notification when
+it found empty batteries. A blueprint for muting music when you pick up
+your Android phone.
+
+The sky is the limit in the ideas and automations blueprints we can share!
 
 ### Using blueprints
 
-You can import blueprints by copying the URL of the forum topic or from GitHub into the UI.
-Then you can create automations from these blueprints by filling out the required inputs.
+Let's cut a long story short, it sounds exciting, but what does it mean?
+
+You can import blueprints by copying the URL of the forum topic or from GitHub
+into the UI. Then you can create automations from these blueprints by filling
+out the required inputs.
 
 <p class='img'>
-<img src='/images/blog/2020-12-0.1/blueprints.png' alt='Screenshot of a blueprint'>
+<img src='/images/blog/2020-12-1.0/blueprint-ui.png' alt='Screenshot of a blueprint'>
 Screenshot of a blueprint.
 </p>
 
-Check Configuration panel -> Blueprints
+Is it really easy to deploy a blueprint, even multiple times! Blueprints are
+fully available in both the UI and for YAML-based configuration.
 
-Examples:
-<https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints>
+### Creating blueprints
 
-[Blueprint Docs](/docs/blueprint/)
+We created a really nice [tutorial](/docs/blueprint/tutorial/) on how to make
+blueprints.
+
+Essentially, a blueprint is just like an automation, with some added blueprint
+metadata. You can convert any existing automation into a blueprint!
+
+As the last step, be sure to [share your freshly created blueprint](/get-blueprints)
+with the community on the [Blueprint Exchange](/get-blueprints). Help and
+inspiring others.
 
 ## New neural voices for Nabu Casa Cloud TTS
 
@@ -231,7 +244,7 @@ device or temporarily taking down any other device.
 
 ## New Integrations
 
-We welcome the following new integration this release:
+We welcome the following new integrations this release:
 
 - [FireServiceRota][fireservicerota docs], added by [@cyberjunky]
 - [Kuler Sky][kulersky docs], added by [@emlove]
