@@ -14,7 +14,7 @@ The following will take you through the steps required to install Home Assistant
      - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] (32-bit is required for GPIO support)
      - [Raspberry Pi 4 Model B (1 GB, 2 GB, 4 GB and 8 GB model) 64-bit][pi4-64] (64-bit is required for 8 GB model)
      - [Tinkerboard][tinker]
-     - [Odroid-C2][odroid-c2], [Odroid-C4 (Beta)][odroid-c4], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
+     - [Odroid-C2][odroid-c2], [Odroid-C4][odroid-c4], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
        - [Guide: Flashing Odroid-N2 using OTG-USB][otg-usb]
      - [Intel NUC][intel-nuc]
 
@@ -102,21 +102,21 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi3-4.16.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi3-64-4.16.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi4-4.16.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_rpi4-64-4.16.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_tinker-4.16.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_odroid-c2-4.16.img.gz
-[odroid-c4]: https://github.com/home-assistant/operating-system/releases/download/5.5/hassos_odroid-c4-5.5.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_odroid-n2-4.16.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_odroid-xu4-4.16.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_intel-nuc-4.16.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_ova-4.16.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_ova-4.16.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_ova-4.16.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_ova-4.16.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.16/hassos_ova-4.16.ova
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_rpi3-5.8.img.gz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_rpi3-64-5.8.img.gz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_rpi4-5.8.img.gz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_rpi4-64-5.8.img.gz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_tinker-5.8.img.gz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_odroid-c2-5.8.img.gz
+[odroid-c4]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_odroid-c4-5.8.img.gz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_odroid-n2-5.8.img.gz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_odroid-xu4-5.8.img.gz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_intel-nuc-5.8.img.gz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_ova-5.8.vmdk.gz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_ova-5.8.vhdx.gz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_ova-5.8.vdi.gz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_ova-5.8.qcow2.gz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/5.8/hassos_ova-5.8.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
