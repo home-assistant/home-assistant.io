@@ -142,7 +142,7 @@ action:
     message: These new voices sound absolutely stunning!
     options:
       gender: female
-      language: en-US
+    language: en-US
 ```
 
 [cloud_say]: https://www.nabucasa.com/config/tts/
