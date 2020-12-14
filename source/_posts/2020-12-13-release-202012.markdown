@@ -24,7 +24,7 @@ Wednesday of the month!
 As most things are announced at the [Home Assistant Conference](/conference);
 more things will be added/tweak in these release notes the next couple of days.
 
-For me, this has been an exiting year! And thanks everybody for contributing
+For me, this has been an exciting year! And thanks everybody for contributing
 to this amazing project, not matter what and how you contributed. You are all
 amazing! ❤️
 
