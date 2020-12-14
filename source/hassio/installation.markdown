@@ -93,7 +93,7 @@ ha core update --version=0.XX.X
 
 ## Run the beta version of Home Assistant
 
-If you would like to test next release before anyone else, you can install the beta version released every three weeks:
+If you would like to test next release before anyone else, you can install the beta version released every month:
 
 1. Backup your installation, using the snapshot functionality Home Assistant offers.
 2. Check the [Home Assistant Beta release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
