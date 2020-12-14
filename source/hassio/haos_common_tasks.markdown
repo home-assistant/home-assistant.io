@@ -127,6 +127,8 @@ You often need a snapshot in case your system has crashed. If you only store the
  - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 
  - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
+ 
+ - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
 
  - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
 
