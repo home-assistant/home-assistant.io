@@ -91,7 +91,7 @@ Use the web-based terminal or SSH to your Home Assistant system, or connect to t
 ha core update --version=X.Y.Z
 ```
 
-Replacing `X.Y.Z` with your desired version (i.e. `2020.12.0` or `0.118.5`)
+Replacing `X.Y.Z` with your desired version (i.e. `2020.12.0` or `0.118.5`).
 
 ## Run the beta version of Home Assistant
 
