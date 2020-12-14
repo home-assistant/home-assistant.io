@@ -65,11 +65,11 @@ All the following sensors will be created :
 
 |Entity|Description|Enabled by default|
 |------|-----------|------------------|
-|`original_condition`|The current original weather condition|No|
 |`cloud`|The current cloud cover in %|Yes|
 |`daily_original_condition`|The daily original weather condition|No|
 |`freeze_chance`|Probability of temperature below 0°C in the following hours|Yes|
 |`next_rain`|Datetime of the next rain if expected within the next hour ([see note below](#about-next_rain-condition-sensor))|Yes|
+|`original_condition`|The current original weather condition|No|
 |`precipitation`|Precipitation cumulation for next 24 hours in mm|Yes|
 |`pressure`|The current pressure in hPa|No|
 |`rain_chance`|Probability of rain in the following hours|Yes|
