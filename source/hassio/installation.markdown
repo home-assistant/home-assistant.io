@@ -88,8 +88,10 @@ To install the Terminal & SSH add-on, choose **Supervisor**, which is located in
 Use the web-based terminal or SSH to your Home Assistant system, or connect to the console, and run:
 
 ```bash
-ha core update --version=0.XX.X
+ha core update --version=X.Y.Z
 ```
+
+Replacing `X.Y.Z` with your desired version (i.e., `2020.12.0` or `0.118.5`).
 
 ## Run the beta version of Home Assistant
 
