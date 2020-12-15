@@ -34,9 +34,9 @@ nextcloud:
 
 ```
 
-## Backup Home-Assistant to Nextcloud
+## Backup Home Assistant to Nextcloud
 
-Nextcloud users can also schedule automated Home-Assistant backups to Nextcloud using [Sebclem's](https://github.com/Sebclem) [Nextcloud Backup Add-On](https://github.com/Sebclem/hassio-nextcloud-backup).
+Nextcloud users can also schedule automated Home Assistant backups to Nextcloud using [Sebclem's](https://github.com/Sebclem) [Nextcloud Backup Add-On](https://github.com/Sebclem/hassio-nextcloud-backup).
 
 
 {% configuration %}
