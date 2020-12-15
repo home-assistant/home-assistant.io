@@ -1,0 +1,58 @@
+---
+title: "Setting up remote media sources"
+description: "More information on how to set up remote media sources in Home Assistant."
+---
+
+In order to use the media browser with Home Assistant, it needs to know where to
+find your remote media, e.g. a directory on your Network Attached Storage (NAS).
+
+## Home Assistant Core
+
+If you run Home Assistant Core directly in, for example, a Python virtual
+environment, you'll need to create a media folder yourself, update your file table
+and create a specific user on the remote system.
+
+By default, Home Assistant will look for the `media` folder inside your current
+Home Assistant configuration folder. As your media is sotred on your NAS
+the media folder shall direct to your NAS. In order to get there follow the
+steps below.
+
+First you need to create a user on the remote system, e.g. your NAS storage.
+Create a user strong password in your NAS web administration console.
+On my Synology NAS I created the user `homeassistant` with an automatically
+created password first. On the first login on the NAS web interface with
+the `homeassistant` user I changed the password to the final and strong one.
+
+Now move to your Home Assistant system and create a smb. file with the
+log-in credentials user you created on your NAS for remote access.
+
+For example, if your Home Assistant system user is `homeassistant`:
+
+`sudo nano /home/homeassistant/.smb`
+
+Add the following with the user credentials you created on your NAS:
+
+`username=<Username>`
+`password=<Password>`
+`domain=<Domain>`     <-- Optional
+
+Then create a folder on your Home Assistant system, e.g.
+
+`/media/music`
+
+Now we need to create a mount in the `/etc/fstab` to the remote NAS storage:
+
+`sudo nano /etc/fstab`
+
+Add the following line at the end of the fstab and replace the blanks:
+
+`//<NAS IP-Address>/music   /media/music    cifs    uid=0,credentials=/home/homessistant/.smb,iocharset=utf8,noperm        0       0`
+
+You close to completion. Mount the new entry in fstab with the following command:
+
+`sudo mount -a`
+
+When you now refresh your Home Assistant web page or switch to `Media` you
+should see your music. :)
+
+[basic-configuration]: /docs/configuration/basic/#media_dirs
