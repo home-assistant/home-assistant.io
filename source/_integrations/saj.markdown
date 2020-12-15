@@ -8,6 +8,7 @@ ha_config_flow: true
 ha_release: '0.100'
 ha_codeowners:
   - '@fredericvl'
+  - '@sanyatuning'
 ha_domain: saj
 ha_platforms:
   - sensor
