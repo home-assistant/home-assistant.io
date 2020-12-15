@@ -5,6 +5,7 @@ ha_category:
   - Energy
 logo: saj.png
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_release: '0.100'
 ha_codeowners:
   - '@fredericvl'
