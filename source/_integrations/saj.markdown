@@ -29,41 +29,6 @@ The Wi-Fi module requires a username and password for authentication where the e
 
 Note: You should set up fixed/static IP address for the inverter.
 
-## Manual configuration
-
-If you prefer to set up the integration in `configuration.yaml`, add the following lines:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: saj
-    host: IP_ADDRESS_OF_DEVICE
-```
-
-{% configuration %}
-host:
-  description: "The IP address of the SAJ Solar Inverter."
-  required: true
-  type: string
-name:
-  description: "An optional name for your SAJ Solar Inverter."
-  required: false
-  type: string
-type:
-  description: "Type of connection module: 'ethernet' or 'wifi'"
-  required: false
-  default: ethernet
-  type: string
-username:
-  description: "Username for logging in to SAJ Solar Inverter (only used when type is 'wifi' but can be skipped if the inverter still has the default credentials set: admin/admin)"
-  required: false
-  type: string
-password:
-  description: "Password for logging in to SAJ Solar Inverter (only used when type is 'wifi' but can be skipped if the inverter still has the default credentials set: admin/admin)"
-  required: false
-  type: string
-{% endconfiguration %}
-
 ## Sensors
 
 Sensors available in the integration:
@@ -79,15 +44,3 @@ Sensors available in the integration:
 | total_co2_reduced  | kg   | Total CO2 in kg reduced.                                                     |
 | temperature        | °C   | Temperature of the inverter.                                                 |
 | state              | N/A  | Live state of the inverter.                                                  |
-
-## Full configuration example for Wi-Fi inverters
-
-```yaml
-sensor:
-  - platform: saj
-    name: MY_INVERTER_NAME
-    host: IP_ADDRESS_OF_DEVICE
-    type: wifi
-    username: USERNAME
-    password: PASSWORD
-```
