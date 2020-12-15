@@ -161,7 +161,7 @@ Here are two example JSON payloads resulting in the same task:
 - **due_date_lang** (*Optional*): When `due_date_string` is set, it is possible to set the language.
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
-- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format. Mutually exclusive with `due_date_string`.
+- **due_date** (*Optional*): When the task should be due, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format  (in UTC timezone). Mutually exclusive with `due_date_string`.
 
 - **reminder_date_string** (*Optional*):  When should user be reminded of this task, in [natural language](https://get.todoist.help/hc/articles/205325931-Dates-and-Times). Mutually exclusive with `reminder_date`
 
