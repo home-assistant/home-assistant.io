@@ -168,6 +168,6 @@ Here are two example JSON payloads resulting in the same task:
 - **reminder_date_lang** (*Optional*): When `reminder_date_string` is set, it is possible to set the language.
   Valid languages are: `en`, `da`, `pl`, `zh`, `ko`, `de`, `pt`, `ja`, `it`, `fr`, `sv`, `ru`, `es`, `nl`
 
-- **reminder_date** (*Optional*): When should user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format. Mutually exclusive with `reminder_date_string`.
+- **reminder_date** (*Optional*): When should user be reminded of this task, in either YYYY-MM-DD format or YYYY-MM-DD HH:MM format (in UTC timezone). Mutually exclusive with `reminder_date_string`.
 
 Note that there's (currently) no way to mark tasks as done through Home Assistant; task names do not necessarily have to be unique, so you could find yourself in a situation where you close the wrong task.
