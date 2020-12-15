@@ -11,7 +11,7 @@ ha_codeowners:
   - '@balloob'
   - '@bieniu'
   - '@thecode'
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
 ha_config_flow: true
