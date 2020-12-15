@@ -166,8 +166,8 @@ a device as well. For example, your in-wall mounted switch controls a light in
 another room.
 
 <p class='img'>
-<img src='/images/blog/2020-12/entity-areas.png' alt='Screenshot of disabling a device'>
-Screenshot of disabling a device.
+<img src='/images/blog/2020-12/entity-areas.png' alt='Screenshot of assigning a entity to an area'>
+Screenshot of assigning a entity to an area.
 </p>
 
 Second improvement: The ID of a newly created area will now be based on the name
