@@ -125,4 +125,4 @@ If you would like to test next release before anyone else, you can install the b
 [ssh]: /addons/ssh/
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
 [configure]: /getting-started/configuration/
-[otg-usb]: hassio/flashing_n2_otg/
+[otg-usb]: /hassio/flashing_n2_otg/
