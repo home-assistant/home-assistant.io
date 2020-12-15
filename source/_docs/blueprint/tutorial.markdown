@@ -222,7 +222,7 @@ The final step is to share this blueprint with others.
 
 ### Informal Sharing
 
-For this tutorial we're going to share it on GitHub Gists.  If you don't want to publish your blueprint to a larger audience, and will just share it between friends/people in the commuinity that you know, this is a good option.
+For this tutorial we're going to share it on GitHub Gists. This is a good option if you don't want to publish your blueprint to a larger audience.
 
 - Go to [GitHub Gists](https://gist.github.com/)
 - Gist description: blueprint tutorial
@@ -234,4 +234,4 @@ You can now copy the URL of your new Gist and share it with other people. They c
 
 ### Share on the Blueprint Exchange
 
-If you follow the [Rules and format for posting](https://community.home-assistant.io/t/about-blueprints/253788), you can share your blueprint on the Home Assistant Blueprint Exchange forum.  This option is more accessible to the general Home Assistant community (but recommended only for your original blueprints, and not a re-implementation of the tutorial of course!)
+If you follow the [Rules and format for posting](https://community.home-assistant.io/t/about-blueprints/253788), you can share your blueprint on the Home Assistant Blueprint Exchange forum. This option is accessible to the general Home Assistant community, but recommended only for your original blueprints. Please don't post this tutorial to the Blueprint Exchange, but instead remember this as an option for releasing your real blueprints.
