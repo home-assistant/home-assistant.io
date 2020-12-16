@@ -47,6 +47,7 @@ Happy holidays, stay safe and for the last time this year: Enjoy the release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2020.12.1 - December 16](#release-2020121---december-16)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -263,6 +264,41 @@ The following integrations are now available via the Home Assistant UI:
 
 - [Aurora][aurora docs], done by [@djtimca]
 - [Recollect Waste][recollect_waste docs], done by [@bachya]
+
+## Release 2020.12.1 - December 16
+
+- Bump envoy_reader version to 0.17.3 ([@gtdiehl] - [#44205]) ([enphase_envoy docs])
+- Bump dsmr-parser to 0.25 ([@RobBie1221] - [#44223]) ([dsmr docs])
+- Fix unhandled KeyError in Recollect Waste ([@bachya] - [#44224]) ([recollect_waste docs])
+- Bump hatasmota to 0.1.6 ([@emontnemery] - [#44226]) ([tasmota docs])
+- Remove Home Assistant Cast user when removing entry ([@emontnemery] - [#44228]) ([cast docs])
+- Default smartenergy multiplier and divisor ([@dmulcahey] - [#44257]) ([zha docs])
+- Fix setting timestamp on input_datetime ([@balloob] - [#44274]) ([input_datetime docs])
+- Fix Shelly devices missing properties field ([@thecode] - [#44279]) ([shelly docs])
+
+[#44205]: https://github.com/home-assistant/core/pull/44205
+[#44223]: https://github.com/home-assistant/core/pull/44223
+[#44224]: https://github.com/home-assistant/core/pull/44224
+[#44226]: https://github.com/home-assistant/core/pull/44226
+[#44228]: https://github.com/home-assistant/core/pull/44228
+[#44257]: https://github.com/home-assistant/core/pull/44257
+[#44274]: https://github.com/home-assistant/core/pull/44274
+[#44279]: https://github.com/home-assistant/core/pull/44279
+[@RobBie1221]: https://github.com/RobBie1221
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@dmulcahey]: https://github.com/dmulcahey
+[@emontnemery]: https://github.com/emontnemery
+[@gtdiehl]: https://github.com/gtdiehl
+[@thecode]: https://github.com/thecode
+[cast docs]: /integrations/cast/
+[dsmr docs]: /integrations/dsmr/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[input_datetime docs]: /integrations/input_datetime/
+[recollect_waste docs]: /integrations/recollect_waste/
+[shelly docs]: /integrations/shelly/
+[tasmota docs]: /integrations/tasmota/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
