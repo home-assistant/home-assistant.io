@@ -8,21 +8,24 @@ ha_iot_class: Cloud Polling
 ha_domain: recollect_waste
 ---
 
-The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/). To use this sensor your city's waste company must be ReCollect and you will need to find your place_id and service_id.
+The `recollect_waste integration allows you to track the next scheduled waste pickup and
+what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).
 
-1. In Chrome open developer tools and go to the network tab.
-2. Go to your city's ReCollect collection calendar.
-3. Search for and select your address in the UI.
-4. Watch for a request that looks like
+To use this integration, you must know both your ReCollect Place and Service IDs.
 
-   ht<span>tps://api.recollect.net/api/places/**(place_id)**/services/**(service_id)**/events?nomerge ...
+In general, cities/municipalities that utilize ReCollect will give you a way to
+subscribe to a calendar with pickup dates. If you examine the iCal URL for this
+calendar, the Place and Service IDs are embedded in it:
 
-5. Use the place_id and service_id when configuring the sensor.
+```
+webcal://recollect.a.ssl.fastly.net/api/places/PLACE_ID/services/SERVICE_ID/events.en-US.ics
+```
 
 The default frequency for pulling data from ReCollect Waste is once a day (86400 seconds).
 
 <div class='note warning'>
-The ReCollect Waste sensor uses the ReCollect API <strong>URL</strong> to obtain data not an official API from ReCollect. Use at your own risk.
+The ReCollect Waste sensor uses the ReCollect API <strong>URL</strong> to obtain data and
+not an official API from ReCollect. Use at your own risk.
 </div>
 
 ## Configuration
