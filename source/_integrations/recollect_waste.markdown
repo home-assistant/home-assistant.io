@@ -8,14 +8,9 @@ ha_iot_class: Cloud Polling
 ha_domain: recollect_waste
 ---
 
-The `recollect_waste integration allows you to track the next scheduled waste pickup and
-what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).
+The `recollect_waste integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).
 
-To use this integration, you must know both your ReCollect Place and Service IDs.
-
-In general, cities/municipalities that utilize ReCollect will give you a way to
-subscribe to a calendar with pickup dates. If you examine the iCal URL for this
-calendar, the Place and Service IDs are embedded in it:
+To use this integration, you must know both your ReCollect Place and Service IDs. In general, cities/municipalities that utilize ReCollect will give you a way to subscribe to a calendar with pickup dates. If you examine the iCal URL for this calendar, the Place and Service IDs are embedded in it:
 
 ```
 webcal://recollect.a.ssl.fastly.net/api/places/PLACE_ID/services/SERVICE_ID/events.en-US.ics
@@ -24,11 +19,9 @@ webcal://recollect.a.ssl.fastly.net/api/places/PLACE_ID/services/SERVICE_ID/even
 The default frequency for pulling data from ReCollect Waste is once a day (86400 seconds).
 
 <div class='note warning'>
-The ReCollect Waste sensor uses the ReCollect API <strong>URL</strong> to obtain data and
-not an official API from ReCollect. Use at your own risk.
+The ReCollect Waste sensor uses the ReCollect API <strong>URL</strong> to obtain data and not an official API from ReCollect. Use at your own risk.
 </div>
 
 ## Configuration
 
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+This integration can be configured via the Home Assistant UI by navigating to **Configuration** -> **Integrations**.
