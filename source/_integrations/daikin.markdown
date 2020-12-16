@@ -110,3 +110,5 @@ AirBase and SKYFi units exposes zones (typically rooms) that can be switched on/
 Zones with the name `-` will be ignored, just as the AirBase application is working.
 
 </div>
+
+Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch.
