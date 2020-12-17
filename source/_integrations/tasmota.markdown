@@ -32,10 +32,10 @@ Tasmota Buttons, Fans, Lights, relays, Sensors, Shutters and Switches are suppor
 - Tasmota Lights will be added as Home Assistant `light` entities. Single channel Dimmers, RGB lights, RGB lights with Color Temperature control and RGB lights with White control are supported.
 - Tasmota Relays will be added as Home Assistant `switch` entities, if `SetOption30 = 0`. If `SetOption30 = 1`, relays will be added as `light` entities.
 - Tasmota Sensors will be added as Home Assistant `sensor` entities.
-- Tasmota Shutters will be added as Home Assistant `cover` entities.
+- Tasmota Shutters will be added as Home Assistant `cover` entities. Currently only Shutter modes 1 to 4 are supported. Shutter mode 5 and Tuya shutters are not supported.
 - Tasmota Switches will be added as Home Assistant `binary_sensor` entities or `automation triggers` depending by the `switchmode` used when `SetOption114` is enabled.
 - The integration will also create up to eight Status Sensors, each one with a different information. Please note all the Status Sensors are disabled by default.
-- The fan functionality in Tasmota devices with module configured as iFan02 or iFan03 will be added as Home Assistant `fan` entities.
+- The fan functionality in Tasmota devices with module configured as iFan02 or iFan03 will be added as Home Assistant `fan` entities. Tuya fans are not supported.
 
 ![iot](https://user-images.githubusercontent.com/7702766/99080146-a1d43980-259f-11eb-856b-addb53695381.png)
 
