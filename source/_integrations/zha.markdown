@@ -42,6 +42,12 @@ There is also support for grouping of lights, switches, and fans (i.e. support f
 
 ZHA integration uses a hardware independent Zigbee stack implementation with modular design which means that it can support any one of the many Zigbee coordinator radio modules/adapters available from different manufacturers, as long as that module/adapter is compatible with [zigpy](https://github.com/zigpy/zigpy).
 
+<div class="note warning">
+
+ZHA requires a robust connection between the zigpy radio library and the serial port of the Zigbee radio. With solutions such as _ITEAD Sonoff ZBBridge_ or a Ser2Net serial proxy connection over a WiFi network it is expected to see `NCP entered failed state. Requesting APP controller restart` in the logs. This is a normal part of the operation and indicates there was a drop in communication which caused packet loss to occurred between the zigpy radio library and the Zigbee radio. The use of serial network proxies/bridges/servers over WiFi is therefore not recommended when wanting a stable Zigbee environment in ZHA.
+
+</div>
+
 Note! Zigbee 3.0 support or not in zigpy, depends primarily on your Zigbee coordinator hardware and its firmware. Some Zigbee coordinator hardware supports Zigbee 3.0 but might be shipped with an older firmware which does not. In such a case you may want to upgrade the firmware manually yourself.
 
 Some other Zigbee coordinator hardware may not support a firmware that is capable of Zigbee 3.0 at all but can still be fully functional and feature-complete for your needs. This is very common as many, if not most, Zigbee devices do not yet Zigbee 3.0. As a general rule, newer Zigbee coordinator hardware generally supports Zigbee 3.0 firmware and it is up to its manufacturer to make such firmware available for them.
@@ -74,13 +80,6 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [ZiGate USB-DIN](https://zigate.fr/produit/zigate-usb-din/)
   - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
   - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/)
-
-<div class="note warning">
-
-The **EZSP** protocol requires a stable connection to the serial port. With _ITEAD Sonoff ZBBridge_ connecting over the WiFi network
-it is expected to see `NCP entered failed state. Requesting APP controller restart` in the logs. This is a normal part of the operation and indicates there was a drop in communication between ZHA and SonOff bridge.
-
-</div>
 
 ### Experimental support for additional Zigbee radio modules
 
