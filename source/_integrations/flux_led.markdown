@@ -45,7 +45,7 @@ The `flux_led` integration offers a custom service to enable you to set the ligh
 | `speed_pct` | The speed of the effect in % (0-100. Default 50) |
 | `transition` | The transition effect you would like. Valid options are `gradual`, `jump`, or `strobe`. (Default `gradual`) |
 
-```
+```yaml
 #Example Service Call
 entity_id: light.led_strip
 colors:
@@ -54,3 +54,4 @@ colors:
   - [0,0,255]
 speed_pct: 80
 transition: jump
+```
