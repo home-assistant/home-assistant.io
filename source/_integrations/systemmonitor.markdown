@@ -64,7 +64,7 @@ file.
 | packets_out            | Interface, e.g., `eth0`   | yes                       |
 | ipv4_address           | Interface, e.g., `eth0`   | yes                       |
 | ipv6_address           | Interface, e.g., `eth0`   | yes                       |
-| processor_use          |                           |                           |
+| processor_use_percent  |                           |                           |
 | processor_temperature  |                           |                           |
 | process                | Binary, e.g., `octave-cli` | yes                       |
 | last_boot              |                           |                           |
