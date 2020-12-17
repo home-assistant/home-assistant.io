@@ -1179,7 +1179,7 @@ switch:
           data:
             node_id: 3
             value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
-            value: "{{ states(scene_contrl_indicator)|int + 8 }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int + 8 }}"
         turn_off:
           service: zwave.set_node_value
           data:
