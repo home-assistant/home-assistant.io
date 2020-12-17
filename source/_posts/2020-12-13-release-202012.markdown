@@ -22,10 +22,10 @@ schedule is changing. Home Assistant Core will now be released every first
 Wednesday of the month!
 
 As most things are announced at the [Home Assistant Conference](/conference);
-more things will be added/tweak in these release notes the next couple of days.
+more things will be added/tweaked in these release notes the next couple of days.
 
 For me, this has been an exciting year! And thanks everybody for contributing
-to this amazing project, not matter what and how you contributed. You are all
+to this amazing project, no matter what and how you contributed. You are all
 amazing! ❤️
 
 With the Holiday season coming, it is time to slow down a bit, enjoy time with
