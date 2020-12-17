@@ -24,7 +24,7 @@ lock:
     host: 192.168.1.120
     token: fe2345ef
     # webhook_id is required to activate `Local Push`
-    webhook_id: some_hook_id
+    webhook_id: nuki
 ```
 
 {% configuration %}
@@ -52,10 +52,10 @@ The component defaults to `Local Polling`.
 
 To activate `Local Push`, it is required to provide a `webhook_id` in the configuration.
 
-It is also required to register the Home Assistant webhook URL `http://your-home-assistant:8123/api/webhook/some_hook_id` as a callback endpoint on your Nuki Bridge via the [Nuki Bridge HTTP API](https://developer.nuki.io/page/nuki-bridge-http-api-1-12/4#heading--callback-add):
+It is also required to register the Home Assistant webhook URL `http://your-home-assistant:8123/api/webhook/nuki` as a callback endpoint on your Nuki Bridge via the [Nuki Bridge HTTP API](https://developer.nuki.io/page/nuki-bridge-http-api-1-12/4#heading--callback-add):
 
 ```shell
-curl http://192.168.1.120:8080/callback/add?token=fe2345ef&url=http%3A%2F%2Fyour-home-assistant%3A8123%2Fapi%2Fwebhook%2Fsome_hook_id
+curl http://192.168.1.120:8080/callback/add?token=fe2345ef&url=http%3A%2F%2Fyour-home-assistant%3A8123%2Fapi%2Fwebhook%2Fnuki
 ```
 
 **Note:** The Bridge API doesn't support HTTPS URLs. Also make sure to URL encode the parameter values.
