@@ -29,6 +29,7 @@ Generate a Client ID and Client Secret on
 1. Click on the field on the right of the screen, 'CONFIGURE CONSENT SCREEN', select "External" and create.
 1. Set the 'Application Name' (the name of the application asking for consent) to anything you want. We suggest "Home-Assistant".
 1. You then need to select a `Support email`. To do this, simply click the drop down box and select your email address.
+1. You finally need to complete the section: `Developer contact information`. To do this, simply enter your email address (same as above is fine).
 1. Scroll to the bottom and click `save`. (You don't have to fill out anything else)
 1. You will then be automatically taken to the OAuth consent screen, you don't need to do anything here. Instead, click Credentials in the menu on the left hand side of the screen, then click `+ Create credentials` (at the top of the screen), then select `OAuth client ID`.
 1. Set the Application type to `TV and Limited Input` and give this credential set a name (like "Home Assistant Credentials") then click 'Create'.
