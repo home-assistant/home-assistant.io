@@ -202,6 +202,8 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 
 - *Subscriber error: Subscription misconfigured. Expected topic name to match ...* means that the topic name in the Google Cloud Console was entered incorrectly. The topic name comes from the Device Console and must start with `projects/sdm-prod/topics/`. It is easy to make the mistake of creating a new topic rather than manually entering the right topic name.
 
+- *Error 400: Invalid Request* This error typically happens when there is a mismatch with how you are accessing Home Assistant and the Authorized Redirect URI you entered for OAUTH. If you used a publicly facing URL make sure that you are accessing Home Assistant with the same URL when you setup the Integration. You will definitely hit this error if you are accessing Home Assistant by local IP during intial setup.
+
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receivng the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
