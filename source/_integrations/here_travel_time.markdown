@@ -94,7 +94,7 @@ arrival:
   required: false
   type: time
 departure:
-  description: "Time when travel is expected to end. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `arrival`. If departure is not provided each update of the sensor uses the current date and time." 
+  description: "Time when travel is expected to start. A 24 hour time string like `08:00:00`. On a sensor update it will be combined with the current date to get travel time for that moment. Cannot be used in combination with `arrival`. If departure is not provided each update of the sensor uses the current date and time." 
   required: false
   type: time
 unit_system:
