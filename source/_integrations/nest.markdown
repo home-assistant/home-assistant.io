@@ -185,6 +185,8 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
+- *Error 400: Invalid Request* This error typically happens when there is a mismatch with how you are accessing Home Assistant and the Authorized Redirect URI you entered for OAUTH. If you used a publicly facing URL make sure that you are accessing Home Assistant with the same URL when you setup the Integration. You will definitely hit this error if you are accessing Home Assistant by local IP during initial setup.
+
 - *Error 500: redirect_uri_mismatch* means that you need to visit the [GCP credentials](https://console.developers.google.com/apis/credentials) page and modify your OAuth2.0 Client ID to add the correct Home Assistant callback URL. The error message tells you the exact URL that needs to be added, including any ports or paths like `/auth/external/callback` path. See [Redirect URI mismatch](https://developers.google.com/nest/device-access/authorize#redirect_uri_mismatch) for more details.
 
     - A convienent solution is to use [Nabu Casa](https://www.nabucasa.com/)
@@ -201,8 +203,6 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 - *Subscriber error: Subscription misconfigured. Expected subscriber_id to match...* means that the `configuration.yaml` has an incorrect `subscriber_id` field. Re-enter the the *Subscription Name* which looks like `projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID`. Make sure this is not the *Topic name*.
 
 - *Subscriber error: Subscription misconfigured. Expected topic name to match ...* means that the topic name in the Google Cloud Console was entered incorrectly. The topic name comes from the Device Console and must start with `projects/sdm-prod/topics/`. It is easy to make the mistake of creating a new topic rather than manually entering the right topic name.
-
-- *Error 400: Invalid Request* This error typically happens when there is a mismatch with how you are accessing Home Assistant and the Authorized Redirect URI you entered for OAUTH. If you used a publicly facing URL make sure that you are accessing Home Assistant with the same URL when you setup the Integration. You will definitely hit this error if you are accessing Home Assistant by local IP during intial setup.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
 
