@@ -207,7 +207,7 @@ Reset the `manual_control` status of a light after an hour.
     event_type: adaptive_lighting.manual_control
   variables:
     light: "{{ trigger.event.data.entity_id }}"
-    switch: "{{ trigger.entity_id }}"
+    switch: "{{ trigger.event.data.switch }}"
   action:
     - delay: "01:00:00"
     - condition: template
