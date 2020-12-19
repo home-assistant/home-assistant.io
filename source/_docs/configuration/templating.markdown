@@ -480,4 +480,4 @@ The default priority of operators is that the filter (`|`) has priority over eve
 ```
 {% endraw %}
 
-Would round `10` to 2 decimal places, then divide `states('sensor.temperature')` by that.
+Would round `states('sensor.temperature')` to 2 decimal places, then divide `10` by that.
