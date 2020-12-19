@@ -221,6 +221,7 @@ As well as the exact values for the following attributes found in the state of y
 ## Advanced Use
 
 ### Ports
-This integration uses UDP port 1987 as the source port during runtime. During configuration, the source port will be UDP port 1988. These port assignments can be used to configure firewall rules. They can also be useful for mapping ports in Docker when not using the option `--net=host`.
+
+This integration uses UDP port 1987 as the source port during runtime. During configuration, the source port will be UDP port 1988. These port assignments can be used to configure firewall rules.
 
 In the event that these ports cannot be used, the ports will fallback to a random port.
