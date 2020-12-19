@@ -140,7 +140,12 @@ take_over_control:
   type: boolean
 detect_non_ha_changes:
   description: Whether to detect state changes and stop adapting lights, even not from `light.turn_on`. Needs `take_over_control` to be enabled. Note that by enabling this option, it calls 'homeassistant.update_entity' every 'interval'!
-  required: inclusive
+  required: false
+  default: false
+  type: boolean
+separate_turn_on_commands:
+  description: Whether to use separate `light.turn_on` calls for color and brightness, needed for some types of lights.
+  required: false
   default: false
   type: boolean
 {% endconfiguration %}
