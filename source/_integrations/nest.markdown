@@ -112,7 +112,7 @@ The next phase is to enable the Pub/Sub API by creating a subscription that can 
 1. You will need to pick a *Subscription ID*.
     ![Screenshot of creating a subscription](/images/integrations/nest/create_subscription.png)
 
-1. The *Topic name* should match the topic name in your project in the [Device Access Console](https://console.nest.google.com/device-access/) and typically looks like `projects/sdm-prod/topics/EXAMPLE`.  The SDM topic names do not show up by default so make sure to **Enter topic manually**.
+1. The *Topic name* should match the topic name in your project in the [Device Access Console](https://console.nest.google.com/device-access/) and typically looks like `projects/sdm-prod/topics/EXAMPLE`. The SDM topic names do not show up by default so make sure to **Enter topic manually**.
     ![Screenshot of creating a topic](/images/integrations/nest/device_access_pubsub_topic.png)
 
 1. Select **Pull** as the *Delivery Type*.
