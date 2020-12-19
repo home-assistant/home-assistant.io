@@ -52,7 +52,7 @@ The full detailed instructions for account setup are available in the [Device Ac
 
 For the first phase, you will turn on the API and create the necessary credentials to have Home Assistant talk to the Nest API.
 
-1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page.  Click on the button **Go to the Device Access Console**.
+1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. Click on the button **Go to the Device Access Console**.
     ![Screenshot of Device Access Registration](/images/integrations/nest/device_access.png)
 
 1. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
@@ -112,7 +112,7 @@ The next phase is to enable the Pub/Sub API by creating a subscription that can 
 1. You will need to pick a *Subscription ID*.
     ![Screenshot of creating a subscription](/images/integrations/nest/create_subscription.png)
 
-1. The *Topic name* should match the topic name in your project in the [Device Access Console](https://console.nest.google.com/device-access/) and typically looks like `projects/sdm-prod/topics/EXAMPLE`.
+1. The *Topic name* should match the topic name in your project in the [Device Access Console](https://console.nest.google.com/device-access/) and typically looks like `projects/sdm-prod/topics/EXAMPLE`. The SDM topic names do not show up by default so make sure to **Enter topic manually**.
     ![Screenshot of creating a topic](/images/integrations/nest/device_access_pubsub_topic.png)
 
 1. Select **Pull** as the *Delivery Type*.
@@ -195,6 +195,12 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
 - *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
+
+- *Thermostat not created* may be resolved by restarting the *Nest Thermostat*. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+
+- *Subscriber error: Subscription misconfigured. Expected subscriber_id to match...* means that the `configuration.yaml` has an incorrect `subscriber_id` field. Re-enter the the *Subscription Name* which looks like `projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID`. Make sure this is not the *Topic name*.
+
+- *Subscriber error: Subscription misconfigured. Expected topic name to match ...* means that the topic name in the Google Cloud Console was entered incorrectly. The topic name comes from the Device Console and must start with `projects/sdm-prod/topics/`. It is easy to make the mistake of creating a new topic rather than manually entering the right topic name.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
 
