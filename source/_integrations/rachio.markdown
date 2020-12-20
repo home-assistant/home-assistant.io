@@ -139,6 +139,27 @@ Rachio allows for setting the moisture percentage of a zone or group of zones. A
 | `entity_id` | yes | String, list or group of zones to set moisture percentage.
 | `percent` | no | Integer of the desired moisture percentage. Accepts 0-100.
 
+### Service `rachio.pause_watering`
+
+Pause a currently running schedule.
+
+This service will not be available if only a Generation 1 controller is on the account, as these controllers do not support pause or resume.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `devices` | yes | Name of the controller(s) to pause. If not given, will pause all running controllers on the account.
+| `duration` | yes | Duration in minutes to pause. Accepts 1-60. Defaults to 60 minutes if not specified.
+
+### Service `rachio.resume_watering`
+
+Resume a currently paused schedule.
+
+This service will not be available if only a Generation 1 controller is on the account, as these controllers do not support pause or resume.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `devices` | yes | Name of the controller(s) to resume. If not given, will resume all paused controllers on the account.
+
 ## Examples
 
 In this section, you find some real-life examples of how to use this switch.

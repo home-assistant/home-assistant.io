@@ -11,6 +11,7 @@ ha_category:
   - Sensor
   - Switch
   - Cover
+  - Number
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -33,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - Fan
 - Light
 - Lock
+- Number (i.e. analog output)
 - Sensor
 - Switch
 
