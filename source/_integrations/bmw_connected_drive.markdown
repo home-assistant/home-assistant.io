@@ -127,7 +127,7 @@ action:
 
 ## Services
 
-The `bmw_connected_drive` integration offers several services. In case you need to provide the vehicle identification number (VIN) as a parameter, you can see the VIN in the `Firmware` field of the device info page. The VIN is a 17 digit alphanumeric string, e.g., `WBANXXXXXX1234567`.
+The `bmw_connected_drive` integration offers several services. In case you need to provide the vehicle identification number (VIN) as a parameter, you can see the VIN as attribute of all enties, e.g. (binary) sensors or the device tracker. The VIN is a 17 digit alphanumeric string, e.g., `WBANXXXXXX1234567`.
 
 Using these services will impact the state of your vehicle. So use these services with care!
 
