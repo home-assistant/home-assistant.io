@@ -93,7 +93,7 @@ Can be configured on the WLED itself under settings > Sync Interfaces > WLED Bro
 
 ## Services
 
-Currently, the WLED integration provides one service for controlling effect.
+Currently, the WLED integration provides four services for controlling devices.
 More services for other WLED features are expected to be added in the future.
 
 ### Service `wled.effect`
@@ -122,3 +122,19 @@ This service allows for loading a preset saved on the WLED device.
 | `preset`               | no       | ID of the preset slot to load from.                                                                             |
 
 More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
+
+### Service `wled.random_effect`
+
+This service selects a random effect from the available effects and activates it.
+
+| Service Data Attribute | Required | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | A WLED entity ID, or list entity IDs, to apply the effect to. Use `entity_id: all` to target all WLED entities. |
+
+### Service `wled.random_palette`
+
+This service selects a random palette from the available color palettes and activates it.
+
+| Service Data Attribute | Required | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | A WLED entity ID, or list entity IDs, to apply the effect to. Use `entity_id: all` to target all WLED entities. |
