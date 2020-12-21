@@ -185,6 +185,8 @@ Once your developer account is set up and you have a valid `nest` entry in `conf
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
+- *Error 400: Invalid Request* This error typically happens when there is a mismatch between how you are accessing Home Assistant and the Authorized Redirect URI you entered for OAuth. If you used a publicly facing URL, make sure that you are accessing Home Assistant with the same URL when you set up the integration. You will definitely hit this error if you are accessing Home Assistant by local IP during the initial setup.
+
 - *Error 500: redirect_uri_mismatch* means that you need to visit the [GCP credentials](https://console.developers.google.com/apis/credentials) page and modify your OAuth2.0 Client ID to add the correct Home Assistant callback URL. The error message tells you the exact URL that needs to be added, including any ports or paths like `/auth/external/callback` path. See [Redirect URI mismatch](https://developers.google.com/nest/device-access/authorize#redirect_uri_mismatch) for more details.
 
     - A convienent solution is to use [Nabu Casa](https://www.nabucasa.com/)
