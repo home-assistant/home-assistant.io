@@ -35,7 +35,7 @@ Home Assistant is integrated with the following devices through the SDM API:
 
 - Thermostat Devices
   - Every thermostat is exposed as a `climate` entity
-  - Temperature and Humidity sensors each have a `sensor` entity
+  - A single Temperature `sensor` entity and Humidity `sensor` entity.  (Additional temp sensors not supported)
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
   - The camera live stream is available as a `camera` entity
