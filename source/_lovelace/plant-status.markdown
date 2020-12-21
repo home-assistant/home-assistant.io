@@ -16,7 +16,7 @@ To add the Plant Status card to your user interface, click the Lovelace menu (th
 {% configuration %}
 type:
   required: true
-  description: `plant-status`
+  description: "`plant-status`"
   type: string
 entity:
   required: true
