@@ -1407,6 +1407,7 @@ In addition to [all of the attributes provided by the `vacuum` component](/integ
 - `total_cleaning_time`
 - `clean_start`
 - `clean_end`
+- `mop_attached`
 
 The following table shows the units of measurement for each attribute:
 
@@ -1423,7 +1424,8 @@ The following table shows the units of measurement for each attribute:
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
 | `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
-| `clean_stop`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `clean_stop`              | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `mop_attached`            |                     | A mop and water box are attached / not attached                |
 
 ### Example on how to clean a specific room
 
