@@ -1102,10 +1102,6 @@ invert:
   required: false
   type: boolean
   default: False
-reset_after:
-  description: Reset the switch back to OFF after specified seconds.
-  required: false
-  type: float
 {% endconfiguration %}
 
 Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
