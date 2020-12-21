@@ -81,7 +81,7 @@ ssl:
 
 In this section you find some real-life examples of how to use this sensor.
 
-### Get Episodes airing in next 2 days
+### Show upcoming movie releases in the next 2 days
 
 ```yaml
 # Example configuration.yaml entry
