@@ -129,12 +129,16 @@ More information on presets [is documented in the WLED Wiki](https://github.com/
 
 You can automate changing the effect using a service call like this:
 
+{% raw %}
+
 ```yaml
 service: wled.effect
 data:
   entity_id: light.wled
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
 ```
+
+{% endraw %}
 
 ### Activating Random Palette
 
@@ -152,9 +156,13 @@ $ curl --silent http://<ip address of the wled device>/json | jq ".palettes | le
 
 In this case (using WLED v0.11.0) there are 54 palettes, so the following service call will activate a random palette by its ID between 0 and 53:
 
+{% raw %}
+
 ```yaml
 service: wled.effect
 data:
   entity_id: light.wled
   palette: "{{ range(0,53) | random }}"
 ```
+
+{% endraw %}
