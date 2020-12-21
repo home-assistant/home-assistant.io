@@ -33,9 +33,9 @@ There is support for the following platform types within Home Assistant:
 
 You will have to enter a name, a description and your redirect URL.
 
-If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`.
+If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`. 
 
-Please note that you must use a secure redirect URL (`https://`).
+Please note that your instance must be accessible via HTTPS. However, your instance does not need to be exposed to the Internet.
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
 
