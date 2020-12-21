@@ -5,6 +5,7 @@ logo: homeconnect.png
 ha_category:
   - Hub
   - Binary Sensor
+  - Light
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
@@ -22,6 +23,8 @@ The integration will add one Home Assistant device for each connected home appli
 - A power switch
 - If the device has programs, switches for each of the individual programs will be added. Note that program options cannot be configured currently.
 - If the device has programs, a timestamp sensor for remaining time and a numeric sensor for the progress percentage.
+- For hood's functional light a light switch including brightness control will be added.
+- For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
 
 Note that it depends on the appliance and on API permissions which of the features are supported. A notable limitation is that oven programs cannot be started currently.
 
