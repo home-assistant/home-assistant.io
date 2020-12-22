@@ -35,7 +35,8 @@ Home Assistant is integrated with the following devices through the SDM API:
 
 - Thermostat Devices
   - Every thermostat is exposed as a `climate` entity
-  - A single Temperature `sensor` entity and Humidity `sensor` entity.  (Additional temp sensors not supported)
+  - A Temperature `sensor` entity. Note: Additional Nest Temperature Sensors are not supported by the SDM API.
+  - A Humidity `sensor` entity.
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
   - The camera live stream is available as a `camera` entity
@@ -52,7 +53,7 @@ The full detailed instructions for account setup are available in the [Device Ac
 
 For the first phase, you will turn on the API and create the necessary credentials to have Home Assistant talk to the Nest API.
 
-1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page.  Click on the button **Go to the Device Access Console**.
+1. First go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. Click on the button **Go to the Device Access Console**.
     ![Screenshot of Device Access Registration](/images/integrations/nest/device_access.png)
 
 1. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
