@@ -21,17 +21,34 @@ Securitas Direct can be integrated by adding the following `securitas_direct` se
 
 ## Configuration
 
-1. From Home Assistant, navigate to ‘Configuration’ then ‘Integrations’. Click the plus icon and type/select ‘Securitas Direct’.
-1. Choose your platform `Securitas Direct`.
+1. From Home Assistant, navigate to ‘Configuration’ then ‘Integrations’.
+1. Click the plus icon and type/select ‘Securitas Direct’.
 1. Enter your credentials and installation configuration.
-
 1. Click the Save button.
 
-| Attribute | Description | Required |
-| --------- | ----------- | ----------- |
-| `username` | Username for your Securitas Direct account.| `yes`
-| `password` | Password for your Securitas Direct account. | `yes`
-| `installation` | The number of your installation. To find information on installations run `pysecuritas -u USERNAME -p PASSWORD -c COUNTRY -l LANGUAGE INS`.| `yes`
-| `country` | Country identification (`PT`, `ES`, `FR`, `GB`, `IT`,...).| `default ES`
-| `lang` | Messages language (`pt`, `es`, `fr`, `en`, `it`,...).| `default es`
-| `code` | PIN code to activate or deactivate alarm.| `no`
+{% configuration %}
+username:
+  description: Username for your Securitas Direct account.
+  required: true
+  type: string
+password:
+  description: Password for your Securitas Direct account.
+  required: true
+  type: string
+installation:
+  description: The number of your installation. To find information on installations run `pysecuritas -u USERNAME -p PASSWORD -c COUNTRY -l LANGUAGE INS`.
+  required: false
+  type: string
+country:
+  description: Country identification (PT, ES, FR, GB, IT,...)
+  required: false
+  type: string
+lang:
+  description: Message language (pt, es, fr, en, it,...)
+  required: false
+  type: string
+code:
+  description: PIN code to activate or deactivate alarm.
+  required: false
+  type: integer
+{% endconfiguration %}
