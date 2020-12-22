@@ -11,30 +11,24 @@ ha_config_flow: true
 ha_domain: jellyfin
 ---
 
-The `jellyfin` integration exposes a [Jellyfin](https://jellyfin.org/) server as a Media Source in Home Assistant.
+The Jellyfin integration exposes a [Jellyfin](https://jellyfin.org/) server as a Media Source in Home Assistant.
 Support is currently limited to music libraries only. Other libraries will not appear in the Media Browser. This integration has been tested with Jellyfin server version 10.6.4, but should support older versions as well.
 
 ## Configuration
 
 The Jellyfin integration is configured through the Home Assistant user interface. In the Configuration page, select Integrations and click on the `+` button and choose Jellyfin.
 
-{% configuration %}
+{% configuration_basic %}
 URL:
   description: The URL of the Jellyfin server. Please supply the full URL including the protocol and optional webroot. For example `https://media.example.com`, `http://10.1.1.100:8096` or `http://home.example.com/jellyfin`.
-  required: true
-  type: string
 Username:
-  description: The Jellyfin user which libraries you want to retrieve.
-  required: true
-  type: string
+  description: The Jellyfin user whose libraries you want to retrieve.
 Password:
   description: The password of the supplied user.
-  required: true
-  type: string
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Jellyfin server configuration
 
-The Jellyfin integration retrieves media items from your Jellyfin libraries using a Artist -> Album -> Track hierarchy. In order for the Media Browser to display thumbnails for Artists, Jellyfin has to include metadata for artists and albums. This is not enabled by default. 
+The Jellyfin integration retrieves media items from your Jellyfin libraries using an Artist -> Album -> Track hierarchy. In order for the Media Browser to display thumbnails for artists and albums, Jellyfin has to include metadata for artists and albums. This is not enabled by default.
 
-To enable this navigate to the Jellyfin dashboard and select Plugins. Choose which provider you would like to use for metadata retrieval (AudioDB and MusicBrainz are the two default providers) and select Settings. Enable the checkbox for "Enable this provider for metadata searches on artists and albums.".
+To enable this, navigate to the Jellyfin dashboard and select Plugins. Choose which provider you would like to use for metadata retrieval (AudioDB and MusicBrainz are the two default providers) and select Settings. Enable the checkbox for "Enable this provider for metadata searches on artists and albums.".
