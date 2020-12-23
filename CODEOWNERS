@@ -42,7 +42,6 @@ source/_integrations/aurora_abb_powerone.markdown @davet2001
 source/_integrations/auth.markdown @home-assistant/core
 source/_integrations/automation.markdown @home-assistant/core
 source/_integrations/avea.markdown @pattyland
-source/_integrations/avri.markdown @timvancann
 source/_integrations/awair.markdown @ahayworth @danielsjf
 source/_integrations/aws.markdown @awarecan
 source/_integrations/axis.markdown @Kane610
