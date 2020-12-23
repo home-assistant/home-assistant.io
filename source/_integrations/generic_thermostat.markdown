@@ -25,6 +25,10 @@ name:
   required: true
   default: Generic Thermostat
   type: string
+unique_id:
+  description: An ID that uniquely identifies this thermostat. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 heater:
   description: "`entity_id` for heater switch, must be a toggle device. Becomes air conditioning switch when `ac_mode` is set to `true`."
   required: true
