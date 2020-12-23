@@ -68,7 +68,7 @@ tts:
     cache_dir: /tmp/tts
     time_memory: 300
     base_url: http://192.168.0.10:8123
-    service_name: google_say
+    service_name: google_translate_say
 ```
 
 <div class='note'>
