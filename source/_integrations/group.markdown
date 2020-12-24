@@ -33,6 +33,19 @@ group:
       - device_tracker.dad_smith
       - device_tracker.mom_smith
 ```
+When using groups.yaml file you should not have the "group:" line and group names should then start in the first column.
+```yaml
+# Example groups.yaml entry
+kitchen:
+  name: Kitchen
+  entities:
+    - switch.kitchen_pin_3
+climate:
+  name: Climate
+  entities:
+    - sensor.bedroom_temp
+    - sensor.porch_temp
+```
 
 {% configuration %}
 name:
