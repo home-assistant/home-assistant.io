@@ -291,7 +291,7 @@ default_conversations:
 
 ### Finding the conversation ID
 
-The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in with the states developer tool that is shown as this icon <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> in the side bar. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like below.
+The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in **Developer Tools** -> **States**. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like below.
 
 ```json
 0: {

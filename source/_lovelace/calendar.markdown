@@ -4,12 +4,14 @@ sidebar_label: Calendar
 description: "The calendar card displays your calendar entities in a month, day and list view"
 ---
 
-The Calendar card displays your calendar entities in a month, day and list view.
+The Calendar card displays your [calendar](/integrations/#calendar) entities in a month, day and list view.
 
 <p class='img'>
   <img src='/images/lovelace/lovelace_calendar_card.png' alt='Screenshot of the calendar card'>
-  Screenshot of the calendar card.
+  Screenshot of the Calendar card.
 </p>
+
+To add the Calendar card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Calendar** from the card picker. All options for this card can be configured via the user interface.
 
 ### Card Settings
 

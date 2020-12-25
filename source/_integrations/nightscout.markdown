@@ -18,18 +18,18 @@ The Nightscout integration allows you to view your CGM data from [Nightscout](ht
 
 To add `Nightscout` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nightscout**.
 
-Then just input your server address in the `URL` field. For example:
+Then input your server address in the `URL` field. For example:
 
 - `https://localhost:5423`
 - `https://your-app-name.herokuapp.com`
 
-If your Nightscout instance requires authentication for API access, then also input the API Key in the configuration form.
+If your Nightscout instance requires authentication for API access, you are also required to input the API Key in the configuration form.
 
 ### Sensor
 
-If you have a sensor session running, and once you have enabled the Nightscout integration, you should see a `sensor.blood_glucose` entity.
+If you have a sensor session running, and you have enabled the Nightscout integration, you should see a `sensor.blood_glucose` entity.
 
-It's icon changes to indicate the direction or trend, of the glucose readings.
+The icon changes to indicate the direction or trend, of the glucose readings.
 The state is the last reading from Nightscout, and you can see other information about the reading in the sensor's attributes.
 
 ### Example Automation

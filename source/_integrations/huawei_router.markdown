@@ -12,7 +12,7 @@ ha_domain: huawei_router
 
 The `huawei` device tracker platform offers presence detection by looking at connected devices to a [Huawei router](http://m.huawei.com/enmobile/enterprise/products/network/access/pon-one/hw-371813.htm).
 
-Currently, this was only tested with the Huawei HG8247H, HS8247W and HG8247Q Smart Router (used by Vodafone Portugal).
+Currently, this was only tested with the Huawei HG8245W5, HG8247H, HS8247W and HG8247Q Smart Router (used by Vodafone Portugal).
 
 ## Configuration
 
@@ -33,7 +33,7 @@ host:
   required: true
   type: string
 username:
-  description: The username to login into the router (the same used trough the router's web interface).
+  description: The username to login into the router (the same used through the router's web interface).
   required: true
   type: string
 password:

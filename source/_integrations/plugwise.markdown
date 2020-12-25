@@ -16,16 +16,16 @@ ha_domain: plugwise
 ---
 
 This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
-The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol) and [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products. See below list for more details.
+The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) product. See below list for more details.
 
 Platforms available - depending on your Smile and setup include:
 
  - `climate` (for the Anna and Lisa products, or a single Tom)
  - `sensor` (for all relevant products including the Smile P1)
  - `binary_sensor` (for domestic hot water and secondary heater)
- - `switch` (for Plugs)
+ - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
 
-The password can be found on the bottom of your Smile, it should consist of 6 characters. To find your IP address use the Plugwise App: 
+The password can be found on the bottom of your Smile or Stretch, it should consist of 6 characters. To find your IP address use the Plugwise App: 
 
  - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
  - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
@@ -41,7 +41,7 @@ Centralized measurements such as 'power' for a P1, 'outdoor_temperature' on Anna
 
 ## Configuration
 
-The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located.
+The Plugwise Smile(s) present in your network will be automatically detected via Zeroconf discovery and will be shown on the Integrations-page. To set up an integration, click the "CONFIGURATION" button on the discovered integration and you will be presented with a dialog requesting your Smile password. After you click submit, you will have the opportunity to select the area(s) where individual Smile appliances are located. The username `smile` is shown as a default, when configuring your Stretch change this to `stretch` accordingly.
 
 Repeat the above procedure for each Smile gateway (i.e., if you have an Adam setup and a P1 DSMR you'll have to add two integrations).
 
@@ -142,12 +142,17 @@ Adam (zone_control):
 
 Anna (thermostat):
 
- - v4.0
- - v3.1
- - v1.8
+ - v4.x
+ - v3.x
+ - v1.x
 
 Smile P1 (DSMR):
 
- - v4.0
- - v3.3
- - v2.5
+ - v4.x
+ - v3.x
+ - v2.x
+
+Stretch (power switches):
+
+ - v3.x
+ - v2.x

@@ -4,6 +4,7 @@ description: Instructions on how to add user notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_release: 0.11
+ha_iot_class: Cloud Push
 ha_domain: free_mobile
 ---
 

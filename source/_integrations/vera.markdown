@@ -55,7 +55,7 @@ You can find the Vera device id either via the advanced properties of the device
 
 ### Using Z-Wave devices in automation
 
-If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the entity id on the left.
+If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under **Developer Tools** -> **States**. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the entity id on the left.
 
 ### Sensor
 

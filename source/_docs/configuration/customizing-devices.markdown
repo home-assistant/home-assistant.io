@@ -20,7 +20,7 @@ By default, all of your devices will be visible and have a default icon determin
 
 ### Customization using the UI
 
-Under the *Configuration* menu you'll find the *Customization* menu. If this menu item is not visible, enable advanced mode on your [profile page](/docs/authentication/#your-account-profile) first. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)). You may also need to add the following to your `configuration.yaml` file, depending when you started using Home Assistant:
+Under the *Configuration* menu you'll find the *Customizations* menu. If this menu item is not visible, enable advanced mode on your [profile page](/docs/authentication/#your-account-profile) first. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)). You may also need to add the following to your `configuration.yaml` file, depending when you started using Home Assistant:
 
 ```yaml
 homeassistant:
@@ -53,7 +53,7 @@ device_class:
   type: device_class
   default: None
 unit_of_measurement:
-  description: Defines the units of measurement, if any. This will also influence the graphical presentation in the history visualisation as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values.
+  description: Defines the units of measurement, if any. This will also influence the graphical presentation in the history visualization as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values.
   required: false
   type: string
   default: None

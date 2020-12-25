@@ -63,6 +63,10 @@ add_holidays:
   description: "Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`."
   required: false
   type: list
+remove_holidays:
+  description: "Remove holidays (treat holiday as workday). Needs to formatted as `YYYY-MM-DD`."
+  required: false
+  type: list
 {% endconfiguration %}
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
@@ -105,6 +109,20 @@ binary_sensor:
     excludes: [sat, sun, holiday]
     add_holidays:
       - '2020-02-24'
+```
+
+This example excludes Saturdays, Sundays and holidays. Two holidays are removed: November 26, 2020 and December 25, 2020.
+
+```yaml
+# Example 2 configuration.yaml entry
+binary_sensor:
+  - platform: workday
+    country: US
+    workdays: [mon, tue, wed, thu, fri]
+    excludes: [sat, sun, holiday]
+    remove_holidays:
+      - '2020-11-26'
+      - '2020-12-25'
 ```
 
 ## Automation example

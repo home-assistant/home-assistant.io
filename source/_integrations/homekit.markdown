@@ -156,6 +156,10 @@ homekit:
                 description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
                 type: string
+              linked_obstruction_sensor:
+                description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
+                required: false
+                type: string                
               low_battery_threshold:
                 description: Minimum battery level before the accessory starts reporting a low battery.
                 required: false
@@ -288,7 +292,7 @@ Currently, this integration uses the `entity_id` to generate a unique `accessory
 
 ### Device Limit
 
-The HomeKit Accessory Protocol Specification only allow a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 device limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to a bridge configured via `YAML`.
+The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 devices limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to a bridge configured via `YAML`.
 
 ### Persistence Storage
 
@@ -324,8 +328,6 @@ Please remember that you can only have a single `automation` entry. Add the auto
 
 </div>
 
-{% raw %}
-
 ```yaml
 # Example for Z-Wave
 homekit:
@@ -344,11 +346,7 @@ automation:
       - service: homekit.start
 ```
 
-{% endraw %}
-
 For a general delay where your integration doesn't generate an event, you can also do:
-
-{% raw %}
 
 ```yaml
 # Example using a delay after the start of Home Assistant
@@ -364,8 +362,6 @@ automation:
       - delay: 00:05  # Waits 5 minutes
       - service: homekit.start
 ```
-
-{% endraw %}
 
 In some cases it might be desirable to check that all entities are available before starting `HomeKit`. This can be accomplished by adding an additional `binary_sensor` as follows:
 
@@ -402,8 +398,6 @@ automation:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 homekit:
@@ -416,8 +410,6 @@ homekit:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -632,7 +624,7 @@ Check if the domain of your entity is [supported](#supported-components). If it 
 
 #### HomeKit doesn't work on second Home Assistant instance
 
-To use the HomeKit integration with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
+To use the HomeKit integration with two different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
 
 #### Specific entity doesn't work
 

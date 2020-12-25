@@ -19,7 +19,7 @@ description:
         </h1>
         Released:
         <span class="release-date"
-          >{{ site.date_released | date: "%B %d, %Y" }}</span
+          >{{ site.date_released | date: "%B %e, %Y" }}</span
         >
 
         <div class="links">
@@ -38,10 +38,10 @@ description:
 
       <a
         class="material-card picture-promo"
-        href="/blog/2020/10/01/hacktoberfest-2020/"
+        href="/conference/"
         style="
-          background-image: url(/images/frontpage/hacktoberfest.png);
-          padding-top: 57%;
+          background-image: url(/images/conference/frontpage-card.png);
+          padding-top: 43%;
         "
       ></a>
 
@@ -87,7 +87,7 @@ description:
       <div class="recent-posts material-card text">
         <h1>Recent Blog Posts</h1>
 
-        {% for post in site.posts limit: 7 %}
+        {% for post in site.posts limit: 4 %}
         <li class="post">
           <a href="{{ post.url }}">{{ post.title }}</a>
           <small class="blog-date">{{ post.date_formatted }}</small>

@@ -3,6 +3,7 @@ title: Cisco Webex Teams
 description: Instructions on how to add Cisco Webex Teams notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: '0.40'
 ha_codeowners:
   - '@fbradyirl'

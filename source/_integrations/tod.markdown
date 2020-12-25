@@ -52,7 +52,7 @@ after:
   required: true
   type: [string, time]
 after_offset:
-  description: The time offset of the beginning time range.
+  description: The time offset of the ending time range.
   type: time
   required: false
 {% endconfiguration %}

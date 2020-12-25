@@ -4,6 +4,7 @@ description: Instructions on how to setup IBM Watson TTS with Home Assistant.
 ha_category:
   - Text-to-speech
 ha_release: 0.94
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@rutkai'
 ha_domain: watson_tts

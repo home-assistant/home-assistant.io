@@ -5,6 +5,7 @@ logo: homeconnect.png
 ha_category:
   - Hub
   - Binary Sensor
+  - Light
   - Sensor
   - Switch
 ha_iot_class: Cloud Push
@@ -22,6 +23,8 @@ The integration will add one Home Assistant device for each connected home appli
 - A power switch
 - If the device has programs, switches for each of the individual programs will be added. Note that program options cannot be configured currently.
 - If the device has programs, a timestamp sensor for remaining time and a numeric sensor for the progress percentage.
+- For hood's functional light a light switch including brightness control will be added.
+- For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
 
 Note that it depends on the appliance and on API permissions which of the features are supported. A notable limitation is that oven programs cannot be started currently.
 
@@ -40,6 +43,9 @@ Note that it depends on the appliance and on API permissions which of the featur
 3. Add the client ID and client secret to your `configuration.yaml` (see below).
 4. Once Home Assistant has restarted, go to Configuration > Integrations.
 5. Select the Home Connect integration.
+6. You will be prompted to open a web page and authenticate your app with Home Connect.
+7. Use your Home Connect account details associated with your developer app (this may not be your developer account details you created but will be the account you use to login to the original Home Connect App from Bosch/Siemens).
+8. You will know it works when you are prompted to allow Home Assistant to access your Home Connect data, including the list of devices accessible to the original Home Connect app.
 
 ### Configuration
 

@@ -37,49 +37,8 @@ The integration can communicate to Node/Pro units over the local network. You wi
 
 ## Configuration
 
-Home Assistant offers AirVisual Node/Pro Unit integration through **Configuration -> Integrations -> AirVisual**. Choose "Integration Type: AirVisual Node/Pro" and follow the instructions to get it set up.
-
-The Cloud API integration can be done via the Integrations UI at **Configuration -> Integrations -> AirVisual** (Choose "Integration Type: Geographical Location") or via YAML. To enable the integration and gather data via latitude/longitude using YAML, add the following lines to your `configuration.yaml` file:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-Note that an API key-based entry can be mixed with one or more Node/Pro-based entries
-(examples below).
-
-{% configuration %}
-api_key:
-  description: Your AirVisual API key.
-  required: false
-  type: string
-geographies:
-  description: A list of geographical locations to monitor
-  required: false
-  type: [list, map]
-  keys:
-    latitude:
-      description: The latitude of the location to monitor.
-      required: inclusive
-      type: float
-    longitude:
-      description: The longitude of the location to monitor.
-      required: inclusive
-      type: float
-    city:
-      description: The city to monitor.
-      required: inclusive
-      type: string
-    state:
-      description: The state the city belongs to.
-      required: inclusive
-      type: string
-    country:
-      description: The country the state belongs to.
-      required: inclusive
-      type: string
-{% endconfiguration %}
+This integration can be configured via the Home Assistant UI by navigating to
+**Configuration** -> **Integrations**.
 
 ## Example Configurations
 

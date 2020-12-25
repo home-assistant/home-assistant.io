@@ -25,10 +25,12 @@ host:
   description: The IP address of your router, e.g., `192.168.1.1`. It is optional since every FRITZ!Box is also reachable by using the IP address 169.254.1.1.
   required: false
   type: string
+  default: 169.254.1.1
 username:
   description: The username of an user with administrative privileges, usually `admin`.
   required: false
   type: string
+  default: admin
 password:
   description: The password for your given admin account.
   required: false

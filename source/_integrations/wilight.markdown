@@ -5,6 +5,7 @@ ha_category:
   - Light
 ha_release: 0.115
 ha_config_flow: true
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@leofig-rj'
 ha_domain: wilight

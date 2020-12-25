@@ -3,6 +3,7 @@ title: Hikvision
 description: Instructions on how to integrate Hikvision camera switches into Home Assistant.
 ha_category:
   - Switch
+ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_codeowners:
   - '@fbradyirl'

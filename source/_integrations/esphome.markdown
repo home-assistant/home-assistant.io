@@ -23,4 +23,4 @@ An ESPHome device can be set up via the **Integrations** menu: **Configuration**
 * Complete the dialog box and click `SUBMIT`. 
     * **Host**: If the device is called `livingroom` in ESPHome, the hostname would be `livingroom.local`
     * **Port**: The default port is `6053`
-    * If the node has a password set, Home Assistant prompt for it. 
+    * If the node has a password set, Home Assistant prompt for it.

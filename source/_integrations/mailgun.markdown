@@ -3,6 +3,7 @@ title: Mailgun
 description: Instructions on how to add Mailgun mail notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.38
 ha_config_flow: true
 ha_domain: mailgun

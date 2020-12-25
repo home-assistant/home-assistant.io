@@ -21,6 +21,12 @@ To get the station ID for any NSW fuel station you will need to:
 - In the Fuel Check App, search for your postcode or click "Fuel Near Me".
 - In the developer console, you should see a request to `/FuelCheckApp/v1/fuel/prices/bylocation`. Open this request and preview the response. Find the station you wish to add, and copy down the `ServiceStationID` field.
 
+Alternatively:
+
+- Select a station you wish to find the ID for.
+- Select "Report this Station".
+- In the URL of the new page opened, locate `serviceStationId`.
+
 ## Configuration
 
 To add the NSW fuel station price sensor to your installation, add the following to your `configuration.yaml` file:

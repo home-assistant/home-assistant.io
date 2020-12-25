@@ -46,6 +46,10 @@ If Home Assistant, or substantially all of its assets, were acquired, or in the 
 
 Ads appearing on any of our websites may be delivered to users by advertising partners, who may set cookies. These cookies allow the ad server to recognize your computer each time they send you an online advertisement to compile information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This Privacy Policy covers the use of cookies by Home Assistant and does not cover the use of cookies by any advertisers.
 
+## Companion Applications
+
+All information collected by the applications is sent directly to your hosted instance of Home Assistant. This includes, but is not limited to, sensor data and location data, which at times is sent while the application is in the background. At no point is this data logged or given to a 3rd party.
+
 ## Privacy Policy Changes
 
 Although most changes are likely to be minor, Home Assistant may change its Privacy Policy from time to time, and in Home Assistant’s sole discretion. Home Assistant encourages visitors to frequently check this page for any changes to its Privacy Policy. Your continued use of this site after any change in this Privacy Policy will constitute your acceptance of such change.
@@ -53,6 +57,7 @@ Although most changes are likely to be minor, Home Assistant may change its Priv
 ### Change log
 
 - October 19, 2017: Initial version
+- October 19, 2020: Add information about Companion Applications
 
 _This privacy policy has been adapted from the [Automattic privacy policy][Home Assistant] and is licensed [Creative Commons ShareAlike][cc]._
 

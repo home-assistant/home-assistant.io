@@ -4,7 +4,7 @@ description: Instructions on how to integrate the Input Text integration into Ho
 ha_category:
   - Automation
 ha_release: 0.53
-ha_iot_class: ~
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -108,6 +108,7 @@ scene:
 Here's an example using `input_text` in an action in an automation.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry using 'input_text' in an action in an automation
 input_select:
@@ -136,4 +137,5 @@ automation:
           entity_id: input_text.bedroom
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
+
 {% endraw %}

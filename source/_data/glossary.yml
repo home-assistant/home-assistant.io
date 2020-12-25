@@ -22,6 +22,8 @@
   description: "[Device trackers](/integrations/device_tracker) are used to track the presence, or location, of a device."
 - topic: Discovery
   description: "[Discovery](/integrations/discovery/) is the automatic setup of zeroconf/mDNS and uPnP devices after they are discovered."
+- topic: Domain
+  description: "Entities and services belong to a domain, which is the first part of the entity or service, before the `.`. For example `light.kitchen` is an entity in the `light` domain, while `homeassistant.turn_on` is the `turn_on` service for the `homeassistant` domain."
 - topic: Entity
   description: "An [entity](/docs/configuration/platform_options/) is the representation of a function of a single device, unit, or web service. There may be multiple entities for a single device, unit, or web service, or there may be only one."
 - topic: Event

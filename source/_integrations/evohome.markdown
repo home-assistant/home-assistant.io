@@ -120,7 +120,6 @@ This service call will set the operating `mode` of the system for a specified pe
 
 For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 
-{% raw %}
 ```yaml
 - action:
     - service: evohome.set_system_mode
@@ -128,11 +127,9 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
         mode: AutoWithEco
         duration: {hours: 1, minutes: 30}
 ```
-{% endraw %}
 
 For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight tonight, and 2 days reverts at midnight tomorrow.
 
-{% raw %}
 ```yaml
 - action:
     - service: evohome.set_system_mode
@@ -140,7 +137,6 @@ For the other modes, such as **Away**, the duration is a `period` of days, where
         mode: Away
         period: {days: 30}
 ```
-{% endraw %}
 
 ### evohome.reset_system
 
@@ -156,7 +152,6 @@ This service call will immediately pull the latest state data from the vendor's 
 
 This service call will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided (c.f. a duration of 0, below), then the change is permanent (**PermanentOverride**).
 
-{% raw %}
 ```yaml
 - action:
     - service: evohome.set_zone_override
@@ -167,7 +162,6 @@ This service call will set the `setpoint` of a zone, as identified by its `entit
 
 The `duration` can be up to 24 hours, after which the zone mode will revert to schedule (**FollowSchedule**). If the `duration` is 0 hours, then the change will be until the next setpoint.
 
-{% raw %}
 ```yaml
 - action:
     - service: evohome.set_zone_override
@@ -176,7 +170,6 @@ The `duration` can be up to 24 hours, after which the zone mode will revert to s
         setpoint: 10
         duration: {minutes: 0}
 ```
-{% endraw %}
 
 ### evohome.clear_zone_override
 
@@ -189,6 +182,7 @@ The actual operating mode of Evohome entities can be tracked via their state att
 For the location (controller), see `system_mode_status`:
 
 {% raw %}
+
 ```text
 {% if state_attr('climate.my_home', 'status').system_mode_status.mode == "Away" %}
   The system is in Away mode
@@ -196,27 +190,33 @@ For the location (controller), see `system_mode_status`:
   The system is not in Away mode
 {% endif %}
 ```
+
 {% endraw %}
 
 For the Zones, it is `setpoint_status`:
 
 {% raw %}
+
 ```text
 {{ state_attr('climate.kitchen', 'status').setpoint_status.setpoint_mode }}
 ```
+
 {% endraw %}
 
 The Zones will expose the current/upcoming scheduled `setpoints`:
 
 {% raw %}
+
 ```text
 {{ state_attr('climate.kitchen', 'status').setpoints.next_sp_temp }}
 ```
+
 {% endraw %}
 
 All Evohome entities may have faults, and these can be turned into sensors, or:
 
 {% raw %}
+
 ```text
 {% if state_attr('climate.bedroom', 'status').active_faults %}
   {% if state_attr('climate.bedroom', 'status').active_faults[0].fault_type == 'TempZoneActuatorLowBattery' %}
@@ -227,4 +227,5 @@ All Evohome entities may have faults, and these can be turned into sensors, or:
   Yay, everything is OK :)
 {% endif %}
 ```
+
 {% endraw %}

@@ -150,6 +150,7 @@ When motion is detected, you can use the Blink Home Assistant integration to sav
 Again, this example assumes your camera's name (in the blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/configuration/templating/).
 
 {% raw %}
+
 ```yaml
 - id: save_blink_video_on_motion
   alias: Save Blink Video on Motion
@@ -162,6 +163,6 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
     data:
       name: "My Camera"
       filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
-
 ```
+
 {% endraw %}

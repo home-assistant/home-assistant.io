@@ -19,36 +19,13 @@ The `recollect_waste` integration allows you to track the next scheduled waste p
 
 5. Use the place_id and service_id when configuring the sensor.
 
-## Configuration
-
-To enable this sensor, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: recollect_waste
-    place_id: YOUR_PLACE_ID
-    service_id: YOUR_SERVICE_ID
-```
-
-{% configuration %}
-place_id:
-  description: The place_id used for your neighbourhood.
-  required: true
-  type: string
-service_id:
-  description: The service_id used for your city.
-  required: true
-  type: string
-name:
-  description: Name the sensor.
-  required: false
-  type: string
-  default: recollect_waste
-{% endconfiguration %}
-
 The default frequency for pulling data from Recollect Waste is once a day (86400 seconds).
 
 <div class='note warning'>
 The Recollect Waste sensor uses the Recollect API <strong>URL</strong> to obtain data not an official API from Recollect. Use at your own risk.
 </div>
+
+## Configuration
+
+This integration can be configured via the Home Assistant UI by navigating to
+**Configuration** -> **Integrations**.

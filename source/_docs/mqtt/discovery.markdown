@@ -12,6 +12,7 @@ Supported by MQTT discovery:
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
+- [Device Trackers](/integrations/device_tracker.mqtt/)
 - [Device Triggers](/integrations/device_trigger.mqtt/)
 - [Fans](/integrations/fan.mqtt/)
 - [HVACs](/integrations/climate.mqtt/)
@@ -22,20 +23,19 @@ Supported by MQTT discovery:
 - [Tag Scanners](/integrations/tag.mqtt/)
 - [Vacuums](/integrations/vacuum.mqtt/)
 
-To enable MQTT discovery, add the following to your `configuration.yaml` file:
+MQTT discovery is enabled by default. To disable MQTT discovery, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  discovery: true
-  discovery_prefix: homeassistant
+  discovery: false
 ```
 
 {% configuration %}
 discovery:
   description: If the MQTT discovery should be enabled or not.
   required: false
-  default: false
+  default: true
   type: boolean
 discovery_prefix:
   description: The prefix for the discovery topic.
@@ -277,6 +277,7 @@ The following software has built-in support for MQTT discovery:
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
+- [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 
 ## Examples
 
@@ -404,4 +405,37 @@ Setting up a climate integration (heat only):
   "target_temp":"21.50",
   "current_temp":"23.60",
 }
+```
+
+### Presence detection (device tracker)
+
+Setting up a device tracker:
+
+- Configuration topic: `homeassistant/device_tracker/paulus/config`
+- Example configuration payload:
+
+```json
+{
+  "name":"Paulus",
+  "state_topic": "homeassistant/device_tracker/paulus/state",
+  "payload_home": "home",
+  "payload_not_home": "not_home",
+  "source_type": "bluetooth",
+ }
+```
+
+- State topic: `homeassistant/device_tracker/paulus/state`
+- Example state payload: `home` or `not_home` or `location name`
+
+If the device supports gps co-ordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+
+- Attributes topic: `homeassistant/device_tracker/paulus/attributes`
+- Example attributes payload:
+
+```json
+{
+  "latitude": 32.87336,
+  "longitude": -117.22743,
+  "gps_accuracy": 1.2,
+ }
 ```

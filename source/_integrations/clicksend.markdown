@@ -54,7 +54,7 @@ recipient:
   required: true
   type: [string, list]
 sender:
-  description: The name or number of the sender.
+  description: The name or number of the sender. (Limited to 11 characters.)
   required: false
   type: string
   default: 'hass'

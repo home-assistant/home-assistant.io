@@ -4,7 +4,7 @@ description: Offers a frontend to Home Assistant.
 ha_category:
   - Other
 ha_release: 0.7
-ha_iot_class: ~
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/frontend'
@@ -19,11 +19,6 @@ frontend:
 ```
 
 {% configuration %}
-  javascript_version:
-    description: "DEPRECATED, it is now done using feature detection in the browser. Version of the JavaScript to serve to clients. Options: `es5` - transpiled so old browsers understand it.  `latest` - not transpiled, so will work on recent browsers only. `auto` - select a version according to the browser user-agent. The value in the configuration can be overiden by putting `es5` or `latest` in the URL. For example `http://localhost:8123/states?es5` "
-    required: false
-    type: string
-    default: auto
   themes:
     description: Allow to define different themes. See below for further details.
     required: false

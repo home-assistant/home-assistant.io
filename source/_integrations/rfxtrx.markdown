@@ -8,12 +8,13 @@ ha_category:
   - Switch
   - Binary Sensor
   - Sensor
+ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
   - '@elupus'
-  - '@Robbie1221'
+  - '@RobBie1221'
 ha_domain: rfxtrx
 ---
 
@@ -35,9 +36,11 @@ To receive debug logging from the RFXCOM device, add the following lines to `con
 
 ```yaml
 logger:
-  log:
+  logs:
     RFXtrx: debug
 ```
+
+**Please note**: `RFXtrx` is case-sensitive.
 
 ## Supported protocols
 
@@ -120,6 +123,10 @@ Copy the event code from the state attribute of the switch, which shows up on th
 ### Configure device options
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
+
+<div class='note warning'>
+If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
+</div>
 
 #### Signal repetitions
 
@@ -276,7 +283,7 @@ automation:
 
 - `rfxtrx.send`: Send a custom event using the RFXtrx device.
 
-#### Service: Send
+### Service: Send
 
 Simulate a button being pressed:
 
@@ -288,7 +295,6 @@ action:
     event: 0b1111e003af16aa10000060
 ```
 
-
 ## Generate codes
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
@@ -296,7 +302,7 @@ If you need to generate codes for switches and lights, you can use a template (u
 - Go to home-assistant-IP:8123/dev-template
 - Use the following codes to generate an event:
 
-*Switch: ARC*
+### Switch: ARC
 
 {% raw %}
 
@@ -306,7 +312,7 @@ If you need to generate codes for switches and lights, you can use a template (u
 
 {% endraw %}
 
-*Light: ARC*
+### Light: ARC
 
 {% raw %}
 
@@ -316,8 +322,8 @@ If you need to generate codes for switches and lights, you can use a template (u
 
 {% endraw %}
 
+### Light: Lightwave RF
 
-*Light: Lightwave RF*
 {% raw %}
 
 ```yaml
@@ -325,7 +331,6 @@ If you need to generate codes for switches and lights, you can use a template (u
 ```
 
 {% endraw %}
-
 
 - Use this code to add a new switch in the options menu.
 - Launch your Home Assistant and go to the website.

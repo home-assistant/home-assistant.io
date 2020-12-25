@@ -32,6 +32,18 @@ automation:
         - ANOTHER_USER_ID
 ```
 
+It is also possible to listen for multiple events at once. This is useful for
+event that contain no, or similar, data and contexts.
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type:
+      - automation_reloaded
+      - scene_reloaded
+```
+
 ### Home Assistant trigger
 
 Fires when Home Assistant starts up or shuts down.
@@ -314,6 +326,43 @@ Although the actual amount of light depends on weather, topography and land cove
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 
+### Tag trigger
+
+Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+scanned using the Home Assistant Companion mobile application.
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+```
+
+Additionally, you can also only trigger if a card is scanned by a specific
+device/scanner by setting the `device_id`:
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+    device_id: 0e19cd3cf2b311ea88f469a7512c307d
+```
+
+Or trigger on multiple possible devices for multiple tags:
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id:
+      - A7-6B-90-5F
+      - A7-6B-15-AC
+    device_id:
+      - 0e19cd3cf2b311ea88f469a7512c307d
+      - d0609cb25f4a13922bb27d8f86e4c821
+```
+
 ### Template trigger
 
 Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before the trigger will fire again.
@@ -350,30 +399,11 @@ automation:
 
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
-<div class='note warning'>
-  
-Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
-
-</div>
-
-As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
-
-{% raw %}
-
-```yaml
-automation:
-  trigger:
-    platform: template
-    value_template: "{{ (states.sensor.time.last_changed - states.YOUR.ENTITY.last_changed).total_seconds() > 300 }}"
-```
-
-{% endraw %}
-
-which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
+Templates that don't contain an entity will be rendered once per minute.
 
 ### Time trigger
 
-The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are two allowed formats:
+The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are three allowed formats:
 
 #### Time String
 
@@ -425,6 +455,20 @@ automation:
 
 {% endraw %}
 
+#### Sensors of datetime device class
+
+The Entity ID of a [sensor](/integrations/sensor/) with the "timestamp" device class.
+
+```yaml
+automation:
+  - trigger:
+      platform: time
+      at: sensor.phone_next_alarm
+    action:
+      service: light.turn_on
+      entity_id: light.bedroom
+```
+
 #### Multiple Times
 
 Multiple times can be provided in a list. Both formats can be intermixed.
@@ -471,7 +515,7 @@ Do not prefix numbers with a zero - using `'00'` instead of '0' for example will
 
 ### Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. 
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
 
 ```yaml
 automation:
@@ -486,7 +530,7 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS. 
+Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
 Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
 
@@ -551,7 +595,7 @@ It is possible to specify multiple entities for the same trigger. To do so add m
 automation:
   trigger:
     - platform: state
-      entity_id: 
+      entity_id:
         - sensor.one
         - sensor.two
         - sensor.three

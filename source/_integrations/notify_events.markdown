@@ -8,6 +8,7 @@ ha_domain: notify_events
 ha_codeowners:
   - '@matrozov'
   - '@papajojo'
+ha_iot_class: Cloud Push
 ---
 
 ## Description

@@ -13,6 +13,7 @@ ha_codeowners:
   - '@dshokouhi'
   - '@Santobert'
 ha_domain: neato
+ha_quality_scale: gold
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
@@ -24,40 +25,44 @@ There is support for the following platform types within Home Assistant:
 - **Switch** - allows you to enable or disable the schedule.
 - [**Vacuum**](#vacuum)
 
-To activate `neato` in your installation, you can set it up from the integration screen or add it to your `configuration.yaml` file.
+## Configuration
 
-## Setup the integration via the integrations screen
+1. Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
-Menu: *Configuration* -> *Integrations*
+<div class='note'>
 
-Search for or select **Neato** from the list and configure the integration. You will need to enter your username and password and whether you are using a Neato or Vorwerk device.
-After that, all the entities will automatically show up in Home Assistant.
+You will have to enter a name, a description and your redirect URL.
 
-## Setup the integration via `configuration.yaml`
+If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`. 
 
-Add the following to your configuration.yaml:
+Please note that your instance must be accessible via HTTPS. However, your instance does not need to be exposed to the Internet.
+
+You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
+
+</div>
+
+2. Add the newly created `client_id` and `client_secret` to your configuration.yaml:
 
 ```yaml
 # Example configuration.yaml entry
 neato:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  client_id: YOUR_CLIENT_ID
+  client_secret: YOUR_CLIENT_SECRET
 ```
 
+3. Restart Home Assistant
+4. Add Neato Botvac via *Configuration* -> *Integrations*
+5. Follow the instructions. After that, all the entities will automatically show up in Home Assistant.
+
 {% configuration %}
-username:
-  description: Username for the Neato account.
+client_id:
+  description: Client ID for the Neato account.
   required: true
   type: string
-password:
-  description: Password for the Neato account.
+client_secret:
+  description: Client Secret for the Neato account.
   required: true
   type: string
-vendor:
-  description: Support for additional vendors. Set to `vorwerk` for Vorwerk robots.
-  required: false
-  type: string
-  default: neato
 {% endconfiguration %}
 
 <div class='note'>

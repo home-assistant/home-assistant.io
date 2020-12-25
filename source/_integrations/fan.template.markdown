@@ -64,7 +64,7 @@ fan:
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this fan. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this fan. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
@@ -114,7 +114,3 @@ fan:
         type: [string, list]
         default: ['low', 'medium', 'high']
 {% endconfiguration %}
-
-### Working without entities
-
-If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.

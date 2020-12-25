@@ -73,6 +73,7 @@ The system can calculate group state with entities from the following domains:
 * lock
 * media_player
 * person
+* plant
 * remote
 * switch
 * vacuum

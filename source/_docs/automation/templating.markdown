@@ -167,6 +167,7 @@ The following tables show the available trigger data per platform.
 | `trigger.webhook_id` | The webhook ID that was triggered.
 | `trigger.json` | The JSON data of the request (if it had a JSON content type).
 | `trigger.data` | The form data of the request (if it had a form data content type).
+| `trigger.query` | The URL query parameters of the request (if provided).
 
 ### Zone
 

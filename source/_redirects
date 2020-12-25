@@ -4,6 +4,7 @@
 # General use redirects
 /join-chat https://discord.gg/BzQNTqK
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
+/get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -71,7 +72,6 @@
 /developers/multiple_instances https://developers.home-assistant.io
 /developers/platform_example_light https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_light
 /developers/platform_example_sensor https://github.com/home-assistant/example-custom-config/tree/master/custom_components/example_sensor
-/developers/python_api https://developers.home-assistant.io/docs/external_api_rest_python/
 /developers/releasing https://developers.home-assistant.io/docs/releasing/
 /developers/rest_api https://developers.home-assistant.io/docs/api/rest/
 /developers/server_sent_events https://developers.home-assistant.io/docs/external_api_server_sent_events/
@@ -94,7 +94,6 @@
 /components/alarm_control_panel.envisalink /integrations/envisalink
 /components/alarm_control_panel.homekit_controller /integrations/homekit_controller
 /components/alarm_control_panel.homematicip_cloud /integrations/homematicip_cloud
-/components/alarm_control_panel.ialarm /integrations/ialarm
 /components/alarm_control_panel.lupusec /integrations/lupusec
 /components/alarm_control_panel.manual /integrations/manual
 /components/alarm_control_panel.manual_mqtt /integrations/manual_mqtt
@@ -223,7 +222,7 @@
 /components/camera.doorbird /integrations/doorbird#camera
 /components/camera.familyhub /integrations/familyhub
 /components/camera.foscam /integrations/foscam
-/components/camera.generic /integrations/generic_ip_camera
+/components/camera.generic /integrations/generic
 /components/camera.local_file /integrations/local_file
 /components/camera.logi_circle /integrations/logi_circle#camera
 /components/camera.mjpeg /integrations/mjpeg
@@ -368,7 +367,6 @@
 /components/device_tracker.tplink /integrations/tplink
 /components/device_tracker.traccar /integrations/traccar
 /components/device_tracker.trackr /integrations/trackr
-/components/device_tracker.ubee /integrations/ubee
 /components/device_tracker.ubus /integrations/ubus
 /components/device_tracker.unifi /integrations/unifi
 /components/device_tracker.unifi_direct /integrations/unifi_direct
@@ -386,7 +384,7 @@
 /components/fan.wink /integrations/wink#fan
 /components/fan.zha /integrations/zha
 /components/fan.zwave /integrations/zwave
-/components/generic /integrations/generic_ip_camera
+/components/generic /integrations/generic
 /components/geo_location.geo_json_events /integrations/geo_json_events
 /components/geo_location.nsw_rural_fire_service_feed /integrations/nsw_rural_fire_service_feed
 /components/geo_location.usgs_earthquakes_feed /integrations/usgs_earthquakes_feed
@@ -605,7 +603,6 @@
 /components/notify.twitter /integrations/twitter
 /components/notify.webostv /integrations/webostv
 /components/notify.xmpp /integrations/xmpp
-/components/notify.yessssms /integrations/yessssms
 /components/openalpr /integrations/openalpr_local
 /components/pollen /integrations/iqvia
 /components/public_sensor.netatmo /integrations/netatmo
@@ -1369,7 +1366,7 @@
 /components/garadget /integrations/garadget
 /components/gc100 /integrations/gc100
 /components/geizhals /integrations/geizhals
-/components/generic_ip_camera /integrations/generic_ip_camera
+/components/generic_ip_camera /integrations/generic
 /components/generic_thermostat /integrations/generic_thermostat
 /components/geniushub /integrations/geniushub
 /components/geo_json_events /integrations/geo_json_events
@@ -1436,7 +1433,6 @@
 /components/hunterdouglas_powerview /integrations/hunterdouglas_powerview
 /components/hydrawise /integrations/hydrawise
 /components/hyperion /integrations/hyperion
-/components/ialarm /integrations/ialarm
 /components/iaqualink /integrations/iaqualink
 /components/icloud /integrations/icloud
 /components/idteck_prox /integrations/idteck_prox
@@ -1919,7 +1915,6 @@
 /components/twilio_sms /integrations/twilio_sms
 /components/twitch /integrations/twitch
 /components/twitter /integrations/twitter
-/components/ubee /integrations/ubee
 /components/ubus /integrations/ubus
 /components/ue_smart_radio /integrations/ue_smart_radio
 /components/uk_transport /integrations/uk_transport
@@ -2003,7 +1998,6 @@
 /components/yandextts /integrations/yandextts
 /components/yeelight /integrations/yeelight
 /components/yeelightsunflower /integrations/yeelightsunflower
-/components/yessssms /integrations/yessssms
 /components/yi /integrations/yi
 /components/zabbix /integrations/zabbix
 /components/zamg /integrations/zamg
@@ -2021,6 +2015,7 @@
 # Breaking changes
 /integrations/switch.pca /integrations/elv
 /integrations/synologydsm /integrations/synology_dsm
+/integrations/generic_ip_camera /integrations/generic
 /integrations/telegram_chatbot /integrations/telegram_bot
 
 # Moved documentation
@@ -2056,6 +2051,8 @@
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
 /integrations/auth /docs/authentication
+/integrations/automation /docs/automation
+/integrations/blueprint /docs/automation/using_blueprints
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/cover.knx /integrations/knx#cover
@@ -2098,6 +2095,7 @@
 /getting-started/z-wave-installation /docs/z-wave/installation
 /getting-started/z-wave-panel /docs/z-wave/control-panel
 /getting-started/z-wave-device-specific /docs/z-wave/device-specific
+/hassio/zwave /docs/z-wave
 /topics/events /docs/configuration/events
 /topics/packages /docs/configuration/packages
 /topics/platform_options /docs/configuration/platform_options

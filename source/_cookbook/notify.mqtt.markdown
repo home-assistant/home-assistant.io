@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 
 The MQTT notification support is different than the other [notification](/integrations/notify/) platforms. It is a service. This means that you don't have to create a configuration entry but you need to provide more details when calling the service.
 
-**Call Service** section from the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Developer Tools** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+**Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 
 ```json
 {"payload": "Test message from HA", "topic": "home/notification", "qos": 0, "retain": 0}

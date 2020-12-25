@@ -20,12 +20,14 @@ There is currently support for the following device types within Home Assistant:
 - **CO Detector**: reports on the carbon monoxide sensor status*.
 - **Entry Sensor**: reports on the current entry sensor status*.
 - **Freeze Sensor**: reports on the freeze sensor temperature*.
+- **Glass Break Sensor**: reports on the glass breakage sensor status*.
 - **Lock**: reports on `Door Locks` and can be used to lock and unlock a lock.
 - **Motion Sensor**: triggers [events](#events) if the alarm is armed or if secret alerts are enabled in SimpliSafe.
+- **Siren**: reports on the siren status*.
 - **Smoke Detector**: reports on the smoke sensor status*.
 - **Water Sensor**: reports on water sensor status*.
 
-* Sensor status is updated only once every 30 seconds, so information displayed in Home Assistant may be delayed.
+* Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
 ## Configuration
 
