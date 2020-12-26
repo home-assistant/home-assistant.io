@@ -498,7 +498,7 @@ setpoint_shift_state_address:
   required: false
   type: string
 setpoint_shift_mode:
-  description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'
+  description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
   required: false
   default: 0.5
   type: string
