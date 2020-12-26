@@ -20,73 +20,11 @@ There is currently support for the following device types within Home Assistant:
 - **Presence Detection** - The ASUSWRT platform offers presence detection by looking at connected devices to a ASUSWRT based router.
 - **Sensor** - The ASUSWRT sensor platform allows you to get upload and download data from your ASUSWRT within Home Assistant.
 
-## Configuration via frontend
+## Configuration
 
 To add your ASUSWRT devices into your Home Assistant installation, go to:
 
 **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **ASUSWRT**.
-
-### Configuration via YAML
-
-_YAML configuration is still around for people that prefer YAML, but it's deprecated, and you should not use it anymore._
-
-To use an ASUSWRT router in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-asuswrt:
-  host: YOUR_ROUTER_IP
-  username: YOUR_ADMIN_USERNAME
-```
-
-{% configuration %}
-host:
-  description: "The IP address of your router, e.g., `192.168.1.1`."
-  required: true
-  type: string
-username:
-  description: "The username of a user with administrative privileges, usually `admin`."
-  required: true
-  type: string
-password:
-  description: "The password for your given admin account (use this if no SSH key is given)."
-  required: false
-  type: string
-protocol:
-  description: "The protocol (`ssh` or `telnet`) to use."
-  required: false
-  type: string
-  default: ssh
-port:
-  description: SSH port to use.
-  required: false
-  type: integer
-  default: 22
-mode:
-  description: "The operating mode of the router (`router` or `ap`)."
-  required: false
-  type: string
-  default: router
-ssh_key:
-  description: The path to your SSH private key file associated with your given admin account (instead of password).
-  required: false
-  type: string
-require_ip:
-  description: If the router is in access point mode.
-  required: false
-  type: boolean
-  default: true
-interface:
-  description: "The interface of the router that you want statistics from (e.g. eth0,eth1 etc)"
-  required: false
-  type: string
-  default: eth0
-dnsmasq:
-  description: "The location of the dnsmasq.leases files"
-  required: false
-  type: string
-  default: /var/lib/misc 
-{% endconfiguration %}
 
 <div class='note warning'>
 
@@ -94,7 +32,7 @@ You need to enable telnet on your router if you choose to use `protocol: telnet`
 
 </div>
 
-## Sensor Configuration
+### Sensor Configuration
 
 These sensors are automatically created in status **disabled** and associated to the router device:
 
