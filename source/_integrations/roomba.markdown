@@ -99,7 +99,7 @@ Please refer to [here](https://github.com/NickWaterton/Roomba980-Python#how-to-g
 For Home Assistant Container, the following command retrieves the BLID (username) and password:
 
 ```shell
-docker exec -it CONTAINER_NAME_OR_ID python -c 'import roomba.entry_points; roomba.entry_points.password()' ROOMBA_IP
+docker exec -it CONTAINER_NAME_OR_ID python -c 'import roombapy.entry_points; roombapy.entry_points.password()' ROOMBA_IP
 ```
 
 <div class='note'>
