@@ -490,15 +490,15 @@ target_temperature_state_address:
   required: true
   type: string
 setpoint_shift_address:
-  description: KNX address for setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
+  description: KNX address for setpoint_shift. *DPT 6.010 or DPT 9.002 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_state_address:
-  description: KNX address for reading setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
+  description: KNX address for reading setpoint_shift. *DPT 6.010 or DPT 9.002 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_mode:
-  description: Defines the internal device DPT used.
+  description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
   required: false
   default: 0.5
   type: string
