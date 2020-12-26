@@ -48,6 +48,13 @@ qos: 2
 retain: true
 ```
 
+Example of how to publish a Tasmota command (LedPower 2):
+
+```yaml
+topic: your_tasmota_device_name_topic/cmnd/LEDPOWER
+payload: 2
+```
+
 ### Service `mqtt.dump`
 
 Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
