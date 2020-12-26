@@ -13,6 +13,10 @@ ha_domain: rpi_gpio
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
 
+## Prerequisites
+
+* 32-bit installation is required for GPIO support
+
 ## Binary Sensor
 
 The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
