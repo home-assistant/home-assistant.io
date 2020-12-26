@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: terncy
 ---
 
-The `Terncy` integration allows you to control your Terncy devices connected to the Terncy Home Center (a ZigBee gateway) with Home Assistant.
+The `Terncy` integration allows you to control your Terncy devices connected to the Terncy Home Center (a Zigbee gateway) with Home Assistant.
 
 The Terncy integration is automatically discovered. If not, add it via the add integration menu.
 
