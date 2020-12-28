@@ -186,9 +186,9 @@ automation:
         # 09:00 - 21:00 = peak
         # 21:00 - 09:00 = offpeak
         tariff: >-
-          {% if now().hour < 9 %}
+          {% if now().strftime('%T') < '09:00:00' %}
           offpeak
-          {% elif now().hour < 22 %}
+          {% elif now().strftime('%T') < '22:00:00' %}
           peak
           {% else %}
           offpeak
