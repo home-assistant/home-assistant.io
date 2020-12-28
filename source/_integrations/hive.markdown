@@ -23,37 +23,22 @@ This integration uses the unofficial API used in the official Hive website [http
 
 There is currently support for the following platforms within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
-- [Climate](#climate)
-- [Light](#light)
-- [Sensor](#sensor)
-- [Switch](#switch)
-- [Water Heater](#water-heater)
+- [Configuration](#configuration)
+- [Services](#services)
+  - [Service `hive.boost_heating`](#service-hiveboost_heating)
+  - [Service `hive.boost_hot_water`](#service-hiveboost_hot_water)
+- [Platforms](#platforms)
+  - [Binary Sensor](#binary-sensor)
+  - [Climate](#climate)
+  - [Light](#light)
+  - [Sensor](#sensor)
+  - [Switch](#switch)
+  - [Water Heater](#water-heater)
 
-To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
+## Configuration
+Go to the integrations page in your configuration and click on new integration -> Hive.
 
-```yaml
-# Example configuration.yaml entry
-hive:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your username from [https://my.hivehome.com](https://my.hivehome.com).
-  required: true
-  type: string
-password:
-  description: Your password from [https://my.hivehome.com](https://my.hivehome.com).
-  required: true
-  type: string
-scan_interval:
-  description: The time in minutes between Hive API calls
-  required: false
-  type: integer
-  default: 2
-{% endconfiguration %}
+YAML configuration is no longer available because it cannot handle two-factor authentication.
 
 ## Services
 
