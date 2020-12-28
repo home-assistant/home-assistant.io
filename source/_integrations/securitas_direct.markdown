@@ -26,29 +26,17 @@ Securitas Direct can be integrated by adding the following `securitas_direct` se
 1. Enter your credentials and installation configuration.
 1. Click the Save button.
 
-{% configuration %}
-username:
+{% configuration_basic %}
+Username:
   description: Username for your Securitas Direct account.
-  required: true
-  type: string
-password:
+Password:
   description: Password for your Securitas Direct account.
-  required: true
-  type: string
-installation:
+Installation:
   description: The number of your installation. To find information on installations run `pysecuritas -u USERNAME -p PASSWORD -c COUNTRY -l LANGUAGE INS`.
-  required: false
-  type: string
-country:
+Country:
   description: Country identification (PT, ES, FR, GB, IT,...)
-  required: false
-  type: string
-lang:
+Language:
   description: Message language (pt, es, fr, en, it,...)
-  required: false
-  type: string
-code:
+Code:
   description: PIN code to activate or deactivate alarm.
-  required: false
-  type: integer
-{% endconfiguration %}
+{% endconfiguration_basic %}
