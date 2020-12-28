@@ -477,4 +477,22 @@ front_yard:
     - camera.front_porch
 ```
 
+### Example: Combine `!include_dir_merge_list` with `automations.yaml`
+
+You want to go the advanced route and split your automations, but still want to be able to create automations in the UI?
+In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
+
+Using labels like `manual` or `ui` allows for using multiple keys in the config:
+
+`configuration.yaml`
+
+```yaml
+
+# My own handmade automations
+automation manual: !include_dir_merge_list automations/
+
+# Automations I create in the UI
+automation ui: !include automations.yaml
+```
+
 [discord]: https://discord.gg/c5DvZ4e

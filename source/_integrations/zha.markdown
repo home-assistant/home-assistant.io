@@ -141,6 +141,10 @@ If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path c
 - Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
 - Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
 
+## Configuration - YAML
+
+For more advanced configuration, you can modify `configuration.yaml` and restart Home Assistant
+
 {% configuration %}
 database_path:
   description: _Full_ path to the database which will keep persistent network data.
@@ -153,12 +157,59 @@ enable_quirks:
   default: true
 {% endconfiguration %}
 
-To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
+### OTA firmware updates
 
+ZHA component does have the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
+
+Currently, OTA providers for firmware updates are only available for IKEA and LEDVANCE devices. OTA updates for device of other manufactures could possible also be supported by ZHA dependencies in the future, if these manufacturers publish their firmware publicly.
+
+To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
+
+```yaml
+zha:
+  zigpy_config:
+    ota:
+      ikea_provider: true                        # Auto update Trådfri devices
+      ledvance_provider: true                    # Auto update LEDVANCE devices
+      #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
+```
+
+You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
+
+Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself.
+
+### Defining Zigbee channel to use
+
+```yaml
+zha:
+  zigpy_config:
+    network:
+      channel: 15             # What channel the radio should try to use.
+      channels: [15, 20, 25]  # Channel mask
+```
+
+This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)
+
+### Modifying the device type
+
+As not all device manufacturers follow the Zigbee standard, at times a device can be incorrectly classified. For example, a switch could be classified as a light.
+
+To correct the device type, also called domain, add the following to your `configuration.yaml` and restart Home Assistant:
+
+```yaml
+zha:
+  device_config:
+    84:71:27:ff:fe:93:17:24-1:    # format: {ieee}-{endpoint_id}
+      type: 'switch'              # corrected device type
+```
+
+`{ieee}` is the device hardware address which can be read from the Home Assistant UI when looking at *Device info*. From device info, you can find the `{endpoint_id}` by viewing the *Zigbee device signature*.
 
 ## Services
 
 ### Service `zha.permit`
+
+To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
 This service opens network for joining new devices.
 
@@ -193,39 +244,6 @@ This service remove an existing device from the network.
 |  Data | Optional | Description |
 | ---- | ---- | ----------- |
 | `ieee` | no | IEEE address of the device to remove 
-
-### OTA firmware updates
-
-ZHA component does have the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
-
-Currently, OTA providers for firmware updates are only available for IKEA and LEDVANCE devices. OTA updates for device of other manufactures could possible also be supported by ZHA dependencies in the future, if these manufacturers publish their firmware publicly.
-
-To enable OTA firmware updates for the ZHA integration you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
-
-```yaml
-zha:
-  zigpy_config:
-    ota:
-      ikea_provider: true                        # Auto update Trådfri devices
-      ledvance_provider: true                    # Auto update LEDVANCE devices
-      #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
-```
-
-You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
-
-Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself.
-
-### Defining Zigbee channel to use
-
-```yaml
-zha:
-  zigpy_config:
-    network:
-      channel: 15             # What channel the radio should try to use.
-      channels: [15, 20, 25]  # Channel mask
-```
-
-This is a good reference for channel selection [Zigbee and Wifi Coexistance](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence)
 
 ## Adding devices
 
