@@ -17,7 +17,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate)
 - [Switch](#switch)
- 
+
 ## Configuration
 
 Go to the integrations page in your configuration and click on **new integration** -> **Gree**.
@@ -25,9 +25,7 @@ Go to the integrations page in your configuration and click on **new integration
 Gree Smart compatible devices are detected and added automatically.
 
 <div class='note'>
-
 Devices must first be bound to WiFi using the Gree+ app, or app provided by the device manufacturer. It is not possible to connect devices to WiFi using this integration at the current time.
-
 </div>
 
 ## Supported models
@@ -43,17 +41,15 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 
 The `gree` climate platform integrates Gree HVAC systems into Home Assistant, enabling control of setting the following parameters:
 
-- [**set_hvac_mode**](/integrations/climate/#service-climateset_hvac_mode)
-- [**target temperature**](/integrations/climate#service-climateset_temperature)
-- [**turn on/off**](/integrations/climate#service-climateturn_on)
-- [**fan mode**](/integrations/climate#service-climateset_fan_mode)
-- [**swing mode**](/integrations/climate#service-climateset_swing_mode)
-- [**set_preset_mode**](/integrations/climate#service-climateset_preset_mode)
+- [`set_hvac_mode`](/integrations/climate/#service-climateset_hvac_mode)
+- [`target temperature`](/integrations/climate#service-climateset_temperature)
+- [`turn on/off`](/integrations/climate#service-climateturn_on)
+- [`fan mode`](/integrations/climate#service-climateset_fan_mode)
+- [`swing mode`](/integrations/climate#service-climateset_swing_mode)
+- [`set_preset_mode`](/integrations/climate#service-climateset_preset_mode)
 
 <div class='note'>
-
 Preset mode **Away** represents Gree's "8°C heating mode."
-
 </div>
 
 ## Switch
