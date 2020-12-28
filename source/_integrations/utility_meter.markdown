@@ -136,14 +136,21 @@ utility_meter:
 ```
 
 Assuming your energy provider tariffs are time based according to:
-
 - *peak*: from 9h00 to 21h00
 - *offpeak*: from 21h00 to 9h00 next day
 
-a time based automation can be used:
+As energy companies (certainly in the UK, possibly elsewhere) time from midnight, this equates to:
+- *offpeak*: 0h00 to 9h00
+- *peak*: from 9h00 to 21h00
+- *offpeak*: from 21h00 to 0h00
+
+You need TWO automations. 
+- a time based automation can be used to change the tariffs. This will switch to "next" tariff at the time point.
+- on restart automation to set the correct tariff in the first place, so you are at the right tariff on startup at any time of day.
 
 ```yaml
 automation:
+- alias: 'Trigger changes to tariff'
   trigger:
     - platform: time
       at: '09:00:00'
@@ -154,7 +161,40 @@ automation:
       entity_id: utility_meter.daily_energy
     - service: utility_meter.next_tariff
       entity_id: utility_meter.monthly_energy
+      
+- alias: 'Ensure utility_meter has the right tariff on startup'
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+        - sun
+  action:
+    - service: utility_meter.select_tariff
+      data_template:
+        entity_id:
+          - utility_meter.daily_energy
+          - utility_meter.monthly_energy
+        # tariff
+        # 09:00 - 21:00 = peak
+        # 21:00 - 09:00 = offpeak
+        tariff: >-
+          {% if (now().hour < 9) %}
+          offpeak
+          {% elif (now().hour < 22) %}
+          peak
+          {% else %}
+          offpeak
+          {% endif %}
 ```
+
 
 ## Advanced Configuration for DSMR users
 
