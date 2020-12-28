@@ -15,12 +15,6 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
-
-Securitas Direct can be integrated by adding the following `securitas_direct` section to your `configuration.yaml` file:
-
-## Configuration
-
 1. From Home Assistant, navigate to ‘Configuration’ then ‘Integrations’.
 1. Click the plus icon and type/select ‘Securitas Direct’.
 1. Enter your credentials and installation configuration.
