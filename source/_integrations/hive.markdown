@@ -24,6 +24,7 @@ This integration uses the unofficial API used in the official Hive website [http
 There is currently support for the following platforms within Home Assistant:
 
 - [Configuration](#configuration)
+- [Options](#options)
 - [Services](#services)
   - [Service `hive.boost_heating`](#service-hiveboost_heating)
   - [Service `hive.boost_hot_water`](#service-hiveboost_hot_water)
@@ -36,9 +37,21 @@ There is currently support for the following platforms within Home Assistant:
   - [Water Heater](#water-heater)
 
 ## Configuration
-Go to the integrations page in your configuration and click on new integration -> Hive.
+
+Menu: *Configuration* > *Integrations*
+
+Press on **Hive** and configure the integration:
+
+- Enter you Hive Username.
+- Enter you Hive Password.
+- Update the scan interval or leave as the default 120 seconds.
 
 YAML configuration is no longer available because it cannot handle two-factor authentication.
+## Options
+
+Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
+
+- **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently.
 
 ## Services
 
