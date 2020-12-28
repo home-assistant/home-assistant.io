@@ -112,6 +112,8 @@ When in _away preset_, the target temperature is permanently overridden by the t
 
 The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, auxHeatOnly, cool, auto, and off.
 
+The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
+
 ## Attributes
 
 The ecobee climate entity has some extra attributes to represent the state of the thermostat.
