@@ -490,15 +490,15 @@ target_temperature_state_address:
   required: true
   type: string
 setpoint_shift_address:
-  description: KNX address for setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
+  description: KNX address for setpoint_shift. *DPT 6.010 or DPT 9.002 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_state_address:
-  description: KNX address for reading setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
+  description: KNX address for reading setpoint_shift. *DPT 6.010 or DPT 9.002 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_mode:
-  description: Defines the internal device DPT used.
+  description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
   required: false
   default: 0.5
   type: string
@@ -1102,10 +1102,6 @@ invert:
   required: false
   type: boolean
   default: False
-reset_after:
-  description: Reset the switch back to OFF after specified seconds.
-  required: false
-  type: float
 {% endconfiguration %}
 
 Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.

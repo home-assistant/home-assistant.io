@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - Switch
 ha_iot_class: Cloud Polling
-ha_release: 0.119
+ha_release: 2020.12
 ha_codeowners:
   - '@cyberjunky'
 ha_config_flow: true

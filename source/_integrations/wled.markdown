@@ -122,3 +122,47 @@ This service allows for loading a preset saved on the WLED device.
 | `preset`               | no       | ID of the preset slot to load from.                                                                             |
 
 More information on presets [is documented in the WLED Wiki](https://github.com/Aircoookie/WLED/wiki/Presets)
+
+## Example Automations
+
+### Activating Random Effect
+
+You can automate changing the effect using a service call like this:
+
+{% raw %}
+
+```yaml
+service: wled.effect
+data:
+  entity_id: light.wled
+  effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
+```
+
+{% endraw %}
+
+### Activating Random Palette
+
+Activating a random palette is a bit more complicated as there is currently no way to obtain a list of available palettes.
+To go around this issue, one solution is to leverage the fact that palettes can be activated by their IDs.
+As the IDs are based on an incrementing counter, picking a random number between zero and the number of palettes minus one works.
+
+To do this, the first step is to use [WLED's JSON API](https://github.com/Aircoookie/WLED/wiki/JSON-API) find out how many palettes the device supports:
+
+```bash
+$ curl --silent http://<ip address of the wled device>/json | jq ".palettes | length"
+
+54
+```
+
+In this case (using WLED v0.11.0) there are 54 palettes, so the following service call will activate a random palette by its ID between 0 and 53:
+
+{% raw %}
+
+```yaml
+service: wled.effect
+data:
+  entity_id: light.wled
+  palette: "{{ range(0,53) | random }}"
+```
+
+{% endraw %}

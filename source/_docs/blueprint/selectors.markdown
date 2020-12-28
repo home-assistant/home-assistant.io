@@ -47,7 +47,7 @@ of the input will be the area ID of the user-selected area.
 
 An area selector can filter the list of areas, based on properties of the devices
 and entities that are assigned to those areas. For example, the areas list could
-be limited to areas with entities provided by the [ZHA](/integration/zha)
+be limited to areas with entities provided by the [ZHA](/integrations/zha)
 integration.
 
 In its most basic form, it doesn't require any options, which will show

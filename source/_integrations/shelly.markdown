@@ -2,6 +2,7 @@
 title: Shelly
 description: Integrate Shelly devices
 ha_category:
+  - Binary Sensor
   - Cover
   - Light
   - Sensor
@@ -108,4 +109,4 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 - Only supports firmware 1.8 and later
 - Support for RGB devices is limited
-- Support for battery-powered devices is limited
+- Support for battery-powered devices is limited (also applies to USB powered Shelly H&T)

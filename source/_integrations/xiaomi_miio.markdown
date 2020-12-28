@@ -154,16 +154,10 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
-You can install the command line tool using the following command:
-
-```bash
-npm install -g miio
-```
-
 Discovering devices on the current network:
 
 ```bash
-miio discover
+npx miio discover
 ```
 
 This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.

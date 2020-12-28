@@ -10,16 +10,11 @@ ha_domain: ubus
 
 This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
-Before this scanner can be used you have to install the ubus RPC package on OpenWRT:
+Before this scanner can be used you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
 
 ```bash
-opkg install rpcd-mod-file
-```
-
-For OpenWrt version 18.06.x the package uhttpd-mod-ubus should also be installed:
-
-```bash
-opkg install uhttpd-mod-ubus
+opkg update
+opkg install rpcd-mod-file uhttpd-mod-ubus
 ```
 
 And create on your OpenWrt device a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/user.json`.

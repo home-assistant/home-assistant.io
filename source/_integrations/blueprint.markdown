@@ -3,7 +3,7 @@ title: Blueprints
 description: Instructions on how to use Automation Blueprints with Home Assistant.
 ha_category:
   - Automation
-ha_release: 1.0
+ha_release: 2020.12
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

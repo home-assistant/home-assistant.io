@@ -17,7 +17,7 @@ entity: light.living_room
 {% configuration state_label %}
 type:
   required: true
-  description: entity-button
+  description: state-label
   type: string
 entity:
   required: true
