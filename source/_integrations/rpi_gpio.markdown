@@ -15,7 +15,7 @@ The `rpi_gpio` integration is the base for all related GPIO platforms in Home As
 
 ## Prerequisites
 
-* 32-bit installation is required for GPIO support
+When you are running the Home Assistant Operating System, the 32-bits version of the OS is required in order to use this integration.
 
 ## Binary Sensor
 
