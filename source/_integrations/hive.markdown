@@ -44,14 +44,14 @@ Press on **Hive** and configure the integration:
 
 - Enter you Hive Username.
 - Enter you Hive Password.
-- Update the scan interval or leave as the default 120 seconds.
+- Update the scan interval or leave as the default 120 seconds (Cannot be set lower than 30 seconds).
 
 YAML configuration is no longer available because it cannot handle two-factor authentication.
 ## Options
 
 Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
 
-- **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently.
+- **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 30 seconds).
 
 ## Services
 
