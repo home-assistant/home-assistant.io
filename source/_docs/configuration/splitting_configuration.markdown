@@ -476,6 +476,7 @@ front_yard:
     - sensor.mailbox
     - camera.front_porch
 ```
+
 ### Example: Combine `!include_dir_merge_list` with `automations.yaml`
 
 You want to go the advanced route and split your automations, but still want to be able to create automations in the UI?
@@ -488,12 +489,10 @@ Using labels like `a` or `b` allows for using multiple keys in the config:
 ```yaml
 
 # My own handmade automations
-automation a: !include_dir_merge_list automations/
+automation manual: !include_dir_merge_list automations/
 
 # Automations I create in the UI
-automation b: !include automations.yaml
-
+automation ui: !include automations.yaml
 ```
-
 
 [discord]: https://discord.gg/c5DvZ4e
