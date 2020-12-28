@@ -482,7 +482,7 @@ front_yard:
 You want to go the advanced route and split your automations, but still want to be able to create automations in the UI?
 In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
 
-Using labels like `a` or `b` allows for using multiple keys in the config:
+Using labels like `manual` or `ui` allows for using multiple keys in the config:
 
 `configuration.yaml`
 
