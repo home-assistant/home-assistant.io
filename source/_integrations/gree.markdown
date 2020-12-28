@@ -15,8 +15,6 @@ The Gree integration allows you to control a [Gree Smart HVAC](http://global.gre
 
 There is currently support for the following device types within Home Assistant:
 
-- [Configuration](#configuration)
-- [Supported models](#supported-models)
 - [Climate](#climate)
 - [Switch](#switch)
  
