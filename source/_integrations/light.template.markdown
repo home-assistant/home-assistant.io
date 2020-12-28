@@ -179,7 +179,7 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
-Passing {% raw %}`transition`{% endraw %} and {% raw %}`brightness`{% endraw %} parameters along with {% raw %}`*_color`{% endraw %}, {% raw %}`color_temp`{% endraw %}, {% raw %}`white_value`{% endraw %} or {% raw %}`effect`{% endraw %} is supported.
+Passing `transition` and `brightness` parameters along with `*_color`, `color_temp`, `white_value` or `effect` is supported.
 
 
 ## Examples
