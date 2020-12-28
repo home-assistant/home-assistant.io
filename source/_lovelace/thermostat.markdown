@@ -22,6 +22,10 @@ entity:
   required: true
   description: Entity id of `climate` domain
   type: string
+sensor:
+  required: false
+  description: Entity id of `sensor` domain to use for the display of the current temperature, instead of any that may be provided by the `climate` entity.
+  type: string
 name:
   required: false
   description: Overwrites friendly name.
