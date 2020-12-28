@@ -47,6 +47,7 @@ Press on **Hive** and configure the integration:
 - Update the scan interval or leave as the default 120 seconds (Cannot be set lower than 30 seconds).
 
 YAML configuration is no longer available because it cannot handle two-factor authentication.
+
 ## Options
 
 Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
@@ -57,7 +58,7 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
 
 ### Service `hive.boost_heating`
 
-You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service. 
+You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
