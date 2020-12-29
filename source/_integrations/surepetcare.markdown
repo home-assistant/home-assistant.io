@@ -59,7 +59,7 @@ surepetcare:
 
 ### Service `surepetcare.set_lock_state`
 
-This service let you change the locking state of a flap
+This service lets you change the locking state of a flap.
 
 | Service data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
