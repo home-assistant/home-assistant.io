@@ -19,15 +19,17 @@ ha_domain: nest
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following features within Home Assistant:
 
 - [Camera](#camera)
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Device Triggers](#automation-and-device-triggers)
 
 <div class='note'>
 This integration supports two Nest APIs. The SDM API is the new primary API that accepts new users. The Legacy Works With Nest API is not accepting new users, but the documentation still exists at the bottom of the page so existing users can keep using it.
 </div>
+
 
 ## Overview: Supported Devices
 
@@ -40,6 +42,7 @@ Home Assistant is integrated with the following devices through the SDM API:
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
   - The camera live stream is available as a `camera` entity
+  - Device Triggers for use in automations such as Person detected, Motion detected and Doorbell pressed
   - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
@@ -252,14 +255,26 @@ Given a thermostat named `Upstairs` then sensors are created with names such as 
 
 ## Automation and Device Triggers
 
-All Google Nest Cam models and the Google Nest Hello Video Doorbell support [Device Triggers](/docs/automation/trigger/#device-triggers) that enable automation in Home Assistant:
+The `nest` integration makes [Device Triggers](/docs/automation/trigger/#device-triggers) available to enable automation
+in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
-- `camera_motion`: Motion detected, when a [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events) event is received.
-- `camera_person`: Person detected, when a [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) event is received.
-- `camera_sound`: Sound detected, when a [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) event is received.
-- `doorbell_chime`: Doorbell pressed, when a [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) event is received.
+  ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
 
-See [Automating Home Assistant](/getting-started/automation/) for the getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+All Google Nest Cam models and the Google Nest Hello Video Doorbell support these *Device Triggers*:
+
+- **Motion detected**
+- **Person detected**
+- **Sound detected**
+- **Doorbell pressed** *for Google Nest Hello Video Doorbell only*
+
+These triggers are powered by the lower level Cloud Pub/Sub subscriber and `nest_event` events fired within Home Assistant:
+
+| Device Trigger | SDM API Event | `nest_event` |
+| -------------- | ----- | ------------- |
+| Motion detected | [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events) | `motion_detected` |
+| Person detected | [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) | `person_detected` |
+| Sound detected | [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) | `sound_detected` |
+| Doorbell pressed | [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) | `doorbell_chime` |
 
 
 # Legacy Works With Nest API
