@@ -228,9 +228,10 @@ binary_sensor:
 
 ### Device Tracker sensor with Latitude and Longitude Attributes
 
-This example shows how to combine a non-GPS (e.g.,  NMAP) and GPS device tracker while still including latitude and longitude attributes
+This example shows how to combine a non-GPS (e.g., NMAP) and GPS device tracker while still including latitude and longitude attributes
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -253,6 +254,7 @@ binary_sensor:
               {{ state_attr('device_tracker.my_device_gps','longitude') }}
             {% endif %}
 ```
+
 {% endraw %}
 
 ### Change the icon when state changes
@@ -293,6 +295,7 @@ thousands state changed events per day, templates may re-render more than desira
 In the below example, re-renders are limited to once per minute:
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -300,11 +303,13 @@ binary_sensor:
       has_unavailable_states:
         value_template: '{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
 ```
+
 {% endraw %}
 
 In the below example, re-renders are limited to once per second:
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -312,6 +317,7 @@ binary_sensor:
       has_sensor_unavailable_states:
         value_template: '{{ states.sensor | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
 ```
+
 {% endraw %}
 
 If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.

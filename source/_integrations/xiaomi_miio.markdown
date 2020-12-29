@@ -36,6 +36,26 @@ For many of these devices you need an access token, the first section will descr
 
 ## Retrieving the Access Token
 
+### Xiaomi Cloud Tokens Extractor
+
+One of Home Assistant users wrote a tokens extractor tool, which is currently the easiest way to retrieve tokens for all devices assigned to Xiaomi account.
+[In the repository](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) there's executable for convenient use on Windows or Python script to be run on any platform. If you do not wish to run executable, then you can run it using the source code:
+
+1. Install requirements:
+
+  ```bash
+  pip3 install pycryptodome pybase64 requests
+  ```
+  
+2. Run script
+
+  ```bash
+  python3 token_extractor.py
+  ```
+  
+3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
+
 ### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
 
 1. Install the Xiaomi Home app.
@@ -134,16 +154,10 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
-You can install the command line tool using the following command:
-
-```bash
-npm install -g miio
-```
-
 Discovering devices on the current network:
 
 ```bash
-miio discover
+npx miio discover
 ```
 
 This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.
@@ -1387,6 +1401,7 @@ In addition to [all of the attributes provided by the `vacuum` component](/integ
 - `total_cleaning_time`
 - `clean_start`
 - `clean_end`
+- `mop_attached`
 
 The following table shows the units of measurement for each attribute:
 
@@ -1403,7 +1418,8 @@ The following table shows the units of measurement for each attribute:
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
 | `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
-| `clean_stop`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `clean_stop`              | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `mop_attached`            |                     | A mop and water box are attached / not attached                |
 
 ### Example on how to clean a specific room
 
@@ -1480,10 +1496,11 @@ vacuum_kitchen:
 Valid room numbers can be retrieved using miio command-line tool:
 
 ```bash
-miio protocol call <ip of the vacuum> get_room_mapping
+miiocli vacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapping
 ```
 
-It will only give room numbers and not the room names. To map the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient.
+It will return the full mapping of room numbers to user-defined names as a list of (number,name) tuples.
+Alternatively, one can just test the clean_segment service with a number and see which room it cleans.
 
 It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing.
 

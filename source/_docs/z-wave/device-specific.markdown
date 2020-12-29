@@ -869,12 +869,12 @@ Button three (X) release|3|7740
 Button four (Triangle) single tap|4|7680
 Button four (Triangle) hold|4|7800
 Button four (Triangle) release|4|7740
-Button five (Triangle) single tap|5|7680
-Button five (Triangle) hold|5|7800
-Button five (Triangle) release|5|7740
-Button six (Triangle) single tap|6|7680
-Button six (Triangle) hold|6|7800
-Button six (Triangle) release|6|7740
+Button five (Minus) single tap|5|7680
+Button five (Minus) hold|5|7800
+Button five (Minus) release|5|7740
+Button six (Plus) single tap|6|7680
+Button six (Plus) hold|6|7800
+Button six (Plus) release|6|7740
 
 Press circle and plus simultaneously to wake up the device.
 
@@ -1179,7 +1179,7 @@ switch:
           data:
             node_id: 3
             value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
-            value: "{{ states(scene_contrl_indicator)|int + 8 }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int + 8 }}"
         turn_off:
           service: zwave.set_node_value
           data:

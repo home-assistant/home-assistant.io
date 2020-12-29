@@ -96,6 +96,7 @@ The commands can be dynamic, using templates to insert values of other entities.
 In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 rest_command:
@@ -110,6 +111,7 @@ rest_command:
     content_type:  'application/json; charset=utf-8'
     verify_ssl: true
 ```
+
 {% endraw %}
 
 ### How to test your new REST command
@@ -122,6 +124,7 @@ Call the new service from [developer tools](/docs/tools/dev-tools/) in the sideb
   "emoji":":plex:"
 }
 ```
+
 ### Using a REST command as an action in an automation
 
 ```yaml

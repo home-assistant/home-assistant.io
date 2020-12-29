@@ -282,7 +282,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix non-syncthru supporting printers ([@nielstron] - [#21482]) ([syncthru docs])
 - Add support for a wider variety of EnOcean devices ([@bdurrer] - [#22052]) ([enocean docs])
 - Convert Pollen.com sensor into IQVIA component ([@bachya] - [#22986]) ([iqvia docs]) ([pollen docs]) (breaking change) (new-integration) (new-platform)
-- Upgrade to pyubee==0.6 ([@StevenLooman] - [#23355]) ([ubee docs])
+- Upgrade to pyubee==0.6 ([@StevenLooman] - [#23355])
 - Fix tox.ini lint target ([@ViViDboarder] - [#23359])
 - Add media player external url ([@balloob] - [#23337]) ([media_player docs])
 - Fix race condition. ([@mitchellrj] - [#21244]) ([plex docs])
@@ -859,7 +859,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tplink_lte docs]: /integrations/tplink_lte/
 [traccar docs]: /integrations/traccar/
 [trend docs]: /integrations/trend/
-[ubee docs]: /integrations/ubee/
 [upc_connect docs]: /integrations/upc_connect/
 [upnp docs]: /integrations/upnp/
 [velux docs]: /integrations/velux/

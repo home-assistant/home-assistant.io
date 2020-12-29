@@ -90,6 +90,7 @@ Using the flexible option to set a sensor value to the `destination`, you can se
 In the following example, the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
 
 {% raw %}
+
 ```yaml
 input_select:
   destination:
@@ -145,6 +146,7 @@ sensor:
     avoid_toll_roads: true
     avoid_subscription_roads: true  
 ```
+
 {% endraw %}
 
 ## Using the live map in an iFrame

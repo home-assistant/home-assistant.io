@@ -89,6 +89,7 @@ too,
 but it will not as Home Assistant is not ready when the sensor gets initialized.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -96,4 +97,5 @@ sensor:
     name: Current Version
     value_template: '{{ value_json.version }}'
 ```
+
 {% endraw %}

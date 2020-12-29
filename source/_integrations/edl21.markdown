@@ -21,6 +21,7 @@ Compatible transceivers:
 
 Tested smart meters:
 
+- APATOR Norax 3D (enable InF Mode as described in manual to retrieve full data)
 - Iskraemeco MT175 (ISKRA MT175-D2A51-V22-K0t)
 
 ## Configuration
@@ -43,3 +44,11 @@ serial_port:
   required: true
   type: string
 {% endconfiguration %}
+
+### ser2net
+
+To use this integration with a remote transceiver you could use [ser2net](https://linux.die.net/man/8/ser2net).
+
+Example `ser2net.conf` configuration file:
+
+> 2001:raw:0:/dev/ttyUSB0:9600 8DATABITS NONE 1STOPBIT

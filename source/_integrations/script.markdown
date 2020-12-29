@@ -62,7 +62,7 @@ variables:
       description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
       type: any
 fields:
-  description: Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below.
+  description: "Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below. Please Note: In order for this description to be displayed in the Services tab of the Developer Tools in Lovelace, the script description must be defined as well."
   required: false
   default: {}
   type: map
@@ -233,6 +233,7 @@ Following is an example of the calling script not waiting. It performs some othe
 This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
 {% raw %}
+
 ```yaml
 script:
   script_1:
@@ -247,4 +248,5 @@ script:
     sequence:
       # Do some things at the same time as the first script...
 ```
+
 {% endraw %}

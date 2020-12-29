@@ -77,6 +77,7 @@ There are three `Sensor` entities that will indicate the number of **Errors**, *
 Each such entity has a state attribute that will contain a list of any such issues which can be used in automations, etc. For example:
 
 {% raw %}
+
 ```yaml
 - alias: GeniusHub Error Alerts
   trigger:
@@ -91,11 +92,13 @@ Each such entity has a state attribute that will contain a list of any such issu
         Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
         {{ state_attr('sensor.geniushub_errors', 'error_list') }}
 ```
+
 {% endraw %}
 
 This alert may be useful to see if the CH is being turned on whilst you're on a holiday!
 
 {% raw %}
+
 ```yaml
 - alias: GeniusHub CH State Change Alert
   trigger:
@@ -109,6 +112,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
         {{ trigger.to_state.attributes.friendly_name }} has changed
         from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
 ```
+
 {% endraw %}
 
 ## State Attributes
@@ -146,17 +150,21 @@ Many zone/device properties are available via the corresponding entity's state a
 This data can be accessed in automations, etc. via a value template. For example:
 
 {% raw %}
+
 ```yaml
 value_template: "{{ state_attr('water_heater.genius_zone_2', 'status').override.setpoint }}"
 ```
+
 {% endraw %}
 
 In the specific case of **Radiator** zones with room sensors:
 
 {% raw %}
+
 ```yaml
 value_template: "{{ state_attr('climate.genius_zone_12', 'status').occupied }}"
 ```
+
 {% endraw %}
 
 ## Configuration

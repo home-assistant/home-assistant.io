@@ -24,14 +24,12 @@ There are 2 options in configuring the SolarEdge integration:
 - Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
 - Via the Home Assistant `configuration.yaml` file.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 solaredge:
   api_key: API_KEY
   site_id: SITE_ID
 ```
-{% endraw %}
 
 {% configuration %}
 api_key:
@@ -54,6 +52,7 @@ name:
 In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/integrations/template).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry for template platform
 sensor:
@@ -62,4 +61,5 @@ sensor:
     solaredge_energy_this_year_template:
       value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 ```
+
 {% endraw %}

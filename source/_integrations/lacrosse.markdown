@@ -98,7 +98,6 @@ sensor:
 
 To setup a LaCrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -119,4 +118,3 @@ sensor:
         type: battery
         id: 72
 ```
-{% endraw %}

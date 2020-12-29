@@ -43,3 +43,21 @@ You can add or remove items from your shopping list by using the following servi
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to mark as completed. Example: "Milk" |
+
+## Using in Automations
+
+The simplest way use shopping list with automations (e.g., when entering a zone with shops) is to create a notification that can be clicked to open the shopping list.
+This is tested to work with the Android companion app.
+
+{% raw %}
+
+```yaml
+service: notify.notify
+title: "Time to shop?"
+message: 'Click to open the shopping list'
+data:
+  clickAction: '/shopping-list'
+  url: '/shopping-list'
+```
+
+{% endraw %}

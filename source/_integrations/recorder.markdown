@@ -6,6 +6,7 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: recorder
+ha_iot_class: Local Push
 ---
 
 The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` ](/integrations/history/) integration.
@@ -111,8 +112,6 @@ recorder:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Recorder`, you can use the `include` and `exclude` parameters.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 recorder:
@@ -126,8 +125,6 @@ recorder:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -214,26 +211,26 @@ Note that purging will not immediately decrease disk space usage but it will sig
 
 ## Custom database engines
 
-| Database engine                | `db_url`                                                                                               |
-| :----------------------------- | :----------------------------------------------------------------------------------------------------- |
-| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                           |
-| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
-| MariaDB (omit pymysql, Socket) | `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
-| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8`                                                               |
-| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                                 |
-| MySQL (Socket)                 | `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8`         |
-| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                                                       |
-| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`                                         |
-| MariaDB (Socket)               | `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8` |
-| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                                       |
-| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                         |
-| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                               |
-| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                             |
-| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`           |
+| Database engine                | `db_url`                                                                                                  |
+| :----------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| SQLite                         | `sqlite:////PATH/TO/DB_NAME`                                                                              |
+| MariaDB (omit pymysql)         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                                 |
+| MariaDB (omit pymysql, Socket) | `mysql://user:password@SERVER_IP/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`         |
+| MySQL                          | `mysql://SERVER_IP/DB_NAME?charset=utf8mb4`                                                               |
+| MySQL                          | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                                 |
+| MySQL (Socket)                 | `mysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4`         |
+| MariaDB                        | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8mb4`                                                       |
+| MariaDB                        | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8mb4`                                         |
+| MariaDB (Socket)               | `mysql+pymysql://user:password@localhost/DB_NAME?unix_socket=/var/run/mysqld/mysqld.sock&charset=utf8mb4` |
+| PostgreSQL                     | `postgresql://SERVER_IP/DB_NAME`                                                                          |
+| PostgreSQL                     | `postgresql://user:password@SERVER_IP/DB_NAME`                                                            |
+| PostgreSQL (Socket)            | `postgresql://@/DB_NAME`                                                                                  |
+| PostgreSQL (Custom socket dir) | `postgresql://@/DB_NAME?host=/path/to/dir`                                                                |
+| MS SQL Server                  | `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={DRIVER};Port=1433;`              |
 
 <div class='note'>
 
-Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
+Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8mb4`.
 
 </div>
 
@@ -366,6 +363,6 @@ You will also need to install an ODBC Driver. Microsoft ODBC drivers are recomme
 
 <div class='note'>
 
-If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;`.
+If you are using Hass.io, FreeTDS is already installed for you. The db_url you need to use is `mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8mb4;DRIVER={FreeTDS};Port=1433;`.
 
 </div>

@@ -3,6 +3,10 @@ title: "keyring"
 description: "Script to store secrets in a keyring"
 ---
 
+<p class='note warning'>
+This feature has been deprecated and will be removed in March 2021.
+</p>
+
 Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. The secrets can be managed from the command line via the `keyring` script.
 
 ```bash

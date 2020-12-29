@@ -331,8 +331,6 @@ A very thorough explanation of this is available in the Wikipedia article about 
 Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
-{% raw %}
-
 ```yaml
 automation:
   trigger:
@@ -340,12 +338,8 @@ automation:
     tag_id: A7-6B-90-5F
 ```
 
-{% endraw %}
-
 Additionally, you can also only trigger if a card is scanned by a specific
 device/scanner by setting the `device_id`:
-
-{% raw %}
 
 ```yaml
 automation:
@@ -355,7 +349,19 @@ automation:
     device_id: 0e19cd3cf2b311ea88f469a7512c307d
 ```
 
-{% endraw %}
+Or trigger on multiple possible devices for multiple tags:
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id:
+      - A7-6B-90-5F
+      - A7-6B-15-AC
+    device_id:
+      - 0e19cd3cf2b311ea88f469a7512c307d
+      - d0609cb25f4a13922bb27d8f86e4c821
+```
 
 ### Template trigger
 
@@ -393,26 +399,7 @@ automation:
 
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
-<div class='note warning'>
-
-Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
-
-</div>
-
-As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
-
-{% raw %}
-
-```yaml
-automation:
-  trigger:
-    platform: template
-    value_template: "{{ (states.sensor.time.last_changed - states.YOUR.ENTITY.last_changed).total_seconds() > 300 }}"
-```
-
-{% endraw %}
-
-which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
+Templates that don't contain an entity will be rendered once per minute.
 
 ### Time trigger
 
@@ -470,7 +457,7 @@ automation:
 
 #### Sensors of datetime device class
 
-The Entity ID of a [sensor](/integrations/sensor/) with the "datetime" device class.
+The Entity ID of a [sensor](/integrations/sensor/) with the "timestamp" device class.
 
 ```yaml
 automation:

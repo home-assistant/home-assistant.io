@@ -75,9 +75,9 @@ If you want to allow other household users to control the devices:
     1. Enter the email address of the user you want to add.
     2. Click Select a role and choose Project < Viewer.
     3. Click SAVE
-    4. Copy and share the link with the new user.
-    5. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
-5. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
+    4. Copy and share the Actions project link (`https://console.actions.google.com/project/YOUR_PROJECT_ID/simulator`) with the new user.
+5. Have the new user open the link with their own Google account, agree to the Terms of Service popup, then select "Start Testing", select VERSION - Draft in the dropdown, and click "Done".
+6. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 
 ### Enable Device Sync
 
@@ -130,10 +130,6 @@ secure_devices_pin:
   required: false
   type: string
   default: ""
-api_key:
-  description: Your HomeGraph API key (for the `google_assistant.request_sync` service). This is not required if a service_account is specified.  This has been deprecated and will be removed in 0.105, you must setup a `service_account` now.
-  required: false
-  type: string
 service_account:
   description: Service account information. You can use an include statement with your downloaded JSON file, enter data here directly or use secrets file to populate.
   required: true

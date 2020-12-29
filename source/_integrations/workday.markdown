@@ -98,7 +98,7 @@ binary_sensor:
 ```
 
 This example excludes Saturdays, Sundays and holidays. Two custom holidays are added.
-The date February 24th, 2020 is a Monday but will be excluded because it was added to the `add_holiday` configuration.
+The date February 24th, 2020 is a Monday but will be excluded because it was added to the `add_holidays` configuration.
 
 ```yaml
 # Example 2 configuration.yaml entry

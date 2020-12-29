@@ -28,6 +28,8 @@ Known supported devices:
 - Denon AVR-X2200W
 - Denon AVR-X2300W
 - Denon AVR-X2400H
+- Denon AVR-X2500H
+- Denon AVR-X2700H
 - Denon AVR-X3200W
 - Denon AVR-X3300W
 - Denon AVR-X3400H
@@ -42,6 +44,7 @@ Known supported devices:
 - Denon AVR-2312CI
 - Denon AVR-3311CI
 - Denon AVR-3312
+- Denon AVR-3313CI
 - Denon AVR-4810
 - Denon AVR-S710W
 - Denon AVR-S720W

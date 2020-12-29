@@ -46,7 +46,7 @@ You would then enter the IP address or hostname of your Home Assistant OS instan
 
 ### Installing and using the SSH add-on (requires enabling advanced mode for the HA user)
 
-The Terminal & SSH add-on provides access over an SSH connection, and also inludes nano and vi editors. It can be installed from the add-on store's Official add-on repository after enabling advanced mode for your Home Assistant user's profile. Addtionally, this add-on provides access to the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info). The Terminal & SSH add-on does *not* provide access to the underlying host file system. 
+The Terminal & SSH add-on provides access over an SSH connection, and also includes nano and vi editors. It can be installed from the add-on store's Official add-on repository after enabling advanced mode for your Home Assistant user's profile. Addtionally, this add-on provides access to the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring snapshots, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info). The Terminal & SSH add-on does *not* provide access to the underlying host file system. 
 
 To use the add-on, enter a password or public key on its configuration page, then save and start the add-on. 
 
@@ -127,7 +127,14 @@ You often need a snapshot in case your system has crashed. If you only store the
  - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
 
  - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
+ 
+ - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
 
  - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
 
  - [Remote Backup (uses scp)](https://github.com/overkill32/hassio-remote-backup)
+ 
+
+### Lost Password and password reset
+
+Please refer to the [I'm locked out!](https://www.home-assistant.io/docs/locked_out/#home-assistant-including-supervised) documentation page.

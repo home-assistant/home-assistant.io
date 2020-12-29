@@ -3,7 +3,7 @@ title: "SRP Energy"
 description: "How to integrate SRP Energy within Home Assistant."
 ha_category:
   - Energy
-ha_release: 0.119
+ha_release: 2020.12
 ha_iot_class: Cloud Polling
 ---
 
