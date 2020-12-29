@@ -73,26 +73,20 @@ For the first phase, you will turn on the API and create the necessary credentia
 
 1. If this is your first time here, you likely need to create a new Google API project.  Click **Create Project** then **New
 Project**.  Note: This is different type of project from the Device Access project you are also creating.
-
     ![Screenshot of APIs and Services Cloud Console with no existing project](/images/integrations/nest/api_project_needed.png)
 
-1. Give your API Project a name then click **Create**.  Note: You can ignore the *Project ID* here as Home Assistant
-does not need it.
+1. Give your API Project a name then click **Create**.  Note: You can ignore the *Project ID* here as Home Assistant does not need it.
 
 1. Click *OAuth consent screen* and make sure you have that configured, otherwise you can do that now.
-
     ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
 
-1. Select **External** (the only choice if you are not a G-Suite user) then click **Create**.  While you are here, you
-may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience
-configuring credentials for self hosted software.  They make regular improvements to this flow and appear to value feedback.
+1. Select **External** (the only choice if you are not a G-Suite user) then click **Create**.  While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self hosted software.  They make regular improvements to this flow and appear to value feedback.
 
 1. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**.  These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account.  Click **Save and Continue**.
 
 1. On the *Scopes* step click **Save and Continue**.
 
 1. On the *Test Users* step, you need to add your Google Account (e.g. your @gmail.com address) to the list.  Click *Save* on your test account then **Save and Continue** to finish the consent flow.
-
     ![Screenshot of OAuth consent screen test users](/images/integrations/nest/oauth_consent_test_users.png)
 
 
