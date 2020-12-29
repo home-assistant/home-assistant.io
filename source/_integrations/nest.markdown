@@ -29,7 +29,6 @@ There is currently support for the following device types within Home Assistant:
 This integration supports two Nest APIs. The SDM API is the new primary API that accepts new users. The Legacy Works With Nest API is not accepting new users, but the documentation still exists at the bottom of the page so existing users can keep using it.
 </div>
 
-
 ## Overview: Supported Devices
 
 Home Assistant is integrated with the following devices through the SDM API:
