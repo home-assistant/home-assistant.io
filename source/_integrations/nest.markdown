@@ -254,12 +254,12 @@ Given a thermostat named `Upstairs` then sensors are created with names such as 
 
 ## Automation and Device Triggers
 
-The `nest` integration makes [Device Triggers](/docs/automation/trigger/#device-triggers) available to enable automation
+The Nest integration makes [device triggers](/docs/automation/trigger/#device-triggers) available to enable automation
 in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
-  ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
+![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
 
-All Google Nest Cam models and the Google Nest Hello Video Doorbell support these *Device Triggers*:
+All Google Nest Cam models and the Google Nest Hello Video Doorbell support device triggers:
 
 - **Motion detected**
 - **Person detected**
