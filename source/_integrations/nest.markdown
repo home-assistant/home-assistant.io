@@ -267,9 +267,9 @@ All Google Nest Cam models and the Google Nest Hello Video Doorbell support thes
 - **Sound detected**
 - **Doorbell pressed** *for Google Nest Hello Video Doorbell only*
 
-These triggers are powered by the lower level Cloud Pub/Sub subscriber and `nest_event` events fired within Home Assistant:
+The lower level Pub/Sub subscriber receives events in real time and internally fires `nest_event` events within Home Assistant:
 
-| Device Trigger | SDM API Event | `nest_event` |
+| Device Trigger | Pub/Sub Event | `nest_event` |
 | -------------- | ----- | ------------- |
 | Motion detected | [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events) | `motion_detected` |
 | Person detected | [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) | `person_detected` |
