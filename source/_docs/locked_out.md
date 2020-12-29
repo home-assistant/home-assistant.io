@@ -14,28 +14,29 @@ If you are still logged in to the web interface with your user, then you are in 
 
 If you’ve forgotten your username, then deleting the files mentioned above will be necessary to start a new onboarding process.
 
+#### To reset a user's password, via console
 If you know the username, but not the password and you can access the [Home Assistant console](https://www.home-assistant.io/hassio/commandline/) and use the command below:
 
 Connect a keyboard and monitor to your device.
 
 `auth reset --username existing_user --password new_password`
 
-#### To reset a user's password, as an administrator
-Click "Configuration" in the sidebar.
-Scroll down to "Users", and click in to that section.
-Click on the user, this should bring up a dialog box.
-At the bottom of the dialog box, click "Change Password".
-Enter the new password, and then click "OK".
-Confirm the new password by entering it again, and then click "OK" again.
-A confirmation box will be displayed with the text "Password was changed successfully".
+#### To reset a user's password, as an administrator via the web interface
+1. Click "Configuration" in the sidebar.
+2. Scroll down to "Users", and click in to that section.
+3. Click on the user, this should bring up a dialog box.
+4. At the bottom of the dialog box, click "Change Password".
+5. Enter the new password, and then click "OK".
+6. Confirm the new password by entering it again, and then click "OK" again.
+7. A confirmation box will be displayed with the text "Password was changed successfully".
 
-#### To delete a user, as an administrator
-Click "Configuration" in the sidebar.
-Scroll down to "Users", and click in to that section.
-Click on the user, this should bring up a dialog box.
-At the bottom of the dialog box, click "Delete User".
-A confirmation dialog box will be displayed, asking "Are you sure you want to delete <User>"?
-Click "OK".
+#### To delete a user, as an administrator via the web interface
+1. Click "Configuration" in the sidebar.
+2. Scroll down to "Users", and click in to that section.
+3. Click on the user, this should bring up a dialog box.
+4. At the bottom of the dialog box, click "Delete User".
+5. A confirmation dialog box will be displayed, asking "Are you sure you want to delete <User>"?
+6. Click "OK".
 
 ### Home Assistant Core and Home Assistant Container
 
