@@ -55,7 +55,9 @@ surepetcare:
     type: time
 {% endconfiguration %}
 
-## set_lock_state Service
+## Services
+
+### Service `surepetcare.set_lock_state`
 
 This service let you change the locking state of a flap
 
@@ -65,10 +67,11 @@ This service let you change the locking state of a flap
 | `lock_state` | `True` | string | New state to change the flap to
 
 `lock_state` should be one of:
-* `unlocked` - flap is unlocked, pets are allowed both in and out
-* `locked_in` - flap is 'in only' - pets can come in but not go back out
-* `locked_out` - flap is 'out only' - pets can go out, but not back in
-* `locked_all` - flap is locked both ways
+
+- `unlocked` - flap is unlocked, pets are allowed both in and out.
+- `locked_in` - flap is 'in only' - pets can come in but not go back out.
+- `locked_out` - flap is 'out only' - pets can go out, but not back in.
+- `locked_all` - flap is locked both ways.
 
 ## Getting the IDs of your flaps, feeders and pets
 
