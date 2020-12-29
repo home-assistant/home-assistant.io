@@ -81,6 +81,6 @@ The `cover.set_cover_position` will set the scaled position relative to the spac
 
 | Service data attribute | Optional | Description                                                                                       |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
-| `entity_id`            |       no | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
+| `entity_id`            |      yes | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
 | `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
 | `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
