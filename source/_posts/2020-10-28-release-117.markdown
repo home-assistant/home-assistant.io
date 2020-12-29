@@ -1279,7 +1279,7 @@ is automatically imported after upgrading and can be safely removed afterward.
 - Merge Tasmota sensor device class and icon maps ([@emontnemery] - [#41706]) ([tasmota docs])
 - Add support for SimpliSafe sensors ([@nzapponi] - [#41080]) ([simplisafe docs]) (new-platform)
 - Add common strings in plaato config flow ([@chrillebile] - [#41622]) ([plaato docs])
-- Use common strings in Avri config flow ([@scheric] - [#41717]) ([avri docs])
+- Use common strings in Avri config flow ([@scheric] - [#41717])
 - Add media_player.repeat_set service ([@amelchio] - [#41435]) ([demo docs]) ([media_player docs])
 - Add Sonos support for media_player.repeat_set service ([@amelchio] - [#41735]) ([sonos docs])
 - Use native utc timezone for utcnow() ([@bdraco] - [#41727])
@@ -2547,7 +2547,6 @@ is automatically imported after upgrading and can be safely removed afterward.
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
 [aurora docs]: /integrations/aurora/
-[avri docs]: /integrations/avri/
 [awair docs]: /integrations/awair/
 [axis docs]: /integrations/axis/
 [azure_devops docs]: /integrations/azure_devops/
