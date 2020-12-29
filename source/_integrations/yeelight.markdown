@@ -264,4 +264,4 @@ Enable or disable music_mode.
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |       no | Only act on specific lights.                                                                |
-| `use_music_mode`          |       no | Use 'true' or 'false' to enable / disable music_mode.                                       |
+| `music_mode`              |       no | Use 'true' or 'false' to enable / disable music_mode.                                       |
