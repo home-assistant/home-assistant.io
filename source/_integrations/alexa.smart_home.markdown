@@ -108,7 +108,7 @@ Next you need create a Lambda function.
 
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
-- Select *Python 3.6* or *Python 3.7* as `Runtime`.
+- Select *Python 3.6*, *Python 3.7* or *Python 3.8* as `Runtime`.
 - Make sure select *Use an existing role* as `Execution role`, then select the role you just created from `Existing role` list.
 - Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer` (if it isn't already expanded), then click `+ Add trigger` in the left part of the panel, then click `Alexa Smart Home` from the drop down list to add a Alexa Smart Home trigger to your Lambda function.
@@ -193,7 +193,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 - Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
-    - Note: you must use a valid/trusted SSL Certificate and port 443 for account linking to work
+    - Note: you must use a valid/trusted SSL Certificate for account linking to work
   - `Client ID`:
     - `https://pitangui.amazon.com/` if you are in US
     - `https://layla.amazon.com/` if you are in EU
