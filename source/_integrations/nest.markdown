@@ -19,12 +19,11 @@ ha_domain: nest
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events.
 
-There is currently support for the following features within Home Assistant:
+There is currently support for the following devices within Home Assistant:
 
 - [Camera](#camera)
 - [Climate](#climate)
 - [Sensor](#sensor)
-- [Device Triggers](#automation-and-device-triggers)
 
 <div class='note'>
 This integration supports two Nest APIs. The SDM API is the new primary API that accepts new users. The Legacy Works With Nest API is not accepting new users, but the documentation still exists at the bottom of the page so existing users can keep using it.
