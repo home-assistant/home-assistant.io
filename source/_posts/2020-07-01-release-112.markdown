@@ -266,7 +266,7 @@ release, this attribute has been completely removed from the system.
 The following integrations are now available via the Home Assistant UI:
 
 - [Arcam][arcam_fmj docs], done by [@elupus]
-- [Avri][avri docs], done by [@timvancann]
+- Avri, done by [@timvancann]
 - [Awair][awair docs], done by [@ahayworth]
 - [DenonAVR][denonavr docs], done by [@starkillerOG]
 - [MetOffice][metoffice docs], done by [@MrHarcombe]
@@ -304,7 +304,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   Avri is now available for configration via the integrations UI. Remove the integration from `configuration.yaml` and re-add it in the UI.
 
-  ([@timvancann] - [#34288]) ([avri docs])
+  ([@timvancann] - [#34288])
 
 - **Arcam**
 
@@ -824,7 +824,7 @@ The integrations below have been removed:
 - Add notify_events notify integration ([@papajojo] - [#36049]) ([notify_events docs]) (new-integration)
 - Add @knyar as a codeowner for prometheus integration ([@knyar] - [#36487]) ([prometheus docs])
 - Add entity list to light and cover group attributes ([@thomasloven] - [#36477]) ([group docs])
-- Add Avri config flow ([@timvancann] - [#34288]) ([avri docs]) (breaking-change)
+- Add Avri config flow ([@timvancann] - [#34288]) (breaking-change)
 - Add devolo binary_sensor devices ([@2Fake] - [#36370]) ([devolo_home_control docs]) (new-platform)
 - Add and fix type hints ([@scop] - [#36501]) ([config docs]) ([switcher_kis docs])
 - Upgrade youtube_dl to version 2020.06.06 ([@BKPepe] - [#36493]) ([media_extractor docs])
@@ -1476,7 +1476,6 @@ The integrations below have been removed:
 [arcam_fmj docs]: /integrations/arcam_fmj/
 [asuswrt docs]: /integrations/asuswrt/
 [automation docs]: /integrations/automation/
-[avri docs]: /integrations/avri/
 [awair docs]: /integrations/awair/
 [axis docs]: /integrations/axis/
 [baidu docs]: /integrations/baidu/
