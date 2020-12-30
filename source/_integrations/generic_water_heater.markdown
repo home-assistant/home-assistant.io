@@ -13,20 +13,15 @@ The `Generic Water Heater` water_heater platform is a Water Heater implemented i
 ```yaml
 # Example configuration.yaml entry
 generic_water_heater:
-  - name: bath water
-    heater: switch.dhw_switch
-    target_sensor: sensor.dhw_temperature
+  bath water:
+    heater_switch: switch.dhw_switch
+    temperature_sensor: sensor.dhw_temperature
     target_temperature: 50
     delta_temperature: 5
 ```
 
 {% configuration %}
-name:
-  description: Name of the Water Heater.
-  required: true
-  default: Generic Water Heater
-  type: string
-heater:
+heater_switch:
   description: "`entity_id` for heater switch, must be a toggle device."
   required: true
   type: string
