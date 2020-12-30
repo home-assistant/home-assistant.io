@@ -48,6 +48,7 @@ Happy holidays, stay safe and for the last time this year: Enjoy the release!
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2020.12.1 - December 16](#release-2020121---december-16)
+- [Release 2020.12.2 - December 30](#release-2020122---december-30)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -299,6 +300,67 @@ The following integrations are now available via the Home Assistant UI:
 [shelly docs]: /integrations/shelly/
 [tasmota docs]: /integrations/tasmota/
 [zha docs]: /integrations/zha/
+
+## Release 2020.12.2 - December 30
+
+- Bump HAP-python to 3.1.0 ([@bdraco] - [#44176]) ([homekit docs])
+- Update denonavr to 0.9.8 ([@scarface-4711] - [#44194]) ([denonavr docs])
+- Bump pyroon to 0.0.28 ([@pavoni] - [#44302]) ([roon docs])
+- Fix velux homekit covers not enumerated correctly ([@Jc2k] - [#44318]) ([homekit_controller docs])
+- Bump pyMyQ to version 2.0.12 ([@ehendrix23] - [#44328]) ([myq docs])
+- Update pytradfri to 7.0.5 ([@rubenbe] - [#44347])
+- Bump pyiqvia to 0.3.1 ([@bachya] - [#44358]) ([iqvia docs])
+- Fix bug in unloading RainMachine options listener ([@bachya] - [#44359]) ([rainmachine docs])
+- Fix Volumio pause with missing track type ([@OnFreund] - [#44447]) ([volumio docs])
+- Fix falsey comparisons in NWS weather ([@MatthewFlamm] - [#44486]) ([nws docs])
+- Bump pydeconz to version 77 ([@Kane610] - [#44514]) ([deconz docs])
+- Fix Tasmota device triggers ([@emontnemery] - [#44574]) ([tasmota docs])
+- Fix template triggers from time events ([@bdraco] - [#44603]) ([template docs])
+- Bump env_canada to 0.2.5 ([@michaeldavie] - [#44631]) ([environment_canada docs])
+- Bump pycarwings2 to 2.10 ([@filcole] - [#44634]) ([nissan_leaf docs])
+
+[#44176]: https://github.com/home-assistant/core/pull/44176
+[#44194]: https://github.com/home-assistant/core/pull/44194
+[#44302]: https://github.com/home-assistant/core/pull/44302
+[#44318]: https://github.com/home-assistant/core/pull/44318
+[#44328]: https://github.com/home-assistant/core/pull/44328
+[#44347]: https://github.com/home-assistant/core/pull/44347
+[#44358]: https://github.com/home-assistant/core/pull/44358
+[#44359]: https://github.com/home-assistant/core/pull/44359
+[#44447]: https://github.com/home-assistant/core/pull/44447
+[#44486]: https://github.com/home-assistant/core/pull/44486
+[#44514]: https://github.com/home-assistant/core/pull/44514
+[#44574]: https://github.com/home-assistant/core/pull/44574
+[#44603]: https://github.com/home-assistant/core/pull/44603
+[#44631]: https://github.com/home-assistant/core/pull/44631
+[#44634]: https://github.com/home-assistant/core/pull/44634
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@OnFreund]: https://github.com/OnFreund
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@ehendrix23]: https://github.com/ehendrix23
+[@emontnemery]: https://github.com/emontnemery
+[@filcole]: https://github.com/filcole
+[@michaeldavie]: https://github.com/michaeldavie
+[@pavoni]: https://github.com/pavoni
+[@rubenbe]: https://github.com/rubenbe
+[@scarface-4711]: https://github.com/scarface-4711
+[deconz docs]: /integrations/deconz/
+[denonavr docs]: /integrations/denonavr/
+[environment_canada docs]: /integrations/environment_canada/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[iqvia docs]: /integrations/iqvia/
+[myq docs]: /integrations/myq/
+[nissan_leaf docs]: /integrations/nissan_leaf/
+[nws docs]: /integrations/nws/
+[rainmachine docs]: /integrations/rainmachine/
+[roon docs]: /integrations/roon/
+[tasmota docs]: /integrations/tasmota/
+[template docs]: /integrations/template/
+[volumio docs]: /integrations/volumio/
 
 ## If you need help...
 
