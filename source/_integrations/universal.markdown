@@ -62,7 +62,7 @@ commands:
   required: false
   type: string
 attributes:
-  description: "Attributes that can be overwritten. Most, if not all, media player attributes can be overwritten. Examples entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
+  description: "Attributes that can be overwritten. Most, if not all, media player attributes can be overwritten. Example entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
   required: false
   type: string
 {% endconfiguration %}
