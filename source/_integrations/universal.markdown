@@ -58,7 +58,7 @@ state_template:
   required: false
   type: template
 commands:
-  description: "Commands to be overwritten. Most, if not all, media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, and `volume_mute` (refer to the [`media_player` docs](/integrations/media_player/) to see the full list).
+  description: "Commands to be overwritten. Most, if not all, media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, and `volume_mute` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list).
   required: false
   type: string
 attributes:
