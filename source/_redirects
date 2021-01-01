@@ -1683,7 +1683,6 @@
 /components/proximity /integrations/proximity
 /components/proxy /integrations/proxy
 /components/ps4 /integrations/ps4
-/components/ptvsd /integrations/ptvsd
 /components/pulseaudio_loopback /integrations/pulseaudio_loopback
 /components/push /integrations/push
 /components/pushbullet /integrations/pushbullet
