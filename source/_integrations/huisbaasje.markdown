@@ -4,7 +4,7 @@ description: Instructions on how to integrate Huisbaasje with Home Assistant.
 ha_category:
   - Sensor
   - Energy
-ha_release: 0.119
+ha_release: 2021.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
