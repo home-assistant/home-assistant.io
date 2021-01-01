@@ -112,7 +112,7 @@ GEM
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2020.5)
+    tzinfo-data (1.2020.6)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
 
