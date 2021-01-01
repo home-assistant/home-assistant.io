@@ -133,33 +133,33 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
 ```yaml
 # Sets time to 05:30:00
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
   data:
+    entity_id: input_datetime.XXX
     time: '05:30:00'
 # Sets time to time from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
   data:
+    entity_id: input_datetime.XXX
     time: "{{ now().strftime('%H:%M:%S') }}"
 # Sets date to 2020-08-24
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
   data:
+    entity_id: input_datetime.XXX
     date: '2020-08-24'
 # Sets date to date from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
   data:
+    entity_id: input_datetime.XXX
     date: "{{ now().strftime('%Y-%m-%d') }}"
 # Sets date and time to 2020-08-25 05:30:00
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
   data:
+    entity_id: input_datetime.XXX
     datetime: '2020-08-25 05:30:00'
 # Sets date and time from datetime object
 - service: input_datetime.set_datetime
-  entity_id: input_datetime.XXX
   data:
+    entity_id: input_datetime.XXX
     datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 # Sets date and/or time from UNIX timestamp
 # This can be used whether the input_datetime has just a date,
