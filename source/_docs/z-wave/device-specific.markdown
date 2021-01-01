@@ -54,9 +54,7 @@ You need to disable the on-board Bluetooth since the board requires the use of t
 
 For both processes below you will need to insert your SD card into your PC and open the `/boot/config.txt` file with your favorite text editor.
 
-----------
-The below information is for the Pi 4 specifically
-----------
+#####The below information is for the Pi 4 specifically
 
 Add the following paramaters to the bottom of the `/boot/config.txt` file.
 
@@ -67,9 +65,7 @@ enable_uart=1
 
 Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the hat back, and boot again.
 
-----------
-The below information is for the Pi 3 specifically
-----------
+#####The below information is for the Pi 3 specifically
 
 ```text
 dtoverlay=pi3-disable-bt
