@@ -118,8 +118,14 @@ allComponents.pop(); // remove placeholder element at the end
 
     function init() {
       // do the lowerCase transformation once
-      for (i = 0; i < (allComponents.length); i++) {
-        allComponents[i].titleLC = allComponents[i].title.toLowerCase();
+      for (i = 0; i < allComponents.length; i++) {
+        title = allComponents[i].title;
+        domain = allComponents[i].domain;
+        title_normalized = title
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        allComponents[i].titleLC = title.toLowerCase();
+        allComponents[i].search = `${title} ${title_normalized} ${domain}`;
       }
 
       // sort the components alphabetically
@@ -175,8 +181,10 @@ allComponents.pop(); // remove placeholder element at the end
           // search through title and category
           search = decodeURIComponent(hash).substring(8).toLowerCase();
           filter = function (comp) {
-            return (comp.titleLC.indexOf(search) !== -1) ||
-              (comp.cat.find(c => c.includes("#")) != undefined);
+            return (
+              comp.search.indexOf(search) !== -1 ||
+              comp.cat.find((c) => c.includes("#")) != undefined
+            );
           };
 
         } else if (hash === '#featured' || hash === '') {
