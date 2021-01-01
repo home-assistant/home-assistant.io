@@ -52,6 +52,25 @@ echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
+For both processes below you will need to insert your SD card into your PC and open the `/boot/config.txt` file with your favorite text editor.
+
+----------
+The below information is for the Pi 4 specifically
+----------
+
+Add the following paramaters to the bottom of the `/boot/config.txt` file.
+
+```text
+dtoverlay=disable-bt
+enable_uart=1
+```
+
+Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the hat back, and boot again.
+
+----------
+The below information is for the Pi 3 specifically
+----------
+
 ```text
 dtoverlay=pi3-disable-bt
 ```
