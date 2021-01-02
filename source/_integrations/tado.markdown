@@ -2,6 +2,7 @@
 title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Hub
   - Climate
   - Water Heater
@@ -20,6 +21,7 @@ The `tado` integration platform is used as an interface to the [my.tado.com](htt
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary Sensor - for some additional information of the zones.
 - Climate - for every Tado zone.
 - Water Heater - for water heater zones.
 - [Presence Detection](#presence-detection)
