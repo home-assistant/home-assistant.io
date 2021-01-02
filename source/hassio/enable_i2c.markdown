@@ -44,3 +44,17 @@ and make sure the first partition is available.
   present at boot time.
 
 The I2C devices should now be present under /dev.
+
+
+### From Hassio Terminal
+
+At the hassio main terminal, login as root, then type `login` to access the shell. The following enables i2c. 
+```
+mount /dev/sda1 /mnt
+mkdir -p /mnt/CONFIG/modules
+echo -ne i2c-dev>/mnt/CONFIG/modules/rpi-i2c.conf
+echo dtparam=i2c_vc=on >> /mnt/CONFIG/config.txt
+echo dtparam=i2c_arm=on >> /mnt/CONFIG/config.txt
+sync
+reboot
+```
