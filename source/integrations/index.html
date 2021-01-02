@@ -119,13 +119,16 @@ allComponents.pop(); // remove placeholder element at the end
     function init() {
       // do the lowerCase transformation once
       for (i = 0; i < allComponents.length; i++) {
-        title = allComponents[i].title;
+        title = allComponents[i].title.toLowerCase();
         domain = allComponents[i].domain;
         title_normalized = title
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "");
-        allComponents[i].titleLC = title.toLowerCase();
-        allComponents[i].search = `${title} ${title_normalized} ${domain}`;
+        title_dedashed = title.replace(/[-_]/g, " ");
+        title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
+
+        allComponents[i].titleLC = title;
+        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain}`;
       }
 
       // sort the components alphabetically
