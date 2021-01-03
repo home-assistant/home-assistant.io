@@ -741,6 +741,46 @@ rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
   required: false
   type: string
+individual_colors:
+  description: Used when the actuator only supports individual group addresses for colors.
+  required: false
+  type: map
+  keys:
+    red:
+      description: Group addresses for the red component.
+      type: map
+      required: true
+      keys:
+        address:
+          description: KNX group address to switch the red component. *DPT 1.001*
+          type: string
+          required: false
+        state_address:
+          description: KNX group address for the state of the red component. *DPT 1.001*
+          type: string
+          required: false
+        brightness_address:
+          description: KNX group address to set the brightness of the red component. *DPT 5.001*
+          type: string
+          required: true
+        brightness_state_address:
+          description: KNX group address for the current brightness of the red component. *DPT 5.001*
+          type: string
+          required: false
+          type: string
+          required: false
+    green:
+      description: Group addresses for the green component. Same keys available as for red component above.
+      type: map
+      required: true
+    blue:
+      description: Group addresses for the blue component. Same keys available as for red component above.
+      type: map
+      required: true
+    white:
+      description: Group addresses for the white component. Same keys available as for red component above.
+      type: map
+      required: false
 color_temperature_address:
   description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
   required: false
