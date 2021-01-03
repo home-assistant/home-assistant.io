@@ -495,4 +495,83 @@ automation manual: !include_dir_merge_list automations/
 automation ui: !include automations.yaml
 ```
 
+## YAML Fragments
+
+Another option for making complex configuration files easier to read and maintain is the use of YAML fragments, or 'scraps', that are injected into your configuration. For example, let's say you have a few automations that are triggered by various sensors, but part of your conditions for those triggers is that you are home and the sun is up:
+
+`automations.yaml`
+```yaml
+condition:
+  - condition: state
+    entity_id: 'device_tracker.paulus'
+    state: 'home'
+  - condition: state
+    entity_id: sun.sun
+    state: 'above_horizon'
+```
+
+If you have to repeat these conditions in your automations YAML, the YAML quickly becomes 'noisy' and error-prone. To solve this, you can save these conditions in a separate 'scraps.yaml' file, and inject them into the config:
+
+`scraps.yaml`
+```yaml
+paulus_is_home_sun_is_up:
+  - condition: state
+    entity_id: 'device_tracker.paulus'
+    state: 'home'
+  - condition: state
+    entity_id: sun.sun
+    state: 'above_horizon'
+```
+You would then call this fragment into your automation:
+
+`automations.yaml`
+```yaml
+condition: ~scrap paulus_is_home_sun_is_up
+```
+
+This allows common, repeated yaml to be saved in one spot, and injected where needed. If you need to change the condition, you only have to change it in one spot to affect all the parts of the config that use it. Once you verify that it's working, you know it will work whereever it's used.
+
+You may also refer to scraps within the scraps.yaml file:
+
+`scaps.yaml`
+```yaml
+paulus_is_home_sun_is_up:
+  - ~scrap paulus_is_home
+  - ~scrap sun_is_up
+paulus_is_home:
+  condition: state
+  entity_id: 'device_tracker.paulus'
+  state: 'home'
+sun_is_up:
+  condition: state
+  entity_id: sun.sun
+  state: 'above_horizon'
+its_warm_out:
+  condition: numeric_state
+  entity_id: 'sensor.temperature'
+  above: 20
+```
+
+This allows you to break down your YAML into discrete chunks, and/or group them together however you like.
+
+`automations.yaml`
+```yaml
+condition:
+  - ~scrap paulus_is_home
+  - ~scrap its_warm_out
+```
+
+Note that you can specify a scrap as either a list or a dictionary. Scraps processing will 'do the right thing' and merge a scrap list within an existing list. In the following example, 'paulus_is_home_sun_is_up' is a list scrap, but it's being injected into an already-existing list. You will end up with a flat list of three conditions:
+
+`automations.yaml`
+```yaml
+condition:
+  - ~scrap paulus_is_home_sun_is_up
+  - ~scrap its_warm_out
+```
+
+Config processing will look for 'scraps.yaml' in the current directory, and if it can't be resolved from that file, it will continue to check parent directories for 'scraps.yaml' and resolve from there. This allow you to locate scraps close to where they will be used, or override same-named scraps in local files.
+
+For the examples above, we are using automation or script conditions, but scraps can be used for anything in your configuration. Use them to lighten up the main config (reduce noise), make them more language based (easier to read) and make complex configs easier to maintain (one change affects many).
+
 [discord]: https://discord.gg/c5DvZ4e
