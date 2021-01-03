@@ -48,8 +48,11 @@ The I2C devices should now be present under /dev.
 
 ### From Hassio Terminal
 
-At the hassio main terminal, login as root, then type `login` to access the shell. The following enables i2c. 
-```
+At the hassio, physical-access, main terminal, 
+  1. login as root
+  2. type `login` to access the shell. 
+  3. type the following to enable i2c. 
+```shell
 mount /dev/sda1 /mnt
 mkdir -p /mnt/CONFIG/modules
 echo -ne i2c-dev>/mnt/CONFIG/modules/rpi-i2c.conf
