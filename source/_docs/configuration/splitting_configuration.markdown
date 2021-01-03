@@ -510,7 +510,7 @@ condition:
     state: 'above_horizon'
 ```
 
-If you have to repeat these conditions in your automations YAML, the YAML quickly becomes 'noisy' and error-prone. To solve this, you can save these conditions in a separate 'scraps.yaml' file, and inject them into the config:
+If you have to repeat these conditions in your automations YAML, the YAML quickly becomes 'noisy' and error-prone. To solve this, you can save these conditions in a separate 'scraps.yaml' file, and inject them into the configuration:
 
 `scraps.yaml`
 ```yaml
@@ -529,7 +529,7 @@ You would then call this fragment into your automation:
 condition: ~scrap paulus_is_home_sun_is_up
 ```
 
-This allows common, repeated yaml to be saved in one spot, and injected where needed. If you need to change the condition, you only have to change it in one spot to affect all the parts of the config that use it. Once you verify that it's working, you know it will work whereever it's used.
+This allows common, repeated YAML to be saved in one spot, and injected where needed. If you need to change the condition, you only have to change it in one spot to affect all the parts of the configuration that use it. Once you verify that it's working, you know it will work wherever it's used.
 
 You may also refer to scraps within the scraps.yaml file:
 
@@ -561,7 +561,7 @@ condition:
   - ~scrap its_warm_out
 ```
 
-Note that you can specify a scrap as either a list or a dictionary. Scraps processing will 'do the right thing' and merge a scrap list within an existing list. In the following example, 'paulus_is_home_sun_is_up' is a list scrap, but it's being injected into an already-existing list. You will end up with a flat list of three conditions:
+Note that you can specify a scrap as either a list or a dictionary. Scraps processing will 'do the right thing' for lists, and merge a scrap list properly within an existing list. In the following example, 'paulus_is_home_sun_is_up' is a list scrap, but it is being injected within an already-existing list of conditions. This resultant list is 'flattened', so you end up with a single-level list of three conditions:
 
 `automations.yaml`
 ```yaml
@@ -570,8 +570,23 @@ condition:
   - ~scrap its_warm_out
 ```
 
-Config processing will look for 'scraps.yaml' in the current directory, and if it can't be resolved from that file, it will continue to check parent directories for 'scraps.yaml' and resolve from there. This allow you to locate scraps close to where they will be used, or override same-named scraps in local files.
+...results in...
 
-For the examples above, we are using automation or script conditions, but scraps can be used for anything in your configuration. Use them to lighten up the main config (reduce noise), make them more language based (easier to read) and make complex configs easier to maintain (one change affects many).
+```yaml
+condition:
+- condition: state
+  entity_id: 'device_tracker.paulus'
+  state: 'home'
+- condition: state
+  entity_id: sun.sun
+  state: 'above_horizon'
+- condition: numeric_state
+  entity_id: 'sensor.temperature'
+  above: 20
+```
+
+Configuration processing will look for 'scraps.yaml' in the current directory, and if it can't be resolved from that file, it will continue to check parent directories for 'scraps.yaml' and resolve from there. This allow you to locate scraps close to where they will be used, or override same-named scraps in local child directories.
+
+For the examples above, we are using automation or script conditions, but scraps can be used for anything in your configuration. Use them to lighten up the main configuration (reduce noise), make them more language based (easier to read) and make complex configurations easier to maintain (one change affects many).
 
 [discord]: https://discord.gg/c5DvZ4e
