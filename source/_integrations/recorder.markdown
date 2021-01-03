@@ -325,6 +325,8 @@ createdb -E utf8 DB_NAME
 ```
 Where `DB_NAME` is the name of your database
 
+If the Database in use if not `utf8` adding `?client_encoding=utf8` to the `db_url` may solve any issue.
+
 For PostgreSQL you may have to install a few dependencies:
 
 ```bash
