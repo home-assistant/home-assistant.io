@@ -742,7 +742,7 @@ rgbw_state_address:
   required: false
   type: string
 individual_colors:
-  description: Used when the actuator only supports individual group addresses for colors.
+  description: Used when the actuator only supports individual group addresses for colors. When `address` is specified for all 3 (or 4) individual colors the root `address` key can be omitted.
   required: false
   type: map
   keys:
