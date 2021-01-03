@@ -46,9 +46,9 @@ and make sure the first partition is available.
 The I2C devices should now be present under /dev.
 
 
-### From HassOS Terminal
+### From Home Assistant Operating System Terminal
 
-At the HassOS, physical-access, main terminal, 
+At the Home Assistant Operating System Terminal, physical-access, main terminal, 
   1. login as root
   2. type `login` to access the shell. 
   3. type the following to enable i2c. 
