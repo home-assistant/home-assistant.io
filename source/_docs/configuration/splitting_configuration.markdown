@@ -531,7 +531,7 @@ condition: ~scrap paulus_is_home_sun_is_up
 
 This allows common, repeated YAML to be saved in one spot, and injected where needed. If you need to change the condition, you only have to change it in one spot to affect all the parts of the configuration that use it. Once you verify that it's working, you know it will work wherever it's used.
 
-You may also refer to scraps within the scraps.yaml file:
+You may also refer to scraps within the 'scraps.yaml' file:
 
 `scaps.yaml`
 ```yaml
