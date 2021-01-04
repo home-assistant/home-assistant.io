@@ -149,7 +149,7 @@ For those devices, use the *off_delay* parameter. It defines a delay after, whic
 
 Available only for RFY cover devices. Enables tilt control of venetian blind slats.
 
-Venetian blind motors which control slats tilt can be configured in one of two modes - US (short press of up/down buttons opens/closes the blind, long press controls tilt angle), or European (short press of up/down buttons controls tilt angle, long press opens/closes the blind). You can select one of the following settings depending on your blinds:
+Venetian blind motors that control slats tilt can be configured in one of two modes - US (short press of up/down buttons opens/closes the blind, long-press controls tilt angle), or European (short press of up/down buttons controls tilt angle, long-press opens/closes the blind). You can select one of the following settings depending on your blinds:
 
 - **Unknown** - default, tilt control is not enabled. Leave if the cover is not a venetian blind.
 - **US** - tilt control enabled for blinds in US tilt mode.
