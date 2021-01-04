@@ -13,7 +13,7 @@ ha_domain: utility_meter
 
 The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
 
-From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
+From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount). For maximum flexibility and to make this integration usable for various applications, a user can also opt not to let the sensor reset automatically based on date or time. If the user wants the sensor to reset, the appropriate service has to be called.
 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
@@ -39,8 +39,9 @@ source:
   required: true
   type: string
 cycle:
-  description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
-  required: true
+  description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `manual`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
+  required: false
+  default: manual
   type: string
 offset:
   description: "Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."
