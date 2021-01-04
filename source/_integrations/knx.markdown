@@ -80,11 +80,6 @@ config_file:
   description: The path for XKNX configuration file. See [xknx.io](https://xknx.io/configuration) for details
   required: false
   type: string
-rate_limit:
-  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
-  required: false
-  default: 20
-  type: integer
 individual_address:
   description: The KNX individual address that shall be used for routing or if a tunnelling server doesn't assign an IA at connection.
   required: false
@@ -100,16 +95,30 @@ multicast_port:
   required: false
   type: integer
   default: 3671
+rate_limit:
+  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
+  required: false
+  default: 20
+  type: integer
+state_updater:
+  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
-If the auto detection of the KNX/IP device does not work you can specify IP and port of the tunneling device:
+## Connection
+
+Under normal conditions no connection configuration should be needed. The integration will auto-detect KNX/IP interfaces and connect to one. This requires multicast communication to work in your environment.
+
+### Tunneling
+
+If you want to connect to a sepcific tunnelling server or if the auto detection of the KNX/IP device does not work the IP or/and port of the tunneling device can be configurated.
 
 ```yaml
 knx:
   tunneling:
     host: '192.168.2.23'
-    port: 3671
-    local_ip: '192.168.2.109'
 ```
 
 {% configuration %}
@@ -127,7 +136,9 @@ local_ip:
   required: false
 {% endconfiguration %}
 
-Explicit connection to a KNX/IP routing device:
+### Routing
+
+Explicit connection via KNX/IP routing. This requires multicast communication to work in your environment.
 
 ```yaml
 knx:
@@ -141,6 +152,8 @@ local_ip:
   type: string
   required: true
 {% endconfiguration %}
+
+## Events
 
 ```yaml
 knx:
@@ -158,12 +171,15 @@ fire_event_filter:
   description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the Home Assistant event bus.
   required: inclusive
   type: [list, string]
-state_updater:
-  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home Assistant. Set this option to False to prevent this behavior.
-  required: false
-  default: true
-  type: boolean
 {% endconfiguration %}
+
+Every telegram that matches the filter will be announced on the event bus as a `knx_event` event containing data attributes
+
+- `data` contains the raw payload data (eg. 1 or "[12, 55]").
+- `destination` the KNX group address the telegram is sent to as string (eg. "1/2/3).
+- `direction` the direction of the telegram as string ("Incoming" / "Outgoing"). Currently only incoming telegrams generate the event.
+- `source` the KNX indidividual address of the sender as string (eg. "1.2.3").
+- `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
 
 ## Services
 
@@ -248,14 +264,11 @@ address:
   required: true
 {% endconfiguration %}
 
-
-The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
-
-Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
-
 ## Binary Sensor
 
-To use your binary sensors please add the relevant configuration to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
+The `knx` binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
+
+Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
 ```yaml
 knx:
@@ -307,7 +320,7 @@ context_timeout:
 
 You can use a built in event in order to trigger an automation (e.g. to switch on a light when a switch was pressed).
 
-Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you want to switch one light on when the button was pressed once and two other lights when the button was pressed twice.
+Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you want to switch one light on when the button was pressed once and two other lights when the button was pressed twice. `context_timeout` has to be configured in order for this to work.
 
 ```yaml
 # Example automation.yaml entry
@@ -681,8 +694,6 @@ The `knx light` integration is used as an interface to control KNX actuators for
 - LED controllers
 - DALI gateways
 
-### Configuration
-
 To use your KNX light in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
@@ -730,6 +741,46 @@ rgbw_state_address:
   description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
   required: false
   type: string
+individual_colors:
+  description: Used when the actuator only supports individual group addresses for colors. When `address` is specified for all 3 (or 4) individual colors the root `address` key can be omitted.
+  required: false
+  type: map
+  keys:
+    red:
+      description: Group addresses for the red component.
+      type: map
+      required: true
+      keys:
+        address:
+          description: KNX group address to switch the red component. *DPT 1.001*
+          type: string
+          required: false
+        state_address:
+          description: KNX group address for the state of the red component. *DPT 1.001*
+          type: string
+          required: false
+        brightness_address:
+          description: KNX group address to set the brightness of the red component. *DPT 5.001*
+          type: string
+          required: true
+        brightness_state_address:
+          description: KNX group address for the current brightness of the red component. *DPT 5.001*
+          type: string
+          required: false
+          type: string
+          required: false
+    green:
+      description: Group addresses for the green component. Same keys available as for red component above.
+      type: map
+      required: true
+    blue:
+      description: Group addresses for the blue component. Same keys available as for red component above.
+      type: map
+      required: true
+    white:
+      description: Group addresses for the white component. Same keys available as for red component above.
+      type: map
+      required: false
 color_temperature_address:
   description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
   required: false
@@ -761,7 +812,7 @@ For switching/light actuators that are only controlled by a single group address
 
 *Note on tunable white:* Home Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home Assistant may not align with ones of KNX visualizations. This is the expected behavior.
 
-## Extended configuration example
+### Extended configuration examples
 
 ```yaml
 knx:
@@ -802,11 +853,7 @@ knx:
 
 ## Notify
 
-The `knx` notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices.
-
-### Configuration
-
-To use your KNX switch in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
+The `knx` notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
 ```yaml
 knx:
@@ -825,13 +872,10 @@ name:
   required: false
   type: string
 {% endconfiguration %}
-The `knx` scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes.
 
 ## Scene
 
-### Configuration
-
-To use your KNX scene in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
+The `knx` scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes. These entities are write-only.
 
 ```yaml
 # Example configuration.yaml entry
@@ -861,12 +905,7 @@ name:
 
 The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
-Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
-
-
-### Configuration
-
-To use your KNX sensor in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
+Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus) or use the `knx.send` service.
 
 ```yaml
 # Example configuration.yaml entry
@@ -876,7 +915,7 @@ knx:
       state_address: '2/0/0'
 ```
 
-In order to actively read the sensor data from the bus all 30 seconds you can add the following lines to your `configuration.yaml`:
+In order to actively read the sensor data from the bus every 30 minutes you can add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -884,7 +923,7 @@ knx:
   sensor:
     - name: Heating.Valve1
       state_address: '2/0/0'
-      sync_state: expire 30
+      sync_state: every 30
 ```
 
 {% configuration %}
@@ -911,6 +950,8 @@ always_callback:
   type: boolean
   default: False
 {% endconfiguration %}
+
+### Value Types
 
 | KNX DPT | type                          | size in byte | range                      | unit           |
 |--------:|-------------------------------|-------------:|:--------------------------:|----------------|
@@ -1052,7 +1093,7 @@ always_callback:
 | 16.000  | string                        | 14           |                            |                |
 | 17.001  | scene_number                  | 1            | 1 ... 64                   |                |
 
-### Full example
+### More examples
 
 ```yaml
 # Example configuration.yaml entry
@@ -1071,10 +1112,6 @@ knx:
 ## Switch
 
 The `knx` switch platform is used as an interface to switching actuators.
-
-### Configuration
-
-To use your KNX switch in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
 ```yaml
 knx:
