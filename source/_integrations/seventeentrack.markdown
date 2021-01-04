@@ -57,6 +57,13 @@ show_delivered:
 
 Use the following templated Markdown card to list all packages in transit along their status:
 
+Properties that can be using in Lovelace markdown:
+- "friendly_name"
+- "info_text"
+- "status"
+- "location"
+- "tracking_number"
+
 {% raw %}
 
 ```yaml
