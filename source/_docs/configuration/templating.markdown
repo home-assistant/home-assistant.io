@@ -206,7 +206,7 @@ If your template is returning a timestamp that should be displayed in the fronte
 
 To fix it, enforce the ISO conversion via `isoformat()`:
 
-```{{ (states.sun.sun.last_updated).isoformat() }}``` => `2021-01-04T12:27:08.036538+00:00`	
+`{{ (states.sun.sun.last_updated).isoformat() }}` => `2021-01-04T12:27:08.036538+00:00`	
 </div>
 
 {% raw %}
