@@ -265,18 +265,19 @@ Supported abbreviations for device registry configuration:
 
 The following software has built-in support for MQTT discovery:
 
-- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e)
+- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
-- [SmartHome](https://github.com/roncoa/SmartHome)
-- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
-- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
-- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
-- [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
-- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
+- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
+- [SmartHome](https://github.com/roncoa/SmartHome)
+- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
+- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
+- [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
+- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
+- [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ## Examples
 
