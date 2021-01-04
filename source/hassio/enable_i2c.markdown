@@ -51,12 +51,12 @@ At the Home Assistant Operating System Terminal, physical-access, main terminal,
   1. login as root
   2. type `login` to access the shell. 
   3. type the following to enable i2c. 
-```shell
-mount /dev/sda1 /mnt
-mkdir -p /mnt/CONFIG/modules
-echo -ne i2c-dev>/mnt/CONFIG/modules/rpi-i2c.conf
-echo dtparam=i2c_vc=on >> /mnt/CONFIG/config.txt
-echo dtparam=i2c_arm=on >> /mnt/CONFIG/config.txt
-sync
-reboot
-```
+  ```shell
+  mount /dev/sda1 /mnt
+  mkdir -p /mnt/CONFIG/modules
+  echo -ne i2c-dev>/mnt/CONFIG/modules/rpi-i2c.conf
+  echo dtparam=i2c_vc=on >> /mnt/CONFIG/config.txt
+  echo dtparam=i2c_arm=on >> /mnt/CONFIG/config.txt
+  sync
+  reboot
+  ```
