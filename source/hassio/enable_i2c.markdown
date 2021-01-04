@@ -45,8 +45,7 @@ and make sure the first partition is available.
 
 The I2C devices should now be present under /dev.
 
-
-### From Home Assistant Operating System Terminal
+## From Home Assistant Operating System Terminal
 
 At the Home Assistant Operating System Terminal, physical-access, main terminal, 
   1. login as root
