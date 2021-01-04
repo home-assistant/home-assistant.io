@@ -47,10 +47,14 @@ The I2C devices should now be present under /dev.
 
 ## From Home Assistant Operating System Terminal
 
-At the Home Assistant Operating System Terminal, physical-access, main terminal, 
-  1. login as root
-  2. type `login` to access the shell. 
-  3. type the following to enable i2c. 
+
+Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant operating system.
+
+You can enabled i2c via this terminal:
+
+- Login as `root`.
+- Type `login` and press enter to access the shell.
+- Type the following to enable i2c:
   ```shell
   mount /dev/sda1 /mnt
   mkdir -p /mnt/CONFIG/modules
