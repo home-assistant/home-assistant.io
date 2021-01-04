@@ -39,7 +39,7 @@ source:
   required: true
   type: string
 cycle:
-  description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `manual`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
+  description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly`, `yearly` and `manual`. Cycle value `bimonthly` will reset the counter once in two months.
   required: false
   default: manual
   type: string
