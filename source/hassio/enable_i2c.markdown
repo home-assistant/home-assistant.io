@@ -47,8 +47,7 @@ The I2C devices should now be present under /dev.
 
 ## From Home Assistant Operating System Terminal
 
-
-Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant operating system.
+Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant Operating System.
 
 You can enabled i2c via this terminal:
 
