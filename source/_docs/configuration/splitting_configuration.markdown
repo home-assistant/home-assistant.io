@@ -585,7 +585,7 @@ condition:
   above: 20
 ```
 
-Configuration processing will look for 'scraps.yaml' in the current directory, and if it can't be resolved from that file, it will continue to check parent directories for 'scraps.yaml' and resolve from there. This allow you to locate scraps close to where they will be used, or override same-named scraps in local child directories.
+Configuration processing will look for 'scraps.yaml' in the current directory, and if it can't be resolved from that file, it will continue to check parent directories for 'scraps.yaml' and resolve from there. This allows you to locate scraps close to where they will be used, or override same-named scraps in local child directories.
 
 For the examples above, we are using automation or script conditions, but scraps can be used for anything in your configuration. Use them to lighten up the main configuration (reduce noise), make them more language based (easier to read) and make complex configurations easier to maintain (one change affects many).
 
