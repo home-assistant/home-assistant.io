@@ -29,6 +29,8 @@ Some very old Brother printers use different data format and these models are no
 
 ## Configuring the printer
 
-SNMP settings are commonly under Network / Protocol / SNMP.
-For some Brother devices, **SNMPv3 read-write access and v1/v2c read-only access** is the option required (under advanced settings).
+To set SNMP, navigate to the printer's web interface (for example: http://192.168.5.6) and turn on under Network / Protocol / SNMP.
+For some Brother devices, `SNMPv3 read-write access and v1/v2c read-only access` is the option required (under advanced settings).
+
+![SNMP settings on Brother Printer web interface](https://user-images.githubusercontent.com/68903245/103670460-e239ad80-4f79-11eb-84f0-dd52a2ae7971.png)
 
