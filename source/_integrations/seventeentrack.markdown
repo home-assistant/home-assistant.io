@@ -72,3 +72,14 @@ content: >-
 ```
 
 {% endraw %}
+
+Attributes that can be using in Lovelace markdown:
+| Service data attribute |  Description |
+| ---------------------- |  ----------- |
+| `friendly_name` | Description manually added into 17Track |
+| `info_text` | Description provided by 17Track |
+| `status` | In-Transit, Awaiting delivery, Delivered, etc |
+| `location` | Current location such as city or country  |
+| `tracking_number` | Tracking number |
+
+
