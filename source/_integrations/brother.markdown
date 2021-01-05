@@ -26,3 +26,9 @@ To add `Brother Printer` to your installation, go to **Configuration** >> **Inte
 Some very old Brother printers use different data format and these models are not supported. The integration will show information about that during configuration.
 
 </div>
+
+## Configuring the printer
+
+SNMP settings are commonly under Network / Protocol / SNMP.
+For some Brother devices, **SNMPv3 read-write access and v1/v2c read-only access** is the option required (under advanced settings).
+
