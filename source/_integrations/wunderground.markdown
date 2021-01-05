@@ -12,7 +12,7 @@ The `wunderground` platform uses [Weather Underground](https://www.wunderground.
 
 <div class='note warning'>
 
-Weather Underground API no longer offers API keys. The API is generally not available for use, except if you own a personal weather station and provide your data to WU (PWS Uploader).
+Weather Underground API no longer offers API keys. The API is generally not available for use, except if you own a personal weather station and provide your data to WU (PWS Uploader). Due to changes in WU API described [here](https://docs.google.com/document/d/1eKCnKXI9xnoMGRRzOL1xPCBihNV2rOet08qpE_gArAY/edit) the integration doesn't work anymore.
 
 Please consider this when using the following information.
 
@@ -279,4 +279,4 @@ Note that the Weather Underground sensor is added to the entity_registry, so sec
 - sensor.pws_weather_1d_metric_2
 ```
 
-Additional details about the API are available [here](https://www.wunderground.com/weather/api/d/docs).
+Additional details about the API are available [here](https://docs.google.com/document/d/1eKCnKXI9xnoMGRRzOL1xPCBihNV2rOet08qpE_gArAY/edit).
