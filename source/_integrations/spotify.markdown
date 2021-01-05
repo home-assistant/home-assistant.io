@@ -49,7 +49,8 @@ spotify:
   client_id: YOUR_CLIENT_ID
   client_secret: YOUR_CLIENT_SECRET
 ```
-Make sure that you restart your Home Assistant instance before continuing with the next step.
+
+Restart your Home Assistant instance before continuing with the next step.
 
 {% configuration %}
 client_id:
