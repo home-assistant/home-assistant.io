@@ -49,6 +49,7 @@ spotify:
   client_id: YOUR_CLIENT_ID
   client_secret: YOUR_CLIENT_SECRET
 ```
+Make sure that you restart your Home Assistant instance before continuing with the next step.
 
 {% configuration %}
 client_id:
@@ -66,8 +67,8 @@ client_secret:
 - Access Home Assistant using the URL that you used in the **Redirect URI** step above 
 - Go to the **Configuration** page in the Home Assistant frontend.
 - Click on **Integrations**.
-- Click the orange **+** on the bottom-right.
-- Click on "Spotify".
+- Click the **Add Integration** button in the bottom-right.
+- Select "Spotify".
 - Once the new Spotify tab opens, enter your Spotify credentials and allow Home Assistant to access your Spotify account.
 
 <div class='note'>
