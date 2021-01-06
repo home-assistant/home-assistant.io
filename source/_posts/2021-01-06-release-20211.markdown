@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.1: Beta release notes"
-description: "Beta release notes!"
-date: 2020-12-30 00:00:00
+title: "2021.1: Happy New Year!"
+description: "Kicking off 2021 slowly, with a nice and light release containing mainly fixes and tweaks."
+date: 2021-01-06 00:00:00
 date_formatted: "January 6, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -13,29 +13,35 @@ og_image: /images/blog/2021-01/social.png
 
 <img src='/images/blog/2021-01/social.png' style='border: 0;box-shadow: none;'>
 
-These are the beta release notes for Home Assistant Core 2021.1 (and is thus a
-work in progress).
+We said goodbye to 2020, which was a weird and wild year. 2020 will be
+remembered because of the awful pandemic, that hopefully will get under control
+in 2021.
 
-If you encounter any issues with the beta release, please report them on GitHub:
+We wish you, your family, friends and everyone around you, safety, health,
+happiness and countless blessings for 2021!
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+Happy New Year!
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+Kicking off the year with Home Assistant Core 2021.1!
 
-Issues introduced in the beta are processed with priority.
+Now don't get too excited. The 2020.12 release was jam-packed, and most of us
+enjoyed the holidays with our loved ones. Furthermore, we didn't have a full
+release cycle, this one was shorter than usual. This is due to the delaying of
+the previous release cycle (for the conference) and the introduction of the new
+release cycle (monthly now).
 
-## Table of contents
+As a result of that, this release starts 2021 slowly, with a light release.
+No big new features, no new integrations. Just fixes, tweaking and tuning.
 
-- [Table of contents](#table-of-contents)
-- [Lorem ipsum](#lorem-ipsum)
+Besides, I'm curious, what is your smart home new years resolution?
+Let me know in the comments!
+
+Enjoy the release!
+
+../Frenck
+
+- [In memoriam of villhellm](#in-memoriam-of-villhellm)
+- [Home Assistant Conference Videos](#home-assistant-conference-videos)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -45,53 +51,84 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## Lorem ipsum
+## In memoriam of villhellm
 
-Lorem ipsum
+It is with sadness that we announce that one of the Jedis in our Discord Server,
+[@villhellm](https://www.github.com/villhellm) (William), who had been actively
+involved with the Home Assistant community for a number of years, had passed
+away right before Christmas of 2020 at the age of 27.
 
-<!--- <p class='img'>
-<img src='/images/blog/2021-01/blueprints.png' alt='Screenshot of the lorem ipsum'>
-Screenshot of the lorem ipsum.
-</p> -->
+He had been an active member in forums, and other discord servers related to
+Home Automation (Dr. Zzs, DigiblurDIY, and many more.)
+
+We want to take a moment to recognize his efforts and the support he had
+provided to the HA community, and may he rest in peace.
+
+Some of his friends have set up a [GoFundMe](https://gofund.me/f14a5a4a) account
+to help his surviving wife and family members. We now have an opportunity to
+help his family get through these difficult times.
+
+We thank you for your support!
+
+## Home Assistant Conference Videos
+
+A couple of weeks ago, the Home Assistant Conference of 2020 took place. We had
+quite a few messages and requests for making all talks held at the conference
+available for viewing.
+
+We have started the process of making those available on our
+[YouTube Channel][channel]. So, if you haven't done ot already, go to our
+channel and subscribe and you'll be notified when we make another talk
+available.
+
+All videos of the conference will be added to the
+[Home Assistant Conference 2020 playlist][playlist] on YouTube as well.
+
+[channel]: https://www.youtube.com/channel/UCbX3YkedQunLt7EQAdVxh7w
+[playlist]: https://www.youtube.com/playlist?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB
 
 ## Other noteworthy changes
 
-<!-- - The [Lorem ipsum][lorem_ipsum docs] now supports lorem ipsum version 13 and
-  above and can be setup from the UI, thanks [@frenck]! -->
+This release has no big new features, but we do have quite a bit of tweaks
+that are definitely noteworthy to mention.
 
-From Core:
-
-- Add HmIP-HDM1 and HmIPW-DRD3 to Homematic IP Cloud ([@SukramJ] - [#43132]) ([homematicip_cloud docs])
-- Refactor LCN integration ([@alengwenus] - [#40665]) ([lcn docs])
-- Add ZHA Coordinator to LightLink cluster groups ([@Adminiuga] - [#43959]) ([zha docs])
-- Add target temperature range to homekit_controller ([@thevoltagesource] - [#42817]) ([homekit_controller docs])
-- Add UV unit to meteo_france UV sensor ([@mbo18] - [#43992]) ([meteo_france docs]) (breaking-change)
-- Add discovery for MQTT device tracker ([@PeteBa] - [#42327]) ([mqtt docs])
-- Add pause and resume services to Rachio ([@brg468] - [#43944]) ([rachio docs])
-- Expose spider device information ([@peternijssen] - [#44085]) ([spider docs])
-- Add code_arm_required to IFTTT alarm ([@k2v1n58] - [#43928]) ([ifttt docs])
-- Support MSSQL in SQL Sensor ([@dgomes] - [#42778]) ([sql docs])
-- Add zha AnalogOutput cluster support ([@Shulyaka] - [#44092]) ([zha docs])
-- Add OAuth to Neato ([@Santobert] - [#44031]) ([neato docs]) (breaking-change)
-- Add new sensors to meteo_france ([@mbo18] - [#44150]) ([meteo_france docs])
-- Temperatures, fan and battery in Glances sensors ([@guix77] - [#43500]) ([glances docs]) (breaking-change)
-- Add send animation service to telegram ([@tofuSCHNITZEL] - [#41489]) ([telegram_bot docs])
-- Add extended device info and some attributes to Apple TV ([@postlund] - [#44277]) ([apple_tv docs]) ([media_player docs])
-- Publish timestamps in nest events ([@allenporter] - [#44641]) ([nest docs])
-- Add Wind to Accuweather sensors ([@abmantis] - [#44364]) ([accuweather docs])
-- Add options flow for Recollect Waste ([@bachya] - [#44234]) ([recollect_waste docs])
-- Home connect functional and ambient light added ([@Sjack-Sch] - [#44091]) ([home_connect docs]) (new-platform)
-- Add xiamoi_miio the water_box / mop status ([@JJdeVries] - [#43355]) ([xiaomi_miio docs])
-- Support area on entities for google assistant ([@elupus] - [#44300]) ([google_assistant docs])
-- Add Olivia voice to Amazon Polly TTS ([@aque0us] - [#44513]) ([amazon_polly docs])
-- Add google cloud tts SSML + fix ([@lufton] - [#40203]) ([google_cloud docs])
-- Add album art support in the mpd component ([@mweinelt] - [#44527]) ([mpd docs])
-- Add OutdoorPlug to wemo ([@mattbilodeau] - [#44629]) ([wemo docs])
-
-From frontend:
-
-- Mark entity ID as optional for button card (#7967) [@spacegaier]
-- Do not render "No Area" in device table to reduce clutter (#7986) [@spacegaier]
+- [@spacegaier] removed the "No Area" from the device tables, reducing the
+  clutter in those lists.
+- Since 2020.12, entities can be assigned to areas. Thanks to [@elupus], these
+  area's are now sent to [Google Assistant][google_assistant docs] as room
+  hints.
+- [Rachio][rachio docs] now has pause and resume services, thanks to [@brg468].
+- A bunch of new sensors are added to [Météo-France][meteo_france docs].
+  Additional weather conditions, UV, and wind gust, done by [@mbo18]!
+- [@alengwenus] has been refactoring the [LCN][lcn docs] integration. While
+  it does not bring new things to the surface, it does improve in quality and
+  prepares for future improvements. Keep up the good work!
+- [Homeatic IP Cloud][homematicip_cloud docs] now supports HmIP-HDM1 and
+  HmIPW-DRD3, thanks to contributions by [@SukramJ].
+- [Accuweather][accuweather docs] now has Wind information, thanks [@abmantis]!
+- [ReCollect Waste][recollect_waste docs] now has integration options,
+  starting by giving the option to display pickup types by their human-friendly
+  names. Thanks, [@bachya]!
+- [@postlund] rewrote the [Apple TV][apple_tv docs] integration for 2020.12,
+  but he is not stopping! Besides some fixed, he extended the device information
+  and added some attributes.
+- The [SQL Sensor][sql docs] now supports MSSQL, thanks to [@dgomes]!
+- Support for climate devices with a temperature range, has been added to the
+  [HomeKit controller][homekit_controller docs] integration.
+  Thanks, [@thevoltagesource]!
+- The [MQTT] integration discovery feature, now has support for device trackers,
+  which has been added by [@PeteBa].
+- Sending animations using the [Telegram Bot][telegram_bot docs] is now
+  possible with the new animation service added by [@tofuSCHNITZEL].
+- If you have a Xiaomi Miio vacuum cleaner with a mop function, this release
+  added status for the water box and the mop itself. Thanks, [@JJdeVries]!
+- [WeMo][wemo docs] now supports the outdoor plug, thanks [@mattbilodeau]!
+- The [Music Player Daemon][mpd docs] integration now shows album art in the
+  media player. Looks good [@mweinelt]!
+- [Amazon Polly][amazon_polly docs] has a new voice: Olivia. A female,
+  Australian and neural voice. Thanks [@aque0us]!
+- [Google Cloud TTS][google_cloud docs] now has support for SSML
+  (Speech Synthesis Markup Language). Thanks, [@lufton]!
 
 ## New Integrations
 
@@ -434,10 +471,44 @@ Avri has changed their API and it seems not possible to use the new one.
 - Publish timestamps in nest events ([@allenporter] - [#44641]) ([nest docs])
 - Fix shelly shutdown AttributeError ([@chemelli74] - [#44172]) ([shelly docs])
 - Upgrade youtube_dl to 2020.12.29 ([@fabaff] - [#44643]) ([media_extractor docs])
+- Update py-august to 0.25.2 to fix august token refreshes ([@bdraco] - [#40109]) ([august docs]) (beta fix)
+- Suppress vizio logging API call failures to prevent no-op logs ([@raman325] - [#44388]) ([vizio docs]) (beta fix)
+- Add motion binary sensor ([@bieniu] - [#44445]) ([shelly docs]) (beta fix) (new-integration)
+- Correct Dyson climate fan auto mode ([@Sian-Lee-SA] - [#44569]) ([dyson docs]) (beta fix)
+- Upgrade canary integration to use py-canary 0.5.1 ([@markallanson] - [#44645]) ([canary docs]) (beta fix)
+- Bump ZHA quirks version to 0.0.50 ([@dmulcahey] - [#44650]) ([zha docs]) (beta fix)
+- Bump zm-py version to 0.5.2 ([@dlintott] - [#44658]) ([zoneminder docs]) (beta fix)
+- always sync unit_of_measurement ([@dgomes] - [#44670]) ([utility_meter docs]) (beta fix)
+- Catch Shelly zeroconf types with uppercase too ([@balloob] - [#44672]) ([shelly docs]) (beta fix)
+- Fix legacy nest api binary_sensor initialization ([@allenporter] - [#44674]) ([nest docs]) (beta fix)
+- Zeroconf lowercase ([@balloob] - [#44675]) ([brother docs]) ([zeroconf docs]) (beta fix)
+- Bump up ZHA dependencies ([@Adminiuga] - [#44680]) ([zha docs]) (beta fix)
+- Fix broken test test_auto_purge in recorder ([@allenporter] - [#44687]) ([recorder docs]) (beta fix)
+- Fix script wait templates with now/utcnow ([@bdraco] - [#44717]) (beta fix)
+- Fix rest notify GET without params configured ([@bdraco] - [#44723]) ([rest docs]) (beta fix)
+- Fix templates for rest notify ([@bdraco] - [#44724]) ([rest docs]) (beta fix)
+- Bump H11 library to support non RFC line endings ([@Kane610] - [#44735]) (beta fix)
+- Guard unbound var for DSMR ([@balloob] - [#44673]) ([dsmr docs]) (beta fix)
+- Change rest sensors update interval for Shelly Motion ([@bieniu] - [#44692]) ([shelly docs]) (beta fix)
+- Add index to old_state_id column for postgres and older databases ([@bdraco] - [#44757]) ([recorder docs]) (beta fix)
+- Update docker base image 2021.01.0 ([@pvizeli] - [#44761]) (beta fix)
+- Fix bug with blink auth flow ([@bmatcuk] - [#44769]) ([blink docs]) (beta fix)
+- Fix knx.send service not accepting floats ([@farmio] - [#44802]) ([knx docs]) (beta fix)
+- Fix zeroconf outgoing dns compression corruption for large packets ([@bdraco] - [#44828]) ([zeroconf docs]) (beta fix)
+- Implement color mode for ZHA light polling ([@TheJulianJES] - [#44829]) ([zha docs]) (beta fix)
+- Bump pypck to 0.7.8 ([@alengwenus] - [#44834]) ([lcn docs]) (beta fix)
+- Make Alexa custom ID unique ([@balloob] - [#44839]) ([alexa docs]) ([cloud docs]) (beta fix)
+- Bump openwebifpy version: 3.1.6 → 3.2.7 ([@fbradyirl] - [#44847]) ([enigma2 docs]) (beta fix)
+- Fix Canary doing I/O in event loop ([@frenck] - [#44854]) ([canary docs]) (beta fix)
+- Update frontend to 20201229.1 ([@bramkragten] - [#44861]) ([frontend docs]) (beta fix)
+- Bump pytradfri to 7.0.6 ([@MartinHjelmare] - [#44661]) ([tradfri docs]) (beta fix)
+- Fix Plex media summary attribute ([@jjlawren] - [#44863]) ([plex docs]) (beta fix)
+- Bump python-ecobee-api to 0.2.8 ([@treylok] - [#44866]) ([ecobee docs]) (beta fix)
 
 </details>
 
 [#39585]: https://github.com/home-assistant/core/pull/39585
+[#40109]: https://github.com/home-assistant/core/pull/40109
 [#40203]: https://github.com/home-assistant/core/pull/40203
 [#40418]: https://github.com/home-assistant/core/pull/40418
 [#40665]: https://github.com/home-assistant/core/pull/40665
@@ -559,6 +630,7 @@ Avri has changed their API and it seems not possible to use the new one.
 [#44376]: https://github.com/home-assistant/core/pull/44376
 [#44384]: https://github.com/home-assistant/core/pull/44384
 [#44385]: https://github.com/home-assistant/core/pull/44385
+[#44388]: https://github.com/home-assistant/core/pull/44388
 [#44389]: https://github.com/home-assistant/core/pull/44389
 [#44391]: https://github.com/home-assistant/core/pull/44391
 [#44392]: https://github.com/home-assistant/core/pull/44392
@@ -572,6 +644,7 @@ Avri has changed their API and it seems not possible to use the new one.
 [#44440]: https://github.com/home-assistant/core/pull/44440
 [#44442]: https://github.com/home-assistant/core/pull/44442
 [#44443]: https://github.com/home-assistant/core/pull/44443
+[#44445]: https://github.com/home-assistant/core/pull/44445
 [#44446]: https://github.com/home-assistant/core/pull/44446
 [#44459]: https://github.com/home-assistant/core/pull/44459
 [#44472]: https://github.com/home-assistant/core/pull/44472
@@ -587,6 +660,7 @@ Avri has changed their API and it seems not possible to use the new one.
 [#44519]: https://github.com/home-assistant/core/pull/44519
 [#44527]: https://github.com/home-assistant/core/pull/44527
 [#44566]: https://github.com/home-assistant/core/pull/44566
+[#44569]: https://github.com/home-assistant/core/pull/44569
 [#44571]: https://github.com/home-assistant/core/pull/44571
 [#44579]: https://github.com/home-assistant/core/pull/44579
 [#44585]: https://github.com/home-assistant/core/pull/44585
@@ -604,6 +678,35 @@ Avri has changed their API and it seems not possible to use the new one.
 [#44640]: https://github.com/home-assistant/core/pull/44640
 [#44641]: https://github.com/home-assistant/core/pull/44641
 [#44643]: https://github.com/home-assistant/core/pull/44643
+[#44645]: https://github.com/home-assistant/core/pull/44645
+[#44650]: https://github.com/home-assistant/core/pull/44650
+[#44658]: https://github.com/home-assistant/core/pull/44658
+[#44661]: https://github.com/home-assistant/core/pull/44661
+[#44670]: https://github.com/home-assistant/core/pull/44670
+[#44672]: https://github.com/home-assistant/core/pull/44672
+[#44673]: https://github.com/home-assistant/core/pull/44673
+[#44674]: https://github.com/home-assistant/core/pull/44674
+[#44675]: https://github.com/home-assistant/core/pull/44675
+[#44680]: https://github.com/home-assistant/core/pull/44680
+[#44687]: https://github.com/home-assistant/core/pull/44687
+[#44692]: https://github.com/home-assistant/core/pull/44692
+[#44717]: https://github.com/home-assistant/core/pull/44717
+[#44723]: https://github.com/home-assistant/core/pull/44723
+[#44724]: https://github.com/home-assistant/core/pull/44724
+[#44735]: https://github.com/home-assistant/core/pull/44735
+[#44757]: https://github.com/home-assistant/core/pull/44757
+[#44761]: https://github.com/home-assistant/core/pull/44761
+[#44769]: https://github.com/home-assistant/core/pull/44769
+[#44802]: https://github.com/home-assistant/core/pull/44802
+[#44828]: https://github.com/home-assistant/core/pull/44828
+[#44829]: https://github.com/home-assistant/core/pull/44829
+[#44834]: https://github.com/home-assistant/core/pull/44834
+[#44839]: https://github.com/home-assistant/core/pull/44839
+[#44847]: https://github.com/home-assistant/core/pull/44847
+[#44854]: https://github.com/home-assistant/core/pull/44854
+[#44861]: https://github.com/home-assistant/core/pull/44861
+[#44863]: https://github.com/home-assistant/core/pull/44863
+[#44866]: https://github.com/home-assistant/core/pull/44866
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@CrashWorksLLC]: https://github.com/CrashWorksLLC
@@ -620,6 +723,7 @@ Avri has changed their API and it seems not possible to use the new one.
 [@SeraphimSerapis]: https://github.com/SeraphimSerapis
 [@Shulyaka]: https://github.com/Shulyaka
 [@Shutgun]: https://github.com/Shutgun
+[@Sian-Lee-SA]: https://github.com/Sian-Lee-SA
 [@Sjack-Sch]: https://github.com/Sjack-Sch
 [@SteveBrandt]: https://github.com/SteveBrandt
 [@SukramJ]: https://github.com/SukramJ
@@ -637,6 +741,7 @@ Avri has changed their API and it seems not possible to use the new one.
 [@bdraco]: https://github.com/bdraco
 [@benleb]: https://github.com/benleb
 [@bieniu]: https://github.com/bieniu
+[@bmatcuk]: https://github.com/bmatcuk
 [@bramkragten]: https://github.com/bramkragten
 [@brg468]: https://github.com/brg468
 [@chemelli74]: https://github.com/chemelli74
@@ -645,6 +750,7 @@ Avri has changed their API and it seems not possible to use the new one.
 [@ctalkington]: https://github.com/ctalkington
 [@dermotduffy]: https://github.com/dermotduffy
 [@dgomes]: https://github.com/dgomes
+[@dlintott]: https://github.com/dlintott
 [@dmulcahey]: https://github.com/dmulcahey
 [@doug-hoffman]: https://github.com/doug-hoffman
 [@elbueno222]: https://github.com/elbueno222
@@ -665,11 +771,13 @@ Avri has changed their API and it seems not possible to use the new one.
 [@guix77]: https://github.com/guix77
 [@hmmbob]: https://github.com/hmmbob
 [@huonw]: https://github.com/huonw
+[@jjlawren]: https://github.com/jjlawren
 [@k2v1n58]: https://github.com/k2v1n58
 [@knyar]: https://github.com/knyar
 [@ktnrg45]: https://github.com/ktnrg45
 [@lufton]: https://github.com/lufton
 [@lundberg]: https://github.com/lundberg
+[@markallanson]: https://github.com/markallanson
 [@mattbilodeau]: https://github.com/mattbilodeau
 [@mbo18]: https://github.com/mbo18
 [@mikeage]: https://github.com/mikeage
@@ -682,6 +790,8 @@ Avri has changed their API and it seems not possible to use the new one.
 [@peternijssen]: https://github.com/peternijssen
 [@phibos]: https://github.com/phibos
 [@postlund]: https://github.com/postlund
+[@pvizeli]: https://github.com/pvizeli
+[@raman325]: https://github.com/raman325
 [@rikroe]: https://github.com/rikroe
 [@scarface-4711]: https://github.com/scarface-4711
 [@scop]: https://github.com/scop
@@ -701,12 +811,17 @@ Avri has changed their API and it seems not possible to use the new one.
 [accuweather docs]: /integrations/accuweather/
 [acer_projector docs]: /integrations/acer_projector/
 [airly docs]: /integrations/airly/
+[alexa docs]: /integrations/alexa/
 [amazon_polly docs]: /integrations/amazon_polly/
 [androidtv docs]: /integrations/androidtv/
 [apple_tv docs]: /integrations/apple_tv/
+[august docs]: /integrations/august/
+[blink docs]: /integrations/blink/
 [bme280 docs]: /integrations/bme280/
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[brother docs]: /integrations/brother/
 [camera docs]: /integrations/camera/
+[canary docs]: /integrations/canary/
 [cast docs]: /integrations/cast/
 [cisco_mobility_express docs]: /integrations/cisco_mobility_express/
 [cloud docs]: /integrations/cloud/
@@ -763,6 +878,7 @@ Avri has changed their API and it seems not possible to use the new one.
 [person docs]: /integrations/person/
 [philips_js docs]: /integrations/philips_js/
 [ping docs]: /integrations/ping/
+[plex docs]: /integrations/plex/
 [ps4 docs]: /integrations/ps4/
 [pvoutput docs]: /integrations/pvoutput/
 [python_script docs]: /integrations/python_script/
@@ -787,10 +903,15 @@ Avri has changed their API and it seems not possible to use the new one.
 [tapsaff docs]: /integrations/tapsaff/
 [tasmota docs]: /integrations/tasmota/
 [telegram_bot docs]: /integrations/telegram_bot/
+[tradfri docs]: /integrations/tradfri/
+[utility_meter docs]: /integrations/utility_meter/
 [venstar docs]: /integrations/venstar/
 [verisure docs]: /integrations/verisure/
+[vizio docs]: /integrations/vizio/
 [wemo docs]: /integrations/wemo/
 [workday docs]: /integrations/workday/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zeroconf docs]: /integrations/zeroconf/
 [zerproc docs]: /integrations/zerproc/
 [zha docs]: /integrations/zha/
+[zoneminder docs]: /integrations/zoneminder/
