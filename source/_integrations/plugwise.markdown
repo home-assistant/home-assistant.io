@@ -11,6 +11,7 @@ ha_release: 0.98
 ha_codeowners:
   - '@CoMPaTech'
   - '@bouwew'
+  - '@brefra'
 ha_config_flow: true
 ha_domain: plugwise
 ---

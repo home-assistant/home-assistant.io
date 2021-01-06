@@ -13,7 +13,6 @@ ha_codeowners:
   - '@dshokouhi'
   - '@Santobert'
 ha_domain: neato
-ha_quality_scale: gold
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].

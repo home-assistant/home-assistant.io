@@ -1,11 +1,14 @@
 ---
-title: "SRP Energy"
-description: "How to integrate SRP Energy within Home Assistant."
+title: SRP Energy
+description: How to integrate SRP Energy within Home Assistant.
 ha_category:
   - Energy
 ha_release: 2020.12
 ha_iot_class: Cloud Polling
 ha_domain: srp_energy
+ha_codeowners:
+  - '@briglx'
+ha_config_flow: true
 ---
 
 The SRP Energy integration shows information from SRP hourly energy usage report for their customers.

@@ -9,7 +9,6 @@ ha_domain: zerproc
 ha_codeowners:
   - '@emlove'
 ha_config_flow: true
-ha_quality_scale: platinum
 ---
 
 This integration discovers nearby Zerproc lights and adds them to Home Assistant.

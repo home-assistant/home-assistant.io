@@ -12,7 +12,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@mvn23'
 ha_domain: opentherm_gw
-ha_quality_scale: platinum
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
