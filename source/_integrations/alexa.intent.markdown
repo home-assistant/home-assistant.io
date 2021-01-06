@@ -306,23 +306,24 @@ First create a file called `alexa_confirm.yaml` with something like the followin
 {% raw %}
 
 ```text
-{{ [
-  "OK",
-  "Sure",
-  "If you insist",
-  "Done",
-  "No worries",
-  "I can do that",
-  "Leave it to me",
-  "Consider it done",
-  "As you wish",
-  "By your command",
-  "Affirmative",
-  "Yes oh revered one",
-  "I will",
-  "As you decree, so shall it be",
-  "No Problem"
-] | random }}
+>
+  {{ [
+    "OK",
+    "Sure",
+    "If you insist",
+    "Done",
+    "No worries",
+    "I can do that",
+    "Leave it to me",
+    "Consider it done",
+    "As you wish",
+    "By your command",
+    "Affirmative",
+    "Yes oh revered one",
+    "I will",
+    "As you decree, so shall it be",
+    "No Problem"
+  ] | random }}
 ```
 
 {% endraw %}

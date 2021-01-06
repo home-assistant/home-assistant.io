@@ -38,6 +38,7 @@ Plugs are type `switch` when autodiscovery has been disabled.
 - HS105
 - HS110 (This device is capable of reporting energy usage data to template sensors)
 - KP105
+- KP115
 
 ### Strip (Multi-Plug)
 
@@ -140,6 +141,7 @@ tplink:
 Devices that are confirmed to support Consumption Reading;
 1. HS110
 2. HS300
+3. KP115
 
 In order to get the power consumption readings from a TP-Link HS110 device, you'll have to create a [template sensor](/integrations/template/).
 In the example below, change all of the `my_tp_switch`'s to match your device's entity ID (without the domain). For example, if your entity is `switch.whale_heater` then replace `my_tp_switch` with `whale_heater`:

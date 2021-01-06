@@ -25,6 +25,10 @@ switch:
     host: 192.168.1.32
 ```
 
+In the Hikvision camera settings you also need to make a few changes:
+- In the camera menu navigate to Network >> Advanced Settings >> Integration Protocol. Check the 'Enable Hikvision-CGI' box and set the 'Hikvision-CGI Authentication' to 'digest/basic'.
+- Make sure the camera user has the rights to change parameter settings. In the menu navigate to System Settings >> User Management >> User Management. Select the correct user, click 'Modify' en check the 'Remote: Parameters Settings' box.
+
 {% configuration %}
 host:
   description: The IP address of your Hikvision camera, e.g., `192.168.1.32`.
