@@ -219,7 +219,7 @@ All Evohome entities may have faults, and these can be turned into sensors, or:
 
 ```text
 {% if state_attr('climate.bedroom', 'status').active_faults %}
-  {% if state_attr('climate.bedroom', 'status').active_faults[0].fault_type == 'TempZoneActuatorLowBattery' %}
+  {% if state_attr('climate.bedroom', 'status').active_faults[0].faultType == 'TempZoneActuatorLowBattery' %}
     There is a low battery
   {% endif %}
     There is a Fault!

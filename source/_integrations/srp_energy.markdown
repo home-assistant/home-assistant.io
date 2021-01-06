@@ -5,6 +5,7 @@ ha_category:
   - Energy
 ha_release: 2020.12
 ha_iot_class: Cloud Polling
+ha_domain: srp_energy
 ---
 
 The SRP Energy integration shows information from SRP hourly energy usage report for their customers.

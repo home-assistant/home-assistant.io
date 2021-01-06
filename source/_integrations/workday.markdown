@@ -105,7 +105,7 @@ The date February 24th, 2020 is a Monday but will be excluded because it was add
 binary_sensor:
   - platform: workday
     country: DE
-    workdays: [mon, wed, fri]
+    workdays: [mon, tue, wed, thu, fri]
     excludes: [sat, sun, holiday]
     add_holidays:
       - '2020-02-24'
@@ -114,7 +114,7 @@ binary_sensor:
 This example excludes Saturdays, Sundays and holidays. Two holidays are removed: November 26, 2020 and December 25, 2020.
 
 ```yaml
-# Example 2 configuration.yaml entry
+# Example 3 configuration.yaml entry
 binary_sensor:
   - platform: workday
     country: US
