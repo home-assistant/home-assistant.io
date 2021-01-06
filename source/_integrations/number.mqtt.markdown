@@ -16,9 +16,9 @@ To enable MQTT Number in your installation, add the following to your `configura
 
 ```yaml
 # Example configuration.yaml entry
-Number:
+number:
   - platform: mqtt
-    topic: my-device/threshold
+    command_topic: my-device/threshold
 ```
 
 {% configuration %}
@@ -43,6 +43,10 @@ availability:
       type: string
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
+  required: false
+  type: string
+command_topic:
+  description: The MQTT topic to publish commands to change the number.
   required: false
   type: string
 device:
@@ -78,6 +82,10 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+icon:
+  description: Icon for the number.
+  required: false
+  type: icon
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
@@ -90,12 +98,29 @@ name:
   description: The name of the Number.
   required: false
   type: string
-topic:
-  description: The MQTT topic to subscribe to.
-  required: true
-  type: string
+optimistic:
+  description: Flag that defines if number works in optimistic mode.
+  required: false
+  type: boolean
+  default: "`true` if no `state_topic` defined, else `false`."
+qos:
+  description: The maximum QoS level of the state topic. Default is 0 and will also be used to publishing messages.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
 unique_id:
   description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
 {% endconfiguration %}
+
+<div class='note warning'>
+
+Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
+
+</div>
