@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: recollect_waste
+ha_codeowners:
+  - '@bachya'
+ha_config_flow: true
 ---
 
 The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).

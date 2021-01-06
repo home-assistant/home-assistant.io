@@ -7,6 +7,8 @@ ha_release: 2020.12
 ha_config_flow: true
 ha_domain: twinkly
 ha_iot_class: Local pull
+ha_codeowners:
+  - '@dr1rrb'
 ---
 
 The Twinkly integration allows you to control [Twinkly](https://twinkly.com/) LED string from Home Assistant.
@@ -25,4 +27,3 @@ You can setup this integration from the Home Assistant user interface:
 1. Configure the host (or IP address) of your twinkly device.
 
    _If configured using an IP address, on your router / DHCP, you should assign a static IP to your Twinkly device._
-

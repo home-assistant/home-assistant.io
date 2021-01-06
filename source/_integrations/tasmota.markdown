@@ -1,5 +1,5 @@
 ---
-title: Tasmota
+title: Tasmota (beta)
 description: Instructions on how to integrate Tasmota with Home Assistant.
 ha_category:
   - Binary Sensor
