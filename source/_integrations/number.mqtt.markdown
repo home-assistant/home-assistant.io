@@ -1,6 +1,6 @@
 ---
 title: "MQTT Number"
-description: "Instructions on how to interact with a device exposing a Number through MQQT from within Home Assistant."
+description: "Instructions on how to interact with a device exposing a Number through MQTT from within Home Assistant."
 ha_category:
   - Number
 ha_release: 2020.02
