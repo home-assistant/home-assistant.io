@@ -51,10 +51,10 @@ Enjoy the release!
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
-## In memoriam of villhellm
+## In memoriam of Villhellm
 
 It is with sadness that we announce that one of the Jedis in our Discord Server,
-[@villhellm](https://www.github.com/villhellm) (William), who had been actively
+[@Villhellm](https://www.github.com/villhellm) (William), who had been actively
 involved with the Home Assistant community for a number of years, had passed
 away right before Christmas of 2020 at the age of 27.
 
@@ -77,7 +77,7 @@ quite a few messages and requests for making all talks held at the conference
 available for viewing.
 
 We have started the process of making those available on our
-[YouTube Channel][channel]. So, if you haven't done ot already, go to our
+[YouTube Channel][channel]. So, if you haven't done it already, go to our
 channel and subscribe and you'll be notified when we make another talk
 available.
 
@@ -95,7 +95,7 @@ that are definitely noteworthy to mention.
 - [@spacegaier] removed the "No Area" from the device tables, reducing the
   clutter in those lists.
 - Since 2020.12, entities can be assigned to areas. Thanks to [@elupus], these
-  area's are now sent to [Google Assistant][google_assistant docs] as room
+  areas are now sent to [Google Assistant][google_assistant docs] as room
   hints.
 - [Rachio][rachio docs] now has pause and resume services, thanks to [@brg468].
 - A bunch of new sensors are added to [Météo-France][meteo_france docs].
@@ -110,14 +110,14 @@ that are definitely noteworthy to mention.
   starting by giving the option to display pickup types by their human-friendly
   names. Thanks, [@bachya]!
 - [@postlund] rewrote the [Apple TV][apple_tv docs] integration for 2020.12,
-  but he is not stopping! Besides some fixed, he extended the device information
+  but he is not stopping! Besides some fixes, he extended the device information
   and added some attributes.
 - The [SQL Sensor][sql docs] now supports MSSQL, thanks to [@dgomes]!
 - Support for climate devices with a temperature range, has been added to the
   [HomeKit controller][homekit_controller docs] integration.
   Thanks, [@thevoltagesource]!
-- The [MQTT] integration discovery feature, now has support for device trackers,
-  which has been added by [@PeteBa].
+- The [MQTT][mqtt docs] integration discovery feature, now has support for
+  device trackers, which has been added by [@PeteBa].
 - Sending animations using the [Telegram Bot][telegram_bot docs] is now
   possible with the new animation service added by [@tofuSCHNITZEL].
 - If you have a Xiaomi Miio vacuum cleaner with a mop function, this release
@@ -138,7 +138,7 @@ This release has not introduced new integrations.
 
 The following integration got support for a new platform:
 
-- [Somfy][somfy docs] added the climate controls and battery sensors,
+- [Somfy][somfy docs] added climate controls and battery sensors,
   added by [@tetienne]
 - [Home Connect][home_connect docs] added support for functional and ambient
   lights, added by [@Sjack-Sch]
@@ -260,7 +260,7 @@ with 2 streams of information. Before this release, the status info we received
 contained overlapping information from both streams of information, which led
 to issues when the gateway was overriding some values.
 
-As of this release, therestatus is split up in multiple parts to reflect this.
+As of this release, the status is split up in multiple parts to reflect this.
 Each part contains the status of its respective information stream. With this
 change, we create sensor entities for each stream where necessary.
 
