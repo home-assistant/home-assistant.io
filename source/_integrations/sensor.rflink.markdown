@@ -93,6 +93,7 @@ Sensor type values:
 - revision
 - noise_level
 - temperature
+- timestamp
 - uv_intensity
 - version
 - voltage
