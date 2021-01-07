@@ -50,7 +50,7 @@ This section enables you to override the name, change the entity ID or disable a
 
 ### Areas
 
-This section enables you to organize entities to physical areas of your home.
+This section enables you to organize devices to physical areas of your home. This does not work on entities.
 
 ### Automation
 
