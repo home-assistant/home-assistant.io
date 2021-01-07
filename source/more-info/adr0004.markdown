@@ -1,0 +1,12 @@
+---
+title: "Webscraping"
+description: "With ADR0004 integrations that preform webscraping is not allowed and will be removed."
+sidebar: false
+---
+
+The integration you requested has been removed because it was doing webscraping.
+This is now allowed. To learn more about that decision, [have a look here][ADR0004].
+
+As an alternative you can look at the [`scrape`](/integrations/scrape) integration, browse our list of [other integrations](/integrations/).
+
+[ADR0004]: https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md
