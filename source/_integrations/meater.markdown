@@ -11,9 +11,9 @@ ha_codeowners:
 ha_domain: meater
 ---
 
-## Installation
+The Meater Smart Meat Thermometer integration allows for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.
 
-The `meater` sensor platform is an integration for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.
+## Configuration
 
 To use the integration, your probe must be connected to the Meater Cloud service.
 
@@ -27,14 +27,14 @@ meater:
   
 ```
 
-Probes will be added as soon as they're seen by Home Assistant. They will be unavailable when the probes are disconnected from Meater Cloud.
+Probes will be added as soon as they're seen by Home Assistant. They will be marked unavailable when the probes are disconnected from Meater Cloud.
 
-Currently both the internal and external temperature of each probe will be displayed.
+Currently, both the internal and external temperature of each probe will be displayed.
 
 ## Troubleshooting
 
-Devices will only be returned from the Meater Cloud API after the following criteria is met. There may be a delay between the Meater Cloud seeing your device and it being returned by the API.
+Devices will only be returned from the Meater Cloud API after the following criteria are met. There may be a delay between the Meater Cloud seeing your device and it being returned by the API.
 
-* Device must be seen by the Meater Cloud. Ensure you've completed a cook while connected to Meater Cloud.
-* The Meater app or Block must have an active Bluetooth connection with the device.
-* The Meater app or Block must have an active Meater Cloud connection.
+- Device must be seen by the Meater Cloud. Ensure you've completed a cook while connected to Meater Cloud.
+- The Meater app or Block must have an active Bluetooth connection with the device.
+- The Meater app or Block must have an active Meater Cloud connection.
