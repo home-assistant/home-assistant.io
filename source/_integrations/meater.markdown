@@ -17,9 +17,9 @@ The Meater Smart Meat Thermometer integration allows for communicating with the 
 
 To use the integration, your probe must be connected to the Meater Cloud service.
 
-To enable the integration, simply set it up via the UI.
+To enable the integration, navigate to “Configuration”, then “Integrations” and click + button in the bottom right. Select "Meater Temperature Probe" to start the configuration. When prompted, enter your account information for your Meater Cloud account. Your username is usually the email address you used to sign up.
 
-Probes will be added as soon as they're seen by Home Assistant. They will be marked unavailable when the probes are disconnected from Meater Cloud.
+Once configuration is complete, probes will be added as soon as they're seen by Home Assistant. They will be marked unavailable when the probes are disconnected from Meater Cloud.
 
 Currently, both the internal and external temperature of each probe will be displayed.
 
