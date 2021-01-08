@@ -1,6 +1,6 @@
 ---
 title: "Webscraping"
-description: "With ADR0004 integrations that preform webscraping is not allowed and will be removed."
+description: "With ADR0004 integrations that preform webscraping are not allowed and will be removed."
 sidebar: false
 ---
 
