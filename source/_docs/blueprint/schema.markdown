@@ -45,8 +45,8 @@ description:
   description: >
     The description of the blueprint. While optional, this field is highly
     recommended. For example, to describe what the blueprint does, or tell more
-    about the options inputs of the blueprint provide. New lines in this
-    description are displayed in the UI, so paragraphs are allowed.
+    about the options inputs of the blueprint provide. The description can
+    include [Markdown](https://commonmark.org/help/).
   type: string
   required: false
 domain:
