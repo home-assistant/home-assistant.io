@@ -4,9 +4,9 @@ sidebar_label: Entities
 description: "The Entities card is the most common type of card. It groups items together into lists."
 ---
 
-The Entities card is the most common type of card. It groups items together into lists.
+The Entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
 
-To add the Entities card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Entities** from the card picker.
+To add the Entities card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entities** from the card picker.
 
 {% configuration %}
 type:
@@ -15,7 +15,7 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or `entity` objects, see below."
+  description: "A list of entity IDs or `entity` objects or special row objects (see below)."
   type: list
 title:
   required: false
@@ -56,7 +56,7 @@ If you define entities as objects instead of strings (by adding `entity:` before
 {% configuration %}
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 type:
   required: false
@@ -115,12 +115,14 @@ double_tap_action:
 
 ## Special Row Elements
 
+Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
+
 ### Button
 
 {% configuration %}
 type:
   required: true
-  description: button
+  description: "`button`"
   type: string
 name:
   required: true
@@ -156,7 +158,7 @@ Special row to start Home Assistant Cast.
 {% configuration %}
 type:
   required: true
-  description: cast
+  description: "`cast`"
   type: string
 dashboard:
   required: false
@@ -190,7 +192,7 @@ Special row that displays based on entity states.
 {% configuration %}
 type:
   required: true
-  description: conditional
+  description: "`conditional`"
   type: string
 conditions:
   required: true
@@ -199,7 +201,7 @@ conditions:
   keys:
     entity:
       required: true
-      description: HA entity ID.
+      description: Entity ID.
       type: string
     state:
       required: false
@@ -224,7 +226,7 @@ Note: Conditions with more than one entity are treated as an 'and' condition. Th
 {% configuration %}
 type:
   required: true
-  description: divider
+  description: "`divider`"
   type: string
 style:
   required: false
@@ -238,7 +240,7 @@ style:
 {% configuration %}
 type:
   required: true
-  description: section
+  description: "`section`"
   type: string
 label:
   required: false
@@ -251,7 +253,7 @@ label:
 {% configuration %}
 type:
   required: true
-  description: weblink
+  description: "`weblink`"
   type: string
 url:
   required: true
@@ -271,10 +273,12 @@ icon:
 
 ### Buttons
 
+Multiple buttons displayed in a single row next to each other. See examples further below.
+
 {% configuration %}
 type:
   required: true
-  description: buttons
+  description: "`buttons`"
   type: string
 entities:
   required: true
@@ -283,7 +287,7 @@ entities:
   keys:
     entity:
       required: true
-      description: The entity to render.
+      description: Entity ID
       type: string
     icon:
       required: false
@@ -304,11 +308,11 @@ entities:
 {% configuration %}
 type:
   required: true
-  description: attribute
+  description: "`attribute`"
   type: string
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID
   type: string
 attribute:
   required: true
@@ -328,7 +332,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## Example
+## Examples
 
 Entity rows:
 
@@ -348,7 +352,30 @@ entities:
   - group.all_locks
 ```
 
-Special rows:
+Buttons row:
+
+Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitely specify a label / name.
+
+<p class='img'>
+<img src='/images/lovelace/lovelace_entity_row_buttons.jpg' alt='Screenshot of buttons row'>
+Screenshot of buttons row.
+</p>
+
+```yaml
+type: entities
+entities:
+  - entity: light.office_ceiling
+  - entity: light.dining_ceiling
+  - type: divider
+  - type: buttons
+    entities:
+      - entity: light.office_ceiling
+        name: Office Ceiling
+      - entity: light.dining_ceiling
+        name: Dining Ceiling
+```
+
+Other special rows:
 
 ```yaml
 type: entities
@@ -363,6 +390,10 @@ entities:
     service_data:
       entity_id: light.bed_light
   - type: divider
+  - type: attribute
+    entity: sun.sun
+    attribute: elevation
+    name: Elevation
   - type: weblink
     name: Home Assistant
     url: https://www.home-assistant.io/
