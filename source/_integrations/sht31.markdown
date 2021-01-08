@@ -26,7 +26,11 @@ sensor:
 ```
 
 {% configuration %}
-  name:
+  unique_id:
+    description: An ID that uniquely identifies this sensor. Each monitored condition appends the specified unique_id: "unique_id"\_temperature or "unique_id"\_humidity
+    required: false
+    type: string
+ name:
     description: The name of the sensor. Temperature and Humidity will be added to the name for the sensor name.
     required: false
     default: SHT31
