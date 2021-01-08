@@ -4,7 +4,7 @@ sidebar_label: Entities
 description: "The Entities card is the most common type of card. It groups items together into lists."
 ---
 
-The Entities card is the most common type of card. It groups items together into lists.
+The Entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
 
 To add the Entities card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entities** from the card picker.
 
@@ -15,7 +15,7 @@ type:
   type: string
 entities:
   required: true
-  description: "A list of entity IDs or `entity` objects, see below."
+  description: "A list of entity IDs or `entity` objects or special row objects (see below)."
   type: list
 title:
   required: false
@@ -114,6 +114,8 @@ double_tap_action:
 {% endconfiguration %}
 
 ## Special Row Elements
+
+Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
 
 ### Button
 
