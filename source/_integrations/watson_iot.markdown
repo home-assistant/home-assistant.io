@@ -66,7 +66,7 @@ exclude:
       required: false
       type: list
 include:
-  description: Configure which integrations should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **blacklist** option will prevail.
+  description: Configure which integrations should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **exclude** option will prevail.
   required: false
   type: map
   keys:
