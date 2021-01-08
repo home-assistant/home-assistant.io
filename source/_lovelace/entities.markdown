@@ -122,7 +122,7 @@ Rather than only displaying an entity's state as a text output, the Entities car
 {% configuration %}
 type:
   required: true
-  description: `button`
+  description: "`button`"
   type: string
 name:
   required: true
@@ -158,7 +158,7 @@ Special row to start Home Assistant Cast.
 {% configuration %}
 type:
   required: true
-  description: `cast`
+  description: "`cast`"
   type: string
 dashboard:
   required: false
@@ -192,7 +192,7 @@ Special row that displays based on entity states.
 {% configuration %}
 type:
   required: true
-  description: `conditional`
+  description: "`conditional`"
   type: string
 conditions:
   required: true
@@ -226,7 +226,7 @@ Note: Conditions with more than one entity are treated as an 'and' condition. Th
 {% configuration %}
 type:
   required: true
-  description: `divider`
+  description: "`divider`"
   type: string
 style:
   required: false
@@ -240,7 +240,7 @@ style:
 {% configuration %}
 type:
   required: true
-  description: section
+  description: "`section`"
   type: string
 label:
   required: false
@@ -253,7 +253,7 @@ label:
 {% configuration %}
 type:
   required: true
-  description: `weblink`
+  description: "`weblink`"
   type: string
 url:
   required: true
@@ -278,7 +278,7 @@ Multiple buttons displayed in a single row next to each other. See examples furt
 {% configuration %}
 type:
   required: true
-  description: `buttons`
+  description: "`buttons`"
   type: string
 entities:
   required: true
@@ -308,7 +308,7 @@ entities:
 {% configuration %}
 type:
   required: true
-  description: attribute
+  description: "`attribute`"
   type: string
 entity:
   required: true
