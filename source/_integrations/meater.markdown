@@ -27,7 +27,7 @@ meater:
   
 ```
 
-Probes will be added as soon as they're seen by home assistant. The will be unavailable when the probes are disconnected from Meater Cloud.
+Probes will be added as soon as they're seen by Home Assistant. They will be unavailable when the probes are disconnected from Meater Cloud.
 
 Currently both the internal and external temperature of each probe will be displayed.
 
