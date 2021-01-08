@@ -5,7 +5,7 @@ sidebar: false
 ---
 
 The integration you requested has been removed because it was doing webscraping.
-This is now allowed. To learn more about that decision, [have a look here][ADR0004].
+This is not allowed. To learn more about that decision, [have a look here][ADR0004].
 
 As an alternative you can look at the [`scrape`](/integrations/scrape) integration, browse our list of [other integrations](/integrations/).
 
