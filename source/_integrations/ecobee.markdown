@@ -140,6 +140,7 @@ Besides the standard services provided by the Home Assistant [Climate](/integrat
 - `ecobee.resume_program`
 - `ecobee.set_fan_min_on_time`
 - `ecobee.set_dst_mode`
+- `ecobee.set_humidifier_mode`
 - `ecobee.set_mic_mode`
 - `ecobee.set_occupancy_modes`
 
@@ -195,6 +196,15 @@ Enable/disable automatic daylight savings time.
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode |
 | `dst_enabled`          | no       | true or false                                     |
+
+### Service `ecobee.set_humidifier_mode`
+
+Set the humidifier mode.
+
+| Service data attribute | Optional | Description                                       |
+| ---------------------- | -------- | ------------------------------------------------- |
+| `entity_id`            | no       | ecobee thermostat on which to set the humidifier mode |
+| `humidifier_mode`      | no       | Mode to set humidifier (auto, off, or manual).    |
 
 ### Service `ecobee.set_mic_mode`
 
