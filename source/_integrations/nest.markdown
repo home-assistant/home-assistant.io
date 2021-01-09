@@ -299,6 +299,46 @@ All Google Nest Cam models and the Google Nest Hello Video Doorbell support [Dev
 
 See [Automating Home Assistant](/getting-started/automation/) for the getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
+### Example
+
+The events for emitted to Home Assistant look like this..
+
+```json
+{
+    "event_type": "nest_event",
+    "data": {
+        "device_id": "37d6639fa63c348310d930825bb9e430",
+        "type": "camera_motion"
+    },
+    "origin": "LOCAL",
+    "time_fired": "2021-01-03T17:59:32.509459+00:00",
+    "context": {
+        "id": "7cf91c62a74c36ea6de0634c18138384",
+        "parent_id": null,
+        "user_id": null
+    }
+}
+```
+
+So an example automation looks like this..
+
+```yaml
+alias: motion alert
+description: ''
+trigger:
+  - platform: event
+    event_type: nest_event
+    event_data:
+      device_id: 37d6639fa63c348310d930825bb9e430
+      type: camera_motion
+condition: []
+action:
+  - service: notify.mobile_app_pixel_2
+    data:
+      title: motion detected
+      message: front door motion detected
+mode: single
+```
 
 # Legacy Works With Nest API
 
