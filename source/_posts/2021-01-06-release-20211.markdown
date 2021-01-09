@@ -40,12 +40,13 @@ Enjoy the release!
 
 ../Frenck
 
-- [In memoriam of villhellm](#in-memoriam-of-villhellm)
+- [In memoriam of Villhellm](#in-memoriam-of-villhellm)
 - [Home Assistant Conference Videos](#home-assistant-conference-videos)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.1.1 - January 9](#release-202111---january-9)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -149,6 +150,29 @@ The following integration got support for a new platform:
 The following integrations are now available via the Home Assistant UI:
 
 - [BMW Connected Drive][bmw_connected_drive docs], done by [@rikroe]
+
+## Release 2021.1.1 - January 9
+
+- Fix KNX cover state return open when unknown ([@farmio] - [#44926]) ([knx docs])
+- Fix wait_template incorrectly matching falsey values ([@bdraco] - [#44938])
+- Disambiguate Supervisor HTTPUnauthorized on user/password validation ([@zeehio] - [#44940]) ([hassio docs])
+- Fix parameters when toggling light ([@emontnemery] - [#44950]) ([light docs])
+- Bump pymyq to 2.0.13 ([@ehendrix23] - [#44961]) ([myq docs])
+
+[#44926]: https://github.com/home-assistant/core/pull/44926
+[#44938]: https://github.com/home-assistant/core/pull/44938
+[#44940]: https://github.com/home-assistant/core/pull/44940
+[#44950]: https://github.com/home-assistant/core/pull/44950
+[#44961]: https://github.com/home-assistant/core/pull/44961
+[@bdraco]: https://github.com/bdraco
+[@ehendrix23]: https://github.com/ehendrix23
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@zeehio]: https://github.com/zeehio
+[hassio docs]: /integrations/hassio/
+[knx docs]: /integrations/knx/
+[light docs]: /integrations/light/
+[myq docs]: /integrations/myq/
 
 ## If you need help...
 
