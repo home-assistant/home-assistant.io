@@ -189,7 +189,7 @@ exemptions:
 {% configuration exemptions %}
 user:
   required: true
-  description: User id that can see the view tab. For each user´s id listed, the confirmation dialog will NOT be shown.
+  description: User ID for which the confirmation dialog will **not** be shown.
   type: string
 {% endconfiguration %}
 
