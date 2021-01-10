@@ -91,7 +91,7 @@ json_attributes_template:
   required: false
   type: template
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Implies `force_update` of the current sensor state when a message is received on this topic.
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as number attributes. Implies `force_update` of the current number state when a message is received on this topic.
   required: false
   type: string
 name:
