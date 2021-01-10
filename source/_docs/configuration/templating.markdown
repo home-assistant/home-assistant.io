@@ -164,7 +164,7 @@ The same thing can also be expressed as a filter:
 
 {% raw %}
 ```text
-{{ ['device_tracker.paulus', 'group.child_trackers'] | expand 
+{{ expand(['device_tracker.paulus', 'group.child_trackers']) 
   | selectattr("attributes.battery", 'defined')
   | join(', ', attribute="attributes.battery") }}
 ```
