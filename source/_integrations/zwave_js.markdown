@@ -42,4 +42,4 @@ As this integration is still in the early stages there are some important limita
 
 - Platform support is currently limited to basic `sensor` and `light` entities.
 - Setting a network key is not currently supported by [zwave-js-server](https://github.com/zwave-js/zwave-js-server).
-- You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt) to include/exclude devices and manage device configuration.
+- You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
