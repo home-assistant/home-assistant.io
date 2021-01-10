@@ -128,3 +128,21 @@ switch:
 shell_command:
   turn_off_TARGET: 'ssh hass@TARGET sudo pm-suspend'
 ```
+
+#### Shutdown Windows (via MQTT using IOT Link)
+
+- Install and Configure [IOT Link](https://iotlink.gitlab.io/)
+
+```yaml
+switch:
+  - platform: wake_on_lan
+    name: "TARGET"
+    ...
+    turn_off:
+      service: mqtt.publish
+      data:
+        topic: iotlink/workgroup/computername/commands/shutdown
+```
+**Note**: Replace `workgroup` and `computername`.
+
+See [IOT Link Wiki](https://gitlab.com/iotlink/iotlink/wikis) for further MQTT Commands like Suspend, Hibernate and much more. 
