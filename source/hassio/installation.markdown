@@ -105,21 +105,21 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_rpi3-5.9.img.xz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_rpi3-64-5.9.img.xz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_rpi4-5.9.img.xz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_rpi4-64-5.9.img.xz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_tinker-5.9.img.xz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_odroid-c2-5.9.img.xz
-[odroid-c4]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_odroid-c4-5.9.img.xz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_odroid-n2-5.9.img.xz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_odroid-xu4-5.9.img.xz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_intel-nuc-5.9.img.xz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.vmdk.xz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.vhdx.xz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.vdi.xz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.qcow2.xz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.ova
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi3-5.10.img.xz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi3-64-5.10.img.xz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi4-5.10.img.xz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi4-64-5.10.img.xz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_tinker-5.10.img.xz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-c2-5.10.img.xz
+[odroid-c4]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-c4-5.10.img.xz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-n2-5.10.img.xz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-xu4-5.10.img.xz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_intel-nuc-5.10.img.xz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vmdk.xz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vhdx.xz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vdi.xz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.qcow2.xz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
