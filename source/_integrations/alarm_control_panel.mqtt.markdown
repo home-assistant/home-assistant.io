@@ -60,7 +60,7 @@ availability_mode:
   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all` a valid `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any` a valid `payload_available` must be received on at least one configured availability topics before the entity is marked as online. If set to `latest`, the last valid `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
   required: false
   type: string
-  default: `latest`
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
