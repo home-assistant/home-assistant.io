@@ -2187,32 +2187,32 @@
 
 
 # ADR0004: Removed integrations
-/components/sensor.mopar /more-info/adr0004
-/integrations/mopar /more-info/adr0004
-/components/device_tracker.xfinity  /more-info/adr0004
-/integrations/xfinity /more-info/adr0004
-/components/sensor.duke_energy  /more-info/adr0004
-/integrations/duke_energy /more-info/adr0004
-/components/media_player.liveboxplaytv /more-info/adr0004
-/integrations/liveboxplaytv /more-info/adr0004
-/components/fedex /more-info/adr0004
-/components/usps /more-info/adr0004
-/components/ups /more-info/adr0004
-/components/linksys_ap /more-info/adr0004
-/components/sytadin /more-info/adr0004
-/components/srp_energy /more-info/adr0004
-/components/device_tracker.ubee /more-info/adr0004
-/integrations/ubee /more-info/adr0004
-/components/sensor.gearbest /more-info/adr0004
-/integrations/gearbest /more-info/adr0004
-/components/alarm_control_panel.alarmdotcom /more-info/adr0004
-/integrations/alarmdotcom /more-info/adr0004
-/integrations/salt /more-info/adr0004
-/components/sensor.bom /more-info/adr0004
-/components/weather.bom /more-info/adr0004
-/integrations/bom /more-info/adr0004
-/components/sensor.prezzibenzina /more-info/adr0004
-/integrations/prezzibenzina /more-info/adr0004
-/components/media_player.liveboxplaytv /more-info/adr0004
-/integrations/liveboxplaytv /more-info/adr0004
-/components/liveboxplaytv /more-info/adr0004
+/components/sensor.mopar /more-info/removed-integration 301
+/integrations/mopar /more-info/removed-integration 301
+/components/device_tracker.xfinity  /more-info/removed-integration 301
+/integrations/xfinity /more-info/removed-integration 301
+/components/sensor.duke_energy  /more-info/removed-integration 301
+/integrations/duke_energy /more-info/removed-integration 301
+/components/media_player.liveboxplaytv /more-info/removed-integration 301
+/integrations/liveboxplaytv /more-info/removed-integration 301
+/components/fedex /more-info/removed-integration 301
+/components/usps /more-info/removed-integration 301
+/components/ups /more-info/removed-integration 301
+/components/linksys_ap /more-info/removed-integration 301
+/components/sytadin /more-info/removed-integration 301
+/components/srp_energy /more-info/removed-integration 301
+/components/device_tracker.ubee /more-info/removed-integration 301
+/integrations/ubee /more-info/removed-integration 301
+/components/sensor.gearbest /more-info/removed-integration 301
+/integrations/gearbest /more-info/removed-integration 301
+/components/alarm_control_panel.alarmdotcom /more-info/removed-integration 301
+/integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/salt /more-info/removed-integration 301
+/components/sensor.bom /more-info/removed-integration 301
+/components/weather.bom /more-info/removed-integration 301
+/integrations/bom /more-info/removed-integration 301
+/components/sensor.prezzibenzina /more-info/removed-integration 301
+/integrations/prezzibenzina /more-info/removed-integration 301
+/components/media_player.liveboxplaytv /more-info/removed-integration 301
+/integrations/liveboxplaytv /more-info/removed-integration 301
+/components/liveboxplaytv /more-info/removed-integration 301
