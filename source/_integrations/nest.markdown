@@ -301,26 +301,7 @@ See [Automating Home Assistant](/getting-started/automation/) for the getting st
 
 ### Example
 
-The events for emitted to Home Assistant look like this..
-
-```json
-{
-    "event_type": "nest_event",
-    "data": {
-        "device_id": "37d6639fa63c348310d930825bb9e430",
-        "type": "camera_motion"
-    },
-    "origin": "LOCAL",
-    "time_fired": "2021-01-03T17:59:32.509459+00:00",
-    "context": {
-        "id": "7cf91c62a74c36ea6de0634c18138384",
-        "parent_id": null,
-        "user_id": null
-    }
-}
-```
-
-So an example automation looks like this..
+This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
 
 ```yaml
 alias: motion alert
@@ -341,6 +322,8 @@ action:
         image: /api/camera_proxy/camera.front_door
 mode: single
 ```
+
+The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send an notification with a snapshot from the camera.
 
 # Legacy Works With Nest API
 
