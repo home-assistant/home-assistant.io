@@ -8,7 +8,8 @@ The integration you requested has been removed.
 
 Possible reasons for the removal:
 
-- It's unmaintained and no longer working.
+- It's unmaintained.
+- It's no longer working.
 - It does not comply with the rules described in our [ADR's][architecture-repo].
 - It does not follow our [design guidelines][dev-docs] for integrations.
 
