@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: zwave_js
 ---
 
-This integration allows you to utilize Z-Wave JS to control a Z-Wave network.
+This integration allows you to control a Z-Wave network via Z-Wave JS.
 
 ## Requirements
 
@@ -23,7 +23,7 @@ This integration allows you to utilize Z-Wave JS to control a Z-Wave network.
 
 ### Hardware requirements
 
-- Supported Z-Wave dongle. Most dongles compatible with OpenZWave will work with Z-Wave JS. See this [list](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules) of controllers. The Z-Wave controller dongle should be connected to the same host as where the the Z-Wave JS server is running.
+- [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the the Z-Wave JS server is running.
 
 ## Configuration
 
@@ -41,5 +41,4 @@ available.
 As this integration is still in the early stages there are some important limitations to be aware of.
 
 - Platform support is currently limited to basic `sensor` and `light` entities.
-- Setting a network key is not currently supported by [zwave-js-server](https://github.com/zwave-js/zwave-js-server).
 - You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
