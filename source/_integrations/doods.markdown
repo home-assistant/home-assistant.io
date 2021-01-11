@@ -11,8 +11,16 @@ ha_domain: doods
 The `doods` image processing integration allows you to detect and recognize objects in a camera image using [DOODS](https://github.com/snowzach/doods/). The state of the entity is the number of objects detected and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
 ## Setup
+The DOODS software needs to be running, before this integration can be used. Options to run the DOODS software:
+### Run as home assistant add-on
+This is the easiest way when you are running supervised home assistant and want to run the DOODS software on the same machine as home-assistant
+1. Add snowzach repository to the add-on store by going to the add-on store inside the supervisor and selecting the triple dots in the right-top corner and selecting 'Repositories'. Add the following URL: https://github.com/snowzach/hassio-addons
+2. Go to the add-on store, you should now see the new repository
+3. Install DOODS 
+4. Go to dashboard, select DOODS and start DOODS
 
-You need to have DOODS running somewhere. It's easiest to run as a [Docker](https://hub.docker.com/r/snowzach/doods) container.
+### Run as a Docker container
+https://hub.docker.com/r/snowzach/doods
 
 ## Configuration
 
