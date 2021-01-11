@@ -115,7 +115,7 @@ Additionally the Daikin Streamer (air purifier) function can be toggled on suppo
 
 ## Region Changing
 
-The European and United States controllers (Most likely the Australian controllers too) have an http api endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that can not download the app for the controllers region)
+The European and United States controllers (Most likely the Australian controllers too) have an HTTP API endpoint that allows you to change the controllers region so that other regional apps can be used. (Sometimes these controllers get exported to regions that can not download the app for the controllers region.)
 
 `http://Daikin-IP-Address/common/set_regioncode?reg=XX` Replace XX with your region code of choice.
 
