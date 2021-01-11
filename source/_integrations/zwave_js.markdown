@@ -23,7 +23,7 @@ This integration allows you to control a Z-Wave network via Z-Wave JS.
 
 ### Hardware requirements
 
-- [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the the Z-Wave JS server is running.
+- [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the Z-Wave JS server is running.
 
 ## Configuration
 
