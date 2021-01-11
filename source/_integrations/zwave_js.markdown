@@ -5,6 +5,7 @@ ha_category:
   - Hub
   - Light
   - Sensor
+  - Switch
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -40,5 +41,5 @@ available.
 
 As this integration is still in the early stages there are some important limitations to be aware of.
 
-- Platform support is currently limited to basic `sensor` and `light` entities.
+- Platform support is currently limited to basic `light`, `sensor`, and `switch` entities.
 - You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
