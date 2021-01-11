@@ -42,6 +42,11 @@ exchange_rate_currencies:
   description: List of currencies to create exchange rate sensors for.
   required: false
   type: list
+base_currency:
+  description: Exchange rates will be in this base currency.
+  required: false
+  type: string
+  default: USD
 {% endconfiguration %}
 
 Possible currencies are codes that conform to the ISO 4217 standard where possible. Currencies which have or had no representation in ISO 4217 may use a custom code (e.g.,  BTC). A list of values can be obtained via https://api.coinbase.com/v2/currencies, for more information visit [the Coinbase API documentation](https://developers.coinbase.com/api/v2#get-currencies).
@@ -62,4 +67,5 @@ coinbase:
     - BTC
     - ETH
     - LTC
+  base_currency: EUR
 ```
