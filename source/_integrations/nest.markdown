@@ -337,6 +337,8 @@ action:
     data:
       title: motion detected
       message: front door motion detected
+      data:
+        image: /api/camera_proxy/camera.front_door
 mode: single
 ```
 
