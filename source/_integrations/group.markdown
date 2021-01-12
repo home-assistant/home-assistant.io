@@ -32,6 +32,8 @@ group:
     entities:
       - device_tracker.dad_smith
       - device_tracker.mom_smith
+  # Example quick group
+  dining_room: light.chandelier, switch.hutch
 ```
 
 {% configuration %}
