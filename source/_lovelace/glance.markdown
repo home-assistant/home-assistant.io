@@ -26,6 +26,10 @@ title:
   required: false
   description: Card title
   type: string
+icon:
+  required: false
+  description: An icon to display to the left of the title
+  type: string
 show_name:
   required: false
   description: Show entity name.
