@@ -12,15 +12,8 @@ The `doods` image processing integration allows you to detect and recognize obje
 
 ## Setup
 The DOODS software needs to be running, before this integration can be used. Options to run the DOODS software:
-### Run as Home Assistant add-on
-This is the easiest way when you are running supervised Home Assistant and want to run the DOODS software on the same machine as Home Assistant
-1. Add snowzach repository (https://github.com/snowzach/hassio-addons) to the add-on store (see [add-on documentation](https://www.home-assistant.io/hassio/installing_third_party_addons/) for more information )
-2. Go to the add-on store, you should now see the new repository
-3. Install DOODS 
-4. Go to dashboard, select DOODS and start DOODS
-
-### Run as a Docker container
-https://hub.docker.com/r/snowzach/doods
+* Run as Home Assistant add-on, repository: https://github.com/snowzach/hassio-addons
+* Run as a Docker container, https://hub.docker.com/r/snowzach/doods
 
 ## Configuration
 
