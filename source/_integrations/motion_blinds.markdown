@@ -87,7 +87,7 @@ The `cover.set_cover_position` will set the scaled position relative to the spac
 
 ## Troubleshooting
 
-Homeassistant uses the following UDP multicast adresses/ports for communication with the gateway:
+Home Assistant uses the following UDP multicast adresses/ports for communication with the gateway:
 - Motion hub receive UDP multicast 238.0.0.18:32100
 - Motion hub sending UDP multicast 238.0.0.18:32101
 
@@ -95,5 +95,5 @@ This communication needs to be allowed on your local network. If the blinds are 
 
 `Timeout of 5.0 sec occurred on 5 attempts while waiting on multicast push from update request, communication between gateway and blind might be bad.`
 
-Please make sure the motion gateway and the device running HomeAssistant are on the same vlan and multicasting is enabled/allowed by your router.
-If using seperate vlan's, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those vlan's (not tested or confirmed to work).
+Please make sure the motion gateway and the device running Home Assistant are on the same vlan and multicasting is enabled/allowed by your router.
+If using separate vlan's, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those vlan's (not tested or confirmed to work).
