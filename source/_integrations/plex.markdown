@@ -201,25 +201,19 @@ To play Plex music directly to Sonos speakers, the following requirements must b
 3. Sonos speakers linked to your Plex account [(Instructions)](https://support.plex.tv/articles/control-sonos-playback-with-a-plex-app/).
 4. [Sonos](/integrations/sonos/) integration configured.
 
-### Service `plex.play_on_sonos`
-
-| Service data attribute | Description                                                                                                                                                                                          |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of a Sonos integration device
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`artist_name` (Required)</li><li>`album_name`</li><li>`track_name`</li><li>`track_number`</li><li>`shuffle` (0 or 1)</li></ul> |
-| `media_content_type`   | `MUSIC`                                                                                                                                                                                              |
+Call the `media_player.play_media` service with the `entity_id` of a Sonos integration device and `media_content_type` prepended with `plex://`. Both [music](#music) and [playlist](#playlist) `media_content_type` values are supported.
 
 ##### Examples:
 
 ```yaml
 entity_id: media_player.sonos_speaker
-media_content_type: MUSIC
-media_content_id: '{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
+media_content_type: music
+media_content_id: 'plex://{ "library_name": "Music", "artist_name": "Adele", "album_name": "25", "track_name": "Hello" }'
 ```
 ```yaml
 entity_id: media_player.sonos_speaker
-media_content_type: MUSIC
-media_content_id: '{ "library_name": "Music", "artist_name": "Stevie Wonder", "shuffle": "1" }'
+media_content_type: playlist
+media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 ```
 
 ## Additional Services
