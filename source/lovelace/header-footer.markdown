@@ -104,7 +104,7 @@ entity:
   type: string
 detail:
   required: false
-  description: Detail of the graph `1` or `2` (`1` = one point/hour, `2` = six points/hour)
+  description: Detail level of the graph: `1` or `2` (`1` = one point/hour, `2` = six points/hour)
   type: integer
   default: 1
 hours_to_show:
