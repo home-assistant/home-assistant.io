@@ -305,14 +305,12 @@ This automation will trigger when a `nest_event` event type with a type of `came
 
 ```yaml
 alias: motion alert
-description: ''
 trigger:
   - platform: event
     event_type: nest_event
     event_data:
-      device_id: 37d6639fa63c348310d930825bb9e430
+      device_id: YOUR_DEVICE_ID
       type: camera_motion
-condition: []
 action:
   - service: notify.mobile_app_pixel_2
     data:
@@ -320,7 +318,6 @@ action:
       message: front door motion detected
       data:
         image: /api/camera_proxy/camera.front_door
-mode: single
 ```
 
 The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send an notification with a snapshot from the camera.
