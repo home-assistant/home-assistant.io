@@ -3,7 +3,7 @@ title: "MQTT Scene"
 description: "Instructions on how to integrate MQTT scenes into Home Assistant."
 ha_category:
   - Scene
-ha_release: 0.119
+ha_release: 2020.12
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---

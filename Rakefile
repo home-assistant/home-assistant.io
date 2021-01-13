@@ -7,7 +7,7 @@ public_dir      = "public/"   # compiled site directory
 source_dir      = "source"    # source file directory
 blog_index_dir  = 'source/blog'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
-components_dir  = "_components"    #  directory for component files
+integrations_dir  = "_integrations"    #  directory for component files
 posts_dir       = "_posts"    # directory for blog files
 new_post_ext    = "markdown"  # default new post file extension when using the new_post task
 new_page_ext    = "markdown"  # default new page file extension when using the new_page task
@@ -144,22 +144,22 @@ desc "Move all other components and posts than the one currently being worked on
 task :isolate, :filename do |t, args|
   stash_dir = "#{source_dir}/#{stash_dir}"
   s_posts_dir = "#{stash_dir}/#{posts_dir}"
-  s_components_dir = "#{stash_dir}/#{components_dir}"
+  s_integrations_dir = "#{stash_dir}/#{integrations_dir}"
   FileUtils.mkdir(stash_dir) unless File.exist?(stash_dir)
   FileUtils.mkdir(s_posts_dir) unless File.exist?(s_posts_dir)
-  FileUtils.mkdir(s_components_dir) unless File.exist?(s_components_dir)
+  FileUtils.mkdir(s_integrations_dir) unless File.exist?(s_integrations_dir)
   Dir.glob("#{source_dir}/#{posts_dir}/*.*") do |post|
     FileUtils.mv post, s_posts_dir unless post.include?(args.filename)
   end
-  Dir.glob("#{source_dir}/#{components_dir}/*.*") do |component|
-    FileUtils.mv component, s_components_dir unless component.include?(args.filename)
+  Dir.glob("#{source_dir}/#{integrations_dir}/*.*") do |component|
+    FileUtils.mv component, s_integrations_dir unless component.include?(args.filename)
   end
 end
 
 desc "Move all stashed posts back into the posts directory, ready for site generation."
 task :integrate do
   FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/#{posts_dir}/*.*"), "#{source_dir}/#{posts_dir}/"
-  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/#{components_dir}/*.*"), "#{source_dir}/#{components_dir}/"
+  FileUtils.mv Dir.glob("#{source_dir}/#{stash_dir}/#{integrations_dir}/*.*"), "#{source_dir}/#{integrations_dir}/"
 end
 
 desc "Clean out caches: .pygments-cache, .gist-cache, .sass-cache"

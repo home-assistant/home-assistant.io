@@ -322,6 +322,7 @@ For all `*_state_topic`s, a template can be specified that will be used to rende
 Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the mode is actually called just `auto`, here's what you could do:
 
 {% raw %}
+
 ```yaml
 climate:
   - platform: mqtt
@@ -334,10 +335,10 @@ climate:
     mode_state_topic: "study/ac/mode/state"
     mode_state_template: "{{ value_json }}"
 ```
+
 {% endraw %}
 
 This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
-
 
 ### Example
 

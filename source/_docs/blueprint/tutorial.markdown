@@ -12,6 +12,7 @@ For this tutorial, we use a simple automation. The process for converting a comp
 To create a blueprint, we first need to have a working automation. The automation we're going to use in this tutorial, which controls a light based on a motion sensor, looks like this:
 
 {% raw %}
+
 ```yaml
 trigger:
   platform: state
@@ -27,6 +28,7 @@ action:
   target:
     entity_id: light.kitchen
 ```
+
 {% endraw %}
 
 ## Create the blueprint file
@@ -65,6 +67,7 @@ For the light, we can offer some more flexibility. We want to allow the user to 
 Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
 {% raw %}
+
 ```yaml
 action:
   service: >
@@ -75,6 +78,7 @@ action:
     {% endif %}
   target: !input target_light
 ```
+
 {% endraw %}
 
 ## Add the inputs to the metadata
@@ -164,6 +168,7 @@ By limiting our blueprint to working with lights and motion sensors, we unlock a
 After we have added all the steps, our blueprint will look like this:
 
 {% raw %}
+
 ```yaml
 blueprint:
   name: Motion Light Tutorial
@@ -198,6 +203,7 @@ action:
     {% endif %}
   target: !input target_light
 ```
+
 {% endraw %}
 
 ## Use it via the UI
@@ -214,6 +220,10 @@ Don't forget to reload automations after you make changes to your blueprint to h
 
 The final step is to share this blueprint with others. For this tutorial we're going to share it on GitHub Gists.
 
+### Informal Sharing
+
+For this tutorial, we're going to share it on GitHub Gists. This is a good option if you don't want to publish your blueprint to a larger audience.
+
 - Go to [GitHub Gists](https://gist.github.com/)
 - Gist description: blueprint tutorial
 - Filename including extension: `motion_light_tutorial.yaml`
@@ -221,3 +231,7 @@ The final step is to share this blueprint with others. For this tutorial we're g
 - Click the "Create Gist" button
 
 You can now copy the URL of your new Gist and share it with other people. They can import it by going to **Configuration**, **Blueprints** and clicking on the blue "Import Blueprint" button.
+
+### Share on the Blueprint Exchange
+
+If you follow the [Rules and format for posting](/get-blueprints), you can share your blueprint on the Home Assistant Blueprint Exchange forum. This option is accessible to the general Home Assistant community but recommended only for your original blueprints. Please don't post this tutorial to the Blueprint Exchange, but instead, remember this as an option for releasing your real blueprints.

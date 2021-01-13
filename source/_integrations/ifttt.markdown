@@ -32,6 +32,7 @@ For example, set the body of the IFTTT webhook to:
 You then need to consume that incoming information with the following automation:
 
 {% raw %}
+
 ```yaml
 automation:
 - id: this_is_the_automation_id
@@ -47,6 +48,7 @@ automation:
       entity_id: '{{ trigger.event.data.entity_id }}'
     service: '{{ trigger.event.data.service }}'
 ```
+
 {% endraw %}
 
 ## Sending events to IFTTT
@@ -58,7 +60,6 @@ ifttt:
 ```
 
 `key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/services/maker_webhooks/settings). It's the last part of the URL (e.g., https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.
-
 
 <p class='img'>
 <img src='/images/integrations/ifttt/finding_key.png' />
@@ -82,7 +83,6 @@ ifttt:
     YOUR_KEY_NAME1: YOUR_API_KEY1
     YOUR_KEY_NAME2: YOUR_API_KEY2
 ```
-
 
 ### Testing your trigger
 
@@ -125,6 +125,7 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 </p>
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
@@ -136,11 +137,13 @@ automation:
     service: ifttt.trigger
     data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
+
 {% endraw %}
 
 IFTTT can also be used in scripts and with templates. Here is the above automation broken into an automation and script using variables and templates.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
@@ -155,9 +158,11 @@ automation:
       value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
       value3: "{{ trigger.event.data.to_state.state }}"
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 #Example Script to send TestHA_Trigger to IFTTT but with some other data (homeassistant UP).
 ifttt_notify:
@@ -165,4 +170,5 @@ ifttt_notify:
     - service: ifttt.trigger
       data: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
+
 {% endraw %}

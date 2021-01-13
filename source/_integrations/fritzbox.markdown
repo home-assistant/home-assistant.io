@@ -24,6 +24,7 @@ There is currently support for the following device types within Home Assistant:
 #### Tested Devices
 
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
+- [FRITZ!Box 6591 Cable](https://en.avm.de/products/fritzbox/fritzbox-6591-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
 - [FRITZ!Box 7490](https://en.avm.de/service/fritzbox/fritzbox-7490/overview/)
 - [FRITZ!Box 7430](https://en.avm.de/service/fritzbox/fritzbox-7430/overview/)

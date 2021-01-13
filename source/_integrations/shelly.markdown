@@ -2,6 +2,7 @@
 title: Shelly
 description: Integrate Shelly devices
 ha_category:
+  - Binary Sensor
   - Cover
   - Light
   - Sensor
@@ -11,7 +12,7 @@ ha_codeowners:
   - '@balloob'
   - '@bieniu'
   - '@thecode'
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
 ha_config_flow: true
@@ -107,4 +108,5 @@ Not all devices support all input events. You can check on [Shelly API Reference
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
-- Support for battery-powered devices is limited
+- Support for battery-powered devices is limited (also applies to USB powered Shelly H&T)
+

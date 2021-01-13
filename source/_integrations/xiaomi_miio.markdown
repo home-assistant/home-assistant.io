@@ -154,16 +154,10 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
-You can install the command line tool using the following command:
-
-```bash
-npm install -g miio
-```
-
 Discovering devices on the current network:
 
 ```bash
-miio discover
+npx miio discover
 ```
 
 This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.
@@ -1407,6 +1401,7 @@ In addition to [all of the attributes provided by the `vacuum` component](/integ
 - `total_cleaning_time`
 - `clean_start`
 - `clean_end`
+- `mop_attached`
 
 The following table shows the units of measurement for each attribute:
 
@@ -1423,7 +1418,8 @@ The following table shows the units of measurement for each attribute:
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
 | `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
-| `clean_stop`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `clean_stop`              | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `mop_attached`            |                     | A mop and water box are attached / not attached                |
 
 ### Example on how to clean a specific room
 

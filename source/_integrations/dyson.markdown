@@ -9,8 +9,6 @@ ha_category:
   - Vacuum
 ha_iot_class: Cloud Polling
 ha_release: 0.47
-ha_codeowners:
-  - '@etheralm'
 ha_domain: dyson
 ---
 

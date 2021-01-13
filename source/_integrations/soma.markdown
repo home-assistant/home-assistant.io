@@ -3,6 +3,7 @@ title: Soma Connect
 description: Instructions on how to set up the Soma Connect within Home Assistant.
 ha_category:
   - Cover
+  - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: '0.100'

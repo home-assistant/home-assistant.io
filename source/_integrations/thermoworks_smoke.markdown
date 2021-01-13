@@ -53,7 +53,6 @@ This section includes some examples of how to use this sensor.
 
 This will show only Probe 1 with min and max data.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -65,13 +64,11 @@ sensor:
     - probe1_min
     - probe1_max
 ```
-{% endraw %}
 
 ### Ignore a Device
 
 This will exclude a device from creating sensors. You would replace `"00:00:00:00:00:00"` with your device's serial number.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -81,7 +78,6 @@ sensor:
     exclude:
     - "00:00:00:00:00:00"
 ```
-{% endraw %}
 
 ### Notify when Probe 1 goes above a certain temperature
 
@@ -89,6 +85,7 @@ This will use an automation to trigger a notification when Probe 1 goes above a 
 By default, your smoke is named "My Smoke" in the app. If you have changed it you will need to change the sensor name from `my_smoke_probe_1` to `your_name_probe_1`.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -125,4 +122,5 @@ automation:
             {{- ' '+states("sensor.my_smoke_probe_1") -}}
             {{- state_attr('sensor.my_smoke_probe_1','unit_of_measurement') }}
 ```
+
 {% endraw %}

@@ -8,6 +8,9 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.49
 ha_domain: apple_tv
+ha_codeowners:
+  - '@postlund'
+ha_config_flow: true
 ---
 
 The Apple TV integration allows you to control an Apple TV (any generation). See the

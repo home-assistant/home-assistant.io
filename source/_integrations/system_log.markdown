@@ -104,6 +104,7 @@ automation:
 This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: Create notifications for "service" errors
@@ -119,13 +120,13 @@ automation:
         title: Something bad happened
         message: '{{ trigger.event.data.message }}'
 ```
+
 {% endraw %}
 
 ### Writing to log
 
 This automation will create a new log entry when the door is opened:
 
-{% raw %}
 ```yaml
 automation:
   - alias: Log door opened
@@ -140,4 +141,3 @@ automation:
         message: 'Door opened!'
         level: info
 ```
-{% endraw %}

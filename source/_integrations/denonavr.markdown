@@ -44,6 +44,7 @@ Known supported devices:
 - Denon AVR-2312CI
 - Denon AVR-3311CI
 - Denon AVR-3312
+- Denon AVR-3313CI
 - Denon AVR-4810
 - Denon AVR-S710W
 - Denon AVR-S720W
@@ -64,6 +65,7 @@ Known supported devices:
 - Marantz NR1602
 - Marantz NR1604
 - Marantz NR1607
+- Marantz NR1710
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 

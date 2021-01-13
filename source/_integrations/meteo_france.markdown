@@ -66,16 +66,19 @@ All the following sensors will be created :
 |Entity|Description|Enabled by default|
 |------|-----------|------------------|
 |`cloud`|The current cloud cover in %|Yes|
-|`freeze_chance` |Probability of temperature below 0°C in the following hours|Yes|
+|`daily_original_condition`|The daily original weather condition|No|
+|`freeze_chance`|Probability of temperature below 0°C in the following hours|Yes|
 |`next_rain`|Datetime of the next rain if expected within the next hour ([see note below](#about-next_rain-condition-sensor))|Yes|
+|`original_condition`|The current original weather condition|No|
 |`precipitation`|Precipitation cumulation for next 24 hours in mm|Yes|
 |`pressure`|The current pressure in hPa|No|
-|`rain_chance` |Probability of rain in the following hours|Yes|
-|`snow_chance` |Probability of snow for the following hours|Yes|
+|`rain_chance`|Probability of rain in the following hours|Yes|
+|`snow_chance`|Probability of snow for the following hours|Yes|
 |`temperature`|The current temperature in °C|No|
 |`uv`|The current UV index|Yes|
-|`weather_alert` |Weather alert status ([see note below](#about-weather_alert-sensor))|Yes|
-|`wind_speed` |The current wind speed in km/h|No|
+|`weather_alert`|Weather alert status ([see note below](#about-weather_alert-sensor))|Yes|
+|`wind_gust`|The current wind gust speed in km/h|No|
+|`wind_speed`|The current wind speed in km/h|No|
 
 Warning: The probability entities data are not always provided by the API. They are added only if available.
 
