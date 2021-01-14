@@ -25,7 +25,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **temperature**: Temperature in °C or °F.
 - **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
-- **timestamp**: Datetime object or timestamp string.
+- **timestamp**: Datetime object or timestamp string (ISO 8601).
 - **current**: Current in A.
 - **energy**: Energy in Wh or kWh.
 - **power_factor**: Power Factor in %.
