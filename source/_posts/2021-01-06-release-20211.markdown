@@ -183,6 +183,7 @@ The following integrations are now available via the Home Assistant UI:
 - Fallback to tag for any AfterShip tracking that have no checkpoints ([@ludeeus] - [#45053]) ([aftership docs])
 - Bump MyQ to 2.0.14 ([@ehendrix23] - [#45067]) ([myq docs])
 - Fix OpenWeatherMap forecast timestamp ([@spacegaier] - [#45124]) ([openweathermap docs])
+- Add filtering ([@frenck] - [commit](https://github.com/home-assistant/core/commit/0bd2c13e261c7b3d96ba451c50f81dd3e659c5c9))
 
 [#44765]: https://github.com/home-assistant/core/pull/44765
 [#44946]: https://github.com/home-assistant/core/pull/44946
