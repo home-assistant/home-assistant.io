@@ -178,6 +178,20 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 
 {% endraw %}
 
+**Next 4pm **: ends today at 00:00, lasts 30 days. Easy one.
+
+{% raw %}
+
+```yaml
+    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    duration:
+      days: 30
+```
+
+{% endraw %}
+
+
+
 **Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
 
 {% raw %}
