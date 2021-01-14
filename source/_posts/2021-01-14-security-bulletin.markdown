@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Security Bulletin"
-description: "Kicking off 2021 slowly, with a nice and light release containing mainly fixes and tweaks."
+description: "Update your Home Assistant instance as soon as possible."
 date: 2021-01-14 00:00:00
 date_formatted: "January 14, 2021"
 author: Paulus Schoutsen
