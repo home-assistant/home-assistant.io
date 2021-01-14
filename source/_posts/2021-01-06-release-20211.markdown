@@ -47,6 +47,7 @@ Enjoy the release!
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.1.1 - January 9](#release-202111---january-9)
+- [Release 2021.1.2 - January 14](#release-202112---january-14)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -173,6 +174,34 @@ The following integrations are now available via the Home Assistant UI:
 [knx docs]: /integrations/knx/
 [light docs]: /integrations/light/
 [myq docs]: /integrations/myq/
+
+## Release 2021.1.2 - January 14
+
+- Update the Utility Meter sensor status on HA start ([@dgomes] - [#44765]) ([utility_meter docs])
+- Bump bimmer_connected to 0.7.14 ([@rikroe] - [#45086]) ([bmw_connected_drive docs])
+- Fix neato battery sensor not ready ([@Santobert] - [#44946]) ([neato docs])
+- Fallback to tag for any AfterShip tracking that have no checkpoints ([@ludeeus] - [#45053]) ([aftership docs])
+- Bump MyQ to 2.0.14 ([@ehendrix23] - [#45067]) ([myq docs])
+- Fix OpenWeatherMap forecast timestamp ([@spacegaier] - [#45124]) ([openweathermap docs])
+
+[#44765]: https://github.com/home-assistant/core/pull/44765
+[#44946]: https://github.com/home-assistant/core/pull/44946
+[#45053]: https://github.com/home-assistant/core/pull/45053
+[#45067]: https://github.com/home-assistant/core/pull/45067
+[#45086]: https://github.com/home-assistant/core/pull/45086
+[#45124]: https://github.com/home-assistant/core/pull/45124
+[@Santobert]: https://github.com/Santobert
+[@dgomes]: https://github.com/dgomes
+[@ehendrix23]: https://github.com/ehendrix23
+[@ludeeus]: https://github.com/ludeeus
+[@rikroe]: https://github.com/rikroe
+[@spacegaier]: https://github.com/spacegaier
+[aftership docs]: /integrations/aftership/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[myq docs]: /integrations/myq/
+[neato docs]: /integrations/neato/
+[openweathermap docs]: /integrations/openweathermap/
+[utility_meter docs]: /integrations/utility_meter/
 
 ## If you need help...
 
