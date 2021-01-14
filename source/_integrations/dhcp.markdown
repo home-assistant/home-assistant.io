@@ -11,8 +11,6 @@ ha_domain: dhcp
 
 The `dhcp` "DHCP Discovery" integration will watch the network for DHCP requests for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
 
-Integrations can opt-in to be found by adding [an DHCP section](https://developers.home-assistant.io/docs/en/next/creating_integration_manifest.html#dhcp) to their `manifest.json`.
-
 ## Configuration
 
 This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
