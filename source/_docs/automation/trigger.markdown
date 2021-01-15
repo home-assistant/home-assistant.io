@@ -164,21 +164,25 @@ The values you see in your overview will often not be the same as the actual sta
 automation:
   trigger:
     platform: state
-    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    entity_id:
+      - device_tracker.paulus
+      - device_tracker.anne_therese
     # Optional
     from: "not_home"
     # Optional
     to: "home"
 ```
 
-It's possible to give a list of frome_states or to_states:
+It's possible to give a list of from_states or to_states:
 
 ```yaml
 automation:
   trigger:
     platform: state
     entity_id: vacuum.test
-    from: "cleaning", "returning"
+    from:
+    - "cleaning"
+    - "returning"
     to: "error"
 ```
 
