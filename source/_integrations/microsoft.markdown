@@ -41,6 +41,11 @@ type:
   required: false
   type: string
   default: "`ZiraRUS`"
+output:
+  description: "Format of audio output. Accepted values are listed [in the documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs)."
+  required: false
+  type: string
+  default: "`audio-16khz-128kbitrate-mono-mp3`"
 rate:
   description: "Change the rate of speaking in percentage. Example values: `25`, `50`."
   required: false
