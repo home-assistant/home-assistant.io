@@ -172,6 +172,7 @@ automation:
 ```
 
 It's possible to give a list of frome_states or to_states:
+
 ```yaml
 automation:
   trigger:
