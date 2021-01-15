@@ -3,6 +3,7 @@ title: Z-Wave JS
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 ha_category:
   - Binary Sensor
+  - Climate
   - Hub
   - Light
   - Lock
@@ -43,5 +44,5 @@ available.
 
 As this integration is still in the early stages there are some important limitations to be aware of.
 
-- Platform support is currently limited to basic `binary_sensor`, `light`, `lock`, `sensor`, and `switch` entities.
+- Platform support is currently limited to basic `binary_sensor`, `climate`, `light`, `lock`, `sensor`, and `switch` entities.
 - You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
