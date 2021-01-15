@@ -151,7 +151,8 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 ### State trigger
 
-Fires when the state of any of given entities changes. If only `entity_id` is given trigger will fire for all state changes, even if only state attributes change.
+Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
+If only one of `from_state` or `to_state` are given, the trigger will fire on any matching state change, but not if only attributes change.
 
 <div class='note'>
 
@@ -163,11 +164,26 @@ The values you see in your overview will often not be the same as the actual sta
 automation:
   trigger:
     platform: state
-    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    entity_id:
+      - device_tracker.paulus
+      - device_tracker.anne_therese
     # Optional
     from: "not_home"
     # Optional
     to: "home"
+```
+
+It's possible to give a list of from_states or to_states:
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: vacuum.test
+    from:
+    - "cleaning"
+    - "returning"
+    to: "error"
 ```
 
 #### Holding a state
