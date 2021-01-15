@@ -14,49 +14,15 @@ The `foscam` platform allows you to watch the live stream of your [Foscam](https
 
 ## Configuration
 
-To enable your Foscam IP camera in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: foscam
-    ip: IP_ADDRESS
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-ip:
-  description: The IP address your camera.
-  required: true
-  type: string
-port:
-  description: The port that the camera is running on.
-  required: false
-  default: 88
-  type: integer
-rtsp_port:
-  description: The port that the camera uses for RTSP. This is normally auto-discovered but some models may need this set, such as the R2 and R2C.
-  required: false
-  default: None
-  type: integer
-username:
-  description: The username for accessing your camera.
-  required: true
-  type: string
-password:
-  description: The password for accessing your camera.
-  required: true
-  type: string
-name:
-  description: This parameter allows you to override the name of your camera.
-  required: false
-  type: string
-{% endconfiguration %}
+Home Assistant offers Foscam IP Cameras integration through **Configuration** -> **Integrations** -> **Foscam**. Follow the instructions to get it set up.
 
 <div class='note'>
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
 </div>
+
+### Streams
+
+Most Foscam IP Cameras supports two video streams, by default the `Main` stream is the high quality stream while the `Sub` stream is a lower quality stream. These streams can be configured in your camera preferences.
 
 ### Service `foscam.ptz`
 
