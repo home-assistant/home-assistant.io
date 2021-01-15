@@ -48,6 +48,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.1.1 - January 9](#release-202111---january-9)
 - [Release 2021.1.2 - January 14](#release-202112---january-14)
+- [Release 2021.1.3 - January 15](#release-202113---january-15)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -203,6 +204,17 @@ The following integrations are now available via the Home Assistant UI:
 [neato docs]: /integrations/neato/
 [openweathermap docs]: /integrations/openweathermap/
 [utility_meter docs]: /integrations/utility_meter/
+
+## Release 2021.1.3 - January 15
+
+- Extend filter and filter tests ([@frenck] - [#45179]) ([http docs])
+- Bump aioHTTP 3.7.3 - YARL 1.6.3 ([@pvizeli] - [#45180])
+
+[#45179]: https://github.com/home-assistant/core/pull/45179
+[#45180]: https://github.com/home-assistant/core/pull/45180
+[@frenck]: https://github.com/frenck
+[@pvizeli]: https://github.com/pvizeli
+[http docs]: /integrations/http/
 
 ## If you need help...
 
