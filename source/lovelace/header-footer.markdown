@@ -26,7 +26,7 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image.
+  description: The URL of an image
   type: string
 tap_action:
   required: false
@@ -65,15 +65,15 @@ entities:
   keys:
     entity:
       required: true
-      description: The entity to render.
+      description: The entity to render
       type: string
     icon:
       required: false
-      description: Override the entity icon.
+      description: Override the entity icon
       type: string
     image:
       required: false
-      description: Override the entity image.
+      description: Override the entity image
       type: string
     name:
       required: false
@@ -100,11 +100,11 @@ footer:
 {% configuration header-footer %}
 entity:
   required: true
-  description: Entity id of `sensor` domain
+  description: Entity ID of `sensor` domain
   type: string
 detail:
   required: false
-  description: Detail of the graph `1` or `2`, `1` equals one point/hour, `2` equals six points/hour
+  description: "Detail level of the graph: `1` or `2` (`1` = one point/hour, `2` = six points/hour)"
   type: integer
   default: 1
 hours_to_show:
