@@ -312,6 +312,28 @@ The lower level Pub/Sub subscriber receives events in real time and internally f
 | Sound detected | [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) | `sound_detected` |
 | Doorbell pressed | [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) | `doorbell_chime` |
 
+### Example
+
+This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
+
+```yaml
+alias: motion alert
+trigger:
+  - platform: event
+    event_type: nest_event
+    event_data:
+      device_id: YOUR_DEVICE_ID
+      type: camera_motion
+action:
+  - service: notify.mobile_app_pixel_2
+    data:
+      title: motion detected
+      message: front door motion detected
+      data:
+        image: /api/camera_proxy/camera.front_door
+```
+
+The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send an notification with a snapshot from the camera.
 
 # Legacy Works With Nest API
 
