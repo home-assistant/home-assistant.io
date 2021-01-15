@@ -29,4 +29,4 @@ If you need additional help with upgrading, we are happy to help you out on our 
 
 Paulus
 
-**Edit: 15 January 2021**: Blog post updated to state 2021.1.3, which added some additional check.
+**Edit: 15 January 2021**: Blog post updated to state 2021.1.3, which added some additional checks.
