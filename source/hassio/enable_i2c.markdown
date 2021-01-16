@@ -12,7 +12,7 @@ You will need:
 - SD card reader
 - SD card with Home Assistant Operating System flashed on it
 
-### Step 1 - Access the Home Assistant OS boot partition
+### Step 1 - Access the Home Assistant Operating System boot partition
 
 Shutdown/turn-off your Home Assistant installation and unplug the SD card.
 Plug the SD card into an SD card reader and find a drive/file system named
@@ -44,3 +44,24 @@ and make sure the first partition is available.
   present at boot time.
 
 The I2C devices should now be present under /dev.
+
+## From Home Assistant Operating System Terminal
+
+Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant Operating System.
+
+You can enabled i2c via this terminal:
+
+- Login as `root`.
+- Type `login` and press enter to access the shell.
+- Type the following to enable i2c, you may need to replace `sda1` with `sdb1` or `mmcblk0p1` depending on your platform:
+
+  ```shell
+  mkdir /tmp/mnt
+  mount /dev/sda1 /tmp/mnt
+  mkdir -p /tmp/mnt/CONFIG/modules
+  echo -ne i2c-dev>/tmp/mnt/CONFIG/modules/rpi-i2c.conf
+  echo dtparam=i2c_vc=on >> /tmp/mnt/CONFIG/config.txt
+  echo dtparam=i2c_arm=on >> /tmp/mnt/CONFIG/config.txt
+  sync
+  reboot
+  ```
