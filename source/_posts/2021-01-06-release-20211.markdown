@@ -49,6 +49,7 @@ Enjoy the release!
 - [Release 2021.1.1 - January 9](#release-202111---january-9)
 - [Release 2021.1.2 - January 14](#release-202112---january-14)
 - [Release 2021.1.3 - January 15](#release-202113---january-15)
+- [Release 2021.1.4 - January 16](#release-202114---january-16)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -215,6 +216,26 @@ The following integrations are now available via the Home Assistant UI:
 [@frenck]: https://github.com/frenck
 [@pvizeli]: https://github.com/pvizeli
 [http docs]: /integrations/http/
+
+## Release 2021.1.4 - January 16
+
+- Fix Home Connect ambient color ([@Sjack-Sch] - [#45038]) ([home_connect docs])
+- Fix HomeKit climate integration for devices with a single set point in Heat_Cool mode. ([@thevoltagesource] - [#45065]) ([homekit_controller docs])
+- Fix all forecast datetime values in OpenWeatherMap ([@spacegaier] - [#45202]) ([openweathermap docs])
+- Bump up ZHA dependency ([@Adminiuga] - [#45230]) ([zha docs])
+
+[#45038]: https://github.com/home-assistant/core/pull/45038
+[#45065]: https://github.com/home-assistant/core/pull/45065
+[#45202]: https://github.com/home-assistant/core/pull/45202
+[#45230]: https://github.com/home-assistant/core/pull/45230
+[@Adminiuga]: https://github.com/Adminiuga
+[@Sjack-Sch]: https://github.com/Sjack-Sch
+[@spacegaier]: https://github.com/spacegaier
+[@thevoltagesource]: https://github.com/thevoltagesource
+[home_connect docs]: /integrations/home_connect/
+[homekit_controller docs]: /integrations/homekit_controller/
+[openweathermap docs]: /integrations/openweathermap/
+[zha docs]: /integrations/zha/
 
 ## If you need help...
 
