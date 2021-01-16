@@ -12,7 +12,7 @@ You will need:
 - SD card reader
 - SD card with Home Assistant Operating System flashed on it
 
-### Step 1 - Access the Home Assistant OS boot partition
+### Step 1 - Access the Home Assistant Operating System boot partition
 
 Shutdown/turn-off your Home Assistant installation and unplug the SD card.
 Plug the SD card into an SD card reader and find a drive/file system named
