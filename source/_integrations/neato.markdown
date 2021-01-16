@@ -53,6 +53,13 @@ neato:
 4. Add Neato Botvac via *Configuration* -> *Integrations*
 5. Follow the instructions. After that, all the entities will automatically show up in Home Assistant.
 
+<div class='note'>
+
+Note that if you have multiple robots registered to your Neato account, make sure that they are all connected, or you might get an error when adding the integration. Delete any old or unused robots from your Neato account before setting up the integration to avoid this.
+
+</div>
+
+
 {% configuration %}
 client_id:
   description: Client ID for the Neato account.
