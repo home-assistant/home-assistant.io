@@ -25,7 +25,7 @@ To update Home Assistant, click on the Supervisor menu item to see if an update 
 
 If you need additional help with upgrading, we are happy to help you out on our [Discord chat](/join-chat/) server.
 
-We will provide more details about impacted integrations in the future.
+We will provide more details about impacted custom integrations in the future.
 
 Paulus
 
