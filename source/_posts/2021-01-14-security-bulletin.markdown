@@ -30,3 +30,4 @@ We will provide more details about impacted custom integrations in the future.
 Paulus
 
 **Edit: 15 January 2021**: Blog post updated to state 2021.1.3, which added some additional checks.
+**Edit: 16 January 2021**: Blog post updated to remove supervisor reload instructions, as latest version is now generally available. Added note that Python 3.7 is still supported.
