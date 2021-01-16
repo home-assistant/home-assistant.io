@@ -53,7 +53,8 @@ You can enabled i2c via this terminal:
 
 - Login as `root`.
 - Type `login` and press enter to access the shell.
-- Type the following to enable i2c, you may breplace sda1 with sdb1 or mmcblk0p1 depending on your platform:
+- Type the following to enable i2c, you may need to replace `sda1` with `sdb1` or `mmcblk0p1` depending on your platform:
+
   ```shell
   mkdir /tmp/mnt
   mount /dev/sda1 /tmp/mnt
