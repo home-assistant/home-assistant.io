@@ -51,7 +51,7 @@ footer:
 
 ## Options For Entities
 
-If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration:
+If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
 
 {% configuration %}
 entity:
@@ -142,13 +142,13 @@ suffix:
   type: string
 name:
   required: false
-  description: Overwrites friendly name
+  description: Overwrites friendly entity name
   type: string
 {% endconfiguration %}
 
 ### Button
 
-Row with an (optional) icon, name and a single text button at the end of the row that can trigger a defined action. 
+Row with an (optional) icon, label and a single text button at the end of the row that can trigger a defined action. 
 
 {% configuration %}
 type:
@@ -161,7 +161,7 @@ name:
   type: string
 icon:
   required: false
-  description: An icon to display to the left of the label
+  description: An icon to display to the left of the main label
   type: string
 action_name:
   required: false
@@ -210,7 +210,7 @@ entities:
       type: string
     name:
       required: false
-      description: Override the entity name
+      description: Override the friendly entity name
       type: string
       default: Entity name
     show_name:
