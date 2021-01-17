@@ -120,7 +120,7 @@ retain:
   default: false
 state_topic:
   description: The MQTT topic subscribed to receive number values.
-  required: true
+  required: false
   type: string
 unique_id:
   description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
