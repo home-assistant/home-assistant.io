@@ -33,7 +33,7 @@ You need the Hostname or IP address of the machine that runs your Roon Core. Thi
 
 #### Service `media_player.play_media`
 
-Roon uses a path based on the roon browser hierachy to specify which media to play. You can find this by using the media browser, or by following the examples below. If roon can't follow the path you will find an error in the log that will show which part of the path roon could not follow, and the possibilities at that point.
+Roon uses a path based on the roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If roon can't follow the path you will find an error in the log that will show which part of the path roon could not follow, and the possibilities at that point.
 
 | Service data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
