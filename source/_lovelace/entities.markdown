@@ -210,8 +210,9 @@ entities:
       type: string
     name:
       required: false
-      description: Label for the button
+      description: Override the entity name
       type: string
+      default: Entity name
     show_name:
       required: false
       description: If false, the button name is not shown
