@@ -124,7 +124,7 @@ media_player:
   type: list
   keys:
     uuid:
-      description: UUID of a Cast device to add to Home Assistant. Use only if you don't want to add all available devices. The device won't be added until discovered through mDNS. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=["Living Room TV", "Bedroom TV", "Office Chromecast"]))"
+      description: UUID of a Cast device to add to Home Assistant. Use only if you don't want to add all available devices. The device won't be added until discovered through mDNS. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`
       required: false
       type: string
     ignore_cec:
