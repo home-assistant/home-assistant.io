@@ -41,7 +41,7 @@ Roon uses a path based on the roon browser hierachy to specify which media to pl
 | `media_content_id`     |       no | A path to specify the media you want to play, see examples below.                   |
 | `media_content_type`   |       no | Only `music` is suppported  |
 
- For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set  `media_content_id` to `My Live Radio/BBC Radio 4`
+ For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set `media_content_id` to `My Live Radio/BBC Radio 4`
 
 ### Service `roon.join`
 
