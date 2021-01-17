@@ -117,7 +117,38 @@ double_tap_action:
 
 Rather than only displaying an entity's state as a text output, the Entities card supports multiple special rows for buttons, attributes, web links, dividers and sections, etc.
 
+### Attribute
+
+{% configuration %}
+type:
+  required: true
+  description: "`attribute`"
+  type: string
+entity:
+  required: true
+  description: Entity ID
+  type: string
+attribute:
+  required: true
+  description: Attribute to display from the entity
+  type: string
+prefix:
+  required: false
+  description: Text before entity state
+  type: string
+suffix:
+  required: false
+  description: Text after entity state
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name
+  type: string
+{% endconfiguration %}
+
 ### Button
+
+Row with an (optional) icon, name and a single text button at the end of the row that can trigger a defined action. 
 
 {% configuration %}
 type:
@@ -149,6 +180,60 @@ double_tap_action:
   required: false
   description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
   type: map
+{% endconfiguration %}
+
+### Buttons
+
+Multiple buttons displayed in a single row next to each other. See examples further below.
+
+{% configuration %}
+type:
+  required: true
+  description: "`buttons`"
+  type: string
+entities:
+  required: true
+  description: A list of entities to show. Each entry is either an entity ID or a map.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: Entity ID
+      type: string
+    icon:
+      required: false
+      description: Override the entity icon
+      type: string
+    image:
+      required: false
+      description: Override the entity image
+      type: string
+    name:
+      required: false
+      description: Label for the button
+      type: string
+    show_name:
+      required: false
+      description: If false, the button name is not shown
+      type: boolean
+      default: "true"
+    show_icon:
+      required: false
+      description: If false, the icon is not shown
+      type: boolean
+      default: "true"    
+    tap_action:
+      required: false
+      description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+      type: map
+    hold_action:
+      required: false
+      description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+      type: map
+    double_tap_action:
+      required: false
+      description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+      type: map
 {% endconfiguration %}
 
 ### Cast
@@ -269,79 +354,6 @@ icon:
   description: "Icon to display (e.g., `mdi:home`)"
   type: string
   default: "`mdi:link`"
-{% endconfiguration %}
-
-### Buttons
-
-Multiple buttons displayed in a single row next to each other. See examples further below.
-
-{% configuration %}
-type:
-  required: true
-  description: "`buttons`"
-  type: string
-entities:
-  required: true
-  description: A list of entities to show. Each entry is either an entity ID or a map.
-  type: list
-  keys:
-    entity:
-      required: true
-      description: Entity ID
-      type: string
-    icon:
-      required: false
-      description: Override the entity icon
-      type: string
-    image:
-      required: false
-      description: Override the entity image
-      type: string
-    name:
-      required: false
-      description: Label for the button
-      type: string
-    tap_action:
-      required: false
-      description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
-      type: map
-    hold_action:
-      required: false
-      description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
-      type: map
-    double_tap_action:
-      required: false
-      description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
-      type: map
-{% endconfiguration %}
-
-### Attribute
-
-{% configuration %}
-type:
-  required: true
-  description: "`attribute`"
-  type: string
-entity:
-  required: true
-  description: Entity ID
-  type: string
-attribute:
-  required: true
-  description: Attribute to display from the entity
-  type: string
-prefix:
-  required: false
-  description: Text before entity state
-  type: string
-suffix:
-  required: false
-  description: Text after entity state
-  type: string
-name:
-  required: false
-  description: Overwrites friendly name
-  type: string
 {% endconfiguration %}
 
 ## Examples
