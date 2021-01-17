@@ -45,6 +45,11 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+availability_mode:
+   description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+   required: false
+   type: string
+   default: latest
 command_topic:
   description: The MQTT topic to publish commands to change the number.
   required: false
@@ -113,6 +118,10 @@ retain:
   required: false
   type: boolean
   default: false
+state_topic:
+  description: The MQTT topic subscribed to receive number values.
+  required: true
+  type: string
 unique_id:
   description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
   required: false
