@@ -85,7 +85,7 @@ Project**. Note: This is a different type of project from the Device Access proj
 
 1. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**.
 
-1. On the *Scopes* step click **Save and Continue**.
+1. On the *Scopes* and *Optional info* steps click **Save and Continue**.
 
 1. On the *Test Users* step, you need to add your Google Account (e.g., your @gmail.com address) to the list. Click *Save* on your test account then **Save and Continue** to finish the consent flow.
     ![Screenshot of OAuth consent screen test users](/images/integrations/nest/oauth_consent_test_users.png)
