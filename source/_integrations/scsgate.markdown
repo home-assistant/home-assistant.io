@@ -1,7 +1,6 @@
 ---
 title: SCSGate
 description: Instructions on how to integrate SCSGate into Home Assistant.
-logo: bus_scs.png
 ha_category:
   - Hub
   - Cover
