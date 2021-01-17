@@ -11,7 +11,7 @@ To add the Entities card to your user interface, click the Lovelace menu (three 
 {% configuration %}
 type:
   required: true
-  description: entities
+  description: "`entities`"
   type: string
 entities:
   required: true
@@ -19,7 +19,7 @@ entities:
   type: list
 title:
   required: false
-  description: The card title.
+  description: Card title
   type: string
 icon:
   required: false
@@ -27,12 +27,12 @@ icon:
   type: string
 show_header_toggle:
   required: false
-  description: Button to turn on/off all entities.
+  description: Button to turn on/off all entities
   type: boolean
   default: true
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`.
+  description: Set to any theme within `themes.yaml`
   type: string
 state_color:
   required: false
@@ -56,7 +56,7 @@ If you define entities as objects instead of strings (by adding `entity:` before
 {% configuration %}
 entity:
   required: true
-  description: Entity ID.
+  description: Entity ID
   type: string
 type:
   required: false
@@ -64,15 +64,15 @@ type:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
+  description: Overwrites friendly name
   type: string
 icon:
   required: false
-  description: Overwrites icon or entity picture.
+  description: Overwrites icon or entity picture
   type: string
 image:
   required: false
-  description: Overwrites entity picture.
+  description: Overwrites entity picture
   type: string
 secondary_info:
   required: false
@@ -92,7 +92,7 @@ footer:
   type: map
 action_name:
   required: false
-  description: Button label. (Only applies to `script` and `scene` rows)
+  description: Button label (only applies to `script` and `scene` rows)
   type: string
 state_color:
   required: false
@@ -126,15 +126,15 @@ type:
   type: string
 name:
   required: true
-  description: Main Label.
+  description: Main label
   type: string
 icon:
   required: false
-  description: An icon to display to the left of the label.
+  description: An icon to display to the left of the label
   type: string
 action_name:
   required: false
-  description: Button label.
+  description: Button label
   type: string
   default: "`Run`"
 tap_action:
@@ -162,11 +162,11 @@ type:
   type: string
 dashboard:
   required: false
-  description: Path to the dashboard of the view that needs to be shown.
+  description: Path to the dashboard of the view that needs to be shown
   type: string
 view:
   required: true
-  description: Path to the view that needs to be shown.
+  description: Path to the view that needs to be shown
   type: string
 name:
   required: false
@@ -180,7 +180,7 @@ icon:
   default: "`hass:television`"
 hide_if_unavailable:
   required: false
-  description: Hide this row if casting is not available in the browser.
+  description: Hide this row if casting is not available in the browser
   type: boolean
   default: false
 {% endconfiguration %}
@@ -196,24 +196,24 @@ type:
   type: string
 conditions:
   required: true
-  description: List of entity IDs and matching states.
+  description: List of entity IDs and matching states
   type: list
   keys:
     entity:
       required: true
-      description: Entity ID.
+      description: Entity ID
       type: string
     state:
       required: false
-      description: Entity state is equal to this value.*
+      description: Entity state is equal to this value*
       type: string
     state_not:
       required: false
-      description: Entity state is unequal to this value.*
+      description: Entity state is unequal to this value*
       type: string
 row:
   required: true
-  description: Row to display if all conditions match.
+  description: Row to display if all conditions match
   type: map
 {% endconfiguration %}
 
@@ -230,7 +230,7 @@ type:
   type: string
 style:
   required: false
-  description: Style the element using CSS.
+  description: Style the element using CSS
   type: map
   default: "height: 1px, background-color: var(--divider-color)"
 {% endconfiguration %}
@@ -291,16 +291,28 @@ entities:
       type: string
     icon:
       required: false
-      description: Override the entity icon.
+      description: Override the entity icon
       type: string
     image:
       required: false
-      description: Override the entity image.
+      description: Override the entity image
       type: string
     name:
       required: false
       description: Label for the button
       type: string
+    tap_action:
+      required: false
+      description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
+      type: map
+    hold_action:
+      required: false
+      description: Action taken on card tap and hold. See [action documentation](/lovelace/actions/#hold-action).
+      type: map
+    double_tap_action:
+      required: false
+      description: Action taken on card double tap. See [action documentation](/lovelace/actions/#double-tap-action).
+      type: map
 {% endconfiguration %}
 
 ### Attribute
@@ -316,19 +328,19 @@ entity:
   type: string
 attribute:
   required: true
-  description: Attribute to display from the entity.
+  description: Attribute to display from the entity
   type: string
 prefix:
   required: false
-  description: Text before entity state.
+  description: Text before entity state
   type: string
 suffix:
   required: false
-  description: Text after entity state.
+  description: Text after entity state
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
+  description: Overwrites friendly name
   type: string
 {% endconfiguration %}
 
