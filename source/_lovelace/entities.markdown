@@ -213,7 +213,7 @@ conditions:
       type: string
 row:
   required: true
-  description: Row to display if all conditions match.
+  description: Row to display if all conditions match. Can be any of the various supported rows described on this page.
   type: map
 {% endconfiguration %}
 
@@ -334,7 +334,7 @@ name:
 
 ## Examples
 
-Entity rows:
+### Entity rows
 
 ```yaml
 type: entities
@@ -352,7 +352,7 @@ entities:
   - group.all_locks
 ```
 
-Buttons row:
+### Buttons row
 
 Above the divider are regular entity rows, below one of type `buttons`. Note that regular entity rows automatically show the entity name, whereas for buttons you have to explicitely specify a label / name.
 
@@ -375,25 +375,46 @@ entities:
         name: Dining Ceiling
 ```
 
-Other special rows:
+### Other special rows
+
+<p class='img'>
+<img src='/images/lovelace/lovelace_entity_row_special.jpg' alt='Screenshot of other special rows'>
+Screenshot of other special rows.
+</p>
 
 ```yaml
 type: entities
 title: Entities card sample
-show_header_toggle: true
 entities:
-  - type: call-service
+  - type: button
     icon: mdi:power
-    name: Bed light
+    name: Bed light transition
     action_name: Toggle light
-    service: light.toggle
-    service_data:
-      entity_id: light.bed_light
+    tap_action:
+      type: call-service
+      service: light.toggle
+      service_data:
+        entity_id: light.bed_light
+        transition: 10
   - type: divider
   - type: attribute
     entity: sun.sun
     attribute: elevation
-    name: Elevation
+    name: Sun elevation
+    prefix: '~'
+    suffix: Units
+  - type: conditional
+    conditions:
+      - entity: sun.sun
+        state: above_horizon
+    row: 
+      entity: sun.sun
+      type: attribute
+      attribute: azimuth
+      icon: mdi:angle-acute
+      name: Sun azimuth
+  - type: section
+    label: Section example
   - type: weblink
     name: Home Assistant
     url: https://www.home-assistant.io/
