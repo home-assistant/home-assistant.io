@@ -380,20 +380,36 @@ Other special rows:
 ```yaml
 type: entities
 title: Entities card sample
-show_header_toggle: true
 entities:
-  - type: call-service
+  - type: button
     icon: mdi:power
-    name: Bed light
+    name: Bed light transition
     action_name: Toggle light
-    service: light.toggle
-    service_data:
-      entity_id: light.bed_light
+    tap_action:
+      type: call-service
+      service: light.toggle
+      service_data:
+        entity_id: light.bed_light
+        transition: 10
   - type: divider
   - type: attribute
     entity: sun.sun
     attribute: elevation
-    name: Elevation
+    name: Sun elevation
+    prefix: '~'
+    suffix: Units
+  - type: conditional
+    conditions:
+      - entity: sun.sun
+        state: above_horizon
+    row: 
+      entity: sun.sun
+      type: attribute
+      attribute: azimuth
+      icon: mdi:angle-acute
+      name: Sun azimuth
+  - type: section
+    label: Section example
   - type: weblink
     name: Home Assistant
     url: https://www.home-assistant.io/
