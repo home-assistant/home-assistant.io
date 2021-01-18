@@ -213,7 +213,7 @@ conditions:
       type: string
 row:
   required: true
-  description: Row to display if all conditions match.
+  description: Row to display if all conditions match. Can be any of the various supported rows described on this page.
   type: map
 {% endconfiguration %}
 
