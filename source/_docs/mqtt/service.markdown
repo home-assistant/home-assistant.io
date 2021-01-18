@@ -21,31 +21,39 @@ You need to include either payload or payload_template, but not both.
 </div>
 
 ```yaml
-topic: home-assistant/light/1/command
-payload: on
+service: mqtt.publish
+service_data:
+  topic: home-assistant/light/1/command
+  payload: on
 ```
 
 {% raw %}
 ```yaml
-topic: home-assistant/light/1/state
-payload_template: "{{ states('device_tracker.paulus') }}"
+service: mqtt.publish
+service_data:
+  topic: home-assistant/light/1/state
+  payload_template: "{{ states('device_tracker.paulus') }}"
 ```
 {% endraw %}
 
 `payload` must be a string. If you want to send JSON then you need to format/escape it properly. Like:
 
 ```yaml
-topic: home-assistant/light/1/state
-payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
+service: mqtt.publish
+service_data:
+  topic: home-assistant/light/1/state
+  payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
 ```
 
 Example of how to use `qos` and `retain`:
 
 ```yaml
-topic: home-assistant/light/1/command
-payload: on
-qos: 2
-retain: true
+service: mqtt.publish
+service_data:
+  topic: home-assistant/light/1/command
+  payload: on
+  qos: 2
+  retain: true
 ```
 
 ### Service `mqtt.dump`
