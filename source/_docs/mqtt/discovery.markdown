@@ -18,6 +18,7 @@ Supported by MQTT discovery:
 - [HVACs](/integrations/climate.mqtt/)
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
+- [Scenes](/integrations/scene.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
 - [Tag Scanners](/integrations/tag.mqtt/)
