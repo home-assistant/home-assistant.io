@@ -2,6 +2,10 @@
 title: "Manual installation on a Raspberry Pi"
 description: "Instructions to install Home Assistant Core on a Raspberry Pi running Raspberry Pi OS Lite."
 ---
+<div class='note'>
+This installation process will result in only the Home Assistant Core being installed, intended for lightweight server duty.
+Alternative installation options, including those for the fully-featured Home Assistant Supervised, can be found [here](https://www.home-assistant.io/docs/installation/).
+</div>
 
 This installation of Home Assistant Core requires the Raspberry Pi to run [Raspberry Pi OS Lite](https://www.raspberrypi.org/downloads/raspberry-pi-os/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspberry Pi OS Lite.
 
