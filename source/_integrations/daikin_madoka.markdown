@@ -25,14 +25,14 @@ There is currently support for the following device types within Home Assistant:
 
 - This integration has only been tested on Linux
 - Bluetooth adapter
-- DBUS support on the system where Home Assistant runs. If run within docker or custom installation, make sure it is available to your containers by checking that it has access to the dbus(`/var/run/dbus/system_bus_socket` must be present and the container must be run in privileged mode). 
+- DBUS support on the system where Home Assistant runs. If run within Docker or custom installation, make sure it is available to your containers by checking that it has access to the dbus(`/var/run/dbus/system_bus_socket` must be present and the container must be run in privileged mode). 
 
 <div class='note'>
 
 * The BRC1H thermostat has requirements:
-    * Only one Bluetooth client can be connected at a time. When the thermostat is connected, it is not listed on a bluetooth devices scan. Therefore, it is required to disconnect and forget any previous connection from the device screen.
+    * Only one Bluetooth client can be connected at a time. When the thermostat is connected, it is not listed on a Bluetooth devices scan. Therefore, it is required to disconnect and forget any previous connection from the device screen.
     * The Bluetooth pairing requires authorization code and human intervention. The thermostat has to be paired with the system on which the integration is going to be run. For instance, in Linux these steps must be followed:
-    * **Remove any previous bluetooth connections from the thermostat menu.**
+    * **Remove any previous Bluetooth connections from the thermostat menu.**
     * On the host to be paired, run the following commands in a terminal:
     1. Type `bluetoothctl`
     2. Type `agent off`
@@ -67,13 +67,13 @@ The `daikin madoka` climate platform integrates Daikin air conditioning systems 
 - [**fan mode**](/integrations/climate#service-climateset_fan_mode) (speed)
 - [**swing mode**](/integrations/climate#service-climateset_swing_mode)
 
-Current inside temperature is displayed.
+Current indoor temperature is displayed.
 
 ## Sensor
 
 The `daikin_madoka` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
 
-- Inside temperature
+- Indor temperature
 
 
 
