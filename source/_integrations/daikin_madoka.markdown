@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
     1. Type `bluetoothctl`
     2. Type `agent off`
     3. Type `agent KeyboardDisplay`
-    4. Type `remove <BRC1H_MAC_ADDRESS>`. This step helps to remove unsucessful previous pairings and makes the device visible.
+    4. Type `remove <BRC1H_MAC_ADDRESS>`. This step helps to remove unsuccessful previous pairings and makes the device visible.
     5. Type `scan on` and wait until your thermostat Bluetooth MAC address is listed
     6. Type `scan off`
     7. Type `pair <BRC1H_MAC_ADDRESS>`
