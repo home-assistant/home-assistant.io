@@ -221,8 +221,10 @@ For example, the actions following this condition will only be executed for even
 
 ```yaml
     condition:
-        condition: template
-        value_template: "{{is_state_attr('calendar.calendar_name', 'message', 'vacation') }}"
+      - condition: state
+        entity_id: calendar.calendar_name
+        state: vacation
+        attribute: message
 ```
 
 {% endraw %}
