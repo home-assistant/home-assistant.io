@@ -25,26 +25,26 @@ There is currently support for the following device types within Home Assistant:
 
 - This integration has only been tested on Linux
 - Bluetooth adapter
-- DBUS support on the system where Home Assistant runs. If run within docker or custom installation, make sure it is available to your containers by checking that it has access to the dbus(`/var/run/dbus/system_bus_socket` must be present and the docker must be run in privileged mode). 
+- DBUS support on the system where Home Assistant runs. If run within docker or custom installation, make sure it is available to your containers by checking that it has access to the dbus(`/var/run/dbus/system_bus_socket` must be present and the container must be run in privileged mode). 
 
 <div class='note'>
 
 * The BRC1H thermostat has requirements:
-    * Only one bluetooth client can be connected at a time. When the thermostat is connected, it is not listed on a bluetooth devices scan. Therefore, it is required to disconnect and forget any previous connection from the device screen.
-    * The bluetooth pairing requires authorization code and human intervention. The thermostat has to be paired with the system on which the integration is going to be run. For instance, in Linux these steps must be followed:
+    * Only one Bluetooth client can be connected at a time. When the thermostat is connected, it is not listed on a bluetooth devices scan. Therefore, it is required to disconnect and forget any previous connection from the device screen.
+    * The Bluetooth pairing requires authorization code and human intervention. The thermostat has to be paired with the system on which the integration is going to be run. For instance, in Linux these steps must be followed:
     * **Remove any previous bluetooth connections from the thermostat menu.**
     * On the host to be paired, run the following commands in a terminal:
     1. Type `bluetoothctl`
     2. Type `agent off`
     3. Type `agent KeyboardDisplay`
     4. Type `remove <BRC1H_MAC_ADDRESS>`. This step helps to remove unsucessful previous pairings and makes the device visible.
-    5. Type `scan on` and wait until your thermostat bluetooth MAC address is listed
+    5. Type `scan on` and wait until your thermostat Bluetooth MAC address is listed
     6. Type `scan off`
     7. Type `pair <BRC1H_MAC_ADDRESS>`
     8. Type 'yes' when prompted and accept the connection on the thermostat screen. These two actions must be relatively close in time or the thermostat will cancel the operation. The thermostat will be paired with the host.
     
 
-A dedicated Bluetooth adapter is desirable. If you run Home Assistant in a virtual machine, it makes it easiser for the device to be used. In VMWare, make sure to remove the checkbox "Share bluetooth devices with guests" so the device is fully available to the virtual machine.
+A dedicated Bluetooth adapter is desirable. If you run Home Assistant in a virtual machine, it makes it easiser for the device to be used. In VMWare, make sure to remove the checkbox "Share Bluetooth devices with guests" so the device is fully available to the virtual machine.
 
 </div>
 
@@ -53,8 +53,8 @@ A dedicated Bluetooth adapter is desirable. If you run Home Assistant in a virtu
 The Daikin integration can be configured via the Home Assistant user interface (menu Configuration > Integrations) The following fields are available:
 
 - List of devices to be integrated. Specify a comma-separated list of MAC addresses 
-- Adapter: Name of the bluetooth adapter to be used for the connections
-- Discovery timeout: Scan for bluetooth devices for the specified interval
+- Adapter: Name of the Bluetooth adapter to be used for the connections
+- Discovery timeout: Scan for Bluetooth devices for the specified interval
 - Force device disconnection: It improves the detection of the Bluetooth LE services offered by the device
 
 ## Climate
