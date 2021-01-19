@@ -42,6 +42,7 @@ Currently the following device types within Home Assistant are supported.
 The list of supported devolo devices depends on the device firmware and the device features. The following devices were tested running firmware 5.6.0:
 
 <!-- textlint-disable -->
+
 * Magic 2 WiFi next
 * Magic 2 WiFi 2-1
 * Magic 1 WiFi mini
@@ -49,4 +50,5 @@ The list of supported devolo devices depends on the device firmware and the devi
 * dLAN 1200+ WiFi ac
 * dLAN 550+ Wifi
 * dLAN 550 WiFi
+
 <!-- textlint-enable -->
