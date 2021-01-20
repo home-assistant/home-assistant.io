@@ -26,8 +26,7 @@ The BRC1H (and its variants) is a thermostat with Bluetooth LE support controlle
 
 Only one Bluetooth client can be connected at a time. When the thermostat is connected, it is not listed on a Bluetooth devices scan. Therefore, it is required to disconnect and forget any previous connection from the device screen.
     
-</div>
-
+</div>- [**swing mode**](/integrations/climate#service-climateset_swing_mode)
 ## Pairing with the thermostat
 
 The Bluetooth pairing requires authorization code and human intervention. The thermostat has to be paired with the system on which the integration is going to be run. Please make sure you follow the pairing procedure before configuring the integration.
@@ -56,18 +55,18 @@ The `Daikin Madoka AC` integration can be configured via the Home Assistant user
 
 ## Climate
 
-The `daikin madoka` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
+The `Daikin Madoka AC` integration provides controlling of Daikin air conditioning systems with the following features:
 
 - [**set_hvac_mode**](/integrations/climate/#service-climateset_hvac_mode) (`off`, `heat`, `cool`, `heat_cool`, or `fan_only`)
 - [**target temperature**](/integrations/climate#service-climateset_temperature)
 - [**turn on/off**](/integrations/climate#service-climateturn_on)
 - [**fan mode**](/integrations/climate#service-climateset_fan_mode) (speed)
-- [**swing mode**](/integrations/climate#service-climateset_swing_mode)
+
 
 Current indoor temperature is displayed.
 
 ## Sensor
 
-The `daikin_madoka` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
+The `Daikin Madoka AC` integration provides sensor for Daikin air conditioning systems with the following parameter:
 
 - Indoor temperature
