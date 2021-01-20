@@ -73,7 +73,6 @@ Current indoor temperature is displayed.
 
 The `daikin_madoka` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
 
-- Indor temperature
-
+- Indoor temperature
 
 
