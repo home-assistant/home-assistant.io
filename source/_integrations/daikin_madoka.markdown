@@ -4,7 +4,7 @@ description: Instructions on how to integrate Daikin BRC1H thermostat (madoka) d
 ha_category:
   - Climate
   - Sensor
-ha_release: 2021.1.4
+ha_release: 2021.2
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -74,4 +74,3 @@ Current indoor temperature is displayed.
 The `daikin_madoka` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
 
 - Indoor temperature
-
