@@ -73,10 +73,14 @@ sensor:
       - outside_humidity
       - outside_temperature
       - power_usage
+      - preheater_power_usage
+      - power_total
+      - preheater_power_total
       - supply_fan_duty
       - supply_fan_speed
       - supply_humidity
       - supply_temperature
+      - current_rmot
 ```
 
 The list above indicates all supported sensors. It is recommended to only include the ones you need.
