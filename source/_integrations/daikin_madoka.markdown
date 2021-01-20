@@ -50,7 +50,7 @@ A dedicated Bluetooth adapter is desirable. If you run Home Assistant in a virtu
 
 ## Configuration
 
-The Daikin integration can be configured via the Home Assistant user interface (menu Configuration > Integrations) The following fields are available:
+The `Daikin Madoka AC` integration can be configured via the Home Assistant user interface, menu **Configuration** -> **Integrations**. The following fields are available:
 
 - List of devices to be integrated. Specify a comma-separated list of MAC addresses 
 - Adapter: Name of the Bluetooth adapter to be used for the connections
@@ -74,5 +74,4 @@ Current indoor temperature is displayed.
 The `daikin_madoka` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
 
 - Indoor temperature
-
 
