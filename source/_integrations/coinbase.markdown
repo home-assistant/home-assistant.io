@@ -35,7 +35,7 @@ Account Balance Currencies:
   required: false
   type: list
 exchange_rate_currencies:
-  description: List of currencies to create exchange rate sensors for. Separate multiple currencies with a comma `,` e.g. `BTC, EUR, ATOM`, codes should match those listed in the API key popup for cryptocurrencies or [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) for physical currencies
+  description: List of currencies to create exchange rate sensors for. Separate multiple currencies with a comma `,` e.g. `BTC, EUR, ATOM`, codes should match those listed in the API key popup for cryptocurrencies or [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) for physical currencies.
   required: false
   type: list
 {% endconfiguration %}
