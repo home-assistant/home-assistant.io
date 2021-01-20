@@ -34,7 +34,7 @@ Account Balance Currencies:
   description: List of currency codes to create account wallet sensors for. Separate multiple currencies with a comma `,` e.g. `BTC, EUR, ATOM`, codes should match those listed in the API key popup for cryptocurrencies or [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) for physical currencies.
   required: false
   type: list
-exchange_rate_currencies:
+Exchange Rates:
   description: List of currencies to create exchange rate sensors for. Separate multiple currencies with a comma `,` e.g. `BTC, EUR, ATOM`, codes should match those listed in the API key popup for cryptocurrencies or [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) for physical currencies.
   required: false
   type: list
