@@ -150,7 +150,7 @@ Pico and Shade remotes require a RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or 
 
 Device Triggers are implemented for `press` and `release` of each button on the remotes via watching for `lutron_caseta_button_event` events in the format:
 
-```
+```json
 {
     "serial": 28786608,
     "type": "FourGroupRemote",
