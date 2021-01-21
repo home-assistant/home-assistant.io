@@ -338,7 +338,7 @@ mode:
   description: This can be either `box` or `slider` mode.
   type: string
   required: false
-  default: box
+  default: slider
 {% endconfiguration %}
 
 ### Example number selectors
