@@ -71,6 +71,10 @@ iOS: Most options are still in Chinese, you need the fourth item from the top.
 
 Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
 
+### Windows or macOS
+
+If using an Windows or macOS device to retrieve the Access Token use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token) App.
+
 ### Alternative methods
 
 <div class='note'>
