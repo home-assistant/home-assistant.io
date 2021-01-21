@@ -6,9 +6,9 @@ ha_category: Configuration
 
 If you try to access the configuration dialog for an entity in your Home Assistant, you might end up seeing this message:
 
-```text
-This entity ("<Entity ID>") does not have a unique ID, therefore its settings cannot be managed from the UI. See the documentation for more detail.
-```
+<p class='img'>
+<img src='/images/faq/faq_no_unique_id.jpg' alt='Screenshot of popup for no unique ID'>
+</p>
 
 This simply means that this entity does not provide a unique identification (e.g., a serial number)\*. As a result, the normal editing process that allows you to change various settings such as the entity ID, icon, friendly name, etc. is not possible here. Typically, you'll see this when you create entities using YAML, but it can also appear if the integration that provides this entity simply cannot determine a unique ID.
 
