@@ -64,7 +64,7 @@ recipients:
 
 ## Examples
 
-A few examples on how to use this integration.
+A few examples on how to use this integration as actions in automations.
 
 ### Text message
 
