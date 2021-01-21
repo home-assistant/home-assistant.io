@@ -123,12 +123,12 @@ type:
   description: button
   type: string
 entity:
-  required: false (if `name` is provided instead)
-  description: Entity ID.
+  required: false
+  description: "Entity ID. Either `entity` or `name` (or both) needs to be provided."
   type: string  
 name:
-  required: false (if `entity` is provided instead)
-  description: Row label.
+  required: false
+  description: "Row label. Either `entity` or `name` (or both) needs to be provided."
   type: string
   default: "Friendly name of `entity` if specified."
 icon:
