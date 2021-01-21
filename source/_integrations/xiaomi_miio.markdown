@@ -183,6 +183,10 @@ The information output is:
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
 
+### Xiaomi Cloud Tokens Extractor
+
+Alternate method to get all yours devices tokens in one run. Please follow this [instruction](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor).
+
 ## Xiaomi Gateway
 
 The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
