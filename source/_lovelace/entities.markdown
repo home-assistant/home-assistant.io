@@ -125,7 +125,7 @@ type:
 entity:
   required: false
   description: "Entity ID. Either `entity` or `name` (or both) needs to be provided."
-  type: string  
+  type: string
 name:
   required: false
   description: "Row label. Either `entity` or `name` (or both) needs to be provided."
