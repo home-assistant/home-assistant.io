@@ -19,24 +19,24 @@ entities:
   type: list
 title:
   required: false
-  description: Card title
+  description: Card title.
   type: string
 icon:
   required: false
-  description: An icon to display to the left of the title
+  description: An icon to display to the left of the title.
   type: string
 show_header_toggle:
   required: false
-  description: Button to turn on/off all entities
+  description: Button to turn on/off all entities.
   type: boolean
   default: true
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`
+  description: Set to any theme within `themes.yaml`.
   type: string
 state_color:
   required: false
-  description: Set to `true` to have icons colored when entity is active
+  description: Set to `true` to have icons colored when entity is active.
   type: boolean
   default: false
 header:
@@ -56,7 +56,7 @@ If you define entities as objects instead of strings (by adding `entity:` before
 {% configuration %}
 entity:
   required: true
-  description: Entity ID
+  description: Entity ID.
   type: string
 type:
   required: false
@@ -64,15 +64,15 @@ type:
   type: string
 name:
   required: false
-  description: Overwrites friendly name
+  description: Overwrites friendly name.
   type: string
 icon:
   required: false
-  description: Overwrites icon or entity picture
+  description: Overwrites icon or entity picture.
   type: string
 image:
   required: false
-  description: Overwrites entity picture
+  description: Overwrites entity picture.
   type: string
 secondary_info:
   required: false
@@ -84,11 +84,11 @@ format:
   type: string
 action_name:
   required: false
-  description: Button label (only applies to `script` and `scene` rows)
+  description: Button label (only applies to `script` and `scene` rows).
   type: string
 state_color:
   required: false
-  description: Set to `true` to have icons colored when entity is active
+  description: Set to `true` to have icons colored when entity is active.
   type: boolean
   default: false
 tap_action:
@@ -118,23 +118,23 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID
+  description: Entity ID.
   type: string
 attribute:
   required: true
-  description: Attribute to display from the entity
+  description: Attribute to display from the entity.
   type: string
 prefix:
   required: false
-  description: Text before entity state
+  description: Text before entity state.
   type: string
 suffix:
   required: false
-  description: Text after entity state
+  description: Text after entity state.
   type: string
 name:
   required: false
-  description: Overwrites friendly entity name
+  description: Overwrites friendly entity name.
   type: string
 {% endconfiguration %}
 
@@ -149,15 +149,15 @@ type:
   type: string
 name:
   required: true
-  description: Main label
+  description: Main label.
   type: string
 icon:
   required: false
-  description: An icon to display to the left of the main label
+  description: An icon to display to the left of the main label.
   type: string
 action_name:
   required: false
-  description: Button label
+  description: Button label.
   type: string
   default: "`Run`"
 tap_action:
@@ -190,29 +190,29 @@ entities:
   keys:
     entity:
       required: true
-      description: Entity ID
+      description: Entity ID.
       type: string
     icon:
       required: false
-      description: Override the entity icon
+      description: Override the entity icon.
       type: string
     image:
       required: false
-      description: Override the entity image
+      description: Override the entity image.
       type: string
     name:
       required: false
-      description: Override the friendly entity name
+      description: Override the friendly entity name.
       type: string
       default: Entity name
     show_name:
       required: false
-      description: If false, the button name is not shown
+      description: If false, the button name is not shown.
       type: boolean
       default: "true"
     show_icon:
       required: false
-      description: If false, the icon is not shown
+      description: If false, the icon is not shown.
       type: boolean
       default: "true"    
     tap_action:
@@ -240,25 +240,25 @@ type:
   type: string
 dashboard:
   required: false
-  description: Path to the dashboard of the view that needs to be shown
+  description: Path to the dashboard of the view that needs to be shown.
   type: string
 view:
   required: true
-  description: Path to the view that needs to be shown
+  description: Path to the view that needs to be shown.
   type: string
 name:
   required: false
-  description: Name to show in the row
+  description: Name to show in the row.
   type: string
   default: Home Assistant Cast
 icon:
   required: false
-  description: Icon to use
+  description: Icon to use.
   type: string
   default: "`hass:television`"
 hide_if_unavailable:
   required: false
-  description: Hide this row if casting is not available in the browser
+  description: Hide this row if casting is not available in the browser.
   type: boolean
   default: false
 {% endconfiguration %}
@@ -274,24 +274,24 @@ type:
   type: string
 conditions:
   required: true
-  description: List of entity IDs and matching states
+  description: List of entity IDs and matching states.
   type: list
   keys:
     entity:
       required: true
-      description: Entity ID
+      description: Entity ID.
       type: string
     state:
       required: false
-      description: Entity state is equal to this value*
+      description: Entity state is equal to this value.*
       type: string
     state_not:
       required: false
-      description: Entity state is unequal to this value*
+      description: Entity state is unequal to this value.*
       type: string
 row:
   required: true
-  description: Row to display if all conditions match
+  description: Row to display if all conditions match.
   type: map
 {% endconfiguration %}
 
@@ -308,7 +308,7 @@ type:
   type: string
 style:
   required: false
-  description: Style the element using CSS
+  description: Style the element using CSS.
   type: map
   default: "height: 1px, background-color: var(--divider-color)"
 {% endconfiguration %}
@@ -322,7 +322,7 @@ type:
   type: string
 label:
   required: false
-  description: Section label
+  description: Section label.
   type: string
 {% endconfiguration %}
 
@@ -335,16 +335,16 @@ type:
   type: string
 url:
   required: true
-  description: "Website URL (or internal URL e.g., `/hassio/dashboard` or `/panel_custom_name`)"
+  description: "Website URL (or internal URL e.g., `/hassio/dashboard` or `/panel_custom_name`)."
   type: string
 name:
   required: false
-  description: Link label
+  description: Link label.
   type: string
   default: URL path
 icon:
   required: false
-  description: "Icon to display (e.g., `mdi:home`)"
+  description: "Icon to display (e.g., `mdi:home`)."
   type: string
   default: "`mdi:link`"
 {% endconfiguration %}
