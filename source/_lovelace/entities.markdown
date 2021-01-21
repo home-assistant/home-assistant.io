@@ -128,7 +128,7 @@ entity:
   type: string  
 name:
   required: false (if `entity` is provided instead)
-  description: Main label or override of friendly entity name.
+  description: Row label.
   type: string
   default: Friendly name of `entity` if specified.
 icon:
@@ -300,7 +300,7 @@ entities:
       type: string
     name:
       required: false
-      description: Label for the button.
+      description: Label for the button
       type: string
 {% endconfiguration %}
 
