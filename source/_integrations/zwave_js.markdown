@@ -46,6 +46,7 @@ available.
 
 As this integration is still in the early stages there are some important limitations to be aware of.
 
+<<<<<<< HEAD
 - You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
 
 ## Services
@@ -70,3 +71,8 @@ Valid code slots are between 1-254.
 | ---------------------- | -------- | ------------------------------------------------------ |
 | `entity_id`            | no       | Lock entity or list of entities to clear the usercode. |
 | `code_slot`            | yes      | The code slot to clear the usercode from.              |
+=======
+- Polling is not currently supported.
+- Garage door controllers (Barrier Operator CC) are not currently supported.
+- You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage node configuration and associations.
+>>>>>>> Update limitations section of zwave_js docs
