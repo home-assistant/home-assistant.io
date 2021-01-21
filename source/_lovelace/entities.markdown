@@ -122,10 +122,15 @@ type:
   required: true
   description: button
   type: string
-name:
-  required: true
-  description: Main Label.
+entity:
+  required: false
+  description: "Entity ID. Either `entity` or `name` (or both) needs to be provided."
   type: string
+name:
+  required: false
+  description: "Row label. Either `entity` or `name` (or both) needs to be provided."
+  type: string
+  default: "Friendly name of `entity` if specified."
 icon:
   required: false
   description: An icon to display to the left of the label.
