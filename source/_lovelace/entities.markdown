@@ -130,7 +130,7 @@ name:
   required: false (if `entity` is provided instead)
   description: Row label.
   type: string
-  default: Friendly name of `entity` if specified.
+  default: "Friendly name of `entity` if specified."
 icon:
   required: false
   description: An icon to display to the left of the label.
