@@ -11,9 +11,9 @@ ha_platforms:
   - sensor
 ---
 
-The `coinbase` integration lets you access account balances and exchange rates from [coinbase](https://coinbase.com).
+The `coinbase` integration lets you access account balances and exchange rates from [Coinbase](https://coinbase.com).
 
-You will need to obtain an API key from Coinbase's [developer site](https://www.coinbase.com/settings/api) to use this integration. You need to select the account wallet or wallets (e.g. "BTC Wallet") that you wish to show in Home Assistant and give read access to `wallet:accounts` in order for the integration to access relevant data. It is worth noting that once you close the New API Key popup on Coinbase you will not be able to see the API Secret again.
+You will need to obtain an API key from the API section in Coinbase's [User Settings](https://www.coinbase.com/settings/api) to use this integration. You need to select the account wallet or wallets (e.g. "BTC Wallet") that you wish to show in Home Assistant and give read access to `wallet:accounts` in order for the integration to access relevant data. It is worth noting that once you close the New API Key popup on Coinbase you will not be able to see the API Secret again.
 
 ## Configuration
 
