@@ -122,10 +122,15 @@ type:
   required: true
   description: button
   type: string
+entity:
+  required: false (if `name` is provided instead)
+  description: Entity ID.
+  type: string  
 name:
-  required: true
-  description: Main Label.
+  required: false (if `entity` is provided instead)
+  description: Main label or override of friendly entity name.
   type: string
+  default: Friendly name of `entity` if specified.
 icon:
   required: false
   description: An icon to display to the left of the label.
@@ -295,7 +300,7 @@ entities:
       type: string
     name:
       required: false
-      description: Label for the button
+      description: Label for the button.
       type: string
 {% endconfiguration %}
 
