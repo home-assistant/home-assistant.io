@@ -4,6 +4,7 @@ description: Instructions on how to integrate Z-Wave with Home Assistant via Z-W
 ha_category:
   - Binary Sensor
   - Climate
+  - Cover
   - Hub
   - Light
   - Lock
