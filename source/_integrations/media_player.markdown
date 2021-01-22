@@ -48,6 +48,42 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
 | `media_content_id`     |       no | A media identifier. The format of this is integration dependent. For example, you can provide URLs to Sonos and Cast but only a playlist ID to iTunes.                   |
 | `media_content_type`   |       no | A media type. Must be one of `music`, `tvshow`, `video`, `episode`, `channel` or `playlist`. For example, to play music you would set `media_content_type` to `music`. |
+| `extra`                |      yes | Extra dictionary data eg. title, thumb send to pychromecast. Possible values can be found below.
+
+
+Extra dictionary data:
+```
+#Info taken from: https://github.com/home-assistant-libs/pychromecast/blob/master/pychromecast/controllers/media.py
+title: str - title of the media.
+thumb: str - thumbnail image url.
+current_time: float - Seconds since beginning of content. If the content is
+    live content, and position is not specifed, the stream will start at the
+    live position
+autoplay: bool - whether the media will automatically play.
+stream_type: str - describes the type of media artifact as one of the
+    following: "NONE", "BUFFERED", "LIVE".
+subtitles: str - url of subtitle file to be shown on chromecast.
+subtitles_lang: str - language for subtitles.
+subtitles_mime: str - mimetype of subtitles.
+subtitle_id: int - id of subtitle to be loaded.
+enqueue: bool - if True, enqueue the media instead of play it.
+media_info: dict - additional MediaInformation attributes not explicitly listed.
+metadata: dict - media metadata object, one of the following:
+    GenericMediaMetadata, MovieMediaMetadata, TvShowMediaMetadata,
+    MusicTrackMediaMetadata, PhotoMediaMetadata.
+Docs:
+https://developers.google.com/cast/docs/reference/messages#MediaData
+https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation
+```
+
+Example of calling media_player service with title and image set:
+```
+media_content_type: music
+media_content_id: 'https://fake-home-assistant.io.stream/aac'
+extra:
+  thumb: 'https://brands.home-assistant.io/_/homeassistant/logo.png'
+  title: HomeAssitantRadio
+```
 
 #### Service `media_player.select_source`
 
