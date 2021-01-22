@@ -57,11 +57,11 @@ Info taken from: https://github.com/home-assistant-libs/pychromecast/blob/master
 | Extra attribute name | Type | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `title`            |      str | title of the media. |
-| `thumb`            |      str | thumbnail image url. |
+| `thumb`            |      str | thumbnail image URL. |
 | `current_time`            |      float | Seconds since beginning of content. If the content is live content, and position is not specifed, the stream will start at the live position. |
 | `autoplay`            |bool | whether the media will automatically play. |
 | `stream_type`            |str | describes the type of media artifact as one of the following: "NONE", "BUFFERED", "LIVE". |
-| `subtitles`            |str | url of subtitle file to be shown on chromecast. |
+| `subtitles`            |str | URL of subtitle file to be shown on chromecast. |
 | `subtitles_lang`            |str | language for subtitles. |
 | `subtitles_mime`            |str | mimetype of subtitles. |
 | `subtitle_id`            |int | id of subtitle to be loaded. |
