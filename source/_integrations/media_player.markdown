@@ -52,36 +52,42 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 
 ##### Extra dictionary data
 
-Info taken from: https://github.com/home-assistant-libs/pychromecast/blob/master/pychromecast/controllers/media.py
-
-| Extra attribute name | Type | Description                                                                                                                                                            |
-| -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`            |      str | title of the media. |
-| `thumb`            |      str | thumbnail image URL. |
-| `current_time`            |      float | Seconds since beginning of content. If the content is live content, and position is not specifed, the stream will start at the live position. |
-| `autoplay`            |bool | whether the media will automatically play. |
-| `stream_type`            |str | describes the type of media artifact as one of the following: "NONE", "BUFFERED", "LIVE". |
-| `subtitles`            |str | URL of subtitle file to be shown on chromecast. |
-| `subtitles_lang`            |str | language for subtitles. |
-| `subtitles_mime`            |str | mimetype of subtitles. |
-| `subtitle_id`            |int | id of subtitle to be loaded. |
-| `enqueue`            |bool | if True, enqueue the media instead of play it. |
-| `media_info`            |dict | additional MediaInformation attributes not explicitly listed. |
-| `metadata`            |dict | additional MediaInformation attributes not explicitly listed. |
-| `media_info`            |dict | media metadata object, one of the following: GenericMediaMetadata, MovieMediaMetadata, TvShowMediaMetadata, MusicTrackMediaMetadata, PhotoMediaMetadata. |
+```json
+title: string - Title of the media.
+thumb: string - Thumbnail image URL.
+current_time: float - Seconds since beginning of content. If the content is
+    live content, and position is not specifed, the stream will start at the
+    live position
+autoplay: bool - Whether the media will automatically play.
+stream_type: string - Describes the type of media artifact as one of the
+    following: "NONE", "BUFFERED", "LIVE".
+subtitles: str - URL of subtitle file to be shown on chromecast.
+subtitles_lang: string - Language for subtitles.
+subtitles_mime: string - Mimetype of subtitles.
+subtitle_id: int - Id of subtitle to be loaded.
+enqueue: bool - If True, enqueue the media instead of play it.
+media_info: map - Additional MediaInformation attributes not explicitly listed.
+metadata: map - Media metadata object, one of the following:
+    GenericMediaMetadata, MovieMediaMetadata, TvShowMediaMetadata,
+    MusicTrackMediaMetadata, PhotoMediaMetadata.
+```
 
 Docs:
-https://developers.google.com/cast/docs/reference/messages#MediaData
-https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation
+[Google Dev Docs MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
+[Google Dev Docs MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
 
 
 Example of calling media_player service with title and image set:
+
 ```yaml
-media_content_type: music
-media_content_id: 'https://fake-home-assistant.io.stream/aac'
-extra:
-  thumb: 'https://brands.home-assistant.io/_/homeassistant/logo.png'
-  title: HomeAssitantRadio
+entity_id: media_player.chromecast
+service: media_player.play_media
+data:
+  media_content_type: music
+  media_content_id: 'https://fake-home-assistant.io.stream/aac'
+  extra:
+    thumb: 'https://brands.home-assistant.io/_/homeassistant/logo.png'
+    title: HomeAssitantRadio
 ```
 
 #### Service `media_player.select_source`
