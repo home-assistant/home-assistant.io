@@ -7,13 +7,16 @@ ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: epson
 ha_codeowners:
-  - '@pszafer'
+  - "@pszafer"
 ha_config_flow: true
 ha_platforms:
   - media_player
 ---
 
 The `epson` platform allows you to control a Epson projector from Home Assistant.
+
+**Device has to be turned on during initial configuration.**
+When you want to add device turn it on for first time before action.
 
 {% include integrations/config_flow.md %}
 
