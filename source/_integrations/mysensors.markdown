@@ -31,9 +31,9 @@ In addition to the serial device you also need to enter the baud rate.
 
 ### MQTT gateway
 
-If you are using the MQTT gateway, enter `mqtt` instead of an ip address or serial device.
+If you are using the MQTT gateway, enter `mqtt` instead of an IP address or serial device.
 You will also need to enter topic prefixes for input and output. These need to be swapped
-with the settings of the gateway. I.e. the input topic for home-assistant needs to be the output (publish) topic of the gateway.
+with the settings of the gateway. I.e. the input topic for Home Assistant needs to be the output (publish) topic of the gateway.
 
 <div class='note'>
 The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
@@ -41,7 +41,7 @@ The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gatewa
 
 ### Ethernet gateway
 
-To use an Ethernet gateway, you need to configure the ip address and port of the gateway.
+To use an Ethernet gateway, you need to configure the IP address and port of the gateway.
 
 ### General options
 
