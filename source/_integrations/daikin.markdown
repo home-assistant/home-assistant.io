@@ -105,10 +105,10 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 <div class='note'>
 
-- The 'total' power sensor is updated everytime 100 Wh are consumed by all the AC summed together.
+- The 'total' power sensor is updated every time 100 Wh are consumed by all the AC summed together.
 - The 'cool/heat' power sensors are updated hourly with the previous hour average power consumption
   of a given mode and a given AC.
-- 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
+- The 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
 
 </div>
 
