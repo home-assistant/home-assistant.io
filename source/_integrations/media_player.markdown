@@ -72,9 +72,9 @@ metadata: map - Media metadata object, one of the following:
     MusicTrackMediaMetadata, PhotoMediaMetadata.
 ```
 
-Docs:
-[Google Dev Docs MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
-[Google Dev Docs MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
+Documentaion:
+[Google Dev Documentaion MediaData](https://developers.google.com/cast/docs/reference/messages#MediaData)
+[Google Dev Documentaion MediaInformation](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.messages.MediaInformation)
 
 
 Example of calling media_player service with title and image set:
