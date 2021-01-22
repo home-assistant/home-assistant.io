@@ -205,7 +205,7 @@ You can also use the `homeassistant.update_entity` service call to issue GroupVa
 
 ### Register Event
 
-The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in configuration.yaml can not be unregistered. See [knx_event](#events)
+The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` can not be unregistered. See [knx_event](#events)
 
 {% configuration %}
 address:
@@ -221,7 +221,7 @@ remove:
 
 ### Register Exposure
 
-The `knx.exposure_register` service can be used to register (or unregister) exposures to the KNX bus. Exposures defined in configuration.yaml can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
+The `knx.exposure_register` service can be used to register (or unregister) exposures to the KNX bus. Exposures defined in `configuration.yaml` can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
 
 {% configuration %}
 remove:
