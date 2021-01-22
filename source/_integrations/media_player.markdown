@@ -50,8 +50,8 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `media_content_type`   |       no | A media type. Must be one of `music`, `tvshow`, `video`, `episode`, `channel` or `playlist`. For example, to play music you would set `media_content_type` to `music`. |
 | `extra`                |      yes | Extra dictionary data to send, e.g., title, thumbnail. Possible values can be found below.
 
+##### Extra dictionary data
 
-#####Extra dictionary data
 Info taken from: https://github.com/home-assistant-libs/pychromecast/blob/master/pychromecast/controllers/media.py
 
 | Extra attribute name | Type | Description                                                                                                                                                            |
