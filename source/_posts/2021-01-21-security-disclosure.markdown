@@ -33,7 +33,7 @@ The following have been found:
 - [Home Assistant Community Store](https://github.com/hacs/integration) (HACS) -- fixed in 1.10.0
 - [Dwains Lovelace Dashboard](https://github.com/dwainscheeren/dwains-lovelace-dashboard) -- fixed in 2.0.1
 - [Font Awesome](https://github.com/thomasloven/hass-fontawesome) -- fixed in 1.3.0
-- [Hass-Custom-Alarm](https://github.com/akasma74/Hass-Custom-Alarm) (akasma74) -- fixed in 1.12.8
+- [BWAlarm (ak74 edition)](https://github.com/akasma74/Hass-Custom-Alarm) -- fixed in 1.12.8
 - [Simple Icons](https://github.com/vigonotion/hass-simpleicons) -- fixed in 1.10.0
 - [Custom Updater](https://github.com/custom-components/custom_updater/) (deprecated) -- fixed in latest commit
 
