@@ -31,7 +31,7 @@ camera_view:
   type: string
 image:
   required: false
-  description: URL of an image.
+  description: URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
   type: string
 state_image:
   required: false
