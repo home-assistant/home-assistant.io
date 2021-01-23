@@ -213,7 +213,11 @@ If your template is returning a timestamp that should be displayed in the fronte
 
 To fix it, enforce the ISO conversion via `isoformat()`:
 
+{% raw %}
+
 `{{ states.sun.sun.last_changed.isoformat() }}` => `2021-01-24T07:06:59+00:00` (contains "T" separator)
+
+{% endraw %}
 
 </div>
 
