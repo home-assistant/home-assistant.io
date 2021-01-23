@@ -20,7 +20,7 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity ID from `plant` domain".
+  description: "Entity ID from `plant` domain."
   type: string
 name:
   required: false
