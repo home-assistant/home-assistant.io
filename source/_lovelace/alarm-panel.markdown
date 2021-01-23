@@ -27,18 +27,18 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity ID from `alarm_control_panel` domain".
+  description: "Entity ID from `alarm_control_panel` domain."
   type: string
 name:
   required: false
-  description: Overwrites Friendly Name.
+  description: Overwrites friendly name.
   type: string
-  default: Current State of Alarm Entity
+  default: Current state of alarm entity.
 states:
   required: false
   description: Controls which states to have available.
   type: list
-  default: arm_home, arm_away
+  default: "`arm_home, arm_away`"
   keys:
     arm_home:
       description: Arm Home
@@ -56,7 +56,7 @@ theme:
 
 ## Examples
 
-Title Example:
+Title example:
 
 ```yaml
 - type: alarm-panel
@@ -69,7 +69,7 @@ Title Example:
 Screenshot of the Alarm Panel card.
 </p>
 
-Define the State List:
+Define the state list:
 
 ```yaml
 type: alarm-panel
