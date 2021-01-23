@@ -876,7 +876,7 @@ knx:
       state_address: '2/0/0'
 ```
 
-In order to actively read the sensor data from the bus all 30 seconds you can add the following lines to your `configuration.yaml`:
+In order to actively read the sensor data from the bus all 30 minutes you can add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -884,7 +884,7 @@ knx:
   sensor:
     - name: Heating.Valve1
       state_address: '2/0/0'
-      sync_state: expire 30
+      sync_state: every 30
 ```
 
 {% configuration %}
