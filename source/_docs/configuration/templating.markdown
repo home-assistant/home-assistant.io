@@ -196,17 +196,21 @@ The same thing can also be expressed as a filter:
 - Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
 <div class='note'>
-[UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`):  
+	
+[UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
+
 </div>
 
 <div class='note warning'>
+	
 If your template is returning a timestamp that should be displayed in the frontend (e.g., as a sensor entity with `device_class: timestamp`), you have to ensure that it is the ISO 8601 format (meaning it has the "T" separator between the date and time portion). Otherwise, frontend rendering on macOS and iOS devices will show an error. For Home Assistant internal timestamp fields such as an entity's `last_change` and `last_update` this is done out of the box. However, the following value template would result in the frontend error:
 
-`{{ states.sun.sun.last_updated }}` => `2021-01-04 12:27:08.036538+00:00` (missing "T" separator)
+`{{ states.sun.sun.next_rising }}` => `2021-01-24 07:06:59+00:00` (missing "T" separator)
 
 To fix it, enforce the ISO conversion via `isoformat()`:
 
-`{{ states.sun.sun.last_updated.isoformat() }}` => `2021-01-04T12:27:08.036538+00:00` (contains "T" separator)
+`{{ states.sun.sun.next_rising.isoformat() }}` => `2021-01-24T07:06:59+00:00` (contains "T" separator)
+
 </div>
 
 {% raw %}
