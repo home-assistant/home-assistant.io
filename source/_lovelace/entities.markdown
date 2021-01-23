@@ -333,7 +333,7 @@ name:
   type: string
 format:
   required: false
-  description: "How the attribute value should be formatted. Currently only supproted for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
   type: string  
 {% endconfiguration %}
 
