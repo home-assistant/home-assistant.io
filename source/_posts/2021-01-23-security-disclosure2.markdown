@@ -50,7 +50,7 @@ Besides working with the custom integration authors, the following actions have 
 - Nabu Casa updated their feature to limit remote access via Home Assistant Cloud and block instances that run an insecure Home Assistant Core version.
 - An alert has been placed at [alerts.home-assistant.io](https://alerts.home-assistant.io).
 
-Alright, so here we are, a day after our first major security disclosure, disclosing a second one. Surely it is not fun, but we are thankful it got reported responsible to us. This time we were able to move quickly and got everything updated pretty fast. Therefore, we decided to disclose all information immediately.
+Alright, so here we are, a day after our first major security disclosure, disclosing a second one. Surely it is not fun, but we are thankful it got reported responsibly to us. This time we were able to move quickly and got everything updated pretty fast. Therefore, we decided to disclose all information immediately.
 
 I want to emphasize that it's not allowed to personally harass/attack/insult the developers of these custom integrations. That would be a violation of our Code of Conduct and we will enforce this.
 
