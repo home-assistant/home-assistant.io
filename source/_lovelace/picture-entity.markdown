@@ -14,7 +14,7 @@ The Picture Entity card displays an entity in the form of an image. Instead of i
 {% configuration %}
 type:
   required: true
-  description: picture-entity
+  description: "`picture-entity`"
   type: string
 entity:
   required: true
@@ -61,7 +61,7 @@ show_state:
   default: true
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 tap_action:
   required: false

@@ -22,11 +22,11 @@ header:
 {% configuration header-footer %}
 type:
   required: true
-  description: picture
+  description: "`picture`"
   type: string
 image:
   required: true
-  description: The URL of an image
+  description: The URL of an image.
   type: string
 tap_action:
   required: false
@@ -65,19 +65,19 @@ entities:
   keys:
     entity:
       required: true
-      description: The entity to render
+      description: The entity ID to render.
       type: string
     icon:
       required: false
-      description: Override the entity icon
+      description: Override the entity icon.
       type: string
     image:
       required: false
-      description: Override the entity image
+      description: Override the entity image.
       type: string
     name:
       required: false
-      description: Label for the button
+      description: Label for the button.
       type: string
 {% endconfiguration %}
 
@@ -100,7 +100,7 @@ footer:
 {% configuration header-footer %}
 entity:
   required: true
-  description: Entity ID of `sensor` domain
+  description: Entity ID of `sensor` domain.
   type: string
 detail:
   required: false
