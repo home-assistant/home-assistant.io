@@ -50,6 +50,7 @@ Enjoy the release!
 - [Release 2021.1.2 - January 14](#release-202112---january-14)
 - [Release 2021.1.3 - January 15](#release-202113---january-15)
 - [Release 2021.1.4 - January 16](#release-202114---january-16)
+- [Release 2021.1.5 - January 23](#release-202115---january-23)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -236,6 +237,25 @@ The following integrations are now available via the Home Assistant UI:
 [homekit_controller docs]: /integrations/homekit_controller/
 [openweathermap docs]: /integrations/openweathermap/
 [zha docs]: /integrations/zha/
+
+## Release 2021.1.5 - January 23
+
+- Update python-mpd2 to 3.0.3 ([@mweinelt] - [#45141]) ([mpd docs])
+- Bump pybotvac to 0.0.20 ([@Santobert] - [#45367]) ([neato docs])
+- Bump pyatmo to v4.2.2 ([@cgtobi] - [#45386]) ([netatmo docs])
+- Avoid misuse sanitize_path, clarify docs ([@balloob] - [#45469])
+
+[#45141]: https://github.com/home-assistant/core/pull/45141
+[#45367]: https://github.com/home-assistant/core/pull/45367
+[#45386]: https://github.com/home-assistant/core/pull/45386
+[#45469]: https://github.com/home-assistant/core/pull/45469
+[@Santobert]: https://github.com/Santobert
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@mweinelt]: https://github.com/mweinelt
+[mpd docs]: /integrations/mpd/
+[neato docs]: /integrations/neato/
+[netatmo docs]: /integrations/netatmo/
 
 ## If you need help...
 

@@ -64,6 +64,8 @@ As Home Assistant, we could have done more to prepare for this scenario. We are 
 
 Paulus
 
+**Edit: 23 January 2021**: Additional security vulnerabilities disclosed in this [second disclosure post](/blog/2021/01/23/security-disclosure2/).
+
 ## FAQ
 
 ---

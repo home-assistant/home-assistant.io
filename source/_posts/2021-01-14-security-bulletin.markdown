@@ -33,4 +33,6 @@ Paulus
 
 **Edit: 16 January 2021**: Blog post updated to remove supervisor reload instructions, as latest version is now generally available. Added note that Python 3.7 is still supported.
 
-**Edit: 22 January 2021**: More details are now available in the [disclosure post](/blog/2021/01/22/security-disclosure/)
+**Edit: 22 January 2021**: More details are now available in the [disclosure post](/blog/2021/01/22/security-disclosure/).
+
+**Edit: 23 January 2021**: Additional security vulnerabilities disclosed in this [second disclosure post](/blog/2021/01/23/security-disclosure2/).
