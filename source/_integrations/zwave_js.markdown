@@ -61,7 +61,7 @@ Valid usercodes are at least 4 digits.
 | `code_slot`            | yes      | The code slot to set the usercode into.              |
 | `usercode`             | yes      | The code to set in the slot.                         |
 
-### Service `ozw.clear_lock_usercode`
+### Service `zwave_js.clear_lock_usercode`
 
 This service will clear the usercode of a lock in code slot X.
 Valid code slots are between 1-254.
