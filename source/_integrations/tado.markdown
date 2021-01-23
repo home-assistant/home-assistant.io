@@ -163,6 +163,15 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
 
+### Service `tado.set_climate_temperature_offset`
+
+You can use the service `tado.set_climate_temperature_offset` to set the temprature offset for Tado climate devices 
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | no       | String, Name of entity e.g., `climate.heating`                         |
+| `offset`               | no       | Float, Offset you would like to set                                    |
+
 Examples:
 
 ```yaml
@@ -179,4 +188,27 @@ script:
         data:
           entity_id: water_heater.hot_water
           time_period: "01:30:00"
+```
+
+
+```yaml
+# Example automation to set temprature offset based on another thermostat value
+automation:
+    trigger:
+    - platform: state
+      entity_id:
+        - sensor.temp_sensor_room
+        - sensor.tado_temperature
+        
+    condition:
+    - condition: template
+      value_template: > 
+        {{ (states('sensor.tado_temperature')|float - states('sensor.temp_sensor_room')|float) > 0.5 }}
+        
+    action:
+    - service: tado.set_climate_temperature_offset
+      data:
+        entity_id: climate.tado
+        offset: >
+          {{ (-(states('sensor.tado_temperature')|float - states('sensor.temp_sensor_room')|float) +state_attr('climate.tado', 'offset_celsius'))|round }}
 ```
