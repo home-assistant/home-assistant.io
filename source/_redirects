@@ -5,6 +5,7 @@
 /join-chat https://discord.gg/BzQNTqK
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
+/latest-security-alert /blog/2021/01/14/security-bulletin/
 
 # Older development pages
 /developers https://developers.home-assistant.io
