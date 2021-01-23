@@ -319,4 +319,3 @@ It's not possible to detect a key press event on these devices at the moment.
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*)
   * Wall-mount Remote Control – flat (*HmIP-WRCC2*)
   * Rotary Button (*HmIP-WRCR*)
-  * 
