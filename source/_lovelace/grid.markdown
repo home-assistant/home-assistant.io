@@ -16,11 +16,11 @@ To add the Grid card to your user interface, click the Lovelace menu (three dots
 {% configuration %}
 type:
   required: true
-  description: grid
+  description: "`grid`"
   type: string
 title:
   required: false
-  description: Title of Grid
+  description: Title of grid.
   type: string
 square:
   required: false
@@ -38,7 +38,7 @@ cards:
   type: list
 {% endconfiguration %}
 
-### Examples
+## Examples
 
 Alternatively, the card can be configured using YAML:
 

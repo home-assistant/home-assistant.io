@@ -16,20 +16,20 @@ To add the Thermostat card to your user interface, click the Lovelace menu (thre
 {% configuration %}
 type:
   required: true
-  description: thermostat
+  description: "`thermostat`"
   type: string
 entity:
   required: true
-  description: Entity id of `climate` domain
+  description: Entity ID from `climate` domain.
   type: string
 name:
   required: false
   description: Overwrites friendly name.
   type: string
-  default: Name of Entity.
+  default: Name of entity.
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 {% endconfiguration %}
 

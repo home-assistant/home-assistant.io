@@ -16,17 +16,17 @@ To add the Media Control card to your user interface, click the Lovelace menu (t
 {% configuration %}
 type:
   required: true
-  description: media-control
+  description: "`media-control`"
   type: string
 entity:
   required: true
-  description: "A media player `entity_id`."
+  description: "Entity ID from `media_player` domain."
   type: string
 name:
   required: false
   description: Overwrites friendly name.
   type: string
-  default: Name of Entity
+  default: Name of entity
 {% endconfiguration %}
 
 ## Example

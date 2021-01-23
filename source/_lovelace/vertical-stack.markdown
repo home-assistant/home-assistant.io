@@ -11,11 +11,11 @@ To add the Vertical Stack card to your user interface, click the Lovelace menu (
 {% configuration %}
 type:
   required: true
-  description: vertical-stack
+  description: "`vertical-stack`"
   type: string
 title:
   required: false
-  description: Title of Stack
+  description: Title of stack.
   type: string
 cards:
   required: true
@@ -23,7 +23,7 @@ cards:
   type: list
 {% endconfiguration %}
 
-### Examples
+## Examples
 
 Alternatively, the card can be configured using YAML:
 

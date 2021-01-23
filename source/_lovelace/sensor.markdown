@@ -16,41 +16,41 @@ To add the Sensor card to your user interface, click the Lovelace menu (three do
 {% configuration %}
 type:
   required: true
-  description: sensor
+  description: "`sensor`"
   type: string
 entity:
   required: true
-  description: Entity id of `sensor` domain
+  description: Entity ID from `sensor` domain.
   type: string
 icon:
   required: false
-  description: The card icon
+  description: The card icon.
   type: string
 name:
   required: false
-  description: The card name
+  description: The card name.
   type: string
 graph:
   required: false
-  description: Type of graph `none` or `line`
+  description: Type of graph (`none` or `line`).
   type: string
 unit:
   required: false
-  description: The unit of measurement
+  description: The unit of measurement.
   type: string
 detail:
   required: false
-  description: Detail of the graph `1` or `2`, `1` equals one point/hour, `2` equals six points/hour
+  description: Detail of the graph `1` or `2` (`1` = one point/hour, `2` = six points/hour).
   type: integer
   default: 1
 hours_to_show:
   required: false
-  description: Hours to show in graph
+  description: Hours to show in graph.
   type: integer
   default: 24
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 {% endconfiguration %}
 

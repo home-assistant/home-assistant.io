@@ -16,15 +16,15 @@ To add the Entity card to your user interface, click the Lovelace menu (three do
 {% configuration %}
 type:
   required: true
-  description: entity
+  description: "`entity`"
   type: string
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 name:
   required: false
-  description: Name of Entity
+  description: Name of entity
   type: string
   default: Entity Name
 icon:
@@ -42,7 +42,7 @@ unit:
   default: "Unit Of Measurement given by entity"
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 footer:
   required: false

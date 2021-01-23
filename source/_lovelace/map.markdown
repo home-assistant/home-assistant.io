@@ -16,7 +16,7 @@ To add the Map card to your user interface, click the Lovelace menu (three dots 
 {% configuration %}
 type:
   required: true
-  description: map
+  description: "`map`"
   type: string
 entities:
   required: true

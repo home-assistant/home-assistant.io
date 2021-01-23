@@ -11,11 +11,11 @@ To add the Horizontal Stack card to your user interface, click the Lovelace menu
 {% configuration %}
 type:
   required: true
-  description: horizontal-stack
+  description: "`horizontal-stack`"
   type: string
 title:
   required: false
-  description: Title of Stack
+  description: Title of stack.
   type: string
 cards:
   required: true

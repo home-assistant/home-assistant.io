@@ -23,29 +23,29 @@ entity: sensor.cpu_usage
 {% configuration %}
 type:
   required: true
-  description: gauge
+  description: "`gauge`"
   type: string
 entity:
   required: true
-  description: "Entity id to show"
+  description: "Entity ID to show."
   type: string
 name:
   required: false
-  description: Name of Gauge Entity
+  description: Name of gauge entity entity.
   type: string
   default: Entity Name
 unit:
   required: false
-  description: Unit of Measurement given to data
+  description: Unit of measurement given to data.
   type: string
-  default: "Unit Of Measurement given by entity"
+  default: "Unit of measurement given by entity."
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 min:
   required: false
-  description: Minimum value for graph
+  description: Minimum value for graph.
   type: integer
   default: 0
 max:

@@ -20,7 +20,7 @@ To add the Webpage card to your user interface, click the Lovelace menu (three d
 {% configuration %}
 type:
   required: true
-  description: iframe
+  description: "`iframe`"
   type: string
 url:
   required: true
@@ -28,7 +28,7 @@ url:
   type: string
 aspect_ratio:
   required: false
-  description: Height-width-ratio.
+  description: Height to width ratio.
   type: string
   default: "50%"
 title:
@@ -37,7 +37,7 @@ title:
   type: string
 {% endconfiguration %}
 
-### Examples
+## Examples
 
 The card can also be configured using YAML, some examples below:
 

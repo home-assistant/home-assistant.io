@@ -13,8 +13,7 @@ The Weather Forecast card displays the weather. Very useful to include on interf
 
 To add the Weather card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Weather** from the card picker.
 
-### Card Settings
-
+## Card Settings
 
 {% configuration_basic %}
 Entity:
@@ -26,7 +25,7 @@ Show Forecast:
 Secondary Info Attribute:
   description: Here you can specify a secondary attribute to show under the current temperature. Ex. Extrema, Precipitation, Humidity. If not set, it will default to Extrema (High/Low) if available, if not available then Precipitation and if precipitation isn't available then Humidity.
 Theme:
-  description: Theme your card using any installed theme in your HA environment.
+  description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
 {% endconfiguration_basic %}
 
 <div class="note">
@@ -37,19 +36,18 @@ Theme:
 
 </div>
 
-
 ### YAML
 
-This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI
+This is for if you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
 
 {% configuration %}
 type:
   required: true
-  description: weather-forecast
+  description: "`weather-forecast`"
   type: string
 entity:
   required: true
-  description: "The `entity_id` of the `weather` platform to use."
+  description: "Entity ID from `weather` domian."
   type: string
 name:
   required: false
@@ -68,7 +66,7 @@ secondary_info_attribute:
   default: Defaults to `extrema` if available, if not available then `precipitation` and if precipitation isn't available then `humidity`.
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 {% endconfiguration %}
 
@@ -79,12 +77,11 @@ type: weather-forecast
 entity: weather.openweathermap
 ```
 
-
 ### Advanced
 
-##### Themeable Icons
+#### Themeable Icons
 
-The default weather icons are themable via a [theme](/integrations/frontend/#themes). Theme variables include: 
+The default weather icons are themable via a [theme](/integrations/frontend/#themes). Theme variables include:
 
 ```yaml
 --weather-icon-cloud-front-color
@@ -105,7 +102,7 @@ Example theme configuration:
 
 &nbsp;
 
-##### Personal Icons
+#### Personal Icons
 
 Weather icons can be overwritten with your own personal images via a [theme](/integrations/frontend/#themes). Theme variables include:
 

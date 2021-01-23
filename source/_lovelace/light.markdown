@@ -23,25 +23,25 @@ entity: light.bedroom
 {% configuration %}
 type:
   required: true
-  description: light
+  description: "`light`"
   type: string
 entity:
   required: true
-  description: Home Assistant Light Domain entity ID.
+  description: Entity ID from `light` domain.
   type: string
 name:
   required: false
   description: Overwrites friendly name.
   type: string
-  default: Name of Entity
+  default: Name of entity
 icon:
   required: false
   description: Overwrites icon.
   type: string
-  default: Entity Domain Icon
+  default: Entity domain icon
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`.
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 hold_action:
   required: false

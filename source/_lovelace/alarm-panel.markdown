@@ -23,20 +23,20 @@ entity: alarm_control_panel.alarm
 {% configuration %}
 type:
   required: true
-  description: alarm-panel
+  description: "`alarm-panel`"
   type: string
 entity:
   required: true
-  description: "Entity ID of `alarm_control_panel` domain"
+  description: "Entity ID from `alarm_control_panel` domain".
   type: string
 name:
   required: false
-  description: Overwrites Friendly Name
+  description: Overwrites Friendly Name.
   type: string
   default: Current State of Alarm Entity
 states:
   required: false
-  description: Controls which states to have available
+  description: Controls which states to have available.
   type: list
   default: arm_home, arm_away
   keys:
@@ -50,7 +50,7 @@ states:
       description: Arm Custom Bypass
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
   type: string
 {% endconfiguration %}
 

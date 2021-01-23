@@ -20,7 +20,7 @@ conditions:
   keys:
     entity:
       required: true
-      description: Home Assistant entity ID.
+      description: Entity ID.
       type: string
     state:
       required: false
