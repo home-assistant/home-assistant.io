@@ -13,7 +13,7 @@ The renderer uses [Marked.js](https://marked.js.org), which supports [several sp
 Screenshot of the Markdown card.
 </p>
 
-To add the Markdown card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Markdown** from the card picker.
+To add the Markdown card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Markdown** from the card picker.
 
 {% configuration %}
 type:
