@@ -23,7 +23,7 @@ Initial View:
 Entities:
   description: The calendar entities that will be displayed in the card.
 Theme:
-  description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
+  description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 {% endconfiguration_basic %}
 
 ### YAML
@@ -49,7 +49,7 @@ entities:
   type: list
 theme:
   required: false
-  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
 

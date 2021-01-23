@@ -29,7 +29,7 @@ Show Icon:
 Icon Height:
   description: The height of the icon, in pixels.
 Theme:
-  description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
+  description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 Tap Action:
   description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
 Hold Action:
@@ -98,7 +98,7 @@ double_tap_action:
   type: map
 theme:
   required: false
-  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
 

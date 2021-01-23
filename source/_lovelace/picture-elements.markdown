@@ -45,7 +45,7 @@ state_filter:
   type: map
 theme:
   required: false
-  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 dark_mode_image:
   required: false
