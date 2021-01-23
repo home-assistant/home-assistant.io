@@ -205,7 +205,11 @@ The same thing can also be expressed as a filter:
 	
 If your template is returning a timestamp that should be displayed in the frontend (e.g., as a sensor entity with `device_class: timestamp`), you have to ensure that it is the ISO 8601 format (meaning it has the "T" separator between the date and time portion). Otherwise, frontend rendering on macOS and iOS devices will show an error. The following value template would result in such an error:
 
+{% raw %}
+
 `{{ states.sun.sun.last_changed }}` => `2021-01-24 07:06:59+00:00` (missing "T" separator)
+
+{% endraw %}
 
 To fix it, enforce the ISO conversion via `isoformat()`:
 
