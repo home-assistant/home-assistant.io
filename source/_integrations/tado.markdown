@@ -192,6 +192,7 @@ script:
 
 
 {% raw %}
+```yaml
 # Example automation to set temprature offset based on another thermostat value
 automation:
     trigger:
@@ -211,4 +212,5 @@ automation:
         entity_id: climate.tado
         offset: >
           {{ (-(states('sensor.tado_temperature')|float - states('sensor.temp_sensor_room')|float) +state_attr('climate.tado', 'offset_celsius'))|round }}
+```
 {% endraw %}
