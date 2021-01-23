@@ -27,7 +27,7 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID from `light` domain.
+  description: Entity ID of `light` domain.
   type: string
 name:
   required: false

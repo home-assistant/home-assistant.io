@@ -31,7 +31,7 @@ entity:
   type: string
 name:
   required: false
-  description: Name of gauge entity entity.
+  description: Name of gauge entity.
   type: string
   default: Entity name
 unit:

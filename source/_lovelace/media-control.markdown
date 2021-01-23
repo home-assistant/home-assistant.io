@@ -20,7 +20,7 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity ID from `media_player` domain."
+  description: Entity ID of `media_player` domain.
   type: string
 name:
   required: false

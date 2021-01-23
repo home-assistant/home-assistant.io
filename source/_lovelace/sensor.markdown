@@ -20,7 +20,7 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID from `sensor` domain.
+  description: Entity ID of `sensor` domain.
   type: string
 icon:
   required: false

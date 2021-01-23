@@ -100,7 +100,7 @@ footer:
 {% configuration header-footer %}
 entity:
   required: true
-  description: Entity ID from `sensor` domain.
+  description: Entity ID of `sensor` domain.
   type: string
 detail:
   required: false

@@ -20,7 +20,7 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID from `climate` domain.
+  description: Entity ID of `climate` domain.
   type: string
 name:
   required: false

@@ -47,7 +47,7 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity ID from `weather` domain."
+  description: Entity ID of `weather` domain.
   type: string
 name:
   required: false

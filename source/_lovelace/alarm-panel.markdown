@@ -27,13 +27,13 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity ID from `alarm_control_panel` domain."
+  description: Entity ID of `alarm_control_panel` domain.
   type: string
 name:
   required: false
   description: Overwrites friendly name.
   type: string
-  default: Current state of alarm entity.
+  default: Current state of the alarm entity.
 states:
   required: false
   description: Controls which states to have available.

@@ -20,7 +20,7 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID from `humidifier` domain.
+  description: Entity ID of `humidifier` domain.
   type: string
 name:
   required: false
