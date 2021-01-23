@@ -47,3 +47,26 @@ available.
 As this integration is still in the early stages there are some important limitations to be aware of.
 
 - You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
+
+## Services
+
+### Service `zwave_js.set_lock_usercode`
+
+This service will set the usercode of a lock to X at code slot Y.
+Valid usercodes are at least 4 digits.
+
+| Service Data Attribute | Required | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            | no       | Lock entity or list of entities to set the usercode. |
+| `code_slot`            | yes      | The code slot to set the usercode into.              |
+| `usercode`             | yes      | The code to set in the slot.                         |
+
+### Service `zwave_js.clear_lock_usercode`
+
+This service will clear the usercode of a lock in code slot X.
+Valid code slots are between 1-254.
+
+| Service Data Attribute | Required | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `entity_id`            | no       | Lock entity or list of entities to clear the usercode. |
+| `code_slot`            | yes      | The code slot to clear the usercode from.              |
