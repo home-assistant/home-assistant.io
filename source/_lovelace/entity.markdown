@@ -24,22 +24,22 @@ entity:
   type: string
 name:
   required: false
-  description: Name of entity
+  description: Name of entity.
   type: string
-  default: Entity Name
+  default: Entity name.
 icon:
   required: false
   description: Overwrites icon.
   type: string
 attribute:
   required: false
-  description: An attribute associated with the `entity`
+  description: An attribute associated with the `entity`.
   type: string
 unit:
   required: false
-  description: Unit of Measurement given to data
+  description: Unit of measurement given to data.
   type: string
-  default: "Unit Of Measurement given by entity"
+  default: Unit of measurement given by entity.
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).

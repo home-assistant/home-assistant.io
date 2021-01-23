@@ -26,7 +26,7 @@ name:
   required: false
   description: Overwrites friendly name.
   type: string
-  default: Entity Name
+  default: Entity name
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).

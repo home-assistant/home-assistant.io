@@ -47,13 +47,13 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity ID from `weather` domian."
+  description: "Entity ID from `weather` domain."
   type: string
 name:
   required: false
   description: Overwrites the friendly name.
   type: string
-  default: Entity Name
+  default: Entity name
 show_forecast:
   required: false
   description: Show next hours/days forecast.

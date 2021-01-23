@@ -27,18 +27,18 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity ID to show."
+  description: Entity ID to show.
   type: string
 name:
   required: false
   description: Name of gauge entity entity.
   type: string
-  default: Entity Name
+  default: Entity name
 unit:
   required: false
   description: Unit of measurement given to data.
   type: string
-  default: "Unit of measurement given by entity."
+  default: Unit of measurement given by entity.
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](https://www.home-assistant.io/integrations/frontend/).
@@ -50,31 +50,31 @@ min:
   default: 0
 max:
   required: false
-  description: Maximum value for graph
+  description: Maximum value for graph.
   type: integer
   default: 100
 severity:
   required: false
-  description: Allows setting of colors for different numbers
+  description: Allows setting of colors for different numbers.
   type: map
   keys:
     green:
       required: true
-      description: Value from which to start green color
+      description: Value from which to start green color.
       type: integer
     yellow:
       required: true
-      description: Value from which to start yellow color
+      description: Value from which to start yellow color.
       type: integer
     red:
       required: true
-      description: Value from which to start red color
+      description: Value from which to start red color.
       type: integer
 {% endconfiguration %}
 
 ## Examples
 
-Title and Unit of Measurement Example:
+Title and unit of measurement:
 
 ```yaml
 type: gauge
