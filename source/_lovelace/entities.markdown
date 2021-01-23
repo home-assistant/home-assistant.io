@@ -32,7 +32,7 @@ show_header_toggle:
   default: true
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`.
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 state_color:
   required: false
