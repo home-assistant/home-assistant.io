@@ -569,6 +569,13 @@ automation:
 Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
 Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
 
+<div class='note'>
+
+This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
+
+</div>
+
+
 ```yaml
 automation:
   trigger:
