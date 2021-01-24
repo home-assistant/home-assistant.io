@@ -50,7 +50,7 @@ echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s
 
 ### Razberry Board
 
-GPIO is only supported on 32-bit version of Home-Assistant OS.
+GPIO is only supported on 32-bit version of Home Assistant OS.
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
