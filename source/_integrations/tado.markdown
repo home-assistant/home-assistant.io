@@ -31,42 +31,6 @@ There is currently support for the following device types within Home Assistant:
 
 To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
 
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry with multiple accounts
-tado:
-  - username: YOUR_USERNAME1
-    password: YOUR_PASSWORD1
-  - username: YOUR_USERNAME2
-    password: YOUR_PASSWORD2
-```
-
-In case of single account works as well:
-
-```yaml
-# Example configuration.yaml entry with single account
-tado:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your username for [my.tado.com](https://my.tado.com/).
-  required: true
-  type: string
-password:
-  description: Your password for [my.tado.com](https://my.tado.com/).
-  required: true
-  type: string
-fallback:
-  description: Indicates if you want to fallback to Smart Schedule on the next Schedule change, or stay in Manual mode until you set the mode back to Auto.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
-
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
 It currently supports presenting the current temperature, the setting temperature and the current operation mode. The operation mode can be set to manual, auto and off. If no user is at home anymore, all Tado zones show the away-state (Only with Tado assist mode). Manually switching between home-mode and away-mode is also supported. Any Tado climate card can be switched between these presence modes, this changes the setting for the entire home.
