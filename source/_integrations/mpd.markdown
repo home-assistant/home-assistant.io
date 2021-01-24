@@ -42,6 +42,10 @@ password:
   description: Password for your Music Player Daemon.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this media_player. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 {% endconfiguration %}
 
 Example script to load a saved playlist called "DeckMusic" and set the volume:
