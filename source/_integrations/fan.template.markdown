@@ -36,7 +36,7 @@ fan:
         set_percentage: {
           service: script.fans_set_speed
           data:
-             percentage: "{{ percentage }}"         
+            percentage: "{{ percentage }}"         
         set_oscillating:
           service: script.fan_oscillating
           data:
