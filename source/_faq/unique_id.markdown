@@ -6,9 +6,7 @@ ha_category: Configuration
 
 If you try to access the configuration dialog for an entity in your Home Assistant, you might end up seeing this message:
 
-<p class='img'>
-<img src='/images/faq/faq_no_unique_id.jpg' alt='Screenshot of popup for no unique ID'>
-</p>
+![Screenshot of popup for no unique ID](/images/faq/faq_no_unique_id.jpg)
 
 This means that this entity does not have a unique identification, e.g., a serial number or another identifier that is guaranteed to be static and never changes. As a result, the normal editing process that allows you to change various settings through the user interface (such as the entity ID, icon, friendly name, etc.) is not possible here. 
 
@@ -21,4 +19,4 @@ Typically, you'll see this when you create entities manually using YAML, but it 
 
 If your user profile has the "Advanced Mode" activated, you will also see the second paragraph in the popup with a link to the [customization user interface](/docs/configuration/customizing-devices/#customization-using-the-ui) for this specific entity, which offers some customization options.
 
-\* In case you want to read about more about that, head over to this [developer documentation page](https://developers.home-assistant.io/docs/entity_registry_index/).
+In case you want to read more about unique IDs, head over to this [developer documentation page](/docs/entity_registry_index/).
