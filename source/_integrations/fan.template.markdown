@@ -26,7 +26,7 @@ fan:
       bedroom_fan:
         friendly_name: "Bedroom fan"
         value_template: "{{ states('input_boolean.state') }}"
-        percentage_template: "{{ states('input_number.percentage') }}",
+        percentage_template: "{{ states('input_number.percentage') }}"
         oscillating_template: "{{ states('input_select.osc') }}"
         direction_template: "{{ states('input_select.direction') }}"
         turn_on:
