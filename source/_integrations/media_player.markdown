@@ -52,25 +52,56 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 
 ##### Extra dictionary data
 
-```json
-title: string - Title of the media.
-thumb: string - Thumbnail image URL.
-current_time: float - Seconds since beginning of content. If the content is
-    live content, and position is not specifed, the stream will start at the
-    live position
-autoplay: bool - Whether the media will automatically play.
-stream_type: string - Describes the type of media artifact as one of the
-    following: "NONE", "BUFFERED", "LIVE".
-subtitles: str - URL of subtitle file to be shown on chromecast.
-subtitles_lang: string - Language for subtitles.
-subtitles_mime: string - Mimetype of subtitles.
-subtitle_id: int - Id of subtitle to be loaded.
-enqueue: bool - If True, enqueue the media instead of play it.
-media_info: map - Additional MediaInformation attributes not explicitly listed.
-metadata: map - Media metadata object, one of the following:
-    GenericMediaMetadata, MovieMediaMetadata, TvShowMediaMetadata,
-    MusicTrackMediaMetadata, PhotoMediaMetadata.
-```
+{% configuration %}
+title:
+  type: string
+  description: Title of the media.
+  required: false
+thumb:
+  type: string
+  description: Thumbnail image URL.
+  required: false
+current_time:
+  type: float
+  description: Seconds since beginning of content. If the content is live content, and position is not specifed, the stream will start at the live position
+  required: false
+autoplay:
+  type: bool
+  description: Whether the media will automatically play.
+  required: false
+stream_type:
+  type: string
+  description: Describes the type of media artifact as one of the following: "NONE", "BUFFERED", "LIVE".
+  required: false
+subtitles:
+  type: string
+  description: URL of subtitle file to be shown on chromecast.
+  required: false
+subtitles_lang:
+  type: string
+  description: Language for subtitles.
+  required: false
+subtitles_mime:
+  type :string
+  description: Mimetype of subtitles.
+  required: false
+subtitle_id:
+  type: int
+  description: Id of subtitle to be loaded.
+  required: false
+enqueue:
+  type: bool
+  description: If True, enqueue the media instead of play it.
+  required: false
+media_info:
+  type: map
+  description: Additional MediaInformation attributes not explicitly listed.
+  required: false
+metadata:
+  type: map
+  description: Media metadata object, one of the following: GenericMediaMetadata, MovieMediaMetadata, TvShowMediaMetadata, MusicTrackMediaMetadata, PhotoMediaMetadata.
+  required: false
+{% endconfiguration %}
 
 Documentation:
 
