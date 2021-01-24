@@ -33,7 +33,7 @@ fan:
           service: script.fan_on
         turn_off:
           service: script.fan_off
-        set_percentage: {
+        set_percentage:
           service: script.fans_set_speed
           data:
             percentage: "{{ percentage }}"         
