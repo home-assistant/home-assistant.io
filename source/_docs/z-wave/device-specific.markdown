@@ -50,6 +50,8 @@ echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s
 
 ### Razberry Board
 
+GPIO is only supported on 32-bit version of Home-Assistant OS.
+
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
 For both processes below you will need to insert your SD card into your PC and open the `/boot/config.txt` file with your favorite text editor.
@@ -68,37 +70,10 @@ Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the h
 #### Raspberry Pi 3 procedure
 
 ```text
-dtoverlay=pi3-disable-bt
+dtoverlay=disable-bt
 ```
 
-Then disable the Bluetooth modem service:
-
-```bash
-sudo systemctl disable hciuart
-```
-
-Once Bluetooth is off, enable the serial interface via the `raspi-config` tool. After reboot run:
-
-```bash
-sudo systemctl mask serial-getty@ttyAMA0.service
-```
-
-so that your serial interface looks like:
-
-```text
-crw-rw---- 1 root dialout 204, 64 Sep  2 14:38 /dev/ttyAMA0
-```
-at this point simply add your user (homeassistant) to the dialout group:
-
-```bash
-sudo usermod -a -G dialout homeassistant
-```
-
-<div class='note'>
-
-  If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
-
-</div>
+Reboot your Pi 3. You should now be able to use Razberry Z-Wave from ` /dev/ttyAMA0 `
 
 ### Aeon Minimote
 
