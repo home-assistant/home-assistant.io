@@ -16,7 +16,7 @@ The Fan integration allows you to control and monitor Fan devices.
 ### Fan control services
 
 Available services:
-`fan.set_percentage`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`
+`fan.set_percentage`, `fan.set_preset_mode`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`
 
 Deprecated services:
 `fan.set_speed`
@@ -48,6 +48,30 @@ automation:
       data:
         entity_id: fan.kitchen
         percentage: 33
+```
+
+
+### Service `fan.set_preset_mode`
+
+Sets a preset mode for fan device.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
+| `preset_mode` | no | The preset mode
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at: "07:15:00"
+  action:
+    - service: fan.set_preset_mode
+      data:
+        entity_id: fan.kitchen
+        preset_mode: auto
 ```
 
 ### Service `fan.set_direction`
@@ -104,6 +128,7 @@ Turn fan device on. This is only supported if the fan device supports being turn
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
 | `percentage` | yes | Percentage speed setting
+| `preset_mode` | yes | The preset mode
 
 ### Service `fan.turn_off`
 
