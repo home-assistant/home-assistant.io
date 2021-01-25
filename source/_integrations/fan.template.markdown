@@ -117,4 +117,9 @@ fan:
         description: Defines an action to run when the fan is given a direction command.
         required: false
         type: action
+      preset_modes:
+        description: List of preset modes the fan is capable of.
+        required: false
+        type: [string, list]
+        default: []        
 {% endconfiguration %}
