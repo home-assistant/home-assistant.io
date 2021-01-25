@@ -63,7 +63,7 @@ thumb:
   required: false
 current_time:
   type: float
-  description: Seconds since beginning of content. If the content is live content, and position is not specifed, the stream will start at the live position
+  description: Seconds since the beginning of the content. If the content is live content, and the position is not specified, the stream will start at the live position.
   required: false
 autoplay:
   type: bool
