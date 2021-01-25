@@ -51,7 +51,7 @@ The following binary sensors are added for each Powerwall:
 
 ### Sensor
 
-The following binary sensors are added for each Powerwall:
+The following sensors are added for each Powerwall:
 
 - Powerwall Charge
 - Powerwall Site Now

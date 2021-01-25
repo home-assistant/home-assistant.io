@@ -4,6 +4,7 @@ description: Record events in Prometheus.
 ha_category:
   - History
 ha_release: 0.49
+ha_iot_class: Assumed State
 ha_domain: prometheus
 ha_codeowners:
   - '@knyar'
@@ -97,8 +98,6 @@ component_config_glob:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Prometheus`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 prometheus:
@@ -111,8 +110,6 @@ prometheus:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

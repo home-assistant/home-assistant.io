@@ -4,6 +4,7 @@ description: Matrix chatbot support
 ha_category:
   - Hub
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.69
 ha_codeowners:
   - '@tinloaf'
@@ -90,6 +91,7 @@ If the command is a word command, the `data` field contains a list of the comman
 This example also uses the [matrix `notify` platform](#notifications).
 
 {% raw %}
+
 ```yaml
 # The Matrix component
 matrix:
@@ -134,6 +136,7 @@ automation:
       data:
         message: "Hello {{trigger.event.data.args['name']}}"
 ```
+
 {% endraw %}
 
 This configuration will:

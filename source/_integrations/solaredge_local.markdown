@@ -64,6 +64,7 @@ sensor:
 In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/integrations/template).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry for sensor template platform
 sensor:
@@ -74,4 +75,5 @@ sensor:
         unit_of_measurement: 'KWh'
         icon_template: "mdi:solar-power"
 ```
+
 {% endraw %}

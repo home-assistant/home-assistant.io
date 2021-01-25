@@ -1,7 +1,6 @@
 ---
 title: "Splitting up the configuration"
 description: "Splitting the configuration.yaml into several files."
-redirect_from: /topics/splitting_configuration/
 ---
 
 So you've been using Home Assistant for a while now and your `configuration.yaml` file brings people to tears or you simply want to start off with the distributed approach, here's how to split the `configuration.yaml` into more manageable (read: humanly readable) pieces.
@@ -476,6 +475,24 @@ front_yard:
     - light.pathway
     - sensor.mailbox
     - camera.front_porch
+```
+
+### Example: Combine `!include_dir_merge_list` with `automations.yaml`
+
+You want to go the advanced route and split your automations, but still want to be able to create automations in the UI?
+In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
+
+Using labels like `manual` or `ui` allows for using multiple keys in the config:
+
+`configuration.yaml`
+
+```yaml
+
+# My own handmade automations
+automation manual: !include_dir_merge_list automations/
+
+# Automations I create in the UI
+automation ui: !include automations.yaml
 ```
 
 [discord]: https://discord.gg/c5DvZ4e

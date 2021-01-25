@@ -4,6 +4,7 @@ description: Instructions on how to setup device tracking within Home Assistant.
 ha_category:
   - Presence Detection
 ha_release: 0.7
+ha_iot_class:
 ha_quality_scale: internal
 ha_domain: device_tracker
 ---

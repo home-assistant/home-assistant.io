@@ -49,6 +49,7 @@ binary_sensor:
     resource: http://IP_ADDRESS/ENDPOINT
     method: POST
 ```
+
 or a template based request:
 
 ```yaml

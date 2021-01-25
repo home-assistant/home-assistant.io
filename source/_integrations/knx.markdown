@@ -7,7 +7,7 @@ ha_category:
   - Climate
   - Cover
   - Light
-  - Notify
+  - Notifications
   - Scene
   - Sensor
   - Switch
@@ -19,6 +19,7 @@ ha_codeowners:
   - '@farmio'
   - '@marvin-w'
 ha_domain: knx
+ha_quality_scale: silver
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.
@@ -84,6 +85,21 @@ rate_limit:
   required: false
   default: 20
   type: integer
+individual_address:
+  description: The KNX individual address that shall be used for routing or if a tunnelling server doesn't assign an IA at connection.
+  required: false
+  type: string
+  default: "15.15.250"
+multicast_group:
+  description: The multicast group to use for automatic interface discovery and routing communication.
+  required: false
+  type: string
+  default: "224.0.23.12"
+multicast_port:
+  description: The port for multicast communication.
+  required: false
+  type: integer
+  default: 3671
 {% endconfiguration %}
 
 If the auto detection of the KNX/IP device does not work you can specify IP and port of the tunneling device:
@@ -167,7 +183,7 @@ payload:
   description: Payload to send to the bus. When `type` is not set, raw bytes are sent. Integers are then treated as DPT 1/2/3 payloads. For DPTs > 6 bits send a list. Each value represents 1 octet (0-255). Pad with 0 to DPT byte length.
   type: [integer, list]
 type:
-  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](/integrations/sensor.knx).
+  description: If set, the payload will not be sent as raw bytes, but encoded as given DPT. KNX sensor types are valid values - see table in [KNX Sensor](#sensor).
   type: [string, integer, float]
 {% endconfiguration %}
 
@@ -207,7 +223,7 @@ knx:
 
 {% configuration %}
 type:
-  description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](/integrations/sensor.knx/) (e.g., "temperature" or "humidity").
+  description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
   type: string
   required: true
 entity_id:
@@ -267,34 +283,63 @@ device_class:
   required: false
   type: string
 reset_after:
-  description: Reset back to OFF state after specified milliseconds.
+  description: Reset back to OFF state after specified seconds.
   required: false
-  type: integer
+  type: float
+invert:
+  description: Invert the telegrams payload before processing. This is applied before `context_timeout` or `reset_after` is evaluated.
+  required: false
+  type: boolean
+  default: False
+ignore_internal_state:
+  description: Specifies if telegrams should ignore the internal state and always trigger a Home Assistant state update.
+  required: false
+  type: boolean
+  default: False
+context_timeout:
+  description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. If set `ignore_internal_state` will be set to `True` internally. Maximum value is 10.0.
+  required: false
+  type: float
+  default: None
 {% endconfiguration %}
 
-### Automation actions
+### Support for automations
 
-You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.
+You can use a built in event in order to trigger an automation (e.g. to switch on a light when a switch was pressed).
+
+Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you want to switch one light on when the button was pressed once and two other lights when the button was pressed twice.
 
 ```yaml
-# Example configuration.yaml entry
-knx:
-  binary_sensor:
-    - name: Livingroom.3Switch3
-      state_address: '5/0/26'
-      automation:
-        - counter: 1
-          hook: 'on'
-          action:
-            - entity_id: light.hue_color_lamp_1
-              service: homeassistant.turn_on
-        - counter: 2
-          hook: 'on'
-          action:
-            - entity_id: light.hue_bloom_1
-              service: homeassistant.turn_on
-            - entity_id: light.hue_bloom_2
-              service: homeassistant.turn_on
+# Example automation.yaml entry
+automation:
+  - trigger:
+      platform: numeric_state
+      entity_id: binary_sensor.Livingroom_Switch
+      attribute: counter
+      above: 0
+      below: 2
+    condition: 
+      - condition: state
+        entity_id: binary_sensor.cover_abstell
+        state: 'on'
+    action:
+      - entity_id: light.hue_color_lamp_1
+        service: light.turn_on
+  - trigger:
+      platform: numeric_state
+      entity_id: binary_sensor.Livingroom_Switch
+      attribute: counter
+      above: 1
+      below: 3
+    condition:
+      - condition: state
+        entity_id: binary_sensor.cover_abstell
+        state: 'on'
+    action:
+      - entity_id: light.hue_bloom_1
+        service: homeassistant.turn_on
+      - entity_id: light.hue_bloom_2
+        service: homeassistant.turn_on
 ```
 
 {% configuration %}
@@ -377,8 +422,8 @@ knx:
 
 `setpoint_shift_mode` allows the two following DPTs to be used:
 
-- DPT6.002 (for 1 byte signed integer)
-- DPT9.002 (for 2 byte float)
+- DPT6002 (for 1 byte signed integer)
+- DPT9002 (for 2 byte float)
 
 Example:
 
@@ -415,6 +460,7 @@ The following values are valid for the `hvac_mode` attribute:
 
 The following presets are valid for the `preset_mode` attribute:
 
+- Auto (maps internally to PRESET_NONE within Home Assistant)
 - Comfort (maps internally to PRESET_COMFORT within Home Assistant)
 - Standby (maps internally to PRESET_AWAY within Home Assistant)
 - Night (maps internally to PRESET_SLEEP within Home Assistant)
@@ -444,15 +490,15 @@ target_temperature_state_address:
   required: true
   type: string
 setpoint_shift_address:
-  description: KNX address for setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
+  description: KNX address for setpoint_shift. *DPT 6.010 or DPT 9.002 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_state_address:
-  description: KNX address for reading setpoint_shift. *DPT 6.010 or 9.001 based on setpoint_shift_mode*
+  description: KNX address for reading setpoint_shift. *DPT 6.010 or DPT 9.002 based on setpoint_shift_mode*
   required: false
   type: string
 setpoint_shift_mode:
-  description: Defines the internal device DPT used.
+  description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
   required: false
   default: 0.5
   type: string
@@ -516,7 +562,11 @@ operation_mode_standby_address:
   required: false
   type: string  
 operation_modes:
-  description: Overrides the supported operation modes. Provide the supported `hvac_mode` and `preset_mode` values for your device.
+  description: Overrides the supported operation modes. Provide the supported `preset_mode` values for your device.
+  required: false
+  type: list
+controller_modes:
+  description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
   required: false
   type: list
 on_off_address:
@@ -616,6 +666,10 @@ invert_angle:
   required: false
   default: false
   type: boolean
+device_class:
+  description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Light
@@ -822,7 +876,7 @@ knx:
       state_address: '2/0/0'
 ```
 
-In order to actively read the sensor data from the bus all 30 seconds you can add the following lines to your `configuration.yaml`:
+In order to actively read the sensor data from the bus all 30 minutes you can add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -830,7 +884,7 @@ knx:
   sensor:
     - name: Heating.Valve1
       state_address: '2/0/0'
-      sync_state: expire 30
+      sync_state: every 30
 ```
 
 {% configuration %}
@@ -851,6 +905,11 @@ type:
   description: A type from the following table must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
   type: string
+always_callback:
+  description: Defines if telegrams with equal payload as the previously received telegram should trigger a state update within Home Assistant.
+  required: false
+  type: boolean
+  default: False
 {% endconfiguration %}
 
 | KNX DPT | type                          | size in byte | range                      | unit           |
@@ -1038,6 +1097,11 @@ state_address:
   description: Separate KNX group address for retrieving the switch state. *DPT 1*
   required: false
   type: string
+invert:
+  description: Invert the telegrams payload before processing or sending.
+  required: false
+  type: boolean
+  default: False
 {% endconfiguration %}
 
 Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
@@ -1058,6 +1122,7 @@ knx:
       address_brightness_south: "7/0/1"
       address_brightness_west: "7/0/2"
       address_brightness_east: "7/0/3"
+      address_brightness_north: "7/0/11"
       address_wind_speed: "7/0/4"
       address_rain_alarm: "7/0/5"
       address_frost_alarm: "7/0/6"
@@ -1089,6 +1154,10 @@ address_brightness_west:
   type: string
 address_brightness_east:
   description: KNX group address for reading current brightness to east coordinate from KNX bus. *DPT 9.004*
+  required: false
+  type: string
+address_brightness_north:
+  description: KNX group address for reading current brightness to north coordinate from KNX bus. *DPT 9.004*
   required: false
   type: string
 address_wind_speed:

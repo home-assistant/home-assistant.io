@@ -10,8 +10,8 @@ ha_domain: template
 ---
 
 The `template` platform creates fans that combine integrations and provides the
-ability to run scripts or invoke services for each of the turn_on, turn_off, set_speed,
-set_oscillating, and set_direction commands of a fan.
+ability to run scripts or invoke services for each of the `turn_on`, `turn_off`, `set_speed`,
+`set_oscillating`, and `set_direction` commands of a fan.
 
 To enable Template Fans in your installation, add the following to your
 `configuration.yaml` file:
@@ -64,11 +64,11 @@ fan:
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this fan. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this fan. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
-        description: "Defines a template to get the state of the fan. Valid value: 'on'/'off'"
+        description: "Defines a template to get the state of the fan. Valid values: `on`, `off`"
         required: true
         type: template
       speed_template:
@@ -76,11 +76,11 @@ fan:
         required: false
         type: template
       oscillating_template:
-        description: "Defines a template to get the osc state of the fan. Valid value: true/false"
+        description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`"
         required: false
         type: template
       direction_template:
-        description: "Defines a template to get the direction of the fan. Valid value: 'forward'/'reverse'"
+        description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`"
         required: false
         type: template
       availability_template:
@@ -114,7 +114,3 @@ fan:
         type: [string, list]
         default: ['low', 'medium', 'high']
 {% endconfiguration %}
-
-### Working without entities
-
-If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.

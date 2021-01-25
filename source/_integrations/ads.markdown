@@ -1,7 +1,6 @@
 ---
 title: ADS
 description: Connect Home Assistant to TwinCAT devices via the ADS interface
-logo: beckhoff.png
 ha_category:
   - Hub
   - Binary Sensor

@@ -34,7 +34,7 @@ The documentation covers beginner to advanced topics around the installation, se
     <div class='img-container'>
       <img src='/images/supported_brands/view-dashboard.png' />
     </div>
-    <div class='title'>Lovelace user interface</div>
+    <div class='title'>User Interface</div>
   </a>
   <a class='option-card' href='https://companion.home-assistant.io/'>
     <div class='img-container'>

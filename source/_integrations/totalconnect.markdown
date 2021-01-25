@@ -5,6 +5,7 @@ ha_category:
   - Alarm
   - Binary Sensor
 ha_release: 0.42
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@austinmroczek'

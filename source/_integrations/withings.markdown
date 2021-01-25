@@ -118,14 +118,13 @@ use_webhook:
 
 ## Bonus: Template Sensors to Convert Kilograms to Pounds
 
-In a text editor, replace ```USER_PROFILE_NAME``` in the template sensors below with your Withings User Profile Name defined in the Withings integration configuration. 
-
+In a text editor, replace ```USER_PROFILE_NAME``` in the template sensors below with your Withings User Profile Name defined in the Withings integration configuration.
 
 {% raw %}
 
 ```yaml
 # Example configuration.yaml entry
-sensors:
+sensor:
   - platform: template
     sensors:
       withings_weight_lbs_USER_PROFILE_NAME:

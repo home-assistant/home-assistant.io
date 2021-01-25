@@ -1,7 +1,6 @@
 ---
 title: "Z-Wave Device Specific Settings"
 description: "Notes for specific Z-Wave devices."
-redirect_from: /getting-started/z-wave-device-specific/
 ---
 
 ## Device Categories
@@ -52,6 +51,21 @@ echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s
 ### Razberry Board
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
+
+For both processes below you will need to insert your SD card into your PC and open the `/boot/config.txt` file with your favorite text editor.
+
+#### Raspberry Pi 4 procedure
+
+Add the following paramaters to the bottom of the `/boot/config.txt` file.
+
+```text
+dtoverlay=disable-bt
+enable_uart=1
+```
+
+Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the hat back, and boot again.
+
+#### Raspberry Pi 3 procedure
 
 ```text
 dtoverlay=pi3-disable-bt
@@ -178,7 +192,7 @@ To provide Central Scene support you need to **stop your Z-Wave network** and mo
 
 ### Inovelli Scene Capable On/Off and Dimmer Wall Switches
 
-For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg_*.xml` file with the following:
 
 ```xml
       <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -189,18 +203,13 @@ For Inovelli switches, you'll need to update (or possibly add) the `COMMAND_CLAS
       </CommandClass>
 ```
 
-Once this is complete, you should see the follow `zwave.scene_activated` events:
+For Inovelli LZW30-SN and LZW31-SN switches with a third button for configuration, you'll need to add a third scene for that under the COMMAND_CLASS_CENTRAL_SCENE CommandClass:
 
-**Action**|**scene\_id**|**scene\_data**
-:-----:|:-----:|:-----:
-Double tap off|1|3
-Double tap on|2|3
-Triple tap off|1|4
-Triple tap on|2|4
-4x tap off|1|5
-4x tap on|2|5
-5x tap off|1|6
-5x tap on|2|6
+```xml
+        <Value type="int" genre="user" instance="1" index="3" label="Config Button Scene" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+```
+
+Once this is complete, `zwave.scene_activated` events will fire according to which button press you perform. For information on what button press corresponds to what scene_id and scene_data in the event, see [Inovelli Knowledge Base > How To: Setting Up Scenes In Home Assistant](https://support.inovelli.com/portal/en/kb/articles/how-to-setting-up-scenes-in-home-assistant).
 
 ### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v3 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
 
@@ -875,12 +884,12 @@ Button three (X) release|3|7740
 Button four (Triangle) single tap|4|7680
 Button four (Triangle) hold|4|7800
 Button four (Triangle) release|4|7740
-Button five (Triangle) single tap|5|7680
-Button five (Triangle) hold|5|7800
-Button five (Triangle) release|5|7740
-Button six (Triangle) single tap|6|7680
-Button six (Triangle) hold|6|7800
-Button six (Triangle) release|6|7740
+Button five (Minus) single tap|5|7680
+Button five (Minus) hold|5|7800
+Button five (Minus) release|5|7740
+Button six (Plus) single tap|6|7680
+Button six (Plus) hold|6|7800
+Button six (Plus) release|6|7740
 
 Press circle and plus simultaneously to wake up the device.
 
@@ -1185,7 +1194,7 @@ switch:
           data:
             node_id: 3
             value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
-            value: "{{ states(scene_contrl_indicator)|int + 8 }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int + 8 }}"
         turn_off:
           service: zwave.set_node_value
           data:

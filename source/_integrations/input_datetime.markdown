@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Input Datetime integration int
 ha_category:
   - Automation
 ha_release: 0.55
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -104,14 +105,13 @@ To set both the date and time in the same call, use `date` and `time` together, 
 
 #### input_datetime.reload
 
-`input_dateteime.reload` service allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
+`input_datetime.reload` service allows one to reload `input_datetime`'s configuration without restarting Home Assistant itself.
 
 ## Examples
 
 The following example shows the usage of the `input_datetime` as a trigger in an
 automation:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 # Turns on bedroom light at the time specified.
@@ -123,13 +123,13 @@ automation:
     service: light.turn_on
     entity_id: light.bedroom
 ```
-{% endraw %}
 
 To dynamically set the `input_datetime` you can call
 `input_datetime.set_datetime`. The values for `date`, `time` and/or `datetime` must be in a certain format for the call to be successful. (See service description above.)
 If you have a `datetime` object you can use its `timestamp` method. Of if you have a timestamp you can just use it directly.
 
 {% raw %}
+
 ```yaml
 # Sets time to 05:30:00
 - service: input_datetime.set_datetime
@@ -169,4 +169,5 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
     entity_id: input_datetime.XXX
     timestamp: "{{ now().timestamp() }}"
 ```
+
 {% endraw %}

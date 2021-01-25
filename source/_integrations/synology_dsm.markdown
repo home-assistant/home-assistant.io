@@ -2,17 +2,19 @@
 title: Synology DSM
 description: Instructions on how to integrate the Synology DSM sensor within Home Assistant.
 ha_category:
+  - Camera
   - System Monitor
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
 ha_codeowners:
-  - '@ProtoThis'
+  - '@hacf-fr'
   - '@Quentame'
+  - '@mib1185'
 ha_config_flow: true
 ---
 
-The `synology_dsm` sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com).
+The `synology_dsm` sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
 
 ## Configuration
 
@@ -49,6 +51,11 @@ ssl:
   required: false
   default: true
   type: boolean
+verify_ssl:
+  description: Determine if SSL-Certificate should be verified.
+  required: false
+  default: false
+  type: boolean
 username:
   description: The account username to connect to the Synology NAS. Using a separate account is advised, see the [Separate User Configuration](#separate-user-configuration) section below for details.
   required: true
@@ -72,9 +79,12 @@ disks:
 
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
+You can change the scan interal within the configuration options (default is 15 min).
+
+Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetch as frequently.
+
 </div>
 
-You can change the scan interal within the configuration options (default is 15 min).
 
 ## Separate User Configuration
 
@@ -112,6 +122,10 @@ Utilisation:
 - `network_up`: Displays total up speed of network interfaces (combines all interfaces).
 - `network_down`: Displays total down speed of network interfaces (combines all interfaces).
 
+Information:
+- `temperature`: Displays the temperature of the NAS.
+- `uptime`: Displays the uptime of the NAS (in seconds).
+
 For each disk:
 - `disk_smart_status`: Displays the S.M.A.R.T status of the disk.
 - `disk_status`: Displays the status of the disk.
@@ -131,6 +145,35 @@ For each volume:
 Security:
 - `security_status`: Displays safe to indicate if the NAS is safe.
 
+Upgrade:
+- `update_available`: Displays on if a DSM update is available.
+
 For each disk:
 - `disk_exceed_bad_sector_thr`: Displays on to indicate if the disk exceeded the maximum bad sector threshold. (Does not work with DSM 5.x)
 - `disk_below_remain_life_thr`: Displays on to indicate if the disk dropped below the remain life threshold. (Does not work with DSM 5.x)
+
+
+## Switch
+- `home_mode`: Displays a toggle to enable/disable the [Surveillance Station](https://www.synology.com/en-us/surveillance) Home mode.
+
+
+## Cameras
+- `{camera_name}`: Displays cameras added in [Surveillance Station](https://www.synology.com/en-us/surveillance).
+
+## Services
+
+### Service `synology_dsm.reboot`
+
+Reboot the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
+
+  | Service data attribute | Required | Description |
+  | ---------------------- | -------- | ----------- |
+  | `serial` | yes, when multiple NAS are configured | serial of DSM |
+
+### Service `synology_dsm.shutdown`
+
+Shutdown the specified NAS by `serial`. If only one DSM is configured, `serial` is optional.
+
+  | Service data attribute | Required | Description |
+  | ---------------------- | -------- | ----------- |
+  | `serial` | yes, when multiple NAS are configured | serial of DSM |

@@ -81,6 +81,7 @@ listen:
 Automations can be triggered on new files created on the Minio server using the `data_template`.
 
 {% raw %}
+
 ```yaml
 #Automatically upload new local files
 automation:
@@ -115,6 +116,7 @@ automation:
       key: "{{trigger.event.data.key}}"
       file_path: "/tmp/{{ trigger.event.data.file_name }}"
 ```
+
 {% endraw %}
 
 ## Platform Services

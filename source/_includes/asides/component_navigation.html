@@ -66,6 +66,12 @@
     </ul>
     </div>
   {%- endif -%}
+
+  {%- unless page.no_toc -%}
+    <div class='section'>
+    <h1 class="title delta">On this page</h1>
+    {% toc %}
+  {%- endunless -%}
 </section>
 
 <script src="https://alerts.home-assistant.io/ce-alert-link.js"></script>

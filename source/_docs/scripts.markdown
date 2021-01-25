@@ -1,7 +1,6 @@
 ---
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
-redirect_from: /getting-started/scripts/
 ---
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
@@ -63,7 +62,9 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 ## Variables
 
-The variable command allows you to set/override variables that will be accessible by templates in actions after it.
+The variables command allows you to set/override variables that will be accessible by templates in actions after it (see also [script variables] for how to define locally available variables).
+
+{% raw %}
 
 ```yaml
 - variables:
@@ -75,6 +76,8 @@ The variable command allows you to set/override variables that will be accessibl
     entity_id: "{{ entities }}"
     brightness: "{{ brightness }}"
 ```
+
+{% endraw %}
 
 ## Test a Condition
 
@@ -138,7 +141,7 @@ When used within an automation the `trigger` variable is available. See [Availab
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the (Time and Date)[/integrations/time_date/] component that will update minutely or daily.
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) component that will update minutely or daily.
 
 {% raw %}
 ```yaml
@@ -175,7 +178,7 @@ With both types of waits it is possible to set a timeout after which the script 
 ```
 {% endraw %}
 
-You can also get the script to abort after the timeout by using optional `continue_on_timeout`.
+You can also get the script to abort after the timeout by using optional `continue_on_timeout: false`.
 
 {% raw %}
 ```yaml
@@ -191,7 +194,7 @@ You can also get the script to abort after the timeout by using optional `contin
 ```
 {% endraw %}
 
-Without `continue_on_timeout` the script will always continue.
+Without `continue_on_timeout: false` the script will always continue since the default for `continue_on_timeout` is `true`.
 
 ### Wait Variable
 
@@ -420,6 +423,7 @@ For example:
   sequence:
     - ...
 ```
+{% endraw %}
 
 ### Repeat Loop Variable
 
@@ -567,3 +571,4 @@ automation:
 [service calls page]: /getting-started/scripts-service-calls/
 [conditions page]: /getting-started/scripts-conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
+[script variables]: /integrations/script/#-configuration-variables

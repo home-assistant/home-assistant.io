@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.7.6
 ha_quality_scale: internal
 ha_domain: manual
+ha_iot_class: Calculated
 ---
 
 The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
@@ -208,6 +209,7 @@ automation:
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status
 
 {% raw %}
+
 ```yaml
 - alias: 'Send notification when alarm is Disarmed'
   trigger:
@@ -219,9 +221,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       data:
         message: "ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}"
 ```
-{% endraw %}
 
-{% raw %}
 ```yaml
 - alias: 'Send notification when alarm is in pending status'
   trigger:
@@ -233,9 +233,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       data:
         message: "ALARM! The alarm is in pending status at {{ states('sensor.date_time') }}"
 ```
-{% endraw %}
 
-{% raw %}
 ```yaml
 - alias: 'Send notification when alarm is Armed in Away mode'
   trigger:
@@ -247,9 +245,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       data:
         message: "ALARM! The alarm is armed in Away mode {{ states('sensor.date_time') }}"
 ```
-{% endraw %}
 
-{% raw %}
 ```yaml
 - alias: 'Send notification when alarm is Armed in Home mode'
   trigger:
@@ -263,4 +259,5 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
         message: >
           ALARM! The alarm is armed in Home mode {{ states('sensor.date_time') }}
 ```
+
 {% endraw %}

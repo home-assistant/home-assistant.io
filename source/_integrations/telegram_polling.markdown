@@ -4,12 +4,14 @@ description: "Telegram polling support"
 ha_category:
   - Notifications
 ha_release: 0.42
+ha_iot_class: Cloud Polling
 ha_domain: telegram_bot
 ---
 
 Telegram chatbot polling implementation.
 
-One of two bot implementations supported by Telegram. Your Home Assistant does not have to be exposed to the internet.
+This is one of two bot implementations supported by Telegram. Your Home Assistant instance does not have to be exposed to the internet.
+The other implementation method is [Telegram webhooks](/integrations/telegram_webhooks/), described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.
 
 ## Configuration
 
@@ -21,13 +23,13 @@ telegram_bot:
   - platform: polling
     api_key: YOUR_API_KEY
     allowed_chat_ids:
-      - 12345
-      - 67890
+      - 123456789 # example id of a user
+      - -987654321  # example id of a group, starts with a -
 ```
 
 {% configuration %}
 allowed_chat_ids:
-  description: A list of users in the `user_id` Telegram format that are authorized to interact with the webhook.
+  description: A list of ids representing the users and group chats that are authorized to interact with the bot.
   required: true
   type: list
 api_key:

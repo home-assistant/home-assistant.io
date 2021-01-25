@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: unifiled
 ---
 
-[UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ubnt.com/) is a system of controller managed LED light panels and dimmers.
+[UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a system of controller managed LED light panels and dimmers.
 
 There is currently support for the following device type within Home Assistant:
 

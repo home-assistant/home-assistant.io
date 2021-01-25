@@ -179,7 +179,7 @@ You can setup the binary motion sensor with the following in your `configuration
 binary_sensor:
   - platform: rest
     name: Kitchen Motion
-    sensor_class: motion
+    device_class: motion
     resource: http://IP_ADDRESS:PORT/sensors.json?sense=motion_active
     value_template: '{{ value_json.motion_active.data[0][1][0] | round(0) }}'
 ```

@@ -203,6 +203,7 @@ unique_id:
 ### Legacy configuration example
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 vacuum:
@@ -241,6 +242,7 @@ vacuum:
       - max
     send_command_topic: 'vacuum/send_command'
 ```
+
 {% endraw %}
 
 ### Legacy MQTT Protocol
@@ -441,7 +443,6 @@ unique_id:
 
 ### State configuration example
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 vacuum:
@@ -469,7 +470,6 @@ vacuum:
       - max
     send_command_topic: 'vacuum/send_command'
 ```
-{% endraw %}
 
 ### State MQTT Protocol
 
