@@ -90,7 +90,7 @@ subtitle_id:
   description: ID of subtitle to be loaded.
   required: false
 enqueue:
-  type: bool
+  type: boolean
   description: If True, enqueue the media instead of play it.
   required: false
 media_info:
