@@ -121,5 +121,5 @@ fan:
         description: List of preset modes the fan is capable of.
         required: false
         type: [string, list]
-        default: []        
+        default: []
 {% endconfiguration %}
