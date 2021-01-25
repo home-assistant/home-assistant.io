@@ -157,23 +157,17 @@ local_ip:
 
 ```yaml
 knx:
-  fire_event: true
-  fire_event_filter: ["1/0/*", "6/2,3,4-6/*"]
+  event_filter: ["1/0/*", "6/2,3,4-6/*"]
 ```
 
 {% configuration %}
-fire_event:
-  description: If set to True, platform will write all received KNX messages to event bus
-  required: inclusive
-  type: boolean
-  default: false
-fire_event_filter:
-  description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the Home Assistant event bus.
-  required: inclusive
+event_filter:
+  description: Defines a list of patterns for filtering KNX group addresses. Telegrams with destination addresses matching this pattern are sent to the Home Assistant event bus as `knx_event`.
+  required: false
   type: [list, string]
 {% endconfiguration %}
 
-Every telegram that matches the filter will be announced on the event bus as a `knx_event` event containing data attributes
+Every telegram that matches the filter with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
 - `data` contains the raw payload data (eg. 1 or "[12, 55]").
 - `destination` the KNX group address the telegram is sent to as string (eg. "1/2/3).
@@ -183,7 +177,9 @@ Every telegram that matches the filter will be announced on the event bus as a `
 
 ## Services
 
-In order to directly interact with the KNX bus, you can use the following service:
+In order to directly interact with the KNX bus, you can use the following services:
+
+### Send
 
 ```txt
 Domain: knx
@@ -203,7 +199,25 @@ type:
   type: [string, integer, float]
 {% endconfiguration %}
 
+### Read
+
 You can also use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of a device.
+
+### Register Event
+
+The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` can not be unregistered. See [knx_event](#events)
+
+{% configuration %}
+address:
+  description: Group address that shall be added or removed.
+  required: true
+  type: string
+remove:
+  description: If `True` the group address will be removed.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ## Exposing entity states, entity attributes or time to KNX bus
 
@@ -238,6 +252,10 @@ knx:
 ```
 
 {% configuration %}
+address:
+  description: Group address state or attribute updates will be sent to. GroupValueRead requests will be answered.
+  type: string
+  required: true
 type:
   description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
   type: string
@@ -258,10 +276,6 @@ default:
   type: [boolean, string, integer, float]
   default: None
   required: false
-address:
-  description: KNX group address.
-  type: string
-  required: true
 {% endconfiguration %}
 
 ## Binary Sensor
