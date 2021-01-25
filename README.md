@@ -21,6 +21,12 @@ https://bundler.io/
 bundle exec rake preview
 ```
 
+If the preview is not running on your local machine, pass the IP of the target machine from where it should be served as a parameter, i.e. to access on [http://192.168.0.123:4000](http://192.168.0.123:4000):
+
+```bash
+bundle exec rake preview[192.168.0.123]
+```
+
 ## Speeding up site generation
 
 Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
