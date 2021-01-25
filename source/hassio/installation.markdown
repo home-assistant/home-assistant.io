@@ -9,9 +9,9 @@ The following will take you through the steps required to install Home Assistant
 
    - As an image for your device:
 
-     - [Raspberry Pi 3 Model B and B+ 32-bit][pi3-32] (32-bit is required for GPIO support)
+     - [Raspberry Pi 3 Model B and B+ 32-bit][pi3-32] 
      - [Raspberry Pi 3 Model B and B+ 64-bit][pi3-64]
-     - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] (32-bit is required for GPIO support)
+     - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] 
      - [Raspberry Pi 4 Model B (1 GB, 2 GB, 4 GB and 8 GB model) 64-bit][pi4-64] (64-bit is required for 8 GB model)
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2], [Odroid-C4][odroid-c4], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
