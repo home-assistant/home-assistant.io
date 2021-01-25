@@ -50,6 +50,10 @@ fan:
           service: script.fan_direction
           data:
             direction: "{{ direction }}"
+        preset_modes:
+          - 'auto'
+          - 'smart'
+          - 'woosh'
 ```
 
 {% endraw %}
