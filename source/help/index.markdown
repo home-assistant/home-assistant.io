@@ -22,6 +22,8 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Issue tracker Home Assistant Frontend](https://github.com/home-assistant/frontend/issues)
 - [Issue tracker Home Assistant Supervisor](https://github.com/home-assistant/supervisor/issues)
 - [Issue tracker Home Assistant Operating System](https://github.com/home-assistant/operating-system/issues)
+- [Issue tracker Home Assistant Android App](https://github.com/home-assistant/android/issues)
+- [Issue tracker Home Assistant iOS App](https://github.com/home-assistant/ios/issues)
 - [Issue tracker website & documentation](https://github.com/home-assistant/home-assistant.io/issues)
 
 ## Videos, talks, workshops and alike
@@ -40,7 +42,6 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Building Online Communities: Home Assistant](https://medium.com/@gitter/building-online-communities-home-assistant-8818dff671ad#.och4x4rhx) - July 2016
 - [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) (Slides) - June 2016
 - [Awaken your home: Python and the Internet of Things](https://www.youtube.com/watch?v=Cfasc9EgbMU&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=1) at PyCon 2016 - June 2016
-- [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
 
 Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
@@ -48,6 +49,9 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Why I use Home Assistant for open source home automation](https://opensource.com/article/20/11/home-assistant) - November 2020
+- [Home Assistant, the Python IoT hub](https://lwn.net/Articles/822350/) - June 2020
+- [Thomas-Krenn-Award 2020: Dino, Teckids und Home Assistant](https://www.thomas-krenn.com/de/tkmag/allgemein/gewinner-thomas-krenn-award-2020/) - June 2020
 - [Magical Smart Home Upgrade Lets Muggles Control Their Homes With a Wand Too](https://gizmodo.com/magical-smart-home-upgrade-lets-muggles-control-their-h-1833941228) - April 2019
 - [Thomas-Krenn-Award 2019 – The winners](https://www.thomas-krenn.com/de/tkmag/tk-insights/thomas-krenn-award-2019-gewinner/) - March 2019
 - [How to set up and use Home Assistant: For Dummies edition](https://www.the-ambient.com/how-to/set-up-use-home-assistant-644) - October 2018

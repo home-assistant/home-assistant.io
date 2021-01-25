@@ -4,6 +4,7 @@ description: Instructions on how to integrate Osram Lightify into Home Assistant
 ha_category:
   - Light
 ha_release: 0.21
+ha_iot_class: Local Polling
 ha_domain: osramlightify
 ---
 

@@ -23,7 +23,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 | Smoke Detector | smoke | JTYJ-GD-01LM/BW | on, off | | | |
 | Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
 | Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
-| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
+| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `hold`, `single`, `double` |
 | Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | on (through long_click_press), off | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `hold` |
 | Button (2nd gen, model b) | sensor_switch.aq3 | WXKG12LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `shake` |
 | Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single` |
@@ -147,7 +147,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     to: 'on'
   action:
     - service: notify.html5
-      data_template:
+      data:
         title: Gas alarm!
         message: 'Gas with a density of {% raw %}{{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }}{% endraw %} detected.'
 ```
@@ -274,7 +274,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
   action:
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
-    data_template:
+    data:
       brightness: {% raw %}>-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
           {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60 >= 10 %}
@@ -296,7 +296,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
   action:
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
-    data_template:
+    data:
       brightness: {% raw %}>-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
           {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60 <= 255 %}

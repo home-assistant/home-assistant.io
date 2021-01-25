@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: demo
+ha_iot_class: Calculated
 ---
 
 The `demo` platform allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/)but combined with your own real/functional platforms.
@@ -22,12 +23,14 @@ Available demo platforms:
 - [Cover](/integrations/cover/) (`cover`)
 - [Fan](/integrations/fan/) (`fan`)
 - [Geolocation](/integrations/geo_location/) (`geo_location`)
+- [Humidifier](/integrations/humidifier/) (`humidifier`)
 - [Image Processing](/integrations/image_processing/) (`image_processing`)
 - [Light](/integrations/light/) (`light`)
 - [Lock](/integrations/lock/) (`lock`)
 - [Mailbox](/integrations/mailbox/) (`mailbox`)
 - [Media Player](/integrations/media_player/) (`media_player`)
 - [Notification](/integrations/notify/) (`notify`)
+- [Number](/integrations/number/) (`number`)
 - [Remote](/integrations/remote/) (`remote`)
 - [Sensor](/integrations/sensor/) (`sensor`)
 - [Switch](/integrations/switch/) (`switch`)

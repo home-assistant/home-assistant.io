@@ -3,7 +3,9 @@ title: SQL
 description: Instructions how to integrate SQL sensors into Home Assistant.
 ha_category:
   - Utility
+  - Sensor
 ha_release: 0.63
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@dgomes'
 ha_domain: sql
@@ -16,7 +18,7 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -84,7 +86,6 @@ The query will look like this:
 SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;
 ```
 
-{% raw %}
 ```yaml
 # Example configuration.yaml
 sensor:
@@ -94,7 +95,6 @@ sensor:
         query: "SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;"
         column: 'state'
 ```
-{% endraw %}
 
 Note that the SQL sensor state corresponds to the last row of the SQL result set.
 
@@ -108,9 +108,10 @@ SELECT * FROM states WHERE entity_id = 'binary_sensor.xyz789' GROUP BY state ORD
 
 ### Database size
 
-#### Database size in Postgres
+#### Postgres
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: sql
@@ -121,6 +122,7 @@ sensor:
         column: "db_size"
         unit_of_measurement: MB
 ```
+
 {% endraw %}
 
 #### MariaDB/MySQL
@@ -128,6 +130,7 @@ sensor:
 Change `table_schema="hass"` to the name that you use as the database name, to ensure that your sensor will work properly.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: sql
@@ -138,4 +141,23 @@ sensor:
         column: 'value'
         unit_of_measurement: kB
 ```
+
+{% endraw %}
+
+#### SQLite
+
+If you are using the `recorder` integration then you don't need to specify the location of the database. For all other cases, add `db_url: sqlite:////path/to/database.db`.
+
+{% raw %}
+
+```yaml
+sensor:
+  - platform: sql
+    queries:
+      - name: DB Size
+        query: 'SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();'
+        column: 'size'
+        unit_of_measurement: 'MiB'
+```
+
 {% endraw %}

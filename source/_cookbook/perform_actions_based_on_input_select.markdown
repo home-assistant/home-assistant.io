@@ -105,7 +105,7 @@ automation:
         to: "None"
     action:
       service: media_player.turn_off
-      data_template:
+      data:
         entity_id: >{% raw %}
             {% if is_state("input_select.radio_player", "Mansarda") %}{% endraw %}
               media_player.bed_2{% raw %}
@@ -129,7 +129,7 @@ automation:
         entity_id: input_select.radio_station
     action:
       - service: media_player.play_media
-        data_template:
+        data:
           entity_id: >{% raw %}
             {% if is_state("input_select.radio_player", "Mansarda") %}{% endraw %}
               media_player.bed_2{% raw %}

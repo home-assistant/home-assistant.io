@@ -22,6 +22,10 @@ There is currently support for the following device types within Home Assistant:
 - Lights
 - Motion sensors (including temperature and light level sensors)
 - Hue switches (as device triggers for automations and also exposed as battery sensors when they are battery-powered)
+  - Hue Dimmer Switch
+  - Hue Tap Switch
+  - Hue Smart Button
+  - Friends of Hue Switch
 
 To set up this integration, click Configuration in the sidebar and then click Integrations. You should see "Philips Hue" in the discovered section (if you do not, click the + icon in the lower right and find Philips Hue). Click configure and you will be presented with the initiation dialog. This will prompt you select the Hue hub to configure and next to press the button on your Hue bridge to register the hub with Home Assistant. After you click submit, you will have the opportunity to select the area that your bridge is located.
 
@@ -63,9 +67,7 @@ More information can be found on the [Philips Hue API documentation](https://www
 
 ## Using Hue Scenes in Home Assistant
 
-The Hue platform has its own concept of scenes for setting the colors of a group of lights simultaneously. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them—many that you've never used, and almost all very poorly named.
-
-To avoid user interface overload, we don't expose scenes directly. Instead there is a `hue.hue_activate_scene` service which can be used in an automation or script.
+The Hue platform has its own concept of scenes for setting the colors of a group of lights simultaneously. A Hue bridge could potentially have dozens of scenes stored on it, and many scenes across different rooms might share the same name (the default scenes, for example). To avoid user interface overload, we don't expose scenes directly. Instead there is a `hue.hue_activate_scene` service which can be used in an automation or script.
 This will have all the bulbs transitioned at once, instead of one at a time like when using standard scenes in Home Assistant.
 
 For instance:

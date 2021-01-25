@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: arcam_fmj
 ---
 
-The `arcam_fmj` integration allows you to control [Arcam FMJ Receveivers](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
+The `arcam_fmj` integration allows you to control [Arcam FMJ Receivers](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
 
 Supported devices:
 

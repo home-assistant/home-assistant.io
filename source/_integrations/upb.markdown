@@ -6,7 +6,7 @@ ha_category:
   - Scene
 ha_release: '0.110'
 ha_config_flow: true
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_codeowners:
   - '@gwww'
 ha_domain: upb
@@ -20,7 +20,7 @@ The UPB integration allows Home Assistant to connect to a Universal Powerline Bu
 
 To add UPB to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Universal Powerline Bus (UPB)**.
 
-The UPB integration requires that an export from the `UPStart` UPB configuration program. To create an export, in `UPStart`, click the UPB button in the top left and select **Export to File**. This will create a file with the `.upe` extension. The file must be placed somewhere in your Home Assistant installation, for example, in the configuration directory.
+The UPB integration requires that an export from the `UPStart` UPB configuration program. To create an export, in `UPStart`, click the UPB button in the top left and select **Export to File**. This will create a file with the `.upe` extension. The file must be placed in the configuration directory of your Home Assistant installation.
 
 ## Device Configuration
 
@@ -181,7 +181,7 @@ Start a scene blinking.
       address: '42_9'
   action:
     service: persistent_notification.create
-    data_template:
+    data:
       title: 'Scene Activated'
       message: >
         Activated scene 9 on network 42: {{trigger.event.data.command}}, {{trigger.event.data.address}}

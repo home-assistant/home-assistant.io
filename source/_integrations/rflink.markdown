@@ -1,9 +1,9 @@
 ---
 title: RFLink
 description: Instructions on how to integrate RFLink gateway into Home Assistant.
-logo: rflink.png
 ha_category:
   - Hub
+ha_iot_class: Assumed State
 ha_release: 0.38
 ha_domain: rflink
 ---

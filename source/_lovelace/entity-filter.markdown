@@ -16,7 +16,7 @@ Screenshot of the entity filter card.
 {% configuration %}
 type:
   required: true
-  description: entity-filter
+  description: "`entity-filter`"
   type: string
 entities:
   required: true
@@ -45,11 +45,11 @@ If you define entities as objects instead of strings (by adding `entity:` before
 {% configuration %}
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 type:
   required: false
-  description: "Sets a custom card type: `custom:my-custom-card`"
+  description: "Sets a custom card type: `custom:my-custom-card`."
   type: string
 name:
   required: false
@@ -92,7 +92,7 @@ attribute:
   type: string
 {% endconfiguration %}
 
-### Examples
+## Examples
 
 Show only active switches or lights in the house.
 

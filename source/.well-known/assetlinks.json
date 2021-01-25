@@ -1,0 +1,38 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.homeassistant.companion.android",
+      "sha256_cert_fingerprints":
+      ["11:19:4B:A8:09:B4:2D:DF:0E:1A:7D:EC:68:42:A5:9C:7F:F1:11:9C:54:82:E9:5F:EB:FF:D5:C6:01:4D:AA:5A"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.homeassistant.companion.android.debug",
+      "sha256_cert_fingerprints":
+      ["11:19:4B:A8:09:B4:2D:DF:0E:1A:7D:EC:68:42:A5:9C:7F:F1:11:9C:54:82:E9:5F:EB:FF:D5:C6:01:4D:AA:5A"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.homeassistant.companion.android.minimal",
+      "sha256_cert_fingerprints":
+      ["11:19:4B:A8:09:B4:2D:DF:0E:1A:7D:EC:68:42:A5:9C:7F:F1:11:9C:54:82:E9:5F:EB:FF:D5:C6:01:4D:AA:5A"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.homeassistant.companion.android.minimal.debug",
+      "sha256_cert_fingerprints":
+      ["11:19:4B:A8:09:B4:2D:DF:0E:1A:7D:EC:68:42:A5:9C:7F:F1:11:9C:54:82:E9:5F:EB:FF:D5:C6:01:4D:AA:5A"]
+    }
+  }
+]

@@ -8,6 +8,7 @@ ha_release: 0.9
 ha_iot_class: Configurable
 ha_codeowners:
   - '@fabaff'
+  - '@mdegat01'
 ha_domain: influxdb
 ---
 
@@ -96,14 +97,24 @@ max_retries:
   description: Set this to allow the integration to retry if there was a network error when transmitting data.
   required: false
   default: 0
+precision:
+  type: string
+  description: Set this to specify the time precision sent to influxdb. Setting a coarser precision allows InfluxDb to compress your data better. If not set, defaults to ns.
+  required: false
+  default: ns
+measurement_attr:
+  type: string
+  description: "State object attribute(s) to use as measurement name. Possible values: `unit_of_measurement`, `domain__device_class` or `entity_id`."
+  required: false
+  default: unit_of_measurement
 default_measurement:
   type: string
-  description: Measurement name to use when an entity doesn't have a unit. 
+  description: Measurement name to use when the measurement_attr state attribute does not exist, e.g. when an entity doesn't have a unit. 
   required: false
   default: uses the entity id of the entity
 override_measurement:
   type: string
-  description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
+  description: Measurement name to use instead of measurement_attr or default measurement. This will store all data points in a single measurement.
   required: false
 exclude:
   type: list
@@ -116,7 +127,7 @@ exclude:
       required: false
     entity_globs:
       type: [string, list]
-      description: Include all entities matching a listed pattern.
+      description: Exclude all entities matching a listed pattern.
       required: false
     domains:
       type: [string, list]
@@ -133,7 +144,7 @@ include:
       required: false
     entity_globs:
       type: [string, list]
-      description: Exclude all entities matching a listed pattern.
+      description: Include all entities matching a listed pattern.
       required: false
     domains:
       type: [string, list]
@@ -148,6 +159,10 @@ tags_attributes:
   description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
   required: false
   default: 0
+ignore_attributes:
+  type: [string, list]
+  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB.
+  required: false
 component_config:
   type: string
   required: false
@@ -156,6 +171,10 @@ component_config:
     override_measurement:
       type: string
       description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
+      required: false
+    ignore_attributes:
+      type: [string, list]
+      description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
       required: false
 component_config_domain:
   type: string
@@ -166,6 +185,10 @@ component_config_domain:
       type: string
       description: Measurement name to use instead of a unit or default measurement. This will store all data points in a single measurement.
       required: false
+    ignore_attributes:
+      type: [string, list]
+      description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
+      required: false
 component_config_glob: 
   type: string
   required: false
@@ -175,13 +198,15 @@ component_config_glob:
       type: string
       description: Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
+    ignore_attributes:
+      type: [string, list]
+      description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
+      required: false
 {% endconfiguration %}
 
 ## Configure Filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `InfluxDB`, you can use the `include` and `exclude` parameters.
-
-{% raw %}
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -196,8 +221,6 @@ influxdb:
     entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -326,7 +349,7 @@ sensor:
         name: "Mean humidity reported from past day"
         query: >
           filter(fn: (r) => r._field == "value" and r.domain == "sensor" and strings.containsStr(v: r.entity_id, substr: "humidity"))
-          |> keep(columns: ["_value"])\n"
+          |> keep(columns: ["_value"])
         range_start: "-1d"
 ```
 
@@ -541,3 +564,33 @@ sensor:
 Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
 
 This is a lot more tables compared to 1.xx queries, where you essentially had one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors though. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
+
+## Querying your data in Influx
+
+### Sensors
+
+For sensors with a unit of measurement defined the unit of measurement is used as the measurement name and entries are tagged with the second part of the `entity_id`. Therefore you need to add a WHERE clause to the query to filter out values. 
+
+For example a query on a `%` battery for `sensor.multi_sensor_battery_level`:
+
+```sql
+SELECT * FROM "%" WHERE time > now() - 12h AND "entity_id" = 'multi_sensor_battery_level';
+```
+
+Or for temperatures represented in `°C`:
+
+```sql
+SELECT * FROM "°C" WHERE time > now() - 1h;
+```
+
+### Everything else
+
+Everything else can be queried using the `entity_id` as its measurement name.
+
+```sql
+SELECT * FROM "binary_sensor.front_doorbell" WHERE time > now() - 24h;
+```
+
+```sql
+SELECT "temperature" FROM "climate.kitchen" WHERE time > now() - 24h;
+```

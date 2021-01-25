@@ -33,7 +33,7 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: The acces token for GitHub.
+  description: The access token for GitHub.
   required: true
   type: string
 branch:

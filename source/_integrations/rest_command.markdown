@@ -71,9 +71,32 @@ service_name:
 
 ## Examples
 
+### Basic example which uses PUT method and payload encoded as form data
+
+This example implements 2 REST commands to add service calls for the missing shuffle functionality of the iTunes integration.
+
+```yaml
+rest_command:
+  shuffle_on: 
+    url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
+    method: put
+    content_type: "application/x-www-form-urlencoded"
+    payload: "mode=songs"
+  shuffle_off: 
+    url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
+    method: put
+    content_type: "application/x-www-form-urlencoded"
+    payload: "mode=off"
+```
+
+### Using templates to change the payload based on entities
+
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
 
+In this example, uses [templates](/docs/configuration/templating/) for dynamic parameters.
+
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 rest_command:
@@ -88,9 +111,10 @@ rest_command:
     content_type:  'application/json; charset=utf-8'
     verify_ssl: true
 ```
+
 {% endraw %}
 
-In this example entry, you can see some simple [templates](/docs/configuration/templating/) in use for dynamic parameters.
+### How to test your new REST command
 
 Call the new service from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
 
@@ -100,7 +124,8 @@ Call the new service from [developer tools](/docs/tools/dev-tools/) in the sideb
   "emoji":":plex:"
 }
 ```
-Or in an example `automation`
+
+### Using a REST command as an action in an automation
 
 ```yaml
 automation:

@@ -1,7 +1,6 @@
 ---
 title: "Automation Actions"
 description: "Automations result in action."
-redirect_from: /getting-started/automation-action/
 ---
 
 The action of an automation rule is what is being executed when a rule fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via services or events. For services you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).
@@ -22,15 +21,18 @@ automation:
       entity_id:
         - light.kitchen
         - light.living_room
+
 automation 2:
   # Notify me on my mobile phone of an event
   trigger:
     platform: sun
     event: sunset
     offset: -00:30
+  variables:
+    notification_service: notify.paulus_iphone
   action:
     # Actions are scripts so can also be a list of actions
-    - service: notify.notify
+    - service: "{{ notification_service }}"
       data:
         message: Beautiful sunset!
     - delay: 0:35
@@ -43,11 +45,11 @@ Conditions can also be part of an action. You can combine multiple service calls
 
 ```yaml
 automation:
-- alias: 'Enciende Despacho'
+- alias: 'Office at evening'
   trigger:
     platform: state
-    entity_id: sensor.mini_despacho
-    to: 'ON'
+    entity_id: sensor.office_occupancy
+    to: 'on'
   action:
     - service: notify.notify
       data:
@@ -57,7 +59,7 @@ automation:
         - condition: template
           value_template: '{% raw %}{{ state_attr('sun.sun', 'elevation') < 4 }}{% endraw %}'
         - condition: template
-          value_template: '{% raw %}{{ states('sensor.sensorluz_7_0') < 10 }}{% endraw %}'
+          value_template: '{% raw %}{{ states('sensor.office_illuminance') < 10 }}{% endraw %}'
     - service: scene.turn_on
-      entity_id: scene.DespiertaDespacho
+      entity_id: scene.office_at_evening
 ```

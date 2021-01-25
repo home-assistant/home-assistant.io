@@ -21,39 +21,6 @@ First, you will need to obtain your thermostat's numeric serial number or ID by 
 
 Once you have the Thermostat ID(s), to add `NuHeat` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **NuHeat**.
 
-Alternatively, add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-nuheat:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  devices: 12345
-
-# Example configuration.yaml entry with multiple thermostats
-nuheat:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  devices:
-    - 12345
-    - 67890
-```
-
-{% configuration %}
-username:
-  description: The username for accessing your MyNuHeat account.
-  required: true
-  type: string
-password:
-  description: The password for accessing your MyNuHeat account.
-  required: true
-  type: string
-devices:
-  description: The serial number/ID of each thermostat you would like to integrate.
-  required: true
-  type: [string, integer]
-{% endconfiguration %}
-
 ## Concepts
 
 The NuHeat Thermostat supports the following key concepts.

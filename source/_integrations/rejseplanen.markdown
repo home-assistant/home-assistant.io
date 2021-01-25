@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.88
 ha_domain: rejseplanen
+ha_codeowners:
+  - '@DarkFox'
 ---
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
@@ -153,11 +155,15 @@ The sensor can filter the timetables by one or more routes, directions and types
 | ------------ | -------------------------------------- |
 | `due_in` | Minutes until departure |
 | `due_at` | Departure date and time |
+| `scheduled_at` | Scheduled departure date and time |
+| `real_time_at` | Real time departure date and time (in cases where it's different from scheduled) |
 | `type` | Transport type |
 | `route` | Route code |
 | `direction` | Destination stop |
+| `final_stop` | Final stop (if departure doesn't go all the way to the destionation stop) |
 | `stop` | Departure stop |
 | `stop_id` | ID of departure stop |
+| `track` | Departure track (if available) |
 | `attribution` | Attribution (required by data source) |
 | `next_departures` | List of further departures |
 
@@ -167,7 +173,11 @@ The sensor can filter the timetables by one or more routes, directions and types
 | ------------ | -------------------------------------- |
 | `due_in` | Minutes until departure |
 | `due_at` | Departure date and time |
+| `scheduled_at` | Scheduled departure date and time |
+| `real_time_at` | Real time departure date and time (in cases where it's different from scheduled) |
 | `type` | Transport type |
 | `route` | Route code |
 | `direction` | Destination stop |
+| `final_stop` | Final stop (if departure doesn't go all the way to the destionation stop) |
 | `stop` | Departure stop |
+| `track` | Departure track (if available) |

@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: script
+ha_iot_class:
 ---
 
 The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via services.
@@ -17,7 +18,7 @@ The `script` integration allows users to specify a sequence of actions to be exe
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 
 {% raw %}
- 
+
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -25,7 +26,7 @@ script:
     sequence:
       # This is Home Assistant Script Syntax
       - service: notify.notify
-        data_template:
+        data:
           message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
 
@@ -51,8 +52,17 @@ description:
   required: false
   default: ''
   type: string
+variables:
+  description: Variables that will be available inside your templates
+  required: false
+  default: {}
+  type: map
+  keys:
+    PARAMETER_NAME:
+      description: The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable.
+      type: any
 fields:
-  description: Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below.
+  description: "Information about the parameters that the script uses; see the [Passing variables to scripts](#passing-variables-to-scripts) section below. Please Note: In order for this description to be displayed in the Services tab of the Developer Tools in Lovelace, the script description must be defined as well."
   required: false
   default: {}
   type: map
@@ -68,15 +78,20 @@ fields:
           description: An example value for PARAMETER_NAME.
           type: string
 mode:
-  description: "Controls what happens when script is run while it is still running from one or more previous invocations. See [Script Modes](#script-modes)."
+  description: "Controls what happens when script is invoked while it is still running from one or more previous invocations. See [Script Modes](#script-modes)."
   required: false
   type: string
-  default: legacy
-queue_size:
-  description: "Controls maximum number of queued runs waiting for previous run to complete. Only valid with `mode: queue`."
+  default: single
+max:
+  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`."
   required: false
   type: integer
   default: 10
+max_exceeded:
+  description: "When `max` is exceeded (which is effectively 1 for `single` mode) a log message will be emitted to indicate this has happened. This option controls the severity level of that log message. See [Log Levels](/integrations/logger/#log-levels) for a list of valid options. Or `silent` may be specified to suppress the message from being emitted."
+  required: false
+  type: string
+  default: warning
 sequence:
   description: The sequence of actions to be performed in the script.
   required: true
@@ -87,26 +102,14 @@ sequence:
 
 Mode | Description
 -|-
-`legacy` | See [below](#legacy-mode).
-`error` | Raise an error. Previous run continues normally.
-`ignore` | Do not start a new run. Previous run continues normally.
-`parallel` | Start a new, independent run in parallel with previous runs which continue normally.
+`single` | Do not start a new run. Issue a warning.
 `restart` | Start a new run after first stopping previous run.
-`queue` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
+`parallel` | Start a new, independent run in parallel with previous runs.
 
 <p class='img'>
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
-
-#### Legacy Mode
-
-<div class='note'>
-
-This mode is deprecated, and a warning to that effect will be issued at startup unless `mode: legacy` is specified.
-
-</div>
-
-This mode maintains the legacy script behavior. That is, the script will run until it executes a `delay` step, or a `wait_template` step (that actually waits), at which point the script will suspend. If the script is run while suspended, it will abort the delay/wait_template and continue immediately to the next step, or finish if there are no more steps. Also, calling a legacy script that is still running (and not suspended) will result in an error.
 
 ### Full Configuration
 
@@ -118,6 +121,8 @@ script: 
     alias: Wake Up
     icon: "mdi:party-popper"
     description: 'Turns on the bedroom lights and then the living room lights after a delay'
+    variables:
+      turn_on_entity: group.living_room
     fields:
       minutes:
         description: 'The amount of time to wait before turning on the living room lights'
@@ -139,11 +144,11 @@ script: 
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
-          minutes: {{ minutes }}
+          minutes: "{{ minutes }}"
       - alias: Living room lights on
         service: light.turn_on
         data:
-          entity_id: group.living_room
+          entity_id: "{{ turn_on_entity }}"
 ```
 
 {% endraw %}
@@ -188,7 +193,7 @@ automation:
       message: 'The light is on!'
 ```
 
-Using the variables in the script requires the use of `data_template`:
+Using the variables in the script requires the use of templates:
 
 ```yaml
 # Example configuration.yaml entry
@@ -207,7 +212,7 @@ script:
         entity_id: switch.pushover_notifications
         state: 'on'
       - service: notify.pushover
-        data_template:
+        data:
           title: "{% raw %}{{ title }}{% endraw %}"
           message: "{% raw %}{{ message }}{% endraw %}"
 ```
@@ -215,16 +220,20 @@ script:
 ### Waiting for Script to Complete
 
 When calling a script "directly" (e.g., `script.NAME`) the calling script will wait for the called script to finish.
+If any errors occur that cause the called script to abort, the calling script will be aborted as well.
 
 When calling a script (or multiple scripts) via the `script.turn_on` service the calling script does _not_ wait. It starts the scripts, in the order listed, and continues as soon as the last script is started.
+Any errors that occur in the called scripts that cause them to abort will _not_ affect the calling script.
 
 <p class='img'>
   <img src='/images/integrations/script/script_wait.jpg'>
 </p>
 
 Following is an example of the calling script not waiting. It performs some other operations while the called script runs "in the background." Then it later waits for the called script to complete via a `wait_template`.
+This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
 {% raw %}
+
 ```yaml
 script:
   script_1:
@@ -239,12 +248,5 @@ script:
     sequence:
       # Do some things at the same time as the first script...
 ```
+
 {% endraw %}
-
-Note that this is only guaranteed to work if the called script uses a non-legacy mode.
-
-### In the Overview
-
-Legacy scripts in the Overview panel will be displayed with an **EXECUTE** button if the script has no `delay:` or `wait_template:` statement, and as a toggle switch if it has either of those. Scripts configured for any other mode than `legacy` will also be displayed with a toggle switch.
-
-This is to enable you to stop a running script.

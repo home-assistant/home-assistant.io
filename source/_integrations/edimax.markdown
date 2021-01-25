@@ -4,6 +4,7 @@ description: Instructions on how to integrate Edimax switches into Home Assistan
 ha_category:
   - Switch
 ha_release: pre 0.7
+ha_iot_class: Local Polling
 ha_domain: edimax
 ---
 
@@ -45,6 +46,7 @@ name:
 Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download/download/data/edimax/global/download/), the Edimax switches can also report the current and accumulated daily power consumption in their state objects. Use a [template sensor](/integrations/template) to extract their values:
 
 {% raw %}
+
 ```yaml
   - platform: template
     sensors:
@@ -58,6 +60,7 @@ Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download
         unit_of_measurement: 'kWh'
         value_template: "{{ state_attr('switch.edimax_smart_plug',  'today_energy_kwh') | replace('None', 0) }}"
 ```
+
 {% endraw %}
 
 Note that if the smart plug is off, these states report the string `None`. By using a `replace()` in the template, these sensors report purely numerical values.

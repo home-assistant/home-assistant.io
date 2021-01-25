@@ -104,8 +104,12 @@ headers:
   description: The headers for the requests.
   required: false
   type: [string, list]
+params:
+  description: The query params for the requests.
+  required: false
+  type: [string, list]  
 json_attributes:
-  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the "text/xml" or "application/xml" content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the "text/xml", "application/xml" or "application/xhtml+xml" content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)
   required: false
   type: [string, list]
 json_attributes_path:
@@ -244,6 +248,7 @@ sensor:
 [JSON Test](https://www.jsontest.com/) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -262,6 +267,7 @@ sensor:
         friendly_name: 'milliseconds'
         value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
 ```
+
 {% endraw %}
 
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath. If the endpoint returns XML, it will be converted to JSON using `xmltodict` before searching for attributes. You may find the [XMLtoDict debug tool](https://xmltodict-debugger.glitch.me/) helpful for testing how your XML converts to JSON.
@@ -287,6 +293,7 @@ sensor:
 This sample fetches a weather report from [OpenWeatherMap](https://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/integrations/template) sensors that monitor the attributes and present the values in a usable form.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -318,11 +325,13 @@ sensor:
         unit_of_measurement: "%"
         entity_id: sensor.owm_report
 ```
+
 {% endraw %}
 
-This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
+This configuration shows how to extract multiple values from a dictionary with `json_attributes` and `template`. This avoids flooding the REST service by only requesting the result once, then creating multiple attributes from that single result using templates. By default, the sensor state would be set to the full JSON — here, that would exceed the 255-character maximum allowed length for the state, so we override that default by using `value_template` to set a static value of `OK`.
 
 {% raw %}
+
 ```json
 {
     "bedroom1": {
@@ -345,9 +354,11 @@ This configuration shows how to extract multiple values from a dictionary with `
     }
 }
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -377,6 +388,7 @@ sensor:
         device_class: temperature
         unit_of_measurement: '°C'
 ```
+
 {% endraw %}
 
 The below example allows shows how to extract multiple values from a dictionary with `json_attributes` and `json_attributes_path` from the XML of a Steamist Steambath Wi-Fi interface and use them to create a switch and multiple sensors without having to poll the endpoint numerous times.

@@ -3,11 +3,13 @@ title: Version
 description: Instructions on how to integrate a version sensor into Home Assistant.
 ha_category:
   - Utility
+  - Sensor
 ha_iot_class: Local Push
 ha_release: 0.52
 ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
+  - '@ludeeus'
 ha_domain: version
 ---
 
@@ -48,7 +50,7 @@ source:
 
 ### Supported images for Home Assistant
 
-`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `raspberrypi4`, `raspberrypi4-64`, `tinker`, `odroid-c2`, `odroid-xu`
+`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `raspberrypi4`, `raspberrypi4-64`, `tinker`, `odroid-c2`, `odroid-n2`, `odroid-xu`
 
 ## Alternatives for showing local version
 
@@ -87,6 +89,7 @@ too,
 but it will not as Home Assistant is not ready when the sensor gets initialized.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -94,4 +97,5 @@ sensor:
     name: Current Version
     value_template: '{{ value_json.version }}'
 ```
+
 {% endraw %}

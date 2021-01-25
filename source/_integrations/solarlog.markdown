@@ -23,45 +23,14 @@ The open JSON interface is deactivated by default. To activate the open JSON int
 
 ## Configuration
 
-There are 2 options in configuring the `solarlog` integration:
-
-- Via the Home Assistant user interface where it will let you enter the name and host to connect to your Solar-Log device.
-- Via the Home Assistant `configuration.yaml` file.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: solarlog
-```
-
-{% configuration %}
-host:
-  description: The IP Address or host address of your Solar-Log device.
-  required: false
-  default: http://solar-log
-  type: string
-name:
-  description: Let you overwrite the name of the device in the frontend.
-  required: false
-  default: solarlog
-  type: string
-{% endconfiguration %}
-
-### Full configuration sample
-
-A full configuration entry would look like the sample below.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: solarlog
-    name: solarlog
-    host: 192.168.1.123
-```
+This integration can be configured via the Home Assistant UI by navigating to
+**Configuration** -> **Integrations**.
+You will have to enter a name that is used as prefix for your sensors and a host to connect to your Solar-Log device.
 
 In case you would like to convert the values, for example, to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry for sensor template platform
 sensor:
@@ -70,6 +39,7 @@ sensor:
       solarlog_yield_day_template:
         value_template: "{{ (states('sensor.solarlog_yield_day') | float * 1000) | round(0) }}"
 ```
+
 {% endraw %}
 
 ## Sensors

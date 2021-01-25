@@ -66,6 +66,7 @@ Depending on what's plugged into your USB ports, the name found above may change
 Some example automations:
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: Notify CallerID
@@ -94,7 +95,8 @@ automation:
       to: "callerid"
     action:
       service: tts.google_say
-      data_template:
+      data:
         message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}'
 ```
+
 {% endraw %}

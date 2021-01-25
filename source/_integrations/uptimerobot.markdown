@@ -32,4 +32,4 @@ api_key:
 
 All the data will be fetched from [Uptime Robot](https://uptimerobot.com).
 
-To get your API key, go to [My Settings](https://uptimerobot.com/dashboard#mySettings) on the Uptime Robot website, at the bottom you will find your "Main API Key".
+To get your API key, go to [My Settings](https://uptimerobot.com/dashboard#mySettings) on the Uptime Robot website, at the bottom you will find your "Read-Only API Key".

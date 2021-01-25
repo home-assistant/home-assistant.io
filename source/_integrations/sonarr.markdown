@@ -16,4 +16,20 @@ The `Sonarr` integration pulls data from a given [Sonarr](https://sonarr.tv/) in
 
 ## Configuration
 
-Go to the integrations page in your configuration and click on new integration -> Sonarr.
+To add Sonarr to Home Assistant, go to **Configuration** -> **Integrations** and click the + button in the bottom right corner. Search for Sonarr and follow the on-screen instructions to complete the setup.
+
+To retrieve your API key, open your Sonarr web interface and navigate to Settings then General tab. Your Sonarr API Key will be listed on this page under the Security section.
+
+## Sensors
+
+The Sonarr integration will add the following sensors:
+
+`sensor.sonarr_upcoming`: The number of upcoming episodes.
+
+The remaining five sensors are disabled by default and can be enabled on the device page.
+
+- `sensor.sonarr_commands`: The number of commands being run.
+- `sensor.sonarr_disk_space`: Available disk space.
+- `sensor.sonarr_queue`: The number of episodes in the queue.
+- `sensor.sonarr_shows`: The number of series in Sonarr.
+- `sensor.sonarr_wanted`: The number of episodes still wanted.

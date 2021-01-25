@@ -11,7 +11,7 @@ ha_release: 0.57
 ha_domain: snmp
 ---
 
-A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
+A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -34,6 +34,7 @@ The following OID examples pull the current MAC Address table from a router. Thi
 | Aruba | IAP325 on AOS 6.5.4.8 | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
 | BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
 | DD-WRT | unknown version/model | `1.3.6.1.2.1.4.22.1.2` |
+| IPFire | 2.25 | `1.3.6.1.2.1.4.22.1.2` |
 | MikroTik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
 | MikroTik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
 | OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
@@ -224,6 +225,7 @@ According to the most common SNMP standard, the uptime of a device is accessible
 To create a sensor that displays the uptime for your printer in minutes, you can use this configuration:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -235,6 +237,7 @@ sensor:
     unit_of_measurement: 'minutes'
     value_template: '{{((value | int) / 6000) | int}}'
 ```
+
 {% endraw %}
 
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.

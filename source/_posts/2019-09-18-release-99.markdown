@@ -254,7 +254,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
   ([@SukramJ] - [#26449]) ([homematicip_cloud docs])
 
-- **Linky** - This platform has been moved to an integration. - ([@Quentame] - [#26076]) ([linky docs])
+- **Linky** - This platform has been moved to an integration. - ([@Quentame] - [#26076])
 
   New example configuration entry:
 
@@ -371,7 +371,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - IGN Sismologia icon for geolocation entities ([@exxamalte] - [#26408]) ([ign_sismologia docs])
 - Migrate legacy typehints in core to PEP-526 ([@frenck] - [#26403]) ([device_tracker docs])
 - Add X10 devices as ISY994 switches ([@taylorsilva] - [#26342]) ([isy994 docs])
-- Add config flow to linky ([@Quentame] - [#26076]) ([linky docs]) (breaking change)
+- Add config flow to linky ([@Quentame] - [#26076]) (breaking change)
 - Correct file permissions in slide integration ([@frenck] - [#26390]) ([slide docs])
 - Use literal string interpolation in honeywell ([@zxdavb] - [#26386]) ([honeywell docs])
 - Initial commit ([@zxdavb] - [#26385]) ([geniushub docs])
@@ -397,7 +397,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Unify device_state_attributes handling for Homematic IP Cloud ([@SukramJ] - [#26449]) ([homematicip_cloud docs]) (breaking change)
 - Add yeelight nightlight support via separate light entity ([@zewelor] - [#26224]) ([yeelight docs])
 - Add set scene service calls to yeelight ([@zewelor] - [#26255]) ([yeelight docs])
-- Add device_info to Linky integration ([@Quentame] - [#26477]) ([linky docs])
+- Add device_info to Linky integration ([@Quentame] - [#26477])
 - Update radiotherm climate attributes ([@dieselrabbit] - [#26465]) ([radiotherm docs]) (breaking change)
 - Add Viessmann ViCare Climate platform ([@oischinger] - [#26151]) ([vicare docs]) (new-integration)
 - Add new integration for Jandy iAqualink pool control ([@flz] - [#26034]) ([iaqualink docs]) (new-integration)

@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@rohankapoorcom'
-  - '@rngrbm87'
+  - '@engrbm87'
 ha_domain: speedtestdotnet
 ---
 
@@ -101,6 +101,7 @@ speedtestdotnet:
 ### Using as a trigger in an automation
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -118,6 +119,7 @@ automation:
     action:
       - service: shell_command.red
 ```
+
 {% endraw %}
 
 ## Notes

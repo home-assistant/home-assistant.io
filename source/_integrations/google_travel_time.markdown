@@ -5,8 +5,6 @@ ha_category:
   - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.19
-ha_codeowners:
-  - '@robbiet480'
 ha_domain: google_travel_time
 ---
 

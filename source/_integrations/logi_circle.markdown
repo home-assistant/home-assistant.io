@@ -32,7 +32,7 @@ The `logi_circle` implementation allows you to integrate your [Logi Circle](http
  * At the time you submit your request to Logitech, you need to demonstrate that you have exclusive control of the fully qualified domain name in your redirect URI. An active Home Assistant instance at the redirect URI will suffice. If you don't want to expose your Home Assistant instance publicly, you may also place a static page at the redirect URI with a short message that you will manage redirection of the authorization token to your local Home Assistant instance. Free static hosts that issue subdomains for hosting (e.g., Netlify) are permitted.
  * As the redirect URI must be public facing, no local/reserved TLDs are permitted (eg. .local, .localhost, .example, etc. are not allowed).
 
-Please note that the turn-around time for API access takes a few business days after which you will be contacted by Logitech using the email address you provided in the form.
+Please note that the turn-around time for API access takes up to a month after which you will be contacted by Logitech using the email address you provided in the form.
 
 ## Configuration
 
@@ -61,7 +61,7 @@ api_key:
   required: true
   type: string
 redirect_uri:
-  description: > 
+  description: >
     The redirect URI that corresponds to your Home Assistant instance.
     It must match one of the redirect URIs specified when you requested API
     access from Logitech.
@@ -136,7 +136,7 @@ Initiates a recording of the camera's live stream.
 | `filename `            |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/recording_{{ entity_id }}.mp4`{% endraw %}. |
 | `duration`             |      no  | Duration of recording, in seconds.
 
-The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
 ### Service `logi_circle.livestream_snapshot`
 
@@ -149,7 +149,7 @@ Please note that new snapshots will only be generated if the cached snapshot is 
 | `entity_id`            |      yes | Name(s) of entities to create a live stream snapshot from, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
 | `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}.jpg`{% endraw %}. |
 
-The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
 ### Service `logi_circle.set_config`
 

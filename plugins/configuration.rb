@@ -5,12 +5,16 @@ module Jekyll
       'device_class' => '/docs/configuration/customizing-devices/#device-class',
       'template'     => '/docs/configuration/templating/',
       'icon'         => '/docs/configuration/customizing-devices/#icon',
+      'selector'     => '/docs/blueprint/selectors/',
     }
 
     TYPES = [
       'action', 'boolean', 'string', 'integer', 'float', 'time', 'template',
-      'device_class', 'icon', 'map', 'list', 'date', 'datetime'
+      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'any',
+      'selector',
     ]
+
+    MIN_DEFAULT_LENGTH = 30
 
     def initialize(tag_name, text, tokens)
       super
@@ -55,13 +59,12 @@ module Jekyll
 
     def render_config_vars(vars:, component:, platform:, converter:, classes: nil, parent_type: nil)
       result = Array.new
-      result << "<dl class='#{classes}'>"
+      result << "<div class='#{classes}'>"
 
       result << vars.map do |key, attr|
         markup = Array.new
-        markup << "<dt><a class='title-link' name='#{slug(key)}' href='\##{slug(key)}'></a> #{key}</dt>"
-        markup << "<dd>"
-        markup << "<p class='desc'>"
+        # There are spaces around the "{key}", to improve double-click selection in Chrome.
+        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'> #{key} </span>"
 
         if attr.key? 'type'
 
@@ -78,14 +81,23 @@ module Jekyll
               TYPES.include? attr['type']
           end
 
-          markup << "<span class='type'>(<span class='#{type_class(attr['type'])}'>"
-          markup << "#{type_link(attr['type'], component: component)}</span>)</span>"
+          markup << "<span class='config-vars-type'>#{type_link(attr['type'], component: component)}</span>"
         else
           # Type is missing, which is required (unless we are in a list or template)
           raise ArgumentError, "Configuration key '#{key}' is missing a type definition" \
             unless ['list', 'template'].include? parent_type
         end
 
+        defaultValue = ""
+        isDefault = false
+        if attr.key? 'default' and not attr['default'].to_s.empty? 
+          isDefault = true
+          defaultValue = converter.convert(attr['default'].to_s)
+        elsif attr['type'].to_s.include? 'boolean'
+          # If the type is a boolean, a default key is required
+          raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
+            " therefore, requires a default."
+        end
         
         if attr.key? 'required'
           # Check if required is a valid value
@@ -93,41 +105,48 @@ module Jekyll
             "true, false, inclusive or exclusive."\
             unless [true, false, 'inclusive', 'exclusive'].include? attr['required']
 
-          markup << "<span class='required'>(#{required_value(attr['required'])})</span>"
+          isTrue = attr['required'].to_s == 'true'
+          startSymbol = isTrue ? ' ' : ' ('
+          endSymbol = isTrue ? '' : ')'
+          showDefault = isDefault && (defaultValue.length <= MIN_DEFAULT_LENGTH)
+          shortDefaultValue = ""
+          if showDefault
+            shortDefaultValue = defaultValue
+            shortDefaultValue.slice!("<p>")
+            shortDefaultValue.slice!("</p>")
+            shortDefaultValue = shortDefaultValue.strip
+            shortDefaultValue = ", default: " + shortDefaultValue
+          end
+
+          markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required'].to_s}'>#{required_value(attr['required'])}</span><span class='default'>#{shortDefaultValue}</span>#{endSymbol}</span>"
         end
 
+        markup << "</div><div class='config-vars-description-and-children'>"
+
         if attr.key? 'description'
-          markup << "<span class='description'>#{converter.convert(attr['description'].to_s)}</span>"
+          markup << "<span class='config-vars-description'>#{converter.convert(attr['description'].to_s)}</span>"
         else
           # Description is missing
           raise ArgumentError, "Configuration key '#{key}' is missing a description."
         end
-        markup << "</p>"
 
-        if attr.key? 'default' and not attr['default'].to_s.empty?
-          markup << "<p class='default'>\nDefault value: #{converter.convert(attr['default'].to_s)}</p>"
-        elsif attr['type'].to_s.include? 'boolean'
-          # Is the type is a boolean, a default key is required
-          raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
-            " therefore, requires a default."
+        if isDefault && defaultValue.length > MIN_DEFAULT_LENGTH
+          markup << "<div class='config-vars-default'>\nDefault: #{defaultValue}</div>"
         end
-
-        markup << "</dd>"
+        markup << "</div>"
 
         # Check for nested configuration variables
         if attr.key? 'keys'
-          markup << "<dd>"
           markup << render_config_vars(
             vars: attr['keys'], component: component,
             platform: platform, converter: converter,
             classes: 'nested', parent_type: attr['type'])
-          markup << "</dd>"
         end
 
-        markup
+        markup << "</div>"
       end
 
-      result << "</dl>"
+      result << "</div>"
       result.join
     end
 

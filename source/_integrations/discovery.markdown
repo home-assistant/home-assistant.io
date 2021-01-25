@@ -4,6 +4,7 @@ description: Instructions on how to setup Home Assistant to discover new devices
 ha_category:
   - Other
 ha_release: 0.7
+ha_iot_class:
 ha_quality_scale: internal
 ha_domain: discovery
 ---
@@ -22,7 +23,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Logitech Harmony Hub](/integrations/harmony)
  * [Logitech Media Server (Squeezebox)](/integrations/squeezebox)
  * [NETGEAR routers](/integrations/netgear)
- * [Panasonic Viera](/integrations/panasonic_viera)
  * [Philips Hue](/integrations/hue)
  * [SABnzbd downloader](/integrations/sabnzbd)
  * [Samsung SyncThru Printer](/integrations/syncthru)
@@ -79,7 +79,6 @@ Valid values for ignore are:
  * `netgear_router`: NETGEAR routers
  * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome
- * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer
@@ -115,7 +114,7 @@ mDNS forwarding is a configurable option in some routers. It can also be called 
 ### Windows
 
 #### 64-bit Python
-There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this integration on a 64-bit version of Python and Windows.
+There is currently a <a href='https://web.archive.org/web/20200623234241/https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this integration on a 64-bit version of Python and Windows.
 
 ### Could not install dependency netdisco
 

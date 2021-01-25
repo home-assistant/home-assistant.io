@@ -3,6 +3,7 @@ title: Signal Messenger
 description: Instructions on how to integrate Signal Messenger within Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.104
 ha_codeowners:
   - '@bbernhard'
@@ -63,7 +64,7 @@ recipients:
 
 ## Examples
 
-A few examples on how to use this integration.
+A few examples on how to use this integration as actions in automations.
 
 ### Text message
 

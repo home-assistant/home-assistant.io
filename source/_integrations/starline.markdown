@@ -16,7 +16,7 @@ ha_codeowners:
 ha_domain: starline
 ---
 
-The `starline` integration lets you retrieve data of your StarLine security system from the StarLine portal. You will need a working StarLine account.
+The `starline` integration lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.
 
 This integration provides the following platforms:
 
@@ -69,4 +69,4 @@ The service `starline.set_scan_obd_interval` sets update frequency for OBD infor
 
 ## Disclaimer
 
-This software is not affiliated with or endorsed by StarLine Company.
+This software is not affiliated with or endorsed by ScPA StarLine Ltd.

@@ -7,7 +7,7 @@ ha_release: 0.29
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
-  - '@ChristianKuehnel'
+  - '@basnijholt'
 ha_domain: miflora
 ---
 
@@ -145,7 +145,7 @@ An automation example to report a battery failure:
     platform: state
     to: unavailable
   action:
-  - data_template:
+  - data:
       message: "Flower 1 moisture is unavailable for more than 24 hours"
     service: notify.notifier_telegram_someone
 ```

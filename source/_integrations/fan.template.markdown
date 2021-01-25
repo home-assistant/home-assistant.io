@@ -10,8 +10,8 @@ ha_domain: template
 ---
 
 The `template` platform creates fans that combine integrations and provides the
-ability to run scripts or invoke services for each of the turn_on, turn_off, set_speed,
-set_oscillating, and set_direction commands of a fan.
+ability to run scripts or invoke services for each of the `turn_on`, `turn_off`, `set_speed`,
+`set_oscillating`, and `set_direction` commands of a fan.
 
 To enable Template Fans in your installation, add the following to your
 `configuration.yaml` file:
@@ -35,15 +35,15 @@ fan:
           service: script.fan_off
         set_speed:
           service: script.fan_speed
-          data_template:
+          data:
             speed: "{{ speed }}"
         set_oscillating:
           service: script.fan_oscillating
-          data_template:
+          data:
             oscillating: "{{ oscillating }}"
         set_direction:
           service: script.fan_direction
-          data_template:
+          data:
             direction: "{{ direction }}"
         speeds:
           - '1'
@@ -63,8 +63,12 @@ fan:
         description: Name to use in the frontend.
         required: false
         type: string
+      unique_id:
+        description: An ID that uniquely identifies this fan. Set this to a unique value to allow customization through the UI.
+        required: false
+        type: string
       value_template:
-        description: "Defines a template to get the state of the fan. Valid value: 'on'/'off'"
+        description: "Defines a template to get the state of the fan. Valid values: `on`, `off`"
         required: true
         type: template
       speed_template:
@@ -72,11 +76,11 @@ fan:
         required: false
         type: template
       oscillating_template:
-        description: "Defines a template to get the osc state of the fan. Valid value: true/false"
+        description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`"
         required: false
         type: template
       direction_template:
-        description: "Defines a template to get the direction of the fan. Valid value: 'forward'/'reverse'"
+        description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`"
         required: false
         type: template
       availability_template:

@@ -1,7 +1,6 @@
 ---
 title: "Securing"
 description: "Instructions on how to secure your Home Assistant installation."
-redirect_from: /getting-started/securing/
 ---
 
 One major advantage of Home Assistant is that it's not dependent on cloud services. Even if you're only using Home Assistant on a local network, you should take steps to secure your instance.

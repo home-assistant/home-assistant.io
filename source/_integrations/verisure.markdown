@@ -12,6 +12,8 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_domain: verisure
+ha_codeowners:
+  - '@frenck'
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
@@ -80,7 +82,7 @@ mouse:
   type: boolean
   default: true
 door_window:
-  description: Set to `true` to show mouse detectors, `false` to disable.
+  description: Set to `true` to show doors and windows, `false` to disable.
   required: false
   type: boolean
   default: true
@@ -103,6 +105,8 @@ The requirement is that you have setup your Verisure hub first, with the instruc
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: Alarm status changed
@@ -111,12 +115,14 @@ automation:
         entity_id: alarm_control_panel.alarm_1
     action:
       - service: notify.notify
-        data_template:
+        data:
           message: >
-            {% raw %}Alarm changed from {{ trigger.from_state.state }}
+            Alarm changed from {{ trigger.from_state.state }}
             to {{ trigger.to_state.state }}
-            by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
+            by {{ trigger.to_state.attributes.changed_by }}
 ```
+
+{% endraw %}
 
 ## Services
 

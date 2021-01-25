@@ -20,27 +20,10 @@ Data measured includes:
 * Current outlook
 * more!
 
-## Configuring the Platform
+## Configuring the Integration
 
-To integrate `iqvia` into Home Assistant, add the following section to your
-`configuration.yaml` file:
-
-```yaml
-iqvia:
-  zip_code: "00544"
-```
-
-{% configuration %}
-zip_code:
-  description: The U.S. ZIP code to gather data for (as a quoted string).
-  required: true
-  type: string
-{% endconfiguration %}
-
-<div class='note warning'>
-It is important to ensure the ZIP code is quoted if it starts with a 0. Unquoted
-ZIP codes that start with 0 will cause errors.
-</div>
+This integration can be configured via the Home Assistant UI by navigating to
+**Configuration** -> **Integrations**.
 
 ## Understanding the Indices
 

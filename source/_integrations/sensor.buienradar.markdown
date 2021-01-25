@@ -97,9 +97,9 @@ monitored_conditions:
     irradiance:
       description: "Sun intensity in Watt per square meter ([W/m2](https://en.wikipedia.org/wiki/W/m2))."
     rainlast24hour:
-      description: The rail over the last 24 hours (in mm).
+      description: The rain over the last 24 hours (in mm).
     rainlasthour:
-      description: The rail over the last hour (in mm). 
+      description: The rain over the last hour (in mm). 
     temperature_1d:
       description: "The forecasted temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     mintemp_1d:

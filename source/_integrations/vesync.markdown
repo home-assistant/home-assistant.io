@@ -1,23 +1,27 @@
 ---
-title: Etekcity VeSync
-description: Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant.
+title: VeSync
+description: Instructions on how to set up VeSync switches, outlets, and fans within Home Assistant.
 ha_category:
   - Switch
+  - Fan
 ha_release: 0.66
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@markperdue'
   - '@webdjoe'
+  - '@thegardenmonkey'
 ha_domain: vesync
 ---
 
-The `vesync` integration enables you to control Etekcity smart switches and outlets connected to the VeSync App.
+The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.
 
 The devices must be added to the VeSync App before this integration can discover them.
 
 The following platforms are supported:
 
 - **switch**
+- **fan**
 
 ## Supported Devices
 
@@ -34,6 +38,10 @@ This integration supports devices controllable by the VeSync App.  The following
 ### Switches
 
 - Etekcity In Wall Smart Switch (EWSL01-USA)
+
+### Fans
+
+- LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
 ## Configuration
 
@@ -76,6 +84,20 @@ VeSync outlets will expose the following details for only the smart outlets. Ene
 | `monthly_energy_total`  | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30           |
 | `yearly_energy_total`   | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25          |
 
+## Fan Exposed Attributes
+
+VeSync air purifiers will expose the following details.
+
+| Attribute               | Description                                                             | Example         |
+| ----------------------- | ----------------------------------------------------------------------- | --------------- |
+| `mode`                  | The current mode the device is in.                                      | manual          |
+| `speed`                 | The current speed setting of the device.                                | high            |
+| `speed_list`            | The available list of speeds supported by the device.                   | high            |
+| `active_time`           | The number of seconds since the device has been in a non-off mode.      | 1598            |
+| `filter_life`           | Remaining percentage of the filter.                                     | 142             |
+| `air_quality`           | The current air quality reading.                                        | excellent       |
+| `screen_status`         | The current status of the screen.                                       | on              |
+
 ## Extracting Attribute data
 
 In order to get the attributes readings from supported devices, such as energy from outlets or fan attributes, you'll have to create a [template sensor](/integrations/switch.template/).
@@ -89,6 +111,7 @@ Adapted from the [TP-Link integration](https://www.home-assistant.io/integration
 ```yaml
 sensor:
   - platform: template
+    sensors:
       vesync_switch_watts:
         friendly_name_template: "{{ states.switch.vesync_switch.name}} Current Consumption"
         value_template: '{{ states.switch.vesync_switch.attributes["current_power_w"] | float }}'

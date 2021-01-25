@@ -13,6 +13,12 @@ ha_codeowners:
 
 `iammeter` provides real-time readings of single-phase (WEM3080, WEM3162) and three-phase (WEM3080T) meters from [IAMMETER](https://www.iammeter.com) over Wi-Fi.
 
+Example Lovelace Dashboard:
+
+<p class='img'>
+  <img src='/images/integrations/iammeter/demo.jpg' />
+</p>
+
 ## Configuration
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:

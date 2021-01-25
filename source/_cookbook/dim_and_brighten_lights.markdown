@@ -6,7 +6,9 @@ ha_category: Automation Examples
 
 This requires both a dimmable light, and a Z-Wave remote control that sends one scene when a button is held, and another when released. This ensures that the scripts (which follow) are stopped, avoiding the risks of a script that never ends.
 
-In the following automation, replace `zwave.YOUR_REMOTE` with the actual entity ID of your controller. For the controller this was written for scene ID 13 was sent when the up button was held, and 15 when released. Similarly, scene 14 when the down button was held, and 16 when released. You'll need to use the scene IDs that are sent by your remote if different.
+In the following automations, replace `zwave.YOUR_REMOTE` with the actual entity ID of your controller, and `light.YOUR_LIGHT` with the actual entity ID of your light.
+
+For the controller this was written for scene ID 13 was sent when the up button was held, and 15 when released. Similarly, scene 14 when the down button was held, and 16 when released. You'll need to use the scene IDs that are sent by your remote if different.
 
 ```yaml
 automation: 
@@ -21,24 +23,11 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_on
+        entity_id: script.ramp_light
         data:
-          entity_id: script.light_bright
-
-  - alias: 'Stop the bright just there'
-    initial_state: 'on'
-    trigger:
-      - platform: event
-        event_type: zwave.scene_activated
-        event_data:
-          scene_id: 15
-          entity_id: zwave.YOUR_REMOTE
-    action:
-      - service: script.turn_off
-        data:
-          entity_id: script.light_bright
-      - service: script.turn_off
-        data:
-          entity_id: script.light_bright_pause
+          variables:
+            direction: up
+            light: light.YOUR_LIGHT
 
   - alias: 'Make the lights go dim'
     initial_state: 'on'
@@ -50,12 +39,20 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_on
+        entity_id: script.ramp_light
         data:
-          entity_id: script.light_dim
+          variables:
+            direction: down
+            light: light.YOUR_LIGHT
 
-  - alias: 'Stop the dim just there'
+  - alias: 'Stop the light just there'
     initial_state: 'on'
     trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          scene_id: 15
+          entity_id: zwave.YOUR_REMOTE
       - platform: event
         event_type: zwave.scene_activated
         event_data:
@@ -63,16 +60,15 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_off
-        data:
-          entity_id: script.light_dim
-      - service: script.turn_off
-        data:
-          entity_id: script.light_dim_pause
+        entity_id: script.ramp_light
 ```
 
-There are 2 variables that control the speed of the change for the scripts below. The first is the `step`, small steps create a smooth transition. The second is the delay, larger delays will create a slower transition.
+There are two variables that control the speed of the change for the script below. The first is the step -- small steps create a smooth transition. The second is the delay -- larger delays will create a slower transition.
+Please note that some lights do not update their new brightness attribute very quickly, so make sure to use a large enough delay for your particular light.
 
-To allow flexibility, an [Input Number](/integrations/input_number/) is used for the step (at the time of writing this, it's not possible to template the delay when the delay uses milliseconds). Two additional [Input Numbers](/integrations/input_number/) are used to set the minimum and maximum brightness, so that it's easy to tune that (or manage it through an automation).
+There are two other variables that control the minimum and maximum brightness levels at which to stop the script.
+
+To allow flexibility all four variables are controlled by [Input Number](/integrations/input_number/) entities so that it's easy to tune (or manage through an automation).
 
 ```yaml
 input_number:
@@ -89,79 +85,63 @@ input_number:
     min: 1
     max: 255
     step: 1
-    
+
   light_maximum:
     name: 'No brighter than this'
     initial: 255
     min: 50
     max: 255
     step: 1
+
+  light_delay_ms:
+    name: 'Step the lights this often (ms)'
+    initial: 500
+    min: 100
+    max: 5000
+    step: 100
 ```
 
-Now the scripts. There are 2 pairs of scripts. The first steps the light brighter to the maximum and the second provides the delay. These call each other until both are stopped. The second pair does the same for dimming.
+Now the script.
 
+{% raw %}
 ```yaml
-# Replace YOURLIGHT with the actual light entity
 script:
-    light_bright:
-      sequence:
-        - service: light.turn_on
-          data_template:
-            entity_id: light.YOUR_LIGHT
-            brightness: >-
-              {% raw %}{% set current = state_attr('light.YOUR_LIGHT', 'brightness')|default(0)|int %}
-              {% set step = states('input_number.light_step')|int %}
-              {% set next = current + step %}
-              {% if next > states('input_number.light_maximum')|int %}
-                {% set next = states('input_number.light_maximum')|int %}
-              {% endif %}
-              {{ next }}{% endraw %}
-
-        - service_template: >
-            {% raw %}{% if state_attr('light.YOUR_LIGHT', 'brightness')|default(0)|int < states('input_number.light_maximum')|int %}
-              script.turn_on
-            {% else %}
-              script.turn_off
-            {% endif %}{% endraw %}
-          data:
-            entity_id: script.light_bright_pause
-        
-    light_bright_pause:
-      sequence:
-        - delay:
-            milliseconds: 1
-        - service: script.turn_on
-          data:
-            entity_id: script.light_bright
-
-    light_dim:
-      sequence:
-        - service: light.turn_on
-          data_template:
-            entity_id: light.YOUR_LIGHT
-            brightness: >-
-              {% raw %}{% set current = state_attr('light.YOUR_LIGHT', 'brightness')|default(0)|int %}
-              {% set step = states('input_number.light_step')|int %}
-              {% set next = current - step %}
-              {% if next < states('input_number.light_minimum')|int %}
-                {% set next = states('input_number.light_minimum')|int %}
-              {% endif %}
-              {{ next }}{% endraw %}
-
-        - service_template: >
-            {% raw %}{% if state_attr('light.YOUR_LIGHT', 'brightness')|default(0)|int > states('input_number.light_minimum')|int %}
-              script.turn_on
-            {% else %}
-              script.turn_off
-            {% endif %}{% endraw %}
-          data:
-            entity_id: script.light_dim_pause
-        
-    light_dim_pause:
-      sequence:
-        - delay:
-            milliseconds: 1
-        - service: script.turn_on
-          data:
-            entity_id: script.light_dim
+  ramp_light:
+    alias: Ramp Light Brightness
+    description: Ramp light brightness up or down
+    fields:
+      direction:
+        description: "Direction to change brightness: up or down"
+        example: up
+      light:
+        description: Light entity_id
+        example: light.family_room_lamp
+    mode: restart
+    sequence:
+      - repeat:
+          while:
+            - condition: template
+              value_template: >
+                {% set br = state_attr(light, 'brightness')|int(0) %}
+                {% set mn = states('input_number.light_minimum')|int %}
+                {% set mx = states('input_number.light_maximum')|int %}
+                {{ direction == 'up' and br < mx or
+                   direction == 'down' and br > mn }}
+          sequence:
+            - service: light.turn_on
+              data:
+                entity_id: "{{ light }}"
+                brightness: >
+                  {% set br = state_attr(light, 'brightness')|int(0) %}
+                  {% set mn = states('input_number.light_minimum')|int %}
+                  {% set mx = states('input_number.light_maximum')|int %}
+                  {% set st = states('input_number.light_step')|int %}
+                  {% if direction == 'up' %}
+                    {{ [br + st, mx]|min }}
+                  {% else %}
+                    {{ [br - st, mn]|max }}
+                  {% endif %}
+            - delay:
+                milliseconds: "{{ states('input_number.light_delay_ms')|int }}"
 ```
+{% endraw %}

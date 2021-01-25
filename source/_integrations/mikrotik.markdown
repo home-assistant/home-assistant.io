@@ -9,6 +9,7 @@ ha_codeowners:
   - '@engrbm87'
 ha_config_flow: true
 ha_domain: mikrotik
+ha_iot_class: Local Polling
 ---
 
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.

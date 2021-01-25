@@ -6,7 +6,6 @@ ha_category:
 ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@robbiet480'
   - '@bieniu'
 ha_domain: braviatv
 ha_config_flow: true
@@ -14,7 +13,7 @@ ha_config_flow: true
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.sony.com/).
 
-Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further [below](#For-TVs-older-than-2013).
+Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further [below](#for-tvs-older-than-2013).
 
 ## Configuration
 
@@ -29,21 +28,21 @@ To ensure a clean re-configuration, please perform the following steps:
 - Ensure that all braviatv entries in `configuration.yaml` have been removed and `bravia.conf` does not exist in your `.homeassistant` folder.
 - Remove the entities you are reconfiguring from Home Assistant.
 - Restart Home Assistant.
-- Perform the [TV does not generate new pin](#TV-does-not-generate-new-pin) steps.
-- Retry [configuration](###Setup-via-the-User-Interface).
+- Perform the [TV does not generate new pin](#tv-does-not-generate-new-pin) steps.
+- Retry [configuration](#configuration).
 
 ### TV does not generate new pin:
 
 If you have previously set up your TV with any Home Assistant instances, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
 
-- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
+- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
 - Reset your TV to factory condition.
 
 ## Configuration using YAML
 
 <div class='note warning'>
 
-New setups via `configuration.yaml` file are currently not be supported.
+New setups via `configuration.yaml` file are currently not supported.
 
 </div>
 

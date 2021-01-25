@@ -44,6 +44,7 @@ port:
 username:
   description: FRITZ!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
   required: false
+  default: admin
   type: string
 password:
   description: FRITZ!Box user's user password. This is required to use the phone book lookup feature.
@@ -85,6 +86,7 @@ sensor:
 This example shows how to send notifications whenever the sensor's state changes. You will get notified both when you receive a call and also when a call is placed.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry.
 automation:
@@ -94,7 +96,7 @@ automation:
         entity_id: sensor.phone
     action:
       - service: notify.notify
-        data_template:
+        data:
           title: "Phone"
           message: >-
             {% if is_state("sensor.phone", "idle") %}
@@ -107,4 +109,5 @@ automation:
               Talking to {{ state_attr('sensor.phone', 'with_name') }} ({{ state_attr('sensor.phone', 'with') }})
             {% endif %}
 ```
+
 {% endraw %}

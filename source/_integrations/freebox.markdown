@@ -79,6 +79,7 @@ To make the Wi-Fi switch and the reboot service working you will have to add "Mo
 
 Only the routers with Freebox OS are supported:
 
+* Freebox V8 also known as Freebox Pop
 * Freebox V7 also known as Freebox Delta
 * Freebox V6 also known as Freebox Revolution
 * Freebox mini 4k

@@ -3,8 +3,12 @@ title: Aurora
 description: Know when auroras might be visible at your location
 ha_category:
   - Environment
+ha_iot_class: Cloud Polling
 ha_release: 0.39
 ha_domain: aurora
+ha_codeowners:
+  - '@djtimca'
+ha_config_flow: true
 ---
 
 The `aurora` platform uses the [NOAA Aurora Forecast](https://www.swpc.noaa.gov/products/aurora-30-minute-forecast) service to let you know if an aurora might be visible at your home location in the next 30 minutes, based off of current solar flare activity.
@@ -15,31 +19,18 @@ You can check the attributes of the sensor to see your exact forecast.
 
 ## Configuration
 
-To add the aurora binary sensor to your installation, add the following to your `configuration.yaml` file:
+To add the aurora binary sensor to your installation, search for the Aurora integration through the Configuration -> Integrations menu.
 
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: aurora
-```
+Enter a name for your Aurora location as well as the longitude and latitude of the location (default to your Home Assistant location).
 
-{% configuration %}
-forecast_threshold:
-  description: Provide your own threshold number above which the sensor will trigger.
-  required: false
-  type: integer
-  default: 75
-name:
-  description: The name of the sensor.
-  required: false
-  type: string
-  default: Aurora Visibility
-{% endconfiguration %}
+Click Submit to add the integration to your environment.
 
-## Full example
+You can configure multiple locations by adding the integration multiple times.
 
-```yaml
-binary_sensor:
-  - platform: aurora
-    forecast_threshold: 50
-```
+## Options
+
+Once installed you can adjust the threshold for this location by clicking on the Options link on the integration.
+
+## Sensors
+
+The integration will add a single binary sensor for each location you configure which will be in the state on when there is a forecast probability of Aurora viewing above your threshold and off when it is below your selected threshold.

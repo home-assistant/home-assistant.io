@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@hunterjm'
+  - '@uvjustin'
 ha_domain: stream
 ---
 
@@ -39,7 +40,7 @@ Both `duration` and `lookback` options are suggestions, but should be consistent
 | `duration`             |      yes | Target recording length (in seconds). Default: 30 |
 | `lookback`             |      yes | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream for `stream_source`. Default: 0 |
 
-The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
 For example, the following action in an automation would take a recording from `rtsp://my.stream.feed:554` and save it to `/config/www`.
 

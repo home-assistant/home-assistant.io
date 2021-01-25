@@ -5,8 +5,6 @@ ha_category:
   - Climate
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@zxdavb'
 ha_domain: honeywell
 ---
 
@@ -14,7 +12,7 @@ The `honeywell` climate platform integrates Home Assistant with _US-based_ [Hone
 
 It uses the [somecomfort](https://github.com/kk7ds/somecomfort) client library. It does not support the home security functionality of TCC.
 
-If your system is compatible with this integration, then you will be able access your it via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
+If your system is compatible with this integration, then you will be able access it via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
 
 ## Configuration
 

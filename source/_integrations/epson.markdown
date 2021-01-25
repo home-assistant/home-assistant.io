@@ -6,13 +6,18 @@ ha_category:
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: epson
+ha_codeowners:
+  - '@pszafer'
+ha_config_flow: true
 ---
 
-The `epson` platform allows you to control a Epson projector from Home
-Assistant.
+The `epson` platform allows you to control a Epson projector from Home Assistant.
 
-To add Epson to your installation,
-add the following to your `configuration.yaml` file:
+To add Epson to your installation go to Integration page and add Epson Projector or configure via `configuration.yaml`.
+
+### Configuration
+
+Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,14 +41,10 @@ name:
   required: false
   type: string
   default: 'EPSON Projector'
-ssl:
-  description: "Enable SSL. **Feature not tested.**"
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
 
-Supported features of Epson projector:
+### Supported features
+
 - turn on/off
 - set input
 - set/get color mode
@@ -51,11 +52,14 @@ Supported features of Epson projector:
 - mute/unmute audio
 - send next/previous track
 
-Supported devices:
+### Supported devices
+
 - Epson projectors supporting ESC/VP21 protocol.
 
-Tested devices:
+### Tested devices
+
 - Epson EH-TW5350
+- Epson EH-TW7000
 
 To make this module work you need to connect your projector to your LAN.
 The best is to use iProjection app by Epson to test if it is working.

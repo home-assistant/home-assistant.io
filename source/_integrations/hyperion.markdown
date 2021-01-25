@@ -4,58 +4,62 @@ description: Instructions on how to integrate Hyperion into Home Assistant.
 ha_category:
   - Light
 ha_release: 0.7.6
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: hyperion
+ha_codeowners:
+  - '@dermotduffy'
+ha_quality_scale: platinum
+ha_config_flow: true
 ---
 
-The `hyperion` platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
+The `hyperion` platform allows you to integrate your
+[Hyperion](https://docs.hyperion-project.org/) into Home Assistant. Hyperion is
+an open source Ambilight implementation which runs on many platforms.
+
+**NOTE**: [Hyperion-NG](https://github.com/hyperion-project/hyperion.ng) is
+supported, the original [discontinued Hyperion](https://github.com/hyperion-project/hyperion) is not supported by
+this integration.
 
 ## Configuration
 
-To use your Hyperion light in your installation, add the following to your `configuration.yaml` file:
+This integration can be configured using the integrations in the
+Home Assistant frontend.
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: hyperion
-    host: IP_ADDRESS
-```
+Menu: **Configuration** -> **Integrations**.
 
-{% configuration %}
-  host:
-    description: The IP address of the device the Hyperion service is running on.
-    required: true
-    type: string
-  port:
-    description: The port used to communicate with the Hyperion service.
-    required: false
-    type: integer
-    default: 19444
-  name:
-    description: The name of the device used in the frontend.
-    required: false
-    type: string
-  priority:
-    description: The priority of the Hyperion instance make sure this is higher then the system prio in hyperion itself.
-    required: false
-    type: integer
-    default: 128
-  hdmi_priority:
-    description: The priority of the HDMI grabber of this Hyperion instance, note that this priority must be higher than all other priorities used for correct behavior.
-    required: false
-    type: integer
-    default: 880
-  default_color:
-    description: The color of the light.
-    required: false
-    type: list
-    default: "[255, 255, 255]"
-  effect_list:
-    description: The list of effects that can be used.
-    required: false
-    type: list
-    default: "['HDMI', 'Cinema brighten lights', 'Cinema dim lights', 'Knight rider', 'Blue mood blobs', 'Cold mood blobs', 'Full color mood blobs', 'Green mood blobs', 'Red mood blobs', 'Warm mood blobs', 'Police Lights Single', 'Police Lights Solid', 'Rainbow mood', 'Rainbow swirl fast', 'Rainbow swirl', 'Random', 'Running dots', 'System Shutdown', 'Snake', 'Sparks Color', 'Sparks', 'Strobe blue', 'Strobe Raspbmc', 'Strobe white', 'Color traces', 'UDP multicast listener', 'UDP listener', 'X-Mas']"
-{% endconfiguration %}
+In most cases, Hyperion servers will be automatically discovered by
+Home Assistant. Those automatically discovered devices are listed
+on the integrations page.
+
+If for some reason Hyperion isn't discovered, it can be added manually.
+
+Click on the `+` sign to add an integration and click on **Hyperion**.
+After completing the configuration flow, the Hyperion integration will be
+available.
+
+### Extra configuration of the integration
+
+All configuration options are offered from the frontend. Choose `Options` under the
+relevant entry on the `Integrations` page.
+
+Options supported:
+- **priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
+
+## Hyperion Instances
+
+This integration supports multiple Hyperion instances running on a single Hyperion
+server. As instances are added/removed on the Hyperion UI, they will automatically be
+added/removed from Home Assistant.
+
+## Effects
+
+The effect list is dynamically pulled from the Hyperion server. The following
+extra effects will be available:
+
+- BOBLIGHTSERVER: Use a Boblight-Server configured in Hyperion.
+- GRABBER: Use a 'Platform Capture' grabber that is configured in Hyperion.
+- V4L: Use a 'USB Capture' V4L device that is configured in Hyperion.
+- Solid: Use a solid color only.
 
 ## Examples
 
@@ -97,7 +101,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
         effect: "Full color mood blobs"
 ```
 
-To capture the screen when playing something of a media_player you can use this example:
+To capture the screen when playing something on a media_player you can use this example:
 
 ```yaml
 - alias: Set hyperion when playback starts
@@ -109,5 +113,5 @@ To capture the screen when playing something of a media_player you can use this 
     - service: light.turn_on
       data:
         entity_id: light.hyperion
-        effect: HDMI
+        effect: V4L
 ```

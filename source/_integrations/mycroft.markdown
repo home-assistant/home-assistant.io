@@ -4,6 +4,7 @@ description: Instructions on how to setup Mycroft AI within Home Assistant.
 ha_category:
   - Voice
   - Notifications
+ha_iot_class: Local Push
 ha_release: 0.53
 ha_domain: mycroft
 ---

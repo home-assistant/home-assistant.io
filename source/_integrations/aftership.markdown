@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: aftership
 ---
 
-The `aftership` platform allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. It is free to use up to 100 tracked packages per month, after that there is a fee.
+The `aftership` platform allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. There is a 'Forever Free' tier which allows tracking of up to 50 packages per month. There are various paid-for tiers after that.
 
 The sensor value shows the number of packages that are not in `Delivered` state. As attributes are the number of packages per status.
 

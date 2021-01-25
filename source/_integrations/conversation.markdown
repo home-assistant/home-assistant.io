@@ -5,6 +5,7 @@ ha_category:
   - Voice
 ha_release: 0.7
 ha_quality_scale: internal
+ha_iot_class: Calculated
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: conversation
@@ -59,12 +60,14 @@ Sentences can contain slots (marked with curly braces: `{name}`) and optional wo
 
 The following configuration can handle the following sentences:
 
- - Change the lights to red
- - Change the lights to green
- - Change the lights to blue
- - Change the lights to the color red
- - Change the lights to the color green
- - Change the lights to the color blue
+- Change the lights to red
+- Change the lights to green
+- Change the lights to blue
+- Change the lights to the color red
+- Change the lights to the color green
+- Change the lights to the color blue
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,20 +75,20 @@ conversation:
   intents:
     ColorLight:
      - Change the lights to [the color] {color}
-{% raw %}
 intent_script:
   ColorLight:
     speech:
       text: Changed the lights to {{ color }}.
     action:
       service: light.turn_on
-      data_template:
+      data:
         rgb_color:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"
           - "{% if color == 'blue' %}255{% else %}0{% endif %}"
-{% endraw %}
 ```
+
+{% endraw %}
 
 #### Service `conversation.process`
 

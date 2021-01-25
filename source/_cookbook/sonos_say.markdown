@@ -14,22 +14,22 @@ script:
     alias: "Sonos TTS script"
     sequence:
      - service: sonos.snapshot
-       data_template:
+       data:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
      - service: sonos.unjoin
-       data_template:
+       data:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
      - service: media_player.volume_set
-       data_template:
+       data:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
          volume_level: {% raw %}"{{ volume }}"{% endraw %}
      - service: tts.voicerss_say
-       data_template:
+       data:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
          message: {% raw %}"{{ message }}"{% endraw %}
      - delay: {% raw %}"{{ delay }}"{% endraw %}
      - service: sonos.restore
-       data_template:
+       data:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
 ```
 

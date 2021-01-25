@@ -47,6 +47,10 @@ lock:
     required: false
     type: string
     default: Template Lock
+  unique_id:
+    description: An ID that uniquely identifies this lock. Set this to a unique value to allow customization through the UI.
+    required: false
+    type: string
   value_template:
     description: Defines a template to set the state of the lock.
     required: true
