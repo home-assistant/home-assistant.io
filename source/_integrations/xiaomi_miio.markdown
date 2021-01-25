@@ -71,6 +71,10 @@ iOS: Most options are still in Chinese, you need the fourth item from the top.
 
 Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
 
+### Windows or macOS
+
+If using an Windows or macOS device to retrieve the Access Token use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token) App.
+
 ### Alternative methods
 
 <div class='note'>
@@ -178,6 +182,10 @@ The information output is:
 - `Model ID`- The model id if it could be determined, this indicates what type of device it is.
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
+
+### Xiaomi Cloud Tokens Extractor
+
+Alternate method to get all yours devices tokens in one run. Please follow this [instruction](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor).
 
 ## Xiaomi Gateway
 

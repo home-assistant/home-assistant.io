@@ -26,7 +26,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 
 ### Create a Spotify application
 
-- Login to [Spotify Developer](https://developer.spotify.com).
+- Login to [Spotify Developer](https://developer.spotify.com) via Dashboard.
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant [configuration file below](#configuration).

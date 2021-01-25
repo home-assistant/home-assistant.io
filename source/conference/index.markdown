@@ -20,10 +20,10 @@ After the talks, attendees will be able to join various sessions about different
 
 ## Watch it back
 
-The conference is over! The live stream of the main stage is available below. All other videos will come online when we have time.
+The conference is over! All talks have been [published online on YouTube](https://www.youtube.com/playlist?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB) and are also embedded below:
 
 <div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/xSB_MuKkgxE?start=231" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLKsVm4cWHDQDGRXnybFUOLlcDWPsroGGB" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 ## Keynotes & Talks schedule

@@ -2,6 +2,7 @@
 title: WiLight
 description: Instructions on how to integrate WiLight devices into Home Assistant.
 ha_category:
+  - Fan
   - Light
 ha_release: 0.115
 ha_config_flow: true
@@ -16,8 +17,25 @@ The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) d
 
 There is currently support for the following device types within Home Assistant:
 
-- Light (WiLight model I-100 and I-102)
+- Fan (WiLight model V-104).
+- Light (WiLight model I-100, I-102 and I-107).
 
 ## Configuration
 
 Supported devices will be discovered automatically by the SSDP protocol. The local network will be scanned for WiLight devices.
+
+## Fan
+
+The `wilight` integration allows you to control your Fans from within Home Assistant.
+
+### Services
+
+There are several services which can be used for automations and control of the fan:
+
+| Service | Description |
+| --------- | ----------- |
+| `set_speed` | Calling this service sets the fan speed (entity_id and speed are required parameters, and speed must be one of the following: low, medium, or high). Calling this service will not turn the fan on.
+| `set_direction` | Calling this service will set the fan direction (entity_id and direction are required parameters, and direction must be one of the following: forward or reverse). Calling this service will turn the fan on.
+| `toggle` | Calling this service will toggle the fan between on and off states (entity_id is required).
+| `turn_off` | Calling this service will turn the fan off (entity_id is required).
+| `turn_on` | Calling this service will turn the fan on and set the speed and direction to the last used ones (defaults to high and forward, entity_id is required).

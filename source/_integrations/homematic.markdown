@@ -203,14 +203,14 @@ This does *not* affect the entities in Home Assistant. They all use their own co
 
 ### Reading attributes of entities
 
-Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) component. Here's an example of a template sensor that exposes the valve state of a thermostat.
+Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) component. Here's an example of a template sensor that exposes the valve position of a thermostat.
 
 ```yaml
 sensor:
 - platform: template
   sensors:
     bedroom_valve:
-      value_template: "{% raw %}{{ state_attr('climate.leq123456', 'valve') }}{% endraw %}"
+      value_template: "{% raw %}{{ state_attr('climate.leq123456', 'level') }}{% endraw %}"
       entity_id: climate.leq123456
       friendly_name: 'Bedroom valve'
 ```
