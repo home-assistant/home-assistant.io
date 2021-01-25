@@ -15,9 +15,9 @@ The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) d
 
 There is currently support for the following device types within Home Assistant:
 
-- Fan (WiLight model V-104)
+- Fan (WiLight model V-104).
 
-- Light (WiLight model I-100, I-102 and I-107)
+- Light (WiLight model I-100, I-102 and I-107).
 
 ## Configuration
 
