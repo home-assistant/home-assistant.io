@@ -82,7 +82,7 @@ subtitles_lang:
   description: Language for subtitles.
   required: false
 subtitles_mime:
-  type :string
+  type: string
   description: Mimetype of subtitles.
   required: false
 subtitle_id:
