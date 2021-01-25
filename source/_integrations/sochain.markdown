@@ -1,7 +1,6 @@
 ---
 title: SoChain
 description: Instructions on how to integrate chain.so data within Home Assistant.
-logo: sochain.png
 ha_category:
   - Finance
 ha_release: 0.61

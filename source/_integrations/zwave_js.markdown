@@ -46,6 +46,8 @@ available.
 
 As this integration is still in the early stages there are some important limitations to be aware of.
 
+- Polling is not currently supported.
+- Garage door controllers (Barrier Operator CC) are not currently supported.
 - You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
 
 ## Services
