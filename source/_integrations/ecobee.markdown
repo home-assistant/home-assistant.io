@@ -205,7 +205,7 @@ Set the humidifier mode.
 
 | Service data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to set the humidifier mode |
+| `entity_id`            | yes      | ecobee thermostat on which to set the humidifier mode |
 | `humidifier_mode`      | no       | Mode to set humidifier (auto, off, or manual).    |
 
 ### Service `ecobee.set_mic_mode`
