@@ -96,5 +96,5 @@ This communication needs to be allowed on your local network. If the blinds are 
 
 `Timeout of 5.0 sec occurred on 5 attempts while waiting on multicast push from update request, communication between gateway and blind might be bad.`
 
-Please make sure the motion gateway and the device running Home Assistant are on the same vlan and multicasting is enabled/allowed by your router.
-If using separate vlan's, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those vlan's (not tested or confirmed to work).
+Please make sure the motion gateway and the device running Home Assistant are on the same VLAN and multicasting is enabled/allowed by your router.
+If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those VLANs (not tested or confirmed to work).
