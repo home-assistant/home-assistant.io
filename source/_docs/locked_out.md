@@ -22,6 +22,7 @@ Connect a keyboard and monitor to your device.
 `auth reset --username existing_user --password new_password`
 
 #### To reset a user's password, as an administrator via the web interface
+
 1. Click "Configuration" in the sidebar.
 2. Scroll down to "Users", and click in to that section.
 3. Click on the user, this should bring up a dialog box.
