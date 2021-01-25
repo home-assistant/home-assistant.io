@@ -131,7 +131,7 @@ The ecobee climate entity has some extra attributes to represent the state of th
 | `equipment_running` | This is a comma-separated list of equipment that is currently running.
 | `fan_min_on_time` | The minimum amount of time (in minutes) that the fan will run per hour. This is determined by the minimum fan runtime setting which can be changed in the ecobee app or on the thermostat itself.
 | `humidifier_mode` | This is only shown if a humidifier is controlled by ecobee and displays the current humidifier mode.
-| `humidifier_modes` | This is only shown if a humidifier is controlled by ecobee and displays the valid humidifier modes: `auto` / `off` / `manual`
+| `humidifier_modes` | This is only shown if a humidifier is controlled by ecobee and displays the valid humidifier modes: `auto` / `off` / `manual`.
 
 ## Services
 
