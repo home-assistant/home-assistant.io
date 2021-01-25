@@ -101,9 +101,11 @@ Within this delay the device registration should be completed in the App, otherw
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Presence Sensor – indoor (*HmIP-SPI*)
+  * Rain Sensor (*HmIP-SRD*)
   * Water Sensor (*HmIP-SWD*)
   * Remote Control - 8x buttons (*HmIP-RC8*) (battery only)
   * Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*) (battery only)
+  * Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*) (battery only)
   * Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*) (battery only)
   * Key Ring Remote Control - 4x buttons (*HmIP-KRC4*) (battery only)
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
@@ -175,6 +177,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Actuator for heating systems – 2x channels (*HmIP-WHS2*)
   * Wired Switch Actuator – 8x channels (*HMIPW-DRS8*)
   * Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
+  * Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
@@ -310,6 +313,7 @@ It's not possible to detect a key press event on these devices at the moment.
   * Wall-mount Remote Control for brand switches - 2x buttons (*HmIP-BRC2*)
   * Motion Detector for 55mm frames - indoor (HmIP-SMI55)(Push button)
   * Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*)
+  * Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*)
   * Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*)
   * Key Ring Remote Control - 4x buttons (*HmIP-KRC4*)
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*)

@@ -99,8 +99,21 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from strict above 17 and strict below 25).
+In the example above, the trigger would fire a single time if a numeric_state goes into to 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
 </div>
+
+Number helpers (`input_number` entities) can be used in the `above` and `below` thresholds, making
+the trigger more dynamic, like:
+
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    # input_number entity id can be specified for above and/or below thresholds
+    above: input_number.temperature_threshold_high
+    below: input_number.temperature_threshold_low
+```
 
 The `for:` can also be specified as `HH:MM:SS` like this:
 

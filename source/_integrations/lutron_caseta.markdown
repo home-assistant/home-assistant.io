@@ -12,6 +12,7 @@ ha_category:
 ha_release: 0.41
 ha_iot_class: Local Push
 ha_domain: lutron_caseta
+ha_config_flow: true
 ha_codeowners:
   - '@swails'
 ---
@@ -28,6 +29,10 @@ The currently supported Caseta and RA2 Select devices are:
 - Lutron shades as [covers](#cover)
 - Lutron smart [fan](#fan) speed control
 - Lutron Occupancy/Vacancy [sensors](#sensor)
+
+If you have physical access to the Lutron Bridge, to add `Lutron Caséta` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Lutron Caséta**.
+
+Alternatively, if you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done manually using the following steps:
 
 When configured, the `lutron_caseta` integration will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
 

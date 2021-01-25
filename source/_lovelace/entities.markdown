@@ -147,10 +147,15 @@ type:
   required: true
   description: "`button`"
   type: string
-name:
-  required: true
-  description: Main label.
+entity:
+  required: false
+  description: "Entity ID. Either `entity` or `name` (or both) needs to be provided."
   type: string
+name:
+  required: false
+  description: "Row label. Either `entity` or `name` (or both) needs to be provided."
+  type: string
+  default: "Friendly name of `entity` if specified."
 icon:
   required: false
   description: An icon to display to the left of the main label.
@@ -214,7 +219,7 @@ entities:
       required: false
       description: If false, the icon is not shown.
       type: boolean
-      default: "true"    
+      default: "true"
     tap_action:
       required: false
       description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
@@ -349,6 +354,68 @@ icon:
   default: "`mdi:link`"
 {% endconfiguration %}
 
+### Buttons
+
+{% configuration %}
+type:
+  required: true
+  description: buttons
+  type: string
+entities:
+  required: true
+  description: A list of entities to show. Each entry is either an entity ID or a map.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: The entity to render.
+      type: string
+    icon:
+      required: false
+      description: Override the entity icon.
+      type: string
+    image:
+      required: false
+      description: Override the entity image.
+      type: string
+    name:
+      required: false
+      description: Label for the button
+      type: string
+{% endconfiguration %}
+
+### Attribute
+
+{% configuration %}
+type:
+  required: true
+  description: attribute
+  type: string
+entity:
+  required: true
+  description: Home Assistant entity ID.
+  type: string
+attribute:
+  required: true
+  description: Attribute to display from the entity.
+  type: string
+prefix:
+  required: false
+  description: Text before entity state.
+  type: string
+suffix:
+  required: false
+  description: Text after entity state.
+  type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
+format:
+  required: false
+  description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  type: string  
+{% endconfiguration %}
 ## Examples
 
 ### Entity rows

@@ -92,11 +92,6 @@ homekit:
         required: false
         type: string
         default: '`bridge`'
-      safe_mode:
-        description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
-        required: false
-        type: boolean
-        default: false
       advertise_ip:
         description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
         required: false
@@ -429,25 +424,6 @@ Filters are applied as follows:
       - If entity is included, pass (as #2 above)
       - If entity include and exclude, the entity exclude is ignored
 
-## Safe Mode
-
-The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Pairing hangs - zeroconf error](#pairing-hangs---zeroconf-error)).
-
-To use `safe_mode`, add the option to your `homekit` configuration:
-
-```yaml
-homekit:
-  safe_mode: true
-```
-
-Restart your Home Assistant instance. If you don't see a `pincode`, follow the [guide](#deleting-the-homekitstate-file) here. Now you should be able to pair normally.
-
-<div class="note warning">
-
-To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your configuration and restart Home Assistant.
-
-</div>
-
 ## Docker Network Isolation
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
@@ -461,7 +437,7 @@ homekit:
   advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
 ```
 
-Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
+Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode.
 
 ## Firewall
 
@@ -593,9 +569,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 #### Pairing hangs - zeroconf error
 
-Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your configuration, see [safe_mode](#safe-mode).
-
-If [safe_mode](#safe-mode) is not successful, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
+Pairing eventually fails, you might see and an error message `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
   
 If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 

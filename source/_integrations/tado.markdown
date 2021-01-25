@@ -2,6 +2,7 @@
 title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Hub
   - Climate
   - Water Heater
@@ -20,6 +21,7 @@ The `tado` integration platform is used as an interface to the [my.tado.com](htt
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary Sensor - for some additional information of the zones.
 - Climate - for every Tado zone.
 - Water Heater - for water heater zones.
 - [Presence Detection](#presence-detection)
@@ -29,42 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
 
-(Deprecated)
-Previously it was necessary to add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry with multiple accounts
-tado:
-  - username: YOUR_USERNAME1
-    password: YOUR_PASSWORD1
-  - username: YOUR_USERNAME2
-    password: YOUR_PASSWORD2
-```
-
-In case of single account works as well:
-
-```yaml
-# Example configuration.yaml entry with single account
-tado:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your username for [my.tado.com](https://my.tado.com/).
-  required: true
-  type: string
-password:
-  description: Your password for [my.tado.com](https://my.tado.com/).
-  required: true
-  type: string
-fallback:
-  description: Indicates if you want to fallback to Smart Schedule on the next Schedule change, or stay in Manual mode until you set the mode back to Auto.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
+Previously it was necessary to add your tado username and password to your `configuration.yaml` file, this is no longer necessary and should be removed.
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 

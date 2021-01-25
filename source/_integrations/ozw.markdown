@@ -46,6 +46,19 @@ available.
 The secure network key is set in the settings for the ozwdaemon and
 not in the integration configuration.
 
+## Migrate from Z-Wave integration
+
+To migrate to the OpenZWave integration from the Z-Wave integration there's a
+wizard in the frontend configuration panel of the Z-Wave integration. The wizard
+will try to migrate the entity IDs, names, icons and areas of the entities and
+devices of your Z-Wave integration to your OpenZWave integration. At the end of
+the migration, the Z-Wave integration configuration entry will be removed.
+
+Make sure you take necessary backups, eg a Supervisor snapshot, before migrating
+to be able to restore the Z-Wave integration. The wizard may not be able to
+migrate all entity and device information. It will show you what entity and
+device information failed to migrate.
+
 ## Services
 
 ### Service `ozw.add_node`
