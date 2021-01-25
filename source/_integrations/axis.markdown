@@ -49,7 +49,7 @@ If your device is not discovered. On your camera, go to **System Options** -> **
 
 ### Reporting a problem
 
-When creating an issue detailing a problem related to the integration make sure to share device model and firmware as well as prepare logs. Logs might contain sensitive information so make sure to look through it before sharing.
+When creating an issue detailing a problem related to the integration make sure to share the device model and firmware as well as prepare logs. Logs might contain sensitive information so make sure to look through it before sharing.
 
 ## Binary Sensor
 
@@ -67,13 +67,13 @@ The Axis camera platform is configurable through integration options. Available 
 
 ### Stream profile
 
-A Stream profile makes up settings such as resolution, frame rate and compression and is configured on device.
+A Stream profile makes up settings such as resolution, frame rate and compression and is configured on the device.
 If this setting is disabled (default) it will use camera default stream settings.
 
 ### Video source
 
-A Video source (view area) defines a subsection of the cameras sensor typically a more focused area of interest. Additional view areas can be configured on device.
-If this setting is disabled (default) it will use camera default source.
+A Video source (view area) defines a subsection of the camera's sensor typically a more focused area of interest. Additional view areas can be configured on the device.
+If this setting is disabled (default) it will use the camera default source.
 
 ## Light
 
