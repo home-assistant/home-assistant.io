@@ -87,9 +87,10 @@ The `cover.set_cover_position` will set the scaled position relative to the spac
 
 ## Troubleshooting
 
-Home Assistant uses the following UDP multicast adresses/ports for communication with the gateway:
-- Motion hub receive UDP multicast 238.0.0.18:32100
-- Motion hub sending UDP multicast 238.0.0.18:32101
+Home Assistant uses the following UDP multicast addresses/ports for communication with the gateway:
+
+- Motion hub receive UDP multicast `238.0.0.18:32100`
+- Motion hub sending UDP multicast `238.0.0.18:32101`
 
 This communication needs to be allowed on your local network. If the blinds are unavailable and you see error messages like:
 
