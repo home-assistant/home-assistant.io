@@ -87,7 +87,7 @@ subtitles_mime:
   required: false
 subtitle_id:
   type: int
-  description: Id of subtitle to be loaded.
+  description: ID of subtitle to be loaded.
   required: false
 enqueue:
   type: bool
