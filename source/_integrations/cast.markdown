@@ -108,9 +108,9 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media). As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
 
-The media needs to be accessible via HTTP(S). Chromecast devices does not support other protocols like DLNA or playback from an SMB file share.
+The media needs to be accessible via HTTP(S). Chromecast devices do not support other protocols like DLNA or playback from an SMB file share.
 
-You can play MP3 streams like netradios, FLAC files or videos from your local network with the `media_player.play_media` service, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a matching content type.
+You can play MP3 streams like net radios, FLAC files or videos from your local network with the `media_player.play_media` service, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a matching content type.
 
 ```yaml
 # Play a video file from the local network:
