@@ -68,6 +68,7 @@ current_time:
 autoplay:
   type: boolean
   description: Whether the media will automatically play.
+  default: true
   required: false
 stream_type:
   type: string
@@ -92,6 +93,7 @@ subtitle_id:
 enqueue:
   type: boolean
   description: If True, enqueue the media instead of play it.
+  default: false
   required: false
 media_info:
   type: map
