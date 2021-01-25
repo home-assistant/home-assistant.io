@@ -103,6 +103,7 @@ To cast media directly from a configured Plex server, set the fields [as documen
       media_content_type: movie
       media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
 ```
+
 ### Play (almost) any kind of media
 
 Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media). As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
