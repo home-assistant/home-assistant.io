@@ -66,7 +66,7 @@ current_time:
   description: Seconds since the beginning of the content. If the content is live content, and the position is not specified, the stream will start at the live position.
   required: false
 autoplay:
-  type: bool
+  type: boolean
   description: Whether the media will automatically play.
   required: false
 stream_type:
