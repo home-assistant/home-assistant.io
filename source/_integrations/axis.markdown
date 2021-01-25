@@ -41,7 +41,7 @@ logger:
 
 ### Troubleshooting
 
-If you are having issues and want to report a problem, always start with making sure that you're on the latest [AXIS OS version](https://www.axis.com/support/firmware).
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [Axis OS version](https://www.axis.com/support/firmware).
 
 ### Troubleshooting discovery
 
