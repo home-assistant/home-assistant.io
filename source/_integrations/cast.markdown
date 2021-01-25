@@ -130,7 +130,7 @@ data:
   media_content_id: 'http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!'
 ```
 
-Extra media metadata (for example title, subtitle, artist or album name) can be passed in to the service and that will be shown on the Chromecast display.
+Extra media metadata (for example title, subtitle, artist or album name) can be passed into the service and that will be shown on the Chromecast display.
 For the possible metadata types and values check [Google cast documentation > MediaInformation > metadata field](https://developers.google.com/cast/docs/reference/messages#MediaInformation).
 
 ```yaml
