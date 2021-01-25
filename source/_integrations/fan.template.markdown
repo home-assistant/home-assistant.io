@@ -11,7 +11,7 @@ ha_domain: template
 
 The `template` platform creates fans that combine integrations and provides the
 ability to run scripts or invoke services for each of the turn_on, turn_off, set_percentage,
-set_oscillating, and set_direction commands of a fan.
+set_preset_mode, set_oscillating, and set_direction commands of a fan.
 
 To enable Template Fans in your installation, add the following to your
 `configuration.yaml` file:
@@ -27,6 +27,7 @@ fan:
         friendly_name: "Bedroom fan"
         value_template: "{{ states('input_boolean.state') }}"
         percentage_template: "{{ states('input_number.percentage') }}"
+        preset_mode_template: "{{ states('input_select.preset_mode') }}"
         oscillating_template: "{{ states('input_select.osc') }}"
         direction_template: "{{ states('input_select.direction') }}"
         turn_on:
@@ -37,6 +38,10 @@ fan:
           service: script.fans_set_speed
           data:
             percentage: "{{ percentage }}"
+        set_preset_mode:
+          service: script.fans_set_preset_mode
+          data:
+            preset_mode: "{{ preset_mode }}"            
         set_oscillating:
           service: script.fan_oscillating
           data:
@@ -71,6 +76,10 @@ fan:
         description: Defines a template to get the speed percentage of the fan.
         required: false
         type: template
+      preset_mode_template:
+        description: Defines a template to get the preset mode of the fan.
+        required: false
+        type: template        
       oscillating_template:
         description: "Defines a template to get the osc state of the fan. Valid value: true/false"
         required: false
