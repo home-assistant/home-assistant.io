@@ -41,7 +41,7 @@ fan:
         set_preset_mode:
           service: script.fans_set_preset_mode
           data:
-            preset_mode: "{{ preset_mode }}"            
+            preset_mode: "{{ preset_mode }}"
         set_oscillating:
           service: script.fan_oscillating
           data:
