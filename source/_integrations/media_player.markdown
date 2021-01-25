@@ -99,7 +99,7 @@ media_info:
   required: false
 metadata:
   type: map
-  description: Media metadata object, one of the following: GenericMediaMetadata, MovieMediaMetadata, TvShowMediaMetadata, MusicTrackMediaMetadata, PhotoMediaMetadata.
+  description: "Media metadata object, one of the following: `GenericMediaMetadata`, `MovieMediaMetadata`, `TvShowMediaMetadata`, `MusicTrackMediaMetadata`, `PhotoMediaMetadata`."
   required: false
 {% endconfiguration %}
 
