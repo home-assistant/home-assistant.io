@@ -71,7 +71,7 @@ autoplay:
   required: false
 stream_type:
   type: string
-  description: Describes the type of media artifact as one of the following: "NONE", "BUFFERED", "LIVE".
+  description: "Describes the type of media artifact as one of the following: `NONE`, `BUFFERED`, `LIVE`."
   required: false
 subtitles:
   type: string
