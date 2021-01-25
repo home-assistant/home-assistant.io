@@ -28,7 +28,7 @@ The following will take you through the steps required to install Home Assistant
    - **For the virtual appliance images:** Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
      - For VirtualBox create a new virtual machine, select "Other Linux (64Bit), assign it at least 2 GB of memory and "Use an existing virtual hard disk file", select the VDI file from above, afterwards edit the "Settings" of the VM and go "System" then Motherboard and Enable EFI, then "Network" "Adapter 1" Bridged and your adapter.
      - For Hyper-V create a new virtual machine, select "Generation 2", assign it at least 2 GB of memory and select "Connection -> "Your Virtual Switch that is bridged", then "Use an existing virtual hard disk" and select the VHDX file from above, after creation go to "Settings" -> "Security" and deselect "Enable Secure Boot".
-     - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...".
+     - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...". If you want mDNS and another multicast to work, you'll need to manually edit the XML to add trustGuestRxFilters='yes' to the interfaces tag. See virsh or virt-manager documentation for how to do that.
      - For Vmware Workstation create a new virtual machine, select "Custom", make it compatible with the default of Workstation and ESX, Choose "I will install the operating system later", select "Linux" -> "Other Linux 5.x or later kernel 64-bit", give it at least 2 GB RAM and 1vCPU, select "Use Bridged Networking" then "Use an existing virtual disk" and select the VMDK file above, after creation of VM go to "Settings" and "Options" then "Advanced" and select "Firmware type" to "UEFI".
      - For VMware ESXi/vSphere installation use the "E1001" or "E1001E" virtual network adapater. There are confirmed mDNS/Multicast discovery issues when using VMware's "VMXnet3" virtual network adapter.  
 
@@ -105,21 +105,21 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_rpi3-5.9.img.xz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_rpi3-64-5.9.img.xz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_rpi4-5.9.img.xz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_rpi4-64-5.9.img.xz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_tinker-5.9.img.xz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_odroid-c2-5.9.img.xz
-[odroid-c4]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_odroid-c4-5.9.img.xz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_odroid-n2-5.9.img.xz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_odroid-xu4-5.9.img.xz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_intel-nuc-5.9.img.xz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.vmdk.xz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.vhdx.xz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.vdi.xz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.qcow2.xz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/5.9/hassos_ova-5.9.ova
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi3-5.10.img.xz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi3-64-5.10.img.xz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi4-5.10.img.xz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi4-64-5.10.img.xz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_tinker-5.10.img.xz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-c2-5.10.img.xz
+[odroid-c4]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-c4-5.10.img.xz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-n2-5.10.img.xz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-xu4-5.10.img.xz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_intel-nuc-5.10.img.xz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vmdk.xz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vhdx.xz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vdi.xz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.qcow2.xz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/

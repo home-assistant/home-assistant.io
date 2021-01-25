@@ -35,7 +35,7 @@ tap_action:
       required: true
       description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
       type: string
-      default: "`toggle`"
+      default: "`toggle` (some cards overwrite default to `more-info` if the provided entity cannot be toggled)"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`"
@@ -189,7 +189,7 @@ exemptions:
 {% configuration exemptions %}
 user:
   required: true
-  description: User id that can see the view tab. For each user´s id listed, the confirmation dialog will NOT be shown.
+  description: User ID for which the confirmation dialog will **not** be shown.
   type: string
 {% endconfiguration %}
 

@@ -1149,7 +1149,7 @@ state_address:
   required: false
   type: string
 invert:
-  description: Invert the telegrams payload before processing or sending. This is applied before `reset_after` is evaluated so the reset will send "1" to the bus.
+  description: Invert the telegrams payload before processing or sending.
   required: false
   type: boolean
   default: False

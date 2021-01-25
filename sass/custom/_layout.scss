@@ -29,7 +29,7 @@ html {
     height: calc(100% - 68px);;
     margin-top: 68px;
     overflow-y: scroll;
-    padding-top: 32px;
+    padding-top: 82px;
     width: 100%;
 }
 
@@ -42,6 +42,10 @@ html {
         }
     }
 }
+
+.alert-banner {
+    height: 50px;
+  }
 
 .site-header {
     position: fixed;

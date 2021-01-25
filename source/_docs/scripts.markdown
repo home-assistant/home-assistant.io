@@ -62,7 +62,7 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 ## Variables
 
-The variable command allows you to set/override variables that will be accessible by templates in actions after it.
+The variables command allows you to set/override variables that will be accessible by templates in actions after it (see also [script variables] for how to define locally available variables).
 
 {% raw %}
 
@@ -571,3 +571,4 @@ automation:
 [service calls page]: /getting-started/scripts-service-calls/
 [conditions page]: /getting-started/scripts-conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
+[script variables]: /integrations/script/#-configuration-variables
