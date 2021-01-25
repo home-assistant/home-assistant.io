@@ -9,9 +9,9 @@ The following will take you through the steps required to install Home Assistant
 
    - As an image for your device:
 
-     - [Raspberry Pi 3 Model B and B+ 32-bit][pi3-32] (32-bit is required for GPIO support)
+     - [Raspberry Pi 3 Model B and B+ 32-bit][pi3-32] 
      - [Raspberry Pi 3 Model B and B+ 64-bit][pi3-64]
-     - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] (32-bit is required for GPIO support)
+     - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] 
      - [Raspberry Pi 4 Model B (1 GB, 2 GB, 4 GB and 8 GB model) 64-bit][pi4-64] (64-bit is required for 8 GB model)
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2], [Odroid-C4][odroid-c4], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
@@ -30,6 +30,7 @@ The following will take you through the steps required to install Home Assistant
      - For Hyper-V create a new virtual machine, select "Generation 2", assign it at least 2 GB of memory and select "Connection -> "Your Virtual Switch that is bridged", then "Use an existing virtual hard disk" and select the VHDX file from above, after creation go to "Settings" -> "Security" and deselect "Enable Secure Boot".
      - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...". If you want mDNS and another multicast to work, you'll need to manually edit the XML to add trustGuestRxFilters='yes' to the interfaces tag. See virsh or virt-manager documentation for how to do that.
      - For Vmware Workstation create a new virtual machine, select "Custom", make it compatible with the default of Workstation and ESX, Choose "I will install the operating system later", select "Linux" -> "Other Linux 5.x or later kernel 64-bit", give it at least 2 GB RAM and 1vCPU, select "Use Bridged Networking" then "Use an existing virtual disk" and select the VMDK file above, after creation of VM go to "Settings" and "Options" then "Advanced" and select "Firmware type" to "UEFI".
+     - For Proxmox, create a new virtual machine, and make note of the VM ID. Under "OS", select "Do not use any media". Under "System" select "Advanced" and change "BIOS" to "OVMF (UEFI)", then select a storage location for the EFI disk. Under "Hard Disk", create a default hard disk (we will delete this later). Set your CPU, memory, and network as needed. From the command line (as root on the Proxmox host), download the qcow2 image with `wget` or `curl` and decompress it (`gunzip hassos_ova-4.13.qcow2.gz`). Then, import the disk to your VM, changing the VM ID as needed (`qm importdisk ### hassos_ova-4.13.qcow2 local-lvm --format qcow2`). After you see `Successfully imported disk`, you can remove the qcow2 image (`rm hassos_ova-4.13.qcow2`). Back in the web UI, navigate to your VM, then "Hardware" and locate the default hard disk we created earlier (probably called `disk0`). Click on it, then click "Detach", then click on the disk again and click "Remove" (this should leave you with two disks: the EFI disk and the imported qcow2 disk). Click on the qcow2 disk (probably called `disk2`) and click "Edit" then "Add". Click on the qcow2 disk one last time, then click on "Resize disk" and set your size (Home Assistant will fill up this entire space).
      - For VMware ESXi/vSphere installation use the "E1001" or "E1001E" virtual network adapater. There are confirmed mDNS/Multicast discovery issues when using VMware's "VMXnet3" virtual network adapter.  
 
 3. Optional - set up the Wi-Fi or a static IP address. There are two possible places for that:

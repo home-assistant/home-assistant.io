@@ -1531,3 +1531,15 @@ Example Event:
     - service: switch.toggle
       entity_id: switch.office_fan
 ```
+
+### EATON On/Off & Dimmer (RF9501/RF9540-N/RF9640-N/RF9601-N)
+
+Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="112". Insert the snippet below into the CommandClass section with the below XML data. Save the file and restart Home Assistant.
+
+```xml
+<Value type="list" genre="config" instance="1" index="10" label="Notify Accessory" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="1" size="1">
+	<Help>Ensures that changes to the master node automatically notify accessory switches</Help>
+	<Item label="disable" value="0" />
+	<Item label="enable" value="1" />
+</Value>
+```

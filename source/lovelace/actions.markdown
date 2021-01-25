@@ -65,7 +65,7 @@ tap_action:
 
 ## Hold Action
 
-Action that will be performed when an object on a card is tapped and held.
+Action that will be performed when an object on a card is tapped, held for at least half a second and then released. Action will only be triggered once, not continuously during hold.
 
 ```yaml
 hold_action:
