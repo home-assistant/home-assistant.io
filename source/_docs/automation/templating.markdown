@@ -67,7 +67,7 @@ Knowing how to access the [state object](/docs/configuration/state_object/) of a
 
 * `trigger.from_state` will return the **previous** [state object](/docs/configuration/state_object/) of the entity.
 * `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.
-* `states[trigger.to_state.domain][trigger.to_state.object_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
+* `states[trigger.to_state.entity_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
 
 <div class='note'>
   
