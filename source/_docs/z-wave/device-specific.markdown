@@ -1533,6 +1533,7 @@ Example Event:
 ```
 
 ### EATON On/Off & Dimmer (RF9501/RF9540-N/RF9640-N/RF9601-N)
+
 Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="112". Insert the snippet below into the CommandClass section with the below XML data. Save the file and restart Home Assistant.
 
 ```xml
