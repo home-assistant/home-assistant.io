@@ -33,19 +33,20 @@ Note that it depends on the appliance and on API permissions which of the featur
 ### Installation using a developer account
 
 1. Visit [https://developer.home-connect.com](https://developer.home-connect.com) and sign up for a developer account.
-2. Under [Applications](https://developer.home-connect.com/applications), register a new App:
+2. Enter the email of your login for the original Home Connect App from Bosch/Siemens under "Default Home Connect User Account for Testing" in the sign up process.
+3. Under [Applications](https://developer.home-connect.com/applications), register a new App:
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
 - Redirect URI: "`<INTERNAL_HOME_ASSISTANT_URL>/auth/external/callback`
   Use your internal Home Assistant URL, if you didn't configure one manually, use your local IP address. Examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
 
-3. Add the client ID and client secret to your `configuration.yaml` (see below).
-4. Once Home Assistant has restarted, go to Configuration > Integrations.
-5. Select the Home Connect integration.
-6. You will be prompted to open a web page and authenticate your app with Home Connect.
-7. Use your Home Connect account details associated with your developer app (this may not be your developer account details you created but will be the account you use to login to the original Home Connect App from Bosch/Siemens).
-8. You will know it works when you are prompted to allow Home Assistant to access your Home Connect data, including the list of devices accessible to the original Home Connect app.
+4. Add the client ID and client secret to your `configuration.yaml` (see below).
+5. Once Home Assistant has restarted, go to Configuration > Integrations.
+6. Select the Home Connect integration.
+7. You will be prompted to open a web page and authenticate your app with Home Connect.
+8. Use your Home Connect account details associated with your developer app. It must be the login for the Home Connect account you entered in Step 2.
+9. You will know it works when you are prompted to allow Home Assistant to access your Home Connect data, including the list of devices accessible to the original Home Connect app.
 
 ### Configuration
 
