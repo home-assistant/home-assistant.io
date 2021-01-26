@@ -67,13 +67,15 @@ Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the h
 
 #### Raspberry Pi 3 procedure
 
-Add the following paramaters to the bottom of the `/boot/config.txt` file.
+Add the following parameters to the bottom of the `/boot/config.txt` file.
+
 ```text
 dtoverlay=disable-bt
 ```
-Reboot your Pi 3. 
 
-For Home Assistant OS this should be everything you need to do. You should now be able to use Razberry Z-Wave from ` /dev/ttyAMA0 `
+Reboot your Pi 3.
+
+For Home Assistant OS this should be everything you need to do. You should now be able to use Razberry Z-Wave from `/dev/ttyAMA0`.
 
 For other operating systems such as Raspberry Pi OS you will also have to run the following command:
 
@@ -81,17 +83,17 @@ For other operating systems such as Raspberry Pi OS you will also have to run th
 sudo systemctl disable hciuart
 ```
 
-You should also check the README for details on the overlays. You might find it in `/boot/overlays/README` on your SD-card. If it is not there you can find the official version here: https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README.
+You should also check the README for details on the overlays. You might find it in `/boot/overlays/README` on your SD-card. If it is not there you can find [the official version here](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
 
 <div class='note'>
 
-  It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on miniuart-bt.
+  It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on `miniuart-bt`.
 
 </div>
 
 <div class='note'>
 
-  disable-bt was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
+  `disable-bt` was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
 
 </div>
 
