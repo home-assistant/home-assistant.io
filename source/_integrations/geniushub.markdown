@@ -10,7 +10,7 @@ ha_category:
 ha_release: 0.92
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@zxdavb'
+  - "@zxdavb"
 ha_domain: geniushub
 ---
 
@@ -30,32 +30,35 @@ Each zone controlled by your Genius Hub will be exposed as either a:
 
 Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
 
-There are limitations due to the differences between the Genius Hub and Home Assistant schemas (e.g.,  HA has no **Footprint** mode) - use the service handlers, below, for this functionality.
+There are limitations due to the differences between the Genius Hub and Home Assistant schemas (e.g., HA has no **Footprint** mode) - use the service handlers, below, for this functionality.
 
 ### Service Handlers
 
-Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g.,  Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific service handlers:
- - `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and
- - `set_zone_mode`: change the zone's mode to one of `off`, `timer` or (if supported by the zone) `footprint`
+Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g., Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific service handlers:
+
+- `set_switch_override`: change the switches on time _for a specified duration_ (up to 24h),
+- `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and
+- `set_zone_mode`: change the zone's mode to one of `off`, `timer` or (if supported by the zone) `footprint`
 
 ### Climate and Water Heater Entities
 
-Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g.,  occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
+Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g., occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
 
-GH mode | HA Operation | HA Preset
-:---: | :---: | :---:
-**Off** | Off | N/A
-**Timer** | Heat | None
-**Override** | Heat | Boost
-**Footprint** | Heat | Activity
+|    GH mode    | HA Operation | HA Preset |
+| :-----------: | :----------: | :-------: |
+|    **Off**    |     Off      |    N/A    |
+|   **Timer**   |     Heat     |   None    |
+| **Override**  |     Heat     |   Boost   |
+| **Footprint** |     Heat     | Activity  |
 
 **Footprint** mode is only available to **Radiator** zones that have room sensors.
 
 ### Switch Entities
 
-Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant `state` will be *reported* as:
+Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant `state` will be _reported_ as:
+
 - `On` for **Override** \ **On**, and
-- `Off` otherwise (NB: the zone could still be 'on', e.g.,  with **Timer** mode)
+- `Off` otherwise (NB: the zone could still be 'on', e.g., with **Timer** mode)
 
 Note: if you turn a Switch entity `Off` via Home Assistant's web UI, it will revert to **Timer** mode - this may not be the behavior you are expecting.
 
@@ -85,12 +88,12 @@ Each such entity has a state attribute that will contain a list of any such issu
     entity_id: sensor.geniushub_errors
     above: 0
   action:
-  - service: notify.pushbullet_notifier
-    data:
-      title: "Genius Hub has errors"
-      message: >-
-        Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
-        {{ state_attr('sensor.geniushub_errors', 'error_list') }}
+    - service: notify.pushbullet_notifier
+      data:
+        title: "Genius Hub has errors"
+        message: >-
+          Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
+          {{ state_attr('sensor.geniushub_errors', 'error_list') }}
 ```
 
 {% endraw %}
@@ -105,12 +108,12 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
     platform: state
     entity_id: binary_sensor.dual_channel_receiver_2_1
   action:
-  - service: notify.pushbullet_notifier
-    data:
-      title: "Warning: CH State Change!"
-      message: >-
-        {{ trigger.to_state.attributes.friendly_name }} has changed
-        from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
+    - service: notify.pushbullet_notifier
+      data:
+        title: "Warning: CH State Change!"
+        message: >-
+          {{ trigger.to_state.attributes.friendly_name }} has changed
+          from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
 ```
 
 {% endraw %}
@@ -197,7 +200,7 @@ This option is recommended only if Option 1 does not work. The MAC address shoul
 # Example configuration.yaml entry, using a Hub Token
 geniushub:
   token: GENIUS_HUB_TOKEN
-  mac : GENIUS_HUB_MAC
+  mac: GENIUS_HUB_MAC
 ```
 
 ```yaml
@@ -210,25 +213,25 @@ geniushub:
 
 {% configuration %}
 token:
-  description: The Hub Token of the Genius Hub.
-  required: true
-  type: string
+description: The Hub Token of the Genius Hub.
+required: true
+type: string
 mac:
-  description: The MAC address of the Hub's ethernet port.
-  required: false
-  type: string
+description: The MAC address of the Hub's ethernet port.
+required: false
+type: string
 host:
-  description: The hostname/IP address of the Genius Hub.
-  required: true
-  type: string
+description: The hostname/IP address of the Genius Hub.
+required: true
+type: string
 username:
-  description: Your Genius Hub username.
-  required: false
-  type: string
+description: Your Genius Hub username.
+required: false
+type: string
 password:
-  description: Your Genius Hub password.
-  required: false
-  type: string
+description: Your Genius Hub password.
+required: false
+type: string
 {% endconfiguration %}
 
 Note: `username` and `password` are only required when `host` is used (instead of `token`).
