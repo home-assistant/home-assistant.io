@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
 
-Previously it was necessary to add your tado username and password to your `configuration.yaml` file, this is no longer necessary and should be removed.
+Previously it was necessary to add your Tado username and password to your `configuration.yaml` file, this is no longer necessary and should be removed.
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
