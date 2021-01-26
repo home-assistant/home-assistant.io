@@ -25,15 +25,15 @@ This integration allows you to control a Z-Wave network via [Z-Wave JS](https://
 
 Controlling your Z-Wave network with the Z-Wave JS integration is split up into two parts:
 
-1. The [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server) is the gateway between your Z-Wave USB stick and Home Assistant. You can run this server seperately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server with a Websockets connection.
+1. The [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server) is the gateway between your Z-Wave USB stick and Home Assistant. You can run this server separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server with a Websockets connection.
 
 2. The Z-Wave JS integration in Home Assistant. Connects to the Z-Wave JS Server running in your network to retrieve the info from your Z-Wave network.
 
 ### Core installation
 
 - The Z-Wave JS Server installed and running in your network.
-- We provide an official add-on which you can find in the Supervisor's Addon store.
-- Not running the supervisor ? The [Z-Wave JS 2 MQTT project](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) also includes the Z-Wave JS Server (you can enable it in the settings) and they provide a docker image.
+- We provide an official add-on which you can find in the Supervisor's add-on store.
+- Not running the supervisor ? The [Z-Wave JS 2 MQTT project](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) also includes the Z-Wave JS Server (you can enable it in the settings) and they provide a Docker image.
 
 ### Hardware requirements
 
