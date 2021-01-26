@@ -129,6 +129,16 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
 
+### Service `tado.set_climate_temperature_offset`
+
+You can use the service `tado.set_climate_temperature_offset` to set the temprature offset for Tado climate devices 
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `offset`               | no       | Float, Offset you would like to set                                    |
+
+
 Examples:
 
 ```yaml
@@ -146,3 +156,35 @@ script:
           entity_id: water_heater.hot_water
           time_period: "01:30:00"
 ```
+
+{% raw %}
+```yaml
+# Example automation to set temprature offset based on another thermostat value
+automation:
+    # Trigger if the state of either thermostat changes
+    trigger:
+    - platform: state
+      entity_id:
+        - sensor.temp_sensor_room
+        - sensor.tado_temperature
+    
+    # Check if the room temp is more than 0.5 higher than the tado thermostat reading
+    condition:
+    - condition: template
+      value_template: >
+        {% set tado_temp = states('sensor.tado_temperature')|float %}
+        {% set room_temp = states('sensor.temp_sensor_room')|float %}
+        {{ (tado_temp - room_temp) > 0.5 }}
+    
+    # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
+    action:
+    - service: tado.set_climate_temperature_offset
+      data:
+        entity_id: climate.tado
+        offset: >
+          {% set tado_temp = states('sensor.tado_temperature')|float %}
+          {% set room_temp = states('sensor.temp_sensor_room')|float %}
+          {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
+          {{ (-(tado_temp - room_temp) + current_offset)|round }}
+```
+{% endraw %}
