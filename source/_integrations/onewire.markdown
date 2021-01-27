@@ -41,6 +41,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature                     |
 | 3B     | [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)            | Temperature                     |
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
+| 7E     | [EDS00xx](https://www.embeddeddatasystems.com/assets/images/supportFiles/manuals/EN-UserMan%20%20OW-ENV%20Sensor%20v13.pdf)        | Temperature/Humidity/Barometric pressure/Light <sup>[6](#note_6)</sup>|
 | EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture, Wetness <sup>[3](#note_3)</sup> |  
 
 #### Switches:
@@ -69,6 +70,8 @@ Notes:
 - <a name="note_4">Some sensors are disabled by default</a> to avoid overloading the bus. These can be activated by opening the integrations page in your configuration, listing your 1-Wire integration devices and updating the entity.
 
 - <a name="note_5">Bridge devices have no sensors</a>. The `aux` and `main` branches are searched for additional 1-wire devices during discovery.  
+
+- <a name="note_6">Multisensors manufactures by Embedded Data Systems. Currently only EDS0068 (temperature/humidity/barometric pressure/light) is supported.
 
 ## Interfacing with the 1-wire bus
 

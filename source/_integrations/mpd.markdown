@@ -61,4 +61,4 @@ relaxdeck:
         volume_level: 0.60
 ```
 
-This platform works with [Music Player Daemon](https://www.musicpd.org/) and [mopidy](https://www.mopidy.com/) with [Mopidy-MPD](https://mopidy.com/ext/mpd/) as used by [Pi MusicBox](https://www.pimusicbox.com/).
+This platform works with [Music Player Daemon](https://www.musicpd.org/) and [mopidy](https://www.mopidy.com/) with [Mopidy-MPD](https://mopidy.com/ext/mpd/) as used by [Pi MusicBox](https://www.pimusicbox.com/). While all of these rely on the common MPD protocol, not all implementations support all features, especially with regard to album artwork, embedded artwork and volume control. The platform will fall back gracefully if support isn't detected.

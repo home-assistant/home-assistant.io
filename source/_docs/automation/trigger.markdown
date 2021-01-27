@@ -99,7 +99,7 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from strict above 17 and strict below 25).
+In the example above, the trigger would fire a single time if a numeric_state goes into to 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
 </div>
 
 Number helpers (`input_number` entities) can be used in the `above` and `below` thresholds, making
@@ -164,7 +164,8 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 ### State trigger
 
-Fires when the state of any of given entities changes. If only `entity_id` is given trigger will fire for all state changes, even if only state attributes change.
+Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
+If only one of `from_state` or `to_state` are given, the trigger will fire on any matching state change, but not if only attributes change.
 
 <div class='note'>
 
@@ -176,11 +177,26 @@ The values you see in your overview will often not be the same as the actual sta
 automation:
   trigger:
     platform: state
-    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    entity_id:
+      - device_tracker.paulus
+      - device_tracker.anne_therese
     # Optional
     from: "not_home"
     # Optional
     to: "home"
+```
+
+It's possible to give a list of from_states or to_states:
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: vacuum.test
+    from:
+    - "cleaning"
+    - "returning"
+    to: "error"
 ```
 
 #### Holding a state
@@ -565,6 +581,13 @@ automation:
 
 Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
 Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
+
+<div class='note'>
+
+This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
+
+</div>
+
 
 ```yaml
 automation:

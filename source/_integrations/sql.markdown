@@ -161,3 +161,20 @@ sensor:
 ```
 
 {% endraw %}
+
+#### MS SQL
+
+Use the same `db_url` as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: sql
+    db_url: "mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;"
+    queries:
+      - name: DB size
+        query: "SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';"
+        column: 'size'
+        unit_of_measurement: MiB
+```
+{% endraw %}

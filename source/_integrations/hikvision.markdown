@@ -61,6 +61,10 @@ and has been confirmed to work with the following models:
 - IPC-D140H(-M)
 - DS-7616NI-K2 (NVR)
 
+This platform also was confirmed to work with the following Hikvison-based NVRS
+
+- N46PCK (Annke H800 4K NVR)
+
 ## Configuration
 
 To enable this sensor,

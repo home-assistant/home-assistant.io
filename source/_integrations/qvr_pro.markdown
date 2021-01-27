@@ -1,7 +1,6 @@
 ---
 title: QVR Pro
 description: Instructions on how to integrate QVR Pro within Home Assistant.
-logo: qvr_pro.png
 ha_category:
   - Camera
 ha_iot_class: Local Polling

@@ -131,6 +131,11 @@ custom_effects:
            required: false
            type: integer
            default: 0
+         action:
+            description: The action to take after the flow stops. Can be 'recover', 'stay', 'off'.
+            required: false
+            type: string
+            default: recover
          transitions:
            description: List of transitions, for that effect, check [example](#custom-effects).
            required: true

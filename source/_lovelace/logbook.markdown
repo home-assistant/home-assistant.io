@@ -11,10 +11,9 @@ The Logbook card displays entries from the logbook for specific entities.
   Screenshot of the Logbook card.
 </p>
 
-To add the Logbook card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Logbook** from the card picker.
+To add the Logbook card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Logbook** from the card picker.
 
-### Card Settings
-
+## Card Settings
 
 {% configuration_basic %}
 Entities:
@@ -24,7 +23,7 @@ Title:
 Hours to show:
   description: The number of hours in the past that will be tracked in the card.
 Theme:
-  description: Theme your card using any installed theme in your HA environment.
+  description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 {% endconfiguration_basic %}
 
 ### YAML
@@ -34,11 +33,11 @@ This is for if you use YAML mode or prefer to use YAML in the Code Editor in the
 {% configuration %}
 type:
   required: true
-  description: logbook
+  description: "`logbook`"
   type: string
 entities:
   required: true
-  description: "The entities that will show in the card."
+  description: The entities that will show in the card.
   type: list
 title:
   required: false
@@ -51,7 +50,7 @@ hours_to_show:
   default: 24
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`."
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
 

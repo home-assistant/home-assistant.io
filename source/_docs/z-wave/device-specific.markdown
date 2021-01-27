@@ -67,32 +67,35 @@ Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the h
 
 #### Raspberry Pi 3 procedure
 
+Add the following parameters to the bottom of the `/boot/config.txt` file.
+
 ```text
-dtoverlay=pi3-disable-bt
+dtoverlay=disable-bt
 ```
 
-Then disable the Bluetooth modem service:
+Reboot your Pi 3.
+
+For Home Assistant OS this should be everything you need to do. You should now be able to use Razberry Z-Wave from `/dev/ttyAMA0`.
+
+For other operating systems such as Raspberry Pi OS you will also have to run the following command:
 
 ```bash
 sudo systemctl disable hciuart
 ```
 
-Once Bluetooth is off, enable the serial interface via the `raspi-config` tool. After reboot run:
+You should also check the README for details on the overlays. You might find it in `/boot/overlays/README` on your SD-card. If it is not there you can find [the official version here](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
 
-```bash
-sudo systemctl mask serial-getty@ttyAMA0.service
-```
+<div class='note'>
 
-so that your serial interface looks like:
+  It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on `miniuart-bt`.
 
-```text
-crw-rw---- 1 root dialout 204, 64 Sep  2 14:38 /dev/ttyAMA0
-```
-at this point simply add your user (homeassistant) to the dialout group:
+</div>
 
-```bash
-sudo usermod -a -G dialout homeassistant
-```
+<div class='note'>
+
+  `disable-bt` was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
+
+</div>
 
 <div class='note'>
 
@@ -1530,4 +1533,16 @@ Example Event:
   action:
     - service: switch.toggle
       entity_id: switch.office_fan
+```
+
+### EATON On/Off & Dimmer (RF9501/RF9540-N/RF9640-N/RF9601-N)
+
+Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="112". Insert the snippet below into the CommandClass section with the below XML data. Save the file and restart Home Assistant.
+
+```xml
+<Value type="list" genre="config" instance="1" index="10" label="Notify Accessory" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="1" size="1">
+	<Help>Ensures that changes to the master node automatically notify accessory switches</Help>
+	<Item label="disable" value="0" />
+	<Item label="enable" value="1" />
+</Value>
 ```
