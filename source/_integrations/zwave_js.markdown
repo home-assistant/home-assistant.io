@@ -33,7 +33,7 @@ Controlling your Z-Wave network with the Z-Wave JS integration is split up into 
 
 - The Z-Wave JS Server installed and running in your network.
 - We provide an official add-on which you can find in the Supervisor's add-on store.
-- Not running the supervisor ? The [Z-Wave JS 2 MQTT project](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) also includes the Z-Wave JS Server (you can enable it in the settings) and they provide a Docker image.
+- Not running the Supervisor? The [Z-Wave JS 2 MQTT project](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) also includes the Z-Wave JS Server (you can enable it in the settings) and they provide a Docker image.
 
 ### Hardware requirements
 
