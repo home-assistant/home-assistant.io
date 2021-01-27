@@ -19,13 +19,21 @@ ha_codeowners:
 ha_domain: zwave_js
 ---
 
-This integration allows you to control a Z-Wave network via Z-Wave JS.
+This integration allows you to control a Z-Wave network via [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/).
 
 ## Requirements
 
+Controlling your Z-Wave network with the Z-Wave JS integration is split up into two parts:
+
+1. The [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server) is the gateway between your Z-Wave USB stick and Home Assistant. You can run this server separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server with a websocket connection.
+
+2. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network.
+
 ### Core installation
 
-- The [zwave-js-server](https://github.com/zwave-js/zwave-js-server) installed and running in your network.
+- The Z-Wave JS Server installed and running in your network.
+- We provide an official add-on which you can find in the Supervisor's add-on store.
+- Not running the Supervisor? The [Z-Wave JS 2 MQTT project](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) also includes the Z-Wave JS Server (you can enable it in the settings) and they provide a Docker image.
 
 ### Hardware requirements
 
@@ -46,9 +54,13 @@ available.
 
 As this integration is still in the early stages there are some important limitations to be aware of.
 
-- Polling is not currently supported.
 - Garage door controllers (Barrier Operator CC) are not currently supported.
-- You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
+- Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented. You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
+- Polling is currently not supported but may be added in a later release.
+- Support for setting configuration parameters through service calls is currently not supported but may be added in a later release.
+- Support for Node/Scene events is currently not supported but may be added in a later release.
+- There currently is no migration path from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
+
 
 ## Services
 
