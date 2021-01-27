@@ -64,6 +64,7 @@ sensor:
       - air_flow_supply
       - bypass_state
       - current_humidity
+      - current_rmot
       - current_temperature
       - days_to_replace_filter
       - exhaust_fan_duty
@@ -72,7 +73,9 @@ sensor:
       - exhaust_temperature
       - outside_humidity
       - outside_temperature
+      - power_total
       - power_usage
+      - preheater_power_total
       - preheater_power_usage
       - supply_fan_duty
       - supply_fan_speed
