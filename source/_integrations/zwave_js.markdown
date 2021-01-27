@@ -25,7 +25,7 @@ This integration allows you to control a Z-Wave network via [Z-Wave JS](https://
 
 Controlling your Z-Wave network with the Z-Wave JS integration is split up into two parts:
 
-1. The [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server) is the gateway between your Z-Wave USB stick and Home Assistant. You can run this server separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server with a Websockets connection.
+1. The [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server) is the gateway between your Z-Wave USB stick and Home Assistant. You can run this server separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server with a websocket connection.
 
 2. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network.
 
