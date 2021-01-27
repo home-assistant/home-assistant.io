@@ -43,5 +43,5 @@ Room Lights control all the light channels in a room. Only 5 states are possible
 
 ### Channel Lights
 
-Many Channel Lights may make up a room. Channel lights may be independantly controlled from the room.
+Many Channel Lights may make up a room. Channel lights may be independently controlled from the room.
 
