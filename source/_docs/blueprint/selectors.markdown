@@ -371,7 +371,7 @@ number:
 
 ## Object selector
 
-The object selector can be used to input arbitrary data in yaml form. This is useful for e.g. lists and dictionaries like service data. The value of the input will contain the provided data.
+The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries like service data. The value of the input will contain the provided data.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
