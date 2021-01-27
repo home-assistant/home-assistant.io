@@ -67,32 +67,35 @@ Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the h
 
 #### Raspberry Pi 3 procedure
 
+Add the following parameters to the bottom of the `/boot/config.txt` file.
+
 ```text
-dtoverlay=pi3-disable-bt
+dtoverlay=disable-bt
 ```
 
-Then disable the Bluetooth modem service:
+Reboot your Pi 3.
+
+For Home Assistant OS this should be everything you need to do. You should now be able to use Razberry Z-Wave from `/dev/ttyAMA0`.
+
+For other operating systems such as Raspberry Pi OS you will also have to run the following command:
 
 ```bash
 sudo systemctl disable hciuart
 ```
 
-Once Bluetooth is off, enable the serial interface via the `raspi-config` tool. After reboot run:
+You should also check the README for details on the overlays. You might find it in `/boot/overlays/README` on your SD-card. If it is not there you can find [the official version here](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
 
-```bash
-sudo systemctl mask serial-getty@ttyAMA0.service
-```
+<div class='note'>
 
-so that your serial interface looks like:
+  It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on `miniuart-bt`.
 
-```text
-crw-rw---- 1 root dialout 204, 64 Sep  2 14:38 /dev/ttyAMA0
-```
-at this point simply add your user (homeassistant) to the dialout group:
+</div>
 
-```bash
-sudo usermod -a -G dialout homeassistant
-```
+<div class='note'>
+
+  `disable-bt` was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
+
+</div>
 
 <div class='note'>
 
