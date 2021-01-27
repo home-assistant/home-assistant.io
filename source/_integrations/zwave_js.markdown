@@ -55,8 +55,7 @@ available.
 As this integration is still in the early stages there are some important limitations to be aware of.
 
 - Garage door controllers (Barrier Operator CC) are not currently supported.
-- Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented.
-- You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to include/exclude devices and manage device configuration.
+- Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented. You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
 - Polling is currently not supported but may be added in a later release.
 - Support for setting configuration parameters through service calls is currently not supported but may be added in a later release.
 - Support for Node/Scene events is currently not supported but may be added in a later release.
