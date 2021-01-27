@@ -42,7 +42,10 @@ If you own a device not listed here, please check whether your device can talk i
 If it does, it will most likely work. 
 The available profiles are usually listed somewhere in the device manual. 
 
-Support for tech-in messages is not implemented.
+!!!!!!!!!Support for teach-in messages is not implemented.!!!!!!!!!!!
+This is often necessary to get devices to work (to speak with the usb300/Homeassistant or other gateways)
+
+Teach in is possible with dolphinview or e.g. openhab
 
 ## Configuration
 
