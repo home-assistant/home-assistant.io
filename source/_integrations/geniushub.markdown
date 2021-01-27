@@ -35,25 +35,28 @@ There are limitations due to the differences between the Genius Hub and Home Ass
 ### Service Handlers
 
 Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g.,  Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific service handlers:
- - `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and
- - `set_zone_mode`: change the zone's mode to one of `off`, `timer` or (if supported by the zone) `footprint`
+
+- `set_switch_override`: change the switches on time _for a specified duration_ (up to 24h),
+- `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and
+- `set_zone_mode`: change the zone's mode to one of `off`, `timer` or (if supported by the zone) `footprint`
 
 ### Climate and Water Heater Entities
 
 Climate and Water Heater entities will report their current temperature, setpoint and mode; other properties (e.g.,  occupied state) are available via their state attributes (see examples below). The Genius Hub mode will be reported as/set to:
 
-GH mode | HA Operation | HA Preset
-:---: | :---: | :---:
-**Off** | Off | N/A
-**Timer** | Heat | None
-**Override** | Heat | Boost
-**Footprint** | Heat | Activity
+|    GH mode    | HA Operation | HA Preset |
+| :-----------: | :----------: | :-------: |
+|    **Off**    |     Off      |    N/A    |
+|   **Timer**   |     Heat     |   None    |
+| **Override**  |     Heat     |   Boost   |
+| **Footprint** |     Heat     | Activity  |
 
 **Footprint** mode is only available to **Radiator** zones that have room sensors.
 
 ### Switch Entities
 
 Switch entities will report back their state; other properties are available via their state attributes. Currently, HA switches do not have modes/presets, so the Home Assistant `state` will be *reported* as:
+
 - `On` for **Override** \ **On**, and
 - `Off` otherwise (NB: the zone could still be 'on', e.g.,  with **Timer** mode)
 
