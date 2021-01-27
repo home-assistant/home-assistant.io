@@ -120,7 +120,7 @@ geo_location:
 ```
 ## Card Example
 
-Assuming you configure this service using `feed_type: past_week_all_earthquakes`, you can create a corresponding map card in the lovelace UI with the following card:
+Assuming you configure this service using `feed_type: past_week_all_earthquakes`, you can create a corresponding map card in the Lovelace UI with the following card:
 ```yaml
 type: map
 name: Earthquakes
