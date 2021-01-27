@@ -38,7 +38,7 @@ name:
   default: notify
   type: string
 filename:
-  description: Name of the file to use. The file will be created if it doesn't exist and saved in your [configuration](/docs/configuration/) folder.
+  description: Name of the file to use. The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there.
   required: true
   type: string
 timestamp:

@@ -17,7 +17,7 @@ To configure GPSLogger, you must set it up via the integrations panel in the con
 
 ## Setup on your smartphone
 
-Install GPSLogger for Android from [GitHub](https://github.com/mendhak/gpslogger/releases) or [F-Droid](https://apt.izzysoft.de/fdroid/index/apk/com.mendhak.gpslogger) on your device.
+Install GPSLogger for Android from [GitHub](https://github.com/mendhak/gpslogger/releases) or [F-Droid](https://f-droid.org/en/packages/com.mendhak.gpslogger/) on your device.
 
 After the launch, go to **General Options**. Enable **Start on bootup** and **Start on app launch**.
 

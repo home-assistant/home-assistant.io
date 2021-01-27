@@ -30,26 +30,6 @@ You will need your mynexia.com username and password to use this module.
 
 To add `Nexia` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nexia**.
 
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-nexia:
-  username: YOUR_NEXIA_USERNAME
-  password: YOUR_NEXIA_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The username for accessing your Nexia account.
-  required: true
-  type: string
-password:
-  description: The password for accessing your Nexia account.
-  required: true
-  type: string
-{% endconfiguration %}
-
 ### Binary Sensor
 
 The following binary sensors are added for each thermostat:

@@ -765,7 +765,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 - Search: Add search to default config and don't resolve area ([@bramkragten] - [#30762]) ([default_config docs]) ([search docs])
 - Allow input_* and timer component setup without config ([@Adminiuga] - [#30772]) ([input_boolean docs]) ([input_number docs]) ([input_select docs]) ([input_text docs]) ([timer docs])
 - Add Config Flow support, Device Registry support, available property to vizio component ([@raman325] - [#30653]) ([vizio docs]) (breaking change)
-- Update pyubee to 0.8 ([@mzdrale] - [#30785]) ([ubee docs])
+- Update pyubee to 0.8 ([@mzdrale] - [#30785])
 - Add support for vacuums to Alexa. ([@ochlocracy] - [#30764]) ([alexa docs])
 - Mark hide_entity deprecated in automation integration ([@frenck] - [#30799]) ([automation docs]) (breaking change)
 - Bump librouteros to 3.0.0 ([@springstan] - [#30800]) ([mikrotik docs])
@@ -1544,7 +1544,6 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [tod docs]: /integrations/tod/
 [tplink docs]: /integrations/tplink/
 [tuya docs]: /integrations/tuya/
-[ubee docs]: /integrations/ubee/
 [velbus docs]: /integrations/velbus/
 [versasense docs]: /integrations/versasense/
 [vicare docs]: /integrations/vicare/

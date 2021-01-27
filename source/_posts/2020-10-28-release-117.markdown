@@ -1088,7 +1088,7 @@ is automatically imported after upgrading and can be safely removed afterward.
 - Use reference strings in Hunter Douglas PowerView ([@SNoof85] - [#41291]) ([hunterdouglas_powerview docs])
 - Indicate to user that remote was turned off when call was attempted ([@elupus] - [#40715]) ([broadlink docs])
 - Fix reported temperatures in Maxcube ([@Bre77] - [#41259]) ([maxcube docs])
-- Improve yessssms test notify ([@sycx2] - [#41283]) ([yessssms docs])
+- Improve yessssms test notify ([@sycx2] - [#41283])
 - Use reference strings in ambient_station ([@SNoof85] - [#41276]) ([ambient_station docs])
 - Don't use asynctest directly ([@balloob] - [#41306])
 - Rewrite sigfox unittest tests to pytest ([@frangiz] - [#41302]) ([sigfox docs])
@@ -1279,7 +1279,7 @@ is automatically imported after upgrading and can be safely removed afterward.
 - Merge Tasmota sensor device class and icon maps ([@emontnemery] - [#41706]) ([tasmota docs])
 - Add support for SimpliSafe sensors ([@nzapponi] - [#41080]) ([simplisafe docs]) (new-platform)
 - Add common strings in plaato config flow ([@chrillebile] - [#41622]) ([plaato docs])
-- Use common strings in Avri config flow ([@scheric] - [#41717]) ([avri docs])
+- Use common strings in Avri config flow ([@scheric] - [#41717])
 - Add media_player.repeat_set service ([@amelchio] - [#41435]) ([demo docs]) ([media_player docs])
 - Add Sonos support for media_player.repeat_set service ([@amelchio] - [#41735]) ([sonos docs])
 - Use native utc timezone for utcnow() ([@bdraco] - [#41727])
@@ -2547,7 +2547,6 @@ is automatically imported after upgrading and can be safely removed afterward.
 [atag docs]: /integrations/atag/
 [august docs]: /integrations/august/
 [aurora docs]: /integrations/aurora/
-[avri docs]: /integrations/avri/
 [awair docs]: /integrations/awair/
 [axis docs]: /integrations/axis/
 [azure_devops docs]: /integrations/azure_devops/
@@ -2866,7 +2865,6 @@ is automatically imported after upgrading and can be safely removed afterward.
 [xiaomi_aqara docs]: /integrations/xiaomi_aqara/
 [xiaomi_miio docs]: /integrations/xiaomi_miio/
 [yamaha_musiccast docs]: /integrations/yamaha_musiccast/
-[yessssms docs]: /integrations/yessssms/
 [zabbix docs]: /integrations/zabbix/
 [zengge docs]: /integrations/zengge/
 [zeroconf docs]: /integrations/zeroconf/

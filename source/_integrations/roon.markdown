@@ -33,15 +33,15 @@ You need the Hostname or IP address of the machine that runs your Roon Core. Thi
 
 #### Service `media_player.play_media`
 
-Roon doesn't use file names or URLs to track media and so the roon integration is currently limited in how it supports this call.
+Roon uses a path based on the roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If roon can't follow the path you will find an error in the log that will show which part of the path roon could not follow, and the possibilities at that point.
 
 | Service data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
-| `media_content_id`     |       no | The text for roon to search for in your library.                   |
-| `media_content_type`   |       no | A media type. Currently supported are `radio`, `playlist` and `genre`  |
+| `media_content_id`     |       no | A path to specify the media you want to play, see examples below.                   |
+| `media_content_type`   |       no | Only `music` is suppported  |
 
- For example to play BBC Radio 4 you would set `media_content_type` to `radio` and `media_content_id` to `BBC Radio 4`
+ For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set `media_content_id` to `My Live Radio/BBC Radio 4`
 
 ### Service `roon.join`
 

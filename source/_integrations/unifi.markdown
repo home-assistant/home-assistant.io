@@ -31,7 +31,7 @@ The user needs administrator privileges in order to control switches.
 
 ### Extra configuration of the integration
 
-All configuration options are offered from the front end. Enter what UniFi integration you want to change options on and press the cog wheel.
+All configuration options are offered from the front end. Enter what UniFi integration you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
 
 ### Configuring Users
 
@@ -39,7 +39,7 @@ The UniFi controller allows you to create multiple users on it besides the main 
 
 ### UniFi OS
 
-For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro needs the port to be 443. 
+For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443. 
 
 ### Conflicts with MQTT
 
@@ -49,7 +49,7 @@ It is recommended that you run the UniFi controller in a dedicated virtual machi
 
 ## Presence detection
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi](https://unifi-network.ui.com/) controller.
+This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi](https://unifi-network.ui.com/) controller. By default devices are marked as away 300 seconds after they were last seen.
 
 ### Troubleshooting and Time Synchronization
 

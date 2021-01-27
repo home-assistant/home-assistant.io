@@ -27,37 +27,6 @@ The preferred way to setup the Harmony remote for your installation is via **Con
 
 Once `Logitech Harmony Hub` has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
 
-Alternatively, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-remote:
-  - platform: harmony
-    name: Bedroom
-    host: 10.168.1.13
-    activity: Watch TV
-```
-
-{% configuration %}
-name:
-  description: The hub's name to display in the frontend. This name must match the name you have set on the Hub.
-  required: true
-  type: string
-host:
-  description: The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
-  required: true
-  type: string
-activity:
-  description: Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
-  required: false
-  type: string
-delay_secs:
-  description: Default duration in seconds between sending commands to a device.
-  required: false
-  type: float
-  default: 0.4
-{% endconfiguration %}
-
 ### Configuration file
 
 Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_UNIQUE_ID.conf`. The file will contain:

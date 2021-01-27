@@ -77,7 +77,7 @@ Without any `include` or `exclude` configuration the history displays graphs for
  `scenes` are never shown) on a given date. If you are only interested in some
  of the entities you have several options:
 
-Define domains and entities to `exclude` (aka. blacklist). This is convenient
+Define domains and entities to `exclude` (aka. blocklist). This is convenient
 when you are basically happy with the information displayed, but just want to
 remove some entities or domains. Usually these are entities/domains which do not
 change or rarely change (like `updater` or `automation`).
@@ -97,7 +97,7 @@ history:
 ```
 
 Define domains and entities to display by using the `include` configuration
-(aka. whitelist). If you have a lot of entities in your system and your
+(aka. allowlist). If you have a lot of entities in your system and your
 `exclude` list is getting too large, it might be better just to define the
 entities or domains to `include`.
 

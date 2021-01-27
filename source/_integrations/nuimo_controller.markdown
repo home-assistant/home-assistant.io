@@ -1,7 +1,6 @@
 ---
 title: Nuimo controller
 description: Instructions on how to setup and use a Nuimo device in Home Assistant.
-logo: nuimo.png
 ha_category:
   - Hub
 ha_release: 0.29

@@ -12,11 +12,13 @@ Supported by MQTT discovery:
 - [Binary sensors](/integrations/binary_sensor.mqtt/)
 - [Cameras](/integrations/camera.mqtt/)
 - [Covers](/integrations/cover.mqtt/)
+- [Device Trackers](/integrations/device_tracker.mqtt/)
 - [Device Triggers](/integrations/device_trigger.mqtt/)
 - [Fans](/integrations/fan.mqtt/)
 - [HVACs](/integrations/climate.mqtt/)
 - [Lights](/integrations/light.mqtt/)
 - [Locks](/integrations/lock.mqtt/)
+- [Scenes](/integrations/scene.mqtt/)
 - [Sensors](/integrations/sensor.mqtt/)
 - [Switches](/integrations/switch.mqtt/)
 - [Tag Scanners](/integrations/tag.mqtt/)
@@ -265,18 +267,19 @@ Supported abbreviations for device registry configuration:
 
 The following software has built-in support for MQTT discovery:
 
-- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e)
+- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
-- [SmartHome](https://github.com/roncoa/SmartHome)
-- [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
-- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
-- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
-- [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 - [IOTLink](https://iotlink.gitlab.io) (starting with 2.0.0)
-- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [MiFlora MQTT Daemon](https://github.com/ThomDietrich/miflora-mqtt-daemon)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
+- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
+- [SmartHome](https://github.com/roncoa/SmartHome)
+- [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
+- [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
+- [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
+- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
+- [Zwave2Mqtt](https://github.com/OpenZWave/Zwave2Mqtt) (starting with 2.0.1)
 
 ## Examples
 
@@ -404,4 +407,37 @@ Setting up a climate integration (heat only):
   "target_temp":"21.50",
   "current_temp":"23.60",
 }
+```
+
+### Presence detection (device tracker)
+
+Setting up a device tracker:
+
+- Configuration topic: `homeassistant/device_tracker/paulus/config`
+- Example configuration payload:
+
+```json
+{
+  "name":"Paulus",
+  "state_topic": "homeassistant/device_tracker/paulus/state",
+  "payload_home": "home",
+  "payload_not_home": "not_home",
+  "source_type": "bluetooth",
+ }
+```
+
+- State topic: `homeassistant/device_tracker/paulus/state`
+- Example state payload: `home` or `not_home` or `location name`
+
+If the device supports gps co-ordinates then they can be sent to Home Assistant by specifying an attributes topic (i.e. "json_attributes_topic") in the configuration payload:
+
+- Attributes topic: `homeassistant/device_tracker/paulus/attributes`
+- Example attributes payload:
+
+```json
+{
+  "latitude": 32.87336,
+  "longitude": -117.22743,
+  "gps_accuracy": 1.2,
+ }
 ```

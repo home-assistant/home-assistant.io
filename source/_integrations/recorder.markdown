@@ -110,7 +110,7 @@ recorder:
 
 ## Configure Filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `Recorder`, you can use the `include` and `exclude` parameters.
+By default, no entity will be excluded. To limit which entities are being exposed to `recorder`, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -148,7 +148,7 @@ If you only want to hide events from your history, take a look at the [`history`
 
 ### Common filtering examples
 
-Defining domains and entities to `exclude` (i.e. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
+Defining domains and entities to `exclude` (i.e. blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
 ```yaml
 # Example configuration.yaml entry with exclude
@@ -169,7 +169,7 @@ recorder:
       - call_service # Don't record service calls
 ```
 
-Defining domains and entities to record by using the `include` configuration (i.e. whitelist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
+Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
 
 ```yaml
 # Example configuration.yaml entry with include

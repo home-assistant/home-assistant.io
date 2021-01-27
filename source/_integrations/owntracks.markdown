@@ -23,7 +23,7 @@ To configure OwnTracks, you must set it up via the integrations panel in the con
 
 ### Configuring the app - Android
 
-Install [OwnTracks](https://play.google.com/store/apps/details?id=org.owntracks.android) or [NextTracks](https://codeberg.org/nexttracks/android/releases) (Soon available from [F-Droid](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/6831)) application for Android.
+Install [OwnTracks](https://play.google.com/store/apps/details?id=org.owntracks.android) or [NextTracks](https://codeberg.org/nexttracks/android/releases) (Available from [F-Droid](https://f-droid.org/packages/org.nexttracks.android)) application for Android.
 
 In the app, open the sidebar and click on preferences, then on the connection. Change the following settings:
 

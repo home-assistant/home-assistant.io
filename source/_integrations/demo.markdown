@@ -30,6 +30,7 @@ Available demo platforms:
 - [Mailbox](/integrations/mailbox/) (`mailbox`)
 - [Media Player](/integrations/media_player/) (`media_player`)
 - [Notification](/integrations/notify/) (`notify`)
+- [Number](/integrations/number/) (`number`)
 - [Remote](/integrations/remote/) (`remote`)
 - [Sensor](/integrations/sensor/) (`sensor`)
 - [Switch](/integrations/switch/) (`switch`)

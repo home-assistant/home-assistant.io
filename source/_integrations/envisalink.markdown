@@ -16,7 +16,7 @@ Please visit the [eyezon website](http://www.eyezon.com/) for further informatio
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor: Reports on zone status (Check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zone.)
+- Binary Sensor: Reports on zone status (Check the [type/class](/integrations/binary_sensor/#device-class) list for a possible visualization of your zone.)
 - Sensor: Emulates an alpha-numeric keypad attached to the alarm panel
 - Alarm Control Panel: Reports on partition status, and can be used to arm/disarm the system
 
@@ -70,7 +70,7 @@ password:
   required: true
   type: string
 code:
-  description: Your alarm panel's code, for authenticating user input during arm/disarm.  If you do not provide this value, the integration will prompt the user to enter the code at runtime.
+  description: Your alarm panel's code, for authenticating user input during arm/disarm. If you do not provide this value, the integration will prompt the user to enter the code at runtime.
   required: false
   type: string
 port:
@@ -104,7 +104,7 @@ panic_type:
   default: Police
   type: string
 zones:
-  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/integrations/envisalink) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
+  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [Binary Sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
   required: false
   type: integer
   keys:

@@ -73,6 +73,7 @@ sensor:
       - outside_humidity
       - outside_temperature
       - power_usage
+      - preheater_power_usage
       - supply_fan_duty
       - supply_fan_speed
       - supply_humidity

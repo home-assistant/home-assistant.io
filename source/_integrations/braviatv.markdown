@@ -35,7 +35,7 @@ To ensure a clean re-configuration, please perform the following steps:
 
 If you have previously set up your TV with any Home Assistant instances, you must remove Home Assistant from your TV in order for your TV to generate a new pin. To do this, you must do **one** of the following:
 
-- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
+- On your TV, go to: **Settings** -> **Network** -> **Remote device settings** -> **Deregister remote device**. Disable and re-enable the **Control remotely** after. Menu titles may differ slightly between models. If needed, refer to your specific model's [manual](https://www.sony.com/electronics/support/manuals) for additional guidiance.
 - Reset your TV to factory condition.
 
 ## Configuration using YAML

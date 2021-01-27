@@ -107,7 +107,7 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 ## APIs
 
-On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest), [Python API](https://developers.home-assistant.io/docs/api_lib_index) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) available. There is also support for [Server-sent events](/developers/server_sent_events/).
+On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest), [Python API](https://developers.home-assistant.io/docs/api_lib_index) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) available.
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 

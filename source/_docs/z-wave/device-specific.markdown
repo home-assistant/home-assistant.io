@@ -52,6 +52,21 @@ echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
+For both processes below you will need to insert your SD card into your PC and open the `/boot/config.txt` file with your favorite text editor.
+
+#### Raspberry Pi 4 procedure
+
+Add the following paramaters to the bottom of the `/boot/config.txt` file.
+
+```text
+dtoverlay=disable-bt
+enable_uart=1
+```
+
+Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the hat back, and boot again.
+
+#### Raspberry Pi 3 procedure
+
 ```text
 dtoverlay=pi3-disable-bt
 ```
@@ -869,12 +884,12 @@ Button three (X) release|3|7740
 Button four (Triangle) single tap|4|7680
 Button four (Triangle) hold|4|7800
 Button four (Triangle) release|4|7740
-Button five (Triangle) single tap|5|7680
-Button five (Triangle) hold|5|7800
-Button five (Triangle) release|5|7740
-Button six (Triangle) single tap|6|7680
-Button six (Triangle) hold|6|7800
-Button six (Triangle) release|6|7740
+Button five (Minus) single tap|5|7680
+Button five (Minus) hold|5|7800
+Button five (Minus) release|5|7740
+Button six (Plus) single tap|6|7680
+Button six (Plus) hold|6|7800
+Button six (Plus) release|6|7740
 
 Press circle and plus simultaneously to wake up the device.
 
@@ -1179,7 +1194,7 @@ switch:
           data:
             node_id: 3
             value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
-            value: "{{ states(scene_contrl_indicator)|int + 8 }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int + 8 }}"
         turn_off:
           service: zwave.set_node_value
           data:
@@ -1515,4 +1530,16 @@ Example Event:
   action:
     - service: switch.toggle
       entity_id: switch.office_fan
+```
+
+### EATON On/Off & Dimmer (RF9501/RF9540-N/RF9640-N/RF9601-N)
+
+Once you've added the remote to your Z-Wave network, you'll need to update your `zwcfg_*.xml` file with the below XML data. Stop Home Assistant and open your `zwcfg_*.xml` file (located in your configuration folder). Find the remote's device section and then its corresponding `CommandClass` section with id="112". Insert the snippet below into the CommandClass section with the below XML data. Save the file and restart Home Assistant.
+
+```xml
+<Value type="list" genre="config" instance="1" index="10" label="Notify Accessory" units="" read_only="false" write_only="false" verify_changes="false" poll_intensity="0" min="0" max="1" vindex="1" size="1">
+	<Help>Ensures that changes to the master node automatically notify accessory switches</Help>
+	<Item label="disable" value="0" />
+	<Item label="enable" value="1" />
+</Value>
 ```

@@ -41,7 +41,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 28     | [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)          | Temperature                     |
 | 3B     | [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)            | Temperature                     |
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
-| 7E     | [EDS00xx](https://www.embeddeddatasystems.com/assets/images/supportFiles/manuals/EN-UserMan%20%20OW-ENV%20Sensor%20v13.pdf)        | Temperature/Humidity/Barometric pressure/Light <sup>[5](#note_5)</sup>|
+| 7E     | [EDS00xx](https://www.embeddeddatasystems.com/assets/images/supportFiles/manuals/EN-UserMan%20%20OW-ENV%20Sensor%20v13.pdf)        | Temperature/Humidity/Barometric pressure/Light <sup>[6](#note_6)</sup>|
 | EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture, Wetness <sup>[3](#note_3)</sup> |  
 
 #### Switches:
@@ -50,6 +50,13 @@ Each 1-wire component data sheet describes the different properties the componen
 | -------|:-----|:-----|
 | 12     | [DS2406](https://datasheets.maximintegrated.com/en/ds/DS2406.pdf)  | 2 latches (latch.A/B) and 2 PIOs (PIO.A/B) <sup>[4](#note_4)</sup> |
 | 29     | [DS2408](https://datasheets.maximintegrated.com/en/ds/DS2408.pdf)  | 8 latches (latch.0-7) and 8 PIOs (PIO.0/7) <sup>[4](#note_4)</sup> |
+
+#### Bridges:
+
+| Family | Device           | Physical Quantity |
+| -------|:-----|:-----|
+| 1F     | [DS2409](https://datasheets.maximintegrated.com/en/ds/DS2409.pdf)  | None <sup>[5](#note_5)</sup>
+
 
 Notes:
 
@@ -62,7 +69,9 @@ Notes:
 
 - <a name="note_4">Some sensors are disabled by default</a> to avoid overloading the bus. These can be activated by opening the integrations page in your configuration, listing your 1-Wire integration devices and updating the entity.
 
-- <a name="note_5">Multisensors manufactures by Embedded Data Systems. Currently only EDS0068 (temperature/humidity/barometric pressure/light) is supported.
+- <a name="note_5">Bridge devices have no sensors</a>. The `aux` and `main` branches are searched for additional 1-wire devices during discovery.  
+
+- <a name="note_6">Multisensors manufactures by Embedded Data Systems. Currently only EDS0068 (temperature/humidity/barometric pressure/light) is supported.
 
 ## Interfacing with the 1-wire bus
 
@@ -133,7 +142,7 @@ sensor:
 
 ### Entities and attributes
 
-Upon startup of the platform, the 1-wire bus is searched for available 1-wire devices. For each device that this platform handles (see list of supported devices above), the platform adds one sensor for each physical quantity it measures. The name of the sensor is the device ID with the physical quantity it measures appended.
+Upon startup of the platform, the 1-wire bus is searched for available 1-wire devices. On Bridge devices, the `aux` and `main` branches are recursively searched. For each device that this platform handles (see list of supported devices above), the platform adds one sensor for each physical quantity it measures. The name of the sensor is the device ID with the physical quantity it measures appended. Unsupported sensors are noted with a warning message in the log.
 
 `sensor.28.FF5C68521604_temperature`
 
