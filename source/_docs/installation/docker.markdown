@@ -266,9 +266,11 @@ docker-compose restart
 To update your docker-compose image to the latest version and restart:
 
 ```bash
-docker-compose pull
-docker-compose up -d --build homeassistant
+docker-compose pull homeassistant
+docker-compose up -d
 ```
+
+Note: the above will fetch the latest matching image for the `homeassistant` service only. To fetch all matching images for all services defined in the same `docker-compose.yaml` file, omit the service name from the first command.
 
 ## Exposing Devices
 
