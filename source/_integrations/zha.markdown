@@ -275,6 +275,8 @@ Binding of Zigbee clusters is nothing but establishing direct virtual connection
 
 By default ZHA bind remotes to the coordinator, so coordinator could receive ZCL commands from the remotes and originate zha_event's. However some remotes, like example Philips RWL021 can only be bound to a single destination and it is not possible to make this switch to bind to another destinations like a device or groups unless you first unbind the remote from the coordinator. After you unbind the remote from ZHA coordinator you can then bind it directly to any other Zigbee device or a group directly.
 
+Binding a remote directly to a bulb or group has the benifit of faster response time and smoothner control. This benifit use greatly improve user feedback experince functions like dimming the dimming as the remote directly dims the lightbulb and thus does not have to make the software roundtrip via the ZHA coordinator.
+
 ## Troubleshooting
 
 To help resolve any kinks or compatibility problems by reporting bugs as issues with debug logs. Please follow the instructions in this troubleshooting section.
