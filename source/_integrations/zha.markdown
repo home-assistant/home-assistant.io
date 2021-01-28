@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created.
+There is also support for grouping of lights, switches, and fans (i.e. support for commanding device groups as entities). At least two entities must be added to a group before the group entity is created. As well as support for binding/unbinding (i.e. bind a remote to a lightbulb or group).
 
 ## Compatible hardware
 
@@ -266,6 +266,14 @@ An example using the default CC2531 coordinator firmware + two CC2531 routers; Y
 - Router one: + 21 devices
 - Router two: + 21 devices
 - Total device limit = **55 devices**
+
+### Binding and unbinding
+
+ZHA support for binding and unbinding. Binding is an action in Zigbee which defines relations between two Zigbee devices, specific endpoints and cluster id. It provides a mechanism for attaching an endpoint on one Zigbee node to one or more endpoints on another Zigbee node and can even be destined for Zigbee groups of nodes. 
+
+Binding of Zigbee clusters is nothing but establishing direct virtual connections between endpoints on different Zigbee nodes so that, during data transmission between the connected endpoints, the destination is identified by a specific cluster, rather than by the destination address. This is useful to for example bind a Zigbee end device like a remote or motion-sensor to a Zigbee lightbulb or group of lightbulbs. After this binding is done the remote or motion-sensor is attached directly to that device via a pair-to-pair connection and can direcly control that bound lightbulb / group of lightbulbs without going through the Zigbee coordinator. This means that the remote or motion-sensor can control the lightbulb  / group of lightbulbs even when the Zigbee coordinator is not available.
+
+By default ZHA bind remotes to the coordinator, so coordinator could receive ZCL commands from the remotes and originate zha_event's. However some remotes, like example Philips RWL021 can only be bound to a single destination and it is not possible to make this switch to bind to another destinations like a device or groups unless you first unbind the remote from the coordinator. After you unbind the remote from ZHA coordinator you can then bind it directly to any other Zigbee device or a group directly.
 
 ## Troubleshooting
 
