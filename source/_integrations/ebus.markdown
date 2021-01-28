@@ -6,6 +6,10 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 2021.2.1
 ha_domain: ebus
+ha_config_flow: true
+ha_codeowners:
+  - '@c0fec0de'
+ha_quality_scale: gold
 ---
 
 [EBUS](https://en.wikipedia.org/wiki/EBUS_(serial_buses)) is a 2-wire digital serial data-bus for heating and cooling applications.
@@ -74,14 +78,23 @@ Service Data: {"entity_id": "sensor.mixer_operatingmode_mcmode", "value": "auto"
 
 Please see the corresponding sensor attributes if the sensor is writeable.
 
+
+## Polling
+
+Some sensor values are published on EBUS on change automatically. All other sensor values are polled by EBUSD.
+The polling rate of the specific sensors is automatically adapted.
+Agile values are prioritized and read more often.
+The sensor attributes show the actual priority: `1` has highest priority, `3` lowest.
+
+EBUS may contain duplicates or static values which are not of any interest.
+Disable the corresponding sensors.
+**Disabled sensors are removed from EBUS polling and will increase update rates of all other EBUS sensors.**
+
+
 ## Trouble-Shooting
 
 EBUS is quite slow. In larger EBUS installations it takes some time to start and collect all values.
 The EBUS Status Sensor (`sensor.ebus_status`) states `SCAN` at startup or after re-connect and displays `ok` as soon as EBUS monitoring is working.
 Initially all sensors are marked as "Unavailable" and show up as soon as they have been read.
 
-The EBUS may contain duplicates or static values which are not of any interest.
-Disable the corresponding sensors.
-
-**Disabled sensors are removed from EBUS polling and will increase update rates of all other EBUS sensors.**
-
+EBUS connection status is checked every minute. A full reconnect takes up to 5 minutes. Please be patient.
