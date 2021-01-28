@@ -587,10 +587,10 @@ then the default profile would also apply the color and transition.
 </details>
 
 <details>
-  <summary><b>MQTT</b></summary>
+  <summary><b>MQTT Fan</b></summary>
   <p>
 
-MQTT allowed passing an arbitrary speed that was not in the `speed_list`.
+MQTT fan allowed passing an arbitrary speed that was not in the `speed_list`.
 
 With the conversion to percentages in upcoming releases, this aberration from
 the spec could not be converted to a percentage. Since it does not
