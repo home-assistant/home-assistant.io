@@ -83,7 +83,7 @@ fan:
       preset_mode_template:
         description: Defines a template to get the preset mode of the fan.
         required: false
-        type: template        
+        type: template
       oscillating_template:
         description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`"
         required: false
