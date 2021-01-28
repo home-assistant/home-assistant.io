@@ -65,7 +65,7 @@ There are some rules for packages that will be merged:
     input_boolean:
       my_input:
     ```
-3. Any integration that is not a platform [2], or dictionaries with Entity ID keys [3] can only be merged if its keys, except those for lists, are solely defined once.
+3. Any integration that is not a platform [1], or dictionaries with Entity ID keys [2] can only be merged if its keys, except those for lists, are solely defined once.
 
 <div class='note tip'>
 Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the integration name.
