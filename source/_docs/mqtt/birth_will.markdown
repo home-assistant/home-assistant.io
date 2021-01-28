@@ -25,7 +25,7 @@ mqtt:
 birth_message:
   description: Birth Message. Set to the empty dict, `{}`, to disable publishing a birth message.
   required: false
-  type: list
+  type: map
   keys:
     topic:
       description: The MQTT topic to publish the message.
@@ -50,7 +50,7 @@ birth_message:
 will_message:
   description: Will Message. Set to the empty dict, `{}`, to disable publishing a will message.
   required: false
-  type: list
+  type: map
   keys:
     topic:
       description: The MQTT topic to publish the message.
