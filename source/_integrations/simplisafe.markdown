@@ -142,7 +142,7 @@ To build an automation using one of these, use `SIMPLISAFE_EVENT`
 as an event trigger, with `last_event_type` as the `event_data`.
 For example, the following will trigger when the doorbell rings:
 
-```
+```yaml
 trigger:
   - platform: event
     event_type: SIMPLISAFE_EVENT
