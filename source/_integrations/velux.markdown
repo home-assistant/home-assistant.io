@@ -50,6 +50,7 @@ Reboots the configured KLF 200 Gateway.
 
 There is a problem with the KLF 200 gateway where the connection cannot be established after a restart of Home Assistant, only a manual power off and on fixes this.
 As a workaround, you can use an automation to force a restart of the KLF 200 before exiting Home Assistant, like this:
+
 ```yaml
 automation:
   alias: KLF reboot on hass stop event
