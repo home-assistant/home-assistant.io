@@ -54,16 +54,12 @@ As a workaround, you can use an automation to force a restart of the KLF 200 bef
 ```yaml
 automation:
   alias: KLF reboot on hass stop event
-  description: ''
+  description: Reboots the KLF200 in order to avoid SSL Handshake issue
   trigger:
-    - event_data: {}
-      event_type: homeassistant_stop
-      platform: event
-  condition: []
+    - platform: homeassistant
+      event: shutdown
   action:
-    - data: {}
-      service: velux.reboot_gateway
-  mode: single
+    - service: velux.reboot_gateway
 ```
 
 ## Velux Active (KIX 300)
