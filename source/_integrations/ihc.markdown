@@ -24,7 +24,7 @@ see below how to [Migrate manual setup](#migrating-manual-setup).
 
 Setup the IHC integration for your installation via Configuration >> Integrations in the UI,
  click the button with + sign and from the list of integrations select IHC.
-You must enter the url for your IHC Controller, the username and password.
+You must enter the URL for your IHC Controller, the username and password.
 Auto setup is enabled by default (see auto setup below).
 You can uncheck it if you want to manually add all your IHC products.
 
@@ -211,7 +211,7 @@ When auto setup is enabled the following products will be found in the IHC proje
 - Wireless combi relay 4 buttons
 - Wireless mobile dimmer
 - Dataline lamp outlet
-- RS486 dual channel led dimmer
+- RS485 dual channel LED dimmer
 
 ### Manual configuration of lights
 
