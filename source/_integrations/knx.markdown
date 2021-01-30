@@ -448,7 +448,7 @@ The following values are valid for the `heat_cool_address` and the `heat_cool_st
 - `0` (cooling)
 - `1` (heating)
 
-The following values are valid for the `hvac_mode` attribute:
+The following values are valid for the Home Assistant [Climate](/integrations/climate/) `hvac_mode` attribute. Supported values for your KNX thermostats can be specified via `controller_modes` configuration variable:
 
 - `Off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
 - `Auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
@@ -457,7 +457,7 @@ The following values are valid for the `hvac_mode` attribute:
 - `Fan only` (maps internally to `HVAC_MODE_FAN_ONLY` within Home Assistant)
 - `Dry` (maps internally to `HVAC_MODE_DRY` within Home Assistant)
 
-The following presets are valid for the `preset_mode` attribute:
+The following presets are valid for the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute. Supported values for your KNX thermostats can be specified via `operation_modes` configuration variable:
 
 - `Auto` (maps internally to `PRESET_NONE` within Home Assistant)
 - `Comfort` (maps internally to `PRESET_COMFORT` within Home Assistant)
@@ -532,7 +532,7 @@ controller_mode_address:
   required: false
   type: string
 controller_mode_state_address:
-  description: KNX address for reading HVAC Control Mode. *DPT 20.105*
+  description: KNX address for reading HVAC control mode. *DPT 20.105*
   required: false
   type: string
 heat_cool_address:
