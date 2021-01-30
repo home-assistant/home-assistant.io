@@ -26,7 +26,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **signal_strength**: Signal strength in dB or dBm.
 - **temperature**: Temperature in °C or °F.
 - **power**: Power in W or kW.
-- **power_factor**: Power Factor in %.
+- **power_factor**: Power factor in %.
 - **pressure**: Pressure in hPa or mbar.
 - **timestamp**: Datetime object or timestamp string (ISO 8601).
 - **voltage**: Voltage in V.
