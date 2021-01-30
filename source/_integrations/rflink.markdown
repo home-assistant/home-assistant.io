@@ -108,6 +108,7 @@ In order to have your devices discovered automatically, you need to add the foll
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
 
 ```yaml
+# Example configuration.yaml entry
 light:
   - platform: rflink
     automatic_add: true
@@ -159,6 +160,7 @@ If you find a device is recognized differently, with different protocols or the 
 For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following configuration snippet:
 
 ```yaml
+# Example configuration.yaml entry
 logger:
   default: error
   logs:
