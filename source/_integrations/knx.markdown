@@ -52,8 +52,7 @@ To use your KNX bus in your installation, add the following lines to your `confi
 knx:
 ```
 
-In order to make use of the various platforms KNX offers you will need to have the following configuration inside `configuration.yaml` depending on what
-platforms you intend to use:
+In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files as shown below:
 
 ```yaml
 knx:
@@ -69,7 +68,7 @@ knx:
 
 Please see the dedicated platform sections below about how to configure them correctly.
 
-Optional, or if you want to use the XKNX abstraction also for other scripted tools outside of Home Assistant:
+Alternatively, if you want to use the [XKNX](https://xknx.io/) library abstraction (e.g., to re-use the configuration also for other scripted tools outside of Home Assistant):
 
 ```yaml
 knx:
@@ -78,7 +77,7 @@ knx:
 
 {% configuration %}
 config_file:
-  description: The path for XKNX configuration file. See [xknx.io](https://xknx.io/configuration) for details
+  description: The path for XKNX configuration file. See [xknx.io](https://xknx.io/configuration) for details.
   required: false
   type: string
 rate_limit:
