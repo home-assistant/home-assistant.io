@@ -62,6 +62,7 @@ knx:
   sensor: !include knx_sensor.yaml
   cover: !include knx_cover.yaml
   light: !include knx_light.yaml
+  climate: !include knx_climate.yaml
   notify: !include knx_notify.yaml
   scene: !include knx_scene.yaml
 ```
