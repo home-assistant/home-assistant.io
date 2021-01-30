@@ -450,7 +450,7 @@ The following values are valid for the `heat_cool_address` and the `heat_cool_st
 
 The following values are valid for the `hvac_mode` attribute:
 
-- `Off `(maps internally to `HVAC_MODE_OFF` within Home Assistant)
+- `Off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
 - `Auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
 - `Heat` (maps internally to `HVAC_MDOE_HEAT` within Home Assistant)
 - `Cool` (maps internally to `HVAC_MDOE_COOL` within Home Assistant)
