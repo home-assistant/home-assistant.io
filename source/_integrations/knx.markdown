@@ -6,6 +6,7 @@ ha_category:
   - Binary Sensor
   - Climate
   - Cover
+  - Fan
   - Light
   - Notifications
   - Scene
@@ -37,6 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
+- [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
 - [Scene](#scene)
@@ -68,7 +70,7 @@ knx:
 
 Please check the dedicated platform documentation about how to configure them correctly.
 
-Optional, or if you want to use the XKNX abstraction also for other scripted tools outside of Home Assistant:
+Optional, or if you want to usbbe the XKNX abstraction also for other scripted tools outside of Home Assistant:
 
 ```yaml
 knx:
@@ -697,6 +699,42 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
+{% endconfiguration %}
+
+## Fan
+
+The `knx fan` integration is used to control KNX fans. Following control types are supported:
+
+- Percentage controlled: Fans which set the percentage directly from 0-100%.
+- Step controlled: Fans which have a fixed amount of steps to set. The integration will convert percentage to step automatically. The `max_step` attribute is set to the amount of steps of the fan, not counting the `off`-step. Example: A knx fan supports the steps 0-3. The `max_step` attribute has to be set to `3`. The integration will convert the percentage `66 %` to the step `2` when sending data to KNX.
+
+To use your KNX fan in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+knx:
+  fan:
+    - name: 'ceiling fan'
+      address: '9/0/1'
+```
+
+{% configuration %}
+address:
+  description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
+  required: true
+  type: string
+state_address:
+  description: KNX group address for retrieving the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
+  required: false
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+max_step:
+  description: The maximum amount of steps for a step-controlled fan. If set, the integration will convert percentages to steps automatically.
+  required: false
+  type: byte
 {% endconfiguration %}
 
 ## Light
