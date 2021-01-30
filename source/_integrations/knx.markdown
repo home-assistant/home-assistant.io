@@ -1188,7 +1188,7 @@ address_humidity:
   required: false
   type: string
 expose_sensors:
-  description: If true, exposes all sensor values as dedicated sensors to HA.
+  description: If true, exposes all sensor values as dedicated sensors to Home Assistant.
   required: false
   type: boolean
   default: false
