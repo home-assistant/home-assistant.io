@@ -199,6 +199,8 @@ recorder:
       - sensor.weather_*
 ```
 
+## Services
+
 ### Service `purge`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
@@ -208,6 +210,14 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
+
+### Service `disable`
+
+Call the service `recorder.disable` to stop saving events and states to the database.
+
+### Service `enable`
+
+Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
 ## Custom database engines
 
