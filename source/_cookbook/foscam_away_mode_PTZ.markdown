@@ -25,7 +25,7 @@ switch:
      value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
 ```
 
-The service `shell_command.foscam_turn_off` sets the camera to point down and away to indicate it is not recording, and `shell_command.foscam_turn_on` sets the camera to point where I'd like to record. h of these services require preset points to be added to your camera. See source above for additional information.
+The service `shell_command.foscam_turn_off` sets the camera to point down and away to indicate it is not recording, and `shell_command.foscam_turn_on` sets the camera to point where I'd like to record. Each of these services require preset points to be added to your camera. See source above for additional information.
 
 ```yaml
 shell_command:
