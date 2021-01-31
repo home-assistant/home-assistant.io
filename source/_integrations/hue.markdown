@@ -80,12 +80,14 @@ script:
         data:
           group_name: "Porch"
           scene_name: "Porch Orange"
+          transition: 30
 ```
 
 | Service data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
 | `group_name`           | no       | The group/room name of the lights. Find this in the official Hue app. |
 | `scene_name`           | no       | The name of the scene. Find this in the official Hue app.             |
+| 'transition'           | yes      | The time in 100s of milliseconds to transition to the scene.          |
 
 _Note_: `group_name` is not a reference to a Home Assistant group name. It can only be the name of a group/room in the Hue app.
 
