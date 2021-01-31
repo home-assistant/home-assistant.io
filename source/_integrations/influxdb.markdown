@@ -76,9 +76,14 @@ database:
   default: home_assistant
 verify_ssl:
   type: boolean
-  description: 1.xx only - Verify SSL certificate for HTTPS request. For 2.xx SSL verification is required, library provides no way to disable it.
+  description: Verify SSL certificate for HTTPS request. This can take on boolean values `false` or `true`.
   required: false
   default: true
+ssl_ca_cert:
+  type: string
+  description: Optional path of a CA certificate to be used during SSL verification.
+  required: false
+  default: None
 token:
   type: string
   description: 2.xx only - Auth token with WRITE access to your chosen Organization and Bucket. Needed with `organization` configuration variable.
