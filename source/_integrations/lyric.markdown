@@ -4,7 +4,7 @@ description: How to integrate the Honeywell Lyric integration into Home Assistan
 ha_category:
   - Climate
   - Sensor
-ha_release: 0.116
+ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -40,17 +40,3 @@ Menu: **Configuration** -> **Integrations**.
 
 Click on the `+` sign to add an integration and click on **Honeywell Lyric**.
 Log in with your Honeywell Lyric account and agree to the terms. The Honeywell Lyric integration will then be available.
-
-## Sensors
-
-This integration provides the following sensors:
-
-_Some are not enabled by default. These can be enabled by via the integration's options._
-
-| Name                | Description                                 |
-| ------------------- | ------------------------------------------- |
-| Indoor Temperature  | The reported temperature from the device    |
-| Outdoor Temperature | Lyric's outdoor temperature report          |
-| Outdoor Humidity    | Lyric's outdoor humidity                    |
-| Next Period Time    | The next time the thermostat will change    |
-| Setpoint Status     | A description of the setpoint of the device |
