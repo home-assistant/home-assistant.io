@@ -20,7 +20,7 @@ Integrate your Serial, Ethernet (LAN) or MQTT MySensors Gateway by adding the fo
 # Example configuration.yaml entry
 mysensors:
   gateways:
-    - device: '/dev/ttyUSB0'
+    - device: "/dev/ttyUSB0"
 ```
 
 {% configuration %}
@@ -52,12 +52,12 @@ mysensors:
         description: Set the prefix of the MQTT topic for messages coming from the MySensors gateway in to Home Assistant.
         required: false
         type: string
-        default: ''
+        default: ""
       topic_out_prefix:
         description: Set the prefix of the MQTT topic for messages going from Home Assistant out to the MySensors gateway.
         required: false
         type: string
-        default: ''
+        default: ""
       nodes:
         description: A mapping of node ids to node settings, e.g.,  custom name.
         required: false
@@ -76,7 +76,7 @@ mysensors:
     description: Specifies the MySensors protocol version to use. Supports versions 1.4 to 2.3.
     required: false
     type: string
-    default: '1.4'
+    default: "1.4"
   optimistic:
     description: Enable or disable optimistic mode for actuators (switch/light). Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.
     required: false
@@ -116,28 +116,28 @@ The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gatewa
 # Example configuration.yaml entry
 mysensors:
   gateways:
-    - device: '/dev/ttyUSB0'
-      persistence_file: 'path/mysensors.json'
+    - device: "/dev/ttyUSB0"
+      persistence_file: "path/mysensors.json"
       baud_rate: 38400
       nodes:
         1:
-          name: 'kitchen'
+          name: "kitchen"
         3:
-          name: 'living_room'
-    - device: '/dev/ttyACM0'
-      persistence_file: 'path/mysensors2.json'
+          name: "living_room"
+    - device: "/dev/ttyACM0"
+      persistence_file: "path/mysensors2.json"
       baud_rate: 115200
-    - device: '192.168.1.18'
-      persistence_file: 'path/mysensors3.json'
+    - device: "192.168.1.18"
+      persistence_file: "path/mysensors3.json"
       tcp_port: 5003
     - device: mqtt
-      persistence_file: 'path/mysensors4.json'
-      topic_in_prefix: 'mygateway1-out'
-      topic_out_prefix: 'mygateway1-in'
+      persistence_file: "path/mysensors4.json"
+      topic_in_prefix: "mygateway1-out"
+      topic_out_prefix: "mygateway1-in"
   optimistic: false
   persistence: true
   retain: true
-  version: '2.0'
+  version: "2.0"
 ```
 
 ### Presentation

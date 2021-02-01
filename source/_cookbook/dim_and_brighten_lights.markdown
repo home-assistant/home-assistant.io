@@ -13,8 +13,8 @@ For the controller this was written for scene ID 13 was sent when the up button 
 ```yaml
 automation: 
 
-  - alias: 'Make the lights go bright'
-    initial_state: 'on'
+  - alias: "Make the lights go bright"
+    initial_state: "on"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -29,8 +29,8 @@ automation:
             direction: up
             light: light.YOUR_LIGHT
 
-  - alias: 'Make the lights go dim'
-    initial_state: 'on'
+  - alias: "Make the lights go dim"
+    initial_state: "on"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -45,8 +45,8 @@ automation:
             direction: down
             light: light.YOUR_LIGHT
 
-  - alias: 'Stop the light just there'
-    initial_state: 'on'
+  - alias: "Stop the light just there"
+    initial_state: "on"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -73,28 +73,28 @@ To allow flexibility all four variables are controlled by [Input Number](/integr
 ```yaml
 input_number:
   light_step:
-    name: 'Step the lights this much'
+    name: "Step the lights this much"
     initial: 20
     min: 1
     max: 64
     step: 1
 
   light_minimum:
-    name: 'No dimmer than this'
+    name: "No dimmer than this"
     initial: 5
     min: 1
     max: 255
     step: 1
 
   light_maximum:
-    name: 'No brighter than this'
+    name: "No brighter than this"
     initial: 255
     min: 50
     max: 255
     step: 1
 
   light_delay_ms:
-    name: 'Step the lights this often (ms)'
+    name: "Step the lights this often (ms)"
     initial: 500
     min: 100
     max: 5000

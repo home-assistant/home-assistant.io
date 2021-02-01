@@ -19,7 +19,7 @@ switch:
  switches:
    #Switch for Foscam Motion Detection
    foscam_motion:
-     command_on: 'curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
+     command_on: "curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password""
      command_off: 'curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
      command_state: 'curl -k --silent --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep "isEnable" | cut -b 15'
      value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
@@ -64,14 +64,14 @@ automation:
     trigger:
       platform: state
       entity_id: group.family
-      from: 'home'
+      from: "home"
     action:
       service: script.foscam_on
   - alias: Set Foscam to Home Mode when I arrive Home
     trigger:
       platform: state
       entity_id: group.family
-      to: 'home'
+      to: "home"
     action:
       service: script.foscam_off
 ```

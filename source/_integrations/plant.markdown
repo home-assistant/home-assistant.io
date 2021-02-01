@@ -142,28 +142,28 @@ sensor:
   - platform: mqtt
     name: my_plant_moisture
     state_topic: my_plant_topic
-    value_template: '{{ value_json.moisture | int }}'
-    unit_of_measurement: '%'
+    value_template: "{{ value_json.moisture | int }}"
+    unit_of_measurement: "%"
   - platform: mqtt
     name: my_plant_battery
     state_topic: my_plant_topic
-    value_template: '{{ value_json.battery | int }}'
-    unit_of_measurement: '%'
+    value_template: "{{ value_json.battery | int }}"
+    unit_of_measurement: "%"
   - platform: mqtt
     name: my_plant_temperature
     state_topic: my_plant_topic
-    value_template: '{{ value_json.temperature | float }}'
-    unit_of_measurement: '°C'
+    value_template: "{{ value_json.temperature | float }}"
+    unit_of_measurement: "°C"
   - platform: mqtt
     name: my_plant_conductivity
     state_topic: my_plant_topic
-    value_template: '{{ value_json.conductivity | int }}'
-    unit_of_measurement: 'µS/cm'
+    value_template: "{{ value_json.conductivity | int }}"
+    unit_of_measurement: "µS/cm"
   - platform: mqtt
     name: my_plant_brightness
     state_topic: my_plant_topic
-    value_template: '{{ value_json.brightness | int }}'
-    unit_of_measurement: 'Lux'
+    value_template: "{{ value_json.brightness | int }}"
+    unit_of_measurement: "Lux"
 ```
 
 {% endraw %}

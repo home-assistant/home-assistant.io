@@ -160,5 +160,5 @@ automation:
             {% else %}{% endraw %}
               none{% raw %}
             {% endif %}{% endraw %}
-          media_content_type: 'music'
+          media_content_type: "music"
 ```

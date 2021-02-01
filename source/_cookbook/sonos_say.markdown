@@ -36,7 +36,7 @@ script:
 We call this now with:
 ```yaml
 automation:
-  - alias: 'test'
+  - alias: "test"
     trigger:
       - platform: state
         entity_id: input_boolean.mytest
@@ -45,8 +45,8 @@ automation:
         data:
           sonos_entity: media_player.office
           volume: 0.5
-          message: 'Your husband coming home!'
-          delay: '00:00:05'
+          message: "Your husband coming home!"
+          delay: "00:00:05"
 ```
 Note that this example uses the `voicerss` text-to-speech platform. There are many platforms that can be used. The one installed by default with Home Assistant is Google TTS. This appears in your `configuration.yaml` file as:
 

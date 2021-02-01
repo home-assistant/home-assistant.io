@@ -77,7 +77,7 @@ automation:
     action:
       service: notify.notify
       data:
-        message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }} at {{ state_attr('sensor.modem_callerid', 'cid_number') }} '
+        message: "Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }} at {{ state_attr('sensor.modem_callerid', 'cid_number') }} "
   - alias: Notify CallerID webui
     trigger:
       platform: state
@@ -87,7 +87,7 @@ automation:
       service: persistent_notification.create
       data:
         title: "Call from"
-        message: '{{ state_attr('sensor.modem_callerid', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.modem_callerid', 'cid_name') }}  {{ state_attr('sensor.modem_callerid', 'cid_number') }} '
+        message: "{{ state_attr('sensor.modem_callerid', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.modem_callerid', 'cid_name') }}  {{ state_attr('sensor.modem_callerid', 'cid_number') }} "
   - alias: Say CallerID
     trigger:
       platform: state
@@ -96,7 +96,7 @@ automation:
     action:
       service: tts.google_say
       data:
-        message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}'
+        message: "Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}"
 ```
 
 {% endraw %}

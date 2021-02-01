@@ -54,7 +54,7 @@ The Arlo integration also provides a camera service to enable/disable the motion
 ```yaml
 #automation.yaml
 - alias: Enable Arlo upon HA start'
-  initial_state: 'on'
+  initial_state: "on"
   trigger:
     platform: homeassistant
     event: start

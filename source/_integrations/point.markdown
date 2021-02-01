@@ -100,7 +100,7 @@ automation:
   trigger:
   - platform: state
     entity_id: binary_sensor.point_button_press  # Change this accordingly
-    to: 'on'
+    to: "on"
   action:
   - service: persistent_notification.create
     data:

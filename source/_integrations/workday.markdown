@@ -138,7 +138,7 @@ automation:
   condition:
     condition: state
     entity_id: 'binary_sensor.workday_sensor'
-    state: 'on'
+    state: "on"
   action:
     service: switch.turn_on
     entity_id: switch.heater

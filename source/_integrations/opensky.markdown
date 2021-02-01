@@ -45,14 +45,14 @@ To receive notifications of the entering flights using the [Home Assistant Compa
 
 ```yaml
 automation:
-  - alias: 'Flight entry notification'
+  - alias: "Flight entry notification"
     trigger:
       platform: event
       event_type: opensky_entry
     action:
       service: notify.mobile_app_<device_name>
       data:
-        message: 'Flight entry of {{ trigger.event.data.callsign }}'
+        message: "Flight entry of {{ trigger.event.data.callsign }}"
 ```
 
 {% endraw %}
