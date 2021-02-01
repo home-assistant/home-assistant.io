@@ -42,8 +42,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   condition:
     condition: numeric_state
     entity_id: sensor.illumination_34ce00xxxx11
@@ -60,8 +60,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
-    from: 'on'
-    to: 'off'
+    from: "on"
+    to: "off"
     for:
       minutes: 5
   action:
@@ -79,32 +79,32 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     service: climate.set_operation_mode
     entity_id: climate.livingroom
     data:
-      operation_mode: 'Off'
+      operation_mode: "Off"
 - alias: If the window is closed for 5 minutes turn on the radiator again
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
-    from: 'on'
-    to: 'off'
+    from: "on"
+    to: "off"
     for:
       minutes: 5
   action:
     service: climate.set_operation_mode
     entity_id: climate.livingroom
     data:
-      operation_mode: 'Smart schedule'
+      operation_mode: "Smart schedule"
 - alias: Notify if door is opened when away
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_15xxxxxxc9xx6b
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   condition:
     - condition: state
       entity_id: group.family
@@ -112,7 +112,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   action:
     - service: notify.notify_person
       data:
-        message: 'The door has been opened'
+        message: "The door has been opened"
 ```
 
 #### Smoke
@@ -122,8 +122,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.smoke_sensor_158d0001574899
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     - service: notify.html5
       data:
@@ -143,13 +143,13 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.natgas_sensor_158dxxxxxxxxxx
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     - service: notify.html5
       data:
         title: Gas alarm!
-        message: 'Gas with a density of {% raw %}{{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }}{% endraw %} detected.'
+        message: "Gas with a density of {% raw %}{{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }}{% endraw %} detected."
 ```
 
 #### Xiaomi Wireless Button

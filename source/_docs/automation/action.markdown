@@ -45,7 +45,7 @@ Conditions can also be part of an action. You can combine multiple service calls
 
 ```yaml
 automation:
-- alias: 'Office at evening'
+- alias: "Office at evening"
   trigger:
     platform: state
     entity_id: sensor.office_occupancy

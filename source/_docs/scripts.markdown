@@ -107,13 +107,13 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # HH:MM
 # Waits 1 hour
-- delay: '01:00'
+- delay: "01:00"
 ```
 
 ```yaml
 # HH:MM:SS
 # Waits 1.5 minutes
-- delay: '00:01:30'
+- delay: "00:01:30"
 ```
 
 ```yaml
@@ -170,7 +170,7 @@ This action can use the same triggers that are available in an automation's `tri
       event_type: MY_EVENT
     - platform: state
       entity_id: light.LIGHT
-      to: 'on'
+      to: "on"
       for: 10
 ```
 
@@ -185,7 +185,7 @@ With both types of waits it is possible to set a timeout after which the script 
 ```yaml
 # Wait for sensor to change to 'on' up to 1 minute before continuing to execute.
 - wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
-  timeout: '00:01:00'
+  timeout: "00:01:00"
 ```
 
 {% endraw %}
@@ -406,7 +406,7 @@ automation:
   - trigger:
       - platform: state
         entity_id: binary_sensor.xyz
-        to: 'on'
+        to: "on"
     condition:
       - condition: state
         entity_id: binary_sensor.something
@@ -471,7 +471,7 @@ automation:
   - trigger:
       - platform: state
         entity_id: binary_sensor.motion
-        to: 'on'
+        to: "on"
     action:
       - choose:
           # IF nobody home, sound the alarm!
@@ -517,7 +517,7 @@ automation:
   - trigger:
       - platform: state
         entity_id: input_boolean.simulate
-        to: 'on'
+        to: "on"
     mode: restart
     action:
       - choose:
