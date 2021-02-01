@@ -210,6 +210,7 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
+| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to remove database size. |
 
 ### Service `disable`
 
