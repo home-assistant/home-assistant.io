@@ -29,6 +29,10 @@ Controlling your Z-Wave network with the Z-Wave JS integration is split up into 
 
 2. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network.
 
+### Supervisor managed installation
+
+- The official Z-Wave JS add-on installed available from the add-on store.
+
 ### Core installation
 
 - The Z-Wave JS Server installed and running in your network.
@@ -49,6 +53,11 @@ Menu: **Configuration** -> **Integrations**.
 Click on the `+` sign to add an integration and click on **Z-Wave JS**.
 After completing the configuration flow, the Z-Wave JS integration will be
 available.
+
+### Secure network key
+
+The secure network key is set in the settings for zwave-js-server and
+not in the integration configuration.
 
 ## Current Limitations
 
