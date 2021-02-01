@@ -89,7 +89,24 @@ Valid code slots are between 1-254.
 
 ### Event `zwave_js_event`
 
-This event is fired whenever a [value notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotvalue-notificationquot) event is received. 
+This event is fired whenever a [notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) or [value notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotvalue-notificationquot) event is received. 
+
+#### Notifications
+
+Notifications are events sent using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
+
+Notification exapmle:
+```json
+{
+    "type": "notification",
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": "974823419",
+    "device_id": "ad8098fe80980974",
+    "label": "Keypad lock operation",
+    "parameters": {"userId": 1}
+}
+```
 
 #### Value Notifications
 
