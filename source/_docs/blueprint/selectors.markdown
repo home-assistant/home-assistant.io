@@ -392,7 +392,10 @@ The selector requires a list of options that the user can choose from.
 
 ```yaml
 select:
-  options: []
+  options:
+    - Red
+    - Green
+    - Blue
 ```
 
 {% configuration select %}
@@ -401,18 +404,6 @@ options:
   type: [list]
   required: true
 {% endconfiguration %}
-
-### Example select selectors
-
-An example select selector that allows the user to select a value from a list of colors.
-
-```yaml
-select:
-  options:
-    - Red
-    - Green
-    - Blue
-```
 
 ## Target selector
 
