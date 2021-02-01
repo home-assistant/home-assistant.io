@@ -68,20 +68,20 @@ zone.
 
 You can add configure to read these values into sensors, along with the supply temperature (use the ID of your unit):
 
-```yaml
+```
 sensor:
   - platform: template
     sensors:
       control_zone:
-        friendly_name: "Control zone"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
+        friendly_name: 'Control zone'
+        value_template: '{{ state_attr("climate.izone_controller_0000XXXXX","control_zone_name") }}'
       control_zone_target:
-        friendly_name: "Target temperature"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
+        friendly_name: 'Target temperature'
+        value_template: '{{ state_attr("climate.izone_controller_0000XXXXX","control_zone_setpoint") }}'
         unit_of_measurement: '°C'
       temperature_supply:
-        friendly_name: "Supply temperature"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
+        friendly_name: 'Supply temperature'
+        value_template: '{{ state_attr("climate.izone_controller_0000XXXXX","supply_temperature") }}'
         unit_of_measurement: '°C'
 ```
 
