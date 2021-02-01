@@ -108,7 +108,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   condition:
     - condition: state
       entity_id: group.family
-      state: 'not_home'
+      state: "not_home"
   action:
     - service: notify.notify_person
       data:

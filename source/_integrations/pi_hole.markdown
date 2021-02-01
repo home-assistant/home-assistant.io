@@ -68,23 +68,23 @@ Single Pi-hole running via Home Assistant add-on:
 
 ```yaml
 pi_hole:
-  - host: 'localhost:4865'
+  - host: "localhost:4865"
 ```
 
 Multiple Pi-holes:
 
 ```yaml
 pi_hole:
-  - host: '192.168.0.2'
-  - host: '192.168.0.3'
-    name: 'Secondary Pi-hole'
+  - host: "192.168.0.2"
+  - host: "192.168.0.3"
+    name: "Secondary Pi-hole"
 ```
 
 Pi-hole with a self-signed certificate:
 
 ```yaml
 pi_hole:
-  - host: 'pi.hole'
+  - host: "pi.hole"
     ssl: true
     verify_ssl: false
 ```
@@ -93,7 +93,7 @@ Pi-hole with an `api_key` that allows it to be enabled or disabled:
 
 ```yaml
 pi_hole:
-  - host: 'pi.hole'
+  - host: "pi.hole"
     api_key: !secret pi_hole_api_key
 ```
 

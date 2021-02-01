@@ -46,7 +46,7 @@ automation my_lights:
       # with a '-'' to enter multiple
       - condition: state
         entity_id: all
-        state: 'home'
+        state: "home"
       - condition: time
         after: '16:00:00'
         before: '23:00:00'

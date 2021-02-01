@@ -72,7 +72,7 @@ Alternatively, if you want to use the [XKNX](https://xknx.io/) library abstracti
 
 ```yaml
 knx:
-  config_file: '/path/to/xknx.yaml'
+  config_file: "/path/to/xknx.yaml"
 ```
 
 {% configuration %}
@@ -107,9 +107,9 @@ If the auto detection of the KNX/IP device does not work, you can specify IP and
 ```yaml
 knx:
   tunneling:
-    host: '192.168.2.23'
+    host: "192.168.2.23"
     port: 3671
-    local_ip: '192.168.2.109'
+    local_ip: "192.168.2.109"
 ```
 
 {% configuration %}
@@ -132,7 +132,7 @@ Explicit connection to a KNX/IP routing device:
 ```yaml
 knx:
   routing:
-     local_ip: '192.168.2.109'
+     local_ip: "192.168.2.109"
 ```
 
 {% configuration %}
@@ -197,28 +197,28 @@ KNX integration is able to expose entity states or attributes to KNX bus. The in
 # Example configuration.yaml entry
 knx:
   expose:
-    - type: 'temperature'
-      entity_id: 'sensor.owm_temperature'
-      address: '0/0/2'
-    - type: 'string'
-      address: '0/6/4'
+    - type: "temperature"
+      entity_id: "sensor.owm_temperature"
+      address: "0/0/2"
+    - type: "string"
+      address: "0/6/4"
       entity_id: "sensor.owm_weather"
-    - type: 'binary'
-      entity_id: 'binary_sensor.kitchen_window'
-      address: '0/6/5'
-    - type: 'binary'
-      entity_id: 'light.office'
-      address: '0/3/0'
+    - type: "binary"
+      entity_id: "binary_sensor.kitchen_window"
+      address: "0/6/5"
+    - type: "binary"
+      entity_id: "light.office"
+      address: "0/3/0"
       default: false
-    - type: 'percentU8'
-      entity_id: 'light.office'
-      attribute: 'brightness'
+    - type: "percentU8"
+      entity_id: "light.office"
+      attribute: "brightness"
       default: 0
-      address: '0/3/1'
-    - type: 'time'
-      address: '0/0/1'
-    - type: 'datetime'
-      address: '0/0/23'
+      address: "0/3/1"
+    - type: "time"
+      address: "0/0/1"
+    - type: "datetime"
+      address: "0/0/23"
 ```
 
 {% configuration %}
@@ -261,7 +261,7 @@ To use your binary sensors please add the relevant configuration to your top lev
 knx:
   binary_sensor:
     - name: sensor1
-      state_address: '6/0/2'
+      state_address: "6/0/2"
 ```
 
 {% configuration %}
@@ -321,7 +321,7 @@ automation:
     condition: 
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: 'on'
+        state: "on"
     action:
       - entity_id: light.hue_color_lamp_1
         service: light.turn_on
@@ -334,7 +334,7 @@ automation:
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: 'on'
+        state: "on"
     action:
       - entity_id: light.hue_bloom_1
         service: homeassistant.turn_on
@@ -374,12 +374,12 @@ To use your KNX thermostats in your installation, add the following lines to you
 knx:
   climate:
     - name: HASS-Kitchen.Temperature
-      temperature_address: '5/1/1'
-      setpoint_shift_address: '5/1/2'
-      setpoint_shift_state_address: '5/1/3'
-      target_temperature_state_address: '5/1/4'
-      operation_mode_address: '5/1/5'
-      operation_mode_state_address: '5/1/6'
+      temperature_address: "5/1/1"
+      setpoint_shift_address: "5/1/2"
+      setpoint_shift_state_address: "5/1/3"
+      target_temperature_state_address: "5/1/4"
+      operation_mode_address: "5/1/5"
+      operation_mode_state_address: "5/1/6"
 ```
 
 Alternatively, if your device has dedicated binary group addresses for frost/night/comfort mode:
@@ -389,14 +389,14 @@ Alternatively, if your device has dedicated binary group addresses for frost/nig
 knx:
   climate:
     - name: HASS-Kitchen.Temperature
-      temperature_address: '5/1/1'
-      setpoint_shift_address: '5/1/2'
-      setpoint_shift_state_address: '5/1/3'
-      target_temperature_state_address: '5/1/4'
-      operation_mode_frost_protection_address: '5/1/5'
-      operation_mode_night_address: '5/1/6'
-      operation_mode_comfort_address: '5/1/7'
-      operation_mode_state_address: '5/1/8'
+      temperature_address: "5/1/1"
+      setpoint_shift_address: "5/1/2"
+      setpoint_shift_state_address: "5/1/3"
+      target_temperature_state_address: "5/1/4"
+      operation_mode_frost_protection_address: "5/1/5"
+      operation_mode_night_address: "5/1/6"
+      operation_mode_comfort_address: "5/1/7"
+      operation_mode_state_address: "5/1/8"
 ```
 
 If your device doesn't support setpoint_shift calculations (i.e., if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
@@ -407,14 +407,14 @@ attributes of the climate device to avoid issues with exceeding valid temperatur
 knx:
   climate:
     - name: HASS-Kitchen.Temperature
-      temperature_address: '5/1/2'
-      target_temperature_address: '5/1/4'
-      target_temperature_state_address: '5/1/1'
-      operation_mode_frost_protection_address: '5/1/5'
-      operation_mode_night_address: '5/1/6'
-      operation_mode_comfort_address: '5/1/7'
-      operation_mode_state_address: '5/1/8'
-      operation_mode_standby_address: '5/1/9'
+      temperature_address: "5/1/2"
+      target_temperature_address: "5/1/4"
+      target_temperature_state_address: "5/1/1"
+      operation_mode_frost_protection_address: "5/1/5"
+      operation_mode_night_address: "5/1/6"
+      operation_mode_comfort_address: "5/1/7"
+      operation_mode_state_address: "5/1/8"
+      operation_mode_standby_address: "5/1/9"
       min_temp: 7.0
       max_temp: 32.0
 ```
@@ -431,13 +431,13 @@ Example:
 knx:
   climate:
     - name: HASS-Kitchen.Temperature
-      temperature_address: '5/1/1'
-      setpoint_shift_address: '5/1/2'
-      setpoint_shift_state_address: '5/1/3'
-      setpoint_shift_mode: 'DPT9002'
-      target_temperature_state_address: '5/1/4'
-      operation_mode_address: '5/1/5'
-      operation_mode_state_address: '5/1/6'
+      temperature_address: "5/1/1"
+      setpoint_shift_address: "5/1/2"
+      setpoint_shift_state_address: "5/1/3"
+      setpoint_shift_mode: "DPT9002"
+      target_temperature_state_address: "5/1/4"
+      operation_mode_address: "5/1/5"
+      operation_mode_state_address: "5/1/6"
 ```
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` / `operation_mode_standby_address` are not necessary if `operation_mode_address` is specified.
@@ -601,11 +601,11 @@ To use your KNX covers in your installation, add the following lines to your top
 knx:
   cover:
     - name: "Kitchen.Shutter"
-      move_long_address: '3/0/0'
-      move_short_address: '3/0/1'
-      stop_address: '3/0/4'
-      position_address: '3/0/3'
-      position_state_address: '3/0/2'
+      move_long_address: "3/0/0"
+      move_short_address: "3/0/1"
+      stop_address: "3/0/4"
+      position_address: "3/0/3"
+      position_state_address: "3/0/2"
       travelling_time_down: 51
       travelling_time_up: 61
 ```
@@ -687,8 +687,8 @@ To use your KNX light in your installation, add the following lines to your top 
 # Example configuration.yaml entry
 knx:
   light:
-    - name: 'kitchen'
-      address: '1/0/9'
+    - name: "kitchen"
+      address: "1/0/9"
 ```
 
 {% configuration %}
@@ -766,36 +766,36 @@ knx:
   light:
     # dimmable light
     - name: Bedroom-Light-1
-      address: '1/0/9'
-      state_address: '1/1/9'
-      brightness_address: '1/2/9'
-      brightness_state_address: '1/3/9'
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"
+      brightness_state_address: "1/3/9"
     #
     # RGB light
     - name: Bathroom-Light-1
-      address: '1/0/9'
-      state_address: '1/1/9'
-      brightness_address: '1/2/9'
-      brightness_state_address: '1/3/9'
-      color_address: '1/4/9'
-      color_state_address: '1/5/9'
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"
+      brightness_state_address: "1/3/9"
+      color_address: "1/4/9"
+      color_state_address: "1/5/9"
     #
     # tunable white light
     - name: Office-Light-1
-      address: '1/0/21'
-      state_address: '1/1/21'
-      brightness_address: '1/2/21'
-      brightness_state_address: '1/3/21'
-      color_temperature_address: '1/4/21'
-      color_temperature_state_address: '1/5/21'
+      address: "1/0/21"
+      state_address: "1/1/21"
+      brightness_address: "1/2/21"
+      brightness_state_address: "1/3/21"
+      color_temperature_address: "1/4/21"
+      color_temperature_state_address: "1/5/21"
       color_temperature_mode: absolute
       min_kelvin: 2550
       max_kelvin: 6200
     #
     # actuator without dedicated state communication object
     - name: Cellar-Light-1
-      address: '1/0/5'
-      state_address: '1/0/5'
+      address: "1/0/5"
+      state_address: "1/0/5"
 ```
 
 ## Notify
@@ -810,7 +810,7 @@ To use your KNX switch in your installation, add the following lines to your top
 knx:
   notify:
     - name: Alarm
-      address: '5/1/10'
+      address: "5/1/10"
 ```
 
 {% configuration %}
@@ -872,7 +872,7 @@ To use your KNX sensor in your installation, add the following lines to your top
 knx:
   sensor:
     - name: Heating.Valve1
-      state_address: '2/0/0'
+      state_address: "2/0/0"
 ```
 
 In order to actively read the sensor data from the bus all 30 minutes you can add the following lines to your `configuration.yaml`:
@@ -882,7 +882,7 @@ In order to actively read the sensor data from the bus all 30 minutes you can ad
 knx:
   sensor:
     - name: Heating.Valve1
-      state_address: '2/0/0'
+      state_address: "2/0/0"
       sync_state: every 30
 ```
 
@@ -1058,13 +1058,13 @@ always_callback:
 knx:
   sensor:
     - name: Heating.Valve1
-      state_address: '2/0/0'
+      state_address: "2/0/0"
       sync_state: init
-      type: 'percent'
+      type: "percent"
     - name: Kitchen.Temperature
-      state_address: '6/2/1'
+      state_address: "6/2/1"
       sync_state: every 60
-      type: 'temperature'
+      type: "temperature"
 ```
 
 ## Switch
@@ -1079,7 +1079,7 @@ To use your KNX switch in your installation, add the following lines to your top
 knx:
   switch:
     - name: Kitchen.Coffee
-      address: '1/1/6'
+      address: "1/1/6"
 ```
 
 {% configuration %}

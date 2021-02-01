@@ -47,7 +47,7 @@ alarm_control_panel:
         disarm:
           - condition: state
             entity_id: device_tracker.paulus
-            state: 'home'
+            state: "home"
           - service: alarm_control_panel.alarm_arm_home
             data:
               entity_id: alarm_control_panel.real_alarm

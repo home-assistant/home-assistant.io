@@ -171,5 +171,5 @@ calendar:
   condition:
   - condition: state
     entity_id: calendar.work_holiday
-    state: 'off'
+    state: "off"
 ```

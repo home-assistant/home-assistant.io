@@ -21,8 +21,8 @@ To enable this binary sensor, add the following lines to your `configuration.yam
 ```yaml
 binary_sensor:
   - platform: meteoalarm
-    country: 'NL'
-    province: 'Groningen'
+    country: "NL"
+    province: "Groningen"
 ```
 
 {% configuration %}
@@ -43,7 +43,7 @@ language:
   description: "The 2 letters of your language, please be aware that this is only possible in the current country. So 'ne' is only possible in Netherlands. Possible options are: bu, bs, ce, da, de, ee, en, es, ga, ca, su, fr, gr, he, hr, ma, is, it, li, la, sr, mk, ma, ne, no, po, pt, ro, cp, sv, sl, eu."
   required: false
   type: string
-  default: 'en'
+  default: "en"
 {% endconfiguration %}
 
 

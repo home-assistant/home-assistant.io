@@ -94,7 +94,7 @@ automation:
   - alias: Update OpenUV every 30 minutes during the daytime
     trigger:
       platform: time_pattern
-      minutes: '/30'
+      minutes: "/30"
     condition:
       condition: and
       conditions:
@@ -115,11 +115,11 @@ automation:
   - alias: Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon
     trigger:
       platform: time_pattern
-      minutes: '/20'
+      minutes: "/20"
     condition:
       condition: numeric_state
       entity_id: sun.sun
-      value_template: '{{ state.attributes.elevation }}'
+      value_template: "{{ state.attributes.elevation }}"
       above: 10
     action:
       service: openuv.update_uv_index_data
@@ -148,7 +148,7 @@ automation:
   - alias: Update OpenUV every hour (24 of 50 calls per day)
     trigger:
       platform: time_pattern
-      minutes: '/60'
+      minutes: "/60"
     action:
       service: openuv.update_data
 ```
