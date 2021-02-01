@@ -142,7 +142,7 @@ Once you have enabled the [Arlo component](/integrations/arlo), add the followin
 # Example configuration.yaml entry
 camera:
   - platform: arlo
-    ffmpeg_arguments: '-pred 1 -q:v 2'
+    ffmpeg_arguments: "-pred 1 -q:v 2"
 ```
 
 {% configuration %}

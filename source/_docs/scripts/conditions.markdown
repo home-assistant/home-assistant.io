@@ -16,10 +16,10 @@ condition:
   condition: and
   conditions:
     - condition: state
-      entity_id: 'device_tracker.paulus'
+      entity_id: "device_tracker.paulus"
       state: "home"
     - condition: numeric_state
-      entity_id: 'sensor.temperature'
+      entity_id: "sensor.temperature"
       below: 20
 ```
 
@@ -30,10 +30,10 @@ The following configuration works the same as the one listed above:
 ```yaml
 condition:
   - condition: state
-    entity_id: 'device_tracker.paulus'
+    entity_id: "device_tracker.paulus"
     state: "home"
   - condition: numeric_state
-    entity_id: 'sensor.temperature'
+    entity_id: "sensor.temperature"
     below: 20
 ```
 
@@ -48,10 +48,10 @@ condition:
   condition: or
   conditions:
     - condition: state
-      entity_id: 'device_tracker.paulus'
+      entity_id: "device_tracker.paulus"
       state: "home"
     - condition: numeric_state
-      entity_id: 'sensor.temperature'
+      entity_id: "sensor.temperature"
       below: 20
 ```
 
@@ -65,7 +65,7 @@ condition:
   condition: and
   conditions:
     - condition: state
-      entity_id: 'device_tracker.paulus'
+      entity_id: "device_tracker.paulus"
       state: "home"
     - condition: or
       conditions:
@@ -73,7 +73,7 @@ condition:
           entity_id: sensor.weather_precip
           state: "rain"
         - condition: numeric_state
-          entity_id: 'sensor.temperature'
+          entity_id: "sensor.temperature"
           below: 20
 ```
 
@@ -392,7 +392,7 @@ condition:
   conditions:
     - "{{ is_state('device_tracker.iphone', 'away') }}"
     - condition: numeric_state
-      entity_id: 'sensor.temperature'
+      entity_id: "sensor.temperature"
       below: 20
 ```
 
@@ -442,8 +442,8 @@ The time condition can test if it is after a specified time, before a specified 
 condition:
   condition: time
   # At least one of the following is required.
-  after: '15:00:00'
-  before: '02:00:00'
+  after: "15:00:00"
+  before: "02:00:00"
   weekday:
     - mon
     - wed
@@ -534,8 +534,8 @@ condition:
     entity_id: light.living_room
     state: "off"
   - condition: time
-    before: '23:00:00'
-    after: '14:00:00'
+    before: "23:00:00"
+    after: "14:00:00"
   - condition: state
     entity_id: script.light_turned_off_5min
     state: "off"

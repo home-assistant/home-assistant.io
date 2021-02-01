@@ -14,11 +14,11 @@ To customize the MQTT Birth and Last Will messages, add the following section to
 # Example configuration.yaml entry
 mqtt:
   birth_message:
-    topic: 'hass/status'
-    payload: 'online'
+    topic: "hass/status"
+    payload: "online"
   will_message:
-    topic: 'hass/status'
-    payload: 'offline'
+    topic: "hass/status"
+    payload: "offline"
 ```
 
 {% configuration %}

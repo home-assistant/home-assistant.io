@@ -238,7 +238,7 @@ If you change the configuration you have to restart the server. To do that you h
 As the Docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
 
 ```yaml
-  version: '3'
+  version: "3"
   services:
     homeassistant:
       container_name: home-assistant
@@ -285,7 +285,7 @@ $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
 or in a `docker-compose.yml` file:
 
 ```yaml
-  version: '3'
+  version: "3"
   services:
     homeassistant:
       container_name: home-assistant
