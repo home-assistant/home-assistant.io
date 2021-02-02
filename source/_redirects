@@ -1620,7 +1620,6 @@
 /components/nsw_fuel_station /integrations/nsw_fuel_station
 /components/nsw_rural_fire_service_feed /integrations/nsw_rural_fire_service_feed
 /components/nuheat /integrations/nuheat
-/components/nuimo_controller /integrations/nuimo_controller
 /components/nuki /integrations/nuki
 /components/nut /integrations/nut
 /components/nws /integrations/nws
@@ -2262,3 +2261,5 @@
 /integrations/yweather /more-info/removed-integration 301
 /components/ptvsd /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
+/components/nuimo_controller /more-info/removed-integration 301
+/integrations/nuimo_controller /more-info/removed-integration 301
