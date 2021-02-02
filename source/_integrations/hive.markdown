@@ -19,9 +19,7 @@ ha_domain: hive
 
 The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
 
-This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
-
-There is currently support for the following platforms within Home Assistant:
+This integration uses the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
 
 ## Configuration
 
@@ -32,6 +30,8 @@ Press on **Hive** and configure the integration:
 - Enter you Hive Username.
 - Enter you Hive Password.
 - Update the scan interval or leave as the default 120 seconds (Cannot be set lower than 30 seconds).
+
+If you have 2 factor authentication setup on your Hive account, a following dialog will be presented asking for  your code. 
 
 YAML configuration is no longer supported as Hive can be setup via the UI.
 
