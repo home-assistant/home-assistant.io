@@ -3,7 +3,7 @@ title: devolo Home Network
 description: Instructions on how to integrate devolo Home Network devices with Home Assistant.
 ha_category: 
   - Sensor
-ha_release: '2021.2'
+ha_release: '2021.3'
 ha_iot_class: Local Pull
 ha_config_flow: true
 ha_codeowners:
