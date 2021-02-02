@@ -49,4 +49,4 @@ When using api_version: 5 changing sources switches tv channels. Additionally th
 
 ### Turn on device
 
-The philips TV does not support turning on via the API. You can either turn it on via IR blaster to or on som models WOL. To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
+The Philips TV does not support turning on via the API. You can either turn it on via IR blaster to or on som models WOL. To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
