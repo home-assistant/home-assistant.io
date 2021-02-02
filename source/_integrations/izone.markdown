@@ -68,7 +68,7 @@ zone.
 
 You can add configure to read these values into sensors, along with the supply temperature (use the ID of your unit):
 
-```
+```yaml
 sensor:
   - platform: template
     sensors:
