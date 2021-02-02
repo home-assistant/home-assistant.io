@@ -48,7 +48,7 @@ Marks an item as completed in the shopping list. It does not remove the item.
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to mark as completed. Example: "Milk" |
 
-### Service `shopping_list.uncomplete_item`
+### Service `shopping_list.incomplete_item`
 
 Marks an item as incomplete in the shopping list.
 
@@ -60,7 +60,7 @@ Marks an item as incomplete in the shopping list.
 
 Marks all items as completed in the shopping list. It does not remove the items.
 
-### Service `shopping_list.uncomplete_all`
+### Service `shopping_list.incomplete_all`
 
 Marks all items as incomplete in the shopping list.
 
