@@ -823,7 +823,7 @@ Held on|2|7800
 Released off|1|7740
 Released on|2|7740
 
-The Zooz ZEN34 Remote Switch may report different 'scene_data' values from other Zooz switches:
+The Zooz ZEN34 Remote Switch has shown inverted `scene_id` values compared to other Zooz switches as well as different `scene_data` values depending on production run:
 
 Recent production runs have appeared with:
 
