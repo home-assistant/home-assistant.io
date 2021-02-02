@@ -203,14 +203,14 @@ This does *not* affect the entities in Home Assistant. They all use their own co
 
 ### Reading attributes of entities
 
-Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) component. Here's an example of a template sensor that exposes the valve state of a thermostat.
+Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) component. Here's an example of a template sensor that exposes the valve position of a thermostat.
 
 ```yaml
 sensor:
 - platform: template
   sensors:
     bedroom_valve:
-      value_template: "{% raw %}{{ state_attr('climate.leq123456', 'valve') }}{% endraw %}"
+      value_template: "{% raw %}{{ state_attr('climate.leq123456', 'level') }}{% endraw %}"
       entity_id: climate.leq123456
       friendly_name: 'Bedroom valve'
 ```
@@ -428,28 +428,30 @@ When the connection to your Homematic CCU or Homegear is lost, Home Assistant wi
 - If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor, voltage sensor or light sensor) you could set up a helper binary sensor and an automation like this:
 
 {% raw %}
-  ```yaml
-  binary_sensor:
-    - platform: template
-      sensors:
-        homematic_up:
-          friendly_name: "Homematic is sending updates"
-          entity_id:
-            - sensor.office_voltage
-            - sensor.time
-          value_template: >-
-            {{as_timestamp(now()) - as_timestamp(states.sensor.office_voltage.last_changed) < 600}}
 
-  automation:
-    - alias: Homematic Reconnect
-      trigger:
-        platform: state
-        entity_id: binary_sensor.homematic_up
-        to: "off"
-      action:
-        # Reconnect, if sensor has not been updated for over 3 hours
-        service: homematic.reconnect
-  ```
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      homematic_up:
+        friendly_name: "Homematic is sending updates"
+        entity_id:
+          - sensor.office_voltage
+          - sensor.time
+        value_template: >-
+          {{as_timestamp(now()) - as_timestamp(states.sensor.office_voltage.last_changed) < 600}}
+
+automation:
+  - alias: Homematic Reconnect
+    trigger:
+      platform: state
+      entity_id: binary_sensor.homematic_up
+      to: "off"
+    action:
+      # Reconnect, if sensor has not been updated for over 3 hours
+      service: homematic.reconnect
+```
+
 {% endraw %}
 
   The important part is the `sensor.time` entity (from time_date component). This will update the binary sensor on every change of the sensor and every minute. If the Homematic sensor does not send any updates anymore, the `sensor.time` will set the binary sensor to `off` 10 minutes after the last sensor update. This will trigger the automation.
@@ -553,6 +555,7 @@ Only the `data` part of the event payload is processed. This part can specify or
 It is possible to provide a template in order to compute the value:
 
 {% raw %}
+
 ```json
 {
   "data": {
@@ -560,11 +563,13 @@ It is possible to provide a template in order to compute the value:
   }
 }
 ```
+
 {% endraw %}
 
 You can also specify the event payload using a group notification (instead of specifying the value for the notify itself):
 
 {% raw %}
+
 ```yaml
 notify:
   - name: my_hm
@@ -587,6 +592,7 @@ alert:
     notifiers:
       - group_hm
 ```
+
 {% endraw %}
 
 Please note that the first `data` element belongs to the service `my_hm`, while the second one belongs to the event payload.

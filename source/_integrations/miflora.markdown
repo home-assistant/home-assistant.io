@@ -7,7 +7,6 @@ ha_release: 0.29
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
-  - '@ChristianKuehnel'
   - '@basnijholt'
 ha_domain: miflora
 ---

@@ -31,7 +31,7 @@ state_resource:
   required: false
   type: string
 method:
-  description: "The method of the request. Supported `post` or `put`."
+  description: "The method of the request. Supported `post`, `put` or `patch`."
   required: false
   type: string
   default: post

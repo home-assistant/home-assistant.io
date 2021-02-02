@@ -44,6 +44,7 @@ Possible events are:
 The event includes the name, category, and status of the downloaded nzb.
 
 Example automation to send a Telegram message on a completed download:
+
 {% raw %}
 
 ```yaml

@@ -11,16 +11,16 @@ The Grid card allows you to show multiple cards in a grid. It will first fill th
   Screenshot of the Grid card.
 </p>
 
-To add the Grid card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Grid Card** from the card picker.
+To add the Grid card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Grid Card** from the card picker.
 
 {% configuration %}
 type:
   required: true
-  description: grid
+  description: "`grid`"
   type: string
 title:
   required: false
-  description: Title of Grid
+  description: Title of grid.
   type: string
 square:
   required: false
@@ -38,7 +38,7 @@ cards:
   type: list
 {% endconfiguration %}
 
-### Examples
+## Examples
 
 Alternatively, the card can be configured using YAML:
 

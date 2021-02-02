@@ -26,21 +26,6 @@ You will need the IP Address of your Powerwall to use this module.
 
 To add `Tesla Powerwall` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tesla Powerwall**.
 
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-powerwall:
-  ip_address: YOUR_POWERWALL_IP
-```
-
-{% configuration %}
-ip_address:
-  description: The IP address of your Powerwall.
-  required: true
-  type: string
-{% endconfiguration %}
-
 ### Binary Sensor
 
 The following binary sensors are added for each Powerwall:

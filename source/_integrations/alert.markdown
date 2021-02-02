@@ -156,6 +156,7 @@ than one input. For all of these situations, it is best to use the alert in
 conjunction with a `Template Binary Sensor`. The following example does that.
 
 {% raw %}
+
 ```yaml
 binary_sensor:
   - platform: template
@@ -173,6 +174,7 @@ alert:
       - ryans_phone
       - kristens_phone
 ```
+
 {% endraw %}
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
@@ -219,6 +221,7 @@ The following will show for a plant how to include the problem `attribute`
 of the entity.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 alert:
@@ -235,6 +238,7 @@ alert:
       - ryans_phone
       - kristens_phone
 ```
+
 {% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.

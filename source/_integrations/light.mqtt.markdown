@@ -67,6 +67,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -315,6 +320,7 @@ In this section you will find some real-life examples of how to use this sensor.
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -334,6 +340,7 @@ light:
     payload_off: "OFF"
     optimistic: false
 ```
+
 {% endraw %}
 
 ### Brightness and no RGB support
@@ -440,6 +447,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -768,6 +780,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false

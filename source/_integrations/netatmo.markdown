@@ -93,7 +93,15 @@ Service to manually register and unregister the webhook.
 
 ## Webhook Events
 
-The [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor) or [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) cameras, [Smart Door and Window Sensors](https://www.netatmo.com/en-gb/security/cam-indoor/tag), as well as the [Netatmo Smart Smoke Alarm](https://www.netatmo.com/en-gb/security/smoke-alarm), send instant events to Home Assistant by using webhooks. It is required to have your camera enabled in Home Assistant.
+The Netatmo backend sends instant events to Home Assistant by using webhooks which unlocks improved responsiveness of most devices with the exception of [Netatmo Smart Home Weather Station](https://www.netatmo.com/en-us/weather/weatherstation),
+[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
+
+<div class='note warning'>
+
+Netatmo webhook events have known issues with Home Assistant Cloud Link.
+It is therefore recommended to use [an individual development account](#development--testing-with-your-own-client-id).
+
+</div>
 
 To be able to receive events from [Netatmo](https://www.netatmo.com/en-gb/), your Home Assistant instance needs to be accessible from the web over port `80` or `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
 
@@ -102,8 +110,6 @@ Events coming in from Netatmo will be available as an event in Home Assistant an
 You can find the available event types at the [official Netatmo API documentation](https://dev.netatmo.com/apidocumentation/security#events).
 
 Example:
-
-{% raw %}
 
 ```yaml
 # Example automation for webhooks based Netatmo events
@@ -118,8 +124,6 @@ Example:
       entity_id: counter.event_counter
       service: counter.increment
 ```
-
-{% endraw %}
 
 Example:
 

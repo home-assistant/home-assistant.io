@@ -16,7 +16,7 @@ If you don't need to receive messages, you can use the [broadcast](/integrations
 
 ## Notification services
 
-Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `send_sticker`, `edit_message`, `edit_replymarkup`, `edit_caption`, `answer_callback_query`, `delete_message` and `leave_chat`.
+Available services: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message` and `leave_chat`.
 
 ### Service `telegram_bot.send_message`
 
@@ -27,14 +27,14 @@ Send a notification.
 | `message`                 |       no | Message body of the notification. |
 | `title`                   |      yes | Optional title for your notification. Will be composed as '%title\n%message'. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
-| `parse_mode`              |      yes | Parser for the message text: `html` or `markdown`. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 | `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
 
-### Service `telegram_bot.send_photo` and `telegram_bot.send_sticker`
+### Service `telegram_bot.send_photo` 
 
 Send a photo.
 
@@ -47,6 +47,7 @@ Send a photo.
 | `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
@@ -67,9 +68,69 @@ Send a video.
 | `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+
+### Service `telegram_bot.send_animation`
+
+Send an animation.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `url`                     |       no | Remote path to a GIF or H.264/MPEG-4 AVC video without sound. |
+| `file`                    |       no | Local path to a GIF or H.264/MPEG-4 AVC video without sound.  |
+| `caption`                 |      yes | The title of the animation. |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
+| `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `timeout`                 |      yes | Timeout for send video. Will help with timeout errors (poor internet connection, etc) |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+
+### Service `telegram_bot.send_voice`
+
+Send a voice message.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `url`                     |       no | Remote path to a voice message. |
+| `file`                    |       no | Local path to a voice message.  |
+| `caption`                 |      yes | The title of the voice message. |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `timeout`                 |      yes | Timeout for send voice. Will help with timeout errors (poor internet connection, etc) |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
+| `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
+
+### Service `telegram_bot.send_sticker`
+
+Send a sticker.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `url`                     |       no | Remote path to a static .webp or animated .tgs sticker. |
+| `file`                    |       no | Local path to a static .webp or animated .tgs sticker.  |
+| `username`                |      yes | Username for a URL which requires HTTP basic authentication. |
+| `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
+| `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
+| `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `timeout`                 |      yes | Timeout for send photo. Will help with timeout errors (poor internet connection, etc) |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 | `message_tag`             |      yes | Tag for sent message. In `telegram_sent` event data: `{{trigger.event.data.message_tag}}` |
@@ -87,6 +148,7 @@ Send a document.
 | `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
 | `timeout`                 |      yes | Timeout for send document. Will help with timeout errors (poor internet connection, etc) |
@@ -118,7 +180,7 @@ Edit a previously sent message in a conversation.
 | `chat_id`                 |       no | The chat_id where to edit the message.  |
 | `message`                 |       no | Message body of the notification. |
 | `title`                   |      yes | Optional title for your notification. Will be composed as '%title\n%message'. |
-| `parse_mode`              |      yes | Parser for the message text: `html` or `markdown`. |
+| `parse_mode`              |      yes | Parser for the message text: `markdownv2`, `html` or `markdown`. |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 

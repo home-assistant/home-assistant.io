@@ -99,8 +99,21 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from strict above 17 and strict below 25).
+In the example above, the trigger would fire a single time if a numeric_state goes into to 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
 </div>
+
+Number helpers (`input_number` entities) can be used in the `above` and `below` thresholds, making
+the trigger more dynamic, like:
+
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    # input_number entity id can be specified for above and/or below thresholds
+    above: input_number.temperature_threshold_high
+    below: input_number.temperature_threshold_low
+```
 
 The `for:` can also be specified as `HH:MM:SS` like this:
 
@@ -151,7 +164,8 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 ### State trigger
 
-Fires when the state of any of given entities changes. If only `entity_id` is given trigger will fire for all state changes, even if only state attributes change.
+Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
+If only one of `from_state` or `to_state` are given, the trigger will fire on any matching state change, but not if only attributes change.
 
 <div class='note'>
 
@@ -163,11 +177,26 @@ The values you see in your overview will often not be the same as the actual sta
 automation:
   trigger:
     platform: state
-    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    entity_id:
+      - device_tracker.paulus
+      - device_tracker.anne_therese
     # Optional
     from: "not_home"
     # Optional
     to: "home"
+```
+
+It's possible to give a list of from_states or to_states:
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: vacuum.test
+    from:
+    - "cleaning"
+    - "returning"
+    to: "error"
 ```
 
 #### Holding a state
@@ -331,8 +360,6 @@ A very thorough explanation of this is available in the Wikipedia article about 
 Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
-{% raw %}
-
 ```yaml
 automation:
   trigger:
@@ -340,12 +367,8 @@ automation:
     tag_id: A7-6B-90-5F
 ```
 
-{% endraw %}
-
 Additionally, you can also only trigger if a card is scanned by a specific
 device/scanner by setting the `device_id`:
-
-{% raw %}
 
 ```yaml
 automation:
@@ -355,7 +378,19 @@ automation:
     device_id: 0e19cd3cf2b311ea88f469a7512c307d
 ```
 
-{% endraw %}
+Or trigger on multiple possible devices for multiple tags:
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id:
+      - A7-6B-90-5F
+      - A7-6B-15-AC
+    device_id:
+      - 0e19cd3cf2b311ea88f469a7512c307d
+      - d0609cb25f4a13922bb27d8f86e4c821
+```
 
 ### Template trigger
 
@@ -393,26 +428,7 @@ automation:
 
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
-<div class='note warning'>
-
-Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
-
-</div>
-
-As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
-
-{% raw %}
-
-```yaml
-automation:
-  trigger:
-    platform: template
-    value_template: "{{ (states.sensor.time.last_changed - states.YOUR.ENTITY.last_changed).total_seconds() > 300 }}"
-```
-
-{% endraw %}
-
-which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
+Templates that don't contain an entity will be rendered once per minute.
 
 ### Time trigger
 
@@ -470,7 +486,7 @@ automation:
 
 #### Sensors of datetime device class
 
-The Entity ID of a [sensor](/integrations/sensor/) with the "datetime" device class.
+The Entity ID of a [sensor](/integrations/sensor/) with the "timestamp" device class.
 
 ```yaml
 automation:
@@ -565,6 +581,13 @@ automation:
 
 Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
 Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
+
+<div class='note'>
+
+This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
+
+</div>
+
 
 ```yaml
 automation:

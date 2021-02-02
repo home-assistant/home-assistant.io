@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.58
 ha_quality_scale: internal
 ha_domain: system_log
+ha_iot_class:
 ---
 
 The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to **Configuration** -> **Logs**. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
@@ -103,6 +104,7 @@ automation:
 This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: Create notifications for "service" errors
@@ -118,13 +120,13 @@ automation:
         title: Something bad happened
         message: '{{ trigger.event.data.message }}'
 ```
+
 {% endraw %}
 
 ### Writing to log
 
 This automation will create a new log entry when the door is opened:
 
-{% raw %}
 ```yaml
 automation:
   - alias: Log door opened
@@ -139,4 +141,3 @@ automation:
         message: 'Door opened!'
         level: info
 ```
-{% endraw %}

@@ -424,7 +424,7 @@ The `event_data` contains the following:
 
 ## Services
 
-Besides the standard Home Assistant services for Climate, Light, Scene, Sensor,
+Besides the standard Home Assistant services for Alarm Control Panel, Climate, Light, Scene, Sensor,
 and Switch the ElkM1 integration offers these additional services:
 
 - `elkm1.alarm_arm_home_instant`

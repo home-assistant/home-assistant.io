@@ -9,21 +9,18 @@ The following will take you through the steps required to install Home Assistant
 
    - As an image for your device:
 
-     - [Raspberry Pi 3 Model B and B+ 32-bit][pi3-32] (32-bit is required for GPIO support)
+     - [Raspberry Pi 3 Model B and B+ 32-bit][pi3-32] 
      - [Raspberry Pi 3 Model B and B+ 64-bit][pi3-64]
-     - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] (32-bit is required for GPIO support)
+     - [Raspberry Pi 4 Model B (1 GB, 2 GB and 4 GB model) 32-bit][pi4-32] 
      - [Raspberry Pi 4 Model B (1 GB, 2 GB, 4 GB and 8 GB model) 64-bit][pi4-64] (64-bit is required for 8 GB model)
      - [Tinkerboard][tinker]
-     - [Odroid-C2][odroid-c2], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
+     - [Odroid-C2][odroid-c2], [Odroid-C4][odroid-c4], [Odroid-N2][odroid-n2], [Odroid-XU4][odroid-xu4]
+       - [Guide: Flashing Odroid-N2 using OTG-USB][otg-usb]
      - [Intel NUC][intel-nuc]
 
    - As a virtual appliance (x86_64/UEFI):
   
      - [VMDK][vmdk], [VHDX][vhdx], [VDI][vdi], [QCOW2][qcow2], [OVA][Virtual Appliance]
-
-   - Not recommended hardware:
-
-     - [Raspberry Pi][pi1], [Raspberry Pi Zero-W][pi0-w], [Raspberry Pi 2][pi2]
 
 2. Install Home Assistant OS:
 
@@ -31,8 +28,10 @@ The following will take you through the steps required to install Home Assistant
    - **For the virtual appliance images:** Load the appliance image into your virtual machine software. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs)
      - For VirtualBox create a new virtual machine, select "Other Linux (64Bit), assign it at least 2 GB of memory and "Use an existing virtual hard disk file", select the VDI file from above, afterwards edit the "Settings" of the VM and go "System" then Motherboard and Enable EFI, then "Network" "Adapter 1" Bridged and your adapter.
      - For Hyper-V create a new virtual machine, select "Generation 2", assign it at least 2 GB of memory and select "Connection -> "Your Virtual Switch that is bridged", then "Use an existing virtual hard disk" and select the VHDX file from above, after creation go to "Settings" -> "Security" and deselect "Enable Secure Boot".
-     - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...".
+     - For KVM create a new virtual machine in `virt-manager`, select "Import existing disk image", provide the path to the QCOW2 image above, choose "Generic Default" for the operating system, assign at least 2 GB memory and 1 vCPU, check the box for "Customize configuration before install" and select your bridge under "Network Selection", then under customization select "Overview" -> "Firmware" -> "UEFI x86_64: ...". If you want mDNS and another multicast to work, you'll need to manually edit the XML to add trustGuestRxFilters='yes' to the interfaces tag. See virsh or virt-manager documentation for how to do that.
      - For Vmware Workstation create a new virtual machine, select "Custom", make it compatible with the default of Workstation and ESX, Choose "I will install the operating system later", select "Linux" -> "Other Linux 5.x or later kernel 64-bit", give it at least 2 GB RAM and 1vCPU, select "Use Bridged Networking" then "Use an existing virtual disk" and select the VMDK file above, after creation of VM go to "Settings" and "Options" then "Advanced" and select "Firmware type" to "UEFI".
+     - For Proxmox, create a new virtual machine, and make note of the VM ID. Under "OS", select "Do not use any media". Under "System" select "Advanced" and change "BIOS" to "OVMF (UEFI)", then select a storage location for the EFI disk. Under "Hard Disk", create a default hard disk (we will delete this later). Set your CPU, memory, and network as needed. From the command line (as root on the Proxmox host), download the qcow2 image with `wget` or `curl` and decompress it (`gunzip hassos_ova-4.13.qcow2.gz`). Then, import the disk to your VM, changing the VM ID as needed (`qm importdisk ### hassos_ova-4.13.qcow2 local-lvm --format qcow2`). After you see `Successfully imported disk`, you can remove the qcow2 image (`rm hassos_ova-4.13.qcow2`). Back in the web UI, navigate to your VM, then "Hardware" and locate the default hard disk we created earlier (probably called `disk0`). Click on it, then click "Detach", then click on the disk again and click "Remove" (this should leave you with two disks: the EFI disk and the imported qcow2 disk). Click on the qcow2 disk (probably called `disk2`) and click "Edit" then "Add". Click on the qcow2 disk one last time, then click on "Resize disk" and set your size (Home Assistant will fill up this entire space).
+     - For VMware ESXi/vSphere installation use the "E1001" or "E1001E" virtual network adapater. There are confirmed mDNS/Multicast discovery issues when using VMware's "VMXnet3" virtual network adapter.  
 
 3. Optional - set up the Wi-Fi or a static IP address. There are two possible places for that:
    - on a blank USB stick with a FAT32 partition having partition label `CONFIG`, while in its root directory, create the `network/my-network` file, or
@@ -90,12 +89,14 @@ To install the Terminal & SSH add-on, choose **Supervisor**, which is located in
 Use the web-based terminal or SSH to your Home Assistant system, or connect to the console, and run:
 
 ```bash
-ha core update --version=0.XX.X
+ha core update --version=X.Y.Z
 ```
+
+Replacing `X.Y.Z` with your desired version (i.e., `2020.12.0` or `0.118.5`).
 
 ## Run the beta version of Home Assistant
 
-If you would like to test next release before anyone else, you can install the beta version released every three weeks:
+If you would like to test next release before anyone else, you can install the beta version released every month:
 
 1. Backup your installation, using the snapshot functionality Home Assistant offers.
 2. Check the [Home Assistant Beta release notes](https://rc.home-assistant.io/latest-release-notes/) for breaking changes. Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
@@ -105,25 +106,24 @@ If you would like to test next release before anyone else, you can install the b
 
 [balenaEtcher]: https://www.balena.io/etcher
 [hassos-network]: https://github.com/home-assistant/operating-system/blob/dev/Documentation/network.md
-[pi0-w]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi0-w-4.15.img.gz
-[pi1]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi-4.15.img.gz
-[pi2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi2-4.15.img.gz
-[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi3-4.15.img.gz
-[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi3-64-4.15.img.gz
-[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi4-4.15.img.gz
-[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_rpi4-64-4.15.img.gz
-[tinker]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_tinker-4.15.img.gz
-[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-c2-4.15.img.gz
-[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-n2-4.15.img.gz
-[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_odroid-xu4-4.15.img.gz
-[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_intel-nuc-4.15.img.gz
-[vmdk]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vmdk.gz
-[vhdx]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vhdx.gz
-[vdi]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.vdi.gz
-[qcow2]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.qcow2.gz
-[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/4.15/hassos_ova-4.15.ova
+[pi3-32]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi3-5.10.img.xz
+[pi3-64]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi3-64-5.10.img.xz
+[pi4-32]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi4-5.10.img.xz
+[pi4-64]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_rpi4-64-5.10.img.xz
+[tinker]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_tinker-5.10.img.xz
+[odroid-c2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-c2-5.10.img.xz
+[odroid-c4]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-c4-5.10.img.xz
+[odroid-n2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-n2-5.10.img.xz
+[odroid-xu4]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_odroid-xu4-5.10.img.xz
+[intel-nuc]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_intel-nuc-5.10.img.xz
+[vmdk]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vmdk.xz
+[vhdx]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vhdx.xz
+[vdi]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.vdi.xz
+[qcow2]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.qcow2.xz
+[Virtual Appliance]: https://github.com/home-assistant/operating-system/releases/download/5.10/hassos_ova-5.10.ova
 [local]: http://homeassistant.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
 [pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
 [configure]: /getting-started/configuration/
+[otg-usb]: /hassio/flashing_n2_otg/

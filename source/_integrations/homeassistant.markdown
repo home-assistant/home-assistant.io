@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant
+ha_iot_class:
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.
@@ -70,7 +71,7 @@ action:
     entity_id: light.living_room
 ```
 
-#### Service `homeassistant.turn_on` 
+### Service `homeassistant.turn_on` 
 
 Generic service to turn devices on under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
 

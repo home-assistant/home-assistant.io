@@ -162,6 +162,7 @@ The return code is 200 if the file is generated. The message body will contain a
 
 ```json
 {
+    "path": "/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3",
     "url": "http://127.0.0.1:8123/api/tts_proxy/265944c108cbb00b2a621be5930513e03a0bb2cd_en_-_demo.mp3"
 }
 ```
@@ -169,7 +170,7 @@ The return code is 200 if the file is generated. The message body will contain a
 Sample `curl` command:
 
 ```bash
-$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
        -H "Content-Type: application/json" \
        -d '{"message": "I am speaking now", "platform": "amazon_polly"}' \
        http://localhost:8123/api/tts_get_url

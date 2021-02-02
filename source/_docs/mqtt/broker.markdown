@@ -94,7 +94,7 @@ mqtt:
 
 ### CloudMQTT
 
-[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance. Plans start at 5$ per months.
+[CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance. Plans start at 5$ per month.
 
 <div class='note'>
 Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.

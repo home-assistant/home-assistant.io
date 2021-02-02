@@ -26,7 +26,7 @@ The Spotify media player integration allows you to control [Spotify](https://www
 
 ### Create a Spotify application
 
-- Login to [Spotify Developer](https://developer.spotify.com).
+- Login to [Spotify Developer](https://developer.spotify.com) via Dashboard.
 - Visit the [My Applications](https://developer.spotify.com/my-applications/#!/applications) page.
 - Select **Create An App**. Enter any name and description.
 - Once your application is created, view it and copy your **Client ID** and **Client Secret**, which are used in the Home Assistant [configuration file below](#configuration).
@@ -50,6 +50,8 @@ spotify:
   client_secret: YOUR_CLIENT_SECRET
 ```
 
+Restart your Home Assistant instance before continuing with the next step.
+
 {% configuration %}
 client_id:
   description: Client ID from your Spotify Developer application.
@@ -63,10 +65,11 @@ client_secret:
 
 ## Activating the Spotify integration
 
+- Access Home Assistant using the URL that you used in the **Redirect URI** step above 
 - Go to the **Configuration** page in the Home Assistant frontend.
 - Click on **Integrations**.
-- Click the orange **+** on the bottom-right.
-- Click on "Spotify".
+- Click the **Add Integration** button in the bottom-right.
+- Select "Spotify".
 - Once the new Spotify tab opens, enter your Spotify credentials and allow Home Assistant to access your Spotify account.
 
 <div class='note'>

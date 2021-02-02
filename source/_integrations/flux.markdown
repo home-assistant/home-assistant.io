@@ -64,11 +64,11 @@ stop_colortemp:
   default: 1900
   type: integer
 brightness:
-  description: The brightness of the lights.
+  description: Constant brightness of the lights. Besides color temperature, brightness is also adjusted unless a value is specified here.
   required: false
   type: integer
 disable_brightness_adjust:
-  description: If true, brightness will not be adjusted besides color temperature.
+  description: If true, brightness will not be adjusted, only color temperature.
   required: false
   type: boolean
   default: false
