@@ -23,19 +23,6 @@ This integration uses the unofficial API used in the official Hive website [http
 
 There is currently support for the following platforms within Home Assistant:
 
-- [Configuration](#configuration)
-- [Options](#options)
-- [Services](#services)
-  - [Service `hive.boost_heating`](#service-hiveboost_heating)
-  - [Service `hive.boost_hot_water`](#service-hiveboost_hot_water)
-- [Platforms](#platforms)
-  - [Binary Sensor](#binary-sensor)
-  - [Climate](#climate)
-  - [Light](#light)
-  - [Sensor](#sensor)
-  - [Switch](#switch)
-  - [Water Heater](#water-heater)
-
 ## Configuration
 
 Menu: *Configuration* > *Integrations*
@@ -46,7 +33,7 @@ Press on **Hive** and configure the integration:
 - Enter you Hive Password.
 - Update the scan interval or leave as the default 120 seconds (Cannot be set lower than 30 seconds).
 
-YAML configuration is no longer available because it cannot handle two-factor authentication.
+YAML configuration is no longer supported as Hive can be setup via the UI.
 
 ## Options
 
