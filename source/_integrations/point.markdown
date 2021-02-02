@@ -80,6 +80,7 @@ Each Point exposes the following binary sensors:
 - **heat**: `On` means hot, `Off` means normal
 - **light**: `On` means light detected, `Off` means no light
 - **moisture**: `On` means moisture detected (wet), `Off` means no moisture (dry)
+- **motion**: `On` means motion was detected, `Off` means no motion
 - **sound**: `On` means sound detected, `Off` means no sound (clear)
 - **tamper**: `On` means the point was removed or attached, `Off` means normal
 
