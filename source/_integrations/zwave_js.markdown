@@ -84,3 +84,48 @@ Valid code slots are between 1-254.
 | ---------------------- | -------- | ------------------------------------------------------ |
 | `entity_id`            | no       | Lock entity or list of entities to clear the usercode. |
 | `code_slot`            | yes      | The code slot to clear the usercode from.              |
+
+## Events
+
+### Event `zwave_js_event`
+
+This event is fired whenever a [notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) or [value notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotvalue-notificationquot) event is received. 
+
+#### Notifications
+
+Notifications are events sent using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
+
+Notification exapmle:
+```json
+{
+    "type": "notification",
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": "974823419",
+    "device_id": "ad8098fe80980974",
+    "label": "Keypad lock operation",
+    "parameters": {"userId": 1}
+}
+```
+
+#### Value Notifications
+
+Value Notifications are used for stateless values, like `Central Scenes`.
+
+Value Notification example:
+```json
+{
+    "type": "value_notification",
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": "974823419",
+    "endpoint": 0,
+    "device_id": "ad8098fe80980974",
+    "command_class": 32,
+    "command_class_name": "Basic",
+    "label": "Event value",
+    "property_name": "event",
+    "property_key_name": "some value",
+    "value": 255,
+}
+```
