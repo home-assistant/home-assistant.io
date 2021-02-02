@@ -401,7 +401,7 @@ select:
 {% configuration select %}
 options:
   description: List of options that the user can choose from.
-  type: [list]
+  type: list
   required: true
 {% endconfiguration %}
 
