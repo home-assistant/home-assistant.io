@@ -18,7 +18,7 @@ ha_config_flow: true
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
 
-- Wi-Fi Controlled Thermostats: `Hysen heating controller`
+- Wi-Fi Controlled Thermostats: `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
 - Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
@@ -44,13 +44,8 @@ The entities are divided into three subdomains:
 
 ## Climate
 
-The `climate` entities allow you to monitor and control Broadlink thermostats.
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: broadlink
-    mac: MAC_ADDRESS
-```
+The `climate` entities allow you to monitor and control Broadlink thermostats. For now only the Floureon HY03WE is supported and tested. Others may work, if not please open an issue.
+
 
 ## Remote
 
