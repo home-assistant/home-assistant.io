@@ -32,7 +32,7 @@ Menu: *Configuration* -> *Integrations*. Search for "iCloud", add your credentia
 If you add the integration for the first time for an account, and two-factor authentication is enabled:
 1. After clicking submit, you will receive a verification code on your trusted iCloud devices.
 2. Press Allow on your device, and enter the 6 digit code in Home Assistant. Finally, click Submit.
-2. You are done!
+3. You are done!
 
 If you already added the integration before, you are done!
 
