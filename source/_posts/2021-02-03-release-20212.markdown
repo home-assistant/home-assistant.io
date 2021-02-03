@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2021.2: Beta release notes"
-description: "These are the beta release notes for Home Assistant Core 2021.2."
-date: 2021-01-27 00:00:00
+title: "2021.2: Z-Wave... JS!"
+description: "Z-Wave JS is here! We now have DHCP discovery, new Blueprint selectors, Cloud TTS settings and less cluttering without badges."
+date: 2021-02-03 00:00:00
 date_formatted: "February 3, 2021"
 author: Franck Nijhof
 author_twitter: frenck
@@ -11,31 +11,40 @@ categories: Release-Notes
 og_image: /images/blog/2021-02/social.png
 ---
 
-<img src='/images/blog/2021-02/social.png' style='border: 0;box-shadow: none;'>
+<a href='/integrations/#version/2021.2'><img src='/images/blog/2021-02/social.png' style='border: 0;box-shadow: none;'></a>
 
-These are the beta release notes for Home Assistant Core 2021.2 (and is thus a
-work in progress).
+Dear reader,
 
-If you encounter any issues with the beta release, please report them on GitHub:
+Usually, I try to write a small introduction that recaps the release, while
+putting a bit of my view in it as well. This release, however, I'm struggling
+to find the right words...
 
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
+So there is DHCP discovery added, which is super nice! And some really
+helpful new Blueprint selectors, tons of UI tweaks! But honestly...
 
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
+**Have you heard about Z-Wave JS?!**
 
-Issues introduced in the beta are processed with priority.
+Well, out of nowhere, a huge bunch of developers came together this month and
+spat out a completely new, full-blown, fast, slick, sexy, complete, Z-Wave
+integration! 🤯
 
+So, thanks guys! An achievement beyond words, really; You all rock ❤️
+
+Enjoy the release!
+
+../Frenck
+
+- [Erik Montnemery joins Nabu Casa](#erik-montnemery-joins-nabu-casa)
 - [Python 3.7 dropped, Python 3.9 supported](#python-37-dropped-python-39-supported)
 - [Z-Wave JS](#z-wave-js)
+  - [Current state of Z-Wave JS](#current-state-of-z-wave-js)
+  - [Thanks to all](#thanks-to-all)
+  - [What about the old Z-Wave integration?](#what-about-the-old-z-wave-integration)
+  - [What about the OpenZWave beta integration?](#what-about-the-openzwave-beta-integration)
+- [No more badges in auto generated dashboards](#no-more-badges-in-auto-generated-dashboards)
 - [DHCP Discovery](#dhcp-discovery)
 - [New Blueprint selectors](#new-blueprint-selectors)
+- [Cloud Text to Speech settings](#cloud-text-to-speech-settings)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -45,6 +54,17 @@ Issues introduced in the beta are processed with priority.
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
+## Erik Montnemery joins Nabu Casa
+
+Today, we are proud to announce that Erik Montnemery has joined Nabu Casa
+to work full-time on the Home Assistant project.
+
+Some of you might know Erik better by his GitHub handle: [@emontnemery], or
+by one of the integrations he works on: [Cast](/integrations/cast),
+[Tasmota](/integrations/tasmota) and [MQTT](/integrations/mqtt)!
+
+We are excited to have you aboard Erik! Welcome!
+
 ## Python 3.7 dropped, Python 3.9 supported
 
 Support for Python 3.7 has been removed, raising the minimum Python version
@@ -52,7 +72,7 @@ you need to run Home Assistant Core to Python 3.8. Python 3.7 was already
 deprecated since Home Assistant Core 0.116.0.
 
 This is only a concern if you are running Home Assistant Core directly on
-Python. if you run Home Assistant OS, Supervised or Container, you don’t have
+Python. If you run Home Assistant OS, Supervised or Container, you don’t have
 to worry about this, as the Home Assistant project takes care of this for you.
 
 However, say hello to: Python 3.9. As of this release, Python 3.9 is fully
@@ -60,30 +80,143 @@ supported and tested.
 
 ## Z-Wave JS
 
-<!-- TODO 
-- Extend paragraph
-- mention working
-- mention add-on
-- explain where it came from
-- thank a lot of people for this amazing achievement
+This release brings you the [Z-Wave JS integration](/integrations/zwave_js)!
 
-Contributors:
-- AlCalzone
-- https://github.com/robertsLando
-- https://github.com/Michsior14
-- https://github.com/kpine
-- https://github.com/jcam
-- https://github.com/itewk
-- https://github.com/Petro31
-- https://github.com/bramkragten
+A brand new integration for Z-Wave in Home Assistant, full-blown, created
+in a just month by a bunch of awesome people!
+
+More and more people were concerned about the future of Z-Wave with
+Home Assistant; meanwhile the [Z-Wave JS][zwavejs] project was rapidly growing
+and gathering a large community around it. Long story short: Home Assistant and
+Z-Wave JS teamed up! And a lot of contributors jumped on the train!
+
+This new integration is based on the same base principles as the OpenZWave
+integration: It is decoupled from Home Assistant. Instead of MQTT, the Z-Wave
+JS integration uses a WebSocket connection to a Z-Wave JS server.
+
+This means, in order to use this new integration, you'll need to run the
+Z-Wave JS server that sits in between your Z-Wave USB stick and Home Assistant.
+There are multiple options available on running the Z-Wave JS server,
+via Docker, manually, but there is also an Home Assistant add-on available.
+
+If you run an installation with a Supervisor, the add-on will even be
+set up automatically for you.
+
+[zwavejs]: https://zwave-js.github.io/node-zwave-js/#/
+
+### Current state of Z-Wave JS
+
+The new Z-Wave JS integration is amazingly complete. It supports the following
+platforms from the start: Binary Sensors, Climate, Covers, Fans, Lights, Locks,
+Sensors and Switches. Scenes are also supported!
+
+Besides that, it is just _blazing_ fast! ⚡️
+
+While fast-growing, it is a new integration and there is still a lot
+in progress. Of course, no doubt, there will be bugs. Bugs that will
+be squashed and handled. Please, be sure to
+[report issues in our issue tracker][issues].
+
+What is left? See our [Z-Wave JS integration roadmap][roadmap]
+for those details.
+
+[roadmap]: https://github.com/home-assistant-libs/zwave-js-server-python/issues/56
+[issues]: https://github.com/home-assistant/core/issues/new/choose
+
+### Thanks to all
+
+Thanks to all of the following people, the Z-Wave JS integration was able
+to see the light in just a month!
+
+- [@AlCalzone]
+- [@balloob]
+- [@bramkragten]
+- [@cgarwood]
+- [@firstof9]
+- [@itewk]
+- [@jcam]
+- [@kpine]
+- [@marcelveldt]
+- [@MartinHjelmare]
+- [@Michsior14]
+- [@Petro31]
 - [@pvizeli]
-[@cgarwood], [@MartinHjelmare], [@marcelveldt], [@raman325], [@firstof9], [@balloob]
--->
+- [@raman325]
+- [@robertsLando]
 
-Long story short: You are not going to believe this, but a complete new,
-full blown, integration was created from nothing in just a month!
+Yes, that is an awful lot of people! Amazing how this all came together
+and incredible work!
 
-Z-Wave JS is here!
+[@AlCalzone]: https://github.com/AlCalzone
+[@itewk]: https://github.com/itewk
+[@jcam]: https://github.com/jcam
+[@kpine]: https://github.com/kpin
+[@Michsior14]: https://github.com/Mchsior14
+[@robertsLando]: http://github.com/robertsLando
+
+### What about the old Z-Wave integration?
+
+The old [`zwave`](/integrations/zwave) integration has been based on
+OpenZWave 1.4, which is really old and does not get any upstream updates
+anymore. This also means that it is hard for us to keep it in a working state
+for the upcoming future.
+
+Therefore, as of today, the old Z-Wave is marked as being **deprecated**.
+
+If one is starting with Home Assistant and Z-Wave, the `zwave` integration is
+no longer recommended. For existing users, we recommend migrating to the
+[Z-Wave JS integration](/integrations/zwave_js). However, don't panic,
+`zwave` is deprecated but not removed yet. We currently have no plans for
+removing it, unless it can no longer be made to be build for the
+latest Python
+
+### What about the OpenZWave beta integration?
+
+Over a year ago, Home Assistant started working on the
+[OpenZWave integration](/integrations/ozw). Based on OpenZWave 1.6 and the
+OZW daemon, using MQTT as a transport. This project was promising and something
+we put a lot of time and effort in.
+
+Unfortunately, the OpenZWave project itself became a bit staler as most
+of the upstream development is done by a single person:
+Justin Hammond (Fishwaldo).
+
+Quite a few people were worried about the lesser activity on OpenZWave.
+Justin [has responded on our forum][fishwaldo] on what is happening in his life
+and it is sad to read how many people have personally impacted him negatively.
+
+> Is OZW Dead - No. I’ll tinker with it, I’ll make changes as time allows,
+> but it will be at my own pace, to scratch my own itches now.
+
+Let us be straight here: OpenZWave is an 11 year-old project, which is used
+by an incredible amount of systems (besides Home Assistant) in this world,
+with an even greater track record. So:
+
+**Thank you Justin for all you have done in all those years!**
+
+The team that was working on the OZW integration have shifted their focus to
+the new Z-Wave JS integration. We don't think the OpenZWave integration will
+make it out of beta. We recommend Home Assistant users migrate to the
+Z-Wave JS integration.
+
+[fishwaldo]: https://community.home-assistant.io/t/can-we-revisit-the-move-to-qt-openzwave/262612/140
+
+## No more badges in auto generated dashboards
+
+If you are using an auto generated Lovelace dashboard, you probably always had
+a ton of badges on the top of your dashboard. If there are just a few it works,
+but as more start to appear, it soon becomes cluttered.
+
+<p class='img'>
+<img src='/images/blog/2021-02/badges.png' alt='Screenshot of the old badges clutter'>
+Screenshot of the old badges clutter that is now gone!
+</p>
+
+We decided to no longer use badges in the auto generated Lovelace dashboards.
+Instead, every entity is neatly grouped by area or domain in an entities card.
+
+If you liked the badges, you can always take control of your dashboard
+and add them.
 
 ## DHCP Discovery
 
@@ -91,76 +224,82 @@ Home Assistant now listens on your network for devices that request a
 IP address. Based on those intercepted messages, Home Assistant can now
 discover integrations for you to use with the discovered devices.
 
+This really powerful addition has been made by [@bdraco], and many
+integrations have quickly enriched their integrations to use this new
+discovery method.
+
+So as of this release, your Home Assistant might actually find some new
+devices it can use! Thanks [@bdraco]!
+
 ## New Blueprint selectors
 
 For our Blueprint fanatics, some new goodies to the Blueprint has been added
 this release. Thanks to [@thomasloven], we now have two new selectors:
 
-<!-- TODO: add links to documentation -->
+<p class='img'>
+<img src='/images/blueprints/selector-text.png' alt='Screenshot of the new text selector'>
+Screenshot of the text selectors.
+</p>
 
 - An object selector: Shows an YAML editor in the UI.
 - An text selector: Show a single line text input or text area for longer
   messages in the UI.
 - Blueprint descriptions now support Markdown.
 
-<!-- TODO: insert screenshot --->
+<p class='img'>
+<img src='/images/blueprints/selector-object.png' alt='Screenshot of new object selector'>
+Screenshot of the object selector, giving a YAML input field.
+</p>
+
+## Cloud Text to Speech settings
+
+Nabu Casa has been offering an amazing text to speech service for a while now,
+yet it was hard to find, and even harder to setup and use.
+
+To fix this, a new settings UI has been added where you can select the default
+language and gender to use for the text to speech service, so you no longer have
+to attach that to every service call. You can find it in the Home Assistant Cloud
+panel.
+
+<p class='img'>
+<img src='/images/blog/2021-02/tts.png' alt='Screenshot of Cloud TTS options'>
+Screenshot of Cloud TTS options.
+</p>
+
+We also added the ability to try the chosen settings right in your browser.
+Click the try button, enter some text and click play to hear the
+text being spoken.
 
 ## Other noteworthy changes
 
 This release has no big new features, but we do have quite a bit of tweaks
 that are definitely noteworthy to mention.
 
-- Significant changes (Google & Alexa)
-- Configuring default language for TTS via UI, testing with TTS in UI.
-
-- Add yeelight service to enable disable music mode ([@zewelor] - [#44533]) ([yeelight docs])
-- Add device info to Météo-France ([@oncleben31] - [#44457]) ([meteo_france docs])
-- Add Chinese (Hong Kong) to Google Cloud TTS ([@hung2kgithub] - [#44689]) ([google_cloud docs])
-- Add turn_on and turn_off to gree climate component ([@cmroche] - [#43207]) ([gree docs])
-- Add RFXtrx Rfy venetian blinds tilt control ([@dzukero] - [#44309]) ([rfxtrx docs])
-- Add service to lock/unlock Sure Petcare pet flaps ([@insertjokehere] - [#44557]) ([surepetcare docs])
-- Add support for reordering Shopping List Items via Drag and Drop ([@ShaneQi] - [#41585]) ([shopping_list docs])
-- Add Vicare set mode service ([@oischinger] - [#44563])
-- Add MQTT Number ([@dgomes] - [#44739]) ([mqtt docs])
-- Add torrent id to Transmission events ([@JPHutchins] - [#44187]) ([transmission docs])
-- Add Shelly RGB devices management ([@chemelli74] - [#43993]) ([shelly docs])
-- Add name to ignored entries ([@balloob] - [#45051]) ([config docs])
-- Cloud: Add web socket API to pick default TTS language ([@balloob] - [#45064]) ([cloud docs])
-- Allow any parameter of a light profile as an optional parameter ([@Adminiuga] - [#44079]) ([light docs])
-- Allow input_number entity_id as for numeric_state trigger thresholds ([@Adminiuga] - [#45091]) ([homeassistant docs])
-- Add pressure to OWM forecast data ([@bchastain] - [#43843]) ([openweathermap docs]) ([weather docs])
-- Remove beta tag from Tasmota integration ([@emontnemery] - [#45153]) ([tasmota docs])
-- Add empty password support to pi-hole ([@shenxn] - [#37958]) ([pi_hole docs])
-- Basic logbook support for deCONZ events ([@Kane610] - [#45400]) ([deconz docs])
-- Introduce reauth flow to deCONZ ([@Kane610] - [#45443]) ([deconz docs])
-- Add a one touch pairing config flow for lutron caseta ([@bdraco] - [#45136]) ([lutron_caseta docs])
-- Add support for Discord embed in messages ([@popboxgun] - [#44986]) ([discord docs])
-- Add "significant change" base ([@balloob] - [#45555]) ([binary_sensor docs]) ([sensor docs])
-- Limit data sending to Alexa to significant changes ([@balloob] - [#45563]) ([alexa docs])
-- Add significant change filtering to Google ([@balloob] - [#45566]) ([google_assistant docs]) ([sensor docs]) ([switch docs])
-- Add tilt functionality to Velux covers ([@pawlizio] - [#43669]) ([velux docs])
-- Add support for Pico and Shade remotes to Lutron Caseta ([@bdraco] - [#45315]) ([lutron_caseta docs])
-- Implement remote.delete_command in the Broadlink integration ([@felipediel] - [#44041]) ([broadlink docs])
-- Esphome fan direction ([@blejdfist] - [#44495]) ([esphome docs])
-- New methods for input_select component ([@l-mb] - [#42968]) ([input_select docs])
-- Re-architect Tile integration with new pytile ([@bachya] - [#43071]) ([tile docs])
-- Add total energy, preheater and RMOT sensors to comfoconnect ([@chmielowiec] - [#45373]) ([comfoconnect docs])
-- Add service to move camera to PTZ preset ([@joe248] - [#43083]) ([foscam docs])
-- Migrate RMV to use httpx ([@cgtobi] - [#42560]) ([rmvtransport docs])
-
-Frontend:
-
-- Add simple try tts dialog (#8245) @bramkragten
-- Add icon support to gauge (#8081) @spacegaier
-- More comprehensive YAML config errors + dynamic checks for action configs (#8217) @spacegaier
-- add actions to weather-forecast-card (#7659) @iantrich
-- Allow themeing of media control card (#8209) @spacegaier
-- Format URL attribute as link (#8126) @spacegaier
-- Update supervisor on add-on store refresh (#8132) @ludeeus
-- Add filtering and zoom to node to the ZHA network visualization (#7913) @dmulcahey
-- Added Drag & Drop Reordering to Shopping List Card. (#7296) @ShaneQi
-- Add support for "all" as entity ID in action "service" (#7954) @spacegaier
-- Add Bengali language (#8014) @spacegaier
+- We now give you a clearer reason why your Lovelace card configuration is not
+  supported in the UI editor thanks to [@spacegaier].
+- Shelly RGB devices are now fully supported!! Nice [@chemelli74]!
+- [@dmulcahey] Added filtering and zoom to node to the ZHA network visualization.
+  Very useful to find you Zigbee network issues.
+- The deCONZ integration added support for logging basic event in the logbook.
+  Nicely done [@Kane610].
+- The Tasmota integration is out of beta! Awesome [@emontnemery]!
+- [@spacegaier] Added support for themes on the media card.
+- The items in the shopping list card can be ordered using drag & drop!
+  Thanks [@ShaneQi]!
+- Newly ignored discovered integrations now show a name of the item ignored.
+  This makes it easier to undo that later.
+- [@balloob] made a new framework that can detect significant changes in
+  entities, allowing to reduce the amount of update we need to send to both
+  Google Assistant and Alexa!
+- Setting up Lutron Caseta was quite a pain, but not anymore! [@bdraco] added
+  one-touch pairing to the integration set up!
+- If you use [light profiles](/integrations/light/#default-turn-on-values),
+  [@Adminiuga] is your man. All parameters of a light profile can now be
+  optional and default profiles are always applied.
+- Dropdown helpers (`input_select`) got some new service capabilities added by
+  [@l-mb]. They can now cycle through the options, and service calls to jump
+  to the first or last item have been added as well.
+- If you have a Foscam camera, [@joe248] added a service to move to PTZ presets.
 
 ## New Integrations
 
@@ -204,7 +343,7 @@ integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 <details>
-  <summary><b>Python 3.9</b></summary>
+  <summary><b>Python 3.7</b></summary>
   <p>
 
 Support for Python 3.7 has been dropped, after being deprecated since
@@ -703,7 +842,7 @@ The following integrations have been removed:
 - Reconnect mochad light on on/off command ([@migube] - [#44507]) ([mochad docs])
 - Update xknx to 0.16.0 ([@farmio] - [#44749]) ([knx docs]) (breaking-change)
 - Bump PyTado to 0.10.0 ([@Noltari] - [#44770]) ([tado docs])
-- Bump dessant/lock-threads from v2.0.1 to v2.0.3 (@dependabot - [#44806])
+- Bump dessant/lock-threads from v2.0.1 to v2.0.3 (@dependabot] - [#44806])
 - Update to denonavr version 0.9.10 ([@scarface-4711] - [#44791]) ([denonavr docs])
 - Bumo pyroon version to 0.0.30 ([@pavoni] - [#44800]) ([roon docs])
 - Bump pyobihai ([@dshokouhi] - [#44768]) ([obihai docs])
@@ -726,8 +865,8 @@ The following integrations have been removed:
 - Bump caldav version to 0.7.1 ([@chpego] - [#44815]) ([caldav docs])
 - Complete device and entity registry type hints ([@scop] - [#44406])
 - Propose an integration quality for nest SDM integration ([@allenporter] - [#44755]) ([nest docs])
-- Bump codecov/codecov-action from v1.1.1 to v1.2.0 (@dependabot - [#44836])
-- Bump actions/upload-artifact from v2.2.1 to v2.2.2 (@dependabot - [#44835])
+- Bump codecov/codecov-action from v1.1.1 to v1.2.0 (@dependabot] - [#44836])
+- Bump actions/upload-artifact from v2.2.1 to v2.2.2 (@dependabot] - [#44835])
 - Add support for reordering Shopping List Items via Drag and Drop ([@ShaneQi] - [#41585]) ([shopping_list docs])
 - Add Vicare set mode service ([@oischinger] - [#44563])
 - Better general/fallback error message and traceback for unknown config errors ([@scop] - [#44655])
@@ -739,7 +878,7 @@ The following integrations have been removed:
 - Address late review of ondilo_ico ([@JeromeHXP] - [#44837]) ([ondilo_ico docs])
 - Improve MQTT number test coverage ([@emontnemery] - [#44870]) ([mqtt docs])
 - Bump pychromecast to 7.7.2 ([@emontnemery] - [#44871]) ([cast docs])
-- Bump codecov/codecov-action from v1.2.0 to v1.2.1 (@dependabot - [#44869])
+- Bump codecov/codecov-action from v1.2.0 to v1.2.1 (@dependabot] - [#44869])
 - Generate nest images thumbnails from events ([@allenporter] - [#44638]) ([nest docs])
 - Fix notion bridge id update device registry identifier usage ([@scop] - [#44872]) ([notion docs])
 - Revert "Revert "Bump pypck to 0.7.8"" ([@frenck] - [#44885]) ([lcn docs])
@@ -962,7 +1101,7 @@ The following integrations have been removed:
 - Fix for radiotherm component stall ([@vinnyfuria] - [#45482]) ([radiotherm docs])
 - Update xknx to 0.16.2 ([@farmio] - [#45511]) ([knx docs])
 - Use image proxy in volumio media browser ([@OnFreund] - [#43819]) ([volumio docs])
-- Bump actions/stale from v3.0.14 to v3.0.15 (@dependabot - [#45516])
+- Bump actions/stale from v3.0.14 to v3.0.15 (@dependabot] - [#45516])
 - Bump Z-Wave JS Server Python to 0.13 ([@balloob] - [#45524]) ([zwave_js docs])
 - Better wait for Z-Wave to be initialized ([@balloob] - [#45520]) ([zwave_js docs])
 - Bump dependency for HomematicIP Cloud to 0.13.1 ([@SukramJ] - [#45475]) ([homematicip_cloud docs])
@@ -1048,6 +1187,55 @@ The following integrations have been removed:
 - Update frontend to 20210127.1 ([@bramkragten] - [#45612]) ([frontend docs])
 - Add mobile_app notify ClientError handling ([@cdce8p] - [#45480]) ([mobile_app docs])
 - Fix Notion binary sensor bug due to API changes ([@bachya] - [#45616]) ([notion docs])
+- Allow Plex playback using provided playqueue ID ([@jjlawren] - [#45580]) ([plex docs]) (beta fix)
+- Add additional error handling for automation script run ([@cdce8p] - [#45613]) ([automation docs]) (beta fix)
+- Include relative path in tts get url ([@balloob] - [#45623]) ([tts docs]) (beta fix)
+- Upgrade pyyaml to 5.4.1 (CVE-2020-14343) ([@fabaff] - [#45624]) (beta fix)
+- Bump hatasmota to 0.2.7 ([@emontnemery] - [#45625]) ([tasmota docs]) (beta fix)
+- Ensure history LazyState state value is always a string ([@bdraco] - [#45644]) ([history docs]) (beta fix)
+- Update httpcore to prevent unhandled exception on dropped connection ([@bdraco] - [#45667]) (beta fix)
+- Fix removing nodes in zwave_js integration ([@marcelveldt] - [#45676]) ([zwave_js docs]) (beta fix)
+- Update frontend to 20210127.3 ([@bramkragten] - [#45679]) ([frontend docs]) (beta fix)
+- SSDP response decode: replace invalid utf-8 characters ([@vzahradnik] - [#42681]) ([ssdp docs]) (beta fix)
+- Update docker base image 2021.01.1 ([@pvizeli] - [#45697]) (beta fix)
+- Bump pysmappee to 0.2.16 ([@bsmappee] - [#45699]) ([smappee docs]) (beta fix)
+- Fix mqtt check in ozw ([@MartinHjelmare] - [#45709]) ([ozw docs]) (beta fix)
+- Updated frontend to 20210127.5 ([@bramkragten] - [#45714]) ([frontend docs]) (beta fix)
+- Bump simplisafe-python to 9.6.4 ([@bachya] - [#45716]) ([simplisafe docs]) (beta fix)
+- Fix exception when a unifi config entry is ignored ([@bdraco] - [#45735]) ([unifi docs]) (beta fix)
+- Bump awesomeversion from 21.1.3 to 21.1.6 ([@ludeeus] - [#45738]) (beta fix)
+- Update frontend to 20210127.6 ([@bramkragten] - [#45760]) ([frontend docs]) (beta fix)
+- Add timeout to lutron_caseta to prevent it blocking startup ([@bdraco] - [#45769]) ([lutron_caseta docs]) (beta fix)
+- Bump pychromecast to 8.0.0 ([@emontnemery] - [#45776]) ([cast docs]) (beta fix)
+- Ensure lutron_caseta is only discovered once ([@bdraco] - [#45792]) ([lutron_caseta docs]) (beta fix)
+- Prevent AttributError for uninitilized KNX ClimateMode ([@farmio] - [#45793]) ([knx docs]) (beta fix)
+- Bump pyatv to 0.7.6 ([@postlund] - [#45799]) ([apple_tv docs]) (beta fix)
+- Bump zwave-js-server-python to 0.14.2 ([@marcelveldt] - [#45800]) ([zwave_js docs]) (beta fix)
+- Add stop_cover service for zwave_js ([@firstof9] - [#45805]) ([zwave_js docs]) (beta fix)
+- Fix shutdown deadlock with run_callback_threadsafe ([@bdraco] - [#45807]) (beta fix)
+- Search all endpoints for value in zwave_js ([@raman325] - [#45809]) ([zwave_js docs]) (beta fix)
+- Add zwave_js binary sensors property name for Notification CC ([@raman325] - [#45810]) ([zwave_js docs]) (beta fix)
+- Fix missing async for lutron_caseta timeout ([@bdraco] - [#45812]) ([lutron_caseta docs]) (beta fix)
+- Bump zwave-js-server-python to 0.15.0 ([@MartinHjelmare] - [#45813]) ([zwave_js docs]) (beta fix)
+- Bump awesomeversion from 21.1.6 to 21.2.0 ([@ludeeus] - [#45821]) (beta fix)
+- Improve MQTT JSON light to allow non-ambiguous states ([@emontnemery] - [#45522]) ([mqtt docs]) (beta fix)
+- Add value notification events to zwave_js integration ([@marcelveldt] - [#45814]) ([zwave_js docs]) (beta fix)
+- Add notification events to zwave_js integration ([@raman325] - [#45827]) ([zwave_js docs]) (beta fix)
+- Fix sensor discovery for zwave_js integration ([@marcelveldt] - [#45834]) ([zwave_js docs]) (beta fix)
+- Disable Osramlightify, upstream package is missing ([@frenck] - [#45775]) ([osramlightify docs]) (breaking-change) (beta fix)
+- Enable Osramlightify again ([@tfriedel] - [#45849]) ([osramlightify docs]) (beta fix)
+- Remove zwave_js devices that the controller is no longer connected to on initialization ([@raman325] - [#45853]) ([zwave_js docs]) (beta fix)
+- Add current humidity to zwave_js climate platform ([@raman325] - [#45857]) ([zwave_js docs]) (beta fix)
+- Update zwave_js discovery schema for light platform ([@marcelveldt] - [#45861]) ([zwave_js docs]) (beta fix)
+- Fix zwave_js sensor device class attribute error ([@MartinHjelmare] - [#45863]) ([zwave_js docs]) (beta fix)
+- Fix zwave_js device remove test ([@MartinHjelmare] - [#45864]) ([zwave_js docs]) (beta fix)
+- Guard for missing value ([@marcelveldt] - [#45867]) ([zwave_js docs]) (beta fix)
+- Use new zwave_js client ([@MartinHjelmare] - [#45872]) ([zwave_js docs]) (beta fix)
+- Update frontend to 20210127.7 ([@bramkragten] - [#45874]) ([frontend docs]) (beta fix)
+- Bump plexapi to 3.4.1 ([@jjlawren] - [#45878]) ([plex docs]) (beta fix)
+- Update docker base image 2021.02.0 ([@pvizeli] - [#45889]) (beta fix)
+- Upgrade Z-Wave JS Python to 0.17.0 ([@balloob] - [#45895]) ([zwave_js docs]) (beta fix)
+- Mark Z-Wave as deprecated ([@balloob] - [#45896]) ([zwave docs]) (beta fix)
 
 </details>
 
@@ -1070,6 +1258,7 @@ The following integrations have been removed:
 [#42427]: https://github.com/home-assistant/core/pull/42427
 [#42513]: https://github.com/home-assistant/core/pull/42513
 [#42560]: https://github.com/home-assistant/core/pull/42560
+[#42681]: https://github.com/home-assistant/core/pull/42681
 [#42716]: https://github.com/home-assistant/core/pull/42716
 [#42913]: https://github.com/home-assistant/core/pull/42913
 [#42968]: https://github.com/home-assistant/core/pull/42968
@@ -1407,6 +1596,7 @@ The following integrations have been removed:
 [#45511]: https://github.com/home-assistant/core/pull/45511
 [#45516]: https://github.com/home-assistant/core/pull/45516
 [#45520]: https://github.com/home-assistant/core/pull/45520
+[#45522]: https://github.com/home-assistant/core/pull/45522
 [#45523]: https://github.com/home-assistant/core/pull/45523
 [#45524]: https://github.com/home-assistant/core/pull/45524
 [#45529]: https://github.com/home-assistant/core/pull/45529
@@ -1433,6 +1623,7 @@ The following integrations have been removed:
 [#45572]: https://github.com/home-assistant/core/pull/45572
 [#45574]: https://github.com/home-assistant/core/pull/45574
 [#45578]: https://github.com/home-assistant/core/pull/45578
+[#45580]: https://github.com/home-assistant/core/pull/45580
 [#45581]: https://github.com/home-assistant/core/pull/45581
 [#45583]: https://github.com/home-assistant/core/pull/45583
 [#45596]: https://github.com/home-assistant/core/pull/45596
@@ -1441,7 +1632,53 @@ The following integrations have been removed:
 [#45602]: https://github.com/home-assistant/core/pull/45602
 [#45609]: https://github.com/home-assistant/core/pull/45609
 [#45612]: https://github.com/home-assistant/core/pull/45612
+[#45613]: https://github.com/home-assistant/core/pull/45613
 [#45616]: https://github.com/home-assistant/core/pull/45616
+[#45623]: https://github.com/home-assistant/core/pull/45623
+[#45624]: https://github.com/home-assistant/core/pull/45624
+[#45625]: https://github.com/home-assistant/core/pull/45625
+[#45644]: https://github.com/home-assistant/core/pull/45644
+[#45667]: https://github.com/home-assistant/core/pull/45667
+[#45676]: https://github.com/home-assistant/core/pull/45676
+[#45679]: https://github.com/home-assistant/core/pull/45679
+[#45697]: https://github.com/home-assistant/core/pull/45697
+[#45699]: https://github.com/home-assistant/core/pull/45699
+[#45709]: https://github.com/home-assistant/core/pull/45709
+[#45714]: https://github.com/home-assistant/core/pull/45714
+[#45716]: https://github.com/home-assistant/core/pull/45716
+[#45735]: https://github.com/home-assistant/core/pull/45735
+[#45738]: https://github.com/home-assistant/core/pull/45738
+[#45760]: https://github.com/home-assistant/core/pull/45760
+[#45769]: https://github.com/home-assistant/core/pull/45769
+[#45775]: https://github.com/home-assistant/core/pull/45775
+[#45776]: https://github.com/home-assistant/core/pull/45776
+[#45792]: https://github.com/home-assistant/core/pull/45792
+[#45793]: https://github.com/home-assistant/core/pull/45793
+[#45799]: https://github.com/home-assistant/core/pull/45799
+[#45800]: https://github.com/home-assistant/core/pull/45800
+[#45805]: https://github.com/home-assistant/core/pull/45805
+[#45807]: https://github.com/home-assistant/core/pull/45807
+[#45809]: https://github.com/home-assistant/core/pull/45809
+[#45810]: https://github.com/home-assistant/core/pull/45810
+[#45812]: https://github.com/home-assistant/core/pull/45812
+[#45813]: https://github.com/home-assistant/core/pull/45813
+[#45814]: https://github.com/home-assistant/core/pull/45814
+[#45821]: https://github.com/home-assistant/core/pull/45821
+[#45827]: https://github.com/home-assistant/core/pull/45827
+[#45834]: https://github.com/home-assistant/core/pull/45834
+[#45849]: https://github.com/home-assistant/core/pull/45849
+[#45853]: https://github.com/home-assistant/core/pull/45853
+[#45857]: https://github.com/home-assistant/core/pull/45857
+[#45861]: https://github.com/home-assistant/core/pull/45861
+[#45863]: https://github.com/home-assistant/core/pull/45863
+[#45864]: https://github.com/home-assistant/core/pull/45864
+[#45867]: https://github.com/home-assistant/core/pull/45867
+[#45872]: https://github.com/home-assistant/core/pull/45872
+[#45874]: https://github.com/home-assistant/core/pull/45874
+[#45878]: https://github.com/home-assistant/core/pull/45878
+[#45889]: https://github.com/home-assistant/core/pull/45889
+[#45895]: https://github.com/home-assistant/core/pull/45895
+[#45896]: https://github.com/home-assistant/core/pull/45896
 [@Adminiuga]: https://github.com/Adminiuga
 [@Anonym-tsk]: https://github.com/Anonym-tsk
 [@BKPepe]: https://github.com/BKPepe
@@ -1485,6 +1722,7 @@ The following integrations have been removed:
 [@blejdfist]: https://github.com/blejdfist
 [@bouwew]: https://github.com/bouwew
 [@bramkragten]: https://github.com/bramkragten
+[@bsmappee]: https://github.com/bsmappee
 [@cdce8p]: https://github.com/cdce8p
 [@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
@@ -1548,6 +1786,7 @@ The following integrations have been removed:
 [@pavoni]: https://github.com/pavoni
 [@pawlizio]: https://github.com/pawlizio
 [@popboxgun]: https://github.com/popboxgun
+[@postlund]: https://github.com/postlund
 [@pvizeli]: https://github.com/pvizeli
 [@radovanbauer]: https://github.com/radovanbauer
 [@raman325]: https://github.com/raman325
@@ -1562,11 +1801,13 @@ The following integrations have been removed:
 [@spacegaier]: https://github.com/spacegaier
 [@springstan]: https://github.com/springstan
 [@starkillerOG]: https://github.com/starkillerOG
+[@tfriedel]: https://github.com/tfriedel
 [@thecode]: https://github.com/thecode
 [@thegnuu]: https://github.com/thegnuu
 [@thomasloven]: https://github.com/thomasloven
 [@unaiur]: https://github.com/unaiur
 [@vinnyfuria]: https://github.com/vinnyfuria
+[@vzahradnik]: https://github.com/vzahradnik
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@yuvalabou]: https://github.com/yuvalabou
 [@zewelor]: https://github.com/zewelor
@@ -1581,6 +1822,7 @@ The following integrations have been removed:
 [alarm_control_panel docs]: /integrations/alarm_control_panel/
 [alexa docs]: /integrations/alexa/
 [alpha_vantage docs]: /integrations/alpha_vantage/
+[apple_tv docs]: /integrations/apple_tv/
 [august docs]: /integrations/august/
 [automation docs]: /integrations/automation/
 [aws docs]: /integrations/aws/
@@ -1624,6 +1866,7 @@ The following integrations have been removed:
 [harmony docs]: /integrations/harmony/
 [hassio docs]: /integrations/hassio/
 [hddtemp docs]: /integrations/hddtemp/
+[history docs]: /integrations/history/
 [home_connect docs]: /integrations/home_connect/
 [homeassistant docs]: /integrations/homeassistant/
 [homekit docs]: /integrations/homekit/
@@ -1677,6 +1920,7 @@ The following integrations have been removed:
 [onkyo docs]: /integrations/onkyo/
 [opentherm_gw docs]: /integrations/opentherm_gw/
 [openweathermap docs]: /integrations/openweathermap/
+[osramlightify docs]: /integrations/osramlightify/
 [ozw docs]: /integrations/ozw/
 [panasonic_viera docs]: /integrations/panasonic_viera/
 [persistent_notification docs]: /integrations/persistent_notification/
@@ -1705,7 +1949,9 @@ The following integrations have been removed:
 [shelly docs]: /integrations/shelly/
 [shodan docs]: /integrations/shodan/
 [shopping_list docs]: /integrations/shopping_list/
+[simplisafe docs]: /integrations/simplisafe/
 [slack docs]: /integrations/slack/
+[smappee docs]: /integrations/smappee/
 [snmp docs]: /integrations/snmp/
 [soma docs]: /integrations/soma/
 [somfy docs]: /integrations/somfy/
@@ -1714,6 +1960,7 @@ The following integrations have been removed:
 [sql docs]: /integrations/sql/
 [squeezebox docs]: /integrations/squeezebox/
 [srp_energy docs]: /integrations/srp_energy/
+[ssdp docs]: /integrations/ssdp/
 [starline docs]: /integrations/starline/
 [stream docs]: /integrations/stream/
 [surepetcare docs]: /integrations/surepetcare/
@@ -1727,6 +1974,7 @@ The following integrations have been removed:
 [todoist docs]: /integrations/todoist/
 [toon docs]: /integrations/toon/
 [transmission docs]: /integrations/transmission/
+[tts docs]: /integrations/tts/
 [tuya docs]: /integrations/tuya/
 [twitter docs]: /integrations/twitter/
 [unifi docs]: /integrations/unifi/
