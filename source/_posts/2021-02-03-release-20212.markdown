@@ -83,7 +83,7 @@ supported and tested.
 This release brings you the [Z-Wave JS integration](/integrations/zwave_js)!
 
 A brand new integration for Z-Wave in Home Assistant, full-blown, created
-in a just month by a bunch of awesome people!
+in just a month by a bunch of awesome people!
 
 More and more people were concerned about the future of Z-Wave with
 Home Assistant; meanwhile the [Z-Wave JS][zwavejs] project was rapidly growing
@@ -96,8 +96,8 @@ JS integration uses a WebSocket connection to a Z-Wave JS server.
 
 This means, in order to use this new integration, you'll need to run the
 Z-Wave JS server that sits in between your Z-Wave USB stick and Home Assistant.
-There are multiple options available on running the Z-Wave JS server,
-via Docker, manually, but there is also an Home Assistant add-on available.
+There are multiple options available for running the Z-Wave JS server,
+via Docker or manually, and there is also a Home Assistant add-on available.
 
 If you run an installation with a Supervisor, the add-on will even be
 set up automatically for you.
@@ -177,7 +177,7 @@ Over a year ago, Home Assistant started working on the
 OZW daemon, using MQTT as a transport. This project was promising and something
 we put a lot of time and effort in.
 
-Unfortunately, the OpenZWave project itself became a bit staler as most
+Unfortunately, the OpenZWave project itself became a bit stale as most
 of the upstream development is done by a single person:
 Justin Hammond (Fishwaldo).
 
