@@ -62,7 +62,7 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 ## Variables
 
-The variables command allows you to set/override variables that will be accessible by templates in actions after it (see also [script variables] for how to define locally available variables).
+The variables command allows you to set/override variables that will be accessible by templates in actions after it. See also [script variables] for how to define variables accessible in the entire script.
 
 {% raw %}
 
