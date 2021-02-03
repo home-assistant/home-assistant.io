@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2021-02/social.png
 ---
 
-<img src='/images/blog/2021-02/social.png' style='border: 0;box-shadow: none; margin-bottom: 20px;'>
+<a href='/integrations/#version/2021.2'><img src='/images/blog/2021-02/social.png' style='border: 0;box-shadow: none;'></a>
 
 Dear reader,
 
