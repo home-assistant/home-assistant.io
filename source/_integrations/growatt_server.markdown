@@ -54,12 +54,12 @@ name:
 # Example configuration.yaml entry
 sensor:
   - platform: growatt_server
-    name: 'growatt home'
+    name: "growatt home"
     plant_id: 12345678
     username: username
     password: password
   - platform: growatt_server
-    name: 'growatt work'
+    name: "growatt work"
     plant_id: 87654321
     username: username
     password: password

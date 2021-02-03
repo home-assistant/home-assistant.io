@@ -17,7 +17,7 @@ To add the Etherscan sensor to your installation, specify an Ethereum address to
 # Example configuration.yaml entry
 sensor:
   - platform: etherscan
-    address: '0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359'
+    address: "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
   - platform: etherscan
     address: "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
     token: OMG

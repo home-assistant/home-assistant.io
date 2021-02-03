@@ -92,7 +92,7 @@ automation:
       - service: climate.set_hvac_mode
         data:
           entity_id: climate.remotec_zxt120_heating_1_id
-          hvac_mode: 'Off'
+          hvac_mode: "Off"
 ```
 
 **Note:** In the example above, the word `Off` is encased in single quotes to be valid YAML.

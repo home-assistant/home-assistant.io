@@ -25,7 +25,7 @@ To add a timer to your installation, add the following to your `configuration.ya
 # Example configuration.yaml entry
 timer:
   laundry:
-    duration: '00:01:00'
+    duration: "00:01:00"
 ```
 
 {% configuration %}
@@ -121,7 +121,7 @@ Set a timer called `test` to a duration of 30 seconds.
 # Example configuration.yaml entry
 timer:
   test:
-    duration: '00:00:30'
+    duration: "00:00:30"
 ```
 
 ### Control a timer from the frontend
@@ -129,19 +129,19 @@ timer:
 ```yaml
 # Example automations.yaml entry
 - alias: Timerswitch
-  id: 'Timerstart'
+  id: "Timerstart"
   # Timer is started when the switch pumprun is set to on.
   trigger:
   - platform: state
     entity_id: switch.pumprun
-    to: 'on'
+    to: "on"
   action:
   - service: timer.start
     entity_id: timer.test
 
 # When timer is stopped, the time run out, another message is sent
 - alias: Timerstop
-  id: 'Timerstop'
+  id: "Timerstop"
   trigger:
   - platform: event
     event_type: timer.finished

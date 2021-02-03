@@ -114,7 +114,7 @@ automation:
   alias: random_flux_living_room_lamp
   trigger:
     platform: time_pattern
-    seconds: '/45'
+    seconds: "/45"
   action:
     service: light.turn_on
     data:
@@ -154,7 +154,7 @@ light:
     devices:
       192.168.1.10:
         name: NAME
-        protocol: 'ledenet'
+        protocol: "ledenet"
 ```
 
 ### Effects
@@ -183,7 +183,7 @@ light:
       192.168.1.10:
         custom_effect:
           speed_pct: 100
-          transition: 'strobe'
+          transition: "strobe"
           colors:
             - [255,0,0]
             - [255,255,0]

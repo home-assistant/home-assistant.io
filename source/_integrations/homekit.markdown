@@ -91,7 +91,7 @@ homekit:
         description: HomeKit can expose an entity via a bridge, or a single entity as an accessory which is needed for Television Media Players. ([Accessory mode](#accessory-mode))
         required: false
         type: string
-        default: '`bridge`'
+        default: "`bridge`"
       safe_mode:
         description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
         required: false

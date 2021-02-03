@@ -118,7 +118,7 @@ automation:
       service: persistent_notification.create
       data:
         title: Something bad happened
-        message: '{{ trigger.event.data.message }}'
+        message: "{{ trigger.event.data.message }}"
 ```
 
 {% endraw %}
@@ -133,11 +133,11 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.door
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
     action:
       service: system_log.write
       data:
-        message: 'Door opened!'
+        message: "Door opened!"
         level: info
 ```

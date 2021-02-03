@@ -261,10 +261,10 @@ sensor:
   - platform: template
     sensors:
       date:
-        friendly_name: 'Date'
-        value_template: '{{ states.sensor.json_time.attributes["date"] }}'
+        friendly_name: "Date"
+        value_template: "{{ states.sensor.json_time.attributes["date"] }}"
       milliseconds:
-        friendly_name: 'milliseconds'
+        friendly_name: "milliseconds"
         value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
 ```
 
@@ -310,17 +310,17 @@ sensor:
         entity_picture_template: '{{ "https://openweathermap.org/img/w/"+state_attr('sensor.owm_report', 'weather')[0]["icon"].lower()+".png" }}'
         entity_id: sensor.owm_report
       owm_temp:
-        friendly_name: 'Outside temp'
+        friendly_name: "Outside temp"
         value_template: '{{ state_attr('sensor.owm_report', 'main')["temp"]-273.15 }}'
         unit_of_measurement: "°C"
         entity_id: sensor.owm_report
       owm_pressure:
-        friendly_name: 'Outside pressure'
+        friendly_name: "Outside pressure"
         value_template: '{{ state_attr('sensor.owm_report', 'main')["pressure"] }}'
         unit_of_measurement: "hP"
         entity_id: sensor.owm_report
       owm_humidity:
-        friendly_name: 'Outside humidity'
+        friendly_name: "Outside humidity"
         value_template: '{{ state_attr('sensor.owm_report', 'main')["humidity"] }}'
         unit_of_measurement: "%"
         entity_id: sensor.owm_report
@@ -368,25 +368,25 @@ sensor:
       - bedroom1
       - bedroom2
       - bedroom3
-    value_template: 'OK'
+    value_template: "OK"
   - platform: template
     sensors:
       bedroom1_temperature:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["temperature"] }}'
         device_class: temperature
-        unit_of_measurement: '°C'
+        unit_of_measurement: "°C"
       bedroom1_humidity:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["humidity"] }}'
         device_class: humidity
-        unit_of_measurement: '%'
+        unit_of_measurement: "%"
       bedroom1_battery:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["battery"] }}'
         device_class: battery
-        unit_of_measurement: 'V'
+        unit_of_measurement: "V"
       bedroom2_temperature:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom2"]["temperature"] }}'
         device_class: temperature
-        unit_of_measurement: '°C'
+        unit_of_measurement: "°C"
 ```
 
 {% endraw %}
@@ -405,7 +405,7 @@ sensor:
     resource: http://192.168.1.105/status.xml
     json_attributes_path: "$.response"
     scan_interval: 15
-    value_template: 'OK'
+    value_template: "OK"
     json_attributes:
       - "usr0"
       - "pot0"

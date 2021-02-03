@@ -127,7 +127,7 @@ Example:
 ```yaml
    custom:
       yesterday_consumption:
-         key: '6400_00543A01'
+         key: "6400_00543A01"
          unit: kWh
          factor: 1000
 ```

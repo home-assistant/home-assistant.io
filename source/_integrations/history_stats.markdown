@@ -34,8 +34,8 @@ sensor:
     entity_id: light.my_lamp
     state: "on"
     type: time
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
+    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}
@@ -135,8 +135,8 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-    end: '{{ now() }}'
+    start: "{{ now().replace(hour=0, minute=0, second=0) }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}
@@ -146,7 +146,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
     duration:
       hours: 24
 ```
@@ -158,7 +158,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: '{{ now().replace(hour=6, minute=0, second=0) }}'
+    start: "{{ now().replace(hour=6, minute=0, second=0) }}"
     duration:
       hours: 5
 ```
@@ -172,8 +172,8 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: '{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}'
-    end: '{{ now() }}'
+    start: "{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}
@@ -183,7 +183,7 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: "{{ now().replace(hour=0, minute=0, second=0) }}"
     duration:
       days: 30
 ```
@@ -195,8 +195,8 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 {% raw %}
 
 ```yaml
-    start: '{{ 0 }}'
-    end: '{{ now() }}'
+    start: "{{ 0 }}"
+    end: "{{ now() }}"
 ```
 
 {% endraw %}

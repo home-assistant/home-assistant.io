@@ -283,7 +283,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -314,7 +314,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -346,9 +346,9 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
-    tilt_command_topic: 'home-assistant/cover/tilt'
-    tilt_status_topic: 'home-assistant/cover/tilt-state'
+    value_template: "{{ value.x }}"
+    tilt_command_topic: "home-assistant/cover/tilt"
+    tilt_status_topic: "home-assistant/cover/tilt-state"
     tilt_status_template: '{{ value_json["PWM"]["PWM1"] }}'
     tilt_min: 0
     tilt_max: 180

@@ -146,9 +146,9 @@ a time based automation can be used:
 automation:
   trigger:
     - platform: time
-      at: '09:00:00'
+      at: "09:00:00"
     - platform: time
-      at: '21:00:00'
+      at: "21:00:00"
   action:
     - service: utility_meter.next_tariff
       entity_id: utility_meter.daily_energy

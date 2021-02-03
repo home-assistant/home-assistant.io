@@ -33,7 +33,7 @@ envisalink:
   panel_type: HONEYWELL or DSC
   user_name: YOUR_USERNAME
   password: YOUR_PASSWORD
-  code: '1234'
+  code: "1234"
   port: 4025
   evl_version: 3
   keepalive_interval: 60
@@ -42,14 +42,14 @@ envisalink:
   panic_type: Police
   zones:
     11:
-      name: 'Back Door'
-      type: 'opening'
+      name: "Back Door"
+      type: "opening"
     21:
-      name: 'First Floor Motion'
-      type: 'motion'
+      name: "First Floor Motion"
+      type: "motion"
   partitions:
     1:
-      name: 'Home Alarm'
+      name: "Home Alarm"
 ```
 
 {% configuration %}
