@@ -11,9 +11,9 @@ categories: Release-Notes
 og_image: /images/blog/2021-02/social.png
 ---
 
-<img src='/images/blog/2021-02/social.png' style='border: 0;box-shadow: none;'>
+<img src='/images/blog/2021-02/social.png' style='border: 0;box-shadow: none; margin-bottom: 20px;'>
 
-Dear homie,
+Dear reader,
 
 Usually, I try to write a small introduction that recaps the release, while
 putting a bit of my view in it as well. This release, however, I'm struggling
