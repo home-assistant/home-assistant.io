@@ -80,7 +80,6 @@ script:
         data:
           group_name: "Porch"
           scene_name: "Porch Orange"
-          transition: 30
 ```
 
 | Service data attribute | Optional | Description                                                           |
