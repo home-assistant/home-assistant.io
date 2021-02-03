@@ -1,5 +1,5 @@
 ---
-title: Z-Wave
+title: Z-Wave (deprecated)
 description: Instructions on how to integrate your existing Z-Wave within Home Assistant.
 ha_category:
   - Hub

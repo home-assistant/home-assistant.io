@@ -1,5 +1,5 @@
 ---
-title: Flux LED/MagicHome/MagicLight
+title: Flux LED/MagicLight
 description: Instructions on how to setup Flux led/MagicHome/MagicLight within Home Assistant.
 ha_category:
   - Light
