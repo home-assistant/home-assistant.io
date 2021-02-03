@@ -37,6 +37,10 @@ Enjoy the release!
 - [Erik Montnemery joins Nabu Casa](#erik-montnemery-joins-nabu-casa)
 - [Python 3.7 dropped, Python 3.9 supported](#python-37-dropped-python-39-supported)
 - [Z-Wave JS](#z-wave-js)
+  - [Current state of Z-Wave JS](#current-state-of-z-wave-js)
+  - [Thanks to all](#thanks-to-all)
+  - [What about the old Z-Wave integration?](#what-about-the-old-z-wave-integration)
+  - [What about the OpenZWave beta integration?](#what-about-the-openzwave-beta-integration)
 - [DHCP Discovery](#dhcp-discovery)
 - [New Blueprint selectors](#new-blueprint-selectors)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -66,7 +70,7 @@ you need to run Home Assistant Core to Python 3.8. Python 3.7 was already
 deprecated since Home Assistant Core 0.116.0.
 
 This is only a concern if you are running Home Assistant Core directly on
-Python. if you run Home Assistant OS, Supervised or Container, you don’t have
+Python. If you run Home Assistant OS, Supervised or Container, you don’t have
 to worry about this, as the Home Assistant project takes care of this for you.
 
 However, say hello to: Python 3.9. As of this release, Python 3.9 is fully
@@ -74,30 +78,121 @@ supported and tested.
 
 ## Z-Wave JS
 
-<!-- TODO 
-- Extend paragraph
-- mention working
-- mention add-on
-- explain where it came from
-- thank a lot of people for this amazing achievement
+This release brings you the [Z-Wave JS integration](/integrations/zwave_js)!
 
-Contributors:
-- AlCalzone
-- https://github.com/robertsLando
-- https://github.com/Michsior14
-- https://github.com/kpine
-- https://github.com/jcam
-- https://github.com/itewk
-- https://github.com/Petro31
-- https://github.com/bramkragten
+A brand new integration for Z-Wave in Home Assistant, full-blown, created
+in a just month by a bunch of awesome people!
+
+More and people were concerned about the future of Z-Wave with Home Assistant;
+meanwhile the [Z-Wave JS][zwavejs] project was rapidly growing and gathering
+a large community around it. Long story short: Home Assistant and Z-Wave JS
+teamed up! And a lot of contributors jumped on the train!
+
+This new integration is based on the same base principles as the OpenZWave
+integration: It is decoupled from Home Assistant. Instead of MQTT, the Z-Wave
+JS integration uses a Socket.io connection to a Z-Wave JS server.
+
+This means, in order to use this new integration, you'll need to run the
+Z-Wave JS server that sits in between your Z-Wave USB stick and Home Assistant.
+There are multiple options available on running the Z-Wave JS server,
+via Docker, manually, but there is also an Home Assistant add-on available.
+
+If you run an installation with a Supervisor, the add-on will even be
+set up automatically for you.
+
+[zwavejs]: https://zwave-js.github.io/node-zwave-js/#/
+
+### Current state of Z-Wave JS
+
+The new Z-Wave JS integration is amazingly complete. It supports the following
+platforms from the start: Binary Sensors, Climate, Covers, Fans, Lights, Locks,
+Sensors and Switches.
+
+While fast-growing, it is a new integration and there is still a lot
+in progress. Of course, no doubt, there will be bugs. Bugs that will
+be squashed and handled. Please, be sure to
+[report issues in our issue tracker][issues].
+
+What is left? See our [Z-Wave JS integration roadmap][roadmap]
+for those details.
+
+[roadmap]: https://github.com/home-assistant-libs/zwave-js-server-python/issues/56
+[issues]: https://github.com/home-assistant/core/issues/new/choose
+
+### Thanks to all
+
+Thanks to all of the following people, the Z-Wave JS integration was able
+to see the light in just a month!
+
+- [@AlCalzone]
+- [@balloob]
+- [@bramkragten]
+- [@cgarwood]
+- [@firstof9]
+- [@itewk]
+- [@jcam]
+- [@kpine]
+- [@marcelveldt]
+- [@MartinHjelmare]
+- [@Michsior14]
+- [@Petro31]
 - [@pvizeli]
-[@cgarwood], [@MartinHjelmare], [@marcelveldt], [@raman325], [@firstof9], [@balloob]
--->
+- [@raman325]
+- [@robertsLando]
 
-Long story short: You are not going to believe this, but a complete new,
-full blown, integration was created from nothing in just a month!
+Yes, that is an awful lot of people! Amazing how this all came together
+and incredible work!
 
-Z-Wave JS is here!
+[@AlCalzone]: https://github.com/AlCalzone
+[@itewk]: https://github.com/itewk
+[@jcam]: https://github.com/jcam
+[@kpine]: https://github.com/kpin
+[@Michsior14]: https://github.com/Mchsior14
+[@robertsLando]: http://github.com/robertsLando
+
+### What about the old Z-Wave integration?
+
+The old [`zwave`](/integrations/zwave) integration has been based on
+OpenZwave 1.4, which is really old and does not get any upstream updates
+anymore. This also means that it is hard for us to keep it in a working state
+for the upcoming future.
+
+Therefore, as of today, the old Z-Wave is marked as being **deprecated**.
+
+If one starts with Home Assistant and Z-Wave, the `zwave` integration is
+no longer recommended. For existing users, we recommend migrating to the
+[Z-Wave JS integration](/integrations/zwave_js). However, don't panic,
+`zwave` is deprecated but not removed yet.
+
+### What about the OpenZWave beta integration?
+
+Over a year ago, Home Assistant started working on the
+[OpenZWave integration](/integrations/ozw). Based on OpenZWave 1.6 and the
+OZW daemon, using MQTT as a transport. This project was promising and something
+we put a lot of time and effort in.
+
+Unfortunately, the OpenZWave project itself became a bit staler as most
+of the upstream development is done by a single person:
+Justin Hammond (Fishwaldo).
+
+Quite a few people were worried about the lesser activity on OpenZWave.
+Justin [has responded on our forum][fishwaldo] on what is happening in his life
+and it is sad to read how many people have personally impacted him negatively.
+
+> Is OZW Dead - No. I’ll tinker with it, I’ll make changes as time allows,
+> but it will be at my own pace, to scratch my own itches now.
+
+Let us be straight here: OpenZWave is an 11? year-old project, which is used
+by an incredible amount of systems (besides Home Assistant) in this world,
+with an even greater track record. So:
+
+**Thank you Justin for all you have done in all those years!**
+
+With the rise of Z-Wave JS and the change of pace announcement above, we don't
+think the OpenZWave integration will make it out of beta. We recommend
+Home Assistant users migrate to the Z-Wave JS integration.
+
+[fishwaldo]: https://community.home-assistant.io/t/can-we-revisit-the-move-to-qt-openzwave/262612/140
 
 ## DHCP Discovery
 
