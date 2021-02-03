@@ -48,6 +48,8 @@ entity.
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
 
+See [Lights](/integrations/light/) for services inherited from the Light integration
+
 ### Using WLED segments
 
 WLED can split a single LED strip into multiple segments.
