@@ -1,7 +1,6 @@
 ---
 title: "Automation Templating"
 description: "Advanced automation documentation using templating."
-redirect_from: /getting-started/automation-templating/
 ---
 
 In Home Assistant 0.19 we introduced a new powerful feature: variables in scripts and automations. This makes it possible to adjust your condition and action based on the information of the trigger.
@@ -30,7 +29,7 @@ automation 2:
     service: >
       notify.{{ trigger.topic.split('/')[-1] }}
     data:
-      message: '{{ trigger.payload }}'
+      message: "{{ trigger.payload }}"
 
 automation 3:
   trigger:
@@ -40,9 +39,9 @@ automation 3:
         - light.bedroom_closet
         - light.kiddos_closet
         - light.linen_closet
-      to: 'on'
+      to: "on"
       # Trigger when someone leaves one of those lights on for 10 minutes.
-      for: '00:10:00'
+      for: "00:10:00"
   action:
     - service: light.turn_off
       data:
@@ -64,11 +63,11 @@ Remembering these simple rules will help save you from many headaches and endles
 
 ## Trigger State Object
 
-Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
+Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity can be useful in automations. Here are a few ways to access the [`state`](#state), [`numeric state`](#numeric-state) and [`template`](#template) triggers:
 
 * `trigger.from_state` will return the **previous** [state object](/docs/configuration/state_object/) of the entity.
 * `trigger.to_state` will return the **new** [state object](/docs/configuration/state_object/) that triggered trigger.
-* `states[trigger.to_state.domain][trigger.to_state.object_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
+* `states[trigger.to_state.entity_id]` will return the **current** [state object](/docs/configuration/state_object/) of the entity.
 
 <div class='note'>
   
@@ -168,6 +167,7 @@ The following tables show the available trigger data per platform.
 | `trigger.webhook_id` | The webhook ID that was triggered.
 | `trigger.json` | The JSON data of the request (if it had a JSON content type).
 | `trigger.data` | The form data of the request (if it had a form data content type).
+| `trigger.query` | The URL query parameters of the request (if provided).
 
 ### Zone
 

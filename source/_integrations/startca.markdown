@@ -73,7 +73,7 @@ monitored_conditions:
       description: Total bandwidth (download and upload sum calculation) used during the unlimited period (gigabytes).
     total_download:
       description: Total bandwidth download (Grace + Used) (gigabytes).
-    total_download:
+    total_upload:
       description: Total bandwidth upload (Grace + Used) (gigabytes).
     used_remaining:
       description: Remaining bandwidth calculated from used and supplied total bandwidth (gigabytes).

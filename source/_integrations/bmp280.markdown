@@ -24,7 +24,7 @@ To use a BMP280 sensor in your installation, you have to enable I2C on your host
 ```yaml
 sensor:
   - platform: bmp280
-  - i2c_address: 0x77
+    i2c_address: 0x77
 ```
 
 {% configuration %}

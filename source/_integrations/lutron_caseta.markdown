@@ -1,6 +1,7 @@
 ---
 title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
+featured: true
 ha_category:
   - Hub
   - Cover
@@ -12,6 +13,7 @@ ha_category:
 ha_release: 0.41
 ha_iot_class: Local Push
 ha_domain: lutron_caseta
+ha_config_flow: true
 ha_codeowners:
   - '@swails'
 ---
@@ -28,6 +30,15 @@ The currently supported Caseta and RA2 Select devices are:
 - Lutron shades as [covers](#cover)
 - Lutron smart [fan](#fan) speed control
 - Lutron Occupancy/Vacancy [sensors](#sensor)
+
+Additionally RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart Bridge PRO (`L-BDGPRO2-WH`) models support:
+
+- Pico Remotes as [device triggers](/integrations/device_automation/)
+- Shade Remotes as [device triggers](/integrations/device_automation/)
+
+If you have physical access to the Lutron Bridge, to add `Lutron Caséta` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Lutron Caséta**.
+
+Alternatively, if you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done manually using the following steps:
 
 When configured, the `lutron_caseta` integration will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
 
@@ -85,7 +96,7 @@ After setup, shades will appear in Home Assistant using an `entity_id` based on 
 
 For more information on working with shades in Home Assistant, see the [Covers component](/integrations/cover/).
 
-Available services: `cover.open_cover`, `cover.close_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
+Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
 
 ## Light
 
@@ -95,7 +106,7 @@ For non-dimmable lights or switched loads, see the switch section on this page.
 
 For more information on working with lights in Home Assistant, see the [Lights component](/integrations/light/).
 
-Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness` and `brightness_pct`.
+Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness`, `brightness_pct` and `transition`.
 
 ## Scene
 
@@ -119,7 +130,7 @@ Available services: `switch.turn_on` and `switch.turn_off`.
 
 ## Fan
 
-After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bathroom Vanity' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
+After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bedroom Ceiling Fan' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
 
 For more information on working with fans in Home Assistant, see the [Fans component](/components/fan/).
 
@@ -138,3 +149,24 @@ Lutron Caseta occupancy sensors support 4 different timeouts and 3 different sen
 Because Lutron Caseta devices automatically report state to Home Assistant (rather than relying on polling), occupancy status updates occur almost instantaneously.
 
 For more information on working with binary sensors in Home Assistant, see the [Binary Sensors Component](/components/binary_sensor/)
+
+## Pico and Shade Remotes
+
+Pico and Shade remotes require a RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart Bridge PRO (`L-BDGPRO2-WH`) with Telnet Support enabled in the Lutron app under `Settings` >> `Advanced` >> `Intergration`
+
+Device Triggers are implemented for `press` and `release` of each button on the remotes via watching for `lutron_caseta_button_event` events in the format:
+
+{% raw %}
+
+```json
+{
+    "serial": 28786608,
+    "type": "FourGroupRemote",
+    "button_number": 4,
+    "device_name": "Shade Remote",
+    "area_name": "Upstairs Hall",
+    "action": "press"
+}
+```
+
+{% endraw %}

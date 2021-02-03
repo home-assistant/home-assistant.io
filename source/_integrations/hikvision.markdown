@@ -57,8 +57,13 @@ and has been confirmed to work with the following models:
 - DS-2CD2042WD-I
 - DS-2CD2142FWD-I
 - DS-2CD2155FWD-IS
+- DS-2CD2385G1
 - IPC-D140H(-M)
 - DS-7616NI-K2 (NVR)
+
+This platform also was confirmed to work with the following Hikvison-based NVRS
+
+- N46PCK (Annke H800 4K NVR)
 
 ## Configuration
 

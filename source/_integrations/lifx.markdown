@@ -32,11 +32,11 @@ Change the light to a new state.
 | `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
 | `infrared` | Automatic infrared level (0..255) when light brightness is low (for compatible bulbs).
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
-| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`]({{site_root}}/integrations/light/#service-lightturn_on) to specify the new state.
+| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
 
 ## Light effects
 
-The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`]({{site_root}}/integrations/light/#service-lightturn_on) service, for example like this:
+The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
 ```yaml
 automation:
   - alias: ...
@@ -53,7 +53,7 @@ However, if you want to fully control a light effect, you have to use its dedica
 ```yaml
 script:
   colorloop_start:
-    alias: 'Start colorloop'
+    alias: "Start colorloop"
     sequence:
       - service: lifx.effect_colorloop
         data:

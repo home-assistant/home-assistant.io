@@ -85,7 +85,7 @@ __Bitcoin sensor__
 # Example configuration.yaml entry
 sensor:
   platform: bitcoin
-  wallet: 'YOUR WALLET_ID'
+  wallet: "YOUR WALLET_ID"
   password: YOUR_ACCOUNT_PASSWORD
   currency: YOUR CURRENCY
   display_options:

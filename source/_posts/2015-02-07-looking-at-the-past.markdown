@@ -20,8 +20,8 @@ Adding history to the UI was a challenge on itself because the old UI did not su
 The history component will be enabled for new users by default. For current users, run `scripts/update` to upgrade to the latest version and add `[history]` to your `home-assistant.conf` file.
 
 <p class='img'>
-  <a href='{{site_root}}/images/screenshots/component_history_24h.png'>
-    <img src='{{site_root}}/images/screenshots/component_history_24h.png' />
+  <a href='/images/screenshots/component_history_24h.png'>
+    <img src='/images/screenshots/component_history_24h.png' />
   </a>
 </p>
 

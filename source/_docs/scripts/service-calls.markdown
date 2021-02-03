@@ -1,7 +1,6 @@
 ---
 title: "Service Calls"
 description: "Instructions on how to call services in Home Assistant."
-redirect_from: /getting-started/scripts-service-calls/
 ---
 
 Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script or via the Amazon Echo.
@@ -21,6 +20,28 @@ Call the service `homeassistant.turn_on` on the entity `group.living_room`. This
 ```yaml
 service: homeassistant.turn_on
 entity_id: group.living_room
+```
+
+### Targeting areas and devices
+
+Instead of targeting an entity, you can also target an area or device. Or a combination of these.
+This is done with the `target` key.
+
+A `target` is a map thats contains atleast one of the following: `area_id`, `device_id`, `entity_id`.
+Each of these can be a list.
+
+When the service is called, the area's and devices will be resolved to entities.
+
+```yaml
+service: homeassistant.turn_on
+target:
+  area_id: livingroom
+  device_id:
+    - ff22a1889a6149c5ab6327a8236ae704
+    - 52c050ca1a744e238ad94d170651f96b
+  entity_id:
+    - light.hallway
+    - light.landing
 ```
 
 ### Passing data to the service call

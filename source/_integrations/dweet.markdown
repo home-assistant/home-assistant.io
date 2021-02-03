@@ -14,7 +14,7 @@ ha_domain: dweet
 The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/dweet-freeboard.png' />
+  <img src='/images/screenshots/dweet-freeboard.png' />
 </p>
 
 <div class='note warning'>
@@ -96,6 +96,7 @@ unit_of_measurement:
 A full configuration entry could look like the sample below.
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -105,6 +106,7 @@ sensor:
     value_template: '{{ value_json.VARIABLE }}'
     unit_of_measurement: "°C"
 ```
+
 {% endraw %}
 
 ### Interacting with Dweet.io

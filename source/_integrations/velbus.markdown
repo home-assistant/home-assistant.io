@@ -49,6 +49,7 @@ The port string used in the user interface or the configuration file can have 2 
 
 - For a serial device: /dev/ttyUSB00
 - For a TCP/IP device: 127.0.0.1:3678
+- For the VMBSIG module: tls://192.168.1.9:27015
 
 {% configuration %}
 port:
@@ -124,18 +125,18 @@ The actual linking can be realized by two automation rules. One rule to control 
       conditions:
       - condition: state
         entity_id: light.led_push_button_10
-        state: 'on'
+        state: "on"
       - condition: state
         entity_id: light.living
-        state: 'off'
+        state: "off"
     - condition: and
       conditions:
       - condition: state
         entity_id: light.led_push_button_10
-        state: 'off'
+        state: "off"
       - condition: state
         entity_id: light.living
-        state: 'on'
+        state: "on"
   - entity_id: light.led_push_button_10
     service: light.toggle
 ```

@@ -32,7 +32,7 @@ Add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 sensor:
   - platform: aurora_abb_powerone
-    device: 'SERIAL_PORT'
+    device: "SERIAL_PORT"
 ```
 
 {% configuration %}
@@ -57,5 +57,5 @@ name:
 sensor:
   - platform: aurora_abb_powerone
     address: 2
-    device: '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0'
+    device: "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0"
 ```

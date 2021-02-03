@@ -37,40 +37,38 @@ covers:
   description: List of your doors.
   required: true
   type: list
-  covers:
-      keys:
-        device:
-          description: This is the device id from your Garadget portal.
-          required: true
-          type: string
-        username:
-          description: Your Garadget account username.
-          required: true
-          type: string
-        password:
-          description: Your Garadget account password.
-          required: true
-          type: string
-        access_token:
-          description: A generated `access_token` from your Garadget account.
-          required: true
-          type: string
-        name:
-          description: me to use in the frontend, will use name configured in Garadget otherwise.
-          required: false
-          default: Garadget
-          type: string
+  keys:
+    device:
+      description: This is the device id from your Garadget portal. It can be found in the Settings section of the Garadget website or mobile application.
+      required: true
+      type: string
+    username:
+      description: Your Garadget account username. Use with `password` to obtain the `access_token` automatically.
+      required: false
+      type: string
+    password:
+      description: Your Garadget account password. Use with `username` to obtain the `access_token` automatically.
+      required: false
+      type: string
+    access_token:
+      description: A generated `access_token` from your Garadget account. To obtain an `access_token`, use the network tab of the developer tools for your web browser while logged into the Garadget website. When supplied, the `username` and `password` values are not required.
+      required: false
+      type: string
+    name:
+      description: Name to use in the frontend, will use name configured in Garadget otherwise.
+      required: false
+      default: Garadget
+      type: string
 {% endconfiguration %}
-
-If provided, the **access_token** will be used, otherwise the **username** and **password** will be used to automatically generate an access token at start time.
 
 ## Example
 
 <p class='img'>
-  <img src='{{site_root}}/images/integrations/garadget/cover_garadget_details.png' />
+  <img src='/images/integrations/garadget/cover_garadget_details.png' />
 </p>
 
 {% raw %}
+
 ```yaml
 # Related configuration.yaml entry
 cover:
@@ -110,6 +108,7 @@ customize:
   sensor.garage_door_wifi_signal_strength:
     icon: mdi:wifi
 ```
+
 {% endraw %}
 
 Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your `configuration.yaml` to exclude those entries.
@@ -134,4 +133,7 @@ cover:
     state_topic: "garadget/device_name/status"
     payload_open: "open"
     payload_close: "close"
+    value_template: "{{ value_json.status }}"
 ```
+
+Replace device_name with the name of the device provided when configuring garadget.

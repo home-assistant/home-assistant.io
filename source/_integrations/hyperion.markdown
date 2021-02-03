@@ -6,47 +6,50 @@ ha_category:
 ha_release: 0.7.6
 ha_iot_class: Local Push
 ha_domain: hyperion
+ha_codeowners:
+  - '@dermotduffy'
+ha_quality_scale: platinum
+ha_config_flow: true
 ---
 
 The `hyperion` platform allows you to integrate your
-[Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is
+[Hyperion](https://docs.hyperion-project.org/) into Home Assistant. Hyperion is
 an open source Ambilight implementation which runs on many platforms.
 
-NOTE: [Hyperion-NG](https://github.com/hyperion-project/hyperion.ng) is
+**NOTE**: [Hyperion-NG](https://github.com/hyperion-project/hyperion.ng) is
 supported, the original [discontinued Hyperion](https://github.com/hyperion-project/hyperion) is not supported by
 this integration.
 
 ## Configuration
 
-To use your Hyperion light in your installation, add the following to your `configuration.yaml` file:
+This integration can be configured using the integrations in the
+Home Assistant frontend.
 
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: hyperion
-    host: IP_ADDRESS
-```
+Menu: **Configuration** -> **Integrations**.
 
-{% configuration %}
-  host:
-    description: The IP address of the device the Hyperion service is running on.
-    required: true
-    type: string
-  port:
-    description: The port used to communicate with the Hyperion service.
-    required: false
-    type: integer
-    default: 19444
-  name:
-    description: The name of the device used in the frontend.
-    required: false
-    type: string
-  priority:
-    description: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
-    required: false
-    type: integer
-    default: 128
-{% endconfiguration %}
+In most cases, Hyperion servers will be automatically discovered by
+Home Assistant. Those automatically discovered devices are listed
+on the integrations page.
+
+If for some reason Hyperion isn't discovered, it can be added manually.
+
+Click on the `+` sign to add an integration and click on **Hyperion**.
+After completing the configuration flow, the Hyperion integration will be
+available.
+
+### Extra configuration of the integration
+
+All configuration options are offered from the frontend. Choose `Options` under the
+relevant entry on the `Integrations` page.
+
+Options supported:
+- **priority**: The priority for color and effects, make sure this is lower then the streaming sources priority in hyperion itself (typically lower than 200 is appropriate).
+
+## Hyperion Instances
+
+This integration supports multiple Hyperion instances running on a single Hyperion
+server. As instances are added/removed on the Hyperion UI, they will automatically be
+added/removed from Home Assistant.
 
 ## Effects
 
@@ -57,6 +60,27 @@ extra effects will be available:
 - GRABBER: Use a 'Platform Capture' grabber that is configured in Hyperion.
 - V4L: Use a 'USB Capture' V4L device that is configured in Hyperion.
 - Solid: Use a solid color only.
+
+## Advanced Entities
+
+The Hyperion integration comes with a series of disabled-by-default entities for
+advanced usecases. These entities expose 'raw' underlying Hyperion API components for
+improved extensibility and interoperability which are particularly useful in cases where
+there are multiple Hyperion server clients (of which Home Assistant is one).
+
+Provided advanced entities:
+
+- `light.[instance]_priority`: A "priority" light that acts exclusively on a given
+  Hyperion priority. Only color/effects (and not components) are available in this light.
+  Turning this light off will set a black color at this given priority rather than
+  turning the light off in absolute terms.
+- `switch.[instance]_component_[component]`: A switch to turn on/off the relevant
+  underlying Hyperion component as shown on the Hyperion server `Remote Control` page
+  under `Component Control`. This allows fine grained control over sources (e.g. `USB Capture`) and
+  Hyperion functionality (e.g. `Blackbar Detection`).
+
+These entities may be enabled by visiting the `Integrations` page, choosing the relevant
+entity and toggling `Enable entity`, followed by `Update`.
 
 ## Examples
 

@@ -1,7 +1,6 @@
 ---
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
-redirect_from: /getting-started/scripts/
 ---
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
@@ -19,7 +18,7 @@ script:
           entity_id: light.ceiling
       - service: notify.notify
         data:
-          message: 'Turned on the ceiling light!'
+          message: "Turned on the ceiling light!"
 ```
 
 - [Call a Service](#call-a-service)
@@ -63,11 +62,15 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 ## Variables
 
-The variable command allows you to set/override variables that will be accessible by templates in actions after it.
+The variables command allows you to set/override variables that will be accessible by templates in actions after it (see also [script variables] for how to define locally available variables).
+
+{% raw %}
 
 ```yaml
 - variables:
-    entities: light.kitchen, light.living_room
+    entities: 
+      - light.kitchen
+      - light.living_room
     brightness: 100
 - alias: Control lights
   service: light.turn_on
@@ -75,6 +78,8 @@ The variable command allows you to set/override variables that will be accessibl
     entity_id: "{{ entities }}"
     brightness: "{{ brightness }}"
 ```
+
+{% endraw %}
 
 ## Test a Condition
 
@@ -84,7 +89,7 @@ While executing a script you can add a condition to stop further execution. When
 # If paulus is home, continue to execute the script below these lines
 - condition: state
   entity_id: device_tracker.paulus
-  state: 'home'
+  state: "home"
 ```
 
 ## Delay
@@ -92,6 +97,7 @@ While executing a script you can add a condition to stop further execution. When
 Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
 {% raw %}
+
 ```yaml
 # Seconds
 # Waits 5 seconds
@@ -101,13 +107,13 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # HH:MM
 # Waits 1 hour
-- delay: '01:00'
+- delay: "01:00"
 ```
 
 ```yaml
 # HH:MM:SS
 # Waits 1.5 minutes
-- delay: '00:01:30'
+- delay: "00:01:30"
 ```
 
 ```yaml
@@ -117,15 +123,18 @@ Delays are useful for temporarily suspending your script and start it at a later
 - delay:
     minutes: 1
 ```
+
 {% endraw %}
 
 All forms accept templates.
 
 {% raw %}
+
 ```yaml
 # Waits however many minutes input_number.minute_delay is set to
 - delay: "{{ states('input_number.minute_delay') | multiply(60) | int }}"
 ```
+
 {% endraw %}
 
 ## Wait
@@ -138,19 +147,22 @@ When used within an automation the `trigger` variable is available. See [Availab
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
 
-The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the (Time and Date)[/integrations/time_date/] component that will update minutely or daily.
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) component that will update minutely or daily.
 
 {% raw %}
 ```yaml
+
 # Wait until media player have stop the playing
 - wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
+
 {% endraw %}
 
 ### Wait for Trigger
 
 This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires.
 {% raw %}
+
 ```yaml
 # Wait for a custom event or light to turn on and stay on for 10 sec
 - wait_for_trigger:
@@ -158,9 +170,10 @@ This action can use the same triggers that are available in an automation's `tri
       event_type: MY_EVENT
     - platform: state
       entity_id: light.LIGHT
-      to: 'on'
+      to: "on"
       for: 10
 ```
+
 {% endraw %}
 
 ### Wait Timeout
@@ -168,17 +181,20 @@ This action can use the same triggers that are available in an automation's `tri
 With both types of waits it is possible to set a timeout after which the script will continue its execution if the condition/event is not satisfied. Timeout has the same syntax as `delay`, and like `delay`, also accepts templates.
 
 {% raw %}
+
 ```yaml
 # Wait for sensor to change to 'on' up to 1 minute before continuing to execute.
 - wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
-  timeout: '00:01:00'
+  timeout: "00:01:00"
 ```
+
 {% endraw %}
 
-You can also get the script to abort after the timeout by using optional `continue_on_timeout`.
+You can also get the script to abort after the timeout by using optional `continue_on_timeout: false`.
 
 {% raw %}
 ```yaml
+
 # Wait for IFTTT event or abort after specified timeout.
 - wait_for_trigger:
     - platform: event
@@ -189,9 +205,10 @@ You can also get the script to abort after the timeout by using optional `contin
     minutes: "{{ timeout_minutes }}"
   continue_on_timeout: false
 ```
+
 {% endraw %}
 
-Without `continue_on_timeout` the script will always continue.
+Without `continue_on_timeout: false` the script will always continue since the default for `continue_on_timeout` is `true`.
 
 ### Wait Variable
 
@@ -206,14 +223,13 @@ Variable | Description
 This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
 
 {% raw %}
+
 ```yaml
 # Take different actions depending on if condition was met.
 - wait_template: "{{ is_state('binary_sensor.door', 'on') }}"
   timeout: 10
 - choose:
-    - conditions:
-        - condition: template
-          value_template: "{{ not wait.completed }}"
+    - conditions: "{{ not wait.completed }}"
       sequence:
         - service: script.door_did_not_open
   default:
@@ -231,7 +247,7 @@ This can be used to take different actions based on whether or not the condition
 - wait_for_trigger:
     - platform: state
       entity_id: binary_sensor.door_2
-      to: 'on'
+      to: "on"
       for: 2
   timeout: "{{ wait.remaining }}"
   continue_on_timeout: false
@@ -257,35 +273,36 @@ You can also use event_data to fire an event with custom data. This could be use
 an event trigger.
 
 {% raw %}
+
 ```yaml
 - event: MY_EVENT
   event_data:
     name: myEvent
     customData: "{{ myCustomVariable }}"
 ```
+
 {% endraw %}
 
 ### Raise and Consume Custom Events
 
 The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
-{% raw %}
 ```yaml
 - alias: Fire Event
   trigger:
     - platform: state
       entity_id: switch.kitchen
-      to: 'on'
+      to: "on"
   action:
     - event: event_light_state_changed
       event_data:
-        state: 'on'
+        state: "on"
 ```
-{% endraw %}
 
 The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponding `entity_id` that was passed as the event data.
 
 {% raw %}
+
 ```yaml
 - alias: Capture Event
   trigger:
@@ -296,6 +313,7 @@ The following automation shows how to capture the custom event `event_light_stat
       data:
         message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
+
 {% endraw %}
 
 ## Repeat a Group of Actions
@@ -309,6 +327,7 @@ This form accepts a count value. The value may be specified by a template, in wh
 the template is rendered when the repeat step is reached.
 
 {% raw %}
+
 ```yaml
 script:
   flash_light:
@@ -331,6 +350,7 @@ script:
           light: hallway
           count: 3
 ```
+
 {% endraw %}
 
 ### While Loop
@@ -350,7 +370,7 @@ script:
           while:
             - condition: state
               entity_id: input_boolean.do_something
-              state: 'on'
+              state: "on"
             # Don't do it too many times
             - condition: template
               value_template: "{{ repeat.index <= 20 }}"
@@ -386,11 +406,11 @@ automation:
   - trigger:
       - platform: state
         entity_id: binary_sensor.xyz
-        to: 'on'
+        to: "on"
     condition:
       - condition: state
         entity_id: binary_sensor.something
-        state: 'off'
+        state: "off"
     mode: single
     action:
       - alias: Repeat the sequence UNTIL the conditions are true
@@ -405,7 +425,7 @@ automation:
             # Did it work?
             - condition: state
               entity_id: binary_sensor.something
-              state: 'on'
+              state: "on"
 ```
 
 {% endraw %}
@@ -420,6 +440,7 @@ For example:
   sequence:
     - ...
 ```
+{% endraw %}
 
 ### Repeat Loop Variable
 
@@ -450,7 +471,7 @@ automation:
   - trigger:
       - platform: state
         entity_id: binary_sensor.motion
-        to: 'on'
+        to: "on"
     action:
       - choose:
           # IF nobody home, sound the alarm!
@@ -496,7 +517,7 @@ automation:
   - trigger:
       - platform: state
         entity_id: input_boolean.simulate
-        to: 'on'
+        to: "on"
     mode: restart
     action:
       - choose:
@@ -567,3 +588,4 @@ automation:
 [service calls page]: /getting-started/scripts-service-calls/
 [conditions page]: /getting-started/scripts-conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
+[script variables]: /integrations/script/#-configuration-variables

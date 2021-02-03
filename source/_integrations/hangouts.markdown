@@ -7,6 +7,7 @@ ha_category:
 ha_release: 0.77
 ha_config_flow: true
 ha_domain: hangouts
+ha_iot_class: Cloud Push
 ---
 
 This integration allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
@@ -290,7 +291,7 @@ default_conversations:
 
 ### Finding the conversation ID
 
-The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in with the states developer tool that is shown as this icon <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> in the side bar. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like below.
+The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in **Developer Tools** -> **States**. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like below.
 
 ```json
 0: {

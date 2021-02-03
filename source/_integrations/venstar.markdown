@@ -15,6 +15,7 @@ Currently supported and tested thermostats:
 
 - ColorTouch T7900  
 - ColorTouch T7850  (No Humidity control)
+- Explorer Mini T2000
 
 Currently supported functionality:
 - Setting heat/cool temperature when the thermostat is in the appropriate mode.

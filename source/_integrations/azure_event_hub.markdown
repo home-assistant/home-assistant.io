@@ -4,6 +4,7 @@ description: Setup for Azure Event Hub integration
 ha_category:
   - History
 ha_release: 0.94
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@eavanvalkenburg'
 ha_domain: azure_event_hub
@@ -118,8 +119,6 @@ Event Hubs have a retention time of at most 7 days, if you do not capture or use
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Azure Event Hub`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 azure_event_hub:
@@ -136,8 +135,6 @@ azure_event_hub:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

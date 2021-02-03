@@ -3,6 +3,7 @@ title: Google Cloud Platform
 description: Google Cloud Platform integration.
 ha_category: Text-to-speech
 ha_release: 0.95
+ha_iot_class: Cloud Push
 ha_codeowners:
   - '@lufton'
 ha_domain: google_cloud
@@ -112,6 +113,11 @@ profiles:
   required: false
   type: list
   default: "[]"
+text_type:
+  description: "Default text type. Supported text types are `text` and `ssml`. Read more on what is that and how to use SSML [here](https://cloud.google.com/text-to-speech/docs/ssml)."
+  required: false
+  type: string
+  default: "text"
 {% endconfiguration %}
 
 ### Full configuration example
@@ -130,6 +136,7 @@ tts:
     speed: 0.9
     pitch: -2.5
     gain: -5.0
+    text_type: ssml
     profiles:
       - telephony-class-application
       - wearable-class-device
