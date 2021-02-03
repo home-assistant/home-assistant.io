@@ -68,6 +68,8 @@ zone.
 
 You can add configure to read these values into sensors, along with the supply temperature (use the ID of your unit):
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -84,6 +86,8 @@ sensor:
         value_template: '{{ state_attr("climate.izone_controller_0000XXXXX","supply_temperature") }}'
         unit_of_measurement: '°C'
 ```
+
+{% endraw %}
 
 And then graph them on a dashboard, along with the standard values such as the current temperature:
 
