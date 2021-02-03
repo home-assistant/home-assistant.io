@@ -204,7 +204,7 @@ integration. Click on one of those to read more about the breaking change
 for that specific item.
 
 <details>
-  <summary><b>Python 3.9</b></summary>
+  <summary><b>Python 3.7</b></summary>
   <p>
 
 Support for Python 3.7 has been dropped, after being deprecated since
