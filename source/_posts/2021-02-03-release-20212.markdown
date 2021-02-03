@@ -13,24 +13,9 @@ og_image: /images/blog/2021-02/social.png
 
 <img src='/images/blog/2021-02/social.png' style='border: 0;box-shadow: none;'>
 
-These are the beta release notes for Home Assistant Core 2021.2 (and is thus a
-work in progress).
+Intro..
 
-If you encounter any issues with the beta release, please report them on GitHub:
-
-- Issues with integrations, automations and such (Core related):<br>
-  <https://github.com/home-assistant/core/issues>
-- Issues with the frontend/Lovelace:<br>
-  <https://github.com/home-assistant/frontend/issues>
-- Issues with the Supervisor:<br>
-  <https://github.com/home-assistant/supervisor/issues>
-- Issues with the documentation:<br>
-  <https://github.com/home-assistant/home-assistant.io/issues>
-
-Please be sure to include the beta version you are running in the issue
-description (not title), so we can classify your issue correctly.
-
-Issues introduced in the beta are processed with priority.
+../Frenck
 
 - [Python 3.7 dropped, Python 3.9 supported](#python-37-dropped-python-39-supported)
 - [Z-Wave JS](#z-wave-js)
