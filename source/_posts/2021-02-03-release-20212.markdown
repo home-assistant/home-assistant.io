@@ -43,6 +43,8 @@ Enjoy the release!
   - [What about the OpenZWave beta integration?](#what-about-the-openzwave-beta-integration)
 - [DHCP Discovery](#dhcp-discovery)
 - [New Blueprint selectors](#new-blueprint-selectors)
+- [No more badges in auto generated dashboards](#no-more-badges-in-auto-generated-dashboards)
+- [Cloud Text to Speech settings](#cloud-text-to-speech-settings)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
@@ -214,13 +216,46 @@ this release. Thanks to [@thomasloven], we now have two new selectors:
 
 <!-- TODO: insert screenshot --->
 
+## No more badges in auto generated dashboards
+
+If you are using an auto generated Lovelace dashboard, you probably always had
+a ton of badges on the top of your dashboard. If there are just a few it works,
+but as more start to appear, it soon becomes cluttered.
+
+<!-- TODO: Insert screenshot of clutter, a darn mess --->
+
+We decided to no longer use badges in the auto generated Lovelace dashboards.
+Instead, every entity is neatly grouped by area or domain in an entities card.
+
+If you liked the badges, you can always take control of your dashboard and add them.
+
+## Cloud Text to Speech settings
+
+Nabu Casa has been offering an amazing text to speech service for a while now,
+yet it was hard to find, and even harder to setup and use.
+
+We fixed that with a new settings UI, where you can select the default language
+and gender to use for the text to speech service, so you no longer have to
+attach that to every service call.
+
+<!-- TODO: insert screenshot --->
+
+We also added the abbility to try the chosen settings right in your browser.
+Click the try button, enter some text and click play to hear the text being spoken.
+
 ## Other noteworthy changes
 
 This release has no big new features, but we do have quite a bit of tweaks
 that are definitely noteworthy to mention.
 
+- We now give you a clearer reason why your Lovelace card configuration is not supported in the UI editor thanks to [@spacegaier]
+- [@spacegaier] Also added support for themes on the media card.
+- [@dmulcahey] Added filtering and zoom to node to the ZHA network visualization.
+- The items in the shopping list card can be ordered using drag & drop! Thanks [@ShaneQi]!
+
+
 - Significant changes (Google & Alexa)
-- Configuring default language for TTS via UI, testing with TTS in UI.
+
 
 - Add yeelight service to enable disable music mode ([@zewelor] - [#44533]) ([yeelight docs])
 - Add device info to Météo-France ([@oncleben31] - [#44457]) ([meteo_france docs])
