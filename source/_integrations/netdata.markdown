@@ -130,15 +130,15 @@ resources:
 # Example configuration.yaml entry
 sensor:
   - platform: netdata
-    host: '192.168.1.2'
-    port: '19999'
+    host: "192.168.1.2"
+    port: "19999"
     name: SomeHostName
     resources: 
       system_load:
         data_group: system.load 
         element: load15
       core0_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu0'
+        data_group: "cpu.cpufreq"
+        element: "cpu0"
         icon: mdi:chip
 ```

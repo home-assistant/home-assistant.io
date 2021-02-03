@@ -84,7 +84,7 @@ Say to all `media_player` device entities:
 ```yaml
 - service: tts.amazon_polly_say
   data:
-    message: '<speak>Hello from Amazon Polly</speak>'
+    message: "<speak>Hello from Amazon Polly</speak>"
 ```
 
 or

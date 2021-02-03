@@ -52,8 +52,7 @@ To use your KNX bus in your installation, add the following lines to your `confi
 knx:
 ```
 
-In order to make use of the various platforms KNX offers you will need to have the following configuration inside `configuration.yaml` depending on what
-platforms you intend to use:
+In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files as shown below:
 
 ```yaml
 knx:
@@ -62,26 +61,27 @@ knx:
   sensor: !include knx_sensor.yaml
   cover: !include knx_cover.yaml
   light: !include knx_light.yaml
+  climate: !include knx_climate.yaml
   notify: !include knx_notify.yaml
   scene: !include knx_scene.yaml
 ```
 
-Please check the dedicated platform documentation about how to configure them correctly.
+Please see the dedicated platform sections below about how to configure them correctly.
 
-Optional, or if you want to use the XKNX abstraction also for other scripted tools outside of Home Assistant:
+Alternatively, if you want to use the [XKNX](https://xknx.io/) library abstraction (e.g., to re-use the configuration also for other scripted tools outside of Home Assistant):
 
 ```yaml
 knx:
-  config_file: '/path/to/xknx.yaml'
+  config_file: "/path/to/xknx.yaml"
 ```
 
 {% configuration %}
 config_file:
-  description: The path for XKNX configuration file. See [xknx.io](https://xknx.io/configuration) for details
+  description: The path for XKNX configuration file. See [xknx.io](https://xknx.io/configuration) for details.
   required: false
   type: string
 individual_address:
-  description: The KNX individual address that shall be used for routing or if a tunnelling server doesn't assign an IA at connection.
+  description: The KNX individual address (IA) that shall be used for routing or if a tunnelling server doesn't assign an IA at connection.
   required: false
   type: string
   default: "15.15.250"
@@ -143,7 +143,7 @@ Explicit connection via KNX/IP routing. This requires multicast communication to
 ```yaml
 knx:
   routing:
-     local_ip: '192.168.2.109'
+     local_ip: "192.168.2.109"
 ```
 
 {% configuration %}
@@ -189,7 +189,7 @@ Service Data: {"address": "1/0/15", "payload": 0, "type": "temperature"}
 
 {% configuration %}
 address:
-  description: KNX group address
+  description: KNX group address.
   type: string
 payload:
   description: Payload to send to the bus. When `type` is not set, raw bytes are sent. Integers are then treated as DPT 1/2/3 payloads. For DPTs > 6 bits send a list. Each value represents 1 octet (0-255). Pad with 0 to DPT byte length.
@@ -227,28 +227,28 @@ KNX integration is able to expose entity states or attributes to KNX bus. The in
 # Example configuration.yaml entry
 knx:
   expose:
-    - type: 'temperature'
-      entity_id: 'sensor.owm_temperature'
-      address: '0/0/2'
-    - type: 'string'
-      address: '0/6/4'
+    - type: "temperature"
+      entity_id: "sensor.owm_temperature"
+      address: "0/0/2"
+    - type: "string"
+      address: "0/6/4"
       entity_id: "sensor.owm_weather"
-    - type: 'binary'
-      entity_id: 'binary_sensor.kitchen_window'
-      address: '0/6/5'
-    - type: 'binary'
-      entity_id: 'light.office'
-      address: '0/3/0'
-      default: False
-    - type: 'percentU8'
-      entity_id: 'light.office'
-      attribute: 'brightness'
+    - type: "binary"
+      entity_id: "binary_sensor.kitchen_window"
+      address: "0/6/5"
+    - type: "binary"
+      entity_id: "light.office"
+      address: "0/3/0"
+      default: false
+    - type: "percentU8"
+      entity_id: "light.office"
+      attribute: "brightness"
       default: 0
-      address: '0/3/1'
-    - type: 'time'
-      address: '0/0/1'
-    - type: 'datetime'
-      address: '0/0/23'
+      address: "0/3/1"
+    - type: "time"
+      address: "0/0/1"
+    - type: "datetime"
+      address: "0/0/23"
 ```
 
 {% configuration %}
@@ -257,16 +257,16 @@ address:
   type: string
   required: true
 type:
-  description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
+  description: Type of the exposed value. Either `binary`, `time`, `date`, `datetime` or any supported type of [KNX Sensor](#sensor) (e.g., "temperature" or "humidity").
   type: string
   required: true
 entity_id:
-  description: Entity id to be exposed. Not needed for types time, date and datetime.
+  description: Entity ID to be exposed. Not needed for types `time`, `date` and `datetime`.
   type: string
   required: false
 attribute:
   description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent.
-    Eg. for a light the state is eigther "on" or "off" - with attribute you can expose its "brightness".
+    Eg. for a light the state is eigther "on" or "off". With `attribute` you can expose its "brightness".
   type: string
   required: false
 default:
@@ -288,7 +288,7 @@ Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX
 knx:
   binary_sensor:
     - name: sensor1
-      state_address: '6/0/2'
+      state_address: "6/0/2"
 ```
 
 {% configuration %}
@@ -301,30 +301,30 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `True` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
   required: false
   type: [boolean, string, integer]
-  default: True
+  default: true
 device_class:
   description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 reset_after:
-  description: Reset back to OFF state after specified seconds.
+  description: Reset back to "off" state after specified seconds.
   required: false
   type: float
 invert:
   description: Invert the telegrams payload before processing. This is applied before `context_timeout` or `reset_after` is evaluated.
   required: false
   type: boolean
-  default: False
+  default: false
 ignore_internal_state:
   description: Specifies if telegrams should ignore the internal state and always trigger a Home Assistant state update.
   required: false
   type: boolean
-  default: False
+  default: false
 context_timeout:
-  description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. If set `ignore_internal_state` will be set to `True` internally. Maximum value is 10.0.
+  description: The time in seconds between multiple identical telegram payloads would count towards the internal counter that is used for automations. Ex. You have automations in place that trigger your lights on button press and another set of lights if you click that button twice. This setting defines the time that a second button press would count toward, so if you set this 3.0 you can take up to 3 seconds in order to trigger the second button press. If set `ignore_internal_state` will be set to `true` internally. Maximum value is 10.0.
   required: false
   type: float
   default: None
@@ -348,7 +348,7 @@ automation:
     condition: 
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: 'on'
+        state: "on"
     action:
       - entity_id: light.hue_color_lamp_1
         service: light.turn_on
@@ -361,7 +361,7 @@ automation:
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: 'on'
+        state: "on"
     action:
       - entity_id: light.hue_bloom_1
         service: homeassistant.turn_on
@@ -401,12 +401,12 @@ To use your KNX thermostats in your installation, add the following lines to you
 knx:
   climate:
     - name: HASS-Kitchen.Temperature
-      temperature_address: '5/1/1'
-      setpoint_shift_address: '5/1/2'
-      setpoint_shift_state_address: '5/1/3'
-      target_temperature_state_address: '5/1/4'
-      operation_mode_address: '5/1/5'
-      operation_mode_state_address: '5/1/6'
+      temperature_address: "5/1/1"
+      setpoint_shift_address: "5/1/2"
+      setpoint_shift_state_address: "5/1/3"
+      target_temperature_state_address: "5/1/4"
+      operation_mode_address: "5/1/5"
+      operation_mode_state_address: "5/1/6"
 ```
 
 Alternatively, if your device has dedicated binary group addresses for frost/night/comfort mode:
@@ -416,33 +416,32 @@ Alternatively, if your device has dedicated binary group addresses for frost/nig
 knx:
   climate:
     - name: HASS-Kitchen.Temperature
-      temperature_address: '5/1/1'
-      setpoint_shift_address: '5/1/2'
-      setpoint_shift_state_address: '5/1/3'
-      target_temperature_state_address: '5/1/4'
-      operation_mode_frost_protection_address: '5/1/5'
-      operation_mode_night_address: '5/1/6'
-      operation_mode_comfort_address: '5/1/7'
-      operation_mode_state_address: '5/1/8'
+      temperature_address: "5/1/1"
+      setpoint_shift_address: "5/1/2"
+      setpoint_shift_state_address: "5/1/3"
+      target_temperature_state_address: "5/1/4"
+      operation_mode_frost_protection_address: "5/1/5"
+      operation_mode_night_address: "5/1/6"
+      operation_mode_comfort_address: "5/1/7"
+      operation_mode_state_address: "5/1/8"
 ```
 
 If your device doesn't support setpoint_shift calculations (i.e., if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
-attributes of the climate device to avoid issues with exceeding valid temperature values in the frontend. Please do also make sure to add the `target_temperature_address`
-to the configuration in this case.:
+attributes of the climate device to avoid issues with exceeding valid temperature values in the frontend. Please do also make sure to add the `target_temperature_address` to the configuration in this case.:
 
 ```yaml
 # Example configuration.yaml entry
 knx:
   climate:
     - name: HASS-Kitchen.Temperature
-      temperature_address: '5/1/2'
-      target_temperature_address: '5/1/4'
-      target_temperature_state_address: '5/1/1'
-      operation_mode_frost_protection_address: '5/1/5'
-      operation_mode_night_address: '5/1/6'
-      operation_mode_comfort_address: '5/1/7'
-      operation_mode_state_address: '5/1/8'
-      operation_mode_standby_address: '5/1/9'
+      temperature_address: "5/1/2"
+      target_temperature_address: "5/1/4"
+      target_temperature_state_address: "5/1/1"
+      operation_mode_frost_protection_address: "5/1/5"
+      operation_mode_night_address: "5/1/6"
+      operation_mode_comfort_address: "5/1/7"
+      operation_mode_state_address: "5/1/8"
+      operation_mode_standby_address: "5/1/9"
       min_temp: 7.0
       max_temp: 32.0
 ```
@@ -459,39 +458,39 @@ Example:
 knx:
   climate:
     - name: HASS-Kitchen.Temperature
-      temperature_address: '5/1/1'
-      setpoint_shift_address: '5/1/2'
-      setpoint_shift_state_address: '5/1/3'
-      setpoint_shift_mode: 'DPT9002'
-      target_temperature_state_address: '5/1/4'
-      operation_mode_address: '5/1/5'
-      operation_mode_state_address: '5/1/6'
+      temperature_address: "5/1/1"
+      setpoint_shift_address: "5/1/2"
+      setpoint_shift_state_address: "5/1/3"
+      setpoint_shift_mode: "DPT9002"
+      target_temperature_state_address: "5/1/4"
+      operation_mode_address: "5/1/5"
+      operation_mode_state_address: "5/1/6"
 ```
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` / `operation_mode_standby_address` are not necessary if `operation_mode_address` is specified.
-If the actor doesn't support explicit state communication objects the *_state_address can be configured with the same group address as the writeable *_address. The Read-Flag for the *_state_address communication object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
+If the actor doesn't support explicit state communication objects the `*_state_address` can be configured with the same group address as the writeable `*_address`. The read flag for the `*_state_address` communication object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
 
 The following values are valid for the `heat_cool_address` and the `heat_cool_state_address`:
 
-- 0 (cooling)
-- 1 (heating)
+- `0` (cooling)
+- `1` (heating)
 
-The following values are valid for the `hvac_mode` attribute:
+The following values are valid for the Home Assistant [Climate](/integrations/climate/) `hvac_mode` attribute. Supported values for your KNX thermostats can be specified via `controller_modes` configuration variable:
 
-- Off (maps internally to HVAC_MODE_OFF within Home Assistant)
-- Auto (maps internally to HVAC_MODE_AUTO within Home Assistant)
-- Heat (maps internally to HVAC_MDOE_HEAT within Home Assistant)
-- Cool (maps internally to HVAC_MDOE_COOL within Home Assistant)
-- Fan only (maps internally to HVAC_MODE_FAN_ONLY within Home Assistant)
-- Dry (maps internally to HVAC_MODE_DRY within Home Assistant)
+- `Off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
+- `Auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
+- `Heat` (maps internally to `HVAC_MDOE_HEAT` within Home Assistant)
+- `Cool` (maps internally to `HVAC_MDOE_COOL` within Home Assistant)
+- `Fan only` (maps internally to `HVAC_MODE_FAN_ONLY` within Home Assistant)
+- `Dry` (maps internally to `HVAC_MODE_DRY` within Home Assistant)
 
-The following presets are valid for the `preset_mode` attribute:
+The following presets are valid for the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute. Supported values for your KNX thermostats can be specified via `operation_modes` configuration variable:
 
-- Auto (maps internally to PRESET_NONE within Home Assistant)
-- Comfort (maps internally to PRESET_COMFORT within Home Assistant)
-- Standby (maps internally to PRESET_AWAY within Home Assistant)
-- Night (maps internally to PRESET_SLEEP within Home Assistant)
-- Frost Protection (maps internally to PRESET_ECO within Home Assistant)
+- `Auto` (maps internally to `PRESET_NONE` within Home Assistant)
+- `Comfort` (maps internally to `PRESET_COMFORT` within Home Assistant)
+- `Standby` (maps internally to `PRESET_AWAY` within Home Assistant)
+- `Night` (maps internally to `PRESET_SLEEP` within Home Assistant)
+- `Frost` Protection (maps internally to `PRESET_ECO` within Home Assistant)
 
 {% configuration %}
 name:
@@ -527,7 +526,6 @@ setpoint_shift_state_address:
 setpoint_shift_mode:
   description: Defines the internal device DPT used. Either 'DPT6010' or 'DPT9002'.
   required: false
-  default: 0.5
   type: string
   default: DPT6010
 setpoint_shift_min:
@@ -561,7 +559,7 @@ controller_mode_address:
   required: false
   type: string
 controller_mode_state_address:
-  description: KNX address for reading HVAC Control Mode. *DPT 20.105*
+  description: KNX address for reading HVAC control mode. *DPT 20.105*
   required: false
   type: string
 heat_cool_address:
@@ -630,11 +628,11 @@ To use your KNX covers in your installation, add the following lines to your top
 knx:
   cover:
     - name: "Kitchen.Shutter"
-      move_long_address: '3/0/0'
-      move_short_address: '3/0/1'
-      stop_address: '3/0/4'
-      position_address: '3/0/3'
-      position_state_address: '3/0/2'
+      move_long_address: "3/0/0"
+      move_short_address: "3/0/1"
+      stop_address: "3/0/4"
+      position_address: "3/0/3"
+      position_state_address: "3/0/2"
       travelling_time_down: 51
       travelling_time_up: 61
 ```
@@ -684,12 +682,12 @@ travelling_time_up:
   default: 25
   type: integer
 invert_position:
-  description: Set this to true if your actuator report fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator report fully closed as 0% in KNX.
   required: false
   default: false
   type: boolean
 invert_angle:
-  description: Set this to true if your actuator reports tilt fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator reports tilt fully closed as 0% in KNX.
   required: false
   default: false
   type: boolean
@@ -703,8 +701,8 @@ device_class:
 
 The `knx light` integration is used as an interface to control KNX actuators for lighting applications such as:
 
-- switching actuators
-- dimming actuators
+- Switching actuators
+- Dimming actuators
 - LED controllers
 - DALI gateways
 
@@ -714,8 +712,8 @@ To use your KNX light in your installation, add the following lines to your top 
 # Example configuration.yaml entry
 knx:
   light:
-    - name: 'kitchen'
-      address: '1/0/9'
+    - name: "kitchen"
+      address: "1/0/9"
 ```
 
 {% configuration %}
@@ -809,12 +807,12 @@ color_temperature_mode:
   type: string
   default: absolute
 min_kelvin:
-  description: Warmest possible color temperature in Kelvin. (Used in combination with *color_temperature_address*)
+  description: Warmest possible color temperature in Kelvin. Used in combination with `color_temperature_address`.
   required: false
   type: integer
   default: 2700
 max_kelvin:
-  description: Coldest possible color temperature in Kelvin. (Used in combination with *color_temperature_address*)
+  description: Coldest possible color temperature in Kelvin. Used in combination with `color_temperature_address`.
   required: false
   type: integer
   default: 6000
@@ -833,36 +831,36 @@ knx:
   light:
     # dimmable light
     - name: Bedroom-Light-1
-      address: '1/0/9'
-      state_address: '1/1/9'
-      brightness_address: '1/2/9'
-      brightness_state_address: '1/3/9'
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"
+      brightness_state_address: "1/3/9"
     #
     # RGB light
     - name: Bathroom-Light-1
-      address: '1/0/9'
-      state_address: '1/1/9'
-      brightness_address: '1/2/9'
-      brightness_state_address: '1/3/9'
-      color_address: '1/4/9'
-      color_state_address: '1/5/9'
+      address: "1/0/9"
+      state_address: "1/1/9"
+      brightness_address: "1/2/9"
+      brightness_state_address: "1/3/9"
+      color_address: "1/4/9"
+      color_state_address: "1/5/9"
     #
     # tunable white light
     - name: Office-Light-1
-      address: '1/0/21'
-      state_address: '1/1/21'
-      brightness_address: '1/2/21'
-      brightness_state_address: '1/3/21'
-      color_temperature_address: '1/4/21'
-      color_temperature_state_address: '1/5/21'
+      address: "1/0/21"
+      state_address: "1/1/21"
+      brightness_address: "1/2/21"
+      brightness_state_address: "1/3/21"
+      color_temperature_address: "1/4/21"
+      color_temperature_state_address: "1/5/21"
       color_temperature_mode: absolute
       min_kelvin: 2550
       max_kelvin: 6200
     #
     # actuator without dedicated state communication object
     - name: Cellar-Light-1
-      address: '1/0/5'
-      state_address: '1/0/5'
+      address: "1/0/5"
+      state_address: "1/0/5"
 ```
 
 ## Notify
@@ -873,7 +871,7 @@ The `knx` notify platform allows you to send notifications to [KNX](https://www.
 knx:
   notify:
     - name: Alarm
-      address: '5/1/10'
+      address: "5/1/10"
 ```
 
 {% configuration %}
@@ -906,7 +904,7 @@ address:
   required: true
   type: string
 scene_number:
-  description: KNX scene number to be activated. ( 1 ... 64 )
+  description: KNX scene number to be activated (range 1..64 ).
   required: true
   type: integer
 name:
@@ -926,7 +924,7 @@ Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integr
 knx:
   sensor:
     - name: Heating.Valve1
-      state_address: '2/0/0'
+      state_address: "2/0/0"
 ```
 
 In order to actively read the sensor data from the bus every 30 minutes you can add the following lines to your `configuration.yaml`:
@@ -936,7 +934,7 @@ In order to actively read the sensor data from the bus every 30 minutes you can 
 knx:
   sensor:
     - name: Heating.Valve1
-      state_address: '2/0/0'
+      state_address: "2/0/0"
       sync_state: every 30
 ```
 
@@ -950,10 +948,10 @@ name:
   required: false
   type: string
 sync_state:
-  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `True` which is interpreted as "expire 60".
+  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus. `sync_state` can be set to `init` to just initialize state on startup, `expire <minutes>` to read the state from the KNX bus when no telegram was received for \<minutes\> or `every <minutes>` to update it regularly every \<minutes\>. Maximum value for \<minutes\> is 1440. If just a number is configured "expire"-behaviour is used. Defaults to `true` which is interpreted as "expire 60".
   required: false
   type: [boolean, string, integer]
-  default: True
+  default: true
 type:
   description: A type from the following table must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
@@ -962,7 +960,7 @@ always_callback:
   description: Defines if telegrams with equal payload as the previously received telegram should trigger a state update within Home Assistant.
   required: false
   type: boolean
-  default: False
+  default: false
 {% endconfiguration %}
 
 ### Value Types
@@ -1114,13 +1112,13 @@ always_callback:
 knx:
   sensor:
     - name: Heating.Valve1
-      state_address: '2/0/0'
+      state_address: "2/0/0"
       sync_state: init
-      type: 'percent'
+      type: "percent"
     - name: Kitchen.Temperature
-      state_address: '6/2/1'
+      state_address: "6/2/1"
       sync_state: every 60
-      type: 'temperature'
+      type: "temperature"
 ```
 
 ## Switch
@@ -1131,7 +1129,7 @@ The `knx` switch platform is used as an interface to switching actuators.
 knx:
   switch:
     - name: Kitchen.Coffee
-      address: '1/1/6'
+      address: "1/1/6"
 ```
 
 {% configuration %}
@@ -1152,7 +1150,7 @@ invert:
   description: Invert the telegrams payload before processing or sending.
   required: false
   type: boolean
-  default: False
+  default: false
 {% endconfiguration %}
 
 Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
@@ -1181,8 +1179,8 @@ knx:
       address_day_night: "7/0/8"
       address_air_pressure: "7/0/9"
       address_humidity: "7/0/10"
-      expose_sensors: False
-      sync_state: True
+      expose_sensors: false
+      sync_state: true
 ```
 
 {% configuration %}
@@ -1240,13 +1238,13 @@ address_humidity:
   required: false
   type: string
 expose_sensors:
-  description: If true, exposes all sensor values as dedicated sensors to HA.
+  description: If true, exposes all sensor values as dedicated sensors to Home Assistant.
   required: false
   type: boolean
-  default: False
+  default: false
 sync_state:
-  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus.
+  description: Actively read the value from the bus. If `false` no GroupValueRead telegrams will be sent to the bus.
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}

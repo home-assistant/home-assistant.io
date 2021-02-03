@@ -23,14 +23,14 @@ To enable Panel iFrames in your installation, add the following to your `configu
 # Example configuration.yaml entry
 panel_iframe:
   router:
-    title: 'Router'
-    url: 'http://192.168.1.1'
+    title: "Router"
+    url: "http://192.168.1.1"
   fridge:
-    title: 'Fridge'
-    url: 'http://192.168.1.5'
+    title: "Fridge"
+    url: "http://192.168.1.5"
   otherapp:
-    title: 'Other App'
-    url: '/otherapp'
+    title: "Other App"
+    url: "/otherapp"
 ```
 
 {% configuration %}

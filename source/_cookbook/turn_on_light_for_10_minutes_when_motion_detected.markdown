@@ -14,7 +14,7 @@ automation:
   trigger:
     platform: state
     entity_id: sensor.motion_sensor
-    to: 'on'
+    to: "on"
   action:
     service: light.turn_on
     entity_id: light.kitchen_light
@@ -23,7 +23,7 @@ automation:
   trigger:
     platform: state
     entity_id: sensor.motion_sensor
-    to: 'off'
+    to: "off"
     for:
       minutes: 10
   action:
@@ -39,7 +39,7 @@ automation:
   trigger:
   - platform: state
     entity_id: sensor.motion_sensor, binary_sensor.front_door, binary_sensor.doorbell
-    to: 'on'
+    to: "on"
   action:
   - service: light.turn_on
     data:
@@ -65,7 +65,7 @@ automation:
 
 timer:
   hallway:
-    duration: '00:10:00'
+    duration: "00:10:00"
 ```
 
 You can also restrict lights from turning on based on time of day and implement transitions for fading lights on and off.
@@ -75,11 +75,11 @@ You can also restrict lights from turning on based on time of day and implement 
   trigger:
     platform: state
     entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor
-    to: 'on'
+    to: "on"
   condition: 
     condition: time
-    after: '07:30'
-    before: '23:30'
+    after: "07:30"
+    before: "23:30"
   action:
     service: homeassistant.turn_on
     entity_id: group.office_lights
@@ -91,7 +91,7 @@ You can also restrict lights from turning on based on time of day and implement 
   trigger:
     - platform: state
       entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor
-      to: 'off'
+      to: "off"
       for:
         minutes: 15
   action:

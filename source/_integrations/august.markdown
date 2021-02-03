@@ -75,7 +75,7 @@ Using the lock operation sensors, you can detect when a user operates a lock and
 {% raw %}
 
 ```yaml
-- id: '1583706446906'
+- id: "1583706446906"
   alias: joe_doe_front_door_operate
   description: John Doe locks or unlocks the Front Door
   trigger:

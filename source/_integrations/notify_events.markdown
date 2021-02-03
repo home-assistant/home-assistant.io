@@ -80,15 +80,15 @@ Now you can use the `notify.events` service inside your Home Assistant to:
 ```yaml
 - service: notify.events
   data:
-    message: 'Backyard motion detected!'
+    message: "Backyard motion detected!"
     data:
-      level: 'warning'
-      priority: 'high'
+      level: "warning"
+      priority: "high"
       images:
-        - name: 'local_photo.jpg'
-          path: '/tmp/backyard_cam/motion.jpg'
-        - name: 'remote_photo.jpg'
-          url: 'https://i.ibb.co/Jt1845X/motion.jpg'
+        - name: "local_photo.jpg"
+          path: "/tmp/backyard_cam/motion.jpg"
+        - name: "remote_photo.jpg"
+          url: "https://i.ibb.co/Jt1845X/motion.jpg"
 ```
 
 ### Message optional parameters

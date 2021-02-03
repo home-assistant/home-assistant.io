@@ -81,8 +81,8 @@ automation:
 
   platform: state
   state_entity_id: sensor.dryer_status
-  state_from: 'Running'
-  state_to: 'Complete'
+  state_from: "Running"
+  state_to: "Complete"
 
   execute_service: script.turn_on
   service_entity_id: script.dryer_complete
@@ -92,8 +92,8 @@ automation 2:
 
   platform: state
   state_entity_id: sensor.dryer_status
-  state_from: 'Complete'
-  state_to: 'Empty'
+  state_from: "Complete"
+  state_to: "Empty"
 
   execute_service: script.turn_on
   service_entity_id: script.dryer_cleared
