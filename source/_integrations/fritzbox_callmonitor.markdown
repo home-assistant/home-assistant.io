@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Local Polling
 ha_domain: fritzbox_callmonitor
+ha_config_flow: true
 ---
 
 The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.

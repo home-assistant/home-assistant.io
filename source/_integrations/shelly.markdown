@@ -12,6 +12,7 @@ ha_codeowners:
   - '@balloob'
   - '@bieniu'
   - '@thecode'
+  - '@chemelli74'
 ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
@@ -109,4 +110,3 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 - Only supports firmware 1.8 and later
 - Support for battery-powered devices is limited (also applies to USB powered Shelly H&T)
-

@@ -12,9 +12,9 @@ ha_iot_class: Cloud Push
 ha_release: 0.7
 ha_config_flow: true
 ha_codeowners:
-  - '@awarecan'
   - '@allenporter'
 ha_domain: nest
+ha_quality_scale: platinum
 ---
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events.
