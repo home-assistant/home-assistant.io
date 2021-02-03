@@ -248,8 +248,9 @@ attach that to every service call.
 
 <!-- TODO: insert screenshot --->
 
-We also added the abbility to try the chosen settings right in your browser.
-Click the try button, enter some text and click play to hear the text being spoken.
+We also added the ability to try the chosen settings right in your browser.
+Click the try button, enter some text and click play to hear the
+text being spoken.
 
 ## Other noteworthy changes
 
@@ -258,62 +259,28 @@ that are definitely noteworthy to mention.
 
 - We now give you a clearer reason why your Lovelace card configuration is not
   supported in the UI editor thanks to [@spacegaier].
-- [@spacegaier] Also added support for themes on the media card.
+- Shelly RGB devices are now fully supported!! Nice [@chemelli74]!
 - [@dmulcahey] Added filtering and zoom to node to the ZHA network visualization.
   Very useful to find you Zigbee network issues.
+- The deCONZ integration added support for logging basic event in the logbook.
+  Nicely done [@Kane610].
+- The Tasmota integration is out of beta! Awesome [@emontnemery]!
+- [@spacegaier] Added support for themes on the media card.
 - The items in the shopping list card can be ordered using drag & drop!
   Thanks [@ShaneQi]!
+- Newly ignored discovered integrations now show a name of the item ignored.
+  This makes it easier to undo that later.
 - [@balloob] made a new framework that can detect significant changes in
   entities, allowing to reduce the amount of update we need to send to both
   Google Assistant and Alexa!
-
-- Add yeelight service to enable disable music mode ([@zewelor] - [#44533]) ([yeelight docs])
-- Add device info to Météo-France ([@oncleben31] - [#44457]) ([meteo_france docs])
-- Add Chinese (Hong Kong) to Google Cloud TTS ([@hung2kgithub] - [#44689]) ([google_cloud docs])
-- Add turn_on and turn_off to gree climate component ([@cmroche] - [#43207]) ([gree docs])
-- Add RFXtrx Rfy venetian blinds tilt control ([@dzukero] - [#44309]) ([rfxtrx docs])
-- Add service to lock/unlock Sure Petcare pet flaps ([@insertjokehere] - [#44557]) ([surepetcare docs])
-- Add support for reordering Shopping List Items via Drag and Drop ([@ShaneQi] - [#41585]) ([shopping_list docs])
-- Add Vicare set mode service ([@oischinger] - [#44563])
-- Add MQTT Number ([@dgomes] - [#44739]) ([mqtt docs])
-- Add torrent id to Transmission events ([@JPHutchins] - [#44187]) ([transmission docs])
-- Add Shelly RGB devices management ([@chemelli74] - [#43993]) ([shelly docs])
-- Add name to ignored entries ([@balloob] - [#45051]) ([config docs])
-- Cloud: Add web socket API to pick default TTS language ([@balloob] - [#45064]) ([cloud docs])
-- Allow any parameter of a light profile as an optional parameter ([@Adminiuga] - [#44079]) ([light docs])
-- Allow input_number entity_id as for numeric_state trigger thresholds ([@Adminiuga] - [#45091]) ([homeassistant docs])
-- Add pressure to OWM forecast data ([@bchastain] - [#43843]) ([openweathermap docs]) ([weather docs])
-- Remove beta tag from Tasmota integration ([@emontnemery] - [#45153]) ([tasmota docs])
-- Add empty password support to pi-hole ([@shenxn] - [#37958]) ([pi_hole docs])
-- Basic logbook support for deCONZ events ([@Kane610] - [#45400]) ([deconz docs])
-- Introduce reauth flow to deCONZ ([@Kane610] - [#45443]) ([deconz docs])
-- Add a one touch pairing config flow for lutron caseta ([@bdraco] - [#45136]) ([lutron_caseta docs])
-- Add support for Discord embed in messages ([@popboxgun] - [#44986]) ([discord docs])
-- Add "significant change" base ([@balloob] - [#45555]) ([binary_sensor docs]) ([sensor docs])
-- Limit data sending to Alexa to significant changes ([@balloob] - [#45563]) ([alexa docs])
-- Add significant change filtering to Google ([@balloob] - [#45566]) ([google_assistant docs]) ([sensor docs]) ([switch docs])
-- Add tilt functionality to Velux covers ([@pawlizio] - [#43669]) ([velux docs])
-- Add support for Pico and Shade remotes to Lutron Caseta ([@bdraco] - [#45315]) ([lutron_caseta docs])
-- Implement remote.delete_command in the Broadlink integration ([@felipediel] - [#44041]) ([broadlink docs])
-- Esphome fan direction ([@blejdfist] - [#44495]) ([esphome docs])
-- New methods for input_select component ([@l-mb] - [#42968]) ([input_select docs])
-- Re-architect Tile integration with new pytile ([@bachya] - [#43071]) ([tile docs])
-- Add total energy, preheater and RMOT sensors to comfoconnect ([@chmielowiec] - [#45373]) ([comfoconnect docs])
-- Add service to move camera to PTZ preset ([@joe248] - [#43083]) ([foscam docs])
-- Migrate RMV to use httpx ([@cgtobi] - [#42560]) ([rmvtransport docs])
-
-Frontend:
-
-- Add simple try tts dialog (#8245) @bramkragten
-- More comprehensive YAML config errors + dynamic checks for action configs (#8217) @spacegaier
-- add actions to weather-forecast-card (#7659) @iantrich
-- Allow themeing of media control card (#8209) @spacegaier
-- Format URL attribute as link (#8126) @spacegaier
-- Update supervisor on add-on store refresh (#8132) @ludeeus
-- Add filtering and zoom to node to the ZHA network visualization (#7913) @dmulcahey
-- Added Drag & Drop Reordering to Shopping List Card. (#7296) @ShaneQi
-- Add support for "all" as entity ID in action "service" (#7954) @spacegaier
-- Add Bengali language (#8014) @spacegaier
+- Setting up Lutron Caseta was quite a pain, but not anymore! [@bdraco] added
+  one-touch pairing to the integration set up!
+- If you use light profiles, [@Adminiuga] is your man. All parameters
+  of a light profile can now be optional!
+- Dropdown helpers (`input_select`) got some new service capabilities added by
+  [@l-mb]. They can now cycle through the options, and service calls to jump
+  to the first or last item have been added as well.
+- If you have a Foscam camera, [@joe248] added a service to move to PTZ presets.
 
 ## New Integrations
 
