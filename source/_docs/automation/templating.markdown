@@ -29,7 +29,7 @@ automation 2:
     service: >
       notify.{{ trigger.topic.split('/')[-1] }}
     data:
-      message: '{{ trigger.payload }}'
+      message: "{{ trigger.payload }}"
 
 automation 3:
   trigger:
@@ -39,9 +39,9 @@ automation 3:
         - light.bedroom_closet
         - light.kiddos_closet
         - light.linen_closet
-      to: 'on'
+      to: "on"
       # Trigger when someone leaves one of those lights on for 10 minutes.
-      for: '00:10:00'
+      for: "00:10:00"
   action:
     - service: light.turn_off
       data:

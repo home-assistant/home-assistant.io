@@ -50,7 +50,7 @@ automation:
   trigger:
     platform: state
     entity_id: device_tracker.me
-    to: 'home'
+    to: "home"
   action:
     service: script.notify_mqtt
     data:

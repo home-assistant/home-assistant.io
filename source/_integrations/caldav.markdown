@@ -56,12 +56,12 @@ calendar:
     password: !secret caldav
     url: https://baikal.my-server.net/cal.php/calendars/john.doe@test.com/default
     custom_calendars:
-      - name: 'HomeOffice'
-        calendar: 'Agenda'
-        search: 'HomeOffice'
-      - name: 'WarmupFlat'
-        calendar: 'Agenda'
-        search: 'Warmup'
+      - name: "HomeOffice"
+        calendar: "Agenda"
+        search: "HomeOffice"
+      - name: "WarmupFlat"
+        calendar: "Agenda"
+        search: "Warmup"
 ```
 
 This will create two binary sensors for the calendar name Agenda: "HomeOffice" and "WarmupFlat". Those sensors will be `on` if there is an ongoing event matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
@@ -133,7 +133,7 @@ All events of the calendars "private" and "holidays". Note that all day events a
 calendar:
   - platform: caldav
     url: https://nextcloud.example.com/remote.php/dav
-    username: 'me'
+    username: "me"
     password: !secret caldav
     calendars:
       - private
@@ -149,27 +149,27 @@ Custom calendar names are built from the main calendar + name of the custom cale
 calendar:
   - platform: caldav
     url: https://nextcloud.example.com/remote.php/dav
-    username: 'me'
+    username: "me"
     password: !secret caldav
     custom_calendars:
       - name: holiday
         calendar: work
-        search: 'Holiday'
+        search: "Holiday"
       - name: vacation
         calendar: vacation
-        search: '.*'
+        search: ".*"
 
 # automations.yaml
 - id: wakeup
   alias: worktime wakeup
   trigger:
     platform: time
-    at: '06:40:00'
+    at: "06:40:00"
   action:
   - service: media_player.media_play
     entity_id: media_player.bedroom
   condition:
   - condition: state
     entity_id: calendar.work_holiday
-    state: 'off'
+    state: "off"
 ```

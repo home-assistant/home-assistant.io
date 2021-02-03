@@ -23,7 +23,7 @@ media_player:
     host: 192.168.1.2
     name: receiver
     sources:
-      pc: 'HTPC'
+      pc: "HTPC"
 ```
 
  If your receiver has second or third zone’s available, they are displayed as additional media players with the same functionality as the main zone.

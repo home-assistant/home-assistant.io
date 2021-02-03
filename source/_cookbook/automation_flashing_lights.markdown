@@ -13,42 +13,42 @@ For flashing regular lights in case an alarm is triggered.
 # AlmSnd1 - switch for a buzzer
 
 automation:
-- alias: 'Alarm_PIR_Room1'
+- alias: "Alarm_PIR_Room1"
   trigger:
     platform: state
     entity_id: binary_sensor.PIR1
-    to: 'on'
+    to: "on"
   condition:
     - condition: state
       entity_id: switch.AlmAct1
-      state: 'on'
+      state: "on"
     - condition: state
       entity_id: script.alarm_room1
-      state: 'off'
+      state: "off"
   action:
     # start alarm on movement if alarm activated
     # and the alarm is not triggered
     service: script.turn_on
     entity_id: script.alarm_room1
 
-- alias: 'flash_room1_start'
+- alias: "flash_room1_start"
   trigger:
     platform: state
     entity_id: switch.AlmSnd1
-    to: 'on'
+    to: "on"
   action:
     service: script.turn_on
     entity_id: script.flash_room1
 
-- alias: 'flash_room1_stop'
+- alias: "flash_room1_stop"
   trigger:
     platform: state
     entity_id: switch.REL1
-    to: 'off'
+    to: "off"
   condition:
     condition: state
     entity_id: switch.AlmSnd1
-    state: 'off'
+    state: "off"
   action:
     service: script.turn_off
     entity_id: script.flash_room1
@@ -68,7 +68,7 @@ script:
       - alias: email_Room1
         service: notify.email
         data:
-          message: 'Movement alarm in Room1'
+          message: "Movement alarm in Room1"
       - delay:
           # time interval for alarm sound and light flashing
           seconds: 60
