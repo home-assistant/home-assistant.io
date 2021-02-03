@@ -204,7 +204,10 @@ If you are using an auto generated Lovelace dashboard, you probably always had
 a ton of badges on the top of your dashboard. If there are just a few it works,
 but as more start to appear, it soon becomes cluttered.
 
-<!-- TODO: Insert screenshot of clutter, a darn mess --->
+<p class='img'>
+<img src='/images/blog/2021-02/badges.png' alt='Screenshot of the old badges clutter'>
+Screenshot of the old badges clutter that is now gone!
+</p>
 
 We decided to no longer use badges in the auto generated Lovelace dashboards.
 Instead, every entity is neatly grouped by area or domain in an entities card.
@@ -230,14 +233,20 @@ devices it can use! Thanks [@bdraco]!
 For our Blueprint fanatics, some new goodies to the Blueprint has been added
 this release. Thanks to [@thomasloven], we now have two new selectors:
 
-<!-- TODO: add links to documentation -->
+<p class='img'>
+<img src='/images/blueprints/selector-text.png' alt='Screenshot of the new text selector'>
+Screenshot of the text selectors.
+</p>
 
 - An object selector: Shows an YAML editor in the UI.
 - An text selector: Show a single line text input or text area for longer
   messages in the UI.
 - Blueprint descriptions now support Markdown.
 
-<!-- TODO: insert screenshot --->
+<p class='img'>
+<img src='/images/blueprints/selector-object.png' alt='Screenshot of new object selector'>
+Screenshot of the object selector, giving a YAML input field.
+</p>
 
 ## Cloud Text to Speech settings
 
@@ -248,7 +257,10 @@ We fixed that with a new settings UI, where you can select the default language
 and gender to use for the text to speech service, so you no longer have to
 attach that to every service call.
 
-<!-- TODO: insert screenshot --->
+<p class='img'>
+<img src='/images/blog/2021-02/tts.png' alt='Screenshot of Cloud TTS options'>
+Screenshot of Cloud TTS options.
+</p>
 
 We also added the ability to try the chosen settings right in your browser.
 Click the try button, enter some text and click play to hear the
