@@ -194,9 +194,10 @@ with an even greater track record. So:
 
 **Thank you Justin for all you have done in all those years!**
 
-With the rise of Z-Wave JS and the change of pace announcement above, we don't
-think the OpenZWave integration will make it out of beta. We recommend
-Home Assistant users migrate to the Z-Wave JS integration.
+The team that was working on the OZW integration have shifted their focus to
+the new Z-Wave JS integration. We don't think the OpenZWave integration will
+make it out of beta. We recommend Home Assistant users migrate to the
+Z-Wave JS integration.
 
 [fishwaldo]: https://community.home-assistant.io/t/can-we-revisit-the-move-to-qt-openzwave/262612/140
 
