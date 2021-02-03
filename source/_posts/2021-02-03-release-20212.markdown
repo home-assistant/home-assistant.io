@@ -25,7 +25,7 @@ helpful new Blueprint selectors, tons of UI tweaks! But honestly...
 **Have you heard about Z-Wave JS?!**
 
 Well, out of nowhere, a huge bunch of developers came together this month and
-spat out a completely new, full-blown, fast, slick, sexy, complete, new Z-Wave
+spat out a completely new, full-blown, fast, slick, sexy, complete, Z-Wave
 integration! 🤯
 
 So, thanks guys! An achievement beyond words, really; You all rock ❤️
@@ -108,7 +108,9 @@ set up automatically for you.
 
 The new Z-Wave JS integration is amazingly complete. It supports the following
 platforms from the start: Binary Sensors, Climate, Covers, Fans, Lights, Locks,
-Sensors and Switches.
+Sensors and Switches. Scenes are also supported!
+
+Besides that, it is just _blazing_ fast! ⚡️
 
 While fast-growing, it is a new integration and there is still a lot
 in progress. Of course, no doubt, there will be bugs. Bugs that will
@@ -161,7 +163,7 @@ for the upcoming future.
 
 Therefore, as of today, the old Z-Wave is marked as being **deprecated**.
 
-If one starts with Home Assistant and Z-Wave, the `zwave` integration is
+If one is starting with Home Assistant and Z-Wave, the `zwave` integration is
 no longer recommended. For existing users, we recommend migrating to the
 [Z-Wave JS integration](/integrations/zwave_js). However, don't panic,
 `zwave` is deprecated but not removed yet.
@@ -207,7 +209,8 @@ but as more start to appear, it soon becomes cluttered.
 We decided to no longer use badges in the auto generated Lovelace dashboards.
 Instead, every entity is neatly grouped by area or domain in an entities card.
 
-If you liked the badges, you can always take control of your dashboard and add them.
+If you liked the badges, you can always take control of your dashboard
+and add them.
 
 ## DHCP Discovery
 
@@ -235,7 +238,6 @@ this release. Thanks to [@thomasloven], we now have two new selectors:
 - Blueprint descriptions now support Markdown.
 
 <!-- TODO: insert screenshot --->
-
 
 ## Cloud Text to Speech settings
 
