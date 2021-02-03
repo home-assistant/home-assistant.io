@@ -1236,6 +1236,10 @@ The following integrations have been removed:
 - Update docker base image 2021.02.0 ([@pvizeli] - [#45889]) (beta fix)
 - Upgrade Z-Wave JS Python to 0.17.0 ([@balloob] - [#45895]) ([zwave_js docs]) (beta fix)
 - Mark Z-Wave as deprecated ([@balloob] - [#45896]) ([zwave docs]) (beta fix)
+- Remove v4 multilevel transitional currentValue workaround in zwave_js ([@jcam] - [#45884]) ([zwave_js docs]) (beta fix)
+- Add support for climate setpoint thermostats to zwave_js ([@cgtobi] - [#45890]) ([zwave_js docs]) (beta fix)
+- Update discovery scheme for Meter CC in zwave_js integration ([@marcelveldt] - [#45897]) ([zwave_js docs]) (beta fix)
+- Add integration name to the deprecation warnings ([@ludeeus] - [#45901]) (beta fix)
 
 </details>
 
@@ -1676,9 +1680,13 @@ The following integrations have been removed:
 [#45872]: https://github.com/home-assistant/core/pull/45872
 [#45874]: https://github.com/home-assistant/core/pull/45874
 [#45878]: https://github.com/home-assistant/core/pull/45878
+[#45884]: https://github.com/home-assistant/core/pull/45884
 [#45889]: https://github.com/home-assistant/core/pull/45889
+[#45890]: https://github.com/home-assistant/core/pull/45890
 [#45895]: https://github.com/home-assistant/core/pull/45895
 [#45896]: https://github.com/home-assistant/core/pull/45896
+[#45897]: https://github.com/home-assistant/core/pull/45897
+[#45901]: https://github.com/home-assistant/core/pull/45901
 [@Adminiuga]: https://github.com/Adminiuga
 [@Anonym-tsk]: https://github.com/Anonym-tsk
 [@BKPepe]: https://github.com/BKPepe
@@ -1759,6 +1767,7 @@ The following integrations have been removed:
 [@insertjokehere]: https://github.com/insertjokehere
 [@itewk]: https://github.com/itewk
 [@jamincollins]: https://github.com/jamincollins
+[@jcam]: https://github.com/jcam
 [@jcronq]: https://github.com/jcronq
 [@jesserockz]: https://github.com/jesserockz
 [@jjlawren]: https://github.com/jjlawren
