@@ -2,7 +2,7 @@
 layout: post
 title: "2021.2: Beta release notes"
 description: "These are the beta release notes for Home Assistant Core 2021.2."
-date: 2021-01-27 00:00:00
+date: 2021-02-03 00:00:00
 date_formatted: "February 3, 2021"
 author: Franck Nijhof
 author_twitter: frenck
