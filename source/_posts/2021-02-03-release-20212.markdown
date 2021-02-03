@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2021.2: Beta release notes"
-description: "These are the beta release notes for Home Assistant Core 2021.2."
+title: "2021.2: Z-Wave... JS!"
+description: "Z-Wave JS is here! We now have DHCP discovery, new Blueprint selectors, Cloud TTS settings and less cluttering without badges."
 date: 2021-02-03 00:00:00
 date_formatted: "February 3, 2021"
 author: Franck Nijhof
