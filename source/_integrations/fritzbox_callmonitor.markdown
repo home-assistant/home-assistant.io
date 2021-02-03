@@ -13,73 +13,13 @@ It can also access the internal phone book of the router to look up the names co
 
 ## Setup
 
-To activate the call monitor on your FRITZ!Box, dial #96\*5\* from any phone connected to it.
+To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it.
 
 ## Configuration
 
-To use the FRITZ!Box call monitor in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: fritzbox_callmonitor
-```
-
-{% configuration %}
-name:
-  description: Give the sensor a friendly name for in the front-end.
-  required: false
-  default: Phone
-  type: string
-host:
-  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every FRITZ!Box is also reachable by using the IP address 169.254.1.1. If you have a local DNS server and have assigned a hostname to your FRITZ!Box, you can also use that here instead of the IP address.
-  required: false
-  default: 169.254.1.1
-  type: string
-port:
-  description: The TCP port of the call monitor. There is usually no reason to change this.
-  required: false
-  default: 1012
-  type: integer
-username:
-  description: FRITZ!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
-  required: false
-  default: admin
-  type: string
-password:
-  description: FRITZ!Box user's user password. This is required to use the phone book lookup feature.
-  required: false
-  type: string
-phonebook:
-  description: Numerical ID identifying the phonebook to be used. If there is just one phonebook, this is usually 0.
-  required: false
-  default: 0
-  type: integer
-prefixes:
-  description: In case of a local call, the phone number seen by the router might differ from the one stored in the phone book by an area code, similarly for the international prefix. To remedy this, a list of prefixes, that can be appended to the phone number in case it is not found in the phone book, can be given.
-  required: false
-  type: list
-{% endconfiguration %}
+To add the AVM FRITZ!Box Call Monitor integration to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ!Box Call Monitor**.
 
 ## Examples
-
-### Full configuration
-
-The example below shows a full configuration for a call monitor with phone book support.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: fritzbox_callmonitor
-    name: Phone
-    username: my_username
-    password: my_password
-    phonebook: 0
-    prefixes:
-      - '+49'
-      - '+4989'
-      - '089'
-```
 
 ### Send notifications on state change
 
