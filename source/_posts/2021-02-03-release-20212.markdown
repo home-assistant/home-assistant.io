@@ -293,8 +293,9 @@ that are definitely noteworthy to mention.
   Google Assistant and Alexa!
 - Setting up Lutron Caseta was quite a pain, but not anymore! [@bdraco] added
   one-touch pairing to the integration set up!
-- If you use light profiles, [@Adminiuga] is your man. All parameters
-  of a light profile can now be optional!
+- If you use [light profiles](/integrations/light/#default-turn-on-values),
+  [@Adminiuga] is your man. All parameters of a light profile can now be
+  optional and default profiles are always applied.
 - Dropdown helpers (`input_select`) got some new service capabilities added by
   [@l-mb]. They can now cycle through the options, and service calls to jump
   to the first or last item have been added as well.
