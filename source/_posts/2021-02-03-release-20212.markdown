@@ -17,6 +17,7 @@ Intro..
 
 ../Frenck
 
+- [Erik Montnemery joins Nabu Casa](#erik-montnemery-joins-nabu-casa)
 - [Python 3.7 dropped, Python 3.9 supported](#python-37-dropped-python-39-supported)
 - [Z-Wave JS](#z-wave-js)
 - [DHCP Discovery](#dhcp-discovery)
@@ -29,6 +30,17 @@ Intro..
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
+
+## Erik Montnemery joins Nabu Casa
+
+Today, we are proud to announce that Erik Montnemery has joined Nabu Casa
+to work full-time on the Home Assistant project.
+
+Some of you might know Erik better by his GitHub handle: [@emontnemery], or
+by one of the integrations he works on: [Cast](/integrations/cast),
+[Tasmota](/integrations/tasmota) and [MQTT](/integrations/mqtt)!
+
+We are excited to have you aboard Erik! Welcome!
 
 ## Python 3.7 dropped, Python 3.9 supported
 
