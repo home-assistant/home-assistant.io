@@ -188,7 +188,7 @@ and it is sad to read how many people have personally impacted him negatively.
 > Is OZW Dead - No. I’ll tinker with it, I’ll make changes as time allows,
 > but it will be at my own pace, to scratch my own itches now.
 
-Let us be straight here: OpenZWave is an 11? year-old project, which is used
+Let us be straight here: OpenZWave is an 11 year-old project, which is used
 by an incredible amount of systems (besides Home Assistant) in this world,
 with an even greater track record. So:
 
