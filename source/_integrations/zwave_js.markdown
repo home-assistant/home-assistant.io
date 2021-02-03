@@ -148,4 +148,4 @@ When trying to determine why something isn't working as you expect, or when repo
 
 ### Watch traffic between the server and the integration (Advanced Users)
 
-Z-Wave JS Server comes with a client that can be used to see the messages that the server is sending and to check the state of a node/all nodes as well. Visit the [`zwave-js-server` repo](https://github.com/zwave-js/zwave-js-server/) and follow the instructions in the README.
+Z-Wave JS Server comes with a client that can be used to see the messages that the server is sending and to check the state of a node/all nodes as well. Visit the [`zwave-js-server` repository](https://github.com/zwave-js/zwave-js-server/) and follow the instructions in the README.
