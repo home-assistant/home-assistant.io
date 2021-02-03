@@ -151,7 +151,6 @@ that are definitely noteworthy to mention.
 Frontend:
 
 - Add simple try tts dialog (#8245) @bramkragten
-- Add icon support to gauge (#8081) @spacegaier
 - More comprehensive YAML config errors + dynamic checks for action configs (#8217) @spacegaier
 - add actions to weather-forecast-card (#7659) @iantrich
 - Allow themeing of media control card (#8209) @spacegaier
