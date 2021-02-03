@@ -282,7 +282,7 @@ default:
 
 The `knx` binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
 
-Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
+Binary sensors are read-only. To write to the KNX bus configure an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus).
 
 ```yaml
 knx:
@@ -917,7 +917,7 @@ name:
 
 The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
-Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus) or use the `knx.send` service.
+Sensors are read-only. To write to the KNX bus configure an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` service.
 
 ```yaml
 # Example configuration.yaml entry
@@ -925,6 +925,7 @@ knx:
   sensor:
     - name: Heating.Valve1
       state_address: "2/0/0"
+      type: "percent"
 ```
 
 In order to actively read the sensor data from the bus every 30 minutes you can add the following lines to your `configuration.yaml`:
@@ -935,12 +936,17 @@ knx:
   sensor:
     - name: Heating.Valve1
       state_address: "2/0/0"
+      type: "percent"
       sync_state: every 30
 ```
 
 {% configuration %}
 state_address:
   description: KNX group address of the sensor.
+  required: true
+  type: string
+type:
+  description: A type from the value types table below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
   type: string
 name:
@@ -952,10 +958,6 @@ sync_state:
   required: false
   type: [boolean, string, integer]
   default: true
-type:
-  description: A type from the following table must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
-  required: true
-  type: string
 always_callback:
   description: Defines if telegrams with equal payload as the previously received telegram should trigger a state update within Home Assistant.
   required: false
