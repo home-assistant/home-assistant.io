@@ -67,7 +67,6 @@ As this integration is still in the early stages there are some important limita
 - Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented. You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
 - Polling is currently not supported but may be added in a later release.
 - Support for setting configuration parameters through service calls is currently not supported but may be added in a later release.
-- Support for Node/Scene events is currently not supported but may be added in a later release.
 - There currently is no migration path from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
 
 
@@ -98,7 +97,7 @@ Valid code slots are between 1-254.
 
 ### Event `zwave_js_event`
 
-This event is fired whenever a [notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) or [value notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotvalue-notificationquot) event is received. 
+This event is fired whenever a [notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) or [value notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotvalue-notificationquot) event is received.
 
 #### Notifications
 
