@@ -166,7 +166,9 @@ Therefore, as of today, the old Z-Wave is marked as being **deprecated**.
 If one is starting with Home Assistant and Z-Wave, the `zwave` integration is
 no longer recommended. For existing users, we recommend migrating to the
 [Z-Wave JS integration](/integrations/zwave_js). However, don't panic,
-`zwave` is deprecated but not removed yet.
+`zwave` is deprecated but not removed yet. We currently have no plans for
+removing it, unless it can no longer be made to be build for the
+latest Python
 
 ### What about the OpenZWave beta integration?
 
