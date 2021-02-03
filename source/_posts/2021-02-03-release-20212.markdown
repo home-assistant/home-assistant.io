@@ -16,19 +16,19 @@ og_image: /images/blog/2021-02/social.png
 Dear homie,
 
 Usually, I try to write a small introduction that recaps the release, while
-putting a bit of my view in it as well. This release however, I'm struggling
+putting a bit of my view in it as well. This release, however, I'm struggling
 to find the right words...
 
 So there is DHCP discovery added, which is super nice! And some really
 helpful new Blueprint selectors, tons of UI tweaks! But honestly...
 
-Have you heard about Z-Wave JS?!
+**Have you heard about Z-Wave JS?!**
 
-Well out of nowhere, a huge bunch of developers came together this month and
-spit out a complete new, full-blown, fast, slick, sexy, complete, new Z-Wave
+Well, out of nowhere, a huge bunch of developers came together this month and
+spat out a completely new, full-blown, fast, slick, sexy, complete, new Z-Wave
 integration! 🤯
 
-So, thanks guys! An achievement beyond words really; You all rock ❤️
+So, thanks guys! An achievement beyond words, really; You all rock ❤️
 
 Enjoy the release!
 
