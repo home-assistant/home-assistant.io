@@ -41,9 +41,9 @@ Enjoy the release!
   - [Thanks to all](#thanks-to-all)
   - [What about the old Z-Wave integration?](#what-about-the-old-z-wave-integration)
   - [What about the OpenZWave beta integration?](#what-about-the-openzwave-beta-integration)
+- [No more badges in auto generated dashboards](#no-more-badges-in-auto-generated-dashboards)
 - [DHCP Discovery](#dhcp-discovery)
 - [New Blueprint selectors](#new-blueprint-selectors)
-- [No more badges in auto generated dashboards](#no-more-badges-in-auto-generated-dashboards)
 - [Cloud Text to Speech settings](#cloud-text-to-speech-settings)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -155,7 +155,7 @@ and incredible work!
 ### What about the old Z-Wave integration?
 
 The old [`zwave`](/integrations/zwave) integration has been based on
-OpenZwave 1.4, which is really old and does not get any upstream updates
+OpenZWave 1.4, which is really old and does not get any upstream updates
 anymore. This also means that it is hard for us to keep it in a working state
 for the upcoming future.
 
@@ -196,11 +196,31 @@ Home Assistant users migrate to the Z-Wave JS integration.
 
 [fishwaldo]: https://community.home-assistant.io/t/can-we-revisit-the-move-to-qt-openzwave/262612/140
 
+## No more badges in auto generated dashboards
+
+If you are using an auto generated Lovelace dashboard, you probably always had
+a ton of badges on the top of your dashboard. If there are just a few it works,
+but as more start to appear, it soon becomes cluttered.
+
+<!-- TODO: Insert screenshot of clutter, a darn mess --->
+
+We decided to no longer use badges in the auto generated Lovelace dashboards.
+Instead, every entity is neatly grouped by area or domain in an entities card.
+
+If you liked the badges, you can always take control of your dashboard and add them.
+
 ## DHCP Discovery
 
 Home Assistant now listens on your network for devices that request a
 IP address. Based on those intercepted messages, Home Assistant can now
 discover integrations for you to use with the discovered devices.
+
+This really powerful addition has been made by [@bdraco], and many
+integrations have quickly enriched their integrations to use this new
+discovery method.
+
+So as of this release, your Home Assistant might actually find some new
+devices it can use! Thanks [@bdraco]!
 
 ## New Blueprint selectors
 
@@ -216,18 +236,6 @@ this release. Thanks to [@thomasloven], we now have two new selectors:
 
 <!-- TODO: insert screenshot --->
 
-## No more badges in auto generated dashboards
-
-If you are using an auto generated Lovelace dashboard, you probably always had
-a ton of badges on the top of your dashboard. If there are just a few it works,
-but as more start to appear, it soon becomes cluttered.
-
-<!-- TODO: Insert screenshot of clutter, a darn mess --->
-
-We decided to no longer use badges in the auto generated Lovelace dashboards.
-Instead, every entity is neatly grouped by area or domain in an entities card.
-
-If you liked the badges, you can always take control of your dashboard and add them.
 
 ## Cloud Text to Speech settings
 
@@ -248,14 +256,16 @@ Click the try button, enter some text and click play to hear the text being spok
 This release has no big new features, but we do have quite a bit of tweaks
 that are definitely noteworthy to mention.
 
-- We now give you a clearer reason why your Lovelace card configuration is not supported in the UI editor thanks to [@spacegaier]
+- We now give you a clearer reason why your Lovelace card configuration is not
+  supported in the UI editor thanks to [@spacegaier].
 - [@spacegaier] Also added support for themes on the media card.
 - [@dmulcahey] Added filtering and zoom to node to the ZHA network visualization.
-- The items in the shopping list card can be ordered using drag & drop! Thanks [@ShaneQi]!
-
-
-- Significant changes (Google & Alexa)
-
+  Very useful to find you Zigbee network issues.
+- The items in the shopping list card can be ordered using drag & drop!
+  Thanks [@ShaneQi]!
+- [@balloob] made a new framework that can detect significant changes in
+  entities, allowing to reduce the amount of update we need to send to both
+  Google Assistant and Alexa!
 
 - Add yeelight service to enable disable music mode ([@zewelor] - [#44533]) ([yeelight docs])
 - Add device info to Météo-France ([@oncleben31] - [#44457]) ([meteo_france docs])
