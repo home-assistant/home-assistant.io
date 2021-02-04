@@ -211,7 +211,7 @@ Do remember however that switching requires a re-interview of the network. It is
 
 ### I do not see any entities created for my device in Home Assistant
 
-Entities will be created only after the node hits the ready state (it's interview is completed). Also note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the Events section how to handle those events in your automations. If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant core), that will be the time to create an issue about your problem on the Github issue tracker, see below section of Troubleshooting issues.
+Entities will be created only after the node hits the ready state (its interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations. If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), that will be the time to create an issue about your problem on the GitHub issue tracker, see below section of troubleshooting issues.
 
 ## Troubleshooting Issues
 
