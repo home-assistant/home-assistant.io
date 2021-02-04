@@ -30,7 +30,7 @@ Note: A new network key is automatically generated for you. If this Z-Wave stick
 
 ## Advanced installation instructions
 
-The above instructions won't work if you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on. Below you'll find the more detailed set-up instructions that covers all usecases.
+The above instructions won't work if you are using Home Assistant Container, Home Assistant Core, or you don't want to use the built-in Z-Wave JS Server add-on. Below you'll find the more detailed set-up instructions that covers all use cases.
 
 ### Requirements
 
@@ -40,7 +40,7 @@ Controlling your Z-Wave network using the Z-Wave JS integration has the followin
 
 2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
 
-3. A **network key** used in order to connect securely to compatible devices. The network key consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a unique default key will be auto generated for you. TIP: You could use a site like random.org to create your own random network key. Make sure that you keep a backup of thise key on a safe place (like backups) because you need to enter the same key if you decide to ever reinstall the Z-Wave JS Server.
+3. A **network key** used in order to connect securely to compatible devices. The network key consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a unique default key will be auto generated for you. TIP: You could use a site like random.org to create your own random network key. Make sure that you keep a backup of this key on a safe place (like backups) because you need to enter the same key if you decide to ever reinstall the Z-Wave JS Server.
 
 4. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network and turns it into Home Assistant devices and entities.
 
@@ -62,11 +62,11 @@ The Z-Wave JS server is **included** in Zwave JS to MQTT, you enable it on the Z
 
 #### 3. The Z-Wave JS to MQTT docker container
 
-This is the recommended approach if you're running the Home Assistant Core yourself, without the supervisor and it's convenient add-ons. See the [zwavejs2m1tt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions. Important note: make sure you run a recent version of the docker image, as that contains the required WS server option.
+This is the recommended approach if you're running the Home Assistant Core yourself, without the supervisor and it's convenient add-ons. See the [zwavejs2mqtt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions. Important note: make sure you run a recent version of the docker image, as that contains the required WS server option.
 
 #### 4. Run the Z-Wave server yourself
 
-This is considered a very advanced scenario where you run the (NodeJS) Z-Wave JS Server (or zwavejs2mqtt) yourself. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt) Github repo's for information.
+This is considered a very advanced scenario where you run the (NodeJS) Z-Wave JS Server (or zwavejs2mqtt) yourself. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt) Github repo for information.
 
 #### Important note
 
@@ -206,6 +206,20 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 
 8) Enjoy your super fast up-to-date Z-Wave network in Home Assistant with support for all modern devices!
 
+#### Need more help with your migration to Z-Wave JS?
+
+There are a few topics created on the forums that might be of your interest:
+
+- [OpenZwave (beta) -> Z-Wave JS Official add-on](https://community.home-assistant.io/t/switching-from-openzwave-beta-to-zwave-js/276723)
+
+- [OpenZwave (beta) -> ZwaveJS2MQTT](https://community.home-assistant.io/t/switching-from-openzwave-beta-to-zwavejs2mqtt/276724)
+
+- [Z-Wave legacy (1.4) -> Z-Wave JS Official add-on](https://community.home-assistant.io/t/switching-from-zwave-1-4-to-zwave-js/276718/2)
+
+- [Z-Wave legacy (1.4) -> ZwaveJS2MQTT](https://community.home-assistant.io/t/switching-from-zwave-1-4-to-zwavejs2mqtt/276721)
+
+You can also visit the #zwave channel in discord for support.
+
 ## Frequently Asked Questions
 
 ### Can I switch between the Official Z-Wave JS add-on and Z-Wave JS to MQTT?
@@ -230,15 +244,36 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 {%- endfor %}
 ```
 
+## How can I add (include) a new device to my Z-Wave network?
+
+1. In Home Assistant, open Settings, Configuration, Z-Wave JS -> Configure.
+2. Press `Add node`.
+3. Press `Start Inclusion`. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
+4. Put the device you want to add in inclusion mode. refer to it's manual how this is done.
+5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant, after a short while (seconds to minutes) the entities should also be created.
+6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). It some cases it might help to first remove a node (exclusion) before you add, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
+
+<div class='note info'>
+While adding devices, you have the option to use `secure inclusion`, this means that the traffic between the controller and the device will be encrypted. This adds additional overhead to the Z-Wave network so use this option with care. As a general rule of thumb it is only advised to only securely include devices that actually NEED this kind of protection. A good example is a Z-Wave door lock.
+</div>
+
+## How can I remove (exclude) a device from my Z-Wave network?
+
+1. In Home Assistant, open Settings, Configuration, Z-Wave JS -> Configure.
+2. Press `Remove node`.
+3. Press `Start Exclusion`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
+4. Put the device you want to remove in exclusion mode. refer to it's manual how this is done.
+5. The UI should confirm that the node was removed and the device and entities will be removed from Home Assistant.
+
 ### Where do I need to enter the network key?
 
 - Official Z-Wave JS add-on: In the addon configuration, directly in the supervisor.
 - Z-Wave JS 2 MQTT: In the web UI, go to Settings -> Zwave -> Network Key.
 
-### How can I use my OZW networkkey in zwavejs2mqtt?
+### How can I use my OZW network key in zwavejs2mqtt?
 
 You can use your existing networkkey in zwavejs2mqtt but you need to slightly adjust it.
-The OZW looks like this: `0x01, 0x02, 0x03 etc.` while the network key format accepted in zwavejs2mqtt looks like this `0102030405 etc.`. You can simply edit your existing key and remove the `"0x"` part and the `", "` part so it becomes one large string of numers.
+The OZW looks like this: `0x01, 0x02, 0x03 etc.` while the network key format accepted in zwavejs2mqtt looks like this `0102030405 etc.`. You can simply edit your existing key and remove the `"0x"` part and the `", "` part so it becomes one large string of numbers.
 
 ### What's the benefit of using Z-Wave JS to MQTT over the official Add-On?
 
@@ -249,7 +284,7 @@ The Z-Wave JS to MQTT project includes the Z-wave JS Server for convenience but 
 
 Correct, the Z-Wave (JS) to MQTT project existed before Home Assistant even had plans to move to the Z-Wave JS Driver.
 The Home Assistant integration that exists in zwavejs2mqtt is based on MQTT discovery.
-The official Z-Wave JS integration is not based on MQTT and is talking directly to the Z-Wave JS Driver (using the WS Server). 
+The official Z-Wave JS integration is not based on MQTT and is talking directly to the Z-Wave JS Driver (using the WS Server).
 
 ### Can I run Z-Wave JS to MQTT only for the control panel and nothing else?
 
@@ -270,6 +305,10 @@ Some legacy devices don't report all their values automatically and require poll
 <div class='note warning'>
 Polling is considered bad practice and should only be used as a last resort when you use it with care and accept the negative impact on your network. Z-Wave is a very low speed network and poll requests can easily flood your network and slow down your commands.
 </div>
+
+## My device is recognized as Unknown Manufacturer and/or some of it's functionalities do not work in Z-wave JS
+
+Z-Wave JS keeps a database of all devices it supports, including any special treatments they need. These are called the device configuration files and they are contributed mainly by the community. Is your device not fully supported, consider [contributing the device configuration file](https://zwave-js.github.io/node-zwave-js/#/development/config-files?id=contributing-configuration-files).
 
 ## Troubleshooting Issues
 
