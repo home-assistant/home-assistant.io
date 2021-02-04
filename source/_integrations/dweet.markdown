@@ -66,7 +66,7 @@ To use Dweet.io sensors in your installation, add the following to your `configu
 sensor:
   - platform: dweet
     device: THING_NAME
-    value_template: '{{ value_json.VARIABLE }}'
+    value_template: "{{ value_json.VARIABLE }}"
 ```
 
 {% endraw %}
@@ -103,7 +103,7 @@ sensor:
   - platform: dweet
     name: Temperature
     device: THING_NAME
-    value_template: '{{ value_json.VARIABLE }}'
+    value_template: "{{ value_json.VARIABLE }}"
     unit_of_measurement: "°C"
 ```
 

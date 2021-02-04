@@ -142,7 +142,7 @@ automation:
           entity_id: media_player.nest_hub_bedroom
           media_content_id: >
               {{ state_attr('sensor.incidents','message_to_speech_url') }}
-          media_content_type: 'audio/mp4'
+          media_content_type: "audio/mp4"
 
   - alias: 'Send response acknowledgement when a button is pressed'
     trigger:

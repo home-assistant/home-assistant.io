@@ -117,6 +117,8 @@ automation:
 
 If you want to migrate your manual automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over, you'll have to add an `id`. This can be any string as long as it's unique.
 
+{% raw %}
+
 ```yaml
 # Example automations.yaml entry. Note, automations.yaml is always a list!
 - id: my_unique_id  # <-- Required for editor to work, for automations created with the editor the id will be automatically generated.
@@ -131,10 +133,12 @@ If you want to migrate your manual automations to use the editor, you'll have to
     entity_id: sensor.temperature
     above: 17
     below: 25
-    value_template: '{% raw %}{{ float(state.state) + 2 }}{% endraw %}'
+    value_template: "{{ float(state.state) + 2 }}"
   action:
   - service: light.turn_on
 ```
+
+{% endraw %}
 
 ### Deleting Automations
 

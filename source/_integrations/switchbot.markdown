@@ -19,7 +19,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 switch:
   - platform: switchbot
-    mac: 'MAC_ADDRESS'
+    mac: "MAC_ADDRESS"
 ```
 
 {% configuration %}

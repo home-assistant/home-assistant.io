@@ -70,5 +70,5 @@ geo_location:
   - platform: geo_json_events
     url: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
     radius: 250
-    entity_namespace: 'usgs_earthquakes'
+    entity_namespace: "usgs_earthquakes"
 ```

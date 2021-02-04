@@ -17,6 +17,7 @@ This integration will provide local control over your LED lights/strips and can 
 The `flux_led` integration is configured through the Configuration -> Integrations page. You can select either auto configuration or manual configuration. For auto configuration the integration will automatically scan your network for any supported devices.
 
 If you select the manual flow you can specify the name and host address of the light controller. You can add multiple lights/strips by adding additional instances of the integration.
+
 ### Effects
 
 The Flux LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.

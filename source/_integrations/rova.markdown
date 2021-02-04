@@ -84,10 +84,10 @@ To have your Home Assistant installation remind you of upcoming waste collection
 # Example configuration.yaml entry for Rova waste collection reminder
 automation:
   - id: rova-garbage-bio-reminder
-    alias: 'Send Rova Bio waste collection reminder'
+    alias: "Send Rova Bio waste collection reminder"
     trigger:
       - platform: time
-        at: '19:00:00'
+        at: "19:00:00"
     condition:
       - condition: template
         value_template: "{% if (as_timestamp(states('sensor.rova_garbage_gft')) - as_timestamp(now())) < 43200 %}true{% endif %}"
@@ -96,7 +96,7 @@ automation:
     action:
       - service: NOTIFICATION_SERVICE
         data:
-          message: 'Reminder: put out biowaste bin'
+          message: "Reminder: put out biowaste bin"
 ```
 
 {% endraw %}

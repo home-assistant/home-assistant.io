@@ -118,43 +118,43 @@ satel_integra:
   port: 7094
   partitions:
     01:
-      name: 'House'
+      name: "House"
       arm_home_mode: 2
     02:
-      name: 'Garage'
+      name: "Garage"
   zones:
     01:
-      name: 'Bedroom'
-      type: 'motion'
+      name: "Bedroom"
+      type: "motion"
     02:
-      name: 'Hall'
-      type: 'motion'
+      name: "Hall"
+      type: "motion"
     30:
-      name: 'Kitchen - smoke'
-      type: 'smoke'
+      name: "Kitchen - smoke"
+      type: "smoke"
     113:
-      name: 'Entry door'
-      type: 'opening'
+      name: "Entry door"
+      type: "opening"
   outputs:
     05:
-      name: 'Garden lights trigger'
-      type: 'light'
+      name: "Garden lights trigger"
+      type: "light"
     09:
-      name: 'Gate opening trigger'
-      type: 'opening'
+      name: "Gate opening trigger"
+      type: "opening"
     30:
-      name: 'Alarm triggered'
-      type: 'safety'
+      name: "Alarm triggered"
+      type: "safety"
     32:
-      name: 'Alarm power problem'
-      type: 'safety'
+      name: "Alarm power problem"
+      type: "safety"
   switchable_outputs:
     05:
-      name: 'Gate open'
+      name: "Gate open"
     06:
-      name: 'Gate close'    
+      name: "Gate close"    
     14:
-      name: 'Garden light'
+      name: "Garden light"
       
 ```
 
@@ -165,8 +165,8 @@ For example:
   alias: Flick the input switch when movement in bedroom detected
   trigger:
       platform: state
-      entity_id: 'binary_sensor.bedroom'
-      to: 'on'
+      entity_id: "binary_sensor.bedroom"
+      to: "on"
   action:
       service: input_boolean.turn_on
       data:

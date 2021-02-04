@@ -110,7 +110,7 @@ Say to all `media_player` device entities:
 service: tts.google_translate_say
 entity_id: "all"
 data:
-  message: 'May the Force be with you.'
+  message: "May the Force be with you."
 ```
 
 Say to the `media_player.floor` device entity:
@@ -119,7 +119,7 @@ Say to the `media_player.floor` device entity:
 service: tts.google_translate_say
 entity_id: media_player.floor
 data:
-  message: 'May the Force be with you.'
+  message: "May the Force be with you."
 ```
 
 Say to the `media_player.floor` device entity in French:
@@ -128,8 +128,8 @@ Say to the `media_player.floor` device entity in French:
 service: tts.google_translate_say
 entity_id: media_player.floor
 data:
-  message: 'Que la force soit avec toi.'
-  language: 'fr'
+  message: "Que la force soit avec toi."
+  language: "fr"
 ```
 
 With a template:

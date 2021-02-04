@@ -26,9 +26,9 @@ To retrieve your device's details, please follow the instructions [here](https:/
 
 ```yaml
 switcher_kis:
-  phone_id: 'REPLACE_WITH_PHONE_ID'
-  device_id: 'REPLACE_WITH_DEVICE_ID'
-  device_password: 'REPLACE_WITH_DEVICE_PASSWORD'
+  phone_id: "REPLACE_WITH_PHONE_ID"
+  device_id: "REPLACE_WITH_DEVICE_ID"
+  device_password: "REPLACE_WITH_DEVICE_PASSWORD"
 ```
 
 {% configuration %}

@@ -73,8 +73,8 @@ automation:
     action:
       service: notify.dovado
       data:
-        message: 'The sun has set'
-        target: '+14151234567'
+        message: "The sun has set"
+        target: "+14151234567"
 ```
 
 ## Sensor
