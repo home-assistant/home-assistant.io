@@ -121,7 +121,7 @@ Events are issued for example when you press some button on a Z-Wave remote (aka
 
 This event is fired whenever a [notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) or [value notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotvalue-notificationquot) event is received.
 
-#### Notifications
+#### Node events (Notification)
 
 Notifications are events sent using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
 
@@ -139,9 +139,9 @@ Notification example:
 }
 ```
 
-#### Value Notifications
+#### Scene events (Value Notification)
 
-Value Notifications are used for stateless values, like `Central Scenes`.
+Value Notifications are used for stateless values, like `Central Scenes` and `Scene Activation`.
 
 Value Notification example:
 
