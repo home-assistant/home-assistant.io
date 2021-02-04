@@ -32,7 +32,7 @@ Controlling your Z-Wave network using the Z-Wave JS integration has the followin
 
 3. A 16-byte **network key** used in order to connect securely to compatible devices. It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a default key will be auto generated for you.
 
-4. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network.
+4. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network and turns it into Home Assistant devices and entities.
 
 ## Running the Z-Wave JS Server
 
@@ -52,11 +52,11 @@ This is the recommended approach if you're running the Home Assistant Core yours
 
 ### 4. Run the Z-Wave server yourself
 
-This is considered a very advanced scenario where you run the (nodejs) Z-Wave JS Server (or zwavejs2mqtt) yourself. Installation and maintaining this is out of scope for this documentation. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [zwavejs2m1tt](https://github.com/zwave-js/zwavejs2mqtt) Github repo's for information.
+This is considered a very advanced scenario where you run the (nodejs) Z-Wave JS Server (or zwavejs2mqtt) yourself. Installation and maintaining this is out of scope for this documentation. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt) Github repo's for information.
 
 ### Important note
 
-When you start the Z-Wave JS server, it will start interviewing your entire Z-Wave network, depending on the size of your network (how many nodes) this can take a while, especially when started for the very first time. Information about your devices is stored in cache files by Z-Wave JS. Be aware that restarting the Z-Wave server will cause your network to be (partially) unresponsive until the interview process is done. While your Z-Wave mesh is permanently stored on your stick, the additional metadata is not, so when you loose the cache files (for example by switching between any of the above mentioned ways to run the server) all your nodes will have to be re-interviewed again before they can be properly controlled. You can speed up this process by manually waking up your battery powered devices. Most of the times this is a simple press on the button on those devices (see manual). In any way it is not needed to exclude/re-include devices from the mesh. Just be patient with this.
+When you start the Z-Wave JS server, it will begin interviewing your entire Z-Wave network, depending on the size of your network (how many nodes) this can take a while, especially when started for the very first time. Information about your devices is stored in cache files by Z-Wave JS. Be aware that (re)starting the Z-Wave server will cause your network to be (partially) unresponsive until the interview process is done. While your Z-Wave mesh is permanently stored on your stick, the additional metadata is not, so when you loose the cache files (for example by switching between any of the above mentioned ways to run the server) all your nodes will have to be re-interviewed again before they can be properly controlled. You can speed up this process by manually waking up your battery powered devices. Most of the times this is a simple press on the button on those devices (see manual). In any way it is not needed to exclude/re-include devices from the mesh. Just be patient with this.
 
 > Make sure that the server started successfully by inspecting the logs or (in case of zwavejs2mqtt) the web UI. Give the Z-Wave controller some time to start. For zwavejs2mqtt users, you need to fill in the details for your Z-Wave stick and network key in the web interface.
 
