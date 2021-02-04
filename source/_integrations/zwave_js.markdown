@@ -176,7 +176,7 @@ As this integration is still in the early stages there are some important limita
 
 If you are currently running on the [zwave](https://www.home-assistant.io/integrations/zwave/) or [ozw](https://www.home-assistant.io/integrations/ozw/) Z-Wave integration there is **no need to switch over** to Z-Wave JS. The only thing important to know is that all/most development power currently goes to Z-Wave JS and the previous implementations are still provided as-is. They will **NOT be removed** without proper notice but in time there *might* come technical dependencies that render one or both of those integrations unusable. While both integrations will continue to exist and working, we've marked them as deprecated just to make sure that newcomers start with Z-Wave JS instead of legacy.
 
-It is perfectly doable to switch over from one of the above mentioned previous integrations to the new Z-Wave JS integration. The good news is that your entire Z-Wave network is **stored on your stick** so you will not have to run through your house to recreate your network. That said, we currently do not provide a full-fledged, worry free, click-a-button, migration from old to new, we're exploring options to provide this in the future. This means that if you want to switch over now, *you* will be the migration wizard.
+It is perfectly doable to switch over from one of the above mentioned previous integrations to the new Z-Wave JS integration. The good news is that your entire Z-Wave network is **stored on your stick** so you will not have to run through your house to recreate your network. That said, we currently do not provide a full-fledged, worry-free, click-a-button, migration from old to new, we're exploring options to provide this in the future. This means that if you want to switch over now, *you* will be the migration wizard.
 
 ### In a nutshell this is what the migration path looks like
 
@@ -184,19 +184,19 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 
    **! Write down/copy your Z-Wave network key somewhere, you are going to need it later.**
 
-   **! Make a list of what node ID belongs to each device. Your network (Nodes and their config etc) is stored on the stick but the names you gave your devices and entities is not. This step is optional but will save you a lot of time later.**
+   **! Make a list of what node ID belongs to each device. Your network (Nodes and their config etc) is stored on the stick but the names you gave your devices and entities are not. This step is optional but will save you a lot of time later.**
 
 2) Remove the Z-Wave integration from Home Assistant: Configuration --> Integrations --> Z-Wave (or OpenZWave) --> Press the three dots and click Remove.
 
-3) If you were running the OpenZwave beta, make sure to stop (or even remove) the OpenZwave add-on, also make sure it doesn't start automatically at startup.
+3) If you were running the OpenZWave beta, make sure to stop (or even remove) the OpenZWave add-on, also make sure it doesn't start automatically at startup.
 
 4) Restart your Home Assistant host. This step is important to make sure that your Z-Wave stick is released by the operating system.
 
 5) Install the Z-Wave JS Server of your choice, If you run the supervisor and you'd like to run the standard add-on, you can skip this step if you want. The add-on is installed automatically for you when you choose so in the integration set-up. Remember to fill in the network key you've saved before.
 
-6) Install the Z-Wave JS integration and connect it to the server. You should see your nodes being detected by Home Assistant. Carefully watch if the status of the node is "ready", this means it's been fully interviewed (and those details cached) by the Z-Wave JS driver. Battery powered nodes will only be interviewed when they wake up (at scheduled intervals) which can take from a few hours to a few days. To speed that up, you might want to consider waking the device up once. The manual of your device will tell you how to do a manual wake.
+6) Install the Z-Wave JS integration and connect it to the server. You should see your nodes being detected by Home Assistant. Carefully watch if the status of the node is "ready", this means it's been fully interviewed (and those details cached) by the Z-Wave JS driver. Battery-powered nodes will only be interviewed when they wake up (at scheduled intervals) which can take from a few hours to a few days. To speed that up, you might want to consider waking the device up once. The manual of your device will tell you how to do a manual wake.
 
-7) Once a node hits the ready state, the entities will be created (so not before). Only at this point it is safe to rename the device (and so it's entities). You will thank yourself at this point for having that list noted down of Nodes and their names. This is actually the only real hard part of the migration as you will need to name all your devices again.
+7) Once a node hits the ready state, the entities will be created (so not before). Only at this point, it is safe to rename the device (and so its entities). You will thank yourself at this point for having that list noted down of nodes and their names. This is actually the only real hard part of the migration as you will need to name all your devices again.
 
 8) Enjoy your super fast up-to-date Z-Wave network in Home Assistant with support for all modern devices!
 
@@ -205,11 +205,11 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 ### Can I switch between the Official Z-Wave JS add-on and Z-Wave JS to MQTT?
 
 You can but be aware to not run them both at the same time, only one of them can be active.
-Do remember however that switching requires a re-interview of the network. It is possible to copy the (json) cache files but that is out of scope of this manual. To prevent you from doing all the renaming work again there's a small trick to update the existing Z-Wave JS configuration with the new websocket URL: Just re-add the Z-Wave integration to Home Assistant, filling in the new/updated websocket url. There will be popup raised that this Z-Wave network is already configured but "under the hood" the websocket url is adjusted.
+Do remember however that switching requires a re-interview of the network. It is possible to copy the (JSON) cache files but that is out of the scope of this manual. To prevent you from doing all the renaming work again there's a small trick to update the existing Z-Wave JS configuration with the new WebSocket URL: Just re-add the Z-Wave integration to Home Assistant, filling in the new/updated WebSocket URL. There will be a popup raised that this Z-Wave network is already configured but "under the hood" the WebSocket URL is adjusted.
   
 ### I do not see any entities created for my device in Home Assistant
 
-Entities will be created only after the node hits the ready state (it's interview is completed). Also note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the Events section how to handle those events in your automations. If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant core), that will be the time to create an issue about your problem on the Github issue tracker, see below section of Troubleshooting issues.
+Entities will be created only after the node hits the ready state (its interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations. If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), that will be the time to create an issue about your problem on the GitHub issue tracker, see below section of troubleshooting issues.
 
 ## Troubleshooting Issues
 
