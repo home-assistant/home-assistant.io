@@ -64,7 +64,9 @@ The Z-Wave JS server is **included** in Z-Wave JS to MQTT. You enable it on the 
 
 #### 3. The Z-Wave JS to MQTT Docker container
 
-This is the recommended approach if you're running the Home Assistant Core yourself, without the supervisor and its convenient add-ons. See the [zwavejs2mqtt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions. Important note: make sure you run a recent version of the Docker image, as that contains the required WS server option.
+This is the recommended approach if you're running Home Assistant Container. See the [zwavejs2mqtt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions.
+
+After installing the Docker image, make sure you enable the Z-Wave JS Server in the configuration.
 
 #### 4. Run the Z-Wave server yourself
 
