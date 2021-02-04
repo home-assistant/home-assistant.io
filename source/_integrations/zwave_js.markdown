@@ -30,7 +30,7 @@ Note: A new network key is automatically generated for you. If this Z-Wave stick
 
 If you do not run Home Assistant OS (the default installation type) or Home Assistant Supervised, please see the [advanced installation instructions](#advanced-installation-instructions).
 
-## Getting Started with Z-Wave
+## Using Z-Wave
 
 When the Z-Wave integration starts up it will interview your entire Z-Wave network. Depending on the size of your network (number of nodes), this can take a while. Information about your devices is stored in cache files by Z-Wave JS. Be aware that (re)starting the Z-Wave server will cause your network to be (partially) unresponsive until the interview process is done.
 
