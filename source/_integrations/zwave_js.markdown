@@ -94,7 +94,7 @@ You can configure the Z-Wave network within Home Assistant from the Integrations
 
 Menu: **Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure**
 
-Do you want more configuration options ? In that case you could either wait for these options to be added to the integration over time or you can run the zwavejs2mqtt as your default Z-Wave server (you don't have to enable/use mqtt!).
+Do you want more configuration options? In that case, you could either wait for these options to be added to the integration over time or you can run the zwavejs2mqtt as your default Z-Wave server (you don't have to enable/use MQTT!).
 
 ## Services
 
