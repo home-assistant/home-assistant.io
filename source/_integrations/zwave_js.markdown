@@ -250,11 +250,11 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 2. Press `Add node`.
 3. Press `Start Inclusion`. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
 4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
-5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant, after a short while (seconds to minutes) the entities should also be created.
-6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). It some cases it might help to first remove a node (exclusion) before you add, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
+5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant. After a short while (seconds to minutes) the entities should also be created.
+6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). In some cases it might help to first remove a node (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
 
 <div class='note info'>
-While adding devices, you have the option to use `secure inclusion`, this means that the traffic between the controller and the device will be encrypted. This adds additional overhead to the Z-Wave network so use this option with care. As a general rule of thumb it is only advised to only securely include devices that actually NEED this kind of protection. A good example is a Z-Wave door lock.
+While adding devices, you have the option to use `secure inclusion`, this means that the traffic between the controller and the device will be encrypted. This adds additional overhead to the Z-Wave network so use this option with care. As a general rule of thumb it is advised to only securely include devices that actually NEED this kind of protection. A good example is a Z-Wave door lock.
 </div>
 
 ## How can I remove (exclude) a device from my Z-Wave network?
