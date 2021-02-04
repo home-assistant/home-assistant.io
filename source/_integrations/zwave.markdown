@@ -11,7 +11,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-featured: true
+featured: false
 ha_iot_class: Local Push
 ha_release: 0.7
 ha_config_flow: true
