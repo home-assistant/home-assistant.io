@@ -220,7 +220,7 @@ There are a few topics created on the forums that might be of your interest:
 
 - [Z-Wave legacy (1.4) -> ZwaveJS2MQTT](https://community.home-assistant.io/t/switching-from-zwave-1-4-to-zwavejs2mqtt/276721)
 
-You can also visit the #zwave channel in discord for support.
+You can also visit the `#zwave` channel in discord for support.
 
 ## Frequently Asked Questions
 
