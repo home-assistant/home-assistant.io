@@ -238,10 +238,10 @@ Entities will be created only after the node hits the ready state (its interview
 You can run the script below in the Developer Tools to get a full oversight of your nodes and their entities.
 
 ```Jinja2
-{%- for node, zstates in states | selectattr('attributes.node_id', 'in', range(1000)) | groupby('attributes.node_id') %}
+{%- for zstates in states | selectattr('attributes.node_id', 'in', range(1000)) | groupby('attributes.node_id') %}
 
-{%- for s in zstates %}
-Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
+{%- for s in zstates[1] %}
+Node {{ zstates[0] }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 
 {%- endfor %}
 ```
