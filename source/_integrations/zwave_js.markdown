@@ -56,7 +56,11 @@ The Z-Wave network can be configured via the built-in Z-Wave JS control panel in
 
 #### 2. The Z-Wave JS to MQTT add-on installed available from the community add-on store
 
-This is the recommended approach if you're running the default version of Home Assistant, including the Supervisor and you like to have maximum control over your Z-Wave network and its nodes.
+This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations.
+
+This add-on includes the Z-Wave JS Server as part of the Z-Wave JS 2 MQTT application. Despite the name, MQTT is not required to run this add-on.
+
+The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant and via the Z-Wave JS control panel built into Z-Wave JS 2 MQTT.
 
 Despite what the name suggests, you can actually run this add-on without MQTT enabled. In that case, it will provide you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings.
 
