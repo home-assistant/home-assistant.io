@@ -1546,3 +1546,8 @@ Once you've added the remote to your Z-Wave network, you'll need to update your 
 	<Item label="enable" value="1" />
 </Value>
 ```
+
+### Schlage Deadbolt Lock (BE469/FE599)
+
+Known Issues
+- Clear user codes does not work (https://github.com/home-assistant/core/issues/22464)
