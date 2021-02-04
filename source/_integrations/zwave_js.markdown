@@ -50,7 +50,7 @@ As stated in the above requirements, you need to run the Z-Wave JS Server somewh
 
 #### 1. The official Z-Wave JS add-on, available from the add-on store
 
-This option is only available to Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations. This add-on will be automatically installed when you set up the integration on these systems.
+This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations. This add-on will be automatically installed when you set up the integration on these systems.
 
 The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant.
 
