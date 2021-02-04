@@ -1,5 +1,6 @@
 {
   "name": "home-assistant.io",
+  "context": "..",
   "dockerFile": "../Dockerfile",
   "appPort": [4000],
   "postCreateCommand": "bundle install && npm install",
