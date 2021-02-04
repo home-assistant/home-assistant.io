@@ -8,6 +8,8 @@ group :development do
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'
   gem 'stringex', '2.8.5'
+  # > 2.1.0 causes slowdowns https://github.com/sass/sassc-ruby/issues/189
+  gem 'sassc', '2.1.0'
 end
 
 group :jekyll_plugins do

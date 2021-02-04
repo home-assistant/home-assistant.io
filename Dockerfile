@@ -1,4 +1,4 @@
-ARG VARIANT=2.6
+ARG VARIANT=2.7
 FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 
 # Install node
@@ -6,9 +6,6 @@ COPY .nvmrc /tmp/.nvmrc
 RUN \
   su vscode -c \
     "source /usr/local/share/nvm/nvm.sh && nvm install $(cat /tmp/.nvmrc) 2>&1"
-
-# Set an environment variable to be able to detect we are in dev container
-ENV DEVCONTAINER=true
 
 # Locale env vars
 ENV \
@@ -20,9 +17,6 @@ ENV \
 RUN apt update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y --no-install-recommends \
         ack \
-        git \
-        locales \
-        procps \
     && echo "en_US UTF-8" > /etc/locale.gen \
     && locale-gen en_US.UTF-8 \
     && echo 'export PS1="\\w\$ "' > /root/.bashrc \
