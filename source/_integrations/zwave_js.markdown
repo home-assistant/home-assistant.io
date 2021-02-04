@@ -308,9 +308,17 @@ Some legacy devices don't report all their values automatically and require poll
 Polling is considered bad practice and should only be used as a last resort when you use it with care and accept the negative impact on your network. Z-Wave is a very low speed network and poll requests can easily flood your network and slow down your commands.
 </div>
 
-## My device is recognized as Unknown Manufacturer and/or some of its functionalities do not work in Z-Wave JS
+### My device is recognized as Unknown Manufacturer and/or some of its functionalities do not work in Z-Wave JS
 
 Z-Wave JS keeps a database of all devices it supports, including any special treatments they need. These are called the device configuration files and they are contributed mainly by the community. Is your device not fully supported, consider [contributing the device configuration file](https://zwave-js.github.io/node-zwave-js/#/development/config-files?id=contributing-configuration-files).
+
+### I get a lot of sensor entities for my device that I'm probably never going to use
+
+The integration will add as many useable entities for you as possible from the information it retrieves from your Z-Wave devices. Entities that you don't want/like, can be disabled within the Home Assistant interface.
+
+### I renamed my devices in Z-Wave JS 2 MQTT but those names are not visible in Home Assistant
+
+Correct. Only a few devices actually support having their name stored in the hardware. In case your device supports it, you can rename it from the control panel and it will be stored on your device (and Home Assistant will prefer that name) but as most devices don't support that feature, zwavejs2mqtt provides a convenience method to name your devices in the control panel but those changes are not stored/synced with the actual Z-Wave network and thus not populated to Home Assistant.
 
 ## Troubleshooting Issues
 
