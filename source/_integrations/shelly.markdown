@@ -109,4 +109,4 @@ Not all devices support all input events. You can check on [Shelly API Reference
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
-- Support for battery-powered devices is limited (also applies to USB powered Shelly H&T)
+- Before set up, battery-powered devices must be woken up by pressing the button on the device.
