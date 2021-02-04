@@ -211,6 +211,19 @@ Do remember however that switching requires a re-interview of the network. It is
 
 Entities will be created only after the node hits the ready state (its interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations. If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), that will be the time to create an issue about your problem on the GitHub issue tracker, see below section of troubleshooting issues.
 
+### Is there a way to easily export a dump of all my current Z-Wave nodes before I migrate?
+
+You can run the script below in the Developer Tools to get a full oversight of your nodes and their entities.
+
+```yaml
+{%- for node, zstates in states | selectattr('attributes.node_id', 'in', range(1000)) | groupby('attributes.node_id') %}
+
+{%- for s in zstates %}
+Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
+
+{%- endfor %}
+```
+
 ## Troubleshooting Issues
 
 ### Get a dump of the current network state
