@@ -50,7 +50,9 @@ As stated in the above requirements, you need to run the Z-Wave JS Server somewh
 
 #### 1. The official Z-Wave JS add-on, available from the add-on store
 
-This is the recommended approach if you're running the default version of Home Assistant, including the Supervisor and you do not require any advanced configuration/options but just want your Z-Wave devices available to control within Home Assistant.
+This option is only available to Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations. This add-on will be automatically installed when you set up the integration on these systems.
+
+The Z-Wave network can be configured via the built-in Z-Wave JS control panel in Home Assistant.
 
 #### 2. The Z-Wave JS to MQTT add-on installed available from the community add-on store
 
