@@ -178,6 +178,8 @@ As this integration is still in the early stages there are some important limita
 - Support for setting configuration parameters through service calls is currently not supported but may be added in a later release.
 - There currently is no migration path available from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
 
+You can keep track of the Roadmap for the Z-Wave JS integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
+
 ## Migrating from previous Z-Wave implementations
 
 If you are currently running on the [`zwave`](/integrations/zwave/) or [`ozw`](/integrations/ozw/) Z-Wave integration there is **no need to switch over** to Z-Wave JS. The only thing important to know is that all/most development power currently goes to Z-Wave JS and the previous implementations are still provided as-is. They will **NOT be removed** without proper notice but in time there *might* come technical dependencies that render one or both of those integrations unusable. While both integrations will continue to exist and working, we've marked them as deprecated just to make sure that newcomers start with Z-Wave JS instead of legacy.
