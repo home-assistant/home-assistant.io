@@ -1,3 +1,5 @@
+// cSpell Settings
+// Contains additional words for our project
 {
     "version": "0.1",
     "language": "en",
@@ -36,8 +38,12 @@
         "waqi",
         "Webhook",
         "zwave",
-        "zwavejs"
+        "zwavejs",
+        "yourdevice"
     ],
+    // flagWords - list of words to be always considered incorrect
+    // This is useful for offensive words and common spelling errors.
+    // For example "hte" should be "the"
     "flagWords": [
         "hte",
         "asssistant"
@@ -77,8 +83,5 @@
         "typescriptreact",
         "yaml",
         "yml"
-    ],
-    "ignoreWords": [
-        "yourdevice"
     ]
 }
