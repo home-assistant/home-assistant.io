@@ -64,7 +64,6 @@ The Z-Wave network can be configured via the built-in Z-Wave JS control panel in
 
 Despite what the name suggests, you can actually run this add-on without MQTT enabled. In that case, it will provide you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings.
 
-The Z-Wave JS server is **included** in Z-Wave JS to MQTT. You enable it on the Z-Wave tab within the UI. If you install the add-on from the community repo, this will be done for you automatically.
 
 #### 3. The Z-Wave JS to MQTT Docker container
 
