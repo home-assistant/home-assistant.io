@@ -197,7 +197,7 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 
 6) Install the Z-Wave JS integration and connect it to the server. You should see your nodes being detected by Home Assistant. Carefully watch if the status of the node is "ready", this means it's been fully interviewed (and those details cached) by the Z-Wave JS driver. Battery powered nodes will only be interviewed when they wake up (at scheduled intervals) which can take from a few hours to a few days. To speed that up, you might want to consider waking the device up once. The manual of your device will tell you how to do a manual wake.
 
-7) Once a node hits the ready state, the entities will be created (so not before). Only at this point it is safe to rename the device (and so it's entities). You will thank yourself at this point for having that list noted down of Nodes and their names. This is actually the only real hard part of the migration as you will need to name all your devices again.
+7) Once a node hits the ready state, the entities will be created (so not before). Only at this point, it is safe to rename the device (and so its entities). You will thank yourself at this point for having that list noted down of nodes and their names. This is actually the only real hard part of the migration as you will need to name all your devices again.
 
 8) Enjoy your super fast up-to-date Z-Wave network in Home Assistant with support for all modern devices!
 
