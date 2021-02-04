@@ -36,7 +36,7 @@ The above instructions won't work if you are using Home Assistant Container, Hom
 
 Controlling your Z-Wave network using the Z-Wave JS integration has the following requirements:
 
-1. The [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server) is the gateway between your Z-Wave USB stick and Home Assistant, think of it like a virtual bridge/hub, running in software. You can run this server separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server with a websocket connection. You need to run this Z-Wave server before you can use the integration.
+1. Run [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server). This application provides the connection between your Z-Wave USB stick and Home Assistant. This server runs separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server via a websocket connection. You need to run this Z-Wave server before you can use the integration.
 
 2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
 
