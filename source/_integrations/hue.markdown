@@ -86,6 +86,7 @@ script:
 | ---------------------- | -------- | --------------------------------------------------------------------- |
 | `group_name`           | no       | The group/room name of the lights. Find this in the official Hue app. |
 | `scene_name`           | no       | The name of the scene. Find this in the official Hue app.             |
+| 'transition'           | yes      | The time in 100s of milliseconds to transition to the scene. For example, a value of 4 means 400 milliseconds.          |
 
 _Note_: `group_name` is not a reference to a Home Assistant group name. It can only be the name of a group/room in the Hue app.
 
