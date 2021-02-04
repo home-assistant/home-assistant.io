@@ -38,9 +38,9 @@ Controlling your Z-Wave network using the Z-Wave JS integration has the followin
 
 1. The [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server) is the gateway between your Z-Wave USB stick and Home Assistant, think of it like a virtual bridge/hub, running in software. You can run this server separately from Home Assistant so your Z-Wave mesh will keep running if you restart or stop Home Assistant. The Home Assistant Z-Wave JS integration connects to this server with a websocket connection. You need to run this Z-Wave server before you can use the integration.
 
-2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick, Z-Wave sticks will generally be /dev/ttyACM0 and GPIO hats will generally be /dev/ttyAMA0.
+2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
 
-3. A 16-byte **network key** used in order to connect securely to compatible devices. It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a default key will be auto generated for you.
+3. A **network key** used in order to connect securely to compatible devices. It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a default key will be auto generated for you.
 
 4. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network and turns it into Home Assistant devices and entities.
 
@@ -121,12 +121,11 @@ Events are issued for example when you press some button on a Z-Wave remote (aka
 
 This event is fired whenever a [notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) or [value notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotvalue-notificationquot) event is received.
 
-
 #### Notifications
 
 Notifications are events sent using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
 
-Notification exapmle:
+Notification example:
 
 ```json
 {
@@ -167,7 +166,7 @@ Value Notification example:
 
 As this integration is still in the early stages there are some important limitations to be aware of.
 
-- Some advanced CommandClasses are not yet fully implemented in Z-Wave JS. No worries as all the most common devices are already working. You can track status [here](https://github.com/zwave-js/node-zwave-js/issues/6). Actually the only one that impacts HA users is Barrier Operator CC (= garage door controllers) but the good news is that this is [almost finished](https://github.com/zwave-js/node-zwave-js/pull/1337)!
+- While support for the most common devices is working, some CommandClasses are not yet (fully) implemented in Z-Wave JS. You can track status [here](https://github.com/zwave-js/node-zwave-js/issues/6). For example the `Barrier Operator CommandClass` ( in plain English: garage door controllers) but the good news is that this is [almost finished](https://github.com/zwave-js/node-zwave-js/pull/1337).
 - Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented. You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
 - Polling is currently not supported in the integration but will be added soon as a service.
 - Support for setting configuration parameters through service calls is currently not supported but may be added in a later release.
@@ -208,7 +207,6 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 You can but be aware to not run them both at the same time, only one of them can be active.
 Do remember however that switching requires a re-interview of the network. It is possible to copy the (json) cache files but that is out of scope of this manual. To prevent you from doing all the renaming work again there's a small trick to update the existing Z-Wave JS configuration with the new websocket URL: Just re-add the Z-Wave integration to Home Assistant, filling in the new/updated websocket url. There will be popup raised that this Z-Wave network is already configured but "under the hood" the websocket url is adjusted.
   
-
 ### I do not see any entities created for my device in Home Assistant
 
 Entities will be created only after the node hits the ready state (it's interview is completed). Also note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the Events section how to handle those events in your automations. If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant core), that will be the time to create an issue about your problem on the Github issue tracker, see below section of Troubleshooting issues.
