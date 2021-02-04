@@ -237,7 +237,7 @@ Entities will be created only after the node hits the ready state (its interview
 
 You can run the script below in the Developer Tools to get a full oversight of your nodes and their entities.
 
-```yaml
+```Jinja2
 {%- for node, zstates in states | selectattr('attributes.node_id', 'in', range(1000)) | groupby('attributes.node_id') %}
 
 {%- for s in zstates %}
