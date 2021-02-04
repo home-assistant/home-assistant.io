@@ -40,7 +40,7 @@ Controlling your Z-Wave network using the Z-Wave JS integration has the followin
 
 2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
 
-3. A **network key** used in order to connect securely to compatible devices. The network key consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a unique default key will be auto generated for you. TIP: You could use a site like random.org to create your own random network key. Make sure that you keep a backup of this key in a safe place (like backups) because you need to enter the same key if you decide to ever reinstall the Z-Wave JS Server.
+3. A **network key** used in order to connect securely to compatible devices. The network key consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a unique default key will be auto generated for you. TIP: You could use a site like random.org to create your own random network key. Make sure that you keep a backup of this key in a safe place  because you need to enter the same key if you decide to ever reinstall the Z-Wave JS Server.
 
 4. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network and turns it into Home Assistant devices and entities.
 
@@ -70,7 +70,7 @@ This is considered a very advanced scenario where you run the (NodeJS) Z-Wave JS
 
 #### Important note
 
-When you start the Z-Wave JS server, it will begin interviewing your entire Z-Wave network, depending on the size of your network (how many nodes) this can take a while, especially when started for the very first time. Information about your devices is stored in cache files by Z-Wave JS. Be aware that (re)starting the Z-Wave server will cause your network to be (partially) unresponsive until the interview process is done.
+When you start the Z-Wave JS server, it will begin interviewing your entire Z-Wave network. Depending on the size of your network (how many nodes) this can take a while, especially when started for the very first time. Information about your devices is stored in cache files by Z-Wave JS. Be aware that (re)starting the Z-Wave server will cause your network to be (partially) unresponsive until the interview process is done.
 
 While your Z-Wave mesh is permanently stored on your stick, the additional metadata is not, so when you lose the cache files (for example by switching between any of the above-mentioned ways to run the server) all your nodes will have to be re-interviewed again before they can be properly controlled. You can speed up this process by manually waking up your battery-powered devices. Most of the time this is a press on the button on those devices (see manual). In any way, it is not needed to exclude/re-include devices from the mesh. Just be patient with this.
 
@@ -200,9 +200,9 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 
 5) Install the Z-Wave JS Server of your choice, If you run the supervisor and you'd like to run the standard add-on, you can skip this step if you want. The add-on is installed automatically for you when you choose so in the integration set-up. Remember to fill in the network key you've saved before.
 
-6) Install the Z-Wave JS integration and connect it to the server. You should see your nodes being detected by Home Assistant. Carefully watch if the status of the node is "ready", this means it's been fully interviewed (and those details cached) by the Z-Wave JS driver. Battery-powered nodes will only be interviewed when they wake up (at scheduled intervals) which can take from a few hours to a few days. To speed that up, you might want to consider waking the device up once. The manual of your device will tell you how to do a manual wake.
+6) Set up the Z-Wave JS integration and connect it to the server. You should see your nodes being detected by Home Assistant. Carefully watch if the status of the node is "ready". This means it's been fully interviewed (and those details cached) by the Z-Wave JS driver. Battery-powered nodes will only be interviewed when they wake up (at scheduled intervals) which can take from a few hours to a few days. To speed that up, you might want to consider waking the device up once. The manual of your device will tell you how to do a manual wake.
 
-7) Once a node hits the ready state, the entities will be created (so not before). Only at this point, it is safe to rename the device (and so its entities). You will thank yourself at this point for having that list noted down of nodes and their names. This is actually the only real hard part of the migration as you will need to name all your devices again.
+7) Once a node hits the ready state, the entities will be created (so not before). Only at this point, is it safe to rename the device (and so its entities). You will thank yourself at this point for having that list noted down of nodes and their names. This is actually the only real hard part of the migration as you will need to name all your devices again.
 
 8) Enjoy your super fast up-to-date Z-Wave network in Home Assistant with support for all modern devices!
 
@@ -249,7 +249,7 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 1. In Home Assistant, open Settings, Configuration, Z-Wave JS -> Configure.
 2. Press `Add node`.
 3. Press `Start Inclusion`. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
-4. Put the device you want to add in inclusion mode. refer to its manual how this is done.
+4. Put the device you want to add in inclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant, after a short while (seconds to minutes) the entities should also be created.
 6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). It some cases it might help to first remove a node (exclusion) before you add, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
 
@@ -262,7 +262,7 @@ While adding devices, you have the option to use `secure inclusion`, this means 
 1. In Home Assistant, open Settings, Configuration, Z-Wave JS -> Configure.
 2. Press `Remove node`.
 3. Press `Start Exclusion`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
-4. Put the device you want to remove in exclusion mode. refer to its manual how this is done.
+4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
 5. The UI should confirm that the node was removed and the device and entities will be removed from Home Assistant.
 
 ### Where do I need to enter the network key?
@@ -272,7 +272,7 @@ While adding devices, you have the option to use `secure inclusion`, this means 
 
 ### How can I use my OZW network key in zwavejs2mqtt?
 
-You can use your existing networkkey in zwavejs2mqtt but you need to slightly adjust it.
+You can use your existing network key in zwavejs2mqtt but you need to slightly adjust it.
 The OZW looks like this: `0x01, 0x02, 0x03 etc.` while the network key format accepted in zwavejs2mqtt looks like this `0102030405 etc.`. You can simply edit your existing key and remove the `"0x"` part and the `", "` part so it becomes one large string of numbers.
 
 ### What's the benefit of using Z-Wave JS to MQTT over the official Add-On?
