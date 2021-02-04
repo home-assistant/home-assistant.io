@@ -238,7 +238,7 @@ sensor:
   - platform: rest
     resource: https://api.ipify.org/?format=json
     name: External IP
-    value_template: '{{ value_json.ip }}'
+    value_template: "{{ value_json.ip }}"
     scan_interval: 10
 
 automation:
@@ -248,7 +248,7 @@ automation:
         platform: state
     condition:
       - condition: template
-        value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+        value_template: "{{ trigger.from_state.state != trigger.to_state.state }}"
       - condition: template
         value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
     action:

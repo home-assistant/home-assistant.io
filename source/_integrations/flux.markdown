@@ -99,8 +99,8 @@ switch:
       - light.desk
       - light.lamp
     name: Fluxer
-    start_time: '7:00'
-    stop_time: '23:00'
+    start_time: "7:00"
+    stop_time: "23:00"
     start_colortemp: 4000
     sunset_colortemp: 3000
     stop_colortemp: 1900

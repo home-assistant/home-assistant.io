@@ -136,6 +136,10 @@ name:
   required: false
   description: Overwrites friendly entity name.
   type: string
+format:
+  required: false
+  description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  type: string  
 {% endconfiguration %}
 
 ### Button
@@ -147,10 +151,15 @@ type:
   required: true
   description: "`button`"
   type: string
-name:
-  required: true
-  description: Main label.
+entity:
+  required: false
+  description: "Entity ID. Either `entity` or `name` (or both) needs to be provided."
   type: string
+name:
+  required: false
+  description: "Row label. Either `entity` or `name` (or both) needs to be provided."
+  type: string
+  default: "Friendly name of `entity` if specified."
 icon:
   required: false
   description: An icon to display to the left of the main label.
@@ -214,7 +223,7 @@ entities:
       required: false
       description: If false, the icon is not shown.
       type: boolean
-      default: "true"    
+      default: "true"
     tap_action:
       required: false
       description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).
@@ -358,7 +367,7 @@ type: entities
 title: Entities card sample
 show_header_toggle: true
 header:
-  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+  image: "https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png"
   type: picture
 entities:
   - entity: alarm_control_panel.alarm
@@ -418,7 +427,7 @@ entities:
     entity: sun.sun
     attribute: elevation
     name: Sun elevation
-    prefix: '~'
+    prefix: "~"
     suffix: Units
   - type: conditional
     conditions:

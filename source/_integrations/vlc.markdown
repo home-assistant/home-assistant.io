@@ -50,7 +50,7 @@ A full configuration for VLC could look like the one below:
 media_player:
   - platform: vlc
     name: speaker_1
-    arguments: '--alsa-audio-device=hw:1,0'
+    arguments: "--alsa-audio-device=hw:1,0"
 ```
 
 ## Additional configuration on macOS

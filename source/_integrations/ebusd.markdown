@@ -18,7 +18,7 @@ Enable the sensor by adding the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 ebusd:
   host: 127.0.0.1
-  circuit: '700'
+  circuit: "700"
 ```
 
 {% configuration %}

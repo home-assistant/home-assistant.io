@@ -14,7 +14,7 @@ categories: Release-Notes
 homeassistant:
   customize:
     switch.ac:
-      icon: 'mdi:air-conditioner'
+      icon: "mdi:air-conditioner"
 ```
 
 #### Breaking changes

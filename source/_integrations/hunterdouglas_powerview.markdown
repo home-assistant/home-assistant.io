@@ -23,28 +23,6 @@ There is currently support for the following device types within Home Assistant:
 
 To add `Hunter Douglas PowerView` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Hunter Douglas PowerView**.
 
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-hunterdouglas_powerview:
-  - host: IP_ADDRESS
-```
-
-```yaml
-# Example configuration.yaml with multiple hubs
-hunterdouglas_powerview:
-  - host: IP_ADDRESS
-  - host: IP_ADDRESS_2
-```
-
-{% configuration %}
-host:
-  description: IP address of the PowerView Hub, e.g., 192.168.1.10.
-  required: true
-  type: string
-{% endconfiguration %}
-
 ## Example Automations
 
 ``` yaml

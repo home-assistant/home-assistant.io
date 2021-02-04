@@ -69,7 +69,7 @@ input_datetime:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
         type: [datetime, time, date]
-        default: 1970-01-01 00:00 | 00:00 | 1970-01-01
+        default: <today> 00:00 | 00:00 | <today>
 {% endconfiguration %}
 
 ### Attributes
@@ -136,7 +136,7 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
   target:
     entity_id: input_datetime.XXX
   data:
-    time: '05:30:00'
+    time: "05:30:00"
 # Sets time to time from datetime object
 - service: input_datetime.set_datetime
   target:
@@ -148,7 +148,7 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
   target:
     entity_id: input_datetime.XXX
   data:
-    date: '2020-08-24'
+    date: "2020-08-24"
 # Sets date to date from datetime object
 - service: input_datetime.set_datetime
   target:
@@ -160,7 +160,7 @@ If you have a `datetime` object you can use its `timestamp` method. Of if you ha
   target:
     entity_id: input_datetime.XXX
   data:
-    datetime: '2020-08-25 05:30:00'
+    datetime: "2020-08-25 05:30:00"
 # Sets date and time from datetime object
 - service: input_datetime.set_datetime
   target:

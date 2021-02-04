@@ -95,7 +95,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/config
     name: Current Version
-    value_template: '{{ value_json.version }}'
+    value_template: "{{ value_json.version }}"
 ```
 
 {% endraw %}

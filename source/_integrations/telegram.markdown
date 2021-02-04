@@ -118,7 +118,7 @@ To use notifications, please see the [getting started with automation page](/get
 action:
   service: notify.NOTIFIER_NAME
   data:
-    title: '*Send a message*'
+    title: "*Send a message*"
     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
     data:
       inline_keyboard:

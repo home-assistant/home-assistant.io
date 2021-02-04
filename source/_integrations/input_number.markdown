@@ -154,7 +154,7 @@ input_select:
       - Reading
       - Relax
       - 'OFF'
-    initial: 'Select'
+    initial: "Select"
 input_number:
   bedroom_brightness:
     name: Brightness
@@ -198,7 +198,7 @@ automation:
   - alias: Set temp slider
     trigger:
       platform: mqtt
-      topic: 'setTemperature'
+      topic: "setTemperature"
     action:
       service: input_number.set_value
       data:
@@ -214,7 +214,7 @@ automation:
     action:
       service: mqtt.publish
       data:
-        topic: 'setTemperature'
+        topic: "setTemperature"
         retain: true
         payload: "{{ states('input_number.target_temp') | int }}"
 ```
@@ -249,7 +249,7 @@ automation:
    trigger:
      platform: state
      entity_id: switch.something
-     to: 'on'
+     to: "on"
    action:
      - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
      - service: switch.turn_off

@@ -134,7 +134,7 @@ In the configuration example below:
 alarm_control_panel:
   - platform: manual
     name: Home Alarm
-    code: '1234'
+    code: "1234"
     arming_time: 30
     delay_time: 20
     trigger_time: 4
@@ -157,16 +157,16 @@ automation:
   trigger:
     - platform: state
       entity_id: sensor.pir1
-      to: 'active'
+      to: "active"
     - platform: state
       entity_id: sensor.pir2
-      to: 'active'
+      to: "active"
     - platform: state
       entity_id: sensor.door
-      to: 'open'
+      to: "open"
     - platform: state
       entity_id: sensor.window
-      to: 'open'
+      to: "open"
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
@@ -184,7 +184,7 @@ automation:
     trigger:
       - platform: state
         entity_id: alarm_control_panel.ha_alarm
-        to: 'triggered'
+        to: "triggered"
     action:
       - service: notify.notify
         data:
@@ -199,7 +199,7 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.front_door_lock_alarm_type
-        to: '19'
+        to: "19"
         # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
     action:
       - service: alarm_control_panel.alarm_disarm
@@ -215,7 +215,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'disarmed'
+      to: "disarmed"
   action:
     - service: notify.notify
       data:
@@ -227,7 +227,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'pending'
+      to: "pending"
   action:
     - service: notify.notify
       data:
@@ -239,7 +239,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'armed_away'
+      to: "armed_away"
   action:
     - service: notify.notify
       data:
@@ -251,7 +251,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'armed_home'
+      to: "armed_home"
   action:
     - service: notify.notify
       data:

@@ -64,12 +64,12 @@ automation:
       trigger:
         - platform: state
           entity_id: device_tracker.beacon_car
-          from: 'not_home'
-          to: 'home'
+          from: "not_home"
+          to: "home"
       condition:
         - condition: state
           entity_id: switch.gate
-          state: 'off'
+          state: "off"
       action:
           service: switch.turn_on
           entity_id: switch.gate
@@ -97,7 +97,7 @@ automation:
     condition:
       - condition: state
         entity_id: script.send_key_alert
-        state: 'on'
+        state: "on"
     action:
       service: script.turn_off
       entity_id: script.send_key_alert
@@ -111,8 +111,8 @@ script:
           minutes: 2
       - service: notify.notify
         data:
-            message: 'You forgot your keys'
-            target: 'device/gregs_iphone'
+            message: "You forgot your keys"
+            target: "device/gregs_iphone"
 ```
 
 

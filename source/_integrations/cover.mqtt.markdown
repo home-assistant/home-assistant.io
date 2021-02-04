@@ -56,6 +56,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
@@ -283,7 +288,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -314,7 +319,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -346,9 +351,9 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
-    tilt_command_topic: 'home-assistant/cover/tilt'
-    tilt_status_topic: 'home-assistant/cover/tilt-state'
+    value_template: "{{ value.x }}"
+    tilt_command_topic: "home-assistant/cover/tilt"
+    tilt_status_topic: "home-assistant/cover/tilt-state"
     tilt_status_template: '{{ value_json["PWM"]["PWM1"] }}'
     tilt_min: 0
     tilt_max: 180

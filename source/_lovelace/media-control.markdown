@@ -27,6 +27,10 @@ name:
   description: Overwrites friendly name.
   type: string
   default: Name of entity
+theme:
+  required: false
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+  type: string
 {% endconfiguration %}
 
 ## Example

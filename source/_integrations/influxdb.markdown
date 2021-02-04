@@ -520,7 +520,7 @@ username: home-assistant
       field: value
       database: db1
     - name: Min for last hour
-      unit_of_measurement: '%'
+      unit_of_measurement: "%"
       value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
       group_function: min
       where: '"entity_id" = ''salon'' and time > now() - 1h'

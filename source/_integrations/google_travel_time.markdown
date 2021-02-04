@@ -142,11 +142,11 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
   initial_state: "on"
   trigger:
     - platform: time_pattern
-      minutes: '/2'
+      minutes: "/2"
   condition:
     - condition: time
-      after: '08:00:00'
-      before: '11:00:00'
+      after: "08:00:00"
+      before: "11:00:00"
     - condition: time
       weekday:
         - mon

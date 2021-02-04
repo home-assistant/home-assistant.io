@@ -260,6 +260,51 @@ script:
             - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
 ```
 
+### Deleting commands
+
+You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` service.
+
+| Service data attribute | Optional | Description                           |
+| ---------------------- | -------- | ------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                     |
+| `device`               | no       | Name of the device.                   |
+| `command`              | no       | Names of the commands to be deleted.  |
+
+#### Deleting a command
+
+To delete a command, call `remote.delete_command` with the device name and the command to be deleted:
+
+```yaml
+# Example configuration.yaml entry
+script:
+  delete_tv_power:
+    sequence:
+      - service: remote.delete_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command: power
+```
+
+#### Deleting multiple commands
+
+You can provide a list of commands to be deleted:
+
+```yaml
+# Example configuration.yaml entry
+script:
+  delete_tv_commands:
+    sequence:
+      - service: remote.delete_command
+        data:
+          entity_id: remote.bedroom
+          device: television
+          command:
+            - power
+            - source
+            - menu
+```
+
 ## Sensor
 
 The `sensor` entities allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.

@@ -167,7 +167,7 @@ ihc:
     sensor:
       - id: 12345
         name: Temperatur_living_room
-        unit_of_measurement: '°C'
+        unit_of_measurement: "°C"
         note: Floor and wall temp.
         position: On wall between windows
       - id: 23456

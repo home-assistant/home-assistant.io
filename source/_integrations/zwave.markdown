@@ -1,5 +1,5 @@
 ---
-title: Z-Wave
+title: Z-Wave (deprecated)
 description: Instructions on how to integrate your existing Z-Wave within Home Assistant.
 ha_category:
   - Hub
@@ -92,7 +92,7 @@ automation:
       - service: climate.set_hvac_mode
         data:
           entity_id: climate.remotec_zxt120_heating_1_id
-          hvac_mode: 'Off'
+          hvac_mode: "Off"
 ```
 
 **Note:** In the example above, the word `Off` is encased in single quotes to be valid YAML.

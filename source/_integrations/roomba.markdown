@@ -1,5 +1,5 @@
 ---
-title: iRobot Roomba
+title: iRobot Roomba and Braava
 description: Instructions on how to integrate your Wi-Fi enabled Roomba and Braava within Home Assistant.
 ha_category:
   - Vacuum

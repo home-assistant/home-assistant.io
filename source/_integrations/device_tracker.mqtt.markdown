@@ -20,8 +20,8 @@ To use this device tracker in your installation, add the following to your `conf
 device_tracker:
   - platform: mqtt
     devices:
-      paulus_oneplus: 'location/paulus'
-      annetherese_n4: 'location/annetherese'
+      paulus_oneplus: "location/paulus"
+      annetherese_n4: "location/annetherese"
 ```
 
 {% configuration %}
@@ -37,12 +37,12 @@ payload_home:
   description: The payload value that represents the 'home' state for the device.
   required: false
   type: string
-  default: 'home'
+  default: "home"
 payload_not_home:
   description: The payload value that represents the 'not_home' state for the device.
   required: false
   type: string
-  default: 'not_home'
+  default: "not_home"
 source_type:
   description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
   required: false
@@ -56,11 +56,11 @@ source_type:
 device_tracker:
   - platform: mqtt
     devices:
-      paulus_oneplus: 'location/paulus'
-      annetherese_n4: 'location/annetherese'
+      paulus_oneplus: "location/paulus"
+      annetherese_n4: "location/annetherese"
     qos: 1
-    payload_home: 'present'
-    payload_not_home: 'not present'
+    payload_home: "present"
+    payload_not_home: "not present"
     source_type: bluetooth
 ```
 

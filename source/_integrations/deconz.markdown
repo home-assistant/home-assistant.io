@@ -280,7 +280,7 @@ automation:
     trigger:
     - platform: state
       entity_id: binary_sensor.doorbell_motion
-      to: 'on'
+      to: "on"
     action:
     - service: deconz.configure
       data:

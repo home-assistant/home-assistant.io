@@ -62,11 +62,11 @@ Then you can use the following automation, with the entities from your system, w
 
 ```yaml
 automation:
-  alias: 'Save the video when the doorbell is pushed'
+  alias: "Save the video when the doorbell is pushed"
   trigger:
   - platform: state
     entity_id: binary_sensor.front_doorbell_ding
-    to: 'on'
+    to: "on"
   action:
   - service: downloader.download_file
     data:
