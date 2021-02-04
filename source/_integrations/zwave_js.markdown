@@ -54,7 +54,11 @@ This is the recommended approach if you're running the default version of Home A
 
 #### 2. The Z-Wave JS to MQTT add-on installed available from the community add-on store
 
-This is the recommended approach if you're running the default version of Home Assistant, including the supervisor and you like to have maximum control over your Z-Wave network and it's nodes. Despite what the name suggests, you can actually run this addon without MQTT enabled. In that case it will provide you with a full fledged, attractive and feature complete UI to manage your Z-Wave nodes and settings. The Z-Wave JS server is **included** in Zwave JS to MQTT, you enable it on the Z-Wave tab within the UI. If you install the add-on from the community repo, this will be done for you automatically.
+This is the recommended approach if you're running the default version of Home Assistant, including the Supervisor and you like to have maximum control over your Z-Wave network and its nodes.
+
+Despite what the name suggests, you can actually run this addon without MQTT enabled. In that case, it will provide you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings.
+
+The Z-Wave JS server is **included** in Zwave JS to MQTT, you enable it on the Z-Wave tab within the UI. If you install the add-on from the community repo, this will be done for you automatically.
 
 #### 3. The Z-Wave JS to MQTT docker container
 
