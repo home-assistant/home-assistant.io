@@ -1,10 +1,11 @@
-FROM ruby:2.6
+ARG VARIANT=2.6
+FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 
-# Avoid warnings by switching to noninteractive
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Use Bash as the default shell
-ENV SHELL=/bin/bash 
+# Install node
+COPY .nvmrc /tmp/.nvmrc
+RUN \
+  su vscode -c \
+    "source /usr/local/share/nvm/nvm.sh && nvm install $(cat /tmp/.nvmrc) 2>&1"
 
 # Set an environment variable to be able to detect we are in dev container
 ENV DEVCONTAINER=true
@@ -16,7 +17,7 @@ ENV \
     LC_ALL=en_US.UTF-8
 
 # Install git, process tools
-RUN apt update \
+RUN apt update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y --no-install-recommends \
         ack \
         git \
@@ -30,7 +31,5 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install the specific version of bundler we need
-RUN gem install bundler -v 2.0.1
-
-# Switch back to dialog for any ad-hoc use of apt-get
-ENV DEBIAN_FRONTEND=dialog
+COPY Gemfile.lock ./
+RUN gem install bundler -v `awk 'c&&c--;/BUNDLED WITH/{c=1}' Gemfile.lock`

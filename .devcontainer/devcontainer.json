@@ -1,8 +1,8 @@
 {
   "name": "home-assistant.io",
-  "dockerFile": "Dockerfile",
+  "dockerFile": "../Dockerfile",
   "appPort": [4000],
-  "postCreateCommand": "bundle install",
+  "postCreateCommand": "bundle install && npm install",
   "extensions": [
     "davidanson.vscode-markdownlint",
     "editorconfig.editorconfig",
