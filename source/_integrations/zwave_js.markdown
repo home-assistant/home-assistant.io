@@ -20,7 +20,7 @@ ha_codeowners:
 ha_domain: zwave_js
 ---
 
-This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
+This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant.
 
 ## Quick start (Home Assistant including Supervisor)
 
@@ -34,7 +34,7 @@ If you do not run Home Assistant OS (the default installation type) or Home Assi
 
 When the Z-Wave integration starts up, it will interview your entire Z-Wave network. Depending on the number of devices paired with the Z-Wave stick, this can take a while. Information about your devices is stored in cache files by Z-Wave JS. Be aware that (re)starting the Z-Wave server will cause your network to be (partially) unresponsive until the interview process is done.
 
-While your Z-Wave mesh is permanently stored on your stick, the additional metadata is not. When you lose the cache files (for example by switching between any of the above-mentioned ways to run the server) all your nodes will have to be re-interviewed again before they can be properly controlled. You can speed up this process by manually waking up your battery-powered devices. Most of the time this is a press on the button on those devices (see their manual). It is not needed to exclude/re-include devices from the mesh. Just be patient and the devices will appear.
+While your Z-Wave mesh is permanently stored on your stick, the additional metadata is not. When you lose the cache files (for example by switching between any of the below-mentioned ways to run the server) all your nodes will have to be re-interviewed again before they can be properly controlled. You can speed up this process by manually waking up your battery-powered devices. Most of the time this is a press on the button on those devices (see their manual). It is not needed to exclude/re-include devices from the mesh. Just be patient and the devices will appear.
 
 <p class='note'>
 Advanced users: Make sure that the server started successfully by inspecting the logs. Give the Z-Wave controller some time to start.
@@ -128,9 +128,9 @@ You can keep track of the Roadmap for the Z-Wave JS integration [here](https://g
 
 If you are currently running on the [`zwave`](/integrations/zwave/) or [`ozw`](/integrations/ozw/) Z-Wave integration and it works fine, there is **no need to switch over at this time** to Z-Wave JS. It is important to know is that most development focus currently goes to Z-Wave JS. The previous implementations are still provided as-is. They will **NOT be removed** without proper notice but in time there *might* come technical dependencies that render one or both of those integrations unusable.
 
-If you're new to Home Assistant, use Z-Wave JS. 
+If you're new to Home Assistant, use Z-Wave JS.
 
-The `zwave` integration has been marked as deprecated and will no longer receive any updates like new device files. The `ozw` integration will receive new device files if they are provided by upstream. 
+The `zwave` integration has been marked as deprecated and will no longer receive any updates like new device files. The `ozw` integration will receive new device files if they are provided by upstream.
 
 It is perfectly doable to switch over from one of the above mentioned previous integrations to the new Z-Wave JS integration. The good news is that your entire Z-Wave network is **stored on your stick** so you will not have to run through your house to recreate your network. That said, we currently do not provide a full-fledged, worry-free, click-a-button, migration from old to new. We're exploring options to provide this in the future. This means that if you want to switch over now, *you* will be the migration wizard.
 
@@ -241,7 +241,7 @@ See the [Z-Wave JS device database](https://devices.zwave-js.io/).
 You can, but you cannot run them at the same time. Only one of them can be active at the same time.
 
 When you switch add-ons, re-add the Z-Wave integration to Home Assistant with the new/updated WebSocket URL. There will be a popup raised that this Z-Wave network is already configured but "under the hood" the WebSocket URL is adjusted.
-  
+
 ### I do not see any entities created for my device in Home Assistant
 
 Entities will be created only after the node hits the ready state (interview is completed). Also, note that some devices (like button remotes) do not create any entities but will only provide events when a button is pressed. See the events section on how to handle those events in your automations. If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), that will be the time to create an issue about your problem on the GitHub issue tracker, see below section of troubleshooting issues.
