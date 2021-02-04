@@ -249,7 +249,7 @@ Node {{ node }};{{ s.name }};{{ s.entity_id }}{% endfor %}
 1. In Home Assistant, open Settings, Configuration, Z-Wave JS -> Configure.
 2. Press `Add node`.
 3. Press `Start Inclusion`. The Z-Wave controller is now in inclusion mode and will not respond to other commands.
-4. Put the device you want to add in inclusion mode. refer to it's manual how this is done.
+4. Put the device you want to add in inclusion mode. refer to its manual how this is done.
 5. The UI should confirm that the node was added and it will be immediately visible in Home Assistant, after a short while (seconds to minutes) the entities should also be created.
 6. If the controller fails to add/find your device, cancel the inclusion process (to unblock your network again). It some cases it might help to first remove a node (exclusion) before you add, even when the device has not been added to this Z-Wave network yet. Another approach would be to factory reset the device. Info about that is in the manual of your device.
 
@@ -262,7 +262,7 @@ While adding devices, you have the option to use `secure inclusion`, this means 
 1. In Home Assistant, open Settings, Configuration, Z-Wave JS -> Configure.
 2. Press `Remove node`.
 3. Press `Start Exclusion`. The Z-Wave controller is now in exclusion mode and will not respond to other commands.
-4. Put the device you want to remove in exclusion mode. refer to it's manual how this is done.
+4. Put the device you want to remove in exclusion mode. refer to its manual how this is done.
 5. The UI should confirm that the node was removed and the device and entities will be removed from Home Assistant.
 
 ### Where do I need to enter the network key?
@@ -290,7 +290,7 @@ The official Z-Wave JS integration is not based on MQTT and is talking directly 
 
 Sure, in the settings of zwavejs2mqtt, make sure to enable "WS Server" and disable "Gateway".
 
-### My device does not automatically update it's status in HA if I control it manually
+### My device does not automatically update its status in HA if I control it manually
 
 Your device might not send send automatic status updates to the controller. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status) at some interval. See the section below for more info about this.
 
@@ -306,7 +306,7 @@ Some legacy devices don't report all their values automatically and require poll
 Polling is considered bad practice and should only be used as a last resort when you use it with care and accept the negative impact on your network. Z-Wave is a very low speed network and poll requests can easily flood your network and slow down your commands.
 </div>
 
-## My device is recognized as Unknown Manufacturer and/or some of it's functionalities do not work in Z-Wave JS
+## My device is recognized as Unknown Manufacturer and/or some of its functionalities do not work in Z-Wave JS
 
 Z-Wave JS keeps a database of all devices it supports, including any special treatments they need. These are called the device configuration files and they are contributed mainly by the community. Is your device not fully supported, consider [contributing the device configuration file](https://zwave-js.github.io/node-zwave-js/#/development/config-files?id=contributing-configuration-files).
 
