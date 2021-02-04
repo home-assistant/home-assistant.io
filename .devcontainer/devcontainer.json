@@ -4,6 +4,7 @@
   "dockerFile": "../Dockerfile",
   "appPort": [4000],
   "postCreateCommand": "bundle install && npm install",
+  "containerEnv": {"DEVCONTAINER": "true"},
   "extensions": [
     "davidanson.vscode-markdownlint",
     "editorconfig.editorconfig",
@@ -18,6 +19,6 @@
     "errorLens.gutterIconsEnabled": true,
     "errorLens.addAnnotationTextPrefixes": false,
     "errorLens.enabledDiagnosticLevels": ["error", "warning"],
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
   }
 }
