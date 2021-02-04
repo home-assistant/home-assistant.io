@@ -46,7 +46,7 @@ automation:
     event_type: image_processing.detect_face
     event_data:
       entity_id: image_processing.door
-      name: 'Hans Maier'
+      name: "Hans Maier"
 ...
 ```
 
@@ -67,7 +67,7 @@ automation:
   trigger:
     - platform: state
       entity_id: sensor.door_motion_sensor
-      to: 'on'
+      to: "on"
   action:
     - service: image_processing.scan
       data:

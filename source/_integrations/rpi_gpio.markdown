@@ -133,14 +133,14 @@ cover:
   - platform: rpi_gpio
     relay_time: 0.2
     invert_relay: false
-    state_pull_mode: 'UP'
+    state_pull_mode: "UP"
     invert_state: true
     covers:
       - relay_pin: 10
         state_pin: 11
       - relay_pin: 12
         state_pin: 13
-        name: 'Right door'
+        name: "Right door"
 ```
 
 ## Remote Raspberry Pi Cover

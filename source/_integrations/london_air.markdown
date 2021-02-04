@@ -63,12 +63,12 @@ To explore the data available within the `data` attribute of a sensor use the `d
 - platform: template
   sensors:
     updated:
-      friendly_name: 'Updated'
+      friendly_name: "Updated"
       value_template: {% raw %}'{{state_attr('sensor.merton', 'updated')}}'{% endraw %}
     merton_pm10:
-      friendly_name: 'Merton PM10'
+      friendly_name: "Merton PM10"
       value_template: {% raw %}'{{state_attr('sensor.merton', 'data')[0].pollutants[0].summary}}'{% endraw %}
     westminster_s02:
-      friendly_name: 'Westminster S02'
+      friendly_name: "Westminster S02"
       value_template: {% raw %}'{{state_attr('sensor.westminster', 'data')[0].pollutants[3].summary}}'{% endraw %}
 ```

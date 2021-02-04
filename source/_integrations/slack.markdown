@@ -44,7 +44,7 @@ notify:
   - name: NOTIFIER_NAME
     platform: slack
     api_key: YOUR_API_KEY
-    default_channel: '#general'
+    default_channel: "#general"
 ```
 
 {% configuration %}

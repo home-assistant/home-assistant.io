@@ -92,8 +92,8 @@ To give an example of simulating real world data, a simulated relative humidity 
 ```yaml
 sensor:
   - platform: simulated
-    name: 'simulated relative humidity'
-    unit: '%'
+    name: "simulated relative humidity"
+    unit: "%"
     amplitude: 0 # Turns off the periodic contribution
     mean: 50
     spread: 10

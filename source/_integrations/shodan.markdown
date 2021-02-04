@@ -24,7 +24,7 @@ file:
 sensor:
   - platform: shodan
     api_key: SHODAN_API_KEY
-    query: 'home-assistant'
+    query: "home-assistant"
 ```
 
 {% configuration %}

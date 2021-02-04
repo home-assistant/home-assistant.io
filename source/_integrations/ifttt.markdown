@@ -154,7 +154,7 @@ automation:
   action:
     service: script.ifttt_notify
     data:
-      value1: 'HA Status:'
+      value1: "HA Status:"
       value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
       value3: "{{ trigger.event.data.to_state.state }}"
 ```

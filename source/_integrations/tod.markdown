@@ -25,13 +25,13 @@ binary_sensor:
   - platform: tod
     name: Early Morning
     after: sunrise
-    after_offset: '-02:00'
-    before: '07:00'
+    after_offset: "-02:00"
+    before: "07:00"
 
   - platform: tod
     name: Late Morning
-    after: '10:00'
-    before: '12:00'
+    after: "10:00"
+    before: "12:00"
 ```
 
 {% configuration %}

@@ -166,7 +166,7 @@ elements:
     service: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
-      command: 'A'
+      command: "A"
     style:
       top: 82.5%
       left: 80.05%
@@ -179,7 +179,7 @@ elements:
     service: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
-      command: 'X'
+      command: "X"
     style:
       top: 60.0%
       left: 70.6%
@@ -192,7 +192,7 @@ elements:
     service: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
-      command: 'B'
+      command: "B"
     style:
       top: 60.0%
       left: 89.5%
@@ -205,7 +205,7 @@ elements:
     service: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
-      command: 'Y'
+      command: "Y"
     style:
       top: 37.9%
       left: 80.05%
@@ -230,8 +230,8 @@ elements:
     service: media_player.play_media
     service_data:
       entity_id: media_player.xboxone
-      media_content_type: ''
-      media_content_id: 'Home'
+      media_content_type: ""
+      media_content_id: "Home"
     style:
       top: 22.2%
       left: 47.2%

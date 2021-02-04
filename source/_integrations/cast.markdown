@@ -117,8 +117,8 @@ You can play MP3 streams like net radios, FLAC files or videos from your local n
 service: media_player.play_media
 data:
   entity_id: media_player.chromecast
-  media_content_type: 'video'
-  media_content_id: 'http://192.168.0.100/movies/sample-video.mkv'
+  media_content_type: "video"
+  media_content_id: "http://192.168.0.100/movies/sample-video.mkv"
 ```
 
 ```yaml
@@ -126,8 +126,8 @@ data:
 service: media_player.play_media
 data:
   entity_id: media_player.chromecast
-  media_content_type: 'image/jpeg'
-  media_content_id: 'http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!'
+  media_content_type: "image/jpeg"
+  media_content_id: "http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!"
 ```
 
 Extra media metadata (for example title, subtitle, artist or album name) can be passed into the service and that will be shown on the Chromecast display.
@@ -138,15 +138,15 @@ For the possible metadata types and values check [Google cast documentation > Me
 service: media_player.play_media
 data:
   entity_id: media_player.chromecast
-  media_content_type: 'video/mp4'
-  media_content_id: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+  media_content_type: "video/mp4"
+  media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   extra: 
     metadata: 
       metadataType: 1
-      title: 'Big Buck Bunny'
-      subtitle: 'By Blender Foundation, Licensed under the Creative Commons Attribution license'
+      title: "Big Buck Bunny"
+      subtitle: "By Blender Foundation, Licensed under the Creative Commons Attribution license"
       images:
-        - url: 'https://peach.blender.org/wp-content/uploads/watchtrailer.gif'
+        - url: "https://peach.blender.org/wp-content/uploads/watchtrailer.gif"
 ```
 
 ```yaml
@@ -154,15 +154,15 @@ data:
 service: media_player.play_media
 data:
   entity_id: media_player.chromecast
-  media_content_type: 'audio/mp3'
-  media_content_id: 'http://stream.tilos.hu:8000/tilos' 
+  media_content_type: "audio/mp3"
+  media_content_id: "http://stream.tilos.hu:8000/tilos" 
   extra: 
     metadata: 
       metadataType: 3
-      title: 'Radio TILOS'
-      artist: 'LIVE'
+      title: "Radio TILOS"
+      artist: "LIVE"
       images:
-        - url: 'https://tilos.hu/images/kockalogo.png'
+        - url: "https://tilos.hu/images/kockalogo.png"
 ```
 
 ## Advanced use

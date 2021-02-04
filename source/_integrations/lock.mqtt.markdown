@@ -195,7 +195,7 @@ lock:
     optimistic: false
     qos: 1
     retain: true
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}

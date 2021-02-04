@@ -164,8 +164,8 @@ The following example turns off some entities as soon as a window opens. The sta
   trigger:
   - platform: state
     entity_id: binary_sensor.window
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   condition: []
   action:
   - service: scene.create
@@ -180,13 +180,13 @@ The following example turns off some entities as soon as a window opens. The sta
   - service: climate.set_hvac_mode
     data:
       entity_id: climate.ecobee
-      hvac_mode: 'off'
+      hvac_mode: "off"
 - alias: Window closed
   trigger:
   - platform: state
     entity_id: binary_sensor.window
-    from: 'on'
-    to: 'off'
+    from: "on"
+    to: "off"
   condition: []
   action:
   - service: scene.turn_on

@@ -60,11 +60,11 @@ Alternatively, the card can be configured using YAML:
 - type: entity
   entity: light.bedroom
   attribute: brightness
-  unit: '%'
+  unit: "%"
 - type: entity
   entity: vacuum.downstairs
   name: Vacuum
-  icon: 'mdi:battery'
+  icon: "mdi:battery"
   attribute: battery_level
-  unit: '%'
+  unit: "%"
 ```

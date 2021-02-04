@@ -32,7 +32,7 @@ input_text:
     max: 40
   text3:
     name: Text 3
-    pattern: '[a-fA-F0-9]*'
+    pattern: "[a-fA-F0-9]*"
   text4:
     name: Text 4
     mode: password
@@ -121,7 +121,7 @@ input_select:
       - Reading
       - Relax
       - 'OFF'
-    initial: 'Select'
+    initial: "Select"
 input_text:
   bedroom:
     name: Brightness

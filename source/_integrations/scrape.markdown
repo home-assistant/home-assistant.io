@@ -126,9 +126,9 @@ sensor:
   - platform: scrape
     resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
-    select: 'p'
+    select: "p"
     index: 19
-    unit_of_measurement: 'UV Index'
+    unit_of_measurement: "UV Index"
 ```
 
 ### IFTTT status
@@ -141,7 +141,7 @@ sensor:
   - platform: scrape
     resource: https://status.ifttt.com/
     name: IFTTT status
-    select: '.component-status'
+    select: ".component-status"
 ```
 
 ### Get the latest podcast episode file URL
@@ -154,7 +154,7 @@ sensor:
   - platform: scrape
     resource: https://hasspodcast.io/feed/podcast
     name: Home Assistant Podcast
-    select: 'enclosure'
+    select: "enclosure"
     index: 1
     attribute: url
 ```
@@ -191,7 +191,7 @@ sensor:
     resource: http://www.bom.gov.au/vic/forecasts/melbourne.shtml
     name: Melbourne Forecast Summary
     select: ".main .forecast p"
-    value_template: '{{ value | truncate(255) }}'
+    value_template: "{{ value | truncate(255) }}"
     # Request every hour
     scan_interval: 3600
     headers:

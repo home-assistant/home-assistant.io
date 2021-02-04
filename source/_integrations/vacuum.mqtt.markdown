@@ -245,7 +245,7 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
 
 {% endraw %}
@@ -478,7 +478,7 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
 
 ### State MQTT Protocol
@@ -527,8 +527,8 @@ Service trigger example:
     action:
       service: vacuum.send_command
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        entity_id: vacuum.vacuum_entity
+        command: "custom_command"
         params:
           - key: value
 ```
@@ -602,8 +602,8 @@ Service trigger example:
     action:
       service: vacuum.send_command
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        entity_id: vacuum.vacuum_entity
+        command: "custom_command"
         params:
           - key: value
 ```

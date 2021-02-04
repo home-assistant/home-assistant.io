@@ -93,7 +93,7 @@ automation:
   trigger:
     - platform: state
       entity_id: light.hyperion
-      to: 'on'
+      to: "on"
   action:
     - service: light.turn_on
       data:
@@ -108,13 +108,13 @@ To have the lights playing an effect when pausing, idle or turn off a media play
   trigger:
     - platform: state
       entity_id: media_player.plex
-      to: 'off'
+      to: "off"
     - platform: state
       entity_id: media_player.plex.plex
-      to: 'paused'
+      to: "paused"
     - platform: state
       entity_id: media_player.plex.plex
-      to: 'idle'
+      to: "idle"
   action:
     - service: light.turn_on
       data:
@@ -129,7 +129,7 @@ To capture the screen when playing something on a media_player you can use this 
   trigger:
     - platform: state
       entity_id: media_player.plex
-      to: 'playing'
+      to: "playing"
   action:
     - service: light.turn_on
       data:

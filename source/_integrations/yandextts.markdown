@@ -68,7 +68,7 @@ The configuration sample below shows how an entry can look like:
 tts:
   - platform: yandextts
     api_key: YOUR_API_KEY
-    language: 'ru-RU'
+    language: "ru-RU"
     codec: mp3
     voice: oksana
     emotion: evil

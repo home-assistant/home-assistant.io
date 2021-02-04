@@ -66,7 +66,7 @@ monitored_conditions:
 sensor:
   - platform: volkszaehler
     host: demo.volkszaehler.org
-    uuid: '57acbef0-88a9-11e4-934f-6b0f9ecd95a8'
+    uuid: "57acbef0-88a9-11e4-934f-6b0f9ecd95a8"
     monitored_conditions:
       - average
       - consumption

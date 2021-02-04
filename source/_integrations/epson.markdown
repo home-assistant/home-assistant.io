@@ -40,7 +40,7 @@ name:
   description: The name of the device used in the frontend.
   required: false
   type: string
-  default: 'EPSON Projector'
+  default: "EPSON Projector"
 {% endconfiguration %}
 
 ### Supported features

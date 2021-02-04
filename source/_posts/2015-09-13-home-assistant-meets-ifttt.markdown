@@ -56,7 +56,7 @@ automation:
   trigger:
     platform: mqtt
     mqtt_topic: home/alarm/fire
-    mqtt_payload: 'on'
+    mqtt_payload: "on"
 
   action:
     service: ifttt.trigger

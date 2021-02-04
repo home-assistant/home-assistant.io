@@ -172,17 +172,17 @@ Start a scene blinking.
 #automation:
 
 - alias: 'Specific scene activated'
-  description: 'Trigger when scene 9 on network 42 is activated'
+  description: "Trigger when scene 9 on network 42 is activated"
   trigger:
     platform: event
     event_type: upb.scene_changed
     event_data:
       command: activated
-      address: '42_9'
+      address: "42_9"
   action:
     service: persistent_notification.create
     data:
-      title: 'Scene Activated'
+      title: "Scene Activated"
       message: >
         Activated scene 9 on network 42: {{trigger.event.data.command}}, {{trigger.event.data.address}}
 
@@ -192,8 +192,8 @@ Start a scene blinking.
 #script:
  
 all_lights_on:
-  alias: 'All Lights On'
-  description: 'Activate two UPB scenes named interior_lights and exterior_lights'
+  alias: "All Lights On"
+  description: "Activate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: scene.turn_on
       entity_id: 
@@ -201,8 +201,8 @@ all_lights_on:
         - scene.exterior_lights
 
 all_lights_off:
-  alias: 'All Lights Off'
-  description: 'Deactivate two UPB scenes named interior_lights and exterior_lights'
+  alias: "All Lights Off"
+  description: "Deactivate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: upb.scene_deactivate
       entity_id: 
@@ -210,8 +210,8 @@ all_lights_off:
         - scene.exterior_lights
 
 kitchen_fade_on:
-  alias: 'Kitchen Fade to On'
-  description: 'Turn on kitchen light to 75% over a period of 10 seconds'
+  alias: "Kitchen Fade to On"
+  description: "Turn on kitchen light to 75% over a period of 10 seconds"
   sequence:
     - service: upb.light_fade_start
       data:

@@ -89,7 +89,7 @@ camera:
   - platform: generic
     name: Weather
     still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
-    content_type: 'image/svg+xml'
+    content_type: "image/svg+xml"
 ```
 
 ### Local image
