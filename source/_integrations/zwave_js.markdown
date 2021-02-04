@@ -66,7 +66,7 @@ This is the recommended approach if you're running the Home Assistant Core yours
 
 #### 4. Run the Z-Wave server yourself
 
-This is considered a very advanced scenario where you run the (nodejs) Z-Wave JS Server (or zwavejs2mqtt) yourself. Installation and maintaining this is out of scope for this documentation. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt) Github repo's for information.
+This is considered a very advanced scenario where you run the (NodeJS) Z-Wave JS Server (or zwavejs2mqtt) yourself. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt) Github repo's for information.
 
 #### Important note
 
