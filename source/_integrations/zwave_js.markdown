@@ -40,7 +40,7 @@ Controlling your Z-Wave network using the Z-Wave JS integration has the followin
 
 2. [Supported Z-Wave dongle](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave controller dongle should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave server you need to provide the path to this stick. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your stick, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
 
-3. A **network key** used in order to connect securely to compatible devices. The network key consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a unique default key will be auto generated for you. TIP: You could use a site like random.org to create your own random network key. Make sure that you keep a backup of this key on a safe place (like backups) because you need to enter the same key if you decide to ever reinstall the Z-Wave JS Server.
+3. A **network key** used in order to connect securely to compatible devices. The network key consists of 32 hexadecimal characters, for example `2232666D100F795E5BB17F0A1BB7A146` It is recommended that a network key is configured as security enabled devices may not function correctly if they are not added securely. You must provide this network key in the configuration part of the Z-Wave JS Server. For new installations, a unique default key will be auto generated for you. TIP: You could use a site like random.org to create your own random network key. Make sure that you keep a backup of this key in a safe place (like backups) because you need to enter the same key if you decide to ever reinstall the Z-Wave JS Server.
 
 4. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network and turns it into Home Assistant devices and entities.
 
@@ -58,11 +58,11 @@ This is the recommended approach if you're running the default version of Home A
 
 Despite what the name suggests, you can actually run this add-on without MQTT enabled. In that case, it will provide you with a full-fledged, attractive and feature-complete UI to manage your Z-Wave nodes and settings.
 
-The Z-Wave JS server is **included** in Z-Wave JS to MQTT, you enable it on the Z-Wave tab within the UI. If you install the add-on from the community repo, this will be done for you automatically.
+The Z-Wave JS server is **included** in Z-Wave JS to MQTT. You enable it on the Z-Wave tab within the UI. If you install the add-on from the community repo, this will be done for you automatically.
 
 #### 3. The Z-Wave JS to MQTT Docker container
 
-This is the recommended approach if you're running the Home Assistant Core yourself, without the supervisor and it's convenient add-ons. See the [zwavejs2mqtt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions. Important note: make sure you run a recent version of the Docker image, as that contains the required WS server option.
+This is the recommended approach if you're running the Home Assistant Core yourself, without the supervisor and its convenient add-ons. See the [zwavejs2mqtt documentation](https://zwave-js.github.io/zwavejs2mqtt/#/getting-started/quick-start) for instructions. Important note: make sure you run a recent version of the Docker image, as that contains the required WS server option.
 
 #### 4. Run the Z-Wave server yourself
 
