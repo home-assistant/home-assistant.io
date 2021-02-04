@@ -1,4 +1,4 @@
-ARG VARIANT=2.7
+ARG VARIANT=2.6
 FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 
 # Install node
@@ -13,16 +13,17 @@ ENV \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-# Install git, process tools
-RUN apt update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y --no-install-recommends \
-        ack \
-    && echo "en_US UTF-8" > /etc/locale.gen \
-    && locale-gen en_US.UTF-8 \
-    && echo 'export PS1="\\w\$ "' > /root/.bashrc \
-    && apt-get autoremove -y \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+# Install tools
+RUN \
+  apt update \
+  && DEBIAN_FRONTEND=noninteractive \
+  && apt-get install -y --no-install-recommends \
+      ack \
+  && echo "en_US UTF-8" > /etc/locale.gen \
+  && locale-gen en_US.UTF-8 \
+  && apt-get autoremove -y \
+  && apt-get clean -y \
+  && rm -rf /var/lib/apt/lists/*
 
 # Install the specific version of bundler we need
 COPY Gemfile.lock ./

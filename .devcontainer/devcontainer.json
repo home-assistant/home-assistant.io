@@ -19,6 +19,6 @@
     "errorLens.gutterIconsEnabled": true,
     "errorLens.addAnnotationTextPrefixes": false,
     "errorLens.enabledDiagnosticLevels": ["error", "warning"],
-    "terminal.integrated.shell.linux": "/bin/bash"
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
   }
 }
