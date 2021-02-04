@@ -1,6 +1,6 @@
 {
   "name": "home-assistant.io",
-  "dockerFile": "Dockerfile",
+  "dockerFile": "../Dockerfile",
   "appPort": [4000],
   "postCreateCommand": "bundle install",
   "extensions": [
