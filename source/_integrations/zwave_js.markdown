@@ -26,7 +26,7 @@ This integration allows you to control a Z-Wave network via the [Z-Wave JS](http
 
 To add Z-Wave JS to your installation, plug the Z-Wave stick into the device that runs Home Assistant. Then Go to Configuration >> Integrations in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave JS" and follow the instructions shown.
 
-Note: A new network key is automatically generated for you. If this Z-Wave stick has already paired with secure devices, you need to enter the previously used network key.
+Note: A new network key is automatically generated for you. If this Z-Wave stick has already paired with secure devices, you need to enter the previously used network key. Make sure that you keep a backup of this key in a safe place. You will need to enter the same key to be able to access the securely paired devices.
 
 ## Advanced installation instructions
 
