@@ -28,7 +28,7 @@ To add Z-Wave JS to your installation, plug the Z-Wave stick into the device tha
 
 Note: A new network key is automatically generated for you. If this Z-Wave stick has already paired with secure devices, you need to enter the previously used network key. Make sure that you keep a backup of this key in a safe place in case you need to move your Z-Wave stick to another device.
 
-If you do not run Home Assistant OS (the default installation type) or Home Assistant Supervised, please see the [advanced installation instrucitons](#advanced-installation-instructions).
+If you do not run Home Assistant OS (the default installation type) or Home Assistant Supervised, please see the [advanced installation instructions](#advanced-installation-instructions).
 
 ## Getting Started with Z-Wave
 
