@@ -35,36 +35,6 @@ You will need your August login information (username (either phone# or email), 
 
 To add `August` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **August**.
 
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-august:
-  login_method: phone
-  username: "+16041234567"
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-login_method:
-  description: Method to login to your August account, either "email" or "phone". A verification code will be sent to your email or phone during setup.
-  required: true
-  type: string
-username:
-  description: The username for accessing your August account. This depends on your login_method, if login_method is email, this will be your email of the account. Otherwise, this will be your phone number.
-  required: true
-  type: string
-password:
-  description: The password for accessing your August account.
-  required: true
-  type: string
-timeout:
-  description: Timeout to wait for connections.
-  required: false
-  type: integer
-  default: 10
-{% endconfiguration %}
-
 Once Home Assistant is started, a configurator will pop up asking you to enter verification code that is sent to your phone number or email.
 
 ### Binary Sensor

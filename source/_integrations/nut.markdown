@@ -17,57 +17,7 @@ The `nut` sensor platform allows you to monitor a UPS (battery backup) by using 
 
 To add `nut` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Network UPS Tools (NUT)**.
 
-Alternatively, you need to add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: nut
-    resources:
-      - ups.load
-      - ups.realpower.nominal
-      - input.voltage
-      - battery.runtime
-```
-
-{% configuration %}
-  host:
-    description: The host name or IP address of the device that is running NUT.
-    required: false
-    default: localhost
-    type: string
-  port:
-    description: The port number.
-    required: false
-    default: 3493
-    type: integer
-  name:
-    description: Custom name of the sensor
-    required: false
-    default: NUT UPS
-    type: string
-  alias:
-    description: Name of the UPS on the NUT server.
-    required: false
-    default: Will default to the first UPS name listed.
-    type: string
-  username:
-    description: Username to login to the NUT server.
-    required: false
-    default: none
-    type: string
-  password:
-    description: Password to login to the NUT server.
-    required: false
-    default: none
-    type: string
-  resources:
-    description: Contains all entries to display.
-    required: true
-    type: list
-{% endconfiguration %}
-
-## Example
+## Example Resources
 
 Given the following example output from NUT (your variables may differ):
 
@@ -110,29 +60,6 @@ output.voltage.nominal: 120
 
 Use the values from the left hand column. Support is included for most values with 'ups', 'battery', 'input' and 'output' prefixes.
 
-```yaml
-sensor:
-  - platform: nut
-    name: UPS Name
-    host: 192.168.11.5
-    port: 3493
-    alias: ups_name
-    username: user
-    password: pass
-    resources:
-      - ups.load
-      - ups.realpower.nominal
-      - input.voltage
-      - battery.runtime
-```
-
 ## UPS Status - human-readable version
 
 An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrieved from `ups.status` into a human-readable version.
-
-```yaml
-sensor:
-  - platform: nut
-    resources:
-      - ups.status.display
-```

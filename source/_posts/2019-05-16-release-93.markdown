@@ -81,7 +81,7 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 
 - Adds Orange Pi GPIO platform ([@pascallj] - [#22541]) ([orangepi_gpio docs]) (new-integration) (new-platform)
 - Essent sensor ([@TheLastProject] - [#23513]) ([essent docs]) (new-integration) (new-platform)
-- Ptvsd debugger component. ([@Swamp-Ig] - [#23336]) ([ptvsd docs]) (new-integration)
+- Ptvsd debugger component. ([@Swamp-Ig] - [#23336]) (new-integration)
 - Ambiclimate ([@Danielhiversen] - [#22827]) ([ambiclimate docs]) (new-integration) (new-platform)
 - Add Intergas InComfort Lan2RF gateway ([@zxdavb] - [#23736]) ([incomfort docs]) (new-integration) (new-platform)
 
@@ -341,7 +341,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Always pad mac addresses from nmap tracker with leading zeros ([@mikeage] - [#23492]) ([nmap_tracker docs]) (breaking change)
 - Update mysensors sensor icons ([@MartinHjelmare] - [#23491]) ([mysensors docs])
 - Add bypass and automatic bypass switch for Danfor Air. ([@JonasPed] - [#23572]) ([danfoss_air docs])
-- Ptvsd debugger component. ([@Swamp-Ig] - [#23336]) ([ptvsd docs]) (new-integration)
+- Ptvsd debugger component. ([@Swamp-Ig] - [#23336]) (new-integration)
 - Fix min/max temp and humidity for homekit_controller climate ([@Jc2k] - [#23421]) ([homekit_controller docs])
 - Fix failing state update tests ([@etheralm] - [#23575])
 - render_with_collect method for template ([@Swamp-Ig] - [#23283])
@@ -828,7 +828,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [plex docs]: /integrations/plex/
 [pollen docs]: /integrations/iqvia
 [ps4 docs]: /integrations/ps4/
-[ptvsd docs]: /integrations/ptvsd/
 [rainmachine docs]: /integrations/rainmachine/
 [recorder docs]: /integrations/recorder/
 [rest docs]: /integrations/rest/

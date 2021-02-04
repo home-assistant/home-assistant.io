@@ -68,6 +68,18 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+tap_action:
+  required: false
+  description: The action taken on card tap. For more information, see the [action documentation](/lovelace/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: The action taken on card tap and hold. For more information, see the [action documentation](/lovelace/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: The action taken on card double-tap. For more information, see the [action documentation](/lovelace/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
 Example

@@ -136,6 +136,10 @@ name:
   required: false
   description: Overwrites friendly entity name.
   type: string
+format:
+  required: false
+  description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  type: string  
 {% endconfiguration %}
 
 ### Button
@@ -147,10 +151,15 @@ type:
   required: true
   description: "`button`"
   type: string
-name:
-  required: true
-  description: Main label.
+entity:
+  required: false
+  description: "Entity ID. Either `entity` or `name` (or both) needs to be provided."
   type: string
+name:
+  required: false
+  description: "Row label. Either `entity` or `name` (or both) needs to be provided."
+  type: string
+  default: "Friendly name of `entity` if specified."
 icon:
   required: false
   description: An icon to display to the left of the main label.
@@ -214,7 +223,7 @@ entities:
       required: false
       description: If false, the icon is not shown.
       type: boolean
-      default: "true"    
+      default: "true"
     tap_action:
       required: false
       description: Action taken on card tap. See [action documentation](/lovelace/actions/#tap-action).

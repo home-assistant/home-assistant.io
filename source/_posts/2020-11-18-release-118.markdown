@@ -409,7 +409,7 @@ The `ptvsd` integration has been marked as deprecated and will be removed in
 Home Assistant Core 0.120. A full-featured replacement is available with the
 [`debugpy`](/integrations/debugpy) integration, which is now considered stable.
 
-([@frenck] - [#42351]) ([ptvsd docs])
+([@frenck] - [#42351])
 
   </p>
 </details>
@@ -782,7 +782,7 @@ all erroneous entries to the new `controller_modes` parameter.
 - Create __init__.py in AlarmDecoder tests ([@Olen] - [#42388]) ([alarmdecoder docs])
 - Convert logbook tests to pytest ([@taiyeoguns] - [#42289]) ([logbook docs])
 - Cleanup log style and tests for ElkM1 ([@gwww] - [#42353]) ([elkm1 docs])
-- Deprecate ptvsd integration ([@frenck] - [#42351]) ([ptvsd docs]) (breaking-change)
+- Deprecate ptvsd integration ([@frenck] - [#42351]) (breaking-change)
 - Upgrade debugpy to 1.0.0 ([@frenck] - [#40929]) ([debugpy docs])
 - Rewrite pilight/test_init.py tests to pytest style test functions ([@erogleva] - [#42366]) ([pilight docs])
 - Add a test for template entities that reuse the template ([@bdraco] - [#42404]) ([template docs])
@@ -1633,7 +1633,6 @@ all erroneous entries to the new `controller_modes` parameter.
 [plex docs]: /integrations/plex/
 [plugwise docs]: /integrations/plugwise/
 [profiler docs]: /integrations/profiler/
-[ptvsd docs]: /integrations/ptvsd/
 [python_script docs]: /integrations/python_script/
 [rachio docs]: /integrations/rachio/
 [rainforest_eagle docs]: /integrations/rainforest_eagle/

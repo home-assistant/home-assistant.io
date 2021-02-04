@@ -61,6 +61,27 @@ extra effects will be available:
 - V4L: Use a 'USB Capture' V4L device that is configured in Hyperion.
 - Solid: Use a solid color only.
 
+## Advanced Entities
+
+The Hyperion integration comes with a series of disabled-by-default entities for
+advanced usecases. These entities expose 'raw' underlying Hyperion API components for
+improved extensibility and interoperability which are particularly useful in cases where
+there are multiple Hyperion server clients (of which Home Assistant is one).
+
+Provided advanced entities:
+
+- `light.[instance]_priority`: A "priority" light that acts exclusively on a given
+  Hyperion priority. Only color/effects (and not components) are available in this light.
+  Turning this light off will set a black color at this given priority rather than
+  turning the light off in absolute terms.
+- `switch.[instance]_component_[component]`: A switch to turn on/off the relevant
+  underlying Hyperion component as shown on the Hyperion server `Remote Control` page
+  under `Component Control`. This allows fine grained control over sources (e.g. `USB Capture`) and
+  Hyperion functionality (e.g. `Blackbar Detection`).
+
+These entities may be enabled by visiting the `Integrations` page, choosing the relevant
+entity and toggling `Enable entity`, followed by `Update`.
+
 ## Examples
 
 To start Hyperion with an effect, use the following automation:
