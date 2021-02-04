@@ -206,7 +206,7 @@ It is perfectly doable to switch over from one of the above mentioned previous i
 ### Can I switch between the Official Z-Wave JS add-on and Z-Wave JS to MQTT?
 
 You can but be aware to not run them both at the same time, only one of them can be active.
-Do remember however that switching requires a re-interview of the network. It is possible to copy the (json) cache files but that is out of scope of this manual. To prevent you from doing all the renaming work again there's a small trick to update the existing Z-Wave JS configuration with the new websocket URL: Just re-add the Z-Wave integration to Home Assistant, filling in the new/updated websocket url. There will be popup raised that this Z-Wave network is already configured but "under the hood" the websocket url is adjusted.
+Do remember however that switching requires a re-interview of the network. It is possible to copy the (JSON) cache files but that is out of the scope of this manual. To prevent you from doing all the renaming work again there's a small trick to update the existing Z-Wave JS configuration with the new WebSocket URL: Just re-add the Z-Wave integration to Home Assistant, filling in the new/updated WebSocket URL. There will be a popup raised that this Z-Wave network is already configured but "under the hood" the WebSocket URL is adjusted.
   
 
 ### I do not see any entities created for my device in Home Assistant
