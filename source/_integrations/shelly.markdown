@@ -12,6 +12,7 @@ ha_codeowners:
   - '@balloob'
   - '@bieniu'
   - '@thecode'
+  - '@chemelli74'
 ha_iot_class: Local Push
 ha_domain: shelly
 featured: true

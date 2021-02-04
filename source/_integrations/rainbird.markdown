@@ -123,7 +123,7 @@ automation:
   - alias: Turn irrigation on
     trigger:
       platform: time
-      at: '5:30:00'
+      at: "5:30:00"
     action:
       service: rainbird.start_irrigation
       entity_id: switch.sprinkler_1

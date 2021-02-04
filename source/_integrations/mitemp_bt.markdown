@@ -49,7 +49,7 @@ To use your Mi Temperature and Humidity sensor in your installation, add the fol
 # Example configuration.yaml entry
 sensor:
   - platform: mitemp_bt
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     monitored_conditions:
       - temperature
 ```
@@ -118,7 +118,7 @@ A full configuration example could look like the one below:
 # Example configuration.yaml entry
 sensor:
   - platform: mitemp_bt
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     name: Kids Room Temp
     force_update: true
     median: 1

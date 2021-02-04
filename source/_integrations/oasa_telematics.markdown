@@ -20,7 +20,7 @@ Add a sensor to your `configuration.yaml` file as shown in the example:
 sensor:
   - platform: oasa_telematics
     route_id: YOUR_ROUTE_ID
-    stop_id: 'YOUR_STOP_ID'
+    stop_id: "YOUR_STOP_ID"
 ```
 
 The `route_id` can be obtained by looking up the "LineCode" of the route you want at this link: 
@@ -60,5 +60,5 @@ A more extensive example on how to use this sensor:
 sensor:
   - platform: oasa_telematics
     route_id: 1965
-    stop_id: '090006'
+    stop_id: "090006"
 ```

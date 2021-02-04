@@ -238,7 +238,7 @@ If you change the configuration you have to restart the server. To do that you h
 As the Docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
 
 ```yaml
-  version: '3'
+  version: "3"
   services:
     homeassistant:
       container_name: home-assistant
@@ -266,9 +266,11 @@ docker-compose restart
 To update your docker-compose image to the latest version and restart:
 
 ```bash
-docker-compose pull
-docker-compose up -d --build homeassistant
+docker-compose pull homeassistant
+docker-compose up -d
 ```
+
+Note: the above will fetch the latest matching image for the `homeassistant` service only. To fetch all matching images for all services defined in the same `docker-compose.yaml` file, omit the service name from the first command.
 
 ## Exposing Devices
 
@@ -283,7 +285,7 @@ $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
 or in a `docker-compose.yml` file:
 
 ```yaml
-  version: '3'
+  version: "3"
   services:
     homeassistant:
       container_name: home-assistant

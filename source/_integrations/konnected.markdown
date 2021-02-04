@@ -261,19 +261,19 @@ konnected:
       binary_sensors:
         - zone: 1
           type: door
-          name: 'Front Door'
+          name: "Front Door"
         - zone: 2
           type: smoke
-          name: 'Bedroom Smoke Detector'
+          name: "Bedroom Smoke Detector"
           inverse: true
         - zone: 3
           type: motion
-          name: 'Test Motion'
+          name: "Test Motion"
       switches:
         - zone: out
           name: siren
         - zone: 5
-          name: 'Beep Beep'
+          name: "Beep Beep"
           momentary: 65
           pause: 55
           repeat: 4

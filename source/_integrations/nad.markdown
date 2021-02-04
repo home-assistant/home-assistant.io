@@ -93,6 +93,6 @@ media_player:
     min_volume: -60
     max_volume: -20
     sources:
-      1: 'Kodi'
-      2: 'TV'
+      1: "Kodi"
+      2: "TV"
 ```

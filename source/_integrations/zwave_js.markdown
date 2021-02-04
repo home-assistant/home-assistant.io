@@ -29,6 +29,10 @@ Controlling your Z-Wave network with the Z-Wave JS integration is split up into 
 
 2. The Z-Wave JS integration in Home Assistant. This integration connects to the Z-Wave JS Server to retrieve the info from your Z-Wave network.
 
+### Supervisor managed installation
+
+- The official Z-Wave JS add-on installed available from the add-on store.
+
 ### Core installation
 
 - The Z-Wave JS Server installed and running in your network.
@@ -50,6 +54,11 @@ Click on the `+` sign to add an integration and click on **Z-Wave JS**.
 After completing the configuration flow, the Z-Wave JS integration will be
 available.
 
+### Secure network key
+
+The secure network key is set in the settings for zwave-js-server and
+not in the integration configuration.
+
 ## Current Limitations
 
 As this integration is still in the early stages there are some important limitations to be aware of.
@@ -58,7 +67,6 @@ As this integration is still in the early stages there are some important limita
 - Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented. You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
 - Polling is currently not supported but may be added in a later release.
 - Support for setting configuration parameters through service calls is currently not supported but may be added in a later release.
-- Support for Node/Scene events is currently not supported but may be added in a later release.
 - There currently is no migration path from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
 
 
@@ -84,3 +92,60 @@ Valid code slots are between 1-254.
 | ---------------------- | -------- | ------------------------------------------------------ |
 | `entity_id`            | no       | Lock entity or list of entities to clear the usercode. |
 | `code_slot`            | yes      | The code slot to clear the usercode from.              |
+
+## Events
+
+### Event `zwave_js_event`
+
+This event is fired whenever a [notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) or [value notification](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotvalue-notificationquot) event is received.
+
+#### Notifications
+
+Notifications are events sent using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
+
+Notification exapmle:
+```json
+{
+    "type": "notification",
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": "974823419",
+    "device_id": "ad8098fe80980974",
+    "label": "Keypad lock operation",
+    "parameters": {"userId": 1}
+}
+```
+
+#### Value Notifications
+
+Value Notifications are used for stateless values, like `Central Scenes`.
+
+Value Notification example:
+```json
+{
+    "type": "value_notification",
+    "domain": "zwave_js",
+    "node_id": 1,
+    "home_id": "974823419",
+    "endpoint": 0,
+    "device_id": "ad8098fe80980974",
+    "command_class": 32,
+    "command_class_name": "Basic",
+    "label": "Event value",
+    "property_name": "event",
+    "property_key_name": "some value",
+    "value": 255,
+}
+```
+
+## Troubleshooting Issues
+
+### Get a dump of the current network state
+
+When trying to determine why something isn't working as you expect, or when reporting an issue with the integration, it is helpful to know what Z-Wave JS sees as the current state of your Z-Wave network. To get a dump of your current network state, follow the menu: 
+
+**Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure** -> **Download a dump of your network to help diagnose issues**
+
+### Watch traffic between the server and the integration (Advanced Users)
+
+Z-Wave JS Server comes with a client that can be used to see the messages that the server is sending and to check the state of a node/all nodes as well. Visit the [`zwave-js-server` repository](https://github.com/zwave-js/zwave-js-server/) and follow the instructions in the README.

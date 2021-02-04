@@ -15,6 +15,7 @@ source/_integrations/adguard.markdown @frenck
 source/_integrations/advantage_air.markdown @Bre77
 source/_integrations/agent_dvr.markdown @ispysoftware
 source/_integrations/airly.markdown @bieniu
+source/_integrations/airnow.markdown @asymworks
 source/_integrations/airvisual.markdown @bachya
 source/_integrations/alarmdecoder.markdown @ajschmidt8
 source/_integrations/alexa.markdown @home-assistant/cloud @ochlocracy
@@ -45,7 +46,6 @@ source/_integrations/auth.markdown @home-assistant/core
 source/_integrations/automation.markdown @home-assistant/core
 source/_integrations/avea.markdown @pattyland
 source/_integrations/awair.markdown @ahayworth @danielsjf
-source/_integrations/aws.markdown @awarecan
 source/_integrations/axis.markdown @Kane610
 source/_integrations/azure_devops.markdown @timmo001
 source/_integrations/azure_event_hub.markdown @eavanvalkenburg
@@ -97,6 +97,7 @@ source/_integrations/derivative.markdown @afaucogney
 source/_integrations/device_automation.markdown @home-assistant/core
 source/_integrations/devolo_home_control.markdown @2Fake @Shutgun
 source/_integrations/dexcom.markdown @gagebenne
+source/_integrations/dhcp.markdown @bdraco
 source/_integrations/digital_ocean.markdown @fabaff
 source/_integrations/directv.markdown @ctalkington
 source/_integrations/discogs.markdown @thibmaek
@@ -108,6 +109,7 @@ source/_integrations/dwd_weather_warnings.markdown @runningman84 @stephan192 @Hu
 source/_integrations/dweet.markdown @fabaff
 source/_integrations/dynalite.markdown @ziv1234
 source/_integrations/ecobee.markdown @marthoc
+source/_integrations/econet.markdown @vangorra @w1ll1am23
 source/_integrations/ecovacs.markdown @OverloadUT
 source/_integrations/edl21.markdown @mtdcr
 source/_integrations/egardia.markdown @jeroenterheerdt
@@ -168,7 +170,7 @@ source/_integrations/griddy.markdown @bdraco
 source/_integrations/group.markdown @home-assistant/core
 source/_integrations/growatt_server.markdown @indykoning
 source/_integrations/guardian.markdown @bachya
-source/_integrations/harmony.markdown @ehendrix23 @bramkragten @bdraco
+source/_integrations/harmony.markdown @ehendrix23 @bramkragten @bdraco @mkeesey
 source/_integrations/hdmi_cec.markdown @newAM
 source/_integrations/heatmiser.markdown @andylockran
 source/_integrations/heos.markdown @andrewsayre
@@ -189,6 +191,7 @@ source/_integrations/http.markdown @home-assistant/core
 source/_integrations/huawei_lte.markdown @scop @fphammerle
 source/_integrations/huawei_router.markdown @abmantis
 source/_integrations/hue.markdown @balloob @frenck
+source/_integrations/huisbaasje.markdown @denniss17
 source/_integrations/humidifier.markdown @home-assistant/core @Shulyaka
 source/_integrations/hunterdouglas_powerview.markdown @bdraco
 source/_integrations/hvv_departures.markdown @vigonotion
@@ -241,7 +244,7 @@ source/_integrations/luci.markdown @mzdrale
 source/_integrations/luftdaten.markdown @fabaff
 source/_integrations/lupusec.markdown @majuss
 source/_integrations/lutron.markdown @JonGilmore
-source/_integrations/lutron_caseta.markdown @swails
+source/_integrations/lutron_caseta.markdown @swails @bdraco
 source/_integrations/mastodon.markdown @fabaff
 source/_integrations/matrix.markdown @tinloaf
 source/_integrations/mcp23017.markdown @jardiamj
@@ -274,10 +277,10 @@ source/_integrations/neato.markdown @dshokouhi @Santobert
 source/_integrations/nederlandse_spoorwegen.markdown @YarmoM
 source/_integrations/nello.markdown @pschmitt
 source/_integrations/ness_alarm.markdown @nickw444
-source/_integrations/nest.markdown @awarecan @allenporter
+source/_integrations/nest.markdown @allenporter
 source/_integrations/netatmo.markdown @cgtobi
 source/_integrations/netdata.markdown @fabaff
-source/_integrations/nexia.markdown @ryannazaretian @bdraco
+source/_integrations/nexia.markdown @bdraco
 source/_integrations/nextbus.markdown @vividboarder
 source/_integrations/nextcloud.markdown @meichthys
 source/_integrations/nightscout.markdown @marciogranzotto
@@ -303,6 +306,7 @@ source/_integrations/ohmconnect.markdown @robbiet480
 source/_integrations/ombi.markdown @larssont
 source/_integrations/omnilogic.markdown @oliver84 @djtimca @gentoosu
 source/_integrations/onboarding.markdown @home-assistant/core
+source/_integrations/ondilo_ico.markdown @JeromeHXP
 source/_integrations/onewire.markdown @garbled1 @epenet
 source/_integrations/onvif.markdown @hunterjm
 source/_integrations/openerz.markdown @misialq
@@ -336,7 +340,6 @@ source/_integrations/progettihwsw.markdown @ardaseremet
 source/_integrations/prometheus.markdown @knyar
 source/_integrations/proxmoxve.markdown @k4ds3 @jhollowe
 source/_integrations/ps4.markdown @ktnrg45
-source/_integrations/ptvsd.markdown @swamp-ig
 source/_integrations/push.markdown @dgomes
 source/_integrations/pvoutput.markdown @fabaff
 source/_integrations/pvpc_hourly_pricing.markdown @azogue
@@ -347,6 +350,7 @@ source/_integrations/quantum_gateway.markdown @cisasteelersfan
 source/_integrations/qvr_pro.markdown @oblogic7
 source/_integrations/qwikswitch.markdown @kellerza
 source/_integrations/rachio.markdown @bdraco
+source/_integrations/radiotherm.markdown @vinnyfuria
 source/_integrations/rainbird.markdown @konikvranik
 source/_integrations/raincloud.markdown @vanstinator
 source/_integrations/rainforest_eagle.markdown @gtdiehl @jcalbert
@@ -381,7 +385,7 @@ source/_integrations/seven_segments.markdown @fabaff
 source/_integrations/seventeentrack.markdown @bachya
 source/_integrations/sharkiq.markdown @ajmarks
 source/_integrations/shell_command.markdown @home-assistant/core
-source/_integrations/shelly.markdown @balloob @bieniu @thecode
+source/_integrations/shelly.markdown @balloob @bieniu @thecode @chemelli74
 source/_integrations/shiftr.markdown @fabaff
 source/_integrations/shodan.markdown @fabaff
 source/_integrations/sighthound.markdown @robmarkcole
@@ -405,6 +409,7 @@ source/_integrations/solarlog.markdown @Ernst79
 source/_integrations/solax.markdown @squishykid
 source/_integrations/soma.markdown @ratsept
 source/_integrations/somfy.markdown @tetienne
+source/_integrations/somfy_mylink.markdown @bdraco
 source/_integrations/sonarr.markdown @ctalkington
 source/_integrations/songpal.markdown @rytilahti @shenxn
 source/_integrations/sonos.markdown @cgtobi
@@ -519,3 +524,4 @@ source/_integrations/zodiac.markdown @JulienTant
 source/_integrations/zone.markdown @home-assistant/core
 source/_integrations/zoneminder.markdown @rohankapoorcom
 source/_integrations/zwave.markdown @home-assistant/z-wave
+source/_integrations/zwave_js.markdown @home-assistant/z-wave

@@ -38,7 +38,7 @@ alert:
     name: Garage is open
     done_message: Garage is closed
     entity_id: input_boolean.garage_door
-    state: 'on'
+    state: "on"
     repeat: 30
     can_acknowledge: true
     skip_first: true
@@ -137,7 +137,7 @@ alert:
   freshwater_temp_alert:
     name: "Warning: I have detected a problem with the freshwater tank temperature"
     entity_id: binary_sensor.freshwater_temperature_status
-    state: 'on'
+    state: "on"
     repeat: 5
     can_acknowledge: true
     skip_first: false
@@ -163,7 +163,7 @@ binary_sensor:
     sensors:
       motion_battery_low:
         value_template: "{{ state_attr('sensor.motion', 'battery') < 15 }}"
-        friendly_name: 'Motion battery is low'
+        friendly_name: "Motion battery is low"
 
 alert:
   motion_battery:
@@ -194,7 +194,7 @@ alert:
   garage_door:
     name: Garage is open
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: "on"   # Optional, 'on' is the default value
     repeat:
       - 15
       - 30
@@ -228,7 +228,7 @@ alert:
   office_plant:
     name: Plant in office needs help
     entity_id: plant.plant_office
-    state: 'problem'
+    state: "problem"
     repeat: 30
     can_acknowledge: true
     skip_first: true
@@ -254,7 +254,7 @@ alert:
   garage_door:
     name: Garage is open
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: "on"   # Optional, 'on' is the default value
     repeat:
       - 15
       - 30
