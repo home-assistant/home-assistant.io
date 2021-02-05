@@ -20,6 +20,14 @@ ha_codeowners:
 ha_domain: zwave
 ---
 
+<p class='note warning'>
+
+This integration is deprecated. We recommend using [the Z-Wave JS integration](/integrations/zwave_js).
+
+The Z-Wave integration will no longer receive any updates. It will not be removed unless it becomes incompatible with a future version of Python.
+
+</p>
+
 The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
 There is currently support for the following device types within Home Assistant:
