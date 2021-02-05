@@ -29,9 +29,9 @@ There is two ways to integrate iCloud in Home Assistant
 
 Menu: *Configuration* -> *Integrations*. Search for "iCloud", add your credentials, click submit.
 
-If you add the integration for the first time for an account:
-1. Choose a trusted device from the list and submit.
-2. It will send you a text message on your trusted device, add the received code to the next form and submit (if you missed the right code, you will be back to the previous step, and retry).
+If you add the integration for the first time for an account, and two-factor authentication is enabled:
+1. After clicking submit, you will receive a verification code on your trusted iCloud devices.
+2. Press Allow on your device, and enter the 6 digit code in Home Assistant. Finally, click Submit.
 3. You are done!
 
 If you already added the integration before, you are done!
@@ -83,9 +83,7 @@ You may receive an email and a notification from Apple saying that someone has l
 For the notification, press "Allow", then "OK".
 </div>
 
-If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask which device you want to use as the Trusted Device via a notification in the Home Assistant UI. The integration will send an SMS prompt to that device with the auth code to enter in Home Assistant. The duration of this authentication is determined by Apple, but is currently 2 months, so you will only need to verify your account every two months.
-
-2 Factor Authentication is the improved version of two-step authentication and is still not supported by the pyicloud library. Therefore it's not possible to use it with the device_tracker yet.
+If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account every now and then.
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 
