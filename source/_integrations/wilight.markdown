@@ -2,6 +2,7 @@
 title: WiLight
 description: Instructions on how to integrate WiLight devices into Home Assistant.
 ha_category:
+  - Cover
   - Fan
   - Light
 ha_release: 0.115
@@ -17,6 +18,7 @@ The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) d
 
 There is currently support for the following device types within Home Assistant:
 
+- Cover (WiLight model C-103).
 - Fan (WiLight model V-104).
 - Light (WiLight model I-100, I-102 and I-107).
 
