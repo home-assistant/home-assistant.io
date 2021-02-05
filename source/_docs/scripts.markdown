@@ -272,6 +272,8 @@ This action allows you to fire an event. Events can be used for many things. It 
 You can also use event_data to fire an event with custom data. This could be used to pass data to another script awaiting
 an event trigger.
 
+The `event_data` accepts templates.
+
 {% raw %}
 
 ```yaml
@@ -285,7 +287,7 @@ an event trigger.
 
 ### Raise and Consume Custom Events
 
-The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
+The following automation example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
 ```yaml
 - alias: Fire Event
@@ -299,7 +301,7 @@ The following automation shows how to raise a custom event called `event_light_s
         state: "on"
 ```
 
-The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponding `entity_id` that was passed as the event data.
+The following automation example shows how to capture the custom event `event_light_state_changed` with an [Event Automation Trigger](/docs/automation/trigger#event-trigger), and retrieve corresponding `entity_id` that was passed as the event trigger data, see [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data) for more details.
 
 {% raw %}
 
