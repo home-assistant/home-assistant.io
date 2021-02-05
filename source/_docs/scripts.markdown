@@ -5,6 +5,8 @@ description: "Documentation for the Home Assistant Script Syntax."
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
 
+When the script is executed within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+
 The script syntax basic structure is a list of key/value maps that contain actions. If a script contains only 1 action, the wrapping list can be omitted.
 
 ```yaml
@@ -62,7 +64,7 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 ## Variables
 
-The variables command allows you to set/override variables that will be accessible by templates in actions after it. See also [script variables] for how to define variables accessible in the entire script.
+The variables action allows you to set/override variables that will be accessible by templates in actions after it. See also [script variables] for how to define variables accessible in the entire script.
 
 {% raw %}
 
@@ -140,8 +142,6 @@ All forms accept templates.
 ## Wait
 
 These actions allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
-
-When used within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
 
 ### Wait Template
 
