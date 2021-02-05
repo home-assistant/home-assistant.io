@@ -9,7 +9,7 @@ ha_domain: mqtt
 ---
 
 
-The `mqtt` device tracker platform allows you to define new device_trackers through [YAML](#yaml-configuration) in `configuration.yaml` and also to automatically [discover](discovery-schema) device_trackers through the MQTT Discovery protocol.
+The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers through a [discovery schema](#discovery-schema) using the MQTT Discovery protocol.
 
 ## YAML Configuration
 
