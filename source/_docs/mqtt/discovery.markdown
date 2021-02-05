@@ -422,7 +422,7 @@ Setting up a device tracker:
   "state_topic": "homeassistant/device_tracker/paulus/state",
   "payload_home": "home",
   "payload_not_home": "not_home",
-  "source_type": "bluetooth",
+  "source_type": "bluetooth"
  }
 ```
 
@@ -438,6 +438,6 @@ If the device supports gps co-ordinates then they can be sent to Home Assistant 
 {
   "latitude": 32.87336,
   "longitude": -117.22743,
-  "gps_accuracy": 1.2,
+  "gps_accuracy": 1.2
  }
 ```
