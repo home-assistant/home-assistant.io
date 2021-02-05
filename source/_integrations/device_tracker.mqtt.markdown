@@ -9,7 +9,7 @@ ha_domain: mqtt
 ---
 
 
-The `mqtt` device tracker platform allows you to define new device_trackers through YAML in `configuration.yaml` and also to automatically discover device_trackers through the MQTT Discovery protocol.
+The `mqtt` device tracker platform allows you to define new device_trackers through [YAML](#yaml-configuration) in `configuration.yaml` and also to automatically [discover](discovery-schema) device_trackers through the MQTT Discovery protocol.
 
 ## YAML Configuration
 
@@ -80,8 +80,32 @@ To set the state of the device_tracker then you need to publish a JSON message t
 MQTT device_trackers are also supported through [MQTT discovery](/docs/mqtt/discovery/). This is different to the YAML configuration from above. Here, the device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config` and the JSON message content of a specific format as defined below.
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 device:
@@ -122,11 +146,11 @@ icon:
   required: false
   type: icon
 json_attributes_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
   type: template
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as device_tracker attributes.
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as device_tracker attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
 name:
