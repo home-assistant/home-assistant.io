@@ -61,6 +61,13 @@ port:
   required: false
   type: integer
   default: 80
+channel:
+  description: >
+    When using an NVR instead of a single camera, this parameter allows to define which NVR channel this camera represent. 
+    Repeat the entire configuration for every camera you want to stream from your NVR.
+  required: false
+  type: integer
+  default: 1
 resolution:
   description: >
     This parameter allows you to specify the camera resolution.
