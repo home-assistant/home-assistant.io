@@ -49,7 +49,7 @@ There is currently support for the following device types within Home Assistant:
 To use your KNX bus in your installation, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-knx:
+knx: ~
 ```
 
 In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files as shown below:
@@ -142,15 +142,14 @@ Explicit connection via KNX/IP routing. This requires multicast communication to
 
 ```yaml
 knx:
-  routing:
-     local_ip: "192.168.2.109"
+  routing: ~
 ```
 
 {% configuration %}
 local_ip:
   description: The local IP address of the interface that shall be used to send multicast packets.
   type: string
-  required: true
+  required: false
 {% endconfiguration %}
 
 ## Events
