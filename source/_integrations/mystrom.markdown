@@ -154,6 +154,7 @@ If you have set [`login_attempts_threshold`](/integrations/http/) and forget to 
 ## Switch
 
 The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches. The built-in sensor is measuring the power consumption while the switch is on.
+The v2 Switch also includes a temperature sensor.
 
 ### Setup
 
@@ -171,6 +172,28 @@ switch:
   - platform: mystrom
     host: IP_ADRRESS
 ```
+{% configuration %}
+host:
+  description: "The IP address of your myStrom switch, e.g., `http://192.168.1.32`."
+  required: true
+  type: string
+name:
+  description: The name to use when displaying this switch.
+  required: false
+  type: string
+  default: myStrom Switch
+{% endconfiguration %}
+
+To expose the temperature and/or power sensor add this code to your `configuration.yaml` file:
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: mystrom
+    host: IP_ADRRESS
+    sensors:
+      - temperature
+      - power
+```
 
 {% configuration %}
 host:
@@ -182,6 +205,10 @@ name:
   required: false
   type: string
   default: myStrom Switch
+sensors:
+  description: The name of the sensors to enable
+  required: true
+  type: list
 {% endconfiguration %}
 
 Check if you are able to access the device located at `http://IP_ADRRESS`. The details about your switch is provided as a JSON response.
