@@ -14,7 +14,7 @@ Interacts with media players on your network.
 ## Services
 
 ### Media control services
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`, `repeat_set`, `play_media`, `select_source`, `select_sound_mode`
+Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`, `repeat_set`, `play_media`, `select_source`, `select_sound_mode`, `join`, `unjoin`
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
@@ -155,6 +155,21 @@ Currently only supported on [Sonos](/integrations/sonos), [Spotify](/integration
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. For example `media_player.kitchen`|
 | `repeat`               |       no | `off`/`all`/`one` for setting repeat mode            |
+
+#### Service `media_player.join`
+
+Allows to group media players together for synchronous playback. Only works on supported multiroom audio systems.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |      yes | The media player entity whose playback will be expanded to the players specified in `group_members`.  |
+| `group_members`        |       no | The player entities which will be synced with the playback from `entity_id`.  |
+
+#### Service `media_player.unjoin`
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
 ### Device Class
 
