@@ -49,6 +49,11 @@ timeoffset:
   required: false
   default: 0
   type: integer
+entries:
+  description: Number of entries fetched from MVG. Should not be lower than number.
+  required: false
+  default: 10
+  type: integer
 number:
   description: Store a list of departures in the attribute "departures". If you set this parameter to 3, the next three departures will be stored.
   required: false
