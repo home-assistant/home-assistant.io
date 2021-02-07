@@ -463,7 +463,7 @@ automation:
   - trigger:
       platform: state
       entity_id: binary_sensor.motion
-      to: 'on'
+      to: "on"
     action:
       - service: climate.turn_on
         entity_id: climate.office

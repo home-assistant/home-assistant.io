@@ -109,7 +109,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
 
 ```yaml
   - id: mini_1_pressed
-    alias: 'Minimote Button 1 Pressed'
+    alias: "Minimote Button 1 Pressed"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -117,7 +117,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 1
   - id: mini_1_held
-    alias: 'Minimote Button 1 Held'
+    alias: "Minimote Button 1 Held"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -125,7 +125,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 2
   - id: mini_2_pressed
-    alias: 'Minimote Button 2 Pressed'
+    alias: "Minimote Button 2 Pressed"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -133,7 +133,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 3
   - id: mini_2_held
-    alias: 'Minimote Button 2 Held'
+    alias: "Minimote Button 2 Held"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -141,7 +141,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 4
   - id: mini_3_pressed
-    alias: 'Minimote Button 3 Pressed'
+    alias: "Minimote Button 3 Pressed"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -149,7 +149,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 5
   - id: mini_3_held
-    alias: 'Minimote Button 3 Held'
+    alias: "Minimote Button 3 Held"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -157,7 +157,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 6
   - id: mini_4_pressed
-    alias: 'Minimote Button 4 Pressed'
+    alias: "Minimote Button 4 Pressed"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -165,7 +165,7 @@ Here's a handy configuration for the Aeon Labs Minimote that defines all possibl
           entity_id: zwave.aeon_labs_minimote_1
           scene_id: 7
   - id: mini_4_held
-    alias: 'Minimote Button 4 Held'
+    alias: "Minimote Button 4 Held"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -1080,7 +1080,7 @@ Double-press | 3
 Let's see how this works in an automation for a Scene Master that's assigned as Node 7:
 
 ```yaml
-- id: '1234567890'
+- id: "1234567890"
   alias: Double-press Button 2 to toggle all lights
   trigger:
   - platform: event

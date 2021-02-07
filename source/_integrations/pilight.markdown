@@ -85,7 +85,7 @@ To enable a Pilight binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 binary_sensor:
   - platform: pilight
-    variable: 'state'
+    variable: "state"
 ```
 
 {% configuration %}
@@ -133,11 +133,11 @@ A full configuration example could look like this:
 # Example configuration.yaml entry
 binary_sensor:
   - platform: pilight
-    name: 'Motion'
-    variable: 'state'
+    name: "Motion"
+    variable: "state"
     payload:
       unitcode: 371399
-    payload_on: 'closed'
+    payload_on: "closed"
     disarm_after_trigger: true
     reset_delay_sec: 30
 ```
@@ -154,7 +154,7 @@ sensor:
   - platform: pilight
     variable: temperature
     payload:
-      uuid: '0000-b8-27-eb-f447d3'
+      uuid: "0000-b8-27-eb-f447d3"
 ```
 
 {% configuration %}
@@ -185,23 +185,23 @@ This section shows a real life example how to use values of a weather station.
 # Example configuration.yaml entry
 sensor:
   - platform: pilight
-    name: 'Temperature'
-    variable: 'temperature'
+    name: "Temperature"
+    variable: "temperature"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
   - platform: pilight
-    name: 'Humidity'
-    variable: 'humidity'
+    name: "Humidity"
+    variable: "humidity"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
   - platform: pilight
-    name: 'Battery'
-    variable: 'battery'
+    name: "Battery"
+    variable: "battery"
     payload:
       uuid: 0000-b8-27-eb-f1f72e
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
 ```
 
 ## Switch
@@ -298,13 +298,13 @@ switch:
           systemcode: 14462
           unit: 6
           id: 34
-          state: 'on'
+          state: "on"
         off_code_receive:
           protocol: daycom
           systemcode: 14462
           unit: 6
           id: 34
-          state: 'off'
+          state: "off"
 ```
 
 ## Light
@@ -349,12 +349,12 @@ light:
           protocol: kaku_dimmer
           id: 23298822
           unit: 10
-          state: 'on'
+          state: "on"
         off_code_receive:
           protocol: kaku_dimmer
           id: 23298822
           unit: 10
-          state: 'off'
+          state: "off"
 ```
 
 ## Troubleshooting

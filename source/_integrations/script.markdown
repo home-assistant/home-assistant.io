@@ -210,7 +210,7 @@ script:
     sequence:
       - condition: state
         entity_id: switch.pushover_notifications
-        state: 'on'
+        state: "on"
       - service: notify.pushover
         data:
           title: "{% raw %}{{ title }}{% endraw %}"

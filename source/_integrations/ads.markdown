@@ -30,7 +30,7 @@ To enable ADS, add the following lines to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 ads:
-  device: '127.0.0.1.1.1'
+  device: "127.0.0.1.1.1"
   port: 801
 ```
 
@@ -138,7 +138,7 @@ file:
 sensor:
   - platform: ads
     adsvar: GVL.temperature
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
     adstype: int
 ```
 

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@ehendrix23'
   - '@bramkragten'
   - '@bdraco'
+  - '@mkeesey'
 ha_domain: harmony
 ---
 

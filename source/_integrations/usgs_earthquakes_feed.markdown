@@ -118,3 +118,15 @@ geo_location:
     latitude: 35.899722
     longitude: -120.432778
 ```
+## Card Example
+
+Assuming you configure this service using `feed_type: past_week_all_earthquakes`, you can create a corresponding map card in the Lovelace UI with the following card:
+```yaml
+type: map
+name: Earthquakes
+geo_location_sources:
+  - usgs_earthquakes_feed
+entities:
+  - zone.home
+title: Nearby Earthquakes Last Week
+```

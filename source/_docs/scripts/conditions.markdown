@@ -16,10 +16,10 @@ condition:
   condition: and
   conditions:
     - condition: state
-      entity_id: 'device_tracker.paulus'
-      state: 'home'
+      entity_id: "device_tracker.paulus"
+      state: "home"
     - condition: numeric_state
-      entity_id: 'sensor.temperature'
+      entity_id: "sensor.temperature"
       below: 20
 ```
 
@@ -30,10 +30,10 @@ The following configuration works the same as the one listed above:
 ```yaml
 condition:
   - condition: state
-    entity_id: 'device_tracker.paulus'
-    state: 'home'
+    entity_id: "device_tracker.paulus"
+    state: "home"
   - condition: numeric_state
-    entity_id: 'sensor.temperature'
+    entity_id: "sensor.temperature"
     below: 20
 ```
 
@@ -48,10 +48,10 @@ condition:
   condition: or
   conditions:
     - condition: state
-      entity_id: 'device_tracker.paulus'
-      state: 'home'
+      entity_id: "device_tracker.paulus"
+      state: "home"
     - condition: numeric_state
-      entity_id: 'sensor.temperature'
+      entity_id: "sensor.temperature"
       below: 20
 ```
 
@@ -65,15 +65,15 @@ condition:
   condition: and
   conditions:
     - condition: state
-      entity_id: 'device_tracker.paulus'
-      state: 'home'
+      entity_id: "device_tracker.paulus"
+      state: "home"
     - condition: or
       conditions:
         - condition: state
           entity_id: sensor.weather_precip
-          state: 'rain'
+          state: "rain"
         - condition: numeric_state
-          entity_id: 'sensor.temperature'
+          entity_id: "sensor.temperature"
           below: 20
 ```
 
@@ -87,7 +87,7 @@ condition:
   conditions:
     - condition: state
       entity_id: device_tracker.paulus
-      state: 'home'
+      state: "home"
     - condition: state
       entity_id: alarm_control_panel.home_alarm
       state: disarmed
@@ -167,7 +167,7 @@ Tests if an entity is a specified state.
 condition:
   condition: state
   entity_id: device_tracker.paulus
-  state: 'not_home'
+  state: "not_home"
   # optional: trigger only if state was this for last X time.
   for:
     hours: 1
@@ -184,7 +184,7 @@ condition:
   entity_id:
     - light.kitchen
     - light.living_room
-  state: 'on'
+  state: "on"
 ```
 
 Testing if an entity is matching a set of possible conditions;
@@ -245,14 +245,14 @@ The sun state can be used to test if the sun has set or risen.
 condition:
   condition: state  # 'day' condition: from sunrise until sunset
   entity_id: sun.sun
-  state: 'above_horizon'
+  state: "above_horizon"
 ```
 
 ```yaml
 condition:
   condition: state  # from sunset until sunrise
   entity_id: sun.sun
-  state: 'below_horizon'
+  state: "below_horizon"
 ```
 
 ### Sun elevation condition
@@ -392,7 +392,7 @@ condition:
   conditions:
     - "{{ is_state('device_tracker.iphone', 'away') }}"
     - condition: numeric_state
-      entity_id: 'sensor.temperature'
+      entity_id: "sensor.temperature"
       below: 20
 ```
 
@@ -442,8 +442,8 @@ The time condition can test if it is after a specified time, before a specified 
 condition:
   condition: time
   # At least one of the following is required.
-  after: '15:00:00'
-  before: '02:00:00'
+  after: "15:00:00"
+  before: "02:00:00"
   weekday:
     - mon
     - wed
@@ -532,13 +532,13 @@ condition:
     below: 1
   - condition: state
     entity_id: light.living_room
-    state: 'off'
+    state: "off"
   - condition: time
-    before: '23:00:00'
-    after: '14:00:00'
+    before: "23:00:00"
+    after: "14:00:00"
   - condition: state
     entity_id: script.light_turned_off_5min
-    state: 'off'
+    state: "off"
 ```
 
 {% endraw %}

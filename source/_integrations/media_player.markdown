@@ -118,9 +118,9 @@ entity_id: media_player.chromecast
 service: media_player.play_media
 data:
   media_content_type: music
-  media_content_id: 'https://fake-home-assistant.io.stream/aac'
+  media_content_id: "https://fake-home-assistant.io.stream/aac"
   extra:
-    thumb: 'https://brands.home-assistant.io/_/homeassistant/logo.png'
+    thumb: "https://brands.home-assistant.io/_/homeassistant/logo.png"
     title: HomeAssitantRadio
 ```
 

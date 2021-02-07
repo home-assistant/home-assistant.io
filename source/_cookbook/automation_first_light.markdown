@@ -24,7 +24,7 @@ automation:
   - alias: Enable First Morning Trigger
     trigger:
       - platform: time
-        at: '05:00:00'
+        at: "05:00:00"
     action:
       service: homeassistant.turn_on
       entity_id: input_boolean.trigger_first_morning
@@ -47,12 +47,12 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.livingroom_motion
-      to: 'on'
+      to: "on"
     # only complete the automation if we're still waiting for the first motion
     condition:
         condition: state
         entity_id: input_boolean.trigger_first_morning
-        state: 'on'
+        state: "on"
 
     action:
       # turn off the "waiting" boolean regardless of whether lights will turn on

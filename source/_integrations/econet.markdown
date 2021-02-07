@@ -1,5 +1,5 @@
 ---
-title: Rheem EcoNET Water Products
+title: Rheem EcoNet Products
 description: Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant.
 ha_category:
   - Water Heater
@@ -7,8 +7,8 @@ ha_release: 0.61
 ha_iot_class: Cloud Push
 ha_domain: econet
 ha_codeowners:
-  - '@w1ll1am23'
   - '@vangorra'
+  - '@w1ll1am23'
 ha_config_flow: true
 ---
 

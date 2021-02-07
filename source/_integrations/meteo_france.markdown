@@ -42,8 +42,8 @@ To add Météo-France to your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry for 2 cities
 meteo_france:
-  - city: '76000'
-  - city: 'Auch'
+  - city: "76000"
+  - city: "Auch"
 ```
 
 {% configuration %}

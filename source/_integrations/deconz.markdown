@@ -186,7 +186,7 @@ Requesting support for additional devices requires the device model (can be acqu
 ```yaml
 automation:
   - alias: 'Toggle lamp from dimmer'
-    initial_state: 'on'
+    initial_state: "on"
     trigger:
       platform: event
       event_type: deconz_event
@@ -198,7 +198,7 @@ automation:
       entity_id: light.lamp
 
   - alias: 'Increase brightness of lamp from dimmer'
-    initial_state: 'on'
+    initial_state: "on"
     trigger:
       platform: event
       event_type: deconz_event
@@ -214,7 +214,7 @@ automation:
             {{ [bri+30, 249] | min }}
 
   - alias: 'Decrease brightness of lamp from dimmer'
-    initial_state: 'on'
+    initial_state: "on"
     trigger:
       platform: event
       event_type: deconz_event
@@ -230,7 +230,7 @@ automation:
             {{ [bri-30, 0] | max }}
 
   - alias: 'Turn lamp on when turning cube clockwise'
-    initial_state: 'on'
+    initial_state: "on"
     trigger:
       platform: event
       event_type: deconz_event

@@ -129,7 +129,7 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
         entity_id: light.some_light
@@ -145,7 +145,7 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
         entity_id: light.some_light
@@ -390,7 +390,7 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
         entity_id: light.some_light
@@ -406,7 +406,7 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
         entity_id: light.some_light

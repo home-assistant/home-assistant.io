@@ -204,7 +204,7 @@ Example automation using these IR codes to toggle a Sonoff plug.
 
 ```yaml
 # Example kira_sensor
-- id: '1583339338363'
+- id: "1583339338363"
   alias: Panasonic On
   description: Turn on sonoff s20 relay
   trigger:
@@ -217,8 +217,8 @@ Example automation using these IR codes to toggle a Sonoff plug.
     domain: switch
     entity_id: switch.plug2_relay
     type: turn_on
-- id: '1584035716024'
-  alias: 'Panaxonic Off '
+- id: "1584035716024"
+  alias: "Panaxonic Off "
   description: Turn off sonoff s20 relay
   trigger:
   - entity_id: sensor.kira_wireless

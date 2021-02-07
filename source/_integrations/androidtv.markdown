@@ -217,14 +217,14 @@ start_netflix:
   - service: media_player.select_source
     data:
       entity_id: media_player.fire_tv_living_room
-      source: 'com.netflix.ninja'
+      source: "com.netflix.ninja"
 
 stop_netflix:
   sequence:
   - service: media_player.select_source
     data:
       entity_id: media_player.fire_tv_living_room
-      source: '!com.netflix.ninja'
+      source: "!com.netflix.ninja"
 ```
 
 ### `androidtv.adb_command`

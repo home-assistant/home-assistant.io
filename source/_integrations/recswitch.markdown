@@ -24,8 +24,8 @@ To enable this switch, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 switch:
   - platform: recswitch
-    host: 'IP_ADDRESS'
-    mac: 'MAC_ADDRESS'
+    host: "IP_ADDRESS"
+    mac: "MAC_ADDRESS"
 ```
 
 {% configuration %}

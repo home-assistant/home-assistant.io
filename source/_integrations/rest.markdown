@@ -27,7 +27,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADDRESS/ENDPOINT
     method: POST
-    payload: '{ "device" : "heater" }'
+    payload: "{ "device" : "heater" }"
 ```
 
 or a template based request:

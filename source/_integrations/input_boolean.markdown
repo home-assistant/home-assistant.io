@@ -79,7 +79,7 @@ automation:
   condition:
     condition: state
     entity_id: input_boolean.notify_home
-    state: 'on'
+    state: "on"
   action:
     service: notify.pushbullet
     data:

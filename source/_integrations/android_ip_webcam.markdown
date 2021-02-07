@@ -181,7 +181,7 @@ binary_sensor:
     name: Kitchen Motion
     device_class: motion
     resource: http://IP_ADDRESS:PORT/sensors.json?sense=motion_active
-    value_template: '{{ value_json.motion_active.data[0][1][0] | round(0) }}'
+    value_template: "{{ value_json.motion_active.data[0][1][0] | round(0) }}"
 ```
 
 {% endraw %}

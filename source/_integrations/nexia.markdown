@@ -10,7 +10,6 @@ ha_release: 0.108
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@ryannazaretian'
   - '@bdraco'
 ha_domain: nexia
 ---

@@ -32,7 +32,7 @@ sensor:
   - platform: history_stats
     name: Lamp ON today
     entity_id: light.my_lamp
-    state: 'on'
+    state: "on"
     type: time
     start: '{{ now().replace(hour=0, minute=0, second=0) }}'
     end: '{{ now() }}'
