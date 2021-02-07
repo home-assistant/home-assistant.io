@@ -7,7 +7,7 @@ ha_category:
   - Fan
   - Light
   - Switch
-ha_iot_class: Local Pull
+ha_iot_class: Local Push
 ha_release: 0.113
 ha_domain: bond
 ha_codeowners:
