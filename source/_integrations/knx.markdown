@@ -732,7 +732,7 @@ state_address:
   type: string
 oscillation_address:
   description: KNX group address for switching the fan oscillation on or off. *DPT 1*
-  required: true
+  required: false
   type: string
 oscillation_state_address:
   description: KNX group address for retrieving the state of the fan oscillation. *DPT 1*
