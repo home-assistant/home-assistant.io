@@ -2263,3 +2263,5 @@
 /integrations/ptvsd /more-info/removed-integration 301
 /components/nuimo_controller /more-info/removed-integration 301
 /integrations/nuimo_controller /more-info/removed-integration 301
+/components/camera.synology /more-info/removed-integration 301
+/integrations/synology /more-info/removed-integration 301
