@@ -704,7 +704,7 @@ device_class:
 The `knx fan` integration is used to control KNX fans. Following control types are supported:
 
 - Percentage controlled: Fans which set the percentage directly from 0-100%.
-- Step controlled: Fans which have a fixed amount of steps to set. The integration will convert percentage to step automatically. The `max_step` attribute is set to the amount of steps of the fan, not counting the `off`-step. Example: A knx fan supports the steps 0-3. The `max_step` attribute has to be set to `3`. The integration will convert the percentage `66 %` to the step `2` when sending data to KNX.
+- Step controlled: Fans which have a fixed amount of steps to set. The integration will convert percentage to step automatically. The `max_step` attribute is set to the amount of steps of the fan, not counting the `off`-step. Example: A knx fan supports the steps 0-3, therefore  `max_step` attribute has to be set to `3`. The integration will convert the percentage `66 %` to the step `2` when sending data to KNX.
 
 To use your KNX fan in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -714,9 +714,14 @@ knx:
   fan:
     - name: 'ceiling fan'
       address: '9/0/1'
+      state_address: '9/0/2'
 ```
 
 {% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
 address:
   description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
   required: true
@@ -725,8 +730,12 @@ state_address:
   description: KNX group address for retrieving the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
   required: false
   type: string
-name:
-  description: A name for this device used within Home Assistant.
+oscillation_address:
+  description: KNX group address for switching the fan oscillation on or off. *DPT 1*
+  required: true
+  type: string
+oscillation_state_address:
+  description: KNX group address for retrieving the state of the fan oscillation. *DPT 1*
   required: false
   type: string
 max_step:
