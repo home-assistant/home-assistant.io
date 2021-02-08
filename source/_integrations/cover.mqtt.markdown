@@ -8,18 +8,17 @@ ha_release: 0.18
 ha_domain: mqtt
 ---
 
-The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a rollershutter or a garage door).
+The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a roller shutter or a garage door).
 
 ## Configuration
 
-The device state (`open`, `opening`, `closed` or `closing`) will be updated only after a new message is published on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
-`state_topic` can only manage `state_open`, `state_opening`, `state_closed` and `state_closing`. No percentage positions etc.
+The device state (`open`, `opening`, `closed` or `closing`) will be updated only after a new message is published on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`. For covers that support only 3 states (`opening`, `closing`, `stopped`), a `stopped` state can be used to indicate that the device is not moving. When this state is received if the cover is in optimistic mode or position topic is not set the cover open or closed state will be set according to last direction the cover was moving. If position topic is set cover position will be used to set the open or closed state. Note that is is only used to set the device `open` or `closed` state when it is stopped.
 
-For this purpose is `position_topic` which can set state of the cover and position.
+`state_topic` can not set percentage positions, For this purpose is `position_topic` which can set state of the cover and position.
 Default setting are 0 means the device is `closed` and all other intermediate positions means the device is `open`.
 `position_topic` is managed by `position_open` and `position_closed`
 You can set it up in opposite way as well.
-If position topic is defined than state topic is ignored.
+If position topic and state topic are both defined, the device state (`open`, `opening`, `closed` or `closing`) will be set by the state topic and the cover position will be set by the position topic.
 
 If a state topic and position topic are not defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
 
@@ -123,7 +122,7 @@ optimistic:
   description: Flag that defines if switch works in optimistic mode.
   required: false
   type: string
-  default: "`true` if no state topic defined, else `false`."
+  default: "`false` if state/position topic defined, else `true`."
 payload_available:
   description: The payload that represents the online state.
   required: false
@@ -159,8 +158,12 @@ position_open:
   required: false
   type: integer
   default: 100
+position_template:
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic."
+  required: false
+  type: string
 position_topic:
-  description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
+  description: The MQTT topic subscribed to receive cover position messages.
   required: false
   type: string
 qos:
@@ -201,8 +204,13 @@ state_opening:
   required: false
   type: string
   default: opening
+state_stopped:
+  description: The payload that represents the stopped state (for covers that do not report `open`/`closed` state).
+  required: false
+  type: string
+  default: stopped
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. Use only if not using `position_topic`. State topic can only read open/close state. Cannot read position state. If `position_topic` is set `state_topic` is ignored.
+  description: The MQTT topic subscribed to receive cover state messages. State topic can only read (`open`, `opening`, `closed`, `closing` or `stopped`) state.
   required: false
   type: string
 tilt_closed_value:
@@ -210,15 +218,14 @@ tilt_closed_value:
   required: false
   type: integer
   default: 0
+tilt_command_template:
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic."
+  required: false
+  type: string
 tilt_command_topic:
   description: The MQTT topic to publish commands to control the cover tilt.
   required: false
   type: string
-tilt_invert_state:
-  description: Flag that determines if open/close are flipped; higher values toward closed and lower values toward open.
-  required: false
-  type: boolean
-  default: false
 tilt_max:
   description: The maximum tilt value
   required: false
@@ -252,10 +259,18 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `state_topic` topic."
   required: false
   type: string
 {% endconfiguration %}
+
+<div class="note">
+
+MQTT cover expects position and tilt values to be in range of 0 to 100, where 0 indicates closed position and 100 indicates fully open position.
+If position `min` or `max` are set to a different range (e.g. 40 to 140), when sending command to the device the range will be adjusted to the device range (position 0 will send a value of 40 to device) and when position payload is received from the device it will be adjusted back to the 0 to 100 range (device value of 40 will report cover position 0).
+`min` and `max` can also be used to reverse the direction of the device, if `min` is set to 100 and `max` is set to `0` device operation will be inverted (e.g. when setting position to 40, a value of 60 will be sent to device).
+
+</div>
 
 ## Examples
 
@@ -324,9 +339,9 @@ cover:
 
 {% endraw %}
 
-### Full configuration
+### Full configuration for position, state and tilt
 
-The example below shows a full configuration for a cover.
+The example below shows a full configuration for a cover with position, state & tilt.
 
 {% raw %}
 
@@ -337,6 +352,7 @@ cover:
     name: "MQTT Cover"
     command_topic: "home-assistant/cover/set"
     state_topic: "home-assistant/cover/state"
+    position_topic: "home-assistant/cover/position"
     availability:
       - topic: "home-assistant/cover/availability"
     qos: 0
@@ -352,6 +368,7 @@ cover:
     payload_not_available: "offline"
     optimistic: false
     value_template: '{{ value.x }}'
+    position_template: '{{ value.y }}'
     tilt_command_topic: 'home-assistant/cover/tilt'
     tilt_status_topic: 'home-assistant/cover/tilt-state'
     tilt_status_template: '{{ value_json["PWM"]["PWM1"] }}'
@@ -359,6 +376,39 @@ cover:
     tilt_max: 180
     tilt_closed_value: 70
     tilt_opened_value: 180
+```
+
+{% endraw %}
+
+### Full configuration using stopped state
+
+The example below shows a full configuration for a cover using stopped state.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    name: "MQTT Cover"
+    command_topic: "home-assistant/cover/set"
+    state_topic: "home-assistant/cover/state"
+    position_topic: "home-assistant/cover/position"
+    availability:
+      - topic: "home-assistant/cover/availability"
+    qos: 0
+    retain: true
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STOP"
+    state_opening: "opening"
+    state_closed: "closed"
+    state_stopped: "stopped"
+    payload_available: "online"
+    payload_not_available: "offline"
+    optimistic: false
+    value_template: '{{ value.x }}'
+    position_template: '{{ value.y }}'
 ```
 
 {% endraw %}
