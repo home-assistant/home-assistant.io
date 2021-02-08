@@ -10,7 +10,9 @@ ha_quality_scale: internal
 ha_domain: uptime
 ---
 
-The `uptime` sensor platform displays the time since the last Home Assistant restart.
+Starting with release 2020.12 the `uptime` sensor platform displays the timestamp (date and time) when Home Assistant was last started.
+
+Prior to release 2020.12 the `uptime` sensor platform displays the time since the last Home Assistant restart.
 
 ## Configuration
 
