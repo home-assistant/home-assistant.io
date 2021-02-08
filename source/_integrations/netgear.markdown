@@ -17,7 +17,7 @@ There are two ways to integrate NETGEAR in Home Assistant.
 
 ### Via the frontend
 
-Menu: *Configuration* -> *Integrations*. Search for "NETGEAR", click submit try to autodetect the URL of the router, fill the configuration form, click submit.
+Menu: *Configuration* -> *Integrations*. Search for "NETGEAR", fill the configuration form, click submit.
 
 ### Via the configuration file
 
