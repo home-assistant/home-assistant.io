@@ -94,6 +94,30 @@ automation:
     encoding: "utf-8"
 ```
 
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
+
+<div class='note'>
+The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be reevaluated for every incoming MQTT message.
+</div>
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    room: living_room
+    node: ac
+    value: on
+  trigger:
+    platform: mqtt
+    topic: '{{ room ~ "/switch/" ~ node}}'
+    # Optional
+    payload: '{{ "state:" ~ value }}'
+    encoding: "utf-8"
+```
+
+{% endraw %}
+
 ### Numeric state trigger
 
 Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property) crosses a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
