@@ -26,6 +26,7 @@ This integration is a meta-component and configures a default set of integration
 - [Map](/integrations/map/) (`map`)
 - [Media Source](/integrations/media_source/) (`media_source`)
 - [Mobile App Support](/integrations/mobile_app/) (`mobile_app`)
+- [My Home Assistant](/integrations/my/) (`my`)
 - [Person](/integrations/person/) (`person`)
 - [Scene](/integrations/scene/) (`scene`)
 - [Scripts](/integrations/script/) (`script`)
