@@ -22,6 +22,7 @@ The following selectors are currently available:
 - [Entity selector](#entity-selector)
 - [Number selector](#number-selector)
 - [Object selector](#object-selector)
+- [Select selector](#select-selector)
 - [Target selector](#target-selector)
 - [Text selector](#text-selector)
 - [Time selector](#time-selector)
@@ -380,6 +381,29 @@ This selector does not have any other options; therefore, it only has its key.
 ```yaml
 object:
 ```
+
+## Select selector
+
+The select selector shows a list of available options from which the user can choose. The value of the input contains the value of the selected option. Only a single option can be selected at a time.
+
+![Screenshot of a select selector](/images/blueprints/selector-select.png)
+
+The selector requires a list of options that the user can choose from.
+
+```yaml
+select:
+  options:
+    - Red
+    - Green
+    - Blue
+```
+
+{% configuration select %}
+options:
+  description: List of options that the user can choose from.
+  type: list
+  required: true
+{% endconfiguration %}
 
 ## Target selector
 
