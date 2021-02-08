@@ -160,7 +160,7 @@ The template is re-evaluated whenever an entity ID that it references changes st
 
 ### Wait for Trigger
 
-This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires.
+This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger_variables](/docs/automation/trigger#trigger_variables), [variables](#variables) and [script variables] are passed to the trigger.
 {% raw %}
 
 ```yaml
