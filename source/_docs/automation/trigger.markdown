@@ -47,6 +47,27 @@ automation:
       - scene_reloaded
 ```
 
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `event_type`, `event_data` and `context` options.
+
+<div class='note'>
+The `event_type`, `event_data` and `context` templates are only evaluated when setting up the trigger, they will not be reevaluated for every event.
+</div>
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    sub_event: ABC
+    node: ac
+    value: on
+  trigger:
+    platform: event
+    event_type: '{{ "MY_CUSTOM_EVENT_" ~ sub_event }}'
+```
+
+{% endraw %}
+
 ### Home Assistant trigger
 
 Fires when Home Assistant starts up or shuts down.
