@@ -91,7 +91,7 @@ sensor:
         currency: USD
         symbol: GOOGL
     foreign_exchange:
-      - from: BTC
+      - name: BTC
+        from: BTC
         to: USD
-        name: Bitcoin
 ```
