@@ -491,11 +491,11 @@ To evaluate a response, go to **Developer Tools** -> **Template**, create your o
 ```yaml
 {% set value_json=
     {"name":"Outside",
-	 "device":"weather-ha",
+     "device":"weather-ha",
      "data":
-	    {"temp":"24C",
-		 "hum":"35%"
-		 }	}%}
+        {"temp":"24C",
+         "hum":"35%"
+         } }%}
 
 {{value_json.data.hum[:-1]}}
 ```
