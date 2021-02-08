@@ -3,7 +3,7 @@
 
 [![Deploys by netlify](https://www.netlify.com/img/global/badges/netlify-color-bg.svg)](https://www.netlify.com)
 
-# Home Assistant website
+# Home Assistant websites
 
 This is the source for the [Home-Assistant.io website](https://home-assistant.io).
 
