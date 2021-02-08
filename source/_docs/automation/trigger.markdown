@@ -11,6 +11,9 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 
 The following sections introduce all trigger types and further details to get started.
 
+### Trigger variables
+Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
+
 ### Event trigger
 
 Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
