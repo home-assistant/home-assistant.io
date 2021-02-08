@@ -50,6 +50,7 @@ Enjoy the release!
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.2.1 - February 5](#release-202121---february-5)
+- [Release 2021.2.2 - February 9](#release-202122---february-9)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -378,6 +379,69 @@ The following integrations are now available via the Home Assistant UI:
 [ozw docs]: /integrations/ozw/
 [shelly docs]: /integrations/shelly/
 [workday docs]: /integrations/workday/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.2.2 - February 9
+
+- Fix zwave_js cover control for Up/Down and Open/Close ([@natekspencer] - [#45965]) ([zwave_js docs])
+- Fix foscam to work again with non-admin accounts and make RTSP port configurable again ([@skgsergio] - [#45975]) ([foscam docs])
+- Fix downloader path validation on subdir ([@gadgetchnnel] - [#46061]) ([downloader docs])
+- Fix deprecated method isAlive() ([@cdce8p] - [#46062]) ([zwave docs])
+- Improve deCONZ logbook to be more robust in different situations ([@Kane610] - [#46063]) ([deconz docs])
+- Fix zwave_js Notification CC sensors and binary sensors ([@raman325] - [#46072]) ([zwave_js docs])
+- Fix incorrect current temperature for homekit water heaters ([@bdraco] - [#46076]) ([homekit docs])
+- Use async_update_entry rather than updating config_entry.data directly in Axis ([@Kane610] - [#46078]) ([axis docs])
+- Handle missing value in all platforms of zwave_js ([@marcelveldt] - [#46081]) ([zwave_js docs])
+- update discovery scheme for zwave_js light platform ([@marcelveldt] - [#46082]) ([zwave_js docs])
+- Update zwave_js discovery scheme for boolean sensors in the Alarm CC ([@marcelveldt] - [#46085]) ([zwave_js docs])
+- Fix Google translate TTS by bumping gTTS from 2.2.1 to 2.2.2 ([@hmmbob] - [#46110]) ([google_translate docs])
+- Revert "Convert ozw climate values to correct units (#45369)" ([@dshokouhi] - [#46163]) ([ozw docs])
+- Enable KNX auto_reconnect for auto-discovered connections ([@farmio] - [#46178]) ([knx docs])
+- Ensure creating an index that already exists is forgiving for postgresql ([@bdraco] - [#46185]) ([recorder docs])
+- Fix Tado Power and Link binary sensors ([@Noltari] - [#46235]) ([tado docs])
+- Handle empty mylink response at startup ([@bdraco] - [#46241]) ([somfy_mylink docs])
+
+[#45965]: https://github.com/home-assistant/core/pull/45965
+[#45975]: https://github.com/home-assistant/core/pull/45975
+[#46061]: https://github.com/home-assistant/core/pull/46061
+[#46062]: https://github.com/home-assistant/core/pull/46062
+[#46063]: https://github.com/home-assistant/core/pull/46063
+[#46072]: https://github.com/home-assistant/core/pull/46072
+[#46076]: https://github.com/home-assistant/core/pull/46076
+[#46078]: https://github.com/home-assistant/core/pull/46078
+[#46081]: https://github.com/home-assistant/core/pull/46081
+[#46082]: https://github.com/home-assistant/core/pull/46082
+[#46085]: https://github.com/home-assistant/core/pull/46085
+[#46110]: https://github.com/home-assistant/core/pull/46110
+[#46163]: https://github.com/home-assistant/core/pull/46163
+[#46178]: https://github.com/home-assistant/core/pull/46178
+[#46185]: https://github.com/home-assistant/core/pull/46185
+[#46235]: https://github.com/home-assistant/core/pull/46235
+[#46241]: https://github.com/home-assistant/core/pull/46241
+[@Kane610]: https://github.com/Kane610
+[@Noltari]: https://github.com/Noltari
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@dshokouhi]: https://github.com/dshokouhi
+[@farmio]: https://github.com/farmio
+[@gadgetchnnel]: https://github.com/gadgetchnnel
+[@hmmbob]: https://github.com/hmmbob
+[@marcelveldt]: https://github.com/marcelveldt
+[@natekspencer]: https://github.com/natekspencer
+[@raman325]: https://github.com/raman325
+[@skgsergio]: https://github.com/skgsergio
+[axis docs]: /integrations/axis/
+[deconz docs]: /integrations/deconz/
+[downloader docs]: /integrations/downloader/
+[foscam docs]: /integrations/foscam/
+[google_translate docs]: /integrations/google_translate/
+[homekit docs]: /integrations/homekit/
+[knx docs]: /integrations/knx/
+[ozw docs]: /integrations/ozw/
+[recorder docs]: /integrations/recorder/
+[somfy_mylink docs]: /integrations/somfy_mylink/
+[tado docs]: /integrations/tado/
+[zwave docs]: /integrations/zwave/
 [zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
