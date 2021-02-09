@@ -56,7 +56,7 @@ Zones have three modes available, closed, open, and auto. These are mapped to Ho
 
 ## Control zone (climate control mode)
 
-With multiple climate controlled zones you can't set the target temperature of the control, but set the target temperature
+With multiple climate-controlled zones, you can't set the target temperature of the control but set the target temperature
 for each individual zone.
 
 The climate controller then selects the zone that is furthest away from the target and feeds the current temperature and
