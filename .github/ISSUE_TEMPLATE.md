@@ -14,7 +14,7 @@
 ## Details
 
 <!--
-    An URL with a link to the page you are providing feedback for
+    A URL with a link to the page you are providing feedback for
 -->
 
 URL:
