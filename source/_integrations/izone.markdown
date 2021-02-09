@@ -75,16 +75,16 @@ sensor:
   - platform: template
     sensors:
       control_zone:
-        friendly_name: 'Control zone'
-        value_template: '{{ state_attr("climate.izone_controller_0000XXXXX","control_zone_name") }}'
+        friendly_name: "Control zone"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
       control_zone_target:
-        friendly_name: 'Target temperature'
-        value_template: '{{ state_attr("climate.izone_controller_0000XXXXX","control_zone_setpoint") }}'
-        unit_of_measurement: '°C'
+        friendly_name: "Target temperature"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
+        unit_of_measurement: "°C" 
       temperature_supply:
-        friendly_name: 'Supply temperature'
-        value_template: '{{ state_attr("climate.izone_controller_0000XXXXX","supply_temperature") }}'
-        unit_of_measurement: '°C'
+        friendly_name: "Supply temperature"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
+        unit_of_measurement: "°C"
 ```
 
 {% endraw %}
