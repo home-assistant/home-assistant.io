@@ -4,13 +4,14 @@ title: ""
 issue_body: true
 inputs:
   - type: description
-    attributes: |
-      Thanks for opening an issue to provide feedback on our website/documentation.
+    attributes:
+      value: |
+        Thanks for opening an issue to provide feedback on our website/documentation.
 
-      Please note, this form is not for reporting bugs with running Home Assistant or its integrations.
-      Those bugs should be reported in the [Home Assistant Core issue tracker][core].
+        Please note, this form is not for reporting bugs with running Home Assistant or its integrations.
+        Those bugs should be reported in the [Home Assistant Core issue tracker][core].
 
-      [core]: https://github.com/home-assistant/core/issues
+        [core]: https://github.com/home-assistant/core/issues
   - type: textarea
     attributes:
       label: Feedback
@@ -28,14 +29,14 @@ inputs:
       label: URL
       required: true
       placeholder: "http://www.home-assistant.io/..."
-      description: >-
+      description: >
         A URL with a link to the page you are providing feedback for.
   - type: input
     attributes:
       label: Version
       required: false
       placeholder: "e.g., 2021.2.0"
-      description: >-
+      description: >
         Current version of the documentation. This usually matches the Home
         Assistant Core release version, and can be found at the bottom of the
         page.
