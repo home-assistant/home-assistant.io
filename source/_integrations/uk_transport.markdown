@@ -135,23 +135,27 @@ sensor:
 
 And the template sensor for viewing the next bus attributes.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry for a template sensor to access the attributes of the next departing bus.
 - platform: template
   sensors:
     next_bus_route:
       friendly_name: "Next bus route"
-      value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}"{% endraw %}
+      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}"
     next_bus_direction:
       friendly_name: "Next bus direction"
-      value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}"{% endraw %}
+      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}"
     next_bus_scheduled:
       friendly_name: "Next bus scheduled"
-      value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}"{% endraw %}
+      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}"
     next_bus_estimated:
       friendly_name: "Next bus estimated"
-      value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}"{% endraw %}
+      value_template: "{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}"
 ```
+
+{% endraw %}
 
 ## Managing API requests
 

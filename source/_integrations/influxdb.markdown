@@ -503,6 +503,8 @@ The example configuration entry below create two request to your local InfluxDB 
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`
 
+{% raw %}
+
 ```yaml
 sensor:
   platform: influxdb
@@ -513,7 +515,7 @@ username: home-assistant
   queries:
     - name: last value of foo
       unit_of_measurement: °C
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
+      value_template: '{{ value | round(1) }}'
       group_function: last
       where: '"name" = ''foo'''
       measurement: '"°C"'
@@ -521,7 +523,7 @@ username: home-assistant
       database: db1
     - name: Min for last hour
       unit_of_measurement: "%"
-      value_template: '{% raw %}{{ value | round(1) }}{% endraw %}'
+      value_template: '{{ value | round(1) }}'
       group_function: min
       where: '"entity_id" = ''salon'' and time > now() - 1h'
       measurement: '"%"'
@@ -529,7 +531,11 @@ username: home-assistant
       database: db2
 ```
 
+{% endraw %}
+
 ### Full configuration for 2.xx installations
+
+{% raw %}
 
 ```yaml
 sensor:
@@ -542,9 +548,9 @@ sensor:
       - range_start: "-1d"
         name: "How long have I been here"
         query: >
-          filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{% raw %} {{ states('person.me') }} {% endraw %}")
+          filter(fn: (r) => r._domain == "person" and r._entity_id == "me" and r._value != "{{ states('person.me') }}")
           |> map(fn: (r) => ({ _value: r._time }))
-        value_template: "{% raw %} {{ relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')) }} {% endraw %}"
+        value_template: "{{ relative_time(strptime(value, '%Y-%m-%d %H:%M:%S %Z')) }}"
       - range_start: "-1d"
         name: "Cost of my house today across all power sensor"
         query: >
@@ -553,13 +559,15 @@ sensor:
           |> sort(columns: ["_time"], desc: false)
           |> integral(unit: 5s, column: "_value")
         imports: regexp
-        value_template: "{% raw %} {{ value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float }} {% endraw %}"
+        value_template: "{{ value|float / 24.0 / 1000.0 * states('sensor.current_cost_per_kwh')|float }}"
       - range_start: "-1d"
         bucket: Glances Bucket
         name: "Average CPU temp today"
         query: "filter(fn: (r) => r._field == \"value\" and r.entity_id == \"glances_cpu_temperature\")"
         group_function: mean
 ```
+
+{% endraw %}
 
 Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
 

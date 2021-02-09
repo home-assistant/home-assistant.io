@@ -4,7 +4,7 @@ description: "Automation examples that use the sun."
 ha_category: Automation Examples
 ---
 
-#### Turn on the living room lights 45 minutes before sunset if anyone is at home 
+#### Turn on the living room lights 45 minutes before sunset if anyone is at home
 
 ```yaml
 automation:
@@ -21,7 +21,7 @@ automation:
     entity_id: group.living_room_lights
 ```
 
-#### Natural wake up light 
+#### Natural wake up light
 
 _Note, Philips Hue and LIFX are currently the only light platforms that support transitions._
 
@@ -68,12 +68,14 @@ automation:
 
 Solar elevation automations can cope with offsets from sunset / sunrise as the seasons change better than using a time based offsets.
 
+{% raw %}
+
 ```yaml
 - alias: "Turn a few lights on when the sun gets dim"
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     below: 3.5
   action:
     service: scene.turn_on
@@ -83,7 +85,7 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     below: 1.5
   action:
     service: scene.turn_on
@@ -93,10 +95,11 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{% raw %}{{ state_attr('sun.sun', 'elevation') }}{% endraw %}"
+    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
     below: -2.5
   action:
     service: switch.turn_off
     entity_id: switch.blind
-
 ```
+
+{% endraw %}

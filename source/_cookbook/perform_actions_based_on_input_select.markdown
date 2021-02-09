@@ -71,6 +71,8 @@ automation:
 ```
 A little bit more complex example that uses [`input_select`](/integrations/input_select/) and template to decide what to play, and which [Chromecast](/integrations/cast/) to play on.
 
+{% raw %}
+
 ```yaml
 input_select:
   radio_station:
@@ -106,22 +108,22 @@ automation:
     action:
       service: media_player.turn_off
       data:
-        entity_id: >{% raw %}
-            {% if is_state("input_select.radio_player", "Mansarda") %}{% endraw %}
-              media_player.bed_2{% raw %}
-            {%-elif is_state("input_select.radio_player", "Doccia") %}{% endraw %}
-              media_player.bed_3{% raw %}
-            {%-elif is_state("input_select.radio_player", "Bed") %}{% endraw %}
-              media_player.bed{% raw %}
-            {%-elif is_state("input_select.radio_player", "Bath") %}{% endraw %}
-              media_player.bath{% raw %}
-            {%-elif is_state("input_select.radio_player", "Salotto") %}{% endraw %}
-              media_player.salotto{% raw %}
-            {%-elif is_state("input_select.radio_player", "Salotto Video") %}{% endraw %}
-              media_player.salotto_video{% raw %}
-            {% else %}{% endraw %}
-              none{% raw %}
-            {% endif %}{% endraw %}
+        entity_id: >
+            {% if is_state("input_select.radio_player", "Mansarda") %}
+              media_player.bed_2
+            {%-elif is_state("input_select.radio_player", "Doccia") %}
+              media_player.bed_3
+            {%-elif is_state("input_select.radio_player", "Bed") %}
+              media_player.bed
+            {%-elif is_state("input_select.radio_player", "Bath") %}
+              media_player.bath
+            {%-elif is_state("input_select.radio_player", "Salotto") %}
+              media_player.salotto
+            {%-elif is_state("input_select.radio_player", "Salotto Video") %}
+              media_player.salotto_video
+            {% else %}
+              none
+            {% endif %}
 
   - alias: Stream Radio - Template
     trigger:
@@ -130,35 +132,37 @@ automation:
     action:
       - service: media_player.play_media
         data:
-          entity_id: >{% raw %}
-            {% if is_state("input_select.radio_player", "Mansarda") %}{% endraw %}
-              media_player.bed_2{% raw %}
-            {%-elif is_state("input_select.radio_player", "Doccia") %}{% endraw %}
-              media_player.bed_3{% raw %}
-            {%-elif is_state("input_select.radio_player", "Bed") %}{% endraw %}
-              media_player.bed{% raw %}
-            {%-elif is_state("input_select.radio_player", "Bath") %}{% endraw %}
-              media_player.bath{% raw %}
-            {%-elif is_state("input_select.radio_player", "Salotto") %}{% endraw %}
-              media_player.salotto{% raw %}
-            {%-elif is_state("input_select.radio_player", "Salotto Video") %}{% endraw %}
-              media_player.salotto_video{% raw %}
-            {% else %}{% endraw %}
-              none{% raw %}
-            {% endif %}{% endraw %}
-          media_content_id: >{% raw %}
-            {% if is_state("input_select.radio_station", "Z88.3") %}{% endraw %}
-              http://ice.zradio.org/z/high.mp3{% raw %}
-            {%-elif is_state("input_select.radio_station", "Virgin") %}{% endraw %}
-              http://icecast.unitedradio.it/Virgin.mp3{% raw %}
-            {%-elif is_state("input_select.radio_station", "RMC") %}{% endraw %}
-              http://icecast.unitedradio.it/RMC.mp3{% raw %}
-            {%-elif is_state("input_select.radio_station", "rmcHQ") %}{% endraw %}
-              http://icecast.unitedradio.it/rmcHQ.mp3{% raw %}
-            {%-elif is_state("input_select.radio_station", "105") %}{% endraw %}
-              http://icecast.unitedradio.it/Radio105.mp3{% raw %}
-            {% else %}{% endraw %}
-              none{% raw %}
-            {% endif %}{% endraw %}
+          entity_id: >
+            {% if is_state("input_select.radio_player", "Mansarda") %}
+              media_player.bed_2
+            {%-elif is_state("input_select.radio_player", "Doccia") %}
+              media_player.bed_3
+            {%-elif is_state("input_select.radio_player", "Bed") %}
+              media_player.bed
+            {%-elif is_state("input_select.radio_player", "Bath") %}
+              media_player.bath
+            {%-elif is_state("input_select.radio_player", "Salotto") %}
+              media_player.salotto
+            {%-elif is_state("input_select.radio_player", "Salotto Video") %}
+              media_player.salotto_video
+            {% else %}
+              none
+            {% endif %}
+          media_content_id: >
+            {% if is_state("input_select.radio_station", "Z88.3") %}
+              http://ice.zradio.org/z/high.mp3
+            {%-elif is_state("input_select.radio_station", "Virgin") %}
+              http://icecast.unitedradio.it/Virgin.mp3
+            {%-elif is_state("input_select.radio_station", "RMC") %}
+              http://icecast.unitedradio.it/RMC.mp3
+            {%-elif is_state("input_select.radio_station", "rmcHQ") %}
+              http://icecast.unitedradio.it/rmcHQ.mp3
+            {%-elif is_state("input_select.radio_station", "105") %}
+              http://icecast.unitedradio.it/Radio105.mp3
+            {% else %}
+              none
+            {% endif %}
           media_content_type: "music"
 ```
+
+{% endraw %}

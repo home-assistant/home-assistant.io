@@ -99,12 +99,16 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 
 This would require the following entry in the `configuration.yaml` file to extract the temperature:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: file
     name: Temperature
     file_path: /home/user/.homeassistant/sensor.json
-    value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
+    value_template: '{{ value_json.temperature }}'
     unit_of_measurement: "°C"
 ```
+
+{% endraw %}
