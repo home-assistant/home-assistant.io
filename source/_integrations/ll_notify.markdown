@@ -137,8 +137,8 @@ All service data attributes will be passed through directly to AlertifyJS, excep
 
 AlertifyJS uses callbacks after a notification is dismissed, or after a confirm dialog is accepted or rejected. ll_notify instead implements 3 types of actions:
 
-1. `call_service` - Call a hass service
-2. `fire_event` - Fire a hass event
+1. `call_service` - Call a Home Assistant service
+2. `fire_event` - Fire a Home Assistant event
 3. `js_fire_event` - Fire a Javascript event, solely in the browser.
 
 You can trigger one action, or multiple actions. See the example dashboard above.
