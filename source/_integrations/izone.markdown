@@ -62,8 +62,8 @@ for each individual zone.
 The climate controller then selects the zone that is furthest away from the target and feeds the current temperature and
 target temperature into the air conditioner unit, closing any other zones that have already reached their target.
 
-In this mode the current control zone that has been selected is reported, as is the readonly target temperature for that 
-zone (read only, set the value via the individual zones). The current temperature will also be that of the control
+In this mode the current control zone that has been selected is reported, as is the read-only target temperature for that 
+zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
 zone.
 
 You can add configure to read these values into sensors, along with the supply temperature (use the ID of your unit):
