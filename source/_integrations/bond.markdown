@@ -7,7 +7,7 @@ ha_category:
   - Fan
   - Light
   - Switch
-ha_iot_class: Local Pull
+ha_iot_class: Local Push
 ha_release: 0.113
 ha_domain: bond
 ha_codeowners:
@@ -38,3 +38,8 @@ After completing the configuration flow, the Bond integration will be available.
 This integration supports Bond bridges with firmware v2.10.x and up.
 Bond bridges with firmware v2.9.x and lower will **not** work correctly. Please
 upgrade your firmware from Bond app before adding this integration.
+
+## BPUP Support (Push updates)
+
+Firmware version 2.10.8 or newer is required for push updates. The integration
+will fallback to polling for 2.10.x versions lower than .8
