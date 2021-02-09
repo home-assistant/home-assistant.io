@@ -32,7 +32,7 @@ To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the
 # Example configuration.yaml entry
 geo_location:
   - platform: usgs_earthquakes_feed
-    feed_type: 'past_day_all_earthquakes'
+    feed_type: "past_day_all_earthquakes"
 ```
 
 {% configuration %}
@@ -112,7 +112,7 @@ The following state attributes are available for each entity in addition to the 
 # Example configuration.yaml entry
 geo_location:
   - platform: usgs_earthquakes_feed
-    feed_type: 'past_month_all_earthquakes'
+    feed_type: "past_month_all_earthquakes"
     radius: 50
     minimum_magnitude: 0.0
     latitude: 35.899722

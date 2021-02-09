@@ -52,7 +52,7 @@ automation:
     action:
       service: notify.twilio_sms
       data:
-        message: 'The sun has set'
+        message: "The sun has set"
         target:
           - '+14151234567'
           - '+15105555555'

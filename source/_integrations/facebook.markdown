@@ -47,7 +47,7 @@ automation:
     action:
       service: notify.facebook
       data:
-        message: 'Good Evening'
+        message: "Good Evening"
         target:
           - '+919413017584'
           - '+919784516314'

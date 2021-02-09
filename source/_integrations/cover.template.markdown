@@ -199,15 +199,15 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         set_cover_position:
           service: script.cover_group_position
           data:
@@ -255,7 +255,7 @@ automation:
     trigger:
       - platform: sun
         event: sunset
-        offset: '+00:30:00'
+        offset: "+00:30:00"
     action:
       - service: cover.set_cover_position
         data:
@@ -280,15 +280,15 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
           {% if is_state('sensor.cover_group', 'open') %}
@@ -315,15 +315,15 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
           {% if is_state('sensor.cover_group', 'open') %}

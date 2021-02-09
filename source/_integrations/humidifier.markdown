@@ -46,7 +46,7 @@ automation:
     - service: humidifier.set_mode
       data:
         entity_id: humidifier.bedroom
-        preset_mode: 'eco'
+        preset_mode: "eco"
 ```
 
 ### Service `humidifier.set_humidity`

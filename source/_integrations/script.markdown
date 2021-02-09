@@ -120,12 +120,12 @@ script: 
   wakeup:
     alias: Wake Up
     icon: "mdi:party-popper"
-    description: 'Turns on the bedroom lights and then the living room lights after a delay'
+    description: "Turns on the bedroom lights and then the living room lights after a delay"
     variables:
       turn_on_entity: group.living_room
     fields:
       minutes:
-        description: 'The amount of time to wait before turning on the living room lights'
+        description: "The amount of time to wait before turning on the living room lights"
         example: 1
     # If called again while still running (probably in delay step), start over.
     mode: restart
@@ -165,15 +165,15 @@ automation:
   trigger:
     platform: state
     entity_id: light.bedroom
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     service: script.turn_on
     entity_id: script.notify_pushover
     data:
       variables:
-        title: 'State change'
-        message: 'The light is on!'
+        title: "State change"
+        message: "The light is on!"
 ```
 
 The other way is calling the script as a service directly. In this case, all service data will be made available as variables. If we apply this approach on the script above, it would look like this:
@@ -184,13 +184,13 @@ automation:
   trigger:
     platform: state
     entity_id: light.bedroom
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     service: script.notify_pushover
     data:
-      title: 'State change'
-      message: 'The light is on!'
+      title: "State change"
+      message: "The light is on!"
 ```
 
 Using the variables in the script requires the use of templates:
@@ -199,14 +199,14 @@ Using the variables in the script requires the use of templates:
 # Example configuration.yaml entry
 script:
   notify_pushover:
-    description: 'Send a pushover notification'
+    description: "Send a pushover notification"
     fields:
       title:
-        description: 'The title of the notification'
-        example: 'State change'
+        description: "The title of the notification"
+        example: "State change"
       message:
-        description: 'The message content'
-        example: 'The light is on!'
+        description: "The message content"
+        example: "The light is on!"
     sequence:
       - condition: state
         entity_id: switch.pushover_notifications

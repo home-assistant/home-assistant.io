@@ -85,23 +85,23 @@ Attributes can be accessed using the [template sensor](/integrations/template) a
 - platform: template
   sensors:
     next_train_status:
-      friendly_name: 'Next train status'
+      friendly_name: "Next train status"
       value_template: >- 
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].status}}
     next_trains_origin:
-      friendly_name: 'Next train origin'
+      friendly_name: "Next train origin"
       value_template: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].origin_name}}
     next_trains_estimated:
-      friendly_name: 'Next train estimated'
+      friendly_name: "Next train estimated"
       value_template: >- 
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].estimated}}
     next_trains_scheduled:
-      friendly_name: 'Next train scheduled'
+      friendly_name: "Next train scheduled"
       value_template: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].scheduled}}
     next_trains_platform:
-      friendly_name: 'Next train platform'
+      friendly_name: "Next train platform"
       value_template: >-
         {{state_attr('sensor.next_train_to_wat', 'next_trains')[0].platform}}
 ```
@@ -140,16 +140,16 @@ And the template sensor for viewing the next bus attributes.
 - platform: template
   sensors:
     next_bus_route:
-      friendly_name: 'Next bus route'
+      friendly_name: "Next bus route"
       value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].route}}"{% endraw %}
     next_bus_direction:
-      friendly_name: 'Next bus direction'
+      friendly_name: "Next bus direction"
       value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].direction}}"{% endraw %}
     next_bus_scheduled:
-      friendly_name: 'Next bus scheduled'
+      friendly_name: "Next bus scheduled"
       value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].scheduled}}"{% endraw %}
     next_bus_estimated:
-      friendly_name: 'Next bus estimated'
+      friendly_name: "Next bus estimated"
       value_template: {% raw %}"{{state_attr('sensor.next_bus_to_wantage', 'next_buses')[0].estimated}}"{% endraw %}
 ```
 

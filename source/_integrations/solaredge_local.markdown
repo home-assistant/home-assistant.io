@@ -72,7 +72,7 @@ sensor:
     sensors:
       solaredge_energy_this_year_template:
         value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-        unit_of_measurement: 'KWh'
+        unit_of_measurement: "KWh"
         icon_template: "mdi:solar-power"
 ```
 

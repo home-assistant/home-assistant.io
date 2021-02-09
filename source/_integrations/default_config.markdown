@@ -14,6 +14,7 @@ This integration is a meta-component and configures a default set of integration
 - [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
 - [Configuration](/integrations/config/) (`config`)
 - [Counter](/integrations/counter/) (`counter`)
+- [DHCP Discovery](/integrations/dhcp/) (`dhcp`)
 - [Frontend](/integrations/frontend/) (`frontend`)
 - [History](/integrations/history/) (`history`)
 - [Image](/integrations/image/) (`image`)

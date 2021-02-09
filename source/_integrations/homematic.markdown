@@ -212,7 +212,7 @@ sensor:
     bedroom_valve:
       value_template: "{% raw %}{{ state_attr('climate.leq123456', 'level') }}{% endraw %}"
       entity_id: climate.leq123456
-      friendly_name: 'Bedroom valve'
+      friendly_name: "Bedroom valve"
 ```
 
 ### Variables

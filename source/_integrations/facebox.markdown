@@ -104,7 +104,7 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
     platform: event
     event_type: image_processing.detect_face
     event_data:
-      name: 'Ringo_Starr'
+      name: "Ringo_Starr"
   action:
     service: notify.platform
     data:
@@ -184,7 +184,7 @@ you can create an automation to receive notifications on Facebox errors:
   action:
   - service: notify.pushbullet
     data_template:
-      message: '{{ trigger.event.data.message }}'
+      message: "{{ trigger.event.data.message }}"
       title: Facebox error
 ```
 

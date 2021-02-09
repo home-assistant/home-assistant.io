@@ -113,7 +113,7 @@ automation:
       event_type: isy994_control
       event_data:
         entity_id: light.lr_track_lights_front
-        control: 'DFON'
+        control: "DFON"
         value: 255
         formatted: "On"
         uom: "100"

@@ -40,7 +40,7 @@ There are 2 options in configuring the Velbus integration:
 ```yaml
 # Example configuration.yaml entry for a USB or serial interface
 velbus:
-  port: 'PORT_STRING'
+  port: "PORT_STRING"
 ```
 
 ## Port String
@@ -101,7 +101,7 @@ The actual linking can be realized by two automation rules. One rule to control 
   trigger:
   - entity_id: binary_sensor.push_button_10
     platform: state
-    to: 'on'
+    to: "on"
   condition: []
   action:
   - entity_id: light.living
@@ -113,10 +113,10 @@ The actual linking can be realized by two automation rules. One rule to control 
   trigger:
   - entity_id: light.living
     platform: state
-    to: 'on'
+    to: "on"
   - entity_id: light.living
     platform: state
-    to: 'off'
+    to: "off"
   condition: []
   action:
   - condition: or

@@ -11,7 +11,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-featured: true
+featured: false
 ha_iot_class: Local Push
 ha_release: 0.7
 ha_config_flow: true
@@ -19,6 +19,14 @@ ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave
 ---
+
+<p class='note warning'>
+
+This integration is deprecated. We recommend using [the Z-Wave JS integration](/integrations/zwave_js).
+
+The Z-Wave integration will no longer receive any updates. It will not be removed unless it becomes incompatible with a future version of Python.
+
+</p>
 
 The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
@@ -92,7 +100,7 @@ automation:
       - service: climate.set_hvac_mode
         data:
           entity_id: climate.remotec_zxt120_heating_1_id
-          hvac_mode: 'Off'
+          hvac_mode: "Off"
 ```
 
 **Note:** In the example above, the word `Off` is encased in single quotes to be valid YAML.

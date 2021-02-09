@@ -102,11 +102,11 @@ sensor:
     monitored_variables:
       - name: CPU fanspeed
         sensor_type: server_health
-        unit_of_measurement: '%'
+        unit_of_measurement: "%"
         value_template: '{% raw %}{{ ilo_data.fans["Fan 1"].speed[0] }}{% endraw %}'
       - name: Inlet temperature
         sensor_type: server_health
-        unit_of_measurement: '°C'
+        unit_of_measurement: "°C"
         value_template: '{% raw %}{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}{% endraw %}'
       - name: Server Health
         sensor_type: server_health

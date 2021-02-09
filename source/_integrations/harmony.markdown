@@ -180,10 +180,10 @@ sensor:
     sensors:
       family_room:
         value_template: '{{ state_attr("remote.family_room", "current_activity") }}'
-        friendly_name: 'Family Room'
+        friendly_name: "Family Room"
       bedroom:
         value_template: '{{ state_attr("remote.bedroom", "current_activity") }}'
-        friendly_name: 'bedroom'
+        friendly_name: "bedroom"
 ```
 
 {% endraw %}

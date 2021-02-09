@@ -90,7 +90,7 @@ sensor:
     sensors:
       vacuum_filter:
         friendly_name: "Vacuum Filter Remaining Lifespan"
-        unit_of_measurement: '%'
+        unit_of_measurement: "%"
         value_template: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') }}"
 ```
 

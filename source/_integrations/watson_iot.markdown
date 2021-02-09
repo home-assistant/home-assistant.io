@@ -29,10 +29,10 @@ With this basic information you can configure the component:
 ```yaml
 # Example configuration.yaml entry:
 watson_iot:
-  organization: 'organization_id'
-  type: 'device_type'
-  id: 'device_id'
-  token: 'auth_token'
+  organization: "organization_id"
+  type: "device_type"
+  id: "device_id"
+  token: "auth_token"
 ```
 
 {% configuration %}

@@ -200,7 +200,7 @@ To correct the device type, also called domain, add the following to your `confi
 zha:
   device_config:
     84:71:27:ff:fe:93:17:24-1:    # format: {ieee}-{endpoint_id}
-      type: 'switch'              # corrected device type
+      type: "switch"              # corrected device type
 ```
 
 `{ieee}` is the device hardware address which can be read from the Home Assistant UI when looking at *Device info*. From device info, you can find the `{endpoint_id}` by viewing the *Zigbee device signature*.
