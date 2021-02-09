@@ -1,5 +1,5 @@
 ---
-title: "Command line Sensor"
+title: "Command Line Sensor"
 description: "Instructions on how to integrate command line sensors into Home Assistant."
 ha_category:
   - Utility
