@@ -66,11 +66,14 @@ In this mode the current control zone that has been selected is reported, as is 
 zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
 zone.
 
-You can add configure to read these values into sensors, along with the supply temperature (use the ID of your unit):
+You can add configure to read these values into sensors (in `configuration.yaml`), 
+along with the supply temperature (use the ID of your unit):
 
 {% raw %}
 
 ```yaml
+# Example configuration.yaml entry to create sensors
+# from the izone controller state attributes
 sensor:
   - platform: template
     sensors:
@@ -89,9 +92,11 @@ sensor:
 
 {% endraw %}
 
-And then graph them on a dashboard, along with the standard values such as the current temperature:
+And then graph them on a dashboard, along with the standard values such as the current temperature. Either add the sensor entities via the visual editor, or cut and paste this
+snippet into the code editor:
 
 ```yaml
+# Example snippet for dashboard card configuration (code editor)
 entities:
   - entity: sensor.control_zone_target
   - entity: sensor.control_zone
@@ -105,7 +110,6 @@ type: history-graph
 ## Debugging
 
 If you're trying to track down issues with the component, set up logging for it:
-
 
 ```yaml
 # Example configuration.yaml with logging for iZone
