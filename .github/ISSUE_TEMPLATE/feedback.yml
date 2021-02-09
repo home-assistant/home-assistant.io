@@ -29,7 +29,7 @@ inputs:
       required: true
       placeholder: "http://www.home-assistant.io/..."
       description: >-
-        An URL with a link to the page you are providing feedback for.
+        A URL with a link to the page you are providing feedback for.
   - type: input
     attributes:
       label: Version
