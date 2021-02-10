@@ -195,6 +195,8 @@ automation:
 
 Using the variables in the script requires the use of templates:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 script:
@@ -213,9 +215,11 @@ script:
         state: "on"
       - service: notify.pushover
         data:
-          title: "{% raw %}{{ title }}{% endraw %}"
-          message: "{% raw %}{{ message }}{% endraw %}"
+          title: "{{ title }}"
+          message: "{{ message }}"
 ```
+
+{% endraw %}
 
 ### Waiting for Script to Complete
 

@@ -58,17 +58,21 @@ locations:
 
 To explore the data available within the `data` attribute of a sensor use the `dev-template` tool on the Home Assistant frontend. `data` contains a list of monitored sites, where the number of monitored sites are given by the `sites` attribute. If a sensor has four sites, access the fourth site by indexing the list of sites using data[3]. Each site is a dictionary with multiple fields, with entries for the `latitude` and `longitude` of that site, a `pollution_status`, `site_code`, `site_name` and `site_type`. The field `number_of_pollutants` states how many pollutants are monitored (of the possible six) and the field `pollutants` returns a list with data for each pollutant. To access the first pollutant in the list for site zero use `attributes.data[0].pollutants[0]`. Each entry in `pollutants` is a dictionary with fields for the pollutant `code`, `description`, `index`, `quality` and a `summary`. [Template sensors](/integrations/template) can then be added to display these attributes, for example:
 
+{% raw %}
+
 ```yaml
 # Example template sensors
 - platform: template
   sensors:
     updated:
       friendly_name: "Updated"
-      value_template: {% raw %}'{{state_attr('sensor.merton', 'updated')}}'{% endraw %}
+      value_template: '{{state_attr('sensor.merton', 'updated')}}'
     merton_pm10:
       friendly_name: "Merton PM10"
-      value_template: {% raw %}'{{state_attr('sensor.merton', 'data')[0].pollutants[0].summary}}'{% endraw %}
+      value_template: '{{state_attr('sensor.merton', 'data')[0].pollutants[0].summary}}'
     westminster_s02:
       friendly_name: "Westminster S02"
-      value_template: {% raw %}'{{state_attr('sensor.westminster', 'data')[0].pollutants[3].summary}}'{% endraw %}
+      value_template: '{{state_attr('sensor.westminster', 'data')[0].pollutants[3].summary}}'
 ```
+
+{% endraw %}

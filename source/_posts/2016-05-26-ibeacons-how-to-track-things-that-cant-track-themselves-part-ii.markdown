@@ -77,15 +77,17 @@ automation:
 
 Or warn you if you leave your keys behind
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: 'Forgotten keys'
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'
     condition:
       condition: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != "home" }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != "home" }}'
     action:
       service: script.turn_on
       entity_id: script.send_key_alert
@@ -93,7 +95,7 @@ automation:
   - alias: 'Forgotten keys - cancel'
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}'
     condition:
       - condition: state
         entity_id: script.send_key_alert
@@ -102,6 +104,8 @@ automation:
       service: script.turn_off
       entity_id: script.send_key_alert
 ```
+
+{% endraw %}
 
 ```yaml
 script:

@@ -86,6 +86,9 @@ Users of TVs older than 2013 have another option for controlling their TV via Ho
 
 If you have a Raspberry Pi connected to your TV:
 
+
+{% raw %}
+
 ```yaml
 switch:
   - platform: command_line
@@ -94,8 +97,10 @@ switch:
         command_on: ssh root@[IP] "echo 'on 0' | cec-client -s"
         command_off: ssh root@[IP] "echo 'standby 0' | cec-client -s"
         command_state: ssh root@[IP] "echo 'pow 0' | cec-client -s |grep 'power status:'"
-        value_template: {% raw %}'{{ value == "power status: on" }}{% endraw %}'
+        value_template: '{{ value == "power status: on" }}'
 ```
+
+{% endraw %}
 
 Using `cec-client` is a great method to turn your TV off/on, however the trade off is if you're using Kodi, it will no longer be able to control your TV using the TV Remote.
 

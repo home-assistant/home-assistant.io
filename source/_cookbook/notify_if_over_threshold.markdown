@@ -6,8 +6,9 @@ ha_category: Automation Examples
 
 The following example sends a notification via pushbullet if a sensor is over a critical value:
 
-```yaml
+{% raw %}
 
+```yaml
 notify me:
   platform: pushbullet
   api_key: "API_KEY_HERE"
@@ -23,10 +24,14 @@ automation:
       service: notify.mypushbullet
       data:
         title: "Furnace fan is running"
-        message: "Fan running because current is {% raw %}{{ states('sensor.furnace') }}{% endraw %} amps"
+        message: "Fan running because current is {{ states('sensor.furnace') }} amps"
 ```
 
+{% endraw %}
+
 If you also want a notification when it drops back down below that limit, you could add this as well:
+
+{% raw %}
 
 ```yaml
   - alias: FanOff
@@ -38,5 +43,7 @@ If you also want a notification when it drops back down below that limit, you co
       service: notify.mypushbullet
       data:
         title: "Furnace fan is stopped"
-        message: "Fan stopped because current is {% raw %}{{ states('sensor.furnace') }}{% endraw %} amps"
+        message: "Fan stopped because current is {{ states('sensor.furnace') }} amps"
 ```
+
+{% endraw %}

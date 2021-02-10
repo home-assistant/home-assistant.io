@@ -146,26 +146,34 @@ In this section you find some real-life examples of how to use this sensor.
 
 You can find your external IP address using the service [JSON Test](https://www.jsontest.com/) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
-    value_template: '{% raw %}{{ value_json.ip }}{% endraw %}'
+    value_template: '{{ value_json.ip }}'
 ```
+
+{% endraw %}
 
 ### Single value from a local Glances instance
 
 The [glances](/integrations/glances) sensor is doing the exact same thing for all exposed values.
+
+{% raw %}
 
 ```yaml
 sensor:
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
-    value_template: '{% raw %}{{ value_json.used| multiply(0.000000954) | round(0) }}{% endraw %}'
+    value_template: '{{ value_json.used| multiply(0.000000954) | round(0) }}'
     unit_of_measurement: MB
 ```
+
+{% endraw %}
 
 ### Value from another Home Assistant instance
 
@@ -173,14 +181,18 @@ The Home Assistant [API](/developers/rest_api/) exposes the data from your attac
 
 If the Home Assistant instance in the resource variable is protected by an API password, you can append `?api_password=YOUR_PASSWORD` to the resource URL to authenticate or use `headers:`.
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
     name: Temperature
-    value_template: {% raw %}'{{ value_json.state }}'{% endraw %}
+    value_template: '{{ value_json.state }}'
     unit_of_measurement: "°C"
 ```
+
+{% endraw %}
 
 ### Accessing an HTTP authentication protected endpoint
 
@@ -229,6 +241,8 @@ my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCx
 
 This sample is very similar to the [`updater`](/integrations/updater/) integration but the information is received from GitHub.
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -236,12 +250,14 @@ sensor:
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: '{% raw %}{{ value_json.tag_name }}{% endraw %}'
+    value_template: '{{ value_json.tag_name }}'
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
       User-Agent: Home Assistant REST sensor
 ```
+
+{% endraw %}
 
 ### Fetch multiple JSON values and present them as attributes
 
