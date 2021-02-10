@@ -2,15 +2,7 @@
 title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
 ha_category:
-  - Sensor
-  - Binary Sensor
-  - Climate
   - Light
-  - Fan
-  - Lock
-  - Cover
-  - Switch
-featured: true
 ha_release: 2021.3
 ha_iot_class: Cloud Poll
 ha_config_flow: true
@@ -24,42 +16,15 @@ ha_domain: freedompro
 
 This integration lets you control all [Freedompro](https://freedompro.eu/) accessories.
 
-The list of Freedompro accessories mapped is the following:
-
-| Freedompro accessory | Home Assistant Category |
-|:--------------------:|:-----------------------:|
-| Temperature Sensor   |        Sensor           |
-| Humidity Sensor      |        Sensor           |
-| Light Sensor         |        Sensor           |
-| Smoke Sensor         |    Binary sensor        |
-| Occupancy Sensor     |    Binary sensor        |
-| Motion Sensor        |    Binary sensor        |
-| Contact Sensor       |    Binary sensor        |
-| Thermostat           |        Climate          |
-| Window Covering      |        Cover            |
-| Gate                 |        Cover            |
-| Garage Door          |        Cover            |
-| Door                 |        Cover            |
-| Window               |        Cover            |
-| Fan                  |        Fan              |
-| Light                |        Lightbulb        |
-| Lock                 |        Lock             |
-| Switch               |        Switch           |
-| Switch               |        Outlet           |
-
-<div class='note'>
-Make sure you have at least one accessory paired with the Freedompro Cloud before starting integration.
-Check that the device has been correctly configured.  
-</div>
 
 ## Preliminary Steps
 
 You will need to obtain an API key from [Freedompro Cloud](https://home.freedompro.eu/) to use this integration.
 
 1. Login to [Freedompro Cloud](https://home.freedompro.eu/).
-2. Click on your photo profile.
-3. Generate the API key,
-
+2. Make sure you have at least one accessory paired with the Freedompro Cloud before starting integration.
+3. Click on your photo profile.
+4. Generate the API key.
 
 
 ## Configuration
