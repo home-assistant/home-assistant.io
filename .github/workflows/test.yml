@@ -57,7 +57,7 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v2
       - name: Setting up Ruby 2.6
-        uses: actions/setup-ruby@v1.1.2
+        uses: ruby/setup-ruby@v1.64.1
         with:
           ruby-version: 2.6
       - name: Setup Ruby Gems cache
@@ -76,7 +76,9 @@ jobs:
         uses: actions/cache@v2.1.4
         with:
           path: source/.jekyll-cache
-          key: jekyll-${{ hashFiles('**/Gemfile.lock') }}-${{ hashFiles('**/_config.yml') }}
+          key:
+            jekyll-${{ hashFiles('**/Gemfile.lock') }}-${{
+            hashFiles('**/_config.yml') }}
           restore-keys: |
             jekyll-${{ hashFiles('**/Gemfile.lock') }}-
             jekyll-
