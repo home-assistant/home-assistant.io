@@ -2,10 +2,7 @@
   "name": "home-assistant.io",
   "description": "Home Assistant Website & Documentation",
   "version": "1.0.0",
-  "dependencies": {
-    "bundler": "^0.8.0",
-    "gem": "^2.4.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "remark-cli": "^9.0.0",
     "remark-frontmatter": "^3.0.0",
