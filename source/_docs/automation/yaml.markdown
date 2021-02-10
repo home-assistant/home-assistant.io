@@ -26,6 +26,7 @@ You can add as many labeled `automation` blocks as you want.
 Example of a YAML based automation that you can add to `configuration.yaml`.
 
 {% raw %}
+
 ```yaml
 # Example of entry in configuration.yaml
 automation my_lights:
@@ -53,7 +54,8 @@ automation my_lights:
     action:
       # With a single service call, we don't need a '-' before service - though you can if you want to
       service: homeassistant.turn_on
-      entity_id: group.living_room
+      target:
+        entity_id: group.living_room
 
 # Turn off lights when everybody leaves the house
   - alias: "Rule 2 - Away Mode"
@@ -63,7 +65,8 @@ automation my_lights:
       to: "not_home"
     action:
       service: light.turn_off
-      entity_id: all
+      target:
+        entity_id: all
 
 # Notify when Paulus leaves the house in the evening
   - alias: "Leave Home notification"
@@ -94,6 +97,7 @@ automation my_lights:
         title: "Cube event detected"
         message: "Cube has triggered this event: {{ trigger.event }}"
 ```
+
 {% endraw %}
 
 
@@ -124,18 +128,18 @@ If you want to migrate your manual automations to use the editor, you'll have to
 - id: my_unique_id  # <-- Required for editor to work, for automations created with the editor the id will be automatically generated.
   alias: Hello world
   trigger:
-  - platform: state
-    entity_id: sun.sun
-    from: below_horizon
-    to: above_horizon
+    - platform: state
+      entity_id: sun.sun
+      from: below_horizon
+      to: above_horizon
   condition:
-  - condition: numeric_state
-    entity_id: sensor.temperature
-    above: 17
-    below: 25
-    value_template: "{{ float(state.state) + 2 }}"
+    - condition: numeric_state
+      entity_id: sensor.temperature
+      above: 17
+      below: 25
+      value_template: "{{ float(state.state) + 2 }}"
   action:
-  - service: light.turn_on
+    - service: light.turn_on
 ```
 
 {% endraw %}

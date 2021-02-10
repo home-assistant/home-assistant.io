@@ -53,7 +53,7 @@ automation:
   action:
     - service: notify.notify
       data:
-        message: Testing conditional actions
+        message: "Testing conditional actions"
     - condition: or
       conditions:
         - condition: numeric_state
@@ -63,6 +63,7 @@ automation:
         - condition: state
           entity_id: sensor.office_illuminance
           below: 10
-   - service: scene.turn_on
-      entity_id: scene.office_at_evening
+    - service: scene.turn_on
+      target:
+        entity_id: scene.office_at_evening
 ```
