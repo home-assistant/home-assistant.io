@@ -3,7 +3,7 @@ title: "Cookbook"
 description: "Community maintained list of different ways to use Home Assistant."
 sidebar: false
 regenerate: true
-hide_github_edit: true
+feedback: false
 ---
 
 This is a community curated list of different ways to use Home Assistant. Most
