@@ -130,12 +130,6 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
 
-<div class='note warning'>
-
-Please note, that sources from `trusted_networks` won't be banned automatically.
-
-</div>
-
 ## Hosting files
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
