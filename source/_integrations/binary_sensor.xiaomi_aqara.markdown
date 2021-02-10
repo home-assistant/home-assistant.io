@@ -138,6 +138,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 
 #### Gas
 
+{% raw %}
+
 ```yaml
 - alias: Send notification on gas alarm
   trigger:
@@ -149,8 +151,10 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     - service: notify.html5
       data:
         title: Gas alarm!
-        message: "Gas with a density of {% raw %}{{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }}{% endraw %} detected."
+        message: "Gas with a density of {{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }} detected."
 ```
+
+{% endraw %}
 
 #### Xiaomi Wireless Button
 
@@ -263,6 +267,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 
 The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
 
+{% raw %}
+
 ```yaml
 - alias: Decrease brightness of the gateway light
   trigger:
@@ -275,7 +281,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
     data:
-      brightness: {% raw %}>-
+      brightness: >-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
           {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60 >= 10 %}
             {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60}}
@@ -284,7 +290,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           {% endif %}
         {% else %}
           10
-        {% endif %}{% endraw %}
+        {% endif %}
 
 - alias: Increase brightness of the gateway light
   trigger:
@@ -297,7 +303,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
     data:
-      brightness: {% raw %}>-
+      brightness: >-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
           {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60 <= 255 %}
             {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60}}
@@ -306,7 +312,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           {% endif %}
         {% else %}
           10
-        {% endif %}{% endraw %}
+        {% endif %}
 
 - alias: Turn off the gateway light
   trigger:
@@ -319,6 +325,8 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     service: light.turn_off
     entity_id: light.gateway_light_34xxxxxxxx13
 ```
+
+{% endraw %}
 
 #### Vibration Sensor
 

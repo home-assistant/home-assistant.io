@@ -93,6 +93,8 @@ Valid sensor_types:
 
 In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your `configuration.yaml` file
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: hp_ilo
@@ -103,15 +105,16 @@ sensor:
       - name: CPU fanspeed
         sensor_type: server_health
         unit_of_measurement: "%"
-        value_template: '{% raw %}{{ ilo_data.fans["Fan 1"].speed[0] }}{% endraw %}'
+        value_template: '{{ ilo_data.fans["Fan 1"].speed[0] }}'
       - name: Inlet temperature
         sensor_type: server_health
         unit_of_measurement: "°C"
-        value_template: '{% raw %}{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}{% endraw %}'
+        value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
       - name: Server Health
         sensor_type: server_health
-
 ```
+
+{% endraw %}
 
 <p class='img'>
   <img src='/images/screenshots/hp_ilo_sensors.png' />

@@ -31,6 +31,8 @@ name:
 
 Example for testing rotation value and sending to the LED matrix:
 
+{% raw %}
+
 ```yaml
 automation Nuimo_rotate_right:
   trigger:
@@ -40,7 +42,7 @@ automation Nuimo_rotate_right:
       type: ROTATE
   condition:
     condition: template
-    value_template: {% raw %}'{{ trigger.event.data.value > 100 }}'{% endraw %}
+    value_template: '{{ trigger.event.data.value > 100 }}'
   action:
     service: nuimo_controller.led_matrix
     data:
@@ -56,6 +58,8 @@ automation Nuimo_rotate_right:
              ........'
       interval: 0.5
 ```
+
+{% endraw %}
 
 Troubleshooting:
 

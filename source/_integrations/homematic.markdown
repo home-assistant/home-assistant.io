@@ -205,15 +205,20 @@ This does *not* affect the entities in Home Assistant. They all use their own co
 
 Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) component. Here's an example of a template sensor that exposes the valve position of a thermostat.
 
+
+{% raw %}
+
 ```yaml
 sensor:
 - platform: template
   sensors:
     bedroom_valve:
-      value_template: "{% raw %}{{ state_attr('climate.leq123456', 'level') }}{% endraw %}"
+      value_template: "{{ state_attr('climate.leq123456', 'level') }}"
       entity_id: climate.leq123456
       friendly_name: "Bedroom valve"
 ```
+
+{% endraw %}
 
 ### Variables
 
@@ -472,14 +477,18 @@ automation:
 
   3. Set up a template sensor in Home Assistant, which contains the value of the system variable:
 
+     {% raw %}
+
      ```yaml
      - platform: template
        sensors:
          v_last_reboot:
-           value_template: "{% raw %}{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}{% endraw %}"
+           value_template: "{{ state_attr('homematic.ccu2', 'V_Last_Reboot') or '01.01.1970 00:00:00' }}"
            icon_template: "mdi:clock"
            entity_id: homematic.ccu2
      ```
+
+     {% endraw %}
 
   4. Set up an automation which calls *homematic.reconnect* whenever the sensor variable changes:
 
