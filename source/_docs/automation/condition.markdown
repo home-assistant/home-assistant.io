@@ -21,13 +21,17 @@ automation:
     condition:
       condition: or
       conditions:
-        - condition: template
-          value_template: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
-        - condition: template
-          value_template: "{{ states('sensor.sensorluz_7_0') < 10 }}"
+        - condition: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: 4
+        - condition: numeric_state
+          entity_id: sensor.sensorluz_7_0
+          below: 10
     action:
       - service: scene.turn_on
-        entity_id: scene.DespiertaDespacho
+        target:
+          entity_id: scene.DespiertaDespacho
 ```
 
 {% endraw %}
@@ -46,7 +50,8 @@ automation:
     condition: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
     action:
       - service: scene.turn_on
-        entity_id: scene.DespiertaDespacho
+        target:
+          entity_id: scene.DespiertaDespacho
 ```
 
 {% endraw %}

@@ -10,11 +10,13 @@ Automations support [templating](/docs/configuration/templating/) in the same wa
   Be aware that if you reference a `trigger` state object in templates of an automation' `action` or `condition` sections, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in Developer Tools > Template together with your trigger's definition like:
 
 {%raw%}
+
 ```yaml
 {% set trigger={'to_state':{'state': 'heat'}} %}
 {% set option = trigger.to_state.state %}
 {{ 'on' if option == 'heat' else 'off' }}
 ```
+
 {%endraw%}
   
 </div>
@@ -119,6 +121,7 @@ The following tables show the available trigger data per platform.
 ## Examples
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entries
 automation:
@@ -155,10 +158,11 @@ automation 3:
       for: "00:10:00"
   action:
     - service: light.turn_off
-      data:
+      target:
         # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
 ```
+
 {% endraw %}
 
 [state object]: /docs/configuration/state_object/
