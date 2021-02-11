@@ -328,3 +328,47 @@ switch:
 {% endconfiguration %}
 
 The resource id should be a boolean resource (On/Off). For more information about IHC resource ids see [Manual Setup](#manual-setup).
+
+## Services
+
+Below are the service functions for the IHC integrations.
+
+### Service `ihc.pulse`
+
+| Service data attribute | Optional | Description                                                                                         |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
+| `ihc_id`               | no       | The boolean IHC resource ID.                                                                        |
+
+This service will send a pulse to the specified IHC resource.
+On and Off with a 400ms delay.
+
+### Service `ihc.set_runtime_value_bool`
+
+| Service data attribute | Optional | Description                                                                                         |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
+| `ihc_id`               | no       | The boolean IHC resource ID.                                                                        |
+| `value`                | no       | The boolean value to set. (true or false)                                                           |
+
+This service will set the specified boolean resource on the IHC controller.
+
+### Service `ihc.set_runtime_value_float`
+
+| Service data attribute | Optional | Description                                                                                         |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
+| `ihc_id`               | no       | The float IHC resource ID.                                                                          |
+| `value`                | no       | The float value to set.                                                                             |
+
+This service will set the specified float resource on the IHC controller.
+
+### Service `ihc.set_runtime_value_int`
+
+| Service data attribute | Optional | Description                                                                                         |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
+| `ihc_id`               | no       | The integer IHC resource ID.                                                                        |
+| `value`                | no       | The integer value to set.                                                                           |
+
+This service will set the specified integer resource on the IHC controller.
