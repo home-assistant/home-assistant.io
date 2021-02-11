@@ -83,5 +83,3 @@ You can now reach your installation on your Raspberry Pi over the web interface 
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get "site cannot be reached" error when accessing the web interface. This will only happen for the first time, and subsequent restarts will be much faster.
 
 </div>
-
-{% include getting-started/next_step.html step="onboarding" link="/getting-started/onboarding" %}

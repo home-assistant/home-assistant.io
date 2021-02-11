@@ -17,15 +17,17 @@ Installation with Docker is straightforward. Adjust the following command so tha
 {% if page.installation_type == 'raspberrypi' %}
 #### Raspberry pi 3
 
-  {% include getting-started/installation/container/cli.md image="homeassistant/raspberrypi3:stable" %}
+  {% include installation/container/cli.md image="homeassistant/raspberrypi3:stable" %}
 
 #### Raspberry pi 4
 
-  {% include getting-started/installation/container/cli.md image="homeassistant/raspberrypi4:stable" %}
+  {% include installation/container/cli.md image="homeassistant/raspberrypi4:stable" %}
+
 {% elsif page.installation_type == 'alternative' %}
-  {% include getting-started/installation/container/alternative.md %}
+  {% include installation/container/alternative.md %}
+
 {% else %}
-  {% include getting-started/installation/container/cli.md image="homeassistant/home-assistant:stable" %}
+  {% include installation/container/cli.md image="homeassistant/home-assistant:stable" %}
 {% endif %}
 
 ### Restart Home Assistant
@@ -61,13 +63,13 @@ As the Docker command becomes more complex, switching to `docker-compose` can be
 {% if page.installation_type == 'raspberrypi' %}
 #### Raspberry pi 3
 
-  {% include getting-started/installation/container/compose.md image="homeassistant/raspberrypi3:stable" %}
+  {% include installation/container/compose.md image="homeassistant/raspberrypi3:stable" %}
 
 #### Raspberry pi 4
 
-  {% include getting-started/installation/container/compose.md image="homeassistant/raspberrypi4:stable" %}
+  {% include installation/container/compose.md image="homeassistant/raspberrypi4:stable" %}
 {% else %}
-  {% include getting-started/installation/container/compose.md image="homeassistant/home-assistant:stable" %}
+  {% include installation/container/compose.md image="homeassistant/home-assistant:stable" %}
 {% endif %}
 
 Start it by running:
@@ -133,5 +135,3 @@ As jemalloc can cause issues on certain hardware, it can be disabled by passing 
 {% endtabbed_block %}
 
 The error message `<jemalloc>: Unsupported system page size` is one known indicator.
-
-{% include getting-started/next_step.html step="onboarding" link="/getting-started/onboarding" %}

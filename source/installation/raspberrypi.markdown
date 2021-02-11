@@ -16,6 +16,6 @@ Please remember to ensure you're using an [appropriate power supply](https://www
 
 </div>
 
-{% include getting-started/installation/operating_system.md %}
-{% include getting-started/installation/container.md %}
-{% include getting-started/installation/core.md %}
+{% include installation/operating_system.md %}
+{% include installation/container.md %}
+{% include installation/core.md %}

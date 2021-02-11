@@ -4,11 +4,11 @@ description: "Install Home Assistant"
 installation_type: alternative
 ---
 {% comment %}
-Included sections for this page is located under source/_includes/getting-started/installation
+Included sections for this page is located under source/_includes/installation
 {% endcomment %}
 
-{% include getting-started/installation/operating_system.md %}
-{% include getting-started/installation/container.md %}
+{% include installation/operating_system.md %}
+{% include installation/container.md %}
 
 ## Community provided guides
 

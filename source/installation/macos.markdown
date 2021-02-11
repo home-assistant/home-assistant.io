@@ -7,5 +7,5 @@ installation_type: macos
 Included sections for this page is located under source/_includes/getting-started/installation
 {% endcomment %}
 
-{% include getting-started/installation/operating_system.md %}
-{% include getting-started/installation/core.md %}
+{% include installation/operating_system.md %}
+{% include installation/core.md %}

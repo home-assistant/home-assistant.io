@@ -10,6 +10,6 @@ Included sections for this page is located under source/_includes/getting-starte
 {% assign board = "ASUS Tinkerboard" %}
 {% assign installation_media = "eMMC module/SD card" %}
 
-{% include getting-started/installation/operating_system.md %}
-{% include getting-started/installation/container.md %}
-{% include getting-started/installation/core.md %}
+{% include installation/operating_system.md %}
+{% include installation/container.md %}
+{% include installation/core.md %}

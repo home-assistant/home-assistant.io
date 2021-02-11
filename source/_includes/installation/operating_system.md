@@ -23,7 +23,7 @@ We will need a few things to get started with installing Home Assistant. Links b
 1. Attach the installation media ({{site.installation.types[page.installation_type].installation_media}}) to your computer
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>
 3. Select "Flash from URL"
-![etcher_from_url](/images/getting-started/installation/etcher1.png)
+![etcher_from_url](/images/installation/etcher1.png)
 
 4. Get the URL for your {{site.installation.types[page.installation_type].board}}:
 {% if site.installation.types[page.installation_type].variants.size > 1 %}
@@ -58,27 +58,23 @@ We will need a few things to get started with installing Home Assistant. Links b
 _Select and copy the URL or use the "copy" button that appear when you hover it._
 
 1. Paste the URL for your {{site.installation.types[page.installation_type].board}} into Balena Etcher and click "OK"
-![etcher_from_url_paste](/images/getting-started/installation/etcher2.png)
+![etcher_from_url_paste](/images/installation/etcher2.png)
 6. Balena Etcher will now download the image, when that is done click "Select target"
-![etcher_select_target](/images/getting-started/installation/etcher3.png)
+![etcher_select_target](/images/installation/etcher3.png)
 7. Select the {{site.installation.types[page.installation_type].installation_media}} you want to use for your {{site.installation.types[page.installation_type].board}}
-![etcher_select_target](/images/getting-started/installation/etcher4.png)
+![etcher_select_target](/images/installation/etcher4.png)
 8. Click on "Flash!" to start writing the image
-![etcher_select_target](/images/getting-started/installation/etcher5.png)
+![etcher_select_target](/images/installation/etcher5.png)
 9. When Balena Etcher is finished writing the image you will get this confirmation
-![etcher_select_target](/images/getting-started/installation/etcher6.png)
+![etcher_select_target](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
 1. Insert the installation media ({{site.installation.types[page.installation_type].installation_media}}) you just created
 2. Attach a ethernet cable for network.
-{%- if page.installation_type == 'raspberrypi' or page.installation_type == 'tinkerboard' %}
-   - [For Wi-Fi instructions see here]()
-{%- endif %}
-4. Attach a cable for power
-5. Within a few minutes you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+3. Attach a cable for power
+4. Within a few minutes you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 
-{% include getting-started/next_step.html step="onboarding" link="/getting-started/onboarding" %}
 
 {% else %}
 
@@ -177,7 +173,6 @@ _All these can be extended if your usage calls for more resources._
 {% endtabbed_block %}
 {% endif %}
 
-{% include getting-started/next_step.html step="onboarding" link="/getting-started/onboarding" %}
 {% endif %}
 
 [intel-nuc]: {{release_url}}/{{site.installation.versions.os}}/hassos_intel-nuc-{{site.installation.versions.os}}.img.xz

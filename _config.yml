@@ -145,9 +145,10 @@ defaults:
     values:
       toc: true
   - scope:
-      path: "getting-started/installation/*"
+      path: "installation/*"
     values:
       toc: true
+      no_toc: true
   - scope:
       path: "common-tasks/*"
     values:
