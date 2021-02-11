@@ -12,6 +12,7 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 The following sections introduce all trigger types and further details to get started.
 
 ### Trigger variables
+
 Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
 
 ### Event trigger
@@ -50,7 +51,9 @@ automation:
 It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `event_type`, `event_data` and `context` options.
 
 <div class='note'>
+
 The `event_type`, `event_data` and `context` templates are only evaluated when setting up the trigger, they will not be reevaluated for every event.
+
 </div>
 
 {% raw %}
@@ -63,7 +66,7 @@ automation:
     value: on
   trigger:
     platform: event
-    event_type: '{{ "MY_CUSTOM_EVENT_" ~ sub_event }}'
+    event_type: "{{ 'MY_CUSTOM_EVENT_' ~ sub_event }}"
 ```
 
 {% endraw %}
@@ -97,7 +100,9 @@ automation:
 It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
 
 <div class='note'>
-The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be reevaluated for every incoming MQTT message.
+
+The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
+
 </div>
 
 {% raw %}
@@ -105,14 +110,14 @@ The `topic` and `payload` templates are only evaluated when setting up the trigg
 ```yaml
 automation:
   trigger_variables:
-    room: living_room
-    node: ac
-    value: on
+    room: "living_room"
+    node: "ac"
+    value: "on"
   trigger:
     platform: mqtt
-    topic: '{{ room ~ "/switch/" ~ node}}'
+    topic: "{{ room ~ '/switch/' ~ node}}"
     # Optional
-    payload: '{{ "state:" ~ value }}'
+    payload: "{{ 'state:' ~ value }}"
     encoding: "utf-8"
 ```
 

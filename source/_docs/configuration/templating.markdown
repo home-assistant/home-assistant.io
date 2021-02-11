@@ -49,6 +49,7 @@ script:
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
 ### Limited Templates
+
 Templates for some triggers [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
 ### States
