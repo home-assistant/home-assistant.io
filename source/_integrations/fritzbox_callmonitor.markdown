@@ -16,7 +16,7 @@ It can also access the internal phone book of the router to look up the names co
 
 To use the FRITZ!Box call monitor in your installation, a user with at least `FRITZ!Box Settings` and `Voice messages, faxes, FRITZ!App Fon and call list` rights has to be created:
 
-1.  Open the web user interface via `fritz.box` or the ip address of your FRITZ!Box (e.g. `192.168.1.1`).
+1.  Open the web user interface via `fritz.box` or the IP address of your FRITZ!Box (e.g. `192.168.1.1`).
 2.  Log in with your admin user credentials. The default admin user credentials can be found at the bottom of your FRITZ!Box.
 3.  Navigate to **System** -> **FRITZ!Box User**.
 4.  Click the `Add User` button.
