@@ -191,7 +191,7 @@ Set the oscillation angle of the selected fan(s).
 | `angle_low` | Yes | The angle at which the oscillation should start | 1 |
 | `angle_high` | Yes | The angle at which the oscillation should end | 255 |
 
-#### Service `dyson.flow_direction_front` (only for DP04 and TP04)
+#### Service `dyson.set_flow_direction_front` (only for DP04 and TP04)
 
 Set the fan flow direction.
 

@@ -123,6 +123,8 @@ EnOcean binary sensors have no state, they only generate 'button_pressed' events
 
 Sample automation to switch lights on and off:
 
+{% raw %}
+
 ```yaml
 # Example automation to turn lights on/off on button release
 automation:
@@ -134,10 +136,12 @@ automation:
         id: [0xYY, 0xYY, 0xYY, 0xYY]
         pushed: 0
     action:
-      service: "{% raw %}{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}{% endraw %}"
+      service: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
       data:
-        entity_id: "{% raw %}{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}{% endraw %}"
+        entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
+
+{% endraw %}
 
 ## Light
 

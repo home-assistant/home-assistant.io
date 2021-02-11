@@ -164,6 +164,8 @@ Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.t
 
 Number 5 sends an image retrieved from a URL, and an additional text message with `title` and `message`.
 
+{% raw %}
+
 ```yaml
 # Example script.yaml entry
 5_send_jabber_message_with_image_and_text:
@@ -172,12 +174,16 @@ Number 5 sends an image retrieved from a URL, and an additional text message wit
     - service: notify.jabber
       data:
         title: "The Time is now"
-        message: "{% raw %} {{ {% endraw %}now(){% raw %} }} {% endraw %}, templating works as well..."
+        message: "{{ now() }}, templating works as well..."
         data:
           url: "https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192.png"
 ```
 
+{% endraw %}
+
 Number 6 sends an image from a templated URL.
+
+{% raw %}
 
 ```yaml
 # Example script.yaml entry
@@ -189,8 +195,10 @@ Number 6 sends an image from a templated URL.
         title: ""
         message: ""
         data:
-          url_template: "https://www.foto-webcam.eu/webcam/dornbirn/{% raw %}{{ now().year }}/{{ '%02d' % now().month }}/{{ '%02d' % now().day }}/{{ '%02d' % now().hour }}{{ (now().minute + 58) % 60 // 10}}{% endraw %}0_hd.jpg"
+          url_template: "https://www.foto-webcam.eu/webcam/dornbirn/{{ now().year }}/{{ '%02d' % now().month }}/{{ '%02d' % now().day }}/{{ '%02d' % now().hour }}{{ (now().minute + 58) % 60 // 10}}0_hd.jpg"
 ```
+
+{% endraw %}
 
 The possible source of a file is prioritized and only one will be picked up. `url_template` has the hightest priority; next is `url` then `path_template` and finally if none of them are defined `path` would be used. `path` will be used to eliminate file extension guessing for unknown URL downloads. Only the file extension will be left, as Home Assistant changes the filename to a random string for added privacy.
 

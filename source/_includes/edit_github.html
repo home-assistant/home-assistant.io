@@ -1,4 +1,21 @@
-{% assign url_parts = page.url | split: '/' %}
 {% if page.hide_github_edit != true %}
-<div class='edit-github'><a target="_blank" rel="noopener noreferrer" href='{{ site.NLY_REPOSITORY_URL }}/tree/{{ site.NLY_HEAD }}/source/{{ page.path }}'>Edit this page on GitHub</a></div>
+<div class="material-card text feedback">
+  <b>Help us to improve our documentation</b><br />
+  Suggest an edit to this page, or provide/view feedback for this page.
+  <div class="links">
+    <a
+      href="{{ site.netlify.repository_url }}/tree/{{ site.netlify.head }}/source/{{ page.path }}"
+      ><i class="icon-edit" /> Edit</a
+    >
+    <a
+      href="{{ site.netlify.repository_url }}/issues/new?template=feedback.yml&url={{ site.netlify.url | url_encode }}{{ page.url | url_encode }}&version={{ site.current_major_version }}.{{
+        site.current_minor_version }}.{{ site.current_patch_version }}&labels={{ site.netlify.branch }}"
+      ><i class="icon-comment" /> Provide feedback</a
+    >
+    <a
+      href="{{ site.netlify.repository_url }}/issues?utf8=%E2%9C%93&q=%22{{ site.netlify.url | url_encode }}{{ page.url | url_encode }}%22&in=body"
+      ><i class="icon-comments" /> View pending feedback</a
+    >
+  </div>
+</div>
 {% endif %}

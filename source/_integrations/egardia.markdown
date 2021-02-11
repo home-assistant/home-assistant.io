@@ -45,7 +45,7 @@ version:
   description: The version of the Egardia system. `GATE-01`, `GATE-02` and `GATE-03` are currently supported.
   required: false
   type: string
-  default: 'GATE-01'
+  default: "GATE-01"
 port:
   description: The port of the alarm panel.
   required: false

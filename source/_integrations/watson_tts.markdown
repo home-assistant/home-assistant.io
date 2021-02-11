@@ -65,7 +65,7 @@ Say to all `media_player` device entities:
 ```yaml
 - service: tts.watson_tts_say
   data:
-    message: 'Hello from Watson'
+    message: "Hello from Watson"
 ```
 
 or

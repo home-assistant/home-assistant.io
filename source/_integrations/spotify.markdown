@@ -104,7 +104,7 @@ script:
       - service: media_player.play_media
         data:
           entity_id: media_player.spotify
-          media_content_id: 'https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg'
+          media_content_id: "https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg"
           media_content_type: playlist
 ```
 

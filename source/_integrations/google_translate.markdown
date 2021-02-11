@@ -39,5 +39,5 @@ A full configuration sample including optional variables:
 # Example configuration.yaml entry
 tts:
   - platform: google_translate
-    language: 'de'
+    language: "de"
 ```

@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: ozw
 ---
 
-This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT.
+This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. If you're starting out with Z-Wave in Home Assistant, we recommend that you use [the Z-Wave JS integration](/integrations/zwave_js).
 
 ## Requirements
 

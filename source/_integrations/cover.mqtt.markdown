@@ -303,7 +303,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -334,7 +334,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}

@@ -1083,14 +1083,14 @@ script:
   towel_heater:
     sequence:
       - service: remote.send_command
-        entity_id: 'remote.bathroom_remote'
+        entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'activate_towel_heater'
   please_cover_your_ears:
     sequence:
       - service: remote.send_command
-        entity_id: 'remote.bathroom_remote'
+        entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'read_bad_poem'
@@ -1288,7 +1288,7 @@ automation:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 
@@ -1308,7 +1308,7 @@ automation:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone:
         - [30914,26007,35514,28807]
         - [20232,22496,26032,26496]
@@ -1494,7 +1494,7 @@ vacuum_kitchen:
   sequence:
     - service: vacuum.send_command
       data:
-        entity_id: 'vacuum.xiaomi_vacuum_cleaner'
+        entity_id: "vacuum.xiaomi_vacuum_cleaner"
         command: app_zoned_clean
         params: [[23084,26282,27628,29727,1]]
 ```

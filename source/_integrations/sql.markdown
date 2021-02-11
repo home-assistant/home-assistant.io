@@ -28,7 +28,7 @@ sensor:
     queries:
       - name: Sun state
         query: "SELECT * FROM states WHERE entity_id = 'sun.sun' ORDER BY state_id DESC LIMIT 1;"
-        column: 'state'
+        column: "state"
 ```
 {% endraw %}
 
@@ -77,7 +77,7 @@ This example shows the previously *recorded* state of the sensor `sensor.tempera
 sensor:
   - platform: random
     name: Temperature in
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
 ```
 
 The query will look like this:
@@ -93,7 +93,7 @@ sensor:
     queries:
       - name: Temperature in
         query: "SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;"
-        column: 'state'
+        column: "state"
 ```
 
 Note that the SQL sensor state corresponds to the last row of the SQL result set.
@@ -138,7 +138,7 @@ sensor:
     queries:
       - name: DB size
         query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
-        column: 'value'
+        column: "value"
         unit_of_measurement: kB
 ```
 
@@ -156,8 +156,8 @@ sensor:
     queries:
       - name: DB Size
         query: 'SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();'
-        column: 'size'
-        unit_of_measurement: 'MiB'
+        column: "size"
+        unit_of_measurement: "MiB"
 ```
 
 {% endraw %}
@@ -174,7 +174,7 @@ sensor:
     queries:
       - name: DB size
         query: "SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';"
-        column: 'size'
+        column: "size"
         unit_of_measurement: MiB
 ```
 {% endraw %}

@@ -68,7 +68,7 @@ automation:
     - service: climate.set_preset_mode
       data:
         entity_id: climate.kitchen
-        preset_mode: 'eco'
+        preset_mode: "eco"
 ```
 
 ### Service `climate.set_temperature`
@@ -157,7 +157,7 @@ automation:
     - service: climate.set_fan_mode
       data:
         entity_id: climate.kitchen
-        fan_mode: 'On Low'
+        fan_mode: "On Low"
 ```
 
 ### Service `climate.set_hvac_mode`

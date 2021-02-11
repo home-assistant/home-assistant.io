@@ -34,7 +34,7 @@ sensor:
   - platform: geo_rss_events
     name: NSW Fire Service
     url: https://www.rfs.nsw.gov.au/feeds/majorIncidents.xml
-    unit_of_measurement: 'Incidents'
+    unit_of_measurement: "Incidents"
     categories:
       - 'Emergency Warning'
       - 'Watch and Act'
@@ -87,11 +87,11 @@ sensor:
   - platform: geo_rss_events
     name: Qld Fire and Emergency Services
     url: https://www.qfes.qld.gov.au/data/alerts/bushfireAlert.xml
-    unit_of_measurement: 'Alerts'
+    unit_of_measurement: "Alerts"
   - platform: geo_rss_events
     name: Tas Fire Service
     url: http://www.fire.tas.gov.au/Show?pageId=colBushfireSummariesRss
-    unit_of_measurement: 'Alerts'
+    unit_of_measurement: "Alerts"
   - platform: geo_rss_events
     name: WA Department of Fire and Emergency Services
     url: https://www.emergency.wa.gov.au/data/incident_FCAD.rss

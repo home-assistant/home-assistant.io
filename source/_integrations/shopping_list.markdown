@@ -56,8 +56,8 @@ service: notify.notify
 title: "Time to shop?"
 message: 'Click to open the shopping list'
 data:
-  clickAction: '/shopping-list'
-  url: '/shopping-list'
+  clickAction: "/shopping-list"
+  url: "/shopping-list"
 ```
 
 {% endraw %}

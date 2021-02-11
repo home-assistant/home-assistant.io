@@ -158,6 +158,8 @@ model:
 
 `categories` can also be defined as dictionary providing an `area` for each category as seen in the advanced configuration below:
 
+{% raw %}
+
 ```yaml
 # Example advanced configuration.yaml entry
 image_processing:
@@ -166,8 +168,8 @@ image_processing:
       - entity_id: camera.driveway
       - entity_id: camera.backyard
     file_out:
-      - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
-      - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
+      - "/tmp/{{ camera_entity.split('.')[1] }}_latest.jpg"
+      - "/tmp/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
     model:
       graph: /config/tensorflow/models/efficientdet_d0_coco17_tpu-32/
       categories:
@@ -180,6 +182,8 @@ image_processing:
         - car
         - truck
 ```
+
+{% endraw %}
 
 ## Optimizing resources
 

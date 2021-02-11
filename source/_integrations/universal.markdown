@@ -119,12 +119,12 @@ media_player:
       service: media_player.select_source
       data:
         entity_id: media_player.receiver
-        source: '{{ source }}'
+        source: "{{ source }}"
     volume_set:
       service: media_player.volume_set
       data:
         entity_id: media_player.receiver
-        volume_level: '{{ volume_level }}'
+        volume_level: "{{ volume_level }}"
 
   attributes:
     state: switch.living_room_tv
@@ -215,8 +215,8 @@ automation:
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
-    from: 'off'
-    to: 'playing'
+    from: "off"
+    to: "playing"
   action:
   - service: media_player.turn_on
     entity_id: media_player.kodi_tv
@@ -225,7 +225,7 @@ automation:
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
-    to: 'idle'
+    to: "idle"
     for:
       minutes: 15
   action:
@@ -272,7 +272,7 @@ media_player:
         service: remote.turn_on
         data:
           entity_id: remote.alexander_down_guest
-          activity: '{{ source }}'
+          activity: "{{ source }}"
 ```
 
 {% endraw %}
