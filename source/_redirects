@@ -2104,19 +2104,19 @@
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
 /common-tasks /common-tasks/os
-/docs/installation /getting-started
-/docs/installation/docker /getting-started
-/docs/installation/raspberry-pi /getting-started
+/docs/installation /installation
+/docs/installation/docker /installation
+/docs/installation/raspberry-pi /installation
 /docs/installation/updating /common-tasks/os
-/docs/installation/virtualenv /getting-started
+/docs/installation/virtualenv /installation
 /hassio /getting_started
 /hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
 /hassio/enable_i2c /common-tasks/os#enable-i2c
 /hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
 /hassio/haos_common_tasks /common-tasks/os
 /hassio/hassos_faq /faq
-/hassio/index /getting-started
-/hassio/installation /getting-started
+/hassio/index /installation
+/hassio/installation /installation
 /hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
 
 # Migrated Community Guides
