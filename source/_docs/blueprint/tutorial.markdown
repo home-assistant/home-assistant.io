@@ -54,7 +54,7 @@ blueprint:
 
 Now we have to decide what steps we want to make configurable. We want to make it as re-usable as possible, without losing its original intent of turning on a light-based on a motion sensor.
 
-Configurable parts in blueprints are called inputs. To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
+Configurable parts in blueprints are called [inputs](/docs/blueprint/schema/#blueprint-inputs). To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
 
 ```yaml
 trigger:

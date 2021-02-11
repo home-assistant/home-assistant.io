@@ -50,8 +50,9 @@ neato:
 ```
 
 3. Restart Home Assistant
-4. Add Neato Botvac via *Configuration* -> *Integrations*
-5. Follow the instructions. After that, all the entities will automatically show up in Home Assistant.
+4. Make sure you visit Home Assistant via a the same domain you used as `redirect_url` before
+5. Add Neato Botvac via *Configuration* -> *Integrations*
+6. Follow the instructions. After that, all the entities will automatically show up in Home Assistant. Make sure you start only one configuration flow at a time. Even though you can click “Open Website” several times, press it only once and wait until this flow is complete.
 
 {% configuration %}
 client_id:
@@ -74,10 +75,6 @@ After the update to firmware 4.0 (which adds cleaning maps) there is also suppor
 
 The `neato` vacuum platform allows you to control your [Neato Botvac Connected][botvac-connected].
 The status will contain attributes on the robots last clean session.
-
-<div class='note'>
-If you notice the robot stops responding to commands check the state to see if the robot is "unavailable". If you see "unavailable" first try to restart the vacuum and wait about 5 minutes to see if it is no longer "unavailable". If you are still having issues check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
-</div>
 
 ### Services
 
@@ -116,3 +113,17 @@ Some information about the capabilities might be found on the [Neato Developer P
 | `zone`                 | yes      | Only supported on the Botvac D7. Name of the zone to clean from the Neato app. Use unique names for the zones to avoid the wrong zone from running. Defaults to no zone i.e., complete house cleanup.                                                                  |
 
 [botvac-connected]: https://neatorobotics.com/products
+
+## Troubleshooting
+
+### My robot is unavailable
+
+Try to restart the vacuum and wait about 5 minutes to see if it is no longer unavailable. If you are still having issues check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
+
+### My robot is not deteced by Home Assistant
+
+Please check your logs if there are any warnings. When there is a message about your robot being offline, check if it is connected to the internet and available though the app. If there is a message about a bad response, try to reset this robot via your app.
+
+### There is a warning about a bad response but everything works as expected
+
+Do you have a stale robot in your configuration? Try to [look into your account](https://neatorobotics.com) and delete any stale robots. If these warnings are about actively used robots, please report an issue to help us solving this problem.

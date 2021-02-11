@@ -56,7 +56,7 @@ automation:
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_1
-      to: 'on'
+      to: "on"
   action:
     - service: light.turn_on
       data:

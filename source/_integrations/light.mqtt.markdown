@@ -936,6 +936,8 @@ In this section you find some real-life examples of how to use this light.
 
 For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -943,18 +945,22 @@ light:
     schema: template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "{% raw %}on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}{% endraw %}"
+    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}"
     command_off_template: "off"
-    state_template: "{% raw %}{{ value.split(',')[0] }}{% endraw %}"  # must return `on` or `off`
-    brightness_template: "{% raw %}{{ value.split(',')[1] }}{% endraw %}"
-    red_template: "{% raw %}{{ value.split(',')[2].split('-')[0] }}{% endraw %}"
-    green_template: "{% raw %}{{ value.split(',')[2].split('-')[1] }}{% endraw %}"
-    blue_template: "{% raw %}{{ value.split(',')[2].split('-')[2] }}{% endraw %}"
+    state_template: "{{ value.split(',')[0] }}"  # must return `on` or `off`
+    brightness_template: "{{ value.split(',')[1] }}"
+    red_template: "{{ value.split(',')[2].split('-')[0] }}"
+    green_template: "{{ value.split(',')[2].split('-')[1] }}"
+    blue_template: "{{ value.split(',')[2].split('-')[2] }}"
 ```
+
+{% endraw %}
 
 ### JSON payload
 
 For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your `configuration.yaml` file:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -966,7 +972,7 @@ light:
       - colorloop
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: >{% raw %}
+    command_on_template: >
       {"state": "on"
       {%- if brightness is defined -%}
       , "brightness": {{ brightness }}
@@ -977,15 +983,17 @@ light:
       {%- if effect is defined -%}
       , "effect": "{{ effect }}"
       {%- endif -%}
-      }{% endraw %}
+      }
     command_off_template: '{"state": "off"}'
-    state_template: '{% raw %}{{ value_json.state }}{% endraw %}'
-    brightness_template: '{% raw %}{{ value_json.brightness }}{% endraw %}'
-    red_template: '{% raw %}{{ value_json.color[0] }}{% endraw %}'
-    green_template: '{% raw %}{{ value_json.color[1] }}{% endraw %}'
-    blue_template: '{% raw %}{{ value_json.color[2] }}{% endraw %}'
-    effect_template: '{% raw %}{{ value_json.effect }}{% endraw %}'
+    state_template: '{{ value_json.state }}'
+    brightness_template: '{{ value_json.brightness }}'
+    red_template: '{{ value_json.color[0] }}'
+    green_template: '{{ value_json.color[1] }}'
+    blue_template: '{{ value_json.color[2] }}'
+    effect_template: '{{ value_json.effect }}'
 ```
+
+{% endraw %}
 
 ### Template schema - No brightness or color support
 

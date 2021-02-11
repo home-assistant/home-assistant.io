@@ -121,7 +121,7 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
   trigger:
     platform: state
     entity_id: all
-    to: 'not_home'
+    to: "not_home"
   action:
     service: alarm_control_panel.alarm_arm_away
     entity_id: alarm_control_panel.blink_my_sync_module
@@ -137,7 +137,7 @@ Similar to the previous example, this automation will disarm blink when arriving
   trigger:
     platform: state
     entity_id: all
-    to: 'home'
+    to: "home"
   action:
     service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.blink_my_sync_module
@@ -157,7 +157,7 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
   trigger:
     platform: state
     entity_id: binary_sensor.blink_my_camera_motion_detected
-    to: 'on'
+    to: "on"
   action:
     service: blink.save_video
     data:

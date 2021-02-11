@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: ozw
 ---
 
-This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT.
+This integration allows you to utilize OpenZWave's ozwdaemon to control a Z-Wave network over MQTT. If you're starting out with Z-Wave in Home Assistant, we recommend that you use [the Z-Wave JS integration](/integrations/zwave_js).
 
 ## Requirements
 
@@ -45,6 +45,19 @@ available.
 
 The secure network key is set in the settings for the ozwdaemon and
 not in the integration configuration.
+
+## Migrate from Z-Wave integration
+
+To migrate to the OpenZWave integration from the Z-Wave integration there's a
+wizard in the frontend configuration panel of the Z-Wave integration. The wizard
+will try to migrate the entity IDs, names, icons and areas of the entities and
+devices of your Z-Wave integration to your OpenZWave integration. At the end of
+the migration, the Z-Wave integration configuration entry will be removed.
+
+Make sure you take necessary backups, eg a Supervisor snapshot, before migrating
+to be able to restore the Z-Wave integration. The wizard may not be able to
+migrate all entity and device information. It will show you what entity and
+device information failed to migrate.
 
 ## Services
 

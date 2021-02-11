@@ -71,6 +71,10 @@ iOS: Most options are still in Chinese, you need the fourth item from the top.
 
 Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
 
+### Windows or macOS
+
+If using an Windows or macOS device to retrieve the Access Token use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token) App.
+
 ### Alternative methods
 
 <div class='note'>
@@ -178,6 +182,10 @@ The information output is:
 - `Model ID`- The model id if it could be determined, this indicates what type of device it is.
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
+
+### Xiaomi Cloud Tokens Extractor
+
+Alternate method to get all yours devices tokens in one run. Please follow this [instruction](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor).
 
 ## Xiaomi Gateway
 
@@ -1075,14 +1083,14 @@ script:
   towel_heater:
     sequence:
       - service: remote.send_command
-        entity_id: 'remote.bathroom_remote'
+        entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'activate_towel_heater'
   please_cover_your_ears:
     sequence:
       - service: remote.send_command
-        entity_id: 'remote.bathroom_remote'
+        entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'read_bad_poem'
@@ -1280,7 +1288,7 @@ automation:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 
@@ -1300,7 +1308,7 @@ automation:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone:
         - [30914,26007,35514,28807]
         - [20232,22496,26032,26496]
@@ -1486,7 +1494,7 @@ vacuum_kitchen:
   sequence:
     - service: vacuum.send_command
       data:
-        entity_id: 'vacuum.xiaomi_vacuum_cleaner'
+        entity_id: "vacuum.xiaomi_vacuum_cleaner"
         command: app_zoned_clean
         params: [[23084,26282,27628,29727,1]]
 ```

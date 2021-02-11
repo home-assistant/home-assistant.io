@@ -240,7 +240,7 @@ type_string: 'ARC'
 id_string': 'C3'
 data: '0710010143030170'
 values': 
-  Command: 'On'
+  Command: "On"
   Rssi numeric': 7
 ```
 

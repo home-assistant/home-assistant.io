@@ -12,9 +12,9 @@ ha_iot_class: Cloud Push
 ha_release: 0.7
 ha_config_flow: true
 ha_codeowners:
-  - '@awarecan'
   - '@allenporter'
 ha_domain: nest
+ha_quality_scale: platinum
 ---
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events.
@@ -40,6 +40,7 @@ Home Assistant is integrated with the following devices through the SDM API:
   - Example devices: All Google Nest Thermostat models
 - Display, Camera, and Doorbell Devices
   - The camera live stream is available as a `camera` entity
+  - Device Triggers for use in automations such as Person detected, Motion detected and Doorbell pressed
   - Example devices: All Google Nest Cam models, Google Nest Hello Video Doorbell, Google Nest Hub Max
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
@@ -181,7 +182,7 @@ subscriber_id:
 
 Once your developer account is set up and you have a valid `nest` entry in `configuration.yaml`, you need to connect devices with the following steps:
 
-1. From the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Click **Add Integration** then locate 'Nest'.
+1. Using your externally accessible address from the Home Assistant front-end, navigate to **Configuration** then **Integrations**. Click **Add Integration** then locate 'Nest'.
 
 1. You should get redirected to Google to choose an account. This should be the same developer account you configured above.
 
@@ -245,6 +246,8 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
 
+- *invalid_grant: Token has been expired or revoked* can mean the OAuth token was revoked by Google due to account changes like resetting a password. In addition, if the app is marked as "testing" and not "production" mode, the token may automatically expire after 7 days. Go to the project page to publish it to production mode.
+
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receivng the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
 
 - To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 
@@ -290,15 +293,49 @@ Given a thermostat named `Upstairs` then sensors are created with names such as 
 
 ## Automation and Device Triggers
 
-All Google Nest Cam models and the Google Nest Hello Video Doorbell support [Device Triggers](/docs/automation/trigger/#device-triggers) that enable automation in Home Assistant:
+The Nest integration makes [device triggers](/docs/automation/trigger/#device-triggers) available to enable automation
+in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
-- `camera_motion`: Motion detected, when a [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events) event is received.
-- `camera_person`: Person detected, when a [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) event is received.
-- `camera_sound`: Sound detected, when a [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) event is received.
-- `doorbell_chime`: Doorbell pressed, when a [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) event is received.
+![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
 
-See [Automating Home Assistant](/getting-started/automation/) for the getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+All Google Nest Cam models and the Google Nest Hello Video Doorbell support device triggers:
 
+- **Motion detected**
+- **Person detected**
+- **Sound detected**
+- **Doorbell pressed** *for Google Nest Hello Video Doorbell only*
+
+The lower level Pub/Sub subscriber receives events in real time and internally fires `nest_event` events within Home Assistant:
+
+| Device Trigger | Pub/Sub Event | `nest_event` |
+| -------------- | ----- | ------------- |
+| Motion detected | [CameraMotion](https://developers.google.com/nest/device-access/traits/device/camera-motion#events) | `motion_detected` |
+| Person detected | [CameraPerson](https://developers.google.com/nest/device-access/traits/device/camera-person#events) | `person_detected` |
+| Sound detected | [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) | `sound_detected` |
+| Doorbell pressed | [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) | `doorbell_chime` |
+
+### Example
+
+This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
+
+```yaml
+alias: motion alert
+trigger:
+  - platform: event
+    event_type: nest_event
+    event_data:
+      device_id: YOUR_DEVICE_ID
+      type: camera_motion
+action:
+  - service: notify.mobile_app_pixel_2
+    data:
+      title: motion detected
+      message: front door motion detected
+      data:
+        image: /api/camera_proxy/camera.front_door
+```
+
+The action in this section uses the [Android Companion App](https://companion.home-assistant.io/docs/notifications/notifications-basic/) and the camera proxy to send an notification with a snapshot from the camera.
 
 # Legacy Works With Nest API
 

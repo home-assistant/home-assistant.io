@@ -53,7 +53,7 @@ However, if you want to fully control a light effect, you have to use its dedica
 ```yaml
 script:
   colorloop_start:
-    alias: 'Start colorloop'
+    alias: "Start colorloop"
     sequence:
       - service: lifx.effect_colorloop
         data:

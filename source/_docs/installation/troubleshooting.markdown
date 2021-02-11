@@ -43,3 +43,22 @@ For `iptables` systems (was the default for older distributions):
 iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
 iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
 ```
+
+### System freezes
+
+On small systems (such as a Pi2), not directly sypported by binaries (Python Wheels) you may run out of memory.
+Upon the first run or after an upgrade, Home Assistant uses a lot of resources to (re)compile all the integrations. 
+If you run out of memory and/or swap memory, your system will freeze.
+Increasing swap memory can help:
+
+```bash
+sudo dphys-swapfile swapoff
+sudo nano /etc/dphys-swapfile
+```
+
+Modify the line the sets the swapfile size. Set it equal to your memory or double your current setting: `CONF_SWAPSIZE = 925` then:
+
+```bash
+sudo dphys-swapfile swapon
+sudo systemctl restart dphys-swapfile.service
+```

@@ -134,11 +134,11 @@ automation:
   alias: Turn on heater on workdays
   trigger:
     platform: time
-    at: '08:00:00'
+    at: "08:00:00"
   condition:
     condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'on'
+    entity_id: binary_sensor.workday_sensor
+    state: "on"
   action:
     service: switch.turn_on
     entity_id: switch.heater

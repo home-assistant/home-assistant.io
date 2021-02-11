@@ -11,6 +11,8 @@ The following outlines examples of the switch, services, and scripts required to
 
 The `switch.foscam_motion` will control whether the motion detection is on or off. This switch supports `statecmd`, which checks the current state of motion detection.
 
+{% raw %}
+
 ```yaml
 # Replace admin and password with an "Admin" privileged Foscam user
 # Replace ipaddress with the local IP address of your Foscam
@@ -19,13 +21,15 @@ switch:
  switches:
    #Switch for Foscam Motion Detection
    foscam_motion:
-     command_on: 'curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password"'
+     command_on: "curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=1&usr=admin&pwd=password""
      command_off: 'curl -k --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=setMotionDetectConfig&isEnable=0&usr=admin&pwd=password"'
      command_state: 'curl -k --silent --tls-max 1.2 "https://ipaddress:443/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig&usr=admin&pwd=password" | grep "isEnable" | cut -b 15'
-     value_template: '{% raw %}{{ value == "1" }}{% endraw %}'
+     value_template: '{{ value == "1" }}'
 ```
 
-The service `shell_command.foscam_turn_off` sets the camera to point down and away to indicate it is not recording, and `shell_command.foscam_turn_on` sets the camera to point where I'd like to record. h of these services require preset points to be added to your camera. See source above for additional information.
+{% endraw %}
+
+The service `shell_command.foscam_turn_off` sets the camera to point down and away to indicate it is not recording, and `shell_command.foscam_turn_on` sets the camera to point where I'd like to record. Each of these services require preset points to be added to your camera. See source above for additional information.
 
 ```yaml
 shell_command:
@@ -64,15 +68,14 @@ automation:
     trigger:
       platform: state
       entity_id: group.family
-      from: 'home'
+      from: "home"
     action:
       service: script.foscam_on
   - alias: Set Foscam to Home Mode when I arrive Home
     trigger:
       platform: state
       entity_id: group.family
-      to: 'home'
+      to: "home"
     action:
       service: script.foscam_off
 ```
-

@@ -141,23 +141,25 @@ This small example illustrates how the "split" files work. In this case, we star
 
 This (large) sensor configuration gives us another example:
 
+{% raw %}
+
 ```yaml
 ### sensor.yaml
 ### METEOBRIDGE #############################################
 - platform: tcp
-  name: 'Outdoor Temp (Meteobridge)'
+  name: "Outdoor Temp (Meteobridge)"
   host: 192.168.2.82
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[2]}}{% endraw %}"
+  value_template: "{{value.split (' ')[2]}}"
   unit: C
 - platform: tcp
-  name: 'Outdoor Humidity (Meteobridge)'
+  name: "Outdoor Humidity (Meteobridge)"
   host: 192.168.2.82
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
+  value_template: "{{value.split (' ')[3]}}"
   unit: Percent
 
 #### STEAM FRIENDS ##################################
@@ -173,11 +175,13 @@ This (large) sensor configuration gives us another example:
       - 'date'
 - platform: worldclock
   time_zone: Etc/UTC
-  name: 'UTC'
+  name: "UTC"
 - platform: worldclock
   time_zone: America/New_York
-  name: 'Ann Arbor'
+  name: "Ann Arbor"
 ```
+
+{% endraw %}
 
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 
@@ -231,7 +235,7 @@ automation:
     trigger:
       platform: state
       entity_id: device_tracker.iphone
-      to: 'home'
+      to: "home"
     action:
       service: light.turn_on
       entity_id: light.entryway
@@ -239,7 +243,7 @@ automation:
     trigger:
       platform: state
       entity_id: device_tracker.iphone
-      from: 'home'
+      from: "home"
     action:
       service: light.turn_off
       entity_id: light.entryway
@@ -260,7 +264,7 @@ alias: Automation 1
 trigger:
   platform: state
   entity_id: device_tracker.iphone
-  to: 'home'
+  to: "home"
 action:
   service: light.turn_on
   entity_id: light.entryway
@@ -273,7 +277,7 @@ alias: Automation 2
 trigger:
   platform: state
   entity_id: device_tracker.iphone
-  from: 'home'
+  from: "home"
 action:
   service: light.turn_off
   entity_id: light.entryway
@@ -370,7 +374,7 @@ automation:
     trigger:
       platform: state
       entity_id: device_tracker.iphone
-      to: 'home'
+      to: "home"
     action:
       service: light.turn_on
       entity_id: light.entryway
@@ -378,7 +382,7 @@ automation:
     trigger:
       platform: state
       entity_id: device_tracker.iphone
-      from: 'home'
+      from: "home"
     action:
       service: light.turn_off
       entity_id: light.entryway
@@ -399,7 +403,7 @@ automation: !include_dir_merge_list automation/
   trigger:
     platform: state
     entity_id: device_tracker.iphone
-    to: 'home'
+    to: "home"
   action:
     service: light.turn_on
     entity_id: light.entryway
@@ -407,7 +411,7 @@ automation: !include_dir_merge_list automation/
   trigger:
     platform: state
     entity_id: device_tracker.iphone
-    from: 'home'
+    from: "home"
   action:
     service: light.turn_off
     entity_id: light.entryway

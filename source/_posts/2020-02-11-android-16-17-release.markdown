@@ -25,8 +25,8 @@ automation:
     trigger:
       platform: state
       entity_id: cover.garage_door
-      from: 'closed'
-      to: 'open'
+      from: "closed"
+      to: "open"
       for: ‘0:30:00’
     action:
       service: notify.mobile_app_robbies_pixel_5

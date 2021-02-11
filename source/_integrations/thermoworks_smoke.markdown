@@ -99,7 +99,7 @@ input_number:
     min: -40
     max: 500
     step: 0.5
-    unit_of_measurement: '°F'
+    unit_of_measurement: "°F"
     icon: mdi:thermometer
 
 automation:

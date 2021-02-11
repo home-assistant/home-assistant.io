@@ -26,7 +26,7 @@ Platforms available - depending on your Smile and setup include:
  - `binary_sensor` (for domestic hot water and secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
 
-The password can be found on the bottom of your Smile or Stretch, it should consist of 6 characters. To find your IP address use the Plugwise App: 
+The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
  - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
  - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 

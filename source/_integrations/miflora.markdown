@@ -57,7 +57,7 @@ To use your Mi Flora plant sensor in your installation, add the following to you
 # Example configuration.yaml entry
 sensor:
   - platform: miflora
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     monitored_conditions:
       - moisture
 ```
@@ -122,7 +122,7 @@ A full configuration example could look like the one below:
 # Example configuration.yaml entry
 sensor:
   - platform: miflora
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     name: Flower 1
     force_update: true
     median: 3

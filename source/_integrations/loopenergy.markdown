@@ -47,11 +47,11 @@ Now you have the keys, add the following lines to your `configuration.yaml`, rep
 sensor:
   - platform: loopenergy
     electricity:
-      electricity_serial: 'ELECTRICAL_SERIAL'
-      electricity_secret: 'ELECTRICAL_SECRET'
+      electricity_serial: "ELECTRICAL_SERIAL"
+      electricity_secret: "ELECTRICAL_SECRET"
     gas:
-      gas_serial: 'GAS_SERIAL'
-      gas_secret: 'GAS_SECRET'
+      gas_serial: "GAS_SERIAL"
+      gas_secret: "GAS_SECRET"
 ```
 
 {% configuration %}

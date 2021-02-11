@@ -96,7 +96,7 @@ Some devices (like the HomeSeer wall switches) allow you to do things like doubl
 ```yaml
 # Example configuration.yaml automation entry
 automation
-  - alias: 'Dining room dimmer - double tap up'
+  - alias: "Dining room dimmer - double tap up"
     trigger:
       - event_type: zwave.scene_activated
         platform: event

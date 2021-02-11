@@ -46,5 +46,5 @@ The configuration sample below shows how an entry can look like:
 # Example configuration.yaml entry
 tts:
   - platform: picotts
-    language: 'fr-FR'
+    language: "fr-FR"
 ```

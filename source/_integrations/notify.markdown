@@ -42,17 +42,25 @@ action:
 
 After you setup a [notifier](/integrations/#notifications) a simple way to test if you have set up your notify platform correctly, is to open **Developer Tools** from the sidebar and then select the  **Services** tab. Choose your service from the **Service** dropdown menu, enter the sample below into the **Service Data** field, and press the **CALL SERVICE** button.
 
+{% raw %}
+
 ```json
 {
-  "message": "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
+  "message": "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 }
 ```
 
+{% endraw %}
+
 The automation equivalent would be:
+
+{% raw %}
 
 ```yaml
 action:
   service: notify.notify
   data:
-    message: "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
+    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```
+
+{% endraw %}

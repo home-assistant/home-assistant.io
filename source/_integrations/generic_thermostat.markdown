@@ -79,7 +79,7 @@ away_temp:
   required: false
   type: float
 precision:
-  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
+  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`. This value is also used as the step size for setting the target temperature."
   required: false
   type: float
   default: "`0.5` for Celsius and `1.0` for Fahrenheit."

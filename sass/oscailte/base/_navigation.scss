@@ -69,7 +69,7 @@ header .grid {
 
 .menu {
   margin: 0;
-  top: 68px;
+  top: 138px;
 }
 
 .menu li a{
@@ -116,9 +116,17 @@ header .grid {
     padding: 15px 15px 15px 25px;
   }
 
+  .alert-banner {
+    height: 70px !important;
+  }
+
+  .page-content {
+    padding-top: 102px;
+  }
+
   .toggle {
     position: absolute;
-    top: 15px;
+    top: 85px;
     right: 10px;
   }
 

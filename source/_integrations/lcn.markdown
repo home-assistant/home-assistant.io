@@ -183,7 +183,7 @@ climates:
       description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
-      default: 'celsius'
+      default: "celsius"
     min_temp:
       description: "Minimum target temperature."
       required: false
@@ -302,7 +302,7 @@ sensors:
       description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
-      default: 'native'
+      default: "native"
 
 switches:
   description: List of your switches.

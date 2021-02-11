@@ -210,7 +210,7 @@ Trigger as soon as an event starts:
     trigger:
       platform: state
       entity_id: calendar.calendar_name
-      to: 'on'
+      to: "on"
 ```
 
 By using specific text in the event title, you can set conditions to initiate particular automation flows on designated events while other events will be ignored.
@@ -221,8 +221,10 @@ For example, the actions following this condition will only be executed for even
 
 ```yaml
     condition:
-        condition: template
-        value_template: "{{is_state_attr('calendar.calendar_name', 'message', 'vacation') }}"
+      - condition: state
+        entity_id: calendar.calendar_name
+        state: vacation
+        attribute: message
 ```
 
 {% endraw %}

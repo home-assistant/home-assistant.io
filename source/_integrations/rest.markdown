@@ -27,7 +27,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADDRESS/ENDPOINT
     method: POST
-    payload: '{ "device" : "heater" }'
+    payload: "{ "device" : "heater" }"
 ```
 
 or a template based request:
@@ -146,26 +146,34 @@ In this section you find some real-life examples of how to use this sensor.
 
 You can find your external IP address using the service [JSON Test](https://www.jsontest.com/) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: rest
     resource: http://ip.jsontest.com
     name: External IP
-    value_template: '{% raw %}{{ value_json.ip }}{% endraw %}'
+    value_template: '{{ value_json.ip }}'
 ```
+
+{% endraw %}
 
 ### Single value from a local Glances instance
 
 The [glances](/integrations/glances) sensor is doing the exact same thing for all exposed values.
+
+{% raw %}
 
 ```yaml
 sensor:
   - platform: rest
     resource: http://IP_ADRRESS:61208/api/2/mem/used
     name: Used mem
-    value_template: '{% raw %}{{ value_json.used| multiply(0.000000954) | round(0) }}{% endraw %}'
+    value_template: '{{ value_json.used| multiply(0.000000954) | round(0) }}'
     unit_of_measurement: MB
 ```
+
+{% endraw %}
 
 ### Value from another Home Assistant instance
 
@@ -173,14 +181,18 @@ The Home Assistant [API](/developers/rest_api/) exposes the data from your attac
 
 If the Home Assistant instance in the resource variable is protected by an API password, you can append `?api_password=YOUR_PASSWORD` to the resource URL to authenticate or use `headers:`.
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/states/sensor.weather_temperature
     name: Temperature
-    value_template: {% raw %}'{{ value_json.state }}'{% endraw %}
+    value_template: '{{ value_json.state }}'
     unit_of_measurement: "°C"
 ```
+
+{% endraw %}
 
 ### Accessing an HTTP authentication protected endpoint
 
@@ -229,6 +241,8 @@ my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCx
 
 This sample is very similar to the [`updater`](/integrations/updater/) integration but the information is received from GitHub.
 
+{% raw %}
+
 ```yaml
 sensor:
   - platform: rest
@@ -236,12 +250,14 @@ sensor:
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: '{% raw %}{{ value_json.tag_name }}{% endraw %}'
+    value_template: '{{ value_json.tag_name }}'
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
       User-Agent: Home Assistant REST sensor
 ```
+
+{% endraw %}
 
 ### Fetch multiple JSON values and present them as attributes
 
@@ -261,10 +277,10 @@ sensor:
   - platform: template
     sensors:
       date:
-        friendly_name: 'Date'
-        value_template: '{{ states.sensor.json_time.attributes["date"] }}'
+        friendly_name: "Date"
+        value_template: "{{ states.sensor.json_time.attributes["date"] }}"
       milliseconds:
-        friendly_name: 'milliseconds'
+        friendly_name: "milliseconds"
         value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
 ```
 
@@ -310,17 +326,17 @@ sensor:
         entity_picture_template: '{{ "https://openweathermap.org/img/w/"+state_attr('sensor.owm_report', 'weather')[0]["icon"].lower()+".png" }}'
         entity_id: sensor.owm_report
       owm_temp:
-        friendly_name: 'Outside temp'
+        friendly_name: "Outside temp"
         value_template: '{{ state_attr('sensor.owm_report', 'main')["temp"]-273.15 }}'
         unit_of_measurement: "°C"
         entity_id: sensor.owm_report
       owm_pressure:
-        friendly_name: 'Outside pressure'
+        friendly_name: "Outside pressure"
         value_template: '{{ state_attr('sensor.owm_report', 'main')["pressure"] }}'
         unit_of_measurement: "hP"
         entity_id: sensor.owm_report
       owm_humidity:
-        friendly_name: 'Outside humidity'
+        friendly_name: "Outside humidity"
         value_template: '{{ state_attr('sensor.owm_report', 'main')["humidity"] }}'
         unit_of_measurement: "%"
         entity_id: sensor.owm_report
@@ -368,25 +384,25 @@ sensor:
       - bedroom1
       - bedroom2
       - bedroom3
-    value_template: 'OK'
+    value_template: "OK"
   - platform: template
     sensors:
       bedroom1_temperature:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["temperature"] }}'
         device_class: temperature
-        unit_of_measurement: '°C'
+        unit_of_measurement: "°C"
       bedroom1_humidity:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["humidity"] }}'
         device_class: humidity
-        unit_of_measurement: '%'
+        unit_of_measurement: "%"
       bedroom1_battery:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["battery"] }}'
         device_class: battery
-        unit_of_measurement: 'V'
+        unit_of_measurement: "V"
       bedroom2_temperature:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom2"]["temperature"] }}'
         device_class: temperature
-        unit_of_measurement: '°C'
+        unit_of_measurement: "°C"
 ```
 
 {% endraw %}
@@ -405,7 +421,7 @@ sensor:
     resource: http://192.168.1.105/status.xml
     json_attributes_path: "$.response"
     scan_interval: 15
-    value_template: 'OK'
+    value_template: "OK"
     json_attributes:
       - "usr0"
       - "pot0"

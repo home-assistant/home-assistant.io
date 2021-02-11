@@ -21,7 +21,10 @@ The following selectors are currently available:
 - [Device selector](#device-selector)
 - [Entity selector](#entity-selector)
 - [Number selector](#number-selector)
+- [Object selector](#object-selector)
+- [Select selector](#select-selector)
 - [Target selector](#target-selector)
+- [Text selector](#text-selector)
 - [Time selector](#time-selector)
 
 If no selector is defined, a text input for a single line will be shown.
@@ -338,7 +341,7 @@ mode:
   description: This can be either `box` or `slider` mode.
   type: string
   required: false
-  default: box
+  default: slider
 {% endconfiguration %}
 
 ### Example number selectors
@@ -366,6 +369,41 @@ number:
   unit_of_measurement: "%"
   mode: slider
 ```
+
+## Object selector
+
+The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries like service data. The value of the input will contain the provided data.
+
+![Screenshot of an object selector](/images/blueprints/selector-object.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+object:
+```
+
+## Select selector
+
+The select selector shows a list of available options from which the user can choose. The value of the input contains the value of the selected option. Only a single option can be selected at a time.
+
+![Screenshot of a select selector](/images/blueprints/selector-select.png)
+
+The selector requires a list of options that the user can choose from.
+
+```yaml
+select:
+  options:
+    - Red
+    - Green
+    - Blue
+```
+
+{% configuration select %}
+options:
+  description: List of options that the user can choose from.
+  type: list
+  required: true
+{% endconfiguration %}
 
 ## Target selector
 
@@ -476,6 +514,26 @@ target:
     manufacturer: IKEA of Sweden
     model: TRADFRI remote control
 ```
+
+## Text selector
+
+The text selector can be used to input a text string. The value of the input will contain the selected text.
+
+![Screenshot of a text selector](/images/blueprints/selector-text.png)
+
+Unless `multiline` is set to `true`, this selector behaves exactly like if no selector at all was specified, and will display a single line text input box on the user interface.
+
+```yaml
+text:
+```
+
+{% configuration text %}
+multiline:
+  description: Set to true to display the input as a multi-line text box on the user interface.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 ## Time selector
 

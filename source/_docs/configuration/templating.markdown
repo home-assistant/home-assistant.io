@@ -44,6 +44,17 @@ script:
 ```
 {% endraw %}
 
+### Important Template Rules
+
+There are a few very important rules to remember when adding templates to YAML:
+
+1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
+1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](http://jinja.pocoo.org/docs/dev/templates/#default), or both.
+1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) or an [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) by using the respective [filter](http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-filters).
+1. While the [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) and [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+
+Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
@@ -164,7 +175,7 @@ The same thing can also be expressed as a filter:
 
 {% raw %}
 ```text
-{{ ['device_tracker.paulus', 'group.child_trackers'] | expand 
+{{ expand(['device_tracker.paulus', 'group.child_trackers']) 
   | selectattr("attributes.battery", 'defined')
   | join(', ', attribute="attributes.battery") }}
 ```
@@ -195,7 +206,31 @@ The same thing can also be expressed as a filter:
 - Filter `timestamp_utc` converts a UNIX timestamp to its string representation representation as date/time in UTC timezone.
 - Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
-Note: [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`):  
+<div class='note'>
+	
+[UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
+
+</div>
+
+<div class='note warning'>
+	
+If your template is returning a timestamp that should be displayed in the frontend (e.g., as a sensor entity with `device_class: timestamp`), you have to ensure that it is the ISO 8601 format (meaning it has the "T" separator between the date and time portion). Otherwise, frontend rendering on macOS and iOS devices will show an error. The following value template would result in such an error:
+
+{% raw %}
+
+`{{ states.sun.sun.last_changed }}` => `2021-01-24 07:06:59+00:00` (missing "T" separator)
+
+{% endraw %}
+
+To fix it, enforce the ISO conversion via `isoformat()`:
+
+{% raw %}
+
+`{{ states.sun.sun.last_changed.isoformat() }}` => `2021-01-24T07:06:59+00:00` (contains "T" separator)
+
+{% endraw %}
+
+</div>
 
 {% raw %}
 ```yaml

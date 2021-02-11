@@ -436,11 +436,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ```yaml
   tts:
     - platform: marytts
-      host: 'localhost'
+      host: "localhost"
       port: 59125
-      codec: 'WAVE_FILE'
-      voice: 'cmu-slt-hsmm'
-      language: 'en_US'
+      codec: "WAVE_FILE"
+      voice: "cmu-slt-hsmm"
+      language: "en_US"
       effect:
         Volume: "amount:2.0;",
         TractScaler: "amount:1.5;",

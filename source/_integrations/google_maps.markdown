@@ -19,6 +19,11 @@ You need two Google accounts. Account A is the account that has to be set up to 
 3. Save the cookie file to your Home Assistant configuration directory with the following name: `.google_maps_location_sharing.cookies.` followed by the slugified username of the NEW Google account (account B). 
    - For example: If your email address was `location.tracker@gmail.com`, the filename would be: `.google_maps_location_sharing.cookies.location_tracker_gmail_com`.
 
+### Note for existing location sharing users
+
+If you already have other people sharing their location to your existing Account A and do not wish to ask them to also share their location with a new Account B. Create the new Google account (account B) and share the location of Account B back to Account A. Follow the steps listed, substituting the instructions stating “Account B” for “Account A” (i.e., a cookie file is from Account A, slugified username of Account A), then ensure both Account A and Account B are logged in on your mobile device.
+
+
 ## Configuration
 
 To integrate Google Maps Location Sharing in Home Assistant, add the following section to your `configuration.yaml` file:

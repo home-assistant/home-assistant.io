@@ -24,7 +24,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: qbittorrent
-    url: 'http://<hostname>:<port>'
+    url: "http://<hostname>:<port>"
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```

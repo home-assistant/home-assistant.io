@@ -1,7 +1,6 @@
 ---
 title: SoChain
 description: Instructions on how to integrate chain.so data within Home Assistant.
-logo: sochain.png
 ha_category:
   - Finance
 ha_release: 0.61
@@ -18,7 +17,7 @@ To add the SoChain sensor to your installation, specify a network and address to
 sensor:
   - platform: sochain
     network: LTC
-    address: 'M9m37h3dVkLDS13wYK7vcs7ck6MMMX6yhK'
+    address: "M9m37h3dVkLDS13wYK7vcs7ck6MMMX6yhK"
 ```
 
 {% configuration %}
