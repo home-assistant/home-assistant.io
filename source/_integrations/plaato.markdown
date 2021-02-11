@@ -4,7 +4,7 @@ description: Instructions on how to integrate Plaato Airlock and Keg sensors wit
 ha_release: 0.95
 ha_category:
   - Sensor
-ha_iot_class: Cloud Push, Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@JohNan'
