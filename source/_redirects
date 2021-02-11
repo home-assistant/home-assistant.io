@@ -2115,8 +2115,8 @@
 /hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
 /hassio/haos_common_tasks /common-tasks/os
 /hassio/hassos_faq /faq
-/hassio/index /getting_started
-/hassio/installation /getting_started
+/hassio/index /getting-started
+/hassio/installation /getting-started
 /hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
 
 # Migrated Community Guides
