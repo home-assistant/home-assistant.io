@@ -2086,9 +2086,9 @@
 /getting-started/scripts-service-calls /docs/scripts/service-calls
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
-/getting-started/troubleshooting /docs/installation/troubleshooting
-/getting-started/troubleshooting-configuration /docs/configuration/troubleshooting
-/getting-started/updating /docs/installation/updating
+/getting-started/troubleshooting /docs/troubleshooting
+/getting-started/troubleshooting-configuration /docs/troubleshooting
+/getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /docs/z-wave
 /getting-started/z-wave-devices /docs/z-wave/devices
@@ -2103,6 +2103,21 @@
 /topics/splitting_configuration /docs/configuration/splitting_configuration
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
+/common-tasks /common-tasks/os
+/docs/installation /installation
+/docs/installation/docker /installation
+/docs/installation/raspberry-pi /installation
+/docs/installation/updating /common-tasks/os
+/docs/installation/virtualenv /installation
+/hassio /getting_started
+/hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
+/hassio/enable_i2c /common-tasks/os#enable-i2c
+/hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
+/hassio/haos_common_tasks /common-tasks/os
+/hassio/hassos_faq /faq
+/hassio/index /installation
+/hassio/installation /installation
+/hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -2175,6 +2190,8 @@
 /integrations/lovelace /lovelace
 
 # Removed documentation
+/docs/installation /getting-started
+/docs/installation/dokcer /getting-started
 /docs/installation/hassbian /getting-started
 /docs/installation/macos /docs/installation/virtualenv
 /docs/installation/raspberry-pi-all-in-one /getting-started
@@ -2262,3 +2279,4 @@
 /integrations/yweather /more-info/removed-integration 301
 /components/ptvsd /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
+

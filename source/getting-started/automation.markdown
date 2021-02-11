@@ -49,4 +49,4 @@ Further reading on automations:
 - [Conditions](/docs/automation/condition/)
 - [Actions](/docs/automation/action/)
 
-### [Next step: Presence detection &raquo;](/getting-started/presence-detection/)
+{% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}

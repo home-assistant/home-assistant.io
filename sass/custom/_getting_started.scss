@@ -1,0 +1,150 @@
+#getting_started {
+    .intro {
+        padding-bottom: 16px;
+    }
+
+    .installations {
+
+        h2 {
+            font-size: 0;
+            margin: 0;
+        }
+
+        .installations-card {
+            text-decoration: none !important;
+            color: black !important;
+
+            .material-card {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 8px 0;
+
+                .content-container {
+                    display: flex;
+
+                    div:first-of-type {
+                        margin-right: 24px;
+
+                        img, svg {
+                            max-width: 170px;
+                            max-height: 170px;
+                            min-width: 170px;
+                            min-height: 170px;
+                            padding: 32px;
+                            border-radius: 3px;
+                            box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+                            vertical-align: middle;
+                            border: 5px solid #fff;
+                        }
+                    }
+
+                    div:last-of-type {
+
+                        b {
+                            font-size: 28px;
+                        }
+
+                        p {
+                            font-size: 0.8em;
+                            margin: 0;
+                        }
+
+                        ul {
+                            font-size: 0.8em;
+                            margin-left: 24px;
+                            margin-top: 1rem;
+
+                            li {
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+                svg {
+                    height: 42px;
+                    max-width: 42px;
+                    min-width: 42px;
+                    align-self: center;
+                }
+            }
+        }
+    }
+
+    .compare-installations td,.compare-installations th {
+        text-align: center;
+    }
+    
+    table.compare-installations {
+        background-color: #ffffff !important;
+        border-radius: 2px !important;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+            0 1px 5px 0 rgba(0,0,0,0.12), 
+            0 3px 1px -2px rgba(0,0,0,0.2) !important;
+
+        td, th {
+            text-align: center;
+        }
+    
+        tr {
+            td:first-of-type {
+                text-align: left;
+            }
+        }
+    
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+    }
+}
+
+.link-card {
+    text-decoration: none !important;
+    color: black !important;
+    div {
+        margin: 32px 0;
+        height: 64px;
+        display: flex;
+        justify-content: space-between;
+        svg {
+            height: 32px;
+            width: 32px;
+            max-width: 32px;
+        }
+        p {
+            margin: 0;
+            align-self: center;
+        }
+    }
+}
+.next-step {
+    p {
+        text-transform: uppercase;
+    }
+}
+
+@media only screen and (max-width: $palm-end) {
+    #getting_started {
+        .installations {
+            .installations-card {
+                .material-card {
+                    .content-container {
+                        flex-flow: wrap;
+                        svg {
+                            display: block;
+                        }
+                        div:first-of-type {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            margin-bottom: 16px;
+                        }
+                    }
+                    svg {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
