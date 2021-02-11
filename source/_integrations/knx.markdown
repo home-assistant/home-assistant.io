@@ -29,7 +29,7 @@ The integration requires a local KNX/IP interface or router. Through this, it wi
 
 <div class='note warning'>
 
-Please note, the `knx` platform does not support KNX Secure.
+Please note, the KNX platform does not support KNX Secure.
 
 </div>
 
@@ -120,7 +120,7 @@ If you want to connect to a sepcific tunnelling server or if the auto detection 
 ```yaml
 knx:
   tunneling:
-    host: '192.168.2.23'
+    host: "192.168.2.23"
 ```
 
 {% configuration %}
@@ -282,7 +282,7 @@ default:
 
 ## Binary Sensor
 
-The `knx` binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
+The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors.
 
 Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
@@ -394,7 +394,7 @@ action:
 
 ## Climate
 
-The `knx` climate platform is used as an interface to KNX thermostats and room controllers.
+The KNX climate platform is used as an interface to KNX thermostats and room controllers.
 
 To use your KNX thermostats in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -621,7 +621,7 @@ max_temp:
 
 ## Cover
 
-The `knx` cover platform is used as an interface to KNX covers.
+The KNX cover platform is used as an interface to KNX covers.
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -701,10 +701,10 @@ device_class:
 
 ## Fan
 
-The `knx fan` integration is used to control KNX fans. Following control types are supported:
+The KNX fan integration is used to control KNX fans. Following control types are supported:
 
-- Percentage controlled: Fans which set the percentage directly from 0-100%.
-- Step controlled: Fans which have a fixed amount of steps to set. The integration will convert percentage to step automatically. The `max_step` attribute is set to the amount of steps of the fan, not counting the `off`-step. Example: A fan supports the steps 0 to 3. To use this fan the `max_step` attribute has to be set to `3`. The integration will convert the percentage `66 %` to the step `2` when sending data to KNX.
+- Percentage controlled: Fans that set the percentage directly from 0-100%.
+- Step controlled: Fans which have a fixed amount of steps to set. The integration will convert percentage to step automatically. The `max_step` attribute is set to the number of steps of the fan, not counting the `off`-step. Example: A fan supports the steps 0 to 3. To use this fan the `max_step` attribute has to be set to `3`. The integration will convert the percentage `66 %` to the step `2` when sending data to KNX.
 
 To use your KNX fan in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -712,9 +712,9 @@ To use your KNX fan in your installation, add the following lines to your top le
 # Example configuration.yaml entry
 knx:
   fan:
-    - name: 'ceiling fan'
-      address: '9/0/1'
-      state_address: '9/0/2'
+    - name: "ceiling fan"
+      address: "9/0/1"
+      state_address: "9/0/2"
 ```
 
 {% configuration %}
@@ -746,7 +746,7 @@ max_step:
 
 ## Light
 
-The `knx light` integration is used as an interface to control KNX actuators for lighting applications such as:
+The KNX light integration is used as an interface to control KNX actuators for lighting applications such as:
 
 - Switching actuators
 - Dimming actuators
@@ -912,7 +912,7 @@ knx:
 
 ## Notify
 
-The `knx` notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
+The KNX notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
 ```yaml
 knx:
@@ -934,7 +934,7 @@ name:
 
 ## Scene
 
-The `knx` scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes. These entities are write-only.
+The KNX scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes. These entities are write-only.
 
 ```yaml
 # Example configuration.yaml entry
@@ -962,7 +962,7 @@ name:
 
 ## Sensor
 
-The `knx` sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
+The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
 Sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/integrations/knx/#exposing-sensor-values-or-time-to-knx-bus) or use the `knx.send` service.
 
@@ -1170,7 +1170,7 @@ knx:
 
 ## Switch
 
-The `knx` switch platform is used as an interface to switching actuators.
+The KNX switch platform is used as an interface to switching actuators.
 
 ```yaml
 knx:
@@ -1205,7 +1205,7 @@ For switching actuators that are only controlled by a single group address and c
 
 ## Weather
 
-The `knx` weather platform is used as an interface to KNX weather stations.
+The KNX weather platform is used as an interface to KNX weather stations.
 
 To use your KNX weather station in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
