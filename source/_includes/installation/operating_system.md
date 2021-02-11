@@ -182,6 +182,8 @@ _All these can be extended if your usage calls for more resources._
 
 {% endif %}
 
+With the Home Assistant Operating System installed and accessible you can continue with [onboarding](/getting-started/onboarding/).
+
 [intel-nuc]: {{release_url}}/{{site.installation.versions.os}}/hassos_intel-nuc-{{site.installation.versions.os}}.img.xz
 [vmdk]: {{release_url}}/{{site.installation.versions.os}}/hassos_ova-{{site.installation.versions.os}}.vmdk.xz
 [vhdx]: {{release_url}}/{{site.installation.versions.os}}/hassos_ova-{{site.installation.versions.os}}.vhdx.xz
