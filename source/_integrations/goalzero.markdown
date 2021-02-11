@@ -21,4 +21,8 @@ Go to the integrations page in your configuration and click on new integration -
 
 Each added configuration entry will create the following sensors:
 
-`v12PortStatus`, `usbPortStatus`, `acPortStatus`, `backlight`, `app_online`, `isCharging`
+`backlight`, `app_online`, `isCharging`
+
+The following switches will also be created:
+
+`v12PortStatus`, `usbPortStatus`, `acPortStatus`
