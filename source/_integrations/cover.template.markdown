@@ -49,16 +49,12 @@ cover:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
-        required: false
-        type: [string, list]
       unique_id:
-        description: An ID that uniquely identifies this cover. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
+        description: Defines a template to get the state of the cover. Valid values are `open`/`true` or `opening`/`closing`/`closed`/`false`. [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
         required: exclusive
         type: template
       position_template:
@@ -67,6 +63,10 @@ cover:
         type: template
       icon_template:
         description: Defines a template to specify which icon to use.
+        required: false
+        type: template
+      entity_picture_template:
+        description: Defines a template for the entity picture of the cover.
         required: false
         type: template
       availability_template:
@@ -199,18 +199,18 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         set_cover_position:
           service: script.cover_group_position
-          data_template:
+          data:
             position: "{{position}}"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
@@ -219,9 +219,6 @@ cover:
           {% else %}
             mdi:window-closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 sensor:
   - platform: template
@@ -239,7 +236,7 @@ sensor:
 script:
   cover_group:
     sequence:
-      - service_template: "cover.{{modus}}_cover"
+      - service: "cover.{{modus}}_cover"
         data:
           entity_id:
             - cover.bedroom
@@ -247,7 +244,7 @@ script:
   cover_group_position:
     sequence:
       - service: cover.set_cover_position
-        data_template:
+        data:
           entity_id:
             - cover.bedroom
             - cover.livingroom
@@ -258,7 +255,7 @@ automation:
     trigger:
       - platform: sun
         event: sunset
-        offset: '+00:30:00'
+        offset: "+00:30:00"
     action:
       - service: cover.set_cover_position
         data:
@@ -283,15 +280,15 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
           {% if is_state('sensor.cover_group', 'open') %}
@@ -318,15 +315,15 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
           {% if is_state('sensor.cover_group', 'open') %}

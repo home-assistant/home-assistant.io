@@ -370,7 +370,7 @@ script:
       - service: wink.set_nimbus_dial_state
         data:
           entity_id: wink.nimbus_dial_1
-          rotation: 'ccw'
+          rotation: "ccw"
 ```
 
 ## Alarm Control Panel

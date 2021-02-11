@@ -7,7 +7,7 @@ ha_release: 0.29
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
-  - '@ChristianKuehnel'
+  - '@basnijholt'
 ha_domain: miflora
 ---
 
@@ -57,7 +57,7 @@ To use your Mi Flora plant sensor in your installation, add the following to you
 # Example configuration.yaml entry
 sensor:
   - platform: miflora
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     monitored_conditions:
       - moisture
 ```
@@ -122,7 +122,7 @@ A full configuration example could look like the one below:
 # Example configuration.yaml entry
 sensor:
   - platform: miflora
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     name: Flower 1
     force_update: true
     median: 3
@@ -145,7 +145,7 @@ An automation example to report a battery failure:
     platform: state
     to: unavailable
   action:
-  - data_template:
+  - data:
       message: "Flower 1 moisture is unavailable for more than 24 hours"
     service: notify.notifier_telegram_someone
 ```

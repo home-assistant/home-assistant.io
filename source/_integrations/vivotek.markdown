@@ -151,6 +151,7 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 For example, the following action is an automation that would take a snapshot from "front_door_camera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
+
 ```yaml
 action:
   service: camera.snapshot
@@ -158,4 +159,5 @@ action:
     entity_id: camera.front_door_camera
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
+
 {% endraw %}

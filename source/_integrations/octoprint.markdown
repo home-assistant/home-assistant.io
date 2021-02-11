@@ -17,10 +17,6 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<div class='note'>
-You must have the <a href="#configuration">OctoPrint component</a> configured (below) to use the sensor and binary sensor. After configuring that component, the sensors and binary sensors automatically appear.
-</div>
-
 ## Configuration
 
 To get started with the OctoPrint API, please follow the directions on their [site](https://docs.octoprint.org/en/master/api/general.html). Once OctoPrint is configured you will need to add your API key and host to your `configuration.yaml`.

@@ -49,8 +49,8 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
     entity_id: sensor.dexcom_YOUR_USERNAME_glucose_value
     platform: numeric_state
   condition: time
-    after: '22:00:00'
-    before: '06:00:00'
+    after: "22:00:00"
+    before: "06:00:00"
   action:
   - service: light.turn_on
       data:

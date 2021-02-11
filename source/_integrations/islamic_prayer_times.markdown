@@ -33,7 +33,7 @@ islamic_prayer_times:
 {% configuration %}
 calculation_method:
   required: false
-  default: 'isna'
+  default: "isna"
   type: string
   description: "The calculation method used for prayer times.  Must be one of: `karachi`, `isna`, `mwl`, `makkah`."
 {% endconfiguration %}

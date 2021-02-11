@@ -2,6 +2,7 @@
 title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
 ha_category:
+  - Binary Sensor
   - Hub
   - Climate
   - Water Heater
@@ -20,6 +21,7 @@ The `tado` integration platform is used as an interface to the [my.tado.com](htt
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary Sensor - for some additional information of the zones.
 - Climate - for every Tado zone.
 - Water Heater - for water heater zones.
 - [Presence Detection](#presence-detection)
@@ -28,42 +30,6 @@ There is currently support for the following device types within Home Assistant:
 ## Configuration
 
 To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry with multiple accounts
-tado:
-  - username: YOUR_USERNAME1
-    password: YOUR_PASSWORD1
-  - username: YOUR_USERNAME2
-    password: YOUR_PASSWORD2
-```
-
-In case of single account works as well:
-
-```yaml
-# Example configuration.yaml entry with single account
-tado:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your username for [my.tado.com](https://my.tado.com/).
-  required: true
-  type: string
-password:
-  description: Your password for [my.tado.com](https://my.tado.com/).
-  required: true
-  type: string
-fallback:
-  description: Indicates if you want to fallback to Smart Schedule on the next Schedule change, or stay in Manual mode until you set the mode back to Auto.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
@@ -132,7 +98,7 @@ In this example `12345` is the `home_id` you'll need to configure.
 
 If the above method returns an unauthorized error. The `home_id` can also be found using Chrome developer tools. Whilst logged into https://my.tado.com/webapp, take the following steps: 
 
-- Select the "Networ"' tab
+- Select the "Network"' tab
 - Filter for "home"
 - Under "Name", select "users"
 - Click on the "Response" tab
@@ -163,6 +129,16 @@ You can use the service `tado.set_water_heater_timer` to set your water heater t
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
 
+### Service `tado.set_climate_temperature_offset`
+
+You can use the service `tado.set_climate_temperature_offset` to set the temprature offset for Tado climate devices 
+
+| Service data attribute | Optional | Description                                                            |
+| ---------------------- | -------- | ---------------------------------------------------------------------- |
+| `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
+| `offset`               | no       | Float, Offset you would like to set                                    |
+
+
 Examples:
 
 ```yaml
@@ -180,3 +156,35 @@ script:
           entity_id: water_heater.hot_water
           time_period: "01:30:00"
 ```
+
+{% raw %}
+```yaml
+# Example automation to set temprature offset based on another thermostat value
+automation:
+    # Trigger if the state of either thermostat changes
+    trigger:
+    - platform: state
+      entity_id:
+        - sensor.temp_sensor_room
+        - sensor.tado_temperature
+    
+    # Check if the room temp is more than 0.5 higher than the tado thermostat reading
+    condition:
+    - condition: template
+      value_template: >
+        {% set tado_temp = states('sensor.tado_temperature')|float %}
+        {% set room_temp = states('sensor.temp_sensor_room')|float %}
+        {{ (tado_temp - room_temp) > 0.5 }}
+    
+    # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
+    action:
+    - service: tado.set_climate_temperature_offset
+      data:
+        entity_id: climate.tado
+        offset: >
+          {% set tado_temp = states('sensor.tado_temperature')|float %}
+          {% set room_temp = states('sensor.temp_sensor_room')|float %}
+          {% set current_offset = state_attr('climate.tado', 'offset_celsius') %}
+          {{ (-(tado_temp - room_temp) + current_offset)|round }}
+```
+{% endraw %}

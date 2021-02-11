@@ -42,7 +42,7 @@ Also impacted, but integrations are read only:
 - [sensor.foobot](/integrations/foobot)
 - sensor.hydroquebec
 - [sensor.startca](/integrations/startca)
-- [sensor.teksavvy](/integrations/teksavvy)
+- sensor.teksavvy
 - [sensor.thethingsnetwork](/integrations/thethingsnetwork#sensor)
 - [sensor.tibber](/integrations/tibber#sensor)
 - [sensor.waqi](/integrations/waqi)
@@ -64,7 +64,7 @@ Affected, but not transmitting authentication:
 - [sensor.swiss_public_transport](/integrations/swiss_public_transport)
 - [sensor.viaggiatreno](/integrations/viaggiatreno)
 - [sensor.wunderground](/integrations/wunderground)
-- [sensor.yr](/integrations/yr)
+- sensor.yr
 - [weather.ipma](/integrations/ipma)
 - [tts.google](/integrations/google_translate)
 - [tts.yandextts](/integrations/yandextts)

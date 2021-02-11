@@ -33,10 +33,10 @@ http:
 
 {% configuration %}
 server_host:
-  description: "Only listen to incoming requests on specific IP/host. By default the `http` integration will accept all IPv4 and IPv6 connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses."
+  description: "Only listen to incoming requests on specific IP/host. By default the `http` integration auto-detects IPv4/IPv6 and listens on all connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses. The default listed assumes support for IPv4 and IPv6."
   required: false
   type: [list, string]
-  default: 0.0.0.0
+  default: "0.0.0.0, ::"
 server_port:
   description: Let you set a port to use.
   required: false
@@ -67,10 +67,6 @@ trusted_proxies:
   description: "List of trusted proxies, consisting of IP addresses or networks, that are allowed to set the `X-Forwarded-For` header.  This is required when using `use_x_forwarded_for` because all requests to Home Assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario, this option should be set with extreme care."
   required: false
   type: [string, list]
-trusted_networks:
-  description: "**Deprecated since 0.89 release. Configuration moved to [Trusted Networks auth provider](/docs/authentication/providers/#trusted-networks).** List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.  If using a reverse proxy with the `use_x_forwarded_for` and `trusted_proxies` options enabled, requests proxied to Home Assistant with a trusted `X-Forwarded-For` header will appear to come from the IP given in that header instead of the proxy IP."
-  required: false
-  type: [string, list]
 ip_ban_enabled:
   description: Flag indicating whether additional IP filtering is enabled.
   required: false
@@ -87,12 +83,6 @@ ssl_profile:
   type: string
   default: modern
 {% endconfiguration %}
-
-<div class='note'>
-
-Configuring trusted_networks via the `http` integration will be deprecated and moved to `auth_providers` instead. For instructions, see <a href="/docs/authentication/providers/#trusted-networks">trusted networks</a>. In Home Assistant 0.89.0 and 0.89.1, you need place the trusted network under both `http` and `auth_providers` if you still want to use trusted networks features. You can remove it from `http` section starting from 0.89.2.
-
-</div>
 
 The sample below shows a configuration entry with possible values:
 
@@ -117,7 +107,7 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 ## APIs
 
-On top of the `http` integration is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
+On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest), [Python API](https://developers.home-assistant.io/docs/api_lib_index) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) available.
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
@@ -125,9 +115,9 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
+Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
 
-All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
+All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
 ## IP filtering and banning
 
@@ -135,16 +125,10 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 
 ```yaml
 127.0.0.1:
-  banned_at: '2016-11-16T19:20:03'
+  banned_at: "2016-11-16T19:20:03"
 ```
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
-
-<div class='note warning'>
-
-Please note, that sources from `trusted_networks` won't be banned automatically.
-
-</div>
 
 ## Hosting files
 

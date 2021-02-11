@@ -15,7 +15,7 @@ ha_config_flow: true
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
-If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://watty.io/) it will also show the electricity consumption in real time.
+If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real time.
 
 There is currently support for the following device types within Home Assistant:
 

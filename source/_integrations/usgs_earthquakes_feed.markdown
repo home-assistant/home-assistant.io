@@ -13,13 +13,13 @@ ha_domain: usgs_earthquakes_feed
 The `usgs_earthquakes_feed` platform lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/usgs-earthquake-hazards-program-feed-entities.png' />
+  <img src='/images/screenshots/usgs-earthquake-hazards-program-feed-entities.png' />
 </p>
 
 Entities are generated, updated and removed automatically with each update from the feed. Each entity defines latitude and longitude and will be shown on the map automatically. The distance in kilometers is available as the state of each entity.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/usgs-earthquake-hazards-program-feed-map.png' />
+  <img src='/images/screenshots/usgs-earthquake-hazards-program-feed-map.png' />
 </p>
 
 The data is updated every 5 minutes.
@@ -32,7 +32,7 @@ To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the
 # Example configuration.yaml entry
 geo_location:
   - platform: usgs_earthquakes_feed
-    feed_type: 'past_day_all_earthquakes'
+    feed_type: "past_day_all_earthquakes"
 ```
 
 {% configuration %}
@@ -112,9 +112,21 @@ The following state attributes are available for each entity in addition to the 
 # Example configuration.yaml entry
 geo_location:
   - platform: usgs_earthquakes_feed
-    feed_type: 'past_month_all_earthquakes'
+    feed_type: "past_month_all_earthquakes"
     radius: 50
     minimum_magnitude: 0.0
     latitude: 35.899722
     longitude: -120.432778
+```
+## Card Example
+
+Assuming you configure this service using `feed_type: past_week_all_earthquakes`, you can create a corresponding map card in the Lovelace UI with the following card:
+```yaml
+type: map
+name: Earthquakes
+geo_location_sources:
+  - usgs_earthquakes_feed
+entities:
+  - zone.home
+title: Nearby Earthquakes Last Week
 ```

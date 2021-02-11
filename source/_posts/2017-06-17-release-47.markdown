@@ -216,7 +216,7 @@ automation:
 - Add configuration check and use default var names ([@fabaff] - [#7963]) ([lutron docs]) ([light.lutron docs]) (breaking change)
 - lock.sesame: Update pysesame, add state attributes ([@trisk] - [#7953]) ([lock.sesame docs])
 - Fixed metadata issue ([@bazwilliams] - [#7932]) ([media_player.openhome docs])
-- Create metoffice.py ([@cyberjacob] - [#7965]) ([sensor.metoffice docs])
+- Create metoffice.py ([@cyberjacob] - [#7965]) ([metoffice docs])
 - Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
 - Fix platforms being able to block startup ([@balloob] - [#7970])
 - New component: Python Script ([@balloob] - [#7950]) ([python_script docs]) (new-platform)
@@ -495,6 +495,7 @@ automation:
 [media_player.sonos docs]: /integrations/sonos
 [media_player.spotify docs]: /integrations/spotify
 [media_player.squeezebox docs]: /integrations/squeezebox
+[metoffice docs]: /integrations/metoffice/
 [mqtt.__init__ docs]: /integrations/mqtt.__init__/
 [nest docs]: /integrations/nest/
 [netatmo docs]: /integrations/netatmo/
@@ -527,7 +528,6 @@ automation:
 [sensor.homematic docs]: /integrations/homematic
 [sensor.imap_email_content docs]: /integrations/imap_email_content/
 [sensor.juicenet docs]: /integrations/juicenet#sensor
-[sensor.metoffice docs]: /integrations/sensor.metoffice/
 [sensor.mold_indicator docs]: /integrations/mold_indicator
 [sensor.netatmo docs]: /integrations/netatmo#sensor
 [sensor.openevse docs]: /integrations/openevse

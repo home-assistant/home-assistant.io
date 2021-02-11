@@ -10,7 +10,7 @@ ha_quality_scale: internal
 ha_domain: uptime
 ---
 
-The `uptime` sensor platform displays the time since the last Home Assistant restart.
+The `uptime` sensor stores the timestamp (date and time) when Home Assistant was last started.
 
 ## Configuration
 
@@ -28,11 +28,6 @@ name:
   required: false
   type: string
   default: Uptime
-unit_of_measurement:
-  description: "Units for uptime measurement in either `days`, `hours` or `minutes`."
-  required: false
-  type: string
-  default: days
 {% endconfiguration %}
 
 ## Example
@@ -42,5 +37,4 @@ unit_of_measurement:
 sensor:
   - platform: uptime
     name: Time Online
-    unit_of_measurement: hours
 ````

@@ -1,7 +1,6 @@
 ---
 title: "Installation of Home Assistant"
 description: "Instructions on how to install Home Assistant to launch on start."
-redirect_from: /getting-started/installation/
 ---
 
 <div class='note'>
@@ -53,8 +52,8 @@ The only installation methods that allow you to use Home Assistant Add-ons is us
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[Home Assistant](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
-[Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
+[Home Assistant OS](/hassio/installation/)|[A supported platform](/hassio/installation/)|Anybody
+[Home Assistant Container](/docs/installation/docker/)|Docker|Anybody already running Docker
 
 ## Alternative installs
 
@@ -62,8 +61,9 @@ If you use these install methods, we assume that you know how to manage and admi
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.7 or later|Those familiar with their operating system
-[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.7 or later|Developers
+[Home Assistant Core](/docs/installation/raspberry-pi/)|Any Linux, Python 3.8 or later|Those familiar with their operating system
+[Home Assistant Supervised](https://github.com/home-assistant/supervised-installer) | [Requirements](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md#supported-operating-system-system-dependencies-and-versions) | Those very familiar with their operating system
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.8 or later|**Developers**
 
 ## Community provided guides
 

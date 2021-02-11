@@ -50,6 +50,11 @@ device:
   type: string
 {% endconfiguration %}
 
+## Notifications
+
+You can also receive SMS messages that are sent to the SIM card number in your device.
+Every time there is a message received, `event: sms.incoming_sms` is fired with date, phone number and text message.
+
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 If the integration is used with the Home Assistant Operating System, then version [3.6](https://github.com/home-assistant/hassos/releases/tag/3.6) or higher is required.
@@ -70,7 +75,7 @@ Note: When running Home Assistant, you need to install the SSH add-on.
 
 ## Required Hardware
 
-You will need a USB GSM stick modem.
+You will need a USB GSM stick modem or device like SIM800L v2 connected via USB UART.
 
 ### List of modems known to work
 

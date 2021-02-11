@@ -1,7 +1,8 @@
 ---
 title: Griddy Power
-description: Instructions on how to integrate griddy prices into Home Assistant.
+description: Instructions on how to integrate griddy real-time electricity prices into Home Assistant.
 ha_category:
+  - Energy
   - Sensor
 ha_release: 0.107
 ha_iot_class: Cloud Polling
@@ -49,7 +50,7 @@ The current price for the Load Zone will appear as a sensor:
 ```yaml
 - id: '1572630019168'
   alias: Stop Tesla Charging if Power Price Spikes
-  description: ''
+  description: ""
   trigger:
   - above: '30'
     entity_id: sensor.lz_houston_price_now

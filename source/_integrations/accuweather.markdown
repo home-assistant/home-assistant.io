@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: accuweather
+ha_quality_scale: platinum
 ---
 
 The `accuweather` integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
@@ -24,5 +25,6 @@ To add AccuWeather to your installation, go to **Configuration** >> **Integratio
 <div class="note warning">
 
 Due to limitations of the terms of use of AccuWeather free API key, it is possible to configure only one integration instance.
+The Limited Trial account only allows 50 API calls per day.
 
 </div>

@@ -10,15 +10,19 @@ As of June 2018, Google has changed the API limits for static maps. You now need
 
 It also leverages the `limit_refetch_to_url_change` option to ensure that we do not make a lot of requests to the Google Maps API.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry.
 # Shows device_tracker.demo_paulus on a map.
 camera:
   name: Paulus
   platform: generic
-  still_image_url: {% raw %}https://maps.googleapis.com/maps/api/staticmap?center={{ state_attr('device_tracker.demo_paulus', 'latitude') }},{{ state_attr('device_tracker.demo_paulus', 'longitude') }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ state_attr('device_tracker.demo_paulus', 'latitude') }},{{ state_attr('device_tracker.demo_paulus', 'longitude') }}{% endraw %}&key=YOUR_API_KEY
+  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ state_attr('device_tracker.demo_paulus', 'latitude') }},{{ state_attr('device_tracker.demo_paulus', 'longitude') }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ state_attr('device_tracker.demo_paulus', 'latitude') }},{{ state_attr('device_tracker.demo_paulus', 'longitude') }}&key=YOUR_API_KEY
   limit_refetch_to_url_change: true
 ```
+
+{% endraw %}
 
 <p class='img'>
   <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>

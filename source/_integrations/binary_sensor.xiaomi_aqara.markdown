@@ -23,7 +23,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 | Smoke Detector | smoke | JTYJ-GD-01LM/BW | on, off | | | |
 | Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
 | Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
-| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
+| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `hold`, `single`, `double` |
 | Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | on (through long_click_press), off | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `hold` |
 | Button (2nd gen, model b) | sensor_switch.aq3 | WXKG12LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `shake` |
 | Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single` |
@@ -42,8 +42,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   condition:
     condition: numeric_state
     entity_id: sensor.illumination_34ce00xxxx11
@@ -60,8 +60,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
-    from: 'on'
-    to: 'off'
+    from: "on"
+    to: "off"
     for:
       minutes: 5
   action:
@@ -79,40 +79,40 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     service: climate.set_operation_mode
     entity_id: climate.livingroom
     data:
-      operation_mode: 'Off'
+      operation_mode: "Off"
 - alias: If the window is closed for 5 minutes turn on the radiator again
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
-    from: 'on'
-    to: 'off'
+    from: "on"
+    to: "off"
     for:
       minutes: 5
   action:
     service: climate.set_operation_mode
     entity_id: climate.livingroom
     data:
-      operation_mode: 'Smart schedule'
+      operation_mode: "Smart schedule"
 - alias: Notify if door is opened when away
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_15xxxxxxc9xx6b
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   condition:
     - condition: state
       entity_id: group.family
-      state: 'not_home'
+      state: "not_home"
   action:
     - service: notify.notify_person
       data:
-        message: 'The door has been opened'
+        message: "The door has been opened"
 ```
 
 #### Smoke
@@ -122,8 +122,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
   trigger:
     platform: state
     entity_id: binary_sensor.smoke_sensor_158d0001574899
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     - service: notify.html5
       data:
@@ -138,19 +138,23 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 
 #### Gas
 
+{% raw %}
+
 ```yaml
 - alias: Send notification on gas alarm
   trigger:
     platform: state
     entity_id: binary_sensor.natgas_sensor_158dxxxxxxxxxx
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   action:
     - service: notify.html5
-      data_template:
+      data:
         title: Gas alarm!
-        message: 'Gas with a density of {% raw %}{{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }}{% endraw %} detected.'
+        message: "Gas with a density of {{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }} detected."
 ```
+
+{% endraw %}
 
 #### Xiaomi Wireless Button
 
@@ -263,6 +267,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 
 The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
 
+{% raw %}
+
 ```yaml
 - alias: Decrease brightness of the gateway light
   trigger:
@@ -274,8 +280,8 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
   action:
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
-    data_template:
-      brightness: {% raw %}>-
+    data:
+      brightness: >-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
           {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60 >= 10 %}
             {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60}}
@@ -284,7 +290,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           {% endif %}
         {% else %}
           10
-        {% endif %}{% endraw %}
+        {% endif %}
 
 - alias: Increase brightness of the gateway light
   trigger:
@@ -296,8 +302,8 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
   action:
     service: light.turn_on
     entity_id: light.gateway_light_34xxxxxxxx13
-    data_template:
-      brightness: {% raw %}>-
+    data:
+      brightness: >-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
           {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60 <= 255 %}
             {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60}}
@@ -306,7 +312,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           {% endif %}
         {% else %}
           10
-        {% endif %}{% endraw %}
+        {% endif %}
 
 - alias: Turn off the gateway light
   trigger:
@@ -319,6 +325,8 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     service: light.turn_off
     entity_id: light.gateway_light_34xxxxxxxx13
 ```
+
+{% endraw %}
 
 #### Vibration Sensor
 

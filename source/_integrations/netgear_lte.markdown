@@ -192,12 +192,12 @@ automation:
         event_type: netgear_lte_sms
     action:
       - service: conversation.process
-        data_template:
-          text: '{{ trigger.event.data.message }}'
+        data:
+          text: "{{ trigger.event.data.message }}"
       - service: netgear_lte.delete_sms
-        data_template:
-          host: '{{ trigger.event.data.host }}'
-          sms_id: '{{ trigger.event.data.sms_id }}'
+        data:
+          host: "{{ trigger.event.data.host }}"
+          sms_id: "{{ trigger.event.data.sms_id }}"
 ```
 
 {% endraw %}

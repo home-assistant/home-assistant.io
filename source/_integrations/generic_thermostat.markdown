@@ -25,6 +25,10 @@ name:
   required: true
   default: Generic Thermostat
   type: string
+unique_id:
+  description: An ID that uniquely identifies this thermostat. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 heater:
   description: "`entity_id` for heater switch, must be a toggle device. Becomes air conditioning switch when `ac_mode` is set to `true`."
   required: true
@@ -79,7 +83,7 @@ away_temp:
   required: false
   type: float
 precision:
-  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
+  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`. This value is also used as the step size for setting the target temperature."
   required: false
   type: float
   default: "`0.5` for Celsius and `1.0` for Fahrenheit."

@@ -141,6 +141,8 @@ sensor:
 
 Use a `value_template` to add 1500 to the feed value for all specified feed IDs in `include_feed_id`.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -149,11 +151,13 @@ sensor:
     url: https://emoncms.org
     scan_interval: 15
     id: 1
-    value_template: {% raw %}"{{ value | float + 1500 }}"{% endraw %}
+    value_template: "{{ value | float + 1500 }}"
     include_only_feed_id:
       - 107
       - 106
 ```
+
+{% endraw %}
 
 Display feeds from the same Emoncms instance with 2 groups of feeds, different `scan_interval` and a different `unit_of_measurement`.
 

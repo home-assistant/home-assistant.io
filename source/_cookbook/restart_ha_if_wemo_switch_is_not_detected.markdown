@@ -8,6 +8,8 @@ ha_category: Automation Examples
 
 This configuration example is restarting Home Assistant if a [WeMo](/integrations/wemo) switch is not detected. An additional MQTT switch is present for stopping Home Assistant and can be triggered by [IFTTT](/integrations/ifttt/). The running batch script will automatically restart Home Assistant if the process isn't found anymore.
 
+{% raw %}
+
 ```yaml
 mqtt:
   broker: 127.0.0.1
@@ -51,7 +53,7 @@ script:
           minutes: 15
       - service: notify.pushbullet
         data:
-          message: 'WeMo not found, restarting HA'
+          message: "WeMo not found, restarting HA"
       - service: switch.turn_on
         data:
           entity_id: switch.killhass
@@ -61,34 +63,35 @@ automation:
   trigger:
     platform: state
     entity_id: device_tracker.wemo
-    from: 'not_home'
-    to: 'home'
+    from: "not_home"
+    to: "home"
   condition:
     - condition: template
-      value_template: {% raw %}'{% if states.switch.wemo %}false{% else %}true{% endif %}'{% endraw %}
+      value_template: '{% if states.switch.wemo %}false{% else %}true{% endif %}'
     - condition: state
       entity_id: script.restarthawemo
-      state: 'off'
+      state: "off"
   action:
     service: homeassistant.turn_on
     entity_id: script.restarthawemo
-- alias: 'Stop HA'
+- alias: "Stop HA"
   trigger:
     - platform: state
       entity_id: switch.KillHass
-      to: 'on'
+      to: "on"
   action:
     service: homeassistant.stop
-  - alias: 'Stop restarting HA is WeMo is found'
+  - alias: "Stop restarting HA is WeMo is found"
   trigger:
     platform: template
-    value_template: {% raw %}'{% if states.switch.wemo %}true{% else %}false{% endif %}'{% endraw %}
+    value_template: '{% if states.switch.wemo %}true{% else %}false{% endif %}'
   condition:
     condition: state
     entity_id: script.restarthawemo
-    state: 'on'
+    state: "on"
   action:
     service: homeassistant.turn_off
     entity_id: script.restarthawemo
 ```
 
+{% endraw %}

@@ -4,6 +4,7 @@ description: Detecting when Home Assistant updates are available.
 ha_category:
   - Binary Sensor
 ha_release: 0.8
+ha_iot_class: Cloud Polling
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -16,7 +17,7 @@ The updater integration will also collect basic information about the running Ho
 
 ## Configuration
 
-This integration is by default enabled, unless you've disabled or removed the [`default_config:`](https://www.home-assistant.io/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
 ```yaml
 updater:
@@ -67,11 +68,11 @@ automation:
   trigger:
     - platform: state
       entity_id: binary_sensor.updater
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
   action:
     - service: notify.notify
-      data_template:
+      data:
         message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 ```
 

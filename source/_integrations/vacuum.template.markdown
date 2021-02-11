@@ -40,7 +40,7 @@ vacuum:
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this vacuum. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this vacuum. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
@@ -162,7 +162,7 @@ vacuum:
             service: script.vacuum_locate_vacuum
         set_fan_speed:
             service: script.vacuum_set_fan_speed
-            data_template:
+            data:
               speed: "{{ fan_speed }}"
         fan_speeds:
             - Low
@@ -177,6 +177,7 @@ vacuum:
 This example shows how to add custom attributes.
 
 {% raw %}
+
 ```yaml
 vacuum:
   - platform: template
@@ -195,4 +196,5 @@ vacuum:
               Charging
             {% endif %}
 ```
+
 {% endraw %}

@@ -27,7 +27,7 @@ sensor:
     sensors:
       solar_angle:
         friendly_name: "Sun angle"
-        unit_of_measurement: 'degrees'
+        unit_of_measurement: "degrees"
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
 
       sunrise:
@@ -50,12 +50,8 @@ sensor:
         description: Defines a template for the name to be used in the frontend (this overrides friendly_name).
         required: false
         type: template
-      entity_id:
-        description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
-        required: false
-        type: [string, list]
       unique_id:
-        description: An ID that uniquely identifies this sensor. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this sensor. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       unit_of_measurement:
@@ -104,9 +100,12 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### Entity IDs
+### Sensor state updates
 
-The template engine will attempt to work out what entities should trigger an update of the sensor. This can fail, for example, if your template loops over the contents of a group. In this case, you can use `entity_id` to provide a list of entity IDs that will cause the sensor to update or you can run the service `homeassistant.update_entity` to update the sensor at will.
+The template engine works out what entities are used to trigger an update of the sensor and recalculates the result when one of those entities change.
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, create an interval-based
+automation that calls the service `homeassistant.update_entity` for the sensor requiring updates. See the [example below](#working-without-entities).
 
 ### Unique ID
 
@@ -128,7 +127,7 @@ sensor:
     sensors:
       solar_angle:
         friendly_name: "Sun Angle"
-        unit_of_measurement: '°'
+        unit_of_measurement: "°"
         value_template: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
 ```
 
@@ -195,12 +194,12 @@ sensor:
     sensors:
       transmission_down_speed_kbps:
         friendly_name: "Transmission Down Speed"
-        unit_of_measurement: 'kB/s'
+        unit_of_measurement: "kB/s"
         value_template: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
 
       transmission_up_speed_kbps:
         friendly_name: "Transmission Up Speed"
-        unit_of_measurement: 'kB/s'
+        unit_of_measurement: "kB/s"
         value_template: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
 ```
 
@@ -280,7 +279,7 @@ sensor:
             Power Production
           {% endif %}
         value_template: "{{ states('sensor.power_consumption') }}"
-        unit_of_measurement: 'kW'
+        unit_of_measurement: "kW"
 ```
 
 {% endraw %}
@@ -290,6 +289,7 @@ sensor:
 This example shows how to add custom attributes.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -322,43 +322,28 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update (as `now()` is a function), so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/integrations/time_date) to get a daily update:
+This template contains no entities that will trigger an update but the `now()` will cause it to update every minute:
 
 {% raw %}
 
 ```yaml
 sensor:
+  - platform: time_date
+    display_options:
+      - 'date'
   - platform: template
     sensors:
       nonsmoker:
-        value_template: "{{ (( as_timestamp(now()) - as_timestamp(strptime('06.07.2018', '%d.%m.%Y')) ) / 86400 ) | round(2) }}"
-        entity_id: sensor.date
-        friendly_name: 'Not smoking'
+        value_template: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        friendly_name: "Not smoking"
         unit_of_measurement: "Days"
 ```
 
 {% endraw %}
 
-In this case it is also possible to convert the entity-less template above into one that will be updated automatically:
+### Updating templates using `random`
 
-{% raw %}
-
-````yaml
-sensor:
-  - platform: template
-    sensors:
-      nonsmoker:
-        value_template: "{{ (( as_timestamp(strptime(states('sensor.date'), '%Y-%m-%d')) - as_timestamp(strptime('06.07.2018', '%d.%m.%Y')) ) / 86400 ) | round(2) }}"
-        friendly_name: 'Not smoking'
-        unit_of_measurement: "Days"
-````
-
-{% endraw %}
-
-Useful entities to choose might be `sensor.date` which update once per day or `sensor.time`, which updates once per minute.  
-Please note that the resulting template will be evaluated by Home Assistant state engine on every state change of these sensors, which in case of `sensor.time` happens every minute and might have a negative impact on performance.
-
-An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
+If you use the `random` filter, you may want the template to select a different random element every now and then. If the template does not update automatically due to entity changes it can be updated periodically by using the `homeassistant.update_entity` service with a time pattern automation. For example, this will render a new random number every five minutes:
 
 {% raw %}
 
@@ -366,20 +351,18 @@ An alternative to this is to create an interval-based automation that calls the 
 sensor:
   - platform: template
     sensors:
-      nonsmoker:
-        value_template: "{{ (( as_timestamp(now()) - as_timestamp(strptime('06.07.2018', '%d.%m.%Y')) ) / 86400 ) | round(2) }}"
-        entity_id: []
-        friendly_name: 'Not smoking'
-        unit_of_measurement: "Days"
+      random_number:
+        friendly_name: "Random number"
+        value_template: "{{ range(0,100)|random }}"
 
 automation:
-  - alias: 'nonsmoker_update'
+  - alias: "Update random number template"
     trigger:
       - platform: time_pattern
-        minutes: '/5'
+        minutes: "/5"
     action:
       - service: homeassistant.update_entity
-        entity_id: sensor.nonsmoker
+        entity_id: sensor.random_number
 ```
 
 {% endraw %}

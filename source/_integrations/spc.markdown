@@ -46,6 +46,8 @@ The `spc` alarm control panel platform allows you to control your [Vanderbilt SP
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: Alarm status changed
@@ -54,12 +56,14 @@ automation:
         entity_id: alarm_control_panel.alarm_1
     action:
       - service: notify.notify
-        data_template:
+        data:
           message: >
-            {% raw %}Alarm changed from {{ trigger.from_state.state }}
+            Alarm changed from {{ trigger.from_state.state }}
             to {{ trigger.to_state.state }}
-            by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
+            by {{ trigger.to_state.attributes.changed_by }}
 ```
+
+{% endraw %}
 
 ## Binary Sensor
 

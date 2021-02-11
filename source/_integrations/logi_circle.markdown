@@ -32,7 +32,7 @@ The `logi_circle` implementation allows you to integrate your [Logi Circle](http
  * At the time you submit your request to Logitech, you need to demonstrate that you have exclusive control of the fully qualified domain name in your redirect URI. An active Home Assistant instance at the redirect URI will suffice. If you don't want to expose your Home Assistant instance publicly, you may also place a static page at the redirect URI with a short message that you will manage redirection of the authorization token to your local Home Assistant instance. Free static hosts that issue subdomains for hosting (e.g., Netlify) are permitted.
  * As the redirect URI must be public facing, no local/reserved TLDs are permitted (eg. .local, .localhost, .example, etc. are not allowed).
 
-Please note that the turn-around time for API access takes a few business days after which you will be contacted by Logitech using the email address you provided in the form.
+Please note that the turn-around time for API access takes up to a month after which you will be contacted by Logitech using the email address you provided in the form.
 
 ## Configuration
 

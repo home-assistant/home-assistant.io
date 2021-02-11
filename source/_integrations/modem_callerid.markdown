@@ -66,6 +66,7 @@ Depending on what's plugged into your USB ports, the name found above may change
 Some example automations:
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: Notify CallerID
@@ -76,7 +77,7 @@ automation:
     action:
       service: notify.notify
       data:
-        message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }} at {{ state_attr('sensor.modem_callerid', 'cid_number') }} '
+        message: "Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }} at {{ state_attr('sensor.modem_callerid', 'cid_number') }} "
   - alias: Notify CallerID webui
     trigger:
       platform: state
@@ -86,7 +87,7 @@ automation:
       service: persistent_notification.create
       data:
         title: "Call from"
-        message: '{{ state_attr('sensor.modem_callerid', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.modem_callerid', 'cid_name') }}  {{ state_attr('sensor.modem_callerid', 'cid_number') }} '
+        message: "{{ state_attr('sensor.modem_callerid', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.modem_callerid', 'cid_name') }}  {{ state_attr('sensor.modem_callerid', 'cid_number') }} "
   - alias: Say CallerID
     trigger:
       platform: state
@@ -94,7 +95,8 @@ automation:
       to: "callerid"
     action:
       service: tts.google_say
-      data_template:
-        message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}'
+      data:
+        message: "Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}"
 ```
+
 {% endraw %}

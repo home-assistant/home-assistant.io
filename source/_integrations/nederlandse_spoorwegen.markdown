@@ -29,10 +29,10 @@ sensor:
       from: Gn
       to: Mt
       via: Zl
-    - name: 'AlmereBuiten-Duivendrecht-the-08h06m-train'
+    - name: "AlmereBuiten-Duivendrecht-the-08h06m-train"
       from: Almb
       to: Dvd
-      time: '08:06:00'
+      time: "08:06:00"
 ```
 
 {% configuration %}

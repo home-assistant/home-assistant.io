@@ -4,6 +4,7 @@ description: Instructions on how to integrate a ONVIF camera within Home Assista
 ha_category:
   - Camera
 ha_release: 0.47
+ha_iot_class: Local Push
 ha_domain: onvif
 ha_codeowners:
   - '@hunterjm'
@@ -73,7 +74,7 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `distance` | Distance coefficient. Sets how much PTZ should be executed in one request. Allowed values: floating point numbers, 0 to 1. Default : 0.1 |
 | `speed` | Speed coefficient. Sets how fast PTZ will be executed. Allowed values: floating point numbers, 0 to 1. Default : 0.5 |
 | `preset` | PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset. |
-| `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`. Default :`RelativeMove` |
+| `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |
 | `continuous_duration` | Set ContinuousMove delay in seconds before stoping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).

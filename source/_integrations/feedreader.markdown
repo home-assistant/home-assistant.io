@@ -4,6 +4,7 @@ description: Instructions on how to integrate RSS feeds into Home Assistant.
 ha_category:
   - Other
 ha_release: 0.18
+ha_iot_class: Cloud Polling
 ha_domain: feedreader
 ---
 
@@ -64,6 +65,8 @@ automation:
       entity_id: script.my_action
 ```
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: Send notification of RSS feed title when updated
@@ -72,11 +75,13 @@ automation:
       event_type: feedreader
     action:
       service: persistent_notification.create
-      data_template:
+      data:
         title: "New HA Podcast available"
-        message: {% raw %}"New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"{% endraw %}
-        notification_id: {% raw %}"{{ trigger.event.data.title }}"{% endraw %}
+        message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
+        notification_id: "{{ trigger.event.data.title }}"
 ```
+
+{% endraw %}
 
 Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 

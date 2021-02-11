@@ -3,8 +3,11 @@ title: Splunk
 description: Record events in Splunk.
 ha_category:
   - History
+ha_iot_class: Local Push
 ha_release: 0.13
 ha_domain: splunk
+ha_codeowners:
+  - '@Bre77'
 ---
 
 The `splunk` integration makes it possible to log all state changes to an external [Splunk](https://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
@@ -84,8 +87,6 @@ filter:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Splunk`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 splunk:
@@ -99,8 +100,6 @@ splunk:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 

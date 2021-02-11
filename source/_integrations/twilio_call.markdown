@@ -5,6 +5,7 @@ ha_category:
   - Notifications
 ha_release: 0.37
 ha_domain: twilio_call
+ha_iot_class: Cloud Push
 ---
 
 The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
@@ -48,7 +49,7 @@ automation:
     action:
       service: notify.twilio_call
       data:
-        message: 'The sun has set'
+        message: "The sun has set"
         target:
           - +14151234567
           - +15105555555

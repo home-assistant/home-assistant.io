@@ -9,10 +9,10 @@ ha_category:
   - Climate
   - Camera
   - Light
-ha_release: "0.20"
+ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - "@cgtobi"
+  - '@cgtobi'
 ha_config_flow: true
 ha_domain: netatmo
 ---
@@ -29,57 +29,18 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To enable the Netatmo component, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-netatmo:
-  client_id: YOUR_CLIENT_ID
-  client_secret: YOUR_CLIENT_SECRET
-```
-
-{% configuration %}
-client_id:
-  description: The `client id` from your Netatmo app.
-  required: true
-  type: string
-client_secret:
-  description: The `client secret` from your Netatmo app.
-  required: true
-  type: string
-{% endconfiguration %}
-
-**After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
-
 Menu: **Configuration** -> **Integrations**.
+
+Click on the `+` sign to add an integration and click on **Netatmo**.
+After completing the configuration flow, the Netatmo integration will be available.
 
 ### Extra configuration of the integration
 
 Configuration of Netatmo public weather stations is offered from the front end. Enter the Netatmo integration and press the cogwheel.
 
-In the dialogue, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
+In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
-To edit an existing area simply enter its name and follow the dialog. 
-
-### Get API and Secret Key
-
-To get your API credentials, you have to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
-Open the [app creator](https://dev.netatmo.com/apps/createanapp#form) form.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_create.png' />
-</p>
-You have to fill the form, but only two fields are required: Name and Description. It doesn't really matter what you put into those. Just write something that make sense to you. To submit your new app, click on create at the bottom of the form.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_app.png' />
-</p>
-
-That's it. You can copy and paste your new `client id` and `client secret` in your Home Assistant configuration file just as described above, in the configuration example.
-
-<p class='img'>
-<img src='/images/screenshots/netatmo_api.png' />
-</p>
+To edit an existing area, enter its name and follow the dialog.
 
 ## Camera
 
@@ -99,6 +60,12 @@ The `netatmo` sensor platform is consuming the information provided by a [Netatm
 [Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) device or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
 
 ## Services
+
+### Set Outdoor Camera Light Mode
+
+`set_camera_light_mode`
+
+Set the outdoor camera light mode. This requires an entity id and a valid state.
 
 ### Set Schedule
 
@@ -126,7 +93,15 @@ Service to manually register and unregister the webhook.
 
 ## Webhook Events
 
-The [Netatmo Smart Indoor](https://www.netatmo.com/en-gb/security/cam-indoor) or [Outdoor](https://www.netatmo.com/en-gb/security/cam-outdoor) cameras, [Smart Door and Window Sensors](https://www.netatmo.com/en-gb/security/cam-indoor/tag), as well as the [Netatmo Smart Smoke Alarm](https://www.netatmo.com/en-gb/security/smoke-alarm), send instant events to Home Assistant by using webhooks. It is required to have your camera enabled in Home Assistant.
+The Netatmo backend sends instant events to Home Assistant by using webhooks which unlocks improved responsiveness of most devices with the exception of [Netatmo Smart Home Weather Station](https://www.netatmo.com/en-us/weather/weatherstation),
+[Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/en-us/aircare/homecoach) or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
+
+<div class='note warning'>
+
+Netatmo webhook events have known issues with Home Assistant Cloud Link.
+It is therefore recommended to use [an individual development account](#development--testing-with-your-own-client-id).
+
+</div>
 
 To be able to receive events from [Netatmo](https://www.netatmo.com/en-gb/), your Home Assistant instance needs to be accessible from the web over port `80` or `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
 
@@ -135,8 +110,6 @@ Events coming in from Netatmo will be available as an event in Home Assistant an
 You can find the available event types at the [official Netatmo API documentation](https://dev.netatmo.com/apidocumentation/security#events).
 
 Example:
-
-{% raw %}
 
 ```yaml
 # Example automation for webhooks based Netatmo events
@@ -152,8 +125,6 @@ Example:
       service: counter.increment
 ```
 
-{% endraw %}
-
 Example:
 
 {% raw %}
@@ -168,7 +139,7 @@ Example:
       event_data:
         type: movement
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
@@ -192,7 +163,7 @@ Example:
       event_data:
         type: human # other possible types: animal, vehicle
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
@@ -224,7 +195,7 @@ Example:
       event_data:
         type: tag_small_move
   action:
-    - data_template:
+    - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}
         title: Netatmo event
@@ -232,6 +203,40 @@ Example:
 ```
 
 {% endraw %}
+
+## Development / Testing with your own client ID
+
+To enable the Netatmo component with your own development credentials, you have
+to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/).
+
+Sign in using your username and password from your regular Netatmo account.
+
+Next, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+netatmo:
+  client_id: YOUR_CLIENT_ID
+  client_secret: YOUR_CLIENT_SECRET
+```
+
+{% configuration %}
+client_id:
+  description: The `client id` from your Netatmo app.
+  required: true
+  type: string
+client_secret:
+  description: The `client secret` from your Netatmo app.
+  required: true
+  type: string
+{% endconfiguration %}
+
+**After the client_id and client_secret is added to your `configuration.yaml` you must enable Netatmo through the integrations page.**
+
+Menu: **Configuration** -> **Integrations**.
+
+Click on the `+` sign to add an integration and click on **Netatmo**.
+After completing the configuration flow, the Netatmo integration will be available.
 
 ## Troubleshooting
 

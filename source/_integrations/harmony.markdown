@@ -10,6 +10,7 @@ ha_codeowners:
   - '@ehendrix23'
   - '@bramkragten'
   - '@bdraco'
+  - '@mkeesey'
 ha_domain: harmony
 ---
 
@@ -26,37 +27,6 @@ Supported units:
 The preferred way to setup the Harmony remote for your installation is via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Logitech Harmony Hub**.
 
 Once `Logitech Harmony Hub` has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
-
-Alternatively, if you want to manually configure the device, you will need to add its settings to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-remote:
-  - platform: harmony
-    name: Bedroom
-    host: 10.168.1.13
-    activity: Watch TV
-```
-
-{% configuration %}
-name:
-  description: The hub's name to display in the frontend. This name must match the name you have set on the Hub.
-  required: true
-  type: string
-host:
-  description: The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
-  required: true
-  type: string
-activity:
-  description: Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
-  required: false
-  type: string
-delay_secs:
-  description: Default duration in seconds between sending commands to a device.
-  required: false
-  type: float
-  default: 0.4
-{% endconfiguration %}
 
 ### Configuration file
 
@@ -203,22 +173,25 @@ Force synchronization between the Harmony device and the Harmony cloud.
 Template sensors can be utilized to display current activity in the frontend.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
     sensors:
       family_room:
         value_template: '{{ state_attr("remote.family_room", "current_activity") }}'
-        friendly_name: 'Family Room'
+        friendly_name: "Family Room"
       bedroom:
         value_template: '{{ state_attr("remote.bedroom", "current_activity") }}'
-        friendly_name: 'bedroom'
+        friendly_name: "bedroom"
 ```
+
 {% endraw %}
 
 The example below shows how to control an `input_boolean` switch using the Harmony remote's current activity. The switch will turn on when the remote's state changes and the Kodi activity is started and off when the remote's state changes and the current activity is "PowerOff".
 
 {% raw %}
+
 ```yaml
 automation:
   - alias: "Watch TV started from harmony hub"
@@ -242,4 +215,5 @@ automation:
       service: input_boolean.turn_off
       entity_id: input_boolean.notify
 ```
+
 {% endraw %}

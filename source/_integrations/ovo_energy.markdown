@@ -8,7 +8,7 @@ ha_release: 0.114
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@timmo001"
+  - '@timmo001'
 ha_domain: ovo_energy
 ---
 

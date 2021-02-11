@@ -59,7 +59,7 @@ A full configuration example:
 # Example configuration.yaml entry
 weather:
   - platform: buienradar
-    name: 'volkel'
+    name: "volkel"
     # Force 'Meetstation Volkel' to be used:
     latitude: 51.65
     longitude: 5.70
