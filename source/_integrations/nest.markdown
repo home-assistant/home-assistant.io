@@ -246,6 +246,8 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
 
+- *invalid_grant: Token has been expired or revoked* can mean the OAuth token was revoked by Google due to account changes like resetting a password. In addition, if the app is marked as "testing" and not "production" mode, the token may automatically expire after 7 days. Go to the project page to publish it to production mode.
+
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receivng the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
 
 - To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble: 

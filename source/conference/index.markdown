@@ -1,8 +1,7 @@
 ---
 title: Home Assistant Conference 2020
 show_title: false
-# is_homepage: true
-hide_github_edit: true
+feedback: false
 description: December 13, 2020 we will host the first online Home Assistant Conference.
 og_image: /images/conference/social.png
 ---

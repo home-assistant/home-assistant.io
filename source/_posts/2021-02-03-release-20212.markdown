@@ -51,6 +51,7 @@ Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.2.1 - February 5](#release-202121---february-5)
 - [Release 2021.2.2 - February 9](#release-202122---february-9)
+- [Release 2021.2.3 - February 11](#release-202123---february-11)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -442,6 +443,56 @@ The following integrations are now available via the Home Assistant UI:
 [somfy_mylink docs]: /integrations/somfy_mylink/
 [tado docs]: /integrations/tado/
 [zwave docs]: /integrations/zwave/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.2.3 - February 11
+
+- Fix SNMP engine memory leak in Brother integration ([@bieniu] - [#46272]) ([brother docs])
+- Use oauthv3 for Tesla ([@alandtse] - [#45766]) ([tesla docs]) (breaking-change)
+- Bump pymyq to 3.0.1 ([@ehendrix23] - [#46079]) ([myq docs])
+- Revert transmission to check torrent lists by name rather than object ([@JPHutchins] - [#46190]) ([transmission docs])
+- Update powerwall for new authentication requirements ([@bdraco] - [#46254]) ([powerwall docs])
+- Fix Lutron Integration Protocol reconnect logic ([@bdraco] - [#46264]) ([lutron_caseta docs])
+- Bump roonapi to 0.0.32 ([@pavoni] - [#46286]) ([roon docs])
+- Add guards for missing value in binary_sensor platform of zwave_js integration ([@marcelveldt] - [#46293]) ([zwave_js docs])
+- Add reauth support for tesla ([@bdraco] - [#46307]) ([tesla docs])
+- Add `already_in_progress` string to roku config flow ([@bramkragten] - [#46333]) ([roku docs])
+- Restore Google/Alexa extra significant change checks ([@balloob] - [#46335]) ([alexa docs]) ([google_assistant docs])
+- Fix Shelly relay device set to light appliance type ([@thecode] - [#46181]) ([shelly docs])
+
+[#45766]: https://github.com/home-assistant/core/pull/45766
+[#46079]: https://github.com/home-assistant/core/pull/46079
+[#46181]: https://github.com/home-assistant/core/pull/46181
+[#46190]: https://github.com/home-assistant/core/pull/46190
+[#46254]: https://github.com/home-assistant/core/pull/46254
+[#46264]: https://github.com/home-assistant/core/pull/46264
+[#46272]: https://github.com/home-assistant/core/pull/46272
+[#46286]: https://github.com/home-assistant/core/pull/46286
+[#46293]: https://github.com/home-assistant/core/pull/46293
+[#46307]: https://github.com/home-assistant/core/pull/46307
+[#46333]: https://github.com/home-assistant/core/pull/46333
+[#46335]: https://github.com/home-assistant/core/pull/46335
+[@JPHutchins]: https://github.com/JPHutchins
+[@alandtse]: https://github.com/alandtse
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@ehendrix23]: https://github.com/ehendrix23
+[@marcelveldt]: https://github.com/marcelveldt
+[@pavoni]: https://github.com/pavoni
+[@thecode]: https://github.com/thecode
+[alexa docs]: /integrations/alexa/
+[brother docs]: /integrations/brother/
+[google_assistant docs]: /integrations/google_assistant/
+[lutron_caseta docs]: /integrations/lutron_caseta/
+[myq docs]: /integrations/myq/
+[powerwall docs]: /integrations/powerwall/
+[roku docs]: /integrations/roku/
+[roon docs]: /integrations/roon/
+[shelly docs]: /integrations/shelly/
+[tesla docs]: /integrations/tesla/
+[transmission docs]: /integrations/transmission/
 [zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
