@@ -33,7 +33,7 @@ This integration provides the following platforms:
 
 Home Assistant offers the Tesla integration through **Configuration** -> **Integrations** -> **Tesla**.
 
-Enter username and password and then continue.
+Enter username and password and then continue. MFA is not supported. One workaround can be to make a separate Tesla account deidicated for Home Assistant without MFA and invite this account to your car/cars.
 
 Alternatively, Home Assistant will also load Tesla via the  `configuration.yaml`. Add the following to your `configuration.yaml` file:
 
