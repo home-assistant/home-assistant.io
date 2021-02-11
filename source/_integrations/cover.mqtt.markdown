@@ -12,15 +12,16 @@ The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a
 
 ## Configuration
 
-The device state (`open`, `opening`, `closed` or `closing`) will be updated only after a new message is published on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`. For covers that support only 3 states (`opening`, `closing`, `stopped`), a `stopped` state can be used to indicate that the device is not moving. When this state is received if the cover is in optimistic mode or position topic is not set the cover open or closed state will be set according to last direction the cover was moving. If position topic is set cover position will be used to set the open or closed state. Note that is is only used to set the device `open` or `closed` state when it is stopped.
+A cover entity can be in states (`open`, `opening`, `closed` or `closing`).
 
-`state_topic` can not set percentage positions, For this purpose is `position_topic` which can set state of the cover and position.
-Default setting are 0 means the device is `closed` and all other intermediate positions means the device is `open`.
-`position_topic` is managed by `position_open` and `position_closed`
-You can set it up in opposite way as well.
+If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. For covers that only report 3 states (`opening`, `closing`, `stopped`), a `state_stopped` state can be configured to indicate that the device is not moving. When this payload is received on the `state_topic`, and a `position_topic` is not configured, the cover will be set to state `closed` if its state was `closing` and to state `open` otherwise. If a `position_topic` is set, the cover's position will be used to set the state to either `open` or `closed` state.
+
+If the cover reports its position, a `position_topic` can be configured for receiving the position. If no `state_topic` is configured, the cover's state will be set to either `open` or `closed` when a position is received.
+
+If the cover reports its tilt position, a `tilt_status_topic` can be configured for receiving the tilt position.
 If position topic and state topic are both defined, the device state (`open`, `opening`, `closed` or `closing`) will be set by the state topic and the cover position will be set by the position topic.
 
-If a state topic and position topic are not defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
+If neither a state topic nor a position topic are defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
 
 Optimistic mode can be forced, even if a `state_topic` / `position_topic` is defined. Try to enable it if experiencing incorrect cover operation (Google Assistant gauge may need optimistic mode as it often send request to your Home Assistant immediately after send set_cover_position in which case MQTT could be too slow).
 
@@ -122,7 +123,7 @@ optimistic:
   description: Flag that defines if switch works in optimistic mode.
   required: false
   type: string
-  default: "`false` if state/position topic defined, else `true`."
+  default: "`false` if state or position topic defined, else `true`."
 payload_available:
   description: The payload that represents the online state.
   required: false
