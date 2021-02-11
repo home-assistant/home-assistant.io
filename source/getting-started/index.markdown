@@ -1,7 +1,6 @@
 ---
 title: "Getting Started"
 description: "Getting started with Home Assistant"
-hide_github_edit: true
 body_id: getting_started
 show_title: true
 ---
