@@ -171,6 +171,13 @@ _All these can be extended if your usage calls for more resources._
 {% endif %}
 
 {% endtabbed_block %}
+
+### Start up your Virtual Machine
+
+1. Start the Virtual Machine
+2. Observe the boot process of Home Assistant Operating System
+3. Once completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
+
 {% endif %}
 
 {% endif %}
