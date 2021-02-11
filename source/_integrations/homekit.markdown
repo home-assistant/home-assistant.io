@@ -74,7 +74,7 @@ homekit:
         type: boolean
         default: true
       port:
-        description: Port for the HomeKit extension.
+        description: Port for the HomeKit extension. If you are adding more than one instance they need to have different values for port.
         required: false
         type: integer
         default: 51827
