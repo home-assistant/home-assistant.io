@@ -10,6 +10,7 @@ ha_codeowners:
   - '@syssi'
 ha_domain: xiaomi_aqara
 ha_config_flow: true
+ha_zeroconf: true
 ---
 
 The `xiaomi_aqara` integration allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.

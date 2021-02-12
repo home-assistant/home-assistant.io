@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_domain: nexia
+ha_dhcp: true
 ---
 
 The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) thermostats into Home Assistant.

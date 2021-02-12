@@ -14,6 +14,7 @@ ha_codeowners:
   - '@brefra'
 ha_config_flow: true
 ha_domain: plugwise
+ha_zeroconf: true
 ---
 
 This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.

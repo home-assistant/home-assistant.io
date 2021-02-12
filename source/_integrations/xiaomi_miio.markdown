@@ -18,6 +18,7 @@ ha_codeowners:
   - '@starkillerOG'
 ha_domain: xiaomi_miio
 ha_config_flow: true
+ha_zeroconf: true
 ---
 
 The `xiaomi_miio` integration supports the following devices:

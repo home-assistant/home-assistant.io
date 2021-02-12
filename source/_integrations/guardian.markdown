@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: guardian
+ha_zeroconf: true
 ---
 
 The `guardian` integration integrates

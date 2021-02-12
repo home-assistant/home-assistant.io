@@ -18,6 +18,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@shbatm'
+ha_ssdp: true
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.

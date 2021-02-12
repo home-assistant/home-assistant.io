@@ -8,6 +8,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@elupus'
 ha_domain: arcam_fmj
+ha_ssdp: true
 ---
 
 The `arcam_fmj` integration allows you to control [Arcam FMJ Receivers](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.

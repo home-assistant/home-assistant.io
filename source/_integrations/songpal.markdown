@@ -11,6 +11,7 @@ ha_codeowners:
   - '@rytilahti'
   - '@shenxn'
 ha_domain: songpal
+ha_ssdp: true
 ---
 
 The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.

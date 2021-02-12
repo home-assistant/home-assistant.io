@@ -7,6 +7,7 @@ ha_iot_class: Local Polling
 ha_release: 0.81
 ha_config_flow: true
 ha_domain: lifx
+ha_homekit: true
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.

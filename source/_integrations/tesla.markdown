@@ -16,6 +16,7 @@ ha_codeowners:
   - '@zabuldon'
   - '@alandtse'
 ha_domain: tesla
+ha_dhcp: true
 ---
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.

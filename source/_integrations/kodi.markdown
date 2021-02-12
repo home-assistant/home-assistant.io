@@ -11,6 +11,7 @@ ha_codeowners:
   - '@cgtobi'
 ha_domain: kodi
 ha_config_flow: true
+ha_zeroconf: true
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.

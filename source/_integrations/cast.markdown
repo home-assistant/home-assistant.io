@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: cast
 ha_codeowners:
   - '@emontnemery'
+ha_zeroconf: true
 ---
 
 You can enable the Cast integration by going to the Integrations page inside the configuration panel.

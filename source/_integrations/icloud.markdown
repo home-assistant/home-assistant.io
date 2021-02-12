@@ -9,6 +9,7 @@ ha_release: '0.10'
 ha_config_flow: true
 ha_codeowners:
   - '@Quentame'
+  - '@nzapponi'
 ha_domain: icloud
 ---
 
