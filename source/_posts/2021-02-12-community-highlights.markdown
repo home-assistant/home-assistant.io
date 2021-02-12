@@ -35,7 +35,7 @@ How cool is this!
 <a href="https://github.com/cgiesche/streamdeck-homeassistant" target="_blank">
   <img
     src='/images/blog/2021-02-12-community-highlights/streamdeck.png'
-    alt="Screenshot from the StreamDeck software."
+    alt="Screenshot from the StreamDeck software"
     style='border: 0;box-shadow: none;'
   />
 </a>
@@ -49,7 +49,7 @@ From now on, you will also be able to expect more frequent updates, as they have
   <a href="https://esphome.io/changelog/v1.16.0.html" target="_blank">
     <img
       src='/images/blog/2021-02-12-community-highlights/esphome.png'
-      alt=""
+      alt="A new release update of ESPHome"
       style='border: 0;box-shadow: none;'
       />
   </a>
