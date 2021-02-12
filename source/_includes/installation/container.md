@@ -17,11 +17,11 @@ Installation with Docker is straightforward. Adjust the following command so tha
 {% if page.installation_type == 'raspberrypi' %}
 #### Raspberry pi 3
 
-  {% include installation/container/cli.md image="homeassistant/raspberrypi3:stable" %}
+  {% include installation/container/cli.md image="homeassistant/raspberrypi3-homeassistant:stable" %}
 
 #### Raspberry pi 4
 
-  {% include installation/container/cli.md image="homeassistant/raspberrypi4:stable" %}
+  {% include installation/container/cli.md image="homeassistant/raspberrypi4-homeassistant:stable" %}
 
 {% elsif page.installation_type == 'alternative' %}
   {% include installation/container/alternative.md %}
@@ -67,11 +67,11 @@ As the Docker command becomes more complex, switching to `docker-compose` can be
 {% if page.installation_type == 'raspberrypi' %}
 #### Raspberry pi 3
 
-  {% include installation/container/compose.md image="homeassistant/raspberrypi3:stable" %}
+  {% include installation/container/compose.md image="homeassistant/raspberrypi3-homeassistant:stable" %}
 
 #### Raspberry pi 4
 
-  {% include installation/container/compose.md image="homeassistant/raspberrypi4:stable" %}
+  {% include installation/container/compose.md image="homeassistant/raspberrypi4-homeassistant:stable" %}
 {% else %}
   {% include installation/container/compose.md image="homeassistant/home-assistant:stable" %}
 {% endif %}
