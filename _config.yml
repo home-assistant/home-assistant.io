@@ -208,7 +208,7 @@ installation:
         - name: "Raspberry Pi 3 64-bit"
           key: "rpi3-64"
         - name: "Raspberry Pi 3 32-bit"
-          key: "rpi"
+          key: "rpi3"
 
     tinkerboard:
       board: ASUS Tinkerboard
