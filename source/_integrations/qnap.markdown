@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@colinodell'
 ha_domain: qnap
+ha_platforms:
+  - sensor
 ---
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).

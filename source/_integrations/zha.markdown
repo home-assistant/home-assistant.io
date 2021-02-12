@@ -20,6 +20,16 @@ ha_codeowners:
   - '@dmulcahey'
   - '@adminiuga'
 ha_domain: zha
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - device_tracker
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.

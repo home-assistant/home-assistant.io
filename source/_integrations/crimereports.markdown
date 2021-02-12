@@ -7,6 +7,8 @@ logo: crimereports.png
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_domain: crimereports
+ha_platforms:
+  - sensor
 ---
 
 The `crimereports` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Crime Reports](https://www.crimereports.com). Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.

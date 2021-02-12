@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@frenck'
 ha_domain: twentemilieu
+ha_platforms:
+  - sensor
 ---
 
 The Twente Milieu integration allows you to track the next scheduled waste

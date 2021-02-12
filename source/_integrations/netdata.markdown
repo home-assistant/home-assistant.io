@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: netdata
+ha_platforms:
+  - sensor
 ---
 
 The `netdata` sensor platform allows you to display information collected by [Netdata](https://my-netdata.io/).

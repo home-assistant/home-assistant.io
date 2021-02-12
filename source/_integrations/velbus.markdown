@@ -15,6 +15,13 @@ ha_codeowners:
   - '@Cereal2nd'
   - '@brefra'
 ha_domain: velbus
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The `velbus` integration is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.

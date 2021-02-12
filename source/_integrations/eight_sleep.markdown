@@ -10,6 +10,9 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@mezz64'
 ha_domain: eight_sleep
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `eight_sleep` integration allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.

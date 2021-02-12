@@ -15,6 +15,13 @@ ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - switch
 ---
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.

@@ -12,6 +12,8 @@ ha_codeowners:
   - '@postlund'
 ha_config_flow: true
 ha_zeroconf: true
+ha_platforms:
+  - remote
 ---
 
 The Apple TV integration allows you to control an Apple TV (any generation). See the

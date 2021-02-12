@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@ManneW'
 ha_domain: vilfo
+ha_platforms:
+  - sensor
 ---
 
 The `Vilfo Router` integration allows you to observe the state of your [Vilfo Router](https://www.vilfo.com) from Home Assistant.

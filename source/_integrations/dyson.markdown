@@ -10,6 +10,12 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.47
 ha_domain: dyson
+ha_platforms:
+  - air_quality
+  - climate
+  - fan
+  - sensor
+  - vacuum
 ---
 
 The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.

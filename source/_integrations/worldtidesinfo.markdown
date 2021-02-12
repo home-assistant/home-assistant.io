@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.52
 ha_iot_class: Cloud Polling
 ha_domain: worldtidesinfo
+ha_platforms:
+  - sensor
 ---
 
 The `worldtidesinfo` sensor platform uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.

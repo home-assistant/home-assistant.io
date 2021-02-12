@@ -10,6 +10,16 @@ ha_codeowners:
   - '@PhracturedBlue'
   - '@tetienne'
 ha_domain: template
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
+  - vacuum
 ---
 
 The `template` platform supports sensors which get their values from other entities.

@@ -10,6 +10,9 @@ ha_release: '0.100'
 ha_codeowners:
   - '@ratsept'
 ha_domain: soma
+ha_platforms:
+  - cover
+  - sensor
 ---
 
 The Soma integration will allow users to integrate their Soma Smarthome devices into Home Assistant using the Soma Connect hub.

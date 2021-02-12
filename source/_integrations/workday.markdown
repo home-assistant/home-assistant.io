@@ -10,6 +10,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: workday
+ha_platforms:
+  - binary_sensor
 ---
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week will count as workdays and also

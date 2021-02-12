@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@ajmarks'
 ha_domain: sharkiq
+ha_platforms:
+  - vacuum
 ---
 
 The `sharkiq` integration allows you to control your [Shark IQ](https://www.sharkclean.com/vacuums/robot-vacuums/) vacuum.

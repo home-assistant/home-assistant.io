@@ -9,6 +9,8 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@fabaff'
 ha_domain: cpuspeed
+ha_platforms:
+  - sensor
 ---
 
 The `cpuspeed` sensor platform to allow you to monitor the current CPU speed.

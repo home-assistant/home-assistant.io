@@ -9,6 +9,8 @@ ha_codeowners:
   - '@skgsergio'
 ha_domain: foscam
 ha_config_flow: true
+ha_platforms:
+  - camera
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.

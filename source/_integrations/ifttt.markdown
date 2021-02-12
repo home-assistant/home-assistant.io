@@ -7,6 +7,8 @@ ha_iot_class: Cloud Push
 ha_release: 0.8
 ha_config_flow: true
 ha_domain: ifttt
+ha_platforms:
+  - alarm_control_panel
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).

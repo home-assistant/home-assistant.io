@@ -12,6 +12,9 @@ ha_codeowners:
 ha_domain: wilight
 ha_quality_scale: silver
 ha_ssdp: true
+ha_platforms:
+  - fan
+  - light
 ---
 
 The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.

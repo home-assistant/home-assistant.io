@@ -17,6 +17,11 @@ ha_quality_scale: platinum
 ha_zeroconf: true
 ha_ssdp: true
 ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - light
+  - switch
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.

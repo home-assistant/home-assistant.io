@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.45
 ha_iot_class: Local Push
 ha_domain: kira
+ha_platforms:
+  - remote
+  - sensor
 ---
 
 The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://k2audio.co.uk/collections/ip-and-internet-control) modules with Home Assistant.

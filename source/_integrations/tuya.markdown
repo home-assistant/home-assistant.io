@@ -15,6 +15,12 @@ ha_config_flow: true
 ha_domain: tuya
 ha_codeowners:
   - '@ollo69'
+ha_platforms:
+  - climate
+  - cover
+  - fan
+  - light
+  - switch
 ---
 
 The `tuya` integration is the main integration to integrate [Tuya Smart](https://www.tuya.com) related platforms, except the Zigbee hub. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.

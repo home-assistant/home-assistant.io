@@ -10,6 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@jardiamj'
 ha_domain: mcp23017
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `mcp23017` integration is the base for all related mcp23017 platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding sections.

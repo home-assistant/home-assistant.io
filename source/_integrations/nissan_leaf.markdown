@@ -8,6 +8,10 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@filcole'
 ha_domain: nissan_leaf
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:

@@ -9,6 +9,9 @@ ha_codeowners:
   - '@MrHarcombe'
 ha_domain: metoffice
 ha_config_flow: true
+ha_platforms:
+  - sensor
+  - weather
 ---
 
 The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data.

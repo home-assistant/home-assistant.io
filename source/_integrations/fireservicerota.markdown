@@ -11,6 +11,10 @@ ha_codeowners:
   - '@cyberjunky'
 ha_config_flow: true
 ha_domain: fireservicerota
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 FireServiceRota is a powerful and flexible availability, scheduling and dispatching system for firefighters.

@@ -11,6 +11,8 @@ ha_code_owners:
 ha_domain: bmp280
 ha_codeowners:
   - '@belidzs'
+ha_platforms:
+  - sensor
 ---
 
 The `bmp280` sensor platform allows you to read temperature and pressure values of a [Bosch BMP280 Environmental sensor](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/pressure-sensors-bmp280-1.html) connected via [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins).

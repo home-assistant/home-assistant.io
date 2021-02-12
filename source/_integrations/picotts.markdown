@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: picotts
+ha_platforms:
+  - tts
 ---
 
 The `picotts` text-to-speech platform uses offline pico Text-to-Speech engine to read a text with natural sounding voices.

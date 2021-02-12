@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_domain: dovado
+ha_platforms:
+  - notify
+  - sensor
 ---
 
 The `dovado` integration manages communication with the [Dovado](https://www.dovado.com/) router.

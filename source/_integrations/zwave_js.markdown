@@ -18,6 +18,15 @@ ha_config_flow: true
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave_js
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant.

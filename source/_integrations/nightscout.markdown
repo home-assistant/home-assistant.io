@@ -10,6 +10,8 @@ ha_codeowners:
   - '@marciogranzotto'
 ha_domain: nightscout
 ha_quality_scale: platinum
+ha_platforms:
+  - sensor
 ---
 
 The Nightscout integration allows you to view your CGM data from [Nightscout](http://www.nightscout.info/) in Home Assistant.

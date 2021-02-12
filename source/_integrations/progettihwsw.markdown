@@ -11,6 +11,9 @@ ha_domain: progettihwsw
 ha_codeowners:
   - '@ardaseremet'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `progettihwsw` integration brings the automation experience with ProgettiHWSW boards to Home Assistant.

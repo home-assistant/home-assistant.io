@@ -8,6 +8,8 @@ ha_release: 0.54
 ha_codeowners:
   - '@foxel'
 ha_domain: keenetic_ndms2
+ha_platforms:
+  - device_tracker
 ---
 
 This integration offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)

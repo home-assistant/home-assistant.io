@@ -9,6 +9,8 @@ ha_domain: kulersky
 ha_codeowners:
   - '@emlove'
 ha_config_flow: true
+ha_platforms:
+  - light
 ---
 
 This integration connects Brightech Kuler Sky floor lamps to Home Assistant.

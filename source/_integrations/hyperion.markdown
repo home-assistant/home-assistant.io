@@ -11,6 +11,9 @@ ha_codeowners:
 ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
+ha_platforms:
+  - light
+  - switch
 ---
 
 The `hyperion` platform allows you to integrate your

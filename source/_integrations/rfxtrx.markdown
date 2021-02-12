@@ -16,6 +16,12 @@ ha_codeowners:
   - '@elupus'
   - '@RobBie1221'
 ha_domain: rfxtrx
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.

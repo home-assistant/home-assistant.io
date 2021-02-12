@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_domain: emoncms
 ha_codeowners:
   - '@borpin'
+ha_platforms:
+  - sensor
 ---
 
 The `emoncms` sensor platform creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).

@@ -13,6 +13,10 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: nexia
 ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
 ---
 
 The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) thermostats into Home Assistant.

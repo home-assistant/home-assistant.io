@@ -9,6 +9,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@gadgetmobile'
 ha_domain: blebox
+ha_platforms:
+  - air_quality
+  - climate
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 [BleBox](https://blebox.eu/?lang=en) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.

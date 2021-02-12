@@ -13,6 +13,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@flz'
 ha_domain: iaqualink
+ha_platforms:
+  - binary_sensor
+  - climate
+  - light
+  - sensor
+  - switch
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.

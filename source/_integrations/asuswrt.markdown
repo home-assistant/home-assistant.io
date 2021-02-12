@@ -10,6 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@kennedyshead'
 ha_domain: asuswrt
+ha_platforms:
+  - device_tracker
+  - sensor
 ---
 
 The `asuswrt` integration is the main integration to connect to a [ASUSWRT](https://www.asus.com/ASUSWRT/) based router.

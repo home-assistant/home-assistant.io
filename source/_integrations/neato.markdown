@@ -13,6 +13,11 @@ ha_codeowners:
   - '@dshokouhi'
   - '@Santobert'
 ha_domain: neato
+ha_platforms:
+  - camera
+  - sensor
+  - switch
+  - vacuum
 ---
 
 The `neato` integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].

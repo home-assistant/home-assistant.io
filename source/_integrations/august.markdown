@@ -14,6 +14,11 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: august
 ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - lock
+  - sensor
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.

@@ -17,6 +17,13 @@ ha_codeowners:
   - '@alandtse'
 ha_domain: tesla
 ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - device_tracker
+  - lock
+  - sensor
+  - switch
 ---
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.

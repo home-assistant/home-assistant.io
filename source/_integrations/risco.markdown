@@ -11,6 +11,10 @@ ha_codeowners:
   - '@OnFreund'
 ha_domain: risco
 ha_quality_scale: platinum
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - sensor
 ---
 
 This integration connects with Risco Alarms over [Risco Cloud](https://riscocloud.com/).

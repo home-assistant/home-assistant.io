@@ -16,6 +16,11 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: netatmo
 ha_homekit: true
+ha_platforms:
+  - camera
+  - climate
+  - light
+  - sensor
 ---
 
 The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.

@@ -9,6 +9,8 @@ ha_codeowners:
   - '@bachya'
 ha_domain: flunearyou
 ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
 The `flunearyou` sensor platform allows users in the United States and its

@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Configurable
 ha_domain: mqtt_room
+ha_platforms:
+  - sensor
 ---
 
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.

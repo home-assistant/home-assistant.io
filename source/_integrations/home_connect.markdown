@@ -14,6 +14,11 @@ ha_domain: home_connect
 ha_codeowners:
   - '@DavidMStraub'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).

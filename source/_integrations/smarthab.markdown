@@ -11,6 +11,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@outadoc'
 ha_domain: smarthab
+ha_platforms:
+  - cover
+  - light
 ---
 
 If your home is fitted with [SmartHab](https://smarthab.fr/index.php/home-en)'s 

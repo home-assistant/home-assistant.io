@@ -15,6 +15,11 @@ ha_codeowners:
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_zeroconf: true
+ha_platforms:
+  - cover
+  - fan
+  - light
+  - switch
 ---
 
 The Bond integration allows you to control appliances through your [Bond Bridge](https://bondhome.io/). Duplicates your RF remote control.

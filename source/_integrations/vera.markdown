@@ -17,6 +17,14 @@ ha_config_flow: true
 ha_domain: vera
 ha_codeowners:
   - '@vangorra'
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices.

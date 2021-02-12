@@ -10,6 +10,8 @@ ha_codeowners:
   - '@dgomes'
   - '@abmantis'
 ha_domain: ipma
+ha_platforms:
+  - weather
 ---
 
 The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](https://www.ipma.pt/) as a source for current and forecast meteorological data.

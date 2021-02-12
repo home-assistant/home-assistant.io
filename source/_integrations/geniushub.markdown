@@ -12,6 +12,12 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@zxdavb'
 ha_domain: geniushub
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - switch
+  - water_heater
 ---
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.

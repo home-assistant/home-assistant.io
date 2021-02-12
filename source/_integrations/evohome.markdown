@@ -10,6 +10,9 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@zxdavb'
 ha_domain: evohome
+ha_platforms:
+  - climate
+  - water_heater
 ---
 
 The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:

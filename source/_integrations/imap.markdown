@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.25
 ha_iot_class: Cloud Push
 ha_domain: imap
+ha_platforms:
+  - sensor
 ---
 
 The `imap` integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.

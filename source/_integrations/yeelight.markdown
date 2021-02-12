@@ -11,6 +11,9 @@ ha_codeowners:
   - '@zewelor'
   - '@shenxn'
 ha_domain: yeelight
+ha_platforms:
+  - binary_sensor
+  - light
 ---
 
 The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.

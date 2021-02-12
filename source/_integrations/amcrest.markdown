@@ -11,6 +11,10 @@ ha_release: 0.49
 ha_codeowners:
   - '@pnbruckner'
 ha_domain: amcrest
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera in Home Assistant.

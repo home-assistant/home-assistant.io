@@ -18,6 +18,15 @@ ha_config_flow: true
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 <p class='note warning'>

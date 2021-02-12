@@ -11,6 +11,8 @@ ha_codeowners:
   - '@fabaff'
   - '@ludeeus'
 ha_domain: version
+ha_platforms:
+  - sensor
 ---
 
 The `version` sensor platform that can display the current Home Assistant versions.

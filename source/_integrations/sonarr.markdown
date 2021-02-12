@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@ctalkington'
 ha_quality_scale: silver
+ha_platforms:
+  - sensor
 ---
 
 The `Sonarr` integration pulls data from a given [Sonarr](https://sonarr.tv/) instance.

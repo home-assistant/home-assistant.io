@@ -9,6 +9,12 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: advantage_air
 ha_quality_scale: platinum
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - sensor
+  - switch
 ---
 
 The Advantage Air integration allows you to control [Advantage Air](https://www.advantageair.com.au/) Air Conditioning controllers into Home Assistant.
