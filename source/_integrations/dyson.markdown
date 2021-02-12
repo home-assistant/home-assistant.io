@@ -207,7 +207,7 @@ Set the sleep timer.
 | Service data attribute | Required | Description | Example |
 | --- | --- | --- | --- |
 | `entity_id` | No | Name(s) of the entities to set the sleep timer for | "fan.pure_cool" |
-| `flow_direction_front` | Yes | The value in minutes to set the timer to, 0 to disable it | true |
+| `timer` | Yes | The value in minutes to set the timer to, 0 to disable it | 30 |
 
 ## Sensor
 
