@@ -214,7 +214,7 @@ For Inovelli LZW30-SN and LZW31-SN switches with a third button for configuratio
 
 Once this is complete, `zwave.scene_activated` events will fire according to which button press you perform. For information on what button press corresponds to what scene_id and scene_data in the event, see [Inovelli Knowledge Base > How To: Setting Up Scenes In Home Assistant](https://support.inovelli.com/portal/en/kb/articles/how-to-setting-up-scenes-in-home-assistant).
 
-### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v3 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch)
+### Zooz Scene Capable On/Off and Dimmer Wall Switches (Zen21v3 & Zen22v2 - Firmware 3.0+, Zen26 & Zen27 - Firmware 2.0+, Zen30 Double Switch, Zen34 Remote Switch)
 
 Many Zooz switches that have been sold do not have the latest firmwares. Contact Zooz to obtain the over the air firmware update instructions and new user manual for the switches.
 
@@ -746,7 +746,39 @@ Zen30 (Double Switch):
   </Value>
 </CommandClass>
 ```
+Zen34 Remote Switch:
 
+```xml
+<CommandClass id="112">
+  <Value type="list" index="1" genre="config" label="LED indicator mode" units="" min="0" max="3" value="1" size="1">
+     <Help>Choose the LED indicator mode for your Remote Switch</Help>
+        <Item label="LED always off" value="0" />
+        <Item label="LED on when button is pressed to indicate scene activation or association command" value="1" />
+	<Item label="LED always on in color specific under parameter 2" value="2" />
+	<Item label="LED always on in color specific under parameter 3" value="3" />
+ </Value>
+ <Value type="list" index="2" genre="config" label="LED indicator color for upper paddle triggers" units="" min="0" max="6" value="0" size="1">
+    <Help>Choose the LED indicator color for the upper paddle remote controle triggers</Help>
+        <Item label="White" value="0" />
+        <Item label="Blue" value="1" />
+   	<Item label="Green" value="2" />
+	<Item label="Red" value="3" />
+	<Item label="Magenta" value="4" />
+	<Item label="Yellow" value="5" />
+	<Item label="Cyan" value="6" />
+ </Value>
+ <Value type="list" index="3" genre="config" label="LED indicator color for lower paddle triggers" units="" min="0" max="6" value="0" size="1">
+    <Help>Choose the LED indicator color for the lower paddle remote control triggers</Help>
+      <Item label="White" value="0" />
+      <Item label="Blue" value="1" />
+      <Item label="Green" value="2" />
+      <Item label="Red" value="3" />
+      <Item label="Magenta" value="4" />
+      <Item label="Yellow" value="5" />
+      <Item label="Cyan" value="6" />
+ </Value>
+</CommandClass>
+```
 For Zooz switches, you'll need to update (or possibly add) the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
 ```xml
@@ -790,6 +822,46 @@ Held off|1|7800
 Held on|2|7800
 Released off|1|7740
 Released on|2|7740
+
+The Zooz ZEN34 Remote Switch has shown inverted `scene_id` values compared to other Zooz switches as well as different `scene_data` values depending on production run:
+
+Recent production runs have appeared with:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+1x tap on|1|7680
+1x tap off|2|7680
+2x tap on|1|7860
+2x tap off|2|7860
+3x tap on|1|7920
+3x tap off|2|7920
+4x tap on|1|7980
+4x tap off|2|7980
+5x tap on|1|8040
+5x tap off|2|8040
+Held on|1|7800
+Held off|2|7800
+Released on|1|7740
+Released off|2|7740
+
+Early production runs have appeared with:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+1x tap on|1|0
+1x tap off|2|0
+2x tap on|1|3
+2x tap off|2|3
+3x tap on|1|4
+3x tap off|2|4
+4x tap on|1|5
+4x tap off|2|5
+5x tap on|1|6
+5x tap off|2|6
+Held on|1|2
+Held off|2|2
+Released on|1|1
+Released off|2|1
 
 ### HomeSeer Switches
 
