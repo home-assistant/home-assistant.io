@@ -41,5 +41,6 @@ The following attributes can be placed `data` for extended functionality.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `priority`             |      yes | Priority level, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
+| `url`                  |      yes | URL to be attached, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
