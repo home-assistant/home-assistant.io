@@ -30,6 +30,10 @@ Installation with Docker is straightforward. Adjust the following command so tha
   {% include installation/container/cli.md image="homeassistant/home-assistant:stable" %}
 {% endif %}
 
+Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
+
+{% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
+
 ### Restart Home Assistant
 
 If you change the configuration you have to restart the server. To do that you have 3 options.
