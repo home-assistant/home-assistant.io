@@ -10,6 +10,8 @@ ha_codeowners:
   - '@fabaff'
   - '@engrbm87'
 ha_domain: glances
+ha_platforms:
+  - sensor
 ---
 
 The `glances` integration allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.

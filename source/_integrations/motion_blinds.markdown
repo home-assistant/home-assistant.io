@@ -9,6 +9,9 @@ ha_domain: motion_blinds
 ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
+ha_platforms:
+  - cover
+  - sensor
 ---
 
 The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).

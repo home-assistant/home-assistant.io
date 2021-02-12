@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_release: 0.65
 ha_quality_scale: internal
 ha_domain: simulated
+ha_platforms:
+  - sensor
 ---
 
 The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):

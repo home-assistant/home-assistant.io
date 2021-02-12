@@ -12,6 +12,9 @@ ha_codeowners:
   - '@danielhiversen'
 ha_domain: tibber
 ha_config_flow: true
+ha_platforms:
+  - notify
+  - sensor
 ---
 
 The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.

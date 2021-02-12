@@ -10,6 +10,8 @@ ha_codeowners:
   - '@ahayworth'
   - '@danielsjf'
 ha_domain: awair
+ha_platforms:
+  - sensor
 ---
 
 The Awair integration will fetch data from your [Awair devices](https://getawair.com).

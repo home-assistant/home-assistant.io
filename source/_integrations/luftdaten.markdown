@@ -11,6 +11,8 @@ ha_quality_scale: gold
 ha_codeowners:
   - '@fabaff'
 ha_domain: luftdaten
+ha_platforms:
+  - sensor
 ---
 
 The `luftdaten` integration will query the open data API of [luftdaten.info](https://luftdaten.info/) to monitor air quality and other weather data from a specific (self build) sensor station.

@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@jjlawren'
 ha_domain: plex
+ha_platforms:
+  - sensor
 ---
 
 The Plex integration allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [Media Players](/integrations/media_player/) and report playback status via a [Sensor](/integrations/sensor/) in Home Assistant. Media Players will allow you to control media playback and see the current playing item.

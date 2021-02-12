@@ -19,6 +19,15 @@ ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
 ha_domain: smartthings
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The features of this integration include:

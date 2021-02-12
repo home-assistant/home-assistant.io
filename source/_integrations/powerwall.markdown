@@ -12,6 +12,9 @@ ha_codeowners:
   - '@jrester'
 ha_domain: powerwall
 ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `powerwall` integration allows you to integrate your [Tesla Powerwall](https://www.tesla.com/powerwall) into Home Assistant.

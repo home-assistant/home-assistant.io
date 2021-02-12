@@ -10,6 +10,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@vangorra'
 ha_domain: withings
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `withings` sensor platform consumes data from various health products produced by [Withings](https://www.withings.com).

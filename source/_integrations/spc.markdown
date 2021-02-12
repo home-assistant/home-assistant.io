@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.47
 ha_iot_class: Local Push
 ha_domain: spc
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
 ---
 
 Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door, smoke and technical sensors.

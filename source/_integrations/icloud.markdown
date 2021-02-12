@@ -11,6 +11,9 @@ ha_codeowners:
   - '@Quentame'
   - '@nzapponi'
 ha_domain: icloud
+ha_platforms:
+  - device_tracker
+  - sensor
 ---
 
 The `icloud` integration allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.

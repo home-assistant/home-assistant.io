@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.67
 ha_domain: nanoleaf
+ha_platforms:
+  - light
 ---
 
 ### Configuration Sample

@@ -10,6 +10,8 @@ ha_domain: plum_lightpad
 ha_codeowners:
   - '@ColinHarrington'
   - '@prystupa'
+ha_platforms:
+  - light
 ---
 
 Configurable/Dimmable Wi-Fi Lightswitch

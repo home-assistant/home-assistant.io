@@ -10,6 +10,8 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_quakes
+ha_platforms:
+  - sensor
 ---
 
 The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 

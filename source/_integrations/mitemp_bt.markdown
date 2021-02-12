@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.69
 ha_iot_class: Local Polling
 ha_domain: mitemp_bt
+ha_platforms:
+  - sensor
 ---
 
 The `mitemp_bt` sensor platform allows one to monitor room temperature and humidity. The [Xiaomi Mijia BLE Temperature and Humidity sensor with LCD](https://www.banggood.com/Xiaomi-Mijia-Bluetooth-Thermometer-Hygrometer-with-LCD-Screen-Magnetic-Suction-Wall-Stickers-p-1232396.html) is a small Bluetooth Low Energy device that monitors the room temperature and humidity. As only a single BLE device can be polled at the same time, the library employs locking to make sure this is the case.

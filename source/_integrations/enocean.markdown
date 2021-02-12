@@ -14,6 +14,11 @@ ha_codeowners:
   - '@bdurrer'
 ha_domain: enocean
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.

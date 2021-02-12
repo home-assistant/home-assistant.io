@@ -14,6 +14,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@anonym-tsk'
 ha_domain: starline
+ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - lock
+  - sensor
+  - switch
 ---
 
 The `starline` integration lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.

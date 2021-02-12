@@ -11,6 +11,10 @@ ha_codeowners:
 ha_domain: flo
 ha_iot_class: Cloud Polling
 ha_release: 0.115
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `flo` integration integrates

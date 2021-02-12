@@ -11,6 +11,11 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@zxdavb'
 ha_domain: incomfort
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.

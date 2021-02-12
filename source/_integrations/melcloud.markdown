@@ -9,6 +9,10 @@ ha_config_flow: true
 ha_codeowners:
   - '@vilppuvuorinen'
 ha_domain: melcloud
+ha_platforms:
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.

@@ -13,6 +13,11 @@ ha_codeowners:
   - '@fronzbot'
 ha_domain: blink
 ha_config_flow: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - sensor
 ---
 
 The `blink` integration lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.

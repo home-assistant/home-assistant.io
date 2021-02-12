@@ -6,6 +6,8 @@ ha_category:
   - Presence Detection
 ha_iot_class: Cloud Polling
 ha_domain: google_maps
+ha_platforms:
+  - device_tracker
 ---
 
 The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).

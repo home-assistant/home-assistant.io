@@ -11,6 +11,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: openuv
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).

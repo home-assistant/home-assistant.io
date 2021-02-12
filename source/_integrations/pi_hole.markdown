@@ -13,6 +13,10 @@ ha_codeowners:
   - '@johnluetke'
   - '@shenxn'
 ha_domain: pi_hole
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `pi_hole` integration allows you to retrieve statistics and interact with a [Pi-hole](https://pi-hole.net/) system.

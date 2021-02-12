@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.31
 ha_iot_class: Local Polling
 ha_domain: synology
+ha_platforms:
+  - camera
 ---
 
 <div class='note warning'>

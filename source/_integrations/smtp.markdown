@@ -8,6 +8,8 @@ ha_release: pre 0.7
 ha_codeowners:
   - '@fabaff'
 ha_domain: smtp
+ha_platforms:
+  - notify
 ---
 
 The `smtp` platform allows you to deliver notifications from Home Assistant to an e-mail recipient.

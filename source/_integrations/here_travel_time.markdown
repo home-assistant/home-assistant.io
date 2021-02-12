@@ -9,6 +9,8 @@ ha_release: '0.100'
 ha_codeowners:
   - '@eifinger'
 ha_domain: here_travel_time
+ha_platforms:
+  - sensor
 ---
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).

@@ -9,6 +9,8 @@ ha_codeowners:
   - '@danielhiversen'
 ha_domain: mill
 ha_config_flow: true
+ha_platforms:
+  - climate
 ---
 
 Integrates Mill heater into Home Assistant.

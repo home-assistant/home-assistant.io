@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: ambient_station
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `Ambient Weather Station` integration retrieves local weather information

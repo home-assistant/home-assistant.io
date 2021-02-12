@@ -9,6 +9,8 @@ ha_codeowners:
   - '@flowolf'
 ha_domain: xmpp
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.

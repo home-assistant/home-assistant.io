@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@JeromeHXP'
 ha_domain: ondilo_ico
+ha_platforms:
+  - sensor
 ---
 
 ICO by [Ondilo](https://ondilo.com/en/) is a small connected device that you simply drop into the pool or spa. ICO continuously analyzes the water quality of your pool/spa and notifies you via its application. ICO provides personalized recommendations so that you use the right products in the right proportions at the right time.

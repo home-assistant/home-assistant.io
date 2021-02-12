@@ -16,6 +16,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@gwww'
   - '@bdraco'
+ha_platforms:
+  - alarm_control_panel
+  - climate
+  - light
+  - sensor
+  - switch
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.

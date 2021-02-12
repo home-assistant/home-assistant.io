@@ -9,6 +9,10 @@ ha_category:
   - Binary Sensor
 ha_iot_class: Local Polling
 ha_domain: netgear_lte
+ha_platforms:
+  - binary_sensor
+  - notify
+  - sensor
 ---
 
 The NETGEAR LTE integration for Home Assistant allows you to observe and control [NETGEAR LTE modems](https://www.netgear.com/home/products/mobile-broadband/lte-modems/default.aspx).

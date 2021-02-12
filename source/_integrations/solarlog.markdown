@@ -8,6 +8,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@Ernst79'
 ha_domain: solarlog
+ha_platforms:
+  - sensor
 ---
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.

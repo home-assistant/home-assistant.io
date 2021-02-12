@@ -10,6 +10,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@austinmroczek'
 ha_domain: totalconnect
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
 ---
 
 The `totalconnect` integration provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.  

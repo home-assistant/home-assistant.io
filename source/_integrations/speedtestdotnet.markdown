@@ -11,6 +11,8 @@ ha_codeowners:
   - '@rohankapoorcom'
   - '@engrbm87'
 ha_domain: speedtestdotnet
+ha_platforms:
+  - sensor
 ---
 
 The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.

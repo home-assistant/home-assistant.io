@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Assumed State
 ha_domain: raspyrfm
+ha_platforms:
+  - switch
 ---
 
 The `raspyrfm` integration adds support for cheap RC 433 MHz outlets via one of the supported gateways.

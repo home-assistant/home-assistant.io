@@ -12,6 +12,9 @@ ha_codeowners:
   - '@freekode'
   - '@nzapponi'
 ha_domain: openweathermap
+ha_platforms:
+  - sensor
+  - weather
 ---
 
 The `openweathermap` weather platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.

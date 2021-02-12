@@ -11,6 +11,9 @@ ha_codeowners:
   - '@peternijssen'
 ha_domain: spider
 ha_config_flow: true
+ha_platforms:
+  - climate
+  - switch
 ---
 
 The `spider` integration is the main integration to integrate all [Itho Daalderop Spider](https://www.ithodaalderop.nl/spider-thermostaat) related platforms. You will need your Spider account information (username, password) to discover and control devices which are related to your account.

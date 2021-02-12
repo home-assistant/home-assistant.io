@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_domain: griddy
+ha_platforms:
+  - sensor
 ---
 
 The `griddy` integration allows you to integrate your [Griddy](https://griddy.com/) price data into Home Assistant.

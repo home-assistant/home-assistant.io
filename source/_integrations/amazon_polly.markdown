@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.37
 ha_domain: amazon_polly
 ha_iot_class: Cloud Push
+ha_platforms:
+  - tts
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.

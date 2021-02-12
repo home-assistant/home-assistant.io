@@ -8,6 +8,8 @@ ha_release: 0.102
 ha_codeowners:
   - '@hfurubotten'
 ha_domain: azure_service_bus
+ha_platforms:
+  - notify
 ---
 
 The `Azure Service Bus` integration allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) from within Home Assistant.

@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_zeroconf: true
+ha_platforms:
+  - sensor
 ---
 
 The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](https://networkupstools.org/) (Network UPS Tools) server.

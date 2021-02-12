@@ -18,6 +18,15 @@ ha_codeowners:
   - '@shred86'
 ha_domain: abode
 ha_homekit: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - cover
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.

@@ -13,6 +13,11 @@ ha_config_flow: true
 ha_domain: wemo
 ha_ssdp: true
 ha_homekit: true
+ha_platforms:
+  - binary_sensor
+  - fan
+  - light
+  - switch
 ---
 
 The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/c/wemo/) devices with Home Assistant.

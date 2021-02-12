@@ -11,6 +11,8 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: flume
 ha_dhcp: true
+ha_platforms:
+  - sensor
 ---
 
 The `flume` sensor will show you the current [flume](https://portal.flumewater.com) status for the given Device ID.

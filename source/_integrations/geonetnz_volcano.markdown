@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_volcano
+ha_platforms:
+  - sensor
 ---
 
 The `geonetnz_volcano` integration lets you use a GeoJSON feed provided by 

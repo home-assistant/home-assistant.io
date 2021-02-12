@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@gagebenne'
 ha_domain: dexcom
+ha_platforms:
+  - sensor
 ---
 
 The Dexcom integration allows you to view your CGM data from [Dexcom](https://www.dexcom.com/) in Home Assistant.

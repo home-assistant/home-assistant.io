@@ -10,6 +10,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@chriscla'
 ha_domain: nzbget
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 The `nzbget` platform will allow you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant and setup automation based on the information.

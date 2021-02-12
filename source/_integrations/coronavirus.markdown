@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@home_assistant/core'
 ha_domain: coronavirus
+ha_platforms:
+  - sensor
 ---
 
 In December 2019, an outbreak of a novel Coronavirus, also called severe acute
