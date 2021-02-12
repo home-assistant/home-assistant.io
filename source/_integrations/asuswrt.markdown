@@ -48,9 +48,13 @@ To use ASUSWRT sensors, simply **enable** them in the devices page.
 
 It is possible to change some behaviors through the integration options. These can be changed at **ASUSWRT** -> **Options** on the Integrations page.
 
+- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home"
+- **Track unknown**: Enable this option to track also devices that do not have a name. Name will be replaced by mac address.
 - **Interface**: The interface that you want statistics from (e.g. eth0,eth1 etc)
 - **Dnsmasq**: The location in the router of the dnsmasq.leases files
 - **Require IP**: If devices must have IP (this option is available only for access point mode)
+
+**Note**: if you don't want to automatically track new detected device, disable the integration system option `Enable new added entities` 
 
 ## Padavan custom firmware (The rt-n56u project)
 
