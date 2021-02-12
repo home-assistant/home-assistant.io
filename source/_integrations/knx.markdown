@@ -142,7 +142,6 @@ Explicit connection via KNX/IP routing. This requires multicast communication to
 
 ```yaml
 knx:
-knx:
 ```
 
 {% configuration %}
