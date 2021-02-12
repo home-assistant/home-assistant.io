@@ -48,12 +48,12 @@ From now on, you will also be able to expect more frequent updates, as they have
 <p class='img'>
   <a href="https://esphome.io/changelog/v1.16.0.html" target="_blank">
     <img
-      src='/images/blog/2021-02-12-community-highlights/esphome-1.16.0.png'
+      src='/images/blog/2021-02-12-community-highlights/esphome.png'
       alt=""
       style='border: 0;box-shadow: none;'
       />
   </a>
-  Click on the picture to see the entire changelog,
+  Click on the picture to see the entire changelog.
 </p>
 
 ## Mechanical sculptures
