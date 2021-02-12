@@ -16,17 +16,7 @@ docsearch({
   inputSelector: '#search',
   debug: false // Set debug to true if you want to inspect the dropdown
 });
-docsearch({
-  apiKey: '{{ site.algolia.api_key }}',
-  indexName: 'home-assistant',
-  inputSelector: '#search404',
-  debug: false // Set debug to true if you want to inspect the dropdown
-});
 
-document.querySelector('.search404-close').addEventListener('click', function(ev) {
-  ev.preventDefault();
-  document.querySelector('#search404').value = "";
-});
 document.querySelector('.search .close').addEventListener('click', function(ev) {
   ev.preventDefault();
   document.querySelector('.search-container').style.display = 'none';
