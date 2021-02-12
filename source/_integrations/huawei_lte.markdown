@@ -15,6 +15,7 @@ ha_codeowners:
   - '@scop'
   - '@fphammerle'
 ha_domain: huawei_lte
+ha_ssdp: true
 ---
 
 The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/smart-home/).

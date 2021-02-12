@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_domain: august
+ha_dhcp: true
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.

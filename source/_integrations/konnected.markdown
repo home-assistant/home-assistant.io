@@ -13,6 +13,7 @@ ha_codeowners:
   - '@kit-klein'
 ha_config_flow: true
 ha_domain: konnected
+ha_ssdp: true
 ---
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.

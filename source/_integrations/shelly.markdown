@@ -17,6 +17,7 @@ ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
 ha_config_flow: true
+ha_zeroconf: true
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.

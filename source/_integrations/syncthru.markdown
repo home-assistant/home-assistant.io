@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@nielstron'
 ha_domain: syncthru
+ha_ssdp: true
 ---
 
 The Samsung SyncThru Printer platform allows you to read current data from your local Samsung printer.

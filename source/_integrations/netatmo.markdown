@@ -15,6 +15,7 @@ ha_codeowners:
   - '@cgtobi'
 ha_config_flow: true
 ha_domain: netatmo
+ha_homekit: true
 ---
 
 The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.

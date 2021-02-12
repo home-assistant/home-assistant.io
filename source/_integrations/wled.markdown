@@ -12,6 +12,7 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
 ha_domain: wled
+ha_zeroconf: true
 ---
 
 [WLED](https://github.com/Aircoookie/WLED) is a fast and feature-rich

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@scarface-4711'
   - '@starkillerOG'
 ha_config_flow: true
+ha_ssdp: true
 ---
 
 The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.

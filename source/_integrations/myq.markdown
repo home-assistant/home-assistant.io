@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_domain: myq
+ha_homekit: true
 ---
 
 The `myq` cover platform lets you control MyQ-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your MyQ Device mobile app.

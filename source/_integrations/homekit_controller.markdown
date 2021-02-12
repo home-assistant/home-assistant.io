@@ -20,6 +20,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
 ha_domain: homekit_controller
+ha_zeroconf: true
 ---
 
 The [HomeKit](https://developer.apple.com/homekit/) controller integration allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.

@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@andrewsayre'
 ha_domain: heos
+ha_ssdp: true
 ---
 
 The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/shop/amplifiersmrs/heosavr) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:

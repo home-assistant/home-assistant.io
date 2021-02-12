@@ -17,6 +17,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@shred86'
 ha_domain: abode
+ha_homekit: true
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
