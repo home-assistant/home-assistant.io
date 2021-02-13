@@ -65,7 +65,7 @@ If you get a 403 Forbidden message, you probably did not press the *ON* button l
 
 First set up some effects with the Nanoleaf app, and have them installed on the device.
 
-Once installed, go to "Developer Tools" and find the state of the device, eg `light.bedroom_triangles`. You should end up with something like this:
+Once installed, go to "Developer Tools" and find the state of the device, e.g., `light.bedroom_triangles`. You should end up with something like this:
 
 ```yaml
 # Example nanoleaf state:
