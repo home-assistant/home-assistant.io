@@ -69,4 +69,4 @@ Instead of developing your own application, you can also use any of these alread
 - [**room-assistant**](https://github.com/mKeRix/room-assistant): looks for Bluetooth LE beacons, based on Node.js
 - [**Happy Bubbles Presence Server**](https://github.com/happy-bubbles/presence): presence detection server for Happy Bubbles BLE-scanning devices, based on Go
 - [**ESP32-MQTT-room**](https://jptrsn.github.io/ESP32-mqtt-room/): runs on an ESP32, and looks for Bluetooth LE devices, based on C++/Arduino
-- [**OpenMQTTGateway**](https://github.com/1technophile/OpenMQTTGateway): uses ESP32 Bluetooth Low Energy to scan BLE Broadcaster like smart watch/band and moch more to get sensor values
+- [**OpenMQTTGateway**](https://github.com/1technophile/OpenMQTTGateway): uses ESP32 Bluetooth Low Energy to scan BLE Broadcaster like smart watches/bands and much more to get sensor values
