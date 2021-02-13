@@ -61,7 +61,13 @@ light:
 
 If you get a 403 Forbidden message, you probably did not press the *ON* button long enough. The time-frame to get a valid token is only 30 seconds, so you have to be quick to issue the curl request.
 
-### Getting useful values for automations
+### Using the Nanoleaf Device
+
+The nanoleaf device is a standard light, so can be used with standard Home Assistant Light services. For full details see the [Light Integrations Page.](/integrations/light/)
+
+### Getting Useful Values for Automations and Scripts
+
+These examples were written for version 2021.2 with a Nanoleaf Shapes device on version 5.0.0 of firmware, so newer versions may have introduced or changed functionality.
 
 First set up some effects with the Nanoleaf app, and have them installed on the device.
 
