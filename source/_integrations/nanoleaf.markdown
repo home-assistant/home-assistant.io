@@ -24,7 +24,6 @@ light:
   - platform: nanoleaf
     host: 192.168.1.10
     token: xxxxxxxxxxxxxxxxxxxxx
-    name: bedroom_triangles
 ```
 
 {% configuration %}
@@ -42,6 +41,16 @@ name:
   type: string
   default: Nanoleaf
 {% endconfiguration %}
+
+An example of adding a name to a device:
+```yaml
+# Example configuration.yaml entry with name
+light:
+  - platform: nanoleaf
+    host: 192.168.1.10
+    token: xxxxxxxxxxxxxxxxxxxxx
+    name: bedroom_triangles
+```
 
 ### Getting The Auth Token
 
