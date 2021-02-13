@@ -63,7 +63,7 @@ If you get a 403 Forbidden message, you probably did not press the *ON* button l
 
 ### Using the Nanoleaf Device
 
-The nanoleaf device is a standard light, so can be used with standard Home Assistant Light services. For full details see the [Light Integrations Page.](/integrations/light/)
+The nanoleaf device is a standard light, so can be used with standard Home Assistant Light services for automations and scripts. For full details see the [Light Integrations Page.](/integrations/light/)
 
 ### Getting Useful Values for Automations and Scripts
 
