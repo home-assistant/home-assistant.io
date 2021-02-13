@@ -12,7 +12,7 @@ ha_platforms:
 
 ### Configuration Sample
 
-The `nanoleaf` platform allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant.
+The `nanoleaf` platform allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant. Note that for full control of nanoleaf devices, particularly effects, make sure they are set up as `- platform: nanoleaf` not as a homekit device.
 
 The preferred way to set up this platform is by enabling the [discovery component](/integrations/discovery/). Make sure to press and hold the *ON* button for 5 seconds (the LED will start flashing) on your Nanoleaf Lights while Home Assistant is starting.
 
@@ -24,6 +24,7 @@ light:
   - platform: nanoleaf
     host: 192.168.1.10
     token: xxxxxxxxxxxxxxxxxxxxx
+    name: bedroom_triangles
 ```
 
 {% configuration %}
@@ -50,3 +51,58 @@ name:
 4. The output should include the auth token like *{"auth_token":"xxxxxxxxxxxxxxxxxxxxx"}*, copy the resulting token into your configuration
 
 If you get a 403 Forbidden message, you probably did not press the *ON* button long enough. The time-frame to get a valid token is only 30 seconds, so you have to be quick to issue the curl request.
+
+### Getting useful values for automations
+
+First set up some effects with the Nanoleaf app, and have them installed on the device.
+
+Once installed, go to "Developer Tools" and find the state of the device, eg `light.bedroom_triangles`. You should end up with something like this:
+
+```yaml
+# Example nanoleaf state:
+min_mireds: 154
+max_mireds: 833
+effect_list:
+  - Beatdrop
+  - Bedtime
+  - Blaze
+  - Cocoa Beach
+  - Cotton Candy
+  - Date Night
+  - Hip Hop
+  - Hot Sauce
+  - Jungle
+  - Lightscape
+  - Morning Sky
+  - Northern Lights
+  - Pop Rocks
+  - Prism
+  - Starlight
+  - Sundown
+  - Waterfall
+  - Vibrant Sunrise
+brightness: 155
+effect: Bedtime
+friendly_name: Triangles
+icon: 'mdi:triangle-outline'
+supported_features: 55
+```
+
+Now you can call the `light.turn_on` service with the data:
+```yaml
+# Example data to activate a nanoleaf effect:
+entity_id: light.trianglestest
+effect: Starlight
+```
+
+Or in a script for example:
+```yaml
+# Example alarm script
+alias: Alarm Sequence
+sequence:
+  - service: light.turn_on
+    data:
+      effect: Vibrant Sunrise
+    entity_id: light.triangles
+mode: single
+```
