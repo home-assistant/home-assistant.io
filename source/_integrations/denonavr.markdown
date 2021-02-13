@@ -99,6 +99,11 @@ zone2:
   required: false
   default: false
   type: boolean
+update_audyssey:
+  description: Specifies if Audyssey settings should be updated. This can take up to 10 Seconds for some receivers.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 A few notes:
@@ -119,5 +124,14 @@ A comprehensive list of telnet protocol commands is [also available](http://asse
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
 | `command`              |       no | Command to send to device, e.g.,  `/goform/formiPhoneAppDirect.xml?VSMONI2`|
+
+#### Service `denonavr.set_dynamic_eq`
+
+Enable or disable DynamicEQ setting.
+
+| Service data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
+| `dynamic_eq`           |       no | True/false for enable/disable.|
 
 [Denon]: /integrations/denon
