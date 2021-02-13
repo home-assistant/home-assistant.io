@@ -12,7 +12,7 @@ ha_platforms:
 
 ### Configuration Sample
 
-The `nanoleaf` platform allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant. Note that for full control of nanoleaf devices, particularly effects, make sure they are set up as `- platform: nanoleaf` not as a HomeKit device.
+The Nanoleaf integration allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant. Note that for full control of Nanoleaf devices, particularly effects, make sure they are set up as instructed on this page and not as a HomeKit device.
 
 The preferred way to set up this platform is by enabling the [discovery component](/integrations/discovery/). Make sure to press and hold the *ON* button for 5 seconds (the LED will start flashing) on your Nanoleaf Lights while Home Assistant is starting.
 
