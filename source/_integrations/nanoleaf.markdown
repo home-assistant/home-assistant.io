@@ -65,28 +65,16 @@ If you get a 403 Forbidden message, you probably did not press the *ON* button l
 
 First set up some effects with the Nanoleaf app, and have them installed on the device.
 
-Once installed, go to "Developer Tools" and find the state of the device, e.g., `light.bedroom_triangles`. You should end up with something like this:
+Once installed, go to "Developer Tools" and find the state of the device, e.g., `light.bedroom_triangles`. This will help you discover the names of the effects that you can use with the device. You should end up with something like this:
 
 ```yaml
 # Example nanoleaf state:
+# Note that this is all device specific, you will need to look up your own device's state
 min_mireds: 154
 max_mireds: 833
 effect_list:
+  # These effects are device specific, and have been installed through the nanoleaf app
   - Beatdrop
-  - Bedtime
-  - Blaze
-  - Cocoa Beach
-  - Cotton Candy
-  - Date Night
-  - Hip Hop
-  - Hot Sauce
-  - Jungle
-  - Lightscape
-  - Morning Sky
-  - Northern Lights
-  - Pop Rocks
-  - Prism
-  - Starlight
   - Sundown
   - Waterfall
   - Vibrant Sunrise
@@ -97,21 +85,15 @@ icon: 'mdi:triangle-outline'
 supported_features: 55
 ```
 
-Now you can call the `light.turn_on` service with the data:
-```yaml
-# Example data to activate a nanoleaf effect:
-entity_id: light.trianglestest
-effect: Starlight
-```
-
-Or in a script for example:
+Now you can call the `light.turn_on` service in a script for example:
 ```yaml
 # Example alarm script
 alias: Alarm Sequence
 sequence:
   - service: light.turn_on
     data:
+      # Note - this is one of the effects we discovered in the state
       effect: Vibrant Sunrise
-    entity_id: light.triangles
+    entity_id: light.bedroom_triangles
 mode: single
 ```
