@@ -596,7 +596,7 @@ A doorbell sensor can be linked via the `linked_doorbell_sensor` configuration s
 
 #### HomeKit stalls or devices respond slowly with many cameras
 
-HomeKit camera snapshots tie up the HomeKit connection while the snapshot is being taken. To avoid this problem, create a seperate `HomeKit` instance in [Accessory Mode](#mode) for each camera.
+HomeKit camera snapshots tie up the HomeKit connection during snapshots. To avoid this problem, create a separate `HomeKit` instance in [Accessory Mode](#mode) for each camera.
 
 #### Resetting accessories
 
