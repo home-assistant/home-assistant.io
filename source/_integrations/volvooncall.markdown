@@ -131,7 +131,7 @@ volvooncall:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
   name:
-    YOUR_VIN_NUMBER: 'NEW_NAME'
+    YOUR_VIN_NUMBER: "NEW_NAME"
   resources:
     - odometer
     - lock

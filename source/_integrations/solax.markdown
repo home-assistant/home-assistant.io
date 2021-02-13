@@ -49,11 +49,11 @@ sensors:
   sensors:
     total_pv_power:
       friendly_name: "Total PV Power"
-      unit_of_measurement: 'W'
+      unit_of_measurement: "W"
       value_template: "{{ (states('sensor.pv1_power') | float) + (states('sensor.pv2_power') | float) }}"
     load_power:
       friendly_name: "Load Power"
-      unit_of_measurement: 'W'
+      unit_of_measurement: "W"
       value_template: "{{ (states('sensor.power_now') | float) - (states('sensor.exported_power') | float) }}"
 ```
 

@@ -125,16 +125,10 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 
 ```yaml
 127.0.0.1:
-  banned_at: '2016-11-16T19:20:03'
+  banned_at: "2016-11-16T19:20:03"
 ```
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
-
-<div class='note warning'>
-
-Please note, that sources from `trusted_networks` won't be banned automatically.
-
-</div>
 
 ## Hosting files
 

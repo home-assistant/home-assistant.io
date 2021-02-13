@@ -141,6 +141,8 @@ This small example illustrates how the "split" files work. In this case, we star
 
 This (large) sensor configuration gives us another example:
 
+{% raw %}
+
 ```yaml
 ### sensor.yaml
 ### METEOBRIDGE #############################################
@@ -149,7 +151,7 @@ This (large) sensor configuration gives us another example:
   host: 192.168.2.82
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[2]}}{% endraw %}"
+  value_template: "{{value.split (' ')[2]}}"
   unit: C
 - platform: tcp
   name: "Outdoor Humidity (Meteobridge)"
@@ -157,7 +159,7 @@ This (large) sensor configuration gives us another example:
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
+  value_template: "{{value.split (' ')[3]}}"
   unit: Percent
 
 #### STEAM FRIENDS ##################################
@@ -178,6 +180,8 @@ This (large) sensor configuration gives us another example:
   time_zone: America/New_York
   name: "Ann Arbor"
 ```
+
+{% endraw %}
 
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 

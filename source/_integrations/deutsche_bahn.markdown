@@ -42,14 +42,18 @@ only_direct:
 
 This sensor stores a lot of attributes which can be accessed by other sensors, e.g., a [template sensor](/integrations/template).
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   platform: template
   sensors:
     next_departure:
-      value_template: '{% raw %}{{ state_attr('sensor.munich_to_ulm', 'next') }}{% endraw %}'
-      friendly_name: 'Next departure'
+      value_template: "{{ state_attr('sensor.munich_to_ulm', 'next') }}"
+      friendly_name: "Next departure"
 ```
+
+{% endraw %}
 
 The data is coming from the [bahn.de](https://www.bahn.de/p/view/index.shtml) website.

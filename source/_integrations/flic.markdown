@@ -91,6 +91,8 @@ Event data:
 
 To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/integrations/html5). Visit the [notification integration page](/integrations/notify/) for more information on setting up notifications.
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: FLIC Html5 notify on every click
@@ -101,8 +103,10 @@ automation:
       - service: notify.html5
         data:
           title: "flic click"
-          message: {% raw %}"flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"{% endraw %}
+          message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"
 ```
+
+{% endraw %}
 
 ### Ignoring Click Types
 

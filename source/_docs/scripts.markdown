@@ -5,6 +5,8 @@ description: "Documentation for the Home Assistant Script Syntax."
 
 Scripts are a sequence of actions that Home Assistant will execute. Scripts are available as an entity through the standalone [Script component] but can also be embedded in [automations] and [Alexa/Amazon Echo] configurations.
 
+When the script is executed within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
+
 The script syntax basic structure is a list of key/value maps that contain actions. If a script contains only 1 action, the wrapping list can be omitted.
 
 ```yaml
@@ -62,7 +64,7 @@ Scripts may also use a shortcut syntax for activating scenes instead of calling 
 
 ## Variables
 
-The variables command allows you to set/override variables that will be accessible by templates in actions after it. See also [script variables] for how to define variables accessible in the entire script.
+The variables action allows you to set/override variables that will be accessible by templates in actions after it. See also [script variables] for how to define variables accessible in the entire script.
 
 {% raw %}
 
@@ -141,8 +143,6 @@ All forms accept templates.
 
 These actions allow a script to wait for entities in the system to be in a certain state as specified by a template, or some event to happen as expressed by one or more triggers.
 
-When used within an automation the `trigger` variable is available. See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).
-
 ### Wait Template
 
 This action evaluates the template, and if true, the script will continue. If not, then it will wait until it is true.
@@ -160,7 +160,7 @@ The template is re-evaluated whenever an entity ID that it references changes st
 
 ### Wait for Trigger
 
-This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires.
+This action can use the same triggers that are available in an automation's `trigger` section. See [Automation Trigger](/docs/automation/trigger). The script will continue whenever any of the triggers fires. All previously defined [trigger_variables](/docs/automation/trigger#trigger_variables), [variables](#variables) and [script variables] are passed to the trigger.
 {% raw %}
 
 ```yaml
@@ -272,6 +272,8 @@ This action allows you to fire an event. Events can be used for many things. It 
 You can also use event_data to fire an event with custom data. This could be used to pass data to another script awaiting
 an event trigger.
 
+The `event_data` accepts templates.
+
 {% raw %}
 
 ```yaml
@@ -285,7 +287,7 @@ an event trigger.
 
 ### Raise and Consume Custom Events
 
-The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
+The following automation example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
 ```yaml
 - alias: Fire Event
@@ -299,7 +301,7 @@ The following automation shows how to raise a custom event called `event_light_s
         state: "on"
 ```
 
-The following automation shows how to capture the custom event `event_light_state_changed`, and retrieve corresponding `entity_id` that was passed as the event data.
+The following automation example shows how to capture the custom event `event_light_state_changed` with an [Event Automation Trigger](/docs/automation/trigger#event-trigger), and retrieve corresponding `entity_id` that was passed as the event trigger data, see [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data) for more details.
 
 {% raw %}
 

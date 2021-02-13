@@ -11,6 +11,10 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 
 The following sections introduce all trigger types and further details to get started.
 
+### Trigger variables
+
+Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
+
 ### Event trigger
 
 Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
@@ -44,6 +48,29 @@ automation:
       - scene_reloaded
 ```
 
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `event_type`, `event_data` and `context` options.
+
+<div class='note'>
+
+The `event_type`, `event_data` and `context` templates are only evaluated when setting up the trigger, they will not be reevaluated for every event.
+
+</div>
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    sub_event: ABC
+    node: ac
+    value: on
+  trigger:
+    platform: event
+    event_type: "{{ 'MY_CUSTOM_EVENT_' ~ sub_event }}"
+```
+
+{% endraw %}
+
 ### Home Assistant trigger
 
 Fires when Home Assistant starts up or shuts down.
@@ -69,6 +96,32 @@ automation:
     payload: "on"
     encoding: "utf-8"
 ```
+
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
+
+<div class='note'>
+
+The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
+
+</div>
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    room: "living_room"
+    node: "ac"
+    value: "on"
+  trigger:
+    platform: mqtt
+    topic: "{{ room ~ '/switch/' ~ node}}"
+    # Optional
+    payload: "{{ 'state:' ~ value }}"
+    encoding: "utf-8"
+```
+
+{% endraw %}
 
 ### Numeric state trigger
 

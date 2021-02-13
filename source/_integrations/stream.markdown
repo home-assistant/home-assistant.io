@@ -49,7 +49,7 @@ action:
   service: camera.record
   data:
     entity_id: camera.quintal
-    filename: '/config/www/my_stream.mp4'
+    filename: "/config/www/my_stream.mp4"
     duration: 30
 ```
 

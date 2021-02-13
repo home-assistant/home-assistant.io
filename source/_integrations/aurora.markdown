@@ -15,8 +15,6 @@ The `aurora` platform uses the [NOAA Aurora Forecast](https://www.swpc.noaa.gov/
 
 This service gives a number 0-100 representing the current likelihood of visible auroras at your latitude/longitude. By default this sensor is set up to trigger when the reported likelihood for your location is > 75. It updates every 5 minutes.
 
-You can check the attributes of the sensor to see your exact forecast.
-
 ## Configuration
 
 To add the aurora binary sensor to your installation, search for the Aurora integration through the Configuration -> Integrations menu.
@@ -33,4 +31,9 @@ Once installed you can adjust the threshold for this location by clicking on the
 
 ## Sensors
 
-The integration will add a single binary sensor for each location you configure which will be in the state on when there is a forecast probability of Aurora viewing above your threshold and off when it is below your selected threshold.
+The integration will add a two sensors for each location you configure:
+
+|Sensor Type|Values|Description|
+|-|-|-|
+|binary_sensor|on/off|on = high chance of Aurora visibility, off = low chance of visibility|
+|sensor|% value|Percentage chance of visibility|

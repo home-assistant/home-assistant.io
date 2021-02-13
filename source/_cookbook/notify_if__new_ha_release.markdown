@@ -29,6 +29,8 @@ automation:
 
 You can use [templates](/topics/templating/) to include the release number of Home Assistant if you prefer. The following example sends a notification via [Pushbullet](/integrations/pushbullet) with the Home Assistant version in the message.
 
+{% raw %}
+
 ```yaml
 notify:
   - platform: pushbullet
@@ -47,6 +49,7 @@ automation:
         data: 
           title: "New Home Assistant Release"
           target: "YOUR_TARGET_HERE" #See Pushbullet integration for usage
-          message: "Home Assistant {% raw %} {{ state_attr('binary_sensor.updater', 'newest_version') }} {% endraw %} is now available."
+          message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is now available."
 ```
 
+{% endraw %}

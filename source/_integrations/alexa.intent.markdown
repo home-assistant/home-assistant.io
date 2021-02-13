@@ -210,17 +210,21 @@ ActivateSceneIntent activate {Scene}
 
 Then add the intent to your `intent_script` section in your HA configuration file:
 
+{% raw %}
+
 ```yaml
 intent_script:
   ActivateSceneIntent:
     action:
       service: scene.turn_on
       data:
-        entity_id: scene.{% raw %}{{ Scene | replace(" ", "_") }}{% endraw %}
+        entity_id: scene.{{ Scene | replace(" ", "_") }}
     speech:
       type: plain
       text: OK
 ```
+
+{% endraw %}
 
 Here we are using [templates] to take the name we gave to Alexa e.g., `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
 
@@ -258,17 +262,21 @@ RunScriptIntent run {Script}
 
 Then add the intent to your intent_script section in your HA configuration file:
 
+{% raw %}
+
 ```yaml
 intent_script:
   RunScriptIntent:
     action:
       service: script.turn_on
       data:
-        entity_id: script.{% raw %}{{ Script | replace(" ", "_") }}{% endraw %}
+        entity_id: script.{{ Script | replace(" ", "_") }}
     speech:
       type: plain
       text: OK
 ```
+
+{% endraw %}
 
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 

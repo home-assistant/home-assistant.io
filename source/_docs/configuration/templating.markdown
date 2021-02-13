@@ -44,11 +44,28 @@ script:
 ```
 {% endraw %}
 
+### Important Template Rules
+
+There are a few very important rules to remember when adding templates to YAML:
+
+1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
+1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](http://jinja.pocoo.org/docs/dev/templates/#default), or both.
+1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) or an [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) by using the respective [filter](http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-filters).
+1. While the [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) and [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+
+Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
+
 ## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
+### Limited Templates
+
+Templates for some triggers [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
+
 ### States
+
+Not supported in [limited templates](#limited-templates).
 
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
@@ -117,6 +134,8 @@ Other state examples:
 
 ### Attributes
 
+Not supported in [limited templates](#limited-templates).
+
 You can print an attribute with `state_attr` if state is defined.
 
 #### Attributes examples
@@ -147,6 +166,8 @@ With strings:
 
 ### Working with Groups
 
+Not supported in [limited templates](#limited-templates).
+
 The `expand` function and filter can be used to sort entities and expand groups. It outputs a sorted array of entities with no duplicates.
 
 #### Expand examples
@@ -171,6 +192,8 @@ The same thing can also be expressed as a filter:
 {% endraw %}
 
 ### Time
+
+`now()` and `utcnow()` are not supported in [limited templates](#limited-templates).
 
 - `now()` returns a datetime object that represents the current time in your time zone.
   - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
@@ -276,6 +299,8 @@ The temperature is 25°C
 {% endraw %}
 
 ### Distance
+
+Not supported in [limited templates](#limited-templates).
 
 - `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
@@ -478,11 +503,11 @@ To evaluate a response, go to **Developer Tools** -> **Template**, create your o
 ```yaml
 {% set value_json=
     {"name":"Outside",
-	 "device":"weather-ha",
+     "device":"weather-ha",
      "data":
-	    {"temp":"24C",
-		 "hum":"35%"
-		 }	}%}
+        {"temp":"24C",
+         "hum":"35%"
+         } }%}
 
 {{value_json.data.hum[:-1]}}
 ```

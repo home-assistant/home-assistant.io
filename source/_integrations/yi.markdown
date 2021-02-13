@@ -69,7 +69,7 @@ To enable the platform, add the following lines to your`configuration.yaml` file
 camera:
   - platform: yi
     name: Camera
-    host: '192.168.1.100'
+    host: "192.168.1.100"
     password: my_password_123
 ```
 
@@ -112,8 +112,8 @@ One particularly useful adjustment deals with video size. Since Yi videos are fa
 camera:
   - platform: yi
     name: My Camera
-    host: '192.168.1.100'
+    host: "192.168.1.100"
     password: my_password_123
     path: /home/camera/feed
-    ffmpeg_arguments: '-vf scale=800:450'
+    ffmpeg_arguments: "-vf scale=800:450"
 ```

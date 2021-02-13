@@ -231,7 +231,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.front_door_motion
-      to: 'on'
+      to: "on"
     action:
       service: notify.livingroom_tv
       data:

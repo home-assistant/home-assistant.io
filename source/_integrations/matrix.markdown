@@ -124,7 +124,7 @@ automation:
     action:
       service: notify.matrix_notify
       data:
-        message: 'It looks like you wrote !testword'
+        message: "It looks like you wrote !testword"
   - alias: 'React to an introduction'
     trigger:
       platform: event
