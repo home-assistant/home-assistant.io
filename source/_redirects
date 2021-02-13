@@ -2109,7 +2109,7 @@
 /docs/installation/raspberry-pi /installation
 /docs/installation/updating /common-tasks/os
 /docs/installation/virtualenv /installation
-/hassio /getting_started
+/hassio /getting-started
 /hassio/commandline /common-tasks/os#home-assistant-via-the-command-line
 /hassio/enable_i2c /common-tasks/os#enable-i2c
 /hassio/flashing_n2_otg /common-tasks/os#flashing-an-odroid-n2
