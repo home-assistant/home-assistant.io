@@ -42,16 +42,6 @@ name:
   default: Nanoleaf
 {% endconfiguration %}
 
-An example of adding a name to a device:
-```yaml
-# Example configuration.yaml entry with name
-light:
-  - platform: nanoleaf
-    host: 192.168.1.10
-    token: xxxxxxxxxxxxxxxxxxxxx
-    name: bedroom_triangles
-```
-
 ### Getting The Auth Token
 
 1. Make sure that your Nanoleaf Light Panel is fully patched (as of the time of writing the latest version was 3.0.8 for Aurora and 1.2.0 for Canvas)
@@ -63,43 +53,4 @@ If you get a 403 Forbidden message, you probably did not press the *ON* button l
 
 ### Using the Nanoleaf Device
 
-The nanoleaf device is a standard light, so can be used with standard Home Assistant Light services for automations and scripts. For full details see the [Light Integrations Page.](/integrations/light/)
-
-### Getting Useful Values for Automations and Scripts
-
-These examples were written for version 2021.2 with a Nanoleaf Shapes device on version 5.0.0 of firmware, so newer versions may have introduced or changed functionality.
-
-First set up some effects with the Nanoleaf app, and have them installed on the device.
-
-Once installed, go to "Developer Tools" and find the state of the device, e.g., `light.bedroom_triangles`. This will help you discover the names of the effects that you can use with the device. You should end up with something like this:
-
-```yaml
-# Example nanoleaf state:
-# Note that this is all device specific, you will need to look up your own device's state
-min_mireds: 154
-max_mireds: 833
-effect_list:
-  # These effects are device specific, and have been installed through the nanoleaf app
-  - Beatdrop
-  - Sundown
-  - Waterfall
-  - Vibrant Sunrise
-brightness: 155
-effect: Bedtime
-friendly_name: Triangles
-icon: 'mdi:triangle-outline'
-supported_features: 55
-```
-
-Now you can call the `light.turn_on` service in a script for example:
-```yaml
-# Example alarm script
-alias: Alarm Sequence
-sequence:
-  - service: light.turn_on
-    data:
-      # Note - this is one of the effects we discovered in the state
-      effect: Vibrant Sunrise
-    entity_id: light.bedroom_triangles
-mode: single
-```
+The Nanoleaf device is a standard light, so can be used with standard Home Assistant Light services for automations and scripts. For full details see the [Light Integrations Page.](/integrations/light/) Of particular interest for Nanoleaf devices is using the `effect` in service calls, to choose the pattern/effect that the lights display.
