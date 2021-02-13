@@ -1,7 +1,7 @@
 ---
 title: AEMET OpenData
 description: Instructions on how to integrate AEMET OpenData within Home Assistant.
-ha_release: 2021.2
+ha_release: 2021.3
 ha_category:
   - Weather
   - Sensor
@@ -32,11 +32,10 @@ To add AEMET OpenData integration go to **Configuration** >> **Integrations** an
 | Name                 | Name of the integration                                                                                                                                                                                                                    |
 | Latitude             | Latitude for weather forecast and sensor                                                                                                                                                                                                   |
 | Longitude            | Longitude for weather forecast and sensor                                                                                                                                                                                                  |
-| Mode                 | Forecast mode, `daily` for daily forecast up to 6 days or `hourly` for an hourly forecast up to 3 days. |
 
-The integration creates weather entity and also sensors for all available conditions.
+The integration creates one weather entity per forecast mode and also sensors for all available conditions. There are two forecast modes, `daily` for daily forecast up to 6 days or `hourly` for an hourly forecast up to 3 days.
 
-For each condition `sensor` entity will be created with id: 
+For each condition a `sensor` entity will be created with id:
 
 `sensor.<integration name>_<monitored condition>`
 
