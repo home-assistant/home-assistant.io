@@ -16,7 +16,7 @@ The Fan integration allows you to control and monitor Fan devices.
 ### Fan control services
 
 Available services:
-`fan.set_percentage`, `fan.set_preset_mode`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`
+`fan.set_percentage`, `fan.set_preset_mode`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`, `fan.increase_speed`, `fan.decrease_speed`
 
 Deprecated services:
 `fan.set_speed`
@@ -160,4 +160,52 @@ automation:
       data:
         entity_id: fan.kitchen
         speed: low
+```
+
+### Service `fan.increase_speed`
+
+Increases the speed of the fan device.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
+| `percentage_step` | yes | Increase speed by a percentage. Should be between 0..100.
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+  - platform: device
+    device_id: 097cd9f706a86e9163acb64ba7d630da
+    domain: lutron_caseta
+    type: press
+    subtype: raise
+  action:
+  - service: fan.increase_speed
+    entity_id: fan.dining_room_fan_by_front_door
+```
+
+### Service `fan.decrease_speed`
+
+Decreases the speed of the fan device.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
+| `percentage_step` | yes | Decrease speed by a percentage. Should be between 0..100.
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+  - platform: device
+    device_id: 097cd9f706a86e9163acb64ba7d630da
+    domain: lutron_caseta
+    type: press
+    subtype: lower
+  action:
+  - service: fan.decrease_speed
+    entity_id: fan.dining_room_fan_by_front_door
 ```
