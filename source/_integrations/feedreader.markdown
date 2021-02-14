@@ -62,7 +62,8 @@ automation:
       event_type: feedreader
     action:
       service: script.turn_on
-      entity_id: script.my_action
+      target:
+        entity_id: script.my_action
 ```
 
 {% raw %}

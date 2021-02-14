@@ -1094,14 +1094,16 @@ script:
   towel_heater:
     sequence:
       - service: remote.send_command
-        entity_id: "remote.bathroom_remote"
+        target:
+          entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'activate_towel_heater'
   please_cover_your_ears:
     sequence:
       - service: remote.send_command
-        entity_id: "remote.bathroom_remote"
+        target:
+          entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'read_bad_poem'

@@ -130,7 +130,8 @@ automation:
       at: "5:30:00"
     action:
       service: rainbird.start_irrigation
-      entity_id: switch.sprinkler_1
+      target:
+        entity_id: switch.sprinkler_1
       data:
         duration: 5
 ```

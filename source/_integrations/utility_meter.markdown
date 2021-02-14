@@ -153,9 +153,11 @@ automation:
       at: "21:00:00"
   action:
     - service: utility_meter.next_tariff
-      entity_id: utility_meter.daily_energy
+      target:
+        entity_id: utility_meter.daily_energy
     - service: utility_meter.next_tariff
-      entity_id: utility_meter.monthly_energy
+      target:
+        entity_id: utility_meter.monthly_energy
 ```
 
 ## Advanced Configuration for DSMR users

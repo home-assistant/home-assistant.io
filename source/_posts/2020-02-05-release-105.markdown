@@ -221,7 +221,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
         entity_id: all
       action:
         service: light.turn_off
-        entity_id: all
+        target:
+          entity_id: all
   ```
 
 - __Group__ *Deprecated* - Group configurations options, services and service options related to the old states UI are now deprecated and pending for removal in Home Assistant 0.107.0.

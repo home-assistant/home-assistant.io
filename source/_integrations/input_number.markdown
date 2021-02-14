@@ -253,7 +253,8 @@ automation:
    action:
      - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
      - service: switch.turn_off
-       entity_id: switch.something
+       target:
+         entity_id: switch.something
 ```
 
 {% endraw %}

@@ -63,5 +63,6 @@ The current price for the Load Zone will appear as a sensor:
     zone: zone.home
   action:
   - service: switch.turn_off
-    entity_id: switch.my_tesla_charger_switch
+    target:
+      entity_id: switch.my_tesla_charger_switch
 ```

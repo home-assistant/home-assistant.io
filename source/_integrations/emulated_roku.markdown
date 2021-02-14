@@ -119,7 +119,8 @@ The following is an example implementation of an automation:
       key: Fwd
   action:
   - service: media_player.volume_up
-    entity_id: media_player.amplifier
+    target:
+      entity_id: media_player.amplifier
 ```
 
 ## Troubleshooting

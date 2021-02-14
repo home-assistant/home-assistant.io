@@ -241,7 +241,8 @@ Example script:
 play_plex_on_tv:
   sequence:
     - service: media_player.select_source
-      entity_id: media_player.smart_tv
+      target:
+        entity_id: media_player.smart_tv
       data:
         source: "Plex"
     - wait_template: "{{ is_state('media_player.smart_tv', 'On') }}"

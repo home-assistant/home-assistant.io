@@ -97,7 +97,8 @@ automation:
         level: WARNING
     action:
       service: counter.increment
-      entity_id: counter.warning_counter
+      target:
+        entity_id: counter.warning_counter
 ```
 
 ### Conditional Messages

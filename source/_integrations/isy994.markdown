@@ -130,7 +130,8 @@ automation:
         prec: "0"
     action:
       service: light.turn_off
-      entity_id: light.lr_track_lights_rear
+      target:
+        entity_id: light.lr_track_lights_rear
 ```
 
 All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:

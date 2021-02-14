@@ -158,5 +158,6 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
         - fri
   action:
     - service: homeassistant.update_entity
-      entity_id: sensor.morning_commute
+      target:
+        entity_id: sensor.morning_commute
 ```

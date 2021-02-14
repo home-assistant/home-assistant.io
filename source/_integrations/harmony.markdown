@@ -79,7 +79,8 @@ Using the activity name 'Watch TV', you can call a service via automation to swi
 ```yaml
 action:
   - service: remote.turn_on
-    entity_id: remote.bed_room_hub
+    target:
+      entity_id: remote.bed_room_hub
     data:
        activity: "Watch TV"
 ```
@@ -207,7 +208,8 @@ automation:
       value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
     action:
       service: input_boolean.turn_on
-      entity_id: input_boolean.notify
+      target:
+        entity_id: input_boolean.notify
   - alias: "PowerOff started from harmony hub"
     trigger:
       platform: state
@@ -217,7 +219,8 @@ automation:
       value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
     action:
       service: input_boolean.turn_off
-      entity_id: input_boolean.notify
+      target:
+        entity_id: input_boolean.notify
 ```
 
 {% endraw %}

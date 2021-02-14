@@ -1165,7 +1165,8 @@ Let's see how this works in an automation for a Scene Master that's assigned as 
   action:
   - data:
     service: light.toggle
-      entity_id: group.all_lights
+      target:
+        entity_id: group.all_lights
 ```
 
 ### RFWDC Cooper 5-button Scene Control Keypad
@@ -1402,7 +1403,8 @@ Example Event:
         scene_data: 7680
   action:
     - service: switch.toggle
-      entity_id: switch.office_fan
+      target:
+        entity_id: switch.office_fan
 ```
 
 ### Zooz S2 MultiRelay (Zen16)
@@ -1604,7 +1606,8 @@ Example Event:
         scene_data: 0
   action:
     - service: switch.toggle
-      entity_id: switch.office_fan
+      target:
+        entity_id: switch.office_fan
 ```
 
 ### EATON On/Off & Dimmer (RF9501/RF9540-N/RF9640-N/RF9601-N)

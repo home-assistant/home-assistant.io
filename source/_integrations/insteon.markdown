@@ -139,7 +139,8 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 
   # single button remote
   - id: light_off
@@ -155,7 +156,8 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 ```
 
 ## Manual configuration
@@ -400,7 +402,8 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 
   # single button remote
   - id: light_off
@@ -416,5 +419,6 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 ```

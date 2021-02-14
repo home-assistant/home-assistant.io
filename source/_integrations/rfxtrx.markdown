@@ -292,7 +292,8 @@ automation:
           Sound: 9
     action:
       service: scene.turn_on
-      entity_id: scene.welcomescene
+      target:
+        entity_id: scene.welcomescene
 ```
 
 ## Services
