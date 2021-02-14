@@ -56,7 +56,7 @@ A common Apache Proxy server for Home Assistant can be set up with the following
 You may use the example below and replace the following:
 * <YOUR DOMAIN.COM> is replaced with your domain name, eg. "homeassistant.mydomain.com".
 * <YOUR EMAIL ADDRESS> is replaced with your email address, eg. "me@my.com".
-* <HOME ASSISTANT IP ADDRESSS> is replaced with the local IP of your home assistant on your network, eg. "192.168.1.8".
+* <HOME ASSISTANT IP ADDRESSS> is replaced with the local IP of your Home Assistant on your network, eg. "192.168.1.8".
 * </path/to/your/fullchain.pem> is replaced with the certificate chain which tells your browser how to authenticate your server.
 * </path/to/your/privkey.pem> is replaced with your private key, used to provide encryption to connected clients. 
   
