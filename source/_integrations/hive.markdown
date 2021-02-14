@@ -17,11 +17,24 @@ ha_codeowners:
 ha_domain: hive
 ---
 
-The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
+This `hive` integration uses the same username and password you use on the [Hive website](https://my.hivehome.com) to configure it within Home Assistant. Once configured Home Assisatnt will detect and add all Hive devices, including support for multi-zone heating.
 
-This integration uses the  Hive website [https://my.hivehome.com](https://my.hivehome.com) credentials, you will need to use the same username and password you use on the Hive website to configure this Hive integration in Home Assistant.
+## Configuration
 
-To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
+Menu: *Configuration* > *Integrations*
+
+Press on **Hive** and configure the integration:
+
+- Enter you Hive Username.
+- Enter you Hive Password.
+- Set the scan interval (Default 120 seconds)
+
+If you have 2 factor authentication setup on your Hive account, a following dialog will be presented asking for  your code.
+
+
+### Configuration via YAML
+
+_YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore._
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,12 +53,19 @@ password:
   required: true
   type: string
 scan_interval:
-  description: The time in minutes between Hive API calls
+  description: The time in seconds between Hive API calls
   required: false
   type: integer
-  default: 2
+  default: 120
 {% endconfiguration %}
 
+
+## Options
+
+Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
+
+- **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 30 seconds).
+  
 ## Services
 
 ### Service `hive.boost_heating`
