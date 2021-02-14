@@ -89,19 +89,19 @@ the Media Player:
 
 ```yaml
 apple_tv_sleep:
-  alias: Make the Apple TV sleep
+  alias: "Make the Apple TV sleep"
   sequence:
     - service: remote.send_command
-      data:
+      target:
         entity_id: remote.lounge_appletv
+      data:
         delay_secs: 1
         command:
           - home_hold
           - select
     - service: media_player.turn_off
-      data:
-        entity_id:
-          - media_player.lounge_appletv
+      target:
+        entity_id: media_player.lounge_appletv
 ```
 
 Send 3 `left` commands with delay between each:
