@@ -34,9 +34,9 @@ Auto-detection can be a little slow, so if your table has a fixed IP address or 
 # This will skip auto-detection and add only the listed tables
 sisyphus:
   - name: 'TABLE_NAME'
-    host: 'TABLE_IP_OR_HOSTNAME'
+    host: "TABLE_IP_OR_HOSTNAME"
   - name: 'ANOTHER_TABLE_NAME'
-    host: 'ANOTHER_TABLE_IP_OR_HOSTNAME'
+    host: "ANOTHER_TABLE_IP_OR_HOSTNAME"
 ```
 
 {% configuration %}

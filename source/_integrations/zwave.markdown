@@ -1,5 +1,5 @@
 ---
-title: Z-Wave
+title: Z-Wave (deprecated)
 description: Instructions on how to integrate your existing Z-Wave within Home Assistant.
 ha_category:
   - Hub
@@ -11,7 +11,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
-featured: true
+featured: false
 ha_iot_class: Local Push
 ha_release: 0.7
 ha_config_flow: true
@@ -19,6 +19,14 @@ ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave
 ---
+
+<p class='note warning'>
+
+This integration is deprecated. We recommend using [the Z-Wave JS integration](/integrations/zwave_js).
+
+The Z-Wave integration will no longer receive any updates. It will not be removed unless it becomes incompatible with a future version of Python.
+
+</p>
 
 The [Z-Wave](https://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.
 
@@ -80,7 +88,7 @@ automation:
           temperature: 24
 ```
 
-Generally, in Home Assistant, you can use the `homeassistant/turn_off` service to turn devices off. For the Remotec ZXT-120, you must instead make a service call like the following.
+Generally, in Home Assistant, you can use the `homeassistant.turn_off` service to turn devices off. For the Remotec ZXT-120, you must instead make a service call like the following.
 
 ```yaml
 automation:
@@ -92,20 +100,18 @@ automation:
       - service: climate.set_hvac_mode
         data:
           entity_id: climate.remotec_zxt120_heating_1_id
-          hvac_mode: 'Off'
+          hvac_mode: "Off"
 ```
 
 **Note:** In the example above, the word `Off` is encased in single quotes to be valid YAML.
 
 ### Test if it works
 
-A simple way to test if your Z-Wave climate device is working is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose the applicable Climate service from the list of **Available services:** and enter something like the sample below into the **Service Data** field and then press **CALL SERVICE**.
+A simple way to test if your Z-Wave climate device is working is to use **Developer Tools** -> **Services**. Choose the applicable Climate service from the list of **Available services:** and enter something like the sample below into the **Service Data** field and then press **CALL SERVICE**.
 
-```json
-{
-  "entity_id": "climate.remotec_zxt120_heating_1_id",
-  "hvac_mode": "Heat"
-}
+```yaml
+entity_id: climate.remotec_zxt120_heating_1_id
+hvac_mode: Heat
 ```
 
 ## Cover

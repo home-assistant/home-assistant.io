@@ -189,6 +189,6 @@ action:
 
 <div class='note'>
 
-Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
+Don't forget to [allowlist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
 
 </div>

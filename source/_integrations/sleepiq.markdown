@@ -7,11 +7,11 @@ ha_category:
   - Binary Sensor
   - Other
 ha_release: 0.29
-ha_iot_class: Local Polling
 ha_codeowners:
   - '@home-assistant'
   - '@Jay2645'
   - '@Jpeterson37'
+ha_iot_class: Cloud Polling
 ha_domain: sleepiq
 ---
 

@@ -3,6 +3,7 @@ title: Shell Command
 description: Instructions on how to integrate Shell commands into Home Assistant.
 ha_category:
   - Automation
+ha_iot_class: Local Push
 ha_release: 0.7.6
 ha_quality_scale: internal
 ha_codeowners:
@@ -37,7 +38,6 @@ Any service data passed into the service call to activate the shell command will
 `stdout` and `stderr` output from the command are both captured and will be logged by setting the [log level](/integrations/logger/) to debug.
 
 ```yaml
-
 # Apply value of a GUI slider to the shell_command
 automation:
   - alias: run_set_ac

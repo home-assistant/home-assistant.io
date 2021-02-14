@@ -3,6 +3,7 @@ title: VoiceRSS
 description: Instructions on how to setup VoiceRSS TTS with Home Assistant.
 ha_category:
   - Text-to-speech
+ha_iot_class: Cloud Push
 ha_release: 0.35
 ha_domain: voicerss
 ---
@@ -42,7 +43,7 @@ format:
   default: 8khz_8bit_mono
 {% endconfiguration %}
 
-Check the [VoiceRSS API documentation](http://www.voicerss.org/api/documentation.aspx) for allowed values.
+Check the [VoiceRSS API documentation](http://www.voicerss.org/api/) for allowed values.
 
 ## Full configuration example
 
@@ -53,9 +54,9 @@ The configuration sample below shows how an entry can look like:
 tts:
   - platform: voicerss
     api_key: YOUR_API_KEY
-    language: 'de-de'
+    language: "de-de"
     codec: mp3
-    format: '8khz_8bit_mono'
+    format: "8khz_8bit_mono"
 ```
 
 Please note, some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'

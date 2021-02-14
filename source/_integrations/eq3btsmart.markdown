@@ -42,7 +42,7 @@ climate:
   - platform: eq3btsmart
     devices:
       room1:
-        mac: '00:11:22:33:44:55'
+        mac: "00:11:22:33:44:55"
 ```
 
 {% configuration %}

@@ -27,7 +27,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: delijn
-    api_key: 'API_SUBSCRIPTION_KEY'
+    api_key: "API_SUBSCRIPTION_KEY"
     next_departure:
     - stop_id: 'STOP_ID'
 ```
@@ -64,7 +64,7 @@ The example below shows a full configuration with two sensors, only the abcdefg 
 sensor:
   # De Lijn public transport
   - platform: delijn
-    api_key: 'abcdefg'
+    api_key: "abcdefg"
     next_departure:
     - stop_id: '200018'
     - stop_id: '201169'

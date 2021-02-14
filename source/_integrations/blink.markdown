@@ -121,7 +121,7 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
   trigger:
     platform: state
     entity_id: all
-    to: 'not_home'
+    to: "not_home"
   action:
     service: alarm_control_panel.alarm_arm_away
     entity_id: alarm_control_panel.blink_my_sync_module
@@ -137,7 +137,7 @@ Similar to the previous example, this automation will disarm blink when arriving
   trigger:
     platform: state
     entity_id: all
-    to: 'home'
+    to: "home"
   action:
     service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.blink_my_sync_module
@@ -150,18 +150,19 @@ When motion is detected, you can use the Blink Home Assistant integration to sav
 Again, this example assumes your camera's name (in the blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](/docs/configuration/templating/).
 
 {% raw %}
+
 ```yaml
 - id: save_blink_video_on_motion
   alias: Save Blink Video on Motion
   trigger:
     platform: state
     entity_id: binary_sensor.blink_my_camera_motion_detected
-    to: 'on'
+    to: "on"
   action:
     service: blink.save_video
     data:
       name: "My Camera"
       filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
-
 ```
+
 {% endraw %}

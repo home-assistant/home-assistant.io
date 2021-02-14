@@ -1,7 +1,6 @@
 ---
 title: "Updater"
 description: "Details what the updater integration is reporting about your Home Assistant instance."
-redirect_from: /details/updater/
 ---
 
 Starting with 0.31 the [updater component](/integrations/updater/) sends an optional report about Home Assistant instance.

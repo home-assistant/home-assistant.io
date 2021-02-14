@@ -41,6 +41,7 @@ port:
 If you would like to convert the values from multiple panels or view the total power the house is using, you can use the [template platform](/integrations/template).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry for template platform
 sensors:
@@ -48,13 +49,14 @@ sensors:
   sensors:
     total_pv_power:
       friendly_name: "Total PV Power"
-      unit_of_measurement: 'W'
+      unit_of_measurement: "W"
       value_template: "{{ (states('sensor.pv1_power') | float) + (states('sensor.pv2_power') | float) }}"
     load_power:
       friendly_name: "Load Power"
-      unit_of_measurement: 'W'
+      unit_of_measurement: "W"
       value_template: "{{ (states('sensor.power_now') | float) - (states('sensor.exported_power') | float) }}"
 ```
+
 {% endraw %}
 
 ### Note

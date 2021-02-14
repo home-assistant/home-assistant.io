@@ -16,7 +16,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: rtorrent
-    url: 'http://<user>:<password>@<host>:<port>/RPC2'
+    url: "http://<user>:<password>@<host>:<port>/RPC2"
     monitored_variables:
       - 'current_status'
       - 'download_speed'

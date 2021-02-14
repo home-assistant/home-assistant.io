@@ -3,6 +3,7 @@ title: Tank Utility
 description: How to integrate Tank Utility sensors within Home Assistant.
 ha_category:
   - Energy
+ha_iot_class: Cloud Polling
 ha_release: 0.53
 ha_domain: tank_utility
 ---

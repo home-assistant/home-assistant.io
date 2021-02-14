@@ -3,6 +3,7 @@ title: Universal Media Player
 description: Instructions on how to create a universal media player in Home Assistant.
 ha_category:
   - Media Player
+ha_iot_class: Calculated
 ha_release: 0.11
 ha_quality_scale: internal
 ha_domain: universal
@@ -50,7 +51,7 @@ name:
   type: string
 children:
   description: Ordered list of child media players this entity will control.
-  required: true
+  required: false
   type: list
 state_template:
   description: "A [template](/topics/templating/) can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans."
@@ -118,12 +119,12 @@ media_player:
       service: media_player.select_source
       data:
         entity_id: media_player.receiver
-        source: '{{ source }}'
+        source: "{{ source }}"
     volume_set:
       service: media_player.volume_set
       data:
         entity_id: media_player.receiver
-        volume_level: '{{ volume_level }}'
+        volume_level: "{{ volume_level }}"
 
   attributes:
     state: switch.living_room_tv
@@ -214,8 +215,8 @@ automation:
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
-    from: 'off'
-    to: 'playing'
+    from: "off"
+    to: "playing"
   action:
   - service: media_player.turn_on
     entity_id: media_player.kodi_tv
@@ -224,7 +225,7 @@ automation:
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
-    to: 'idle'
+    to: "idle"
     for:
       minutes: 15
   action:
@@ -271,7 +272,7 @@ media_player:
         service: remote.turn_on
         data:
           entity_id: remote.alexander_down_guest
-          activity: '{{ source }}'
+          activity: "{{ source }}"
 ```
 
 {% endraw %}

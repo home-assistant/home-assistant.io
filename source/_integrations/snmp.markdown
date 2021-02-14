@@ -34,6 +34,7 @@ The following OID examples pull the current MAC Address table from a router. Thi
 | Aruba | IAP325 on AOS 6.5.4.8 | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
 | BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
 | DD-WRT | unknown version/model | `1.3.6.1.2.1.4.22.1.2` |
+| IPFire | 2.25 | `1.3.6.1.2.1.4.22.1.2` |
 | MikroTik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
 | MikroTik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
 | OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
@@ -224,17 +225,19 @@ According to the most common SNMP standard, the uptime of a device is accessible
 To create a sensor that displays the uptime for your printer in minutes, you can use this configuration:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: snmp
-    name: 'Printer uptime'
+    name: "Printer uptime"
     host: 192.168.2.21
     baseoid: 1.3.6.1.2.1.1.3.0
     accept_errors: true
-    unit_of_measurement: 'minutes'
-    value_template: '{{((value | int) / 6000) | int}}'
+    unit_of_measurement: "minutes"
+    value_template: "{{((value | int) / 6000) | int}}"
 ```
+
 {% endraw %}
 
 The `accept_errors` option will allow the sensor to work even if the printer is not on when Home Assistant is first started: the sensor will just display a `-` instead of a minute count.
@@ -386,12 +389,12 @@ switch:
   - platform: snmp
     name: SNMP v3 switch
     host: 192.168.0.3
-    version: '3'
-    username: 'myusername'
-    auth_key: 'myauthkey'
-    auth_protocol: 'hmac-sha'
-    priv_key: 'myprivkey'
-    priv_protocol: 'aes-cfb-128'
+    version: "3"
+    username: "myusername"
+    auth_key: "myauthkey"
+    auth_protocol: "hmac-sha"
+    priv_key: "myprivkey"
+    priv_protocol: "aes-cfb-128"
     baseoid: 1.3.6.1.4.1.19865.1.2.1.4.0
     payload_on: 1
     payload_off: 0
@@ -399,12 +402,12 @@ switch:
   - platform: snmp
     name: Enable PoE on Netgear switch port 2 using SNMP v3
     host: 192.168.0.4
-    version: '3'
-    username: 'myusername'
-    auth_key: 'myauthkey'
-    auth_protocol: 'hmac-sha'
-    priv_key: 'myprivkey'
-    priv_protocol: 'des'
+    version: "3"
+    username: "myusername"
+    auth_key: "myauthkey"
+    auth_protocol: "hmac-sha"
+    priv_key: "myprivkey"
+    priv_protocol: "des"
     baseoid: 1.3.6.1.4.1.4526.11.15.1.1.1.1.1.2
     payload_on: 15400
     payload_off: 3000

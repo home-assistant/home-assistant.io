@@ -77,8 +77,8 @@ automation:
     trigger:
       platform: state
       entity_id: sensor.washer_status
-      from: 'Running'
-      to: 'Complete'
+      from: "Running"
+      to: "Complete"
     action:
       service: script.turn_on
       entity_id: script.washer_complete
@@ -87,8 +87,8 @@ automation:
     trigger:
       platform: state
       entity_id: sensor.washer_status
-      from: 'Complete'
-      to: 'Empty'
+      from: "Complete"
+      to: "Empty"
     action:
       service: scene.turn_on
       entity_id: scene.normal

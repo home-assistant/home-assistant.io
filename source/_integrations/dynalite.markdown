@@ -284,9 +284,9 @@ dynalite:
           template: time_cover
       preset:
         '1':
-          name: 'On'
+          name: "On"
         '4':
-          name: 'Off'
+          name: "Off"
       template:
         room:
           room_on: 1

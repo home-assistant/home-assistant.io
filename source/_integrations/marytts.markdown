@@ -3,6 +3,7 @@ title: MaryTTS
 description: Instructions on how to setup MaryTTS with Home Assistant.
 ha_category:
   - Text-to-speech
+ha_iot_class: Local Push
 ha_release: 0.43
 ha_domain: marytts
 ---
@@ -67,11 +68,11 @@ A full configuration sample including optional variables:
 # Example configuration.yaml entry
 tts:
   - platform: marytts
-    host: 'localhost'
+    host: "localhost"
     port: 59125
-    codec: 'WAVE_FILE'
-    voice: 'cmu-slt-hsmm'
-    language: 'en_US'
+    codec: "WAVE_FILE"
+    voice: "cmu-slt-hsmm"
+    language: "en_US"
     effect:
       Volume: "amount:2.0;",
       TractScaler: "amount:1.5;",

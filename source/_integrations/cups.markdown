@@ -19,7 +19,7 @@ You will need to install the `python3-dev` or `python3-devel` package and the de
 To set up the sensor the "Queue Name" of the printer is needed. The fastest way to get it, is to visit the CUPS web interface at "http://[IP ADDRESS PRINT SERVER]:631" and go to "Printers".
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/cups-sensor.png' />
+  <img src='/images/screenshots/cups-sensor.png' />
 </p>
 
 ## Configuration

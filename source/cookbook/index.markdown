@@ -3,7 +3,7 @@ title: "Cookbook"
 description: "Community maintained list of different ways to use Home Assistant."
 sidebar: false
 regenerate: true
-hide_github_edit: true
+feedback: false
 ---
 
 This is a community curated list of different ways to use Home Assistant. Most
@@ -17,7 +17,7 @@ A great place to find popular configurations is on this
 
 </div>
 
-[automation]: /getting-started/automation/
+[automations]: /getting-started/automation/
 [github-search]: https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories
 
 {% assign cookbook = site.cookbook | sort: 'title' %}

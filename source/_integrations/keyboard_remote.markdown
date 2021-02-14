@@ -19,7 +19,7 @@ The `evdev` package is used to interface with the keyboard and thus this is Linu
 ```yaml
 # Example configuration.yaml entry
 keyboard_remote:
-  type: 'key_up'
+  type: "key_up"
 ```
 
 {% configuration %}
@@ -62,7 +62,7 @@ A full configuration for two Keyboard Remotes could look like the one below:
 ```yaml
 keyboard_remote:
 - device_descriptor: '/dev/input/by-id/bluetooth-keyboard'
-  type: 'key_down'
+  type: "key_down"
   emulate_key_hold: true
   emulate_key_hold_delay: 250
   emulate_key_hold_repeat: 33
@@ -76,8 +76,8 @@ Or like the following for one keyboard:
 
 ```yaml
 keyboard_remote:
-  device_name: 'Bluetooth Keyboard'
-  type: 'key_down'
+  device_name: "Bluetooth Keyboard"
+  type: "key_down"
 ```
 
 And an automation rule to breathe life into it:

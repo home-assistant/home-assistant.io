@@ -301,7 +301,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add websock command to query device for triggers ([@emontnemery] - [#24044]) ([automation docs]) ([light docs])
 - Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) (breaking change)
 - Use met.no instead of yr.no in default config ([@thomasloven] - [#24470])
-- Bump pyubee to 0.7 to support more models ([@mzdrale] - [#24477]) ([ubee docs])
+- Bump pyubee to 0.7 to support more models ([@mzdrale] - [#24477])
 - Somfy open api ([@tetienne] - [#19548]) ([somfy docs]) (new-platform)
 - Add APRS device tracker component ([@PhilRW] - [#22469]) ([aprs docs]) (new-platform)
 - Add Linky sensors : yesterday + months + years ([@Quentame] - [#23726]) (breaking change)
@@ -780,7 +780,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [totalconnect docs]: /integrations/totalconnect/
 [traccar docs]: /integrations/traccar/
 [tradfri docs]: /integrations/tradfri/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [velbus docs]: /integrations/velbus/
 [velux docs]: /integrations/velux/

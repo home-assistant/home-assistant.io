@@ -20,7 +20,7 @@ sensor:
     sensors:
       battery_iphone:
         friendly_name: iPhone Battery
-        unit_of_measurement: '%'
+        unit_of_measurement: "%"
         value_template: >-
             {%- if state_attr('device_tracker.iphone', 'battery') %}
                 {{ state_attr('device_tracker.iphone', 'battery')|round }}
@@ -44,7 +44,7 @@ sensor:
     sensors:
       battery_phone:
         friendly_name: AndroidPhone Battery
-        unit_of_measurement: '%'
+        unit_of_measurement: "%"
         value_template: >-
             {%- if state_attr('device_tracker.xxxxx', 'battery_level') %}
                 {{ state_attr('device_tracker.xxxxx', 'battery_level')|round }}
@@ -71,7 +71,7 @@ sensor:
     state_topic: "owntracks/username/deviceid"
     name: "Battery Tablet"
     unit_of_measurement: "%"
-    value_template: '{{ value_json.batt }}'
+    value_template: "{{ value_json.batt }}"
     device_class: battery
 ```
 
@@ -90,7 +90,7 @@ sensor:
     sensors:
       your_battery_sensor_name:
         value_template: "{{ state_attr('device_tracker.deviceid', 'battery_level') }}"
-        unit_of_measurement: '%'
+        unit_of_measurement: "%"
 ```
 
 {% endraw %}

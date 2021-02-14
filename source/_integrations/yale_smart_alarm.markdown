@@ -4,6 +4,7 @@ description: Instructions on how to integrate Yale Smart Alarms into Home Assist
 ha_category:
   - Alarm
 ha_release: 0.78
+ha_iot_class: Cloud Polling
 ha_domain: yale_smart_alarm
 ---
 
@@ -52,7 +53,7 @@ automation:
     trigger:
       platform: state
       entity_id: alarm_control_panel.yale_smart_alarm
-      to: 'disarmed'
+      to: "disarmed"
     condition:
       condition: sun
       before: sunset
@@ -63,7 +64,7 @@ automation:
     trigger:
       platform: state
       entity_id: alarm_control_panel.yale_smart_alarm
-      to: 'armed_away'
+      to: "armed_away"
     action:
       service: scene.turn_on
       entity_id: scene.OnArmedAway

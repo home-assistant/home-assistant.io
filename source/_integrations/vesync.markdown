@@ -5,6 +5,7 @@ ha_category:
   - Switch
   - Fan
 ha_release: 0.66
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@markperdue'
@@ -114,15 +115,15 @@ sensor:
       vesync_switch_watts:
         friendly_name_template: "{{ states.switch.vesync_switch.name}} Current Consumption"
         value_template: '{{ states.switch.vesync_switch.attributes["current_power_w"] | float }}'
-        unit_of_measurement: 'W'
+        unit_of_measurement: "W"
       vesync_switch_total_kwh:
         friendly_name_template: "{{ states.switch.vesync_switch.name}} Total Consumption"
         value_template: '{{ states.switch.vesync_switch.attributes["today_energy_kwh"] | float }}'
-        unit_of_measurement: 'kWh'
+        unit_of_measurement: "kWh"
       vesync_switch_volts:
         friendly_name_template: "{{ states.switch.vesync_switch.name}} Voltage"
         value_template: '{{ states.switch.vesync_switch.attributes["voltage"] | float }}'
-        unit_of_measurement: 'V'
+        unit_of_measurement: "V"
 ```
 
 {% endraw %}

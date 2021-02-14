@@ -1,7 +1,6 @@
 ---
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
-redirect_from: /getting-started/automation-trigger/
 ---
 
 ### What are triggers
@@ -12,9 +11,13 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 
 The following sections introduce all trigger types and further details to get started.
 
+### Trigger variables
+
+Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
+
 ### Event trigger
 
-Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
+Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
 
 Events can be fired by integrations or via the API. There is no limitation to the types. A list of built-in events can be found [here](/docs/configuration/events/).
 
@@ -26,7 +29,47 @@ automation:
     # optional
     event_data:
       mood: happy
+    context:
+      user_id:
+      # any of these will match
+        - MY_USER_ID
+        - ANOTHER_USER_ID
 ```
+
+It is also possible to listen for multiple events at once. This is useful for
+event that contain no, or similar, data and contexts.
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type:
+      - automation_reloaded
+      - scene_reloaded
+```
+
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `event_type`, `event_data` and `context` options.
+
+<div class='note'>
+
+The `event_type`, `event_data` and `context` templates are only evaluated when setting up the trigger, they will not be reevaluated for every event.
+
+</div>
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    sub_event: ABC
+    node: ac
+    value: on
+  trigger:
+    platform: event
+    event_type: "{{ 'MY_CUSTOM_EVENT_' ~ sub_event }}"
+```
+
+{% endraw %}
 
 ### Home Assistant trigger
 
@@ -53,6 +96,32 @@ automation:
     payload: "on"
     encoding: "utf-8"
 ```
+
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
+
+<div class='note'>
+
+The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
+
+</div>
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    room: "living_room"
+    node: "ac"
+    value: "on"
+  trigger:
+    platform: mqtt
+    topic: "{{ room ~ '/switch/' ~ node}}"
+    # Optional
+    payload: "{{ 'state:' ~ value }}"
+    encoding: "utf-8"
+```
+
+{% endraw %}
 
 ### Numeric state trigger
 
@@ -83,8 +152,21 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from strict above 17 and strict below 25).
+In the example above, the trigger would fire a single time if a numeric_state goes into to 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
 </div>
+
+Number helpers (`input_number` entities) can be used in the `above` and `below` thresholds, making
+the trigger more dynamic, like:
+
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    # input_number entity id can be specified for above and/or below thresholds
+    above: input_number.temperature_threshold_high
+    below: input_number.temperature_threshold_low
+```
 
 The `for:` can also be specified as `HH:MM:SS` like this:
 
@@ -135,7 +217,8 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 ### State trigger
 
-Fires when the state of any of given entities changes. If only `entity_id` is given trigger will fire for all state changes, even if only state attributes change.
+Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
+If only one of `from_state` or `to_state` are given, the trigger will fire on any matching state change, but not if only attributes change.
 
 <div class='note'>
 
@@ -147,11 +230,26 @@ The values you see in your overview will often not be the same as the actual sta
 automation:
   trigger:
     platform: state
-    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    entity_id:
+      - device_tracker.paulus
+      - device_tracker.anne_therese
     # Optional
     from: "not_home"
     # Optional
     to: "home"
+```
+
+It's possible to give a list of from_states or to_states:
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: vacuum.test
+    from:
+    - "cleaning"
+    - "returning"
+    to: "error"
 ```
 
 #### Holding a state
@@ -287,7 +385,7 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    attribute: elevation
     # Can be a positive or negative number
     below: -4.0
   action:
@@ -297,7 +395,7 @@ automation:
 
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](https://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
+If you want to get more precise, you can use this [solar calculator](https://www.esrl.noaa.gov/gmd/grad/solcalc/), which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
 Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 
@@ -309,6 +407,43 @@ Although the actual amount of light depends on weather, topography and land cove
 - Astronomical twilight: -12° > Solar angle > -18°
 
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
+
+### Tag trigger
+
+Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+scanned using the Home Assistant Companion mobile application.
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+```
+
+Additionally, you can also only trigger if a card is scanned by a specific
+device/scanner by setting the `device_id`:
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id: A7-6B-90-5F
+    device_id: 0e19cd3cf2b311ea88f469a7512c307d
+```
+
+Or trigger on multiple possible devices for multiple tags:
+
+```yaml
+automation:
+  trigger:
+    platform: tag
+    tag_id:
+      - A7-6B-90-5F
+      - A7-6B-15-AC
+    device_id:
+      - 0e19cd3cf2b311ea88f469a7512c307d
+      - d0609cb25f4a13922bb27d8f86e4c821
+```
 
 ### Template trigger
 
@@ -346,30 +481,11 @@ automation:
 
 The `for` template(s) will be evaluated when the `value_template` becomes `true`.
 
-<div class='note warning'>
-  
-Rendering templates with time (`now()`) is dangerous as trigger templates are only updated based on entity state changes.
-
-</div>
-
-As an alternative, providing you include the sensor [time](/integrations/time_date/) in your configuration, you can use the following template:
-
-{% raw %}
-
-```yaml
-automation:
-  trigger:
-    platform: template
-    value_template: "{{ (states.sensor.time.last_changed - states.YOUR.ENTITY.last_changed).total_seconds() > 300 }}"
-```
-
-{% endraw %}
-
-which will evaluate to `True` if `YOUR.ENTITY` changed more than 300 seconds ago.
+Templates that don't contain an entity will be rendered once per minute.
 
 ### Time trigger
 
-The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are two allowed formats:
+The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are three allowed formats:
 
 #### Time String
 
@@ -400,7 +516,7 @@ automation:
   - trigger:
       platform: state
       entity_id: binary_sensor.motion
-      to: 'on'
+      to: "on"
     action:
       - service: climate.turn_on
         entity_id: climate.office
@@ -420,6 +536,20 @@ automation:
 ```
 
 {% endraw %}
+
+#### Sensors of datetime device class
+
+The Entity ID of a [sensor](/integrations/sensor/) with the "timestamp" device class.
+
+```yaml
+automation:
+  - trigger:
+      platform: time
+      at: sensor.phone_next_alarm
+    action:
+      service: light.turn_on
+      entity_id: light.bedroom
+```
 
 #### Multiple Times
 
@@ -467,7 +597,7 @@ Do not prefix numbers with a zero - using `'00'` instead of '0' for example will
 
 ### Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. 
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
 
 ```yaml
 automation:
@@ -482,7 +612,7 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS. 
+Webhook endpoints don't require authentication, other than knowing a valid webhook ID. You can send a data payload, either as encoded form data or JSON data. The payload is available in an automation template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`. Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
 Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
 
@@ -504,6 +634,13 @@ automation:
 
 Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
 Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
+
+<div class='note'>
+
+This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
+
+</div>
+
 
 ```yaml
 automation:
@@ -547,7 +684,7 @@ It is possible to specify multiple entities for the same trigger. To do so add m
 automation:
   trigger:
     - platform: state
-      entity_id: 
+      entity_id:
         - sensor.one
         - sensor.two
         - sensor.three

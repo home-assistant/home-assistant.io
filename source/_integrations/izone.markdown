@@ -54,10 +54,62 @@ Unit modes off, heat, cool, dry, and fan only are supported. For units fitted wi
 
 Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
 
+## Control zone (climate control mode)
+
+With multiple climate-controlled zones, you can't set the target temperature of the control but set the target temperature
+for each individual zone.
+
+The climate controller then selects the zone that is furthest away from the target and feeds the current temperature and
+target temperature into the air conditioner unit, closing any other zones that have already reached their target.
+
+In this mode the current control zone that has been selected is reported, as is the read-only target temperature for that 
+zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
+zone.
+
+You can add configure to read these values into sensors (in `configuration.yaml`), 
+along with the supply temperature (use the ID of your unit):
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry to create sensors
+# from the izone controller state attributes
+sensor:
+  - platform: template
+    sensors:
+      control_zone:
+        friendly_name: "Control zone"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
+      control_zone_target:
+        friendly_name: "Target temperature"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
+        unit_of_measurement: "°C" 
+      temperature_supply:
+        friendly_name: "Supply temperature"
+        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
+        unit_of_measurement: "°C"
+```
+
+{% endraw %}
+
+And then graph them on a dashboard, along with the standard values such as the current temperature. Either add the sensor entities via the visual editor, or cut and paste this
+snippet into the code editor:
+
+```yaml
+# Example snippet for dashboard card configuration (code editor)
+entities:
+  - entity: sensor.control_zone_target
+  - entity: sensor.control_zone
+  - entity: sensor.temperature_supply
+  - entity: climate.izone_controller_0000XXXXX
+hours_to_show: 24
+refresh_interval: 0
+type: history-graph
+```
+
 ## Debugging
 
 If you're trying to track down issues with the component, set up logging for it:
-
 
 ```yaml
 # Example configuration.yaml with logging for iZone

@@ -72,13 +72,13 @@ sensor:
      - station: Hauptbahnhof
        name: Hbf
        destinations: ['München Flughafen Terminal','Markt Schwaben']
-       products: 'S-Bahn'
+       products: "S-Bahn"
        timeoffset: 2
      - station: Sendlinger Tor
        lines: ['U2','U8']
      - station: Scheidplatz
        products: ['U-Bahn']
-       directions: '1'
+       directions: "1"
 ```
 
 ## If you need help...

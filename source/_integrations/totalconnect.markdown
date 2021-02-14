@@ -5,6 +5,7 @@ ha_category:
   - Alarm
   - Binary Sensor
 ha_release: 0.42
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@austinmroczek'
@@ -45,7 +46,7 @@ automation:
     trigger:
       platform: state
       entity_id: alarm_control_panel.total_connect
-      to: 'disarmed'
+      to: "disarmed"
     condition:
       condition: sun
       before: sunset
@@ -56,7 +57,7 @@ automation:
     trigger:
       platform: state
       entity_id: alarm_control_panel.total_connect
-      to: 'armed_away'
+      to: "armed_away"
     action:
       service: scene.turn_on
       entity_id: scene.OnArmedAway

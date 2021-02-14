@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Input Boolean integration into
 ha_category:
   - Automation
 ha_release: 0.11
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -74,11 +75,11 @@ automation:
   trigger:
     platform: state
     entity_id: binary_sensor.motion_garage
-    to: 'on'
+    to: "on"
   condition:
     condition: state
     entity_id: input_boolean.notify_home
-    state: 'on'
+    state: "on"
   action:
     service: notify.pushbullet
     data:

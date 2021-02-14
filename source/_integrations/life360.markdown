@@ -163,8 +163,6 @@ Therefore, an optional filtering mechanism has been implemented to prevent incon
 
 ### Typical configuration
 
-{% raw %}
-
 ```yaml
 life360:
   # MPH, assuming imperial units.
@@ -184,11 +182,7 @@ life360:
   error_threshold: 3
 ```
 
-{% endraw %}
-
 ### Circle and Member Filtering Example
-
-{% raw %}
 
 ```yaml
 life360:
@@ -200,11 +194,7 @@ life360:
     exclude: John Doe
 ```
 
-{% endraw %}
-
 ### Entering accounts in configuration
-
-{% raw %}
 
 ```yaml
 life360:
@@ -212,8 +202,6 @@ life360:
     - username: LIFE360_USERNAME
       password: LIFE360_PASSWORD
 ```
-
-{% endraw %}
 
 ### Example overdue update automations
 

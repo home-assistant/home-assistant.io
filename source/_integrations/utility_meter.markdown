@@ -39,7 +39,7 @@ source:
   required: true
   type: string
 cycle:
-  description: How often to reset the counter. Valid values are `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
+  description: How often to reset the counter. Valid values are `quarter-hourly`, `hourly`, `daily`, `weekly`, `monthly`, `bimonthly`, `quarterly` and `yearly`. Cycle value `bimonthly` will reset the counter once in two months.
   required: true
   type: string
 offset:
@@ -146,9 +146,9 @@ a time based automation can be used:
 automation:
   trigger:
     - platform: time
-      at: '09:00:00'
+      at: "09:00:00"
     - platform: time
-      at: '21:00:00'
+      at: "21:00:00"
   action:
     - service: utility_meter.next_tariff
       entity_id: utility_meter.daily_energy
@@ -193,6 +193,7 @@ utility_meter:
 Additionally, you can add template sensors to compute daily and monthly total usage.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -206,4 +207,5 @@ sensor:
         unit_of_measurement: kWh
         value_template: "{{ states('sensor.monthly_energy_offpeak')|float + states('sensor.monthly_energy_peak')|float }}"
 ```
+
 {% endraw %}

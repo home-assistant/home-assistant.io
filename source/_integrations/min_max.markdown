@@ -17,12 +17,14 @@ The `min_max` sensor platform consumes the state from other sensors to determine
 This sensor is an alternative to the [template sensor](/integrations/template)'s `value_template:` to get the average or the median of multiple sensors.
 
 {% raw %}
+
 ```yaml
 {{ ((float(states('sensor.kitchen_temperature')) +
      float(states('sensor.living_room_temperature')) +
      float(states('sensor.office_temperature'))) / 3) | round(2)
 }}
 ```
+
 {% endraw %}
 
 Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.

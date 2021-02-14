@@ -130,7 +130,7 @@ image_processing:
 ```
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/ssocr.png' />
+  <img src='/images/screenshots/ssocr.png' />
 </p>
 
 With the help of a [template sensor](/integrations/template), the value can be shown as badge.
@@ -142,9 +142,9 @@ sensor:
   - platform: template
     sensors:
       power_meter:
-        value_template: '{{ states('image_processing.sevensegment_ocr_seven_segments') }}'
-        friendly_name: 'Ampere'
-        unit_of_measurement: 'A'
+        value_template: "{{ states('image_processing.sevensegment_ocr_seven_segments') }}"
+        friendly_name: "Ampere"
+        unit_of_measurement: "A"
 ```
 
 {% endraw %}

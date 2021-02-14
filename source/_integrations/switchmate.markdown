@@ -19,7 +19,7 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 switch:
   - platform: switchmate
-    mac: 'cb:25:0b......'
+    mac: "cb:25:0b......"
 ```
 
 {% configuration %}

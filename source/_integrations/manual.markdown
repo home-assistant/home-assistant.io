@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.7.6
 ha_quality_scale: internal
 ha_domain: manual
+ha_iot_class: Calculated
 ---
 
 The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
@@ -133,7 +134,7 @@ In the configuration example below:
 alarm_control_panel:
   - platform: manual
     name: Home Alarm
-    code: '1234'
+    code: "1234"
     arming_time: 30
     delay_time: 20
     trigger_time: 4
@@ -156,16 +157,16 @@ automation:
   trigger:
     - platform: state
       entity_id: sensor.pir1
-      to: 'active'
+      to: "active"
     - platform: state
       entity_id: sensor.pir2
-      to: 'active'
+      to: "active"
     - platform: state
       entity_id: sensor.door
-      to: 'open'
+      to: "open"
     - platform: state
       entity_id: sensor.window
-      to: 'open'
+      to: "open"
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
@@ -183,7 +184,7 @@ automation:
     trigger:
       - platform: state
         entity_id: alarm_control_panel.ha_alarm
-        to: 'triggered'
+        to: "triggered"
     action:
       - service: notify.notify
         data:
@@ -198,7 +199,7 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.front_door_lock_alarm_type
-        to: '19'
+        to: "19"
         # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
     action:
       - service: alarm_control_panel.alarm_disarm
@@ -208,54 +209,49 @@ automation:
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status
 
 {% raw %}
+
 ```yaml
 - alias: 'Send notification when alarm is Disarmed'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'disarmed'
+      to: "disarmed"
   action:
     - service: notify.notify
       data:
         message: "ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}"
 ```
-{% endraw %}
 
-{% raw %}
 ```yaml
 - alias: 'Send notification when alarm is in pending status'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'pending'
+      to: "pending"
   action:
     - service: notify.notify
       data:
         message: "ALARM! The alarm is in pending status at {{ states('sensor.date_time') }}"
 ```
-{% endraw %}
 
-{% raw %}
 ```yaml
 - alias: 'Send notification when alarm is Armed in Away mode'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'armed_away'
+      to: "armed_away"
   action:
     - service: notify.notify
       data:
         message: "ALARM! The alarm is armed in Away mode {{ states('sensor.date_time') }}"
 ```
-{% endraw %}
 
-{% raw %}
 ```yaml
 - alias: 'Send notification when alarm is Armed in Home mode'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
-      to: 'armed_home'
+      to: "armed_home"
   action:
     - service: notify.notify
       data:
@@ -263,4 +259,5 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
         message: >
           ALARM! The alarm is armed in Home mode {{ states('sensor.date_time') }}
 ```
+
 {% endraw %}

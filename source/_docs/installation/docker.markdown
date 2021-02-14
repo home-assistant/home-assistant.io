@@ -1,7 +1,6 @@
 ---
 title: "Installation on Docker"
 description: "Instructions to install Home Assistant on a Docker."
-redirect_from: /getting-started/installation-docker/
 ---
 
 <div class='note warning'>
@@ -41,13 +40,19 @@ docker rm home-assistant  # remove it from Docker's list of containers
 docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant:stable  # finally, start a new one
 ```
 
-### Raspberry Pi 3 (Raspberry Pi OS)
+### Raspberry Pi 3/4 (Raspberry Pi OS)
 
+Raspberry Pi 3:
 ```bash
 docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/raspberrypi3-homeassistant:stable
 ```
 
-You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration, for example if you choose your configuration path to be `/home/pi/homeassistant`, then command would be:
+Raspberry Pi 4:
+```bash
+docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /PATH_TO_YOUR_CONFIG:/config --net=host homeassistant/raspberrypi4-homeassistant:stable
+```
+
+You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration. For example, if you choose your configuration path to be `/home/pi/homeassistant`, the command for **Raspberry Pi 3** would be:
 
 ```bash
 docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /home/pi/homeassistant:/config --net=host homeassistant/raspberrypi3-homeassistant:stable
@@ -225,7 +230,7 @@ device_tracker:
 
 If you change the configuration you have to restart the server. To do that you have 2 options.
 
- 1. You can go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant/restart` and click "Call Service".
+ 1. You can go to the **Developer Tools** -> **Services**, select the service `homeassistant.restart` and click "Call Service".
  2. Or you can restart it from a terminal by running `docker restart home-assistant`
 
 ## Docker Compose
@@ -233,7 +238,7 @@ If you change the configuration you have to restart the server. To do that you h
 As the Docker command becomes more complex, switching to `docker-compose` can be preferable and support automatically restarting on failure or system restart. Create a `docker-compose.yml` file:
 
 ```yaml
-  version: '3'
+  version: "3"
   services:
     homeassistant:
       container_name: home-assistant
@@ -261,9 +266,11 @@ docker-compose restart
 To update your docker-compose image to the latest version and restart:
 
 ```bash
-docker-compose pull
-docker-compose up -d --build homeassistant
+docker-compose pull homeassistant
+docker-compose up -d
 ```
+
+Note: the above will fetch the latest matching image for the `homeassistant` service only. To fetch all matching images for all services defined in the same `docker-compose.yaml` file, omit the service name from the first command.
 
 ## Exposing Devices
 
@@ -278,7 +285,7 @@ $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
 or in a `docker-compose.yml` file:
 
 ```yaml
-  version: '3'
+  version: "3"
   services:
     homeassistant:
       container_name: home-assistant
@@ -305,6 +312,6 @@ On Mac, USB devices are [not passed through](https://github.com/docker/for-mac/i
 
 The Home Assistant Container is using an alternative memory allocation library [jemalloc](http://jemalloc.net/) for better memory management and Python runtime speedup.
 
-As Jemalloc can cause issues on certain hardware, it can be disabled by passing the environment variable `DISABLE_JEMALLOC` with any value, for example: `-e "JEMALLOC_DISABLE=true"`.
+As jemalloc can cause issues on certain hardware, it can be disabled by passing the environment variable `DISABLE_JEMALLOC` with any value, for example: `-e "DISABLE_JEMALLOC=true"`.
 
-The error message `<jemalloc>: Unsupported system page size` is one known indicator. 
+The error message `<jemalloc>: Unsupported system page size` is one known indicator.
