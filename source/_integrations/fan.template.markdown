@@ -127,5 +127,5 @@ fan:
         description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` services.
         required: false
         type: integer
-        default: 100      
+        default: 100
 {% endconfiguration %}
