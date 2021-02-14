@@ -469,10 +469,10 @@ automation:
     action:
       - service: climate.turn_on
         target:
-        service: input_datetime.set_datetime
+          entity_id: climate.office
+      - service: input_datetime.set_datetime
         target:
           entity_id: input_datetime.turn_off_ac
-        entity_id: input_datetime.turn_off_ac
         data:
           datetime: >
             {{ (now().timestamp() + 2*60*60)
