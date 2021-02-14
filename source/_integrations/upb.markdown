@@ -200,8 +200,8 @@ all_lights_on:
     - service: scene.turn_on
       target:
         entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+          - scene.interior_lights
+          - scene.exterior_lights
 
 all_lights_off:
   alias: "All Lights Off"
