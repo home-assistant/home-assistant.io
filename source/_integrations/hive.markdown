@@ -38,7 +38,6 @@ Press on **Hive** and configure the integration:
 
 If you have 2 factor authentication setup on your Hive account, a following dialog will be presented asking for  your code.
 
-
 ### Configuration via YAML
 
 _YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore._
@@ -65,7 +64,6 @@ scan_interval:
   type: integer
   default: 120
 {% endconfiguration %}
-
 
 ## Options
 
