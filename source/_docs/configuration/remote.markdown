@@ -20,7 +20,7 @@ Remember to follow the [securing checklist](/docs/configuration/securing/) befor
 Home Assistant no longer supports remote access via IP address since release 0.77, you have to use a domain name. A Domain can be obtained from several providers. 
 </div>
 
-To set up a remote instance, you will need to set up Network Address Translation, Port Forwarding on your router, to port 8123 on the computer that is hosting Home Assistant. 
+To set up a remote instance, you will need to set up Port Forwarding on your router to port 8123 on the computer that is hosting Home Assistant. 
 
 <div class='note'>
 General Instructions on Port Forwarding can be found by searching `<router model> port forwarding instructions`. 
