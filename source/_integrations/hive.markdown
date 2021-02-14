@@ -19,7 +19,7 @@ ha_domain: hive
 
 The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
 
-This integration uses the  Hive website [https://my.hivehome.com](https://my.hivehome.com) credentials, you will need to use the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
+This integration uses the  Hive website [https://my.hivehome.com](https://my.hivehome.com) credentials, you will need to use the same username and password you use on the Hive website to configure this Hive integration in Home Assistant.
 
 To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
