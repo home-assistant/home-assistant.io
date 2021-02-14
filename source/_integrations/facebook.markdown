@@ -42,7 +42,7 @@ The phone number used in **target** should be registered with Facebook messenger
 ```yaml
 # Example automation notification entry
 automation:
-  - alias: Evening Greeting
+  - alias: "Evening Greeting"
     trigger:
       platform: sun
       event: sunset

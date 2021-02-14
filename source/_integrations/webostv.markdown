@@ -229,7 +229,7 @@ The icon can be overridden for individual notifications by providing a path to a
 
 ```yaml
 automation:
-  - alias: Front door motion
+  - alias: "Front door motion"
     trigger:
       platform: state
       entity_id: binary_sensor.front_door_motion

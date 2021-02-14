@@ -47,7 +47,7 @@ script:
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
 
 ```yaml
-- alias: Bedroom lights on
+- alias: "Bedroom lights on"
   service: light.turn_on
   data:
     entity_id: group.bedroom
@@ -74,7 +74,7 @@ The variables action allows you to set/override variables that will be accessibl
       - light.kitchen
       - light.living_room
     brightness: 100
-- alias: Control lights
+- alias: "Control lights"
   service: light.turn_on
   data:
     entity_id: "{{ entities }}"
@@ -290,7 +290,7 @@ The `event_data` accepts templates.
 The following automation example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
 ```yaml
-- alias: Fire Event
+- alias: "Fire Event"
   trigger:
     - platform: state
       entity_id: switch.kitchen
@@ -306,7 +306,7 @@ The following automation example shows how to capture the custom event `event_li
 {% raw %}
 
 ```yaml
-- alias: Capture Event
+- alias: "Capture Event"
   trigger:
     - platform: event
       event_type: event_light_state_changed
@@ -367,7 +367,7 @@ script:
   do_something:
     sequence:
       - service: script.get_ready_for_something
-      - alias: Repeat the sequence AS LONG AS the conditions are true
+      - alias: "Repeat the sequence AS LONG AS the conditions are true"
         repeat:
           while:
             - condition: state
@@ -415,7 +415,7 @@ automation:
         state: "off"
     mode: single
     action:
-      - alias: Repeat the sequence UNTIL the conditions are true
+      - alias: "Repeat the sequence UNTIL the conditions are true"
         repeat:
           sequence:
             # Run command that for some reason doesn't always work

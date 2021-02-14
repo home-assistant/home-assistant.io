@@ -107,7 +107,7 @@ Now the script.
 ```yaml
 script:
   ramp_light:
-    alias: Ramp Light Brightness
+    alias: "Ramp Light Brightness"
     description: Ramp light brightness up or down
     fields:
       direction:

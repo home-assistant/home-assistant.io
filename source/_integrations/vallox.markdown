@@ -60,7 +60,7 @@ input_select:
     icon: mdi:fan
 
 automation:
-  - alias: Set Ventilation Profile
+  - alias: "Set Ventilation Profile"
     trigger:
       platform: state
       entity_id: input_select.ventilation_profile
@@ -78,7 +78,7 @@ In order to also update the input select in case some external event changes the
 
 ```yaml
 automation:
-  - alias: Update Vallox input_select
+  - alias: "Update Vallox input_select"
     description: Update input_select when external event changes the profile
     trigger:
       - entity_id: sensor.vallox_current_profile

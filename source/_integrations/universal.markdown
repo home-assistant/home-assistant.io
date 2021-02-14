@@ -211,7 +211,7 @@ media_player:
         command: standby
 
 automation:
-- alias: Turn on the TV when Kodi is activated
+- alias: "Turn on the TV when Kodi is activated"
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
@@ -221,7 +221,7 @@ automation:
   - service: media_player.turn_on
     entity_id: media_player.kodi_tv
 
-- alias: Turn off the TV when Kodi is in idle > 15 min
+- alias: "Turn off the TV when Kodi is in idle > 15 min"
   trigger:
     platform: state
     entity_id: media_player.kodi_tv

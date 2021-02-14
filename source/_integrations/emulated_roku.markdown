@@ -109,7 +109,7 @@ The following is an example implementation of an automation:
 ```yaml
 # Example automation
 - id: amp_volume_up
-  alias: Increase amplifier volume
+  alias: "Increase amplifier volume"
   trigger:
   - platform: event
     event_type: roku_command

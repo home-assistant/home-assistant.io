@@ -163,7 +163,7 @@ calendar:
 
 # automations.yaml
 - id: wakeup
-  alias: worktime wakeup
+  alias: "worktime wakeup"
   trigger:
     platform: time
     at: "06:40:00"

@@ -231,7 +231,7 @@ These work recursively. As an example using `!include_dir_* automation`, will in
 
 ```yaml
 automation:
-  - alias: Automation 1
+  - alias: "Automation 1"
     trigger:
       platform: state
       entity_id: device_tracker.iphone
@@ -239,7 +239,7 @@ automation:
     action:
       service: light.turn_on
       entity_id: light.entryway
-  - alias: Automation 2
+  - alias: "Automation 2"
     trigger:
       platform: state
       entity_id: device_tracker.iphone
@@ -260,7 +260,7 @@ automation: !include_dir_list automation/presence/
 `automation/presence/automation1.yaml`
 
 ```yaml
-alias: Automation 1
+alias: "Automation 1"
 trigger:
   platform: state
   entity_id: device_tracker.iphone
@@ -273,7 +273,7 @@ action:
 `automation/presence/automation2.yaml`
 
 ```yaml
-alias: Automation 2
+alias: "Automation 2"
 trigger:
   platform: state
   entity_id: device_tracker.iphone
@@ -370,7 +370,7 @@ speech:
 
 ```yaml
 automation:
-  - alias: Automation 1
+  - alias: "Automation 1"
     trigger:
       platform: state
       entity_id: device_tracker.iphone
@@ -378,7 +378,7 @@ automation:
     action:
       service: light.turn_on
       entity_id: light.entryway
-  - alias: Automation 2
+  - alias: "Automation 2"
     trigger:
       platform: state
       entity_id: device_tracker.iphone
@@ -399,7 +399,7 @@ automation: !include_dir_merge_list automation/
 `automation/presence.yaml`
 
 ```yaml
-- alias: Automation 1
+- alias: "Automation 1"
   trigger:
     platform: state
     entity_id: device_tracker.iphone
@@ -407,7 +407,7 @@ automation: !include_dir_merge_list automation/
   action:
     service: light.turn_on
     entity_id: light.entryway
-- alias: Automation 2
+- alias: "Automation 2"
   trigger:
     platform: state
     entity_id: device_tracker.iphone

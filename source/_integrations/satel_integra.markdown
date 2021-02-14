@@ -166,7 +166,7 @@ Having configured the zones and the outputs, you can use them for automation, su
 For example:
 
 ```yaml
-  alias: Flick the input switch when movement in bedroom detected
+  alias: "Flick the input switch when movement in bedroom detected"
   trigger:
       platform: state
       entity_id: "binary_sensor.bedroom"

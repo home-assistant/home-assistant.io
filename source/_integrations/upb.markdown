@@ -173,7 +173,7 @@ Start a scene blinking.
 ```yaml
 #automation:
 
-- alias: 'Specific scene activated'
+- alias: "'Specific scene activated'"
   description: "Trigger when scene 9 on network 42 is activated"
   trigger:
     platform: event

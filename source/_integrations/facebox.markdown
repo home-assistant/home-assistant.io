@@ -99,7 +99,7 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
 
 ```yaml
 - id: '12345'
-  alias: Ringo Starr recognised
+  alias: "Ringo Starr recognised"
   trigger:
     platform: event
     event_type: image_processing.detect_face
@@ -144,7 +144,7 @@ You can use an automation to receive a notification when you train a face:
 
 ```yaml
 - id: '1533703568569'
-  alias: Face taught
+  alias: "Face taught"
   trigger:
   - event_data:
       service: facebox.teach_face
@@ -174,7 +174,7 @@ you can create an automation to receive notifications on Facebox errors:
 
 ```yaml
 - id: '1533703568577'
-  alias: Facebox error
+  alias: "Facebox error"
   trigger:
     platform: event
     event_type: system_log_event

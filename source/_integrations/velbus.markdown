@@ -88,7 +88,7 @@ Example:
 ```yaml
 script:
   trash_memo:
-    alias: Trash memo text
+    alias: "Trash memo text"
     sequence:
     - data:
         address: 65
@@ -104,7 +104,7 @@ The actual linking can be realized by two automation rules. One rule to control 
 ```yaml
 # Control light living from Velbus push_button_10
 - id: 'Control_light_living_from_Velbus'
-  alias: Control light living using Velbus push_button_10
+  alias: "Control light living using Velbus push_button_10"
   trigger:
   - entity_id: binary_sensor.push_button_10
     platform: state
@@ -116,7 +116,7 @@ The actual linking can be realized by two automation rules. One rule to control 
 
 # Keep status LED push_button_10 in sync to status light living
 - id: 'Update LED of push_button_10'
-  alias: Update LED state of push_button_10
+  alias: "Update LED state of push_button_10"
   trigger:
   - entity_id: light.living
     platform: state

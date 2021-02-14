@@ -100,7 +100,7 @@ The following example show how to implement an automation for the **button_press
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Point button press
+  alias: "Point button press"
   trigger:
   - platform: state
     entity_id: binary_sensor.point_button_press  # Change this accordingly
@@ -121,7 +121,7 @@ The events shown as [binary sensors](#binary-sensor) are sent to Home Assistant 
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Point button press (webhook)
+  alias: "Point button press (webhook)"
   trigger:
   - platform: event
     event_type: point_webhook_received

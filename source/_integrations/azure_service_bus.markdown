@@ -79,7 +79,7 @@ See the example below for how an automation trigger translates to a message on t
 
 ```yaml
 automation:
-  - alias: Sunset Service Bus message
+  - alias: "Sunset Service Bus message"
     trigger:
       platform: sun
       event: sunset

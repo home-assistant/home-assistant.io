@@ -244,7 +244,7 @@ sensor:
     scan_interval: 10
 
 automation:
-  - alias: Reconnect Hangouts
+  - alias: "Reconnect Hangouts"
     trigger:
       - entity_id: sensor.external_ip
         platform: state

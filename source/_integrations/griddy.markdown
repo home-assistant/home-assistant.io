@@ -51,7 +51,7 @@ The current price for the Load Zone will appear as a sensor:
 
 ```yaml
 - id: '1572630019168'
-  alias: Stop Tesla Charging if Power Price Spikes
+  alias: "Stop Tesla Charging if Power Price Spikes"
   description: ""
   trigger:
   - above: '30'

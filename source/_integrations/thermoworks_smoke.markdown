@@ -105,7 +105,7 @@ input_number:
     icon: mdi:thermometer
 
 automation:
-  - alias: Alert when My Smoke Probe 1 is above threshold
+  - alias: "Alert when My Smoke Probe 1 is above threshold"
     trigger:
       platform: template
       value_template: >-

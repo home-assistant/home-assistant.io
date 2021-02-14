@@ -101,7 +101,7 @@ The following are some examples showing how to correctly make service calls usin
 This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in home-assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera integration](/integrations/camera#service-snapshot)
 
 ```yaml
-alias: Blink Snap Picture
+alias: "Blink Snap Picture"
 sequence:
   - service: blink.trigger_camera
     data:
@@ -122,7 +122,7 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
 
 ```yaml
 - id: arm_blink_when_away
-  alias: Arm Blink When Away
+  alias: "Arm Blink When Away"
   trigger:
     platform: state
     entity_id: all
@@ -138,7 +138,7 @@ Similar to the previous example, this automation will disarm blink when arriving
 
 ```yaml
 - id: disarm_blink_when_home
-  alias: Disarm Blink When Home
+  alias: "Disarm Blink When Home"
   trigger:
     platform: state
     entity_id: all
@@ -158,7 +158,7 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
 
 ```yaml
 - id: save_blink_video_on_motion
-  alias: Save Blink Video on Motion
+  alias: "Save Blink Video on Motion"
   trigger:
     platform: state
     entity_id: binary_sensor.blink_my_camera_motion_detected

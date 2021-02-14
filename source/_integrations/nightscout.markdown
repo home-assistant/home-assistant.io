@@ -38,7 +38,7 @@ The state is the last reading from Nightscout, and you can see other information
 
 ```yaml
 - id: "1234567890123"
-  alias: overnight_low_kitchen_lights
+  alias: "overnight_low_kitchen_lights"
   description: Turn on the lights in the kitchen if my blood sugar drops low overnight
   trigger:
   - below: "65"

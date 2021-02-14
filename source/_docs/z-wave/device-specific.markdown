@@ -1153,7 +1153,7 @@ Let's see how this works in an automation for a Scene Master that's assigned as 
 
 ```yaml
 - id: "1234567890"
-  alias: Double-press Button 2 to toggle all lights
+  alias: "Double-press Button 2 to toggle all lights"
   trigger:
   - platform: event
     event_type: zwave.scene_activated
@@ -1202,7 +1202,7 @@ Here is an example configuration needed for the scene controller:
 
 ```yaml
 automation:
-  - alias: Sync the indicator value on button events
+  - alias: "Sync the indicator value on button events"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -1392,7 +1392,7 @@ Button four release|4|7740
 Example Event:
 
 ```yaml
-- alias: MatrixButton2
+- alias: "MatrixButton2"
   trigger:
     - event_type: zwave.scene_activated
       platform: event
@@ -1594,7 +1594,7 @@ Button two triple tap|2|4
 Example Event:
 
 ```yaml
-- alias: JascoButton1
+- alias: "JascoButton1"
   trigger:
     - event_type: zwave.scene_activated
       platform: event

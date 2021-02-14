@@ -83,7 +83,7 @@ The LIRC integration fires `ir_command_received` events on the bus. You can capt
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Off on Remote
+  - alias: "Off on Remote"
     trigger:
       platform: event
       event_type: ir_command_received

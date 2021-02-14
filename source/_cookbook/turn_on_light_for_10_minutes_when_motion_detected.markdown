@@ -10,7 +10,7 @@ This recipe will turn on a light when there is motion and turn off the light whe
 
 ```yaml
 automation:
-- alias: Turn on kitchen light when there is movement
+- alias: "Turn on kitchen light when there is movement"
   trigger:
     platform: state
     entity_id: sensor.motion_sensor
@@ -19,7 +19,7 @@ automation:
     service: light.turn_on
     entity_id: light.kitchen_light
 
-- alias: Turn off kitchen light 10 minutes after last movement
+- alias: "Turn off kitchen light 10 minutes after last movement"
   trigger:
     platform: state
     entity_id: sensor.motion_sensor
@@ -35,7 +35,7 @@ Or in the case of multiple sensors/triggers:
 
 ```yaml
 automation:
-- alias: Turn on hallway lights when the doorbell rings, the front door opens or if there is movement
+- alias: "Turn on hallway lights when the doorbell rings, the front door opens or if there is movement"
   trigger:
   - platform: state
     entity_id: sensor.motion_sensor, binary_sensor.front_door, binary_sensor.doorbell
@@ -50,7 +50,7 @@ automation:
     data:
       entity_id: timer.hallway
 
-- alias: Turn off hallway lights 10 minutes after trigger
+- alias: "Turn off hallway lights 10 minutes after trigger"
   trigger:
     platform: event
     event_type: timer.finished
@@ -71,7 +71,7 @@ timer:
 You can also restrict lights from turning on based on time of day and implement transitions for fading lights on and off.
 
 ```yaml
-- alias: Motion Sensor Lights On
+- alias: "Motion Sensor Lights On"
   trigger:
     platform: state
     entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor
@@ -87,7 +87,7 @@ You can also restrict lights from turning on based on time of day and implement 
       transition: 15
 
 
-- alias: Motion Sensor Lights Off
+- alias: "Motion Sensor Lights Off"
   trigger:
     - platform: state
       entity_id: binary_sensor.ecolink_pir_motion_sensor_sensor

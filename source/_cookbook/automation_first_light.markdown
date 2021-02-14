@@ -23,7 +23,7 @@ input_boolean:
 
 automation:
 #turns it on at 5am
-  - alias: Enable First Morning Trigger
+  - alias: "Enable First Morning Trigger"
     trigger:
       - platform: time
         at: "05:00:00"
@@ -32,7 +32,7 @@ automation:
       entity_id: input_boolean.trigger_first_morning
 
 # turns it off an hour after sunrise
-  - alias: Disable First Morning Trigger
+  - alias: "Disable First Morning Trigger"
     trigger:
       - platform: sun
         event: sunrise
@@ -45,7 +45,7 @@ automation:
 
 # This is the main automation. It triggers when my motion sensor is triggered
 # (in this case, a motion sensor from a security system attached to my Vera)
-  - alias: First Morning Motion
+  - alias: "First Morning Motion"
     trigger:
       platform: state
       entity_id: binary_sensor.livingroom_motion

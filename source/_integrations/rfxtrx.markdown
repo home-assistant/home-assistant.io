@@ -280,7 +280,7 @@ scene:
     light.ceiling_lights: off
 
 automation:
-  - alias: Use doorbell button to trigger scene
+  - alias: "Use doorbell button to trigger scene"
     trigger:
     - platform: event
       event_type: rfxtrx_event

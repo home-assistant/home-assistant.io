@@ -209,7 +209,7 @@ image_processing:
 
 ```yaml
 # Example advanced automations.yaml entry
-- alias: Doods scanning
+- alias: "Doods scanning"
   trigger:
      - platform: state
        entity_id:

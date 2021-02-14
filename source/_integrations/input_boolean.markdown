@@ -71,7 +71,7 @@ Here's an example of an automation using the above `input_boolean`. This action 
 
 ```yaml
 automation:
-  alias: Arriving home
+  alias: "Arriving home"
   trigger:
     platform: state
     entity_id: binary_sensor.motion_garage
