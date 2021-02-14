@@ -31,7 +31,7 @@ It is not advised to set up direct NAT without HTTPS enabled.  Always enable HTT
 
 One potential problem with port forwarding on a residential connection is most internet service providers use dynamic IP addresses. This offers the security of making it harder to find your IP address in the continuously moving sea of other IP addresses. However, it also makes it more difficult to find your Home Assistant within that sea. You can solve this by using a Dynamic DNS service.
 <div class='note'>
- [DuckDNS](https://www.duckdns.org/) provides free Dynamic DNS. [Google Domains](https://domains.google), or [No IP](https://noip.com) provide both the Domain and the Dynamic DNS required for Home Assistant. 
+ <a href="https://www.duckdns.org/">DuckDNS</a> provides free Dynamic DNS. <a href="https://domains.google">Google Domains</a>, or <a href="https://noip.com">No IP</a> provide both the Domain and the Dynamic DNS required for Home Assistant. 
 </div>
 
 If you cannot access your Home Assistant installation remotely, remember to check if your ISP provides you with a dedicated IP, instead of one shared with other users via a [CG-NAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT). This is becoming fairly common nowadays due to the shortage of IPv4 addresses. Some, if not most ISPs will require you to pay an extra fee to be assigned a dedicated IPv4 address.
