@@ -12,7 +12,7 @@ ha_platforms:
 
 The `Blockchain` sensor platform displays Bitcoin wallet balances from [blockchain.com](https://blockchain.com).
 
-To add the Blockchain sensor to your installation, specify a list of bitcoin addresses to watch in the `configuration.yaml` file. The sensor state will be the sum of the balances of all addresses listed.
+To add the Blockchain sensor to your installation, specify a list of bitcoin addresses to watch in the `configuration.yaml` file. The sensor state will be the sum of the balances of all addresses listed.  The sensor created will be called `sensor.bitcoin_balance`.
 
 ```yaml
 # Example configuration.yaml entry
