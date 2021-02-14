@@ -22,11 +22,10 @@ Home Assistant no longer supports remote access via IP address since release 0.7
 
 To set up a remote instance, you will need to set up Network Address Translation, Port Forwarding on your router, to port 8123 on the computer that is hosting Home Assistant. 
 
-{%raw%}{% include note.html content="
+<div class='note'>
 General Instructions on Port Forwarding can be found by searching `<router model> port forwarding instructions`. 
-" %}{% endraw%}
-
-<div class='important'>
+</div>
+<div class='note important'>
 It is not advised to set up direct NAT without HTTPS enabled.  Always enable HTTPS.
 </div>
 
