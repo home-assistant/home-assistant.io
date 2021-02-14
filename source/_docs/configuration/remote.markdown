@@ -17,7 +17,7 @@ Remember to follow the [securing checklist](/docs/configuration/securing/) befor
 
 ## Setting up remote access
 <div class='note'>
-Home Assistant no longer supports remote access via IP address since release 0.77, you have to use a domain name.  A Domain can be obtained cheaply from several providers. 
+Home Assistant no longer supports remote access via IP address since release 0.77, you have to use a domain name. A Domain can be obtained from several providers. 
 </div>
 
 To set up a remote instance, you will need to set up Network Address Translation, Port Forwarding on your router, to port 8123 on the computer that is hosting Home Assistant. 
@@ -104,7 +104,6 @@ You may use the example below and replace the following:
         SSLCertificateKeyFile </path/to/your/privkey.pem>
 </VirtualHost>
 ```
-
 
 
 
