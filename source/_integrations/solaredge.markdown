@@ -24,7 +24,7 @@ The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to
 
 There are 2 options in configuring the SolarEdge integration:
 
-- Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
+- Via the Home Assistant user interface where it will let you enter your site ID and API key.
 - Via the Home Assistant `configuration.yaml` file.
 
 ```yaml
