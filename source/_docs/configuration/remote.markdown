@@ -30,7 +30,7 @@ General Instructions on Port Forwarding can be found by searching `<router model
 It is not advised to set up direct NAT without HTTPS enabled.  Always enable HTTPS.
 :::
 
-One potential problem with port forwarding on a residential connection is most Internet Service Providers utilize dynamic IP addresses.  This offers the security of making it harder to find your IP address in the continuously moving sea of other IP addresses. However, it also makes it more difficult to find your Home Assistant within that sea. . You can solve this by using a free Dynamic DNS service like 
+One potential problem with port forwarding on a residential connection is most internet service providers use dynamic IP addresses. This offers the security of making it harder to find your IP address in the continuously moving sea of other IP addresses. However, it also makes it more difficult to find your Home Assistant within that sea. You can solve this by using a free Dynamic DNS service like
 :::tip
 [DuckDNS](https://www.duckdns.org/) provides free Dynamic DNS. [Google Domains](https://domains.google), or [No IP](https://noip.com) provide both the Domain and the Dynamic DNS required for Home Assistant. 
 :::
@@ -104,7 +104,6 @@ You may use the example below and replace the following:
         SSLCertificateKeyFile </path/to/your/privkey.pem>
 </VirtualHost>
 ```
-
 
 
 
