@@ -26,12 +26,16 @@ The AEMET OpenData service is completely free but is limited to the Spanish terr
 
 To add AEMET OpenData integration go to **Configuration** >> **Integrations** and find the integration in the list.
 
-| Parameter | Value                                     |
-| :-------- | :---------------------------------------- |
-| api_key   | API Key from the website                  |
-| name      | Name of the integration                   |
-| latitude  | Latitude for weather forecast and sensor  |
-| longitude | Longitude for weather forecast and sensor |
+{% configuration_basic %}
+API Key:
+  description: "API Key from the website"
+Name:
+  description: "Name of the integration"
+Latitude:
+  description: "Latitude for weather forecast and sensor"
+Longitude:
+  description: "Longitude for weather forecast and sensor"
+{% endconfiguration_basic %}
 
 The integration creates one weather entity per forecast mode and also sensors for all available conditions. There are two forecast modes, `daily` for daily forecast up to 6 days or `hourly` for an hourly forecast up to 3 days.
 
