@@ -70,17 +70,18 @@ being in a fixed place on the home screen:
 
 ```yaml
 lounge_appletv_netflix:
-  alias: Select Netflix
+  alias: "Select Netflix"
   sequence:
-  - service: remote.send_command
-    data:
-      entity_id: remote.lounge_appletv
-      delay_secs: 1.5
-      command:
-      - top_menu
-      - home
-      - right
-      - select
+    - service: remote.send_command
+      target:
+        entity_id: remote.lounge_appletv
+      data:
+        delay_secs: 1.5
+        command:
+          - top_menu
+          - home
+          - right
+          - select
 ```
 
 Script using the `home_hold` command to send your Apple TV to sleep and turn off
