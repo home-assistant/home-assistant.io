@@ -108,8 +108,9 @@ Send 3 `left` commands with delay between each:
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.apple_tv
+data:
   num_repeats: 3
   delay_secs: 2.5
   command:
