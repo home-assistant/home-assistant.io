@@ -34,23 +34,18 @@ The OpenTherm protocol is based on polling. The thermostat sends requests to the
 
 # Configuration
 
-The OpenTherm Gateway can be added to Home Assistant through the `Integrations` panel in the `Configuration` page of the web interface.
+{% include integrations/config_flow.md %}
+
 The following configuration options are available:
-{% configuration %}
+
+{% configuration_basic %}
 name:
   description: "The friendly name used for the OpenTherm Gateway and its entities."
-  required: true
-  type: string
 path:
   description: "Path to the OpenTherm Gateway device as supported by [PySerial](https://pythonhosted.org/pyserial/url_handlers.html)."
-  required: true
-  type: string
 id:
   description: "The `gateway_id` for this OpenTherm Gateway's entity IDs and services. The entered value will be slugified."
-  required: false
-  type: string
-  default: "The slugified `name` of this OpenTherm Gateway."
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 <div class='note'>
 The precision and floor_temperature settings that were supported in configuration.yaml entries have been lost upon import of the configuration.yaml entry into the Integrations panel. You can now configure them as per the following Options paragraph.

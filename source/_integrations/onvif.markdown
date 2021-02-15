@@ -17,9 +17,7 @@ ha_platforms:
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.
 
-## Configuration
-
-Home Assistant offers ONVIF integration through **Configuration** -> **Integrations** -> **ONVIF**. Follow the instructions to get it set up.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
   It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.

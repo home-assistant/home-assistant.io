@@ -26,9 +26,7 @@ There is currently support for the following information within Home Assistant:
 
 Sensors will be created for all those data.
 
-## Configuration
-
-Ondilo ICO integration in Home Assistant is done through **Configuration** -> **Integrations** -> **Ondilo ICO**. You will be redirected to Ondilo to authenticate to their APIs. Enter your Ondilo account credentials when prompted (same as the ones used in their app). Once done, you will be redirected back to Home Assistant and your ICOs will be imported.
+{% include integrations/config_flow.md %}
 
 ## Known limitations
 

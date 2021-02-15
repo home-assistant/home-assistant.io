@@ -28,11 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Scene](#scene)
 
-## Configuration
-
-You will need your mynexia.com username and password to use this module.
-
-To add `Nexia` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nexia**.
+{% include integrations/config_flow.md %}
 
 ### Binary Sensor
 

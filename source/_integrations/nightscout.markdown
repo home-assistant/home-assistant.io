@@ -16,14 +16,7 @@ ha_platforms:
 
 The Nightscout integration allows you to view your CGM data from [Nightscout](http://www.nightscout.info/) in Home Assistant.
 
-## Configuration
-
-To add `Nightscout` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nightscout**.
-
-Then input your server address in the `URL` field. For example:
-
-- `https://localhost:5423`
-- `https://your-app-name.herokuapp.com`
+{% include integrations/config_flow.md %}
 
 If your Nightscout instance requires authentication for API access, you are also required to input the API Key in the configuration form.
 
