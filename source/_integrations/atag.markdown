@@ -24,9 +24,7 @@ The integration implements the following platforms:
 - Water Heater
 - Sensor
 
-## Configuration
-
-The Atag integration can be enabled directly from Home Assistant. Navigate to `configuration`, then `integrations` and click `add`. Click `Atag` to initiate the configuration.
+{% include integrations/config_flow.md %}
 
 {% configuration %}
 host:

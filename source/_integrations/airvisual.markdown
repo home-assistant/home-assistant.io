@@ -38,10 +38,7 @@ For example:
 
 The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Example Configurations
 

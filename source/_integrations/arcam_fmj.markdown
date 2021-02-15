@@ -20,12 +20,7 @@ Supported devices:
 - AVR 750
 - Likely other AVRs
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Arcam FMJ**.
-Follow the configuration flow, after finishing, the receivers will be available.
+{% include integrations/config_flow.md %}
 
 ## Power state
 
