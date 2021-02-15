@@ -80,6 +80,16 @@ homeassistant:
     - '/path/to/whitelist'
 ```
 
+### `blink.bulk_download`
+
+Save all recorded videos since the provided timestamp for the named cameras. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file (see example in the `blink.save_video` entry).
+
+| Service Data Attribute | Optional | Description                                               |
+| ---------------------- | -------- | ----------------------------------------------------------|
+| `since`                | no       | Oldest date to grab videos (YYYY/MM/DD)                   |
+| `path`                 | no       | Path to save files.                                       |
+| `name`                 | yes      | List of cameras to save (if omitted, defaults to "all")   |
+
 ### `blink.send_pin`
 
 Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, this is to allow the integration to continue to work with user intervention.  The intent is to handle all of this behind the scenes, but until the login implementation is settled this was added.  To use it, you simply call the service with the pin you receive from Blink as the payload (for a simple "Allow this Device" email, you may keep the `pin` value empty).
@@ -174,3 +184,19 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
 ```
 
 {% endraw %}
+
+### Script to Download Videos from Past 24hrs
+
+Script that can be triggered to download videos from the past 24hrs from cameras named `Living Room` and `Hallway`
+
+```yaml
+blink_download:
+  sequence:
+  - service: blink.bulk_download
+    data:
+      since: '{{ (now() - timedelta(days=1)).strftime("%Y/%m/%d") }}'
+      path: /tmp/download
+      name:
+      - Living Room
+      - Hallway
+```
