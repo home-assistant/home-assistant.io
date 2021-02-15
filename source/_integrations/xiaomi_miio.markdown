@@ -18,6 +18,17 @@ ha_codeowners:
   - '@starkillerOG'
 ha_domain: xiaomi_miio
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - air_quality
+  - alarm_control_panel
+  - device_tracker
+  - fan
+  - light
+  - remote
+  - sensor
+  - switch
+  - vacuum
 ---
 
 The `xiaomi_miio` integration supports the following devices:
@@ -1083,14 +1094,16 @@ script:
   towel_heater:
     sequence:
       - service: remote.send_command
-        entity_id: "remote.bathroom_remote"
+        target:
+          entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'activate_towel_heater'
   please_cover_your_ears:
     sequence:
       - service: remote.send_command
-        entity_id: "remote.bathroom_remote"
+        target:
+          entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'read_bad_poem'
@@ -1279,7 +1292,7 @@ Inline array:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1299,7 +1312,7 @@ Array with inline zone:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1320,7 +1333,7 @@ Array mode:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1365,7 +1378,7 @@ Example of `xiaomi_miio.vacuum_clean_segment` use:
 Multiple segments:
 ```yaml
 automation:
-  - alias: Vacuum kitchen and living room
+  - alias: "Vacuum kitchen and living room"
     trigger:
     - event: start
       platform: homeassistant
@@ -1381,7 +1394,7 @@ Single segment:
 
 ```yaml
 automation:
-  - alias: Vacuum kitchen
+  - alias: "Vacuum kitchen"
     trigger:
     - event: start
       platform: homeassistant

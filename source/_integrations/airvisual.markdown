@@ -9,6 +9,9 @@ ha_codeowners:
   - '@bachya'
 ha_domain: airvisual
 ha_config_flow: true
+ha_platforms:
+  - air_quality
+  - sensor
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).

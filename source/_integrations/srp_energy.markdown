@@ -9,6 +9,8 @@ ha_domain: srp_energy
 ha_codeowners:
   - '@briglx'
 ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
 The SRP Energy integration shows information from SRP hourly energy usage report for their customers.

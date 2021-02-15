@@ -12,6 +12,10 @@ ha_codeowners:
   - '@oblogic7'
   - '@bdraco'
 ha_domain: doorbird
+ha_zeroconf: true
+ha_platforms:
+  - camera
+  - switch
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.
@@ -169,13 +173,14 @@ Note: Remember to complete the schedule assignment steps above for each event ty
 ### Automation Example
 
 ```yaml
-- alias: Doorbird Ring
+- alias: "Doorbird Ring"
   trigger:
     platform: event
     event_type: doorbird_driveway_gate_somebody_pressed_the_button
   action:
     service: light.turn_on
-      entity_id: light.side_entry_porch
+      target:
+        entity_id: light.side_entry_porch
 ```
 
 ## Camera

@@ -9,6 +9,10 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.57
 ha_domain: snmp
+ha_platforms:
+  - device_tracker
+  - sensor
+  - switch
 ---
 
 A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.

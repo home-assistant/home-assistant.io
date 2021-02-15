@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@cmroche'
 ha_domain: gree
+ha_platforms:
+  - climate
+  - switch
 ---
 
 The Gree integration allows you to control a [Gree Smart HVAC](http://global.gree.com/) in Home Assistant.

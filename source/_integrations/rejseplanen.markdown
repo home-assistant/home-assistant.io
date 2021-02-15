@@ -8,6 +8,8 @@ ha_release: 0.88
 ha_domain: rejseplanen
 ha_codeowners:
   - '@DarkFox'
+ha_platforms:
+  - sensor
 ---
 
 The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).

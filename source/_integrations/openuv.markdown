@@ -11,6 +11,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: openuv
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
@@ -91,7 +94,7 @@ usage is to only retrieve data during the daytime:
 
 ```yaml
 automation:
-  - alias: Update OpenUV every 30 minutes during the daytime
+  - alias: "Update OpenUV every 30 minutes during the daytime"
     trigger:
       platform: time_pattern
       minutes: "/30"
@@ -112,7 +115,7 @@ Update the UV index data every 20 minutes while the sun is at least 10 degrees a
 
 ```yaml
 automation:
-  - alias: Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon
+  - alias: "Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon"
     trigger:
       platform: time_pattern
       minutes: "/20"
@@ -131,7 +134,7 @@ Update the protection window once a day:
 
 ```yaml
 automation:
-  - alias: Update OpenUV protection window once a day
+  - alias: "Update OpenUV protection window once a day"
     trigger:
       platform: time
       at: "02:12:00"
@@ -145,7 +148,7 @@ etc.) might be to simply query the API less often:
 
 ```yaml
 automation:
-  - alias: Update OpenUV every hour (24 of 50 calls per day)
+  - alias: "Update OpenUV every hour (24 of 50 calls per day)"
     trigger:
       platform: time_pattern
       minutes: "/60"

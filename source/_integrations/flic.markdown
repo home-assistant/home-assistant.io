@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.35
 ha_domain: flic
+ha_platforms:
+  - binary_sensor
 ---
 
 The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.
@@ -70,7 +72,7 @@ The flic integration fires `flic_click` events on the bus. You can capture the e
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Turn on lights in the living room when flic is pressed once
+  - alias: "Turn on lights in the living room when flic is pressed once"
     trigger:
       platform: event
       event_type: flic_click
@@ -79,7 +81,8 @@ automation:
         click_type: single
     action:
       service: homeassistant.turn_on
-      entity_id: group.lights_livingroom
+      target:
+        entity_id: group.lights_livingroom
 ```
 
 Event data:
@@ -95,7 +98,7 @@ To help detect and debug flic button clicks, you can use this automation that se
 
 ```yaml
 automation:
-  - alias: FLIC Html5 notify on every click
+  - alias: "FLIC Html5 notify on every click"
     trigger:
       platform: event
       event_type: flic_click

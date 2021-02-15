@@ -216,7 +216,7 @@ media_player:
         command: standby
 
 automation:
-- alias: Turn on the TV when Kodi is activated
+- alias: "Turn on the TV when Kodi is activated"
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
@@ -224,9 +224,10 @@ automation:
     to: "playing"
   action:
   - service: media_player.turn_on
-    entity_id: media_player.kodi_tv
+    target:
+      entity_id: media_player.kodi_tv
 
-- alias: Turn off the TV when Kodi is in idle > 15 min
+- alias: "Turn off the TV when Kodi is in idle > 15 min"
   trigger:
     platform: state
     entity_id: media_player.kodi_tv
@@ -235,7 +236,8 @@ automation:
       minutes: 15
   action:
   - service: media_player.turn_off
-    entity_id: media_player.kodi_tv
+    target:
+      entity_id: media_player.kodi_tv
 ```
 
 {% endraw %}
@@ -257,19 +259,23 @@ media_player:
     commands:
       turn_on:
         service: remote.turn_on
-        entity_id: remote.alexander_down_guest
+        target:
+          entity_id: remote.alexander_down_guest
       turn_off:
         service: remote.turn_off
-        entity_id: remote.alexander_down_guest
+        target:
+          entity_id: remote.alexander_down_guest
       volume_up:
         service: remote.send_command
-        entity_id: remote.alexander_down_guest
+        target:
+          entity_id: remote.alexander_down_guest
         data:
           device: Receiver
           command: VolumeUp
       volume_down:
         service: remote.send_command
-        entity_id: remote.alexander_down_guest
+        target:
+          entity_id: remote.alexander_down_guest
         data:
           device: Receiver
           command: VolumeDown

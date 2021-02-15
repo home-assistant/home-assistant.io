@@ -24,7 +24,8 @@ automation:
         before: "23:00"
     action:
       service: light.turn_on
-      entity_id: light.couch_lamp
+      target:
+        entity_id: light.couch_lamp
 ```
 
 And then of course turn off the lamp when it stops raining but only if it's within an hour before sunset.
@@ -41,6 +42,7 @@ And then of course turn off the lamp when it stops raining but only if it's with
         after_offset: "-01:00:00"
     action:
       service: light.turn_off
-      entity_id: light.couch_lamp
+      target:
+        entity_id: light.couch_lamp
 ```
 

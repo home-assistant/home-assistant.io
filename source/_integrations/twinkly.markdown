@@ -9,6 +9,8 @@ ha_domain: twinkly
 ha_iot_class: Local pull
 ha_codeowners:
   - '@dr1rrb'
+ha_platforms:
+  - light
 ---
 
 The Twinkly integration allows you to control [Twinkly](https://twinkly.com/) LED string from Home Assistant.

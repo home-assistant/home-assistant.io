@@ -11,6 +11,8 @@ ha_codeowners:
   - '@djtimca'
   - '@gentoosu'
 ha_domain: omnilogic
+ha_platforms:
+  - sensor
 ---
 
 [Hayward OmniLogic](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) smart pool and spa technology control.

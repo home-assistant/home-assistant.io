@@ -12,6 +12,12 @@ ha_codeowners:
   - '@Quentame'
   - '@mib1185'
 ha_config_flow: true
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
+  - switch
 ---
 
 The `synology_dsm` sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).

@@ -14,6 +14,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@balloob'
 ha_domain: ring
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - light
+  - sensor
+  - switch
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.

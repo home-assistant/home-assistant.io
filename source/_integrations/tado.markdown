@@ -15,6 +15,13 @@ ha_codeowners:
   - '@bdraco'
 ha_domain: tado
 ha_config_flow: true
+ha_homekit: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - device_tracker
+  - sensor
+  - water_heater
 ---
 
 The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.

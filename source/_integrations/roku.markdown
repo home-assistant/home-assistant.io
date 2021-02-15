@@ -12,6 +12,10 @@ ha_config_flow: true
 ha_quality_scale: silver
 ha_codeowners:
   - '@ctalkington'
+ha_ssdp: true
+ha_homekit: true
+ha_platforms:
+  - remote
 ---
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.

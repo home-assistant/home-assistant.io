@@ -11,6 +11,9 @@ ha_codeowners:
   - '@cgtobi'
 ha_domain: kodi
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - notify
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
@@ -227,13 +230,13 @@ This example and the following requires to have the [script.json-cec](https://gi
 ```yaml
 script:
   play_kodi_pvr:
-    alias: Turn on the silly box
+    alias: "Turn on the silly box"
     sequence:
-      - alias: TV on
+      - alias: "TV on"
         service: media_player.turn_on
         data:
           entity_id: media_player.kodi
-      - alias: Play TV channel
+      - alias: "Play TV channel"
         service: media_player.play_media
         data:
           entity_id: media_player.kodi
@@ -263,9 +266,9 @@ script:
 ```yaml
 script:
   play_kodi_smp:
-    alias: Turn on the silly box with random Firefighter Sam episode
+    alias: "Turn on the silly box with random Firefighter Sam episode"
     sequence:
-      - alias: TV on
+      - alias: "TV on"
         service: media_player.turn_on
         data:
           entity_id: media_player.kodi
@@ -283,9 +286,9 @@ script:
 ```yaml
 script:
   update_library:
-    alias: Update Kodi Library
+    alias: "Update Kodi Library"
     sequence:
-      - alias: Call Kodi update
+      - alias: "Call Kodi update"
         service: kodi.call_method
         data:
           entity_id: media_player.kodi

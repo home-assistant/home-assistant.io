@@ -15,6 +15,13 @@ ha_codeowners:
   - '@Rendili'
   - '@KJonline'
 ha_domain: hive
+ha_platforms:
+  - binary_sensor
+  - climate
+  - light
+  - sensor
+  - switch
+  - water_heater
 ---
 
 The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
@@ -66,8 +73,9 @@ script:
   boost_heating:
     sequence:
       - service: hive.boost_heating
-        data:
+        target:
           entity_id: "climate.heating"
+        data:
           time_period: "01:30:00"
           temperature: "20.5"
 ```
@@ -90,8 +98,9 @@ script:
   boost_hot_water:
     sequence:
       - service: "hive.boost_hot_water"
-        data:
+        target:
           entity_id: "water_heater.hot_water"
+        data:
           time_period: "01:30:00"
           on_off: "on"
 ```

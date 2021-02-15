@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@adamkrol93'
 ha_domain: wolflink
+ha_platforms:
+  - sensor
 ---
 
 The `wolflink` integration uses the [Wolf Smart-Set](https://www.wolf-smartset.com/) web service as a source to fetch your heating system status.

@@ -7,6 +7,8 @@ ha_iot_class: Cloud Push
 ha_release: 0.8
 ha_config_flow: true
 ha_domain: ifttt
+ha_platforms:
+  - alarm_control_panel
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
@@ -36,7 +38,7 @@ You then need to consume that incoming information with the following automation
 ```yaml
 automation:
 - id: this_is_the_automation_id
-  alias: The optional automation alias
+  alias: "The optional automation alias"
   trigger:
   - event_data:
       action: call_service
@@ -129,7 +131,7 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Startup Notification
+  alias: "Startup Notification"
   trigger:
     platform: homeassistant
     event: start
@@ -147,7 +149,7 @@ IFTTT can also be used in scripts and with templates. Here is the above automati
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Startup Notification
+  alias: "Startup Notification"
   trigger:
     platform: homeassistant
     event: start

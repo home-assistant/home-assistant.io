@@ -10,6 +10,8 @@ ha_codeowners:
   - '@marciogranzotto'
 ha_domain: nightscout
 ha_quality_scale: platinum
+ha_platforms:
+  - sensor
 ---
 
 The Nightscout integration allows you to view your CGM data from [Nightscout](http://www.nightscout.info/) in Home Assistant.
@@ -36,7 +38,7 @@ The state is the last reading from Nightscout, and you can see other information
 
 ```yaml
 - id: "1234567890123"
-  alias: overnight_low_kitchen_lights
+  alias: "overnight_low_kitchen_lights"
   description: Turn on the lights in the kitchen if my blood sugar drops low overnight
   trigger:
   - below: "65"

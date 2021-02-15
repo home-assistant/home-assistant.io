@@ -11,6 +11,10 @@ ha_config_flow: true
 ha_codeowners:
   - '@kbickar'
 ha_domain: sense
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 Integrate your [Sense](https://sense.com) meter information into Home Assistant.

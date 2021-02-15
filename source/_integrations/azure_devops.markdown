@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: azure_devops
+ha_platforms:
+  - sensor
 ---
 
 The `azure_devops` integration allows you to control and monitor your

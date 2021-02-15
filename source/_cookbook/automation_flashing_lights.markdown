@@ -29,7 +29,8 @@ automation:
     # start alarm on movement if alarm activated
     # and the alarm is not triggered
     service: script.turn_on
-    entity_id: script.alarm_room1
+    target:
+      entity_id: script.alarm_room1
 
 - alias: "flash_room1_start"
   trigger:
@@ -38,7 +39,8 @@ automation:
     to: "on"
   action:
     service: script.turn_on
-    entity_id: script.flash_room1
+    target:
+      entity_id: script.flash_room1
 
 - alias: "flash_room1_stop"
   trigger:
@@ -51,60 +53,61 @@ automation:
     state: "off"
   action:
     service: script.turn_off
-    entity_id: script.flash_room1
+    target:
+      entity_id: script.flash_room1
 
 script:
   alarm_room1:
-    alias: Alarm room1
+    alias: "Alarm room1"
     sequence:
-      - alias: Alarm Room1 Start
+      - alias: "Alarm Room1 Start"
         service: homeassistant.turn_on
-        data:
+        target:
           entity_id: switch.AlmSnd1
-      - alias: Set Ack Room1
+      - alias: "Set Ack Room1"
         service: homeassistant.turn_on
-        data:
+        target:
           entity_id: input_boolean.ack1
-      - alias: email_Room1
+      - alias: "email_Room1"
         service: notify.email
         data:
           message: "Movement alarm in Room1"
       - delay:
           # time interval for alarm sound and light flashing
           seconds: 60
-      - alias: Alarm Room1 Stop
+      - alias: "Alarm Room1 Stop"
         service: homeassistant.turn_off
-        data:
+        target:
           entity_id: switch.AlmSnd1
 
   flash_room1:
-    alias: Flash Room1 On
+    alias: "Flash Room1 On"
     sequence:
-      - alias: Light Room1 On
+      - alias: "Light Room1 On"
         service: homeassistant.turn_on
-        data:
+        target:
           entity_id: switch.REL1
       - delay:
           # time for flash light on
           seconds: 1
-      - alias: Light Room1 Off
+      - alias: "Light Room1 Off"
         service: homeassistant.turn_off
-        data:
+        target:
           entity_id: switch.REL1
-      - alias: loop_room1
+      - alias: "loop_room1"
         service: script.turn_on
-        data:
+        target:
           entity_id: script.flash_loop
 
   flash_loop:
-    alias: Flash loop
+    alias: "Flash loop"
     sequence:
       - delay:
           # time for flash light off
           seconds: 1
-      - alias: loop_room1
+      - alias: "loop_room1"
         service: script.turn_on
-        data:
+        target:
           entity_id: script.flash_room1
 ```
 

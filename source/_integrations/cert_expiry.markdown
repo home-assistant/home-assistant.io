@@ -10,6 +10,8 @@ ha_codeowners:
   - '@Cereal2nd'
   - '@jjlawren'
 ha_domain: cert_expiry
+ha_platforms:
+  - sensor
 ---
 
 The `cert_expiry` integration fetches the certificate from a configured host and displays its expiration in a timestamp sensor.

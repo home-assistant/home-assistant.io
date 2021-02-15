@@ -12,6 +12,11 @@ ha_codeowners:
   - '@shenxn'
 ha_domain: roomba
 ha_config_flow: true
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - vacuum
 ---
 
 The `roomba` integration allows you to control your [iRobot Roomba](https://www.irobot.com/roomba) vacuum or [iRobot Braava](https://www.irobot.com/braava) m-series mop.

@@ -9,6 +9,10 @@ ha_domain: onvif
 ha_codeowners:
   - '@hunterjm'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
 ---
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.

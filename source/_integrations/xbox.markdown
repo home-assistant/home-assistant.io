@@ -12,6 +12,10 @@ ha_codeowners:
   - '@hunterjm'
 ha_domain: xbox
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - remote
+  - sensor
 ---
 
 The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.

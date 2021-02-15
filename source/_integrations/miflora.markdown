@@ -9,6 +9,8 @@ ha_codeowners:
   - '@danielhiversen'
   - '@basnijholt'
 ha_domain: miflora
+ha_platforms:
+  - sensor
 ---
 
 The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://gadget-freakz.com/product/xiaomi-mi-flora-plant-sensor/) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
@@ -138,7 +140,7 @@ An automation example to report a battery failure:
 
 ```yaml
 - id: flower1_moisture_unavailable_check
-  alias: Flower 1 sensors available
+  alias: "Flower 1 sensors available"
   trigger:
   - entity_id: sensor.flower1_moisture
     for: 24:00:00

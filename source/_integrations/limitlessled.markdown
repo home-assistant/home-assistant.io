@@ -7,6 +7,8 @@ ha_category:
 ha_iot_class: Assumed State
 ha_release: pre 0.7
 ha_domain: limitlessled
+ha_platforms:
+  - light
 ---
 
 `limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
@@ -104,7 +106,7 @@ Note that the `brightness`, `color` and `temperature` attributes cannot be used 
 
 ```yaml
 automation:
-  - alias: ...
+  - alias: "..."
     trigger:
       # ...
     action:

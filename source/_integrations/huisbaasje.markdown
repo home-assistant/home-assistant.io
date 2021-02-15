@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@denniss17'
 ha_domain: huisbaasje
+ha_platforms:
+  - sensor
 ---
 
 The Huisbaasje integrations allows you to track your energy consumption collected

@@ -10,6 +10,16 @@ ha_config_flow: true
 ha_codeowners:
   - '@OttoWinter'
 ha_domain: esphome
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - climate
+  - cover
+  - fan
+  - light
+  - sensor
+  - switch
 ---
 
 This integration allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).

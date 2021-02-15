@@ -10,6 +10,14 @@ ha_codeowners:
   - '@syssi'
 ha_domain: xiaomi_aqara
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The `xiaomi_aqara` integration allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
@@ -153,7 +161,7 @@ This example plays the sound of a dog barking when the button is held down and s
 *Note: The sound will stop playing automatically when it has ended.*
 
 ```yaml
-- alias: Let a dog bark on long press
+- alias: "Let a dog bark on long press"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -167,7 +175,7 @@ This example plays the sound of a dog barking when the button is held down and s
       ringtone_id: 8
       ringtone_vol: 8
 
-- alias: Stop barking immediately on single click
+- alias: "Stop barking immediately on single click"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -185,7 +193,7 @@ This example plays the sound of a dog barking when the button is held down and s
 This example toggles the living room lamp on a double click of the button.
 
 ```yaml
-- alias: Double Click to toggle living room lamp
+- alias: "Double Click to toggle living room lamp"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click

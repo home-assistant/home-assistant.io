@@ -9,6 +9,8 @@ ha_domain: recollect_waste
 ha_codeowners:
   - '@bachya'
 ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
 The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).

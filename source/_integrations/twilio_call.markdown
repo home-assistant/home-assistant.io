@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.37
 ha_domain: twilio_call
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
@@ -42,7 +44,7 @@ Twilio is a notify platform and thus can be controlled by calling the notify ser
 ```yaml
 # Example automation notification entry
 automation:
-  - alias: The sun has set
+  - alias: "The sun has set"
     trigger:
       platform: sun
       event: sunset

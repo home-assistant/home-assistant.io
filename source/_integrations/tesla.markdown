@@ -16,6 +16,14 @@ ha_codeowners:
   - '@zabuldon'
   - '@alandtse'
 ha_domain: tesla
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - device_tracker
+  - lock
+  - sensor
+  - switch
 ---
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
@@ -33,7 +41,7 @@ This integration provides the following platforms:
 
 Home Assistant offers the Tesla integration through **Configuration** -> **Integrations** -> **Tesla**.
 
-Enter username and password and then continue.
+Enter username and password and then continue. MFA is not supported. One workaround can be to make a separate Tesla account deidicated for Home Assistant without MFA and invite this account to your car/cars.
 
 Alternatively, Home Assistant will also load Tesla via the  `configuration.yaml`. Add the following to your `configuration.yaml` file:
 

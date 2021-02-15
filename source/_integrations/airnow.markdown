@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@asymworks'
 ha_domain: airnow
+ha_platforms:
+  - sensor
 ---
 
 The `airnow` integration uses the [AirNow](https://www.airnow.gov/) web service

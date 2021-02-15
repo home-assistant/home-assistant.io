@@ -18,6 +18,16 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@Kane610'
 ha_domain: deconz
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funk/software/deconz.html) by [dresden elektronik](https://www.dresden-elektronik.de) is a software that communicates with ConBee/RaspBee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
@@ -185,7 +195,7 @@ Requesting support for additional devices requires the device model (can be acqu
 
 ```yaml
 automation:
-  - alias: 'Toggle lamp from dimmer'
+  - alias: "'Toggle lamp from dimmer'"
     initial_state: "on"
     trigger:
       platform: event
@@ -195,9 +205,10 @@ automation:
         event: 1002
     action:
       service: light.toggle
-      entity_id: light.lamp
+      target:
+        entity_id: light.lamp
 
-  - alias: 'Increase brightness of lamp from dimmer'
+  - alias: "Increase brightness of lamp from dimmer"
     initial_state: "on"
     trigger:
       platform: event
@@ -207,13 +218,14 @@ automation:
         event: 2002
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.lamp
+        data:
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri+30, 249] | min }}
 
-  - alias: 'Decrease brightness of lamp from dimmer'
+  - alias: "Decrease brightness of lamp from dimmer"
     initial_state: "on"
     trigger:
       platform: event
@@ -223,8 +235,9 @@ automation:
         event: 3002
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.lamp
+        data:
           brightness: >
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri-30, 0] | max }}
@@ -239,7 +252,8 @@ automation:
         gesture: 7
     action:
       service: light.turn_on
-      entity_id: light.lamp
+      target:
+        entity_id: light.lamp
 ```
 
 {% endraw %}
@@ -250,7 +264,7 @@ automation:
 
 ```yaml
 automation:
-  - alias: React to color wheel changes
+  - alias: "React to color wheel changes"
     trigger:
       - platform: event
         event_type: deconz_event
@@ -275,7 +289,7 @@ Note: Requires `on: true` to change color while the Philips Hue bulb is off. If 
 
 ```yaml
 automation:
-  - alias: Flash Hue Bulb with Doorbell Motion
+  - alias: "Flash Hue Bulb with Doorbell Motion"
     mode: single
     trigger:
     - platform: state

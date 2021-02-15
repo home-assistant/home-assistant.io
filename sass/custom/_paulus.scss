@@ -634,3 +634,39 @@ code {
   border-radius: 0.4em;
   padding: 0.1em 0.4em;
 }
+
+
+@media only screen and (max-width: $menu-collapse) {
+  #not_found {
+    .page {
+      text-align: center;
+    
+      .search404-container {
+        margin-bottom: 32px;
+
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $menu-collapse) {
+  #not_found {
+    .page {
+      text-align: center;
+      margin-bottom: 300px;
+    
+      .search404-container {
+        margin-bottom: 32px;
+    
+        #search404 {
+          width: 420px;
+        }
+      }
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}

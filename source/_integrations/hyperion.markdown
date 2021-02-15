@@ -10,6 +10,10 @@ ha_codeowners:
   - '@dermotduffy'
 ha_quality_scale: platinum
 ha_config_flow: true
+ha_ssdp: true
+ha_platforms:
+  - light
+  - switch
 ---
 
 The `hyperion` platform allows you to integrate your
@@ -89,7 +93,7 @@ To start Hyperion with an effect, use the following automation:
 ```yaml
 automation:
 - id: one
-  alias: Turn Hyperion effect on when light goes on
+  alias: "Turn Hyperion effect on when light goes on"
   trigger:
     - platform: state
       entity_id: light.hyperion
@@ -104,7 +108,7 @@ automation:
 To have the lights playing an effect when pausing, idle or turn off a media player like Plex you can use this example:
 
 ```yaml
-- alias: Set hyperion effect after playback
+- alias: "Set hyperion effect after playback"
   trigger:
     - platform: state
       entity_id: media_player.plex
@@ -125,7 +129,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
 To capture the screen when playing something on a media_player you can use this example:
 
 ```yaml
-- alias: Set hyperion when playback starts
+- alias: "Set hyperion when playback starts"
   trigger:
     - platform: state
       entity_id: media_player.plex

@@ -8,6 +8,10 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
 ha_domain: cloud
+ha_platforms:
+  - binary_sensor
+  - stt
+  - tts
 ---
 
 The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. [Learn more.](/cloud)

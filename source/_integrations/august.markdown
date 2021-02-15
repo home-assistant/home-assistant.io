@@ -13,6 +13,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_domain: august
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - lock
+  - sensor
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.
@@ -76,7 +82,7 @@ Using the lock operation sensors, you can detect when a user operates a lock and
 
 ```yaml
 - id: "1583706446906"
-  alias: joe_doe_front_door_operate
+  alias: "joe_doe_front_door_operate"
   description: John Doe locks or unlocks the Front Door
   trigger:
   - entity_id: sensor.front_door_operator

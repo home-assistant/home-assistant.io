@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@liudger'
 ha_domain: bsblan
+ha_platforms:
+  - climate
 ---
 
 This integration integrates [BSBLan](https://github.com/fredlcore/bsb_lan) device into Home Assistant.

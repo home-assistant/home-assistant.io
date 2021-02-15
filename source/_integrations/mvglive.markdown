@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_domain: mvglive
+ha_platforms:
+  - sensor
 ---
 
 The `mvglive` sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.

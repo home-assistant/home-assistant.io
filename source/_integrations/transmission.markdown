@@ -12,6 +12,9 @@ ha_codeowners:
   - '@engrbm87'
   - '@JPHutchins'
 ha_domain: transmission
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
@@ -94,7 +97,7 @@ Example of an automation that notifies on successful download and removes the to
 {% raw %}
 
 ```yaml
-- alias: Notify and remove completed torrent
+- alias: "Notify and remove completed torrent"
   trigger:
     platform: event
     event_type: transmission_downloaded_torrent

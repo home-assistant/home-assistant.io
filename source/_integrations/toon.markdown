@@ -13,6 +13,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@frenck'
 ha_domain: toon
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - switch
 ---
 
 The Toon integration platform can be used to control your Quby Toon thermostat,

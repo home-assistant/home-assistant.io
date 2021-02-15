@@ -6,6 +6,8 @@ ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_domain: spotcrime
+ha_platforms:
+  - sensor
 ---
 
 <div class='note warning'>

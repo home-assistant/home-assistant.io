@@ -13,6 +13,12 @@ ha_codeowners:
   - '@balloob'
   - '@frenck'
 ha_domain: hue
+ha_ssdp: true
+ha_homekit: true
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
 ---
 
 The Philips Hue integration allows you to control and monitor the lights and motion sensors connected to your Hue bridge. The Hue integration is automatically discovered. If not, add it via the add integration menu.

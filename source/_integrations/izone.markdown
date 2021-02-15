@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@Swamp-Ig'
 ha_domain: izone
+ha_homekit: true
+ha_platforms:
+  - climate
 ---
 
 The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.

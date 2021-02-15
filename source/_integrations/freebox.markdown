@@ -13,6 +13,10 @@ ha_codeowners:
   - '@Quentame'
 ha_config_flow: true
 ha_domain: freebox
+ha_platforms:
+  - device_tracker
+  - sensor
+  - switch
 ---
 
 The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/).

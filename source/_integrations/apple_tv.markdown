@@ -11,6 +11,9 @@ ha_domain: apple_tv
 ha_codeowners:
   - '@postlund'
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - remote
 ---
 
 The Apple TV integration allows you to control an Apple TV (any generation). See the
@@ -85,8 +88,9 @@ A typical service call for press several buttons looks like this.
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.apple_tv
+data:
   command:
     - left
     - left

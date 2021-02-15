@@ -9,6 +9,8 @@ ha_codeowners:
   - '@cyberjunky'
 ha_config_flow: true
 ha_domain: garmin_connect
+ha_platforms:
+  - sensor
 ---
 
 The Garmin Connect sensor allows you to expose data from [Garmin Connect](https://connect.garmin.com) to Home Assistant.

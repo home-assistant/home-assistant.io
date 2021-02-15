@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: ovo_energy
+ha_platforms:
+  - sensor
 ---
 
 The `ovo_energy` integration allows you to monitor your energy consumption data

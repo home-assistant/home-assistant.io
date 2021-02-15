@@ -14,6 +14,11 @@ ha_codeowners:
   - '@bdurrer'
 ha_domain: enocean
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - light
+  - sensor
+  - switch
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
@@ -128,7 +133,7 @@ Sample automation to switch lights on and off:
 ```yaml
 # Example automation to turn lights on/off on button release
 automation:
-  - alias: hall light switches
+  - alias: "hall light switches"
     trigger:
       platform: event
       event_type: button_pressed
@@ -137,7 +142,7 @@ automation:
         pushed: 0
     action:
       service: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
-      data:
+      target:
         entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
 

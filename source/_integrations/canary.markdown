@@ -9,6 +9,10 @@ ha_release: '0.60'
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_domain: canary
+ha_platforms:
+  - alarm_control_panel
+  - camera
+  - sensor
 ---
 
 The `canary` integration allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.

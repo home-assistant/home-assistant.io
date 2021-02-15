@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@vigonotion'
 ha_domain: hvv_departures
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `hvv_departures` sensor will display the departures of busses, trains and ferries in Hamburg.

@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: sonos
 ha_codeowners:
   - '@cgtobi'
+ha_ssdp: true
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -137,7 +138,7 @@ Removes an item from the queue.
 
 ```yaml
 # Example automation to remove just played song from queue
-alias: Remove last played song from queue
+alias: "Remove last played song from queue"
 id: Remove last played song from queue
 trigger:
   - platform: state

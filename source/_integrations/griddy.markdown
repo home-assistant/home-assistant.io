@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_domain: griddy
+ha_platforms:
+  - sensor
 ---
 
 The `griddy` integration allows you to integrate your [Griddy](https://griddy.com/) price data into Home Assistant.
@@ -49,7 +51,7 @@ The current price for the Load Zone will appear as a sensor:
 
 ```yaml
 - id: '1572630019168'
-  alias: Stop Tesla Charging if Power Price Spikes
+  alias: "Stop Tesla Charging if Power Price Spikes"
   description: ""
   trigger:
   - above: '30'
@@ -61,5 +63,6 @@ The current price for the Load Zone will appear as a sensor:
     zone: zone.home
   action:
   - service: switch.turn_off
-    entity_id: switch.my_tesla_charger_switch
+    target:
+      entity_id: switch.my_tesla_charger_switch
 ```

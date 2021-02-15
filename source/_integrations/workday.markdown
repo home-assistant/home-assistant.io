@@ -10,6 +10,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: workday
+ha_platforms:
+  - binary_sensor
 ---
 
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week will count as workdays and also
@@ -131,7 +133,7 @@ Example usage for automation:
 
 ```yaml
 automation:
-  alias: Turn on heater on workdays
+  alias: "Turn on heater on workdays"
   trigger:
     platform: time
     at: "08:00:00"
@@ -141,7 +143,8 @@ automation:
     state: "on"
   action:
     service: switch.turn_on
-    entity_id: switch.heater
+    target:
+      entity_id: switch.heater
 ```
 
 <div class='note'>

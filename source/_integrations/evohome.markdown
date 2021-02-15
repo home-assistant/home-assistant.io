@@ -10,6 +10,9 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@zxdavb'
 ha_domain: evohome
+ha_platforms:
+  - climate
+  - water_heater
 ---
 
 The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
@@ -155,8 +158,9 @@ This service call will set the `setpoint` of a zone, as identified by its `entit
 ```yaml
 - action:
     - service: evohome.set_zone_override
+      target:
+        entity_id: climate.loungeroom\
       data:
-        entity_id: climate.loungeroom
         setpoint: 10
 ```
 
@@ -165,8 +169,9 @@ The `duration` can be up to 24 hours, after which the zone mode will revert to s
 ```yaml
 - action:
     - service: evohome.set_zone_override
-      data:
+      target:
         entity_id: climate.loungeroom
+      data:
         setpoint: 10
         duration: {minutes: 0}
 ```

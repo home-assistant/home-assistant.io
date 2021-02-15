@@ -14,6 +14,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
 ha_domain: tasmota
+ha_platforms:
+  - binary_sensor
+  - cover
+  - fan
+  - light
+  - sensor
+  - switch
 ---
 
 This integration allows you to control [Tasmota](https://tasmota.github.io/docs/) devices over MQTT.

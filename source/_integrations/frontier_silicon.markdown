@@ -71,7 +71,7 @@ trigger:
   to: "on"
 action:
   service: media_player.turn_on
-  data:
+  target:
     entity_id: "media_player.badezimmer"
 ```
 

@@ -8,6 +8,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@lawtancool'
 ha_domain: control4
+ha_ssdp: true
+ha_platforms:
+  - light
 ---
 
 The Control4 integration allows you to control and monitor lights from your local Control4 system. Your Control4 controller must be running OS 3.0+.

@@ -11,6 +11,10 @@ ha_codeowners:
   - '@cyberjunky'
 ha_config_flow: true
 ha_domain: fireservicerota
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 FireServiceRota is a powerful and flexible availability, scheduling and dispatching system for firefighters.
@@ -116,15 +120,16 @@ These are documented below.
 
 ```yaml
 automation:
-  - alias: 'Switch on a light when incident is received'
+  - alias: "Switch on a light when incident is received"
     trigger:
       platform: state
       entity_id: sensor.incidents
     action:
       service: light.turn_on
-      entity_id: light.bedroom
+      target:
+        entity_id: light.bedroom
 
-  - alias: 'Play TTS incident details when incident is received'
+  - alias: "Play TTS incident details when incident is received"
     trigger:
       platform: state
       entity_id: sensor.incidents
@@ -144,15 +149,16 @@ automation:
               {{ state_attr('sensor.incidents','message_to_speech_url') }}
           media_content_type: "audio/mp4"
 
-  - alias: 'Send response acknowledgement when a button is pressed'
+  - alias: "Send response acknowledgement when a button is pressed"
     trigger:
       platform: state
       entity_id: switch.response_button
     action:
       service: homeassistant.turn_on
-      entity_id: switch.incident_response
+      target:
+        entity_id: switch.incident_response
 
-  - alias: 'Cast FireServiceRota dashboard to Nest Hub'
+  - alias: "Cast FireServiceRota dashboard to Nest Hub"
     trigger: 
       platform: homeassistant
       event: start

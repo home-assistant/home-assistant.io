@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_domain: ezviz
 ha_codeowners:
   - '@baqs'
+ha_platforms:
+  - camera
 ---
 
 The `ezviz` sensor platform uses the EzvizLife API to interact with the devices.

@@ -10,6 +10,10 @@ ha_codeowners:
   - '@vangorra'
   - '@w1ll1am23'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - water_heater
 ---
 
 The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](https://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and away mode. It also provides access to several device sensors depending on your model of water heater.

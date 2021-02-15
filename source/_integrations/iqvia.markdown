@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: iqvia
+ha_platforms:
+  - sensor
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease

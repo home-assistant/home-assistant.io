@@ -15,7 +15,7 @@ notify:
     recipient: recipient@jabber.org
 
 automation:
-  - alias: Update notification
+  - alias: "Update notification"
     trigger:
       - platform: state
         entity_id: binary_sensor.updater
@@ -38,7 +38,7 @@ notify:
     name: pushbullet
 
 automation:
-  - alias: Update notification
+  - alias: "Update notification"
     trigger:
       - platform: state
         entity_id: binary_sensor.updater

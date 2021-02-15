@@ -12,6 +12,10 @@ ha_config_flow: true
 ha_codeowners:
   - '@mvn23'
 ha_domain: opentherm_gw
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.

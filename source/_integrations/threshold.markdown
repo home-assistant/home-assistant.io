@@ -10,6 +10,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: threshold
+ha_platforms:
+  - binary_sensor
 ---
 
 The `threshold` binary sensor platform observes the state of another sensor. If the value is below (`lower`) or higher (`upper`) than the given threshold then state of the threshold sensor is changed. It support also a range if `lower` and `upper` are given.

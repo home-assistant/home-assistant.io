@@ -10,6 +10,8 @@ ha_codeowners:
   - '@shenxn'
   - '@swetoast'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
 ---
 
 The `rpi_power` integration allows you to detect [bad power supply](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md) on Raspberry Pi. 

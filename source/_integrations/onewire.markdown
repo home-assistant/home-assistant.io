@@ -10,6 +10,10 @@ ha_codeowners:
   - '@garbled1'
   - '@epenet'
 ha_domain: onewire
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `onewire` platform supports sensors which that using the One wire (1-wire) bus for communication.

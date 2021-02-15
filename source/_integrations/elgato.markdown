@@ -11,6 +11,9 @@ ha_codeowners:
   - '@frenck'
 ha_quality_scale: platinum
 ha_domain: elgato
+ha_zeroconf: true
+ha_platforms:
+  - light
 ---
 
 The [Elgato Key Light](https://www.elgato.com/en/gaming/key-light) sets the

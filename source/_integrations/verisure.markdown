@@ -14,6 +14,13 @@ ha_iot_class: Cloud Polling
 ha_domain: verisure
 ha_codeowners:
   - '@frenck'
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - lock
+  - sensor
+  - switch
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
@@ -109,7 +116,7 @@ The `changed_by` attribute enables one to be able to take different actions depe
 
 ```yaml
 automation:
-  - alias: Alarm status changed
+  - alias: "Alarm status changed"
     trigger:
       - platform: state
         entity_id: alarm_control_panel.alarm_1

@@ -13,6 +13,10 @@ ha_quality_scale: gold
 ha_codeowners:
   - '@fredrike'
 ha_domain: point
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - sensor
 ---
 
 The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
@@ -96,7 +100,7 @@ The following example show how to implement an automation for the **button_press
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Point button press
+  alias: "Point button press"
   trigger:
   - platform: state
     entity_id: binary_sensor.point_button_press  # Change this accordingly
@@ -117,7 +121,7 @@ The events shown as [binary sensors](#binary-sensor) are sent to Home Assistant 
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Point button press (webhook)
+  alias: "Point button press (webhook)"
   trigger:
   - platform: event
     event_type: point_webhook_received

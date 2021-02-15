@@ -8,6 +8,8 @@ ha_release: 0.107
 ha_domain: qvr_pro
 ha_codeowners:
   - '@oblogic7'
+ha_platforms:
+  - camera
 ---
 
 [QVR Pro](https://www.qnap.com/en/software/qvr-pro) allows you to create 

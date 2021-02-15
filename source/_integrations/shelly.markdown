@@ -17,6 +17,13 @@ ha_iot_class: Local Push
 ha_domain: shelly
 featured: true
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 Integrate [Shelly devices](https://shelly.cloud) into Home Assistant.
@@ -74,7 +81,8 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
       click_type: single
   action:
     service: light.toggle
-    entity_id: light.living_room
+    target:
+      entity_id: light.living_room
 
 - alias: "Toggle living room lamp"
   trigger:
@@ -86,7 +94,8 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `momentar
       click_type: long
   action:
     service: light.toggle
-    entity_id: light.lamp_living_room
+    target:
+      entity_id: light.lamp_living_room
 ```
 
 ### Possible values for `click_type`

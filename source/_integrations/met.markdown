@@ -10,6 +10,8 @@ ha_codeowners:
   - '@danielhiversen'
   - '@thimic'
 ha_domain: met
+ha_platforms:
+  - weather
 ---
 
 The `met` platform uses the [Met.no](https://met.no/) web service as a source for meteorological data for your location. The weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.

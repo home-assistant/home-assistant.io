@@ -11,6 +11,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: guardian
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `guardian` integration integrates

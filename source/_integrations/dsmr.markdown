@@ -9,6 +9,8 @@ ha_iot_class: Local Push
 ha_domain: dsmr
 ha_codeowners:
   - '@Robbie1221'
+ha_platforms:
+  - sensor
 ---
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.

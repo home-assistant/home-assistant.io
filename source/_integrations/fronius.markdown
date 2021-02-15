@@ -9,6 +9,8 @@ ha_release: 0.96
 ha_codeowners:
   - '@nielstron'
 ha_domain: fronius
+ha_platforms:
+  - sensor
 ---
 
 The `fronius` sensor polls a [Fronius](https://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors in Home Assistant.

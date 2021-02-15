@@ -6,6 +6,9 @@ ha_category:
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: xiaomi
+ha_platforms:
+  - camera
+  - device_tracker
 ---
 
 The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant.

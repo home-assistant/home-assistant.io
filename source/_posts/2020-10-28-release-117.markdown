@@ -207,7 +207,7 @@ After that, you can do things like this:
 ```yaml
 script:
   my_script:
-    alias: Example
+    alias: "Example"
     description: Example script with native lists in templates
     variables:
       entities:
@@ -216,8 +216,9 @@ script:
       color: [255, 0, 0]
     sequence:
       service: light.turn_on
-      data:
+      target:
         entity_id: "{{ entities }}"
+      data:
         rgb_color: "{{ color }}"
 ```
 

@@ -18,7 +18,7 @@ To use the scripts editor, create a new file in your config directory named `scr
 ```yaml
 # scripts.yaml
 turn_on_some_lights:
-  alias: Turn on the lights
+  alias: "Turn on the lights"
   sequence:
   - data: {}
     service: light.turn_on

@@ -10,6 +10,8 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: gdacs
+ha_platforms:
+  - sensor
 ---
 
 The `gdacs` integration lets you use a GeoRSS feed provided by 

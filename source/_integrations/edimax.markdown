@@ -6,6 +6,8 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: edimax
+ha_platforms:
+  - switch
 ---
 
 This `edimax` switch platform allows you to control the state of your [Edimax](https://www.edimax.com/edimax/merchandise/merchandise_list/data/edimax/global/home_automation_smart_plug/) switches.

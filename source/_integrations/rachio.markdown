@@ -11,6 +11,11 @@ ha_domain: rachio
 ha_codeowners:
   - '@bdraco'
 ha_config_flow: true
+ha_homekit: true
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).

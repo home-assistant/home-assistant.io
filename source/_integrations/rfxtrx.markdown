@@ -16,6 +16,12 @@ ha_codeowners:
   - '@elupus'
   - '@RobBie1221'
 ha_domain: rfxtrx
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -274,7 +280,7 @@ scene:
     light.ceiling_lights: off
 
 automation:
-  - alias: Use doorbell button to trigger scene
+  - alias: "Use doorbell button to trigger scene"
     trigger:
     - platform: event
       event_type: rfxtrx_event
@@ -286,7 +292,8 @@ automation:
           Sound: 9
     action:
       service: scene.turn_on
-      entity_id: scene.welcomescene
+      target:
+        entity_id: scene.welcomescene
 ```
 
 ## Services

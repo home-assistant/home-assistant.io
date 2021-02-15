@@ -17,6 +17,15 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@SukramJ'
 ha_domain: homematicip_cloud
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - sensor
+  - switch
+  - weather
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
@@ -278,8 +287,9 @@ You can get the required index from the native Homematic IP App.
 ...
 action:
   service: homematicip_cloud.set_active_climate_profile
-  data:
+  target:
     entity_id: climate.livingroom
+  data:
     climate_profile_index: 1
 ```
 
@@ -299,7 +309,7 @@ Reset energy counter of measuring actuators.
 ...
 action:
   service: homematicip_cloud.reset_energy_counter
-  data:
+  target:
     entity_id: switch.livingroom
 ```
 

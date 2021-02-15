@@ -10,6 +10,10 @@ ha_codeowners:
   - '@mjj4791'
   - '@ties'
 ha_domain: buienradar
+ha_platforms:
+  - camera
+  - sensor
+  - weather
 ---
 
 The `buienradar` platform uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.

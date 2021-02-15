@@ -9,6 +9,8 @@ ha_codeowners:
 ha_domain: nws
 ha_quality_scale: platinum
 ha_config_flow: true
+ha_platforms:
+  - weather
 ---
 
 The `nws` platform uses the [National Weather Service](https://www.weather.gov) web API as a source for meteorological data for your location.

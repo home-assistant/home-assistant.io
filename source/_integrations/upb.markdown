@@ -10,6 +10,8 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@gwww'
 ha_domain: upb
+ha_platforms:
+  - light
 ---
 
 The UPB integration allows Home Assistant to connect to a Universal Powerline Bus Powerline Interface Module (UPB PIM) to get status and control UPB devices and UPB links. The UPB PIM may be connected either to a serial port or over TCP. The integration implements the following platforms:
@@ -171,7 +173,7 @@ Start a scene blinking.
 ```yaml
 #automation:
 
-- alias: 'Specific scene activated'
+- alias: "'Specific scene activated'"
   description: "Trigger when scene 9 on network 42 is activated"
   trigger:
     platform: event
@@ -196,18 +198,20 @@ all_lights_on:
   description: "Activate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: scene.turn_on
-      entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+      target:
+        entity_id: 
+          - scene.interior_lights
+          - scene.exterior_lights
 
 all_lights_off:
   alias: "All Lights Off"
   description: "Deactivate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: upb.scene_deactivate
-      entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+      target:
+        entity_id: 
+          - scene.interior_lights
+          - scene.exterior_lights
 
 kitchen_fade_on:
   alias: "Kitchen Fade to On"

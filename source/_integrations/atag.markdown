@@ -11,6 +11,10 @@ ha_domain: atag
 ha_codeowners:
   - '@MatsNL'
 ha_config_flow: true
+ha_platforms:
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `Atag` integration allows Home Assistant to connect to [Atag One](https://atag-one.com) thermostats, reporting and setting its status.

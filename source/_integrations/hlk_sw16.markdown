@@ -10,6 +10,8 @@ ha_codeowners:
   - '@jameshilliard'
 ha_domain: hlk_sw16
 ha_config_flow: true
+ha_platforms:
+  - switch
 ---
 
 The [HLK-SW16](http://www.hlktech.net/product_detail.php?ProId=48) by [Hi-Link](http://www.hlktech.net/) is a simple networkable 16 port relay device.

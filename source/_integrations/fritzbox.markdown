@@ -10,6 +10,12 @@ ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: fritzbox
 ha_config_flow: true
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - switch
 ---
 
 The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ!DECT](https://en.avm.de/products/fritzdect/) devices like switches, sensors and thermostats.

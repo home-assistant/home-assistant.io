@@ -18,6 +18,16 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@shbatm'
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.
@@ -107,7 +117,7 @@ A Home Assistant `isy994_control` event is emitted for every "control" event in 
 
 ```yaml
 automation:
-  - alias: turn off living room on double tap lightswitch
+  - alias: "turn off living room on double tap lightswitch"
     trigger:
       platform: event
       event_type: isy994_control
@@ -120,7 +130,8 @@ automation:
         prec: "0"
     action:
       service: light.turn_off
-      entity_id: light.lr_track_lights_rear
+      target:
+        entity_id: light.lr_track_lights_rear
 ```
 
 All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:

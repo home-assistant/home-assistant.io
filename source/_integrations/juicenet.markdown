@@ -12,6 +12,9 @@ ha_codeowners:
   - '@jesserockz'
 ha_domain: juicenet
 ha_config_flow: true
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 The `juicenet` platform pulls data from a [JuiceNet](https://evcharging.enelx.com/products/juicebox) charging station equipped with a Wi-Fi connection. It will access and make available all of the devices attached to your account. It also exposes a switch allowing you to charge your car now instead of waiting for the pre-set schedule.
