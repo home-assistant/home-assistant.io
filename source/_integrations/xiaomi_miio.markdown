@@ -1710,7 +1710,7 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/xi
 
 ### Configuration
 
-To add a plug to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option “Connect to a other Xiaomi Miio device” and click submit. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. Optionally, you can specify a different name for the plug. After you click submit, you will have the opportunity to select the area that your devices are located.
+To add a plug to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option “Connect to an other Xiaomi Miio device” and click submit. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. Optionally, you can specify a different name for the plug. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Features
 
