@@ -33,8 +33,4 @@ Any Texas electricity consumer can register an account.
 Due to API limits, this sensor refreshes once per hour. The limit is 24 meter readings per calendar day.
 </div>
 
-## Configuration
-
-This integration can be configured from the frontend.
-
-Menu: _Configuration > Integrations_, select the `+` button and search for _Smart Meter Texas_.
+{% include integrations/config_flow.md %}

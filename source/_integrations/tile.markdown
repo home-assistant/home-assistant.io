@@ -17,5 +17,4 @@ The `tile` platform allows Home Assistant to utilize [Tile® Bluetooth trackers]
 The official Tile mobile app handles the actual tracking of Tile devices using
 the mobile device's Bluetooth and GPS.
 
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}

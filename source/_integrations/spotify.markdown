@@ -40,9 +40,8 @@ The Spotify media player integration allows you to control [Spotify](https://www
   Your Home Assistant instance does not need to be exposed to the internet. It works just fine with local IP addresses.
 </div>  
 
-## Configuration
 
-To add Spotify to Home Assistant, add the following to your `configuration.yaml` file:
+Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,8 +49,6 @@ spotify:
   client_id: YOUR_CLIENT_ID
   client_secret: YOUR_CLIENT_SECRET
 ```
-
-Restart your Home Assistant instance before continuing with the next step.
 
 {% configuration %}
 client_id:
@@ -64,14 +61,10 @@ client_secret:
   type: string
 {% endconfiguration %}
 
-## Activating the Spotify integration
 
-- Access Home Assistant using the URL that you used in the **Redirect URI** step above 
-- Go to the **Configuration** page in the Home Assistant frontend.
-- Click on **Integrations**.
-- Click the **Add Integration** button in the bottom-right.
-- Select "Spotify".
-- Once the new Spotify tab opens, enter your Spotify credentials and allow Home Assistant to access your Spotify account.
+Restart your Home Assistant instance before continuing with the next step.
+
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 
