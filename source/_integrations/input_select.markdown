@@ -192,7 +192,7 @@ input_select:
    # entity_id: input_select.thermostat_mode
   action:
     service: input_select.select_option
-    data:
+    target:
       entity_id: input_select.thermostat_mode
     data:
       option: "{{ trigger.payload }}"
