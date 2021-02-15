@@ -22,6 +22,7 @@ Any current iZone unit with ducted reverse cycle airconditioning and the CB wire
 
 {% include integrations/config_flow.md %}
 
+
 ## Manual configuration
 
 Alternatively, the iZone integration can be configured manually via the
