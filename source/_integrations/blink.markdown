@@ -63,6 +63,14 @@ Trigger a camera to take a new still image.
 | ---------------------- | -------- | -------------------------------------- |
 | `entity_id`            | yes      | Camera entity to take picture with.    |
 
+### `blink.record`
+
+Trigger a camera to take record a new video.
+
+| Service Data Attribute | Optional | Description                            |
+| ---------------------- | -------- | -------------------------------------- |
+| `entity_id`            | yes      | Camera entity to take picture with.    |
+
 ### `blink.save_video`
 
 Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file (see example below).
