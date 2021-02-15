@@ -189,6 +189,7 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
 
 Script that can be triggered to download videos from the past 24hrs from cameras named `Living Room` and `Hallway`
 
+{% raw %}
 ```yaml
 blink_download:
   sequence:
@@ -200,3 +201,4 @@ blink_download:
       - Living Room
       - Hallway
 ```
+{% endraw %}
