@@ -3,7 +3,7 @@ title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
 ---
 
-Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**.
+Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**. Of course, this assumes that you have set up an integration that provides a light at this point.
 
 In the user interface, click Configuration in the sidebar, then click Automation. You will now see the automation screen from which you can manage all the automations in Home Assistant.
 
