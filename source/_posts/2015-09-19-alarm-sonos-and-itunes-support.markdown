@@ -54,7 +54,8 @@ automation:
       before: "23:00:00"
   action:
     service: homeassistant.turn_on
-    entity_id: group.living_room
+    target:
+      entity_id: group.living_room
 ```
 
 __Verisure Alarms__

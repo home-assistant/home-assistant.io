@@ -129,7 +129,8 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
     to: "not_home"
   action:
     service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.blink_my_sync_module
+    target:
+      entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Disarm Blink When Home
@@ -145,7 +146,8 @@ Similar to the previous example, this automation will disarm blink when arriving
     to: "home"
   action:
     service: alarm_control_panel.alarm_disarm
-    entity_id: alarm_control_panel.blink_my_sync_module
+    target:
+      entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Save Video Locally When Motion Detected

@@ -64,7 +64,8 @@ The Arlo integration also provides a camera service to enable/disable the motion
     event: start
   action:
     service: camera.enable_motion_detection
-    entity_id: camera.arlo_frontdoor
+    target:
+      entity_id: camera.arlo_frontdoor
 ```
 
 ## Alarm
@@ -112,7 +113,8 @@ Arming the Arlo Base Station when leaving.
     to: not_home
   action:
     service: alarm_control_panel.alarm_arm_away
-    entity_id: alarm_control_panel.my_arlo_base_station
+    target:
+      entity_id: alarm_control_panel.my_arlo_base_station
 ```
 
 Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml`) when arriving.
@@ -127,7 +129,8 @@ Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml
     to: home
   action:
     service: alarm_control_panel.alarm_arm_home
-    entity_id: alarm_control_panel.my_arlo_base_station
+    target:
+      entity_id: alarm_control_panel.my_arlo_base_station
 ```
 
 You can also completely disarm the Arlo base station by calling the `alarm_control_panel.alarm_disarm` service, and trigger the alarm by calling the `alarm_control_panel.alarm_trigger` service.

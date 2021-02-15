@@ -56,7 +56,8 @@ automation:
       event_type: foursquare.push
     action:
       service: script.turn_on
-      entity_id: script.my_action
+      target:
+        entity_id: script.my_action
 ```
 
 ### Check ins

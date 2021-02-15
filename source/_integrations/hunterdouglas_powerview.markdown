@@ -36,5 +36,6 @@ To add `Hunter Douglas PowerView` to your installation, go to **Configuration** 
     at: "18:00:00"
   action:
     - service: scene.turn_on
-      entity_id: scene.10877
+      target:
+        entity_id: scene.10877
 ```

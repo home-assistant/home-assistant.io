@@ -50,7 +50,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     below: 300
   action:
     - service: light.turn_on
-      entity_id: light.gateway_light_34ce00xxxx11
+      target:
+        entity_id: light.gateway_light_34ce00xxxx11
       data:
         brightness: 5
     - service: automation.turn_on
@@ -66,7 +67,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
       minutes: 5
   action:
     - service: light.turn_off
-      entity_id: light.gateway_light_34ce00xxxx11
+      target:
+        entity_id: light.gateway_light_34ce00xxxx11
     - service: automation.turn_off
       data:
         entity_id: automation.Motion_off
@@ -83,7 +85,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     to: "on"
   action:
     service: climate.set_operation_mode
-    entity_id: climate.livingroom
+    target:
+      entity_id: climate.livingroom
     data:
       operation_mode: "Off"
 - alias: "If the window is closed for 5 minutes turn on the radiator again"
@@ -96,7 +99,8 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
       minutes: 5
   action:
     service: climate.set_operation_mode
-    entity_id: climate.livingroom
+    target:
+      entity_id: climate.livingroom
     data:
       operation_mode: "Smart schedule"
 - alias: "Notify if door is opened when away"
@@ -170,7 +174,8 @@ As indicated in the table on top of this page there are 3 versions of the button
       click_type: single
   action:
     service: switch.toggle
-    entity_id: switch.wall_switch_left_158d000xxxxx01
+    target:
+      entity_id: switch.wall_switch_left_158d000xxxxx01
 - alias: "Toggle couch light on double click"
   trigger:
     platform: event
@@ -180,7 +185,8 @@ As indicated in the table on top of this page there are 3 versions of the button
       click_type: double
   action:
     service: switch.toggle
-    entity_id: switch.wall_switch_right_158d000xxxxx01
+    target:
+      entity_id: switch.wall_switch_right_158d000xxxxx01
 - alias: "Let a dog bark on long press"
   trigger:
     platform: event
@@ -210,7 +216,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       action_type: flip90
   action:
     - service: light.turn_on
-      entity_id: light.gateway_light_28xxxxxxxxxx
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "springgreen"
 - alias: "Cube event flip180"
@@ -222,7 +229,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       action_type: flip180
   action:
     - service: light.turn_on
-      entity_id: light.gateway_light_28xxxxxxxxxx
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "darkviolet"
 - alias: "Cube event move"
@@ -234,7 +242,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       action_type: move
   action:
     - service: light.turn_on
-      entity_id: light.gateway_light_28xxxxxxxxxx
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "gold"
 - alias: "Cube event tap_twice"
@@ -246,7 +255,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       action_type: tap_twice
   action:
     - service: light.turn_on
-      entity_id: light.gateway_light_28xxxxxxxxxx
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "deepskyblue"
 - alias: "Cube event shake_air"
@@ -258,7 +268,8 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       action_type: shake_air
   action:
     - service: light.turn_on
-      entity_id: light.gateway_light_28xxxxxxxxxx
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "blue"
 ```
@@ -279,7 +290,8 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
       click_type: single
   action:
     service: light.turn_on
-    entity_id: light.gateway_light_34xxxxxxxx13
+    target:
+      entity_id: light.gateway_light_34xxxxxxxx13
     data:
       brightness: >-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
@@ -301,7 +313,8 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
       click_type: single
   action:
     service: light.turn_on
-    entity_id: light.gateway_light_34xxxxxxxx13
+    target:
+      entity_id: light.gateway_light_34xxxxxxxx13
     data:
       brightness: >-
         {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
@@ -323,7 +336,8 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
       click_type: both
   action:
     service: light.turn_off
-    entity_id: light.gateway_light_34xxxxxxxx13
+    target:
+      entity_id: light.gateway_light_34xxxxxxxx13
 ```
 
 {% endraw %}

@@ -17,7 +17,8 @@ automation:
     to: "on"
   action:
     service: light.turn_on
-    entity_id: light.kitchen_light
+    target:
+      entity_id: light.kitchen_light
 
 - alias: "Turn off kitchen light 10 minutes after last movement"
   trigger:
@@ -28,7 +29,8 @@ automation:
       minutes: 10
   action:
     service: light.turn_off
-    entity_id: light.kitchen_light
+    target:
+      entity_id: light.kitchen_light
 ```
 
 Or in the case of multiple sensors/triggers:
@@ -82,7 +84,8 @@ You can also restrict lights from turning on based on time of day and implement 
     before: "23:30"
   action:
     service: homeassistant.turn_on
-    entity_id: group.office_lights
+    target:
+      entity_id: group.office_lights
     data: 
       transition: 15
 
@@ -96,7 +99,8 @@ You can also restrict lights from turning on based on time of day and implement 
         minutes: 15
   action:
     - service: homeassistant.turn_off
-      entity_id: group.office_lights
+      target:
+        entity_id: group.office_lights
       data: 
         transition: 160
 ```

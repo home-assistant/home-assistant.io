@@ -75,7 +75,8 @@ dropdown on UI. You can apply a scene by clicking an item from the dropdown or b
 
 ```yaml
   - service: light.turn_on
-    entity_id: light.bedroom
+    target:
+      entity_id: light.bedroom
     data:
       effect: Romance
 ```

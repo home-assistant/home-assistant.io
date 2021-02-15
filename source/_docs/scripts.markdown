@@ -234,16 +234,18 @@ This can be used to take different actions based on whether or not the condition
         - service: script.door_did_not_open
   default:
     - service: script.turn_on
-      entity_id:
-        - script.door_did_open
-        - script.play_fanfare
+      target:
+        entity_id:
+          - script.door_did_open
+          - script.play_fanfare
 
 # Wait a total of 10 seconds.
 - wait_template: "{{ is_state('binary_sensor.door_1', 'on') }}"
   timeout: 10
   continue_on_timeout: false
 - service: switch.turn_on
-  entity_id: switch.some_light
+  target:
+    entity_id: switch.some_light
 - wait_for_trigger:
     - platform: state
       entity_id: binary_sensor.door_2
@@ -252,7 +254,8 @@ This can be used to take different actions based on whether or not the condition
   timeout: "{{ wait.remaining }}"
   continue_on_timeout: false
 - service: switch.turn_off
-  entity_id: switch.some_light
+  target:
+    entity_id: switch.some_light
 ```
 {% endraw %}
 
@@ -486,7 +489,8 @@ automation:
                 data:
                   duration: 60
       - service: light.turn_on
-        entity_id: all
+        target:
+          entity_id: all
 ```
 
 ```yaml
@@ -504,13 +508,15 @@ automation:
                 value_template: "{{ trigger.to_state.state == 'on' }}"
             sequence:
               - service: script.turn_on
-                entity_id:
-                  - script.slowly_turn_on_front_lights
-                  - script.announce_someone_at_door
+                target:
+                  entity_id:
+                    - script.slowly_turn_on_front_lights
+                    - script.announce_someone_at_door
         # ELSE (i.e., motion stopped)
         default:
           - service: light.turn_off
-            entity_id: light.front_lights
+            target:
+              entity_id: light.front_lights
 ```
 
 ```yaml
@@ -535,16 +541,19 @@ automation:
                 value_template: "{{ now().hour < 18 }}"
             sequence:
               - service: light.turn_off
-                entity_id: light.living_room
+                target:
+                  entity_id: light.living_room
               - service: script.sim_day
         # ELSE night
         default:
           - service: light.turn_off
-            entity_id: light.kitchen
+            target:
+              entity_id: light.kitchen
           - delay:
               minutes: "{{ range(1, 11)|random }}"
           - service: light.turn_off
-            entity_id: all
+            target:
+              entity_id: all
 ```
 
 {% endraw %}
@@ -573,7 +582,8 @@ automation:
                  is_state('binary_sensor.all_clear', 'off') }}
             sequence:
               - service: script.turn_on
-                entity_id: script.flash_lights
+                target:
+                  entity_id: script.flash_lights
               - service: script.arrive_home
                 data:
                   ok: false

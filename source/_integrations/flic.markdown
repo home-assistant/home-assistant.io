@@ -81,7 +81,8 @@ automation:
         click_type: single
     action:
       service: homeassistant.turn_on
-      entity_id: group.lights_livingroom
+      target:
+        entity_id: group.lights_livingroom
 ```
 
 Event data:

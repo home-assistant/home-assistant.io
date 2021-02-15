@@ -126,7 +126,8 @@ automation:
       entity_id: sensor.incidents
     action:
       service: light.turn_on
-      entity_id: light.bedroom
+      target:
+        entity_id: light.bedroom
 
   - alias: "Play TTS incident details when incident is received"
     trigger:
@@ -154,7 +155,8 @@ automation:
       entity_id: switch.response_button
     action:
       service: homeassistant.turn_on
-      entity_id: switch.incident_response
+      target:
+        entity_id: switch.incident_response
 
   - alias: "Cast FireServiceRota dashboard to Nest Hub"
     trigger: 

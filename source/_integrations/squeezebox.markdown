@@ -56,7 +56,8 @@ The Logitech Transporter which have two digital inputs can be activated using a 
 transporter_toslink:
   sequence:
     - service: homeassistant.turn_on
-      entity_id: media_player.transporter
+      target:
+        entity_id: media_player.transporter
     - service: media_player.play_media
       data:
         entity_id: media_player.transporter

@@ -372,7 +372,8 @@ automation:
         minutes: "/5"
     action:
       - service: homeassistant.update_entity
-        entity_id: sensor.random_number
+        target:
+          entity_id: sensor.random_number
 ```
 
 {% endraw %}

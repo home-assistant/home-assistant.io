@@ -198,18 +198,20 @@ all_lights_on:
   description: "Activate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: scene.turn_on
-      entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+      target:
+        entity_id: 
+          - scene.interior_lights
+          - scene.exterior_lights
 
 all_lights_off:
   alias: "All Lights Off"
   description: "Deactivate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: upb.scene_deactivate
-      entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+      target:
+        entity_id: 
+          - scene.interior_lights
+          - scene.exterior_lights
 
 kitchen_fade_on:
   alias: "Kitchen Fade to On"

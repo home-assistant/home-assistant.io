@@ -23,7 +23,8 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_on
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
         data:
           variables:
             direction: up
@@ -39,7 +40,8 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_on
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
         data:
           variables:
             direction: down
@@ -60,7 +62,8 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_off
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
 ```
 
 There are two variables that control the speed of the change for the script below. The first is the step -- small steps create a smooth transition. The second is the delay -- larger delays will create a slower transition.

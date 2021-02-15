@@ -29,7 +29,8 @@ automation:
         at: "05:00:00"
     action:
       service: homeassistant.turn_on
-      entity_id: input_boolean.trigger_first_morning
+      target:
+        entity_id: input_boolean.trigger_first_morning
 
 # turns it off an hour after sunrise
   - alias: "Disable First Morning Trigger"
@@ -39,7 +40,8 @@ automation:
         offset: "01:00:00"
     action:
       service: homeassistant.turn_off
-      entity_id: input_boolean.trigger_first_morning
+      target:
+        entity_id: input_boolean.trigger_first_morning
 
 
 
@@ -60,7 +62,8 @@ automation:
       # turn off the "waiting" boolean regardless of whether lights will turn on
       # so that this happens only once
       - service: homeassistant.turn_off
-        entity_id: input_boolean.trigger_first_morning
+        target:
+          entity_id: input_boolean.trigger_first_morning
 
       # But only turn on lights if the living room and kitchen lights are off or dimmed
       # If a condition tests false, the automation will end
@@ -84,7 +87,8 @@ automation:
       # Trigger a scene
       # You could add as many services or scenes as you'd like
       - service: scene.turn_on
-        entity_id: scene.morning_first_motion
+        target:
+          entity_id: scene.morning_first_motion
 ```
 
 {% endraw %}

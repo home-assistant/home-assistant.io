@@ -53,7 +53,8 @@ automation:
         state: "below_horizon"
     action:
         service: scene.turn_on
-        entity_id: scene.livingroom_normal
+        target:
+          entity_id: scene.livingroom_normal
 
   - alias: "Media player playing"
     trigger:
@@ -67,6 +68,7 @@ automation:
         state: "below_horizon"
     action:
         service: scene.turn_on
-        entity_id: scene.livingroom_dim
+        target:
+          entity_id: scene.livingroom_dim
 ```
 

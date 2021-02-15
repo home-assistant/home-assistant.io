@@ -81,7 +81,8 @@ automation:
       to: "Complete"
     action:
       service: script.turn_on
-      entity_id: script.washer_complete
+      target:
+        entity_id: script.washer_complete
 
   - alias: "Washer emptied"
     trigger:
@@ -91,7 +92,8 @@ automation:
       to: "Empty"
     action:
       service: scene.turn_on
-      entity_id: scene.normal
+      target:
+        entity_id: scene.normal
 
 script:
   washer_complete:

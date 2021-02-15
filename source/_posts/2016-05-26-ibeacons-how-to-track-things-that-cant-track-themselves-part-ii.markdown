@@ -72,7 +72,8 @@ automation:
           state: "off"
       action:
           service: switch.turn_on
-          entity_id: switch.gate
+          target:
+            entity_id: switch.gate
 ```
 
 Or warn you if you leave your keys behind
@@ -90,7 +91,8 @@ automation:
       value_template: '{{ states.device_tracker.greg_gregphone.state != "home" }}'
     action:
       service: script.turn_on
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 
   - alias: "Forgotten keys - cancel"
     trigger:
@@ -102,7 +104,8 @@ automation:
         state: "on"
     action:
       service: script.turn_off
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 ```
 
 {% endraw %}

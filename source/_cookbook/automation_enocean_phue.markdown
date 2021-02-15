@@ -33,7 +33,8 @@ automation:
         devname: living_room_switch
     action:
       service: light.turn_on
-      entity_id: light.hue_color_lamp_3
+      target:
+        entity_id: light.hue_color_lamp_3
 
   - alias: "Turn off living room light"
     trigger:
@@ -44,5 +45,6 @@ automation:
         devname: living_room_switch
     action:
       service: light.turn_off
-      entity_id: light.hue_color_lamp_3
+      target:
+        entity_id: light.hue_color_lamp_3
 ```

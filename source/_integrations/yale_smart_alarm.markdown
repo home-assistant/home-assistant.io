@@ -61,7 +61,8 @@ automation:
       before: sunset
     action:
       service: scene.turn_on
-      entity_id: scene.OnDisarmedDaytime
+      target:
+        entity_id: scene.OnDisarmedDaytime
   - alias: "Alarm: Armed Away"
     trigger:
       platform: state
@@ -69,5 +70,6 @@ automation:
       to: "armed_away"
     action:
       service: scene.turn_on
-      entity_id: scene.OnArmedAway
+      target:
+        entity_id: scene.OnArmedAway
 ```

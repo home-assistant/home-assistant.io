@@ -73,7 +73,8 @@ automation:
       state: "off"
   action:
     service: homeassistant.turn_on
-    entity_id: script.restarthawemo
+    target:
+      entity_id: script.restarthawemo
 - alias: "Stop HA"
   trigger:
     - platform: state
@@ -91,7 +92,8 @@ automation:
     state: "on"
   action:
     service: homeassistant.turn_off
-    entity_id: script.restarthawemo
+    target:
+      entity_id: script.restarthawemo
 ```
 
 {% endraw %}

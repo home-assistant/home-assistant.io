@@ -67,7 +67,8 @@ automation:
       at: "5:30:00"
     action:
       service: mysensors.send_ir_code
-      entity_id: switch.hvac_1_1
+      target:
+        entity_id: switch.hvac_1_1
       data:
         V_IR_SEND: "0xC284"  # the IR code to send
 
@@ -77,7 +78,8 @@ automation:
       at: "0:30:00"
     action:
       service: mysensors.send_ir_code
-      entity_id: switch.hvac_1_1
+      target:
+        entity_id: switch.hvac_1_1
       data:
         V_IR_SEND: "0xC288"  # the IR code to send
 ```

@@ -205,7 +205,8 @@ automation:
         event: 1002
     action:
       service: light.toggle
-      entity_id: light.lamp
+      target:
+        entity_id: light.lamp
 
   - alias: "Increase brightness of lamp from dimmer"
     initial_state: "on"
@@ -249,7 +250,8 @@ automation:
         gesture: 7
     action:
       service: light.turn_on
-      entity_id: light.lamp
+      target:
+        entity_id: light.lamp
 ```
 
 {% endraw %}

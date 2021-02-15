@@ -238,7 +238,8 @@ automation:
       to: "home"
     action:
       service: light.turn_on
-      entity_id: light.entryway
+      target:
+        entity_id: light.entryway
   - alias: "Automation 2"
     trigger:
       platform: state
@@ -246,7 +247,8 @@ automation:
       from: "home"
     action:
       service: light.turn_off
-      entity_id: light.entryway
+      target:
+        entity_id: light.entryway
 ```
 
 can be turned into:
@@ -267,7 +269,8 @@ trigger:
   to: "home"
 action:
   service: light.turn_on
-  entity_id: light.entryway
+  target:
+    entity_id: light.entryway
 ```
 
 `automation/presence/automation2.yaml`
@@ -280,7 +283,8 @@ trigger:
   from: "home"
 action:
   service: light.turn_off
-  entity_id: light.entryway
+  target:
+    entity_id: light.entryway
 ```
 
 It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
@@ -377,7 +381,8 @@ automation:
       to: "home"
     action:
       service: light.turn_on
-      entity_id: light.entryway
+      target:
+        entity_id: light.entryway
   - alias: "Automation 2"
     trigger:
       platform: state
@@ -385,7 +390,8 @@ automation:
       from: "home"
     action:
       service: light.turn_off
-      entity_id: light.entryway
+      target:
+        entity_id: light.entryway
 ```
 
 can be turned into:
@@ -406,7 +412,8 @@ automation: !include_dir_merge_list automation/
     to: "home"
   action:
     service: light.turn_on
-    entity_id: light.entryway
+    target:
+      entity_id: light.entryway
 - alias: "Automation 2"
   trigger:
     platform: state
@@ -414,7 +421,8 @@ automation: !include_dir_merge_list automation/
     from: "home"
   action:
     service: light.turn_off
-    entity_id: light.entryway
+    target:
+      entity_id: light.entryway
 ```
 
 It is important to note that when using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.

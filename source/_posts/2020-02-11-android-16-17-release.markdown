@@ -46,7 +46,8 @@ automation:
         action: close_garage
     action:
       service: cover.close_cover
-      entity_id: cover.garage_door
+      target:
+        entity_id: cover.garage_door
 ```
 
 After adding these automations, whenever your garage door remains open for 30 minutes, your device will get a notification that looks like this:

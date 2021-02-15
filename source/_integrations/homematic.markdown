@@ -261,7 +261,8 @@ automation:
        param: PRESS_SHORT
    action:
      service: switch.turn_on
-     entity_id: switch.Kitchen_Ambience
+     target:
+       entity_id: switch.Kitchen_Ambience
 ```
 
 The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
@@ -423,7 +424,8 @@ Manually set lock on KeyMatic devices:
 ...
 action:
   service: lock.lock
-  entity_id: lock.leq1234567
+  target:
+    entity_id: lock.leq1234567
 ```
 
 Manually set unlock on KeyMatic devices:
@@ -432,7 +434,8 @@ Manually set unlock on KeyMatic devices:
 ...
 action:
   service: lock.unlock
-  entity_id: lock.leq1234567
+  target:
+    entity_id: lock.leq1234567
 ```
 
 #### Detecting lost connections

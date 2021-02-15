@@ -137,7 +137,8 @@ timer:
     to: "on"
   action:
   - service: timer.start
-    entity_id: timer.test
+    target:
+      entity_id: timer.test
 
 # When timer is stopped, the time run out, another message is sent
 - alias: "Timerstop"
@@ -163,20 +164,24 @@ script:
     alias: "Start timer"
     sequence:
       - service: timer.start
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   pause_timer:
     alias: "Pause timer"
     sequence:
       - service: timer.pause
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   cancel_timer:
     alias: "Cancel timer"
     sequence:
       - service: timer.cancel
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
   finish_timer:
     alias: "Finish timer"
     sequence:
       - service: timer.finish
-        entity_id: timer.test
+        target:
+          entity_id: timer.test
 ```

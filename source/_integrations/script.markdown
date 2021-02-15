@@ -169,7 +169,8 @@ automation:
     to: "on"
   action:
     service: script.turn_on
-    entity_id: script.notify_pushover
+    target:
+      entity_id: script.notify_pushover
     data:
       variables:
         title: "State change"
@@ -243,7 +244,8 @@ script:
   script_1:
     sequence:
       - service: script.turn_on
-        entity_id: script.script_2
+        target:
+          entity_id: script.script_2
       # Perform some other steps here while second script runs...
       # Now wait for called script to complete.
       - wait_template: "{{ is_state('script.script_2', 'off') }}"

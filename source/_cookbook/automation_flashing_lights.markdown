@@ -29,7 +29,8 @@ automation:
     # start alarm on movement if alarm activated
     # and the alarm is not triggered
     service: script.turn_on
-    entity_id: script.alarm_room1
+    target:
+      entity_id: script.alarm_room1
 
 - alias: "flash_room1_start"
   trigger:
@@ -38,7 +39,8 @@ automation:
     to: "on"
   action:
     service: script.turn_on
-    entity_id: script.flash_room1
+    target:
+      entity_id: script.flash_room1
 
 - alias: "flash_room1_stop"
   trigger:
@@ -51,7 +53,8 @@ automation:
     state: "off"
   action:
     service: script.turn_off
-    entity_id: script.flash_room1
+    target:
+      entity_id: script.flash_room1
 
 script:
   alarm_room1:

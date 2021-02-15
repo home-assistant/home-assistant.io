@@ -143,7 +143,8 @@ automation:
     state: "on"
   action:
     service: switch.turn_on
-    entity_id: switch.heater
+    target:
+      entity_id: switch.heater
 ```
 
 <div class='note'>
