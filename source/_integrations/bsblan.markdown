@@ -25,6 +25,9 @@ For more information of which system it supports, have a look at their [document
 
 {% include integrations/config_flow.md %}
 
+For authentication HTTP authentication using a username and password,
+or using a passkey is supported. Use either one.
+
 For more documentation of the BSBLan device, check the [manual](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 
 To see a more detailed listing of the reported systems which are successfully used with BSB-LAN please follow the corresponding link:
