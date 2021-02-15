@@ -52,7 +52,7 @@ integration will try to use all configured ones and fail gracefully if
 it detects one requiring authentication in unauthenticated mode.
 
 Only a subset of the entities provided by the target device by
-default: 
+default:
 
 - WAN IP address sensor
 - LTE signal sensors RSRQ, RSRP, RSSI, and SINR

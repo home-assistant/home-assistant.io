@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - Scene
 - Sensor
 
-To add `Hunter Douglas PowerView` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Hunter Douglas PowerView**.
+{% include integrations/config_flow.md %}
 
 ## Example Automations
 

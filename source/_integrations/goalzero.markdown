@@ -15,9 +15,7 @@ ha_platforms:
 
 This `goalzero` integration pulls data from a Wifi enabled Goal Zero Yeti.
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Goal Zero Yeti.
+{% include integrations/config_flow.md %}
 
 ## Integration Entities
 

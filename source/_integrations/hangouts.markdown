@@ -18,14 +18,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 
-## Setup the integration via the frontend
-
-Menu: *Configuration* -> *Integrations*
-
-Configure the integration:
-* Enter your **Google Mail Address** and **Password**
-* In the authentication form there is an Optional Field: **Authorization Code** which should only be used if you get an invalid login error with email and password (see note below for details).
-* If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
+{% include integrations/config_flow.md %}
 
 ## Manual Authentication
 
