@@ -53,7 +53,7 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
     docker pull homeassistant/raspberrypi4-homeassistant:stable
     ```
 
-    **[You need to recreate the container with the new image.](/getting-started)**
+    **[You then need to recreate the container with the new image.](/getting-started)**
 
 - title: Docker Compose
   content: |
