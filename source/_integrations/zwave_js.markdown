@@ -31,7 +31,7 @@ ha_platforms:
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant.
 
-Please review the limitations [below](https://www.home-assistant.io/integrations/zwave_js/#current-limitations) before you get started as a few devices still may not work or only work partially. 
+Please review the limitations [below](/integrations/zwave_js/#current-limitations) before you get started as a few devices still may not work or only work partially. 
 
 ## Quick start (Home Assistant including Supervisor)
 
