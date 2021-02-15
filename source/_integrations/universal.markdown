@@ -42,6 +42,7 @@ media_player:
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
       state: ENTITY_ID|ATTRIBUTE
+    device_class: tv
 ```
 
 {% configuration %}
@@ -63,6 +64,10 @@ commands:
   type: string
 attributes:
   description: "Attributes that can be overwritten. Possible entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
+  required: false
+  type: string
+device_class:
+  description: The device class that this entity represents. Can be `tv`, `speaker`, or `receiver`.
   required: false
   type: string
 {% endconfiguration %}
@@ -273,6 +278,7 @@ media_player:
         data:
           entity_id: remote.alexander_down_guest
           activity: "{{ source }}"
+    device_class: tv
 ```
 
 {% endraw %}
