@@ -23,6 +23,7 @@ The UPB integration allows Home Assistant to connect to a Universal Powerline Bu
 The UPB integration requires that an export from the `UPStart` UPB configuration program. To create an export, in `UPStart`, click the UPB button in the top left and select **Export to File**. This will create a file with the `.upe` extension. The file must be placed in the configuration directory of your Home Assistant installation.
 
 {% include integrations/config_flow.md %}
+
 ## Device Configuration
 
 Using UPStart, configure each UPB dimmer-switch to report its state when it is manually operated. If you omit this step, manual changes to a dimmer-switch's state (on/off/brightness) will *not* be reported to Home Assistant.
