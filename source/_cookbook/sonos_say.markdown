@@ -16,22 +16,22 @@ script:
     alias: "Sonos TTS script"
     sequence:
      - service: sonos.snapshot
-       data:
+       target:
          entity_id: "{{ sonos_entity }}"
      - service: sonos.unjoin
-       data:
+       target:
          entity_id: "{{ sonos_entity }}"
      - service: media_player.volume_set
-       data:
+       target:
          entity_id: "{{ sonos_entity }}"
          volume_level: "{{ volume }}"
      - service: tts.voicerss_say
-       data:
+       target:
          entity_id: "{{ sonos_entity }}"
          message: "{{ message }}"
      - delay: "{{ delay }}"
      - service: sonos.restore
-       data:
+       target:
          entity_id: "{{ sonos_entity }}"
 ```
 

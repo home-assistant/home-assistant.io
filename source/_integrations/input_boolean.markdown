@@ -91,6 +91,6 @@ You can also set or change the status of an `input_boolean` by using `input_bool
 
 ```yaml
     - service: input_boolean.turn_on
-      data:
+      target:
         entity_id: input_boolean.notify_home
 ```

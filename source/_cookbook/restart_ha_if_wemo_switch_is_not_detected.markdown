@@ -55,7 +55,7 @@ script:
         data:
           message: "WeMo not found, restarting HA"
       - service: switch.turn_on
-        data:
+        target:
           entity_id: switch.killhass
   
 automation:

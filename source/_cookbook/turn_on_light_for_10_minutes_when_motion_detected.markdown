@@ -44,12 +44,12 @@ automation:
     to: "on"
   action:
   - service: light.turn_on
-    data:
+    target:
       entity_id:
         - light.hallway_0
         - light.hallway_1
   - service: timer.start
-    data:
+    target:
       entity_id: timer.hallway
 
 - alias: "Turn off hallway lights 10 minutes after trigger"
@@ -60,7 +60,7 @@ automation:
       entity_id: timer.hallway
   action:
     service: light.turn_off
-    data:
+    target:
       entity_id:
         - light.hallway_0
         - light.hallway_1

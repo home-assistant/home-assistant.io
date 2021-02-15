@@ -44,8 +44,9 @@ automation:
     at: "07:15:00"
   action:
     - service: humidifier.set_mode
-      data:
+      target:
         entity_id: humidifier.bedroom
+      data:
         preset_mode: "eco"
 ```
 
@@ -67,8 +68,9 @@ automation:
     at: "07:15:00"
   action:
     - service: humidifier.set_humidity
-      data:
+      target:
         entity_id: humidifier.bedroom
+      data:
         humidity: 60
 ```
 

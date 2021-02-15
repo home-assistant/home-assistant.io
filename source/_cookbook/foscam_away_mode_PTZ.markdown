@@ -46,17 +46,17 @@ script:
  foscam_off:
    sequence:
    - service: switch.turn_off
-     data:
+     target:
        entity_id: switch.foscam_motion
    - service: shell_command.foscam_turn_off
  foscam_on:
    sequence:
    - service: switch.turn_off
-     data:
+     target:
        entity_id: switch.foscam_motion
    - service: shell_command.foscam_turn_on
    - service: switch.turn_on
-     data:
+     target:
        entity_id: switch.foscam_motion
 ```
 

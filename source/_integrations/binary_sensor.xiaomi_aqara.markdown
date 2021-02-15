@@ -55,7 +55,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
       data:
         brightness: 5
     - service: automation.turn_on
-      data:
+      target:
         entity_id: automation.MOTION_OFF
 - alias: "If there no motion for 5 minutes turn off the gateway light"
   trigger:
@@ -70,7 +70,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
       target:
         entity_id: light.gateway_light_34ce00xxxx11
     - service: automation.turn_off
-      data:
+      target:
         entity_id: automation.Motion_off
 ```
 
@@ -356,7 +356,7 @@ This automation toggles the living room lamp on vibration/tilt.
       movement_type: vibrate
   action:
     service: light.toggle
-    data:
+    target:
       entity_id: light.living_room_lamp
 - alias: "Turn on Living Room Lamp on tilt"
   trigger:
@@ -367,6 +367,6 @@ This automation toggles the living room lamp on vibration/tilt.
       movement_type: tilt
   action:
     service: light.toggle
-    data:
+    target:
       entity_id: light.living_room_lamp
 ```

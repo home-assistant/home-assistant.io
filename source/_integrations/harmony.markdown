@@ -127,8 +127,9 @@ A typical service call for sending several button presses looks like this:
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.tv_room
+data:
   command:
     - PowerOn
     - Mute
@@ -138,8 +139,9 @@ data:
 OR
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.tv_room
+data:
   command:
     - PowerOn
     - Mute
@@ -160,8 +162,9 @@ A typical service call for changing the channel would be::
 
 ```yaml
 service: harmony.change_channel
-data:
+target:
   entity_id: remote.tv_room
+data:
   channel: 200
 ```
 

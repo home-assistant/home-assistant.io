@@ -16,7 +16,7 @@ script:
     sequence:
       # This is written using the Script Syntax
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.ceiling
       - service: notify.notify
         data:
@@ -49,8 +49,9 @@ The most important one is the action to call a service. This can be done in vari
 ```yaml
 - alias: "Bedroom lights on"
   service: light.turn_on
-  data:
+  target:
     entity_id: group.bedroom
+  data:
     brightness: 100
 ```
 
@@ -76,8 +77,9 @@ The variables action allows you to set/override variables that will be accessibl
     brightness: 100
 - alias: "Control lights"
   service: light.turn_on
-  data:
+  target:
     entity_id: "{{ entities }}"
+  data:
     brightness: "{{ brightness }}"
 ```
 
@@ -339,14 +341,14 @@ script:
     mode: restart
     sequence:
       - service: light.turn_on
-        data:
+        target:
           entity_id: "light.{{ light }}"
       - repeat:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
             - delay: 2
             - service: light.toggle
-              data:
+              target:
                 entity_id: "light.{{ light }}"
   flash_hallway_light:
     sequence:
