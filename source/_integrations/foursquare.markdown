@@ -50,7 +50,7 @@ Foursquare check-in events can be used out of the box to trigger automation acti
 
 ```yaml
 automation:
-  - alias: Trigger action when you check into a venue.
+  - alias: "Trigger action when you check into a venue."
     trigger:
       platform: event
       event_type: foursquare.push

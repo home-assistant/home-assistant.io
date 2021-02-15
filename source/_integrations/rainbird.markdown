@@ -124,7 +124,7 @@ The service can be used as part of an automation script. For example:
 ```yaml
 # Example configuration.yaml automation entry
 automation:
-  - alias: Turn irrigation on
+  - alias: "Turn irrigation on"
     trigger:
       platform: time
       at: "5:30:00"

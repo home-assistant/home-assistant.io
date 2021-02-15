@@ -40,7 +40,7 @@ Any service data passed into the service call to activate the shell command will
 ```yaml
 # Apply value of a GUI slider to the shell_command
 automation:
-  - alias: run_set_ac
+  - alias: "run_set_ac"
     trigger:
       platform: state
       entity_id: input_number.ac_temperature

@@ -106,7 +106,7 @@ Note that the `brightness`, `color` and `temperature` attributes cannot be used 
 
 ```yaml
 automation:
-  - alias: ...
+  - alias: "..."
     trigger:
       # ...
     action:

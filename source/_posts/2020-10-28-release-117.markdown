@@ -207,7 +207,7 @@ After that, you can do things like this:
 ```yaml
 script:
   my_script:
-    alias: Example
+    alias: "Example"
     description: Example script with native lists in templates
     variables:
       entities:

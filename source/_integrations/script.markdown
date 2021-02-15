@@ -118,7 +118,7 @@ Mode | Description
 ```yaml
 script: 
   wakeup:
-    alias: Wake Up
+    alias: "Wake Up"
     icon: "mdi:party-popper"
     description: "Turns on the bedroom lights and then the living room lights after a delay"
     variables:
@@ -137,7 +137,7 @@ script: 
           message: is waking up
           entity_id: device_tracker.paulus
           domain: light
-      - alias: Bedroom lights on
+      - alias: "Bedroom lights on"
         service: light.turn_on
         data:
           entity_id: group.bedroom
@@ -145,7 +145,7 @@ script: 
       - delay:
           # supports seconds, milliseconds, minutes, hours
           minutes: "{{ minutes }}"
-      - alias: Living room lights on
+      - alias: "Living room lights on"
         service: light.turn_on
         data:
           entity_id: "{{ turn_on_entity }}"

@@ -50,7 +50,7 @@ Here's an example of a script using the above light group.
 ```yaml
 script:
   turn_on_kitchen_lights:
-    alias: Kitchen lights on
+    alias: "Kitchen lights on"
     sequence:
       service: light.turn_on
       data:

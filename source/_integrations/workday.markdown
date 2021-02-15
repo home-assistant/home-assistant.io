@@ -133,7 +133,7 @@ Example usage for automation:
 
 ```yaml
 automation:
-  alias: Turn on heater on workdays
+  alias: "Turn on heater on workdays"
   trigger:
     platform: time
     at: "08:00:00"

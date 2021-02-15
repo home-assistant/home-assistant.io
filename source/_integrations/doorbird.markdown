@@ -173,7 +173,7 @@ Note: Remember to complete the schedule assignment steps above for each event ty
 ### Automation Example
 
 ```yaml
-- alias: Doorbird Ring
+- alias: "Doorbird Ring"
   trigger:
     platform: event
     event_type: doorbird_driveway_gate_somebody_pressed_the_button

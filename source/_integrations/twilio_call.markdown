@@ -44,7 +44,7 @@ Twilio is a notify platform and thus can be controlled by calling the notify ser
 ```yaml
 # Example automation notification entry
 automation:
-  - alias: The sun has set
+  - alias: "The sun has set"
     trigger:
       platform: sun
       event: sunset

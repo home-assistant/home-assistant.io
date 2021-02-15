@@ -97,7 +97,7 @@ Example of an automation that notifies on successful download and removes the to
 {% raw %}
 
 ```yaml
-- alias: Notify and remove completed torrent
+- alias: "Notify and remove completed torrent"
   trigger:
     platform: event
     event_type: transmission_downloaded_torrent

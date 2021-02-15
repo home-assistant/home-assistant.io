@@ -128,7 +128,7 @@ timer:
 
 ```yaml
 # Example automations.yaml entry
-- alias: Timerswitch
+- alias: "Timerswitch"
   id: "Timerstart"
   # Timer is started when the switch pumprun is set to on.
   trigger:
@@ -141,7 +141,7 @@ timer:
       entity_id: timer.test
 
 # When timer is stopped, the time run out, another message is sent
-- alias: Timerstop
+- alias: "Timerstop"
   id: "Timerstop"
   trigger:
   - platform: event
@@ -161,25 +161,25 @@ With the [`script`](/integrations/script/) integration you would be able to cont
 ```yaml
 script:
   start_timer:
-    alias: Start timer
+    alias: "Start timer"
     sequence:
       - service: timer.start
         target:
           entity_id: timer.test
   pause_timer:
-    alias: Pause timer
+    alias: "Pause timer"
     sequence:
       - service: timer.pause
         target:
           entity_id: timer.test
   cancel_timer:
-    alias: Cancel timer
+    alias: "Cancel timer"
     sequence:
       - service: timer.cancel
         target:
           entity_id: timer.test
   finish_timer:
-    alias: Finish timer
+    alias: "Finish timer"
     sequence:
       - service: timer.finish
         target:

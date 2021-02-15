@@ -25,7 +25,7 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
 
 ```yaml
 cast_downstairs_on_kitchen:
-  alias: Show Downstairs on kitchen
+  alias: "Show Downstairs on kitchen"
   sequence:
     - data:
         dashboard_path: lovelace
@@ -52,7 +52,7 @@ Optional:
 
 ```yaml
 'cast_youtube_to_my_chromecast':
-  alias: Cast YouTube to My Chromecast
+  alias: "Cast YouTube to My Chromecast"
   sequence:
     - data:
         entity_id: media_player.my_chromecast
@@ -77,7 +77,7 @@ Optional:
 
 ```yaml
 'cast_supla_to_my_chromecast':
-  alias: Cast supla to My Chromecast
+  alias: "Cast supla to My Chromecast"
   sequence:
     - data:
         entity_id: media_player.my_chromecast
@@ -96,7 +96,7 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 ```yaml
 'cast_plex_to_chromecast':
-  alias: Cast Plex to Chromecast
+  alias: "Cast Plex to Chromecast"
   sequence:
   - service: media_player.play_media
     data:

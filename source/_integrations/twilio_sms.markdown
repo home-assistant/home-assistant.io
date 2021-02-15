@@ -47,7 +47,7 @@ Media can be included with messages by setting the optional `media_url` variable
 ```yaml
 # Example automation notification entry
 automation:
-  - alias: The sun has set
+  - alias: "The sun has set"
     trigger:
       platform: sun
       event: sunset

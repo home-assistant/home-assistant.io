@@ -85,7 +85,7 @@ Each such entity has a state attribute that will contain a list of any such issu
 {% raw %}
 
 ```yaml
-- alias: GeniusHub Error Alerts
+- alias: "GeniusHub Error Alerts"
   trigger:
     platform: numeric_state
     entity_id: sensor.geniushub_errors
@@ -106,7 +106,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
 {% raw %}
 
 ```yaml
-- alias: GeniusHub CH State Change Alert
+- alias: "GeniusHub CH State Change Alert"
   trigger:
     platform: state
     entity_id: binary_sensor.dual_channel_receiver_2_1

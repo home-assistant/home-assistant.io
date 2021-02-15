@@ -133,7 +133,7 @@ Sample automation to switch lights on and off:
 ```yaml
 # Example automation to turn lights on/off on button release
 automation:
-  - alias: hall light switches
+  - alias: "hall light switches"
     trigger:
       platform: event
       event_type: button_pressed

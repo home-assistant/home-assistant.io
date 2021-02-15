@@ -73,7 +73,7 @@ sensor:
     unit_of_measurement: ""
 
 automation:
-  - alias: Washer complete
+  - alias: "Washer complete"
     trigger:
       platform: state
       entity_id: sensor.washer_status
@@ -84,7 +84,7 @@ automation:
       target:
         entity_id: script.washer_complete
 
-  - alias: Washer emptied
+  - alias: "Washer emptied"
     trigger:
       platform: state
       entity_id: sensor.washer_status
@@ -97,13 +97,13 @@ automation:
 
 script:
   washer_complete:
-    alias: Washer Complete
+    alias: "Washer Complete"
     sequence:
-      - alias: Join Notification
+      - alias: "Join Notification"
         service: notify.join
         data:
           message: "The washing machine has finished its cycle, please empty it!"
-      - alias: Living Room Lights Blue
+      - alias: "Living Room Lights Blue"
         service: scene.turn_on
         data:
           entity_id: scene.blue

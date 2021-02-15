@@ -24,7 +24,7 @@ binary_sensor:
     name: living_room_switch
 
 automation:
-  - alias: Turn on living room light
+  - alias: "Turn on living room light"
     trigger:
       platform: event
       event_type: button_pressed
@@ -36,7 +36,7 @@ automation:
       target:
         entity_id: light.hue_color_lamp_3
 
-  - alias: Turn off living room light
+  - alias: "Turn off living room light"
     trigger:
       platform: event
       event_type: button_pressed

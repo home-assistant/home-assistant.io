@@ -1292,7 +1292,7 @@ Inline array:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1312,7 +1312,7 @@ Array with inline zone:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1333,7 +1333,7 @@ Array mode:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1378,7 +1378,7 @@ Example of `xiaomi_miio.vacuum_clean_segment` use:
 Multiple segments:
 ```yaml
 automation:
-  - alias: Vacuum kitchen and living room
+  - alias: "Vacuum kitchen and living room"
     trigger:
     - event: start
       platform: homeassistant
@@ -1394,7 +1394,7 @@ Single segment:
 
 ```yaml
 automation:
-  - alias: Vacuum kitchen
+  - alias: "Vacuum kitchen"
     trigger:
     - event: start
       platform: homeassistant

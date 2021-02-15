@@ -120,7 +120,7 @@ These are documented below.
 
 ```yaml
 automation:
-  - alias: 'Switch on a light when incident is received'
+  - alias: "Switch on a light when incident is received"
     trigger:
       platform: state
       entity_id: sensor.incidents
@@ -129,7 +129,7 @@ automation:
       target:
         entity_id: light.bedroom
 
-  - alias: 'Play TTS incident details when incident is received'
+  - alias: "Play TTS incident details when incident is received"
     trigger:
       platform: state
       entity_id: sensor.incidents
@@ -149,7 +149,7 @@ automation:
               {{ state_attr('sensor.incidents','message_to_speech_url') }}
           media_content_type: "audio/mp4"
 
-  - alias: 'Send response acknowledgement when a button is pressed'
+  - alias: "Send response acknowledgement when a button is pressed"
     trigger:
       platform: state
       entity_id: switch.response_button
@@ -158,7 +158,7 @@ automation:
       target:
         entity_id: switch.incident_response
 
-  - alias: 'Cast FireServiceRota dashboard to Nest Hub'
+  - alias: "Cast FireServiceRota dashboard to Nest Hub"
     trigger: 
       platform: homeassistant
       event: start

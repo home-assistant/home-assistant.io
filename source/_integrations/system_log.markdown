@@ -89,7 +89,7 @@ counter:
     icon: mdi:alert
 
 automation:
-  - alias: Count warnings
+  - alias: "Count warnings"
     trigger:
       platform: event
       event_type: system_log_event
@@ -109,7 +109,7 @@ This automation will create a persistent notification whenever an error or warni
 
 ```yaml
 automation:
-  - alias: Create notifications for "service" errors
+  - alias: "Create notifications for "service" errors"
     trigger:
       platform: event
       event_type: system_log_event
@@ -131,7 +131,7 @@ This automation will create a new log entry when the door is opened:
 
 ```yaml
 automation:
-  - alias: Log door opened
+  - alias: "Log door opened"
     trigger:
       platform: state
       entity_id: binary_sensor.door

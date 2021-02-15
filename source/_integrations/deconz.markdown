@@ -195,7 +195,7 @@ Requesting support for additional devices requires the device model (can be acqu
 
 ```yaml
 automation:
-  - alias: 'Toggle lamp from dimmer'
+  - alias: "'Toggle lamp from dimmer'"
     initial_state: "on"
     trigger:
       platform: event
@@ -208,7 +208,7 @@ automation:
       target:
         entity_id: light.lamp
 
-  - alias: 'Increase brightness of lamp from dimmer'
+  - alias: "Increase brightness of lamp from dimmer"
     initial_state: "on"
     trigger:
       platform: event
@@ -224,7 +224,7 @@ automation:
             {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri+30, 249] | min }}
 
-  - alias: 'Decrease brightness of lamp from dimmer'
+  - alias: "Decrease brightness of lamp from dimmer"
     initial_state: "on"
     trigger:
       platform: event
@@ -262,7 +262,7 @@ automation:
 
 ```yaml
 automation:
-  - alias: React to color wheel changes
+  - alias: "React to color wheel changes"
     trigger:
       - platform: event
         event_type: deconz_event
@@ -287,7 +287,7 @@ Note: Requires `on: true` to change color while the Philips Hue bulb is off. If 
 
 ```yaml
 automation:
-  - alias: Flash Hue Bulb with Doorbell Motion
+  - alias: "Flash Hue Bulb with Doorbell Motion"
     mode: single
     trigger:
     - platform: state

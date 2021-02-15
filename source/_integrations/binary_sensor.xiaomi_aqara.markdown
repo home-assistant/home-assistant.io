@@ -38,7 +38,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 #### Motion
 
 ```yaml
-- alias: If there is motion and its dark turn on the gateway light
+- alias: "If there is motion and its dark turn on the gateway light"
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
@@ -57,7 +57,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     - service: automation.turn_on
       data:
         entity_id: automation.MOTION_OFF
-- alias: If there no motion for 5 minutes turn off the gateway light
+- alias: "If there no motion for 5 minutes turn off the gateway light"
   trigger:
     platform: state
     entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
@@ -77,7 +77,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 #### Door and/or Window
 
 ```yaml
-- alias: If the window is open turn off the radiator
+- alias: "If the window is open turn off the radiator"
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
@@ -89,7 +89,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
       entity_id: climate.livingroom
     data:
       operation_mode: "Off"
-- alias: If the window is closed for 5 minutes turn on the radiator again
+- alias: "If the window is closed for 5 minutes turn on the radiator again"
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
@@ -103,7 +103,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
       entity_id: climate.livingroom
     data:
       operation_mode: "Smart schedule"
-- alias: Notify if door is opened when away
+- alias: "Notify if door is opened when away"
   trigger:
     platform: state
     entity_id: binary_sensor.door_window_sensor_15xxxxxxc9xx6b
@@ -122,7 +122,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 #### Smoke
 
 ```yaml
-- alias: Send notification on fire alarm
+- alias: "Send notification on fire alarm"
   trigger:
     platform: state
     entity_id: binary_sensor.smoke_sensor_158d0001574899
@@ -145,7 +145,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 {% raw %}
 
 ```yaml
-- alias: Send notification on gas alarm
+- alias: "Send notification on gas alarm"
   trigger:
     platform: state
     entity_id: binary_sensor.natgas_sensor_158dxxxxxxxxxx
@@ -165,7 +165,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
 As indicated in the table on top of this page there are 3 versions of the button. For the round shaped button the available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`. Aqara branded buttons are square shaped. Model WXKG11LM only supports `single`, `double`, `long_click_press`and `hold` events. WXKG12LM supports `single`, `double`, `long_click_press` and `shake` events. For the Aqara versions the delay between two clicks to generate a double click must be larger than with the round button. Clicking too quickly generates a single click event.
 
 ```yaml
-- alias: Toggle dining light on single press
+- alias: "Toggle dining light on single press"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -176,7 +176,7 @@ As indicated in the table on top of this page there are 3 versions of the button
     service: switch.toggle
     target:
       entity_id: switch.wall_switch_left_158d000xxxxx01
-- alias: Toggle couch light on double click
+- alias: "Toggle couch light on double click"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -187,7 +187,7 @@ As indicated in the table on top of this page there are 3 versions of the button
     service: switch.toggle
     target:
       entity_id: switch.wall_switch_right_158d000xxxxx01
-- alias: Let a dog bark on long press
+- alias: "Let a dog bark on long press"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -207,7 +207,7 @@ As indicated in the table on top of this page there are 3 versions of the button
 Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`. The integration stores the last action as the attribute `last_action`.
 
 ```yaml
-- alias: Cube event flip90
+- alias: "Cube event flip90"
   trigger:
     platform: event
     event_type: xiaomi_aqara.cube_action
@@ -220,7 +220,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "springgreen"
-- alias: Cube event flip180
+- alias: "Cube event flip180"
   trigger:
     platform: event
     event_type: xiaomi_aqara.cube_action
@@ -233,7 +233,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "darkviolet"
-- alias: Cube event move
+- alias: "Cube event move"
   trigger:
     platform: event
     event_type: xiaomi_aqara.cube_action
@@ -246,7 +246,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "gold"
-- alias: Cube event tap_twice
+- alias: "Cube event tap_twice"
   trigger:
     platform: event
     event_type: xiaomi_aqara.cube_action
@@ -259,7 +259,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
         color_name: "deepskyblue"
-- alias: Cube event shake_air
+- alias: "Cube event shake_air"
   trigger:
     platform: event
     event_type: xiaomi_aqara.cube_action
@@ -281,7 +281,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 {% raw %}
 
 ```yaml
-- alias: Decrease brightness of the gateway light
+- alias: "Decrease brightness of the gateway light"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -304,7 +304,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           10
         {% endif %}
 
-- alias: Increase brightness of the gateway light
+- alias: "Increase brightness of the gateway light"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -327,7 +327,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
           10
         {% endif %}
 
-- alias: Turn off the gateway light
+- alias: "Turn off the gateway light"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -347,7 +347,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 This automation toggles the living room lamp on vibration/tilt.
 
 ```yaml
-- alias: Turn on Living Room Lamp on vibration
+- alias: "Turn on Living Room Lamp on vibration"
   trigger:
     platform: event
     event_type: xiaomi_aqara.movement
@@ -358,7 +358,7 @@ This automation toggles the living room lamp on vibration/tilt.
     service: light.toggle
     data:
       entity_id: light.living_room_lamp
-- alias: Turn on Living Room Lamp on tilt
+- alias: "Turn on Living Room Lamp on tilt"
   trigger:
     platform: event
     event_type: xiaomi_aqara.movement

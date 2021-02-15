@@ -21,7 +21,7 @@ and automation part to your `configuration.yaml` file.
 
 ```yaml
 automation:
-  - alias: Send message at a given time
+  - alias: "Send message at a given time"
     trigger:
       platform: time
       at: "12:15:00"
