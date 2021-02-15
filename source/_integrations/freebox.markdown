@@ -27,10 +27,7 @@ There is currently support for the following device types within Home Assistant:
 * [Device tracker](#presence-detection) for connected devices
 * [Switch](#switch) to control Wi-Fi
 
-## Configuration
-
-If you have enabled the [discovery integration](/integrations/discovery/), your Freebox should be detected automatically.
-Otherwise, you can set it up manually via the frontend or via your `configuration.yaml` file.
+{% include integrations/config_flow.md %}
 
 You can find out your Freebox host and port by opening this address <http://mafreebox.freebox.fr/api_version> in your browser.
 The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).

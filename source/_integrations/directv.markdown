@@ -18,7 +18,7 @@ ha_platforms:
 
 The DirecTV platform allows you to control a [DirecTV](https://www.directv.com) receiver and its client devices.
 
-### Requirements
+## Requirements
 
 For proper integration with Home Assistant, your DirecTV device settings should allow "External Access".
 
@@ -28,28 +28,7 @@ This is done via series of settings found via "Menu > Settings & Help > Settings
 - Current Program: Allow
 - Recordings: Allow
 
-### Configuration
-
-Go to the integrations page in your configuration and click on new integration -> DirecTV.
-If your DirecTV device is on, it has likely been discovered already and you just have to confirm the detected device.
-
-### YAML Configuration
-
-Manual configuration of your DirecTV device is also possible, add the following to your `configuration.yaml` file:
-
-
-```yaml
-# Example configuration.yaml entry
-directv:
-  - host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: "The hostname or IP of the DirecTV receiver, e.g., `192.168.0.10`."
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Services
 
