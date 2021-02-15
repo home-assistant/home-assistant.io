@@ -16,7 +16,7 @@ The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com)
 
 _Please note, the `lifx` integration does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
 
-You can configure the LIFX integration by going to the integrations page inside the configuration panel.
+{% include integrations/config_flow.md %}
 
 ## Set state
 

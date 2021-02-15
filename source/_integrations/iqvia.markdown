@@ -22,10 +22,7 @@ Data measured includes:
 * Current outlook
 * more!
 
-## Configuring the Integration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Understanding the Indices
 
