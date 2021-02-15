@@ -27,4 +27,4 @@ name:
   description: Manually specify Name.
 station_id:
   description: Specify ID of the measuring station.
-{% endconfiguration %}
+{% endconfiguration_basic %}
