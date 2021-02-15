@@ -18,6 +18,7 @@ The `hvv_departures` sensor will display the departures of busses, trains and fe
 
 {% include integrations/config_flow.md %}
 
+
 Need your API credentials? See [how to get the API credentials](#how-to-get-the-api-credentials).
 
 ## Options
