@@ -59,11 +59,11 @@ state_template:
   required: false
   type: template
 commands:
-  description: "Commands to be overwritten. Possible entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down` and `volume_mute`."
+  description: "Commands to be overwritten. Most, if not all, media player service commands can be overwritten. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, and `volume_mute` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
   required: false
   type: string
 attributes:
-  description: "Attributes that can be overwritten. Possible entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
+  description: "Attributes that can be overwritten. Most, if not all, media player attributes can be overwritten. Example entries are `is_volume_muted`, `state`, `source`, `source_list` and `volume_level`. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID's state should be used, then only the entity id should be provided."
   required: false
   type: string
 device_class:
