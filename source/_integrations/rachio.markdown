@@ -90,11 +90,12 @@ script:
   run_grass_zones:
     sequence: 
       - service: rachio.start_multiple_zone_schedule
-        data:
+        target:
           entity_id:
             - switch.front_yard_west
             - switch.front_yard_east
             - switch.side_yard_west
+        data:
           duration: 20, 15, 10
 ```
 
@@ -104,11 +105,12 @@ script:
   run_grass_zones:
     sequence: 
       - service: rachio.start_multiple_zone_schedule
-        data:
+        target:
           entity_id:
             - switch.front_yard_west
             - switch.front_yard_east
             - switch.side_yard_west
+        data:
           duration: 20
 ```
 ### Service `rachio.set_zone_moisture_percent`

@@ -139,15 +139,16 @@ script: 
           domain: light
       - alias: "Bedroom lights on"
         service: light.turn_on
-        data:
+        target:
           entity_id: group.bedroom
+        data:
           brightness: 100
       - delay:
           # supports seconds, milliseconds, minutes, hours
           minutes: "{{ minutes }}"
       - alias: "Living room lights on"
         service: light.turn_on
-        data:
+        target:
           entity_id: "{{ turn_on_entity }}"
 ```
 

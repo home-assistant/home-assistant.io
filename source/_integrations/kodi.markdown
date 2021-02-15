@@ -132,8 +132,9 @@ script:
   kodi_quit:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: Application.Quit
 ```
 
@@ -144,8 +145,9 @@ script:
   kodi_hibernate:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Hibernate
 ```
 
@@ -156,8 +158,9 @@ script:
   kodi_suspend:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Suspend
 ```
 
@@ -168,8 +171,9 @@ script:
   kodi_reboot:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Reboot
 ```
 
@@ -180,8 +184,9 @@ script:
   kodi_shutdown:
     sequence:
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: System.Shutdown
 ```
 
@@ -194,8 +199,9 @@ script:
   turn_on_kodi_with_cec:
   sequence:
     - service: kodi.call_method
-      data:
+      target:
         entity_id: media_player.kodi
+      data:
         method: Addons.ExecuteAddon
         addonid: script.json-cec
         params:
@@ -204,11 +210,12 @@ script:
   turn_off_kodi_with_cec:
     sequence:
       - service: media_player.media_stop
-        data:
+        target:
           entity_id: media_player.kodi
       - service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: Addons.ExecuteAddon
           addonid: script.json-cec
           params:
@@ -234,12 +241,13 @@ script:
     sequence:
       - alias: "TV on"
         service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.kodi
       - alias: "Play TV channel"
         service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           media_content_type: "CHANNEL"
           media_content_id: >
             {% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
@@ -270,11 +278,12 @@ script:
     sequence:
       - alias: "TV on"
         service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.kodi
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           media_content_type: DIRECTORY
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
@@ -290,8 +299,9 @@ script:
     sequence:
       - alias: "Call Kodi update"
         service: kodi.call_method
-        data:
+        target:
           entity_id: media_player.kodi
+        data:
           method: VideoLibrary.Scan
 ```
 

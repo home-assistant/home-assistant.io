@@ -87,7 +87,7 @@ A typical service call for pressing several buttons looks like this.
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.roku
   command:
     - left
@@ -100,8 +100,9 @@ data:
 When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated. Channels can be launched by `name` using a configuration similar to the one below:
 ```yaml
 action:
-- data:
-    entity_id: media_player.roku
+- target:
+    entity_id: media_player.
+  data:
     source: "Prime Video"
   service: media_player.select_source
 ```
@@ -126,8 +127,9 @@ To use this information in Home Assistant, the format is as follows. Note that `
 
 ```yaml
 action:
-- data:
+- target:
     entity_id: media_player.roku
+  data:
     source: 20197
   service: media_player.select_source
 ```
@@ -136,8 +138,9 @@ It is also possible to tune directly to specific channels if you have a Roku TV 
 
 ```yaml
 action:
-- data:
+- target:
     entity_id: media_player.roku
+  data:
     media_content_id: 5.1
     media_content_type: channel
   service: media_player.play_media

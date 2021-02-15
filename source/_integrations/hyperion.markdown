@@ -100,8 +100,9 @@ automation:
       to: "on"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.hyperion
+      data:
         effect: "Full color mood blobs"
 ```
 
@@ -121,8 +122,9 @@ To have the lights playing an effect when pausing, idle or turn off a media play
       to: "idle"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.hyperion
+      data:
         effect: "Full color mood blobs"
 ```
 
@@ -136,7 +138,8 @@ To capture the screen when playing something on a media_player you can use this 
       to: "playing"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.hyperion
+      data:
         effect: V4L
 ```

@@ -349,8 +349,9 @@ script:
   set_dial_1_value:
     sequence:
       - service: wink.set_nimbus_dial_state
-        data:
+        target:
           entity_id: wink.nimbus_dial_1
+        data:
           value: 150
           labels:
             - "Dial 1"
@@ -379,8 +380,9 @@ script:
   set_dial_1_value:
     sequence:
       - service: wink.set_nimbus_dial_state
-        data:
+        target:
           entity_id: wink.nimbus_dial_1
+        data:
           rotation: "ccw"
 ```
 

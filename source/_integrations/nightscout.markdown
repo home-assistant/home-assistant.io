@@ -49,6 +49,6 @@ The state is the last reading from Nightscout, and you can see other information
     before: "06:00:00"
   action:
   - service: light.turn_on
-      data:
+      target:
         entity_id: light.kitchen
 ```

@@ -68,8 +68,9 @@ The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
 service: python_script.turn_on_light
-  data:
+  target:
     entity_id: light.bedroom
+  data:
     rgb_color: [255, 0, 0]
 ```
 

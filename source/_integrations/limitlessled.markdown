@@ -111,8 +111,11 @@ automation:
       # ...
     action:
       - service: light.turn_on
+        target:
+          entity_id:
+            - light.office
+            - light.kitchen
         data:
-          entity_id: light.office, light.kitchen
           effect: night
 ```
 

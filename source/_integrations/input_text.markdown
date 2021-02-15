@@ -133,8 +133,9 @@ automation:
       entity_id: input_select.scene_bedroom
     action:
       - service: input_text.set_value
-        data:
+        target:
           entity_id: input_text.bedroom
+        data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
 

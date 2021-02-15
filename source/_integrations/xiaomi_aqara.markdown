@@ -202,7 +202,7 @@ This example toggles the living room lamp on a double click of the button.
       click_type: double
   action:
     service: light.toggle
-    data:
+    target:
       entity_id: light.living_room_lamp
 ```
 

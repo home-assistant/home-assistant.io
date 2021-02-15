@@ -116,8 +116,9 @@ automation:
       event_type: keyboard_remote_connected
     action:
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.speaker
+        data:
           media_content_id: keyboard_connected.wav
           media_content_type: music
 
@@ -129,8 +130,9 @@ automation:
         device_name: "00:58:56:4C:C0:91"
     action:
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.speaker
+        data:
           media_content_id: keyboard_disconnected.wav
           media_content_type: music
 ```
