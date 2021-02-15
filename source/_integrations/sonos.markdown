@@ -138,7 +138,7 @@ Removes an item from the queue.
 
 ```yaml
 # Example automation to remove just played song from queue
-alias: Remove last played song from queue
+alias: "Remove last played song from queue"
 id: Remove last played song from queue
 trigger:
   - platform: state

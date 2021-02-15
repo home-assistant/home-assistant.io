@@ -211,7 +211,7 @@ life360:
 
 ```yaml
 automation:
-  - alias: Life360 Overdue Update
+  - alias: "Life360 Overdue Update"
     trigger:
       platform: event
       event_type: life360_update_overdue
@@ -225,7 +225,7 @@ automation:
             trigger.event.data.entity_id
           }} is overdue.
 
-  - alias: Life360 Update Restored
+  - alias: "Life360 Update Restored"
     trigger:
       platform: event
       event_type: life360_update_restored

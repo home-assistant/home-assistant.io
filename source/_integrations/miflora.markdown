@@ -140,7 +140,7 @@ An automation example to report a battery failure:
 
 ```yaml
 - id: flower1_moisture_unavailable_check
-  alias: Flower 1 sensors available
+  alias: "Flower 1 sensors available"
   trigger:
   - entity_id: sensor.flower1_moisture
     for: 24:00:00

@@ -104,7 +104,7 @@ To use the SMTP notification, refer to it in an automation or script like in thi
 
 ```yaml
   burglar:
-    alias: Burglar Alarm
+    alias: "Burglar Alarm"
     sequence:
       - service: shell_command.snapshot
       - delay:
@@ -125,7 +125,7 @@ The optional `html` field makes a custom text/HTML multi-part message, allowing 
 
 ```yaml
   burglar:
-    alias: Burglar Alarm
+    alias: "Burglar Alarm"
     sequence:
       - service: shell_command.snapshot
       - delay:

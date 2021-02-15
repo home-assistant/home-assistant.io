@@ -37,7 +37,7 @@ Automation has gotten a lot of love. It now supports conditions, multiple trigge
 ```yaml
 # Example of entry in configuration.yaml
 automation:
-  alias: Light on in the evening
+  alias: "Light on in the evening"
   trigger:
     - platform: sun
       event: sunset

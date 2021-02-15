@@ -71,7 +71,7 @@ Some example automations:
 
 ```yaml
 automation:
-  - alias: Notify CallerID
+  - alias: "Notify CallerID"
     trigger:
       platform: state
       entity_id: sensor.modem_callerid
@@ -80,7 +80,7 @@ automation:
       service: notify.notify
       data:
         message: "Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }} at {{ state_attr('sensor.modem_callerid', 'cid_number') }} "
-  - alias: Notify CallerID webui
+  - alias: "Notify CallerID webui"
     trigger:
       platform: state
       entity_id: sensor.modem_callerid
@@ -90,7 +90,7 @@ automation:
       data:
         title: "Call from"
         message: "{{ state_attr('sensor.modem_callerid', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.modem_callerid', 'cid_name') }}  {{ state_attr('sensor.modem_callerid', 'cid_number') }} "
-  - alias: Say CallerID
+  - alias: "Say CallerID"
     trigger:
       platform: state
       entity_id: sensor.modem_callerid

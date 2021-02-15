@@ -326,7 +326,7 @@ The lower level Pub/Sub subscriber receives events in real time and internally f
 This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
 
 ```yaml
-alias: motion alert
+alias: "motion alert"
 trigger:
   - platform: event
     event_type: nest_event

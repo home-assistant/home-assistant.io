@@ -26,7 +26,7 @@ media_player:
 
 automation:
   # If you select "Rain", play the "rain.mp3" file
-  - alias: Play Rain Lullaby
+  - alias: "Play Rain Lullaby"
 
     trigger:
       platform: state
@@ -42,7 +42,7 @@ automation:
 
 
   # If you select "Babbling Brook", play the "babbling_brook.mp3" file
-  - alias: Play Babbling Brook Lullaby
+  - alias: "Play Babbling Brook Lullaby"
 
     trigger:
       platform: state
@@ -57,7 +57,7 @@ automation:
         media_content_type: music
 
   # If you select "None, turn the Chromecast off
-  - alias: Stop the Lullaby
+  - alias: "Stop the Lullaby"
 
     trigger:
       platform: state
@@ -100,7 +100,7 @@ input_select:
     icon: mdi:airplay
 
 automation:
-  - alias: Stop Streaming Radio
+  - alias: "Stop Streaming Radio"
     trigger:
       - platform: state
         entity_id: input_select.radio_station
@@ -125,7 +125,7 @@ automation:
               none
             {% endif %}
 
-  - alias: Stream Radio - Template
+  - alias: "Stream Radio - Template"
     trigger:
       - platform: state
         entity_id: input_select.radio_station

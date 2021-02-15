@@ -190,7 +190,7 @@ The following automation example processes incoming SMS messages with the [Conve
 
 ```yaml
 automation:
-  - alias: SMS conversation
+  - alias: "SMS conversation"
     trigger:
       - platform: event
         event_type: netgear_lte_sms

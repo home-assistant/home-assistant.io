@@ -136,7 +136,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
       entity_config:
         switch.kitchen:
           expose: false
-          alias: roof lights
+          alias: "roof lights"
           name: nice lights
           type: light
     ```

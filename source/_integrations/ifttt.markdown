@@ -38,7 +38,7 @@ You then need to consume that incoming information with the following automation
 ```yaml
 automation:
 - id: this_is_the_automation_id
-  alias: The optional automation alias
+  alias: "The optional automation alias"
   trigger:
   - event_data:
       action: call_service
@@ -131,7 +131,7 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Startup Notification
+  alias: "Startup Notification"
   trigger:
     platform: homeassistant
     event: start
@@ -149,7 +149,7 @@ IFTTT can also be used in scripts and with templates. Here is the above automati
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
-  alias: Startup Notification
+  alias: "Startup Notification"
   trigger:
     platform: homeassistant
     event: start

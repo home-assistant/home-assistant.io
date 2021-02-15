@@ -52,7 +52,7 @@ One of the most fun applications of tags is to pick music in your living room. T
 ```yaml
 automation:
 - id: handle_tag_scan
-  alias: Handle Tag Scan
+  alias: "Handle Tag Scan"
   mode: single
   # Hide warnings when triggered while in delay.
   max_exceeded: silent

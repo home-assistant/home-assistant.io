@@ -57,7 +57,7 @@ The Arlo integration also provides a camera service to enable/disable the motion
 
 ```yaml
 #automation.yaml
-- alias: Enable Arlo upon HA start'
+- alias: "Enable Arlo upon HA start'"
   initial_state: "on"
   trigger:
     platform: homeassistant
@@ -104,7 +104,7 @@ Arming the Arlo Base Station when leaving.
 
 ```yaml
 - id: arm_arlo_when_leaving
-  alias: Arm Arlo cameras when leaving
+  alias: "Arm Arlo cameras when leaving"
   trigger:
     platform: state
     entity_id: group.family
@@ -119,7 +119,7 @@ Setting Arlo to a custom mode (mapped to `home_mode_name` in `configuration.yaml
 
 ```yaml
 - id: disarm_arlo_when_arriving
-  alias: Set Arlo cameras to Home mode when arriving
+  alias: "Set Arlo cameras to Home mode when arriving"
   trigger:
     platform: state
     entity_id: group.family

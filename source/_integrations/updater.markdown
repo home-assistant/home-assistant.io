@@ -66,7 +66,7 @@ For an added bonus, an automation integration can be created to send a message w
 ```yaml
 # Example configuration.yaml entry
 automation:
-  alias: Update Available Notification
+  alias: "Update Available Notification"
   trigger:
     - platform: state
       entity_id: binary_sensor.updater

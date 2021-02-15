@@ -456,7 +456,7 @@ binary_sensor:
           {{as_timestamp(now()) - as_timestamp(states.sensor.office_voltage.last_changed) < 600}}
 
 automation:
-  - alias: Homematic Reconnect
+  - alias: "Homematic Reconnect"
     trigger:
       platform: state
       entity_id: binary_sensor.homematic_up
@@ -503,7 +503,7 @@ automation:
 
      ```yaml
      automation:
-       - alias: Homematic CCU Reboot
+       - alias: "Homematic CCU Reboot"
          trigger:
            platform: state
            entity_id: sensor.v_last_reboot

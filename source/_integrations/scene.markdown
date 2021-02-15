@@ -160,7 +160,7 @@ The following example turns off some entities as soon as a window opens. The sta
 
 ```yaml
 # Example automation using snapshot
-- alias: Window opened
+- alias: "Window opened"
   trigger:
   - platform: state
     entity_id: binary_sensor.window
@@ -181,7 +181,7 @@ The following example turns off some entities as soon as a window opens. The sta
     data:
       entity_id: climate.ecobee
       hvac_mode: "off"
-- alias: Window closed
+- alias: "Window closed"
   trigger:
   - platform: state
     entity_id: binary_sensor.window

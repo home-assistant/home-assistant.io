@@ -44,7 +44,7 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
 
 ```yaml
 - id: '1234567890123'
-  alias: overnight_low_kitchen_lights
+  alias: "overnight_low_kitchen_lights"
   description: Turn on the lights in the kitchen if my blood sugar drops low overnight
   trigger:
   - below: '65'

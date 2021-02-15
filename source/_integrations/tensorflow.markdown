@@ -201,7 +201,7 @@ image_processing:
 
 ```yaml
 # Example advanced automations.yaml entry
-- alias: TensorFlow scanning
+- alias: "TensorFlow scanning"
   trigger:
      - platform: state
        entity_id:

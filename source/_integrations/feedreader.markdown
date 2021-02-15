@@ -56,7 +56,7 @@ Feedreader events can be used out of the box to trigger automation actions, e.g.
 
 ```yaml
 automation:
-  - alias: Trigger action when new element(s) in RSS feed
+  - alias: "Trigger action when new element(s) in RSS feed"
     trigger:
       platform: event
       event_type: feedreader
@@ -69,7 +69,7 @@ automation:
 
 ```yaml
 automation:
-  - alias: Send notification of RSS feed title when updated
+  - alias: "Send notification of RSS feed title when updated"
     trigger:
       platform: event
       event_type: feedreader

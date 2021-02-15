@@ -84,7 +84,7 @@ And an automation rule to breathe life into it:
 
 ```yaml
 automation:
-  alias: Keyboard all lights on
+  alias: "Keyboard all lights on"
   trigger:
     platform: event
     event_type: keyboard_remote_command_received
@@ -109,7 +109,7 @@ Here's an automation example that plays a sound through a media player whenever 
 
 ```yaml
 automation:
-  - alias: Keyboard Connected
+  - alias: "Keyboard Connected"
     trigger:
       platform: event
       event_type: keyboard_remote_connected
@@ -120,7 +120,7 @@ automation:
           media_content_id: keyboard_connected.wav
           media_content_type: music
 
-  - alias: Bluetooth Keyboard Disconnected
+  - alias: "Bluetooth Keyboard Disconnected"
     trigger:
       platform: event
       event_type: keyboard_remote_disconnected

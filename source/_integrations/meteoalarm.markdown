@@ -91,7 +91,7 @@ Below you find an example of an automation.
 
 ```yaml
 automation:
-  - alias: Alert me about weather warnings
+  - alias: "Alert me about weather warnings"
     trigger:
       platform: state
       entity_id: binary_sensor.meteoalarm
