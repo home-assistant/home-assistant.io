@@ -20,23 +20,17 @@ ha_platforms:
 
 The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
 
-Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service. Set up the integration through **Configuration -> Integrations -> Xbox**. Ensure you login using the Microsoft account that is linked to your Xbox consoles. Note that for the media player and remote entities to be added your Xbox will need to have remote features enabled via **Settings -> Devices & connections -> Remote features** (you may need to upgrade your controller firmware).
+Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service.
+
+{% include integrations/config_flow.md %}
+
+Note that for the media player and remote entities to be added your Xbox will need to have remote features enabled via **Settings -> Devices & connections -> Remote features** (you may need to upgrade your controller firmware).
 
 <div class='note'>
 
 Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your `configuration.yaml`.
 
 </div>
-
-- [Media Player](#media-player)
-  - [Service `play_media`](#service-play_media)
-- [Remote](#remote)
-  - [Service `send_command`](#service-send_command)
-  - [Picture Elements Card](#picture-elements-card)
-- [Binary Sensor](#binary-sensor)
-- [Sensor](#sensor)
-- [Media Source](#media-source)
-- [Manual Configuration](#manual-configuration)
 
 ## Media Player
 

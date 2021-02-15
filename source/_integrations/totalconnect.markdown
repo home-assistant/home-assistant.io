@@ -17,28 +17,7 @@ ha_platforms:
 
 The `totalconnect` integration provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.  
 
-## Configuration
-
-To enable TotalConnect via the user interface, go to **Configuration** > **Integrations** > the "plus" button > Total Connect.
-
-To enable TotalConnect via `configuration.yaml` add the following lines:
-
-```yaml
-totalconnect:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Username used to sign into the TotalConnect app/web client.
-  required: true
-  type: string
-password:
-  description: Password used to sign into the TotalConnect app/web client.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
 

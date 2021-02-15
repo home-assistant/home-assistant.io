@@ -37,33 +37,13 @@ There is currently support for the following device types within Home Assistant:
 
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
 
-## Configuration
-
-There are 2 options in configuring the Velbus integration:
-
-- Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
-- Via the Home Assistant `configuration.yaml` file.
-
-```yaml
-# Example configuration.yaml entry for a USB or serial interface
-velbus:
-  port: "PORT_STRING"
-```
-
-## Port String
+{% include integrations/config_flow.md %}
 
 The port string used in the user interface or the configuration file can have 2 formats:
 
-- For a serial device: /dev/ttyUSB00
-- For a TCP/IP device: 127.0.0.1:3678
-- For the VMBSIG module: tls://192.168.1.9:27015
-
-{% configuration %}
-port:
-  description: The port where your board is connected to your Home Assistant host.
-  required: true
-  type: string
-{% endconfiguration %}
+- For a serial device: `/dev/ttyUSB00`
+- For a TCP/IP device: `127.0.0.1:3678`
+- For the VMBSIG module: `tls://192.168.1.9:27015`
 
 ## Services
 

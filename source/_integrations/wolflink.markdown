@@ -21,11 +21,9 @@ Remember that to integrate your heating device with Home Assistant, you need to 
 
 The integration fetches all data based on parameters, that are exposed by your heating device.
 
-### Tested devices
+## Tested devices
 
 - Wolf Link Home Pro connected to a FGB-28 device
 - Wolf ISM7e / Link Pro connected to a COB-20 device
 
-## Configuration
-
-To add WolfLink to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **WOLF SmartSet**.
+{% include integrations/config_flow.md %}

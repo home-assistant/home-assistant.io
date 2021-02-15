@@ -28,9 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Sensor](#sensor)
 
-## Configuration
-
-Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**. Follow the instructions to get it set up.
+{% include integrations/config_flow.md %}
 
 The user needs administrator privileges in order to control switches.
 
