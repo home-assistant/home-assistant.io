@@ -20,18 +20,9 @@ ha_platforms:
 
 [BleBox](https://blebox.eu/?lang=en) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
 For the best experience, make sure your BleBox devices have the most recent available firmware installed.
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **BleBox**.
-After completing the configuration flow, the BleBox
-integration will be available.
 
 Additionally, if you are configuring a gateBox, it may be useful to set the second button as "stop" in your device's settings (via website or phone app).
 

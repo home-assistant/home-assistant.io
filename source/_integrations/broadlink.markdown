@@ -26,9 +26,7 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
 
-## Configuration
-
-To set up a Broadlink device, click _Configuration_ in the sidebar and click _Integrations_. If you see your device there, click _Configure_. If not, click the + icon in the lower right, select Broadlink from the list, enter the hostname or IP address of the device and follow the instructions to complete the setup.
+{% include integrations/config_flow.md %}
 
 ### Entities and subdomains
 

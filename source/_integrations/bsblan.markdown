@@ -23,20 +23,7 @@ of heating systems such as `Elco Thision`, `Brötje` and similar systems.
 It can interface with the heating system over Boiler-System-Bus, Local Process Bus and PPS (Punkt-zu-Punkt Schnittstelle)
 For more information of which system it supports, have a look at their [documentation](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **BSBLan**.
-Fill in the IP address of the device in your network and, if needed,
-the port number. The default value should be `80`.
-For authentication passkey is supported and also HTTP authentication with username and password.
-
-After completing the configuration flow, the BSBLan Climate integration will be
-available.
+{% include integrations/config_flow.md %}
 
 For more documentation of the BSBLan device, check the [manual](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
 
