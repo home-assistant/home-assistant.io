@@ -17,13 +17,7 @@ ha_platforms:
 The `ovo_energy` integration allows you to monitor your energy consumption data
 in Home Assistant.
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **OVO Energy**.
-After completing the configuration flow, the OVO Energy integration will be
-available.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 

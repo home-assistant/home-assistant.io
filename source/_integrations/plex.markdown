@@ -26,9 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 If a Plex server has been claimed by a Plex account via the [claim interface](https://plex.tv/claim), Home Assistant will require authentication to connect.
 
-### Configuration
-
-The Plex integration is set up via **Configuration** -> **Integrations**. During the configuration, you will be redirected to the [Plex](https://plex.tv) website to sign in with your Plex account. Once access is granted, Home Assistant will connect to the Plex server linked to the provided account. If multiple Plex servers are available on the account, you will be prompted to complete the configuration by selecting the desired server on the **Integrations** page. Upon completeion, Home Assistant will be displayed as an authorized device on the [Plex Web](https://app.plex.tv/web/app) interface under **Settings** -> **Authorized Devices**.
+{% include integrations/config_flow.md %}
 
 ### Integration Options
 

@@ -34,9 +34,9 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in the USB path manually.
+## Debug logging
 
 To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
 
