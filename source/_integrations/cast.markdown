@@ -54,8 +54,9 @@ Optional:
 'cast_youtube_to_my_chromecast':
   alias: "Cast YouTube to My Chromecast"
   sequence:
-    - data:
+    - target:
         entity_id: media_player.my_chromecast
+      data:
         media_content_type: cast
         media_content_id: '
           {
@@ -79,8 +80,9 @@ Optional:
 'cast_supla_to_my_chromecast':
   alias: "Cast supla to My Chromecast"
   sequence:
-    - data:
+    - target:
         entity_id: media_player.my_chromecast
+      data:
         media_content_type: cast
         media_content_id: '
           {
@@ -99,8 +101,9 @@ To cast media directly from a configured Plex server, set the fields [as documen
   alias: "Cast Plex to Chromecast"
   sequence:
   - service: media_player.play_media
-    data:
+    target:
       entity_id: media_player.chromecast
+    data:
       media_content_type: movie
       media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
 ```
@@ -116,8 +119,9 @@ You can play MP3 streams like net radios, FLAC files or videos from your local n
 ```yaml
 # Play a video file from the local network:
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.chromecast
+data:
   media_content_type: "video"
   media_content_id: "http://192.168.0.100/movies/sample-video.mkv"
 ```
@@ -125,8 +129,9 @@ data:
 ```yaml
 # Show a jpeg image:
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.chromecast
+data:
   media_content_type: "image/jpeg"
   media_content_id: "http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!"
 ```
@@ -137,8 +142,9 @@ For the possible metadata types and values check [Google cast documentation > Me
 ```yaml
 # Play a movie from the internet, with extra metadata provided:
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.chromecast
+data:
   media_content_type: "video/mp4"
   media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   extra: 
@@ -153,8 +159,9 @@ data:
 ```yaml
 # Play a netradio, with extra metadata provided:
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.chromecast
+data:
   media_content_type: "audio/mp3"
   media_content_id: "http://stream.tilos.hu:8000/tilos" 
   extra: 

@@ -215,15 +215,17 @@ You can launch an app on your device using the `media_player.select_source` comm
 start_netflix:
   sequence:
   - service: media_player.select_source
-    data:
+    target:
       entity_id: media_player.fire_tv_living_room
+    data:
       source: "com.netflix.ninja"
 
 stop_netflix:
   sequence:
   - service: media_player.select_source
-    data:
+    target:
       entity_id: media_player.fire_tv_living_room
+    data:
       source: "!com.netflix.ninja"
 ```
 
@@ -241,8 +243,9 @@ In an [action](/getting-started/automation-action/) of your [automation setup](/
 ```yaml
 action:
   service: androidtv.adb_command
-  data:
+  target:
     entity_id: media_player.androidtv_tv_living_room
+  data:
     command: "HOME"
 ```
 
@@ -282,8 +285,9 @@ As an example, a service call in a [script](/docs/scripts) could be changed from
 ```yaml
 # Send the "UP" command (slow)
 - service: androidtv.adb_command
-  data:
+  target:
     entity_id: media_player.fire_tv_living_room
+  data:
     command: UP
 ```
 
@@ -292,8 +296,9 @@ to this:
 ```yaml
 # Send the "UP" command using `sendevent` (faster)
 - service: androidtv.adb_command
-  data:
+  target:
     entity_id: media_player.fire_tv_living_room
+  data:
     command: "sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 0 && sendevent /dev/input/event4 0 0 0"
 ```
 

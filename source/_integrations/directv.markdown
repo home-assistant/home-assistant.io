@@ -119,8 +119,9 @@ A typical service call for press several buttons looks like this.
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.directv_entity
+data:
   command:
     - left
     - left

@@ -142,7 +142,7 @@ automation:
         pushed: 0
     action:
       service: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
-      data:
+      target:
         entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
 

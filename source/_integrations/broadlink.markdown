@@ -69,8 +69,9 @@ script:
   learn_tv_power:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
 ```
@@ -89,8 +90,9 @@ script:
   learn_car_unlock:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.garage
+        data:
           device: car
           command: unlock
           command_type: rf
@@ -112,8 +114,9 @@ script:
   learn_tv_commands:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - turn on
@@ -138,8 +141,9 @@ script:
   learn_tv_power_button:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
           alternative: true
@@ -173,8 +177,9 @@ script:
   tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
 ```
@@ -189,8 +194,9 @@ script:
   turn_up_tv_volume_20:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: volume up
           num_repeats: 20
@@ -206,8 +212,9 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: air conditioner
           command:
             - turn on
@@ -224,8 +231,9 @@ script:
   turn_on_tv:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
@@ -239,8 +247,9 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command:
             - b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
             - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
@@ -256,8 +265,9 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - turn on
@@ -284,8 +294,9 @@ script:
   delete_tv_power:
     sequence:
       - service: remote.delete_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
 ```
@@ -300,8 +311,9 @@ script:
   delete_tv_commands:
     sequence:
       - service: remote.delete_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - power

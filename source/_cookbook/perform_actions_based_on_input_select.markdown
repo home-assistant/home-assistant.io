@@ -35,8 +35,9 @@ automation:
 
     action:
       service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.nursery
+      data:
         media_content_id: http://fileserver/rain.mp3
         media_content_type: music
 
@@ -51,8 +52,9 @@ automation:
 
     action:
       service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.nursery
+      data:
         media_content_id: http://fileserver/babbling_brook.mp3
         media_content_type: music
 
@@ -66,7 +68,7 @@ automation:
 
     action:
       service: media_player.turn_off
-      data:
+      target:
         entity_id: media_player.nursery
 ```
 A little bit more complex example that uses [`input_select`](/integrations/input_select/) and template to decide what to play, and which [Chromecast](/integrations/cast/) to play on.

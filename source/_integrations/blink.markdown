@@ -104,13 +104,14 @@ This example script shows how to take a picture with your camera, named `My Came
 alias: "Blink Snap Picture"
 sequence:
   - service: blink.trigger_camera
-    data:
+    target:
       entity_id: camera.blink_my_camera
   - delay: 00:00:05
   - service: blink.blink_update
   - service: camera.snapshot
-    data:
+    target:
       entity_id: camera.blink_my_camera
+    data:
       filename: /tmp/my_image.jpg
 ```
 

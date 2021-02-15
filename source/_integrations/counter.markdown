@@ -151,7 +151,7 @@ automation:
       level: ERROR
   action:
     service: counter.increment
-    data:
+    target:
       entity_id: counter.error_counter
     
 counter:

@@ -86,8 +86,9 @@ script:
   bed_set_heat:
     sequence:
       - service: eight_sleep.heat_set
-        data:
+        target:
           entity_id: "sensor.eight_left_bed_state"
+        data:
           target: 35
           duration: 3600
 ```

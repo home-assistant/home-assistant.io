@@ -70,7 +70,7 @@ automation:
       to: "on"
   action:
     - service: image_processing.scan
-      data:
+      target:
         entity_id: image_processing.door
 ...
 ```

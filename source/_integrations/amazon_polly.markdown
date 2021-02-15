@@ -104,7 +104,7 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.amazon_polly_say
-  data:
+  target:
     entity_id: media_player.living_room
     message: >
       <speak>
