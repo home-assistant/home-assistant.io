@@ -42,6 +42,7 @@ There is currently support for the following device types within Home Assistant:
 * Weather
 
 {% include integrations/config_flow.md %}
+
 ## Manual configuration
 
 Generate the authentication token:
