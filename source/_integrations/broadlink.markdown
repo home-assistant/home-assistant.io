@@ -153,6 +153,18 @@ When the LED blinks for the first time, press the button you want to learn. Then
 
 The learned codes are stored in `/configuration/.storage/` in a JSON file called `broadlink_remote_MACADDRESS_codes`. You can open this file with a text editor and copy the codes to set up [custom IR/RF switches](#Setting%20up%20custom%20IR/RF%20switches) or to send them as [base64 codes](#Sending%20a%20base64%20code), but beware: the files in the .storage folder _should never be edited manually_.
 
+#### Learned codes event
+
+When codes have been learned, an event of type `remote_event` is sent. The data passed in the event contains:
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `device_id` | no | The ID of the Broadlink device the `learn` command was sent to. | 780fh7632287
+| `type` | no | The event type. Will always be `learned_code`. | learned_code
+| `command` | no | The command sent to be learnt. | heat_cool_medium_horizontal_18
+| `code` | yes | The code learned by the Broadlink device. |
+| `error` | yes | If an error occurs, this will contain the error message. | No infrared code received within 30 seconds
+
 ### Sending commands
 
 After learning IR and RF codes with the `remote.learn_command` service, you can use `remote.send_command` to send them. You can also use this service to send base64 codes taken from elsewhere.
