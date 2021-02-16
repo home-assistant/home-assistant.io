@@ -46,6 +46,12 @@ This integration supports devices controllable by the VeSync App.  The following
 
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
+## Prerequisite
+
+Before you can use this integration, all devices must be registered with the
+VeSync App. Once registration is complete, continue with the steps described in
+the configuration section below.
+
 {% include integrations/config_flow.md %}
 
 ## Services
