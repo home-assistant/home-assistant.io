@@ -13,22 +13,25 @@ ha_codeowners:
 
 The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
 
-## Home Assistant Core Requirements
+{% details %}
 
-If you are running Home Assistant Core in a Python virtual environment, you need to ensure the following requirements are met.
+- title: Notes for Home Assistant Core Installations
+  content: |
 
-`ssocr` needs to be available on your system. Check the installation instruction below:
+    `ssocr` needs to be available on your system. Check the installation instruction below:
 
-```bash
-sudo dnf -y install imlib2-devel # Fedora
-sudo apt install libimlib2-dev # Ubuntu
-brew install imlib2 # macOS
-git clone https://github.com/auerswal/ssocr.git
-cd ssocr
-make
-sudo make PREFIX=/usr install # On most systems
-make deb # (Optional) This allows you to make a deb so that you apt is aware of ssocr
-```
+    ```bash
+    sudo dnf -y install imlib2-devel # Fedora
+    sudo apt install libimlib2-dev # Ubuntu
+    brew install imlib2 # macOS
+    git clone https://github.com/auerswal/ssocr.git
+    cd ssocr
+    make
+    sudo make PREFIX=/usr install # On most systems
+    make deb # (Optional) This allows you to make a deb so that you apt is aware of ssocr
+    ```
+
+{% enddetails %}
 
 ## Configuration
 
