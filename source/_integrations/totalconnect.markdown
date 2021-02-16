@@ -47,7 +47,15 @@ automation:
         entity_id: scene.OnArmedAway
 ```
 
-If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Raspbian, run the command `apt install libxml2-dev libxmlsec1-dev` with sudo.
+{% details "Notes for Home Assistant Core Installations" %}
+
+If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Raspbian, run the command:
+
+```bash
+sudo apt install libxml2-dev libxmlsec1-dev
+```
+
+{% enddetails %}
 
 ## Alarm Control Panel
 
