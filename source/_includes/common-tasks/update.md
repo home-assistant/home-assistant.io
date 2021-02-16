@@ -2,7 +2,7 @@
 
 Best practice for updating a Home Assistant installation:
 
-1. Backup your installation, using the snapshot functionality Home Assistant offers.
+1. Backup your installation{% if page.installation == "os" or page.installation == "supervised" %}, using the snapshot functionality Home Assistant offers{% endif %}.
 1. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Breaking Changes**.
 {% if page.installation == "os" or page.installation == "supervised" %}
 1. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on.
@@ -53,7 +53,7 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
     docker pull homeassistant/raspberrypi4-homeassistant:stable
     ```
 
-    **[You need to recreate the container with the new image.](/getting-started)**
+    **[You then need to recreate the container with the new image.](/getting-started/installation)**
 
 - title: Docker Compose
   content: |
