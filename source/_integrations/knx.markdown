@@ -212,7 +212,20 @@ type:
 
 ### Read
 
-You can also use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of a device.
+You can use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of an entity.
+To manually send GroupValueRead requests use the `knx.read` service. The response can be used from `knx_event` and will be processed in KNX entities.
+
+```txt
+Domain: knx
+Service: read
+Service Data: {"address": "1/0/15"}
+```
+
+{% configuration %}
+address:
+  description: Group address(es) to send read request to. Lists will read multiple group addresses.
+  type: [string, list]
+{% endconfiguration %}
 
 ### Register Event
 
