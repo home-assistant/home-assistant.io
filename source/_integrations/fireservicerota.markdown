@@ -38,13 +38,7 @@ This integration provides the following platforms:
 
 On how to write automations using these platform read the 'Advanced Configuration' section below.
 
-## Configuration
-
-1. From Home Assistant, navigate to ‘Configuration’ then ‘Integrations’. Click the plus icon and type/select ‘FireServiceRota’.
-1. Choose your platform `BrandweerRooster` or `FireServiceRota`.
-1. Enter your login credentials.
-
-1. Click the Save button.
+{% include integrations/config_flow.md %}
 
 ## Entities
 

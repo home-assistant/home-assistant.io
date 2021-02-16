@@ -37,10 +37,7 @@ Each use of the `update_data` service will consume 2 API calls from the daily qu
 the `update_protection_data` services).
 </div>
 
-## Configuration
-
-To configure the `openuv` integration, navigate to **Configuration** -> **Integrations**
-in the Home Assistant UI.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 

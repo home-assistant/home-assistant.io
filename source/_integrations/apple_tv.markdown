@@ -25,13 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - Media Player
 - [Remote](#remote)
 
-## Configuration
-
-Menu: *Configuration* > *Integrations*
-
-Press on **Apple TV** and configure the integration:
-
-* Enter either an IP address or a device name and follow the next few steps
+{% include integrations/config_flow.md %}
 
 ## FAQ
 

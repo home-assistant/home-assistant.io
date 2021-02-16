@@ -46,27 +46,13 @@ This integration supports devices controllable by the VeSync App.  The following
 
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
-## Configuration
+## Prerequisite
 
-To use this integration, all devices must be registered with the VeSync App. Once registration is complete, you can add the VeSync integration by adding the VeSync integration in the configuration section of the frontend and entering your username and password.  You can also use the traditional configuration method by adding the following to your `configuration.yaml` file:
+Before you can use this integration, all devices must be registered with the
+VeSync App. Once registration is complete, continue with the steps described in
+the configuration section below.
 
-```yaml
-# Example configuration.yaml entry
-vesync:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Username needed to log in to VeSync.
-  required: true
-  type: string
-password:
-  description: Password needed to log in to VeSync.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Services
 

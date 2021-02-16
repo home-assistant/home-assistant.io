@@ -16,6 +16,4 @@ ha_platforms:
 
 The `rpi_power` integration allows you to detect [bad power supply](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md) on Raspberry Pi. 
 
-## Configuration
-
-This integration can only be set up through UI. Go to *Configuration* -> *Integration*. Click the *+* button and search for Raspberry Pi Power Supply Checker.
+{% include integrations/config_flow.md %}

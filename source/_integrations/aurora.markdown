@@ -17,13 +17,7 @@ The `aurora` platform uses the [NOAA Aurora Forecast](https://www.swpc.noaa.gov/
 
 This service gives a number 0-100 representing the current likelihood of visible auroras at your latitude/longitude. By default this sensor is set up to trigger when the reported likelihood for your location is > 75. It updates every 5 minutes.
 
-## Configuration
-
-To add the aurora binary sensor to your installation, search for the Aurora integration through the Configuration -> Integrations menu.
-
-Enter a name for your Aurora location as well as the longitude and latitude of the location (default to your Home Assistant location).
-
-Click Submit to add the integration to your environment.
+{% include integrations/config_flow.md %}
 
 You can configure multiple locations by adding the integration multiple times.
 

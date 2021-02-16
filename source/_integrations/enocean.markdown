@@ -51,32 +51,9 @@ Support for tech-in messages is not implemented.
 
 ## Configuration
 
-To integrate an EnOcean controller with Home Assistant, add the integration from the UI.
-
-Menu: **Configuration** -> **Integrations**.
-
-If your hub is detected automatically, you will be able to select its path from a list. Most often, this list should only contain one path, and a "manual" option.
-If your hub is not detected, you will have to manually enter the path.
+{% include integrations/config_flow.md %}
 
 Despite the UI-based configuration of the hub, the entities are still configured using YAML see mext chapters).
-
-### Text based configuration (deprecated)
-
-If you have an enocean entry in your `configuration.yaml` file, the setup will be imported.
-Note that once imported in the ui-based configuration, the text-based configuration will be ignored. Changing it will have no effect, unless you delete the integration from the UI.
-
-```yaml
-# Example configuration.yaml entry
-enocean:
-  device: /dev/ttyUSB0
-```
-
-{% configuration %}
-device:
-  description: The port where your device is connected to your Home Assistant host.
-  required: true
-  type: string
-{% endconfiguration %}
 
 ## Binary Sensor
 

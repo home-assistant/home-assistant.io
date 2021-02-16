@@ -41,19 +41,9 @@ There is currently support for the following device types within Home Assistant:
 * Switch
 * Weather
 
-## Setup the integration via the frontend
+{% include integrations/config_flow.md %}
 
-Menu: *Configuration* -> *Integrations*
-
-Fill the form:
-
-* Your **access point ID** (SGTIN)
-* Optional a **name** to identify your access point, this will be used to prefix your device names.
-* The **PIN**, mandatory if one is used in the native HomematicIP App.
-
-The authentification token will be generated and stored internally.
-
-## Setup the integration using the configuration files
+## Manual configuration
 
 Generate the authentication token:
 

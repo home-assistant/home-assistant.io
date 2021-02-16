@@ -44,9 +44,7 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 
 [Cloudflare API Tokens Guide](https://developers.cloudflare.com/api/tokens/create)
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Cloudflare.
+{% include integrations/config_flow.md %}
 
 ## Additional information
 

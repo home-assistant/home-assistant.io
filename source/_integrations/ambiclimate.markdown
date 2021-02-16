@@ -41,6 +41,8 @@ client_secret:
 
 Note that you have to select manual mode from the Ambiclimate app to be able to control the A/C from Home Assistant.
 
+{% include integrations/config_flow.md %}
+
 ## Component services
 
 Enable comfort mode on your AC:

@@ -16,9 +16,7 @@ ha_platforms:
 
 The `Sonarr` integration pulls data from a given [Sonarr](https://sonarr.tv/) instance.
 
-## Configuration
-
-To add Sonarr to Home Assistant, go to **Configuration** -> **Integrations** and click the + button in the bottom right corner. Search for Sonarr and follow the on-screen instructions to complete the setup.
+{% include integrations/config_flow.md %}
 
 To retrieve your API key, open your Sonarr web interface and navigate to Settings then General tab. Your Sonarr API Key will be listed on this page under the Security section.
 

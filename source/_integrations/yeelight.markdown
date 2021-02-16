@@ -23,9 +23,7 @@ There is support for the following device types within Home Assistant:
 - **Light** - The Yeelight platform for supporting lights.
 - **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
 
-## Configuration
-
-To set up this integration, go to **Integrations** under **Configuration** and find Yeelight in the `+` menu. You can leave the host field empty to set up discovered devices. To configure the devices, use the "Options" button in the integration card.
+{% include integrations/config_flow.md %}
 
 ### Custom effects
 

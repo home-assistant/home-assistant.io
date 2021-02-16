@@ -20,7 +20,7 @@ ha_platforms:
   - vacuum
 ---
 
-The `neato` integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
+The Neato integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
 
 There is support for the following platform types within Home Assistant:
 
@@ -29,7 +29,7 @@ There is support for the following platform types within Home Assistant:
 - **Switch** - allows you to enable or disable the schedule.
 - [**Vacuum**](#vacuum)
 
-## Configuration
+## Prerequisites
 
 1. Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
@@ -56,8 +56,6 @@ neato:
 
 3. Restart Home Assistant
 4. Make sure you visit Home Assistant via a the same domain you used as `redirect_url` before
-5. Add Neato Botvac via *Configuration* -> *Integrations*
-6. Follow the instructions. After that, all the entities will automatically show up in Home Assistant. Make sure you start only one configuration flow at a time. Even though you can click “Open Website” several times, press it only once and wait until this flow is complete.
 
 {% configuration %}
 client_id:
@@ -69,6 +67,8 @@ client_secret:
   required: true
   type: string
 {% endconfiguration %}
+
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 

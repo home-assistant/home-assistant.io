@@ -13,13 +13,11 @@ ha_platforms:
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
 
-## Sending events from IFTTT to Home Assistant
+## Prerequisites
 
 To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic).
 
-### Setting up the integration
-
-To set it up, go to the integrations page in the configuration screen and find IFTTT. Click on configure. Follow the instructions on the screen to configure IFTTT.
+{% include integrations/config_flow.md %}
 
 ### Using the incoming data
 

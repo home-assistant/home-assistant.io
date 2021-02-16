@@ -124,9 +124,9 @@ The complete list of trouble statuses are:
 - Display Message In Keypad Line 2
 - Fire (zone is part of status)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add `ElkM1` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Elk-M1 Control**.
+## Manual configuration
 
 Alternatively, configuration through the `configuration.yaml` file
 is supported (example below).

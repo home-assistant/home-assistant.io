@@ -16,18 +16,10 @@ ha_platforms:
 
 The `hvv_departures` sensor will display the departures of busses, trains and ferries in Hamburg.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-Menu: *Configuration* > *Integrations*
 
-Press on **HVV Departures** and configure the integration:
-
-- You can keep the default host (only change it if you know what you are doing)
-- Enter your API credentials (see [How to get the API credentials](#how-to-get-the-api-credentials))
-- Enter your station. You can also enter your address or a point of interest.
-- Select the station/address/poi you want
-
-After that, you will get a sensor showing the time until the next departure.
+Need your API credentials? See [how to get the API credentials](#how-to-get-the-api-credentials).
 
 ## Options
 

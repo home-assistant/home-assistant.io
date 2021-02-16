@@ -128,9 +128,7 @@ The device IDs begin with `28-`.
 
 `owserver` on Linux hosts is part of the [owfs 1-Wire file system](https://owfs.org/). When a 1-wire interface adapter is used, you can access sensors on a remote or local Linux host that is running `owserver`. `owserver` by default runs on port 4304. Use the `host` option to specify the host or IP of the remote server, and the optional `port` option to change the port from the default.
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> 1-Wire.
+{% include integrations/config_flow.md %}
 
 ### Configuration Example
 

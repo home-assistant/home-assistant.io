@@ -20,37 +20,9 @@ The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to
 
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-There are 2 options in configuring the SolarEdge integration:
-
-- Via the Home Assistant user interface where it will let you enter your site ID and API key.
-- Via the Home Assistant `configuration.yaml` file.
-
-```yaml
-# Example configuration.yaml entry
-solaredge:
-  api_key: API_KEY
-  site_id: SITE_ID
-```
-
-{% configuration %}
-api_key:
-  description: Your SolarEdge Site API key.
-  required: true
-  type: string
-site_id:
-  description: The id of your SolarEdge Site.
-  required: true
-  type: string
-name:
-  description: Let you overwrite the name of the device in the frontend.
-  required: false
-  default: SolarEdge
-  type: string
-{% endconfiguration %}
-
-## Full configuration example
+## Additional template sensor
 
 In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/integrations/template).
 

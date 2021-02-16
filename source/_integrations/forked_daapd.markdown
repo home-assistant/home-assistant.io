@@ -18,9 +18,7 @@ The `forked_daapd` integration allows you to control your [forked-daapd](http://
 
 The `forked_daapd` integration requires a forked-daapd server built with libwebsockets enabled, version >= 27.0.
 
-## Configuration
-
-To add `forked-daapd` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **forked-daapd**.
+{% include integrations/config_flow.md %}
 
 ## Outputs
 

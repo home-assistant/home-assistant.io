@@ -26,9 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - Fan (WiLight model V-104).
 - Light (WiLight model I-100, I-102 and I-107).
 
-## Configuration
-
-Supported devices will be discovered automatically by the SSDP protocol. The local network will be scanned for WiLight devices.
+{% include integrations/config_flow.md %}
 
 ## Fan
 

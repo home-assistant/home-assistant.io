@@ -23,9 +23,9 @@ There is currently support for the following device types within Home Assistant:
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this integration to work.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-The UPnP integration can be set up via the user interface at **Configuration** -> **Integrations** -> **Add Integration**. From the list of available integrations, select UPnP and follow the on-screen instructions.
+## Manual configuration 
 
 Alternatively, you can use YAML by adding the following section to your `configuration.yaml` file:
 

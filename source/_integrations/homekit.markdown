@@ -20,9 +20,10 @@ The HomeKit Bridge integration allows you to make your Home Assistant entities a
 
 </div>
 
-To add `HomeKit Bridge` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **HomeKit Bridge**.
+{% include integrations/config_flow.md %}
 
-If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, `HomeKit Bridge` must be configured via your `configuration.yaml` file:
+
+If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, HomeKit Bridge must be configured via your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry configuring HomeKit

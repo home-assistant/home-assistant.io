@@ -24,7 +24,7 @@ ha_platforms:
   - water_heater
 ---
 
-The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
+The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -34,9 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Presence Detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 
-## Configuration
-
-To use your Tado thermostats in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Tado**.
+{% include integrations/config_flow.md %}
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
