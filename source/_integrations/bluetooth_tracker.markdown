@@ -12,16 +12,13 @@ ha_platforms:
 
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.
 
-{% details %}
+{% details "Notes for Home Assistant Core Installations" %}
 
-- title: Notes for Home Assistant Core Installations
-  content: |
+This platform requires `pybluez` to be installed. On Debian based installs, run
 
-    This platform requires pybluez to be installed. On Debian based installs, run
-
-    ```bash
-    sudo apt install bluetooth libbluetooth-dev
-    ```
+```bash
+sudo apt install bluetooth libbluetooth-dev
+```
 
 {% enddetails %}
 

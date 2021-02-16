@@ -17,29 +17,26 @@ This integration connects Brightech Kuler Sky floor lamps to Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-{% details %}
+{% details "Notes for Home Assistant Core Installations" %}
 
-- title: Notes for Home Assistant Core Installations
-  content: |
+This integration requires `pybluez` to be installed. On Debian based installs, run:
 
-    This integration requires `pybluez` to be installed. On Debian based installs, run:
+```bash
+sudo apt install bluetooth
+```
 
-    ```bash
-    sudo apt install bluetooth
-    ```
+Before you get started with this integration, please note that:
 
-    Before you get started with this integration, please note that:
+- Requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
 
-    - Requires access to the Bluetooth stack, see [Rootless Setup section](#rootless-setup) for further information
+## Rootless Setup
 
-    ## Rootless Setup
+Normally accessing the Bluetooth stack is reserved for `root`, but running programs that are networked as `root` is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and `hcitool` the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](https://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
 
-    Normally accessing the Bluetooth stack is reserved for `root`, but running programs that are networked as `root` is a bad security wise. To allow non-root access to the Bluetooth stack we can give Python 3 and `hcitool` the missing capabilities to access the Bluetooth stack. Quite like setting the setuid bit (see [Stack Exchange](https://unix.stackexchange.com/questions/96106/bluetooth-le-scan-as-non-root) for more information).
-
-    ```bash
-    sudo apt-get install libcap2-bin
-    sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
-    sudo setcap 'cap_net_raw+ep' `readlink -f \`which hcitool\``
-    ```
+```bash
+sudo apt-get install libcap2-bin
+sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
+sudo setcap 'cap_net_raw+ep' `readlink -f \`which hcitool\``
+```
 
 {% enddetails %}

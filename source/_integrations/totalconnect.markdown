@@ -47,16 +47,13 @@ automation:
         entity_id: scene.OnArmedAway
 ```
 
-{% details %}
+{% details "Notes for Home Assistant Core Installations" %}
 
-- title: Notes for Home Assistant Core Installations
-  content: |
+If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Raspbian, run the command:
 
-    If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Raspbian, run the command:
-
-    ```bash
-    sudo apt install libxml2-dev libxmlsec1-dev
-    ```
+```bash
+sudo apt install libxml2-dev libxmlsec1-dev
+```
 
 {% enddetails %}
 
