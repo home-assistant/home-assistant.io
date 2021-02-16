@@ -20,16 +20,14 @@ The `iZone` integration allows access of control of a local [iZone](https://izon
 
 Any current iZone unit with ducted reverse cycle airconditioning and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-The iZone component can be configured in two ways. 
 
-- Via the integrations configuration of the Home Assistant user interface.
-- Or via the `configuration.yaml` file by adding the following:
+## Manual configuration
 
-If you load the integration from the integrations window, all local iZone instances are added. The integration will discover any new instances added to the local area later on as well.
-
-Alternately if there is more than one iZone system on the local network and one or more must be excluded use manual configuration:
+Alternatively, the iZone integration can be configured manually via the
+`configuration.yaml` file if there is more than one iZone system on the local
+network and one or more must be excluded use manual configuration:
 
 ```yaml
 # Full manual example configuration.yaml entry

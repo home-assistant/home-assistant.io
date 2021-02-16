@@ -21,9 +21,7 @@ The `sharkiq` integration allows you to control your [Shark IQ](https://www.shar
 
 This platform has been tested and is confirmed to be working with the Shark IQ R101AE robot vacuum with self-empty base but should also work with the R100.
 
-## Configuration
-
-To add your Shark IQ vacuum to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with + sign and from the list of integrations select Shark IQ.
+{% include integrations/config_flow.md %}
 
 ## Services
 

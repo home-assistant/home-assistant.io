@@ -36,11 +36,7 @@ There is currently support for the following device types within Home Assistant:
 This component does NOT allow for live viewing of your Ring camera within Home Assistant.
 </p>
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Ring.
-
-YAML configuration is no longer available because it cannot handle two-factor authentication.
+{% include integrations/config_flow.md %}
 
 ## Binary Sensor
 

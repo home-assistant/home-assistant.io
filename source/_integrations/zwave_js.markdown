@@ -51,11 +51,7 @@ While your Z-Wave mesh is permanently stored on your stick, the additional metad
 Advanced users: Make sure that the server started successfully by inspecting the logs. Give the Z-Wave controller some time to start.
 </p>
 
-## Configuration
-
-At this time the configuration options for this new Z-Wave integration are still limited (but will be extended over time). Basic features like adding a new node or removing a node are available. You can configure the Z-Wave network within Home Assistant from the Integrations configuration page. Just click "configure" on the Z-Wave JS card.
-
-Menu: **Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure**
+{% include integrations/config_flow.md %}
 
 ## Services
 

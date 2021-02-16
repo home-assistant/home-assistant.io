@@ -25,11 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#configuration)
 - [Notifications](#notifications)
 
-## Configuration
-
-The Kodi media player is configured through the integrations screen. If your Kodi is discovered, you'll see it there and can click to set it up.
-If you do not see your device, you can click on the `+` button and choose Kodi.
-The flow will guide you through the setup. Most of the settings are advanced, and the defaults should work.
+{% include integrations/config_flow.md %}
 
 If you previously had Kodi configured through `configuration.yaml`, it's advisable to remove it, and configure from the UI.
 If you do not remove it, your configuration will be imported with the following limitations:

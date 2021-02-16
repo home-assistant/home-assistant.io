@@ -16,7 +16,7 @@ ha_platforms:
   - switch
 ---
 
-The `hyperion` platform allows you to integrate your
+The Hyperion integration allows you to integrate your
 [Hyperion](https://docs.hyperion-project.org/) into Home Assistant. Hyperion is
 an open source Ambilight implementation which runs on many platforms.
 
@@ -24,22 +24,7 @@ an open source Ambilight implementation which runs on many platforms.
 supported, the original [discontinued Hyperion](https://github.com/hyperion-project/hyperion) is not supported by
 this integration.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-In most cases, Hyperion servers will be automatically discovered by
-Home Assistant. Those automatically discovered devices are listed
-on the integrations page.
-
-If for some reason Hyperion isn't discovered, it can be added manually.
-
-Click on the `+` sign to add an integration and click on **Hyperion**.
-After completing the configuration flow, the Hyperion integration will be
-available.
+{% include integrations/config_flow.md %}
 
 ### Extra configuration of the integration
 

@@ -20,26 +20,11 @@ There is currently support for the following device types within Home Assistant:
 
 - Sensor
 
-## Configuration
+## Prerequisites
 
 You will need your Griddy Load Zone to use this module.
 
-To add `Griddy` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Griddy**.
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-griddy:
-  loadzone: YOUR_LZ
-```
-
-{% configuration %}
-loadzone:
-  description: Your Load Zone is in your Griddy account under “Account > Meter > Load Zone.”
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Sensor
 

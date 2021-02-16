@@ -18,10 +18,7 @@ territories to get information regarding reported flu symptoms from [Flu Near
 You](https://flunearyou.org/). The platform can return user-reported information as well reports from the
 Center for Disease Control (CDC).
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Sensor Types
 

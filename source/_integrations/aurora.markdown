@@ -19,15 +19,7 @@ This service gives a number 0-100 representing the current likelihood of visible
 
 You can check the attributes of the sensor to see your exact forecast.
 
-## Configuration
-
-To add the aurora binary sensor to your installation, search for the Aurora integration through the Configuration -> Integrations menu.
-
-Enter a name for your Aurora location as well as the longitude and latitude of the location (default to your Home Assistant location).
-
-Click Submit to add the integration to your environment.
-
-You can configure multiple locations by adding the integration multiple times.
+{% include integrations/config_flow.md %}
 
 ## Options
 

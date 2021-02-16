@@ -22,10 +22,7 @@ Minecraft servers allow players to play the sandbox video game [Minecraft](https
 The server must be version 1.7 or higher, since older versions don't expose any information.
 </div>
 
-## Configuration via the frontend
-
-In the settings go to `Integrations`, click on the `+` sign to add an integration and click on **Minecraft Server**.
-After completing the configuration flow, the Minecraft Server integration will be available.
+{% include integrations/config_flow.md %}
 
 ## Binary sensors
 

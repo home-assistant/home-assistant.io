@@ -20,32 +20,12 @@ ha_platforms:
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.
 
-### Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Roku.
-If your Roku device is on, it has likely been discovered already and you just have to confirm the detected device.
+{% include integrations/config_flow.md %}
 
 There is currently support for the following device types within Home Assistant:
 
 - Media Player
 - Remote
-
-### YAML Configuration
-
-Manual configuration of your Roku device is also possible, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-roku:
-  - host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: Set the IP address of the Roku device.
-  required: true
-  type: string
-{% endconfiguration %}
 
 ## Remote
 

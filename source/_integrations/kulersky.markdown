@@ -15,15 +15,7 @@ ha_platforms:
 
 This integration connects Brightech Kuler Sky floor lamps to Home Assistant.
 
-## Configuration
-
-This integration can be configured using the integrations page in Home Assistant.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and search for **Kuler Sky**.
-
-The integration will scan for nearby Bluetooth devices, and ask you to select your lamp.
+{% include integrations/config_flow.md %}
 
 ## Additional information for Home Assistant Core on Python environments
 

@@ -25,14 +25,14 @@ There is currently support for the following information within Home Assistant:
 - pH Status Indicator
 - Chlorine Status Indicator
 
-## Configuration
+## Prerequisites
 
 You will need to use the associated standalone app for this device to register a username and password.
 
 - [Google](https://play.google.com/store/apps/details?id=co.proautomation.app.poolSense&hl=en_ZA)
 - [Apple](https://apps.apple.com/us/app/poolsense/id1288535609)
 
-Home Assistant offers PoolSense integration through **Configuration** -> **Integrations**. Click the `+` sign and from the list of integrations select **PoolSense**. Simply enter `username` and `password` when prompted.
+{% include integrations/config_flow.md %}
 
 ## Tips
 

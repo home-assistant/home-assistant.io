@@ -17,7 +17,4 @@ ha_platforms:
 
 The `gogogate2` cover platform lets you control Gogogate2 and iSmartGate enabled garage doors and gates through Home Assistant. Device names in Home Assistant are generated based on the names defined in the GogoGate2 or iSmartGate mobile app.
 
-## Configuration
-
-1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'GogoGate2 or iSmartGate' and click 'Configure'.
-2. Enter the information appropriate for the server and click 'Submit'.
+{% include integrations/config_flow.md %}

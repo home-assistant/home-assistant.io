@@ -26,24 +26,7 @@ NeoPixel (WS2812B, WS2811, SK6812, APA102, and similar) LED's.
 While Home Assistant supports WLED 0.8.4 and higher, the use of WLED 0.10 and
 newer is recommended to get the optimal experience.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-In most cases, the WLED devices will be automatically discovered by
-Home Assistant. Those automatically discovered WLED devices are listed
-on the integrations page.
-
-If for some reason (e.g., due to lack of mDNS support on your network),
-the WLED device isn't discovered, it can be added manually.
-
-Click on the `+` sign to add an integration and click on **WLED**.
-After completing the configuration flow, the WLED
-integration will be available.
-
+{% include integrations/config_flow.md %}
 ## Lights
 
 This integration adds the WLED device as a light in Home Assistant.

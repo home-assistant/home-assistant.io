@@ -35,13 +35,7 @@ There is currently support for the following device types within Home Assistant:
 August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
 </div>
 
-## Configuration
-
-You will need your August login information (username (either phone# or email), and password) to use this module.
-
-To add `August` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **August**.
-
-Once Home Assistant is started, a configurator will pop up asking you to enter verification code that is sent to your phone number or email.
+{% include integrations/config_flow.md %}
 
 ### Binary Sensor
 

@@ -18,11 +18,11 @@ The UPB integration allows Home Assistant to connect to a Universal Powerline Bu
 - Light
 - Scene
 
-## Configuration
-
-To add UPB to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Universal Powerline Bus (UPB)**.
+## Prerequisites
 
 The UPB integration requires that an export from the `UPStart` UPB configuration program. To create an export, in `UPStart`, click the UPB button in the top left and select **Export to File**. This will create a file with the `.upe` extension. The file must be placed in the configuration directory of your Home Assistant installation.
+
+{% include integrations/config_flow.md %}
 
 ## Device Configuration
 

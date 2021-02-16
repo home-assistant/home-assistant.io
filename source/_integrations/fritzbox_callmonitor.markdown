@@ -31,9 +31,7 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `FR
 
 To activate the call monitor on your FRITZ!Box, dial **#96\*5\*** from any phone connected to it.
 
-## Configuration
-
-To add the AVM FRITZ!Box Call Monitor integration to your installation, go to **Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **AVM FRITZ!Box Call Monitor**.
+{% include integrations/config_flow.md %}
 
 ## Examples
 

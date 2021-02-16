@@ -19,10 +19,7 @@ ha_platforms:
 
 You can add Agent DVR via integrations using the IP address and port of the server, e.g.,: `http://192.168.1.3:8090/`.
 
-
-## Configuration
-
-For configuration, go to the `Integrations panel` on your Home Assistant instance. Click on the + symbol and pick 'Agent DVR' from the list and enter your Agent DVR server address and port. You can then setup your devices using the Home Assistant UI.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
   Please ensure you are using Agent DVR v2.6.1.0 +

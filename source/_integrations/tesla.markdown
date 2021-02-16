@@ -37,36 +37,7 @@ This integration provides the following platforms:
 - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system. Also enables preset modes to enable or disable max defrost mode `defrost` or `normal` operation mode.
 - Switch - Charger and max range switch to allow you to start/stop charging and set max range charging. Update switch to allow you to disable polling of vehicles to conserve battery. Sentry mode switch to enable or disable Sentry mode.
 
-## Configuration
-
-Home Assistant offers the Tesla integration through **Configuration** -> **Integrations** -> **Tesla**.
-
-Enter username and password and then continue. MFA is not supported. One workaround can be to make a separate Tesla account deidicated for Home Assistant without MFA and invite this account to your car/cars.
-
-Alternatively, Home Assistant will also load Tesla via the  `configuration.yaml`. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-tesla:
-  username: YOUR_EMAIL_ADDRESS
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The email address associated with your Tesla account.
-  required: true
-  type: string
-password:
-  description: The password associated with your Tesla account.
-  required: true
-  type: string
-scan_interval:
-  description: API polling interval in seconds. Minimum value can't be less than 60 (1 minute). Very frequent polling can use battery.
-  required: false
-  type: integer
-  default: 660
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Options
 

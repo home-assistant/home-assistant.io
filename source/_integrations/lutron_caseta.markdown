@@ -45,7 +45,9 @@ Additionally RA2 Select Main Repeater (`RR-SEL-REP2-BL`) or Lutron Caséta Smart
 - Pico Remotes as [device triggers](/integrations/device_automation/)
 - Shade Remotes as [device triggers](/integrations/device_automation/)
 
-If you have physical access to the Lutron Bridge, to add `Lutron Caséta` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Lutron Caséta**.
+{% include integrations/config_flow.md %}
+
+## Manual configuration
 
 Alternatively, if you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done manually using the following steps:
 

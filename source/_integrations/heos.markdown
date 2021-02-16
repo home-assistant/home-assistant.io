@@ -20,22 +20,7 @@ The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/shop/am
 - Clear playlist
 - Select source from device physical inputs and HEOS favorites
 
-## Configuration
-
-HEOS devices are discovered and setup automatically when the [discovery](/integrations/discovery) integration is enabled. Alternatively, the integration can be setup through the frontend control panel integrations page or manually by adding the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-heos:
-  host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: "Address of the device. Example: 192.168.1.32."
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 <div class='note info'>
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.

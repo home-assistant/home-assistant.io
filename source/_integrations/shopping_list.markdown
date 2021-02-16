@@ -14,19 +14,7 @@ The `shopping_list` integration allows you to keep track of shopping list items.
 
 Your shopping list will be accessible from the sidebar, and you can optionally add the [Shopping List card](/lovelace/shopping-list/) to your Lovelace dashboard. With the [Conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
 
-
-## Configuration - GUI
-
-From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
-
-Use the plus button in the bottom right to add a new integration called **Shopping List**.
-
-## Configuration - Manual
-
-```yaml
-# Example configuration.yaml entry
-shopping_list:
-```
+{% include integrations/config_flow.md %}
 
 ## Services
 

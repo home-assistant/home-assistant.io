@@ -15,7 +15,7 @@ ha_ssdp: true
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
-You can configure the Sonos integration by going to the integrations page inside the configuration panel.
+{% include integrations/config_flow.md %}
 
 ## Services
 

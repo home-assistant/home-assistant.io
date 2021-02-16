@@ -21,11 +21,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Switch](#switch)
 
-## Configuration
-
-Go to the integrations page in your configuration and click on **new integration** -> **Gree**.
-
-Gree Smart compatible devices are detected and added automatically.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 Devices must first be bound to WiFi using the Gree+ app, or app provided by the device manufacturer. It is not possible to connect devices to WiFi using this integration at the current time.

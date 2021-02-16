@@ -29,9 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
 
-## Configuration
-
-AlarmDecoder can be set up via the **Integrations** section of the **Configuration** page. Click the `+` sign and select _AlarmDecoder_ from the list.
+{% include integrations/config_flow.md %}
 
 You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending on your selection, you will be asked for the following connection information:
 

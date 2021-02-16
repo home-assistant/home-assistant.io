@@ -28,9 +28,9 @@ Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` 
 
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-The integration is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
+## Manual configuration
 
 If you wish to configure advanced options, you can add the following entry in `configuration.yaml`.
 

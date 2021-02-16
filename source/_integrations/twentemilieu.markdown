@@ -17,13 +17,7 @@ ha_platforms:
 The Twente Milieu integration allows you to track the next scheduled waste
 pickups by Twente Milieu for each of the different waste types.
 
-## Configuration via the frontend
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Twente Milieu**.
-Follow the configuration flow, after finishing, the Twente Milieu
-integration will be available.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 

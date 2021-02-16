@@ -29,8 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/settings/accesstoken) to get your API token.
 
-To add Tibber to your installation, go to **Configuration** >> **Integrations** in the UI and enable the Tibber integration.
-
+{% include integrations/config_flow.md %}
 
 ## Notifications
 

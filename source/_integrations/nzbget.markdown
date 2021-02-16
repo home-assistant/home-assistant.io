@@ -17,9 +17,7 @@ ha_platforms:
 
 The `nzbget` platform will allow you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant and setup automation based on the information.
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> NZBGet.
+{% include integrations/config_flow.md %}
 
 ## Sensor
 
