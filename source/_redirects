@@ -659,7 +659,6 @@
 /components/sensor.citybikes /integrations/citybikes
 /components/sensor.co2signal /integrations/co2signal
 /components/sensor.coinbase /integrations/coinbase
-/components/sensor.coinmarketcap /integrations/coinmarketcap
 /components/sensor.comed_hourly_pricing /integrations/comed_hourly_pricing
 /components/sensor.comfoconnect /integrations/comfoconnect
 /components/sensor.cpuspeed /integrations/cpuspeed
@@ -1208,7 +1207,6 @@
 /components/cmus /integrations/cmus
 /components/co2signal /integrations/co2signal
 /components/coinbase /integrations/coinbase
-/components/coinmarketcap /integrations/coinmarketcap
 /components/comed_hourly_pricing /integrations/comed_hourly_pricing
 /components/comfoconnect /integrations/comfoconnect
 /components/command_line /integrations/command_line
@@ -2282,3 +2280,6 @@
 /components/sensor.crimereports /more-info/removed-integration 301
 /components/crimereports /more-info/removed-integration 301
 /integrations/crimereports /more-info/removed-integration 301
+/components/sensor.coinmarketcap /more-info/removed-integration 301
+/components/coinmarketcap /more-info/removed-integration 301
+/integrations/coinmarketcap /more-info/removed-integration 301
