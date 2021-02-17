@@ -9,19 +9,19 @@ ha_codeowners:
   - '@danielhiversen'
 ha_domain: mill
 ha_config_flow: true
+ha_platforms:
+  - climate
 ---
 
 Integrates Mill heater into Home Assistant.
 
-To add Mill to your installation, go to Configuration >> Integrations in the UI and enable the Mill integration.
+{% include integrations/config_flow.md %}
 
+## Integration services
 
-## Component services
-
-This platform supports a service to set the temperature for the room connected to heater in the Mill app:
+This integration supports a service to set the temperature for the room connected to heater in the Mill app:
 
 `mill.set_room_temperature`
-
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -121,7 +121,8 @@ automation:
     at: input_datetime.bedroom_alarm_clock_time
   action:
     service: light.turn_on
-    entity_id: light.bedroom
+    target:
+      entity_id: light.bedroom
 ```
 
 To dynamically set the `input_datetime` you can call

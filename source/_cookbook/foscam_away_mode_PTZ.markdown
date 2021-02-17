@@ -46,17 +46,17 @@ script:
  foscam_off:
    sequence:
    - service: switch.turn_off
-     data:
+     target:
        entity_id: switch.foscam_motion
    - service: shell_command.foscam_turn_off
  foscam_on:
    sequence:
    - service: switch.turn_off
-     data:
+     target:
        entity_id: switch.foscam_motion
    - service: shell_command.foscam_turn_on
    - service: switch.turn_on
-     data:
+     target:
        entity_id: switch.foscam_motion
 ```
 
@@ -64,14 +64,14 @@ To automate Foscam being set to "on" (facing the correct way with motion sensor 
 
 ```yaml
 automation:
-  - alias: Set Foscam to Away Mode when I leave home
+  - alias: "Set Foscam to Away Mode when I leave home"
     trigger:
       platform: state
       entity_id: group.family
       from: "home"
     action:
       service: script.foscam_on
-  - alias: Set Foscam to Home Mode when I arrive Home
+  - alias: "Set Foscam to Home Mode when I arrive Home"
     trigger:
       platform: state
       entity_id: group.family

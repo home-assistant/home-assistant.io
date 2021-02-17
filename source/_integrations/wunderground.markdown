@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Cloud Polling
 ha_domain: wunderground
+ha_platforms:
+  - sensor
 ---
 
 The `wunderground` platform uses [Weather Underground](https://www.wunderground.com/) as a source for current weather information.

@@ -111,7 +111,7 @@ At startup, automations by default restore their last state of when Home Assista
 
 ```yaml
 automation:
-- alias: Automation Name
+- alias: "Automation Name"
   initial_state: false
   trigger:
   - platform: ...
@@ -126,7 +126,7 @@ If you want to migrate your manual automations to use the editor, you'll have to
 ```yaml
 # Example automations.yaml entry. Note, automations.yaml is always a list!
 - id: my_unique_id  # <-- Required for editor to work, for automations created with the editor the id will be automatically generated.
-  alias: Hello world
+  alias: "Hello world"
   trigger:
     - platform: state
       entity_id: sun.sun

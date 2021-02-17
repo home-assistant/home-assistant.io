@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.36
 ha_iot_class: Cloud Push
 ha_domain: yandextts
+ha_platforms:
+  - tts
 ---
 
 The `yandextts` text-to-speech platform uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) Text-to-Speech engine to read a text with natural sounding voices.

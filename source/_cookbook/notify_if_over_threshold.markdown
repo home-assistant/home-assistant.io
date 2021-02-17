@@ -15,7 +15,7 @@ notify me:
   name: mypushbullet
 
 automation:
-  - alias: FanOn
+  - alias: "FanOn"
     trigger:
       platform: numeric_state
       entity_id: sensor.furnace
@@ -34,7 +34,7 @@ If you also want a notification when it drops back down below that limit, you co
 {% raw %}
 
 ```yaml
-  - alias: FanOff
+  - alias: "FanOff"
     trigger:
       platform: numeric_state
       entity_id: sensor.furnace

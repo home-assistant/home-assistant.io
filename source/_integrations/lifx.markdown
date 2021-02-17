@@ -7,13 +7,16 @@ ha_iot_class: Local Polling
 ha_release: 0.81
 ha_config_flow: true
 ha_domain: lifx
+ha_homekit: true
+ha_platforms:
+  - light
 ---
 
 The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
 
 _Please note, the `lifx` integration does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
 
-You can configure the LIFX integration by going to the integrations page inside the configuration panel.
+{% include integrations/config_flow.md %}
 
 ## Set state
 
@@ -39,7 +42,7 @@ Change the light to a new state.
 The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
 ```yaml
 automation:
-  - alias: ...
+  - alias: "..."
     trigger:
       # ...
     action:

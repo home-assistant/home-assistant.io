@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.48
 ha_domain: clicksend
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `clicksend` platform uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.

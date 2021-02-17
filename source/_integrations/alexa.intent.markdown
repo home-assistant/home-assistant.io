@@ -217,7 +217,7 @@ intent_script:
   ActivateSceneIntent:
     action:
       service: scene.turn_on
-      data:
+      target:
         entity_id: scene.{{ Scene | replace(" ", "_") }}
     speech:
       type: plain
@@ -269,7 +269,7 @@ intent_script:
   RunScriptIntent:
     action:
       service: script.turn_on
-      data:
+      target:
         entity_id: script.{{ Script | replace(" ", "_") }}
     speech:
       type: plain
@@ -299,7 +299,8 @@ intent_script:
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
     action:
       service: script.turn_on
-      entity_id: script.red_alert
+      target:
+        entity_id: script.red_alert
     speech:
       type: plain
       text: OK

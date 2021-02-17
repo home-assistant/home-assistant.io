@@ -10,6 +10,9 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: brother
 ha_quality_scale: platinum
+ha_zeroconf: true
+ha_platforms:
+  - sensor
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.
@@ -17,9 +20,7 @@ The `Brother Printer` integration allows you to read current data from your loca
 It usually provides information about the device's state, the left amount of ink or toner and the remaining life of the drum or other parts of the printer.
 The integration monitors every supported part.
 
-## Configuration
-
-To add `Brother Printer` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Brother Printer**.
+{% include integrations/config_flow.md %}
 
 <div class="note warning">
 

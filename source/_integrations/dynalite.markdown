@@ -12,6 +12,10 @@ ha_codeowners:
   - '@ziv1234'
 ha_config_flow: true
 ha_domain: dynalite
+ha_platforms:
+  - cover
+  - light
+  - switch
 ---
 
 Philips Dynalite support is integrated into Home Assistant as a hub that can drive the light, switch, and cover platforms. 

@@ -201,12 +201,13 @@ image_processing:
 
 ```yaml
 # Example advanced automations.yaml entry
-- alias: TensorFlow scanning
+- alias: "TensorFlow scanning"
   trigger:
      - platform: state
        entity_id:
          - binary_sensor.driveway
   action:
     - service: image_processing.scan
-      entity_id: camera.driveway
+      target:
+        entity_id: camera.driveway
 ```

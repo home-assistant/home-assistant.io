@@ -10,10 +10,13 @@ ha_domain: somfy_mylink
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+ha_dhcp: true
+ha_platforms:
+  - cover
 ---
 
 The `Somfy MyLink` integration is used as an interface to a compatible Somfy MyLink hub utilizing the `Synergy` API. It allows the addition of covers from the Somfy MyLink platform to Home Assistant.
 
-To use your compatible `Somfy MyLink` devices in your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Somfy MyLink**.
+{% include integrations/config_flow.md %}
 
 If any of your devices are reversed, they can be adjusted in **Configuration** >> **Integrations** >> **Somfy MyLink** >> `Options`.

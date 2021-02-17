@@ -18,7 +18,8 @@ automation:
     state: home
   action:
     service: light.turn_on
-    entity_id: group.living_room_lights
+    target:
+      entity_id: group.living_room_lights
 ```
 
 #### Natural wake up light
@@ -32,7 +33,8 @@ automation:
     at: "07:15:00"
   action:
     service: light.turn_on
-    entity_id: light.bedroom
+    target:
+      entity_id: light.bedroom
     data:
       # 900 seconds = 15 minutes
       transition: 900
@@ -79,7 +81,8 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
     below: 3.5
   action:
     service: scene.turn_on
-    entity_id: scene.background_lights
+    target:
+      entity_id: scene.background_lights
 
 - alias: "Turn more lights on as the sun gets dimmer"
   trigger:
@@ -89,7 +92,8 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
     below: 1.5
   action:
     service: scene.turn_on
-    entity_id: scene.more_lights
+    target:
+      entity_id: scene.more_lights
 
 - alias: "Close blind at dusk"
   trigger:
@@ -99,7 +103,8 @@ Solar elevation automations can cope with offsets from sunset / sunrise as the s
     below: -2.5
   action:
     service: switch.turn_off
-    entity_id: switch.blind
+    target:
+      entity_id: switch.blind
 ```
 
 {% endraw %}

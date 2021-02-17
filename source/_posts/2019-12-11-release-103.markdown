@@ -232,7 +232,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 
   ```yaml
   - id: plant_unreachable
-    alias: plant unreachable
+    alias: "plant unreachable"
     trigger:
       - entity_id: sensor.plant_moisture
         for: 01:00:00

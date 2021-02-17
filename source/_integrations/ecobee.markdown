@@ -14,6 +14,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@marthoc'
 ha_domain: ecobee
+ha_platforms:
+  - binary_sensor
+  - climate
+  - notify
+  - sensor
+  - weather
 ---
 
 The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.

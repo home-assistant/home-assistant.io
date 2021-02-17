@@ -125,7 +125,7 @@ input_number:
     max: 254
     step: 1
 automation:
-  - alias: Bedroom Light - Adjust Brightness
+  - alias: "Bedroom Light - Adjust Brightness"
     trigger:
       platform: state
       entity_id: input_number.bedroom_brightness
@@ -163,7 +163,7 @@ input_number:
     max: 254
     step: 1
 automation:
-  - alias: Bedroom Light - Custom
+  - alias: "Bedroom Light - Custom"
     trigger:
       platform: state
       entity_id: input_select.scene_bedroom
@@ -195,7 +195,7 @@ input_number:
 # This automation script runs when a value is received via MQTT on retained topic: setTemperature
 # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
 automation:
-  - alias: Set temp slider
+  - alias: "Set temp slider"
     trigger:
       platform: mqtt
       topic: "setTemperature"
@@ -207,7 +207,7 @@ automation:
 
 # This second automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
-  - alias: Temp slider moved
+  - alias: "Temp slider moved"
     trigger:
       platform: state
       entity_id: input_number.target_temp
@@ -245,7 +245,7 @@ input_number:
     step: 10
     
 automation:
- - alias: turn something off after x time after turning it on
+ - alias: "turn something off after x time after turning it on"
    trigger:
      platform: state
      entity_id: switch.something
@@ -253,7 +253,8 @@ automation:
    action:
      - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
      - service: switch.turn_off
-       entity_id: switch.something
+       target:
+         entity_id: switch.something
 ```
 
 {% endraw %}

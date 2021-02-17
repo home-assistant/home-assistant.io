@@ -13,6 +13,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
 ha_domain: august
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - lock
+  - sensor
 ---
 
 The `august` integration allows you to integrate your [August](https://august.com/) devices in Home Assistant.
@@ -29,13 +35,7 @@ There is currently support for the following device types within Home Assistant:
 August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
 </div>
 
-## Configuration
-
-You will need your August login information (username (either phone# or email), and password) to use this module.
-
-To add `August` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **August**.
-
-Once Home Assistant is started, a configurator will pop up asking you to enter verification code that is sent to your phone number or email.
+{% include integrations/config_flow.md %}
 
 ### Binary Sensor
 
@@ -76,7 +76,7 @@ Using the lock operation sensors, you can detect when a user operates a lock and
 
 ```yaml
 - id: "1583706446906"
-  alias: joe_doe_front_door_operate
+  alias: "joe_doe_front_door_operate"
   description: John Doe locks or unlocks the Front Door
   trigger:
   - entity_id: sensor.front_door_operator

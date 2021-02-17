@@ -334,7 +334,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ```yaml
 automation:
-  - alias: Test vacuum zone
+  - alias: "Test vacuum zone"
     trigger:
     - event: start
       platform: homeassistant
@@ -354,7 +354,7 @@ to:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone
+  - alias: "Test vacuum zone"
     trigger:
     - event: start
       platform: homeassistant

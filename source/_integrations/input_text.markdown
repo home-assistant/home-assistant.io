@@ -127,7 +127,7 @@ input_text:
     name: Brightness
     
 automation:
-  - alias: Bedroom Light - Custom
+  - alias: "Bedroom Light - Custom"
     trigger:
       platform: state
       entity_id: input_select.scene_bedroom

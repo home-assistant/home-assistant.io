@@ -12,6 +12,9 @@ ha_codeowners:
   - '@rytilahti'
   - '@thegardenmonkey'
 ha_domain: tplink
+ha_platforms:
+  - light
+  - switch
 ---
 
 The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.

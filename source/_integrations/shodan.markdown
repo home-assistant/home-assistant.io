@@ -8,6 +8,8 @@ ha_release: 0.51
 ha_codeowners:
   - '@fabaff'
 ha_domain: shodan
+ha_platforms:
+  - sensor
 ---
 
 The `shodan` sensor platform is displaying the total of result of a

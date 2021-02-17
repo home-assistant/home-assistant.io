@@ -11,6 +11,9 @@ ha_domain: apple_tv
 ha_codeowners:
   - '@postlund'
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - remote
 ---
 
 The Apple TV integration allows you to control an Apple TV (any generation). See the
@@ -22,13 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - Media Player
 - [Remote](#remote)
 
-## Configuration
-
-Menu: *Configuration* > *Integrations*
-
-Press on **Apple TV** and configure the integration:
-
-* Enter either an IP address or a device name and follow the next few steps
+{% include integrations/config_flow.md %}
 
 ## FAQ
 
@@ -85,8 +82,9 @@ A typical service call for press several buttons looks like this.
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.apple_tv
+data:
   command:
     - left
     - left

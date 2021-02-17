@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_release: 0.53
 ha_quality_scale: internal
 ha_domain: bayesian
+ha_platforms:
+  - binary_sensor
 ---
 
 The `bayesian` binary sensor platform observes the state from multiple sensors and uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on` otherwise it is `off`.

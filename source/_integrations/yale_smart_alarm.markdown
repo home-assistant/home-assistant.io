@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: yale_smart_alarm
+ha_platforms:
+  - alarm_control_panel
 ---
 
 The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm systems and Smart Hub through Yale's API.
@@ -59,7 +61,8 @@ automation:
       before: sunset
     action:
       service: scene.turn_on
-      entity_id: scene.OnDisarmedDaytime
+      target:
+        entity_id: scene.OnDisarmedDaytime
   - alias: "Alarm: Armed Away"
     trigger:
       platform: state
@@ -67,5 +70,6 @@ automation:
       to: "armed_away"
     action:
       service: scene.turn_on
-      entity_id: scene.OnArmedAway
+      target:
+        entity_id: scene.OnArmedAway
 ```

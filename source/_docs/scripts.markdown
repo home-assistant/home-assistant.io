@@ -16,7 +16,7 @@ script:
     sequence:
       # This is written using the Script Syntax
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.ceiling
       - service: notify.notify
         data:
@@ -47,10 +47,11 @@ script:
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
 
 ```yaml
-- alias: Bedroom lights on
+- alias: "Bedroom lights on"
   service: light.turn_on
-  data:
+  target:
     entity_id: group.bedroom
+  data:
     brightness: 100
 ```
 
@@ -74,10 +75,11 @@ The variables action allows you to set/override variables that will be accessibl
       - light.kitchen
       - light.living_room
     brightness: 100
-- alias: Control lights
+- alias: "Control lights"
   service: light.turn_on
-  data:
+  target:
     entity_id: "{{ entities }}"
+  data:
     brightness: "{{ brightness }}"
 ```
 
@@ -234,16 +236,18 @@ This can be used to take different actions based on whether or not the condition
         - service: script.door_did_not_open
   default:
     - service: script.turn_on
-      entity_id:
-        - script.door_did_open
-        - script.play_fanfare
+      target:
+        entity_id:
+          - script.door_did_open
+          - script.play_fanfare
 
 # Wait a total of 10 seconds.
 - wait_template: "{{ is_state('binary_sensor.door_1', 'on') }}"
   timeout: 10
   continue_on_timeout: false
 - service: switch.turn_on
-  entity_id: switch.some_light
+  target:
+    entity_id: switch.some_light
 - wait_for_trigger:
     - platform: state
       entity_id: binary_sensor.door_2
@@ -252,7 +256,8 @@ This can be used to take different actions based on whether or not the condition
   timeout: "{{ wait.remaining }}"
   continue_on_timeout: false
 - service: switch.turn_off
-  entity_id: switch.some_light
+  target:
+    entity_id: switch.some_light
 ```
 {% endraw %}
 
@@ -290,7 +295,7 @@ The `event_data` accepts templates.
 The following automation example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 
 ```yaml
-- alias: Fire Event
+- alias: "Fire Event"
   trigger:
     - platform: state
       entity_id: switch.kitchen
@@ -306,7 +311,7 @@ The following automation example shows how to capture the custom event `event_li
 {% raw %}
 
 ```yaml
-- alias: Capture Event
+- alias: "Capture Event"
   trigger:
     - platform: event
       event_type: event_light_state_changed
@@ -336,14 +341,14 @@ script:
     mode: restart
     sequence:
       - service: light.turn_on
-        data:
+        target:
           entity_id: "light.{{ light }}"
       - repeat:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
             - delay: 2
             - service: light.toggle
-              data:
+              target:
                 entity_id: "light.{{ light }}"
   flash_hallway_light:
     sequence:
@@ -367,7 +372,7 @@ script:
   do_something:
     sequence:
       - service: script.get_ready_for_something
-      - alias: Repeat the sequence AS LONG AS the conditions are true
+      - alias: "Repeat the sequence AS LONG AS the conditions are true"
         repeat:
           while:
             - condition: state
@@ -415,7 +420,7 @@ automation:
         state: "off"
     mode: single
     action:
-      - alias: Repeat the sequence UNTIL the conditions are true
+      - alias: "Repeat the sequence UNTIL the conditions are true"
         repeat:
           sequence:
             # Run command that for some reason doesn't always work
@@ -486,7 +491,8 @@ automation:
                 data:
                   duration: 60
       - service: light.turn_on
-        entity_id: all
+        target:
+          entity_id: all
 ```
 
 ```yaml
@@ -504,13 +510,15 @@ automation:
                 value_template: "{{ trigger.to_state.state == 'on' }}"
             sequence:
               - service: script.turn_on
-                entity_id:
-                  - script.slowly_turn_on_front_lights
-                  - script.announce_someone_at_door
+                target:
+                  entity_id:
+                    - script.slowly_turn_on_front_lights
+                    - script.announce_someone_at_door
         # ELSE (i.e., motion stopped)
         default:
           - service: light.turn_off
-            entity_id: light.front_lights
+            target:
+              entity_id: light.front_lights
 ```
 
 ```yaml
@@ -535,16 +543,19 @@ automation:
                 value_template: "{{ now().hour < 18 }}"
             sequence:
               - service: light.turn_off
-                entity_id: light.living_room
+                target:
+                  entity_id: light.living_room
               - service: script.sim_day
         # ELSE night
         default:
           - service: light.turn_off
-            entity_id: light.kitchen
+            target:
+              entity_id: light.kitchen
           - delay:
               minutes: "{{ range(1, 11)|random }}"
           - service: light.turn_off
-            entity_id: all
+            target:
+              entity_id: all
 ```
 
 {% endraw %}
@@ -573,7 +584,8 @@ automation:
                  is_state('binary_sensor.all_clear', 'off') }}
             sequence:
               - service: script.turn_on
-                entity_id: script.flash_lights
+                target:
+                  entity_id: script.flash_lights
               - service: script.arrive_home
                 data:
                   ok: false

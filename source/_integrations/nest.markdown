@@ -15,6 +15,12 @@ ha_codeowners:
   - '@allenporter'
 ha_domain: nest
 ha_quality_scale: platinum
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - climate
+  - sensor
 ---
 
 The `nest` integration allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events.
@@ -78,7 +84,8 @@ Project**. Note: This is a different type of project from the Device Access proj
 
 1. Give your API Project a name then click **Create**. Note: You can ignore the *Project ID* here as Home Assistant does not need it.
 
-1. Click *OAuth consent screen* and make sure you have that configured, otherwise, you can do that now.
+1. Click *OAuth consent screen* and make sure you have that configured, otherwise you can do that now...
+   - Ensure that the ***Publishing status*** is **In Production** and not **Testing**!
     ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
 
 1. Select **External** (the only choice if you are not a G-Suite user) then click **Create**.  While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
@@ -319,7 +326,7 @@ The lower level Pub/Sub subscriber receives events in real time and internally f
 This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
 
 ```yaml
-alias: motion alert
+alias: "motion alert"
 trigger:
   - platform: event
     event_type: nest_event

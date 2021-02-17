@@ -18,6 +18,15 @@ ha_config_flow: true
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 <p class='note warning'>
@@ -73,7 +82,7 @@ The following examples will instruct a Remotec ZXT-120 to turn the attached devi
 
 ```yaml
 automation:
-  - alias: Turn on Heater at 8pm
+  - alias: "Turn on Heater at 8pm"
     trigger:
       - platform: time
         at: "20:00:00"
@@ -92,7 +101,7 @@ Generally, in Home Assistant, you can use the `homeassistant.turn_off` service t
 
 ```yaml
 automation:
-  - alias: Turn off Heater at 9pm
+  - alias: "Turn off Heater at 9pm"
     trigger:
       - platform: time
         at: "21:00:00"

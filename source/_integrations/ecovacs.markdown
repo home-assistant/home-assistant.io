@@ -9,6 +9,8 @@ ha_release: 0.77
 ha_codeowners:
   - '@OverloadUT'
 ha_domain: ecovacs
+ha_platforms:
+  - vacuum
 ---
 
 The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.

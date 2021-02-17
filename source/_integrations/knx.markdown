@@ -21,6 +21,15 @@ ha_codeowners:
   - '@marvin-w'
 ha_domain: knx
 ha_quality_scale: silver
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - notify
+  - sensor
+  - switch
+  - weather
 ---
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to KNX/IP devices.

@@ -10,6 +10,8 @@ ha_codeowners:
   - '@bollewolle'
   - '@Emilv2'
 ha_domain: delijn
+ha_platforms:
+  - sensor
 ---
 
 The `delijn` sensor will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).

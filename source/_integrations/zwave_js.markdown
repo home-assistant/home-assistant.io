@@ -18,9 +18,20 @@ ha_config_flow: true
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave_js
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant.
+
+Please review the limitations [below](/integrations/zwave_js/#current-limitations) before you get started as a few devices still may not work or only work partially. 
 
 ## Quick start (Home Assistant including Supervisor)
 
@@ -40,11 +51,7 @@ While your Z-Wave mesh is permanently stored on your stick, the additional metad
 Advanced users: Make sure that the server started successfully by inspecting the logs. Give the Z-Wave controller some time to start.
 </p>
 
-## Configuration
-
-At this time the configuration options for this new Z-Wave integration are still limited (but will be extended over time). Basic features like adding a new node or removing a node are available. You can configure the Z-Wave network within Home Assistant from the Integrations configuration page. Just click "configure" on the Z-Wave JS card.
-
-Menu: **Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure**
+{% include integrations/config_flow.md %}
 
 ## Services
 
@@ -116,7 +123,7 @@ Value Notification example:
 
 As this integration is still in the early stages there are some important limitations to be aware of.
 
-- While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6). For example the `Barrier Operator CommandClass` (in plain English: garage door controllers) are not added yet (but [almost finished](https://github.com/zwave-js/node-zwave-js/pull/1337)!).
+- While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
 - Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented. You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
 - Polling is currently not supported in the integration but will be added soon as a service.
 - Support for setting configuration parameters through service calls is currently not supported but may be added in a later release.

@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.25
 ha_domain: flux_led
+ha_platforms:
+  - light
 ---
 
 The `flux_led` support is integrated into Home Assistant as a light platform. Several brands of both bulbs and controllers use the same protocol and they have the HF-LPB100 chipset in common. The chances are high that your bulb or controller (eg. WiFi LED CONTROLLER) will work if you can control the device with the MagicHome app.

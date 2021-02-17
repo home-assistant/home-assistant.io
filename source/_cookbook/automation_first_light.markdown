@@ -23,29 +23,31 @@ input_boolean:
 
 automation:
 #turns it on at 5am
-  - alias: Enable First Morning Trigger
+  - alias: "Enable First Morning Trigger"
     trigger:
       - platform: time
         at: "05:00:00"
     action:
       service: homeassistant.turn_on
-      entity_id: input_boolean.trigger_first_morning
+      target:
+        entity_id: input_boolean.trigger_first_morning
 
 # turns it off an hour after sunrise
-  - alias: Disable First Morning Trigger
+  - alias: "Disable First Morning Trigger"
     trigger:
       - platform: sun
         event: sunrise
         offset: "01:00:00"
     action:
       service: homeassistant.turn_off
-      entity_id: input_boolean.trigger_first_morning
+      target:
+        entity_id: input_boolean.trigger_first_morning
 
 
 
 # This is the main automation. It triggers when my motion sensor is triggered
 # (in this case, a motion sensor from a security system attached to my Vera)
-  - alias: First Morning Motion
+  - alias: "First Morning Motion"
     trigger:
       platform: state
       entity_id: binary_sensor.livingroom_motion
@@ -60,7 +62,8 @@ automation:
       # turn off the "waiting" boolean regardless of whether lights will turn on
       # so that this happens only once
       - service: homeassistant.turn_off
-        entity_id: input_boolean.trigger_first_morning
+        target:
+          entity_id: input_boolean.trigger_first_morning
 
       # But only turn on lights if the living room and kitchen lights are off or dimmed
       # If a condition tests false, the automation will end
@@ -84,7 +87,8 @@ automation:
       # Trigger a scene
       # You could add as many services or scenes as you'd like
       - service: scene.turn_on
-        entity_id: scene.morning_first_motion
+        target:
+          entity_id: scene.morning_first_motion
 ```
 
 {% endraw %}

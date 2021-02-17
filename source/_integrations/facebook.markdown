@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.36
 ha_domain: facebook
 ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `facebook` notification platform enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
@@ -40,7 +42,7 @@ The phone number used in **target** should be registered with Facebook messenger
 ```yaml
 # Example automation notification entry
 automation:
-  - alias: Evening Greeting
+  - alias: "Evening Greeting"
     trigger:
       platform: sun
       event: sunset

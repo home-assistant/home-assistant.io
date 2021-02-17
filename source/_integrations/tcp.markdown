@@ -7,6 +7,9 @@ ha_category:
 ha_release: 0.14
 ha_iot_class: Local Polling
 ha_domain: tcp
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The TCP integration allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.

@@ -9,13 +9,14 @@ ha_domain: motion_blinds
 ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
+ha_platforms:
+  - cover
+  - sensor
 ---
 
 The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
 
-To add a Motion Bridge to your installation, click Configuration in the sidebar, then click Integrations. Click the + icon in the lower right. Then search for "Motion Blinds" and enter the setup.
-
-You will be asked for the IP address of the Motion Bridge, e.g., 192.168.1.100. Note that a static IP address is required in order for this integration to keep working properly.
+{% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
 

@@ -159,15 +159,15 @@ cover:
         position_template: "{{ states('sensor.garage_door') }}"
         open_cover:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.garage_door
         close_cover:
           service: switch.turn_off
-          data:
+          target:
             entity_id: switch.garage_door
         stop_cover:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.garage_door
         icon_template: >-
           {% if states('sensor.garage_door')|float > 0 %}
@@ -237,17 +237,18 @@ script:
   cover_group:
     sequence:
       - service: "cover.{{modus}}_cover"
-        data:
+        target:
           entity_id:
             - cover.bedroom
             - cover.livingroom
   cover_group_position:
     sequence:
       - service: cover.set_cover_position
-        data:
+        target:
           entity_id:
             - cover.bedroom
             - cover.livingroom
+        data:
           position: "{{position}}"
 
 automation:
@@ -258,8 +259,9 @@ automation:
         offset: "+00:30:00"
     action:
       - service: cover.set_cover_position
-        data:
+        target:
           entity_id: cover.cover_group
+        data:
           position: 25
 ```
 

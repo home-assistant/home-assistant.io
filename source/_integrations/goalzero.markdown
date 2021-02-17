@@ -9,13 +9,13 @@ ha_config_flow: true
 ha_domain: goalzero
 ha_codeowners:
   - '@tkdrob'
+ha_platforms:
+  - binary_sensor
 ---
 
 This `goalzero` integration pulls data from a Wifi enabled Goal Zero Yeti.
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Goal Zero Yeti.
+{% include integrations/config_flow.md %}
 
 ## Integration Entities
 
