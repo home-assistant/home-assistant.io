@@ -195,23 +195,7 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/xi
 
 ### Configuration flow setup
 
-To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option "Connect to a Xiaomi Gateway" and click submit. You will then be presented with a form in which you will need to fill in the "IP address" and 32 characters "token". Optionally, you can specify a different name for the gateway. After you click submit, you will have the opportunity to select the area that your devices are located.
-
-{% configuration %}
-host:
-  description: The IP address of your Xiaomi gateway.
-  required: true
-  type: string
-token:
-  description: The API token of your Xiaomi gateway [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token).
-  required: true
-  type: string
-name:
-  description: The name of your Xiaomi gateway.
-  required: false
-  type: string
-  default: Xiaomi Gateway
-{% endconfiguration %}
+To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the "IP address" and 32 characters "token". After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Supported Xiaomi gateway models:
 
@@ -1710,7 +1694,7 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/xi
 
 ### Configuration
 
-To add a plug to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option “Connect to an other Xiaomi Miio device” and click submit. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. Optionally, you can specify a different name for the plug. After you click submit, you will have the opportunity to select the area that your devices are located.
+To add a plug to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Features
 
