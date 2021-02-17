@@ -14,22 +14,6 @@ When the sensor detects a new call, its state changes to 'ring' for each ring an
 
 This integration also offers two services. `phone_modem.reject_call` to pick up and then hang up the call to properly reject a call (via ATA anf ATH). `phone_modem.hangup_call` to hang up an existing call (via ATH).
 
-## Setup
-
-To find the path of your USB modem, run:
-
-```bash
-ls /dev/ttyACM*
-```
-
-If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) give access to the stick with:
-
-```bash
-sudo usermod -a -G dialout homeassistant
-```
-
-Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
-
 {% include integrations/config_flow.md %}
 
 ## Examples
@@ -71,3 +55,23 @@ automation:
 ```
 
 {% endraw %}
+
+{% details %}
+
+## Setup
+
+To find the path of your USB modem, run:
+
+```bash
+ls /dev/ttyACM*
+```
+
+If Home Assistant (`hass`) runs with another user (e.g., `homeassistant`) give access to the stick with:
+
+```bash
+sudo usermod -a -G dialout homeassistant
+```
+
+Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
+
+{% details %}
