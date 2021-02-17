@@ -11,10 +11,19 @@ ha_domain: philips_js
 ha_config_flow: true
 ---
 
-The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API. Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
+The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
 
-To enable the integration go to **Configuration** -> **Integrations**
+Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
+
+To enable the integration go to **Configuration** -> **Integrations**.
 
 ### Turn on device
 
 The Philips TV does not support turning on via the API. You can either turn it on via IR blaster to or on som models WOL. To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
+
+### Know issues
+
+ * Source selction (hdmi inputs) on v5 and v6 API's are not supported
+ * Current running application is reported invalid on (at least) some 2020 TV's android tv's
+ * CEC control over absolute volume is broken on 2020 android TV's
+ * Saphi based philips TV's are not supported due to different authentication protocol
