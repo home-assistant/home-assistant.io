@@ -47,6 +47,10 @@ id:
   description: "The `gateway_id` for this OpenTherm Gateway's entity IDs and services. The entered value will be slugified."
 {% endconfiguration_basic %}
 
+<div class='note warning'>
+Please make sure no other device or application is connected to the OpenTherm Gateway at the same time as Home Assistant. This is not a supported scenario and may lead to unexpected results.
+</div>
+
 <div class='note'>
 The precision and floor_temperature settings that were supported in configuration.yaml entries have been lost upon import of the configuration.yaml entry into the Integrations panel. You can now configure them as per the following Options paragraph.
 </div>
