@@ -30,7 +30,8 @@ Or, when using Docker containers:
 ```bash
 docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 ```
-For TX 29 DTH-IT sensors you can also read the ID from the display and calculate the ID as followed: hex2dec(ID_on_display) / 4.
+
+For TX 29 DTH-IT sensors you can also read the ID from the display and calculate the ID as followed: `hex2dec(ID_on_display) / 4`.
 
 ## Configuration
 
