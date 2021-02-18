@@ -15,7 +15,7 @@ The `philips_js` platform allows you to control Philips TVs which expose the [jo
 
 Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html). Note that not all listed, jointSPACE-enabled devices will have JSON-interface running on port 1925. This is true at least for some models before year 2011.
 
-To enable the integration go to **Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ### Turn on device
 
