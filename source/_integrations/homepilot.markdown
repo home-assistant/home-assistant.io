@@ -1,7 +1,7 @@
 ---
 title: "Rademacher HomePilot"
 description: "Instructions for connecting Rademacher HomePilot devices."
-ha_release: "0.38"
+ha_release: "2021.3"
 ha_category: Cover
 ha_iot_class: "Local Polling"
 ha_config_flow: true
