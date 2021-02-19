@@ -253,6 +253,8 @@ Some notifiers support more parameters (e.g., to set text color or action
 alert:
   garage_door:
     name: Garage is open
+    message: The garage door is still open
+    done_message: The garage is closed
     entity_id: input_boolean.garage_door
     state: "on"   # Optional, 'on' is the default value
     repeat:
@@ -269,5 +271,21 @@ alert:
 ```
 This particular example relies on the `inline_keyboard` functionality of
 Telegram, where the user is presented with buttons to execute certain actions.
+
+Based on the example above you can make an automation to stop further messages,
+but you will still receive the done message.
+
+```yaml
+- alias: 'Telegram callback to stop alerts for garage door'
+  id: 9823f04d-6229-430b-1fb8-0e959a2385ff
+  trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: '/garage_acknowledge'
+  action:
+    - service: alert.turn_off
+      entity_id: alert.garage_door
+```
 
 [template]: /docs/configuration/templating/
