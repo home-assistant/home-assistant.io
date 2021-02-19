@@ -252,9 +252,9 @@ Some notifiers support more parameters (e.g., to set text color or action
 # Example configuration.yaml entry
 alert:
   garage_door:
-    name: Garage is open
-    message: The garage door is still open
-    done_message: The garage is closed
+    name: "Garage is open"
+    message: "The garage door is still open"
+    done_message: "The garage is closed"
     entity_id: input_boolean.garage_door
     state: "on"   # Optional, 'on' is the default value
     repeat:
