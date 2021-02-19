@@ -28,7 +28,7 @@ try this custom integration of [Miicroo](https://github.com/Miicroo).
 
 Last week, we found a burning question on the [Home Assistant subreddit][reddit]
 forum from [Horror_Fondant_7165](https://www.reddit.com/user/Horror_Fondant_7165/).
-Because some paint had gotten on his curtain and he just can't get the paint stain
+Some paint had gotten on his curtain and he just can't get the paint stain
 out of his curtain.
 
 Maybe we can give him some community love and help with his question? 😄
