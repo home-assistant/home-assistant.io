@@ -44,7 +44,7 @@ automation:
     platform: event
   condition: []
   action:
-  - data:
+  - target:
       entity_id: '{{ trigger.event.data.entity_id }}'
     service: '{{ trigger.event.data.service }}'
 ```

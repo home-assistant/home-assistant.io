@@ -88,12 +88,14 @@ automation:
         at: "20:00:00"
     action:
       - service: climate.set_hvac_mode
-        data:
+        target:
           entity_id: climate.remotec_zxt120_heating_1_id
+        data:
           hvac_mode: Heat
       - service: climate.set_temperature
-        data:
+        target:
           entity_id: climate.remotec_zxt120_heating_1_39
+        data:
           temperature: 24
 ```
 
@@ -107,8 +109,9 @@ automation:
         at: "21:00:00"
     action:
       - service: climate.set_hvac_mode
-        data:
+        target:
           entity_id: climate.remotec_zxt120_heating_1_id
+        data:
           hvac_mode: "Off"
 ```
 

@@ -141,8 +141,9 @@ automation:
       event_type: MY_CUSTOM_EVENT
     action:
       - service: input_select.select_option
-        data:
+        target:
           entity_id: input_select.who_cooks
+        data:
           option: Paulus
 ```
 
@@ -157,8 +158,9 @@ automation:
       event_type: MY_CUSTOM_EVENT
     action:
       - service: input_select.set_options
-        data:
+        target:
           entity_id: input_select.who_cooks
+        data:
           options: ["Item A", "Item B", "Item C"]
 ```
 
@@ -189,9 +191,10 @@ input_select:
     topic: "thermostatMode"
    # entity_id: input_select.thermostat_mode
   action:
-     service: input_select.select_option
-     data:
+    service: input_select.select_option
+    target:
       entity_id: input_select.thermostat_mode
+    data:
       option: "{{ trigger.payload }}"
 
  # This automation script runs when the thermostat mode selector is changed.

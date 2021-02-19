@@ -1299,8 +1299,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
@@ -1319,8 +1320,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone:
         - [30914,26007,35514,28807]
@@ -1340,8 +1342,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         repeats: 1
         zone:
         - - 30914
@@ -1385,8 +1388,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_segment
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         segments: [1,2]
 ```
 
@@ -1401,8 +1405,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_segment
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         segments: 1
 ```
 
@@ -1451,8 +1456,9 @@ vacuum_kitchen:
   alias: "Clean the kitchen"
   sequence:
     - service: vacuum.send_command
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
+      data:
         command: app_segment_clean
         params: [18]
 ```
@@ -1472,8 +1478,9 @@ reset_main_brush_left:
   alias: "Reset hours for main brush replacement"
   sequence:
     - service: vacuum.send_Command
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
+      data:
         command: reset_consumable
         params: ['main_brush_work_time']
 ```
@@ -1506,8 +1513,9 @@ vacuum_kitchen:
   alias: "vacuum kitchen"
   sequence:
     - service: vacuum.send_command
-      data:
+      target:
         entity_id: "vacuum.xiaomi_vacuum_cleaner"
+      data:
         command: app_zoned_clean
         params: [[23084,26282,27628,29727,1]]
 ```

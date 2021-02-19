@@ -60,8 +60,9 @@ You can switch between one of your 6 pre-configured presets using ```media_playe
 ```yaml
 # Play media preset
 - service: media_player.play_media
-  data:
+  target:
     entity_id: media_player.soundtouch_living_room
+  data:
     media_content_id: 1..6
     media_content_type: PLAYLIST
 ```
@@ -71,8 +72,9 @@ You can also play HTTP (not HTTPS) URLs:
 ```yaml
 # Play media URL
 - service: media_player.play_media
-  data:
+  target:
     entity_id: media_player.soundtouch_living_room
+  data:
     media_content_id: http://example.com/music.mp3
     media_content_type: MUSIC
 ```

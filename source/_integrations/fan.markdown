@@ -42,8 +42,9 @@ automation:
     at: "07:15:00"
   action:
     - service: fan.set_speed
-      data:
+      target:
         entity_id: fan.kitchen
+      data:
         speed: low
 ```
 
@@ -65,8 +66,9 @@ automation:
     at: "07:15:00"
   action:
     - service: fan.set_direction
-      data:
+      target:
         entity_id: fan.kitchen
+      data:
         direction: forward
 ```
 
@@ -88,8 +90,9 @@ automation:
     at: "07:15:00"
   action:
     - service: fan.oscillate
-      data:
+      target:
         entity_id: fan.kitchen
+      data:
         oscillating: True
 ```
 
