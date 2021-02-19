@@ -5,7 +5,10 @@ ha_category:
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.64
+ha_config_flow: true
 ha_domain: filesize
+ha_platforms:
+  - sensor
 ---
 
 The `filesize` sensor is for displaying the size of a file.
@@ -16,25 +19,26 @@ File paths must also be added to [whitelist_external_dirs](/docs/configuration/b
 
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable the `filesize` sensor, add the following lines to your `configuration.yaml`:
+## YAML Configuration
+
+As an alternative to the configuration via the user interface, you can define `filesize` sensors manually in your `configuration.yaml`:
 
 ```yaml
 sensor:
   - platform: filesize
-    file_paths:
-      - /config/home-assistant_v2.db
+    file_path: /config/home-assistant_v2.db
   ```
 
 {% configuration %}
-file_paths:
+file_path:
   description: The absolute path to the file.
   required: true
-  type: list
+  type: string
   
-unit:
-  description: The output unit of measurement for the file sizes.
+unit_of_measurement:
+  description: The output unit of measurement for the file size.
   required: false
   type: string
   default: MB (Megabytes)
