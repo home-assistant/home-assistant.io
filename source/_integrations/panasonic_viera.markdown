@@ -3,15 +3,21 @@ title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
 ha_category:
   - Media Player
+  - Remote
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera
-ha_codeowners:
-  - '@joogps'
 ha_config_flow: true
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
+
+{% include integrations/config_flow.md %}
+
+There is currently support for the following device types within Home Assistant:
+
+- Media Player
+- [Remote](#remote)
 
 ## Configuration
 
@@ -94,34 +100,56 @@ script:
           entity_id: media_player.living_room_tv
 ```
 
+### Remote
+
+When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+
+Some of the known valid key values are:
+
+- up
+- down
+- left
+- right
+- select
+- home
+- back
+- power
+
+The list with all known valid keys can be found [here](https://github.com/florianholzapfel/panasonic-viera/blob/521cefadc8e1543514ce41d3d49e9218d1c2302d/panasonic_viera/__init__.py#L35). Additionally, you can also send custom commands, such as `"NRC_HOME-ONOFF"` (which is the same as `home`).
+
 ### Currently known supported models
 
 - TC-P50ST50
 - TC-P55ST50
-- TC-P60ST50 (can't power on)
 - TC-P60S60
+- TC-P60ST50 (can't power on)
 - TC-P65VT30
+- TH-32ES500
+- TH-P60ST50A
 - TX-32AS520E
 - TX-32DSX609
 - TX-40CXE720
 - TX-40DX600
 - TX-40DX700B
+- TX-42AS650
 - TX-49DX650B
 - TX-50DX700B
-- TX-55CX700E
+- TX-55ASM655
+- TX-55ASW654
 - TX-55CX680B
+- TX-55CX700E
 - TX-55EXW584
 - TX-55EXW604S
+- TX-55FX680W
+- TX-55FZ802B
+- TX-58AX802B
 - TX-58DX700B
 - TX-65EXW784
+- TX-65FX720W
 - TX-L42ET50
+- TX-L47ET60E (can't power on)
 - TX-P42STW50
 - TX-P50GT30Y
 - TX-P50GT60E
-- TH-32ES500
-- TX-42AS650
-- TX55ASW654
-- TX-55FZ802B
-- TX-55ASM655
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
