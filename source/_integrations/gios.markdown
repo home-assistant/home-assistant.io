@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: gios
+ha_quality_scale: platinum
+ha_platforms:
+  - air_quality
 ---
 
 The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.
@@ -17,18 +20,11 @@ The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current
 
 To obtain `station_id` of the measuring station, go to [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) page, select the measuring station on the map and click the "More Info" link. The address of the opened page will look like this: `http://powietrze.gios.gov.pl/pjp/current/station_details/chart/291` and `291` will be `station_id` of measuring station.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add GIOŚ to your installation, go to **Configuration** >> **Integrations** in the UI and enable the GIOŚ integration.
-
-{% configuration %}
+{% configuration_basic %}
 name:
   description: Manually specify Name.
-  required: false
-  type: string
-  default: GIOŚ
 station_id:
   description: Specify ID of the measuring station.
-  required: true
-  type: integer
-{% endconfiguration %}
+{% endconfiguration_basic %}

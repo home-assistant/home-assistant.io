@@ -1,5 +1,9 @@
-.pull-left  {float: left;}
-.pull-right {float: right;}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
 
 .clearfix {
   *zoom: 1;
@@ -14,7 +18,8 @@
   }
 }
 
-ul, ol {
+ul,
+ol {
   &.unstyled {
     list-style-type: none;
     margin: 0;
@@ -23,13 +28,15 @@ ul, ol {
   &.inline {
     @extend .unstyled;
     list-style-type: none;
-    > li {display: inline;}
+    > li {
+      display: inline;
+    }
   }
 
   &.divided {
     @extend .unstyled;
     > li {
-      border-top:    1px solid lighten($site-background, 5%);
+      border-top: 1px solid lighten($site-background, 5%);
       border-bottom: 1px solid darken($site-background, 5%);
       padding: 0.5em 0;
 
@@ -37,7 +44,9 @@ ul, ol {
         border-top: none;
         padding-top: 0;
       }
-      &:last-child {border-bottom: none;}
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 }
@@ -57,4 +66,16 @@ ul, ol {
   &:visited {
     color: $button-text;
   }
+}
+
+/**
+ * These buttons will fill the entirety of their container.
+ *
+ * 1. Remove padding so that widths and paddings don’t conflict.
+ */
+.btn--full {
+  width: 100%;
+  padding-right: 0; /* [1] */
+  padding-left: 0; /* [1] */
+  text-align: center;
 }

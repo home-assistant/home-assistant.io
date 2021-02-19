@@ -5,10 +5,15 @@ ha_category:
   - Hub
   - Fan
   - Sensor
+ha_iot_class: Local Polling
 ha_release: 0.95
 ha_codeowners:
   - '@z0mbieprocess'
 ha_domain: smarty
+ha_platforms:
+  - binary_sensor
+  - fan
+  - sensor
 ---
 
 The `smarty` integration lets you control Salda [Smarty](http://www.salda.lt/en/products/category/compact-counter-flow-units) ventilation units from Home Assistant. You need a [MB-GATEWAY](http://www.salda.lt/en/products/item/5637227077) or something similar to connect to your local network.

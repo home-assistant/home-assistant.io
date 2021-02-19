@@ -9,6 +9,10 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_domain: danfoss_air
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `danfoss_air` integration allows you to access information from your Danfoss Air HRV unit.

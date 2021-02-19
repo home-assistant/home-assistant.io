@@ -1,12 +1,11 @@
 ---
 title: "Database"
 description: "Details about the database used by Home Assistant."
-redirect_from: /details/database/
 ---
 
-Database is used in by Home Assistant as history and tracker only, to store the events and its parameters. The default database used by Home Assistant is [SQLite](https://www.sqlite.org/), and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/.homeassistant/home-assistant_v2.db`). If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder` component](/integrations/recorder/).
+Home Assistant uses database to store events and parametersis for history and tracking. The default database used is [SQLite](https://www.sqlite.org/) and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/home-assistant_v2.db`); however, other databases can be used. If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder` component](/integrations/recorder/).
 
-To work with the SQLite database manually from the command-line, you will need an [installation](http://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively [DB Browser for SQLite](http://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
+To work with SQLite database manually from the command-line, you will need an [installation](http://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively [DB Browser for SQLite](http://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
 First load your database with `sqlite3`:
 
 ```bash
@@ -41,40 +40,60 @@ sqlite> SELECT sql FROM sqlite_master;
 
 -------------------------------------------------------------------------------------
 CREATE TABLE events (
-	event_id INTEGER NOT NULL,
-	event_type VARCHAR(32),
-	event_data TEXT,
-	origin VARCHAR(32),
-	time_fired DATETIME,
-	created DATETIME,
+	event_id INTEGER NOT NULL, 
+	event_type VARCHAR(32), 
+	event_data TEXT, 
+	origin VARCHAR(32), 
+	time_fired DATETIME, 
+	created DATETIME, 
+	context_id VARCHAR(36), 
+	context_user_id VARCHAR(36), context_parent_id CHARACTER(36), 
 	PRIMARY KEY (event_id)
 )
-CREATE INDEX ix_events_event_type ON events (event_type)
 CREATE TABLE recorder_runs (
-	run_id INTEGER NOT NULL,
-	start DATETIME,
-	"end" DATETIME,
-	closed_incorrect BOOLEAN,
-	created DATETIME,
-	PRIMARY KEY (run_id),
+	run_id INTEGER NOT NULL, 
+	start DATETIME, 
+	"end" DATETIME, 
+	closed_incorrect BOOLEAN, 
+	created DATETIME, 
+	PRIMARY KEY (run_id), 
 	CHECK (closed_incorrect IN (0, 1))
 )
+CREATE TABLE schema_changes (
+	change_id INTEGER NOT NULL, 
+	schema_version INTEGER, 
+	changed DATETIME, 
+	PRIMARY KEY (change_id)
+)
 CREATE TABLE states (
-	state_id INTEGER NOT NULL,
-	domain VARCHAR(64),
-	entity_id VARCHAR(64),
-	state VARCHAR(255),
-	attributes TEXT,
-	event_id INTEGER,
-	last_changed DATETIME,
-	last_updated DATETIME,
-	created DATETIME,
-	PRIMARY KEY (state_id),
+	state_id INTEGER NOT NULL, 
+	domain VARCHAR(64), 
+	entity_id VARCHAR(255), 
+	state VARCHAR(255), 
+	attributes TEXT, 
+	event_id INTEGER, 
+	last_changed DATETIME, 
+	last_updated DATETIME, 
+	created DATETIME, 
+	context_id VARCHAR(36), 
+	context_user_id VARCHAR(36), context_parent_id CHARACTER(36), old_state_id INTEGER, 
+	PRIMARY KEY (state_id), 
 	FOREIGN KEY(event_id) REFERENCES events (event_id)
 )
-CREATE INDEX states__significant_changes ON states (domain, last_updated, entity_id)
-CREATE INDEX states__state_changes ON states (last_changed, last_updated, entity_id)
 CREATE TABLE sqlite_stat1(tbl,idx,stat)
+CREATE INDEX ix_events_context_user_id ON events (context_user_id)
+CREATE INDEX ix_events_event_type ON events (event_type)
+CREATE INDEX ix_events_context_id ON events (context_id)
+CREATE INDEX ix_events_time_fired ON events (time_fired)
+CREATE INDEX ix_recorder_runs_start_end ON recorder_runs (start, "end")
+CREATE INDEX ix_states_entity_id ON states (entity_id)
+CREATE INDEX ix_states_context_user_id ON states (context_user_id)
+CREATE INDEX ix_states_last_updated ON states (last_updated)
+CREATE INDEX ix_states_event_id ON states (event_id)
+CREATE INDEX ix_states_entity_id_last_updated ON states (entity_id, last_updated)
+CREATE INDEX ix_states_context_id ON states (context_id)
+CREATE INDEX ix_states_context_parent_id ON states (context_parent_id)
+CREATE INDEX ix_events_context_parent_id ON events (context_parent_id)
 ```
 
 To only show the details about the `states` table (since we are using that one in the next examples):

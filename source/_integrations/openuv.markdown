@@ -11,6 +11,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: openuv
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
@@ -34,12 +37,19 @@ Each use of the `update_data` service will consume 2 API calls from the daily qu
 the `update_protection_data` services).
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To configure the `openuv` integration, navigate to **Configuration** -> **Integrations**
-in the Home Assistant UI.
+## Sensors
 
-## The Fitzpatrick Scale
+| Name | Type | Value |
+|------|------|-------|
+| Current Ozone Level | Sensor | ozone level in du (Dobson Units) |
+| Current UV Index | Sensor | UV Index (numerical value) |
+| Current UV Level | Sensor | UV Level (as literal) |
+| Max UV Index | Sensor | max UV Index for the day (at solar noon) |
+| Protection Window | Binary Sensor | 'On' when protection window is needed |
+
+### The Fitzpatrick Scale
 
 The approximate number of minutes of a particular skin type can be exposed to
 the sun before burning/tanning starts is based on the
@@ -50,6 +60,15 @@ The above guidelines constitute estimates and are intended to help informed
 decision making. They should not replace analysis, advice or diagnosis from a
 trained medical professional.
 </div>
+
+OpenUV integration provide sensors for safe exposure time (in minutes) based on skin type:
+
+- Skin Type 1 Safe Exposure Time
+- Skin Type 2 Safe Exposure Time
+- Skin Type 3 Safe Exposure Time
+- Skin Type 4 Safe Exposure Time
+- Skin Type 5 Safe Exposure Time
+- Skin Type 6 Safe Exposure Time
 
 ## Services
 
@@ -72,10 +91,10 @@ usage is to only retrieve data during the daytime:
 
 ```yaml
 automation:
-  - alias: Update OpenUV every 30 minutes during the daytime
+  - alias: "Update OpenUV every 30 minutes during the daytime"
     trigger:
       platform: time_pattern
-      minutes: '/30'
+      minutes: "/30"
     condition:
       condition: and
       conditions:
@@ -88,27 +107,31 @@ automation:
 ```
 
 Update the UV index data every 20 minutes while the sun is at least 10 degrees above the horizon:
+
 {% raw %}
+
 ```yaml
 automation:
-  - alias: Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon
+  - alias: "Update OpenUV every 20 minutes while the sun is at least 10 degrees above the horizon"
     trigger:
       platform: time_pattern
-      minutes: '/20'
+      minutes: "/20"
     condition:
       condition: numeric_state
       entity_id: sun.sun
-      value_template: '{{ state.attributes.elevation }}'
+      value_template: "{{ state.attributes.elevation }}"
       above: 10
     action:
       service: openuv.update_uv_index_data
 ```
+
 {% endraw %}
 
 Update the protection window once a day:
+
 ```yaml
 automation:
-  - alias: Update OpenUV protection window once a day
+  - alias: "Update OpenUV protection window once a day"
     trigger:
       platform: time
       at: "02:12:00"
@@ -122,10 +145,10 @@ etc.) might be to simply query the API less often:
 
 ```yaml
 automation:
-  - alias: Update OpenUV every hour (24 of 50 calls per day)
+  - alias: "Update OpenUV every hour (24 of 50 calls per day)"
     trigger:
       platform: time_pattern
-      minutes: '/60'
+      minutes: "/60"
     action:
       service: openuv.update_data
 ```

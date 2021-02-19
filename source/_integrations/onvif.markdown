@@ -4,17 +4,20 @@ description: Instructions on how to integrate a ONVIF camera within Home Assista
 ha_category:
   - Camera
 ha_release: 0.47
+ha_iot_class: Local Push
 ha_domain: onvif
 ha_codeowners:
   - '@hunterjm'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
 ---
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` component](/integrations/ffmpeg/) to be already configured.
 
-## Configuration
-
-Home Assistant offers ONVIF integration through **Configuration** -> **Integrations** -> **ONVIF**. Follow the instructions to get it set up.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
   It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
@@ -26,7 +29,7 @@ If running Home Asssistant Core in a venv, ensure that libxml2 and libxslt pytho
 
 ### Configuration Notes
 
-Most of the ONVIF devices support more than one audio/video profile. Each profile provides different image quality, or in the case of an NVR, separate connected cameras. This integration will add entities for all compatible profiles with the video encoding set to H254. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. You may disable unwanted entities through the Home Assistant UI.
+Most of the ONVIF devices support more than one audio/video profile. Each profile provides different image quality, or in the case of an NVR, separate connected cameras. This integration will add entities for all compatible profiles with the video encoding set to H.264. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. You may disable unwanted entities through the Home Assistant UI.
 
 ### Extra configuration of the integration
 
@@ -73,7 +76,7 @@ If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your ca
 | `distance` | Distance coefficient. Sets how much PTZ should be executed in one request. Allowed values: floating point numbers, 0 to 1. Default : 0.1 |
 | `speed` | Speed coefficient. Sets how fast PTZ will be executed. Allowed values: floating point numbers, 0 to 1. Default : 0.5 |
 | `preset` | PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset. |
-| `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`. Default :`RelativeMove` |
+| `move_mode` | PTZ moving mode. Allowed values: `ContinuousMove`, `RelativeMove`, `AbsoluteMove`, `GotoPreset`, `Stop`. Default :`RelativeMove` |
 | `continuous_duration` | Set ContinuousMove delay in seconds before stoping the move. Allowed values: floating point numbers or integer. Default : 0.5 |
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).

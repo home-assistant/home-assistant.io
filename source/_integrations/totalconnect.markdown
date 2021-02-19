@@ -5,36 +5,19 @@ ha_category:
   - Alarm
   - Binary Sensor
 ha_release: 0.42
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@austinmroczek'
 ha_domain: totalconnect
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
 ---
 
 The `totalconnect` integration provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.  
 
-## Configuration
-
-To enable TotalConnect via the user interface, go to **Configuration** > **Integrations** > the "plus" button > Total Connect.
-
-To enable TotalConnect via `configuration.yaml` add the following lines:
-
-```yaml
-totalconnect:
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Username used to sign into the TotalConnect app/web client.
-  required: true
-  type: string
-password:
-  description: Password used to sign into the TotalConnect app/web client.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
 
@@ -45,21 +28,23 @@ automation:
     trigger:
       platform: state
       entity_id: alarm_control_panel.total_connect
-      to: 'disarmed'
+      to: "disarmed"
     condition:
       condition: sun
       before: sunset
     action:
       service: scene.turn_on
-      entity_id: scene.OnDisarmedDaytime
+      target:
+        entity_id: scene.OnDisarmedDaytime
   - alias: "Alarm: Armed Away"
     trigger:
       platform: state
       entity_id: alarm_control_panel.total_connect
-      to: 'armed_away'
+      to: "armed_away"
     action:
       service: scene.turn_on
-      entity_id: scene.OnArmedAway
+      target:
+        entity_id: scene.OnArmedAway
 ```
 
 If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Raspbian, run the command `apt install libxml2-dev libxmlsec1-dev` with sudo.

@@ -9,6 +9,12 @@ ha_category:
 ha_release: 0.71
 ha_iot_class: Cloud Polling
 ha_domain: hydrawise
+ha_codeowners:
+  - '@ptcryan'
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
@@ -41,7 +47,7 @@ scan_interval:
   default: 30
 {% endconfiguration %}
 
-To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/login) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as the `API_KEY`.
+To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/login) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as `YOUR_API_KEY`.
 
 ## Binary Sensor
 
@@ -62,11 +68,13 @@ monitored_conditions:
   keys:
     is_watering:
       description: The binary sensor is `on` when the zone is actively watering.
-    rain_sensor:
-      description: Is `on` when the rain_sensor (if installed on the controller) is active (wet).
     status:
       description: This will indicate `on` when there is a connection to the Hydrawise cloud. It is not an indication of whether the irrigation controller hardware is online.
 {% endconfiguration %}
+
+<div class='note warning'>
+The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer suppored by the Hydrawise integration to Home Assistant.
+</div>
 
 ## Sensor
 
@@ -88,7 +96,7 @@ monitored_conditions:
     watering_time:
       description: The amount of time left if the zone is actively watering. Otherwise the time is 0.
     next_cycle:
-      description: The day and time when the next scheduled automatic watering cycle will start. If the zone is suspended then the value will be `NS` to indicate Not Scheduled.
+      description: The day and time when the next scheduled automatic watering cycle will start.
   {% endconfiguration %}
 
 ## Switch
@@ -124,6 +132,10 @@ monitored_conditions:
 When `auto_watering` is `on` the irrigation zone will follow the Smart Watering schedule set through the Hydrawise [mobile or web app](https://www.hydrawise.com). When the `auto_watering` switch is `off` the zone's Smart Watering schedule is suspended for 1 year.
 
 When `manual_watering` is `on` the zone will run for the amount of time set by `watering_minutes`.
+
+<div class='note warning'>
+Due to changes in the Hydrawise API the status of the Auto Watering switches has changed. Under normal conditions the Auto Watering switches correctly reflect the Smart Watering schedule on the Hydrawise mobile or web app. However, if a rain sensor is connected to the system and it is active (rain detected), or the zone is running the Auto Watering switch will turn off. After both of those conditions are removed the switch will again show the correct Auto Watering condition.
+</div>
 
 ```yaml
 # An example that enables all the switches, and sets the manual watering time to 20 minutes.

@@ -4,9 +4,10 @@ description: Instructions on how to use the HTML5 push notifications platform fr
 ha_category:
   - Notifications
 ha_release: 0.27
-ha_codeowners:
-  - '@robbiet480'
+ha_iot_class: Cloud Push
 ha_domain: html5
+ha_platforms:
+  - notify
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -85,7 +86,7 @@ The `html5` platform can only function if all of the following requirements are 
 * Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
 * If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
 * If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e., `pywebpush` probably won't automatically install).
-* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self signed).
+* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
 * You are willing to accept the notification permission in your browser.
 
 ### Configuring the platform
@@ -95,15 +96,17 @@ The `html5` platform can only function if all of the following requirements are 
 3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [see below](#verify-your-domain).
 4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project and select the project you created.
 5. Then, click the cogwheel on top left and select "Project settings".
-6. Select 'Cloud Messaging' tab.
+6. Select the ['Cloud Messaging' tab](https://console.firebase.google.com/project/_/settings/cloudmessaging).
 7. Generate a new key pair under the Web configuration listing at the bottom of the page. To view the private key click the three dots to the right and 'Show private key'.
+8. Select the ['Service Accounts' tab](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk).
+9. Get the email address for the project under the text that says "Firebase service account".
 
 ### Setting up your browser
 
 Assuming you have already configured the platform:
 
 1. Open Home Assistant in Chrome or Firefox.
-2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address. If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
+2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
 3. Slide it to the on position.
 4. Name the device you're using in the alert that appears.
 5. Within a few seconds you should be prompted to allow notifications from Home Assistant.
@@ -166,19 +169,21 @@ data:
 Example of adding a tag to your notification. This won't create new notification if there already exists one with the same tag.
 
 {% raw %}
+
 ```yaml
-  - alias: Push/update notification of sensor state with tag
+  - alias: "Push/update notification of sensor state with tag"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: notify.notify
-      data_template:
+      data:
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
       data:
         data:
-          tag: 'notification-about-sensor'
+          tag: "notification-about-sensor"
 ```
+
 {% endraw %}
 
 #### Targets
@@ -237,12 +242,9 @@ data:
 You can dismiss notifications by using service html5.dismiss like so:
 
 ```json
-{
-  "target": ["my phone"],
-  "data": {
-    "tag": "notification_tag"
-  }
-}
+target: ['my phone']
+data:
+  tag: notification_tag
 ```
 
 If no target is provided, it dismisses for all.
@@ -270,7 +272,7 @@ You will receive an event named `html5_notification.received` when the
 notification is received on the device.
 
 ```yaml
-- alias: HTML5 push notification received and displayed on device
+- alias: "HTML5 push notification received and displayed on device"
   trigger:
     platform: event
     event_type: html5_notification.received
@@ -281,7 +283,7 @@ notification is received on the device.
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
 ```yaml
-- alias: HTML5 push notification clicked
+- alias: "HTML5 push notification clicked"
   trigger:
     platform: event
     event_type: html5_notification.clicked
@@ -290,7 +292,7 @@ You will receive an event named `html5_notification.clicked` when the notificati
 or
 
 ```yaml
-- alias: HTML5 push notification action button clicked
+- alias: "HTML5 push notification action button clicked"
   trigger:
     platform: event
     event_type: html5_notification.clicked
@@ -303,7 +305,7 @@ or
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
 ```yaml
-- alias: HTML5 push notification clicked
+- alias: "HTML5 push notification clicked"
   trigger:
     platform: event
     event_type: html5_notification.closed
@@ -311,7 +313,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
 
 ### Making notifications work with NGINX proxy
 
-If you use [NGINX](/ecosystem/nginx/) as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of authentication token that cannot be passed through the proxy.
+If you use NGINX as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of an authentication token that cannot be passed through the proxy.
 
 To solve the issue put additional location into your NGINX site's configuration:
 
@@ -338,10 +340,23 @@ If you still have the problem, even with mentioned rule, try to add this code:
 
 If you need to verify domain ownership with Google Webmaster Central/Search Console while configuring this component, follow these steps:
 
+##### HTML file verification (only works for `/local` URLs)
+
 1. Enter your domain and add `/local` at the end, e.g., `https://example.com:8123/local`
 2. Select HTML file verification and download the google*.html file.
-2. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
-3. Place the downloaded `google*.html` file in the `www` directory.
-4. RESTART Home Assistant. **This is important!**
-5. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
-6. Go back to Google Webmaster Central/Search Console and proceed with the verification.
+3. Create a directory named `www` in your Home Assistant configuration directory (`/config/` share from Samba add-on).
+4. Place the downloaded `google*.html` file in the `www` directory.
+5. RESTART Home Assistant. **This is important!**
+6. Verify the file can be accessed in the browser, e.g., `https://example.com:8123/local/google123456789.html` (change filename). You should see a plain text message saying "google-site-verification: ...". If you see "404: Not Found" or something else, retry the above steps.
+7. Go back to Google Webmaster Central/Search Console and proceed with the verification.
+
+##### DNS verification (only if you control your DNS record or use DuckDNS)
+
+1. Enter your domain's base URL, like `https://example.com:8123/`
+2. Select DNS verification. If you're asked to choose your DNS provider, choose "Any DNS provider" or "Other".
+3. Add the TXT record to your DNS. If you use DuckDNS, use the format:
+   ```text
+   https://www.duckdns.org/update?domains={your Duck DNS subdomain (the part before .duckdns.org)}&token={your Duck DNS token}&txt={google-site-verification record}
+   ```
+4. Wait until the changes take effect. This can be anywhere from seconds to hours, so be patient. You can use [this site to test it](https://www.digwebinterface.com/).
+5. Go back to Google Webmaster Central/Search Console and proceed with the verification.

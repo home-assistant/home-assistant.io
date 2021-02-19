@@ -1,26 +1,21 @@
 ---
 title: "Authentication Providers"
 description: "Guide on configuring different auth providers."
-redirect_from: /integrations/auth/
 ---
 
-When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
-
-<div class='note'>
-
-The authentication system has been changed recently. Previously there was a single "_API password_" to log in, but you can now choose from several auth providers.<br/> <br/>
-
-To make the transition from API passwords easier, we've added a _Legacy API Password_ auth provider. This is enabled by default if you have an API password configured so you will still be able to log in.
-
-However, this feature is deprecated and will be removed in a future release so you should set up one of the newer authentication techniques.
-
+<div class='note warning'>
+  This is an advanced feature.
 </div>
+
+When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
 
 ## Configuring auth providers
 
 <div class='note warning'>
 
 Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
+
+If you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider``type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
 
 </div>
 
@@ -87,8 +82,8 @@ trusted_users:
   required: false
   type: map
   keys:
-    IP_ADDRESS:
-      description: List of users available to select on this IP address or network.
+    USER_ID:
+      description: List of user ids available to select on this IP address or network.
       required: false
       type: [list, string]
 allow_bypass_login:
@@ -149,7 +144,7 @@ Assuming you have only the owner created though onboarding process, no other use
 
 The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
-This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance.
+This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance. Please note, this will only work when using the Home Assistant Core installation type.
 
 Here is a configuration example:
 

@@ -3,7 +3,7 @@ title: "Integrations"
 description: "List of the built-in integrations of Home Assistant."
 sidebar: false
 is_homepage: true
-hide_github_edit: true
+feedback: false
 body_id: components-page
 regenerate: false
 ---
@@ -64,10 +64,18 @@ regenerate: false
   </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"></script>
-
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" 
+    integrity="sha384-wlIoxluAn4R0ncWYWAibi4AATy1rxh4LzxfPhzhRfBwpYzbAQT7FDApW3TTf4KC+" 
+    crossorigin="anonymous"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"
+    integrity="sha384-vJtpZDYI5wEvw5lJzoCEeYTiRzgoR1NmzkWtzy04p4AaQjHXAzxNqSEVlIsutpxa" 
+    crossorigin="anonymous"></script>
 {% raw %}
 <script id="component-template" type="text/x-custom-template">
   {{#components}}
@@ -110,8 +118,17 @@ allComponents.pop(); // remove placeholder element at the end
 
     function init() {
       // do the lowerCase transformation once
-      for (i = 0; i < (allComponents.length); i++) {
-        allComponents[i].titleLC = allComponents[i].title.toLowerCase();
+      for (i = 0; i < allComponents.length; i++) {
+        title = allComponents[i].title.toLowerCase();
+        domain = allComponents[i].domain;
+        title_normalized = title
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+        title_dedashed = title.replace(/[-_]/g, " ");
+        title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
+
+        allComponents[i].titleLC = title;
+        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain}`;
       }
 
       // sort the components alphabetically
@@ -167,8 +184,10 @@ allComponents.pop(); // remove placeholder element at the end
           // search through title and category
           search = decodeURIComponent(hash).substring(8).toLowerCase();
           filter = function (comp) {
-            return (comp.titleLC.indexOf(search) !== -1) ||
-              (comp.cat.find(c => c.includes("#")) != undefined);
+            return (
+              comp.search.indexOf(search) !== -1 ||
+              comp.cat.find((c) => c.includes("#")) != undefined
+            );
           };
 
         } else if (hash === '#featured' || hash === '') {
@@ -202,6 +221,13 @@ allComponents.pop(); // remove placeholder element at the end
       }
 
       rendered = Mustache.render(template, data);
+
+      // set active class on active menu item
+      jQuery('.filter-button-group a.active').removeClass('active');
+      jQuery(`.filter-button-group a[href*="${hash}"]`).addClass('active');
+      if (hash === "") {
+        jQuery('.filter-button-group a[href*="#featured"]').addClass('active');
+      }
 
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
       $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
@@ -263,10 +289,13 @@ allComponents.pop(); // remove placeholder element at the end
       var text = $(this).val();
       // sanitize input
       text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
-      if (typeof text === "string" && text.length !== 0) {
+      if (typeof text === "string" && text.length >= 1) {
         updateHash('#search/' + text);
-        applyFilter();
       }
+      else {
+        updateHash('#all');
+      }
+      applyFilter();
     }, 500));
 
     window.addEventListener('hashchange', applyFilter);

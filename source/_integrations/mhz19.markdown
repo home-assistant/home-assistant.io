@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Local Polling
 ha_domain: mhz19
+ha_platforms:
+  - sensor
 ---
 
 The MH-Z19 is a small non-dispersive infrared sensor that can measure CO2 level. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. The CO2 level outside is around 400ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.

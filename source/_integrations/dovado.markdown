@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_domain: dovado
+ha_platforms:
+  - notify
+  - sensor
 ---
 
 The `dovado` integration manages communication with the [Dovado](https://www.dovado.com/) router.
@@ -66,15 +69,15 @@ This is a notify platform and thus can be controlled by calling the notify servi
 ```yaml
 # Example automation notification entry
 automation:
-  - alias: The sun has set
+  - alias: "The sun has set"
     trigger:
       platform: sun
       event: sunset
     action:
       service: notify.dovado
       data:
-        message: 'The sun has set'
-        target: '+14151234567'
+        message: "The sun has set"
+        target: "+14151234567"
 ```
 
 ## Sensor

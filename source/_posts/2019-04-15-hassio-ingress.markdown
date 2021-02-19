@@ -83,4 +83,4 @@ We found a last minute issue impacting Firefox based browsers (including the Tor
 [InfluxDB]: https://github.com/hassio-addons/addon-influxdb#readme
 [SSH & Web Terminal]: https://github.com/hassio-addons/addon-ssh#readme
 [AdGuard Home]: https://github.com/hassio-addons/addon-adguard-home#readme
-[dev-docs]: https://developers.home-assistant.io/docs/en/next/hassio_addon_presentation.html#ingress
+[dev-docs]: https://developers.home-assistant.io/docs/add-ons/presentation/#ingress

@@ -26,7 +26,7 @@ During the setup of Home Assistant Companion on your mobile device, the app will
 
 <img src='/images/screenshots/badges-zone.png' style='float: right; margin-left: 8px; height: 100px;'>
 
-Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. Zones can be set up from the integration page in the configurations screen.
+Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. Zones can be set up from configuration screen.
 
 <div class='note'>
 The map view will hide all devices that are home.
@@ -47,4 +47,4 @@ The map view will hide all devices that are home.
 [ha-map]: /integrations/map/
 [companion]: https://companion.home-assistant.io/
 
-### [Next step: Join the Community &raquo;](/getting-started/join-the-community/)
+{% include getting-started/next_step.html step="Join the Community" link="/getting-started/join-the-community/" %}

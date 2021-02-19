@@ -1,34 +1,38 @@
 <section class="aside-module grid__item one-whole lap-one-half">
-  <!-- {% include edit_github.html %} -->
   {% assign cards = site.lovelace | sort_natural: 'title' %}
 
-  <div class='section'>
+  <div class="section">
     <h1 class="title delta">Lovelace UI</h1>
-    <ul class='divided sidebar-menu'>
+    <ul class="divided sidebar-menu">
       <li>{% active_link /lovelace/ Introduction %}</li>
-      <li>{% active_link /lovelace/changelog/ Changelog %}</li>
     </ul>
   </div>
 
-  <div class='section'>
+  <div class="section">
     <h1 class="title delta">Advanced</h1>
-    <ul class='divided sidebar-menu'>
-      <li>{% active_link /lovelace/how-it-works/ How it works %}</li>
+    <ul class="divided sidebar-menu">
       <li>{% active_link /lovelace/header-footer/ Headers & Footers %}</li>
-      <li>{% active_link /lovelace/yaml-mode/ YAML mode %}</li>
-      <li>{% active_link /lovelace/dashboards-and-views/ Dashboards & Views %}</li>
+      <li>
+        {% active_link /lovelace/dashboards-and-views/ Dashboards & Views %}
+      </li>
+      <li>{% active_link /lovelace/badges/ Badges %}</li>
       <li>{% active_link /lovelace/actions/ Actions %}</li>
-      <li><a href='https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html'>Developing Custom Cards <i icon='icon-external-link'></i></a></li>
+      <li>
+        <a
+          href="https://developers.home-assistant.io/docs/frontend/custom-ui/lovelace-custom-card.html"
+          >Developing Custom Cards
+          <i class="icon-external-link"></i>
+        </a>
+      </li>
     </ul>
   </div>
 
-  <div class='section'>
+  <div class="section">
     <h1 class="title delta">Cards</h1>
-    <ul class='divided sidebar-menu'>
+    <ul class="divided sidebar-menu">
       {% for card in cards %}
-        <li>{% active_link {{card.url}} {{card.sidebar_label}} %}</li>
+      <li>{% active_link {{card.url}} {{card.sidebar_label}} %}</li>
       {% endfor %}
     </ul>
   </div>
-
 </section>

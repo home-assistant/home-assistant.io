@@ -9,6 +9,8 @@ ha_release: 0.18
 ha_codeowners:
   - '@rytilahti'
 ha_domain: eq3btsmart
+ha_platforms:
+  - climate
 ---
 
 The `eq3btsmart` climate platform allows you to integrate EQ3 Bluetooth Smart Thermostats.
@@ -42,7 +44,7 @@ climate:
   - platform: eq3btsmart
     devices:
       room1:
-        mac: '00:11:22:33:44:55'
+        mac: "00:11:22:33:44:55"
 ```
 
 {% configuration %}

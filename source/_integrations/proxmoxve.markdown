@@ -9,6 +9,8 @@ ha_codeowners:
   - '@k4ds3'
   - '@jhollowe'
 ha_domain: proxmoxve
+ha_platforms:
+  - binary_sensor
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
@@ -142,4 +144,4 @@ To apply the user and role just created, we need to give it permissions
 4. Select "/" for the path
 5. Select your Home Assistant user (`hass`)
 6. Select the Home Assistant role (`home-assistant`)
-7. Make sure `Propigate` is checked
+7. Make sure `Propagate` is checked

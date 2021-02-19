@@ -3,8 +3,11 @@ title: Tank Utility
 description: How to integrate Tank Utility sensors within Home Assistant.
 ha_category:
   - Energy
+ha_iot_class: Cloud Polling
 ha_release: 0.53
 ha_domain: tank_utility
+ha_platforms:
+  - sensor
 ---
 
 Add [Tank Utility](https://www.tankutility.com/) propane tank monitors to Home Assistant.

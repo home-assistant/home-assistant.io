@@ -23,11 +23,15 @@ switch:
 
 {% configuration %}
 resource:
-  description: The resource or endpoint that contains the value.
+  description: The resource or endpoint used to control the REST switch.
   required: true
   type: string
+state_resource:
+  description: "The resource or endpoint that reports the state if different from `resource`. Used by `is_on_template`. Defaults to `resource`."
+  required: false
+  type: string
 method:
-  description: "The method of the request. Supported `post` or `put`."
+  description: "The method of the request. Supported `post`, `put` or `patch`."
   required: false
   type: string
   default: post
@@ -95,7 +99,7 @@ switch:
     resource: http://IP_ADDRESS/led_endpoint
     body_on: '{"active": "true"}'
     body_off: '{"active": "false"}'
-    is_on_template: '{{ value_json.is_active }}'
+    is_on_template: "{{ value_json.is_active }}"
     headers:
       Content-Type: application/json
     verify_ssl: true

@@ -11,6 +11,11 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@zxdavb'
 ha_domain: incomfort
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
@@ -34,20 +39,22 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 To send an alert if the CV pressure is too low or too high, consider the following example:
 
 {% raw %}
+
 ```yaml
-- alias: Low CV Pressure Alert
+- alias: "Low CV Pressure Alert"
   trigger:
     platform: numeric_state
     entity_id: sensor.cv_pressure
     below: 1.0
   action:
   - service: notify.pushbullet_notifier
-    data_template:
+    data:
       title: "Warning: Low CH Pressure"
       message: >-
         {{ trigger.to_state.attributes.friendly_name }}
         is low, {{ trigger.to_state.state }} bar.
 ```
+
 {% endraw %}
 
 Other properties are available via each device's attributes.
@@ -86,11 +93,11 @@ host:
   required: true
   type: string
 username:
-  description: The username of the Lan2RF gateway, if any.
+  description: "The username of the Lan2RF gateway, if any. Most likely: `admin`."
   required: inclusive
   type: string
 password:
-  description: The password of the Lan2RF gateway, if any.
+  description: "The password of the Lan2RF gateway, if any. Most likely: `intergas`."
   required: inclusive
   type: string
 {% endconfiguration %}

@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.18
 ha_domain: bluetooth_tracker
+ha_platforms:
+  - device_tracker
 ---
 
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.
@@ -43,4 +45,4 @@ For additional configuration variables check the [Device tracker page](/integrat
 
 ## `bluetooth_tracker.update` service
 
-The `bluetooth_tracker.update` service can be used to manually trigger a Bluetooth scan. An example of when this service can be useful is to trigger scans based on other events like doors being opened, beacons are in range or buttons are pressed. 
+The `bluetooth_tracker.update` service can be used to manually trigger a Bluetooth scan. An example of when this service can be useful is to trigger scans based on other events like doors being opened, beacons are in range or buttons are pressed.

@@ -9,6 +9,9 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@nickw444'
 ha_domain: ness_alarm
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
 ---
 
 The `ness_alarm` integration will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
@@ -55,7 +58,7 @@ port:
 scan_interval:
   description: "Time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
-  default: '00:01:00'
+  default: "00:01:00"
   type: time
 infer_arming_state:
   description: Infer the disarmed arming state only via system status events. This works around a bug with some panels (`<v5.8`) which emit `update.status = []` when they are armed.

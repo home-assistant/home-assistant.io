@@ -13,7 +13,7 @@ The `template` platform creates switches that combines components.
 
 For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a switch that knows whether the garage door is open or closed.
 
-This can simplify the GUI and make it easier to write automations. You can mark the integrations you have combined as `hidden` so they don't appear themselves.
+This can simplify the GUI and make it easier to write automations.
 
 ## Configuration
 
@@ -50,14 +50,15 @@ switch:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: A list of entity IDs so the switch only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+      unique_id:
+        description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
         required: false
-        type: [string, list]
+        type: string
       value_template:
-        description: Defines a template to set the state of the switch.
-        required: true
+        description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+        required: false
         type: template
+        default: optimistic
       availability_template:
         description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
         required: false

@@ -7,118 +7,103 @@ ha_category:
   - Sensor
   - Weather
 ha_codeowners:
-  - '@victorcerutti'
+  - '@hacf-fr'
   - '@oncleben31'
   - '@Quentame'
 ha_config_flow: true
 ha_domain: meteo_france
+ha_platforms:
+  - sensor
+  - weather
 ---
 
-The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
+The `meteo_france` integration uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world with a focus on France. One or more locations can be set via the front end or via the configuration file.
 
-There is currently support for the following platforms within Home Assistant:
+The integration support the following platforms within Home Assistant:
 
-- [Sensor](#sensor)
-- Weather
+- [Weather](#weather-platform)
+- [Sensor](#sensor-platforms)
 
-It displays the current weather along with a 4 days forecast and create sensors, including weather alerts from [Vigilance Météo-France](https://vigilance.meteofrance.com/)
+It displays the current weather along with a 5 days forecast and create sensors, including weather alerts and 1 hour rain forecast when available.
 
-## Setup the integration
+{% include integrations/config_flow.md %}
 
-There are two ways to integrate Météo-France in Home Assistant.
 
-### Via the frontend
+## Weather platform
 
-Menu: *Configuration* -> *Integrations*
+To be used with the weather Lovelace card to access current condition, today and next four days forecast.
 
-Search for "Météo-France", add your city, click submit, you are done!
+The weather platform can be configured in the frontend to decide if the forecast is given daily (default) or hourly. To change the setting go in **Configuration** -> **Integrations**, click on the city name in **Météo-France** box and click on **Options**. You can update the `Forecast mode` by choosing between `daily` or `hourly`.
 
-### Via the configuration file
+## Sensor platforms
 
-To add Météo-France to your installation, add the following to your `configuration.yaml` file:
+All the following sensors will be created :
 
-```yaml
-# Example configuration.yaml entry
-meteo_france:
-  - city: '76000'
-```
+|Entity|Description|Enabled by default|
+|------|-----------|------------------|
+|`cloud`|The current cloud cover in %|Yes|
+|`daily_original_condition`|The daily original weather condition|No|
+|`freeze_chance`|Probability of temperature below 0°C in the following hours|Yes|
+|`next_rain`|Datetime of the next rain if expected within the next hour ([see note below](#about-next_rain-condition-sensor))|Yes|
+|`original_condition`|The current original weather condition|No|
+|`precipitation`|Precipitation cumulation for next 24 hours in mm|Yes|
+|`pressure`|The current pressure in hPa|No|
+|`rain_chance`|Probability of rain in the following hours|Yes|
+|`snow_chance`|Probability of snow for the following hours|Yes|
+|`temperature`|The current temperature in °C|No|
+|`uv`|The current UV index|Yes|
+|`weather_alert`|Weather alert status ([see note below](#about-weather_alert-sensor))|Yes|
+|`wind_gust`|The current wind gust speed in km/h|No|
+|`wind_speed`|The current wind speed in km/h|No|
 
-{% configuration %}
-  city:
-    description: French postal code or name of the city ([see below](#about-city-configuration)).
-    required: true
-    type: string
-{% endconfiguration %}
+Warning: The probability entities data are not always provided by the API. They are added only if available.
 
-### About `city` configuration
-
-This integration use the Météo-France search API to get the first city from the results returned.
-
-It works well with french postal code, city name, etc. In case your expected result doesn't come first, you can set a more specified query like `<city name>, <postal_code>`.
-
-It also works with international city, with mixed results. You may have to find the correct city query.
-For example `Montreal, Canada` will return a city in Ardèche, France, whereas `Montreal, america` works
-
-[https://www.meteofrance.com/mf3-rpc-portlet/rest/lieu/facet/previsions/search/montreal,amerique](https://www.meteofrance.com/mf3-rpc-portlet/rest/lieu/facet/previsions/search/montreal,amerique)
-
-```yaml
-# Example configuration.yaml entry for Montreal, Canada
-meteo_france:
-  - city: 'montreal,amerique'
-```
-
-## Sensor
-
-All these sensors will be created :
-- `temperature`: The current temperature.
-- `weather`: A human-readable text summary of the current conditions.
-- `wind_speed`: The wind speed.
-- `uv`: The current UV index.
-- `next_rain`: Time to the next rain if happening for the next hour ([see note below](#about-next_rain-condition-sensor)).
-- `freeze_chance`: Probability of temperature below 0°C for the day.
-- `rain_chance`: Probability of rain for the day.
-- `snow_chance`: Probability of snow for the day.
-- `thunder_chance`: Probability of thunderstorm for the day.
-- `weather_alert`: Weather alert status ([see note below](#about-weather_alert-sensor)).
+To enable an entity disabled by default, go in **Configuration** -> **Integrations**, click on the city name in **Météo-France** and then the **X entities** link. You will have the list of the enabled entities. Here click the filter button and select **Show disable entities**. The disabled entities will be visible in the list, select the one you want to enable and click the **Enable Selected** button.
 
 ### About `next_rain` condition sensor
 
 <div class='note warning'>
 
   The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
-  You can check if your city is covered on the [Météo-France website](https://www.meteofrance.com/previsions-meteo-france/previsions-pluie).
+  
+  ![Rain coverage map](/images/integrations/meteo_france/carte-couverture-du-service.png)
 
 </div>
 
-The `next_rain` sensor value is the time to next rain, from 0 to 55 minutes.
-If no rain is forecasted for the next hour, value will be "No rain".
+The attributes allow to have a forecast of the rain type by 5 to 10 minutes intervals:
 
-Attributes also give the forecast for the next hour in 5 minutes intervals.
-Possible value for each intervals attributes are:
+- `forecast_time_ref` give a timestamp in ISO format UTC, corresponding to the start of the
+  forecast.
+- `1_hour_forecast` is a dictionary to access the type of rain for the next hour for each periods.
+  
+"Type of rain" values are given by Météo-France API. Values already noted are:
+- `Temps sec`
+- `Pluie faible`
+- `Pluie modérée`
+- `Pluie forte`
 
-- 1 No rain
-- 2 Light rain
-- 3 Moderate rain
-- 4 Heavy rain
+Example:
+
+```yaml
+forecast_time_ref: '2020-08-20T19:25:00+00:00'
+1_hour_forecast:
+  0 min: Temps sec
+  5 min: Temps sec
+  10 min: Temps sec
+  15 min: Temps sec
+  20 min: Temps sec
+  25 min: Pluie faible
+  35 min: Pluie faible
+  45 min: Pluie modérée
+  55 min: Pluie modérée
+```
 
 ### About `weather_alert` sensor
 
 <div class='note warning'>
-  The weather alert is available for the metropolitan France.
+  The weather alert is available for the metropolitan France and Andorre.
 </div>
 
-The `weather_alert` sensor value give the current weather alert status for the department linked to the city. Data is retrieve from [Météo-France vigilance website](https://vigilance.meteofrance.com/).
+The `weather_alert` sensor state give the current weather alert status for the department linked to the city. Only one entity by department is created.
 
-The sensor attributes give access to each type of alerts and date of the bulletin emitted by Météo-France.
-
-### Complete example
-
-This is an example for 3 cities forecast:
-
-```yaml
-# Complete example configuration.yaml entry
-meteo_france:
-  - city: '69004'
-  - city: 'Rouen'
-  - city: 'Oslo, norvege'
-```
+The sensor attributes give access to each type of alerts raised by Météo-France.

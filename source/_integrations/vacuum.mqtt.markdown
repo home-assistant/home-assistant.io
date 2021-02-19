@@ -29,8 +29,32 @@ vacuum:
 Legacy MQTT vacuum configuration section.
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 battery_level_template:
@@ -158,7 +182,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use. Must be `legacy` or omitted to select the legacy schema".
+  description: The schema to use. Must be `legacy` or omitted to select the legacy schema.
   required: false
   type: string
   default: legacy
@@ -171,15 +195,20 @@ set_fan_speed_topic:
   required: false
   type: string
 supported_features:
-  description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
+  description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`).
   required: false
   type: [string, list]
   default: "`turn_on`, `turn_off`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+unique_id:
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 {% endconfiguration %}
 
 ### Legacy configuration example
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 vacuum:
@@ -216,8 +245,9 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
+
 {% endraw %}
 
 ### Legacy MQTT Protocol
@@ -261,8 +291,32 @@ MQTT payload:
 State MQTT vacuum configuration section.
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 command_topic:
@@ -370,7 +424,7 @@ retain:
   type: boolean
   default: false
 schema:
-  description: The schema to use. Must be `state` to select the state schema".
+  description: The schema to use. Must be `state` to select the state schema.
   required: false
   type: string
   default: legacy
@@ -391,11 +445,14 @@ supported_features:
   required: false
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+unique_id:
+   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 {% endconfiguration %}
 
 ### State configuration example
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 vacuum:
@@ -421,9 +478,8 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
-{% endraw %}
 
 ### State MQTT Protocol
 
@@ -464,15 +520,15 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        entity_id: vacuum.vacuum_entity
+        command: "custom_command"
         params:
           - key: value
 ```
@@ -539,15 +595,15 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        entity_id: vacuum.vacuum_entity
+        command: "custom_command"
         params:
           - key: value
 ```

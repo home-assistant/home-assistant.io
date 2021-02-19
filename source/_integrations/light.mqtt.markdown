@@ -37,6 +37,9 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
 
+Home Assistant internally assumes that a light either has a color or a color temperature.
+The state of MQTT lights with default schema and support for both color and color temperature will include a color if `white_value` is 0 or None and a `color_temp` is white_value > 0.
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -45,8 +48,32 @@ light:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 brightness_command_topic:
@@ -75,7 +102,7 @@ color_temp_command_topic:
   required: false
   type: string
 color_temp_state_topic:
-  description: The MQTT topic subscribed to receive color temperature state updates.
+  description: "The MQTT topic subscribed to receive color temperature state updates. If the light also supports setting colors, also define a `white_value_state_topic`. "
   required: false
   type: string
 color_temp_value_template:
@@ -293,6 +320,7 @@ In this section you will find some real-life examples of how to use this sensor.
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -312,6 +340,7 @@ light:
     payload_off: "OFF"
     optimistic: false
 ```
+
 {% endraw %}
 
 ### Brightness and no RGB support
@@ -399,8 +428,32 @@ light:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 brightness:
@@ -708,8 +761,32 @@ light:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
-  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
 blue_template:
@@ -859,6 +936,8 @@ In this section you find some real-life examples of how to use this light.
 
 For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -866,18 +945,22 @@ light:
     schema: template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "{% raw %}on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}{% endraw %}"
+    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}"
     command_off_template: "off"
-    state_template: "{% raw %}{{ value.split(',')[0] }}{% endraw %}"  # must return `on` or `off`
-    brightness_template: "{% raw %}{{ value.split(',')[1] }}{% endraw %}"
-    red_template: "{% raw %}{{ value.split(',')[2].split('-')[0] }}{% endraw %}"
-    green_template: "{% raw %}{{ value.split(',')[2].split('-')[1] }}{% endraw %}"
-    blue_template: "{% raw %}{{ value.split(',')[2].split('-')[2] }}{% endraw %}"
+    state_template: "{{ value.split(',')[0] }}"  # must return `on` or `off`
+    brightness_template: "{{ value.split(',')[1] }}"
+    red_template: "{{ value.split(',')[2].split('-')[0] }}"
+    green_template: "{{ value.split(',')[2].split('-')[1] }}"
+    blue_template: "{{ value.split(',')[2].split('-')[2] }}"
 ```
+
+{% endraw %}
 
 ### JSON payload
 
 For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your `configuration.yaml` file:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -889,7 +972,7 @@ light:
       - colorloop
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: >{% raw %}
+    command_on_template: >
       {"state": "on"
       {%- if brightness is defined -%}
       , "brightness": {{ brightness }}
@@ -900,15 +983,17 @@ light:
       {%- if effect is defined -%}
       , "effect": "{{ effect }}"
       {%- endif -%}
-      }{% endraw %}
+      }
     command_off_template: '{"state": "off"}'
-    state_template: '{% raw %}{{ value_json.state }}{% endraw %}'
-    brightness_template: '{% raw %}{{ value_json.brightness }}{% endraw %}'
-    red_template: '{% raw %}{{ value_json.color[0] }}{% endraw %}'
-    green_template: '{% raw %}{{ value_json.color[1] }}{% endraw %}'
-    blue_template: '{% raw %}{{ value_json.color[2] }}{% endraw %}'
-    effect_template: '{% raw %}{{ value_json.effect }}{% endraw %}'
+    state_template: '{{ value_json.state }}'
+    brightness_template: '{{ value_json.brightness }}'
+    red_template: '{{ value_json.color[0] }}'
+    green_template: '{{ value_json.color[1] }}'
+    blue_template: '{{ value_json.color[2] }}'
+    effect_template: '{{ value_json.effect }}'
 ```
+
+{% endraw %}
 
 ### Template schema - No brightness or color support
 

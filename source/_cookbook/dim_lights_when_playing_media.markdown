@@ -45,28 +45,30 @@ automation:
     trigger:
       - platform: state
         entity_id: media_player.htpc
-        from: 'playing'
-        to: 'idle'
+        from: "playing"
+        to: "idle"
     condition:
       - condition: state
         entity_id: sun.sun
-        state: 'below_horizon'
+        state: "below_horizon"
     action:
         service: scene.turn_on
-        entity_id: scene.livingroom_normal
+        target:
+          entity_id: scene.livingroom_normal
 
   - alias: "Media player playing"
     trigger:
       - platform: state
         entity_id: media_player.htpc
-        to: 'playing'
-        from: 'idle'
+        to: "playing"
+        from: "idle"
     condition:
       - condition: state
         entity_id: sun.sun
-        state: 'below_horizon'
+        state: "below_horizon"
     action:
         service: scene.turn_on
-        entity_id: scene.livingroom_dim
+        target:
+          entity_id: scene.livingroom_dim
 ```
 

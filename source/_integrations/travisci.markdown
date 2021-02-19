@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.56
 ha_iot_class: Cloud Polling
 ha_domain: travisci
+ha_platforms:
+  - sensor
 ---
 
 With this sensor platform, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.
@@ -33,7 +35,7 @@ sensor:
 
 {% configuration %}
 api_key:
-  description: The acces token for GitHub.
+  description: The access token for GitHub.
   required: true
   type: string
 branch:

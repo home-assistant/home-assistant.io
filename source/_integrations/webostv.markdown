@@ -9,6 +9,8 @@ ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
 ha_domain: webostv
+ha_platforms:
+  - notify
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -108,6 +110,10 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
+<div class='note'>
+This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
+</div>
+
 ```yaml
 # Example configuration.yaml entry
 wake_on_lan: # enables `wake_on_lan` domain
@@ -184,7 +190,7 @@ Available services: `button`, `command`
 | Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
 ### Service `webostv.command`
 
@@ -223,11 +229,11 @@ The icon can be overridden for individual notifications by providing a path to a
 
 ```yaml
 automation:
-  - alias: Front door motion
+  - alias: "Front door motion"
     trigger:
       platform: state
       entity_id: binary_sensor.front_door_motion
-      to: 'on'
+      to: "on"
     action:
       service: notify.livingroom_tv
       data:
@@ -235,3 +241,7 @@ automation:
         data:
           icon: "/home/homeassistant/images/doorbell.png"
 ```
+
+## Notes
+
+If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on port 3000 with the TCP protocol from Home Assistant to your TV.

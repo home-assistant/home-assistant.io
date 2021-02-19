@@ -6,6 +6,8 @@ ha_category:
 ha_release: '0.40'
 ha_iot_class: Local Polling
 ha_domain: modem_callerid
+ha_platforms:
+  - sensor
 ---
 
 The `modem_callerid` integration uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
@@ -66,9 +68,10 @@ Depending on what's plugged into your USB ports, the name found above may change
 Some example automations:
 
 {% raw %}
+
 ```yaml
 automation:
-  - alias: Notify CallerID
+  - alias: "Notify CallerID"
     trigger:
       platform: state
       entity_id: sensor.modem_callerid
@@ -76,8 +79,8 @@ automation:
     action:
       service: notify.notify
       data:
-        message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }} at {{ state_attr('sensor.modem_callerid', 'cid_number') }} '
-  - alias: Notify CallerID webui
+        message: "Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }} at {{ state_attr('sensor.modem_callerid', 'cid_number') }} "
+  - alias: "Notify CallerID webui"
     trigger:
       platform: state
       entity_id: sensor.modem_callerid
@@ -86,15 +89,16 @@ automation:
       service: persistent_notification.create
       data:
         title: "Call from"
-        message: '{{ state_attr('sensor.modem_callerid', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.modem_callerid', 'cid_name') }}  {{ state_attr('sensor.modem_callerid', 'cid_number') }} '
-  - alias: Say CallerID
+        message: "{{ state_attr('sensor.modem_callerid', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.modem_callerid', 'cid_name') }}  {{ state_attr('sensor.modem_callerid', 'cid_number') }} "
+  - alias: "Say CallerID"
     trigger:
       platform: state
       entity_id: sensor.modem_callerid
       to: "callerid"
     action:
       service: tts.google_say
-      data_template:
-        message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}'
+      data:
+        message: "Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}"
 ```
+
 {% endraw %}

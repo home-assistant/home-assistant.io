@@ -10,6 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: file
+ha_platforms:
+  - notify
+  - sensor
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -38,7 +41,7 @@ name:
   default: notify
   type: string
 filename:
-  description: Name of the file to use. The file will be created if it doesn't exist and saved in your [configuration](/docs/configuration/) folder.
+  description: Name of the file to use. The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there.
   required: true
   type: string
 timestamp:
@@ -52,7 +55,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ## Sensor
 
-The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [whitelist_external_dirs](/docs/configuration/basic/).
+The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [allowlist_external_dirs](/docs/configuration/basic/).
 
 To enable the `file` sensor, add the following lines to your `configuration.yaml`:
 
@@ -99,12 +102,16 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 
 This would require the following entry in the `configuration.yaml` file to extract the temperature:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: file
     name: Temperature
     file_path: /home/user/.homeassistant/sensor.json
-    value_template: {% raw %}'{{ value_json.temperature }}'{% endraw %}
-    unit_of_measurement: '°C'
+    value_template: '{{ value_json.temperature }}'
+    unit_of_measurement: "°C"
 ```
+
+{% endraw %}

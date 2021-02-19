@@ -13,7 +13,7 @@ The `template` platform creates locks that combines components.
 
 For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a lock that knows whether the garage door is open or closed.
 
-This can simplify the GUI and make it easier to write automations. You can mark the integrations you have combined as `hidden` so they don't appear themselves.
+This can simplify the GUI and make it easier to write automations.
 
 In optimistic mode, the lock will immediately change state after every command. Otherwise, the lock will wait for state confirmation from the template. Try to enable it, if experiencing incorrect lock operation.
 
@@ -47,6 +47,10 @@ lock:
     required: false
     type: string
     default: Template Lock
+  unique_id:
+    description: An ID that uniquely identifies this lock. Set this to a unique value to allow customization through the UI.
+    required: false
+    type: string
   value_template:
     description: Defines a template to set the state of the lock.
     required: true

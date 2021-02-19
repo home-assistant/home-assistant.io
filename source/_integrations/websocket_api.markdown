@@ -8,6 +8,9 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: websocket_api
+ha_iot_class:
+ha_platforms:
+  - sensor
 ---
 
 The `websocket_api` integration set up a WebSocket API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` component](/integrations/http/).
