@@ -231,26 +231,26 @@ address:
 # Example automation to update a cover position after 10 seconds of movement initiation
 automation:
   - trigger:
-      platform: event
-      event_type: knx_event
-      event_data:
-        destination: 0/4/20 # Cover move trigger
+      - platform: event
+        event_type: knx_event
+        event_data:
+          destination: "0/4/20" # Cover move trigger
     action:
       - delay: 0:0:10
       - service: knx.read
         data: 
-          address: 0/4/21 # Cover position address
+          address: "0/4/21" # Cover position address
 
   - trigger:
-      platform: homeassistant
-      event: start
+      - platform: homeassistant
+        event: start
     action:
       - service: knx.event_register # register the group address to trigger a knx_event
         data:
-          address: 0/4/20 # Cover move trigger
+          address: "0/4/20" # Cover move trigger
       - service: knx.read
         data:
-          address: 0/4/21 # Cover position address
+          address: "0/4/21" # Cover position address
 ```
 
 ### Register Event
