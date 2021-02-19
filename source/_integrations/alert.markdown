@@ -281,7 +281,7 @@ but you will still receive the done message.
     - platform: event
       event_type: telegram_callback
       event_data:
-        data: '/garage_acknowledge'
+        data: "/garage_acknowledge"
   action:
     - service: alert.turn_off
       entity_id: alert.garage_door
