@@ -234,23 +234,28 @@ automation:
       - platform: event
         event_type: knx_event
         event_data:
-          destination: "0/4/20" # Cover move trigger
+          # Cover move trigger
+          destination: "0/4/20"
     action:
       - delay: 0:0:10
       - service: knx.read
-        data: 
-          address: "0/4/21" # Cover position address
+        data:
+          # Cover position address
+          address: "0/4/21"
 
   - trigger:
       - platform: homeassistant
         event: start
     action:
-      - service: knx.event_register # register the group address to trigger a knx_event
+      # register the group address to trigger a knx_event
+      - service: knx.event_register
         data:
-          address: "0/4/20" # Cover move trigger
+          # Cover move trigger
+          address: "0/4/20"
       - service: knx.read
         data:
-          address: "0/4/21" # Cover position address
+          # Cover position address
+          address: "0/4/21"
 ```
 
 ### Register Event
