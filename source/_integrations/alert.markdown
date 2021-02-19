@@ -276,7 +276,7 @@ Based on the example above you can make an automation to stop further messages,
 but you will still receive the done message.
 
 ```yaml
-- alias: 'Telegram callback to stop alerts for garage door'
+- alias: "Telegram callback to stop alerts for garage door"
   trigger:
     - platform: event
       event_type: telegram_callback
