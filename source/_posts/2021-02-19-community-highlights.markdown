@@ -13,13 +13,20 @@ The 9th edition of the Home Assistant Community Highlights! Some interesting
 things popped up around our community, we thought was worth sharing.
 
 But before we move on to the highlights of this week, let's start with a
-little hooray because yesterday both Pascal Vizeli and I had their birthday! 🎂🥳
+little hooray because yesterday both Pascal Vizeli and I had their birthday!
+
+Hip hip hooray 🎂🥳
 
 ./Klaas
 
+O and would you like to keep track of your birthdays in Home Assistant? Then
+try this custom integration of [Miicroo](https://github.com/Miicroo).
+
+<object type="image/svg+xml" data="https://gh-card.dev/repos/Miicroo/ha-birthdays.svg?link_target=_blank"></object>
+
 ## Help each other with any question
 
-Last week, we ran into a burning question on the [Home Assistant subreddit][reddit]
+Last week, we found a burning question on the [Home Assistant subreddit][reddit]
 forum from [Horror_Fondant_7165](https://www.reddit.com/user/Horror_Fondant_7165/).
 Because some paint had gotten on his curtain and he just can't get the paint stain
 out of his curtain.
@@ -31,9 +38,9 @@ Maybe we can give him some community love and help with his question? 😄
 
 ## DSMR Reader add-on
 
-Good news for those who would like to get started with DSMR reader!
+Good news for those who would like to get started with DSMR Reader!
 [sanderdw](https://github.com/sanderdw) has made an add-on so that you can
-easily use it with Home Assistant. Please note, the add-on is still in an Alpa state.
+easily use it with Home Assistant. Please note, the add-on is still in an __Alpa__ state.
 
 <object type="image/svg+xml" data="https://gh-card.dev/repos/sanderdw/hassio-addons.svg?link_target=_blank"></object>
 
