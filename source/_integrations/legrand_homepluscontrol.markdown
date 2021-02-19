@@ -19,7 +19,7 @@ The devices that this API can manage are offered in different designs across dif
 
 Legrand offers the Home+ Control smartphone app to manage these devices. You can find this app in the Google Play and Apple App stores.
 
-This `Home+ Control` integration for Home Assitant currently has support for the following devices: 
+This `Home+ Control` integration for Home Assistant currently has support for the following devices: 
 - Light switches
 - Power outlets
 
@@ -70,7 +70,7 @@ It is assumed that plant topology is not changing very often, so the default pol
 ### Module Status Request
 This call retrieves the current operating status of the devices that make up the plant's topology - this includes the *reachability* of the device and its on/off status. 
 
-This information is expected to change frequently, so the polling interval is set to a lower default value of 300 seconds (5 minutes). This is still not as frequent as would be ideal, but is still reasonable considering the API's calls-per-day limitation.
+This information is expected to change frequently, so the polling interval is set to a lower default value of 300 seconds (5 minutes). This is still not as frequent as would be ideal, but is still reasonable considering the API calls-per-day limitation.
 
 
 ## API Nomenclature
