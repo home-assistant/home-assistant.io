@@ -284,7 +284,8 @@ but you will still receive the done message.
         data: "/garage_acknowledge"
   action:
     - service: alert.turn_off
-      entity_id: alert.garage_door
+      target:
+        entity_id: alert.garage_door
 ```
 
 [template]: /docs/configuration/templating/
