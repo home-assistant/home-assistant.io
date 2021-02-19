@@ -247,7 +247,7 @@ automation:
       - platform: homeassistant
         event: start
     action:
-      # register the group address to trigger a knx_event
+      # Register the group address to trigger a knx_event
       - service: knx.event_register
         data:
           # Cover move trigger
