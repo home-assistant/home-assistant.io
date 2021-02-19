@@ -49,6 +49,16 @@ hold_temp:
   required: false
   default: false
   type: boolean
+min_temp: 
+  description: Set minimum set point available.
+  required: false
+  default: 7
+  type: float
+max_temp:
+  description: Set maximum set point available.
+  required: false
+  default: 35
+  type: float
 {% endconfiguration %}
 
 Set `hold_temp: true` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
