@@ -277,7 +277,6 @@ but you will still receive the done message.
 
 ```yaml
 - alias: 'Telegram callback to stop alerts for garage door'
-  id: 9823f04d-6229-430b-1fb8-0e959a2385ff
   trigger:
     - platform: event
       event_type: telegram_callback
