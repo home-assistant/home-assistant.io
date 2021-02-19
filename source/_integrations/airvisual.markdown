@@ -9,6 +9,9 @@ ha_codeowners:
   - '@bachya'
 ha_domain: airvisual
 ha_config_flow: true
+ha_platforms:
+  - air_quality
+  - sensor
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://www.iqair.com) cloud API for air quality data. Data can be collected via latitude/longitude, by city/state/country, or from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro).
@@ -35,51 +38,7 @@ For example:
 
 The integration can communicate to Node/Pro units over the local network. You will need the IP address/hostname of the unit and its Samba password (which can be found on the unit; instructions here: https://support.iqair.com/en/articles/3029331-download-the-airvisual-node-pro-s-data-using-samba).
 
-## Configuration
-
-Home Assistant offers AirVisual Node/Pro Unit integration through **Configuration -> Integrations -> AirVisual**. Choose "Integration Type: AirVisual Node/Pro" and follow the instructions to get it set up.
-
-The Cloud API integration can be done via the Integrations UI at **Configuration -> Integrations -> AirVisual** (Choose "Integration Type: Geographical Location") or via YAML. To enable the integration and gather data via latitude/longitude using YAML, add the following lines to your `configuration.yaml` file:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-Note that an API key-based entry can be mixed with one or more Node/Pro-based entries
-(examples below).
-
-{% configuration %}
-api_key:
-  description: Your AirVisual API key.
-  required: false
-  type: string
-geographies:
-  description: A list of geographical locations to monitor
-  required: false
-  type: [list, map]
-  keys:
-    latitude:
-      description: The latitude of the location to monitor.
-      required: inclusive
-      type: float
-    longitude:
-      description: The longitude of the location to monitor.
-      required: inclusive
-      type: float
-    city:
-      description: The city to monitor.
-      required: inclusive
-      type: string
-    state:
-      description: The state the city belongs to.
-      required: inclusive
-      type: string
-    country:
-      description: The country the state belongs to.
-      required: inclusive
-      type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Example Configurations
 

@@ -9,7 +9,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
-ha_iot_class: ~
+ha_iot_class:
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
@@ -44,9 +44,10 @@ automation:
     at: "07:15:00"
   action:
     - service: humidifier.set_mode
-      data:
+      target:
         entity_id: humidifier.bedroom
-        preset_mode: 'eco'
+      data:
+        preset_mode: "eco"
 ```
 
 ### Service `humidifier.set_humidity`
@@ -67,8 +68,9 @@ automation:
     at: "07:15:00"
   action:
     - service: humidifier.set_humidity
-      data:
+      target:
         entity_id: humidifier.bedroom
+      data:
         humidity: 60
 ```
 

@@ -7,8 +7,10 @@ ha_category:
   - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.31
-ha_iot_class: Local Polling
 ha_domain: concord232
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
 ---
 
 The `concord232` platform provides integration with GE, Interlogix (and other brands) alarm panels that support the RS-232 Automation Control Panel interface module (or have it built in). Supported panels include Concord 4.

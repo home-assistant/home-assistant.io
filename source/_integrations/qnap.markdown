@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@colinodell'
 ha_domain: qnap
+ha_platforms:
+  - sensor
 ---
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
@@ -64,10 +66,10 @@ password:
   description: The password of the user to connect to the QNAP NAS.
   required: true
   type: string
-drivers:
+drives:
   description: "Array of drives to monitor (ex: `0:1`)."
   required: false
-  default: all drivers
+  default: all drives
   type: list
 volumes:
   description: "Array of volumes to monitor (ex: `DataVol1`)."
@@ -126,6 +128,7 @@ This integration has been tested on the following devices:
 
 - TS-231P2 (QTS 4.4.2)
 - TS-259 Pro+ (QTS 4.2.6)
+- TS-228 (QTS 4.3.6)
 - TS-410 (QTS 4.2.3)
 - TS-419 (QTS 4.2.3)
 - TS-451 (QTS 4.2.2)

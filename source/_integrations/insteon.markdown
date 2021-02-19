@@ -15,6 +15,13 @@ ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
 ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - switch
 ---
 
 This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
@@ -96,7 +103,7 @@ Trigger an INSTEON scene on or off, is done via automations. Two services are pr
 automation:
   # Trigger an INSTEON scene 25
   - id: trigger_scene_25_on
-    alias: Turn on scene 25
+    alias: "Turn on scene 25"
     action:
       - service: insteon.scene_on
         group: 25
@@ -119,7 +126,7 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 automation:
   # 4 or 8 button remote with button c pressed
   - id: light_on
-    alias: Turn a light on
+    alias: "Turn a light on"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -129,14 +136,15 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 
   # single button remote
   - id: light_off
-    alias: Turn a light off
+    alias: "Turn a light off"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -145,10 +153,11 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 ```
 
 ## Manual configuration
@@ -234,7 +243,7 @@ device_override:
   type: list
   keys:
     address:
-      description: is found on the device itself in the form 1A.2B.3C or 1a2b3c.
+      description: "Is found on the device itself in the form `1A.2B.3C` or `1a2b3c`. If there's no letter in the address you need to use quotation marks, e.g., `\"123456\"`, to avoid it becoming a number in YAML."
       required: true
       type: string
     cat:
@@ -354,7 +363,7 @@ Trigger an INSTEON scene on or off is done via automations. Two services are pro
 automation:
   # Trigger an INSTEON scene 25
   - id: trigger_scene_25_on
-    alias: Turn on scene 25
+    alias: "Turn on scene 25"
     trigger:
       - ...
     action:
@@ -380,7 +389,7 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 automation:
   # 4 or 8 button remote with button c pressed
   - id: light_on
-    alias: Turn a light on
+    alias: "Turn a light on"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -390,14 +399,15 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 
   # single button remote
   - id: light_off
-    alias: Turn a light off
+    alias: "Turn a light off"
     trigger:
       - platform: event
         event_type: insteon.button_on
@@ -406,8 +416,9 @@ automation:
     condition:
       - condition: state
         entity_id: light.some_light
-        state: 'off'
+        state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.some_light
+        target:
+          entity_id: light.some_light
 ```

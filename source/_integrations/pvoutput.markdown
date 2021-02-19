@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: pvoutput
+ha_platforms:
+  - sensor
 ---
 
 The `pvoutput` sensor platform consumes information from [PVOutput](https://pvoutput.org/) which were uploaded by your solar photovoltaic (PV) system.
@@ -58,21 +60,21 @@ sensor:
   - platform: template
     sensors:
       power_consumption:
-              value_template: '{% if is_state_attr("sensor.pvoutput", "power_consumption", "NaN") %}0{% else %}{{ state_attr("sensor.pvoutput", "power_consumption") }}{% endif %}'
-        friendly_name: 'Using'
-        unit_of_measurement: 'Watt'
+              value_template: "{% if is_state_attr("sensor.pvoutput", "power_consumption", "NaN") %}0{% else %}{{ state_attr("sensor.pvoutput", "power_consumption") }}{% endif %}"
+        friendly_name: "Using"
+        unit_of_measurement: "Watt"
       energy_consumption:
         value_template: '{{ "%0.1f"|format(state_attr("sensor.pvoutput", "energy_consumption")|float/1000) }}'
-        friendly_name: 'Used'
-        unit_of_measurement: 'kWh'
+        friendly_name: "Used"
+        unit_of_measurement: "kWh"
       power_generation:
         value_template: '{% if is_state_attr("sensor.pvoutput", "power_generation", "NaN") %}0{% else %}{{ state_attr("sensor.pvoutput", "power_generation") }}{% endif %}'
-        friendly_name: 'Generating'
-        unit_of_measurement: 'Watt'
+        friendly_name: "Generating"
+        unit_of_measurement: "Watt"
       energy_generation:
         value_template: '{% if is_state_attr("sensor.pvoutput", "energy_generation", "NaN") %}0{% else %}{{ "%0.2f"|format(state_attr("sensor.pvoutput", "energy_generation")|float/1000) }}{% endif %}'
-        friendly_name: 'Generated'
-        unit_of_measurement: 'kWh'
+        friendly_name: "Generated"
+        unit_of_measurement: "kWh"
 ```
 
 {% endraw %}

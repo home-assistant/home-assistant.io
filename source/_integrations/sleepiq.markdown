@@ -6,8 +6,11 @@ ha_category:
   - Sensor
   - Binary Sensor
 ha_release: 0.29
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_domain: sleepiq
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The SleepIQ implementation lets you view sensor data from [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.

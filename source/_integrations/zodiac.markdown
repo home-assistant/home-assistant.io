@@ -9,6 +9,8 @@ ha_quality_scale: silver
 ha_codeowners:
   - '@JulienTant'
 ha_domain: zodiac
+ha_platforms:
+  - sensor
 ---
 
 The `zodiac` integration tracks the current zodiac sign.

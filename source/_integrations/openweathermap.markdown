@@ -10,7 +10,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@fabaff'
   - '@freekode'
+  - '@nzapponi'
 ha_domain: openweathermap
+ha_platforms:
+  - sensor
+  - weather
 ---
 
 The `openweathermap` weather platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
@@ -22,20 +26,19 @@ There is currently support for the following device types within Home Assistant:
 
 You need an API key, which is free, but requires a [registration](https://home.openweathermap.org/users/sign_up).
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add OpenWeatherMap integration go to **Configuration** >> **Integrations** and find the integration in the list.
-
-| Parameter            | Value                                                                                                                                     |
-| :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| API Key              | API Key from the website                                                                                                                  |
-| Name                 | Name of the integration                                                                                                                   |
-| Latitude             | Latitude for weather forecast and sensor                                                                                                  |
-| Longitude            | Longitude for weather forecast and sensor                                                                                                 |
-| Mode                 | Forecast mode, `hourly` for a three-hour forecast, `daily` for daily forecast, or `freedaily` for a five-day forecast with the free tier. |
-| Language             | Language for receiving data (only for `sensor`)                                                                                           |
+| Parameter            | Value                                                                                                                                                                                                                                      |
+| :------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API Key              | API Key from the website                                                                                                                                                                                                                   |
+| Name                 | Name of the integration                                                                                                                                                                                                                    |
+| Latitude             | Latitude for weather forecast and sensor                                                                                                                                                                                                   |
+| Longitude            | Longitude for weather forecast and sensor                                                                                                                                                                                                  |
+| Mode                 | Forecast mode, `hourly` for a three-hour forecast, `daily` for daily forecast using a paid API tier, `onecall_hourly` for an hourly forecast up to 2 days, or `onecall_daily` for a daily forecast up to 7 days (ideal for the free tier). |
+| Language             | Language for receiving data (only for `sensor`)                                                                                                                                                                                            |
 
 The integration creates weather entity and also sensors for all available conditions.
+Selecting a `onecall` mode with the free tier leverages the One Call API, resulting in updates every 5 minutes and is recommended for both hourly and daily forecast.
 
 For each condition `sensor` entity will be created with id: 
 
@@ -45,8 +48,8 @@ Sensor prints information in language which was selected for integration.
 
 All conditions:
 
-| Condition    | Description                            |
-| :----------- | :------------------------------------- | 
+| Condition      | Description                          |
+| :------------- | :----------------------------------- | 
 | `weather`      | A human-readable text summary.       |
 | `temperature`  | Current temperature.                 |
 | `wind_speed`   | Wind speed.                          |

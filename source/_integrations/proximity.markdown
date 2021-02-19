@@ -7,10 +7,10 @@ ha_category:
 ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
-ha_iot_class: ~
+ha_iot_class:
 ---
 
-The `proximity` integration allows you to monitor the proximity of devices to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
+The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
 
 This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/getting-started/automation-trigger/#zone-trigger) and [state](/getting-started/automation-trigger/#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 
@@ -22,7 +22,7 @@ Some examples of its use include:
 The Proximity entity which is created has the following values:
 
 - `state`: Distance from the monitored zone (in km)
-- `dir_of_travel`: Direction of the closest device to the monitored zone. Values are:
+- `dir_of_travel`: Direction of the closest device or person to the monitored zone. Values are:
   - 'not set'
   - 'arrived'
   - 'towards'
@@ -34,8 +34,9 @@ The Proximity entity which is created has the following values:
   - 'km'
   - 'm'
   - 'mi'
+  - 'yd'
   - 'ft'
-- `nearest`: The device which is nearest to the zone
+- `nearest`: The device or person which is nearest to the zone
 
 To enable this integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -58,11 +59,11 @@ zone:
   type: map
   keys:
     ignored_zones:
-      description: Where proximity is not calculated for a device (either the device being monitored or ones being compared (e.g., work or school).
+      description: Where proximity is not calculated for a device or person (either the device being monitored or ones being compared (e.g., work or school).
       required: false
       type: list
     devices:
-      description: A list of devices to compare location against to check closeness to the configured zone.
+      description: A list of devices and/or persons to compare location against to check closeness to the configured zone.
       required: false
       type: list
     tolerance:
@@ -70,7 +71,7 @@ zone:
       required: false
       type: integer
     unit_of_measurement:
-      description: The unit of measurement for distance. Valid values are (km, m, mi, ft) [kilometers, meters, miles and feet respectively].
+      description: The unit of measurement for distance. Valid values are (km, m, mi, yd, ft) [kilometers, meters, miles, yards and feet respectively].
       required: false
       type: string
       default: km
@@ -99,6 +100,6 @@ proximity:
   work:
     zone: work
     devices:
-      - device_tracker.iphone2
+      - person.paulus
     tolerance: 10
 ```

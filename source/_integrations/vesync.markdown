@@ -12,6 +12,9 @@ ha_codeowners:
   - '@webdjoe'
   - '@thegardenmonkey'
 ha_domain: vesync
+ha_platforms:
+  - fan
+  - switch
 ---
 
 The `vesync` integration enables you to control smart switches and outlets connected to the VeSync App.
@@ -43,27 +46,13 @@ This integration supports devices controllable by the VeSync App.  The following
 
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
-## Configuration
+## Prerequisite
 
-To use this integration, all devices must be registered with the VeSync App. Once registration is complete, you can add the VeSync integration by adding the VeSync integration in the configuration section of the frontend and entering your username and password.  You can also use the traditional configuration method by adding the following to your `configuration.yaml` file:
+Before you can use this integration, all devices must be registered with the
+VeSync App. Once registration is complete, continue with the steps described in
+the configuration section below.
 
-```yaml
-# Example configuration.yaml entry
-vesync:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Username needed to log in to VeSync.
-  required: true
-  type: string
-password:
-  description: Password needed to log in to VeSync.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Services
 
@@ -115,15 +104,15 @@ sensor:
       vesync_switch_watts:
         friendly_name_template: "{{ states.switch.vesync_switch.name}} Current Consumption"
         value_template: '{{ states.switch.vesync_switch.attributes["current_power_w"] | float }}'
-        unit_of_measurement: 'W'
+        unit_of_measurement: "W"
       vesync_switch_total_kwh:
         friendly_name_template: "{{ states.switch.vesync_switch.name}} Total Consumption"
         value_template: '{{ states.switch.vesync_switch.attributes["today_energy_kwh"] | float }}'
-        unit_of_measurement: 'kWh'
+        unit_of_measurement: "kWh"
       vesync_switch_volts:
         friendly_name_template: "{{ states.switch.vesync_switch.name}} Voltage"
         value_template: '{{ states.switch.vesync_switch.attributes["voltage"] | float }}'
-        unit_of_measurement: 'V'
+        unit_of_measurement: "V"
 ```
 
 {% endraw %}

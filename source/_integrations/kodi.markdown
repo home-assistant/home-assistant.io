@@ -11,6 +11,9 @@ ha_codeowners:
   - '@cgtobi'
 ha_domain: kodi
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - notify
 ---
 
 The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
@@ -22,11 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#configuration)
 - [Notifications](#notifications)
 
-## Configuration
-
-The Kodi media player is configured through the integrations screen. If your Kodi is discovered, you'll see it there and can click to set it up.
-If you do not see your device, you can click on the `+` button and choose Kodi.
-The flow will guide you through the setup. Most of the settings are advanced, and the defaults should work.
+{% include integrations/config_flow.md %}
 
 If you previously had Kodi configured through `configuration.yaml`, it's advisable to remove it, and configure from the UI.
 If you do not remove it, your configuration will be imported with the following limitations:
@@ -38,7 +37,7 @@ If you do not remove it, your configuration will be imported with the following 
 
 You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence; see the [Kodi turn on/off samples](#kodi-turn-onoff-samples) section for scripts that can be used.
 
-These automations can be configured through the UI (see [Device Triggers](/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor.  Automations would be of the form:
+These automations can be configured through the UI (see [Device Triggers](/docs/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor.  Automations would be of the form:
 
 ```yaml
 automation:
@@ -223,16 +222,17 @@ This example and the following requires to have the [script.json-cec](https://gi
 #### Simple script to turn on the PVR in some channel as a time function
 
 {% raw %}
+
 ```yaml
 script:
   play_kodi_pvr:
-    alias: Turn on the silly box
+    alias: "Turn on the silly box"
     sequence:
-      - alias: TV on
+      - alias: "TV on"
         service: media_player.turn_on
         data:
           entity_id: media_player.kodi
-      - alias: Play TV channel
+      - alias: "Play TV channel"
         service: media_player.play_media
         data:
           entity_id: media_player.kodi
@@ -252,17 +252,19 @@ script:
               10
             {% endif %}
 ```
+
 {% endraw %}
 
 #### Simple script to play a smart playlist
 
 {% raw %}
+
 ```yaml
 script:
   play_kodi_smp:
-    alias: Turn on the silly box with random Firefighter Sam episode
+    alias: "Turn on the silly box with random Firefighter Sam episode"
     sequence:
-      - alias: TV on
+      - alias: "TV on"
         service: media_player.turn_on
         data:
           entity_id: media_player.kodi
@@ -272,6 +274,7 @@ script:
           media_content_type: DIRECTORY
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
+
 {% endraw %}
 
 #### Trigger a Kodi video library update
@@ -279,9 +282,9 @@ script:
 ```yaml
 script:
   update_library:
-    alias: Update Kodi Library
+    alias: "Update Kodi Library"
     sequence:
-      - alias: Call Kodi update
+      - alias: "Call Kodi update"
         service: kodi.call_method
         data:
           entity_id: media_player.kodi

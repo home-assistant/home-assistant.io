@@ -18,13 +18,24 @@ ha_codeowners:
   - '@starkillerOG'
 ha_domain: xiaomi_miio
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - air_quality
+  - alarm_control_panel
+  - device_tracker
+  - fan
+  - light
+  - remote
+  - sensor
+  - switch
+  - vacuum
 ---
 
 The `xiaomi_miio` integration supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2))
-- [Xiaomi Air Purifier](#xiaomi-air-purifier)
+- [Xiaomi Air Purifier and Humidifier](#xiaomi-air-purifier-and-humidifier)
 - [Xiaomi Air Quality Index Monitor](#xiaomi-air-quality-index-monitor)
 - [Xiaomi Mi Air Quality Monitor](#xiaomi-mi-air-quality-monitor)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
@@ -36,11 +47,31 @@ For many of these devices you need an access token, the first section will descr
 
 ## Retrieving the Access Token
 
+### Xiaomi Cloud Tokens Extractor
+
+One of Home Assistant users wrote a tokens extractor tool, which is currently the easiest way to retrieve tokens for all devices assigned to Xiaomi account.
+[In the repository](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) there's executable for convenient use on Windows or Python script to be run on any platform. If you do not wish to run executable, then you can run it using the source code:
+
+1. Install requirements:
+
+  ```bash
+  pip3 install pycryptodome pybase64 requests
+  ```
+  
+2. Run script
+
+  ```bash
+  python3 token_extractor.py
+  ```
+  
+3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
+
 ### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
 
 1. Install the Xiaomi Home app.
 2. Sign In/make an account.
-3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chines characters) under settings -> Region (language can later be set on English).
+3. Make sure you set your region to: Mainland China (Seems to be the longest line with Chinese characters) under settings -> Region (language can later be set on English).
 4. Select your Gateway in Xiaomi Home app.
 5. Then the 3 dots at the top right of the screen.
 6. Then click on about.
@@ -50,6 +81,10 @@ For many of these devices you need an access token, the first section will descr
 iOS: Most options are still in Chinese, you need the fourth item from the top.
 
 Note: If you have multiple devices needing a token, e.g., Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
+
+### Windows or macOS
+
+If using an Windows or macOS device to retrieve the Access Token use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token) App.
 
 ### Alternative methods
 
@@ -89,7 +124,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 ### iOS
 
 1. Configure the robot with the Mi Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
-2. Using iTunes, create an unencrypted backup of your iPhone. Since macOS 10.15 there is no iTunes app. Use Finder instead - after connecting your iOS device you should see it in left menu of Finder window. 
+2. Using iTunes, create an unencrypted backup of your iPhone. Since macOS 10.15 there is no iTunes app. Use Finder instead - after connecting your iOS device you should see it in left menu of Finder window.
 3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
 5. Navigate to `com.xiaomi.mihome`.
@@ -106,7 +141,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
     -- Execute to retrieve token for Smart Powerstrip
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%powerstrip%"
-  
+
     -- Execute to retrieve token for Smart Plug
     SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%plug%"
     ```
@@ -134,16 +169,10 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 Use of Miio should be done before the Vacuum is connected to Mi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
-You can install the command line tool using the following command:
-
-```bash
-npm install -g miio
-```
-
 Discovering devices on the current network:
 
 ```bash
-miio discover
+npx miio discover
 ```
 
 This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.
@@ -164,6 +193,10 @@ The information output is:
 - `Model ID`- The model id if it could be determined, this indicates what type of device it is.
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
+
+### Xiaomi Cloud Tokens Extractor
+
+Alternate method to get all yours devices tokens in one run. Please follow this [instruction](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor).
 
 ## Xiaomi Gateway
 
@@ -304,7 +337,7 @@ token:
   type: string
 {% endconfiguration %}
 
-## Xiaomi Air Purifier
+## Xiaomi Air Purifier and Humidifier
 
 The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier, Air Humidifier and Air Fresh.
 
@@ -329,6 +362,7 @@ Supported devices:
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3  | |
 | Air Humidifier         | zhimi.humidifier.v1    | |
 | Air Humidifier CA1     | zhimi.humidifier.ca1   | |
+| Air Humidifier CA4     | zhimi.humidifier.ca4   | |
 | Air Humidifier CB1     | zhimi.humidifier.cb1   | |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 
@@ -578,6 +612,34 @@ This model uses newer MiOT communication protocol.
   - `motor_speed`
   - `depth`
   - `dry`
+
+### Air Humidifier CA (zhimi.humidifier.ca4)
+
+- On, Off
+- Operation modes (auto, low, mid, high)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED brightness (off, dim, bright)
+- Target humidity (30 - 80)
+- Dry mode (on, off)
+- Motor speed rpm (200 - 2000)
+- Attributes
+  - `model`
+  - `temperature`
+  - `humidity`
+  - `mode`
+  - `buzzer`
+  - `child_lock`
+  - `target_humidity`
+  - `led_brightness`
+  - `use_time`
+  - `actual_speed`
+  - `button_pressed`
+  - `dry`
+  - `fahrenheit`
+  - `motor_speed`
+  - `power_time`
+  - `water_level`
 
 ### Air Humidifier CB (zhimi.humidifier.cb1)
 
@@ -832,13 +894,22 @@ Turn the dry mode off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.          |
 
+### Service `xiaomi_miio.fan_set_motor_speed` (Air Humidifier CA4)
+
+Set motor speed RPM.
+
+| Service data attribute    | Optional | Description                                              |
+|---------------------------|----------|----------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific Xiaomi miIO fan entity.           |
+| `motor_speed`             |       no | Motor speed RPM. Allowed values are between 200 and 2000 |
+
 ### Troubleshooting `Unable to find device` error messages
 
 Check if the device is in the same subnet as the Home Assistant instance. Otherwise, you should configure your router/firewall to put this device in the same VLAN as the Home Assistant instance.
 
 If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.
 
-## Xiaomi Air Quality Index Monitor 
+## Xiaomi Air Quality Index Monitor
 
 The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index.
 
@@ -1023,14 +1094,16 @@ script:
   towel_heater:
     sequence:
       - service: remote.send_command
-        entity_id: 'remote.bathroom_remote'
+        target:
+          entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'activate_towel_heater'
   please_cover_your_ears:
     sequence:
       - service: remote.send_command
-        entity_id: 'remote.bathroom_remote'
+        target:
+          entity_id: "remote.bathroom_remote"
         data:
           command:
             - 'read_bad_poem'
@@ -1219,7 +1292,7 @@ Inline array:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1228,7 +1301,7 @@ automation:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 
@@ -1239,7 +1312,7 @@ Array with inline zone:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1248,7 +1321,7 @@ automation:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
-        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone:
         - [30914,26007,35514,28807]
         - [20232,22496,26032,26496]
@@ -1260,7 +1333,7 @@ Array mode:
 
 ```yaml
 automation:
-  - alias: Test vacuum zone3
+  - alias: "Test vacuum zone3"
     trigger:
     - event: start
       platform: homeassistant
@@ -1297,7 +1370,7 @@ Clean the specified segment/room. A room is identified by a number. Instructions
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
-| `entity_id`               |       no | Only act on a specific robot                          | 
+| `entity_id`               |       no | Only act on a specific robot                          |
 | `segments`                |       no | List of segment numbers or one single segment number. |
 
 Example of `xiaomi_miio.vacuum_clean_segment` use:
@@ -1305,7 +1378,7 @@ Example of `xiaomi_miio.vacuum_clean_segment` use:
 Multiple segments:
 ```yaml
 automation:
-  - alias: Vacuum kitchen and living room
+  - alias: "Vacuum kitchen and living room"
     trigger:
     - event: start
       platform: homeassistant
@@ -1321,7 +1394,7 @@ Single segment:
 
 ```yaml
 automation:
-  - alias: Vacuum kitchen
+  - alias: "Vacuum kitchen"
     trigger:
     - event: start
       platform: homeassistant
@@ -1349,6 +1422,7 @@ In addition to [all of the attributes provided by the `vacuum` component](/integ
 - `total_cleaning_time`
 - `clean_start`
 - `clean_end`
+- `mop_attached`
 
 The following table shows the units of measurement for each attribute:
 
@@ -1365,7 +1439,8 @@ The following table shows the units of measurement for each attribute:
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                            |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                                 |
 | `clean_start`             | datetime            | The last date/time the vacuum started cleaning (offset naive)  |
-| `clean_stop`               | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `clean_stop`              | datetime            | The last date/time the vacuum finished cleaning (offset naive) |
+| `mop_attached`            |                     | A mop and water box are attached / not attached                |
 
 ### Example on how to clean a specific room
 
@@ -1432,7 +1507,7 @@ vacuum_kitchen:
   sequence:
     - service: vacuum.send_command
       data:
-        entity_id: 'vacuum.xiaomi_vacuum_cleaner'
+        entity_id: "vacuum.xiaomi_vacuum_cleaner"
         command: app_zoned_clean
         params: [[23084,26282,27628,29727,1]]
 ```
@@ -1442,10 +1517,11 @@ vacuum_kitchen:
 Valid room numbers can be retrieved using miio command-line tool:
 
 ```bash
-miio protocol call <ip of the vacuum> get_room_mapping
+miiocli vacuum --ip <ip of the vacuum> --token <your vacuum token> get_room_mapping
 ```
 
-It will only give room numbers and not the room names. To map the room numbers to your actual rooms, one can just test the clean_segment service with a number and see which room it cleans. The Xiaomi Home App will highlight the room after issuing the request, which makes the process rather convenient.
+It will return the full mapping of room numbers to user-defined names as a list of (number,name) tuples.
+Alternatively, one can just test the clean_segment service with a number and see which room it cleans.
 
 It seems to be the case that Numbers 1..15 are used to number the intitial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing.
 

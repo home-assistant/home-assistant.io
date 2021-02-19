@@ -49,14 +49,19 @@ binary_sensor:
     resource: http://IP_ADDRESS/ENDPOINT
     method: POST
 ```
+
 or a template based request:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: rest
-    resource_template: {% raw %} "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}" {% endraw %}
+    resource_template: "http://IP_ADDRESS/{{ now().strftime('%Y-%m-%d') }}"
 ```
+
+{% endraw %}
 
 {% configuration %}
 resource:
@@ -130,6 +135,8 @@ Instead of using an [aREST](/integrations/arest#binary-sensor) binary sensor,
 you could retrieve the value of a device supporting
 aREST directly with a REST binary sensor.
 
+{% raw %}
+
 ```yaml
 binary_sensor:
   - platform: rest
@@ -137,8 +144,10 @@ binary_sensor:
     method: GET
     name: Light
     device_class: light
-    value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
+    value_template: '{{ value_json.return_value }}'
 ```
+
+{% endraw %}
 
 ### Accessing an HTTP authentication protected endpoint
 

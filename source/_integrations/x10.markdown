@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.25
 ha_domain: x10
+ha_platforms:
+  - light
 ---
 
 The `x10` light platform allows you to control your X10 based lights with Home Assistant.

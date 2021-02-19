@@ -7,6 +7,7 @@ ha_release: 0.115
 ha_domain: media_source
 ha_codeowners:
   - '@hunterjm'
+ha_iot_class:
 ---
 
 The Media Source integration platform allows integrations to expose media for
@@ -24,7 +25,7 @@ media_source:
 
 ## Local Media
 
-By default, the integration by default looks for media in a specified folder.
+By default, the integration looks for media in a specified folder.
 If other `media_dirs` are not declared you need to use `/media/local` path for 
 example in companion app notification.
 

@@ -9,7 +9,7 @@ ha_codeowners:
   - '@dmulcahey'
 ha_domain: tag
 ha_quality_scale: internal
-ha_iot_class: ~
+ha_iot_class:
 ---
 
 <p class='img'>
@@ -52,7 +52,7 @@ One of the most fun applications of tags is to pick music in your living room. T
 ```yaml
 automation:
 - id: handle_tag_scan
-  alias: Handle Tag Scan
+  alias: "Handle Tag Scan"
   mode: single
   # Hide warnings when triggered while in delay.
   max_exceeded: silent
@@ -89,6 +89,9 @@ automation:
 ```
 
 {% endraw %}
+
+To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
+Then scan a tag on the reader and note down the `device_id` from the `data` section. 
 
 ## Printing tags
 

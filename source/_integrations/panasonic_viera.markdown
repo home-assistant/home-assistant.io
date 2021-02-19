@@ -27,7 +27,7 @@ Once the integration is loaded, with your TV turned on and connected to your loc
 
 If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
-To allow your TV to be turned on or controlled while off, enable `Powered On By Apps` in the TV Settings: **Network > TV Remote App Settings**
+To allow your TV to be turned on or controlled while off, enable `Powered On By Apps` in your settings (if available): **Network > TV Remote App Settings**
 
 ## Manual configuration
 

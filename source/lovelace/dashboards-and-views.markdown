@@ -59,6 +59,7 @@ lovelace:
 ```
 
 You can also add YAML dashboards when your main dashboard is UI configured:
+
 ```yaml
 lovelace:
   mode: storage
@@ -113,12 +114,12 @@ dashboards:
       type: string
     show_in_sidebar:
       required: false
-      description: Should this view be shown in the sidebar.
+      description: Should this dashboard be shown in the sidebar.
       type: boolean
       default: true
     require_admin:
       required: false
-      description: Should this view be only accessible for admin users.
+      description: Should this dashboard be only accessible for admin users.
       type: boolean
       default: false
 {% endconfiguration %}
@@ -329,7 +330,7 @@ If you define `visible` as objects instead of a boolean to specify conditions fo
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab (unique hex value found on the Users configuration page).
+  description: User ID that can see the view tab (unique hex value found on the Users configuration page).
   type: string
 {% endconfiguration %}
 

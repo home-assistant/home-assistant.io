@@ -8,6 +8,8 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@rutkai'
 ha_domain: watson_tts
+ha_platforms:
+  - tts
 ---
 
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
@@ -65,7 +67,7 @@ Say to all `media_player` device entities:
 ```yaml
 - service: tts.watson_tts_say
   data:
-    message: 'Hello from Watson'
+    message: "Hello from Watson"
 ```
 
 or

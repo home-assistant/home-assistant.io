@@ -6,6 +6,10 @@ ha_category:
 ha_release: pre 0.7
 ha_domain: slack
 ha_iot_class: Cloud Push
+ha_codeowners:
+  - '@bachya'
+ha_platforms:
+  - notify
 ---
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
@@ -42,7 +46,7 @@ notify:
   - name: NOTIFIER_NAME
     platform: slack
     api_key: YOUR_API_KEY
-    default_channel: '#general'
+    default_channel: "#general"
 ```
 
 {% configuration %}
@@ -84,7 +88,6 @@ The following attributes can be placed inside the `data` key of the service call
 | ---------------------- | -------- | ----------- |
 | `username`               |      yes | The username of the Slack bot.
 | `icon`                   |      yes | The icon of the Slack bot.
-| `file`                   |      yes | A file to include with the message; see below.
 | `file`                   |      yes | A file to include with the message; see below.
 | `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).

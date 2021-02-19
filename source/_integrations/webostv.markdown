@@ -9,6 +9,8 @@ ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
 ha_domain: webostv
+ha_platforms:
+  - notify
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -107,6 +109,10 @@ Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, 
 Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](https://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models) (*may vary by version).
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
+
+<div class='note'>
+This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -223,11 +229,11 @@ The icon can be overridden for individual notifications by providing a path to a
 
 ```yaml
 automation:
-  - alias: Front door motion
+  - alias: "Front door motion"
     trigger:
       platform: state
       entity_id: binary_sensor.front_door_motion
-      to: 'on'
+      to: "on"
     action:
       service: notify.livingroom_tv
       data:
@@ -235,3 +241,7 @@ automation:
         data:
           icon: "/home/homeassistant/images/doorbell.png"
 ```
+
+## Notes
+
+If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on port 3000 with the TCP protocol from Home Assistant to your TV.

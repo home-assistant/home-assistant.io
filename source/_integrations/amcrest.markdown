@@ -11,6 +11,10 @@ ha_release: 0.49
 ha_codeowners:
   - '@pnbruckner'
 ha_domain: amcrest
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
 ---
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera in Home Assistant.
@@ -246,9 +250,9 @@ camera_image: camera.lakehouse
 camera_view: live   # or auto for snapshot view
 elements:
   - type: icon
-    icon: 'mdi:arrow-up'
+    icon: "mdi:arrow-up"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 25px
       bottom: 50px
     tap_action:
@@ -258,9 +262,9 @@ elements:
         entity_id: camera.lakehouse
         movement: up
   - type: icon
-    icon: 'mdi:arrow-down'
+    icon: "mdi:arrow-down"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 25px
       bottom: 0px
     tap_action:
@@ -270,9 +274,9 @@ elements:
         entity_id: camera.lakehouse
         movement: down
   - type: icon
-    icon: 'mdi:arrow-left'
+    icon: "mdi:arrow-left"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 50px
       bottom: 25px
     tap_action:
@@ -282,9 +286,9 @@ elements:
         entity_id: camera.lakehouse
         movement: left
   - type: icon
-    icon: 'mdi:arrow-right'
+    icon: "mdi:arrow-right"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 0px
       bottom: 25px
     tap_action:
@@ -294,9 +298,9 @@ elements:
         entity_id: camera.lakehouse
         movement: right
   - type: icon
-    icon: 'mdi:arrow-top-left'
+    icon: "mdi:arrow-top-left"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 50px
       bottom: 50px
     tap_action:
@@ -306,9 +310,9 @@ elements:
         entity_id: camera.lakehouse
         movement: left_up
   - type: icon
-    icon: 'mdi:arrow-top-right'
+    icon: "mdi:arrow-top-right"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 0px
       bottom: 50px
     tap_action:
@@ -318,9 +322,9 @@ elements:
         entity_id: camera.lakehouse
         movement: right_up
   - type: icon
-    icon: 'mdi:arrow-bottom-left'
+    icon: "mdi:arrow-bottom-left"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 50px
       bottom: 0px
     tap_action:
@@ -330,9 +334,9 @@ elements:
         entity_id: camera.lakehouse
         movement: left_down
   - type: icon
-    icon: 'mdi:arrow-bottom-right'
+    icon: "mdi:arrow-bottom-right"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       right: 0px
       bottom: 0px
     tap_action:
@@ -342,9 +346,9 @@ elements:
         entity_id: camera.lakehouse
         movement: right_down
   - type: icon
-    icon: 'mdi:magnify'
+    icon: "mdi:magnify"
     style:
-      background: 'rgba(255, 255, 255, 0.25)'
+      background: "rgba(255, 255, 255, 0.25)"
       bottom: 25px
       right: 25px
     tap_action:

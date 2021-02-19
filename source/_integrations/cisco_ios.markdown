@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fbradyirl'
 ha_domain: cisco_ios
+ha_platforms:
+  - device_tracker
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.

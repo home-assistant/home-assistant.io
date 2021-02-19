@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.25
 ha_iot_class: Cloud Push
 ha_domain: imap
+ha_platforms:
+  - sensor
 ---
 
 The `imap` integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
@@ -93,7 +95,7 @@ sensor:
     password: YOUR_PASSWORD
     search: FROM <sender@email.com>, SUBJECT <subject here>
     # Or use X-GM-RAW search-term like this, to find unread emails from the last 7 days in your inbox
-    # search: "X-GM-RAW 'in: inbox newer_than:7d is:unread'"
+    # search: 'X-GM-RAW "in: inbox newer_than:7d is:unread"'
 
 # Example configuration.yaml entry for Office 365
 sensor:

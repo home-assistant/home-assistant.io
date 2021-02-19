@@ -98,8 +98,6 @@ component_config_glob:
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Prometheus`, you can use the `filter` parameter.
 
-{% raw %}
-
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 prometheus:
@@ -112,8 +110,6 @@ prometheus:
     exclude_entities:
       - light.kitchen_light
 ```
-
-{% endraw %}
 
 Filters are applied as follows:
 
@@ -161,7 +157,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
 
 ```yaml
 # Example Prometheus scrape_configs entry
-  - job_name: 'hass'
+  - job_name: "hass"
     scrape_interval: 60s
     metrics_path: /api/prometheus
 
@@ -170,7 +166,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       api_password: ['PASSWORD']
 
     # Long-Lived Access Token
-    bearer_token: 'your.longlived.token'
+    bearer_token: "your.longlived.token"
 
     scheme: https
     static_configs:

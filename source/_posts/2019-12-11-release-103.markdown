@@ -232,7 +232,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 
   ```yaml
   - id: plant_unreachable
-    alias: plant unreachable
+    alias: "plant unreachable"
     trigger:
       - entity_id: sensor.plant_moisture
         for: 01:00:00
@@ -556,7 +556,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - move service constants to const.py, move custom services to monoprice domain ([@raman325] - [#29099]) ([monoprice docs]) (breaking change)
 - Move imports to top for uptimerobot ([@springstan] - [#29103]) ([uptimerobot docs])
 - Move imports to top for twilio_call ([@springstan] - [#29104]) ([twilio_call docs])
-- Move imports to top for ubee ([@springstan] - [#29105]) ([ubee docs])
+- Move imports to top for ubee ([@springstan] - [#29105])
 - Move flexit imports at top-level ([@Quentame] - [#29097]) ([flexit docs])
 - Move flunearyou imports at top-level ([@Quentame] - [#29096]) ([flunearyou docs])
 - Move folder_watcher imports at top-level ([@Quentame] - [#29095]) ([folder_watcher docs])
@@ -758,7 +758,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for nmap_tracker ([@springstan] - [#29364]) ([nmap_tracker docs])
 - Move imports to top for nmbs ([@springstan] - [#29365]) ([nmbs docs])
 - Move imports to top for noaa_tides ([@springstan] - [#29366]) ([noaa_tides docs])
-- Move imports to top for nuimo_controller ([@springstan] - [#29367]) ([nuimo_controller docs])
+- Move imports to top for nuimo_controller ([@springstan] - [#29367])
 - Move imports to top for openhome ([@springstan] - [#29369]) ([openhome docs])
 - Allow negative altitude in location updates ([@balloob] - [#29381]) ([mobile_app docs])
 - Move imports to top for lametric ([@springstan] - [#29406]) ([lametric docs])
@@ -789,7 +789,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for gogogate2 ([@springstan] - [#29411]) ([gogogate2 docs])
 - Move imports to top for hydrawise ([@springstan] - [#29421]) ([hydrawise docs])
 - Move imports to top for ihc ([@springstan] - [#29425]) ([ihc docs])
-- Move imports to top for ialarm ([@springstan] - [#29422]) ([ialarm docs])
+- Move imports to top for ialarm ([@springstan] - [#29422])
 - Move imports to top for gitter ([@springstan] - [#29412]) ([gitter docs])
 - Move imports to top for homeworks ([@springstan] - [#29418]) ([homeworks docs])
 - Move imports to top for gpmdp ([@springstan] - [#29413]) ([gpmdp docs])
@@ -1574,7 +1574,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue docs]: /integrations/hue/
 [hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
 [hydrawise docs]: /integrations/hydrawise/
-[ialarm docs]: /integrations/ialarm/
 [icloud docs]: /integrations/icloud/
 [idteck_prox docs]: /integrations/idteck_prox/
 [ifttt docs]: /integrations/ifttt/
@@ -1647,7 +1646,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notion docs]: /integrations/notion/
 [nsw_rural_fire_service_feed docs]: /integrations/nsw_rural_fire_service_feed/
 [nuheat docs]: /integrations/nuheat/
-[nuimo_controller docs]: /integrations/nuimo_controller/
 [nut docs]: /integrations/nut/
 [nzbget docs]: /integrations/nzbget/
 [ombi docs]: /integrations/ombi/
@@ -1772,7 +1770,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [tts docs]: /integrations/tts/
 [tuya docs]: /integrations/tuya/
 [twilio_call docs]: /integrations/twilio_call/
-[ubee docs]: /integrations/ubee/
 [unifi docs]: /integrations/unifi/
 [unifi_direct docs]: /integrations/unifi_direct/
 [universal docs]: /integrations/universal/
