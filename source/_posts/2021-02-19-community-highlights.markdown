@@ -40,7 +40,7 @@ Maybe we can give him some community love and help with his question? 😄
 
 Good news for those who would like to get started with DSMR Reader!
 [sanderdw](https://github.com/sanderdw) has made an add-on so that you can
-easily use it with Home Assistant. Please note, the add-on is still in an __Alpa__ state.
+easily use it with Home Assistant. Please note, the add-on is still in an __Alpha__ state.
 
 <object type="image/svg+xml" data="https://gh-card.dev/repos/sanderdw/hassio-addons.svg?link_target=_blank"></object>
 
