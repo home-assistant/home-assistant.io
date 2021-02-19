@@ -227,6 +227,19 @@ address:
   type: [string, list]
 {% endconfiguration %}
 
+```yaml
+# Example automation to read a group address on Home Assistant start up
+automation:
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: knx.read
+    data:
+      address: 1/2/3
+# Please note that this is done by default for every *_state_address of entities (see `sync_state` attribute)
+```
+
 ### Register Event
 
 The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` can not be unregistered. See [knx_event](#events)
