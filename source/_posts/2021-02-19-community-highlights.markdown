@@ -15,7 +15,7 @@ things popped up around our community, we thought was worth sharing.
 But before we move on to the highlights of this week, let's start with a
 little hooray because yesterday both Pascal Vizeli and I had their birthday!
 
-Hip hip hooray 🎂🥳
+Hip hip hooray! 🎂🥳
 
 ./Klaas
 
@@ -54,7 +54,7 @@ easily use it with Home Assistant. Please note, the add-on is still in an __Alpa
 
 ## Laundry card
 
-Would you like to display the state of your smart washing machine (such as an LG Thinq)
+Would you like to display the state of your smart washing machine (such as an LG ThinQ)
 in a fun way in Lovelace? Perhaps the example below could inspire you. You can find the
 Lovelace YAML code [here](https://pastebin.com/S3uVcQHT).
 
