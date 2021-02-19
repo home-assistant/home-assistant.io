@@ -89,6 +89,7 @@ A typical service call for pressing several buttons looks like this.
 service: remote.send_command
 target:
   entity_id: remote.roku
+data:
   command:
     - left
     - left
@@ -127,23 +128,23 @@ To use this information in Home Assistant, the format is as follows. Note that `
 
 ```yaml
 action:
-- target:
-    entity_id: media_player.roku
-  data:
-    source: 20197
-  service: media_player.select_source
+  - service: media_player.select_source
+    target:
+      entity_id: media_player.roku
+    data:
+      source: 20197
 ```
 
 It is also possible to tune directly to specific channels if you have a Roku TV and use an OTA antenna. This service only supports `media_channel_type` of 'channel'. `media_content_id` corresponds to the TV channel, which you should see when navigating to these on your TV UI. 
 
 ```yaml
 action:
-- target:
-    entity_id: media_player.roku
-  data:
-    media_content_id: 5.1
-    media_content_type: channel
-  service: media_player.play_media
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.roku
+    data:
+      media_content_id: 5.1
+      media_content_type: channel
 ```
 
 ## Remote

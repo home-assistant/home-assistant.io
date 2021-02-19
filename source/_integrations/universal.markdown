@@ -119,11 +119,13 @@ media_player:
       service: media_player.select_source
       target:
         entity_id: media_player.receiver
+      data:
         source: "{{ source }}"
     volume_set:
       service: media_player.volume_set
       target:
         entity_id: media_player.receiver
+      data:
         volume_level: "{{ volume_level }}"
 
   attributes:
