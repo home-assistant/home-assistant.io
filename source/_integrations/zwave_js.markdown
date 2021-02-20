@@ -67,9 +67,9 @@ This service will update a configuration parameter. At this time, it is not poss
 | `bitmask`              	| no        	| The bitmask for a partial parameter, can be in hex (0xff) or decimal (255). If the name of the parameter is provided, this is not needed. 	|
 | `value`                	| yes       	| The target value for the parameter. Can be the integer value or the state label. The state label is case sensitive.                       	|
 
-Let's use parameter 31 for [this device](https://devices.zwave-js.io/?jumpTo=0x000c:0x0203:0x0001:0.0) as an example to show the various ways that the "LED 1 Blink Status (bottom)" partial parameter can be set. Note that in places where we are using different values for the same key, the different values are interchangeable across the examples.
+Let's use parameter 31 for [this device](https://devices.zwave-js.io/?jumpTo=0x000c:0x0203:0x0001:0.0) as an example to show examples of different ways that the "LED 1 Blink Status (bottom)" partial parameter can be set. Note that in places where we are using different values for the same key, the different values are interchangeable across the examples. We can, for instance, use `1` or `Blink` interchangeably for the `value` in all of the examples.
 
-Option 1:
+Example 1:
 ```yaml
 service: zwave_js.set_config_parameter
 data:
@@ -79,7 +79,7 @@ data:
   value: 1
 ```
 
-Option 2:
+Example 2:
 ```yaml
 service: zwave_js.set_config_parameter
 data:
@@ -89,7 +89,7 @@ data:
   value: Blink
 ```
 
-Option 3:
+Example 3:
 ```yaml
 service: zwave_js.set_config_parameter
 data:
