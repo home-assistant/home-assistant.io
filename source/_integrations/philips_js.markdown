@@ -23,7 +23,9 @@ The Philips TV does not support turning on via the API. You can either turn it o
 
 ### Know issues
 
- * Source selction (HDMI inputs) on v5 and v6 APIs are not supported
+ * Current input/source is only supported on v1 API
+ * Selection of input/source is only supported on v1 and v6 API
+ * Available input/source is only an static list on v6 API
  * Current running application is reported invalid on (at least) some 2020 TV's Android tv's
  * CEC control over absolute volume is broken on 2020 Android TV's
  * Saphi based Philips TV's are not supported due to different authentication protocol
