@@ -61,8 +61,8 @@ This service will update a configuration parameter. At this time, it is not poss
 
 | Service Data Attribute 	| Required  	| Description                                                                                                                               	|
 |------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
-| `entity_id`            	| Exclusive 	| Lock entity or list of entities to set the configuration parameter on. Either this or `device_id` must be provided.                       	|
-| `device_id`            	| Exclusive 	| Device to set the configuration parameter on. Either this or `entity_id` must be provided.                                                	|
+| `entity_id`            	| Exclusive 	| Entity (or list of entities) to set the configuration parameter on. Either this or `device_id` must be provided.                       	|
+| `device_id`            	| Exclusive 	| ID of device to set the configuration parameter on. Either this or `entity_id` must be provided.                                                	|
 | `parameter`            	| yes       	| The parameter number or the name of the property. The name of the property is case sensitive.                                             	|
 | `bitmask`              	| no        	| The bitmask for a partial parameter, can be in hex (0xff) or decimal (255). If the name of the parameter is provided, this is not needed. 	|
 | `value`                	| yes       	| The target value for the parameter. Can be the integer value or the state label. The state label is case sensitive.                       	|
