@@ -19,11 +19,4 @@ The `smarttub` integration allows you to view and control hot tubs which use the
 - A hot tub with a SmartTub module
 - A SmartTub account (registration is not supported, you can use the SmartTub mobile app)
 
-## Configuration
-
-To add SmartTub to your installation:
-
-- Go to the integrations page in the Home Assistant frontend
-- Select `+` to add a new integration.
-- Add a new **SmartTub** integration.
-- Follow the steps shown to authenticate Home Assistant with your SmartTub account.
+{% include integrations/config_flow.md %}
