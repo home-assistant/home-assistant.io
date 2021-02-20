@@ -3,7 +3,7 @@ title: SmartTub
 description: Instructions on how to integrate SmartTub into Home Assistant.
 ha_category:
   - Climate
-ha_release: 0.114
+ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_quality_scale: platinum
