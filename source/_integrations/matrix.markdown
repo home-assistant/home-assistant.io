@@ -8,12 +8,13 @@ ha_iot_class: Cloud Push
 ha_release: 0.69
 ha_codeowners:
   - '@tinloaf'
+  - '@szimszon'
 ha_domain: matrix
 ha_platforms:
   - notify
 ---
 
-This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
+This integration allows you to send messages and images to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -115,6 +116,8 @@ notify:
   - name: matrix_notify
     platform: matrix
     default_room: "#hasstest:matrix.org"
+    default_markdown: false
+    default_notice: false
 
 automation:
   - alias: 'React to !testword'
@@ -158,6 +161,8 @@ notify:
   - name: NOTIFIER_NAME
     platform: matrix
     default_room: ROOM_ID_OR_ALIAS
+    default_markdown: true|false
+    default_notice: true|false
 ```
 
 {% configuration %}
@@ -170,8 +175,69 @@ default_room:
   description: The room all messages will be sent to, when no other target is given.
   required: true
   type: string
+default_markdown:
+  description: If true the message will be sent as a markdown text. If omitted the default is false. This option is available only from version 2021.3.
+  required: false
+  default: false
+  type: boolean
+default_notice:
+  description: If true the message will be sent as notice. If omitted the default is false. This option is available only from version 2021.3.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+To use matrix notification in scripts or automation:
+
+{% raw %}
+```yaml
+ service: notify.matrix_notify
+ data:
+   title: "This is a markdown header line"
+   message: "This is a markdown formatted message because 'title' is defined."
+   data:
+     markdown: true|false
+     notice: true|false
+     image: {file://|http[s]://}{path}
+```
+{% endraw %}
+
+{% configuration %}
+service:
+  description: The name of the notification service.
+  required: true
+  type: string
+data: "This is a map with the parameters passed to the notification service"
+  required: true
+  type: map
+  keys:
+    title:
+      description: This is the title of the message. If defined markdown formatting is enabled.
+      required: false
+      type: string
+    message:
+      description: This is the message.
+      required: true
+      type: string
+    data:
+      description: With this map additional parameters will be passed to the service.
+      required: false
+      type: map
+      keys:
+        markdown:
+          description: Switch markdown formatting on or off.
+          required: false
+          type: boolean
+        notice:
+          description: Indicate if the message will be a notice or not
+          required: false
+          type: boolean
+        image:
+          description: This is the path to the image will be send to the room. For local file the prefix have to be `file://` for remote files the prefix could be `http://` or `https://`.
+          required: false
+          type: string      
+{% endconfiguration %}
+
+For additional info, please see the [getting started with automation page](/getting-started/automation/).
