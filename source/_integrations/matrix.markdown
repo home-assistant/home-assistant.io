@@ -176,7 +176,7 @@ default_room:
   required: true
   type: string
 default_markdown:
-  description: If true the message will be sent as a markdown text. If omitted the default is false. This option is available only from version 2021.3.
+  description: If true the message will be sent as a Markdown text. If omitted the default is false. This option is available only from version 2021.3.
   required: false
   default: false
   type: boolean
@@ -214,7 +214,7 @@ data: "This is a map with the parameters passed to the notification service"
   type: map
   keys:
     title:
-      description: This is the title of the message. If defined markdown formatting is enabled.
+      description: This is the title of the message. If defined Markdown formatting is enabled.
       required: false
       type: string
     message:
@@ -227,7 +227,7 @@ data: "This is a map with the parameters passed to the notification service"
       type: map
       keys:
         markdown:
-          description: Switch markdown formatting on or off.
+          description: Switch Markdown formatting on or off.
           required: false
           type: boolean
         notice:
