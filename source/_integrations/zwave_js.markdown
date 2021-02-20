@@ -100,7 +100,6 @@ data:
   value: Blink
 ```
 
-
 ### Service `zwave_js.set_lock_usercode`
 
 This service will set the usercode of a lock to X at code slot Y.
