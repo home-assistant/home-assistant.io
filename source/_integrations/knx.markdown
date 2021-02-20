@@ -168,7 +168,9 @@ local_ip:
 
 ```yaml
 knx:
-  event_filter: ["1/0/*", "6/2,3,4-6/*"]
+  event_filter: 
+    - "1/0/*"
+    - "6/2,3,4-6/*"
 ```
 
 {% configuration %}
@@ -182,7 +184,7 @@ Every telegram that matches the filter with its destination field will be announ
 
 - `data` contains the raw payload data (eg. 1 or "[12, 55]").
 - `destination` the KNX group address the telegram is sent to as string (eg. "1/2/3).
-- `direction` the direction of the telegram as string ("Incoming" / "Outgoing"). Currently only incoming telegrams generate the event.
+- `direction` the direction of the telegram as string ("Incoming" / "Outgoing").
 - `source` the KNX indidividual address of the sender as string (eg. "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
 
@@ -626,6 +628,11 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
+create_temperature_sensors:
+  description: If true, dedicated sensor entities are created for current and target temperature.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Cover
@@ -1237,7 +1244,7 @@ knx:
       address_day_night: "7/0/8"
       address_air_pressure: "7/0/9"
       address_humidity: "7/0/10"
-      expose_sensors: false
+      create_sensors: false
       sync_state: true
 ```
 
@@ -1265,6 +1272,10 @@ address_brightness_east:
   type: string
 address_brightness_north:
   description: KNX group address for reading current brightness to north coordinate from KNX bus. *DPT 9.004*
+  required: false
+  type: string
+address_wind_bearing:
+  description: KNX group address for reading current wind bearing from KNX bus. *DPT 5.003*
   required: false
   type: string
 address_wind_speed:
@@ -1295,8 +1306,8 @@ address_humidity:
   description: KNX address for reading current humidity. *DPT 9.007*
   required: false
   type: string
-expose_sensors:
-  description: If true, exposes all sensor values as dedicated sensors to Home Assistant.
+create_sensors:
+  description: If true, dedicated sensor entities are created for all configured properties.
   required: false
   type: boolean
   default: false
