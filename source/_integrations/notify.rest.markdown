@@ -1,5 +1,5 @@
 ---
-title: "REST"
+title: "RESTful Notification"
 description: "Instructions on how to add RESTful notifications to Home Assistant."
 ha_category:
   - Notifications
