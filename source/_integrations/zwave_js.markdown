@@ -95,7 +95,7 @@ service: zwave_js.set_config_parameter
 data:
   entity_id: switch.fan
   parameter: "LED 1 Blink Status (bottom)"
-  value: 1
+  value: Blink
 ```
 
 
