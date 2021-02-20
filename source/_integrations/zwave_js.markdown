@@ -70,7 +70,7 @@ This service will update a configuration parameter. At this time, you cannot upd
 Let's use parameter 31 for [this device](https://devices.zwave-js.io/?jumpTo=0x000c:0x0203:0x0001:0.0) as an example to show the various ways that the "LED 1 Blink Status (bottom)" partial parameter can be set. Note that in places where we are using different values for the same key, the different values are interchangeable across the examples.
 
 Option 1:
-```
+```yaml
 service: zwave_js.set_config_parameter
 data:
   entity_id: switch.fan
@@ -80,7 +80,7 @@ data:
 ```
 
 Option 2:
-```
+```yaml
 service: zwave_js.set_config_parameter
 data:
   entity_id: switch.fan
@@ -90,7 +90,7 @@ data:
 ```
 
 Option 3:
-```
+```yaml
 service: zwave_js.set_config_parameter
 data:
   entity_id: switch.fan
