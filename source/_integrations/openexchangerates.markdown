@@ -3,7 +3,6 @@ title: Open Exchange Rates
 description: Instructions on how to integrate exchange rates from https://openexchangerates.org within Home Assistant.
 ha_category:
   - Finance
-logo: openexchangerates.png
 ha_iot_class: Cloud Polling
 ha_release: 0.23
 ha_domain: openexchangerates
