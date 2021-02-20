@@ -16,14 +16,20 @@ blueprint easier to use from the UI.
 The following selectors are currently available:
 
 - [Action selector](#action-selector)
+- [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
+  - [Example area selectors](#example-area-selectors)
 - [Boolean selector](#boolean-selector)
 - [Device selector](#device-selector)
+  - [Example device selector](#example-device-selector)
 - [Entity selector](#entity-selector)
+  - [Example entity selector](#example-entity-selector)
 - [Number selector](#number-selector)
+  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [Select selector](#select-selector)
 - [Target selector](#target-selector)
+  - [Example target selectors](#example-target-selectors)
 - [Text selector](#text-selector)
 - [Time selector](#time-selector)
 
@@ -41,6 +47,23 @@ This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
 action:
+```
+
+## Add-on selector
+
+This can only be used on an installation with a Supervisor. For installations
+that do not have that, an error will be displayed.
+
+The add-on selector allows the user to input a add-on slug.
+On the user interface, It will list all installed add-ons and use the slug of the
+selected add-on.
+
+![Screenshot of an Add-on selector](/images/blueprints/selector-addon.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+addon:
 ```
 
 ## Area selector
