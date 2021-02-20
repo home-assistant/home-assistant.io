@@ -1,5 +1,5 @@
 ---
-title: RESTful
+title: RESTful Sensor
 description: Instructions on how to integrate REST sensors into Home Assistant.
 ha_category:
   - Sensor
