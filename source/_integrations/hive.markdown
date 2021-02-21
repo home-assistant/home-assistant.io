@@ -34,7 +34,6 @@ Press on **Hive** and configure the integration:
 
 - Enter you Hive Username.
 - Enter you Hive Password.
-- Set the scan interval (Default 120 seconds)
 
 If you have 2 factor authentication setup on your Hive account, a following dialog will be presented asking for  your code.
 
@@ -58,11 +57,6 @@ password:
   description: Your password from [https://my.hivehome.com](https://my.hivehome.com).
   required: true
   type: string
-scan_interval:
-  description: The time in seconds between Hive API calls
-  required: false
-  type: integer
-  default: 120
 {% endconfiguration %}
 
 ## Options
