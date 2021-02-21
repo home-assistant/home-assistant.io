@@ -103,8 +103,6 @@ sensor:
     - sensor_type: inverter
       device: 1
     - sensor_type: meter
-      scope: system
-    - sensor_type: meter
       device: 3
     - sensor_type: storage
       device: 0
