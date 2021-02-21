@@ -367,7 +367,8 @@ Supported devices:
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 
 
-{% configuration %}
+### Configuration
+
 Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
 
 To add a Xiaomi Air Purifier to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
