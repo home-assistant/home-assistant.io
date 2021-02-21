@@ -49,8 +49,8 @@ action:
 This can only be used on an installation with a Supervisor. For installations
 that do not have that, an error will be displayed.
 
-The add-on selector allows the user to input a add-on slug.
-On the user interface, It will list all installed add-ons and use the slug of the
+The add-on selector allows the user to input an add-on slug.
+On the user interface, it will list all installed add-ons and use the slug of the
 selected add-on.
 
 ![Screenshot of an Add-on selector](/images/blueprints/selector-addon.png)
