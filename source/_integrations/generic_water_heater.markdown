@@ -3,7 +3,7 @@ title: Generic Water Heater
 description: Turn Home Assistant into a Water Heater
 ha_category:
   - Water Heater
-ha_release: 2012.02
+ha_release: 2021.3
 ha_iot_class: Local Polling
 ha_domain: generic
 ---
