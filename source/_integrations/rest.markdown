@@ -87,9 +87,9 @@ rest:
           - "sensor3"
           - "sensor4"
           - "version"
-      - name: Kiddie Pool Data Equipment
+      - name: "Kiddie Pool Data Equipment"
         json_attributes_path: "$.response.equipment"
-        value_template: 'OK'
+        value_template: "OK"
         json_attributes:
           - "circuit1"
           - "circuit2"
