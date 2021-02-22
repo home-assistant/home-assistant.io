@@ -214,7 +214,51 @@ type:
 
 ### Read
 
-You can also use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of a device.
+You can use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of an entity.
+To manually send GroupValueRead requests use the `knx.read` service. The response can be used from `knx_event` and will be processed in KNX entities.
+
+```txt
+Domain: knx
+Service: read
+Service Data: {"address": "1/0/15"}
+```
+
+{% configuration %}
+address:
+  description: Group address(es) to send read request to. Lists will read multiple group addresses.
+  type: [string, list]
+{% endconfiguration %}
+
+```yaml
+# Example automation to update a cover position after 10 seconds of movement initiation
+automation:
+  - trigger:
+      - platform: event
+        event_type: knx_event
+        event_data:
+          # Cover move trigger
+          destination: "0/4/20"
+    action:
+      - delay: 0:0:10
+      - service: knx.read
+        data:
+          # Cover position address
+          address: "0/4/21"
+
+  - trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      # Register the group address to trigger a knx_event
+      - service: knx.event_register
+        data:
+          # Cover move trigger
+          address: "0/4/20"
+      - service: knx.read
+        data:
+          # Cover position address
+          address: "0/4/21"
+```
 
 ### Register Event
 
