@@ -3,6 +3,7 @@ title: SmartTub
 description: Instructions on how to integrate SmartTub into Home Assistant.
 ha_category:
   - Climate
+  - Light
   - Sensor
   - Switch
 ha_release: 2021.3
