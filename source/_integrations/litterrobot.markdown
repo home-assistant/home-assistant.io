@@ -14,22 +14,13 @@ ha_domain: litterrobot
 
 The Litter-Robot integration allows you to control and monitor your WiFi-enabled, automatic, self-cleaning litter box for cats.
 
-You will need a Litter-Robot account as well as a Wi-Fi enabled Litter-Robot unit that has already been associated with your account.
+You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot unit that has already been associated with your account.
 
 There is currently support for the following device types within Home Assistant:
 
 - Vacuum (this is the representation of your Litter-Robot litter box)
 
-## Configuration
-
-This integration can be configured via the UI:
-
-1. Go to **Configuration**->**Integrations**
-2. Click **+ ADD INTEGRATION** to setup a new integration
-3. Search for **Litter-Robot** and click on it
-4. Enter your _username_ and _password_ and click **SUBMIT**.
-5. Upon successful login, you will have the opportunity to select the area that your Litter-Robot is located.
-6. Click the **Finish** button.
+{% include integrations/config_flow.md %}
 
 ## Entities
 
