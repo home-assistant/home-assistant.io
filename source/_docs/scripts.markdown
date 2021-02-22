@@ -480,7 +480,7 @@ Nesting is fully supported.
 Each sequence is paired with a list of conditions. (See the [conditions page] for available options and how multiple conditions are handled.) The first sequence whose conditions are all true will be run.
 An _optional_ `default` sequence can be included which will be run only if none of the sequences from the list are run.
 
-An _optionl_ `alias` can be added to each of the sequences, excluding the `default` sequence.
+An _optional_ `alias` can be added to each of the sequences, excluding the `default` sequence.
 
 The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
@@ -521,9 +521,7 @@ automation:
         choose:
           # IF motion detected
           - alias: "Motion detected"
-            conditions:
-              - condition: template
-                value_template: "{{ trigger.to_state.state == 'on' }}"
+            conditions: "{{ trigger.to_state.state == 'on' }}"
             sequence:
               - service: script.turn_on
                 target:
