@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@hunterjm'
+  - '@uvjustin'
 ha_domain: stream
 ---
 
@@ -48,7 +49,7 @@ action:
   service: camera.record
   data:
     entity_id: camera.quintal
-    filename: '/config/www/my_stream.mp4'
+    filename: "/config/www/my_stream.mp4"
     duration: 30
 ```
 

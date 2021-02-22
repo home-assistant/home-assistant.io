@@ -5,6 +5,9 @@ ha_category:
   - Notifications
 ha_release: 0.12
 ha_domain: twitter
+ha_iot_class: Cloud Push
+ha_platforms:
+  - notify
 ---
 
 The `twitter` notification platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.

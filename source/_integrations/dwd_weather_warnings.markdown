@@ -1,11 +1,17 @@
 ---
-title: Deutsche Wetter Dienst (DWD) Weather Warnings
+title: Deutscher Wetterdienst (DWD) Weather Warnings
 description: Instructions on how to integrate Deutsche Wetter Dienst weather warnings into Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.51
 ha_iot_class: Cloud Polling
 ha_domain: dwd_weather_warnings
+ha_codeowners:
+  - '@runningman84'
+  - '@stephan192'
+  - '@Hummel95'
+ha_platforms:
+  - sensor
 ---
 
 The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD)](https://www.dwd.de) as a source for current and advance warnings.

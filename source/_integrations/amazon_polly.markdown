@@ -5,6 +5,9 @@ ha_category:
   - Text-to-speech
 ha_release: 0.37
 ha_domain: amazon_polly
+ha_iot_class: Cloud Push
+ha_platforms:
+  - tts
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
@@ -83,7 +86,7 @@ Say to all `media_player` device entities:
 ```yaml
 - service: tts.amazon_polly_say
   data:
-    message: '<speak>Hello from Amazon Polly</speak>'
+    message: "<speak>Hello from Amazon Polly</speak>"
 ```
 
 or
@@ -101,7 +104,7 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.amazon_polly_say
-  data:
+  target:
     entity_id: media_player.living_room
     message: >
       <speak>

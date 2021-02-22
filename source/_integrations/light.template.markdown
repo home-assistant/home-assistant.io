@@ -70,12 +70,8 @@ light:
         description: Name to use in the frontend.
         required: false
         type: string
-      entity_id:
-        description: A list of entity IDs so the light only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
-        required: false
-        type: [string, list]
       unique_id:
-        description: An ID that uniquely identifies this light. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this light. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:

@@ -2,10 +2,13 @@
 title: Home Assistant Core Integration
 description: Description of the homeassistant integration.
 ha_release: 0.0
+ha_category:
+  - Other
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant
+ha_iot_class:
 ---
 
 The Home Assistant integration provides generic implementations like the generic `homeassistant.turn_on`.
@@ -20,11 +23,13 @@ Reads the configuration files and checks them for correctness, but **does not** 
 
 ### Service `homeassistant.reload_core_config`
 
-Loads the main configuration file (`configuration.yaml`) and all linked files. Once loaded the new configuration is applied.
+Reloads the core configuration under `homeassistant:` and all linked files. Once loaded the new configuration is applied. New `customize:` information will be applied the next time the state of the entity gets updated.
 
 ### Service `homeassistant.restart`
 
-Restarts the Home Assistant instance (also reloading the configuration on start).
+Restarts the Home Assistant instance (also reloading the configuration on start). 
+
+This will also do a configuration check before doing a restart. If the configuration check fails then Home Assistant will not be restarted, instead a persistent notification with the ID `persistent_notification.homeassistant_check_config` will be created. The logs will show details on what failed the configuration check.
 
 ### Service `homeassistant.stop`
 
@@ -62,11 +67,11 @@ Generic service to toggle devices on/off under any domain. Same usage as the lig
 ```yaml
 action:
   service: homeassistant.toggle
-  data:
+  target:
     entity_id: light.living_room
 ```
 
-#### Service `homeassistant.turn_on` 
+### Service `homeassistant.turn_on` 
 
 Generic service to turn devices on under any domain. Same usage as the light.turn_on, switch.turn_on, etc. services.
 
@@ -79,7 +84,7 @@ Generic service to turn devices on under any domain. Same usage as the light.tur
 ```yaml
 action:
   service: homeassistant.turn_on
-  data:
+  target:
     entity_id: light.living_room
 ```
 
@@ -96,7 +101,7 @@ Generic service to turn devices off under any domain. Same usage as the light.tu
 ```yaml
 action:
   service: homeassistant.turn_off
-  data:
+  target:
     entity_id: light.living_room
 ```
 
@@ -113,7 +118,7 @@ Force one or more entities to update its data rather than wait for the next sche
 ```yaml
 action:
   service: homeassistant.update_entity
-  data:
+  target:
     entity_id:
     - light.living_room
     - switch.coffe_pot

@@ -10,37 +10,39 @@ Turn on a light in the living room when it starts raining, someone is home, and 
 
 ```yaml
 automation:
-  - alias: 'Rainy Day'
+  - alias: "Rainy Day"
     trigger:
       - platform: state
         entity_id: sensor.precip_intensity
-        to: 'rain'
+        to: "rain"
     condition:
       - condition: state
         entity_id: all
-        state: 'home'
+        state: "home"
       - condition: time
-        after: '14:00'
-        before: '23:00'
+        after: "14:00"
+        before: "23:00"
     action:
       service: light.turn_on
-      entity_id: light.couch_lamp
+      target:
+        entity_id: light.couch_lamp
 ```
 
 And then of course turn off the lamp when it stops raining but only if it's within an hour before sunset.
 
 ```yaml
-  - alias: 'Rain is over'
+  - alias: "Rain is over"
     trigger:
       - platform: state
         entity_id: sensor.precip_intensity
-        to: 'None'
+        to: "None"
     condition:
       - condition: sun
-        after: 'sunset'
-        after_offset: '-01:00:00'
+        after: "sunset"
+        after_offset: "-01:00:00"
     action:
       service: light.turn_off
-      entity_id: light.couch_lamp
+      target:
+        entity_id: light.couch_lamp
 ```
 

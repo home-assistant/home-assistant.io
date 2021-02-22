@@ -38,7 +38,7 @@ In 1.10.0 we further enhanced our notifications to allow for many new options. U
 
 ```yaml
 automation:
-  - alias: Alarm triggered
+  - alias: "Alarm triggered"
     trigger:
       platform: state
       entity_id: alarm_control_panel.home
@@ -91,7 +91,7 @@ Screenshot of Biometric Unlock.
 
 We have also been hard at working making improvements in other areas of the app:
 
-* There are now 2 [widgets](https://companion.home-assistant.io/docs/core/android-widgets) that you can set up, with Entity State being the latest addition. The Entity State widget will display the state and any attribute of the selected entity. It will update once every 30 minutes or when tapped. The Service Call widget was also enhanced to allow you to select from a list of valid and available services along with the ability to add additional data fields that the service may require.
+* There are now 2 [widgets](https://companion.home-assistant.io/docs/integrations/android-widgets) that you can set up, with Entity State being the latest addition. The Entity State widget will display the state and any attribute of the selected entity. It will update once every 30 minutes or when tapped. The Service Call widget was also enhanced to allow you to select from a list of valid and available services along with the ability to add additional data fields that the service may require.
 * In App Configuration the Home Network WiFi SSID option now allows the user to select multiple SSIDs.
 * A Cookie Manager was added to our WebView that will allow you to save cookies from sites that you may use in the [webpage card](/lovelace/iframe/).
 * More descriptive SSL error messages were added to help users resolve local issues they may encounter while setting up the app.
@@ -130,7 +130,7 @@ Another avenue of improvement is making things a bit easier. You’ll now find e
 
 #### A look ahead at iOS 14
 
-Coming to iOS 14 is Widgets, and no doubt there’s some huge potential here. A good analogy for what they can do is to think of them as Apple Watch complications; relatively static displays that can be updated with a multitude of data. One thing we’d love is to get an idea of the information and displays you’re interested in seeing here as Widgets get built out over the next few months. Please let us know any ideas you have on [this thread](https://community.home-assistant.io/t/what-kind-of-ios-14-widgets-would-you-like-to-see).
+Coming to iOS 14 is Widgets, and no doubt there’s some huge potential here. A good analogy for what they can do is to think of them as Apple Watch complications; relatively static displays that can be updated with a multitude of data. One thing we’d love is to get an idea of the information and displays you’re interested in seeing here as Widgets get built out over the next few months. Please let us know any ideas you have on [this thread](https://community.home-assistant.io/t/what-kind-of-ios-14-big-sur-widgets-would-you-like-to-see).
 
 iOS 14 is also introducing [Local Push Connectivity](https://developer.apple.com/documentation/networkextension/local_push_connectivity), which adds support for push notifications on your local network that do not require a trip to the cloud. This, like Critical Alerts, requires explicit approval from Apple, but we’re hopeful about improving the experience with your boats and RVs!
 

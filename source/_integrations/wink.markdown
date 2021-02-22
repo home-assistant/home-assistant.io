@@ -18,6 +18,17 @@ featured: false
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
 ha_domain: wink
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
+  - water_heater
 ---
 
 [Wink](https://www.wink.com/) is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:
@@ -370,7 +381,7 @@ script:
       - service: wink.set_nimbus_dial_state
         data:
           entity_id: wink.nimbus_dial_1
-          rotation: 'ccw'
+          rotation: "ccw"
 ```
 
 ## Alarm Control Panel

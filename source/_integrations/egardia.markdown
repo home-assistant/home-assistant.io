@@ -10,6 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@jeroenterheerdt'
 ha_domain: egardia
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
 ---
 
 The `egardia` platform enables the ability to control an [Egardia](https://egardia.com/)/[Woonveilig](https://woonveilig.nl) control panel. These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands. This was tested on the WL-1716, GATE-01, GATE-02 and GATE-03 versions of the Egardia/Woonveilig platform. Not only will you integrate your alarm control panel, supported sensors (door contacts at this moment) will be added automatically.
@@ -45,7 +48,7 @@ version:
   description: The version of the Egardia system. `GATE-01`, `GATE-02` and `GATE-03` are currently supported.
   required: false
   type: string
-  default: 'GATE-01'
+  default: "GATE-01"
 port:
   description: The port of the alarm panel.
   required: false
@@ -98,7 +101,7 @@ There seem to be multiple versions of software running on GATE-02 devices; we ha
 ## Advanced configuration
 
 1. Log in to your alarm system's control panel. You will need to access http://[IP of your control panel]. You know this already since you need it in the basic configuration from above. Log in to the control panel with your Egardia/Woonveilig username and password.
-2. Once logged in, go to *System Settings*, *Report* and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. You can leave the port number set to 52010 or change it to anything you like. **Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia's / Woonveilig services.** Maybe, that is just what you want. Make sure to save your settings by selecting 'OK'.
+2. Once logged in, go to *System Settings*, *Report* and change the Server Address for your primary server to the IP or hostname of your Home Assistant machine. You can leave the port number set to 52010 or change it to anything you like. **Make sure to change the settings of the primary server otherwise the messages will not come through. Note that this will limit (or fully stop) the number of alarm messages you will get through Egardia's / Woonveilig services.** Maybe, that is just what you want. Make sure to save your settings by selecting 'OK'. **If the system support XMPP, disable XMPP by invalidating the configuration in the XMPP menu (for example by changing the user name). This is required for recent firmwares of the GATE-03 system as it does not use the Reporting server at all in the case of a valid XMPP configuration.**
 3. The Egardia integration relies on capturing the status codes that your alarm emits when something happens (status change or trigger). These codes will be unique for every situation - i.e., the code emitted by the alarm when a sensor is triggered is unique to that sensor. Also, if you have multiple users or remotes, each remote has unique codes that are emitted by the alarm when status is changed using that remote or by that user. For the Egardia integration to work correctly you will need to capture the codes. To do this, on your Home Assistant machine run `$ sudo python3 egardiaserver.py`. Refer to the [python-egardia repository](https://github.com/jeroenterheerdt/python-egardia) for detailed documentation on parameters. This will receive status codes from your alarm control panel and display them. Record the codes shown as well as the status they relate to (see step 4 below). Make sure to change the status of your alarm to all states (disarm, arm, home) by all means possible (all users, remotes, web login, app) as well as trigger the alarm in all ways possible to get 100% coverage of all the codes the alarm system generates. You will need to run this script once and stop it once you have captured all the possible codes. Also, if you ever add users, remotes or sensors to your alarm system, make sure to re-run the script to capture the extra codes so you can update your configuration (see step 4 below). **For comfort, before triggering the alarm it might be good to disable the siren temporarily (can be done in Panel Settings).**
 4. Once you have the codes, update your `configuration.yaml`:
    ```yaml

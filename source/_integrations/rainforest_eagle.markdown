@@ -10,6 +10,8 @@ ha_codeowners:
   - '@gtdiehl'
   - '@jcalbert'
 ha_domain: rainforest_eagle
+ha_platforms:
+  - sensor
 ---
 
 A `sensor` platform for the Rainforest Automation's [Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/)
@@ -38,7 +40,7 @@ cloud_id:
   required: true
   type: string
 install_code:
-  description: The Install Code that is printed on the bottom of the Eagle
+  description: "The Install Code that is printed on the bottom of the Eagle. Use the full Install Code with no spaces (e.g., `1a2b3c4d5a6b7c8d`)"
   required: true
   type: string
 {% endconfiguration %}

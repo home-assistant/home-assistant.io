@@ -3,9 +3,12 @@ title: Mailgun
 description: Instructions on how to add Mailgun mail notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.38
 ha_config_flow: true
 ha_domain: mailgun
+ha_platforms:
+  - notify
 ---
 
 To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the extern URL [configured](/docs/configuration/basic)).
@@ -56,7 +59,8 @@ automation:
       action: call_service
   action:
     service: light.turn_on
-    entity_id: light.office
+    target:
+      entity_id: light.office
 ```
 
 ## Notifications
@@ -74,19 +78,11 @@ notify:
 ```
 
 {% configuration %}
-domain:
-  description: This is the domain name to be used when sending out mail.
-  required: true
-  type: string
-sandbox:
-  description: "(**Deprecated**) If a sandboxed domain is used, specify it in `domain`."
+name:
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
   required: false
-  default: false
-  type: boolean
-api_key:
-  description: This is the API Key that has been generated in your Mailgun account.
-  required: true
   type: string
+  default: notify
 recipient:
   description: The email address of the recipient.
   required: true

@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@andrey-git'
 ha_domain: sensibo
+ha_platforms:
+  - climate
 ---
 
 Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.

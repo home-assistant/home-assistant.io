@@ -10,6 +10,14 @@ ha_codeowners:
   - '@syssi'
 ha_domain: xiaomi_aqara
 ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The `xiaomi_aqara` integration allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
@@ -69,11 +77,6 @@ key:
   description: The key of your gateway. *Optional if only using sensors and/or binary sensors.*
   required: false
   type: string
-discovery_retry:
-  description: Number of times that Home Assistant should try to discover subdevices of the gateway.
-  required: false
-  type: integer
-  default: 3
 name:
   description: Name of the Gateway
   required: false
@@ -158,7 +161,7 @@ This example plays the sound of a dog barking when the button is held down and s
 *Note: The sound will stop playing automatically when it has ended.*
 
 ```yaml
-- alias: Let a dog bark on long press
+- alias: "Let a dog bark on long press"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -172,7 +175,7 @@ This example plays the sound of a dog barking when the button is held down and s
       ringtone_id: 8
       ringtone_vol: 8
 
-- alias: Stop barking immediately on single click
+- alias: "Stop barking immediately on single click"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -190,7 +193,7 @@ This example plays the sound of a dog barking when the button is held down and s
 This example toggles the living room lamp on a double click of the button.
 
 ```yaml
-- alias: Double Click to toggle living room lamp
+- alias: "Double Click to toggle living room lamp"
   trigger:
     platform: event
     event_type: xiaomi_aqara.click
@@ -221,7 +224,6 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Make sure you have [enabled LAN access](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 - Turn off the firewall on the system where Home Assistant is running.
 - Ensure your router supports multicast as this is a requirement of the Xiaomi Gateway.
-- Try to set `discovery_retry: 10`.
 - Try to disable and then enable LAN access.
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
 - If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.

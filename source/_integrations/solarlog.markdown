@@ -8,6 +8,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@Ernst79'
 ha_domain: solarlog
+ha_platforms:
+  - sensor
 ---
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
@@ -21,47 +23,14 @@ The `solarlog` integration uses the default host address "http://solar-log" if y
 The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-There are 2 options in configuring the `solarlog` integration:
-
-- Via the Home Assistant user interface where it will let you enter the name and host to connect to your Solar-Log device.
-- Via the Home Assistant `configuration.yaml` file.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  platform: solarlog
-```
-
-{% configuration %}
-host:
-  description: The IP Address or host address of your Solar-Log device.
-  required: false
-  default: http://solar-log
-  type: string
-name:
-  description: Let you overwrite the name of the device in the frontend.
-  required: false
-  default: solarlog
-  type: string
-{% endconfiguration %}
-
-### Full configuration sample
-
-A full configuration entry would look like the sample below.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: solarlog
-    name: solarlog
-    host: 192.168.1.123
-```
+## Additional template sensor
 
 In case you would like to convert the values, for example, to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry for sensor template platform
 sensor:
@@ -70,6 +39,7 @@ sensor:
       solarlog_yield_day_template:
         value_template: "{{ (states('sensor.solarlog_yield_day') | float * 1000) | round(0) }}"
 ```
+
 {% endraw %}
 
 ## Sensors

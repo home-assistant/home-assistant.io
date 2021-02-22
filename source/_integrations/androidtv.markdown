@@ -12,6 +12,12 @@ ha_domain: androidtv
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
+<div class='note'>
+
+When setting up this integration, it is recommended that you do NOT use an ADB server and instead use the built-in Python ADB implementation. This simplifies the setup and makes it easier to troubleshoot issues. If there are stability issues with this approach, then you may wish to try using an ADB server. See the [ADB Setup](#adb-setup) section for more information.
+
+</div>
+
 ## Device preparation
 
 To set up your device, you will need to find its IP address and enable ADB debugging. For Android TV devices, please consult the documentation for your device.
@@ -35,12 +41,6 @@ media_player:
   - platform: androidtv
     name: Android TV 1
     host: 192.168.0.111
-
-  # Use an ADB server for sending ADB commands
-  - platform: androidtv
-    name: Android TV 2
-    host: 192.168.0.222
-    adb_server_ip: 127.0.0.1
 ```
 
 {% configuration %}
@@ -215,16 +215,18 @@ You can launch an app on your device using the `media_player.select_source` comm
 start_netflix:
   sequence:
   - service: media_player.select_source
-    data:
+    target:
       entity_id: media_player.fire_tv_living_room
-      source: 'com.netflix.ninja'
+    data:
+      source: "com.netflix.ninja"
 
 stop_netflix:
   sequence:
   - service: media_player.select_source
-    data:
+    target:
       entity_id: media_player.fire_tv_living_room
-      source: '!com.netflix.ninja'
+    data:
+      source: "!com.netflix.ninja"
 ```
 
 ### `androidtv.adb_command`
@@ -241,8 +243,9 @@ In an [action](/getting-started/automation-action/) of your [automation setup](/
 ```yaml
 action:
   service: androidtv.adb_command
-  data:
+  target:
     entity_id: media_player.androidtv_tv_living_room
+  data:
     command: "HOME"
 ```
 
@@ -282,8 +285,9 @@ As an example, a service call in a [script](/docs/scripts) could be changed from
 ```yaml
 # Send the "UP" command (slow)
 - service: androidtv.adb_command
-  data:
+  target:
     entity_id: media_player.fire_tv_living_room
+  data:
     command: UP
 ```
 
@@ -292,8 +296,9 @@ to this:
 ```yaml
 # Send the "UP" command using `sendevent` (faster)
 - service: androidtv.adb_command
-  data:
+  target:
     entity_id: media_player.fire_tv_living_room
+  data:
     command: "sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 0 && sendevent /dev/input/event4 0 0 0"
 ```
 

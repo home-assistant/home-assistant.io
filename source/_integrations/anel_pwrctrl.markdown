@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_domain: anel_pwrctrl
+ha_platforms:
+  - switch
 ---
 
 The `anel_pwrctrl` switch platform allows you to control [ANEL PwrCtrl](https://anel-elektronik.de/SITE/produkte/produkte.htm) devices.

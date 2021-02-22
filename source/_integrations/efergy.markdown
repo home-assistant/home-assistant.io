@@ -6,6 +6,8 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_domain: efergy
+ha_platforms:
+  - sensor
 ---
 
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.

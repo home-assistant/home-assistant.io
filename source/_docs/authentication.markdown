@@ -1,8 +1,6 @@
 ---
 title: "Authentication"
 description: "Guide on authentication in Home Assistant."
-redirect_from:
-  - /integrations/auth/
 ---
 
 Our authentication system secures access to Home Assistant.

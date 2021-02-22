@@ -3,8 +3,11 @@ title: Discord
 description: Instructions on how to add Discord notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: discord
+ha_platforms:
+  - notify
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
@@ -41,7 +44,7 @@ token:
 Bots can send messages to servers and users or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/discord-bot.png' />
+  <img src='/images/screenshots/discord-bot.png' />
 </p>
 
 Now use the Discord Authorization page with the **Client ID** of your [bot](https://discordapp.com/developers/docs/topics/oauth2#bots).
@@ -49,7 +52,7 @@ Now use the Discord Authorization page with the **Client ID** of your [bot](http
 `https://discordapp.com/api/oauth2/authorize?client_id=[CLIENT_ID]&scope=bot&permissions=0`
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/discord-auth.png' />
+  <img src='/images/screenshots/discord-auth.png' />
 </p>
 
 Wait for the confirmation which should say "Authorized".
@@ -57,12 +60,36 @@ Wait for the confirmation which should say "Authorized".
 Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Appearance** > **Check developer mode**.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/discord-api.png' />
+  <img src='/images/screenshots/discord-api.png' />
 </p>
 
 Right click channel name and copy the channel ID (**Copy ID**).
 
 This channel or user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
+
+### Discord Service Data
+
+The following attributes can be placed inside the `data` key of the service call for extended functionality:
+
+| Attribute              | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `images`               |      yes | The file(s) to attach to message.
+| `embed`                |      yes | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required.
+
+
+To include messages with embedding, use these attributes underneath the `embed` key:
+
+| Attribute              | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `title`                    |      yes  | Title of the embed.
+| `description`               |      yes | Description of the embed.
+| `color`                    |      yes  | Color code of the embed.  This value is an *int*.
+| `url`               |      yes | URL of the embed.
+| `author`                    |      yes  | Sets the footer for the embed content.
+| `footer`               |      yes | Sets the footer for the embed content.
+| `thumbnail`               |      yes | Sets the thumbnail for the embed content.
+| `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
+
 
 #### Example service call
 
@@ -75,6 +102,40 @@ This channel or user ID has to be used as the target when calling the notificati
       images: 
       - "/tmp/garage_cam"
       - "/tmp/garage.jpg"
+```
+
+#### Example embed service call
+```yaml
+- service: notify.discord
+  data:
+    message: ""
+    target: ["1234567890", "0987654321"]
+    data:
+      embed:
+        title: 'title'
+        description: 'description'
+        url: 'https://www.home-assistant.io'
+        color: 199363
+        author:
+          name: 'Author Home Assistant'
+          url: 'https://www.home-assistant.io'
+          icon_url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
+        footer:
+          text: 'Footer Text'
+          icon_url: 'https://www.home-assistant.io'
+        thumbnail:
+          url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
+        fields:
+          - name: 'fieldname1'
+            value: 'valuename1'
+            inline: false
+          - name: 'fieldname2'
+            value: 'valuename2'
+          - name: 'fieldname3'
+            value: 'valuename3'
+          - name: 'fieldname4'
+            value: 'valuename4'
+            inline: false
 ```
 
 ### Notes

@@ -6,18 +6,12 @@ ha_category:
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera
-ha_codeowners:
-  - '@joogps'
 ha_config_flow: true
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
-## Configuration
-
-To configure your Panasonic Viera TV, head to the **Configuration > Integrations** page. Click on the plus (+) button to add a new integration.
-
-Once the integration is loaded, with your TV turned on and connected to your local network, enter the IP address of your TV and a name of your choice.
+{% include integrations/config_flow.md %}
 
 If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
@@ -99,28 +93,34 @@ script:
 - TC-P50ST50
 - TC-P55ST50
 - TC-P60S60
+- TC-P60ST50 (can't power on)
 - TC-P65VT30
+- TH-32ES500
+- TH-P60ST50A
 - TX-32AS520E
 - TX-32DSX609
 - TX-40CXE720
 - TX-40DX600
 - TX-40DX700B
+- TX-42AS650
 - TX-49DX650B
 - TX-50DX700B
-- TX-55CX700E
+- TX-55ASM655
+- TX-55ASW654
 - TX-55CX680B
+- TX-55CX700E
 - TX-55EXW584
 - TX-55EXW604S
+- TX-55FX680W
+- TX-55FZ802B
+- TX-58AX802B
 - TX-58DX700B
 - TX-65EXW784
+- TX-65FX720W
 - TX-L42ET50
+- TX-L47ET60E (can't power on)
 - TX-P42STW50
 - TX-P50GT30Y
 - TX-P50GT60E
-- TH-32ES500
-- TX-42AS650
-- TX55ASW654
-- TX-55FZ802B
-- TX-55ASM655
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
