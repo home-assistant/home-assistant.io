@@ -53,8 +53,9 @@ Resets the waste drawer gauge on the Litter-Robot. This will reset the cycle cou
 
 ```yaml
 service: vacuum.send_command
-data:
+target:
   entity_id: vacuum.litter_robot_litter_box
+data:
   command: reset_waste_drawer
 ```
 
@@ -71,8 +72,9 @@ Example of setting the sleep mode to begin at 10:30 PM.
 
 ```yaml
 service: vacuum.send_command
-data:
+target:
   entity_id: vacuum.litter_robot_litter_box
+data:
   command: set_sleep_mode
   params:
     enabled: true
