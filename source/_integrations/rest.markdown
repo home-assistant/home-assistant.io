@@ -30,7 +30,7 @@ rest:
     scan_interval: 60
     resource: http://192.168.1.12/status.xml
     sensor:
-      - name: Adult Pool Data System
+      - name: "Adult Pool Data System"
         json_attributes_path: "$.response.system"
         value_template: 'OK'
         json_attributes:
