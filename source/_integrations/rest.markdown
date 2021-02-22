@@ -68,10 +68,10 @@ rest:
           - "spatemp"
           - "airtemp"
   - authentication: basic
-    username: admin
-    password: password
+    username: "admin"
+    password: "password"
     scan_interval: 60
-    resource: http://192.168.1.13/status.xml
+    resource: "http://192.168.1.13/status.xml"
     sensor:
       - name: Kiddie Pool Data System
         json_attributes_path: "$.response.system"
