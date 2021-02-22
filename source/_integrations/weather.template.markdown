@@ -26,7 +26,7 @@ To enable a Template Weather provider in your installation, add the following to
 # Example configuration.yaml entry
 weather:
   - platform: template
-    name: my very own weather station
+    name: "my very own weather station"
     condition_template: "sunny"
     temperature_template: "{{ states('sensor.temperature') | float}}"
     humidity_template: "{{ states('sensor.humidity')| float }}"
