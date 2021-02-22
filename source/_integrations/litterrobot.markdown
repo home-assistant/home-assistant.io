@@ -4,7 +4,7 @@ description: Instructions on how to integrate a Litter-Robot WiFi-enabled, autom
 ha_category:
   - Vacuum
 ha_iot_class: Cloud Polling
-ha_release: 2021.2
+ha_release: 2021.3
 ha_config_flow: true
 ha_quality_scale: gold
 ha_codeowners:
@@ -35,9 +35,9 @@ This integration can be configured via the UI:
 
 The following entities are created for this component:
 
-| Entity     | Domain   | Attributes                                                                   |
-| ---------- | -------- | ---------------------------------------------------------------------------- |
-| Litter Box | `vacuum` | clean cycle wait time minutes<br/>is sleeping<br/>power status<br/>last seen |
+| Entity     | Domain   | Attributes                                                                                        |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------- |
+| Litter Box | `vacuum` | clean cycle wait time minutes<br/>is sleeping<br/>power status<br/>unit status code<br/>last seen |
 
 All of the entities above are grouped together and identified by a single device.
 
