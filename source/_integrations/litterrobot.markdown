@@ -1,6 +1,6 @@
 ---
 title: Litter-Robot
-description: Instructions on how to integrate a Litter-Robot WiFi-enabled, automatic, self-cleaning litter box to Home Assistant.
+description: Instructions on how to integrate a Litter-Robot Wi-Fi-enabled, automatic, self-cleaning litter box to Home Assistant.
 ha_category:
   - Vacuum
 ha_iot_class: Cloud Polling
@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: litterrobot
 ---
 
-The Litter-Robot integration allows you to control and monitor your WiFi-enabled, automatic, self-cleaning litter box for cats.
+The Litter-Robot integration allows you to control and monitor your Wi-Fi-enabled, automatic, self-cleaning litter box for cats.
 
 You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot unit that has already been associated with your account.
 
@@ -26,77 +26,55 @@ There is currently support for the following device types within Home Assistant:
 
 The following entities are created for this component:
 
-| Entity     | Domain   | Attributes                                                                                        |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------- |
-| Litter Box | `vacuum` | clean cycle wait time minutes<br/>is sleeping<br/>power status<br/>unit status code<br/>last seen |
+| Entity     | Domain   |
+| ---------- | -------- |
+| Litter Box | `vacuum` |
 
 All of the entities above are grouped together and identified by a single device.
 
-## Services
+## Attributes
 
-In addition to the entities that are created above, some services that are built-in to the vacuum domain are utilized for additional functionality that is available in the Litter-Robot companion app.
+The following additional attributes are available on the `vacuum` component:
+| Attribute                     | Type    | Definition                                                                                                                                                         |
+| ----------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| clean_cycle_wait_time_minutes | integer | Current wait time, in minutes, between when your cat uses the Litter-Robot and when the unit cycles automatically.                                                 |
+| is_sleeping                   | boolean | Whether or not the unit is currently in sleep mode.                                                                                                                |
+| power_status                  | string  | Current power status of the unit. `AC` indicates normal power, `DC` indicates battery backup and `NC` indicates that the unit is not connected and/or powered off. |
+| unit_status_code              | string  | The [unit status code](https://github.com/natekspencer/pylitterbot/blob/main/pylitterbot/robot.py#L21) associated with the current status of the vacuum.           |
+| last_seen                     | string  | UTC datetime the unit last reported its status.                                                                                                                    |
 
-Replace `<entity_id>` in any of the below snippets with the appropriate value of your Litter-Robot vacuum entity.
+## Commands
 
-### vacuum.turn_off
+In addition to the entities that are created above, some commands are utilized for additional functionality that is available in the Litter-Robot companion app.
 
-Supports turning off your Litter-Robot. If the unit is currently cycling, it will interrupt the cycle and stop the bonnet where it is at the time the command is received.
+### reset_waste_drawer
 
-```yaml
-service: vacuum.turn_off
-entity_id: <entity_id>
-```
-
-### vacuum.turn_on
-
-Supports turning on your Litter-Robot, initiating a clean cycle.
-
-```yaml
-service: vacuum.turn_on
-entity_id: <entity_id>
-```
-
-### vacuum.send_command
-
-#### reset_waste_drawer
-
-Resets the waste drawer gauge on the Litter-Robot.
+Resets the waste drawer gauge on the Litter-Robot. This will reset the cycle count returned by the Litter-Robot API to `0`.
 
 ```yaml
 service: vacuum.send_command
 data:
-  entity_id: <entity_id>
+  entity_id: vacuum.litter_robot_litter_box
   command: reset_waste_drawer
 ```
 
-Alternatively, you can create a script using the snippet below that can then be reused across Home Assistant.
+### set_sleep_mode
 
-```yaml
-alias: Reset Waste Drawer
-sequence:
-  - service: vacuum.send_command
-    data:
-      entity_id: <entity_id>
-      command: reset_waste_drawer
-mode: single
-icon: 'mdi:refresh'
-```
+Enables (with `sleep_time` param) or disables sleep mode on the Litter-Robot.
 
-#### set_sleep_mode
+| Param      | Type   | Required                                        | Description                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | ------ | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| enabled    | bool   | yes                                             | Set to true to enable and false to disable.                                                                                                                                                                                                                                                                                                              |
+| sleep_time | string | Required if the param `enabled` is set to true. | Time at which the unit will enter sleep mode and prevent an automatic clean cycle for 8 hours. This param uses the 24-hour format string `%H:%M:%S`, with seconds being optional, and is based on the timezone configured for your Home Assistant installation. As such, `10:30:00` would indicate 10:30 AM, whereas `22:30:00` would indicate 10:30 PM. |
 
-Enables (with sleep time param) or disables sleep mode on the Litter-Robot.
-
-| Param      | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                              |
-| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| enabled    | bool   | true to enable, false to disable                                                                                                                                                                                                                                                                                                                                                                         |
-| sleep_time | string | time at which the unit will enter sleep mode and prevent an automatic clean cycle for 8 hours. This param uses the 24-hour format string `%H:%M:%S`, with seconds being optional, and is based on the timezone configured for your Home Assistant installation. As such, `10:30:00` would indicate 10:30 am, whereas `22:30:00` would indicate 10:30 pm. Required if the param `enabled` is set to true. |
+Example of setting the sleep mode to begin at 10:30 PM.
 
 ```yaml
 service: vacuum.send_command
 data:
-  entity_id: <entity_id>
+  entity_id: vacuum.litter_robot_litter_box
   command: set_sleep_mode
   params:
     enabled: true
-    sleep_time: '22:30:00'
+    sleep_time: "22:30:00"
 ```
