@@ -9,16 +9,20 @@ When the script is executed within an automation the `trigger` variable is avail
 
 The script syntax basic structure is a list of key/value maps that contain actions. If a script contains only 1 action, the wrapping list can be omitted.
 
+All actions support an optional `alias`.
+
 ```yaml
 # Example script integration containing script syntax
 script:
   example_script:
     sequence:
       # This is written using the Script Syntax
-      - service: light.turn_on
+      - alias: "Turn on ceiling light"
+        service: light.turn_on
         target:
           entity_id: light.ceiling
-      - service: notify.notify
+      - alias: "Notify that ceiling light is turned on"
+        service: notify.notify
         data:
           message: "Turned on the ceiling light!"
 ```
@@ -70,7 +74,8 @@ The variables action allows you to set/override variables that will be accessibl
 {% raw %}
 
 ```yaml
-- variables:
+- alias: "Set variables"
+  variables:
     entities: 
       - light.kitchen
       - light.living_room
@@ -91,6 +96,7 @@ While executing a script you can add a condition to stop further execution. When
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
+  alias: "Check if Paulus is home"
 - condition: state
   entity_id: device_tracker.paulus
   state: "home"
@@ -105,7 +111,8 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Seconds
 # Waits 5 seconds
-- delay: 5
+- alias: "Wait 5s"
+  delay: 5
 ```
 
 ```yaml
@@ -154,8 +161,9 @@ The template is re-evaluated whenever an entity ID that it references changes st
 {% raw %}
 ```yaml
 
-# Wait until media player have stop the playing
-- wait_template: "{{ is_state('media_player.floor', 'stop') }}"
+# Wait until media player is stopped
+- alias: "Wait until media player is stopped"
+  wait_template: "{{ is_state('media_player.floor', 'stop') }}"
 ```
 
 {% endraw %}
@@ -167,7 +175,8 @@ This action can use the same triggers that are available in an automation's `tri
 
 ```yaml
 # Wait for a custom event or light to turn on and stay on for 10 sec
-- wait_for_trigger:
+- alias: "Wait for MY_EVENT or light on"
+  wait_for_trigger:
     - platform: event
       event_type: MY_EVENT
     - platform: state
@@ -186,7 +195,8 @@ With both types of waits it is possible to set a timeout after which the script 
 
 ```yaml
 # Wait for sensor to change to 'on' up to 1 minute before continuing to execute.
-- wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
+- alias: "Wait for sensor 'on' for 1 minute"
+  wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
   timeout: "00:01:00"
 ```
 
@@ -198,7 +208,8 @@ You can also get the script to abort after the timeout by using optional `contin
 ```yaml
 
 # Wait for IFTTT event or abort after specified timeout.
-- wait_for_trigger:
+- alias: "Wait for IFTTT, or abort"
+  wait_for_trigger:
     - platform: event
       event_type: ifttt_webhook_received
       event_data:
@@ -228,7 +239,8 @@ This can be used to take different actions based on whether or not the condition
 
 ```yaml
 # Take different actions depending on if condition was met.
-- wait_template: "{{ is_state('binary_sensor.door', 'on') }}"
+- alias: "Wait for door on"
+  wait_template: "{{ is_state('binary_sensor.door', 'on') }}"
   timeout: 10
 - choose:
     - conditions: "{{ not wait.completed }}"
@@ -266,7 +278,8 @@ This can be used to take different actions based on whether or not the condition
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
 ```yaml
-- event: LOGBOOK_ENTRY
+- alias: "Fire LOGBOOK_ENTRY event"
+  event: LOGBOOK_ENTRY
   event_data:
     name: Paulus
     message: is waking up
@@ -340,10 +353,12 @@ script:
   flash_light:
     mode: restart
     sequence:
-      - service: light.turn_on
+      - alias: "Turn light on"
+        service: light.turn_on
         target:
           entity_id: "light.{{ light }}"
-      - repeat:
+      - alias: "Cycle light count times"
+        repeat:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
             - delay: 2
@@ -352,7 +367,8 @@ script:
                 entity_id: "light.{{ light }}"
   flash_hallway_light:
     sequence:
-      - service: script.flash_light
+      - alias: "Flash hallway light 3 times"
+        service: script.flash_light
         data:
           light: hallway
           count: 3
@@ -480,8 +496,8 @@ automation:
         entity_id: binary_sensor.motion
         to: "on"
     action:
+      - alias: "IF nobody home, sound the alarm!
       - choose:
-          # IF nobody home, sound the alarm!
           - conditions:
               - condition: state
                 entity_id: group.family
@@ -503,7 +519,8 @@ automation:
         entity_id: binary_sensor.motion
     mode: queued
     action:
-      - choose:
+      - alias: "Turn on front lights if motion detected, else turn off"
+        choose:
           # IF motion detected
           - conditions:
               - condition: template
@@ -530,7 +547,8 @@ automation:
         to: "on"
     mode: restart
     action:
-      - choose:
+      - alias: "Choose time of day"
+        choose:
           # IF morning
           - conditions:
               - condition: template
