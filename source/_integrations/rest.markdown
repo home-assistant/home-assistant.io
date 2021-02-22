@@ -4,7 +4,7 @@ description: Instructions on how to set up rest sensors within Home Assistant.
 ha_category:
   - Sensor
   - Binary Sensor
-ha_release: 2021.3
+ha_release: 0.7.4
 ha_iot_class: Local Polling
 ha_quality_scale: internal
 ha_codeowners:
