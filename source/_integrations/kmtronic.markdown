@@ -3,7 +3,7 @@ title: KMTronic
 description: Integrate KMTronic devices
 ha_category:
   - Switch
-ha_release: 0.119
+ha_release: 2021.3 
 ha_codeowners:
   - '@dgomes'
 ha_iot_class: Local Push
