@@ -274,6 +274,18 @@ remove:
   default: false
 {% endconfiguration %}
 
+### Register Exposure
+
+The `knx.exposure_register` service can be used to register (or unregister) exposures to the KNX bus. Exposures defined in `configuration.yaml` can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
+
+{% configuration %}
+remove:
+  description: In addition to the configuration variables of [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus) `remove` set to `True` can be used to remove exposures. Only `address` is required for removal.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
+
 ## Exposing entity states, entity attributes or time to KNX bus
 
 KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address. It is also possible to expose the current time.
