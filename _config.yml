@@ -179,7 +179,7 @@ toc:
 # Configuration for installation pages
 installation:
   versions:
-    os: "5.11"
+    os: "5.12"
     python: "3.8"
   types:
     odroid:

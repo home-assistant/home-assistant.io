@@ -121,8 +121,9 @@ You can automate changing the effect using a service call like this:
 
 ```yaml
 service: wled.effect
-data:
+target:
   entity_id: light.wled
+data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
 ```
 
@@ -148,8 +149,9 @@ In this case (using WLED v0.11.0) there are 54 palettes, so the following servic
 
 ```yaml
 service: wled.effect
-data:
+target:
   entity_id: light.wled
+data:
   palette: "{{ range(0,53) | random }}"
 ```
 

@@ -45,11 +45,11 @@ automation:
     at: "07:15:00"
   action:
     - service: fan.set_percentage
-      data:
+      target:
         entity_id: fan.kitchen
+      data:
         percentage: 33
 ```
-
 
 ### Service `fan.set_preset_mode`
 
@@ -69,8 +69,9 @@ automation:
     at: "07:15:00"
   action:
     - service: fan.set_preset_mode
-      data:
+      target:
         entity_id: fan.kitchen
+      data:
         preset_mode: auto
 ```
 
@@ -92,8 +93,9 @@ automation:
     at: "07:15:00"
   action:
     - service: fan.set_direction
-      data:
+      target:
         entity_id: fan.kitchen
+      data:
         direction: forward
 ```
 
@@ -115,8 +117,9 @@ automation:
     at: "07:15:00"
   action:
     - service: fan.oscillate
-      data:
+      target:
         entity_id: fan.kitchen
+      data:
         oscillating: True
 ```
 
@@ -157,8 +160,9 @@ automation:
     at: "07:15:00"
   action:
     - service: fan.set_speed
-      data:
+      target:
         entity_id: fan.kitchen
+      data:
         speed: low
 ```
 
@@ -183,7 +187,8 @@ automation:
     subtype: raise
   action:
   - service: fan.increase_speed
-    entity_id: fan.dining_room_fan_by_front_door
+    target:
+      entity_id: fan.dining_room_fan_by_front_door
 ```
 
 ### Service `fan.decrease_speed`
@@ -207,5 +212,6 @@ automation:
     subtype: lower
   action:
   - service: fan.decrease_speed
-    entity_id: fan.dining_room_fan_by_front_door
+    target:
+      entity_id: fan.dining_room_fan_by_front_door
 ```

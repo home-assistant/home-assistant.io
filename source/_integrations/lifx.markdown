@@ -47,8 +47,9 @@ automation:
       # ...
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.office, light.kitchen
+        data:
           effect: lifx_effect_pulse
 ```
 
@@ -59,8 +60,9 @@ script:
     alias: "Start colorloop"
     sequence:
       - service: lifx.effect_colorloop
-        data:
+        target:
           entity_id: group.livingroom
+        data:
           brightness: 255
           period: 10
           spread: 30

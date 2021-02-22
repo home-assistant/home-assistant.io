@@ -102,33 +102,35 @@ media_player:
   commands:
     turn_on:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.living_room_tv
     turn_off:
       service: switch.turn_off
-      data:
+      target:
         entity_id: switch.living_room_tv
     volume_up:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.living_room_volume_up
     volume_down:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.living_room_volume_down
     volume_mute:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.living_room_mute
     select_source:
       service: media_player.select_source
-      data:
+      target:
         entity_id: media_player.receiver
+      data:
         source: "{{ source }}"
     volume_set:
       service: media_player.volume_set
-      data:
+      target:
         entity_id: media_player.receiver
+      data:
         volume_level: "{{ volume_level }}"
 
   attributes:
@@ -176,11 +178,11 @@ media_player:
   commands:
     turn_on:
       service: media_player.turn_on
-      data:
+      target:
         entity_id: media_player.kodi
     turn_off:
       service: media_player.turn_off
-      data:
+      target:
         entity_id: media_player.kodi
   attributes:
     is_volume_muted: media_player.kodi|is_volume_muted
@@ -191,25 +193,27 @@ media_player:
   host: 192.168.1.10
   turn_on_action:
   - service: input_boolean.turn_on
-    data:
+    target:
       entity_id: input_boolean.kodi_tv_state
   - service: media_player.kodi_call_method
-    data:
+    target:
       entity_id: media_player.kodi
+    data:
       method: Addons.ExecuteAddon
       addonid: script.json-cec
       params:
         command: activate
   turn_off_action:
   - service: input_boolean.turn_off
-    data:
+    target:
       entity_id: input_boolean.kodi_tv_state
   - service: media_player.media_stop
-    data:
+    target:
       entity_id: media_player.kodi
   - service: media_player.kodi_call_method
-    data:
+    target:
       entity_id: media_player.kodi
+    data:
       method: Addons.ExecuteAddon
       addonid: script.json-cec
       params:
@@ -281,8 +285,9 @@ media_player:
           command: VolumeDown
       select_source:
         service: remote.turn_on
-        data:
+        target:
           entity_id: remote.alexander_down_guest
+        data:
           activity: "{{ source }}"
     device_class: tv
 ```

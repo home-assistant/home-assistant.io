@@ -58,6 +58,6 @@ media_player:
     host: 192.168.0.20
     turn_on_action:
       service: switch.turn_on
-      data:
+      target:
         entity_id: switch.tv_switch
 ```

@@ -96,8 +96,9 @@ script:
   play_jazz_guitar:
     sequence:
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.spotify
+        data:
           media_content_id: "https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg"
           media_content_type: playlist
 ```

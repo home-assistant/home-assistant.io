@@ -74,17 +74,18 @@ script:
     alias: "Show who's at the door"
     sequence:
       - service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.living_room_tv
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.living_room_tv
+        data:
           media_content_type: "url"
           media_content_id: YOUR_URL
       - delay:
         seconds: 5
       - service: media_player.media_stop
-        data:
+        target:
           entity_id: media_player.living_room_tv
 ```
 

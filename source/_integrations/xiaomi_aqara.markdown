@@ -202,7 +202,7 @@ This example toggles the living room lamp on a double click of the button.
       click_type: double
   action:
     service: light.toggle
-    data:
+    target:
       entity_id: light.living_room_lamp
 ```
 
@@ -231,16 +231,5 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
   - You should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances, there is an issue with keys being generated using the iOS application.
   - You need to make sure to have multicast support on your network. If you are running Home Assistant in a virtual machine (like Proxmox), try `echo 0 >/sys/class/net/vmbr0/bridge/multicast_snooping` on the host and restart the service or reboot the host.
 - If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g., `$ sudo apt-get install python3-dev libssl-dev libffi-dev`).
-- If your gateway's MAC address starts with `04:CF:8C` or `7C:49:EB`, there is a good chance that the required port `9898` is closed on your gateway (you can check it with the Nmap utility, using the command `sudo nmap -sU {gateway_ip} -p 9898`). To fix that issue, you need to do these steps:
-  - Find a specific screw bit (like a fork) to open the gateway case.
-  - Find a USB-UART cable/module and connect it to your computer.
-  - Solder 3 wires - RX, TX and GND like [here](https://cs5-3.4pda.to/14176168/IMG_20181020_201150.jpg).
-  - Turn on the gateway (220V).
-  - Open a serial terminal application (e.g.,  PuTTY) and connect to the serial port assigned to the USB-UART module (baudrate: 115200).
-  - Wait until the gateway is booted up, connect the RX, TX and GND wires to the UART module (don't connect the Vcc (power) wire!).
-   - RX on UART to TX on gateway
-   - TX on UART to RX on gateway
-  - You will see all the messages from the gateway.
-  - Send the command `psm-set network open_pf 3` (the command has to end with a `CR` newline character).
-  - Check your settings executing the command `psm-get network open_pf` to be sure it's OK.
-  - Restart the gateway.
+
+If your gateway's MAC address starts with `04:CF:8C` or `7C:49:EB`, there is a good chance that the required port `9898` is closed on your gateway and thus, this method doesn't work. There are workarounds available online, however this requires soldering and working with electricity.

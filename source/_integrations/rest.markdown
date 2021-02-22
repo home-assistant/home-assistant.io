@@ -453,22 +453,22 @@ switch:
             data:
                led: 6
           - service: homeassistant.update_entity
-            data:
+            target:
                entity_id: sensor.steam_system_data
           - delay: 00:00:15
           - service: homeassistant.update_entity
-            data:
+            target:
                entity_id: sensor.steam_system_data
         turn_off:
           - service: rest_command.set_steam_led
             data:
                led: 7
           - service: homeassistant.update_entity
-            data:
+            target:
                entity_id: sensor.steam_system_data
           - delay: 00:00:15
           - service: homeassistant.update_entity
-            data:
+            target:
                entity_id: sensor.steam_system_data
         friendly_name: Steam
 
