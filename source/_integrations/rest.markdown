@@ -32,7 +32,7 @@ rest:
     sensor:
       - name: "Adult Pool Data System"
         json_attributes_path: "$.response.system"
-        value_template: 'OK'
+        value_template: "OK"
         json_attributes:
           - "runstate"
           - "model"
