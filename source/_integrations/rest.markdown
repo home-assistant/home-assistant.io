@@ -1,6 +1,6 @@
 ---
 title: RESTful
-description: Instructions on how to setup rest sensors within Home Assistant.
+description: Instructions on how to set up rest sensors within Home Assistant.
 ha_category:
   - Sensor
   - Binary Sensor
