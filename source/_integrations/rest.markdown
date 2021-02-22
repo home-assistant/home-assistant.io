@@ -45,9 +45,9 @@ rest:
           - "sensor4"
           - "sensor5"
           - "version"
-      - name: Adult Pool Data Equipment
+      - name: "Adult Pool Data Equipment"
         json_attributes_path: "$.response.equipment"
-        value_template: 'OK'
+        value_template: "OK"
         json_attributes:
           - "circuit1"
           - "circuit2"
