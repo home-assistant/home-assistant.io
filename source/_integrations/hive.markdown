@@ -24,40 +24,14 @@ ha_platforms:
   - water_heater
 ---
 
-This `hive` integration uses the same username and password you use on the [Hive website](https://my.hivehome.com) to configure it within Home Assistant. Once configured Home Assisatnt will detect and add all Hive devices, including support for multi-zone heating.
+The Hive integration for Home Assistant allows you to interact with the supported devices and services offered by
+[hivehome.com](https://www.hivehome.com)
 
-## Configuration
+This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2fa authentication is also supported. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
 
-Menu: *Configuration* > *Integrations*
+{% include integrations/config_flow.md %}
 
-Press on **Hive** and configure the integration:
-
-- Enter you Hive Username.
-- Enter you Hive Password.
-
-If you have 2 factor authentication setup on your Hive account, a following dialog will be presented asking for  your code.
-
-### Configuration via YAML
-
-_YAML configuration is still around for people that prefer YAML, but it's deprecated and you should not use it anymore._
-
-```yaml
-# Example configuration.yaml entry
-hive:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: Your username from [https://my.hivehome.com](https://my.hivehome.com).
-  required: true
-  type: string
-password:
-  description: Your password from [https://my.hivehome.com](https://my.hivehome.com).
-  required: true
-  type: string
-{% endconfiguration %}
+_YAML configurations are no longer supported, exisitng configurations will be imported and can then be removed._
 
 ## Options
 
