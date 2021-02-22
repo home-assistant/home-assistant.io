@@ -153,15 +153,13 @@ Explicit connection via KNX/IP routing. This requires multicast communication to
 
 ```yaml
 knx:
-  routing:
-     local_ip: "192.168.2.109"
 ```
 
 {% configuration %}
 local_ip:
-  description: The local IP address of the interface that shall be used to send multicast packets.
+  description: The local IP address of the interface that shall be used to send multicast packets. If omitted the default multicast interface is used.
   type: string
-  required: true
+  required: false
 {% endconfiguration %}
 
 ## Events
