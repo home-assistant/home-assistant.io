@@ -488,7 +488,7 @@ Zone conditions test if an entity is in a certain zone. For zone automation to w
 
 ```yaml
 condition:
-  alias "Paulus at home"
+  alias: "Paulus at home"
   condition: zone
   entity_id: device_tracker.paulus
   zone: zone.home
