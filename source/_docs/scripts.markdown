@@ -195,8 +195,7 @@ With both types of waits it is possible to set a timeout after which the script 
 
 ```yaml
 # Wait for sensor to change to 'on' up to 1 minute before continuing to execute.
-- alias: "Wait for sensor 'on' for 1 minute"
-  wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
+- wait_template: "{{ is_state('binary_sensor.entrance', 'on') }}"
   timeout: "00:01:00"
 ```
 
@@ -208,8 +207,7 @@ You can also get the script to abort after the timeout by using optional `contin
 ```yaml
 
 # Wait for IFTTT event or abort after specified timeout.
-- alias: "Wait for IFTTT, or abort"
-  wait_for_trigger:
+- wait_for_trigger:
     - platform: event
       event_type: ifttt_webhook_received
       event_data:
@@ -239,8 +237,7 @@ This can be used to take different actions based on whether or not the condition
 
 ```yaml
 # Take different actions depending on if condition was met.
-- alias: "Wait for door on"
-  wait_template: "{{ is_state('binary_sensor.door', 'on') }}"
+- wait_template: "{{ is_state('binary_sensor.door', 'on') }}"
   timeout: 10
 - choose:
     - conditions: "{{ not wait.completed }}"
@@ -353,11 +350,10 @@ script:
   flash_light:
     mode: restart
     sequence:
-      - alias: "Turn light on"
-        service: light.turn_on
+      - service: light.turn_on
         target:
           entity_id: "light.{{ light }}"
-      - alias: "Cycle light count times"
+      - alias: "Cycle light 'count' times"
         repeat:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
@@ -484,6 +480,8 @@ Nesting is fully supported.
 Each sequence is paired with a list of conditions. (See the [conditions page] for available options and how multiple conditions are handled.) The first sequence whose conditions are all true will be run.
 An _optional_ `default` sequence can be included which will be run only if none of the sequences from the list are run.
 
+An _optionl_ `alias` can be added to each of the sequences, excluding the `default` sequence.
+
 The `choose` action can be used like an "if" statement. The first `conditions`/`sequence` pair is like the "if/then", and can be used just by itself. Or additional pairs can be added, each of which is like an "elif/then". And lastly, a `default` can be added, which would be like the "else."
 
 {% raw %}
@@ -496,9 +494,9 @@ automation:
         entity_id: binary_sensor.motion
         to: "on"
     action:
-      - alias: "IF nobody home, sound the alarm!
       - choose:
-          - conditions:
+          - alias: "IF nobody home, sound the alarm!
+            conditions:
               - condition: state
                 entity_id: group.family
                 state: not_home
@@ -522,7 +520,8 @@ automation:
       - alias: "Turn on front lights if motion detected, else turn off"
         choose:
           # IF motion detected
-          - conditions:
+          - alias: "Motion detected"
+            conditions:
               - condition: template
                 value_template: "{{ trigger.to_state.state == 'on' }}"
             sequence:
@@ -547,8 +546,7 @@ automation:
         to: "on"
     mode: restart
     action:
-      - alias: "Choose time of day"
-        choose:
+      - choose:
           # IF morning
           - conditions:
               - condition: template
