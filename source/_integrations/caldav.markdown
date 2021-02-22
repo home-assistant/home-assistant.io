@@ -123,6 +123,7 @@ verify_ssl:
 - **message**: The event title with the `search` values extracted. So in the above example for `offset_reached` the message would be set to Very important meeting
 - **description**: The event description.
 - **location**: The event Location.
+- **event_url**: The event URL.
 - **start_time**: Start time of event.
 - **end_time**: End time of event.
 
