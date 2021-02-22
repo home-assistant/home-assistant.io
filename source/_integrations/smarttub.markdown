@@ -5,6 +5,7 @@ ha_category:
   - Climate
   - Sensor
   - Light
+  - Switch
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
