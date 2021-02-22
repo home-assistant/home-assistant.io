@@ -24,7 +24,7 @@ ha_platforms:
   - water_heater
 ---
 
-The Hive integration for Home Assistant allows you to interact with the supported devices and services offered by
+The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
 [hivehome.com](https://www.hivehome.com)
 
 This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2fa authentication is also supported. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
