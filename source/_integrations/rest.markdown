@@ -99,9 +99,9 @@ rest:
           - "circuit6"
           - "circuit7"
           - "circuit8"
-      - name: Kiddie Pool Data Temp
+      - name: "Kiddie Pool Data Temp"
         json_attributes_path: "$.response.temp"
-        value_template: 'OK'
+        value_template: "OK"
         json_attributes:
           - "htstatus"
           - "poolsp"
