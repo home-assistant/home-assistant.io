@@ -72,9 +72,9 @@ optimistic:
 
 {% include integrations/config_flow.md %}
 
-### Potential duplicate with the Tahoma integration
+### Potential duplicate with the Somfy TaHoma integration
 
-If you use the [Tahoma](/integrations/tahoma) integration, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
+If you use the [Somfy TaHoma](/integrations/tahoma) integration, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
 
 ```yaml
 # Example configuration.yaml entry
