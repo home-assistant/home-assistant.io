@@ -124,4 +124,4 @@ If your QNAP device uses self-signed certificates, set the `verify_ssl` option t
 
 ### QNAP device support
 
-This integration works with most (but not all) QNAP devices.  A complete, up-do-date [list of compatible devices can be found here](https://github.com/colinodell/python-qnapstats#device-support).
+This integration works with most (but not all) QNAP devices. A complete, up-to-date [list of compatible devices can be found here](https://github.com/colinodell/python-qnapstats#device-support).
