@@ -19,7 +19,7 @@ ha_platforms:
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
-[RESTful Sensor](/integrations/sensor.rest) and [RESTful Binary_sensor](/integrations/binary_sensor.rest) can also be setup as platforms if there is only a single sensor per endpoint.
+[RESTful Sensor](/integrations/sensor.rest) and [RESTful Binary_sensor](/integrations/binary_sensor.rest) can also be set up as platforms if there is only a single sensor per endpoint.
 
 ```yaml
 # Example configuration.yaml entry
