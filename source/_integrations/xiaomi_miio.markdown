@@ -1168,6 +1168,8 @@ Used to turn remote's blue LED off.
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
 
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
+
 Currently supported services are:
 
 - `start`
@@ -1183,33 +1185,7 @@ Currently supported services are:
 
 ### Configuration
 
-Please follow [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
-`configuration.yaml`.
-
-To add a vacuum to your installation, add the following to `configuration.yaml`:
-
-```yaml
-vacuum:
-  - platform: xiaomi_miio
-    host: 192.168.1.2
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your robot.
-  required: true
-  type: string
-token:
-  description: The API token of your robot.
-  required: true
-  type: string
-name:
-  description: The name of your robot.
-  required: false
-  type: string
-  default: Xiaomi Vacuum cleaner
-{% endconfiguration %}
+To add a vacuum to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Platform Services
 
