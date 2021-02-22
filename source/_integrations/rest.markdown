@@ -25,8 +25,8 @@ The `rest` sensor platform is consuming a given endpoint which is exposed by a [
 # Example configuration.yaml entry
 rest:
   - authentication: basic
-    username: admin
-    password: password
+    username: "admin"
+    password: "password"
     scan_interval: 60
     resource: http://192.168.1.12/status.xml
     sensor:
