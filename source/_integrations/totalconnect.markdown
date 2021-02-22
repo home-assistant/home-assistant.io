@@ -15,13 +15,20 @@ ha_platforms:
   - binary_sensor
 ---
 
-The `totalconnect` integration provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.  
+The `totalconnect` integration provides connectivity with TotalConnect alarm systems used by many alarm companies.
 
 {% include integrations/config_flow.md %}
+
+To find your TotalConnect location number:
+
+ - Use a web browser to log in to the TotalConnect website as the administrator.
+ - Click on your location.
+ - The URL shows the location number after "mylocation/" like this `https://totalconnect2.com/home/mylocation/123456`.
 
 You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
 
 ## Automation example
+
 ```yaml
 automation:
   - alias: "Alarm: Disarmed Daytime"
