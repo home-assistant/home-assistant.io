@@ -85,11 +85,12 @@ data:
 Example 2:
 ```yaml
 service: zwave_js.set_config_parameter
-data:
+target:
   entity_id: switch.fan
+data:
   parameter: 31
   bitmask: 1
-  value: Blink
+  value: "Blink"
 ```
 
 Example 3:
