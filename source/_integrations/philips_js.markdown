@@ -32,7 +32,7 @@ Instructions on how to activate the API and if your model is supported can be fo
 | Channel Favorites  | No               | ?   | Yes                | ?                |
 | Application Select | No               | ?   | Yes                | No               |
 | Application Detect | No               | ?   | Yes                | No               |
-| Browse Url         | No               | No  | No                 | No               |
+| Browse URL         | No               | No  | No                 | No               |
 | Send Key           | No               | No  | No                 | No               |
 | Ambilight Control  | No               | No  | No                 | No               |
 
