@@ -74,8 +74,9 @@ Let's use parameter 31 for [this device](https://devices.zwave-js.io/?jumpTo=0x0
 Example 1:
 ```yaml
 service: zwave_js.set_config_parameter
-data:
+target:
   entity_id: switch.fan
+data:
   parameter: 31
   bitmask: 0x01
   value: 1
