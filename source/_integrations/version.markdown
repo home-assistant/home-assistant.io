@@ -11,6 +11,8 @@ ha_codeowners:
   - '@fabaff'
   - '@ludeeus'
 ha_domain: version
+ha_platforms:
+  - sensor
 ---
 
 The `version` sensor platform that can display the current Home Assistant versions.
@@ -50,7 +52,7 @@ source:
 
 ### Supported images for Home Assistant
 
-`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `raspberrypi4`, `raspberrypi4-64`, `tinker`, `odroid-c2`, `odroid-xu`
+`default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `raspberrypi4`, `raspberrypi4-64`, `tinker`, `odroid-c2`, `odroid-n2`, `odroid-xu`
 
 ## Alternatives for showing local version
 
@@ -95,7 +97,7 @@ sensor:
   - platform: rest
     resource: http://IP_ADDRESS:8123/api/config
     name: Current Version
-    value_template: '{{ value_json.version }}'
+    value_template: "{{ value_json.version }}"
 ```
 
 {% endraw %}

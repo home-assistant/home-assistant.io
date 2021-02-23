@@ -239,7 +239,7 @@ binary_sensor:
       my_device:
         value_template: >-
           {{ is_state('device_tracker.my_device_nmap','home') or is_state('device_tracker.my_device_gps','home') }}
-        device_class: 'presence'
+        device_class: "presence"
         attribute_templates:
           latitude: >-
             {% if is_state('device_tracker.my_device_nmap','home') %}
@@ -301,7 +301,7 @@ binary_sensor:
   - platform: template
     sensors:
       has_unavailable_states:
-        value_template: '{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
+        value_template: "{{ states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}"
 ```
 
 {% endraw %}
@@ -315,7 +315,7 @@ binary_sensor:
   - platform: template
     sensors:
       has_sensor_unavailable_states:
-        value_template: '{{ states.sensor | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}'
+        value_template: "{{ states.sensor | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) | list | count }}"
 ```
 
 {% endraw %}

@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.19
 ha_domain: google_travel_time
+ha_platforms:
+  - sensor
 ---
 
 The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).
@@ -139,14 +141,14 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
 ```yaml
 - id: update_morning_commute_sensor
   alias: "Commute - Update morning commute sensor"
-  initial_state: 'on'
+  initial_state: "on"
   trigger:
     - platform: time_pattern
-      minutes: '/2'
+      minutes: "/2"
   condition:
     - condition: time
-      after: '08:00:00'
-      before: '11:00:00'
+      after: "08:00:00"
+      before: "11:00:00"
     - condition: time
       weekday:
         - mon
@@ -156,5 +158,6 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
         - fri
   action:
     - service: homeassistant.update_entity
-      entity_id: sensor.morning_commute
+      target:
+        entity_id: sensor.morning_commute
 ```

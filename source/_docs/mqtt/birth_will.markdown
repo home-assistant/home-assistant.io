@@ -14,18 +14,18 @@ To customize the MQTT Birth and Last Will messages, add the following section to
 # Example configuration.yaml entry
 mqtt:
   birth_message:
-    topic: 'hass/status'
-    payload: 'online'
+    topic: "hass/status"
+    payload: "online"
   will_message:
-    topic: 'hass/status'
-    payload: 'offline'
+    topic: "hass/status"
+    payload: "offline"
 ```
 
 {% configuration %}
 birth_message:
   description: Birth Message. Set to the empty dict, `{}`, to disable publishing a birth message.
   required: false
-  type: list
+  type: map
   keys:
     topic:
       description: The MQTT topic to publish the message.
@@ -50,7 +50,7 @@ birth_message:
 will_message:
   description: Will Message. Set to the empty dict, `{}`, to disable publishing a will message.
   required: false
-  type: list
+  type: map
   keys:
     topic:
       description: The MQTT topic to publish the message.

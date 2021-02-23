@@ -221,7 +221,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
         entity_id: all
       action:
         service: light.turn_off
-        entity_id: all
+        target:
+          entity_id: all
   ```
 
 - __Group__ *Deprecated* - Group configurations options, services and service options related to the old states UI are now deprecated and pending for removal in Home Assistant 0.107.0.
@@ -436,11 +437,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ```yaml
   tts:
     - platform: marytts
-      host: 'localhost'
+      host: "localhost"
       port: 59125
-      codec: 'WAVE_FILE'
-      voice: 'cmu-slt-hsmm'
-      language: 'en_US'
+      codec: "WAVE_FILE"
+      voice: "cmu-slt-hsmm"
+      language: "en_US"
       effect:
         Volume: "amount:2.0;",
         TractScaler: "amount:1.5;",

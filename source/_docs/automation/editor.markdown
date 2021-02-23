@@ -30,4 +30,3 @@ message: Sensor value greater than 10
 ```
 
 Don't forget to save your new automation rule. For your saved automation rule to come into effect, you will need to go to the **Configuration** page and click on **Reload Automation**.
-

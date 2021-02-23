@@ -11,6 +11,10 @@ An automation can be triggered by an event, with a certain entity state, at a gi
 
 The following sections introduce all trigger types and further details to get started.
 
+### Trigger variables
+
+Similar to [script level variables](/integrations/script/#variables), `trigger_variables` will be available in trigger templates with the difference that only [limited templates](/docs/configuration/templating/#limited-templates) can  be used to pass a value to the trigger variable.
+
 ### Event trigger
 
 Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
@@ -44,6 +48,29 @@ automation:
       - scene_reloaded
 ```
 
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `event_type`, `event_data` and `context` options.
+
+<div class='note'>
+
+The `event_type`, `event_data` and `context` templates are only evaluated when setting up the trigger, they will not be reevaluated for every event.
+
+</div>
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    sub_event: ABC
+    node: ac
+    value: on
+  trigger:
+    platform: event
+    event_type: "{{ 'MY_CUSTOM_EVENT_' ~ sub_event }}"
+```
+
+{% endraw %}
+
 ### Home Assistant trigger
 
 Fires when Home Assistant starts up or shuts down.
@@ -69,6 +96,32 @@ automation:
     payload: "on"
     encoding: "utf-8"
 ```
+
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
+
+<div class='note'>
+
+The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
+
+</div>
+
+{% raw %}
+
+```yaml
+automation:
+  trigger_variables:
+    room: "living_room"
+    node: "ac"
+    value: "on"
+  trigger:
+    platform: mqtt
+    topic: "{{ room ~ '/switch/' ~ node}}"
+    # Optional
+    payload: "{{ 'state:' ~ value }}"
+    encoding: "utf-8"
+```
+
+{% endraw %}
 
 ### Numeric state trigger
 
@@ -99,8 +152,21 @@ automation:
 
 <div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
-In the example above, the trigger would fire if a numeric_state goes to 17.1-24.9 (from strict above 17 and strict below 25).
+In the example above, the trigger would fire a single time if a numeric_state goes into to 17.1-24.9 range (from 17 and below or 25 and above). It will only fire again, once it has left the defined range and enters it again.
 </div>
+
+Number helpers (`input_number` entities) can be used in the `above` and `below` thresholds, making
+the trigger more dynamic, like:
+
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    # input_number entity id can be specified for above and/or below thresholds
+    above: input_number.temperature_threshold_high
+    below: input_number.temperature_threshold_low
+```
 
 The `for:` can also be specified as `HH:MM:SS` like this:
 
@@ -151,7 +217,8 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 
 ### State trigger
 
-Fires when the state of any of given entities changes. If only `entity_id` is given trigger will fire for all state changes, even if only state attributes change.
+Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
+If only one of `from_state` or `to_state` are given, the trigger will fire on any matching state change, but not if only attributes change.
 
 <div class='note'>
 
@@ -163,11 +230,26 @@ The values you see in your overview will often not be the same as the actual sta
 automation:
   trigger:
     platform: state
-    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    entity_id:
+      - device_tracker.paulus
+      - device_tracker.anne_therese
     # Optional
     from: "not_home"
     # Optional
     to: "home"
+```
+
+It's possible to give a list of from_states or to_states:
+
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: vacuum.test
+    from:
+    - "cleaning"
+    - "returning"
+    to: "error"
 ```
 
 #### Holding a state
@@ -252,7 +334,8 @@ automation:
       seconds: "{{ states('input_number.lock_sec')|int }}"
   action:
     service: lock.lock
-    entity_id: lock.my_place
+    target:
+      entity_id: lock.my_place
 ```
 
 {% endraw %}
@@ -308,7 +391,8 @@ automation:
     below: -4.0
   action:
     service: switch.turn_on
-    entity_id: switch.exterior_lighting
+    target:
+      entity_id: switch.exterior_lighting
 ```
 
 {% endraw %}
@@ -434,12 +518,14 @@ automation:
   - trigger:
       platform: state
       entity_id: binary_sensor.motion
-      to: 'on'
+      to: "on"
     action:
       - service: climate.turn_on
-        entity_id: climate.office
+        target:
+          entity_id: climate.office
       - service: input_datetime.set_datetime
-        entity_id: input_datetime.turn_off_ac
+        target:
+          entity_id: input_datetime.turn_off_ac
         data:
           datetime: >
             {{ (now().timestamp() + 2*60*60)
@@ -450,7 +536,8 @@ automation:
       at: input_datetime.turn_off_ac
     action:
       service: climate.turn_off
-      entity_id: climate.office
+      target:
+        entity_id: climate.office
 ```
 
 {% endraw %}
@@ -466,7 +553,8 @@ automation:
       at: sensor.phone_next_alarm
     action:
       service: light.turn_on
-      entity_id: light.bedroom
+      target:
+        entity_id: light.bedroom
 ```
 
 #### Multiple Times
@@ -552,6 +640,13 @@ automation:
 
 Geolocation trigger fires when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/integrations/geo_location/) platform support reporting GPS coordinates.
 Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source`, which is directly linked to one of the Geolocation platforms.
+
+<div class='note'>
+
+This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
+
+</div>
+
 
 ```yaml
 automation:

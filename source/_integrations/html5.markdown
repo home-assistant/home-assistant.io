@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.27
 ha_iot_class: Cloud Push
 ha_domain: html5
+ha_platforms:
+  - notify
 ---
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -169,7 +171,7 @@ Example of adding a tag to your notification. This won't create new notification
 {% raw %}
 
 ```yaml
-  - alias: Push/update notification of sensor state with tag
+  - alias: "Push/update notification of sensor state with tag"
     trigger:
       - platform: state
         entity_id: sensor.sensor
@@ -179,7 +181,7 @@ Example of adding a tag to your notification. This won't create new notification
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
       data:
         data:
-          tag: 'notification-about-sensor'
+          tag: "notification-about-sensor"
 ```
 
 {% endraw %}
@@ -270,7 +272,7 @@ You will receive an event named `html5_notification.received` when the
 notification is received on the device.
 
 ```yaml
-- alias: HTML5 push notification received and displayed on device
+- alias: "HTML5 push notification received and displayed on device"
   trigger:
     platform: event
     event_type: html5_notification.received
@@ -281,7 +283,7 @@ notification is received on the device.
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
 ```yaml
-- alias: HTML5 push notification clicked
+- alias: "HTML5 push notification clicked"
   trigger:
     platform: event
     event_type: html5_notification.clicked
@@ -290,7 +292,7 @@ You will receive an event named `html5_notification.clicked` when the notificati
 or
 
 ```yaml
-- alias: HTML5 push notification action button clicked
+- alias: "HTML5 push notification action button clicked"
   trigger:
     platform: event
     event_type: html5_notification.clicked
@@ -303,7 +305,7 @@ or
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
 ```yaml
-- alias: HTML5 push notification clicked
+- alias: "HTML5 push notification clicked"
   trigger:
     platform: event
     event_type: html5_notification.closed

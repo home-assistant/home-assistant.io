@@ -10,6 +10,16 @@ ha_codeowners:
   - '@PhracturedBlue'
   - '@tetienne'
 ha_domain: template
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
+  - vacuum
 ---
 
 The `template` platform supports sensors which get their values from other entities.
@@ -27,7 +37,7 @@ sensor:
     sensors:
       solar_angle:
         friendly_name: "Sun angle"
-        unit_of_measurement: 'degrees'
+        unit_of_measurement: "degrees"
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
 
       sunrise:
@@ -127,7 +137,7 @@ sensor:
     sensors:
       solar_angle:
         friendly_name: "Sun Angle"
-        unit_of_measurement: '°'
+        unit_of_measurement: "°"
         value_template: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
 ```
 
@@ -194,12 +204,12 @@ sensor:
     sensors:
       transmission_down_speed_kbps:
         friendly_name: "Transmission Down Speed"
-        unit_of_measurement: 'kB/s'
+        unit_of_measurement: "kB/s"
         value_template: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
 
       transmission_up_speed_kbps:
         friendly_name: "Transmission Up Speed"
-        unit_of_measurement: 'kB/s'
+        unit_of_measurement: "kB/s"
         value_template: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
 ```
 
@@ -279,7 +289,7 @@ sensor:
             Power Production
           {% endif %}
         value_template: "{{ states('sensor.power_consumption') }}"
-        unit_of_measurement: 'kW'
+        unit_of_measurement: "kW"
 ```
 
 {% endraw %}
@@ -335,7 +345,7 @@ sensor:
     sensors:
       nonsmoker:
         value_template: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-        friendly_name: 'Not smoking'
+        friendly_name: "Not smoking"
         unit_of_measurement: "Days"
 ```
 
@@ -362,7 +372,8 @@ automation:
         minutes: "/5"
     action:
       - service: homeassistant.update_entity
-        entity_id: sensor.random_number
+        target:
+          entity_id: sensor.random_number
 ```
 
 {% endraw %}

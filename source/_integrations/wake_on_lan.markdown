@@ -7,6 +7,8 @@ ha_category:
 ha_release: 0.49
 ha_iot_class: Local Push
 ha_domain: wake_on_lan
+ha_platforms:
+  - switch
 ---
 
 The `wake_on_lan` integration enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
@@ -126,5 +128,5 @@ switch:
       service: shell_command.turn_off_TARGET
 
 shell_command:
-  turn_off_TARGET: 'ssh hass@TARGET sudo pm-suspend'
+  turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
 ```

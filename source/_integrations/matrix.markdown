@@ -9,6 +9,8 @@ ha_release: 0.69
 ha_codeowners:
   - '@tinloaf'
 ha_domain: matrix
+ha_platforms:
+  - notify
 ---
 
 This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
@@ -124,7 +126,7 @@ automation:
     action:
       service: notify.matrix_notify
       data:
-        message: 'It looks like you wrote !testword'
+        message: "It looks like you wrote !testword"
   - alias: 'React to an introduction'
     trigger:
       platform: event

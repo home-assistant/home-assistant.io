@@ -9,6 +9,8 @@ ha_release: 0.18
 ha_codeowners:
   - '@bendavid'
 ha_domain: webostv
+ha_platforms:
+  - notify
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS Smart TV.
@@ -147,15 +149,17 @@ The `play_media` service can be used in a script to switch to the specified TV c
 ```yaml
 # Example action entry in script to switch to channel number 1
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.lg_webos_smart_tv
+data:
   media_content_id: 1
   media_content_type: "channel"
 
 # Example action entry in script to switch to channel including 'TF1' in its name
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.lg_webos_smart_tv
+data:
   media_content_id: "TF1"
   media_content_type: "channel"
 ```
@@ -205,15 +209,17 @@ script:
   home_button:
     sequence:
       - service: webostv.button
-        data:
+        target:
           entity_id:  media_player.lg_webos_smart_tv
+        data:
           button: "HOME"
 
   open_google_command:
     sequence:
       - service: webostv.command
-        data:
+        target:
           entity_id:  media_player.lg_webos_smart_tv
+        data:
           command: "system.launcher/open"
           payload:
             target: https://www.google.com
@@ -227,11 +233,11 @@ The icon can be overridden for individual notifications by providing a path to a
 
 ```yaml
 automation:
-  - alias: Front door motion
+  - alias: "Front door motion"
     trigger:
       platform: state
       entity_id: binary_sensor.front_door_motion
-      to: 'on'
+      to: "on"
     action:
       service: notify.livingroom_tv
       data:

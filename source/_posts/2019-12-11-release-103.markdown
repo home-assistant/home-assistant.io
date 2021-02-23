@@ -232,7 +232,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 
   ```yaml
   - id: plant_unreachable
-    alias: plant unreachable
+    alias: "plant unreachable"
     trigger:
       - entity_id: sensor.plant_moisture
         for: 01:00:00
@@ -758,7 +758,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move imports to top for nmap_tracker ([@springstan] - [#29364]) ([nmap_tracker docs])
 - Move imports to top for nmbs ([@springstan] - [#29365]) ([nmbs docs])
 - Move imports to top for noaa_tides ([@springstan] - [#29366]) ([noaa_tides docs])
-- Move imports to top for nuimo_controller ([@springstan] - [#29367]) ([nuimo_controller docs])
+- Move imports to top for nuimo_controller ([@springstan] - [#29367])
 - Move imports to top for openhome ([@springstan] - [#29369]) ([openhome docs])
 - Allow negative altitude in location updates ([@balloob] - [#29381]) ([mobile_app docs])
 - Move imports to top for lametric ([@springstan] - [#29406]) ([lametric docs])
@@ -1646,7 +1646,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notion docs]: /integrations/notion/
 [nsw_rural_fire_service_feed docs]: /integrations/nsw_rural_fire_service_feed/
 [nuheat docs]: /integrations/nuheat/
-[nuimo_controller docs]: /integrations/nuimo_controller/
 [nut docs]: /integrations/nut/
 [nzbget docs]: /integrations/nzbget/
 [ombi docs]: /integrations/ombi/

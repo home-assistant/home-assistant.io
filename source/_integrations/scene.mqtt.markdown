@@ -3,7 +3,7 @@ title: "MQTT Scene"
 description: "Instructions on how to integrate MQTT scenes into Home Assistant."
 ha_category:
   - Scene
-ha_release: 0.119
+ha_release: 2020.12
 ha_iot_class: Configurable
 ha_domain: mqtt
 ---
@@ -41,6 +41,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false

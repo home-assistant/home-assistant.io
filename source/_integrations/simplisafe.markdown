@@ -10,6 +10,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: simplisafe
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - lock
+  - sensor
 ---
 
 The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
@@ -29,10 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 * Sensor status is only available for SimpliSafe V3 systems and is updated once every 30 seconds, so information displayed in Home Assistant may be delayed.
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Services
 
@@ -105,29 +107,50 @@ following keys:
 * `system_id`: the system ID to which the event belongs
 * `timestamp`: the UTC datetime at which the event was received
 
-For example, when the system is armed by "remote" means (via the web app, etc.), a
+For example, when someone rings the doorbell, a
 `SIMPLISAFE_EVENT` event will fire with the following event data:
 
 ```python
 {
-    "changed_by": "",
-    "event_type": "armed_home",
-    "info": "System Armed (Home) by Remote Management",
-    "sensor_name": "",
-    "sensor_serial": "",
-    "sensor_type": "remote",
-    "system_id": 123456,
-    "timestamp": datetime.datetime(2020, 2, 13, 23, 1, 13, tzinfo=<UTC>),
+    "event_type": "SIMPLISAFE_EVENT",
+    "data": {
+        "last_event_changed_by": "",
+        "last_event_type": "doorbell_detected",
+        "last_event_info": "Someone is at your \"Front Door\"",
+        "last_event_sensor_name": "Front Door",
+        "last_event_sensor_serial": "",
+        "last_event_sensor_type": "doorbell",
+        "system_id": [systemid],
+        "last_event_timestamp": "2021-01-28T22:01:32+00:00"
+    },
+    "origin": "LOCAL",
+    "time_fired": "2021-01-28T22:01:37.478539+00:00",
+    "context": {
+        "id": "[id]",
+        "parent_id": null,
+        "user_id": null
+    }
 }
 ```
 
-`event_type`, being one of the key fields automations might be built from, can have the
-following values:
+`last_event_type` can have the following values:
 
 * `camera_motion_detected`
 * `doorbell_detected`
 * `entry_detected`
 * `motion_detected`
+
+To build an automation using one of these, use `SIMPLISAFE_EVENT`
+as an event trigger, with `last_event_type` as the `event_data`.
+For example, the following will trigger when the doorbell rings:
+
+```yaml
+trigger:
+  - platform: event
+    event_type: SIMPLISAFE_EVENT
+    event_data:
+        last_event_type: doorbell_detected
+```
 
 ### `SIMPLISAFE_NOTIFICATION`
 

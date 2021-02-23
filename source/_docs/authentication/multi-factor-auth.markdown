@@ -96,7 +96,7 @@ homeassistant:
     - type: totp
       name: Authenticator app
     - type: notify
-      message: 'I almost forget, to get into my clubhouse, you need to say {}'
+      message: "I almost forget, to get into my clubhouse, you need to say {}"
 ```
 
 After restarting Home Assistant, go to your [profile page](/docs/authentication/#your-account-profile) and there should be a "Multi-factor Authentication Modules" section. Click _Enable_ on the _Notify One-Time Password_ option.

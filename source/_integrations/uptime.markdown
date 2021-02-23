@@ -8,9 +8,11 @@ ha_iot_class: Local Push
 ha_release: 0.56
 ha_quality_scale: internal
 ha_domain: uptime
+ha_platforms:
+  - sensor
 ---
 
-The `uptime` sensor platform displays the time since the last Home Assistant restart.
+The `uptime` sensor stores the timestamp (date and time) when Home Assistant was last started.
 
 ## Configuration
 

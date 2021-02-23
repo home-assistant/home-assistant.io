@@ -153,9 +153,10 @@ intent_script:
   ActivateLightColor:
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
-          color_name: '{{ objectColor }}'
+        data:
+          color_name: "{{ objectColor }}"
 ```
 
 {% endraw %}
@@ -176,7 +177,7 @@ In this example if we had an intent triggered with 'Set a timer for five minutes
 SetTimer:
   speech:
     type: plain
-    text: 'Set a timer'
+    text: "Set a timer"
   action:
     service: script.set_timer
     data:
@@ -221,7 +222,7 @@ intent_script:
   turn_on_light:
     speech:
       type: plain
-      text: 'OK, turning on the light'
+      text: "OK, turning on the light"
     action:
       service: light.turn_on
 ```
@@ -233,10 +234,10 @@ intent_script:
   OpenGarageDoor:
     speech:
       type: plain
-      text: 'OK, opening the garage door'
+      text: "OK, opening the garage door"
     action:
       - service: cover.open_cover
-        data:
+        target:
           entity_id: garage_door
 ```
 
@@ -250,14 +251,14 @@ automation:
     trigger:
      - platform: state
         entity_id: binary_sensor.my_garage_door_sensor
-        from: 'off'
-        to: 'on'
+        from: "off"
+        to: "on"
         for:
           minutes: 10
     sequence:
       service: snips.say_action
         data:
-          text: 'Garage door has been open 10 minutes, would you like me to close it?'
+          text: "Garage door has been open 10 minutes, would you like me to close it?"
           intent_filter:
             - closeGarageDoor
 
@@ -266,7 +267,7 @@ intent_script:
   closeGarageDoor:
     speech:
       type: plain
-      text: 'OK, closing the garage door'
+      text: "OK, closing the garage door"
     action:
       - service: script.garage_door_close
 ```

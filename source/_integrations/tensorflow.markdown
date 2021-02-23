@@ -10,10 +10,7 @@ ha_domain: tensorflow
 
 The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
-## Home Assistant Core
-
-If you are using the Home Assistant Core installation type, some additional requirements and steps apply.
-For all other installation types, this section can be skipped.
+{% details "Notes for Home Assistant Core Installations" %}
 
 The following packages must be installed on Debian before following the setup for the integration to work:
 `sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
@@ -26,6 +23,8 @@ See [the official install guide](https://www.tensorflow.org/install/) for other 
 
 Furthermore, the official Python TensorFlow wheels by Google, require your CPU to support the `avx` extension.
 If your CPU lacks those capabilities, Home Assistant will crash when using TensorFlow, without any message.
+
+{% enddetails %}
 
 ## Preparation
 
@@ -158,6 +157,8 @@ model:
 
 `categories` can also be defined as dictionary providing an `area` for each category as seen in the advanced configuration below:
 
+{% raw %}
+
 ```yaml
 # Example advanced configuration.yaml entry
 image_processing:
@@ -166,8 +167,8 @@ image_processing:
       - entity_id: camera.driveway
       - entity_id: camera.backyard
     file_out:
-      - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}{% endraw %}_latest.jpg"
-      - "/tmp/{% raw %}{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}{% endraw %}.jpg"
+      - "/tmp/{{ camera_entity.split('.')[1] }}_latest.jpg"
+      - "/tmp/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
     model:
       graph: /config/tensorflow/models/efficientdet_d0_coco17_tpu-32/
       categories:
@@ -180,6 +181,8 @@ image_processing:
         - car
         - truck
 ```
+
+{% endraw %}
 
 ## Optimizing resources
 
@@ -197,12 +200,13 @@ image_processing:
 
 ```yaml
 # Example advanced automations.yaml entry
-- alias: TensorFlow scanning
+- alias: "TensorFlow scanning"
   trigger:
      - platform: state
        entity_id:
          - binary_sensor.driveway
   action:
     - service: image_processing.scan
-      entity_id: camera.driveway
+      target:
+        entity_id: camera.driveway
 ```

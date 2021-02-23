@@ -9,6 +9,9 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@benleb'
 ha_domain: surepetcare
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The `surepetcare` component allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
@@ -54,6 +57,24 @@ surepetcare:
     default: 3 minutes
     type: time
 {% endconfiguration %}
+
+## Services
+
+### Service `surepetcare.set_lock_state`
+
+This service lets you change the locking state of a flap.
+
+| Service data attribute | Required | Type | Description |
+| ---------------------- | -------- | -------- | ----------- |
+| `flap_id` | `True` | integer | Flap ID to change - see below for instructions on finding device IDs
+| `lock_state` | `True` | string | New state to change the flap to
+
+`lock_state` should be one of:
+
+- `unlocked` - flap is unlocked, pets are allowed both in and out.
+- `locked_in` - flap is 'in only' - pets can come in but not go back out.
+- `locked_out` - flap is 'out only' - pets can go out, but not back in.
+- `locked_all` - flap is locked both ways.
 
 ## Getting the IDs of your flaps, feeders and pets
 

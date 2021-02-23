@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.32
 ha_iot_class: Cloud Polling
 ha_domain: garadget
+ha_platforms:
+  - cover
 ---
 
 The `garadget` cover platform lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
@@ -83,15 +85,15 @@ sensor:
   - platform: template
     sensors:
       garage_door_status:
-        friendly_name: 'State of the door'
+        friendly_name: "State of the door"
         value_template: "{{ states('cover.garage_door') }}"
       garage_door_time_in_state:
-        friendly_name: 'Since'
+        friendly_name: "Since"
         value_template: "{{ state_attr('cover.garage_door', 'time_in_state') }}"
       garage_door_wifi_signal_strength:
-        friendly_name: 'WiFi strength'
+        friendly_name: "WiFi strength"
         value_template: "{{ state_attr('cover.garage_door', 'wifi_signal_strength') }}"
-        unit_of_measurement: 'dB'
+        unit_of_measurement: "dB"
 
 group:
   garage_door:

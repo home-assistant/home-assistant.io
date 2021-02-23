@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@ThaStealth'
 ha_domain: epsonworkforce
+ha_platforms:
+  - sensor
 ---
 
 The `epson workforce` platform allows you to monitor the ink levels of a Epson Workforce printer from Home

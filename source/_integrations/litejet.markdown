@@ -9,6 +9,9 @@ ha_iot_class: Local Push
 ha_release: 0.32
 ha_domain: litejet
 ha_config_flow: true
+ha_platforms:
+  - light
+  - switch
 ---
 
 LiteJet is a centralized lighting system that predates most home automation technology. All lights and wall switches are wired to a central panel. This central panel has a serial port interface that allows a computer to control the system via LiteJet's third party protocol. Home Assistant integrates the LiteJet 3rd party protocol and allows you to get the status and control the connected lights.

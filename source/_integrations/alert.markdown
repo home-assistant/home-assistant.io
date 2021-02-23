@@ -38,7 +38,7 @@ alert:
     name: Garage is open
     done_message: Garage is closed
     entity_id: input_boolean.garage_door
-    state: 'on'
+    state: "on"
     repeat: 30
     can_acknowledge: true
     skip_first: true
@@ -137,7 +137,7 @@ alert:
   freshwater_temp_alert:
     name: "Warning: I have detected a problem with the freshwater tank temperature"
     entity_id: binary_sensor.freshwater_temperature_status
-    state: 'on'
+    state: "on"
     repeat: 5
     can_acknowledge: true
     skip_first: false
@@ -163,7 +163,7 @@ binary_sensor:
     sensors:
       motion_battery_low:
         value_template: "{{ state_attr('sensor.motion', 'battery') < 15 }}"
-        friendly_name: 'Motion battery is low'
+        friendly_name: "Motion battery is low"
 
 alert:
   motion_battery:
@@ -194,7 +194,7 @@ alert:
   garage_door:
     name: Garage is open
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: "on"   # Optional, 'on' is the default value
     repeat:
       - 15
       - 30
@@ -228,7 +228,7 @@ alert:
   office_plant:
     name: Plant in office needs help
     entity_id: plant.plant_office
-    state: 'problem'
+    state: "problem"
     repeat: 30
     can_acknowledge: true
     skip_first: true
@@ -252,9 +252,11 @@ Some notifiers support more parameters (e.g., to set text color or action
 # Example configuration.yaml entry
 alert:
   garage_door:
-    name: Garage is open
+    name: "Garage is open"
+    message: "The garage door is still open"
+    done_message: "The garage door is closed"
     entity_id: input_boolean.garage_door
-    state: 'on'   # Optional, 'on' is the default value
+    state: "on"   # Optional, 'on' is the default value
     repeat:
       - 15
       - 30
@@ -269,5 +271,21 @@ alert:
 ```
 This particular example relies on the `inline_keyboard` functionality of
 Telegram, where the user is presented with buttons to execute certain actions.
+
+Based on the example above you can make an automation to stop further messages,
+but you will still receive the done message.
+
+```yaml
+- alias: "Telegram callback to stop alerts for garage door"
+  trigger:
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/garage_acknowledge"
+  action:
+    - service: alert.turn_off
+      target:
+        entity_id: alert.garage_door
+```
 
 [template]: /docs/configuration/templating/

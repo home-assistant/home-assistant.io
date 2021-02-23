@@ -12,6 +12,8 @@ ha_qa_scale: internal
 ha_codeowners:
   - '@afaucogney'
 ha_domain: derivative
+ha_platforms:
+  - sensor
 ---
 
 The `derivative` platform creates a sensor that estimates the derivative of the values provided by a source sensor.

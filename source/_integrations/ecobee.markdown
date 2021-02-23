@@ -14,6 +14,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@marthoc'
 ha_domain: ecobee
+ha_platforms:
+  - binary_sensor
+  - climate
+  - notify
+  - sensor
+  - weather
 ---
 
 The `ecobee` integration lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.
@@ -111,6 +117,8 @@ defined vacation period and expires when the vacation period ends.
 When in _away preset_, the target temperature is permanently overridden by the target temperature defined for the away climate. The away preset is a simple way to emulate a vacation mode.
 
 The _HVAC mode_ of the device is the currently active operational modes that the ecobee thermostat provides: heat, auxHeatOnly, cool, auto, and off.
+
+The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
 ## Attributes
 

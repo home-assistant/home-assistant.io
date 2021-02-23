@@ -9,6 +9,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@dgomes'
 ha_domain: sql
+ha_platforms:
+  - sensor
 ---
 
 The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
@@ -28,7 +30,7 @@ sensor:
     queries:
       - name: Sun state
         query: "SELECT * FROM states WHERE entity_id = 'sun.sun' ORDER BY state_id DESC LIMIT 1;"
-        column: 'state'
+        column: "state"
 ```
 {% endraw %}
 
@@ -77,7 +79,7 @@ This example shows the previously *recorded* state of the sensor `sensor.tempera
 sensor:
   - platform: random
     name: Temperature in
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
 ```
 
 The query will look like this:
@@ -93,7 +95,7 @@ sensor:
     queries:
       - name: Temperature in
         query: "SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;"
-        column: 'state'
+        column: "state"
 ```
 
 Note that the SQL sensor state corresponds to the last row of the SQL result set.
@@ -138,7 +140,7 @@ sensor:
     queries:
       - name: DB size
         query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
-        column: 'value'
+        column: "value"
         unit_of_measurement: kB
 ```
 
@@ -156,8 +158,25 @@ sensor:
     queries:
       - name: DB Size
         query: 'SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();'
-        column: 'size'
-        unit_of_measurement: 'MiB'
+        column: "size"
+        unit_of_measurement: "MiB"
 ```
 
+{% endraw %}
+
+#### MS SQL
+
+Use the same `db_url` as for the `recorder` integration. Change `DB_NAME` to the name that you use as the database name, to ensure that your sensor will work properly. Be sure `username` has enough rights to access the sys tables.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: sql
+    db_url: "mssql+pyodbc://username:password@SERVER_IP/DB_NAME?charset=utf8;DRIVER={FreeTDS};Port=1433;"
+    queries:
+      - name: DB size
+        query: "SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';"
+        column: "size"
+        unit_of_measurement: MiB
+```
 {% endraw %}

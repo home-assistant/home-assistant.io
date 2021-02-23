@@ -178,18 +178,21 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
         set_level:
           service: media_player.volume_set
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
         level_template: >-
           {% if is_state('media_player.receiver', 'on') %}
@@ -235,13 +238,15 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
 ```
 
@@ -281,13 +286,15 @@ light:
           {% endif %}
         turn_on:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: false
         turn_off:
           service: media_player.volume_mute
-          data:
+          target:
             entity_id: media_player.receiver
+          data:
             is_volume_muted: true
 ```
 

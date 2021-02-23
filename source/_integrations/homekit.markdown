@@ -9,6 +9,7 @@ ha_domain: homekit
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+ha_zeroconf: true
 ---
 
 The HomeKit Bridge integration allows you to make your Home Assistant entities available in Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
@@ -19,9 +20,10 @@ The HomeKit Bridge integration allows you to make your Home Assistant entities a
 
 </div>
 
-To add `HomeKit Bridge` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **HomeKit Bridge**.
+{% include integrations/config_flow.md %}
 
-If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, `HomeKit Bridge` must be configured via your `configuration.yaml` file:
+
+If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, HomeKit Bridge must be configured via your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry configuring HomeKit
@@ -74,7 +76,7 @@ homekit:
         type: boolean
         default: true
       port:
-        description: Port for the HomeKit extension.
+        description: Port for the HomeKit extension. If you are adding more than one instance they need to have different values for port.
         required: false
         type: integer
         default: 51827
@@ -92,11 +94,6 @@ homekit:
         required: false
         type: string
         default: '`bridge`'
-      safe_mode:
-        description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
-        required: false
-        type: boolean
-        default: false
       advertise_ip:
         description: If you need to override the IP address used for mDNS advertisement. (For example, using network isolation in Docker and together with an mDNS forwarder like `avahi-daemon` in reflector mode)
         required: false
@@ -318,81 +315,7 @@ When exposing a Television media player (a `media_player` with device class `tv`
 
 ## Disable Auto Start
 
-Depending on your setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully set up when the `HomeKit` integration is started, can be added. To start `HomeKit` when `auto_start: false`, you can call the service `homekit.start`.
-
-If you have Z-Wave entities you want to be exposed to HomeKit, then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation.
-
-<div class='note'>
-
-Please remember that you can only have a single `automation` entry. Add the automation to your existing automations.
-
-</div>
-
-```yaml
-# Example for Z-Wave
-homekit:
-  auto_start: false
-
-automation:
-  - alias: 'Start HomeKit'
-    trigger:
-      - platform: event
-        event_type: zwave.network_ready
-      - platform: event
-        event_type: zwave.network_complete
-      - platform: event
-        event_type: zwave.network_complete_some_dead
-    action:
-      - service: homekit.start
-```
-
-For a general delay where your integration doesn't generate an event, you can also do:
-
-```yaml
-# Example using a delay after the start of Home Assistant
-homekit:
-  auto_start: false
-
-automation:
-  - alias: 'Start HomeKit'
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - delay: 00:05  # Waits 5 minutes
-      - service: homekit.start
-```
-
-In some cases it might be desirable to check that all entities are available before starting `HomeKit`. This can be accomplished by adding an additional `binary_sensor` as follows:
-
-{% raw %}
-
-```yaml
-# Example checking specific entities to be available before start
-homekit:
-  auto_start: false
-
-automation:
-  - alias: 'Start HomeKit'
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - wait_template: >-
-          {% if not states.light.kitchen_lights %}
-            false
-          {% elif not states.sensor.outside_temperature %}
-            false
-          # Repeat for every entity
-          {% else %}
-            true
-          {% endif %}
-        timeout: 00:15  # Waits 15 minutes
-        continue_on_timeout: false
-      - service: homekit.start
-```
-
-{% endraw %}
+It is not needed (anymore) to disable `Auto Start` for all accessories to be available for `HomeKit` as Home Assistant restores all entities on start instantly.
 
 ## Configure Filter
 
@@ -429,25 +352,6 @@ Filters are applied as follows:
       - If entity is included, pass (as #2 above)
       - If entity include and exclude, the entity exclude is ignored
 
-## Safe Mode
-
-The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Pairing hangs - zeroconf error](#pairing-hangs---zeroconf-error)).
-
-To use `safe_mode`, add the option to your `homekit` configuration:
-
-```yaml
-homekit:
-  safe_mode: true
-```
-
-Restart your Home Assistant instance. If you don't see a `pincode`, follow the [guide](#deleting-the-homekitstate-file) here. Now you should be able to pair normally.
-
-<div class="note warning">
-
-To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your configuration and restart Home Assistant.
-
-</div>
-
 ## Docker Network Isolation
 
 The `advertise_ip` option can be used to run this integration even inside an ephemeral Docker container with network isolation enabled, e.g., not using the host network.
@@ -461,7 +365,7 @@ homekit:
   advertise_ip: "STATIC_IP_OF_YOUR_DOCKER_HOST"
 ```
 
-Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode. This kind of setup most likely requires `safe_mode` during the bridge setup.
+Restart your Home Assistant instance. This feature requires running an mDNS forwarder on your Docker host, e.g., `avahi-daemon` in reflector mode.
 
 ## Firewall
 
@@ -593,9 +497,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 #### Pairing hangs - zeroconf error
 
-Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your configuration, see [safe_mode](#safe-mode).
-
-If [safe_mode](#safe-mode) is not successful, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
+Pairing eventually fails, you might see and an error message `NonUniqueNameException`, you likely need to enable `default_interface: true` in the `zeroconf` integration configuration and set a unique name such as `name: MyHASS42`.
   
 If you had previously paired (even unsuccessfully), you may need to delete your `.homekit.state` file in order to able to successfully pair again. See [Errors during pairing](#errors-during-pairing).
 
@@ -652,7 +554,10 @@ Try removing the entity from HomeKit and then adding it again. If you are adding
 
 #### My media player is not showing up as a television accessory
 
-Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
+Media Player entities with `device_class: tv` will show up as Television accessories on devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
+
+The [Universal Media Player](/integrations/universal/#harmony-remote-example) has an example of how it can be used to wrap existing entities to enable them to be used as a Television accessory in HomeKit.
+
 
 #### Can't control volume of your TV media player?
 

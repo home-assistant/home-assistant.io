@@ -141,23 +141,25 @@ This small example illustrates how the "split" files work. In this case, we star
 
 This (large) sensor configuration gives us another example:
 
+{% raw %}
+
 ```yaml
 ### sensor.yaml
 ### METEOBRIDGE #############################################
 - platform: tcp
-  name: 'Outdoor Temp (Meteobridge)'
+  name: "Outdoor Temp (Meteobridge)"
   host: 192.168.2.82
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[2]}}{% endraw %}"
+  value_template: "{{value.split (' ')[2]}}"
   unit: C
 - platform: tcp
-  name: 'Outdoor Humidity (Meteobridge)'
+  name: "Outdoor Humidity (Meteobridge)"
   host: 192.168.2.82
   port: 5556
   timeout: 6
   payload: "Content-type: text/xml; charset=UTF-8\n\n"
-  value_template: "{% raw %}{{value.split (' ')[3]}}{% endraw %}"
+  value_template: "{{value.split (' ')[3]}}"
   unit: Percent
 
 #### STEAM FRIENDS ##################################
@@ -173,11 +175,13 @@ This (large) sensor configuration gives us another example:
       - 'date'
 - platform: worldclock
   time_zone: Etc/UTC
-  name: 'UTC'
+  name: "UTC"
 - platform: worldclock
   time_zone: America/New_York
-  name: 'Ann Arbor'
+  name: "Ann Arbor"
 ```
+
+{% endraw %}
 
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 
@@ -227,22 +231,24 @@ These work recursively. As an example using `!include_dir_* automation`, will in
 
 ```yaml
 automation:
-  - alias: Automation 1
+  - alias: "Automation 1"
     trigger:
       platform: state
       entity_id: device_tracker.iphone
-      to: 'home'
+      to: "home"
     action:
       service: light.turn_on
-      entity_id: light.entryway
-  - alias: Automation 2
+      target:
+        entity_id: light.entryway
+  - alias: "Automation 2"
     trigger:
       platform: state
       entity_id: device_tracker.iphone
-      from: 'home'
+      from: "home"
     action:
       service: light.turn_off
-      entity_id: light.entryway
+      target:
+        entity_id: light.entryway
 ```
 
 can be turned into:
@@ -256,27 +262,29 @@ automation: !include_dir_list automation/presence/
 `automation/presence/automation1.yaml`
 
 ```yaml
-alias: Automation 1
+alias: "Automation 1"
 trigger:
   platform: state
   entity_id: device_tracker.iphone
-  to: 'home'
+  to: "home"
 action:
   service: light.turn_on
-  entity_id: light.entryway
+  target:
+    entity_id: light.entryway
 ```
 
 `automation/presence/automation2.yaml`
 
 ```yaml
-alias: Automation 2
+alias: "Automation 2"
 trigger:
   platform: state
   entity_id: device_tracker.iphone
-  from: 'home'
+  from: "home"
 action:
   service: light.turn_off
-  entity_id: light.entryway
+  target:
+    entity_id: light.entryway
 ```
 
 It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
@@ -366,22 +374,24 @@ speech:
 
 ```yaml
 automation:
-  - alias: Automation 1
+  - alias: "Automation 1"
     trigger:
       platform: state
       entity_id: device_tracker.iphone
-      to: 'home'
+      to: "home"
     action:
       service: light.turn_on
-      entity_id: light.entryway
-  - alias: Automation 2
+      target:
+        entity_id: light.entryway
+  - alias: "Automation 2"
     trigger:
       platform: state
       entity_id: device_tracker.iphone
-      from: 'home'
+      from: "home"
     action:
       service: light.turn_off
-      entity_id: light.entryway
+      target:
+        entity_id: light.entryway
 ```
 
 can be turned into:
@@ -395,22 +405,24 @@ automation: !include_dir_merge_list automation/
 `automation/presence.yaml`
 
 ```yaml
-- alias: Automation 1
+- alias: "Automation 1"
   trigger:
     platform: state
     entity_id: device_tracker.iphone
-    to: 'home'
+    to: "home"
   action:
     service: light.turn_on
-    entity_id: light.entryway
-- alias: Automation 2
+    target:
+      entity_id: light.entryway
+- alias: "Automation 2"
   trigger:
     platform: state
     entity_id: device_tracker.iphone
-    from: 'home'
+    from: "home"
   action:
     service: light.turn_off
-    entity_id: light.entryway
+    target:
+      entity_id: light.entryway
 ```
 
 It is important to note that when using `!include_dir_merge_list`, you must include a list in each file (each list item is denoted with a hyphen [-]). Each file may contain one or more entries.
@@ -475,6 +487,24 @@ front_yard:
     - light.pathway
     - sensor.mailbox
     - camera.front_porch
+```
+
+### Example: Combine `!include_dir_merge_list` with `automations.yaml`
+
+You want to go the advanced route and split your automations, but still want to be able to create automations in the UI?
+In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
+
+Using labels like `manual` or `ui` allows for using multiple keys in the config:
+
+`configuration.yaml`
+
+```yaml
+
+# My own handmade automations
+automation manual: !include_dir_merge_list automations/
+
+# Automations I create in the UI
+automation ui: !include automations.yaml
 ```
 
 [discord]: https://discord.gg/c5DvZ4e

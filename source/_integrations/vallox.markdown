@@ -7,6 +7,9 @@ ha_category:
 ha_release: 0.96
 ha_iot_class: Local Polling
 ha_domain: vallox
+ha_platforms:
+  - fan
+  - sensor
 ---
 
 The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
@@ -57,7 +60,7 @@ input_select:
     icon: mdi:fan
 
 automation:
-  - alias: Set Ventilation Profile
+  - alias: "Set Ventilation Profile"
     trigger:
       platform: state
       entity_id: input_select.ventilation_profile
@@ -75,15 +78,16 @@ In order to also update the input select in case some external event changes the
 
 ```yaml
 automation:
-  - alias: Update Vallox input_select
+  - alias: "Update Vallox input_select"
     description: Update input_select when external event changes the profile
     trigger:
       - entity_id: sensor.vallox_current_profile
         platform: state
     action:
       - service: input_select.select_option
-        data:
+        target:
           entity_id: input_select.ventilation_profile
+        data:
           option: "{{ states('sensor.vallox_current_profile') }}"
 ```
 

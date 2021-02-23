@@ -8,6 +8,8 @@ ha_release: 0.22
 ha_codeowners:
   - '@fabaff'
 ha_domain: swiss_hydrological_data
+ha_platforms:
+  - sensor
 ---
 
 The `swiss_hydrological_data` sensor will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.

@@ -23,10 +23,10 @@ automation:
   trigger:
     platform: state
     entity_id: device_tracker.device_name_here
-    from: 'not_home'
-    to: 'home'
+    from: "not_home"
+    to: "home"
   action:
     service: notify.Telegram
     data:
-      message: 'Person is now home'
+      message: "Person is now home"
 ```

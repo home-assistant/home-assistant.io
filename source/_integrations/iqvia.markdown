@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: iqvia
+ha_platforms:
+  - sensor
 ---
 
 The `iqvia` sensor platform collects and displays allergy, asthma and disease
@@ -20,10 +22,7 @@ Data measured includes:
 * Current outlook
 * more!
 
-## Configuring the Integration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}
 
 ## Understanding the Indices
 

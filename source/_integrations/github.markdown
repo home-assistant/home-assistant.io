@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.88
 ha_iot_class: Cloud Polling
 ha_domain: github
+ha_platforms:
+  - sensor
 ---
 
 The GitHub sensor integrates data from [GitHub](https://github.com/) to monitor your favorite repositories.

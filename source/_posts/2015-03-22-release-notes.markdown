@@ -17,16 +17,16 @@ Andythigpen has contributed a script component. This allows users to create a se
 script:
   # Turns on the bedroom lights and then the living room lights 1 minute later
   wakeup:
-    alias: Wake Up
+    alias: "Wake Up"
     sequence:
-      - alias: Bedroom lights on
+      - alias: "Bedroom lights on"
         execute_service: light.turn_on
         service_data:
           entity_id: group.bedroom
       - delay:
           # supports seconds, milliseconds, minutes, hours, etc.
           minutes: 1
-      - alias: Living room lights on
+      - alias: "Living room lights on"
         execute_service: light.turn_on
         service_data:
           entity_id: group.living_room

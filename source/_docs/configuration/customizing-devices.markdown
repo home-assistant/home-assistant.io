@@ -108,7 +108,7 @@ homeassistant:
     light:
       icon: mdi:home
     automation:
-      initial_state: 'on'
+      initial_state: "on"
   # Customize entities matching a pattern
   customize_glob:
     "light.kitchen_*":

@@ -210,17 +210,21 @@ ActivateSceneIntent activate {Scene}
 
 Then add the intent to your `intent_script` section in your HA configuration file:
 
+{% raw %}
+
 ```yaml
 intent_script:
   ActivateSceneIntent:
     action:
       service: scene.turn_on
-      data:
-        entity_id: scene.{% raw %}{{ Scene | replace(" ", "_") }}{% endraw %}
+      target:
+        entity_id: scene.{{ Scene | replace(" ", "_") }}
     speech:
       type: plain
       text: OK
 ```
+
+{% endraw %}
 
 Here we are using [templates] to take the name we gave to Alexa e.g., `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
 
@@ -258,17 +262,21 @@ RunScriptIntent run {Script}
 
 Then add the intent to your intent_script section in your HA configuration file:
 
+{% raw %}
+
 ```yaml
 intent_script:
   RunScriptIntent:
     action:
       service: script.turn_on
-      data:
-        entity_id: script.{% raw %}{{ Script | replace(" ", "_") }}{% endraw %}
+      target:
+        entity_id: script.{{ Script | replace(" ", "_") }}
     speech:
       type: plain
       text: OK
 ```
+
+{% endraw %}
 
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 
@@ -291,7 +299,8 @@ intent_script:
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
     action:
       service: script.turn_on
-      entity_id: script.red_alert
+      target:
+        entity_id: script.red_alert
     speech:
       type: plain
       text: OK
@@ -306,23 +315,24 @@ First create a file called `alexa_confirm.yaml` with something like the followin
 {% raw %}
 
 ```text
-{{ [
-  "OK",
-  "Sure",
-  "If you insist",
-  "Done",
-  "No worries",
-  "I can do that",
-  "Leave it to me",
-  "Consider it done",
-  "As you wish",
-  "By your command",
-  "Affirmative",
-  "Yes oh revered one",
-  "I will",
-  "As you decree, so shall it be",
-  "No Problem"
-] | random }}
+>
+  {{ [
+    "OK",
+    "Sure",
+    "If you insist",
+    "Done",
+    "No worries",
+    "I can do that",
+    "Leave it to me",
+    "Consider it done",
+    "As you wish",
+    "By your command",
+    "Affirmative",
+    "Yes oh revered one",
+    "I will",
+    "As you decree, so shall it be",
+    "No Problem"
+  ] | random }}
 ```
 
 {% endraw %}

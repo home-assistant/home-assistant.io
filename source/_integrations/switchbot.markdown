@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@danielhiversen'
 ha_domain: switchbot
+ha_platforms:
+  - switch
 ---
 
 The `switchbot` switch platform allows you to control SwitchBot [devices](https://www.switch-bot.com/).
@@ -19,12 +21,12 @@ To enable it, add the following lines to your `configuration.yaml`:
 ```yaml
 switch:
   - platform: switchbot
-    mac: 'MAC_ADDRESS'
+    mac: "MAC_ADDRESS"
 ```
 
 {% configuration %}
 mac:
-  description: The device MAC address with lower-case letters.
+  description: The device MAC address with upper-case letters.
   required: true
   type: string
 name:

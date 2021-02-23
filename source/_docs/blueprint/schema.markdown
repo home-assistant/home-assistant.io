@@ -45,8 +45,8 @@ description:
   description: >
     The description of the blueprint. While optional, this field is highly
     recommended. For example, to describe what the blueprint does, or tell more
-    about the options inputs of the blueprint provide. New lines in this
-    description are displayed in the UI, so paragraphs are allowed.
+    about the options inputs of the blueprint provide. The description can
+    include [Markdown](https://commonmark.org/help/).
   type: string
   required: false
 domain:
@@ -96,7 +96,7 @@ a default value and also provide a [selector](/docs/blueprint/selectors/) that
 ensures a matching input field in the user interface.
 
 Each input field can be referred to, outside of the blueprint metadata, using
-the `!input` custom tag.
+the `!input` custom YAML tag.
 
 The following example shows a minimal blueprint with a single input:
 
@@ -116,6 +116,19 @@ In this example, no `selector` was provided. In this case, if this blueprint
 was used in the user interface, a text input field would be shown to the user.
 
 A blueprint can have as many inputs as you like.
+
+### Blueprint inputs in templates
+
+The inputs are available as custom YAML tags, but not as template variables.
+To use a blueprint input in a template, it first needs to be exposed as either
+a [script level variable](/integrations/script/#-configuration-variables) or in 
+a [variable script step](/docs/scripts/#variables).
+
+```yaml
+variables:
+  # Make input my_input available as a script level variable
+  my_input: !input my_input
+```
 
 ## Example blueprints
 
@@ -180,4 +193,4 @@ Additional examples, provided by the community, can be found on the
 [community forum][blueprint-forums].
 
 [blueprint-built-in]: https://github.com/home-assistant/core/tree/dev/homeassistant/components/automation/blueprints
-[blueprint-forums]: https://community.home-assistant.io/c/blueprints/53
+[blueprint-forums]: /get-blueprints

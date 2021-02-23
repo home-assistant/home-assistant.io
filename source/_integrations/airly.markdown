@@ -10,17 +10,18 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: airly
 ha_quality_scale: platinum
+ha_platforms:
+  - air_quality
+  - sensor
 ---
 
-The `airly` integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location.
+The Airly integration uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location.
 
 ## Setup
 
 To generate an Airly API key, go to [Airly for developers](https://developer.airly.eu/register) page.
 
-## Configuration
-
-To add Airly to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Airly**. By default, the values will be taken from the Home Assistant configuration.
+{% include integrations/config_flow.md %}
 
 <div class="note warning">
 

@@ -47,6 +47,10 @@ $primary-color: #049cdb;
     padding-right: 5px;
     padding-left: 5px;
   }
+
+  .feedback {
+    margin-bottom: 32px;
+  }
 }
 
 .hero {
@@ -157,6 +161,9 @@ $primary-color: #049cdb;
       color: white;
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
       .title {
         font-size: 20px;
@@ -166,6 +173,13 @@ $primary-color: #049cdb;
       .subtitle {
         font-size: 12px;
         font-weight: initial;
+      }
+
+      svg {
+        fill: white;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
       }
     }
   }
@@ -445,12 +459,14 @@ div.note {
 
   .brand-logo-container {
     text-align: center;
-    height: 87px;
     margin-top: 50px;
-    margin-bottom: 25px;
 
     img {
       max-height: 67px;
+    }
+
+    a.my img {
+      margin-top: 20px;
     }
   }
 }
@@ -619,4 +635,45 @@ code {
   border: 1px solid #ddd;
   border-radius: 0.4em;
   padding: 0.1em 0.4em;
+}
+
+@media only screen and (max-width: $menu-collapse) {
+  #not_found {
+    .page {
+      text-align: center;
+
+      .search404-container {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $menu-collapse) {
+  #not_found {
+    .page {
+      text-align: center;
+      margin-bottom: 300px;
+
+      .search404-container {
+        margin-bottom: 32px;
+
+        #search404 {
+          width: 420px;
+        }
+      }
+    }
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}
+
+a.my {
+  img {
+    border: 0px;
+    border-radius: 3px;
+  }
 }

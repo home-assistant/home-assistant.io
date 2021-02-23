@@ -17,6 +17,15 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@SukramJ'
 ha_domain: homematicip_cloud
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - sensor
+  - switch
+  - weather
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
@@ -32,19 +41,9 @@ There is currently support for the following device types within Home Assistant:
 * Switch
 * Weather
 
-## Setup the integration via the frontend
+{% include integrations/config_flow.md %}
 
-Menu: *Configuration* -> *Integrations*
-
-Fill the form:
-
-* Your **access point ID** (SGTIN)
-* Optional a **name** to identify your access point, this will be used to prefix your device names.
-* The **PIN**, mandatory if one is used in the native HomematicIP App.
-
-The authentification token will be generated and stored internally.
-
-## Setup the integration using the configuration files
+## Manual configuration
 
 Generate the authentication token:
 
@@ -101,9 +100,11 @@ Within this delay the device registration should be completed in the App, otherw
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Presence Sensor – indoor (*HmIP-SPI*)
+  * Rain Sensor (*HmIP-SRD*)
   * Water Sensor (*HmIP-SWD*)
   * Remote Control - 8x buttons (*HmIP-RC8*) (battery only)
   * Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*) (battery only)
+  * Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*) (battery only)
   * Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*) (battery only)
   * Key Ring Remote Control - 4x buttons (*HmIP-KRC4*) (battery only)
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
@@ -175,6 +176,7 @@ Within this delay the device registration should be completed in the App, otherw
   * Switch Actuator for heating systems – 2x channels (*HmIP-WHS2*)
   * Wired Switch Actuator – 8x channels (*HMIPW-DRS8*)
   * Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
+  * Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
@@ -275,8 +277,9 @@ You can get the required index from the native Homematic IP App.
 ...
 action:
   service: homematicip_cloud.set_active_climate_profile
-  data:
+  target:
     entity_id: climate.livingroom
+  data:
     climate_profile_index: 1
 ```
 
@@ -296,7 +299,7 @@ Reset energy counter of measuring actuators.
 ...
 action:
   service: homematicip_cloud.reset_energy_counter
-  data:
+  target:
     entity_id: switch.livingroom
 ```
 
@@ -310,6 +313,7 @@ It's not possible to detect a key press event on these devices at the moment.
   * Wall-mount Remote Control for brand switches - 2x buttons (*HmIP-BRC2*)
   * Motion Detector for 55mm frames - indoor (HmIP-SMI55)(Push button)
   * Wall-mount Remote Control - 2x buttons (*HmIP-WRC2*)
+  * Wall-mount Remote Control - flat - 2x buttons (*HmIP-WRCC2*)
   * Wall-mount Remote Control - 6x buttons (*HmIP-WRC6*)
   * Key Ring Remote Control - 4x buttons (*HmIP-KRC4*)
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*)
