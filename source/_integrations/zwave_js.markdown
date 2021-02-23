@@ -96,10 +96,12 @@ data:
 Example 3:
 ```yaml
 service: zwave_js.set_config_parameter
+target:
+  entity_id: switch.fan	
 data:
   entity_id: switch.fan
   parameter: "LED 1 Blink Status (bottom)"
-  value: Blink
+  value: "Blink"
 ```
 
 ### Service `zwave_js.set_lock_usercode`
