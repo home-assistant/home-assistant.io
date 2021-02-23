@@ -39,12 +39,3 @@ Instructions on how to activate the API and if your model is supported can be fo
 ### Turn on device
 
 The Philips TV does not always support turning on via the API. You can either turn it on via IR blaster or on som models WOL. To trigger this command from the entities, the integration exposes a `device trigger` that can be setup to execute when the `media_player` is asked to turn on.
-
-### Know issues
-
- * Current input/source is only supported on v1 API
- * Selection of input/source is only supported on v1 and v6 API
- * Available input/source is only an static list on v6 API
- * Current running application is reported invalid on (at least) some 2020 TV's Android tv's
- * CEC control over absolute volume is broken on 2020 Android TV's
- * Saphi based Philips TV's are not supported due to different authentication protocol
