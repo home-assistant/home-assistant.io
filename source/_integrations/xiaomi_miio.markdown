@@ -906,35 +906,12 @@ Currently, the supported features are:
   - battery
   - time_stat
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
-
 ### Configuration
 
-To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: xiaomi_miio
-    host: IP_ADDRESS
-    token: YOUR_TOKEN
-```
+To add a Xiaomi Mi Air Quality Monitor to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
-{% configuration %}
-host:
-  description: The IP address of your miio device.
-  required: true
-  type: string
-token:
-  description: The API token of your miio device.
-  required: true
-  type: string
-name:
-  description: The name of your miio device.
-  required: false
-  type: string
-  default: Xiaomi Miio Sensor
-{% endconfiguration %}
 
 ## Xiaomi Mi Air Quality Monitor
 
