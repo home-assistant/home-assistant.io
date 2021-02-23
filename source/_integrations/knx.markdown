@@ -90,7 +90,7 @@ config_file:
   required: false
   type: string
 individual_address:
-  description: The KNX individual address (IA) that shall be used for routing or if a tunnelling server doesn't assign an IA at connection.
+  description: The KNX individual address (IA) that shall be used for routing or if a tunneling server doesn't assign an IA at connection.
   required: false
   type: string
   default: "15.15.250"
@@ -122,7 +122,7 @@ Under normal conditions no connection configuration should be needed. The integr
 
 ### Tunneling
 
-If you want to connect to a sepcific tunnelling server or if the auto detection of the KNX/IP device does not work the IP or/and port of the tunneling device can be configurated.
+If you want to connect to a specific tunneling server or if the auto detection of the KNX/IP device does not work the IP or/and port of the tunneling device can be configurated.
 
 ```yaml
 knx:
@@ -178,10 +178,10 @@ event_filter:
 
 Every telegram that matches the filter with its destination field will be announced on the event bus as a `knx_event` event containing data attributes
 
-- `data` contains the raw payload data (eg. 1 or "[12, 55]").
-- `destination` the KNX group address the telegram is sent to as string (eg. "1/2/3).
+- `data` contains the raw payload data (e.g., 1 or "[12, 55]").
+- `destination` the KNX group address the telegram is sent to as string (e.g., "1/2/3).
 - `direction` the direction of the telegram as string ("Incoming" / "Outgoing"). Currently only incoming telegrams generate the event.
-- `source` the KNX indidividual address of the sender as string (eg. "1.2.3").
+- `source` the KNX individual address of the sender as string (e.g., "1.2.3").
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
 
 ## Services
@@ -214,7 +214,7 @@ You can also use the `homeassistant.update_entity` service call to issue GroupVa
 
 ### Register Event
 
-The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` can not be unregistered. See [knx_event](#events)
+The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses matching the `event_filter` attribute in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
 {% configuration %}
 address:
@@ -275,12 +275,12 @@ entity_id:
   required: false
 attribute:
   description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent.
-    Eg. for a light the state is eigther "on" or "off". With `attribute` you can expose its "brightness".
+    For example for a light the state is either "on" or "off". With `attribute` you can expose its "brightness".
   type: string
   required: false
 default:
   description: Default value to send to the bus if the state or attribute value is `None`.
-    Eg. a light with state "off" has no brightness attribute so a default value of `0` could be used.
+    For example a light with state "off" has no brightness attribute so a default value of `0` could be used.
     If not set (or `None`) no value would be sent to the bus and a GroupReadRequest to the address would return the last known value.
   type: [boolean, string, integer, float]
   default: None
@@ -384,7 +384,7 @@ name:
   required: false
   type: string
 counter:
-  description: Set to 2 if your only want the action to be executed if the button was pressed twice. To 3 for three times button pressed.
+  description: Set to 2 if you only want the action to be executed if the button was pressed twice. Set to 3 for three times button pressed.
   required: false
   type: integer
   default: 1
@@ -657,7 +657,7 @@ move_long_address:
   required: false
   type: string
 move_short_address:
-  description: KNX group address for moving the cover short time up or down. *DPT 1*
+  description: KNX group address for moving the cover short time up or down. Used by some covers also as the means to stop the cover, if no dedicated `stop_address` exists on the actuator. *DPT 1*
   required: false
   type: string
 stop_address:
@@ -691,7 +691,7 @@ travelling_time_up:
   default: 25
   type: integer
 invert_position:
-  description: Set this to `true` if your actuator report fully closed as 0% in KNX.
+  description: Set this to `true` if your actuator reports fully closed as 0% in KNX.
   required: false
   default: false
   type: boolean
