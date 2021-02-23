@@ -26,12 +26,12 @@ There is currently support for the following device types within Home Assistant:
 
 The following entities are created for this component:
 
-| Entity        | Domain   | Description                                                                      |
-| ------------- | -------- | -------------------------------------------------------------------------------- |
-| Litter Box    | `vacuum` | Main entity that represents a Litter-Robot unit.                                 |
-| Night Light   | `switch` | When turned on, automatically turns on the night light in darker settings.       |
-| Panel Lockout | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
-| Waste Drawer  | `sensor` | Displays the current waste level gauge.                                          |
+| Entity           | Domain   | Description                                                                      |
+| ---------------- | -------- | -------------------------------------------------------------------------------- |
+| Litter Box       | `vacuum` | Main entity that represents a Litter-Robot unit.                                 |
+| Night Light Mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
+| Panel Lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+| Waste Drawer     | `sensor` | Displays the current waste level gauge.                                          |
 
 All of the entities above are grouped together and identified by a single device.
 
