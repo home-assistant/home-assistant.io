@@ -26,13 +26,12 @@ There is currently support for the following device types within Home Assistant:
 
 The following entities are created for this component:
 
-| Entity        | Domain   | Description                                                                                     |
-| ------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| Litter Box    | `vacuum` | Main entity that represents a Litter-Robot unit.                                                |
-| Night Light   | `switch` | When turned on, automatically turns on the night light in darker settings.                      |
-| Panel Lockout | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings.                |
-| Sleep Mode    | `switch` | When turned on, prevents automatic clean cycles for 8 hours on a daily basis from the time set. |
-| Waste Drawer  | `sensor` | Displays the current waste level gauge.                                                         |
+| Entity        | Domain   | Description                                                                      |
+| ------------- | -------- | -------------------------------------------------------------------------------- |
+| Litter Box    | `vacuum` | Main entity that represents a Litter-Robot unit.                                 |
+| Night Light   | `switch` | When turned on, automatically turns on the night light in darker settings.       |
+| Panel Lockout | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+| Waste Drawer  | `sensor` | Displays the current waste level gauge.                                          |
 
 All of the entities above are grouped together and identified by a single device.
 
@@ -46,16 +45,11 @@ Some entities have attributes in addition to the default ones that are available
 | ----------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | clean_cycle_wait_time_minutes | integer | Current wait time, in minutes, between when your cat uses the Litter-Robot and when the unit cycles automatically.                                                 |
 | is_sleeping                   | boolean | Whether or not the unit is currently in sleep mode.                                                                                                                |
+| sleep_mode_start_time         | string  | When sleep mode is enabled, displays the time the unit will enter sleep mode in the format `%H:%M:%S`, otherwise `None`.                                           |
+| sleep_mode_end_time           | string  | When sleep mode is enabled, displays the time the unit will exit sleep mode in the format `%H:%M:%S`, otherwise `None`.                                            |
 | power_status                  | string  | Current power status of the unit. `AC` indicates normal power, `DC` indicates battery backup and `NC` indicates that the unit is not connected and/or powered off. |
 | unit_status_code              | string  | The [unit status code](https://github.com/natekspencer/pylitterbot/blob/main/pylitterbot/robot.py#L21) associated with the current status of the vacuum.           |
 | last_seen                     | string  | UTC datetime the unit last reported its status.                                                                                                                    |
-
-### Sleep Mode `switch` entity (when enabled)
-
-| Attribute  | Type   | Definition                                                    |
-| ---------- | ------ | ------------------------------------------------------------- |
-| start_time | string | Time the unit will enter sleep mode in the format `%H:%M:%S`. |
-| end_time   | string | Time the unit will exit sleep mode in the format `%H:%M:%S`.  |
 
 ### Waste Drawer `sensor` entity
 
