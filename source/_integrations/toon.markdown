@@ -40,7 +40,6 @@ and a Toon API developer account.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Setting up a developer account](#setting-up-a-developer-account)
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
