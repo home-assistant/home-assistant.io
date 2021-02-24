@@ -12,6 +12,11 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@fredrike'
 ha_domain: daikin
+ha_zeroconf: true
+ha_platforms:
+  - climate
+  - sensor
+  - switch
 ---
 
 The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
@@ -37,9 +42,7 @@ There is currently support for the following device types within Home Assistant:
   
 </div>
 
-## Configuration
-
-The Daikin integration can be configured via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC (SKYFi based devices need to provide a password and BRP072Cxx devices need to provide a key).
+{% include integrations/config_flow.md %}
 
 <div class='note'>
   

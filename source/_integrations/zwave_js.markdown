@@ -18,9 +18,20 @@ ha_config_flow: true
 ha_codeowners:
   - '@home-assistant/z-wave'
 ha_domain: zwave_js
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 This integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver. This is our recommended Z-Wave integration for Home Assistant.
+
+Please review the limitations [below](/integrations/zwave_js/#current-limitations) before you get started as a few devices still may not work or only work partially. 
 
 ## Quick start (Home Assistant including Supervisor)
 
@@ -40,13 +51,58 @@ While your Z-Wave mesh is permanently stored on your stick, the additional metad
 Advanced users: Make sure that the server started successfully by inspecting the logs. Give the Z-Wave controller some time to start.
 </p>
 
-## Configuration
-
-At this time the configuration options for this new Z-Wave integration are still limited (but will be extended over time). Basic features like adding a new node or removing a node are available. You can configure the Z-Wave network within Home Assistant from the Integrations configuration page. Just click "configure" on the Z-Wave JS card.
-
-Menu: **Configuration** -> **Integrations** -> **Z-Wave JS** -> **Configure**
+{% include integrations/config_flow.md %}
 
 ## Services
+
+### Service `zwave_js.set_config_parameter`
+
+This service will update a configuration parameter. At this time, it is not possible to update multiple partial parameters in a single call, but we hope to add support for that in the future.
+
+| Service Data Attribute 	| Required  	| Description                                                                                                                               	|
+|------------------------	|-----------	|-------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| no        	| Entity (or list of entities) to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                       	|
+| `device_id`            	| no        	| ID of device to set the configuration parameter on. At least one `entity_id` or `device_id` must be provided.                                                	|
+| `parameter`            	| yes       	| The parameter number or the name of the property. The name of the property is case sensitive.                                             	|
+| `bitmask`              	| no        	| The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed. 	|
+| `value`                	| yes       	| The target value for the parameter as the integer value or the state label. The state label is case sensitive.                       	|
+
+#### Examples of setting a single parameter value
+
+Let's use parameter 31 for [this device](https://devices.zwave-js.io/?jumpTo=0x000c:0x0203:0x0001:0.0) as an example to show examples of different ways that the `LED 1 Blink Status (bottom)` partial parameter can be set. Note that in places where we are using different values for the same key, the different values are interchangeable across the examples. We can, for instance, use `1` or `Blink` interchangeably for the `value` in all of the examples.
+
+Example 1:
+```yaml
+service: zwave_js.set_config_parameter
+target:
+  entity_id: switch.fan
+data:
+  parameter: 31
+  bitmask: 0x01
+  value: 1
+```
+
+Example 2:
+```yaml
+service: zwave_js.set_config_parameter
+target:
+  entity_id: switch.fan
+data:
+  parameter: 31
+  bitmask: 1
+  value: "Blink"
+```
+
+Example 3:
+```yaml
+service: zwave_js.set_config_parameter
+target:
+  entity_id: switch.fan	
+data:
+  entity_id: switch.fan
+  parameter: "LED 1 Blink Status (bottom)"
+  value: "Blink"
+```
 
 ### Service `zwave_js.set_lock_usercode`
 
@@ -116,10 +172,9 @@ Value Notification example:
 
 As this integration is still in the early stages there are some important limitations to be aware of.
 
-- While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6). For example the `Barrier Operator CommandClass` (in plain English: garage door controllers) are not added yet (but [almost finished](https://github.com/zwave-js/node-zwave-js/pull/1337)!).
+- While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
 - Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented. You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
 - Polling is currently not supported in the integration but will be added soon as a service.
-- Support for setting configuration parameters through service calls is currently not supported but may be added in a later release.
 - There currently is no migration path available from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
 
 You can keep track of the Roadmap for the Z-Wave JS integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).

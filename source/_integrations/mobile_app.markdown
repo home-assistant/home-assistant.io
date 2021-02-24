@@ -10,6 +10,11 @@ ha_codeowners:
   - '@robbiet480'
 ha_domain: mobile_app
 ha_iot_class: Local Push
+ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - notify
+  - sensor
 ---
 
 The Mobile App integration allows Home Assistant mobile apps to easily integrate with Home Assistant.

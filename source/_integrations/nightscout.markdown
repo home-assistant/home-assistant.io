@@ -10,18 +10,13 @@ ha_codeowners:
   - '@marciogranzotto'
 ha_domain: nightscout
 ha_quality_scale: platinum
+ha_platforms:
+  - sensor
 ---
 
 The Nightscout integration allows you to view your CGM data from [Nightscout](http://www.nightscout.info/) in Home Assistant.
 
-## Configuration
-
-To add `Nightscout` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Nightscout**.
-
-Then input your server address in the `URL` field. For example:
-
-- `https://localhost:5423`
-- `https://your-app-name.herokuapp.com`
+{% include integrations/config_flow.md %}
 
 If your Nightscout instance requires authentication for API access, you are also required to input the API Key in the configuration form.
 
@@ -36,17 +31,18 @@ The state is the last reading from Nightscout, and you can see other information
 
 ```yaml
 - id: "1234567890123"
-  alias: overnight_low_kitchen_lights
+  alias: "overnight_low_kitchen_lights"
   description: Turn on the lights in the kitchen if my blood sugar drops low overnight
   trigger:
-  - below: "65"
+  - platform: numeric_state
     entity_id: sensor.blood_glucose
-    platform: numeric_state
-  condition: time
-    after: "22:00:00"
-    before: "06:00:00"
+    below: "65" 
+  condition:
+    - condition: time
+      after: "22:00:00"
+      before: "06:00:00"
   action:
-  - service: light.turn_on
-      data:
+    - service: light.turn_on
+      target:
         entity_id: light.kitchen
 ```

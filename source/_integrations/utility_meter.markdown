@@ -9,6 +9,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: utility_meter
+ha_platforms:
+  - sensor
 ---
 
 The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
@@ -151,9 +153,11 @@ automation:
       at: "21:00:00"
   action:
     - service: utility_meter.next_tariff
-      entity_id: utility_meter.daily_energy
+      target:
+        entity_id: utility_meter.daily_energy
     - service: utility_meter.next_tariff
-      entity_id: utility_meter.monthly_energy
+      target:
+        entity_id: utility_meter.monthly_energy
 ```
 
 ## Advanced Configuration for DSMR users

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@scarface-4711'
   - '@starkillerOG'
 ha_config_flow: true
+ha_ssdp: true
 ---
 
 The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/en-gb/shop/networkmusicsystem/ceolpiccolon4) from Home Assistant. It might be that your device is supported by the [Denon] platform.
@@ -76,29 +77,18 @@ If your model is not on the list then give it a test, if everything works correc
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
 </div>
 
-To add a Denon Network Receiver to your installation, click Configuration in the sidebar, then click Integrations. Denon and Marantz receivers should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your receiver does not show up automatically, click the + icon in the lower right. Then search for "denonavr" and enter the setup.
+{% include integrations/config_flow.md %}
 
-{% configuration %}
+{% configuration_basic %}
 host:
   description: IP address of the device, e.g., 192.168.1.32. If not set, auto-discovery is used.
-  required: false
-  type: string
 show_all_sources:
   description: If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed. Some receivers have a bug that marks all sources as deleted in the interface. In this case, this option could help.
-  required: false
-  default: false
-  type: boolean
 zone1:
   description: Specifies if zone 1 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
-  required: false
-  default: false
-  type: boolean
 zone2:
   description: Specifies if zone 2 should be activated. Zones are displayed as additional media players with the same functionality as the Main Zone of the device supports.
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 A few notes:
 

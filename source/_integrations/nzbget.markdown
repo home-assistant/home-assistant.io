@@ -10,13 +10,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@chriscla'
 ha_domain: nzbget
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 The `nzbget` platform will allow you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant and setup automation based on the information.
 
-## Configuration
-
-Go to the integrations page in your configuration and click on new integration -> NZBGet.
+{% include integrations/config_flow.md %}
 
 ## Sensor
 
@@ -48,7 +49,7 @@ Example automation to send a Telegram message on a completed download:
 {% raw %}
 
 ```yaml
-- alias: Completed Torrent
+- alias: "Completed Torrent"
   trigger:
     platform: event
     event_type: nzbget_download_complete

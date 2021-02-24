@@ -24,7 +24,7 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 
 <div class='note tip'>
 
-  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
+  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as. Configuration changes can also be tested using the UI by navigating to Configuration, Server Controls and clicking "Check Configuration".
 
 </div>
 
@@ -34,14 +34,16 @@ There are many ways you can edit `configuration.yaml`. Here are three options to
 
 The simplest is to use the "File Editor" add-on. This will allow you to edit your configuration from within Home Assistant itself.
 
-You can also use Samba (you may need to install the "Samba" add-on) and your favorite file editor.
+Perhaps the most robust option is to load the Visual Studio Code add-on. VS Code offers live syntax checking and auto-fill of various Home Assistant entities. 
+
+You can use Samba file share (you need to install the "Samba" add-on) and your favorite file editor.
 
 The most basic is to use SSH to connect to the system (you may need to install the SSH add-on) and then use `nano` (or `vim`) to edit the file.
 
 ## Reloading changes
 
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [history stats](/integrations/history_stats/), [HomeKit](/integrations/homekit/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [MQTT](/integrations/mqtt/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [statistics](/integrations/statistics/), [template sensors](/integrations/template/), [timers](/integrations/timer/), [zones](/integrations/zone/), and more without restarting.
+You can load changes to the following components without restarting, by using the UI. Navigate to Configuration, Server Controls and scrolling down to the YAML configuration reloading: [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/integrations/group/), [history stats](/integrations/history_stats/), [HomeKit](/integrations/homekit/), [input_booleans](/integrations/input_boolean/), [input_datetimes](/integrations/input_datetime/), [input_numbers](/integrations/input_number/), [input_selects](/integrations/input_select/), [input_texts](/integrations/input_text/), [MQTT](/integrations/mqtt/), [persons](/integrations/person/), [scenes](/integrations/scene/), [scripts](/integrations/script/), [statistics](/integrations/statistics/), [template sensors](/integrations/template/), [timers](/integrations/timer/), [zones](/integrations/zone/), and more without restarting.
 
 <div class='note warning'>
 

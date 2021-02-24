@@ -11,6 +11,8 @@ ha_codeowners:
   - '@djtimca'
   - '@gentoosu'
 ha_domain: omnilogic
+ha_platforms:
+  - sensor
 ---
 
 [Hayward OmniLogic](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) smart pool and spa technology control.
@@ -19,9 +21,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Sensor
 
-## Configuration
-
-Home Assistant offers Hayward OmniLogic integration through **Configuration** -> **Integrations** -> **Hayward OmniLogic**. Enter your `username` and `password` when prompted. Use your registered email address as the username.
+{% include integrations/config_flow.md %}
 
 ## Known limitations
 

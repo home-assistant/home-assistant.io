@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@JohNan'
 ha_domain: plaato
+ha_platforms:
+  - sensor
 ---
 
 This integration sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.

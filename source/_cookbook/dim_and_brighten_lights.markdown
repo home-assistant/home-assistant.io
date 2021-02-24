@@ -23,7 +23,8 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_on
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
         data:
           variables:
             direction: up
@@ -39,7 +40,8 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_on
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
         data:
           variables:
             direction: down
@@ -60,7 +62,8 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_off
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
 ```
 
 There are two variables that control the speed of the change for the script below. The first is the step -- small steps create a smooth transition. The second is the delay -- larger delays will create a slower transition.
@@ -107,7 +110,7 @@ Now the script.
 ```yaml
 script:
   ramp_light:
-    alias: Ramp Light Brightness
+    alias: "Ramp Light Brightness"
     description: Ramp light brightness up or down
     fields:
       direction:
@@ -129,8 +132,9 @@ script:
                    direction == 'down' and br > mn }}
           sequence:
             - service: light.turn_on
-              data:
+              target:
                 entity_id: "{{ light }}"
+              data:
                 brightness: >
                   {% set br = state_attr(light, 'brightness')|int(0) %}
                   {% set mn = states('input_number.light_minimum')|int %}

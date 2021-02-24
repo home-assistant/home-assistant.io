@@ -15,6 +15,12 @@ ha_codeowners:
   - '@gerard33'
   - '@rikroe'
 ha_domain: bmw_connected_drive
+ha_platforms:
+  - binary_sensor
+  - device_tracker
+  - lock
+  - notify
+  - sensor
 ---
 
 The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.

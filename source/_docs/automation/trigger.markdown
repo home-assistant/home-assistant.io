@@ -334,7 +334,8 @@ automation:
       seconds: "{{ states('input_number.lock_sec')|int }}"
   action:
     service: lock.lock
-    entity_id: lock.my_place
+    target:
+      entity_id: lock.my_place
 ```
 
 {% endraw %}
@@ -390,7 +391,8 @@ automation:
     below: -4.0
   action:
     service: switch.turn_on
-    entity_id: switch.exterior_lighting
+    target:
+      entity_id: switch.exterior_lighting
 ```
 
 {% endraw %}
@@ -519,9 +521,11 @@ automation:
       to: "on"
     action:
       - service: climate.turn_on
-        entity_id: climate.office
+        target:
+          entity_id: climate.office
       - service: input_datetime.set_datetime
-        entity_id: input_datetime.turn_off_ac
+        target:
+          entity_id: input_datetime.turn_off_ac
         data:
           datetime: >
             {{ (now().timestamp() + 2*60*60)
@@ -532,7 +536,8 @@ automation:
       at: input_datetime.turn_off_ac
     action:
       service: climate.turn_off
-      entity_id: climate.office
+      target:
+        entity_id: climate.office
 ```
 
 {% endraw %}
@@ -548,7 +553,8 @@ automation:
       at: sensor.phone_next_alarm
     action:
       service: light.turn_on
-      entity_id: light.bedroom
+      target:
+        entity_id: light.bedroom
 ```
 
 #### Multiple Times

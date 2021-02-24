@@ -80,7 +80,8 @@ automation:
      to: "on"
    action:
      service: ffmpeg.start
-     entity_id: binary_sensor.ffmpeg_noise
+     target:
+       entity_id: binary_sensor.ffmpeg_noise
 
  - alias: "Babyphone off"
    trigger:
@@ -90,7 +91,8 @@ automation:
      to: "off"
    action:
      service: ffmpeg.stop
-     entity_id: binary_sensor.ffmpeg_noise
+     target:
+       entity_id: binary_sensor.ffmpeg_noise
 ```
 
 ### Trigger an alarm
@@ -107,20 +109,25 @@ automation:
      to: "on"
    action:
     - service: media_player.sonos_snapshot
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
     - service: media_player.sonos_unjoin
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
     - service: media_player.volume_set
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
       data:
         volume_level: 0.4
     - service: media_player.play_media
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
       data:
         media_content_type: "music"
         media_content_id: http://my_ip_icecast:8000/babyphone.mp3
     - service: light.turn_on:
-      entity_id:
+      target:
+        entity_id:
        - light.floor
        - light.bedroom
       data:
@@ -134,11 +141,13 @@ automation:
      to: "off"
    action:
     - service: media_player.sonos_restore
-      entity_id: media_player.bedroom
+      target:
+        entity_id: media_player.bedroom
     - service: light.turn_off:
-      entity_id:
-       - light.floor
-       - light.bedroom
+      target:
+        entity_id:
+         - light.floor
+         - light.bedroom
 ```
 
 ### Thanks

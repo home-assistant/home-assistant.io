@@ -10,6 +10,8 @@ ha_codeowners:
   - '@fabaff'
   - '@engrbm87'
 ha_domain: glances
+ha_platforms:
+  - sensor
 ---
 
 The `glances` integration allows you to monitor the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
@@ -37,56 +39,7 @@ If this doesn't work, try changing the `3` to `2`, if you don't have the latest 
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).  
 
-## Configuration
-
-Set up the integration through **Configuration -> Integrations -> Glances**. To import the configuration from `configuration.yaml` remove any previously configured sensors with platform type `glances` and add the following lines:
-
-```yaml
-# Example configuration.yaml entry
-glances:
-  - host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: IP address of the host where Glances is running.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port where Glances is listening.
-  required: false
-  type: integer
-  default: 61208
-name:
-  description: The prefix for the sensors.
-  required: false
-  type: string
-  default: Glances
-username:
-  description: Your username for the HTTP connection to Glances.
-  required: false
-  type: string
-password:
-  description: Your password for the HTTP connection to Glances.
-  required: false
-  type: string
-ssl:
-  description: "If `true`, use SSL/TLS to connect to the Glances system."
-  required: false
-  type: boolean
-  default: false
-verify_ssl:
-  description: Verify the certification of the system.
-  required: false
-  type: boolean
-  default: true
-version:
-  description: "The version of the Glances API. Supported version: `2` and `3`."
-  required: false
-  type: integer
-  default: 3
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Integration Entities
 

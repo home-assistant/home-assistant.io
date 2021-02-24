@@ -38,7 +38,7 @@ In 1.10.0 we further enhanced our notifications to allow for many new options. U
 
 ```yaml
 automation:
-  - alias: Alarm triggered
+  - alias: "Alarm triggered"
     trigger:
       platform: state
       entity_id: alarm_control_panel.home

@@ -7,6 +7,8 @@ ha_release: 0.7.6
 ha_quality_scale: internal
 ha_domain: manual
 ha_iot_class: Calculated
+ha_platforms:
+  - alarm_control_panel
 ---
 
 The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
@@ -173,7 +175,8 @@ automation:
       state: armed_away
   action:
     service: alarm_control_panel.alarm_trigger
-    entity_id: alarm_control_panel.ha_alarm
+    target:
+      entity_id: alarm_control_panel.ha_alarm
 ```
 
 Sending a notification when the alarm is triggered.
@@ -203,7 +206,8 @@ automation:
         # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
     action:
       - service: alarm_control_panel.alarm_disarm
-        entity_id: alarm_control_panel.house_alarm
+        target:
+          entity_id: alarm_control_panel.house_alarm
 ```
 
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status

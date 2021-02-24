@@ -12,6 +12,9 @@ ha_codeowners:
   - '@freekode'
   - '@nzapponi'
 ha_domain: openweathermap
+ha_platforms:
+  - sensor
+  - weather
 ---
 
 The `openweathermap` weather platform uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
@@ -23,9 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 You need an API key, which is free, but requires a [registration](https://home.openweathermap.org/users/sign_up).
 
-## Configuration
-
-To add OpenWeatherMap integration go to **Configuration** >> **Integrations** and find the integration in the list.
+{% include integrations/config_flow.md %}
 
 | Parameter            | Value                                                                                                                                                                                                                                      |
 | :------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

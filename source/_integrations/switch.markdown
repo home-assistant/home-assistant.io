@@ -7,6 +7,8 @@ ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: switch
 ha_iot_class:
+ha_platforms:
+  - light
 ---
 
 Keeps track which switches are in your environment, their state and allows you to control them.

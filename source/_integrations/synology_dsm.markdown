@@ -12,68 +12,17 @@ ha_codeowners:
   - '@Quentame'
   - '@mib1185'
 ha_config_flow: true
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - sensor
+  - switch
 ---
 
-The `synology_dsm` sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
+The Synology DSM sensor platform provides access to various statistics from your [Synology NAS](https://www.synology.com) as well as cameras from the [Surveillance Station](https://www.synology.com/en-us/surveillance).
 
-## Configuration
-
-There are two ways to integrate your Synology DSM into Home Assistant.
-
-### Via the frontend
-
-Menu: *Configuration* -> *Integrations*. Search for "Synology DSM", fill in the configuration form with your username and password, and then click **Submit**.
-
-### Via the configuration file
-
-Add the following section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-synology_dsm:
-  - host: IP_ADDRESS_OR_HOSTNAME_OF_SYNOLOGY_NAS
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-host:
-  description: The IP address or DNS hostname of the Synology NAS to monitor.
-  required: true
-  type: string
-port:
-  description: The port number on which the Synology NAS is reachable.
-  required: false
-  default: 5001 if `ssl` is true, 5000 if `ssl` is false
-  type: integer
-ssl:
-  description: Determine if HTTPS should be used.
-  required: false
-  default: true
-  type: boolean
-verify_ssl:
-  description: Determine if SSL-Certificate should be verified.
-  required: false
-  default: false
-  type: boolean
-username:
-  description: The account username to connect to the Synology NAS. Using a separate account is advised, see the [Separate User Configuration](#separate-user-configuration) section below for details.
-  required: true
-  type: string
-password:
-  description: The password of the user to connect to the Synology NAS.
-  required: true
-  type: string
-volumes:
-  description: "Array of volumes to monitor. Defaults to all volumes. Replace any spaces in the volume name with underscores. For example, replace `volume 1` with `volume_1`."
-  required: false
-  type: list
-disks:
-  description: "Array of disks to monitor. Defaults to all disks. Use only disk names like `sda`, `sdb`, and so on."
-  required: false
-  type: list
-{% endconfiguration %}
-
+{% include integrations/config_flow.md %}
 
 <div class='note warning'>
 

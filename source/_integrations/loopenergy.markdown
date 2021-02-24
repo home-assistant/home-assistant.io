@@ -8,6 +8,8 @@ ha_iot_class: Cloud Push
 ha_domain: loopenergy
 ha_codeowners:
   - '@pavoni'
+ha_platforms:
+  - sensor
 ---
 
 <div class='note warning'>

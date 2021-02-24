@@ -59,5 +59,6 @@ automation:
       action: call_service
   action:
     service: light.turn_on
-    entity_id: light.office
+    target:
+      entity_id: light.office
 ```

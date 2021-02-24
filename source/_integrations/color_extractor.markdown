@@ -59,7 +59,7 @@ Example usage in an automation, taking the album art present on a Chromecast and
 
 ```yaml
 #automation.yaml
-- alias: Chromecast to Shelf Lights
+- alias: "Chromecast to Shelf Lights"
 
   trigger:
     - platform: state
@@ -76,7 +76,7 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
 
 ```yaml
 #automation.yaml
-- alias: Nicer Chromecast to Shelf Lights
+- alias: "Nicer Chromecast to Shelf Lights"
 
   trigger:
     - platform: state

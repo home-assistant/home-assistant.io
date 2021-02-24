@@ -12,6 +12,10 @@ ha_codeowners:
   - '@leofig-rj'
 ha_domain: wilight
 ha_quality_scale: silver
+ha_ssdp: true
+ha_platforms:
+  - fan
+  - light
 ---
 
 The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.
@@ -22,9 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - Fan (WiLight model V-104).
 - Light (WiLight model I-100, I-102 and I-107).
 
-## Configuration
-
-Supported devices will be discovered automatically by the SSDP protocol. The local network will be scanned for WiLight devices.
+{% include integrations/config_flow.md %}
 
 ## Fan
 

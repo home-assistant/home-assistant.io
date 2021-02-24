@@ -520,14 +520,15 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
-      data:
+      target:
         entity_id: vacuum.vacuum_entity
+      data:
         command: "custom_command"
         params:
           - key: value
@@ -595,14 +596,15 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
-      data:
+      target:
         entity_id: vacuum.vacuum_entity
+      data:
         command: "custom_command"
         params:
           - key: value

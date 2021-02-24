@@ -9,6 +9,7 @@ ha_domain: homekit
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+ha_zeroconf: true
 ---
 
 The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
@@ -19,9 +20,9 @@ The HomeKit integration allows you to make your Home Assistant entities availabl
 
 </div>
 
-To add `HomeKit` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **HomeKit**.
+{% include integrations/config_flow.md %}
 
-If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, `HomeKit Bridge` must be configured via your `configuration.yaml` file:
+If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, HomeKit Bridge must be configured via your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry configuring HomeKit
@@ -74,7 +75,7 @@ homekit:
         type: boolean
         default: true
       port:
-        description: Port for the HomeKit extension.
+        description: Port for the HomeKit extension. If you are adding more than one instance they need to have different values for port.
         required: false
         type: integer
         default: 51827
@@ -564,7 +565,10 @@ Try removing the entity from HomeKit and then adding it again. If you are adding
 
 #### My media player is not showing up as a television accessory
 
-Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
+Media Player entities with `device_class: tv` will show up as Television accessories on devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
+
+The [Universal Media Player](/integrations/universal/#harmony-remote-example) has an example of how it can be used to wrap existing entities to enable them to be used as a Television accessory in HomeKit.
+
 
 #### Can't control volume of your TV media player?
 

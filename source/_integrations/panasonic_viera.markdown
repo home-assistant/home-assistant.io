@@ -11,11 +11,7 @@ ha_config_flow: true
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
-## Configuration
-
-To configure your Panasonic Viera TV, head to the **Configuration > Integrations** page. Click on the plus (+) button to add a new integration.
-
-Once the integration is loaded, with your TV turned on and connected to your local network, enter the IP address of your TV and a name of your choice.
+{% include integrations/config_flow.md %}
 
 If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
@@ -78,17 +74,18 @@ script:
     alias: "Show who's at the door"
     sequence:
       - service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.living_room_tv
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.living_room_tv
+        data:
           media_content_type: "url"
           media_content_id: YOUR_URL
       - delay:
         seconds: 5
       - service: media_player.media_stop
-        data:
+        target:
           entity_id: media_player.living_room_tv
 ```
 

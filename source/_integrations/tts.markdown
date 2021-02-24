@@ -8,6 +8,8 @@ ha_iot_class:
 ha_codeowners:
   - '@pvizeli'
 ha_domain: tts
+ha_platforms:
+  - notify
 ---
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.

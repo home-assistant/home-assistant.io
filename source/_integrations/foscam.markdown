@@ -9,13 +9,13 @@ ha_codeowners:
   - '@skgsergio'
 ha_domain: foscam
 ha_config_flow: true
+ha_platforms:
+  - camera
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
 
-## Configuration
-
-Home Assistant offers Foscam IP Cameras integration through **Configuration** -> **Integrations** -> **Foscam**. Follow the instructions to get it set up.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.

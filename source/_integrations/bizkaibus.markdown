@@ -9,6 +9,8 @@ ha_release: 0.93
 ha_codeowners:
   - '@UgaitzEtxebarria'
 ha_domain: bizkaibus
+ha_platforms:
+  - sensor
 ---
 
 The `bizkaibus` sensor will give you the time until the next bus in the selected stop.

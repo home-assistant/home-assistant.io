@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.58
 ha_iot_class: Local Polling
 ha_domain: lacrosse
+ha_platforms:
+  - sensor
 ---
 
 The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
@@ -28,6 +30,8 @@ Or, when using Docker containers:
 ```bash
 docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 ```
+
+For TX 29 DTH-IT sensors you can also read the ID from the display and calculate the ID as followed: `hex2dec(ID_on_display) / 4`.
 
 ## Configuration
 

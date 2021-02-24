@@ -15,9 +15,7 @@ The `braviatv` platform allows you to control a [Sony Bravia TV](https://www.son
 
 Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. A more generic method for older TVs connected to a Raspberry Pi with HDMI-CEC is explained further [below](#for-tvs-older-than-2013).
 
-## Configuration
-
-You can setup the Sony Bravia TV via **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select Sony Bravia TV.
+{% include integrations/config_flow.md %}
 
 ## Common Issues
 

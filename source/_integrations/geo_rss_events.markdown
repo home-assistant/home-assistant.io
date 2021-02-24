@@ -8,6 +8,8 @@ ha_release: 0.55
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geo_rss_events
+ha_platforms:
+  - sensor
 ---
 
 The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.

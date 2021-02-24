@@ -6,6 +6,11 @@ ha_category:
 ha_release: 0.7.4
 ha_iot_class: Local Polling
 ha_domain: rest
+ha_platforms:
+  - binary_sensor
+  - notify
+  - sensor
+  - switch
 ---
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
@@ -448,22 +453,22 @@ switch:
             data:
                led: 6
           - service: homeassistant.update_entity
-            data:
+            target:
                entity_id: sensor.steam_system_data
           - delay: 00:00:15
           - service: homeassistant.update_entity
-            data:
+            target:
                entity_id: sensor.steam_system_data
         turn_off:
           - service: rest_command.set_steam_led
             data:
                led: 7
           - service: homeassistant.update_entity
-            data:
+            target:
                entity_id: sensor.steam_system_data
           - delay: 00:00:15
           - service: homeassistant.update_entity
-            data:
+            target:
                entity_id: sensor.steam_system_data
         friendly_name: Steam
 

@@ -52,29 +52,31 @@ In order to apply attributes to an entity, you will need to add `data:` to the c
 # Example configuration.yaml entry
 automation:
 - id: one
-  alias: Turn on light when motion is detected
+  alias: "Turn on light when motion is detected"
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_1
       to: "on"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.living_room
+      data:
         brightness: 255
         kelvin: 2700
 ```
 ```yaml
 # Ledlist morning on, red
 - id: llmor
-  alias: Stair morning on
+  alias: "Stair morning on"
   trigger:
   - at: '05:00'
     platform: time
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.ledliststair
+      data:
         brightness: 130
         rgb_color: [255,0,0]
 ```

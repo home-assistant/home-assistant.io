@@ -12,6 +12,9 @@ ha_codeowners:
   - '@engrbm87'
   - '@JPHutchins'
 ha_domain: transmission
+ha_platforms:
+  - sensor
+  - switch
 ---
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
@@ -20,44 +23,7 @@ The Transmission integration allows you to monitor your [Transmission](https://w
 
 Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox.
 
-## Configuration
-
-In Home Assistant, navigate to **Configuration** -> **Integrations** and click the plus button to add a new integration and search for **Transmission**. For legacy support old Transmission configuration is imported and set up as a new integration. Make sure to remove `monitored_conditions` as they are now automatically added to Home Assistant.
-
-Alternatively, the integration can be set up via YAML by adding the following lines to your `configuration.yaml`:
-
-```yaml
-transmission:
-  host: 192.168.1.1
-```
-
-{% configuration %}
-host:
-  description: "This is the IP address of your Transmission daemon, e.g., `192.168.1.1` or `https://example.com/transmission/rpc`."
-  required: true
-  type: string
-port:
-  description: The port your Transmission daemon uses.
-  required: false
-  type: integer
-  default: 9091
-name:
-  description: The name to use when displaying this Transmission instance in the frontend.
-  required: false
-  type: string
-username:
-  description: Your Transmission username, if you use authentication.
-  required: false
-  type: string
-password:
-  description: Your Transmission password, if you use authentication.
-  required: false
-  type: string
-scan_interval:
-  description: How frequently to query for new data. Defaults to 120 seconds.
-  required: false
-  type: integer
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Integration Entities
 
@@ -94,7 +60,7 @@ Example of an automation that notifies on successful download and removes the to
 {% raw %}
 
 ```yaml
-- alias: Notify and remove completed torrent
+- alias: "Notify and remove completed torrent"
   trigger:
     platform: event
     event_type: transmission_downloaded_torrent

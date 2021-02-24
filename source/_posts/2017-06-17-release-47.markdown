@@ -134,7 +134,7 @@ notify:
 - Z-Wave node and scene activated trigger events now use the full entity ID ([@armills] - [#7786]) ([zwave docs]) (breaking change)
 ```yaml
 automation:
-  - alias: Button 1
+  - alias: "Button 1"
     trigger:
       platform: event
       event_type: zwave.scene_activated
@@ -144,7 +144,7 @@ automation:
 ```
 ```yaml
 automation:
-  - alias: Event 1
+  - alias: "Event 1"
     trigger:
       platform: event
       event_type: zwave.node_event

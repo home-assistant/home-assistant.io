@@ -17,6 +17,15 @@ ha_codeowners:
   - '@pvizeli'
   - '@danielperna84'
 ha_domain: homematic
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - lock
+  - notify
+  - sensor
+  - switch
 ---
 
 The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses a XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
@@ -252,7 +261,8 @@ automation:
        param: PRESS_SHORT
    action:
      service: switch.turn_on
-     entity_id: switch.Kitchen_Ambience
+     target:
+       entity_id: switch.Kitchen_Ambience
 ```
 
 The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
@@ -322,8 +332,9 @@ Set boolean variable to true:
 ...
 action:
   service: homematic.set_variable_value
-  data:
+  target:
     entity_id: homematic.ccu2
+  data:
     name: Variablename
     value: true
 ```
@@ -414,7 +425,8 @@ Manually set lock on KeyMatic devices:
 ...
 action:
   service: lock.lock
-  entity_id: lock.leq1234567
+  target:
+    entity_id: lock.leq1234567
 ```
 
 Manually set unlock on KeyMatic devices:
@@ -423,7 +435,8 @@ Manually set unlock on KeyMatic devices:
 ...
 action:
   service: lock.unlock
-  entity_id: lock.leq1234567
+  target:
+    entity_id: lock.leq1234567
 ```
 
 #### Detecting lost connections
@@ -447,7 +460,7 @@ binary_sensor:
           {{as_timestamp(now()) - as_timestamp(states.sensor.office_voltage.last_changed) < 600}}
 
 automation:
-  - alias: Homematic Reconnect
+  - alias: "Homematic Reconnect"
     trigger:
       platform: state
       entity_id: binary_sensor.homematic_up
@@ -494,7 +507,7 @@ automation:
 
      ```yaml
      automation:
-       - alias: Homematic CCU Reboot
+       - alias: "Homematic CCU Reboot"
          trigger:
            platform: state
            entity_id: sensor.v_last_reboot

@@ -29,7 +29,7 @@ Type these from anywhere in the application to launch the dialog.
 
 *Hotkey: `e`*
 
-Similar to Configuration -> Entities, but more lightweight and accessible from anywhere in the frontend.
+Similar to {% my entities title="Configuration -> Entities" %}, but more lightweight and accessible from anywhere in the frontend.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>

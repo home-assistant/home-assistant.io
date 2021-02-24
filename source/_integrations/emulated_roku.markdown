@@ -28,9 +28,9 @@ Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` 
 
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-The integration is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
+## Manual configuration
 
 If you wish to configure advanced options, you can add the following entry in `configuration.yaml`.
 
@@ -109,7 +109,7 @@ The following is an example implementation of an automation:
 ```yaml
 # Example automation
 - id: amp_volume_up
-  alias: Increase amplifier volume
+  alias: "Increase amplifier volume"
   trigger:
   - platform: event
     event_type: roku_command
@@ -119,7 +119,8 @@ The following is an example implementation of an automation:
       key: Fwd
   action:
   - service: media_player.volume_up
-    entity_id: media_player.amplifier
+    target:
+      entity_id: media_player.amplifier
 ```
 
 ## Troubleshooting

@@ -14,15 +14,19 @@ ha_codeowners:
 ha_domain: axis
 ha_qa_scale: platinum
 ha_quality_scale: platinum
+ha_zeroconf: true
+ha_ssdp: true
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - light
+  - switch
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.
 
-Home Assistant will automatically discover their presence on your network. Discovery utilizes both DHCP, SSDP and Zeroconf protocols to discover devices.
-
-## Configuration
-
-For configuration go to the `Integrations pane` on your Home Assistant instance.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For sensor functionality, it is enough to create a user with viewer privileges. If you want additional functional control you will need admin privileges.

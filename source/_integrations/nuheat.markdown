@@ -9,6 +9,9 @@ ha_domain: nuheat
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+ha_dhcp: true
+ha_platforms:
+  - climate
 ---
 
 The `nuheat` integration lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
@@ -17,9 +20,11 @@ There is currently support for the following device types within Home Assistant:
 
 - Climate
 
+## Prerequisites
+
 First, you will need to obtain your thermostat's numeric serial number or ID by logging into [MyNuHeat.com](https://mynuheat.com/) and selecting your thermostat(s).
 
-Once you have the Thermostat ID(s), to add `NuHeat` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **NuHeat**.
+{% include integrations/config_flow.md %}
 
 ## Concepts
 
