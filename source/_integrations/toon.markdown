@@ -8,7 +8,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.56
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Pushing
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
@@ -40,6 +40,7 @@ and a Toon API developer account.
 
 There is currently support for the following device types within Home Assistant:
 
+- [Setting up a developer account](#setting-up-a-developer-account)
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
