@@ -164,7 +164,7 @@ sensor:
   required: false
   type: list
 binary_sensor:
-  description: A list of [RESTful Binary_sensor](/integrations/binary_sensor.rest) to create from the shared data All configuration settings that the supported by `RESTful Binary Sensor` not listed above can be used here.
+  description: A list of [RESTful Binary_sensor](/integrations/binary_sensor.rest) to create from the shared data All configuration settings that the supported by [RESTful Binary_sensor](/integrations/binary_sensor.rest#configuration-variables) not listed above can be used here.
   required: false
   type: list
 {% endconfiguration %}
