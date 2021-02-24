@@ -2,7 +2,7 @@
 title: Litter-Robot
 description: Instructions on how to integrate a Litter-Robot Wi-Fi-enabled, automatic, self-cleaning litter box to Home Assistant.
 ha_category:
-  - Vacuum
+  - Pets
 ha_iot_class: Cloud Polling
 ha_release: 2021.3
 ha_config_flow: true
@@ -16,15 +16,13 @@ The Litter-Robot integration allows you to control and monitor your Wi-Fi-enable
 
 You will need a Litter-Robot account as well as a Wi-Fi-enabled Litter-Robot unit that has already been associated with your account.
 
-There is currently support for the following device types within Home Assistant:
-
-- Vacuum (this is the representation of your Litter-Robot litter box)
+The Feeder-Robot is not currently supported by this integration.
 
 {% include integrations/config_flow.md %}
 
 ## Entities
 
-The following entities are created for this component:
+The following entities are created for this component and identified by a single device per Litter-Robot unit:
 
 | Entity           | Domain   | Description                                                                      |
 | ---------------- | -------- | -------------------------------------------------------------------------------- |
@@ -33,15 +31,13 @@ The following entities are created for this component:
 | Panel Lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
 | Waste Drawer     | `sensor` | Displays the current waste level gauge.                                          |
 
-All of the entities above are grouped together and identified by a single device.
-
-## Attributes
+## Additional Attributes
 
 Some entities have attributes in addition to the default ones that are available for that platform. They are listed below.
 
 ### Litter Box `vacuum` entity
 
-| Attribute                     | Type    | Definition                                                                                                                                                         |
+| Attribute                     | Type    | Description                                                                                                                                                        |
 | ----------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | clean_cycle_wait_time_minutes | integer | Current wait time, in minutes, between when your cat uses the Litter-Robot and when the unit cycles automatically.                                                 |
 | is_sleeping                   | boolean | Whether or not the unit is currently in sleep mode.                                                                                                                |
@@ -53,7 +49,7 @@ Some entities have attributes in addition to the default ones that are available
 
 ### Waste Drawer `sensor` entity
 
-| Attribute                | Type    | Definition                                                               |
+| Attribute                | Type    | Description                                                              |
 | ------------------------ | ------- | ------------------------------------------------------------------------ |
 | cycle_count              | integer | Number of clean cycles performed since last reset.                       |
 | cycle_capacity           | integer | Number of clean cycles before unit is full.                              |
@@ -61,7 +57,7 @@ Some entities have attributes in addition to the default ones that are available
 
 ## Commands
 
-In addition to the entities that are created above, some commands are utilized for additional functionality that is available in the Litter-Robot companion app.
+Commands are utilized for additional functionality that is available in the Litter-Robot companion app. The following are currently available:
 
 ### reset_waste_drawer
 
