@@ -103,6 +103,14 @@ data:
   parameter: "LED 1 Blink Status (bottom)"
   value: "Blink"
 ```
+### Service `zwave_js.refresh_value`
+
+This service will refresh the value(s) for an entity. This service will generate extra traffic on your Z-Wave network and should be used sparingly. Updates from devices on battery may take some time to be received.
+
+| Service Data Attribute 	| Required 	| Description                                                                                                                                      	|
+|------------------------	|----------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `entity_id`            	| yes      	| Entity or list of entities to refresh values for.                                                                                                	|
+| `refresh_all_values`   	| no       	| Whether all values should be refreshed. If  `false`, only the primary value will be refreshed. If  `true`, all watched values will be refreshed. 	|
 
 ### Service `zwave_js.set_lock_usercode`
 
