@@ -112,7 +112,7 @@ Minimum recommended assignments:
 
 - 2GB RAM
 - 32GB Storage
-- 1vCPU
+- 2vCPU
 
 _All these can be extended if your usage calls for more resources._
 

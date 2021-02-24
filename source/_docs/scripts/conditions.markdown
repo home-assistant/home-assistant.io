@@ -7,12 +7,15 @@ Conditions can be used within a script or automation to prevent further executio
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
+All conditions support an optional `alias`.
+
 ## AND condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are valid.
 
 ```yaml
 condition:
+  alias: "Paulus home AND tempeterature below 20"
   condition: and
   conditions:
     - condition: state
@@ -28,6 +31,7 @@ If you do not want to combine AND and OR conditions, you can list them sequentia
 The following configuration works the same as the one listed above:
 
 ```yaml
+alias: "Paulus home AND tempeterature below 20"
 condition:
   - condition: state
     entity_id: "device_tracker.paulus"
@@ -45,6 +49,7 @@ Test multiple conditions in one condition statement. Passes if any embedded cond
 
 ```yaml
 condition:
+  alias: "Paulus home OR tempeterature below 20"
   condition: or
   conditions:
     - condition: state
@@ -83,6 +88,7 @@ Test multiple conditions in one condition statement. Passes if all embedded cond
 
 ```yaml
 condition:
+  alias: "Paulus not home AND alarm not disarmed"
   condition: not
   conditions:
     - condition: state
@@ -101,6 +107,7 @@ If both `below` and `above` are specified, both tests have to pass.
 
 ```yaml
 condition:
+  alias: "Temperature between 17 and 25 degrees"
   condition: numeric_state
   entity_id: sensor.temperature
   above: 17
@@ -165,6 +172,7 @@ Tests if an entity is a specified state.
 
 ```yaml
 condition:
+  alias: "Paulus not home for an hour and a bit"
   condition: state
   entity_id: device_tracker.paulus
   state: "not_home"
@@ -243,6 +251,7 @@ The sun state can be used to test if the sun has set or risen.
 
 ```yaml
 condition:
+  alias: "Sun up"
   condition: state  # 'day' condition: from sunrise until sunset
   entity_id: sun.sun
   state: "above_horizon"
@@ -250,6 +259,7 @@ condition:
 
 ```yaml
 condition:
+  alias: "Sun down"
   condition: state  # from sunset until sunrise
   entity_id: sun.sun
   state: "below_horizon"
@@ -342,6 +352,7 @@ The template condition tests if the [given template][template] renders a value e
 
 ```yaml
 condition:
+  alias: "Iphone battery above 50%"
   condition: template
   value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
@@ -440,6 +451,7 @@ The time condition can test if it is after a specified time, before a specified 
 
 ```yaml
 condition:
+  alias: "Time 15~02"
   condition: time
   # At least one of the following is required.
   after: "15:00:00"
@@ -476,6 +488,7 @@ Zone conditions test if an entity is in a certain zone. For zone automation to w
 
 ```yaml
 condition:
+  alias: "Paulus at home"
   condition: zone
   entity_id: device_tracker.paulus
   zone: zone.home

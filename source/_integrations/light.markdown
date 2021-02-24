@@ -59,8 +59,9 @@ automation:
       to: "on"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.living_room
+      data:
         brightness: 255
         kelvin: 2700
 ```
@@ -73,8 +74,9 @@ automation:
     platform: time
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.ledliststair
+      data:
         brightness: 130
         rgb_color: [255,0,0]
 ```

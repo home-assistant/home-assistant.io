@@ -30,8 +30,9 @@ transporter_toslink:
       target:
         entity_id: media_player.transporter
     - service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.transporter
+      data:
         media_content_id: "source:toslink"
         media_content_type: "music"
 ```

@@ -131,8 +131,9 @@ automation:
       entity_id: input_number.bedroom_brightness
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.bedroom
+        data:
           brightness: "{{ trigger.to_state.state | int }}"
 ```
 
@@ -170,8 +171,9 @@ automation:
       to: CUSTOM
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: light.bedroom
+        data:
           brightness: "{{ states('input_number.bedroom_brightness') | int }}"
 ```
 
@@ -201,8 +203,9 @@ automation:
       topic: "setTemperature"
     action:
       service: input_number.set_value
-      data:
+      target:
         entity_id: input_number.target_temp
+      data:
         value: "{{ trigger.payload }}"
 
 # This second automation script runs when the target temperature slider is moved.

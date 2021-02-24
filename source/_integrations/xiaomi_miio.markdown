@@ -206,23 +206,7 @@ Please follow the instructions on [Retrieving the Access Token](/integrations/xi
 
 ### Configuration flow setup
 
-To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. Select the option "Connect to a Xiaomi Gateway" and click submit. You will then be presented with a form in which you will need to fill in the "IP address" and 32 characters "token". Optionally, you can specify a different name for the gateway. After you click submit, you will have the opportunity to select the area that your devices are located.
-
-{% configuration %}
-host:
-  description: The IP address of your Xiaomi gateway.
-  required: true
-  type: string
-token:
-  description: The API token of your Xiaomi gateway [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token).
-  required: true
-  type: string
-name:
-  description: The name of your Xiaomi gateway.
-  required: false
-  type: string
-  default: Xiaomi Gateway
-{% endconfiguration %}
+To set up the Xiaomi gateway, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the "IP address" and 32 characters "token". After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Supported Xiaomi gateway models:
 
@@ -1184,6 +1168,8 @@ Used to turn remote's blue LED off.
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
 
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
+
 Currently supported services are:
 
 - `start`
@@ -1199,33 +1185,7 @@ Currently supported services are:
 
 ### Configuration
 
-Please follow [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
-`configuration.yaml`.
-
-To add a vacuum to your installation, add the following to `configuration.yaml`:
-
-```yaml
-vacuum:
-  - platform: xiaomi_miio
-    host: 192.168.1.2
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your robot.
-  required: true
-  type: string
-token:
-  description: The API token of your robot.
-  required: true
-  type: string
-name:
-  description: The name of your robot.
-  required: false
-  type: string
-  default: Xiaomi Vacuum cleaner
-{% endconfiguration %}
+To add a vacuum to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Platform Services
 
@@ -1299,8 +1259,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
@@ -1319,8 +1280,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         repeats: "{{states('input_number.vacuum_passes')|int}}"
         zone:
         - [30914,26007,35514,28807]
@@ -1340,8 +1302,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_zone
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         repeats: 1
         zone:
         - - 30914
@@ -1385,8 +1348,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_segment
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         segments: [1,2]
 ```
 
@@ -1401,8 +1365,9 @@ automation:
     condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_segment
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum
+      data:
         segments: 1
 ```
 
@@ -1451,8 +1416,9 @@ vacuum_kitchen:
   alias: "Clean the kitchen"
   sequence:
     - service: vacuum.send_command
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
+      data:
         command: app_segment_clean
         params: [18]
 ```
@@ -1472,8 +1438,9 @@ reset_main_brush_left:
   alias: "Reset hours for main brush replacement"
   sequence:
     - service: vacuum.send_Command
-      data:
+      target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
+      data:
         command: reset_consumable
         params: ['main_brush_work_time']
 ```
@@ -1506,8 +1473,9 @@ vacuum_kitchen:
   alias: "vacuum kitchen"
   sequence:
     - service: vacuum.send_command
-      data:
+      target:
         entity_id: "vacuum.xiaomi_vacuum_cleaner"
+      data:
         command: app_zoned_clean
         params: [[23084,26282,27628,29727,1]]
 ```
@@ -1719,7 +1687,11 @@ Turn the eyecare mode off.
 
 The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi Smart WiFi Socket aka Plug, Xiaomi Smart Power Strip and Xiaomi Chuangmi Plug V1.
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
+
+### Configuration
+
+To add a plug to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ### Features
 
@@ -1762,38 +1734,6 @@ Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2`
 - Power (on, off)
 - Attributes
   - Load power
-
-### Configuration
-
-To add a plug to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entries
-switch:
-  - platform: xiaomi_miio
-    host: MIIO_IP_ADDRESS
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio device.
-  required: true
-  type: string
-token:
-  description: The API token of your miio device.
-  required: true
-  type: string
-name:
-  description: The name of your miio device.
-  required: false
-  type: string
-  default: Xiaomi Miio Switch
-model:
-  description: The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `chuangmi.plug.v3`, `chuangmi.plug.hmi205` and `chuangmi.plug.hmi208`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
-  required: false
-  type: string
-{% endconfiguration %}
 
 ### Platform Services
 

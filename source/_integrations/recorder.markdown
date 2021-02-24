@@ -319,6 +319,14 @@ Once Home Assistant finds the database, with the right level of permissions, all
 
 ### PostgreSQL
 
+Create the PostgreSQL database with `utf8` encoding. The PostgreSQL default encoding is `SQL_ASCII`. From the `postgres` user account;
+```bash
+createdb -E utf8 DB_NAME
+```
+Where `DB_NAME` is the name of your database
+
+If the Database in use is not `utf8`, adding `?client_encoding=utf8` to the `db_url` may solve any issue.
+
 For PostgreSQL you may have to install a few dependencies:
 
 ```bash
