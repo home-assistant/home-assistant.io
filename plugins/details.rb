@@ -15,9 +15,6 @@ module Jekyll
       end
       title = title.to_s.delete("\"")
 
-      site = context.registers[:site]
-      converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
-
       <<~MARKUP
         <script>
         function showDetails(el) {
@@ -36,7 +33,7 @@ module Jekyll
               <svg id="down" style="display: block;" width="24" height="24" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
               <svg id="up" style="display: none;" width="24" height="24" viewBox="0 0 24 24"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" /></svg>
             </div>
-            <div class='details-block-content' hidden>#{converter.convert(contents.to_s)}</div>
+            <div class='details-block-content' hidden>#{contents}</div>
           </div>
         </div>
       MARKUP

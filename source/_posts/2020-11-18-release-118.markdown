@@ -802,7 +802,7 @@ all erroneous entries to the new `controller_modes` parameter.
 - Use common strings in openuv config flow ([@springstan] - [#42480]) ([openuv docs])
 - Add platform services to Roon media player to allow grouping, ungrouping and transfer between players ([@pavoni] - [#42133]) ([roon docs])
 - Set the translations cache under the lock ([@bdraco] - [#42470])
-- Add color_extractor service ([@GenericStudent] - [#42129]) ([colorthief docs]) (new-integration)
+- Add color_extractor service ([@GenericStudent] - [#42129]) ([color_extractor docs]) (new-integration)
 - Remove zxdavb from honeywell codeowners ([@zxdavb] - [#42491]) ([honeywell docs])
 - Fix somfy device recreation on update ([@bdraco] - [#42462]) ([somfy docs])
 - Start homekit bridges with asyncio.gather ([@bdraco] - [#42498]) ([homekit docs])
@@ -1549,7 +1549,6 @@ all erroneous entries to the new `controller_modes` parameter.
 [cast docs]: /integrations/cast/
 [cloud docs]: /integrations/cloud/
 [color_extractor docs]: /integrations/color_extractor/
-[colorthief docs]: /integrations/colorthief/
 [config docs]: /integrations/config/
 [debugpy docs]: /integrations/debugpy/
 [device_tracker docs]: /integrations/device_tracker/

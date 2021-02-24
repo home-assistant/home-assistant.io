@@ -225,9 +225,9 @@ entity:
 
 An example entity selector that, will only show devices that are:
 
-- Provided by the [deCONZ](/integration/deconz) integration.
+- Provided by the [deCONZ](/integrations/deconz) integration.
 - Are a Philips Hue Remote of Model RWL021.
-- Provide a battery [sensor](/integration/sensor).
+- Provide a battery [sensor](/integrations/sensor).
 
 And this is what is looks like in YAML:
 
@@ -286,8 +286,8 @@ device_class:
 
 An example entity selector that, will only show entities that are:
 
-- Provided by the [ZHA](/integration/zha) integration.
-- From the [Binary Sensor](/integration/binary_sensor) domain.
+- Provided by the [ZHA](/integrations/zha) integration.
+- From the [Binary Sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 
 And this is what it looks like in YAML:
