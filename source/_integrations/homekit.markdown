@@ -308,7 +308,7 @@ When exposing a Camera or Television media player (a `media_player` with device 
 
 To quickly add all accessory modes entities in the UI:
 
-1. Create a new bridge via the UI (i.e., **Configuration** >> **Integrations**).
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**).
 2. Select `media_player` and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one. 
