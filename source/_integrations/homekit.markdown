@@ -317,7 +317,7 @@ To quickly add all accessory modes entities in the UI:
 
 To add a single entity in accessory mode:
 
-1. Create a new bridge via the UI (i.e., **Configuration** >> **Integrations**)
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
 4. Select the entity.
