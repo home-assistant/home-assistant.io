@@ -15,27 +15,30 @@ This integration allows you to monitor and manage your Habitica profile. This in
 
 There is currently support for the following device types within Home Assistant:
 
-- Sensor:
-  - Player data: allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
-    - name
-    - hp
-    - maxHealth
-    - mp
-    - maxMP
-    - exp
-    - toNextLevel
-    - lvl
-    - gp
-    - class
-  - Tasks: allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
-    - habits
-    - dailys
-    - todos
-    - rewards
+Player data: allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
-## Set up the integration via the integrations screen
-1. Go to Menu: Configuration > Integrations
-2. Press on Habitica and configure the integration
+|Sensor description|Sensor name in HA|
+|---|---|
+|Player's name|name|
+|Player's health points|hp|
+|Player's max health|maxHealth|
+|Player's manna points|mp|
+|Player's max manna points|maxMP|
+|Player's experience|exp|
+|Player's experience to the next level|toNextLevel|
+|Player's level|lvl|
+|Player's gold pieces|gp|
+|Player's class|class|
+
+Tasks: allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+|Sensor description|Sensor name in HA|
+|---|---|
+|Habits|habits|
+|Daily tasks|dailys|
+|Todo tasks|todos|
+|Rewards|rewards|
+
+{% include integrations/config_flow.md %}
 
 You can specify several users simply by adding another integration.
 At runtime you will be able to use API for each respective user by their Habitica's username.
