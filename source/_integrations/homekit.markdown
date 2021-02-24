@@ -12,7 +12,7 @@ ha_codeowners:
 ha_zeroconf: true
 ---
 
-The HomeKit Bridge integration allows you to make your Home Assistant entities available in Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+The HomeKit integration allows you to make your Home Assistant entities available in Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
 <div class="note">
 
@@ -21,7 +21,6 @@ The HomeKit Bridge integration allows you to make your Home Assistant entities a
 </div>
 
 {% include integrations/config_flow.md %}
-
 
 If you need to use the `entity_config`, `ip_address`, or `advertise_ip` configuration options, HomeKit Bridge must be configured via your `configuration.yaml` file:
 
@@ -305,13 +304,25 @@ It is recommended to only edit a HomeKit instance in the UI that was created in 
 
 ### Accessory mode
 
-When exposing a Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include the `media_player` entity. This can be accomplished in the UI with the following steps.
+When exposing a Camera or Television media player (a `media_player` with device class `tv`) to HomeKit, `mode` must be set to `accessory`, and the include filter should be setup to only include a single entity. 
 
-1. Create a new bridge via the UI (i.e., **Configuration** >> **Integrations**)
+To quickly add all accessory modes entities in the UI:
+
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**).
+2. Select `media_player` and `camera` domains.
+3. Complete the flow as normal.
+4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one. 
+5. If you have already created another HomeKit bridge for the non-accessory mode entities, the new bridge can safely be removed.
+6. [Pair each bridge or accessory](#setup).
+
+To add a single entity in accessory mode:
+
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Configuration >> Integrations" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
-4. Select the `media_player` entity with the `tv` device class.
-5. Complete the options flow and pair as normal.
+4. Select the entity.
+5. Complete the options flow
+6. [Pair the accessory](#setup).
 
 ## Disable Auto Start
 
@@ -435,16 +446,16 @@ automation:
 
 ### Resetting when created via YAML
 
- 1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
+ 1. Delete the `HomeKit` integration in the **{% my integrations %}** screen.
  2. **Restart** Home Assistant.
  3. The configuration will be automaticlly reimported from YAML.
- 4. Pair the bridge.
+ 4. [Pair the bridge or accessory](#setup).
 
 ### Resetting when created via the **Integrations** screen
 
- 1. Delete the `HomeKit Bridge` integration in the **Integrations** screen.
- 2. Recreate the `HomeKit Bridge` integration in the **Integrations** screen.
- 3. Pair the bridge.
+ 1. Delete the `HomeKit` integration in the **Integrations** screen.
+ 2. Recreate the `HomeKit` integration in the **Integrations** screen.
+ 3. [Pair the bridge or accessory](#setup).
 
 ### Errors during pairing
 
@@ -589,7 +600,7 @@ A doorbell sensor can be linked via the `linked_doorbell_sensor` configuration s
 
 #### HomeKit stalls or devices respond slowly with many cameras
 
-HomeKit updates each camera snapshot sequentially when there are multiple cameras on a bridge. The HomeKit update methodology can lead to the app stalling or taking a while to update. To avoid this problem, limit each `HomeKit Bridge` to 6 cameras and create a new `HomeKit Bridge` for additional cameras.
+HomeKit camera snapshots tie up the HomeKit connection during snapshots. To avoid this problem, create a separate `HomeKit` instance in [Accessory Mode](#mode) for each camera.
 
 #### Resetting accessories
 
