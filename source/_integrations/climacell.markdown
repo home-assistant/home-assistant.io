@@ -3,7 +3,7 @@ title: ClimaCell
 description: Instructions on how to integrate the ClimaCell Weather and Air Quality API into Home Assistant.
 ha_category:
   - Weather
-ha_release: 0.113
+ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_quality_scale: silver
