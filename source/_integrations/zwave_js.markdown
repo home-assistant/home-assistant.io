@@ -35,6 +35,10 @@ Please review the limitations [below](/integrations/zwave_js/#current-limitation
 
 ## Quick start (Home Assistant including Supervisor)
 
+<div class="note">
+Setting up this integration with the add-on, as described in this chapter, requires Home Assistant Core version 2021.3.0b0 or newer.
+</div>
+
 To add Z-Wave JS to your installation, plug the Z-Wave stick into the device that runs Home Assistant. Then Go to Configuration >> Integrations in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave JS" and follow the instructions shown.
 
 Note: A new network key is automatically generated for you. If this Z-Wave stick has already paired with secure devices, you need to enter the previously used network key. Make sure that you keep a backup of this key in a safe place in case you need to move your Z-Wave stick to another device.
