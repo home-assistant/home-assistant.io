@@ -35,9 +35,9 @@ Please review the limitations [below](/integrations/zwave_js/#current-limitation
 
 ## Quick start (Home Assistant including Supervisor)
 
-<p class='note'>
-Setting up this integration with the add-on this way, require Home Assistant Core version 2021.3 or newer.
-</p>
+<div class="note">
+Setting up this integration with the add-on, as described in this chapter, requires Home Assistant Core version 2021.3.0b0 or newer.
+</div>
 
 To add Z-Wave JS to your installation, plug the Z-Wave stick into the device that runs Home Assistant. Then Go to Configuration >> Integrations in the UI. Click the "Add integration" button in the bottom right and from the list of integrations, select "Z-Wave JS" and follow the instructions shown.
 
