@@ -446,7 +446,7 @@ automation:
 
 ### Resetting when created via YAML
 
- 1. Delete the `HomeKit` integration in the **Integrations** screen.
+ 1. Delete the `HomeKit` integration in the **{% my integrations %}** screen.
  2. **Restart** Home Assistant.
  3. The configuration will be automaticlly reimported from YAML.
  4. [Pair the bridge or accessory](#setup).
