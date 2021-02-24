@@ -86,7 +86,7 @@ instance and only a predefined, safe set, of URLs are allowed.
 Long story short! We can do a lot of helpful things with this, for example the
 following buttons will bring your places on your instance:
 
-{% my integration badge %} {% my info badge %} {% my supervisor badge %} {% my automations badge %}
+{% my integrations badge %} {% my info badge %} {% my supervisor badge %} {% my automations badge %}
 
 But we can make buttons or links to a lot of screen, and even help you start
 a configuration for an integration, import a Blueprint, link to an add-on page,
