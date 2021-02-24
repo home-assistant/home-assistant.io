@@ -34,12 +34,7 @@ lyric:
 
 You can then add the integration in the frontend.
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Honeywell Lyric**.
-Log in with your Honeywell Lyric account and agree to the terms. The Honeywell Lyric integration will then be available.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 
