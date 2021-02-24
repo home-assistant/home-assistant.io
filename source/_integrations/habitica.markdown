@@ -40,7 +40,6 @@ Tasks: allows you to view and monitor your tasks from [Habitica](https://habitic
 
 {% include integrations/config_flow.md %}
 
-You can specify several users simply by adding another integration.
 At runtime you will be able to use API for each respective user by their Habitica's username.
 You can override this by passing `name` key, this value will be used instead of the username.
 If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
