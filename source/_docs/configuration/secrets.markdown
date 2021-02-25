@@ -58,7 +58,3 @@ hass --script check_config --secrets
 ```
 
 This will print all your secrets.
-
-## Alternatives to `secrets.yaml`
-
-- [Storing passwords securely in AWS](/docs/tools/credstash/)
