@@ -61,5 +61,4 @@ This will print all your secrets.
 
 ## Alternatives to `secrets.yaml`
 
-- [Using a keyring that is managed by your OS to store secrets](/docs/tools/keyring/)
 - [Storing passwords securely in AWS](/docs/tools/credstash/)
