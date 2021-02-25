@@ -460,6 +460,8 @@ div.note {
   .brand-logo-container {
     text-align: center;
     margin-top: 50px;
+    display: grid;
+    justify-items: center;
 
     img {
       max-height: 67px;
