@@ -350,6 +350,13 @@ Supported devices:
 | Air Humidifier CB1     | zhimi.humidifier.cb1   | |
 | Air Fresh VA2          | zhimi.airfresh.va2     | |
 
+
+### Configuration
+
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
+
+To add a Xiaomi Air Purifier to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
+
 ### Features
 
 ### Air Purifier 2 et al.
@@ -677,37 +684,6 @@ This model uses newer MiOT communication protocol.
   - `motor_speed`
   - `extra_features`
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
-
-To add a Xiaomi Air Purifier to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-fan:
-# Example configuration.yaml entry
-  - platform: xiaomi_miio
-    host: 192.168.130.66
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio fan.
-  required: true
-  type: string
-token:
-  description: The API token of your miio fan.
-  required: true
-  type: string
-name:
-  description: The name of your miio fan.
-  required: false
-  type: string
-  default: Xiaomi Air Purifier
-model:
-  description: The model of your miio fan. See the table above for valid values (f.e. `zhimi.airpurifier.v2`). This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
-  required: false
-  type: string
-{% endconfiguration %}
 
 ### Platform Services
 
