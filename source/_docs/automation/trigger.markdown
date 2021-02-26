@@ -97,6 +97,18 @@ automation:
     encoding: "utf-8"
 ```
 
+The `payload` option can be combined with a `value_template` to process the message received on the given MQTT topic before matching it with the payload.
+The trigger in the example below will trigger only when the message received on `living_room/switch/ac` is valid JSON, with a key `state` which has the value `"on"`.
+
+```yaml
+automation:
+  trigger:
+    platform: mqtt
+    topic: "living_room/switch/ac"
+    payload: "on"
+    value_template: "{{ value_json.state }}"
+```
+
 It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) in the `topic` and `payload` options.
 
 <div class='note'>
