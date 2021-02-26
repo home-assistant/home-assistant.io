@@ -1,9 +1,9 @@
 ---
-title: "Pwned Passwords"
-description: "More information on detected PWNED secrets in Home Assistant."
+title: "Pwned passwords and secrets"
+description: "More information on detected pwned secrets in Home Assistant."
 ---
 
-We using following serverce for detecting leaked secrets: https://haveibeenpwned.com/Passwords
+We are using the [Have I Been Pwned (HIBP)](https://haveibeenpwned.com/Passwords) service for detecting leaked secrets.
 
-If you getting a pwned warning, it means you using insecure secrets on that configuration.
-You should imidently upate this secrets.
+If you are getting a warning, it means that you are using secrets in your configuration which have been leaked and are publicly known.
+You should immediately update this secrets.
