@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 10th edition"
-description: ""
+description: "Try the new ApexCharts card, build your own switch panel and get inspiration for your own Lovelace dashboard."
 date: 2021-02-25 00:00:00
 date_formatted: "February 26, 2021"
 author: Klaas Schoute
@@ -61,11 +61,11 @@ Still looking for some new inspiration for your Lovelace dashboards? Last week w
 came across some beautiful Lovelace dashboards on our [Home Assistant subreddit][reddit]
 page of [swake88](https://www.reddit.com/user/swake88/). Who knows, there might be something fun for you to make.
 
-You can find [here](https://www.reddit.com/r/homeassistant/comments/lqo7wr/ha_2_years_later_and_what_ive_built_so_far/) the related reddit topic.
+You can find [here](https://www.reddit.com/r/homeassistant/comments/lqo7wr/ha_2_years_later_and_what_ive_built_so_far/) the related Reddit topic.
 
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/8BHxBVN"  ><a href="//imgur.com/a/8BHxBVN">Home Assistant - Feb 2021</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-Which card in lovelace are you most proud of? Share it with us!
+Which card in Lovelace are you most proud of? Share it with us!
 
 ## Hidden garage
 
