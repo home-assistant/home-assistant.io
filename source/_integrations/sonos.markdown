@@ -23,7 +23,7 @@ The Sonos integration makes various custom services available.
 
 ### Service `sonos.snapshot`
 
-Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards. If no `entity_id` is provided, all speakers are snapshotted.
+Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
 <div class='note'>
 
@@ -38,7 +38,7 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 
 ### Service `sonos.restore`
 
-Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
+Restore a previously taken snapshot of one or more speakers.
 
 <div class='note'>
 
@@ -66,7 +66,7 @@ Group players together under a single coordinator. This will make a new group or
 
 ### Service `sonos.unjoin`
 
-Remove one or more speakers from their group of speakers. If no `entity_id` is provided, all speakers are unjoined.
+Remove one or more speakers from their group of speakers.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
