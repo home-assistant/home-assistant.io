@@ -1,7 +1,7 @@
 ---
 title: "Community Highlights: 10th edition"
 description: "Try the new ApexCharts card, build your own switch panel and get inspiration for your own Lovelace dashboard."
-date: 2021-02-25 00:00:00
+date: 2021-02-26 00:00:00
 date_formatted: "February 26, 2021"
 author: Klaas Schoute
 author_twitter: klaasnicolaas
