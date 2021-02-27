@@ -24,8 +24,8 @@ compensation:
   media_player_db_volume:
     entity_id: media_player.yamaha_receiver
     data_points:
-      - 0.2 -> -80.0
-      - 1.0 -> 0.0
+      - [0.2, -80.0]
+      - [1.0, 0.0]
 ```
 
 {% configuration %}
@@ -34,7 +34,7 @@ entity_id:
   required: true
   type: string
 data_points:
-  description: "The collection of data point conversions with the format `uncompensated_value -> compensated_value`.  e.g., `1.0 -> 2.1`. The number of required data points is equal to the polynomial `degree` + 1. For example, a linear compensation (with `degree: 1`) requires at least 2 data points."
+  description: "The collection of data point conversions with the format `[uncompensated_value, compensated_value]`.  e.g., `[1.0, 2.1]`. The number of required data points is equal to the polynomial `degree` + 1. For example, a linear compensation (with `degree: 1`) requires at least 2 data points."
   required: true
   type: list
 name:
