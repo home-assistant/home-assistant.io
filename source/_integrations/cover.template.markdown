@@ -189,7 +189,7 @@ This example allows you to control two or more covers at once.
 homeassistant:
   customize:
     cover_group:
-      assume_state: true
+      assumed_state: true
 
 cover:
   - platform: template
