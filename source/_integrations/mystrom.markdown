@@ -194,6 +194,8 @@ Check if you are able to access the device located at `http://IP_ADRRESS`. The d
 $ curl -X GET -H "Content-Type: application/json" http://IP_ADDRESS/report
 {
   "power": 0,
+  "Ws": 0,
+  "temperature": 24.12,
   "relay": false
 }
 ```
@@ -219,6 +221,10 @@ sensor:
         friendly_name: "Current Power"
         unit_of_measurement: "W"
         value_template: "{{ state_attr('switch.office', 'current_power_w') }}"
+      temperature:
+        friendly_name: "Current Temperature"
+        unit_of_measurement: "ºC"
+        value_template: "{{ state_attr('switch.office', 'current_temperature_c') }}"
 ```
 
 {% endraw %}
