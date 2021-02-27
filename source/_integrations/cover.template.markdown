@@ -58,7 +58,7 @@ cover:
         required: exclusive
         type: template
       position_template:
-        description: Defines a template to get the state of the cover. Legal values are numbers between `0` (closed) and `100` (open). [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
+        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). [`value_template`](#value_template) and [`position_template`](#position_template) cannot be specified concurrently.
         required: exclusive
         type: template
       icon_template:
