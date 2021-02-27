@@ -5,6 +5,9 @@ ha_category:
   - Camera
 ha_release: 0.65
 ha_domain: proxy
+ha_iot_class:
+ha_platforms:
+  - camera
 ---
 
 The `proxy` camera platform allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.

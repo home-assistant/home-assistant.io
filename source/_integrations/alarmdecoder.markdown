@@ -9,7 +9,12 @@ ha_release: 0.43
 ha_iot_class: Local Push
 ha_domain: alarmdecoder
 ha_codeowners:
-  - "@ajschmidt8"
+  - '@ajschmidt8'
+ha_config_flow: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - sensor
 ---
 
 The `alarmdecoder` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
@@ -24,9 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
 
-## Configuration
-
-AlarmDecoder can be set up via the **Integrations** section of the **Configuration** page. Click the `+` sign and select _AlarmDecoder_ from the list.
+{% include integrations/config_flow.md %}
 
 You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending on your selection, you will be asked for the following connection information:
 
@@ -37,9 +40,9 @@ You will be prompted to select a protocol (i.e. `socket` or `serial`). Depending
   - **path** - the path to the AlarmDecoder device (i.e. `/dev/ttyUSB0`)
   - **baud rate** - the baud rate of the AlarmDecoder device (i.e. `115200`)
 
-## Configuration
+## Settings
 
-Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **Configuration -> Integrations** page.
+Once AlarmDecoder has been set up according to the instructions above, the arming settings and zones can be configured by selecting _Options_ on the _AlarmDecoder_ card on the **{% my integrations title="Configuration -> Integrations" %}** page.
 
 ### Arming Settings
 
@@ -195,4 +198,3 @@ The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Sta
 | `alarm_arm_away`                                        | `chr(5)` + `chr(5)` + `chr(5)` |
 | `alarm_arm_night` (`alt_night_mode` = `false`, default) | `chr(4)` + `chr(4)` + `chr(4)` |
 | `alarm_arm_night` (`alt_night_mode` = `true`)           | `*9` + `code`                  |
-

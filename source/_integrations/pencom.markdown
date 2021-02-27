@@ -1,12 +1,13 @@
 ---
 title: Pencom
 description: How to use Pencom Designs 8 channel relay boards.
-logo: pencom.png
 ha_category:
   - Switch
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_domain: pencom
+ha_platforms:
+  - switch
 ---
 
 [Pencom Design](https://www.pencomdesign.com/) is a manufacturer of computer-controlled relay, I/O and custom boards for commercial and industrial applications.  This interface to [Pencom's Relay Control Boards](https://www.pencomdesign.com/relay-boards) is designed to work over an ethernet to serial adapter (NPort).  Each switch (relay) can be turned on/off, and the state of the relay can be read.

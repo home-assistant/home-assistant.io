@@ -4,9 +4,12 @@ description: Instructions on how to integrate Cisco Mobility Express wireless co
 ha_category:
   - Presence Detection
 ha_release: '0.90'
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@fbradyirl'
 ha_domain: cisco_mobility_express
+ha_platforms:
+  - device_tracker
 ---
 
 This is a presence detection scanner for [Cisco](https://www.cisco.com) Mobility Express wireless controllers.

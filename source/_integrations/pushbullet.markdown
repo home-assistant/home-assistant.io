@@ -7,6 +7,9 @@ ha_category:
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_domain: pushbullet
+ha_platforms:
+  - notify
+  - sensor
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -189,6 +192,6 @@ action:
 
 <div class='note'>
 
-Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
+Don't forget to [allowlist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
 
 </div>

@@ -9,6 +9,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@grahamwetzler'
 ha_domain: smart_meter_texas
+ha_platforms:
+  - sensor
 ---
 
 The [Smart Meter Texas](https://www.smartmetertexas.com/) integration allows Texas residents to integrate their electric meters into Home Assistant. This integration will create a sensor for each meter that shows the current reading.
@@ -31,8 +33,4 @@ Any Texas electricity consumer can register an account.
 Due to API limits, this sensor refreshes once per hour. The limit is 24 meter readings per calendar day.
 </div>
 
-## Configuration
-
-This integration can be configured from the frontend.
-
-Menu: _Configuration > Integrations_, select the `+` button and search for _Smart Meter Texas_.
+{% include integrations/config_flow.md %}

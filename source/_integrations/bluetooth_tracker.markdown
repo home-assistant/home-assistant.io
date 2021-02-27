@@ -6,15 +6,21 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.18
 ha_domain: bluetooth_tracker
+ha_platforms:
+  - device_tracker
 ---
 
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.
 
-This platform requires pybluez to be installed. On Debian based installs, run
+{% details "Notes for Home Assistant Core Installations" %}
+
+This platform requires `pybluez` to be installed. On Debian based installs, run
 
 ```bash
 sudo apt install bluetooth libbluetooth-dev
 ```
+
+{% enddetails %}
 
 To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
 

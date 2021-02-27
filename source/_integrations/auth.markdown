@@ -4,6 +4,7 @@ description: This integration is responsible for providing the authentication en
 ha_category:
   - Other
 ha_release: 0.73
+ha_iot_class:
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

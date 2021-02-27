@@ -17,6 +17,16 @@ ha_config_flow: true
 ha_codeowners:
   - '@shred86'
 ha_domain: abode
+ha_homekit: true
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - cover
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
@@ -34,34 +44,7 @@ There is currently support for the following device types within Home Assistant:
 - **Switch**: Reports on `Power Switch` and `Water Valve` devices which can be turned on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
 - **Sensor**: Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
-## Configuration
-
-To use Abode devices in your installation, add your Abode account from the integrations page. Two-factor authentication must be disabled on your Abode account. Alternatively, Abode can be configured by adding the following `abode` section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-abode:
-  username: abode_username
-  password: abode_password
-```
-
-{% configuration %}
-username:
-  description: Username for your Abode account.
-  required: true
-  type: string
-password:
-  description: Password for your Abode account.
-  required: true
-  type: string
-polling:
-  description: >
-    Enable polling if cloud push updating is less reliable.
-    Will update the devices once every 30 seconds.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Events
 

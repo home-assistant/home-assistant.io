@@ -9,6 +9,8 @@ ha_codeowners:
   - '@k4ds3'
   - '@jhollowe'
 ha_domain: proxmoxve
+ha_platforms:
+  - binary_sensor
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.

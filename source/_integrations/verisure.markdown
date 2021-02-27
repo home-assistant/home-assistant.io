@@ -12,6 +12,15 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_domain: verisure
+ha_codeowners:
+  - '@frenck'
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - lock
+  - sensor
+  - switch
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
@@ -80,7 +89,7 @@ mouse:
   type: boolean
   default: true
 door_window:
-  description: Set to `true` to show mouse detectors, `false` to disable.
+  description: Set to `true` to show doors and windows, `false` to disable.
   required: false
   type: boolean
   default: true
@@ -107,7 +116,7 @@ The `changed_by` attribute enables one to be able to take different actions depe
 
 ```yaml
 automation:
-  - alias: Alarm status changed
+  - alias: "Alarm status changed"
     trigger:
       - platform: state
         entity_id: alarm_control_panel.alarm_1

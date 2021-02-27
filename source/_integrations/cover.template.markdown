@@ -50,7 +50,7 @@ cover:
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this cover. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
@@ -63,6 +63,10 @@ cover:
         type: template
       icon_template:
         description: Defines a template to specify which icon to use.
+        required: false
+        type: template
+      entity_picture_template:
+        description: Defines a template for the entity picture of the cover.
         required: false
         type: template
       availability_template:
@@ -122,10 +126,6 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('cover.source', 'open') }}`{% endraw %}
 
-### Working without entities
-
-If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
-
 ## Optimistic Mode
 
 In optimistic mode, the cover position state is maintained internally. This mode
@@ -159,15 +159,15 @@ cover:
         position_template: "{{ states('sensor.garage_door') }}"
         open_cover:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.garage_door
         close_cover:
           service: switch.turn_off
-          data:
+          target:
             entity_id: switch.garage_door
         stop_cover:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.garage_door
         icon_template: >-
           {% if states('sensor.garage_door')|float > 0 %}
@@ -199,15 +199,15 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         set_cover_position:
           service: script.cover_group_position
           data:
@@ -237,17 +237,18 @@ script:
   cover_group:
     sequence:
       - service: "cover.{{modus}}_cover"
-        data:
+        target:
           entity_id:
             - cover.bedroom
             - cover.livingroom
   cover_group_position:
     sequence:
       - service: cover.set_cover_position
-        data:
+        target:
           entity_id:
             - cover.bedroom
             - cover.livingroom
+        data:
           position: "{{position}}"
 
 automation:
@@ -255,11 +256,12 @@ automation:
     trigger:
       - platform: sun
         event: sunset
-        offset: '+00:30:00'
+        offset: "+00:30:00"
     action:
       - service: cover.set_cover_position
-        data:
+        target:
           entity_id: cover.cover_group
+        data:
           position: 25
 ```
 
@@ -280,15 +282,15 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
           {% if is_state('sensor.cover_group', 'open') %}
@@ -315,15 +317,15 @@ cover:
         open_cover:
           service: script.cover_group
           data:
-            modus: 'open'
+            modus: "open"
         close_cover:
           service: script.cover_group
           data:
-            modus: 'close'
+            modus: "close"
         stop_cover:
           service: script.cover_group
           data:
-            modus: 'stop'
+            modus: "stop"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
           {% if is_state('sensor.cover_group', 'open') %}

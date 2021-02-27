@@ -8,7 +8,14 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@adamchengtkc'
   - '@janiversen'
+  - '@vzahradnik'
 ha_domain: modbus
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - sensor
+  - switch
 ---
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).

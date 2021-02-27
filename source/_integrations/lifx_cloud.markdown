@@ -4,6 +4,7 @@ description: Instructions on using native LIFX scenes with Home Assistant.
 logo: lifx.png
 ha_category:
   - Scene
+ha_iot_class: Cloud Push
 ha_release: 0.43
 ha_domain: lifx_cloud
 ---
@@ -21,7 +22,8 @@ You can then activate each scene with its name from the smartphone app:
 
 ```yaml
   - service: scene.turn_on
-    entity_id: scene.goodnight
+    target:
+      entity_id: scene.goodnight
 ```
 
 {% configuration %}

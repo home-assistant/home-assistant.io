@@ -165,7 +165,7 @@ intent_script:
 - Tado: don't reference unset hass var ([@balloob] - [#13237]) ([device_tracker docs])
 - Fix Sonos join/unjoin in scripts ([@amelchio] - [#13248]) ([media_player.sonos docs])
 - Fix Sonos radio stations with ampersand ([@amelchio] - [#13293]) ([media_player.sonos docs])
-- Do not include unavailable entities in Google Assistant SYNC ([@balloob] - [#13358]) ([google_assistant docs]) ([light.demo docs])
+- Do not include unavailable entities in Google Assistant SYNC ([@balloob] - [#13358]) ([google_assistant docs]) ([light docs])
 
 ## If you need help...
 
@@ -584,8 +584,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [insteon_plm docs]: /integrations/insteon/
 [knx docs]: /integrations/knx/
 [light docs]: /integrations/light/
-[light.demo docs]: /integrations/light.demo/
-[light.group docs]: /integrations/light.group/
 [light.group docs]: /integrations/light.group/
 [light.hue docs]: /integrations/hue
 [light.hyperion docs]: /integrations/hyperion
@@ -749,5 +747,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.proxy docs]: /integrations/proxy
 [device_tracker docs]: /integrations/device_tracker/
 [google_assistant docs]: /integrations/google_assistant/
-[light.demo docs]: /integrations/light.demo/
 [media_player.sonos docs]: /integrations/sonos

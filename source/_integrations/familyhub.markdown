@@ -6,6 +6,8 @@ ha_category:
 ha_release: '0.70'
 ha_iot_class: Local Polling
 ha_domain: familyhub
+ha_platforms:
+  - camera
 ---
 
 The `familyhub` platform allows you to get images of the inside of your [Samsung Family Hub refrigerator](https://www.samsung.com/us/explore/family-hub-refrigerator/connected-hub/) in Home Assistant.
@@ -18,7 +20,7 @@ To enable your Family Hub camera in your installation, add the following to your
 # Example configuration.yaml entry
 camera:
   - platform: familyhub
-    ip_address: 'IP_ADDRESS'
+    ip_address: "IP_ADDRESS"
 ```
 
 {% configuration %}

@@ -23,7 +23,7 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
 
 ### Create Your Amazon Alexa Custom Skill
 
-- Log in to [Amazon developer console][amazon-dev-console]
+- Log in to the [Amazon developer console][amazon-dev-console]
 - Click the Alexa button at the top of the console
 - Click the yellow "Add a new skill" button in the top right
   - Skill Type: Custom Interaction Model (default)
@@ -60,7 +60,7 @@ The first thing you need to do after you sign in to the [AWS console](https://co
 Next you need to create a Lambda function.
 
 - Click `Service` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT** Your current region will be displayed on the top right corner, make sure you select right region base on your Amazon account's country:
+- **IMPORTANT** Your current region will be displayed in the top right corner. Make sure you select the right region based on your Amazon account's country:
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
@@ -70,9 +70,9 @@ Next you need to create a Lambda function.
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
 - Click `Create function`, then you can configuration detail of Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Skills Kit` in the left part of the panel to add a Alexa Skills Kit trigger to your Lambda function.
-- Scroll down little bit, you need to input the `Skill ID` from the skill you created in previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`.)
+- Scroll down a little bit, you need to input the `Skill ID` from the skill you created in the previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`).
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
-- Clear the example code and copy the Python script from: [https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da)
+- Clear the example code and copy the Python script from this [GitHub Gist](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da).
 - Click the `Deploy` button of the `Function code` window.
 - Scroll down again and you will find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
   - BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
@@ -84,11 +84,12 @@ Next you need to create a Lambda function.
 
 ### Account Linking
 
-Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are actioned. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
+Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are actioned. In order to link the account, you have to make sure your Home Assistant instance can be accessed from the Internet.
 
-- Sign in to the [Alexa Developer Console][alexa-dev-console] and go to the `Alexa Skills` page.
+- Log in to the [Amazon developer console][amazon-dev-console]
+- Go to the `Alexa Skills` page.
 - Find the skill you just created and click `Edit` in the `Actions` column.
-- Click `ACCOUNT LINKING` in the left navigation bar of build page
+- Click `ACCOUNT LINKING` in the left navigation bar of the build page
 - Input all information required. Assuming your Home Assistant can be accessed by `https://[YOUR HOME ASSISTANT URL:PORT]`
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
@@ -110,7 +111,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
 </p>
 
 - Click `Save` button in the top right corner.
-- Next, you will use the Alexa Mobile App or [Alexa web-based app](#alexa-web-based-app) to link your account.
+- Next, you will use the Alexa Mobile App or [Alexa web-based app](http://alexa.amazon.com/) to link your account.
   - Open the Alexa app, navigate to `Skills` -> `Your Skills` -> `Dev Skills`
   - Click the Custom skill you just created.
   - Click `Enable`.
@@ -209,17 +210,21 @@ ActivateSceneIntent activate {Scene}
 
 Then add the intent to your `intent_script` section in your HA configuration file:
 
+{% raw %}
+
 ```yaml
 intent_script:
   ActivateSceneIntent:
     action:
       service: scene.turn_on
-      data:
-        entity_id: scene.{% raw %}{{ Scene | replace(" ", "_") }}{% endraw %}
+      target:
+        entity_id: scene.{{ Scene | replace(" ", "_") }}
     speech:
       type: plain
       text: OK
 ```
+
+{% endraw %}
 
 Here we are using [templates] to take the name we gave to Alexa e.g., `downstairs on` and replace the space with an underscore so it becomes `downstairs_on` as Home Assistant expects.
 
@@ -257,17 +262,21 @@ RunScriptIntent run {Script}
 
 Then add the intent to your intent_script section in your HA configuration file:
 
+{% raw %}
+
 ```yaml
 intent_script:
   RunScriptIntent:
     action:
       service: script.turn_on
-      data:
-        entity_id: script.{% raw %}{{ Script | replace(" ", "_") }}{% endraw %}
+      target:
+        entity_id: script.{{ Script | replace(" ", "_") }}
     speech:
       type: plain
       text: OK
 ```
+
+{% endraw %}
 
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 
@@ -290,7 +299,8 @@ intent_script:
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
     action:
       service: script.turn_on
-      entity_id: script.red_alert
+      target:
+        entity_id: script.red_alert
     speech:
       type: plain
       text: OK
@@ -302,26 +312,30 @@ In the examples above, we told Alexa to say `OK` when she successfully completed
 
 First create a file called `alexa_confirm.yaml` with something like the following in it (go on, be creative!):
 
+{% raw %}
+
 ```text
-{% raw %}          >
-          {{ [
-          "OK",
-          "Sure",
-          "If you insist",
-          "Done",
-          "No worries",
-          "I can do that",
-          "Leave it to me",
-          "Consider it done",
-          "As you wish",
-          "By your command",
-          "Affirmative",
-          "Yes oh revered one",
-          "I will",
-          "As you decree, so shall it be",
-          "No Problem"
-          ] | random }} {% endraw %}
+>
+  {{ [
+    "OK",
+    "Sure",
+    "If you insist",
+    "Done",
+    "No worries",
+    "I can do that",
+    "Leave it to me",
+    "Consider it done",
+    "As you wish",
+    "By your command",
+    "Affirmative",
+    "Yes oh revered one",
+    "I will",
+    "As you decree, so shall it be",
+    "No Problem"
+  ] | random }}
 ```
+
+{% endraw %}
 
 Then, wherever you would put some simple text for a response like `OK`, replace it with a reference to the file so that:
 

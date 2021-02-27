@@ -8,11 +8,17 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.56
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
 ha_domain: toon
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - switch
 ---
 
 The Toon integration platform can be used to control your Quby Toon thermostat,
@@ -51,11 +57,7 @@ In order to be able to use this component, you'll need to sign up for a free Too
 4. Click on "Create App" to complete the creation process.
 5. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page again and click on the app that you've just created.
 6. You need the codes now shown: "Consumer Key" and "Consumer Secret".
-7. Add the Toon integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to Toon and follow the setup instructions.
-
-## Configuration
-
-To use your Toon in your installation, add the following to your `configuration.yaml` file:
+7. Add the following Toon configuration to your `configuration.yaml` and restart Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
@@ -74,6 +76,8 @@ client_secret:
   required: true
   type: string
 {% endconfiguration %}
+
+{% include integrations/config_flow.md %}
 
 ## Binary Sensor
 

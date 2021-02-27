@@ -16,7 +16,7 @@ The cards allow you to position icons or text and even services on an image base
 {% configuration %}
 type:
   required: true
-  description: picture-elements
+  description: "`picture-elements`"
   type: string
 image:
   required: true
@@ -33,11 +33,11 @@ camera_view:
   type: string
 elements:
   required: true
-  description: List of elements
+  description: List of elements.
   type: list
 title:
   required: false
-  description: Card title
+  description: Card title.
   type: string
 state_filter:
   required: false
@@ -45,7 +45,15 @@ state_filter:
   type: map
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+  type: string
+dark_mode_image:
+  required: false
+  description: "This image is used when the dark mode is activated and no state image is set."
+  type: string
+dark_mode_filter:
+  required: false
+  description: "This CSS filter is used when the dark mode is activated."
   type: string
 {% endconfiguration %}
 
@@ -71,11 +79,11 @@ This element creates a badge representing the state of an entity.
 {% configuration %}
 type:
   required: true
-  description: state-badge
+  description: "`state-badge`"
   type: string
 entity:
   required: true
-  description: Entity id
+  description: Entity ID.
   type: string
 style:
   required: true
@@ -107,11 +115,11 @@ This element represents an entity state using an icon.
 {% configuration %}
 type:
   required: true
-  description: state-icon
+  description: "`state-icon`"
   type: string
 entity:
   required: true
-  description: The entity id to use.
+  description: The entity ID to use.
   type: string
 icon:
   required: false
@@ -123,42 +131,42 @@ title:
   type: string
 state_color:
   required: false
-  description: Set to `true` to have icons colored when entity is active
+  description: Set to `true` to have icons colored when entity is active.
   type: boolean
   default: true
 tap_action:
   required: false
-  description: Action to take on tap
+  description: Action to take on tap.
   type: map
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `none`)."
       type: string
       default: "`more-info`"
     navigation_path:
       required: false
-      description: "Path to navigate to (e.g.,  `/lovelace/0/`) when `action` defined as `navigate`"
+      description: "Path to navigate to (e.g., `/lovelace/0/`) when `action` defined as `navigate`."
       type: string
       default: none
     url_path:
       required: false
-      description: "Path to navigate to (e.g.,  `https://www.home-assistant.io`) when `action` defined as `url`"
+      description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when `action` defined as `url`."
       type: string
       default: none
     service:
       required: false
-      description: "Service to call (e.g.,  `media_player.media_play_pause`) when `action` defined as `call-service`"
+      description: "Service to call (e.g., `media_player.media_play_pause`) when `action` defined as `call-service`."
       type: string
       default: none
     service_data:
       required: false
-      description: "Service data to include (e.g.,  `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when `action` defined as `call-service`."
       type: string
       default: none
     confirmation:
       required: false
-      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below"
+      description: "Present a confirmation dialog to confirm the action. See `confirmation` object below."
       type: [boolean, map]
       default: "false"
 tap_action:
@@ -187,16 +195,15 @@ This element represents an entity's state via text.
 {% configuration %}
 type:
   required: true
-  description: state-label
+  description: "`state-label`"
   type: string
 entity:
   required: true
-  description: Entity id
+  description: Entity ID.
   type: string
 attribute:
   required: false
-  description: If present, the corresponding attribute will be shown,
-   instead of the entity's state
+  description: If present, the corresponding attribute will be shown, instead of the entity's state.
   type: string
 prefix:
   required: false
@@ -236,15 +243,15 @@ This entity creates a button (with arbitrary text) that can be used to call a se
 {% configuration %}
 type:
   required: true
-  description: service-button
+  description: "`service-button`"
   type: string
 title:
   required: true
-  description: Button label
+  description: Button label.
   type: string
 service:
   required: true
-  description: light.turn_on
+  description: "`light.turn_on`"
   type: string
 service_data:
   required: false
@@ -259,16 +266,16 @@ style:
 
 ### Icon Element
 
-This element creates a static icon that is not linked to the state of an entity. 
+This element creates a static icon that is not linked to the state of an entity.
 
 {% configuration %}
 type:
   required: true
-  description: icon
+  description: "`icon`"
   type: string
 icon:
   required: true
-  description: "Icon to display (e.g., `mdi:home`)"
+  description: "Icon to display (e.g., `mdi:home`)."
   type: string
 title:
   required: false
@@ -276,7 +283,7 @@ title:
   type: string
 entity:
   required: false
-  description: Entity to use for more-info/toggle
+  description: Entity to use for more-info/toggle.
   type: string
 tap_action:
   required: false
@@ -304,11 +311,11 @@ This creates an image element that overlays the background image.
 {% configuration %}
 type:
   required: true
-  description: image
+  description: "`image`"
   type: string
 entity:
   required: false
-  description: Entity to use for state_image and state_filter and also target for actions.
+  description: "Entity to use for `state_image` and `state_filter` and also target for actions."
   type: string
 title:
   required: false
@@ -345,7 +352,7 @@ state_image:
   type: map
 filter:
   required: false
-  description: Default CSS filter
+  description: Default CSS filter.
   type: string
 state_filter:
   required: false
@@ -353,7 +360,7 @@ state_filter:
   type: map
 aspect_ratio:
   required: false
-  description: Height-width-ratio.
+  description: Height to width ratio.
   type: string
   default: "50%"
 style:
@@ -370,7 +377,7 @@ Much like the Conditional card, this element will let you show its sub-elements 
 {% configuration %}
 type:
   required: true
-  description: conditional
+  description: "`conditional`"
   type: string
 conditions:
   required: true
@@ -379,7 +386,7 @@ conditions:
   keys:
     entity:
       required: true
-      description: Home Assistant entity ID.
+      description: Entity ID.
       type: string
     state:
       required: false
@@ -404,7 +411,7 @@ for more information.
 {% configuration %}
 type:
   required: true
-  description: 'Card name with `custom:` prefix (e.g., `custom:my-custom-card`)'
+  description: 'Card name with `custom:` prefix (e.g., `custom:my-custom-card`).'
   type: string
 style:
   required: true
@@ -413,13 +420,12 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-
 ## Options For Exemptions
 
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab.
+  description: User ID that can see the view tab.
   type: string
 {% endconfiguration %}
 
@@ -585,9 +591,9 @@ elements:
   - type: conditional
     conditions:
       - entity: sensor.presence_daughter
-        state: 'home'
+        state: "home"
       - entity: sensor.presence_dad
-        state: 'not_home'
+        state: "not_home"
     elements:
       - type: state-icon
         entity: switch.tv

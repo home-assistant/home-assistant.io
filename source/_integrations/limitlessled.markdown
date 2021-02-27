@@ -7,6 +7,8 @@ ha_category:
 ha_iot_class: Assumed State
 ha_release: pre 0.7
 ha_domain: limitlessled
+ha_platforms:
+  - light
 ---
 
 `limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, MiLight, LEDme, dekolight, or iLight.
@@ -104,19 +106,22 @@ Note that the `brightness`, `color` and `temperature` attributes cannot be used 
 
 ```yaml
 automation:
-  - alias: ...
+  - alias: "..."
     trigger:
       # ...
     action:
       - service: light.turn_on
+        target:
+          entity_id:
+            - light.office
+            - light.kitchen
         data:
-          entity_id: light.office, light.kitchen
           effect: night
 ```
 
 ### Properties
 
-Refer to the [light]({{site_root}}/integrations/light/) documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.
+Refer to the [light](/integrations/light/) documentation for general property usage, but keep in mind the following notes specific to LimitlessLED.
 
 - **RGBWW** (Only supported on v6 bridges)
   - *Color*: There are 25,856 color possibilities along the LimitlessLED color spectrum. For colors, hue and saturation can be used, but not lightness. If you select a color with lightness, Home Assistant will calculate the nearest valid LimitlessLED color. In white mode, the temperature can be set.

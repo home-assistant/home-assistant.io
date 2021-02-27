@@ -9,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fwestenberg'
 ha_domain: stookalert
+ha_platforms:
+  - binary_sensor
 ---
 
 The `stookalert` sensor platform queries the [RIVM Stookalert](https://www.rivm.nl/stookalert) API for unfavorable weather conditions or poor air quality. With a Stookalert, the RIVM calls on people not to burn wood. This can prevent health problems in people in the area.

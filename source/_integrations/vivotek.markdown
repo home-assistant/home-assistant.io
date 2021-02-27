@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@HarlemSquirrel'
 ha_domain: vivotek
+ha_platforms:
+  - camera
 ---
 
 The `vivotek` camera platform allows you to integrate a VIVOTEK IP camera into Home Assistant.
@@ -116,8 +118,9 @@ For example, the following action in an automation would send an `hls` live stre
 ```yaml
 action:
   service: camera.play_stream
-  data:
+  target:
     entity_id: camera.yourcamera
+  data:
     media_player: media_player.chromecast
 ```
 
@@ -151,11 +154,14 @@ The path part of `filename` must be an entry in the `allowlist_external_dirs` in
 For example, the following action is an automation that would take a snapshot from "front_door_camera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
+
 ```yaml
 action:
   service: camera.snapshot
-  data:
+  target:
     entity_id: camera.front_door_camera
+  data:
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
+
 {% endraw %}

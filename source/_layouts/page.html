@@ -3,24 +3,16 @@ layout: default
 ---
 
 <article class="page">
-  {% assign url_parts = page.url | split: '/' %}
-  {% if url_parts[1] != 'components' and
-        url_parts[1] != 'cookbook' and
-        url_parts[1] != 'developers' and
-        url_parts[1] != 'help' and
-        url_parts[1] != 'getting-started' %}
-    {% include edit_github.html %}
-  {% endif %}
-
   {% if page.title and page.show_title != false %}
   <header>
     <h1 class="title indent">
-      {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
+      {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title
+      }}{% endif %}
     </h1>
   </header>
-  <hr class="divider">
+  <hr class="divider" />
   {% endif %}
-
   {{ content }}
 
+  {% include feedback.html %}
 </article>

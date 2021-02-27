@@ -13,8 +13,8 @@ For the controller this was written for scene ID 13 was sent when the up button 
 ```yaml
 automation: 
 
-  - alias: 'Make the lights go bright'
-    initial_state: 'on'
+  - alias: "Make the lights go bright"
+    initial_state: "on"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -23,14 +23,15 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_on
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
         data:
           variables:
             direction: up
             light: light.YOUR_LIGHT
 
-  - alias: 'Make the lights go dim'
-    initial_state: 'on'
+  - alias: "Make the lights go dim"
+    initial_state: "on"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -39,14 +40,15 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_on
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
         data:
           variables:
             direction: down
             light: light.YOUR_LIGHT
 
-  - alias: 'Stop the light just there'
-    initial_state: 'on'
+  - alias: "Stop the light just there"
+    initial_state: "on"
     trigger:
       - platform: event
         event_type: zwave.scene_activated
@@ -60,7 +62,8 @@ automation:
           entity_id: zwave.YOUR_REMOTE
     action:
       - service: script.turn_off
-        entity_id: script.ramp_light
+        target:
+          entity_id: script.ramp_light
 ```
 
 There are two variables that control the speed of the change for the script below. The first is the step -- small steps create a smooth transition. The second is the delay -- larger delays will create a slower transition.
@@ -73,28 +76,28 @@ To allow flexibility all four variables are controlled by [Input Number](/integr
 ```yaml
 input_number:
   light_step:
-    name: 'Step the lights this much'
+    name: "Step the lights this much"
     initial: 20
     min: 1
     max: 64
     step: 1
 
   light_minimum:
-    name: 'No dimmer than this'
+    name: "No dimmer than this"
     initial: 5
     min: 1
     max: 255
     step: 1
 
   light_maximum:
-    name: 'No brighter than this'
+    name: "No brighter than this"
     initial: 255
     min: 50
     max: 255
     step: 1
 
   light_delay_ms:
-    name: 'Step the lights this often (ms)'
+    name: "Step the lights this often (ms)"
     initial: 500
     min: 100
     max: 5000
@@ -107,7 +110,7 @@ Now the script.
 ```yaml
 script:
   ramp_light:
-    alias: Ramp Light Brightness
+    alias: "Ramp Light Brightness"
     description: Ramp light brightness up or down
     fields:
       direction:
@@ -129,8 +132,9 @@ script:
                    direction == 'down' and br > mn }}
           sequence:
             - service: light.turn_on
-              data:
+              target:
                 entity_id: "{{ light }}"
+              data:
                 brightness: >
                   {% set br = state_attr(light, 'brightness')|int(0) %}
                   {% set mn = states('input_number.light_minimum')|int %}

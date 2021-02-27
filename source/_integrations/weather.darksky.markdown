@@ -16,7 +16,7 @@ The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as 
 
 <div class='note warning'>
 
-On March 31, 2020 Dark Sky was [acquired by Apple](https://blog.darksky.net/dark-sky-has-a-new-home/) and is no longer allowing new API registrations. The Dark Sky API will continue to function for existing users through the end of 2021, but it is no longer possible to obtain an API key for new users.
+On March 31, 2020 Dark Sky was [acquired by Apple](https://blog.darksky.net/dark-sky-has-a-new-home/) and is no longer allowing new API registrations. The Dark Sky API will continue to function for existing users through the end of 2021, but it is no longer possible to obtain an API key for new users. Home Assistant supports many alternative [weather integrations](/integrations/#weather).
 
 </div>
 

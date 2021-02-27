@@ -18,6 +18,16 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@shbatm'
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.
@@ -34,11 +44,10 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-### Basic Configuration
-
 Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, cover, fan, lock, and switches can also be created.
 
-To integrate your ISY994 controller with Home Assistant, Go to the **integrations page** in your configuration and click on new **integration** -> **Universal Devices ISY994**.
+{% include integrations/config_flow.md %}
+## Manual configuration
 
 You may also configure the integration manually by adding the following section to your `configuration.yaml` file:
 
@@ -107,20 +116,21 @@ A Home Assistant `isy994_control` event is emitted for every "control" event in 
 
 ```yaml
 automation:
-  - alias: turn off living room on double tap lightswitch
+  - alias: "turn off living room on double tap lightswitch"
     trigger:
       platform: event
       event_type: isy994_control
       event_data:
         entity_id: light.lr_track_lights_front
-        control: 'DFON'
+        control: "DFON"
         value: 255
         formatted: "On"
         uom: "100"
         prec: "0"
     action:
       service: light.turn_off
-      entity_id: light.lr_track_lights_rear
+      target:
+        entity_id: light.lr_track_lights_rear
 ```
 
 All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:
@@ -292,7 +302,7 @@ A device is created by creating a directory, with the name for the device, under
 A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored. The *status* program requires that you create a variable with the name of your choice. This variable will store the actual status of the new device and will be updated by the *action* program.
 
 <p class='img'>
-  <img src='{{site_root}}/images/isy994/isy994_CoverExample.png' />
+  <img src='/images/isy994/isy994_CoverExample.png' />
 </p>
 
 The *status* program in this directory is what indicates the state of the device:
@@ -304,7 +314,7 @@ The *status* program in this directory is what indicates the state of the device
 - *switch* on if the clause returns true, otherwise off.
 
 <p class='img'>
-  <img src='{{site_root}}/images/isy994/isy994_SwitchStatusExample.png' />
+  <img src='/images/isy994/isy994_SwitchStatusExample.png' />
 </p>
 
 The *actions* program indicates what should be performed for the following device services:
@@ -315,7 +325,7 @@ The *actions* program indicates what should be performed for the following devic
 - *switch* the THEN clause is evaluated for the turn_on service, the ELSE clause is evaluated for the turn_off service.
 
 <p class='img'>
-  <img src='{{site_root}}/images/isy994/isy994_SwitchActionsExample.png' />
+  <img src='/images/isy994/isy994_SwitchActionsExample.png' />
 </p>
 
 The example program above shows how to control a legacy X10 device from Home Assistant using an ISY controller.

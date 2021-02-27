@@ -8,6 +8,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@andrey-git'
 ha_domain: sensibo
+ha_platforms:
+  - climate
 ---
 
 Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.
@@ -64,13 +66,14 @@ switch:
         value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'fan_only') }}"
         turn_on:
           service: climate.set_hvac_mode
-          data:
+          target:
             entity_id: climate.ac
             hvac_mode: cool
         turn_off:
           service: climate.set_hvac_mode
-          data:
+          target:
             entity_id: climate.ac
+          data:
             hvac_mode: off
 ```
 

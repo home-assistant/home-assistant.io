@@ -30,11 +30,11 @@ switch:
         value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.skylight_open
         turn_off:
           service: switch.turn_off
-          data:
+          target:
             entity_id: switch.skylight_close
 ```
 
@@ -51,7 +51,7 @@ switch:
         required: false
         type: string
       unique_id:
-        description: An ID that uniquely identifies this switch. Set this to an unique value to allow customisation trough the UI.
+        description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
       value_template:
@@ -86,10 +86,6 @@ switch:
 
 If you are using the state of a platform that takes extra time to load, the Template Switch may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on') }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### Working without entities
-
-If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, the template won't repeatedly update but will only update when the state of a referenced entity updates. For ways to deal with this issue, see [Working without entities](/integrations/binary_sensor.template/#working-without-entities) in the Template Binary Sensor integration.
-
 ## Examples
 
 In this section you find some real-life examples of how to use this switch.
@@ -108,11 +104,11 @@ switch:
         value_template: "{{ is_state('switch.source', 'on') }}"
         turn_on:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.target
         turn_off:
           service: switch.turn_off
-          data:
+          target:
             entity_id: switch.target
 ```
 
@@ -133,11 +129,11 @@ switch:
         value_template: "{{ is_state_attr('switch.blind_toggle', 'sensor_state', 'on') }}"
         turn_on:
           service: switch.toggle
-          data:
+          target:
             entity_id: switch.blind_toggle
         turn_off:
           service: switch.toggle
-          data:
+          target:
             entity_id: switch.blind_toggle
 ```
 
@@ -159,11 +155,11 @@ switch:
         value_template: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.skylight_open
         turn_off:
           service: switch.turn_on
-          data:
+          target:
             entity_id: switch.skylight_close
 ```
 
@@ -183,11 +179,11 @@ switch:
         value_template: "{{ is_state('cover.garage_door', 'on') }}"
         turn_on:
           service: cover.open_cover
-          data:
+          target:
             entity_id: cover.garage_door
         turn_off:
           service: cover.close_cover
-          data:
+          target:
             entity_id: cover.garage_door
         icon_template: >-
           {% if is_state('cover.garage_door', 'open') %}
@@ -213,11 +209,11 @@ switch:
         value_template: "{{ is_state('cover.garage_door', 'on') }}"
         turn_on:
           service: cover.open_cover
-          data:
+          target:
             entity_id: cover.garage_door
         turn_off:
           service: cover.close_cover
-          data:
+          target:
             entity_id: cover.garage_door
         entity_picture_template: >-
           {% if is_state('cover.garage_door', 'open') %}

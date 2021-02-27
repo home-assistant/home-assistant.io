@@ -8,6 +8,9 @@ ha_category:
 ha_release: 0.45
 ha_iot_class: Local Push
 ha_domain: rpi_pfio
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `rpi_pfio` integration is the base for all related [PiFace Digital I/O (PFIO)](http://www.piface.org.uk/) platforms in Home Assistant. There is no setup needed for the integration itself; for the platforms, please check their corresponding pages.

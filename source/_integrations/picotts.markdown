@@ -3,8 +3,11 @@ title: Pico TTS
 description: Instructions on how to setup Pico Text-to-Speech with Home Assistant.
 ha_category:
   - Text-to-speech
+ha_iot_class: Local Push
 ha_release: 0.36
 ha_domain: picotts
+ha_platforms:
+  - tts
 ---
 
 The `picotts` text-to-speech platform uses offline pico Text-to-Speech engine to read a text with natural sounding voices.
@@ -45,5 +48,5 @@ The configuration sample below shows how an entry can look like:
 # Example configuration.yaml entry
 tts:
   - platform: picotts
-    language: 'fr-FR'
+    language: "fr-FR"
 ```

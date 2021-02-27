@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.67
 ha_domain: waze_travel_time
+ha_platforms:
+  - sensor
 ---
 
 The `waze_travel_time` sensor provides travel time from the [Waze](https://www.waze.com/).
@@ -22,7 +24,7 @@ sensor:
   - platform: waze_travel_time
     origin: Montréal, QC
     destination: Québec, QC
-    region: 'US'
+    region: "US"
 ```
 
 {% configuration %}
@@ -90,6 +92,7 @@ Using the flexible option to set a sensor value to the `destination`, you can se
 In the following example, the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval of Waze data fetching).
 
 {% raw %}
+
 ```yaml
 input_select:
   destination:
@@ -119,20 +122,20 @@ sensor:
     name: "Me to destination"
     origin: device_tracker.myphone
     destination: sensor.dest_address
-    region: 'US'
+    region: "US"
 
   # Tracking entity to zone friendly name
   - platform: waze_travel_time
     name: Home To Eddie's House
     origin: zone.home
     destination: Eddies House    # Friendly name of a zone
-    region: 'US'
+    region: "US"
 
   # Tracking entity in imperial unit
   - platform: waze_travel_time
     origin: person.paulus
     destination: "725 5th Ave, New York, NY 10022, USA"
-    region: 'US'
+    region: "US"
     units: imperial    # 'metric' for Metric, 'imperial' for Imperial
     vehicle_type: motorcycle  # vehicle type used for routing
   
@@ -141,10 +144,11 @@ sensor:
     name: Westerscheldetunnel
     origin: 51.330436, 3.802043
     destination: 51.445677, 3.749929
-    region: 'EU'
+    region: "EU"
     avoid_toll_roads: true
     avoid_subscription_roads: true  
 ```
+
 {% endraw %}
 
 ## Using the live map in an iFrame

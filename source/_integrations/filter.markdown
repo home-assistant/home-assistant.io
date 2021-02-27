@@ -10,6 +10,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: filter
+ha_platforms:
+  - sensor
 ---
 
 The `filter` platform enables sensors that process the states of other entities.
@@ -17,7 +19,7 @@ The `filter` platform enables sensors that process the states of other entities.
 `filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/lovelace/history-graph/) component.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/filter-sensor.png' />
+  <img src='/images/screenshots/filter-sensor.png' />
 </p>
 
 ## Configuration
