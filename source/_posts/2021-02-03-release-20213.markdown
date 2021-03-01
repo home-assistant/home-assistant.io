@@ -171,6 +171,23 @@ TODO:
 Ask the z-wave dev channel for input
 !-->
 
+Also this release the Z-Wave JS team has been very busy. Several new features have been added and many bugs squashed. Below you can read a summary.
+
+- Backwards compatible server:
+  We've introduced a protocol schema version in the Z-Wave JS server to allow older clients to connect and talk to a newer server.
+- Server version requirement for Home Assistant core 2021.3.0:
+  Home Assistant core 2021.3.0 will require Z-Wave JS server version 1.10.
+  If you're not using the Home Assistant add-on to run the server you will need to update the server before updating Home Assistant.
+  If you're using the Home Assistant add-on and selected this when setting up Z-Wave JS in Home Assistant, the integration will automatically update the add-on if an older add-on and server version is encountered.
+- Config parameter service: [zwave_js.set_config_parameter](/integrations/zwave_js/#service-zwave_jsset_config_parameter)
+  You're now able to automate and change the configuration settings of your devices with this service.
+- Refresh value service: [zwave_js.refresh_value](/integrations/zwave_js/#service-zwave_jsrefresh_value)
+  You can now configure an automation to use the refresh_value service to update a device that doesn't automatically refresh itself.
+- Barrier cover support (garage doors).
+  Garage doors and similar covers can now be controlled in the integration.
+- Number platform
+  Some heating valves and similar devices that can be set to multiple different values will now show up as number entities.
+
 - Enhance platform discovery for zwave_js ([@marcelveldt] - [#46355]) ([zwave_js docs])
 - Discover HRT4-ZW / SRT321 SetPoint in zwave_js ([@gsemet] - [#46625]) ([zwave_js docs])
 - Add zwave_js thermostat fan mode and fan state support ([@raman325] - [#46793]) ([zwave_js docs])
@@ -408,7 +425,7 @@ You existing YAML configuration will be automatically imported on upgrade and
 can be safely removed from your YAML configuration after upgrading.
 
 ([@pree] - [#45664]) ([nuki docs])
-  
+
 {% enddetails %}
 
 {% details "CalDAV" %}
@@ -656,7 +673,7 @@ You need to run this server version at mimimum for the integration to work.
 
 {% enddetails %}
 
-{% details "Bond" %} 
+{% details "Bond" %}
 
 Support for bond devices with up and down lights has been added. Previously,
 if the device had two lights, only a single light entity would be created that
