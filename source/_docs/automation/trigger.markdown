@@ -465,8 +465,11 @@ automation:
 
 ### Template trigger
 
-Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before the trigger will fire again.
-With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
+Template triggers work by evaluating a [template](/docs/configuration/templating/) when any of the recognized entities change state. The trigger will fire if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
+
+This is achieved by having the template result in a true boolean expression (for example `{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render `true` (example below).
+
+With template triggers you can also evaluate attribute changes by using is_state_attr (like `{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
 
 {% raw %}
 
@@ -497,9 +500,9 @@ automation:
 
 {% endraw %}
 
-The `for` template(s) will be evaluated when the `value_template` becomes `true`.
+The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
 
-Templates that don't contain an entity will be rendered once per minute.
+Templates that do not contain an entity will be rendered once per minute.
 
 ### Time trigger
 
