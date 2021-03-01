@@ -40,6 +40,7 @@ Issues introduced in the beta are processed with priority.
 - [Fan integration](#fan-integration)
 - [Suggested areas](#suggested-areas)
 - [Z-Wave JS update](#z-wave-js-update)
+  - [All Z-Wave JS changes](#all-z-wave-js-changes)
 - [MQTT trigger templating](#mqtt-trigger-templating)
 - [Help us improving the documentation](#help-us-improving-the-documentation)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -187,6 +188,8 @@ Also this release the Z-Wave JS team has been very busy. Several new features ha
   Garage doors and similar covers can now be controlled in the integration.
 - Number platform
   Some heating valves and similar devices that can be set to multiple different values will now show up as number entities.
+
+### All Z-Wave JS changes
 
 - Enhance platform discovery for zwave_js ([@marcelveldt] - [#46355]) ([zwave_js docs])
 - Discover HRT4-ZW / SRT321 SetPoint in zwave_js ([@gsemet] - [#46625]) ([zwave_js docs])
