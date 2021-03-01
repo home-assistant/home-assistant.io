@@ -135,4 +135,4 @@ Do you have a stale robot in your configuration? Try to [look into your account]
 
 ### Server got itself in trouble
 
-If you see this message after trying to set up neato, please check if the setup still worked or not. If not, try again and make sure you start the process only once. Do not click the "Open External Page" button if a page has already opened by itself. Be patient and wait for the setup to complete.
+If you see this message after trying to set up Neato, please check if the setup still worked or not. If not, try again and make sure you start the process only once. Do not click the "Open External Page" button if a page has already opened by itself. Be patient and wait for the setup to complete.
