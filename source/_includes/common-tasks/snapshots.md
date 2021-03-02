@@ -14,7 +14,7 @@ A partial snapshot consists of any number of the above default directories and i
 
 ### Making a Snapshot from the UI
 
-1. Go to Supervisor > Snapshots in the UI
+1. Go to {% my supervisor_snapshots title="Supervisor > Snapshots" %} in the UI
 2. Provide a name for the snapshot.
 3. Choose full or partial.
 4. Choose to password protect or not. Password protected snapshots cannot easily be browsed outside of Home Assistant OS
@@ -33,7 +33,7 @@ When the upload is completed, you will be presented with the snapshot restore di
 
 If the snapshot you are uploading is more than 1GB in size, it can be faster and more efficient to make use of the Samba add-on in order to transfer files to the `/backup` directory.
 
-The length of time it takes to create or restore snapshots will depend on how much you have to compress or decompress. 
+The length of time it takes to create or restore snapshots will depend on how much you have to compress or decompress.
 
 If you're looking to slim down your snapshots, check if your configuration directory contains a large database file (`home-assistant_v2.db`). See the [`recorder`](https://www.home-assistant.io/components/recorder/) integration page for options to keep your database data down to a size that won't cause issues. Note the keep days, purge interval, and include/exclude options.
 
@@ -52,12 +52,8 @@ Use `ha help` to see more info.
 
 You often need a snapshot in case your system has crashed. If you only store them on the crashed device, you won't be able to access it easily. We recommend that you manually copy them from `/backup` to another machine on occasion. Or even better, create an automation to handle that, or make use of one of the following add-ons:
 
- - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
-
- - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
- 
- - [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
-
- - [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
-
- - [Remote Backup (uses scp)](https://github.com/overkill32/hassio-remote-backup)
+- [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
+- [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
+- [Nextcloud Backup](https://github.com/Sebclem/hassio-nextcloud-backup)
+- [Samba backup](https://github.com/thomasmauerer/hassio-addons/tree/master/samba-backup)
+- [Remote Backup (uses scp)](https://github.com/overkill32/hassio-remote-backup)

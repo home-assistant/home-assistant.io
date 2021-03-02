@@ -12,11 +12,11 @@ module Jekyll
         else
           raise SyntaxError, <<~MSG
             Syntax error in tag 'my' while parsing the following options:
-            `
+
             #{args}
 
             Valid syntax:
-              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url=""] [domain="hue"] %}
+              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [service="light.turn_on"] %}
           MSG
         end
       end
@@ -33,24 +33,39 @@ module Jekyll
         query += [["addon", options[:addon]]] if options.include? :addon
         query += [["blueprint_url", options[:blueprint_url]]] if options.include? :blueprint_url
         query += [["domain", options[:domain]]] if options.include? :domain
+        query += [["service", options[:service]]] if options.include? :service
         unless query.empty?
             uri.query = URI.encode_www_form(query)
         end
 
         if options[:badge]
-          title = options[:title] ? options[:title].gsub(/\ /, '_') : @redirect
+          raise ArgumentError, "Badges cannot have custom titles" if options[:title]
           "<a href='#{uri}' class='my badge' target='_blank'>"\
-          "<img src='https://img.shields.io/badge/#{title}-my?style=for-the-badge&label=MY&logo=home-assistant&color=41BDF5&logoColor=white' />"\
+          "<img src='https://my.home-assistant.io/badges/#{@redirect}.svg' />"\
           "</a>"
         else
-          title = options[:title] ? options[:title] : @redirect.gsub(/_/, ' ').titlecase
+          title = @redirect.gsub(/_/, ' ').titlecase
           icon = ""
+
+          if options[:title]
+            # Custom title
+            title = options[:title]
+          elsif @redirect == "developer_call_service"
+            # Developer service call
+            title = "Call Service"
+            title = "`#{options[:service]}`" if options.include? :service
+          elsif DEFAULT_TITLES.include?(@redirect)
+            # Lookup defaults
+            title = DEFAULT_TITLES[@redirect]
+          end
+
           if options[:icon]
             raise ArgumentError, "No default icon for redirect #{@redirect}" \
             if !!options[:icon] == options[:icon] and ! DEFAULT_ICONS.include?(@redirect)
               icon = !!options[:icon] == options[:icon] ? DEFAULT_ICONS[@redirect] : @options[:icon]
             icon = "<i class='#{icon}' /> "
           end
+
           "#{icon}<a href='#{uri}' class='my' target='_blank'>#{title}</a>"
         end
       end
@@ -60,9 +75,30 @@ module Jekyll
       SYNTAX = %r!^([a-z_]+)((\s+\w+(=([\w\.]+?|".+?"))?)*)$!.freeze
       OPTIONS_REGEX = %r!(?:\w="[^"]*"|\w=[\w\.]+|\w)+!.freeze
 
+      # Default icons when used in in-line text
       DEFAULT_ICONS = {
         "config_flow_start" => "icon-plus-sign",
+        "config" => "icon-cog",
         "integrations" => "icon-puzzle-piece",
+      }
+
+      # Default title used for in-line text
+      DEFAULT_TITLES = {
+        "blueprint_import" => "Import Blueprint",
+        "cloud" => "Home Assistant Cloud",
+        "config_flow_start" => "Add Integration",
+        "config_mqtt" => "MQTT Configuration",
+        "config_zha" => "ZHA Configuration", 
+        "config_zwave_js" => "Z-Wave JS Configuration",
+        "config" => "Configuration",
+        "developer_events" => "Events",
+        "developer_services" => "Services",
+        "developer_states" => "States",
+        "developer_template" => "Templates",
+        "general" => "General Settings",
+        "info" => "Information",
+        "supervisor_info" => "Supervisor Information",
+        "supervisor_snapshots" => "Snapshots",
       }
 
       def parse_options(input, context)

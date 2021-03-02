@@ -7,7 +7,7 @@ Automations support [templating](/docs/configuration/templating/) in the same wa
 
 <div class='note'>
   
-  Be aware that if you reference a `trigger` state object in templates of an automation' `action` or `condition` sections, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in Developer Tools > Template together with your trigger's definition like:
+  Be aware that if you reference a `trigger` state object in templates of an automation' `action` or `condition` sections, attempting to test that automation by calling the `automation.trigger` service or by clicking EXECUTE in the More Info box for the automation will not work. This is because the trigger state object doesn't exist in those contexts. One way to test automations like these is to manually check that the templates work as expected by pasting them in {% my developer_template title="Developer Tools > Template" %} together with your trigger's definition like:
 
 {%raw%}
 

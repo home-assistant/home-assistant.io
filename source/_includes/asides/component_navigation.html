@@ -8,7 +8,7 @@
     {%- endif -%}
 
     {%- if page.ha_config_flow and page.ha_domain -%}
-      {% my config_flow_start badge title="Add Integration" domain=page.ha_domain %}
+      {% my config_flow_start badge domain=page.ha_domain %}
     {%- endif -%}
   </div>
 
