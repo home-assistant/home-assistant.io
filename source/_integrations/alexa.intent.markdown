@@ -69,7 +69,7 @@ Next you need to create a Lambda function.
 - Select *Python 3.6* or *Python 3.7* as `Runtime`.
 - Select *Use an existing role* as `Execution role`, then select the role you just created from the `Existing role` list.
 - Click `Create function`, then you can configure the details of the Lambda function.
-- Under `Configuration` tab, expand `Designer`, then click on `+ Add trigger` in the left part of the panel and select `Alexa Skills Kit` from the dropdwon list to add an Alexa Skills Kit trigger to your Lambda function.
+- Under the `Configuration` tab, expand `Designer`, then click on `+ Add trigger` in the left part of the panel and select `Alexa Skills Kit` from the dropdown list to add an Alexa Skills Kit trigger to your Lambda function.
 - Scroll down a little bit, you need to input the `Skill ID` from the skill you created in the previous step. (You may need to switch back to the Alexa Developer Console to copy the `Skill ID`).
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
 - Clear the example code and copy the Python script from this [GitHub Gist](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da).
