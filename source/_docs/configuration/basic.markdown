@@ -14,17 +14,17 @@ homeassistant:
   longitude: 117.22743
   elevation: 430
   unit_system: metric
-  time_zone: America/Los_Angeles
+  time_zone: "America/Los_Angeles"
   external_url: "https://www.example.com"
   internal_url: "http://homeassistant.local:8123"
   allowlist_external_dirs:
-    - /usr/var/dumping-ground
-    - /tmp
+    - "/usr/var/dumping-ground"
+    - "/tmp"
   allowlist_external_urls:
     - "http://images.com/image1.png"
   media_dirs:
-    media: /media
-    recordings: /mnt/recordings
+    media: "/media"
+    recordings: "/mnt/recordings"
   legacy_templates: false
 ```
 

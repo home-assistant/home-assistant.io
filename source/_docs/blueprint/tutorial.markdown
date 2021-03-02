@@ -191,17 +191,17 @@ blueprint:
             domain: light
 
 trigger:
-  platform: state
-  entity_id: !input motion_sensor
+  - platform: state
+    entity_id: !input motion_sensor
 
 action:
-  service: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target: !input target_light
+  - service: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: !input target_light
 ```
 
 {% endraw %}
