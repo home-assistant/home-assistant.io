@@ -12,7 +12,7 @@ ha_domain: sighthound
 
 Detect people in camera images using [Sighthound Cloud](https://www.sighthound.com/products/cloud). The Sighthound Developer tier (free for non-commercial use) allows 5000 images to be processed per month. If you need more processing per month you will need to sign up for a production account (i.e., a Basic or Pro account).
 
-This integration adds an image processing entity where the state of the entity is the number of people detected in an image. For each person detected, an `sighthound.person_detected` event is fired. The event data includes the entity_id of the image processing entity firing the event, and the bounding box around the detected person. 
+This integration adds an image processing entity where the state of the entity is the number of people detected in an image. For each person detected, an `sighthound.person_detected` event is fired. The event data includes the entity_id of the image processing entity firing the event, and the bounding box around the detected person.
 
 If `save_file_folder` is configured, on each new detection of a person, an annotated image with the name `sighthound_{camera_name}_latest.jpg` is saved in the configured folder if it doesn't already exist, and overwritten if it does exist. The saved image shows the bounding box around detected people and can be displayed on the Home Assistant front end using a [Local File](/integrations/local_file/) camera, and used in notifications. If `save_timestamped_file` is configured as `true`, then the annotated image is saved with a file name that includes the time of detection.
 
@@ -26,9 +26,7 @@ To enable this platform in your installation, add the following to your `configu
 # Example configuration.yaml entry
 image_processing:
   - platform: sighthound
-    api_key: some_key
-    save_file_folder: /my_dir/
-    save_timestamped_file: True
+    api_key: "MY_API_KEY"
     source:
       - entity_id: camera.my_cam
 ```
@@ -49,7 +47,8 @@ save_file_folder:
 save_timestamped_file:
   description: Save the processed image with the time of detection in the filename. Requires save_file_folder to be configured.
   required: false
-  type: string
+  default: false
+  type: boolean
 source:
   description: The list of image sources.
   required: true
