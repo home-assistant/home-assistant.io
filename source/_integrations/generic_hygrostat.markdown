@@ -59,12 +59,12 @@ dry_tolerance:
   description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched on. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will start when the sensor equals or goes below 42. It is advised to set this parameter equal or above your sensor precision.
   required: false
   default: 3
-  type: integer
+  type: float
 wet_tolerance:
   description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched off. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will stop when the sensor equals or goes above 48. It is advised to set this parameter equal or above your sensor precision.
   required: false
   default: 3
-  type: integer
+  type: float
 keep_alive:
   description: Set a keep-alive interval. If set, the switch specified in the *humidifier* option will be triggered every time the interval elapses. Use with humidifiers and dehumidifiers that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid humidifier integration state (either on or off).
   required: false
