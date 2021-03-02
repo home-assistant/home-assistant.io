@@ -417,7 +417,7 @@ entities:
     name: Bed light transition
     action_name: Toggle light
     tap_action:
-      type: call-service
+      action: call-service
       service: light.toggle
       service_data:
         entity_id: light.bed_light
