@@ -136,7 +136,7 @@ Valid code slots are between 1-254.
 
 ## Events
 
-Events are fired when you press a button on a remote (aka Central Scene support) or when a stateless value is being signalled by a device. You can test what events come in using the event developer tools in Home Assistant and subscribe to `zwave_js_event`. Once you know what the event data looks like, you can use this to create automations.
+Events are fired when you press a button on a remote (aka Central Scene support) or when a stateless value is being signalled by a device. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribe to `zwave_js_event`. Once you know what the event data looks like, you can use this to create automations.
 
 ### Node events (Notification)
 
