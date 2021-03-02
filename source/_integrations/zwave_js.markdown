@@ -168,12 +168,15 @@ Value Notification example:
     "home_id": "974823419",
     "endpoint": 0,
     "device_id": "ad8098fe80980974",
-    "command_class": 32,
-    "command_class_name": "Basic",
+    "command_class": 91,
+    "command_class_name": "Central Scene",
     "label": "Event value",
-    "property_name": "event",
-    "property_key_name": "some value",
-    "value": 255,
+    "property": "scene",
+    "property_name": "scene",
+    "property_key": "001",
+    "property_key_name": "001",
+    "value": "KeyPressed",
+    "value_raw": 0
 }
 ```
 
