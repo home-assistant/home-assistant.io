@@ -47,6 +47,7 @@ save_file_folder:
 save_timestamped_file:
   description: Save the processed image with the time of detection in the filename. Requires save_file_folder to be configured.
   required: false
+  default: false
   type: boolean
 source:
   description: The list of image sources.
