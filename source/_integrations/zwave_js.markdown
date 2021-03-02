@@ -103,6 +103,7 @@ data:
   parameter: "LED 1 Blink Status (bottom)"
   value: "Blink"
 ```
+
 ### Service `zwave_js.refresh_value`
 
 This service will refresh the value(s) for an entity. This service will generate extra traffic on your Z-Wave network and should be used sparingly. Updates from devices on battery may take some time to be received.
@@ -181,8 +182,7 @@ Value Notification example:
 As this integration is still in the early stages there are some important limitations to be aware of.
 
 - While support for the most common devices is working, some command classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
-- Configuration of Z-Wave nodes and/or configuration with the Home Assistant UI is currently not yet implemented. You will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
-- Polling is currently not supported in the integration but will be added soon as a service.
+- Configuration of Z-Wave nodes within the Home Assistant UI is not yet implemented, but a [service](#service-zwave_js.set_config_parameter) is available with limited configuration capabilities.  If the service doesn't meet your needs, you will need to use another tool, such as [zwavejs2mqtt](https://github.com/zwave-js/zwavejs2mqtt), to manage device configuration.
 - There currently is no migration path available from any of the other Z-Wave implementations in Home Assistant. Your Z-Wave network is however stored on your stick so migrating will only require you to redo your device and entity naming.
 
 You can keep track of the Roadmap for the Z-Wave JS integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
