@@ -27,7 +27,7 @@ The difference between a condition and a trigger can be confusing as they are ve
 
 ## Exploring the internal state
 
-Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. **Developer Tools** -> **States** will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
+Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. **{% my developer_states title="Developer Tools -> States" %}** will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
 
 | Name | Description | Example |
 | ---- | ----- | ---- |
@@ -37,7 +37,7 @@ Automation rules interact directly with the internal state of Home Assistant, so
 
 State changes can be used as the source of triggers and the current state can be used in conditions.
 
-Actions are all about calling services. To explore the available services open the **Developer Tools** -> **Services**. Services allow changing anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
+Actions are all about calling services. To explore the available services open the **{% my developer_states title="Developer Tools -> Services" %}**. Services allow changing anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service {% my developer_call_service service="light.turn_on" %} is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
 
 ## Creating automations
 

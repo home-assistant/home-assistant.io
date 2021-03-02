@@ -37,7 +37,7 @@ This is the default auth provider. The first user created is designated as the _
 
 User details are stored in the `[your config]/.storage`  directory. All passwords are stored hashed and with a salt, making it almost impossible for an attacker to figure out the password even if they have access to the file.
 
-Users can be managed in Home Assistant by the owner. Go to the configuration panel and click on _Users_.
+Users can be managed in Home Assistant by the owner. Go to the configuration panel and click on _{% my users %}_.
 
 This is the entry in `configuration.yaml` for Home Assistant auth:
 
