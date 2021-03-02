@@ -491,7 +491,7 @@ front_yard:
 
 ### Example: Combine `!include_dir_merge_list` with `automations.yaml`
 
-You want to go the advanced route and split your automations, but still want to be able to create automations in the UI?
+You want to go the advanced route and split your automations, but still want to be able to create {% my automations title="automations in the UI" %}?
 In a chapter above we write about nesting `!includes`. Here is how we can do that for automations.
 
 Using labels like `manual` or `ui` allows for using multiple keys in the config:
