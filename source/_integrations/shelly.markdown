@@ -113,6 +113,12 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 </div>
 
+## Action driven battery powered devices (CoIoT) (initial support)
+For action driven Shelly battery powered devices such as the Shelly Motion it is required that the "CoIoT" option is set so that the sensor can send action events, such as "motion detection" to Home Assistant.
+To setup CoIoT on your Shelly device:
+Navigate to the local IP-address of your Shelly device, "Internet & Security", "COIOT", check the box, enter your local Home Assistant IP-Address in the "remote address" field and push "save".
+![image](https://user-images.githubusercontent.com/26795429/109662853-ca426c80-7b6b-11eb-82dc-98aea7ad8077.png)
+ 
 ## Known issues and limitations
 
 - Only supports firmware 1.8 and later
