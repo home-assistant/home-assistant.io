@@ -115,7 +115,7 @@ Not all devices support all input events. You can check on [Shelly API Reference
 
 ## Silabs based powered devices (CoIoT)
 For Silabs based devices such as the Shelly Motion it is required to enable "CoIoT" in the device for it to work with Home Assistant.
-To setup "CoIoT" on your Shelly device: Navigate to the local IP-address of your Shelly device, "Internet & Security", "COIOT", check the box, enter your local Home Assistant IP-Address in the "remote address" field and push "save".
+To setup **CoIoT** on your Shelly device: navigate to the local IP-address of your Shelly device, **Internet & Security** >> **COIOT**, check the box, enter your local Home Assistant IP-Address in the **Remote address** field and push **Save**.
 
 ![image](https://user-images.githubusercontent.com/26795429/109672641-80f71a80-7b75-11eb-807c-826606b07f37.png)
  
