@@ -279,7 +279,6 @@
         "XML",
         "Yamaha MusicCast",
         "Yamaha",
-        "YAML",
         "Yandex",
         "Yeelight",
         "YouTube",
@@ -340,6 +339,7 @@
         ["two ?steps? authentication", "two-step authentication"],
         ["URL['’]?s", "URLs"],
         ["XMLRPC", "XML-RPC"],
+        ["\\bYAML", "YAML"],
         ["ZWave", "Z-Wave"]
       ]
     }
