@@ -13,7 +13,7 @@ Whenever an integration or configuration option results in a warning, it will be
 
 When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
 
-If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them. 
+If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them.
 
 ### Problems with the configuration
 

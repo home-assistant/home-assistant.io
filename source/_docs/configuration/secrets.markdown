@@ -30,7 +30,7 @@ homeassistant:
 The `secrets.yaml` file contains the corresponding password assigned to the identifier.
 
 ```yaml
-http_password: YOUR_PASSWORD
+http_password: "YOUR_PASSWORD"
 ```
 
 ## Debugging secrets
