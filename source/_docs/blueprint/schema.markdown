@@ -171,10 +171,10 @@ mode: restart
 max_exceeded: silent
 
 trigger:
-  platform: state
-  entity_id: !input motion_entity
-  from: "off"
-  to: "on"
+  - platform: state
+    entity_id: !input motion_entity
+    from: "off"
+    to: "on"
 
 action:
   - service: light.turn_on

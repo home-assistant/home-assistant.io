@@ -94,7 +94,7 @@ message:
 homeassistant:
   auth_mfa_modules:
     - type: totp
-      name: Authenticator app
+      name: "Authenticator app"
     - type: notify
       message: "I almost forget, to get into my clubhouse, you need to say {}"
 ```

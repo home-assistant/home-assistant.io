@@ -15,7 +15,7 @@ We can break up this automation into the following three parts:
 (action)     Turn the lights on in the living room
 ```
 
-The first part is the [trigger](/docs/automation/trigger/) of the automation rule. Triggers describe events that should trigger the automation rule. In this case, it is a person arriving home, which can be observed in Home Assistant by observing the state of Paulus changing from 'not_home' to 'home'.
+The first part is the [trigger](/docs/automation/trigger/) of the automation rule. Triggers describe events that should trigger the automation rule. In this case, it is a person arriving home, which can be observed in Home Assistant by observing the state of Paulus changing from `not_home` to `home`.
 
 The second part is the [condition](/docs/automation/condition/). Conditions are optional tests that can limit an automation rule to only work in your specific use cases. A condition will test against the current state of the system. This includes the current time, devices, people and other things like the sun. In this case, we only want to act when the sun has set.
 

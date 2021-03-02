@@ -127,19 +127,19 @@ The following tables show the available trigger data per platform.
 # Example configuration.yaml entries
 automation:
   trigger:
-    platform: state
-    entity_id: device_tracker.paulus
+    - platform: state
+      entity_id: device_tracker.paulus
   action:
-    service: notify.notify
-    data:
-      message: >
-        Paulus just changed from {{ trigger.from_state.state }}
-        to {{ trigger.to_state.state }}
+    - service: notify.notify
+      data:
+        message: >
+          Paulus just changed from {{ trigger.from_state.state }}
+          to {{ trigger.to_state.state }}
 
 automation 2:
   trigger:
-    platform: mqtt
-    topic: /notify/+
+    - platform: mqtt
+      topic: "/notify/+"
   action:
     service: >
       notify.{{ trigger.topic.split('/')[-1] }}
