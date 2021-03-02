@@ -40,9 +40,7 @@ We will need a few things to get started with installing Home Assistant. Links b
     {% if variant.key == "odroid-n2" %}
     [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
     {% elsif variant.key == "rpi4" %}
-      _(To use the full 8GB of memory on the 8GB model 64-bit is **required**)_
-    {% elsif variant.key == "rpi4-64" or variant.key ==  "rpi3-64" %}
-      _(For GPIO and HAT 32-bit is **required**)_
+      _(On the 8GB model 64-bit is recommended)_
     {% endif %}
 
 {% endfor %}
