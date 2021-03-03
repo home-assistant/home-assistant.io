@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2021.3: Beta release notes"
-description: "Beta release notes for the 2021.3 release."
+title: "2021.3: My Oh My"
+description: "Introducing My Home Assistant, a new UI for service calls, 100% Fans, Z-Wave JS updates and Supervisor updates."
 date: 2021-03-03 00:00:00
 date_formatted: "March 3, 2021"
 author: Franck Nijhof
@@ -249,6 +249,12 @@ noteworthy changes this release:
 - [@emontnemery] didn't stop there, he also added support for enabling/disabling
   integration configuration entries! So you can, e.g., temporarily disable a
   whole integration.
+
+<p class='img'>
+<img src='/images/blog/2021-03/disable-integration.png' alt='Screenshot of disabling an integration entry'>
+Screenshot of disabling an integration entry.
+</p>
+
 - Thanks to [@Nixon506E], you can now set a transition time when activate Hue
   scenes.
 - In the {% my developer_states %} tab of the Developer Tools, there is now
@@ -262,6 +268,9 @@ noteworthy changes this release:
 - [@raman325] extended the Universal Media Player with a lot of new capabilities.
 - When adding a new integration, the UI will now show discovered devices for
   that integration as well! Thanks, [@bramkragten]!
+- We updated CodeMirror to the latest version, which provided the YAML code
+  editors in our UI. It should now be better, faster and has improved support
+  for mobile devices.
 
 [@larena1]: https://github.com/larena1
 
