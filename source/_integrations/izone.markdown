@@ -136,7 +136,7 @@ Set the minimum airflow for a particular zone.
 
 ### Service `izone.airflow_max`
 
-Set the maximum airflow for a particular zone
+Set the maximum airflow for a particular zone.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
