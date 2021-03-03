@@ -127,7 +127,7 @@ This will help you to find network connection issues etc.
 
 ### Service `izone.airflow_min`
 
-Set the minimum airflow for a particular zone
+Set the minimum airflow for a particular zone.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
