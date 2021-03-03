@@ -36,22 +36,22 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     2. Click on the `Smart Home` card, then click the `Start Building` button.
     3. Click `Name your Smart Home action` under `Quick Setup` to give your Action a name - Home Assistant will appear in the Google Home app as `[test] <Action Name>`
     4. Click on the `Overview` tab at the top of the page to go back.
-    4. Click `Build your Action`, then click `Add Action(s)`.
-    5. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the `Fulfillment URL` box, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
-    6. Click `Save`.
-    7. Click the three little dots (more) icon in the upper right corner, select `Project settings`
-    8. Make note of the `Project ID` that are listed on the `GENERAL` tab of the `Settings` page.
+    5. Click `Build your Action`, then click `Add Action(s)`.
+    6. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant` in the `Fulfillment URL` box, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+    7. Click `Save`.
+    8. Click the three little dots (more) icon in the upper right corner, select `Project settings`
+    9. Make note of the `Project ID` that are listed on the `GENERAL` tab of the `Settings` page.
 2. `Account linking` is required for your app to interact with Home Assistant.
     1. Start by going back to the `Overview` tab.
     2. Click on `Setup account linking` under the `Quick Setup` section of the `Overview` page.
     3. If asked, leave options as they default `No, I only want to allow account creation on my website` and select `Next`.
     4. Then if asked, for the `Linking type` select `OAuth` and `Authorization Code`. Click `Next`
     5. Enter the following:
-               1. Client ID: `https://oauth-redirect.googleusercontent.com/r/[YOUR_PROJECT_ID]`. (Replace `[YOUR_PROJECT_ID]` with your project ID from above)
-               2. Client Secret: Anything you like, Home Assistant doesn't need this field.
-               3. Authorization URL: `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`. (Replace `[YOUR HOME ASSISTANT URL:PORT]` your values)
-               4. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`. (Replace `[YOUR HOME ASSISTANT URL:PORT]` your values)
-               Click `Next`, then `Next` again.
+        1. Client ID: `https://oauth-redirect.googleusercontent.com/r/[YOUR_PROJECT_ID]`. (Replace `[YOUR_PROJECT_ID]` with your project ID from above)
+        2. Client Secret: Anything you like, Home Assistant doesn't need this field.
+        3. Authorization URL: `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`. (Replace `[YOUR HOME ASSISTANT URL:PORT]` with your values.)
+        4. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`. (Replace `[YOUR HOME ASSISTANT URL:PORT]` with your values.)
+           Click `Next`, then `Next` again.
     6. In the `Configure your client` `Scopes` textbox, type `email` and click `Add scope`, then type `name` and click `Add scope` again.
     7. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
     8. Click `Next`, then click `Save`
@@ -104,7 +104,7 @@ If you want to support active reporting of state to Google's server (configurati
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. At the top left of the page next to "Google Cloud Platform" logo, select your project created in the Actions on Google console. Confirm this by reviewing the project ID and it ensure it matches.
     3. Click Enable HomeGraph API.
-3. Try "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms
+3. Try "OK Google, sync my devices" - the Google Home app should import your exposed Home Assistant devices and prompt you to assign them to rooms.
 
 ### YAML Configuration
 
