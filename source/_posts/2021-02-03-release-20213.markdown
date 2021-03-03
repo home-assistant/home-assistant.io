@@ -608,7 +608,7 @@ They are now automatically discovered, if not, click Configuration in the
 sidebar, then click Integrations and then click the + icon in the lower right
 and find Xiaomi Miio.
 
-Or click: {% my config_flow_start title="Add Integration" domain="xiaomi_miio" badge %}
+Or click: {% my config_flow_start domain="xiaomi_miio" badge %}
 
 Select the option “Connect to a Xiaomi Miio Device” and click submit,
 follow the setup instructions.
