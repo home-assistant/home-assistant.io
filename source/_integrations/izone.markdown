@@ -140,5 +140,5 @@ Set the maximum airflow for a particular zone.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | izone Zone entity. For example `climate.bed_2`
+| `entity_id` | yes | izone Zone entity. For example `climate.bed_2`
 | `airflow` | no | Airflow percent in 5% increments
