@@ -122,3 +122,23 @@ logger:
 ```
 
 This will help you to find network connection issues etc.
+
+## Services
+
+### Service `advantage_air.airflow_min`
+
+Set the minimum airflow for a particular zone
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | izone Zone entity. For example `climate.bed_2`
+| `airflow` | no | Airflow percent in 5% increments
+
+### Service `advantage_air.airflow_max`
+
+Set the maximum airflow for a particular zone
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | izone Zone entity. For example `climate.bed_2`
+| `airflow` | no | Airflow percent in 5% increments
