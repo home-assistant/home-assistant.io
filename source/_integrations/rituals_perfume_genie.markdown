@@ -9,6 +9,8 @@ ha_category:
 ha_codeowners:
   - '@milanmeu'
 ha_domain: rituals_perfume_genie
+ha_platforms:
+  - switch
 ---
 
 The Rituals Perfume Genie integration allows you to control and monitor your Rituals perfume diffusers connected to your Rituals account. The integration is compatible with the first and second `2.0` versions.

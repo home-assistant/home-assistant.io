@@ -10,7 +10,6 @@ ha_release: 0.49
 ha_domain: apple_tv
 ha_codeowners:
   - '@postlund'
-  - '@wizbangcrash'
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:

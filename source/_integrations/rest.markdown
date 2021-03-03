@@ -6,9 +6,6 @@ ha_category:
   - Binary Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: rest
 ha_platforms:
   - binary_sensor

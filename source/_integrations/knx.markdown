@@ -25,6 +25,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - fan
   - light
   - notify
   - sensor

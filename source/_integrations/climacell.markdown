@@ -6,10 +6,11 @@ ha_category:
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_quality_scale: silver
 ha_codeowners:
   - '@raman325'
 ha_domain: climacell
+ha_platforms:
+  - weather
 ---
 
 The ClimaCell integration allows you to obtain weather information from the [ClimaCell API](https://www.climacell.co/weather-api/).

@@ -1,5 +1,5 @@
 ---
-title: Honeywell Total Connect Alarm
+title: Total Connect
 description: Instructions on how to integrate TotalConnect alarms into Home Assistant.
 ha_category:
   - Alarm

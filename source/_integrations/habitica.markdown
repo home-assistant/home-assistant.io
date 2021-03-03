@@ -9,6 +9,10 @@ ha_iot_class: Cloud Polling
 ha_domain: habitica
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@ASMfreaK'
+  - '@leikoilja'
+ha_config_flow: true
 ---
 
 This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.

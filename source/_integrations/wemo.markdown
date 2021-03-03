@@ -18,6 +18,8 @@ ha_platforms:
   - fan
   - light
   - switch
+ha_codeowners:
+  - '@esev'
 ---
 
 The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/c/wemo/) devices with Home Assistant.
