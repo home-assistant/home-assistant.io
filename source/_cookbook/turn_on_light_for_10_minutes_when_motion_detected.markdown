@@ -4,7 +4,7 @@ description: "Turn on lights for 10 minutes when motion detected."
 ha_category: Automation Examples
 ---
 
-#### Turn on lights with a resetable off timer
+#### Turn on lights with a resettable off timer
 
 This recipe will turn on a light when there is motion and turn off the light when ten minutes has passed without any motion events.
 
