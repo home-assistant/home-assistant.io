@@ -11,7 +11,7 @@ ha_domain: binance
 ha_config_flow: true
 ---
 
-With the `binance` integration, you can keep track of cryptocurrencies from the Binance exchange.
+With the Binance integration, you can keep track of cryptocurrencies from the Binance exchange.
 
 ## Requirements
 
