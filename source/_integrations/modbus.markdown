@@ -610,6 +610,76 @@ If you specify scale or offset as floating point values, double precision floati
 
 </div>
 
+#### Bit Sensor
+
+Bit sensor works with `holding` and `input` register types. If your device or PLC exposes a Modbus registers with binary flags in it, you may assign multiple bit sensors to the register.
+
+```yaml
+# Example configuration.yaml entry
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    bit_sensors:
+      - name: Sensor1
+        slave: 1
+        address: 100
+        bit_number: 0
+      - name: Sensor2
+        slave: 1
+        address: 100
+        bit_number: 1
+```
+
+{% configuration %}
+bit_sensors:
+  description: The array contains a list of all your Modbus bit sensors.
+  required: true
+  type: map
+  keys:
+    address:
+      description: Register number.
+      required: true
+      type: integer
+    count:
+      description: Number of registers to read.
+      required: false
+      type: integer
+      default: 1
+    bit_number:
+      description: A bit number in the registers. Bit number should be less than count * 16
+      required: true
+      type: integer
+    device_class:
+      description: The [type/class](/integrations/sensor/#device-class) of the sensor to set the icon in the frontend.
+      required: false
+      type: device_class
+      default: None
+    input_type:
+      description: Modbus register type (holding, input), default holding.
+      required: false
+      type: string
+    name:
+      description: Name of the sensor.
+      required: true
+      type: string
+    scan_interval:
+      description: Defines the update interval of the sensor in seconds.
+      required: false
+      type: integer
+      default: 15
+    slave:
+      description: The number of the slave (Optional for tcp and upd Modbus).
+      required: true
+      type: integer
+    unit_of_measurement:
+      description: Unit to attach to value.
+      required: false
+      type: integer
+{% endconfiguration %}
+
+
 #### Full example
 
 Example a temperature sensor with a 10 seconds scan interval:
@@ -631,6 +701,16 @@ modbus:
         offset: 0
         precision: 1
         data_type: integer
+    bit_sensors:
+      - name: Sensor1
+        slave: 1
+        address: 100
+        bit_number: 0
+      - name: Sensor2
+        slave: 1
+        address: 120
+        count: 8
+        bit_number: 127
 ```
 
 ### Configuring platform switch
@@ -718,6 +798,85 @@ switches:
       type: boolean
 {% endconfiguration %}
 
+#### Bit Switch
+
+Bit switch works with `holding` and `input` register types. If your device or PLC exposes a Modbus register with binary flags in it, you may assign up to 16 switches to one Modbus register. Bit switch will control the bit separately preserving other bits in the Modbus register.
+Please note, if you specify holding register as a source for a bit switch, you will get a read-only switch.
+
+To use your Modbus bit switches in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+modbus:
+  - name: hub1
+    type: tcp
+    host: IP_ADDRESS
+    port: 502
+    bit_switches:
+      - name: Switch1
+        address: 13
+        slave: 2
+        command_bit_number: 0
+      - name: Switch2
+        address: 13
+        slave: 2
+        command_bit_number: 1
+        status_bit_number: 12
+      - name: Switch3_readonly
+        address: 13
+        slave: 2
+        input_type: input
+        command_bit_number: 2
+```
+{% configuration %}
+bit_switches:
+  description: The array contains a list of all your Modbus bit switches.
+  required: true
+  type: map
+  keys:
+    address:
+      description: Coil number or register
+      required: true
+      type: integer
+    command_bit_number:
+      description: A bit number in the Modbus register
+      required: true
+      type: integer
+    status_bit_number:
+      description: A bit number to read status from, if different than command_bit_number
+      required: false
+      type: integer
+    input_type:
+      description: type of adddress (holding/discrete/coil)
+      required: false
+      default: holding
+      type: integer
+    name:
+      description: Name of the switch.
+      required: true
+      type: string
+    scan_interval:
+      description: Defines the update interval of the sensor in seconds.
+      required: false
+      type: integer
+      default: 15
+    slave:
+      description: The number of the slave (can be omitted for tcp and udp Modbus).
+      required: true
+      type: integer
+    verify_register:
+      description: Register to readback.
+      required: false
+      default: same as register
+      type: string
+    verify_state:
+      description: Define if is possible to readback the status of the switch.
+      required: false
+      default: true
+      type: boolean
+{% endconfiguration %}
+
+
 #### Full example
 
 Example switches, for which the state is polled from Modbus every 10 seconds.
@@ -736,6 +895,15 @@ modbus:
       - name: Switch2
         slave: 2
         address: 14
+    bit_switches:
+      - name: BitSwitch0
+        address: 15
+        slave: 2
+        command_bit_number: 0
+      - name: BitSwitch1
+        address: 15
+        slave: 2
+        command_bit_number: 1
 ```
 
 #### Multiple connections
