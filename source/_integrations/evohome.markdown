@@ -33,8 +33,8 @@ To set up this integration, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 evohome:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  username: "YOUR_USERNAME"
+  password: "YOUR_PASSWORD"
 ```
 
 {% configuration %}
@@ -64,8 +64,8 @@ This is an IoT cloud-polling integration and the recommended minimum `scan_inter
 
 TCC systems are implemented as a _location_, which consist of 1-12 _zones_ and, optionally, a DHW controller:
 
- - The system location (e.g., a house) is used for operating modes such as home, away, economy, etc.
- - Heating zones (e.g., rooms) are used for the target temperature.
+- The system location (e.g., a house) is used for operating modes such as home, away, economy, etc.
+- Heating zones (e.g., rooms) are used for the target temperature.
 
 ### Evohome
 
@@ -113,7 +113,7 @@ In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` 
 
 ## Service Calls
 
-This integration provides its own service calls to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardised schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
+This integration provides its own service calls to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
 
 It is recommended to use the native service calls (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic service calls for integration with 3rd party systems such as Amazon Alexa or Google Home.
 
@@ -159,7 +159,7 @@ This service call will set the `setpoint` of a zone, as identified by its `entit
 - action:
     - service: evohome.set_zone_override
       target:
-        entity_id: climate.loungeroom\
+        entity_id: climate.loungeroom
       data:
         setpoint: 10
 ```

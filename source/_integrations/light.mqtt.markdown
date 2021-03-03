@@ -27,7 +27,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 
 ## Default schema
 
-The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
+The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, on/off, RGB colors, XY colors and white values.
 
 ## Default schema - Configuration
 
