@@ -39,7 +39,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 There is currently support for the following device types within Home Assistant:
 
-- [Alarm Panel](#alarm-panel)
+- [Alarm Control Panel](#alarm-control-panel)
 - [Binary Sensor](#binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
@@ -79,7 +79,7 @@ mqtt:
 - [Testing your setup](/docs/mqtt/testing/)
 - [Logging](/docs/mqtt/logging/)
 
-## Alarm Panel
+## Alarm Control Panel
 
 The `mqtt` alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from `state_topic`. If these messages are published with *RETAIN* flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be `unknown`.
 
@@ -129,6 +129,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -157,7 +162,7 @@ command_topic:
   required: true
   type: string
 device:
-  description: 'Information about the device this alarm panel is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  description: "Information about the device this alarm panel is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
   required: false
   type: map
   keys:
@@ -166,27 +171,27 @@ device:
       required: false
       type: list
     identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      description: "A list of IDs that uniquely identify the device. For example a serial number."
       required: false
       type: [list, string]
     manufacturer:
-      description: 'The manufacturer of the device.'
+      description: "The manufacturer of the device."
       required: false
       type: string
     model:
-      description: 'The model of the device.'
+      description: "The model of the device."
       required: false
       type: string
     name:
-      description: 'The name of the device.'
+      description: "The name of the device."
       required: false
       type: string
     sw_version:
-      description: 'The firmware version of the device.'
+      description: "The firmware version of the device."
       required: false
       type: string
     via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      description: "Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant."
       required: false
       type: string
 json_attributes_template:
@@ -242,6 +247,11 @@ qos:
   required: false
   type: integer
   default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: true
@@ -300,6 +310,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability` is not defined, the binary sensor will always be considered `available` and its state will be `on`, `off` or `unknown`. If `availability` is defined, the binary sensor will be considered as `unavailable` by default and the sensor's initial state will be `unavailable`. Must not be used together with `availability`."
   required: false
@@ -440,7 +455,7 @@ binary_sensor:
         payload_not_available: "offline"
     qos: 0
     device_class: opening
-    value_template: '{{ value_json.state }}'
+    value_template: "{{ value_json.state }}"
 ```
 
 {% endraw %}
@@ -520,6 +535,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -635,6 +655,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -692,6 +717,10 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+fan_mode_command_template:
+  description: A template to render the value sent to the `fan_mode_command_topic` with.
+  required: false
+  type: template
 fan_mode_command_topic:
   description: The MQTT topic to publish commands to change the fan mode.
   required: false
@@ -709,6 +738,10 @@ fan_modes:
   required: false
   default: ['auto', 'low', 'medium', 'high']
   type: list
+hold_command_template:
+  description: A template to render the value sent to the `hold_command_topic` with.
+  required: false
+  type: template
 hold_command_topic:
   description: The MQTT topic to publish commands to change the hold mode.
   required: false
@@ -746,6 +779,10 @@ min_temp:
   description: Minimum set point available.
   type: float
   required: false
+mode_command_template:
+  description: A template to render the value sent to the `mode_command_topic` with.
+  required: false
+  type: template
 mode_command_topic:
   description: The MQTT topic to publish commands to change the HVAC operation mode.
   required: false
@@ -812,6 +849,10 @@ send_if_off:
   required: false
   type: boolean
   default: true
+swing_mode_command_template:
+  description: A template to render the value sent to the `swing_mode_command_topic` with.
+  required: false
+  type: template
 swing_mode_command_topic:
   description: The MQTT topic to publish commands to change the swing mode.
   required: false
@@ -829,10 +870,18 @@ swing_modes:
   required: false
   default: ['on', 'off']
   type: list
+temperature_command_template:
+  description: A template to render the value sent to the `temperature_command_topic` with.
+  required: false
+  type: template
 temperature_command_topic:
   description: The MQTT topic to publish commands to change the target temperature.
   required: false
   type: string
+temperature_high_command_template:
+  description: A template to render the value sent to the `temperature_high_command_topic` with.
+  required: false
+  type: template
 temperature_high_command_topic:
   description: The MQTT topic to publish commands to change the high target temperature.
   required: false
@@ -845,6 +894,10 @@ temperature_high_state_topic:
   description: The MQTT topic to subscribe for changes in the target high temperature. If this is not set, the target high temperature works in optimistic mode (see below).
   required: false
   type: string
+temperature_low_command_template:
+  description: A template to render the value sent to the `temperature_low_command_topic` with.
+  required: false
+  type: template
 temperature_low_command_topic:
   description: The MQTT topic to publish commands to change the target low temperature.
   required: false
@@ -895,6 +948,7 @@ For all `*_state_topic`s, a template can be specified that will be used to rende
 Say you receive the operation mode `"auto"` via your `mode_state_topic`, but the mode is actually called just `auto`, here's what you could do:
 
 {% raw %}
+
 ```yaml
 climate:
   - platform: mqtt
@@ -907,10 +961,12 @@ climate:
     mode_state_topic: "study/ac/mode/state"
     mode_state_template: "{{ value_json }}"
 ```
+
 {% endraw %}
 
 This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
 
+Similarly for `*_command_topic`s, a template can be specified to render the outgoing payloads on these topics.
 
 ### Example
 
@@ -942,20 +998,20 @@ climate:
 
 ## Cover
 
-The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a rollershutter or a garage door).
+The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a roller shutter or a garage door).
 
 ### Configuration
 
-The device state (`open`, `opening`, `closed` or `closing`) will be updated only after a new message is published on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
-`state_topic` can only manage `state_open`, `state_opening`, `state_closed` and `state_closing`. No percentage positions etc.
+A cover entity can be in states (`open`, `opening`, `closed` or `closing`).
 
-For this purpose is `position_topic` which can set state of the cover and position.
-Default setting are 0 means the device is `closed` and all other intermediate positions means the device is `open`.
-`position_topic` is managed by `position_open` and `position_closed`
-You can set it up in opposite way as well.
-If position topic is defined than state topic is ignored.
+If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. For covers that only report 3 states (`opening`, `closing`, `stopped`), a `state_stopped` state can be configured to indicate that the device is not moving. When this payload is received on the `state_topic`, and a `position_topic` is not configured, the cover will be set to state `closed` if its state was `closing` and to state `open` otherwise. If a `position_topic` is set, the cover's position will be used to set the state to either `open` or `closed` state.
 
-If a state topic and position topic are not defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
+If the cover reports its position, a `position_topic` can be configured for receiving the position. If no `state_topic` is configured, the cover's state will be set to either `open` or `closed` when a position is received.
+
+If the cover reports its tilt position, a `tilt_status_topic` can be configured for receiving the tilt position.
+If position topic and state topic are both defined, the device state (`open`, `opening`, `closed` or `closing`) will be set by the state topic and the cover position will be set by the position topic.
+
+If neither a state topic nor a position topic are defined, the cover will work in optimistic mode. In this mode, the cover will immediately change state (`open` or `closed`) after every command sent by Home Assistant. If a state topic/position topic is defined, the cover will wait for a message on `state_topic` or `position_topic`.
 
 Optimistic mode can be forced, even if a `state_topic` / `position_topic` is defined. Try to enable it if experiencing incorrect cover operation (Google Assistant gauge may need optimistic mode as it often send request to your Home Assistant immediately after send set_cover_position in which case MQTT could be too slow).
 
@@ -990,6 +1046,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: "The MQTT topic subscribed to to receive birth and LWT messages from the MQTT cover device. If an `availability` topic is not defined, the cover availability state will always be `available`. If an `availability` topic is defined, the cover availability state will be `unavailable` by default. Must not be used together with `availability`."
   required: false
@@ -1052,7 +1113,7 @@ optimistic:
   description: Flag that defines if switch works in optimistic mode.
   required: false
   type: string
-  default: "`true` if no state topic defined, else `false`."
+  default: "`false` if state or position topic defined, else `true`."
 payload_available:
   description: The payload that represents the online state.
   required: false
@@ -1088,8 +1149,12 @@ position_open:
   required: false
   type: integer
   default: 100
+position_template:
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `position_topic` topic."
+  required: false
+  type: string
 position_topic:
-  description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
+  description: The MQTT topic subscribed to receive cover position messages.
   required: false
   type: string
 qos:
@@ -1130,8 +1195,13 @@ state_opening:
   required: false
   type: string
   default: opening
+state_stopped:
+  description: The payload that represents the stopped state (for covers that do not report `open`/`closed` state).
+  required: false
+  type: string
+  default: stopped
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. Use only if not using `position_topic`. State topic can only read open/close state. Cannot read position state. If `position_topic` is set `state_topic` is ignored.
+  description: The MQTT topic subscribed to receive cover state messages. State topic can only read (`open`, `opening`, `closed`, `closing` or `stopped`) state.
   required: false
   type: string
 tilt_closed_value:
@@ -1139,15 +1209,14 @@ tilt_closed_value:
   required: false
   type: integer
   default: 0
+tilt_command_template:
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_command_topic` topic."
+  required: false
+  type: string
 tilt_command_topic:
   description: The MQTT topic to publish commands to control the cover tilt.
   required: false
   type: string
-tilt_invert_state:
-  description: Flag that determines if open/close are flipped; higher values toward closed and lower values toward open.
-  required: false
-  type: boolean
-  default: false
 tilt_max:
   description: The maximum tilt value
   required: false
@@ -1181,10 +1250,18 @@ unique_id:
   required: false
   type: string
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `state_topic` topic."
   required: false
   type: string
 {% endconfiguration %}
+
+<div class="note">
+
+MQTT cover expects position and tilt values to be in range of 0 to 100, where 0 indicates closed position and 100 indicates fully open position.
+If position `min` or `max` are set to a different range (e.g. 40 to 140), when sending command to the device the range will be adjusted to the device range (position 0 will send a value of 40 to device) and when position payload is received from the device it will be adjusted back to the 0 to 100 range (device value of 40 will report cover position 0).
+`min` and `max` can also be used to reverse the direction of the device, if `min` is set to 100 and `max` is set to `0` device operation will be inverted (e.g. when setting position to 40, a value of 60 will be sent to device).
+
+</div>
 
 ### Examples
 
@@ -1217,7 +1294,7 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -1248,14 +1325,14 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
 
-#### Full configuration
+#### Full configuration for position, state and tilt
 
-The example below shows a full configuration for a cover.
+The example below shows a full configuration for a cover with position, state & tilt.
 
 {% raw %}
 
@@ -1266,6 +1343,7 @@ cover:
     name: "MQTT Cover"
     command_topic: "home-assistant/cover/set"
     state_topic: "home-assistant/cover/state"
+    position_topic: "home-assistant/cover/position"
     availability:
       - topic: "home-assistant/cover/availability"
     qos: 0
@@ -1280,14 +1358,48 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{{ value.x }}'
-    tilt_command_topic: 'home-assistant/cover/tilt'
-    tilt_status_topic: 'home-assistant/cover/tilt-state'
-    tilt_status_template: '{{ value_json["PWM"]["PWM1"] }}'
+    value_template: "{{ value.x }}"
+    position_template: "{{ value.y }}"
+    tilt_command_topic: "home-assistant/cover/tilt"
+    tilt_status_topic: "home-assistant/cover/tilt-state"
+    tilt_status_template: "{{ value_json["PWM"]["PWM1"] }}"
     tilt_min: 0
     tilt_max: 180
     tilt_closed_value: 70
     tilt_opened_value: 180
+```
+
+{% endraw %}
+
+#### Full configuration using stopped state
+
+The example below shows a full configuration for a cover using stopped state.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    name: "MQTT Cover"
+    command_topic: "home-assistant/cover/set"
+    state_topic: "home-assistant/cover/state"
+    position_topic: "home-assistant/cover/position"
+    availability:
+      - topic: "home-assistant/cover/availability"
+    qos: 0
+    retain: true
+    payload_open: "OPEN"
+    payload_close: "CLOSE"
+    payload_stop: "STOP"
+    state_opening: "opening"
+    state_closed: "closed"
+    state_stopped: "stopped"
+    payload_available: "online"
+    payload_not_available: "offline"
+    optimistic: false
+    value_template: "{{ value.x }}"
+    position_template: "{{ value.y }}"
 ```
 
 {% endraw %}
@@ -1300,9 +1412,8 @@ mosquitto_pub -h 127.0.0.1 -t home-assistant/cover/set -m "CLOSE"
 
 ## Device Tracker
 
-The `mqtt` device tracker platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.
-
-### Configuration
+The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers through a [discovery schema](#discovery-schema) using the MQTT Discovery protocol.
+### YAML Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -1311,8 +1422,8 @@ To use this device tracker in your installation, add the following to your `conf
 device_tracker:
   - platform: mqtt
     devices:
-      paulus_oneplus: 'location/paulus'
-      annetherese_n4: 'location/annetherese'
+      paulus_oneplus: "location/paulus"
+      annetherese_n4: "location/annetherese"
 ```
 
 {% configuration %}
@@ -1328,19 +1439,19 @@ payload_home:
   description: The payload value that represents the 'home' state for the device.
   required: false
   type: string
-  default: 'home'
+  default: "home"
 payload_not_home:
   description: The payload value that represents the 'not_home' state for the device.
   required: false
   type: string
-  default: 'not_home'
+  default: "not_home"
 source_type:
   description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
   required: false
   type: string
 {% endconfiguration %}
 
-### Complete example configuration
+### Complete YAML example configuration
 
 ```yaml
 # Complete configuration.yaml entry
@@ -1350,20 +1461,161 @@ device_tracker:
       paulus_oneplus: 'location/paulus'
       annetherese_n4: 'location/annetherese'
     qos: 1
-    payload_home: 'present'
-    payload_not_home: 'not present'
+    payload_home: "present"
+    payload_not_home: "not present"
     source_type: bluetooth
 ```
 
-### Usage
+### YAML Usage
 
 Example JSON you can publish to the topic (e.g., via mqtt.publish service):
 
 ```json
 {
   "topic": "location/paulus",
-  "payload": "home"
+  "payload": "present"
 }
+```
+
+### Discovery Schema
+
+MQTT device_trackers are also supported through [MQTT discovery](/docs/mqtt/discovery/). This is different to the YAML configuration from above. Here, the device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config` and the JSON message content of a specific format as defined below.
+
+{% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
+  required: false
+  type: string
+device:
+  description: "Information about the device this device tracker is a part of that ties it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html)."
+  required: false
+  type: map
+  keys:
+    connections:
+      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      required: false
+      type: [list, map]
+    identifiers:
+      description: A list of IDs that uniquely identify the device. For example a serial number.
+      required: false
+      type: [list, string]
+    manufacturer:
+      description: The manufacturer of the device.
+      required: false
+      type: string
+    model:
+      description: The model of the device.
+      required: false
+      type: string
+    name:
+      description: The name of the device.
+      required: false
+      type: string
+    sw_version:
+      description: The firmware version of the device.
+      required: false
+      type: string
+    via_device:
+      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
+      required: false
+      type: string
+icon:
+  description: The icon for the device tracker.
+  required: false
+  type: icon
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as device_tracker attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+name:
+  description: The name of the MQTT device_tracker.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_home:
+  description: The payload value that represents the 'home' state for the device.
+  required: false
+  type: string
+  default: home
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+payload_not_home:
+  description: The payload value that represents the 'not_home' state for the device.
+  required: false
+  type: string
+  default: not_home
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+source_type:
+  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
+  required: false
+  type: string
+state_topic:
+  description: The MQTT topic subscribed to receive device tracker state changes.
+  required: true
+  type: string
+unique_id:
+  description: "An ID that uniquely identifies this device_tracker. If two device_trackers have the same unique ID, Home Assistant will raise an exception."
+  required: false
+  type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) that returns a device tracker state."
+  required: false
+  type: template
+{% endconfiguration %}
+
+### Discovery Example
+
+You can use the discovery protocol to create a new device tracker and set it's state using the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
+
+To create the device_tracker:
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t home-assistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home"}'
+```
+
+To set the state of the device tracker to "home":
+
+```bash
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m 'home'
 ```
 
 ## Device Trigger
@@ -1479,6 +1731,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -1695,7 +1952,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 
 ### Default schema
 
-The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
+The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, on/off, RGB colors, XY colors and white values.
 
 ### Default schema - Configuration
 
@@ -1704,6 +1961,9 @@ In an ideal scenario, the MQTT device will have a state topic to publish state c
 When a state topic is not available, the light will work in optimistic mode. In this mode, the light will immediately change state after every command. Otherwise, the light will wait for state confirmation from the device (message from `state_topic`).
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect light operation.
+
+Home Assistant internally assumes that a light either has a color or a color temperature.
+The state of MQTT lights with default schema and support for both color and color temperature will include a color if `white_value` is 0 or None and a `color_temp` is white_value > 0.
 
 ```yaml
 # Example configuration.yaml entry
@@ -1732,6 +1992,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -1762,7 +2027,7 @@ color_temp_command_topic:
   required: false
   type: string
 color_temp_state_topic:
-  description: The MQTT topic subscribed to receive color temperature state updates.
+  description: "The MQTT topic subscribed to receive color temperature state updates. If the light also supports setting colors, also define a `white_value_state_topic`. "
   required: false
   type: string
 color_temp_value_template:
@@ -1980,6 +2245,7 @@ In this section you will find some real-life examples of how to use this sensor.
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -1999,6 +2265,7 @@ light:
     payload_off: "OFF"
     optimistic: false
 ```
+
 {% endraw %}
 
 #### Brightness and no RGB support
@@ -2105,6 +2372,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -2433,6 +2705,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -2584,6 +2861,8 @@ In this section you find some real-life examples of how to use this light.
 
 For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -2591,18 +2870,22 @@ light:
     schema: template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: "{% raw %}on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}{% endraw %}"
+    command_on_template: "on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}"
     command_off_template: "off"
-    state_template: "{% raw %}{{ value.split(',')[0] }}{% endraw %}"  # must return `on` or `off`
-    brightness_template: "{% raw %}{{ value.split(',')[1] }}{% endraw %}"
-    red_template: "{% raw %}{{ value.split(',')[2].split('-')[0] }}{% endraw %}"
-    green_template: "{% raw %}{{ value.split(',')[2].split('-')[1] }}{% endraw %}"
-    blue_template: "{% raw %}{{ value.split(',')[2].split('-')[2] }}{% endraw %}"
+    state_template: "{{ value.split(',')[0] }}"  # must return `on` or `off`
+    brightness_template: "{{ value.split(',')[1] }}"
+    red_template: "{{ value.split(',')[2].split('-')[0] }}"
+    green_template: "{{ value.split(',')[2].split('-')[1] }}"
+    blue_template: "{{ value.split(',')[2].split('-')[2] }}"
 ```
+
+{% endraw %}
 
 #### JSON payload
 
 For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your `configuration.yaml` file:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -2614,7 +2897,7 @@ light:
       - colorloop
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
-    command_on_template: >{% raw %}
+    command_on_template: >
       {"state": "on"
       {%- if brightness is defined -%}
       , "brightness": {{ brightness }}
@@ -2625,15 +2908,17 @@ light:
       {%- if effect is defined -%}
       , "effect": "{{ effect }}"
       {%- endif -%}
-      }{% endraw %}
+      }
     command_off_template: '{"state": "off"}'
-    state_template: '{% raw %}{{ value_json.state }}{% endraw %}'
-    brightness_template: '{% raw %}{{ value_json.brightness }}{% endraw %}'
-    red_template: '{% raw %}{{ value_json.color[0] }}{% endraw %}'
-    green_template: '{% raw %}{{ value_json.color[1] }}{% endraw %}'
-    blue_template: '{% raw %}{{ value_json.color[2] }}{% endraw %}'
-    effect_template: '{% raw %}{{ value_json.effect }}{% endraw %}'
+    state_template: '{{ value_json.state }}'
+    brightness_template: '{{ value_json.brightness }}'
+    red_template: '{{ value_json.color[0] }}'
+    green_template: '{{ value_json.color[1] }}'
+    blue_template: '{{ value_json.color[2] }}'
+    effect_template: '{{ value_json.effect }}'
 ```
+
+{% endraw %}
 
 #### Template schema - No brightness or color support
 
@@ -2680,6 +2965,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -2823,7 +3113,7 @@ lock:
     optimistic: false
     qos: 1
     retain: true
-    value_template: '{{ value.x }}'
+    value_template: "{{ value.x }}"
 ```
 
 {% endraw %}
@@ -2852,6 +3142,30 @@ sensor:
 ```
 
 {% configuration %}
+availability:
+  description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
+  required: false
+  type: list
+  keys:
+    payload_available:
+      description: The payload that represents the available state.
+      required: false
+      type: string
+      default: online
+    payload_not_available:
+      description: The payload that represents the unavailable state.
+      required: false
+      type: string
+      default: offline
+    topic:
+      description: An MQTT topic subscribed to receive availability (online/offline) updates.
+      required: true
+      type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -2971,7 +3285,7 @@ sensor:
   - platform: mqtt
     name: "RSSI"
     state_topic: "home/sensor1/infojson"
-    unit_of_measurement: 'dBm'
+    unit_of_measurement: "dBm"
     value_template: "{{ value_json.RSSI }}"
     availability:
       - topic: "home/sensor1/status"
@@ -3025,7 +3339,7 @@ sensor:
   - platform: mqtt
     name: "Battery Tablet"
     state_topic: "owntracks/tablet/tablet"
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
     value_template: "{{ value_json.batt }}"
 ```
 {% endraw %}
@@ -3051,12 +3365,12 @@ sensor:
   - platform: mqtt
     name: "Temperature"
     state_topic: "office/sensor1"
-    unit_of_measurement: '°C'
+    unit_of_measurement: "°C"
     value_template: "{{ value_json.temperature }}"
   - platform: mqtt
     name: "Humidity"
     state_topic: "office/sensor1"
-    unit_of_measurement: '%'
+    unit_of_measurement: "%"
     value_template: "{{ value_json.humidity }}"
 ```
 {% endraw %}
@@ -3080,7 +3394,6 @@ home/bathroom/analog/brightness 290.00
 
 The configuration will look like the example below:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -3088,7 +3401,6 @@ sensor:
     name: "Brightness"
     state_topic: "home/bathroom/analog/brightness"
 ```
-{% endraw %}
 
 ## Switch
 
@@ -3131,6 +3443,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -3299,7 +3616,6 @@ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
 
 The configuration will look like the example below:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 switch:
@@ -3310,7 +3626,6 @@ switch:
     payload_on: "1"
     payload_off: "0"
 ```
-{% endraw %}
 
 ## Vacuum
 
@@ -3355,6 +3670,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -3510,6 +3830,7 @@ unique_id:
 #### Legacy configuration example
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 vacuum:
@@ -3546,8 +3867,9 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
+
 {% endraw %}
 
 #### Legacy MQTT Protocol
@@ -3610,6 +3932,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -3748,7 +4075,6 @@ unique_id:
 
 #### State configuration example
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 vacuum:
@@ -3774,9 +4100,8 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
-{% endraw %}
 
 #### State MQTT Protocol
 
@@ -3817,15 +4142,16 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
+      target:
+        entity_id: vacuum.vacuum_entity
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        command: "custom_command"
         params:
           - key: value
 ```
@@ -3892,15 +4218,16 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
+      target:
+        entity_id: vacuum.vacuum_entity
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        command: "custom_command"
         params:
           - key: value
 ```
