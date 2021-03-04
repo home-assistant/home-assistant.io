@@ -2064,12 +2064,13 @@
 /integrations/device_tracker.mqtt /integrations/mqtt#device-tracker
 /integrations/device_trigger.mqtt /integrations/mqtt#device-trigger
 /integrations/fan.mqtt /integrations/mqtt#fan
+/integrations/mqtt_json /integrations/mqtt#json
 /integrations/light.mqtt /integrations/mqtt#light
 /integrations/lock.mqtt /integrations/mqtt#lock
 /integrations/number.mqtt /integrations/mqtt#number
 /integrations/scene.mqtt /integrations/mqtt#scene
 /integrations/sensor.mqtt /integrations/mqtt#sensor
-/integrations/mqtt_statestream /integrations/mqtt#statestrean
+/integrations/mqtt_statestream /integrations/mqtt#statestream
 /integrations/switch.mqtt /integrations/mqtt#switch
 /integrations/tag.mqtt /integrations/mqtt#tag-scanner
 /integrations/vacuum.mqtt /integrations/mqtt#vacuum
