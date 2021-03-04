@@ -33,7 +33,7 @@ My oh my, enjoy this release!
 - [Fan speeds: 100%](#fan-speeds-100)
 - [Suggested areas](#suggested-areas)
 - [Z-Wave JS update](#z-wave-js-update)
-- [MQTT trigger templating](#mqtt-trigger-templating)
+- [Flexible & variable automation triggers](#flexible--variable-automation-triggers)
 - [Oversettelser i Supervisor panelet](#oversettelser-i-supervisor-panelet)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
