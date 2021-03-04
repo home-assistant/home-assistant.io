@@ -2068,6 +2068,7 @@
 /integrations/lock.mqtt /integrations/mqtt#lock
 /integrations/sensor.mqtt /integrations/mqtt#sensor
 /integrations/switch.mqtt /integrations/mqtt#switch
+/integrations/tag.mqtt /integrations/mqtt#tag-scanner
 /integrations/vacuum.mqtt /integrations/mqtt#vacuum
 /integrations/zigbee /integrations/xbee
 /integrations/hassio /hassio
