@@ -10,6 +10,8 @@ ha_domain: mullvad
 ha_config_flow: true
 ha_codeowners:
   - '@meichthys'
+ha_platforms:
+  - binary_sensor
 ---
 
 The Mullvad VPN integration pulls [Mullvad](https://mullvad.net/) VPN status information into Home Assistant.

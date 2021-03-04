@@ -1,5 +1,5 @@
 ---
-title: Subaru 
+title: Subaru
 description: Instructions on how to setup your Subaru account with Home Assistant.
 ha_category:
   - Car
@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@G-Two'
 ha_domain: subaru
+ha_platforms:
+  - sensor
 ---
 
 The Subaru integration retrieves information provided by Subaru connected vehicle services.  Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com).

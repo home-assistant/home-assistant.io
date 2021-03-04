@@ -14,6 +14,12 @@ ha_quality_scale: platinum
 ha_codeowners:
   - '@mdz'
 ha_domain: smarttub
+ha_platforms:
+  - binary_sensor
+  - climate
+  - light
+  - sensor
+  - switch
 ---
 
 The `smarttub` integration allows you to view and control hot tubs which use the [SmartTub](https://www.jacuzzi.com/en-us/hot-tubs/owners/smarttub-system) system, in Home Assistant.

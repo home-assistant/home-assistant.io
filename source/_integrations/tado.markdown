@@ -13,6 +13,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
   - '@bdraco'
+  - '@noltari'
 ha_domain: tado
 ha_config_flow: true
 ha_homekit: true

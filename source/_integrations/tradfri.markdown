@@ -10,8 +10,6 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_codeowners:
-  - '@ggravlingen'
 ha_domain: tradfri
 ha_homekit: true
 ha_platforms:
