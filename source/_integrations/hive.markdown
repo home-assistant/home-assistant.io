@@ -31,7 +31,6 @@ This Hive integration uses the same username and password you use on the [Hive w
 
 {% include integrations/config_flow.md %}
 
-_YAML configurations are no longer supported, exisitng configurations will be imported and can then be removed._
 
 ## Options
 
