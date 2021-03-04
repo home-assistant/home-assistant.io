@@ -2063,6 +2063,7 @@
 /integrations/cover.mqtt /integrations/mqtt#cover
 /integrations/device_tracker.mqtt /integrations/mqtt#device-tracker
 /integrations/device_trigger.mqtt /integrations/mqtt#device-trigger
+/integrations/mqtt_eventstream /integrations/mqtt#eventstream
 /integrations/fan.mqtt /integrations/mqtt#fan
 /integrations/mqtt_json /integrations/mqtt#json
 /integrations/light.mqtt /integrations/mqtt#light
