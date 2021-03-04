@@ -9,17 +9,17 @@ categories: Release-Notes
 og_image: /images/blog/2021-03-06-android-q1-releases/Companion.png
 ---
 
-Hey everyone! It has been quite some time since we last provided an update on all that is new with the Android app. You may have already noticed that we had changed our release versioning to match that of Home Assistant Core. In fact we will be attempting to align our releases more closely to Core releases. This way we can start supporting brand new features quickly, like the recently released [My Home Assistant](https://my.home-assistant.io).
+Hey everyone! It has been quite some time since we last provided an update on all that is new with the Android app. You may have already noticed that we had changed our release versioning to match that of Home Assistant Core. In fact, we will be attempting to align our releases more closely to Core releases. This way we can start supporting brand new features quickly, like the recently released [My Home Assistant](https://my.home-assistant.io).
 
 ## Security Check
 
-As of Home Assistant Core 2021.1.5 some [security vulnerabilities](https://www.home-assistant.io/blog/2021/01/23/security-disclosure2/) were fixed and it is very critical that all users update their instances to at least this version. The app will now do a check every 24 hours to ensure that the instance is at least on the release mentioned in the security alert. You can expect this check to be done anytime a new security alert is issued and the application has been updated.
+As of Home Assistant Core 2021.1.5 some [security vulnerabilities](https://www.home-assistant.io/blog/2021/01/23/security-disclosure2/) were fixed and it is very critical that all users update their instances to at least this version. The app will now do a check every 24 hours to ensure that the instance is at least on the release mentioned in the security alert. This check will be updated anytime a new security alert is issued.
 
 ## Location Disabled Check
 
-We had discovered in several reported issues that certain app features that depend on the connected WiFi network (SSID), requires location to not only be granted to the app but also enabled on the device. Without location the app cannot read the connected SSID which means the Internal URL and any WiFi sensors will stop working. Previously, the application would continue to function and silently fail while showing bad data for the sensors. Although the application still worked, certain parts were found to be buggy as a result of the silent failure.
+Certain app features that depend on the connected WiFi network (SSID), require the location permission to not only be granted to the app, but also have it enabled on the device. Without this, the app is unable to read the connected SSID, impacting usage of the Internal URL and any WiFi based sensors. Previously, the application would continue to function and silently fail while showing bad data for the sensors. Although the application still worked, certain parts were found to be buggy as a result of the silent failure.
 
-Some of you may have noticed that starting in 2021.1 the app was showing a prompt before a user was able to interact with the Home Assistant frontend. After 2021.1 we had received a lot of feedback from users about the intrusive pop-up. Starting in 2021.2 this pop-up has been converted to a persistent notification that has its own notification channel allowing the user to fully control how it is displayed on the device. This means you can turn off this notification channel like any other channel on your device. The new channel name for this notification is `Location disabled`. This persistent notification will automatically clear once location is enabled and the application has proper permissions. The notification will list which features are currently disabled.
+Starting in android-2021.1, the app was showing a prompt before a user was able to interact with the Home Assistant frontend. We received feedback that users found this pop-up to be too intrusive. Starting `android-2021.2`, this pop-up has been converted to a persistent Android notification with its own notification channel. This allows the user to fully control how it is displayed on the device, including turning the channel off. The new channel name for this notification is `Location disabled`.
 
 <p class='img'>
 <img src='/images/blog/2021-03-06-android-q1-releases/location_disabled.png' alt='Screenshot of the location disabled notification'></a>
@@ -28,7 +28,7 @@ Screenshot of the location disabled notification.
 
 ## High Accuracy Mode
 
-A new feature was added in 2021.2 to allow users to get much faster location updates. This feature will cause additional battery drain. When enabled a persistent notification will be displayed containing some location data. This feature is an enhancement to the Background Location sensor and you can access it from the sensor settings screen. You can also control this feature via a new notification command to enable/disable it on the fly. You can learn more about this feature in the [docs](https://companion.home-assistant.io/docs/core/location#high-accuracy-mode).
+High accuracy mode is a new feature in android-2021.2 to allow users to get much faster location updates at the cost of additional battery drain. Background location updates typically get reported every 30 seconds to a few minutes. This new feature allows the user to specify the update interval that defaults to every 5 seconds. When enabled, a persistent notification will be displayed containing some location data. This feature is an enhancement to the Background Location sensor and you can access it from the sensor settings screen. You can also control this feature via a new notification command to enable/disable it on the fly. You can learn more about this feature in the [documentation](https://companion.home-assistant.io/docs/core/location#high-accuracy-mode).
 
 <p class='img'>
 <img src='/images/blog/2021-03-06-android-q1-releases/high_accuracy.png' alt='Screenshot of the high accuracy mode notification'></a>
@@ -37,7 +37,7 @@ Screenshot of the high accuracy mode notification.
 
 ## New Sensors
 
-We have several new sensors to welcome to the app, all of which are disabled by default.
+We have several new sensors to welcome to the app, all of which are disabled by default:
 
 - [Active Notifications](https://companion.home-assistant.io/docs/core/sensors#active-notification) - The total count of active notifications visible to the user. Attributes will include all notification data.
 
@@ -56,7 +56,7 @@ We have several new sensors to welcome to the app, all of which are disabled by 
 
 ## Notification Enhancements
 
-There have been several additions and improvements to notifications.
+There have been several additions and improvements to notifications:
 
 - Controlling Bluetooth
 - Broadcast intent command has been updated to allow the user to send intent extras
@@ -71,7 +71,7 @@ We have made several enhancements to further integrate Home Assistant into the A
 
 A new notification command was added to allow the user to launch an activity on their android device. This command requires a new permission to be granted in order to launch activities from the background, Draw Over Other Apps. The first attempt to use this notification will take the user to the permission page so the user can grant proper access. It is important to note that if the app is not considered active then this permission page will not show up due to missing permissions. Try to test this with the app open or you can grant the permission manually in your device settings. There are lots of use cases for this feature such as being able to launch Google Maps driving mode or even setting an alarm on your device.
 
-Unfortunately, it is not so straightforward to determine what intents and activities are supported by applications. You really need to know what to look for and there is not much in terms of documentation here from applications. Try reaching out to your favorite apps developers to see if they have any intents to consume. We have provided several live examples in the [companion docs](https://companion.home-assistant.io/docs/notifications/notification-commands#activity). I have also started a new thread in the forums to maintain a list of all that we can find [here](https://community.home-assistant.io/t/android-intents-sending-receiving-list-starting-activities-too/276192) I will be trying to keep the first post as up to date as possible.
+Unfortunately, it is not so straightforward to determine which intents and activities are supported by applications. You really need to know what to look for and there is not much in terms of documentation here from applications. Try reaching out to the developers of your favorite apps to see if they have any intents to consume. We have provided several live examples in the [companion documentation](https://companion.home-assistant.io/docs/notifications/notification-commands#activity). I have also started a new thread in the forums to maintain a list of all that we can find [here](https://community.home-assistant.io/t/android-intents-sending-receiving-list-starting-activities-too/276192). I will be trying to keep the first post as up to date as possible.
 
 ## Other Enhancements
 
@@ -81,8 +81,12 @@ We have also spent time making improvements to all other areas too:
 - Power menu fixes and enhancements including support for vacuum entities
 - Haptic feedback support in the frontend
 - Overriding certain URL types to launch an application or an intent from the frontend
-- 3 finger swipe down gesture to trigger the Quick Bar
+- 3 finger swipe down gesture to trigger the [Quick Bar](https://www.home-assistant.io/docs/tools/quick-bar/)
 
+<p class='img'>
+<img src='/images/blog/2021-03-06-android-q1-releases/3_finger_swipe_gesture.gif' alt='3 finger swipe gesture to trigger Quick Bar' height='550'></a>
+3 finger swipe gesture to trigger Quick Bar
+</p>
 
 Big thank you to everyone involved. Please keep those bug reports and feature requests coming!
 
