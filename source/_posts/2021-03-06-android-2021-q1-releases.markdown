@@ -1,8 +1,8 @@
 ---
 title: "Home Assistant Companion Android App 2021 Q1 Releases"
 description: "2021 Q1 Updates for the Home Assistant Companion Android App"
-date: 2021-03-06 00:00:00
-date_formatted: "March 6, 2021"
+date: 2021-03-04 00:00:00
+date_formatted: "March 4, 2021"
 comments: true
 author: Daniel Shokouhi
 categories: Release-Notes
@@ -88,6 +88,8 @@ Big thank you to everyone involved. Please keep those bug reports and feature re
 
 ## Changelogs
 
-- 2021.1 - https://github.com/home-assistant/android/releases/tag/2021.1.1
-- 2021.2 - https://github.com/home-assistant/android/releases/tag/2021.2.1
-- 2021.3 - https://github.com/home-assistant/android/releases/tag/2021.3.1
+- 2021.1.1 - https://github.com/home-assistant/android/releases/tag/2021.1.1
+- 2021.1.2 - https://github.com/home-assistant/android/releases/tag/2021.1.2
+- 2021.2.1 - https://github.com/home-assistant/android/releases/tag/2021.2.1
+- 2021.2.2 - https://github.com/home-assistant/android/releases/tag/2021.2.2
+- 2021.3.1 - https://github.com/home-assistant/android/releases/tag/2021.3.1
