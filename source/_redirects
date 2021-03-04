@@ -2066,6 +2066,7 @@
 /integrations/fan.mqtt /integrations/mqtt#fan
 /integrations/light.mqtt /integrations/mqtt#light
 /integrations/lock.mqtt /integrations/mqtt#lock
+/integrations/number.mqtt /integrations/mqtt#number
 /integrations/scene.mqtt /integrations/mqtt#scene
 /integrations/sensor.mqtt /integrations/mqtt#sensor
 /integrations/switch.mqtt /integrations/mqtt#switch
