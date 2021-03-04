@@ -2068,6 +2068,7 @@
 /integrations/light.mqtt /integrations/mqtt#light
 /integrations/lock.mqtt /integrations/mqtt#lock
 /integrations/number.mqtt /integrations/mqtt#number
+/integrations/mqtt_room /integrations/mqtt#room-presence
 /integrations/scene.mqtt /integrations/mqtt#scene
 /integrations/sensor.mqtt /integrations/mqtt#sensor
 /integrations/mqtt_statestream /integrations/mqtt#statestream
