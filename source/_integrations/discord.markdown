@@ -6,6 +6,8 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: discord
+ha_platforms:
+  - notify
 ---
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
@@ -65,6 +67,30 @@ Right click channel name and copy the channel ID (**Copy ID**).
 
 This channel or user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
 
+### Discord Service Data
+
+The following attributes can be placed inside the `data` key of the service call for extended functionality:
+
+| Attribute              | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `images`               |      yes | The file(s) to attach to message.
+| `embed`                |      yes | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required.
+
+
+To include messages with embedding, use these attributes underneath the `embed` key:
+
+| Attribute              | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `title`                    |      yes  | Title of the embed.
+| `description`               |      yes | Description of the embed.
+| `color`                    |      yes  | Color code of the embed.  This value is an *int*.
+| `url`               |      yes | URL of the embed.
+| `author`                    |      yes  | Sets the footer for the embed content.
+| `footer`               |      yes | Sets the footer for the embed content.
+| `thumbnail`               |      yes | Sets the thumbnail for the embed content.
+| `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
+
+
 #### Example service call
 
 ```yaml
@@ -76,6 +102,40 @@ This channel or user ID has to be used as the target when calling the notificati
       images: 
       - "/tmp/garage_cam"
       - "/tmp/garage.jpg"
+```
+
+#### Example embed service call
+```yaml
+- service: notify.discord
+  data:
+    message: ""
+    target: ["1234567890", "0987654321"]
+    data:
+      embed:
+        title: 'title'
+        description: 'description'
+        url: 'https://www.home-assistant.io'
+        color: 199363
+        author:
+          name: 'Author Home Assistant'
+          url: 'https://www.home-assistant.io'
+          icon_url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
+        footer:
+          text: 'Footer Text'
+          icon_url: 'https://www.home-assistant.io'
+        thumbnail:
+          url: 'https://www.home-assistant.io/images/favicon-192x192-full.png'
+        fields:
+          - name: 'fieldname1'
+            value: 'valuename1'
+            inline: false
+          - name: 'fieldname2'
+            value: 'valuename2'
+          - name: 'fieldname3'
+            value: 'valuename3'
+          - name: 'fieldname4'
+            value: 'valuename4'
+            inline: false
 ```
 
 ### Notes

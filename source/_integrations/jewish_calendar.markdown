@@ -8,6 +8,9 @@ ha_release: 0.79
 ha_codeowners:
   - '@tsvi'
 ha_domain: jewish_calendar
+ha_platforms:
+  - binary_sensor
+  - sensor
 ---
 
 The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
@@ -69,7 +72,6 @@ havdalah_minutes_after_sunset:
 *Note: Due to the variety of rabbinic opinions on how to calculate the different times, we do not take any responsibility on your religious reliance upon these calculations.*
 
 Time sensor states are represented as ISO8601 formatted *UTC time*.
-For easier use in automations, all time sensors have a `timestamp` attribute, which returns the UNIX timestamp.
 
 - `first_light`: First light of dawn (Alot Hashachar - עלות השחר)
 - `talit`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)

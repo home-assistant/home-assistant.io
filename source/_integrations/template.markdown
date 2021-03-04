@@ -10,6 +10,17 @@ ha_codeowners:
   - '@PhracturedBlue'
   - '@tetienne'
 ha_domain: template
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - cover
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
+  - vacuum
+  - weather
 ---
 
 The `template` platform supports sensors which get their values from other entities.
@@ -27,7 +38,7 @@ sensor:
     sensors:
       solar_angle:
         friendly_name: "Sun angle"
-        unit_of_measurement: 'degrees'
+        unit_of_measurement: "degrees"
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
 
       sunrise:
@@ -127,7 +138,7 @@ sensor:
     sensors:
       solar_angle:
         friendly_name: "Sun Angle"
-        unit_of_measurement: '°'
+        unit_of_measurement: "°"
         value_template: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
 ```
 
@@ -194,12 +205,12 @@ sensor:
     sensors:
       transmission_down_speed_kbps:
         friendly_name: "Transmission Down Speed"
-        unit_of_measurement: 'kB/s'
+        unit_of_measurement: "kB/s"
         value_template: "{{ states('sensor.transmission_down_speed')|float * 1024 }}"
 
       transmission_up_speed_kbps:
         friendly_name: "Transmission Up Speed"
-        unit_of_measurement: 'kB/s'
+        unit_of_measurement: "kB/s"
         value_template: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
 ```
 
@@ -279,7 +290,7 @@ sensor:
             Power Production
           {% endif %}
         value_template: "{{ states('sensor.power_consumption') }}"
-        unit_of_measurement: 'kW'
+        unit_of_measurement: "kW"
 ```
 
 {% endraw %}
@@ -289,6 +300,7 @@ sensor:
 This example shows how to add custom attributes.
 
 {% raw %}
+
 ```yaml
 sensor:
   - platform: template
@@ -334,8 +346,35 @@ sensor:
     sensors:
       nonsmoker:
         value_template: '{{ ( ( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-        friendly_name: 'Not smoking'
+        friendly_name: "Not smoking"
         unit_of_measurement: "Days"
+```
+
+{% endraw %}
+
+### Updating templates using `random`
+
+If you use the `random` filter, you may want the template to select a different random element every now and then. If the template does not update automatically due to entity changes it can be updated periodically by using the `homeassistant.update_entity` service with a time pattern automation. For example, this will render a new random number every five minutes:
+
+{% raw %}
+
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      random_number:
+        friendly_name: "Random number"
+        value_template: "{{ range(0,100)|random }}"
+
+automation:
+  - alias: "Update random number template"
+    trigger:
+      - platform: time_pattern
+        minutes: "/5"
+    action:
+      - service: homeassistant.update_entity
+        target:
+          entity_id: sensor.random_number
 ```
 
 {% endraw %}

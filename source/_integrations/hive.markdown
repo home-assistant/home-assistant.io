@@ -15,20 +15,18 @@ ha_codeowners:
   - '@Rendili'
   - '@KJonline'
 ha_domain: hive
+ha_platforms:
+  - binary_sensor
+  - climate
+  - light
+  - sensor
+  - switch
+  - water_heater
 ---
 
 The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
 
-This integration uses the unofficial API used in the official Hive website [https://my.hivehome.com](https://my.hivehome.com), and you will need to use the same Username and Password you use on the Hive website to configure this Hive integration in Home Assistant.
-
-There is currently support for the following platforms within Home Assistant:
-
-- [Binary Sensor](#binary-sensor)
-- [Climate](#climate)
-- [Light](#light)
-- [Sensor](#sensor)
-- [Switch](#switch)
-- [Water Heater](#water-heater)
+This integration uses the  Hive website [https://my.hivehome.com](https://my.hivehome.com) credentials, you will need to use the same username and password you use on the Hive website to configure this Hive integration in Home Assistant.
 
 To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -59,7 +57,7 @@ scan_interval:
 
 ### Service `hive.boost_heating`
 
-You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service. 
+You can use the service `hive.boost_heating` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service.
 
 | Service data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -75,8 +73,9 @@ script:
   boost_heating:
     sequence:
       - service: hive.boost_heating
-        data:
+        target:
           entity_id: "climate.heating"
+        data:
           time_period: "01:30:00"
           temperature: "20.5"
 ```
@@ -99,28 +98,29 @@ script:
   boost_hot_water:
     sequence:
       - service: "hive.boost_hot_water"
-        data:
+        target:
           entity_id: "water_heater.hot_water"
+        data:
           time_period: "01:30:00"
           on_off: "on"
 ```
 
 ## Platforms
 
-<div class='note'>
-
-You must have the [Hive integration](/components/hive/) configured to use the platforms below.
-
-</div>
-
 ### Binary Sensor
 
 The `hive` binary sensor integration integrates your Hive sensors into Home Assistant.
 
-The platform supports the following Hive products:
+The platform supports the following Hive devices and sensors:
 
-- Hive Window or Door Sensor
-- Hive Motion Sensor
+- Devices
+  - Hive Window or Door Sensor
+  - Hive Motion Sensor
+- Sensors
+  - Hive Hub Online Status
+  - Hive Hub 360 Glass Break
+  - Hive Hub 360 Dog Bark
+  - Hive Hub 360 Smoke CO2
 
 ### Climate
 
@@ -150,9 +150,8 @@ The `hive` sensor integration exposes Hive data as a sensor.
 
 The platform exposes the following sensors:
 
-- Hive Hub Online Status
-- Hive Outside Temperature
-
+- Battery level for supported products
+  
 ### Switch
 
 The `hive` switch platform integrates your Hive plugs into Home Assistant, enabling control of your devices.

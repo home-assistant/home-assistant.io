@@ -10,6 +10,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@StevenLooman'
 ha_domain: upnp
+ha_ssdp: true
+ha_platforms:
+  - sensor
 ---
 
 The `upnp` integration enables you to collect network statistics from your router such as bytes in/out and packets in/out. This information is provided by the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)/[Internet Gateway Device (IGD) Protocol](https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol) if enabled on your router.
@@ -20,9 +23,11 @@ There is currently support for the following device types within Home Assistant:
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this integration to work.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+## Manual configuration 
+
+Alternatively, you can use YAML by adding the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

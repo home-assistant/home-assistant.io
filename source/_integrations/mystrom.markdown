@@ -10,6 +10,10 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: mystrom
+ha_platforms:
+  - binary_sensor
+  - light
+  - switch
 ---
 
 The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.

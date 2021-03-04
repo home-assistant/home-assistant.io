@@ -1,12 +1,19 @@
 ---
 title: RFLink
 description: Instructions on how to integrate RFLink gateway into Home Assistant.
-logo: rflink.png
 ha_category:
   - Hub
 ha_iot_class: Assumed State
 ha_release: 0.38
 ha_domain: rflink
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
+ha_codeowners:
+  - '@javicalle'
 ---
 
 The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.rflink.nl/blog2/download), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
@@ -58,6 +65,11 @@ reconnect_interval:
   required: false
   default: 10
   type: integer
+tcp_keepalive_idle_timer:
+  description: Time in seconds to wait since last data packet was seen before a TCP KEEPALIVE is sent. Value of 0 will disable this feature.
+  required: false
+  default: 3600
+  type: integer 
 {% endconfiguration %}
 
 ### Full example
@@ -101,6 +113,7 @@ When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming d
 rflink:
   host: 192.168.0.10
   port: 1234
+  tcp_keepalive_idle_timer: 600
 ```
 
 ### Adding devices Automatically

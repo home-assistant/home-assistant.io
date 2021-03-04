@@ -6,6 +6,8 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor
+ha_platforms:
+  - sensor
 ---
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
@@ -112,7 +114,7 @@ sensor:
   - platform: systemmonitor
     resources:
       - type: network_in
-        arg: 'Local Area Connection'
+        arg: "Local Area Connection"
 ```
 
 If you need to use some other interface, open a command line prompt and type `ipconfig` to list all interface names. For example a wireless connection output from `ipconfig` might look like:

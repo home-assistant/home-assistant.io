@@ -17,6 +17,7 @@ Supported devices:
 - [RX-V573](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v573/specs.html)
 - [RX-V585](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
+- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V773](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v773/specs.html)
 - And more
 
@@ -115,15 +116,17 @@ script:
     alias: "Radio Paradise Porch"
     sequence:
       - service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
       - service: media_player.volume_set
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
+        data:
           volume_level: 0.48
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
+        data:
           media_content_type: "NET RADIO"
           media_content_id: "Bookmarks>Internet>Radio Paradise"
 

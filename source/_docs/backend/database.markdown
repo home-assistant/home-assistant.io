@@ -3,9 +3,9 @@ title: "Database"
 description: "Details about the database used by Home Assistant."
 ---
 
-Database is used in by Home Assistant as history and tracker only, to store the events and its parameters. The default database used by Home Assistant is [SQLite](https://www.sqlite.org/), and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/home-assistant_v2.db`). If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder` component](/integrations/recorder/).
+Home Assistant uses database to store events and parametersis for history and tracking. The default database used is [SQLite](https://www.sqlite.org/) and the database file is stored in your [configuration directory](/getting-started/configuration/) (e.g., `<path to config dir>/home-assistant_v2.db`); however, other databases can be used. If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder` component](/integrations/recorder/).
 
-To work with the SQLite database manually from the command-line, you will need an [installation](http://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively [DB Browser for SQLite](http://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
+To work with SQLite database manually from the command-line, you will need an [installation](http://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively [DB Browser for SQLite](http://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
 First load your database with `sqlite3`:
 
 ```bash

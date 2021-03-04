@@ -7,6 +7,7 @@ ha_release: 0.95
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rodripf'
+  - '@dmcc'
 ha_domain: vlc_telnet
 ---
 

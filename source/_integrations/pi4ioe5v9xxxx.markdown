@@ -11,6 +11,9 @@ ha_iot_class: Local Polling
 ha_domain: pi4ioe5v9xxxx
 ha_codeowners:
   - '@antonverburg'
+ha_platforms:
+  - binary_sensor
+  - switch
 ---
 
 The `pi4ioe5v9xxxx` integration provides support for the quasi-bidirectional devices PI4IOE5V9570, PI4IOE5V9674, PI4IOE5V9673, PI4IOE5V96224 and PI4IOE5V96248 from [diodes.com](https://www.diodes.com).

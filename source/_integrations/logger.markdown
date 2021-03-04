@@ -8,6 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: logger
+ha_iot_class:
 ---
 
 The `logger` integration lets you define the level of logging activities in Home
@@ -20,6 +21,8 @@ add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 logger:
 ```
+
+The log severity level is `warning` if the logger integration is not enabled in `configuration.yaml`.
 
 To log all messages and ignore events lower than critical for specified
 components:

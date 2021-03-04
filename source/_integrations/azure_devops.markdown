@@ -9,18 +9,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: azure_devops
+ha_platforms:
+  - sensor
 ---
 
-The `azure_devops` integration allows you to control and monitor your
+The Azure DevOps integration allows you to control and monitor your
 Azure DevOps instance in Home Assistant.
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Azure DevOps**.
-After completing the configuration flow, the Azure DevOps
-integration will be available.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 

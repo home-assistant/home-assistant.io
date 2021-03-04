@@ -11,6 +11,15 @@ ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: wemo
+ha_ssdp: true
+ha_homekit: true
+ha_platforms:
+  - binary_sensor
+  - fan
+  - light
+  - switch
+ha_codeowners:
+  - '@esev'
 ---
 
 The `wemo` integration is the main integration to integrate various [Belkin WeMo](https://www.belkin.com/us/c/wemo/) devices with Home Assistant.

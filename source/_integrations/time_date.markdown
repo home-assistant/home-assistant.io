@@ -9,6 +9,8 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@fabaff'
 ha_domain: time_date
+ha_platforms:
+  - sensor
 ---
 
 The time and date (`time_date`) sensor platform adds one or more sensors to your Home Assistant state machine.
@@ -32,7 +34,7 @@ sensor:
 
 {% configuration %}
 display_options:
-  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://www.swatch.com/en_us/internet-time).
+  description: The option to display. The types *date_time*, *date_time_utc*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](https://2020.swatch.com/en_my/internet-time/).
   required: true
   type: list
 {% endconfiguration %}
@@ -65,6 +67,6 @@ sensor:
         friendly_name: "Date and time"
         value_template: "{{ as_timestamp(states('sensor.date_time_iso')) | timestamp_custom('%A %B %-m, %I:%M %p') }}"
         icon_template: mdi:calendar-clock
-```        
+```
 
 {% endraw %}

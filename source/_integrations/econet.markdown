@@ -1,64 +1,21 @@
 ---
-title: Rheem EcoNET Water Products
+title: Rheem EcoNet Products
 description: Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant.
 ha_category:
   - Water Heater
 ha_release: 0.61
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_domain: econet
+ha_codeowners:
+  - '@vangorra'
+  - '@w1ll1am23'
+ha_config_flow: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - water_heater
 ---
 
-The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](https://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vacation mode.
+The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](https://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and away mode. It also provides access to several device sensors depending on your model of water heater.
 
-## Configuration
-
-To enable the `econet` water heater platform, add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-water_heater:
-  - platform: econet
-    username: YOUR_ECONET_EMAIL
-    password: YOUR_ECONET_PASSWORD
-```
-
-{% configuration %}
-username:
-  description: The username used to connect to your EcoNet account.
-  required: true
-  type: string
-password:
-  description: The password used to connect to your EcoNet account.
-  required: true
-  type: string
-{% endconfiguration %}
-
-### Service `econet.add_vacation`
-
-You can use the service `econet.add_vacation` to create a new vacation for your EcoNet water heaters.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | The entity id of the water heater to add the vacation to.
-| `start_date` | yes | This is a Unix timestamp for when the vacation should start.
-| `end_date` | yes | this is a Unix timestamp for when the vacation should end.
-
-<div class='note'>
-
-The Unix timestamps can be obtained from the `input_datetime` component. This will allow you to graphically set the start and end date.
-
-</div>
-
-### Service `econet.delete_vacation`
-
-You can use the service `econet.delete_vacation` to remove all vacations from an EcoNet water heater.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | The entity id of the water heater to remove the vacation from.
-
-<div class='note'>
-
-Econet water heaters use to live under the `climate` platform prior to release 0.81.
-
-</div>
+{% include integrations/config_flow.md %}
