@@ -2067,6 +2067,7 @@
 /integrations/mqtt_json /integrations/mqtt#json
 /integrations/light.mqtt /integrations/mqtt#light
 /integrations/lock.mqtt /integrations/mqtt#lock
+/integrations/manual_mqtt /integrations/mqtt#manual-alarm
 /integrations/number.mqtt /integrations/mqtt#number
 /integrations/mqtt_room /integrations/mqtt#room-presence
 /integrations/scene.mqtt /integrations/mqtt#scene
