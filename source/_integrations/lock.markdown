@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.9
 ha_quality_scale: internal
 ha_domain: lock
+ha_iot_class:
 ---
 
 Keeps track which locks are in your environment, their state and allows you to control them.

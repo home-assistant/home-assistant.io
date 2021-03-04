@@ -5,6 +5,7 @@ ha_category:
   - Utility
   - Sensor
 ha_release: 0.63
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@dgomes'
 ha_domain: sql

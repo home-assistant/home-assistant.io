@@ -35,7 +35,7 @@ Raspbian users: Don't forget to install `ffmpeg` support on your platform, other
 </div>
 
 <div class='note warning'>
-The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrives the video which was saved 1 minute earlier.
+The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
 </div>
 
 <div class='note warning'>

@@ -1448,7 +1448,7 @@ Hats over your heart for these shuttered integrations. Pour one out for:
 [fritzbox_netmonitor docs]: /integrations/fritzbox_netmonitor/
 [frontend docs]: /integrations/frontend/
 [garmin_connect docs]: /integrations/garmin_connect/
-[generic docs]: /integrations/generic/
+[generic docs]: /integrations/generic_ip_camera/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [geniushub docs]: /integrations/geniushub/
 [geonetnz_volcano docs]: /integrations/geonetnz_volcano/

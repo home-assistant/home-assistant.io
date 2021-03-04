@@ -3,6 +3,7 @@ title: Microsoft Text-to-Speech (TTS)
 description: Instructions on how to set up Microsoft Text-to-Speech with Home Assistant.
 ha_category:
   - Text-to-speech
+ha_iot_class: Cloud Push
 ha_release: 0.57
 ha_domain: microsoft
 ---

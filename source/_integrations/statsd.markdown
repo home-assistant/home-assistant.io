@@ -3,6 +3,7 @@ title: StatsD
 description: Record events in StatsD.
 ha_category:
   - History
+ha_iot_class: Local Push
 ha_release: 0.12
 ha_domain: statsd
 ---

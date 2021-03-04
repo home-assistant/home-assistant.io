@@ -1,7 +1,6 @@
 ---
 title: "Z-Wave Control Panel"
 description: "How to use the Z-Wave control panel."
-redirect_from: /getting-started/z-wave-panel/
 ---
 
 <div class='note'>

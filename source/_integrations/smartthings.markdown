@@ -64,9 +64,9 @@ After completing the prerequisite steps above you are ready to setup the integra
 1. Select the SmartThings Location to add to Home Assistant.
 1. On the window that opens:
    1. Login with your SmartThings account (if not already logged in).
-   1. Optionally change the display name and click 'Done' on the upper right of the screen.
+   1. Optionally change the display name and click 'Done' at the bottom of the screen.
    1. Authorize the integration by clicking 'Allow' on the bottom right of the screen.
-   1. Click 'Close Window' or close it manually if necessary.
+   1. Click 'Close Window' or close it manually.
 1. Back in Home Assistant click 'Finish'.
 
 <div class='note info'>

@@ -1,7 +1,6 @@
 ---
 title: "Splitting up the configuration"
 description: "Splitting the configuration.yaml into several files."
-redirect_from: /topics/splitting_configuration/
 ---
 
 So you've been using Home Assistant for a while now and your `configuration.yaml` file brings people to tears or you simply want to start off with the distributed approach, here's how to split the `configuration.yaml` into more manageable (read: humanly readable) pieces.

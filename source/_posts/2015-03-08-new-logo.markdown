@@ -13,6 +13,6 @@ It is well known that you are either a good programmer or a good designer. It's 
 The new logo follows Googles material design spec. It uses the blue color that Home Assistant uses in the interface and it comes in two versions: a high detailed version (for homescreen icon etc) and a simple version (for favicon etc).
 
 <p class='img'>
-<img src='{{site_root}}/images/blog/ha-logo-history.png' />
+<img src='/images/blog/ha-logo-history.png' />
 The old logo, the new detailed logo and the new simple logo.
 </p>

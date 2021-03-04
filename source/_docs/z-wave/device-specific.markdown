@@ -1,7 +1,6 @@
 ---
 title: "Z-Wave Device Specific Settings"
 description: "Notes for specific Z-Wave devices."
-redirect_from: /getting-started/z-wave-device-specific/
 ---
 
 ## Device Categories

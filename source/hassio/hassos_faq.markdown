@@ -6,7 +6,7 @@ description: "Frequently Asked Questions for Home Assistant OS"
 
 The bootloader for Home Assistant OS (uboot) does not yet support Pi4 booting from USB. Support is likely a month or two away as of July 2020.
 
-The Pi4 with 8GB RAM is similarly waiting for support from upstream.
+The Pi4 with 8GB RAM is now supported on the 64-bit image.
 
 ## How do I run a specific version of Home Assistant?
 

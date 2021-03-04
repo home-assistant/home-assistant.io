@@ -1,7 +1,6 @@
 ---
 title: Lightwave
 description: Instructions on how to integrate Lightwave devices with Home Assistant.
-logo: lightwave.png
 ha_category:
   - Hub
   - Light

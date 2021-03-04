@@ -65,8 +65,8 @@ Normally accessing the Bluetooth stack is reserved for root, but running program
 
 ```bash
 sudo apt-get install libcap2-bin
-sudo setcap 'cap_net_raw,cap_net_admin+eip' `readlink -f \`which python3\``
-sudo setcap 'cap_net_raw+ep' `readlink -f \`which hcitool\``
+sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which python3))
+sudo setcap 'cap_net_raw+ep' $(readlink -f $(which hcitool))
 ```
 
 A restart of Home Assistant is required.

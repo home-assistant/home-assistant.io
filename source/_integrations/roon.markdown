@@ -19,7 +19,7 @@ To integrate with Roon, you need to provide Home Assistant with the Hostname or 
 
 If you use an IP address, please assign a static IP address to the machine that runs Roon Core. This ensures that it won't change IP addresses, so you won't have to change the configuration in Home Assistant if it reboots and changes IP address. See your router's manual for details on how to set this up.
 
-### Configuration
+## Configuration
 
 You need the Hostname or IP address of the machine that runs your Roon Core. This might be a machine name (which can be followed by `.local`, e.g., `myserver.local`) or can be an IP address.
 
@@ -28,3 +28,16 @@ You need the Hostname or IP address of the machine that runs your Roon Core. Thi
 3. Home Assistant will then contact your Roon Core and ask to be authorized. You will need to enable this extension in the Room Application. Go to **Settings** and then **Extensions**, there you will see an entry for Home Assistant with a button next to it. Click **Enable**.
 4. Roon core will then provide Home Assistant with the details of your media players.
 5. In Home Assistant you can then pick an area for each of your music players, and add them to Home Assistant.
+
+#### Service `media_player.play_media`
+
+Roon doesn't use file names or URLs to track media and so the roon integration is currently limited in how it supports this call.
+
+| Service data attribute | Optional | Description                                                                                                                                                            |
+| -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            |      yes | Target a specific media player. To target all media players, use `all`.                                                                                                                       |
+| `media_content_id`     |       no | The text for roon to search for in your library.                   |
+| `media_content_type`   |       no | A media type. Currently supported are `radio`, `playlist` and `genre`  |
+
+
+ For example to play BBC Radio 4 you would set `media_content_type` to `radio` and `media_content_id` to `BBC Radio 4`

@@ -4,6 +4,7 @@ description: "Instructions on how to integrate RFLink Somfy RTS and KAKU ASUN-65
 logo: rflink.png
 ha_category:
   - Cover
+ha_iot_class: Assumed State
 ha_release: 0.55
 ha_domain: rflink
 ---

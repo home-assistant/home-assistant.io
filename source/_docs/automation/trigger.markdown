@@ -1,7 +1,6 @@
 ---
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
-redirect_from: /getting-started/automation-trigger/
 ---
 
 ### What are triggers
@@ -14,7 +13,7 @@ The following sections introduce all trigger types and further details to get st
 
 ### Event trigger
 
-Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data to be present.
+Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
 
 Events can be fired by integrations or via the API. There is no limitation to the types. A list of built-in events can be found [here](/docs/configuration/events/).
 
@@ -26,6 +25,11 @@ automation:
     # optional
     event_data:
       mood: happy
+    context:
+      user_id:
+      # any of these will match
+        - MY_USER_ID
+        - ANOTHER_USER_ID
 ```
 
 ### Home Assistant trigger
@@ -287,7 +291,7 @@ automation:
   trigger:
     platform: numeric_state
     entity_id: sun.sun
-    value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+    attribute: elevation
     # Can be a positive or negative number
     below: -4.0
   action:
@@ -297,7 +301,7 @@ automation:
 
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](https://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
+If you want to get more precise, you can use this [solar calculator](https://www.esrl.noaa.gov/gmd/grad/solcalc/), which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
 Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 

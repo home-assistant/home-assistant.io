@@ -4,6 +4,7 @@ description: Setup for Google Pub/Sub integration
 ha_category:
   - History
 ha_release: 0.88
+ha_iot_class: Cloud Push
 ha_domain: google_pubsub
 ---
 

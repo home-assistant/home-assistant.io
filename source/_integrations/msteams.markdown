@@ -3,6 +3,7 @@ title: Microsoft Teams
 description: Instructions on how to send a notification to a Microsoft Teams channel.
 ha_category:
   - Notifications
+ha_iot_class: Cloud Push
 ha_release: 0.101
 ha_codeowners:
   - '@peroyvind'

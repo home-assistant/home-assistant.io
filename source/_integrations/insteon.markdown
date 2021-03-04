@@ -48,7 +48,7 @@ In order for a device to be discovered, it must be linked to the INSTEON Modem a
 
 ## Linking Devices to the INSTEON Modem
 
-In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Development Tools] service calls. The following services are available:
+In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Developer Tools] service calls. The following services are available:
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
 - **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
@@ -59,7 +59,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 If you are looking for more advanced options, you can use the [insteon_tools] command-line tool that is distributed with the [pyinsteon] Python module. Please see the documentation on the [pyinsteon] GitHub site. Alternatively, you can download [HouseLinc], which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
-[Development Tools]: /docs/tools/dev-tools/
+[Developer Tools]: /docs/tools/dev-tools/
 [HouseLinc]: https://www.smarthome.com/houselinc.html
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteon_tools]: https://github.com/pyinsteon/pyinsteon
@@ -285,7 +285,7 @@ In order for a device to be discovered, it must be linked to the INSTEON Modem a
 
 ### Linking Devices to the INSTEON Modem
 
-In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Development Tools] service calls. The following services are available:
+In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Developer Tools] service calls. The following services are available:
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
 - **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
@@ -296,7 +296,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 If you are looking for more advanced options, you can use the [insteon_tools] command line tool that is distributed with the [pyinsteon] Python module. Please see the documentation on the [pyinsteon] GitHub site. Alternatively, you can download [HouseLinc] which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
-[Development Tools]: /docs/tools/dev-tools/
+[Developer Tools]: /docs/tools/dev-tools/
 [HouseLinc]: https://www.smarthome.com/houselinc.html
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteon_tools]: https://github.com/pyinsteon/pyinsteon

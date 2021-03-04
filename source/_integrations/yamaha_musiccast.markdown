@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.53
 ha_codeowners:
   - '@jalmeroth'
+ha_iot_class: Local Polling
 ha_domain: yamaha_musiccast
 ---
 
