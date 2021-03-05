@@ -161,7 +161,7 @@ We've introduced a protocol schema version in the Z-Wave JS server to allow
 older clients to connect and talk to a newer server. This prevents compatibility
 issues for the future!
 
-Home Assistant Core 2021.3.0 will require Z-Wave JS server version 1.10.
+Home Assistant Core 2021.3.0 will require Z-Wave JS server version 1.1.0.
 If you're using the official Home Assistant add-on, the integration will
 automatically update the add-on if an older add-on and server version is
 encountered. Magic! If you're not using the Home Assistant add-on to run the
