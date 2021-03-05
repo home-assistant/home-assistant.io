@@ -30,6 +30,8 @@ weather:
     condition_template: "sunny"
     temperature_template: "{{ states('sensor.temperature') | float}}"
     humidity_template: "{{ states('sensor.humidity')| float }}"
+    wind_bearing_template: "{{ state_attr('weather.home', 'wind_bearing') }}"
+    wind_speed_template: "{{ state_attr('weather.home', 'wind_speed') | float }}"
     forecast_template: "{{ states.weather.my_region.attributes.forecast }}"
 ```
 
@@ -54,6 +56,14 @@ humidity_template:
   type: template
 pressure_template:
   description: The current air pressure.
+  required: false
+  type: template
+visibility_template:
+  description: The current visibility.
+  required: false
+  type: template
+wind_bearing_template:
+  description: The current wind direction.
   required: false
   type: template
 wind_speed_template:
