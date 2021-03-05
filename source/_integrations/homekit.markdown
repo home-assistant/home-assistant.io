@@ -170,12 +170,6 @@ homekit:
               description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
               required: false
               type: string
-                type: string                
-              type: string
-                type: string                
-              type: string
-                type: string                
-              type: string
             low_battery_threshold:
               description: Minimum battery level before the accessory starts reporting a low battery.
               required: false
@@ -204,12 +198,6 @@ homekit:
               description: Only for `camera` entities. The number of simultaneous stream the camera can support.
               required: false
               type: integer
-              default: 3
-                default: 3                
-              default: 3
-                default: 3                
-              default: 3
-                default: 3                
               default: 3
             stream_address:
               description: Only for `camera` entities. The source IP address to use when streaming to RTP clients. If your Home Assistant host has multiple interfaces, selecting a specific IP may be necessary.
