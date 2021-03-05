@@ -213,7 +213,7 @@ An improvement in the battery of your device and your data cap are going to
 like:
 
 When the Home Assistant UI is not visible for longer than 5 minutes, it
-disconnects from your Home Assistant server. This means you no longer get data or
+disconnects from your Home Assistant instance. This means you no longer get data or
 camera streams and your device can optimize resource and power consumption.
 
 Of course, when showing the browser (or browser tab) again, it will
