@@ -57,5 +57,5 @@ name:
 Send a mesage to Mycroft by calling `notify.mycroft` service:
 
 ```yaml
-message: "hey"
+message: "Hey Mycroft. Turn on the office light. "
 ```
