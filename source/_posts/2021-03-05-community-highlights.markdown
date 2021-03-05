@@ -40,7 +40,7 @@ device you would like to receive a notification with a photo.
 
 Spring is approaching, so it's a good time to start building a birdhouse 🐦, so why not
 immediately turn it into a weather station? With [the manual](https://www.martinvdm.nl/2020/08/03/solar-weather-station-in-birdhouse/)
-from Martin you can make your own weather (birdhouse) station that works with ESPHome.
+from Martin, you can make your own weather (birdhouse) station that works with ESPHome.
 
 <div style="margin:0 auto; text-align:center">
     <a href="https://www.martinvdm.nl/2020/08/03/solar-weather-station-in-birdhouse/" target="_blank">
@@ -55,7 +55,7 @@ from Martin you can make your own weather (birdhouse) station that works with ES
 ## Outdoor pathway light
 
 Do you have a garden and do you want to create lighting along the paths? Maybe the
-garden lightning tutorial from [KidA001](https://www.reddit.com/user/KidA001/) will give you some inspiration to
+garden lighting tutorial from [KidA001](https://www.reddit.com/user/KidA001/) will give you some inspiration to
 [get started](https://www.reddit.com/r/homeassistant/comments/lt40gb/made_my_own_outdoor_pathway_lights_with_esphome/) with this.
 
 <div style="margin:0 auto; text-align:center">
@@ -71,7 +71,7 @@ garden lightning tutorial from [KidA001](https://www.reddit.com/user/KidA001/) w
 ## PoE powered stack light
 
 Looking for a creative way to display the status of your Home Assistant instance?
-For example: there is a new core update, too much RAM is being used or your instance
+For example: there is a new Core update, too much RAM is being used or your instance
 is no longer online? Plenty of options to bind to each color segment.
 
 So let yourself be inspired with the PoE stack light from Karl and start
