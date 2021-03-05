@@ -30,8 +30,8 @@ My oh my, enjoy this release!
 
 - [My Home Assistant](#my-home-assistant)
 - [New UI for service calls](#new-ui-for-service-calls)
-- [Fan speeds: 100%](#fan-speeds-100)
 - [Suggested areas](#suggested-areas)
+- [Fan speeds: 100%](#fan-speeds-100)
 - [Z-Wave JS update](#z-wave-js-update)
 - [Flexible & variable automation triggers](#flexible--variable-automation-triggers)
 - [Oversettelser i Supervisor panelet](#oversettelser-i-supervisor-panelet)
@@ -39,6 +39,7 @@ My oh my, enjoy this release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.3.1 - March 5](#release-202131---march-5)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -258,7 +259,7 @@ Screenshot of disabling an integration entry.
 - Thanks to [@Nixon506E], you can now set a transition time when activate Hue
   scenes.
 - In the {% my developer_states %} tab of the Developer Tools, there is now
-  a small copy to clipboard button with each entity. Thanks, [@KTibow]!  
+  a small copy to clipboard button with each entity. Thanks, [@KTibow]!
 - [@postlund] added support for repeat, shuffle and volume stepping to the
   media player integration of the Apple TV integration.
 - [@larena1] reduced the amount of rendering history charts cause, so that
@@ -312,6 +313,64 @@ The following integrations are now available via the Home Assistant UI:
 - [Nuki][nuki docs], done by [@pree]
 - [Philips TV][philips_js docs], done by [@elupus]
 - [Xiaomi Miio][xiaomi_miio docs] (partially), done by [@starkillerOG]
+
+## Release 2021.3.1 - March 5
+
+- Fix Xiaomi Miio setup of switch entity for lumi.acpartner.v3 ([@starkillerOG] - [#47345]) ([xiaomi_miio docs])
+- Make zwave_js add-on manager more flexible ([@MartinHjelmare] - [#47356]) ([zwave_js docs])
+- Catch ConditionError in generic_thermostat climate ([@amelchio] - [#47359]) ([generic_thermostat docs])
+- Fix zwave_js manual reconfiguration of add-on managed entry ([@MartinHjelmare] - [#47364]) ([zwave_js docs])
+- Don't raise on known non-matching states in numeric state condition ([@frenck] - [#47378])
+- Fix access of missing zwave_js climate unit value ([@MartinHjelmare] - [#47380]) ([zwave_js docs])
+- Update frontend to 20210302.4 ([@bramkragten] - [#47383]) ([frontend docs])
+- Revert "Speed-up wemo discovery (#46821)" ([@esev] - [#47392]) ([wemo docs])
+- Fix RFLink TCP KeepAlive error log ([@cpainchaud] - [#47395]) ([rflink docs])
+- Map silent as a preset mode for fan backcompat ([@bdraco] - [#47396]) ([fan docs])
+- Fix measurement unit (Closes: #47390) ([@syssi] - [#47398]) ([xiaomi_miio docs])
+- Fix Climacell timezone issue with daily forecasts ([@raman325] - [#47402]) ([climacell docs])
+- Fix AirVisual exception when config entry contains old integration type ([@bachya] - [#47405]) ([airvisual docs])
+- Don't convert Climacell forecast temperatures to celsius because platform does it automatically ([@raman325] - [#47406]) ([climacell docs])
+- Bump zwave-js-server-python to 0.21.0 ([@raman325] - [#47408]) ([zwave_js docs])
+- Fix older Roborock models ([@frenck] - [#47412]) ([xiaomi_miio docs])
+- Only create snapshot if add-on update will be done ([@MartinHjelmare] - [#47424]) ([zwave_js docs])
+
+[#47345]: https://github.com/home-assistant/core/pull/47345
+[#47356]: https://github.com/home-assistant/core/pull/47356
+[#47359]: https://github.com/home-assistant/core/pull/47359
+[#47364]: https://github.com/home-assistant/core/pull/47364
+[#47378]: https://github.com/home-assistant/core/pull/47378
+[#47380]: https://github.com/home-assistant/core/pull/47380
+[#47383]: https://github.com/home-assistant/core/pull/47383
+[#47392]: https://github.com/home-assistant/core/pull/47392
+[#47395]: https://github.com/home-assistant/core/pull/47395
+[#47396]: https://github.com/home-assistant/core/pull/47396
+[#47398]: https://github.com/home-assistant/core/pull/47398
+[#47402]: https://github.com/home-assistant/core/pull/47402
+[#47405]: https://github.com/home-assistant/core/pull/47405
+[#47406]: https://github.com/home-assistant/core/pull/47406
+[#47408]: https://github.com/home-assistant/core/pull/47408
+[#47412]: https://github.com/home-assistant/core/pull/47412
+[#47424]: https://github.com/home-assistant/core/pull/47424
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@amelchio]: https://github.com/amelchio
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cpainchaud]: https://github.com/cpainchaud
+[@esev]: https://github.com/esev
+[@frenck]: https://github.com/frenck
+[@raman325]: https://github.com/raman325
+[@starkillerOG]: https://github.com/starkillerOG
+[@syssi]: https://github.com/syssi
+[airvisual docs]: /integrations/airvisual/
+[climacell docs]: /integrations/climacell/
+[fan docs]: /integrations/fan/
+[frontend docs]: /integrations/frontend/
+[generic_thermostat docs]: /integrations/generic_thermostat/
+[rflink docs]: /integrations/rflink/
+[wemo docs]: /integrations/wemo/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
