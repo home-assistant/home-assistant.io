@@ -1,5 +1,5 @@
 ---
-title: "Common Tasks"
+title: "Common Tasks - Operating System"
 description: "Common tasks for Home Assistant Operating System"
 installation: os
 installation_name: "Operating System"
