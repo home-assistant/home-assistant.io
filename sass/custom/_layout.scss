@@ -55,9 +55,10 @@ table {
 
     th,td {
         word-wrap: break-word;
+        border: 1px solid #d5d2ff;
+        background: #dfe6f0;
     }
 }
-
 
 @media only screen and (max-width: $lap-end) {
     #sidebar {

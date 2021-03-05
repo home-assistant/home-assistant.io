@@ -370,8 +370,3 @@ div.code-toolbar > .toolbar span:focus {
 .command-line-prompt > span[data-prompt]:before {
 	content: attr(data-prompt);
 }
-
-table, th, td {
-   border: 1px solid #d5d2ff;
-   background: #dfe6f0;
-}
