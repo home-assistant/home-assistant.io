@@ -200,7 +200,7 @@ To use matrix notification in scripts or automation:
    data:
      markdown: true
      notice: false
-     image: file:///tmp/image.jpg
+     image: "file:///tmp/image.jpg"
 ```
 {% endraw %}
 
