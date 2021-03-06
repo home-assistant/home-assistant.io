@@ -24,7 +24,7 @@ This integration provides the following sensors. The term delivery and order
 | Name                           | Description                                                                                                                                         |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Completed deliveries           | Number of delivered orders.                                                                                                                     |
-| Total orders                   | Total amount of orders, including cancelled orders, deliveries in progress and completed deliveries.                                                |
+| Total orders                   | Total amount of orders, including canceled orders, deliveries in progress and completed deliveries.                                                |
 | Cart items count               | The amount of different products currently in the cart.                                                                                             |
 | Cart total price               | The total price for products currently in the cart.                                                                                                 |
 | Selected slot start            | Start of the selected delivery slot, `unavailable` if none is selected.                                                                             |
