@@ -8,6 +8,7 @@ ha_category:
   - Sensor
   - Light
   - Switch
+  - Cover/Shutter
 ha_release: 0.21
 ha_iot_class: Local Push
 ha_codeowners:
@@ -19,6 +20,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - cover
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
@@ -31,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
+- [Cover](#cover) -Covers/Shutters without tilt
 
 However, due to the wide range of message types, not all devices will work without code changes.
 The following devices have been confirmed to work out of the box:
@@ -42,6 +45,7 @@ The following devices have been confirmed to work out of the box:
 - Permundo PSC234 (switch and power monitor)
 - EnOcean STM-330 temperature sensor
 - Hoppe SecuSignal window handle from Somfy
+- Eltako Series 14 devices
 
 If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). 
 If it does, it will most likely work. 
@@ -128,6 +132,7 @@ automation:
 ## Light
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
+If you are using the Eltako FAM 14, you should first set the teach_in to "true" once. Then you can see it in the PCT14 Software. After that you set teach_in to "false".
 
 To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
@@ -137,17 +142,22 @@ light:
   - platform: enocean
     id: [0x01,0x90,0x84,0x3C]
     sender_id: [0xFF,0xC6,0xEA,0x04]
+    teach_in: false
 ```
 
 {% configuration %}
 id:
-  description: The ID of the device. This is the 4 bytes long number written on the dimmer.
+  description: The ID of the device. This is the 4 bytes long number written on the dimmer. If you recieving signals from FAM 14 device, get the Base_ID of FAM 14 from PCT14 software. Then, you change the last byte to the address you have distributed in PCT14.
   required: true
   type: list
 sender_id:
-  description: The Sender ID of the device. This is a 4 bytes long number.
+  description: The Sender ID of the device. This is a 4 bytes long number. If you are using an USB-300, get the Base_ID of the stick and change the last byte to an individual number for every light.
   required: true
   type: list
+teach_in:
+  description: Only for Eltako Series 14. You can´t teach_in your signal by default. You have to set it to "true" once to display your USB-300 in PCT14 software.
+  required: false
+  type: string
 name:
   description: An identifier for the Ligh in the frontend.
   required: false
@@ -366,3 +376,39 @@ switch nodon01_1:
     name: enocean_nodon01_1
     channel: 1
 ```
+
+## Cover
+
+An EnOcean cover can take many forms. Currently only one type has been tested: Eltako Series 14 devices.
+You have to manually add an Shutter-Card. The function are only tested with this Shutter-Card: https://github.com/Deejayfool/hass-shutter-card
+
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: enocean
+    id: [0x01,0x90,0x84,0x3C]
+    sender_id: [0xFF,0xC6,0xEA,0x04]
+    driving_time: 10
+```
+
+{% configuration %}
+id:
+  description: The ID of the device. This is the 4 bytes long number written on the dimmer. If you recieving signals from FAM 14 device, get the Base_ID of FAM 14 from PCT14 software. Then, you change the last byte to the address you have distributed in PCT14.
+  required: true
+  type: list
+sender_id:
+  description: The Sender ID of the device. This is a 4 bytes long number. If you are using an USB-300, get the Base_ID of the stick and change the last byte to an individual number for every light.
+  required: true
+  type: list
+driving_time:
+  description: The Time your shutter needs to drive from totally open to totally close in seconds.
+  required: true
+  type: int
+name:
+  description: An identifier for the Ligh in the frontend.
+  required: false
+  default: EnOcean Cover
+  type: string
+{% endconfiguration %}
