@@ -76,6 +76,10 @@ headers:
   description: Headers to use for the web request.
   required: false
   type: string
+scan_interval:
+  description: Interval at which to retrieve updated data from the website in seconds
+  required: false
+  type: integer
 {% endconfiguration %}
 
 ## Examples
