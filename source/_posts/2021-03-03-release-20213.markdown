@@ -772,7 +772,7 @@ Everything was still discovered in testing on a server with multiple interfaces.
 
 {% details "Z-Wave JS" %}
 
-Minimum required zwave-js-server version is now 1.0.0.
+Minimum required zwave-js-server version is now 1.1.0.
 You need to run this server version at mimimum for the integration to work.
 
 ([@marcelveldt] - [#46983]) ([zwave_js docs])
