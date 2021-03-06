@@ -57,7 +57,7 @@ homekit:
     camera.back_porch:
       support_audio: True
 - name: HASS Bridge 2
-  port: 56332
+  port: 21065
   filter:
     include_domains:
       - light
@@ -78,7 +78,7 @@ homekit:
         description: Port for the HomeKit extension. If you are adding more than one instance they need to have different values for port.
         required: false
         type: integer
-        default: 51827
+        default: 21063
       name:
         description: Need to be individual for each instance of Home Assistant using the integration on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
         required: false
