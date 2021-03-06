@@ -5,7 +5,7 @@ description: "Instructions to get Home Assistant configured."
 
 Alright, you made it here. The tough part is done.
 
-With Home Assistant installed, it's time to configure it. Here you will create the owner account of Home Assistant. This account will be an administrator and will always be able to change everything. Enter a name, username, password and click on "create account".
+With Home Assistant installed, it's time to configure it. The default port Home Assistant is listening is 8123. Here you will create the owner account of Home Assistant. This account will be an administrator and will always be able to change everything. Enter a name, username, password and click on "create account".
 
 <p class='img'>
 <img src='/images/getting-started/username.png' />
