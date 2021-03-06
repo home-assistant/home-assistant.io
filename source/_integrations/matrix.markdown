@@ -161,8 +161,8 @@ notify:
   - name: NOTIFIER_NAME
     platform: matrix
     default_room: ROOM_ID_OR_ALIAS
-    default_markdown: true|false
-    default_notice: true|false
+    default_markdown: false
+    default_notice: false
 ```
 
 {% configuration %}
@@ -198,9 +198,9 @@ To use matrix notification in scripts or automation:
    title: "This is a markdown header line"
    message: "This is a markdown formatted message because 'title' is defined."
    data:
-     markdown: true|false
-     notice: true|false
-     image: {file://|http[s]://}{path}
+     markdown: true
+     notice: false
+     image: file:///tmp/image.jpg
 ```
 {% endraw %}
 
@@ -237,7 +237,7 @@ data: "This is a map with the parameters passed to the notification service"
         image:
           description: This is the path to the image will be send to the room. For local file the prefix have to be `file://` for remote files the prefix could be `http://` or `https://`.
           required: false
-          type: string      
+          type: string
 {% endconfiguration %}
 
 For additional info, please see the [getting started with automation page](/getting-started/automation/).
