@@ -147,7 +147,7 @@ light:
 
 {% configuration %}
 id:
-  description: The ID of the device. This is the 4 bytes long number written on the dimmer. If you recieving signals from FAM 14 device, get the Base_ID of FAM 14 from PCT14 software. Then, you change the last byte to the address you have distributed in PCT14.
+  description: The ID of the device. This is the 4 bytes long number written on the dimmer. If you receiving signals from FAM 14 device, get the Base_ID of FAM 14 from PCT14 software. Then, you change the last byte to the address you have distributed in PCT14.
   required: true
   type: list
 sender_id:
@@ -395,7 +395,7 @@ cover:
 
 {% configuration %}
 id:
-  description: The ID of the device. This is the 4 bytes long number written on the dimmer. If you recieving signals from FAM 14 device, get the Base_ID of FAM 14 from PCT14 software. Then, you change the last byte to the address you have distributed in PCT14.
+  description: The ID of the device. This is the 4 bytes long number written on the dimmer. If you receiving signals from FAM 14 device, get the Base_ID of FAM 14 from PCT14 software. Then, you change the last byte to the address you have distributed in PCT14.
   required: true
   type: list
 sender_id:
@@ -405,7 +405,7 @@ sender_id:
 driving_time:
   description: The Time your shutter needs to drive from totally open to totally close in seconds.
   required: true
-  type: int
+  type: string
 name:
   description: An identifier for the Ligh in the frontend.
   required: false
