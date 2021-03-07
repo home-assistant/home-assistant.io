@@ -2,7 +2,7 @@
 title: Wolf SmartSet Service
 description: Instructions on how to integrate Wolf Smart-Set cloud within Home Assistant.
 ha_category:
-  - Heating
+  - Climate
 ha_release: 0.114
 ha_iot_class: Cloud Polling
 ha_config_flow: true
