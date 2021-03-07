@@ -230,7 +230,7 @@ this means that this setting is device-based and will be cleared when you logout
 You can now upload images for a person in the frontend!
 
 Select or drop an image in the input field and then crop it to a square. The
-image is stored on your Home Assistant server.
+image is stored on your Home Assistant instance.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rOlRnwaaT7Y" frameborder="0" allowfullscreen></iframe>

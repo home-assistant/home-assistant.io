@@ -66,7 +66,7 @@ ifttt:
 Property screen of the Maker Channel
 </p>
 
-Once you have added your key to your `configuration.yaml` file, restart your Home Assistant server. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
+Once you have added your key to your `configuration.yaml` file, restart your Home Assistant instance. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
 
 <div class='note'>
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
