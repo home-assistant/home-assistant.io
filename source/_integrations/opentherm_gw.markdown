@@ -70,11 +70,6 @@ Set Precision:
   required: false
   type: float
   default: "`0.5` for Celsius and `1.0` for Fahrenheit."
-Setpoint Override Mode:
-  description: "The desired setpoint override mode. When set to 'temporary' the thermostat will be able to cancel the setpoint override after a program change. When set to 'constant' a manual temperature adjustment on the thermostat is needed to cancel the setpoint override."
-  required: false
-  type: string
-  default: "temporary"
 Floor Temperature:
   description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
   required: false
