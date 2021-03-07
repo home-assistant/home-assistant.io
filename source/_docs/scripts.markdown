@@ -495,7 +495,7 @@ automation:
         to: "on"
     action:
       - choose:
-          - alias: "IF nobody home, sound the alarm!
+          - alias: "IF nobody home, sound the alarm!"
             conditions:
               - condition: state
                 entity_id: group.family
