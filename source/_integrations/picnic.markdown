@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ---
 
-The Picnic component allows one te get information from [Picnic](https://picnic.app) about orders, deliveries and cart contents.
+The Picnic integration allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
 
 {% include integrations/config_flow.md %}
 
