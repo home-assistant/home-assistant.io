@@ -60,12 +60,19 @@ The precision and floor_temperature settings that were supported in configuratio
 The OpenTherm Gateway can be further configured through the integration settings in the web interface
 The following options are available:
 {% configuration %}
-Precision:
-  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Set to `0` to use the default value for your unit preference."
+Read Precision:
+  description: "The desired read precision for this device. Used to display the current temperature on the climate entity. Can be used to match your actual thermostat's precision. Set to `0` to use the default value for your unit preference."
+  required: false
+  type: float
+  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
+Set Precision:
+  description: "The desired set precision for this device. Used as step size for setting temperature setpoint from the climate entity. Can be used to match your actual thermostat's precision. Set to `0` to use the default value for your unit preference."
+  required: false
   type: float
   default: "`0.5` for Celsius and `1.0` for Fahrenheit."
 Floor Temperature:
   description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
+  required: false
   type: boolean
   default: Disabled
 {% endconfiguration %}
