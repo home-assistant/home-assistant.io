@@ -33,7 +33,7 @@ This platform has been tested and is confirmed to be working with the iRobot Roo
 
 <div class='note'>
 
-The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
+The Roomba's MQTT server only allows a single connection. If another smart home platform uses continues mode, Home Assistant will not be able to connect to your Roomba. Enabling continuous mode in Home Assistant will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
 
 </div>
 
@@ -58,5 +58,11 @@ docker exec -it CONTAINER_NAME_OR_ID python -c 'import roombapy.entry_points; ro
 <div class='note'>
   
 The command to retrieve the credentials does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package and [password](https://github.com/pschmitt/roombapy/blob/1.6.1/roomba/entry_points.py#L20) function deployed with Home Assistant.
+
+</div>
+
+<div class='note'>
+  
+If the password cannot be retrieved, another smart home system may be using continuous mode. Ensure no other systems use your Roomba and try again. 
 
 </div>
