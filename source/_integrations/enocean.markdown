@@ -403,11 +403,11 @@ sender_id:
   required: true
   type: list
 driving_time:
-  description: The Time your shutter needs to drive from totally open to totally close in seconds.
+  description: The Time your shutter needs to drive from totally open to totally close. In seconds.
   required: true
-  type: string
+  type: integer
 name:
-  description: An identifier for the Ligh in the frontend.
+  description: An identifier for the Cover/Shutter in the frontend.
   required: false
   default: EnOcean Cover
   type: string
