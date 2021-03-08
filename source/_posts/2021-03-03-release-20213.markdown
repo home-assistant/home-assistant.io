@@ -41,6 +41,7 @@ My oh my, enjoy this release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2021.3.1 - March 5](#release-202131---march-5)
 - [Release 2021.3.2 - March 5](#release-202132---march-5)
+- [Release 2021.3.3 - March 8](#release-202133---march-8)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -413,6 +414,72 @@ The following integrations are now available via the Home Assistant UI:
 [opentherm_gw docs]: /integrations/opentherm_gw/
 [philips_js docs]: /integrations/philips_js/
 [websocket_api docs]: /integrations/websocket_api/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.3.3 - March 8
+
+- Adjust litterrobot tests and code to match guidelines ([@natekspencer] - [#47060]) ([litterrobot docs])
+- Bump HAP-python to 3.4.0 ([@bdraco] - [#47476]) ([homekit docs])
+- Fix Sonos polling mode ([@amelchio] - [#47498]) ([sonos docs])
+- Fix mysensors notify platform ([@MartinHjelmare] - [#47517]) ([mysensors docs])
+- Fix AsusWRT wrong api call ([@ollo69] - [#47522]) ([asuswrt docs])
+- Bump pymysensors to 0.21.0 ([@MartinHjelmare] - [#47530]) ([mysensors docs])
+- Fix mysensors device tracker ([@MartinHjelmare] - [#47536]) ([mysensors docs])
+- Fix mysensors unload clean up ([@MartinHjelmare] - [#47541]) ([mysensors docs])
+- Correct weather entities forecast time ([@dgomes] - [#47565])
+- Allow running and restarting with both ozw and zwave active ([@ronytomen] - [#47566]) ([ozw docs]) ([zwave docs])
+- Add fallback zwave_js entity name using node ID ([@raman325] - [#47582]) ([zwave_js docs])
+- Ensure bond devices recover when wifi disconnects and reconnects ([@bdraco] - [#47591]) ([bond docs])
+- Update frontend to 20210302.6 ([@bramkragten] - [#47592]) ([frontend docs])
+- Fix turn on without speed in homekit controller ([@bdraco] - [#47597]) ([homekit_controller docs])
+- Ensure template fan value_template always determines on state ([@bdraco] - [#47598]) ([template docs])
+- Fix insteon fan speeds ([@bdraco] - [#47603]) ([insteon docs])
+- Fix turning off scene in homekit ([@bdraco] - [#47604]) ([homekit docs])
+- Fix Shelly logbook exception when missing COAP ([@thecode] - [#47620]) ([shelly docs])
+- Update zwave_js supported features list to be static ([@raman325] - [#47623]) ([zwave_js docs])
+
+[#47060]: https://github.com/home-assistant/core/pull/47060
+[#47476]: https://github.com/home-assistant/core/pull/47476
+[#47498]: https://github.com/home-assistant/core/pull/47498
+[#47517]: https://github.com/home-assistant/core/pull/47517
+[#47522]: https://github.com/home-assistant/core/pull/47522
+[#47530]: https://github.com/home-assistant/core/pull/47530
+[#47536]: https://github.com/home-assistant/core/pull/47536
+[#47541]: https://github.com/home-assistant/core/pull/47541
+[#47565]: https://github.com/home-assistant/core/pull/47565
+[#47566]: https://github.com/home-assistant/core/pull/47566
+[#47582]: https://github.com/home-assistant/core/pull/47582
+[#47591]: https://github.com/home-assistant/core/pull/47591
+[#47592]: https://github.com/home-assistant/core/pull/47592
+[#47597]: https://github.com/home-assistant/core/pull/47597
+[#47598]: https://github.com/home-assistant/core/pull/47598
+[#47603]: https://github.com/home-assistant/core/pull/47603
+[#47604]: https://github.com/home-assistant/core/pull/47604
+[#47620]: https://github.com/home-assistant/core/pull/47620
+[#47623]: https://github.com/home-assistant/core/pull/47623
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@amelchio]: https://github.com/amelchio
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dgomes]: https://github.com/dgomes
+[@natekspencer]: https://github.com/natekspencer
+[@ollo69]: https://github.com/ollo69
+[@raman325]: https://github.com/raman325
+[@ronytomen]: https://github.com/ronytomen
+[@thecode]: https://github.com/thecode
+[asuswrt docs]: /integrations/asuswrt/
+[bond docs]: /integrations/bond/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[insteon docs]: /integrations/insteon/
+[litterrobot docs]: /integrations/litterrobot/
+[mysensors docs]: /integrations/mysensors/
+[ozw docs]: /integrations/ozw/
+[shelly docs]: /integrations/shelly/
+[sonos docs]: /integrations/sonos/
+[template docs]: /integrations/template/
+[zwave docs]: /integrations/zwave/
 [zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
