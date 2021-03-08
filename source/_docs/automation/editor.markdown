@@ -31,3 +31,7 @@ message: Sensor value greater than 10
 
 Automation created or edited via the user interface, are activated immediately
 after save the automation.
+
+## Split Config
+
+When creating automations using the GUI, they are written to `automations.yaml` even if you have a [split config](/docs/configuration/splitting_configuration/#example-combine-include_dir_merge_list-with-automationsyaml). Make sure you are correctly including the base `automations.yaml` file.
