@@ -4,6 +4,7 @@ description: Enable the Home Assistant Cloud integration.
 ha_release: '0.60'
 ha_category:
   - Voice
+  - Text-to-speech
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
