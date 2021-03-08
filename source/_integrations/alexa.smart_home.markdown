@@ -53,7 +53,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 ## Create an Amazon Alexa Smart Home Skill
 
-- Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign in page.  Note this *must* be created with the same amazon account you use on your alexa devices and app.
+- Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign-in page. Note this *must* be created with the same Amazon account you use on your Alexa devices and app.
 - Go to `Alexa Skills` page if you are not, click `Create Skill` button to start the process.
 - Input `Skill name` as you like, select your skill's `Default language`.
 - Select `Smart Home` and `Provision your own`, then click `Create skill` button at top right corner.
