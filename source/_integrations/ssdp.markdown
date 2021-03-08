@@ -28,6 +28,7 @@ The following integrations are automatically discovered by the SSDP integration:
  - [deCONZ](/integrations/deconz/)
  - [DirecTV](/integrations/directv/)
  - [Huawei LTE](/integrations/huawei_lte/)
+ - [OctoPrint](/integrations/octoprint/)
  - [Philips Hue](/integrations/hue/)
  - [Roku](/integrations/roku/)
  - [Samsung SyncThru Printer](/integrations/syncthru/)

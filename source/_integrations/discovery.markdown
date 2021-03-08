@@ -38,7 +38,7 @@ for Philips Hue it will require some configuration from the user.
 
 <div class='note'>
 
-Zeroconf discoverable integrations [Axis](/integrations/axis/)/[ESPHome](/integrations/esphome/)/[HomeKit](/integrations/homekit_controller/)/[Tradfri](/integrations/tradfri/)/[Google Cast](/integrations/cast/) have been migrated to use [zeroconf](/integrations/zeroconf) integration to initiate discovery.
+Zeroconf discoverable integrations [Axis](/integrations/axis/)/[ESPHome](/integrations/esphome/)/[HomeKit](/integrations/homekit_controller/)/[Tradfri](/integrations/tradfri/)/[Google Cast](/integrations/cast/)/[OctoPrint](/integrations/octoprint/) have been migrated to use [zeroconf](/integrations/zeroconf) integration to initiate discovery.
 
 </div>
 
@@ -77,7 +77,6 @@ Valid values for ignore are:
  * `harmony`: Logitech Harmony Hub
  * `logitech_mediaserver`: Logitech Media Server (Squeezebox)
  * `netgear_router`: NETGEAR routers
- * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome
  * `philips_hue`: Philips Hue
  * `sabnzbd`: SABnzbd downloader
