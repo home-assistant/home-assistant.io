@@ -12,9 +12,11 @@ Classification for the available integrations:
 - [IoT class](/blog/2016/02/12/classifying-the-internet-of-things): Classifier for the device's behavior.
 - [Quality scale](/docs/quality_scale/): Representation of the integration's quality.
 
-Integrations that are automatically discovered, added and configured via the UI typically don't need an extra entry in the `configuration.yaml` file. Required parameters are directly entered during setup in the UI. Note, that once configured, it is standard behavior that configuration paramters of integrations cannot be changed anymore. To change the paramters, delete the integration from the UI, let the system discover it again or add it manually back.
+Integrations that are automatically discovered, or manually added and configured via the UI, typically don't need an extra entry in the `configuration.yaml` file. Required parameters are directly entered during setup in the UI. However, please be aware that some UI integrations still might need additional configuration in the `configuration.yaml` file. These cases are explained in the respective integration documentation.
 
-Entites of integrations without an UI configuration usually need their own entry in the `configuration.yaml` file. There are two styles for multiple entries:
+Note, that for integrations configured in the UI, it is standard behavior that configuration parameters cannot be changed anymore. If the integration doesn't offer an UI option for change, delete the integration from the UI, let the system discover it again or add it back manually.
+
+Entities of integrations without an UI configuration usually need their own entry in the `configuration.yaml` file. There are two styles for multiple entries:
 
 ## Style 1: Collect every entity under the "parent"
 
