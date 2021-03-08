@@ -44,3 +44,7 @@ The Home Assistant Community forums have a specific tag for blueprints. This tag
 [Visit the Home Assistant forums][blueprint-forums]
 
 [blueprint-forums]: /get-blueprints
+
+## Split Config
+
+When creating automations using the GUI, they are written to `automations.yaml` even if you have a [split config](/docs/configuration/splitting_configuration/#example-combine-include_dir_merge_list-with-automationsyaml). Make sure you are correctly including the base `automations.yaml` file.
