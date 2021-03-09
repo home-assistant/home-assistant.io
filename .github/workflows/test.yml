@@ -51,7 +51,7 @@ jobs:
         run: npm run textlint
   build:
     name: Jekyll build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     needs: [markdown-lint]
     steps:
       - name: Check out files from GitHub
