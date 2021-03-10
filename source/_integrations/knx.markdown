@@ -1081,6 +1081,10 @@ always_callback:
   required: false
   type: boolean
   default: false
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### Value Types
@@ -1239,6 +1243,11 @@ knx:
       state_address: "6/2/1"
       sync_state: every 60
       type: "temperature"
+    - name: Rounded Temperature
+      state_address: "7/5/8"
+      sync_state: every 60
+      type: "temperature"
+      value_template: "{{ value | round (0) }}"
 ```
 
 ## Switch
