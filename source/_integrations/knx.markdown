@@ -1082,7 +1082,7 @@ always_callback:
   type: boolean
   default: false
 value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to manipulate the state from the payload value."
   required: false
   type: string
 {% endconfiguration %}
