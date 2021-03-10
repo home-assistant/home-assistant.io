@@ -7,7 +7,7 @@ When launched for the first time, Home Assistant will create a default configura
 
 The web interface can be found at `http://ip.ad.dre.ss:8123/` - for example if your Home Assistant system has the IP address `192.168.0.40` then you'll find the web interface as `http://192.168.0.40:8123/`.
 
-The location of the folder differs between operating systems:
+The location of the folder differs for different operating systems:
 
 | OS             | Path                       |
 | -------------- | -------------------------- |
@@ -18,13 +18,13 @@ The location of the folder differs between operating systems:
 
 If you want to use a different folder for configuration, use the configuration command line parameter: `hass --config path/to/config`.
 
-Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
+Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
 
-If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [`configuration.yaml` examples](/cookbook/#example-configurationyaml).
+If you run into trouble while configuring Home Assistant, refer the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [`configuration.yaml` examples](/cookbook/#example-configurationyaml).
 
 <div class='note tip'>
 
-  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as. Configuration changes can also be tested using the UI by navigating to Configuration, Server Controls and clicking "Check Configuration".
+  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this script as the user you logged in to Home Assistant as. Configuration changes can also be tested using the UI by navigating to Configuration, Server Controls and clicking "Check Configuration".
 
 </div>
 
@@ -32,9 +32,9 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 
 There are many ways you can edit `configuration.yaml`. Here are three options to get you started:
 
-The simplest is to use the "File Editor" add-on. This will allow you to edit your configuration from within Home Assistant itself.
+The simplest way is to use the "File Editor" add-on. This will allow you to edit your configuration from within Home Assistant itself.
 
-Perhaps the most robust option is to load the Visual Studio Code add-on. VS Code offers live syntax checking and auto-fill of various Home Assistant entities. 
+The most robust option is to load the Visual Studio Code add-on. VS Code offers live syntax checking and auto-fill of various Home Assistant entities. 
 
 You can use Samba file share (you need to install the "Samba" add-on) and your favorite file editor.
 
@@ -47,7 +47,7 @@ You can load changes to the following components without restarting, by using th
 
 <div class='note warning'>
 
-If you've made any changes, remember to [check your configuration](/docs/configuration/troubleshooting/#problems-with-the-configuration) before trying to reload or restart.
+If you have made any changes, remember to [check your configuration](/docs/configuration/troubleshooting/#problems-with-the-configuration) before trying to reload or restart.
 
 </div>
 
