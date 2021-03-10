@@ -355,7 +355,7 @@ Binary sensors are read-only. To write to the KNX bus configure an exposure [KNX
 ```yaml
 knx:
   binary_sensor:
-    - name: sensor1
+    - name: Sensor 1
       state_address: "6/0/2"
 ```
 
@@ -468,7 +468,7 @@ To use your KNX thermostats in your installation, add the following lines to you
 # Example configuration.yaml entry
 knx:
   climate:
-    - name: HASS-Kitchen.Temperature
+    - name: Kitchen Temperature
       temperature_address: "5/1/1"
       setpoint_shift_address: "5/1/2"
       setpoint_shift_state_address: "5/1/3"
@@ -483,7 +483,7 @@ Alternatively, if your device has dedicated binary group addresses for frost/nig
 # Example configuration.yaml entry
 knx:
   climate:
-    - name: HASS-Kitchen.Temperature
+    - name: Kitchen Temperature
       temperature_address: "5/1/1"
       setpoint_shift_address: "5/1/2"
       setpoint_shift_state_address: "5/1/3"
@@ -501,7 +501,7 @@ attributes of the climate device to avoid issues with exceeding valid temperatur
 # Example configuration.yaml entry
 knx:
   climate:
-    - name: HASS-Kitchen.Temperature
+    - name: Kitchen Temperature
       temperature_address: "5/1/2"
       target_temperature_address: "5/1/4"
       target_temperature_state_address: "5/1/1"
@@ -525,7 +525,7 @@ Example:
 # Example configuration.yaml entry
 knx:
   climate:
-    - name: HASS-Kitchen.Temperature
+    - name: Kitchen Temperature
       temperature_address: "5/1/1"
       setpoint_shift_address: "5/1/2"
       setpoint_shift_state_address: "5/1/3"
@@ -700,7 +700,7 @@ To use your KNX covers in your installation, add the following lines to your top
 # Example configuration.yaml entry
 knx:
   cover:
-    - name: "Kitchen.Shutter"
+    - name: "Kitchen Shutter"
       move_long_address: "3/0/0"
       move_short_address: "3/0/1"
       stop_address: "3/0/4"
@@ -783,7 +783,7 @@ To use your KNX fan in your installation, add the following lines to your top le
 # Example configuration.yaml entry
 knx:
   fan:
-    - name: "ceiling fan"
+    - name: "Ceiling fan"
       address: "9/0/1"
       state_address: "9/0/2"
 ```
@@ -830,7 +830,7 @@ To use your KNX light in your installation, add the following lines to your top 
 # Example configuration.yaml entry
 knx:
   light:
-    - name: "kitchen"
+    - name: "Kitchen"
       address: "1/0/9"
 ```
 
@@ -948,14 +948,14 @@ For switching/light actuators that are only controlled by a single group address
 knx:
   light:
     # dimmable light
-    - name: Bedroom-Light-1
+    - name: Bedroom Light 1
       address: "1/0/9"
       state_address: "1/1/9"
       brightness_address: "1/2/9"
       brightness_state_address: "1/3/9"
     #
     # RGB light
-    - name: Bathroom-Light-1
+    - name: Bathroom Light 1
       address: "1/0/9"
       state_address: "1/1/9"
       brightness_address: "1/2/9"
@@ -964,7 +964,7 @@ knx:
       color_state_address: "1/5/9"
     #
     # tunable white light
-    - name: Office-Light-1
+    - name: Office Light 1
       address: "1/0/21"
       state_address: "1/1/21"
       brightness_address: "1/2/21"
@@ -976,7 +976,7 @@ knx:
       max_kelvin: 6200
     #
     # actuator without dedicated state communication object
-    - name: Cellar-Light-1
+    - name: Cellar Light 1
       address: "1/0/5"
       state_address: "1/0/5"
 ```
@@ -1041,7 +1041,7 @@ Sensors are read-only. To write to the KNX bus configure an exposure [KNX Integr
 # Example configuration.yaml entry
 knx:
   sensor:
-    - name: Heating.Valve1
+    - name: Heating Valve 1
       state_address: "2/0/0"
       type: "percent"
 ```
@@ -1052,7 +1052,7 @@ In order to actively read the sensor data from the bus every 30 minutes you can 
 # Example configuration.yaml entry
 knx:
   sensor:
-    - name: Heating.Valve1
+    - name: Heating Valve 1
       state_address: "2/0/0"
       type: "percent"
       sync_state: every 30
@@ -1235,11 +1235,11 @@ value_template:
 # Example configuration.yaml entry
 knx:
   sensor:
-    - name: Heating.Valve1
+    - name: Heating Valve 1
       state_address: "2/0/0"
       sync_state: init
       type: "percent"
-    - name: Kitchen.Temperature
+    - name: Kitchen Temperature
       state_address: "6/2/1"
       sync_state: every 60
       type: "temperature"
@@ -1257,7 +1257,7 @@ The KNX switch platform is used as an interface to switching actuators.
 ```yaml
 knx:
   switch:
-    - name: Kitchen.Coffee
+    - name: Kitchen Coffee
       address: "1/1/6"
 ```
 
