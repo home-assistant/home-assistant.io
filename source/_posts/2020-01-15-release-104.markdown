@@ -358,8 +358,8 @@ Make sure to fill in all fields of the issue template, that is helping us a lot!
   ```yaml
   media_player:
     - platform: vizio
-      host: '<IP>:<PORT>'
-      access_token: '<AUTH_TOKEN>'
+      host: "<IP>:<PORT>"
+      access_token: "<AUTH_TOKEN>"
       device_class: tv
   ```
 

@@ -6,6 +6,8 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Configurable
 ha_domain: mjpeg
+ha_platforms:
+  - camera
 ---
 
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable

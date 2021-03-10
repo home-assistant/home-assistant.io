@@ -7,6 +7,8 @@ logo: home-assistant.png
 ha_release: pre 0.7
 ha_iot_class: Configurable
 ha_domain: generic
+ha_platforms:
+  - camera
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
@@ -89,7 +91,7 @@ camera:
   - platform: generic
     name: Weather
     still_image_url: https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/meteogram.svg
-    content_type: 'image/svg+xml'
+    content_type: "image/svg+xml"
 ```
 
 ### Local image

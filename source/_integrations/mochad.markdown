@@ -8,6 +8,9 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.32
 ha_domain: mochad
+ha_platforms:
+  - light
+  - switch
 ---
 
 The `mochad` integration is the main integration to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this integration you will have to setup your X10 devices separately.

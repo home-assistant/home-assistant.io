@@ -6,6 +6,8 @@ ha_category:
 ha_release: '0.20'
 ha_iot_class: Local Polling
 ha_domain: supervisord
+ha_platforms:
+  - sensor
 ---
 
 The `supervisord` platform allows you to track the states of [Supervisord](http://supervisord.org/).

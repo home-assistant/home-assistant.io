@@ -1,5 +1,5 @@
 ---
-title: Blueprints
+title: Blueprint
 description: Instructions on how to use Automation Blueprints with Home Assistant.
 ha_category:
   - Automation

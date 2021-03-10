@@ -10,6 +10,9 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@zxdavb'
 ha_domain: evohome
+ha_platforms:
+  - climate
+  - water_heater
 ---
 
 The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
@@ -30,8 +33,8 @@ To set up this integration, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 evohome:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  username: "YOUR_USERNAME"
+  password: "YOUR_PASSWORD"
 ```
 
 {% configuration %}
@@ -61,8 +64,8 @@ This is an IoT cloud-polling integration and the recommended minimum `scan_inter
 
 TCC systems are implemented as a _location_, which consist of 1-12 _zones_ and, optionally, a DHW controller:
 
- - The system location (e.g., a house) is used for operating modes such as home, away, economy, etc.
- - Heating zones (e.g., rooms) are used for the target temperature.
+- The system location (e.g., a house) is used for operating modes such as home, away, economy, etc.
+- Heating zones (e.g., rooms) are used for the target temperature.
 
 ### Evohome
 
@@ -110,7 +113,7 @@ In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` 
 
 ## Service Calls
 
-This integration provides its own service calls to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardised schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
+This integration provides its own service calls to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
 
 It is recommended to use the native service calls (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic service calls for integration with 3rd party systems such as Amazon Alexa or Google Home.
 
@@ -155,8 +158,9 @@ This service call will set the `setpoint` of a zone, as identified by its `entit
 ```yaml
 - action:
     - service: evohome.set_zone_override
-      data:
+      target:
         entity_id: climate.loungeroom
+      data:
         setpoint: 10
 ```
 
@@ -165,8 +169,9 @@ The `duration` can be up to 24 hours, after which the zone mode will revert to s
 ```yaml
 - action:
     - service: evohome.set_zone_override
-      data:
+      target:
         entity_id: climate.loungeroom
+      data:
         setpoint: 10
         duration: {minutes: 0}
 ```
@@ -219,7 +224,7 @@ All Evohome entities may have faults, and these can be turned into sensors, or:
 
 ```text
 {% if state_attr('climate.bedroom', 'status').active_faults %}
-  {% if state_attr('climate.bedroom', 'status').active_faults[0].fault_type == 'TempZoneActuatorLowBattery' %}
+  {% if state_attr('climate.bedroom', 'status').active_faults[0].faultType == 'TempZoneActuatorLowBattery' %}
     There is a low battery
   {% endif %}
     There is a Fault!

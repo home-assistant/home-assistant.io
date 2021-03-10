@@ -8,6 +8,8 @@ ha_release: 0.43
 ha_domain: rpi_gpio_pwm
 ha_codeowners:
   - '@soldag'
+ha_platforms:
+  - light
 ---
 
 The `rpi_gpio_pwm` platform allows to control multiple lights using pulse-width modulation, for example LED strips. It supports one-color, RGB and RGBW LEDs driven by GPIOs of a Raspberry Pi (same host or remote) or a PCA9685 controller.

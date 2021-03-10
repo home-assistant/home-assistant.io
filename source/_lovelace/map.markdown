@@ -11,12 +11,12 @@ The Map card that allows you to display entities on a map
 Screenshot of the map card.
 </p>
 
-To add the Map card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Map** from the card picker. All options for this card can be configured via the user interface.
+To add the Map card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Map** from the card picker. All options for this card can be configured via the user interface.
 
 {% configuration %}
 type:
   required: true
-  description: map
+  description: "`map`"
   type: string
 entities:
   required: true

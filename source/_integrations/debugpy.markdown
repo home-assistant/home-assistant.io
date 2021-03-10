@@ -19,8 +19,8 @@ the default library used by Visual Studio Code.
 
 This is useful in testing changes on a local development install, or connecting
 to a production server to debug issues. It is possible to load the integration
-without the activating the debugger, but injecting it with a service call. This
-is particularly useful on a developer' production system as it does not impact
+without activating the debugger, but injecting it with a service call. This
+is particularly useful on a developer's production system as it does not impact
 performance when not injected.
 
 ## Configuration

@@ -12,6 +12,9 @@ ha_codeowners:
   - '@Quentame'
 ha_config_flow: true
 ha_domain: meteo_france
+ha_platforms:
+  - sensor
+  - weather
 ---
 
 The `meteo_france` integration uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world with a focus on France. One or more locations can be set via the front end or via the configuration file.
@@ -23,35 +26,8 @@ The integration support the following platforms within Home Assistant:
 
 It displays the current weather along with a 5 days forecast and create sensors, including weather alerts and 1 hour rain forecast when available.
 
-## Setup the integration
+{% include integrations/config_flow.md %}
 
-There are two ways to integrate Météo-France in Home Assistant.
-
-### Via the frontend (recommended)
-
-Menu: **Configuration** -> **Integrations** click the button with `+` sign and from the list of integrations select **Météo-France**
-
-Enter your city or French postal code in the form. If more than one city correspond to your search in the Météo-France's database you will have the possibility to select one in a dropdown list. Click submit, you are done!
-
-### Via the configuration file
-
-With this way of configuration you can't select a specific cities if more than one location is found in the  Météo-France database corresponding to your inputs. The integration will take the first one returned by the API.
-
-To add Météo-France to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry for 2 cities
-meteo_france:
-  - city: '76000'
-  - city: 'Auch'
-```
-
-{% configuration %}
-  city:
-    description: French postal code or name of the city.
-    required: true
-    type: string
-{% endconfiguration %}
 
 ## Weather platform
 

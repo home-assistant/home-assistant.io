@@ -11,6 +11,10 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
+ha_homekit: true
+ha_platforms:
+  - cover
+  - sensor
 ---
 
 The `hunterdouglas_powerview` integration allows you to integrate your [Hunter Douglas PowerView](https://www.hunterdouglas.com/operating-systems/powerview-motorization/support) devices in Home Assistant.
@@ -21,29 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - Scene
 - Sensor
 
-To add `Hunter Douglas PowerView` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Hunter Douglas PowerView**.
-
-Alternatively, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-hunterdouglas_powerview:
-  - host: IP_ADDRESS
-```
-
-```yaml
-# Example configuration.yaml with multiple hubs
-hunterdouglas_powerview:
-  - host: IP_ADDRESS
-  - host: IP_ADDRESS_2
-```
-
-{% configuration %}
-host:
-  description: IP address of the PowerView Hub, e.g., 192.168.1.10.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Example Automations
 
@@ -54,5 +36,6 @@ host:
     at: "18:00:00"
   action:
     - service: scene.turn_on
-      entity_id: scene.10877
+      target:
+        entity_id: scene.10877
 ```

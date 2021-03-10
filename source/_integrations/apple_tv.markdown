@@ -8,32 +8,121 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.49
 ha_domain: apple_tv
+ha_codeowners:
+  - '@postlund'
+ha_config_flow: true
+ha_zeroconf: true
+ha_platforms:
+  - remote
 ---
 
-The Apple TV integration allows you to control an Apple TV (any generation). See the
-[remote platform](/integrations/apple_tv#remote) if you want to send remote control buttons,
-e.g., arrow keys.
+The Apple TV integration allows you to control an Apple TV (any generation).
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following entities within the Apple TV device:
 
-- Media Player
+- [Media Player](#media_player)
 - [Remote](#remote)
 
-## Configuration
+{% include integrations/config_flow.md %}
+## Media Player
 
-Menu: *Configuration* > *Integrations*
+The Apple TV media player platform will create a Media Player entity for each
+Apple TV discovered on your network.
+This entity will display the active app and playback controls.
 
-Press on **Apple TV** and configure the integration:
+## Remote
 
-* Enter either an IP address or a device name and follow the next few steps
+The Apple TV remote platform will automatically create a Remote entity for each Apple TV
+configured on to your Home Assistant instance.
+These entities allow you to turn the device on/off and to send control commands.
+
+The following commands are currently available:
+
+- `wakeup`
+- `home`
+- `home_hold`
+- `top_menu`
+- `menu`
+- `select`
+- `up`
+- `down`
+- `left`
+- `right`
+- `volume_up`
+- `volume_down`
+
+**NOTE:** Not all commands are supported by all Apple TV versions
+
+### Service `send_command`
+
+| Service data<br>attribute | Optional | Description  |
+| ------------------------- | -------- | ------------ |
+| `entity_id`               | no       | `entity_id` of the Apple TV |
+| `command`                 | no       | Command, or list of commands to be sent |
+| `num_repeats`             | yes      | Number of times to repeat the commands |
+| `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc. |
+
+**Examples**
+
+Create a script to invoke the Netflix application based on the application icon
+being in a fixed place on the home screen:
+
+```yaml
+lounge_appletv_netflix:
+  alias: "Select Netflix"
+  sequence:
+    - service: remote.send_command
+      target:
+        entity_id: remote.lounge_appletv
+      data:
+        delay_secs: 1.5
+        command:
+          - top_menu
+          - home
+          - right
+          - select
+```
+
+Script using the `home_hold` command to send your Apple TV to sleep and turn off
+the Media Player:
+
+```yaml
+apple_tv_sleep:
+  alias: "Make the Apple TV sleep"
+  sequence:
+    - service: remote.send_command
+      target:
+        entity_id: remote.lounge_appletv
+      data:
+        delay_secs: 1
+        command:
+          - home_hold
+          - select
+    - service: media_player.turn_off
+      target:
+        entity_id: media_player.lounge_appletv
+```
+
+Send 3 `left` commands with delay between each:
+
+```yaml
+service: remote.send_command
+target:
+  entity_id: remote.apple_tv
+data:
+  num_repeats: 3
+  delay_secs: 2.5
+  command:
+    - left
+```
 
 ## FAQ
 
 ### My Apple TV does not turn on/off when I press on/off in the frontend
 
-That is correct; it only toggles the power state in Home Assistant. Turning the device on or off is
-currently not supported. However, support for this is in development so that it will be added at some
-point in the future
+That is correct; it only toggles the power state in Home Assistant. See the
+example above to use the `home_hold` command. This can be used on Apple TVs
+running tvOS 14.0 or later.
 
 ### Is it possible to see if a device is on without interacting with it
 
@@ -45,7 +134,7 @@ This can happen when pairing the AirPlay protocol in case the access settings ar
 Apple TV, navigate to Settings, find the AirPlay menu and make sure that the access setting
 is set to "Everyone on the same network" and try again.
 
-### The buttons (play, pause, etc.) does not work
+### The buttons (play, pause, etc.) do not work
 
 The tvOS apps themselves decide what commands they support and when they support
 them. Likely, the app you are using does not support the action you are trying
@@ -58,38 +147,6 @@ and include logs (see Debugging below).
 
 The Apple TV is quite picky when it comes to which formats it plays. The best bet is MP4. If it doesn't
 work, it's likely because of the media format.
-
-## Remote
-
-The `apple_tv` remote platform allows you to send remote control buttons to an Apple TV. It is
-automatically set up when an Apple TV is configured.
-
-At the moment, the following buttons are available (but not necessarily supported by all devices):
-
-- `up`
-- `down`
-- `left`
-- `right`
-- `menu`
-- `top_menu`
-- `select`
-- `volume_up`
-- `volume_down`
-- `home`
-- `home_hold`
-
-A typical service call for press several buttons looks like this.
-
-```yaml
-service: remote.send_command
-data:
-  entity_id: remote.apple_tv
-  command:
-    - left
-    - left
-    - menu
-    - select
-```
 
 ## Debugging
 

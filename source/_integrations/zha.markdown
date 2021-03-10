@@ -20,6 +20,16 @@ ha_codeowners:
   - '@dmulcahey'
   - '@adminiuga'
 ha_domain: zha
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - device_tracker
+  - fan
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The ZHA (Zigbee Home Automation) integration allows you to connect many off-the-shelf [Zigbee based devices](https://zigbeealliance.org) directly to Home Assistant, using one of the many available Zigbee coordinators.
@@ -58,7 +68,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Silicon Labs EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
   - [ITEAD Sonoff ZBBridge](https://www.itead.cc/smart-home/sonoff-zbbridge.html) (Note! This first have to be flashed with [Tasmota firmware and Silabs EmberZNet NCP EZSP UART Host firmware](https://www.digiblur.com/2020/07/how-to-use-sonoff-zigbee-bridge-with.html))
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee Ember 3581 USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/walthowd/husbzb-firmware))
-  - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
+  - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)/[POPP ZB-Stick](https://shop.zwave.eu/detail/index/sArticle/2496) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html) (Note! Not a must but recommend [upgrade the EmberZNet NCP application firmware](https://github.com/Elelabs/elelabs-zigbee-ezsp-utility))
   - Bitron Video/Smabit BV AV2010/10 USB-Stick with Silicon Labs Ember 3587
   - Telegesis ETRX357USB (Note! This first have to be [flashed with other EmberZNet firmware](https://github.com/walthowd/husbzb-firmware))
@@ -200,7 +210,7 @@ To correct the device type, also called domain, add the following to your `confi
 zha:
   device_config:
     84:71:27:ff:fe:93:17:24-1:    # format: {ieee}-{endpoint_id}
-      type: 'switch'              # corrected device type
+      type: "switch"              # corrected device type
 ```
 
 `{ieee}` is the device hardware address which can be read from the Home Assistant UI when looking at *Device info*. From device info, you can find the `{endpoint_id}` by viewing the *Zigbee device signature*.

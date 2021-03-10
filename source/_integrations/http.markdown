@@ -107,7 +107,7 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 ## APIs
 
-On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest), [Python API](https://developers.home-assistant.io/docs/api_lib_index) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) available. There is also support for [Server-sent events](/developers/server_sent_events/).
+On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest), [Python API](https://developers.home-assistant.io/docs/api_lib_index) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) available.
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
@@ -125,16 +125,10 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 
 ```yaml
 127.0.0.1:
-  banned_at: '2016-11-16T19:20:03'
+  banned_at: "2016-11-16T19:20:03"
 ```
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
-
-<div class='note warning'>
-
-Please note, that sources from `trusted_networks` won't be banned automatically.
-
-</div>
 
 ## Hosting files
 

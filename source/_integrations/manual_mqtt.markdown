@@ -6,6 +6,8 @@ ha_category:
 ha_release: '0.50'
 ha_domain: manual_mqtt
 ha_iot_class: Local Push
+ha_platforms:
+  - alarm_control_panel
 ---
 
 The `mqtt` platform extends the [manual alarm](/integrations/manual) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.

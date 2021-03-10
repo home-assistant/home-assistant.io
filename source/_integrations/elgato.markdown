@@ -11,6 +11,9 @@ ha_codeowners:
   - '@frenck'
 ha_quality_scale: platinum
 ha_domain: elgato
+ha_zeroconf: true
+ha_platforms:
+  - light
 ---
 
 The [Elgato Key Light](https://www.elgato.com/en/gaming/key-light) sets the
@@ -20,23 +23,7 @@ bar for high-end studio lightning. With 80 LEDs, that put out a massive
 The LED light panel is created specifically, and designed for streamers
 and content creators, many of whom operate on platforms like YouTube and Twitch.
 
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-In most cases, Elgato Key Lights devices will be automatically discovered by
-Home Assistant. Those automatically discovered devices are listed
-on the integrations page.
-
-If for some reason (e.g., due to lack of mDNS support on your network),
-the Elgato Key Light isn't discovered, it can be added manually.
-
-Click on the `+` sign to add an integration and click on **Elgato Key Light**.
-After completing the configuration flow, the Key Light integration will be
-available.
+{% include integrations/config_flow.md %}
 
 ## Lights
 

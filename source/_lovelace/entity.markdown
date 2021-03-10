@@ -11,38 +11,38 @@ The Entity card gives you a quick overview of your entity's state.
   Screenshot of the Entity card.
 </p>
 
-To add the Entity card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the plus button in the bottom right corner and select **Entity** from the card picker.
+To add the Entity card to your user interface, click the Lovelace menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Entity** from the card picker.
 
 {% configuration %}
 type:
   required: true
-  description: entity
+  description: "`entity`"
   type: string
 entity:
   required: true
-  description: Home Assistant entity ID.
+  description: Entity ID.
   type: string
 name:
   required: false
-  description: Name of Entity
+  description: Name of entity.
   type: string
-  default: Entity Name
+  default: Entity name.
 icon:
   required: false
   description: Overwrites icon.
   type: string
 attribute:
   required: false
-  description: An attribute associated with the `entity`
+  description: An attribute associated with the `entity`.
   type: string
 unit:
   required: false
-  description: Unit of Measurement given to data
+  description: Unit of measurement given to data.
   type: string
-  default: "Unit Of Measurement given by entity"
+  default: Unit of measurement given by entity.
 theme:
   required: false
-  description: Set to any theme within `themes.yaml`
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 footer:
   required: false
@@ -60,11 +60,11 @@ Alternatively, the card can be configured using YAML:
 - type: entity
   entity: light.bedroom
   attribute: brightness
-  unit: '%'
+  unit: "%"
 - type: entity
   entity: vacuum.downstairs
   name: Vacuum
-  icon: 'mdi:battery'
+  icon: "mdi:battery"
   attribute: battery_level
-  unit: '%'
+  unit: "%"
 ```

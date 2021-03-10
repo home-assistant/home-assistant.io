@@ -6,6 +6,11 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: recollect_waste
+ha_codeowners:
+  - '@bachya'
+ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
 The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect](https://recollect.net/private-waste-haulers/).
@@ -22,6 +27,4 @@ The default frequency for pulling data from ReCollect Waste is once a day (86400
 The ReCollect Waste sensor uses the ReCollect API <strong>URL</strong> to obtain data and not an official API from ReCollect. Use at your own risk.
 </div>
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to **Configuration** -> **Integrations**.
+{% include integrations/config_flow.md %}

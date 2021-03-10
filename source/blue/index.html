@@ -3,7 +3,7 @@ title: "Home Assistant Blue!"
 description: "Where style and performance meet privacy"
 sidebar: false
 is_homepage: true
-hide_github_edit: true
+feedback: false
 body_id: blue
 show_title: false
 og_image: /images/blue/blue_hero.jpg
@@ -578,31 +578,36 @@ og_image: /images/blue/blue_hero.jpg
 
   <h1 class="sub-title">FAQs</h1>
   <div class="faq-list">
-{% details %}
-  - title: I already run Home Assistant. Is this for me?
-    content: | 
-      If your Home Assistant installation has outgrown your Raspberry
-      Pi or if you want a well supported, dedicated system, Home Assistant Blue is
-      for you.
-      <br /><br />
-      Or if you are still looking for a present for friends and family.
+{% details "I already run Home Assistant. Is this for me?" %}
 
-  - title: What is limited about the bundle?
-    content: | 
-      We have only created a limited amount of cases. Once they are sold out,
-      we don't currently have plans to make more. 
-      All other parts of the bundle will remain available for purchase.
+If your Home Assistant installation has outgrown your Raspberry
+Pi or if you want a well supported, dedicated system, Home Assistant Blue is
+for you.
+<br /><br />
+Or if you are still looking for a present for friends and family.
 
-  - title: I already own an ODROID-N2+. Do I run the same software?
-    content: |
-      Yes! Home Assistant Blue runs the exact same software as that you're
-      currently using and you're benefitting from all the improvements.
-
-  - title: Will Home Assistant drop support for the Raspberry Pi?
-    content: | 
-      Nope! We are committed to keep supporting all platforms that are currently available.
 {% enddetails %}
-  </div>
+{% details "What is limited about the bundle?" %}
+
+We have only created a limited amount of cases. Once they are sold out,
+we don't currently have plans to make more. 
+All other parts of the bundle will remain available for purchase.
+
+{% enddetails %}
+
+{% details "I already own an ODROID-N2+. Do I run the same software?" %}
+
+Yes! Home Assistant Blue runs the exact same software as that you're
+currently using and you're benefitting from all the improvements.
+
+{% enddetails %}
+
+{% details "Will Home Assistant drop support for the Raspberry Pi?" %}
+
+Nope! We are committed to keep supporting all platforms that are currently available.
+
+{% enddetails %}
+</div>
 
 <a class="blue3d" href="https://www.thingiverse.com/thing:4684826" target="_blank">
   <div class="material-card text blue3d-container">

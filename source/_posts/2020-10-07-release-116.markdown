@@ -433,12 +433,12 @@ Before this change:
    state_address: "2/0/33"
    automation:
      - counter: 1
-       hook: 'on'
+       hook: "on"
        action:
          - entity_id: cover.sonne_abstellkammer
            service: cover.open_cover
      - counter: 1
-       hook: 'off'
+       hook: "off"
        action:
          - entity_id: cover.sonne_abstellkammer
            service: cover.close_cover
@@ -455,7 +455,7 @@ After this change:
 ```yaml
 # automation.yaml
 automation:
-  - alias: 'Binary sensor test counter=1 on'
+  - alias: "Binary sensor test counter=1 on"
     trigger:
       platform: numeric_state
       entity_id: binary_sensor.cover_abstell
@@ -465,12 +465,13 @@ automation:
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: 'on'
+        state: "on"
     action:
       - service: cover.open_cover
-        entity_id: cover.sonne_abstellkammer
+        target:
+          entity_id: cover.sonne_abstellkammer
 
-  - alias: 'Binary sensor test counter=1 off'
+  - alias: "Binary sensor test counter=1 off"
     trigger:
       platform: numeric_state
       entity_id: binary_sensor.cover_abstell
@@ -480,10 +481,11 @@ automation:
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
-        state: 'off'
+        state: "off"
     action:
       - service: cover.close_cover
-        entity_id: cover.sonne_abstellkammer
+        target:
+          entity_id: cover.sonne_abstellkammer
 ```
 
 If you intend to use the counter feature (counter > 1) make sure you also

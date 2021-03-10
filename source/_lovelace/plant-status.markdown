@@ -20,16 +20,16 @@ type:
   type: string
 entity:
   required: true
-  description: "Entity ID from `plant` domain"
+  description: Entity ID of `plant` domain.
   type: string
 name:
   required: false
-  description: Overwrites friendly name
+  description: Overwrites friendly name.
   type: string
-  default: Entity Name
+  default: Entity name
 theme:
   required: false
-  description: "Set to any theme within `themes.yaml`"
+  description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
 {% endconfiguration %}
 

@@ -79,8 +79,9 @@ script:
   tts:
     sequence:
       - service: tts.google_say # or amazon_polly, voicerss, etc
-        data:
+        target:
           entity_id: media_player.gstreamer
+        data:
           message: "example text-to-speech message"
 ```
 

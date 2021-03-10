@@ -7,6 +7,11 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@oischinger'
 ha_domain: vicare
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - water_heater
 ---
 
 The `ViCare` integration lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
@@ -106,6 +111,15 @@ The `climate.vicare_heating` component has the following mapping of HVAC modes t
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
 | `hvac_mode` | no | New value of HVAC mode
 
+#### Service `climate.set_vicare_mode`
+
+Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#service-climateset_hvac_mode) for a mapping to Home Assistant Climate modes. This allows more-fine grained control of the heating modes.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
+| `vicare_mode` | no | New value of ViCare mode, one of: "dhw", "dhwAndHeating", "dhwAndHeatingCooling", "forcedReduced", "forcedNormal" or "standby"
+
 #### Service `set_preset_mode`
 
 Sets the preset mode. Supported preset modes are *eco* and *comfort*. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours.
@@ -130,7 +144,7 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. To target all entities, use `all` keyword instead of entity_id.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `temperature` | no | New target temperature for water heater
 
 ## Sensor

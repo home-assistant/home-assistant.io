@@ -16,12 +16,16 @@ blueprint easier to use from the UI.
 The following selectors are currently available:
 
 - [Action selector](#action-selector)
+- [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
 - [Boolean selector](#boolean-selector)
 - [Device selector](#device-selector)
 - [Entity selector](#entity-selector)
 - [Number selector](#number-selector)
+- [Object selector](#object-selector)
+- [Select selector](#select-selector)
 - [Target selector](#target-selector)
+- [Text selector](#text-selector)
 - [Time selector](#time-selector)
 
 If no selector is defined, a text input for a single line will be shown.
@@ -38,6 +42,23 @@ This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
 action:
+```
+
+## Add-on selector
+
+This can only be used on an installation with a Supervisor. For installations
+that do not have that, an error will be displayed.
+
+The add-on selector allows the user to input an add-on slug.
+On the user interface, it will list all installed add-ons and use the slug of the
+selected add-on.
+
+![Screenshot of an Add-on selector](/images/blueprints/selector-addon.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+addon:
 ```
 
 ## Area selector
@@ -222,9 +243,9 @@ entity:
 
 An example entity selector that, will only show devices that are:
 
-- Provided by the [deCONZ](/integration/deconz) integration.
+- Provided by the [deCONZ](/integrations/deconz) integration.
 - Are a Philips Hue Remote of Model RWL021.
-- Provide a battery [sensor](/integration/sensor).
+- Provide a battery [sensor](/integrations/sensor).
 
 And this is what is looks like in YAML:
 
@@ -283,8 +304,8 @@ device_class:
 
 An example entity selector that, will only show entities that are:
 
-- Provided by the [ZHA](/integration/zha) integration.
-- From the [Binary Sensor](/integration/binary_sensor) domain.
+- Provided by the [ZHA](/integrations/zha) integration.
+- From the [Binary Sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 
 And this is what it looks like in YAML:
@@ -338,7 +359,7 @@ mode:
   description: This can be either `box` or `slider` mode.
   type: string
   required: false
-  default: box
+  default: slider
 {% endconfiguration %}
 
 ### Example number selectors
@@ -366,6 +387,41 @@ number:
   unit_of_measurement: "%"
   mode: slider
 ```
+
+## Object selector
+
+The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries like service data. The value of the input will contain the provided data.
+
+![Screenshot of an object selector](/images/blueprints/selector-object.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+object:
+```
+
+## Select selector
+
+The select selector shows a list of available options from which the user can choose. The value of the input contains the value of the selected option. Only a single option can be selected at a time.
+
+![Screenshot of a select selector](/images/blueprints/selector-select.png)
+
+The selector requires a list of options that the user can choose from.
+
+```yaml
+select:
+  options:
+    - Red
+    - Green
+    - Blue
+```
+
+{% configuration select %}
+options:
+  description: List of options that the user can choose from.
+  type: list
+  required: true
+{% endconfiguration %}
 
 ## Target selector
 
@@ -476,6 +532,26 @@ target:
     manufacturer: IKEA of Sweden
     model: TRADFRI remote control
 ```
+
+## Text selector
+
+The text selector can be used to input a text string. The value of the input will contain the selected text.
+
+![Screenshot of a text selector](/images/blueprints/selector-text.png)
+
+Unless `multiline` is set to `true`, this selector behaves exactly like if no selector at all was specified, and will display a single line text input box on the user interface.
+
+```yaml
+text:
+```
+
+{% configuration text %}
+multiline:
+  description: Set to true to display the input as a multi-line text box on the user interface.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
 
 ## Time selector
 

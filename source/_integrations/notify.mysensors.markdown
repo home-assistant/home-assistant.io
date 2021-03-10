@@ -21,7 +21,7 @@ action:
   service: notify.mysensors
   data:
     message: Welcome home!
-    target: 'TextSensor 254 1'
+    target: "TextSensor 254 1"
 ```
 
 The following sensor types are supported:

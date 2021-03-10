@@ -71,15 +71,15 @@ Here's an example of an automation using the above `input_boolean`. This action 
 
 ```yaml
 automation:
-  alias: Arriving home
+  alias: "Arriving home"
   trigger:
     platform: state
     entity_id: binary_sensor.motion_garage
-    to: 'on'
+    to: "on"
   condition:
     condition: state
     entity_id: input_boolean.notify_home
-    state: 'on'
+    state: "on"
   action:
     service: notify.pushbullet
     data:
@@ -91,6 +91,6 @@ You can also set or change the status of an `input_boolean` by using `input_bool
 
 ```yaml
     - service: input_boolean.turn_on
-      data:
+      target:
         entity_id: input_boolean.notify_home
 ```

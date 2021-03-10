@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@larssont'
 ha_domain: ombi
+ha_platforms:
+  - sensor
 ---
 
 The `Ombi` integration monitors data from your [Ombi](https://ombi.io) instance.

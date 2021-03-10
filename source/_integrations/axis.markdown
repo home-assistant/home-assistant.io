@@ -12,33 +12,73 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@Kane610'
 ha_domain: axis
+ha_qa_scale: platinum
+ha_quality_scale: platinum
+ha_zeroconf: true
+ha_ssdp: true
+ha_dhcp: true
+ha_platforms:
+  - binary_sensor
+  - camera
+  - light
+  - switch
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.
 
-Home Assistant will automatically discover their presence on your network.
-
-## Configuration
-
-For configuration go to the `Integrations pane` on your Home Assistant instance.
+{% include integrations/config_flow.md %}
 
 <div class='note'>
-  It is recommended that you create a user on your Axis device specifically for Home Assistant. For all sensor functionality, it is enough to create a user belonging to user group viewer. Light control requires a minimum of operator.
+  It is recommended that you create a user on your Axis device specifically for Home Assistant. For sensor functionality, it is enough to create a user with viewer privileges. If you want additional functional control you will need admin privileges.
 </div>
 
-## Troubleshooting discovery
+## Debugging integration
+
+If you have problems with a device or the integration you can add debug prints to the log.
+
+```yaml
+logger:
+  default: info
+  logs:
+    axis: debug
+    homeassistant.components.axis: debug
+```
+
+### Troubleshooting
+
+If you are having issues and want to report a problem, always start with making sure that you're on the latest [Axis OS version](https://www.axis.com/support/firmware).
+
+### Troubleshooting discovery
 
 If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+
+### Reporting a problem
+
+When creating an issue detailing a problem related to the integration make sure to share the device model and firmware as well as prepare logs. Logs might contain sensitive information so make sure to look through it before sharing.
 
 ## Binary Sensor
 
 The following sensor types are supported:
 
-- Motion detection (VMD3/VMD4)
+- Motion detection (Fence guard/Loitering guard/Motion guard/Object analyzer/VMD3/VMD4)
 - Passive IR motion detection
 - Sound detection
 - Day/night mode
 - Inputs and Supervised Inputs
+
+## Camera
+
+The Axis camera platform is configurable through integration options. Available options (device dependent) are to select what stream profile to use and what video source to show.
+
+### Stream profile
+
+A Stream profile makes up settings such as resolution, frame rate and compression and is configured on the device.
+If this setting is disabled (default) it will use camera default stream settings.
+
+### Video source
+
+A Video source (view area) defines a subsection of the camera's sensor typically a more focused area of interest. Additional view areas can be configured on the device.
+If this setting is disabled (default) it will use the camera default source.
 
 ## Light
 

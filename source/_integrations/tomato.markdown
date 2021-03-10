@@ -6,6 +6,8 @@ ha_category:
 ha_release: pre 0.7
 ha_domain: tomato
 ha_iot_class: Local Polling
+ha_platforms:
+  - device_tracker
 ---
 
 The `tomato` device tracker integration allows one to tracker devices which are

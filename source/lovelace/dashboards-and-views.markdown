@@ -59,6 +59,7 @@ lovelace:
 ```
 
 You can also add YAML dashboards when your main dashboard is UI configured:
+
 ```yaml
 lovelace:
   mode: storage
@@ -329,7 +330,7 @@ If you define `visible` as objects instead of a boolean to specify conditions fo
 {% configuration badges %}
 user:
   required: true
-  description: User id that can see the view tab (unique hex value found on the Users configuration page).
+  description: User ID that can see the view tab (unique hex value found on the Users configuration page).
   type: string
 {% endconfiguration %}
 

@@ -67,7 +67,7 @@ Generic service to toggle devices on/off under any domain. Same usage as the lig
 ```yaml
 action:
   service: homeassistant.toggle
-  data:
+  target:
     entity_id: light.living_room
 ```
 
@@ -84,7 +84,7 @@ Generic service to turn devices on under any domain. Same usage as the light.tur
 ```yaml
 action:
   service: homeassistant.turn_on
-  data:
+  target:
     entity_id: light.living_room
 ```
 
@@ -101,7 +101,7 @@ Generic service to turn devices off under any domain. Same usage as the light.tu
 ```yaml
 action:
   service: homeassistant.turn_off
-  data:
+  target:
     entity_id: light.living_room
 ```
 
@@ -118,7 +118,7 @@ Force one or more entities to update its data rather than wait for the next sche
 ```yaml
 action:
   service: homeassistant.update_entity
-  data:
+  target:
     entity_id:
     - light.living_room
     - switch.coffe_pot

@@ -1,27 +1,26 @@
 <section class="aside-module grid__item one-whole lap-one-half">
-  {% include edit_github.html %}
   {% assign cookbook = site.cookbook | sort_natural: 'title' %}
 
-  <div class='section'>
-    <a href='/cookbook'>Back to the cookbook</a>
+  <div class="section">
+    <a href="/cookbook">Back to the cookbook</a>
   </div>
 
-  <div class='section'>
+  <div class="section">
     <h1 class="title delta">{{page.ha_category}}</h1>
-    <ul class='divided'>
-      {% for recipe in cookbook %}
-        {% if recipe.ha_category == page.ha_category %}
-          <li>
-            {% if recipe.url == page.url %}
-              {{recipe.title}}
-            {% elsif recipe.ha_external_link %}
-              <a href='{{recipe.ha_external_link}}'>{{recipe.title}} <i class="icon-external-link"></i></a>
-            {% else %}
-              <a href='{{recipe.url}}'>{{recipe.title}}</a>
-            {% endif %}
-          </li>
+    <ul class="divided">
+      {% for recipe in cookbook %} {% if recipe.ha_category == page.ha_category
+      %}
+      <li>
+        {% if recipe.url == page.url %} {{recipe.title}} {% elsif
+        recipe.ha_external_link %}
+        <a href="{{recipe.ha_external_link}}"
+          >{{recipe.title}} <i class="icon-external-link"></i
+        ></a>
+        {% else %}
+        <a href="{{recipe.url}}">{{recipe.title}}</a>
         {% endif %}
-      {% endfor %}
+      </li>
+      {% endif %} {% endfor %}
     </ul>
   </div>
 </section>

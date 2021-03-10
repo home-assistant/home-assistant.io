@@ -958,8 +958,9 @@ script:
   learn_tv_power:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: tv
           command: power
 ```
@@ -983,8 +984,9 @@ script:
   send_tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
@@ -995,8 +997,9 @@ script:
   send_tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: tv
           command: power
 ```

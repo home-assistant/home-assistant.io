@@ -112,7 +112,7 @@ intent_script:
           {%- else -%}
             switch.turn_off
           {%- endif -%}
-        data:
+        target:
           entity_id: "switch.light_{{ Room | striptags | replace(' ', '_') }}"
 ```
 

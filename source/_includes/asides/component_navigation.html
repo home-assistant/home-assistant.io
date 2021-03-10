@@ -6,6 +6,10 @@
     {%- else -%}
       <img src='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
     {%- endif -%}
+
+    {%- if page.ha_config_flow and page.ha_domain -%}
+      {% my config_flow_start badge domain=page.ha_domain %}
+    {%- endif -%}
   </div>
 
   {%- if page.ha_domain -%}
@@ -42,12 +46,6 @@
     </div>
   {%- endif -%}
 
-  {%- if page.ha_config_flow -%}
-    <div class='section'>
-      This integration is configurable via UI
-    </div>
-  {%- endif -%}
-
   {%- if page.ha_domain -%}
     <div class='section'>
       Source: <a href='https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ page.ha_domain }}'>View on GitHub</a>
@@ -67,11 +65,6 @@
     </div>
   {%- endif -%}
 
-  {%- unless page.no_toc -%}
-    <div class='section'>
-    <h1 class="title delta">On this page</h1>
-    {% toc %}
-  {%- endunless -%}
 </section>
 
 <script src="https://alerts.home-assistant.io/ce-alert-link.js"></script>

@@ -10,17 +10,19 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@gwww'
 ha_domain: upb
+ha_platforms:
+  - light
 ---
 
 The UPB integration allows Home Assistant to connect to a Universal Powerline Bus Powerline Interface Module (UPB PIM) to get status and control UPB devices and UPB links. The UPB PIM may be connected either to a serial port or over TCP. The integration implements the following platforms:
 - Light
 - Scene
 
-## Configuration
-
-To add UPB to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Universal Powerline Bus (UPB)**.
+## Prerequisites
 
 The UPB integration requires that an export from the `UPStart` UPB configuration program. To create an export, in `UPStart`, click the UPB button in the top left and select **Export to File**. This will create a file with the `.upe` extension. The file must be placed in the configuration directory of your Home Assistant installation.
+
+{% include integrations/config_flow.md %}
 
 ## Device Configuration
 
@@ -171,18 +173,18 @@ Start a scene blinking.
 ```yaml
 #automation:
 
-- alias: 'Specific scene activated'
-  description: 'Trigger when scene 9 on network 42 is activated'
+- alias: "'Specific scene activated'"
+  description: "Trigger when scene 9 on network 42 is activated"
   trigger:
     platform: event
     event_type: upb.scene_changed
     event_data:
       command: activated
-      address: '42_9'
+      address: "42_9"
   action:
     service: persistent_notification.create
     data:
-      title: 'Scene Activated'
+      title: "Scene Activated"
       message: >
         Activated scene 9 on network 42: {{trigger.event.data.command}}, {{trigger.event.data.address}}
 
@@ -192,30 +194,33 @@ Start a scene blinking.
 #script:
  
 all_lights_on:
-  alias: 'All Lights On'
-  description: 'Activate two UPB scenes named interior_lights and exterior_lights'
+  alias: "All Lights On"
+  description: "Activate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: scene.turn_on
-      entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+      target:
+        entity_id: 
+          - scene.interior_lights
+          - scene.exterior_lights
 
 all_lights_off:
-  alias: 'All Lights Off'
-  description: 'Deactivate two UPB scenes named interior_lights and exterior_lights'
+  alias: "All Lights Off"
+  description: "Deactivate two UPB scenes named interior_lights and exterior_lights"
   sequence:
     - service: upb.scene_deactivate
-      entity_id: 
-        - scene.interior_lights
-        - scene.exterior_lights
+      target:
+        entity_id: 
+          - scene.interior_lights
+          - scene.exterior_lights
 
 kitchen_fade_on:
-  alias: 'Kitchen Fade to On'
-  description: 'Turn on kitchen light to 75% over a period of 10 seconds'
+  alias: "Kitchen Fade to On"
+  description: "Turn on kitchen light to 75% over a period of 10 seconds"
   sequence:
     - service: upb.light_fade_start
-      data:
+      target:
         entity_id: light.kitchen
+      data:
         brightness_pct: 75
         rate: 10
 ```

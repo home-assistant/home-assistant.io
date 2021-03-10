@@ -36,9 +36,9 @@ If no `auth_mfa_modules` configuration section is defined in `configuration.yaml
 
 You will need an authenticator app on your phone. We recommend either [Google Authenticator](https://support.google.com/accounts/answer/1066447) or [Authy](https://authy.com/). Both are available for iOS or Android.
 
-After restarting Home Assistant, go to your [profile page](/docs/authentication/#your-account-profile) and there should be a "Multi-factor Authentication Modules" section. 
+After restarting Home Assistant, go to your {% my profile %} and there should be a "Multi-factor Authentication Modules" section.
 
-Click _Enable_ and a new secret key will be generated. Go to your phone app and enter the key, either by scanning the QR code or typing in the key below the QR code manually. 
+Click _Enable_ and a new secret key will be generated. Go to your phone app and enter the key, either by scanning the QR code or typing in the key below the QR code manually.
 
 <img src='/images/docs/authentication/mfa.png' alt='Screenshot of setting up multi-factor authentication' style='border: 0;box-shadow: none;'>
 
@@ -94,12 +94,12 @@ message:
 homeassistant:
   auth_mfa_modules:
     - type: totp
-      name: Authenticator app
+      name: "Authenticator app"
     - type: notify
-      message: 'I almost forget, to get into my clubhouse, you need to say {}'
+      message: "I almost forget, to get into my clubhouse, you need to say {}"
 ```
 
-After restarting Home Assistant, go to your [profile page](/docs/authentication/#your-account-profile) and there should be a "Multi-factor Authentication Modules" section. Click _Enable_ on the _Notify One-Time Password_ option.
+After restarting Home Assistant, go to your {% my profile %} and there should be a "Multi-factor Authentication Modules" section. Click _Enable_ on the _Notify One-Time Password_ option.
 
 Try logging out, then logging in again. You will be asked for the six-digit one-time password that was sent to your notify service. Enter the password to log in.
 

@@ -47,8 +47,9 @@ automation:
     at: "07:15:00"
   action:
     - service: water_heater.set_temperature
-      data:
+      target:
         entity_id: water_heater.demo
+      data:
         temperature: 24
         operation_mode: eco
 ```
@@ -71,8 +72,9 @@ automation:
     at: "07:15:00"
   action:
     - service: water_heater.set_operation_mode
-      data:
+      target:
         entity_id: water_heater.demo
+      data:
         operation_mode: eco
 ```
 
@@ -94,7 +96,8 @@ automation:
     at: "07:15:00"
   action:
     - service: water_heater.set_away_mode
-      data:
+      target:
         entity_id: water_heater.demo
+      data:
         away_mode: true
 ```
