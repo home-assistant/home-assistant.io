@@ -1231,6 +1231,8 @@ value_template:
 
 ### More examples
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -1249,6 +1251,8 @@ knx:
       type: "temperature"
       value_template: "{{ value | round (0) }}"
 ```
+
+{% endraw %}
 
 ## Switch
 
