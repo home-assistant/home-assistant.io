@@ -36,7 +36,7 @@ Once the code is obtained fill in the form with your email, password and the aut
 
 To obtain the `oauth_code` cookie value, follow the steps below:
 
-*Note:* If the `oauth_code` cookie is not showing in Chrome, try in Firefox.
+*Note:* If the `oauth_code` cookie is not showing in Chrome, try Firefox.
 
 * Press F12 to open developer tools.
 * Select the "Application" (Chrome) or "Storage" (Firefox) tab.
