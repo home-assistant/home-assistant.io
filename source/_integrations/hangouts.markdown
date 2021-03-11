@@ -34,7 +34,9 @@ Once the code is obtained fill in the form with your email, password and the aut
 2. Log into your Google account normally.
 3. You should be redirected to a loading screen. Copy the `oauth_code` cookie value set by this page and paste it here.
 
-To obtain the `oauth_code` cookie value using Chrome or Firefox, follow the steps below:
+To obtain the `oauth_code` cookie value, follow the steps below:
+
+*Note:* If the `oauth_code` cookie is not showing in Chrome, try in Firefox.
 
 * Press F12 to open developer tools.
 * Select the "Application" (Chrome) or "Storage" (Firefox) tab.
