@@ -600,7 +600,7 @@ This model uses newer MiOT communication protocol.
 ### Air Humidifier CA (zhimi.humidifier.ca4)
 
 - On, Off
-- Operation modes (auto, low, mid, high)
+- Operation modes (auto, low, medium, high)
 - Buzzer (on, off)
 - Child lock (on, off)
 - LED brightness (off, dim, bright)
