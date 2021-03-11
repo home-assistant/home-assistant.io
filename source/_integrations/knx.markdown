@@ -1245,10 +1245,10 @@ knx:
       state_address: "6/2/1"
       sync_state: every 60
       type: "temperature"
-    - name: Rounded Temperature
+    - name: "Rounded Temperature"
       state_address: "7/5/8"
       sync_state: every 60
-      type: "temperature"
+      type: temperature
       value_template: "{{ value | round (0) }}"
 ```
 
