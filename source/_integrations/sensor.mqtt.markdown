@@ -99,7 +99,7 @@ force_update:
   type: boolean
   default: false
 icon:
-  description: The icon for the sensor.
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:

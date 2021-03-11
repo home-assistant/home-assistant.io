@@ -142,7 +142,7 @@ device:
       required: false
       type: string
 icon:
-  description: The icon for the device tracker.
+  description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
 json_attributes_template:
