@@ -119,7 +119,7 @@ fan:
         required: false
         type: action
       preset_modes:
-        description: List of preset modes the fan is capable of. This is an arbitrary list of str and should not contain any speeds.
+        description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
         required: false
         type: [string, list]
         default: []
