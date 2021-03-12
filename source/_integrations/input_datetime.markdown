@@ -52,12 +52,12 @@ input_datetime:
         required: false
         type: string
       has_time:
-        description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
+        description: Set to `true` if the input should have a time. At least one of `has_time` or `has_date` must be defined.
         required: false
         type: boolean
         default: false
       has_date:
-        description: Set to `true` if the input should have a date. At least one `has_time` or `has_date` must be defined.
+        description: Set to `true` if the input should have a date. At least one of `has_time` or `has_date` must be defined.
         required: false
         type: boolean
         default: false
