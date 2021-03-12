@@ -64,6 +64,11 @@ override_metric:
   type: string
   description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
   required: false
+skip_unknown:
+  type: boolean
+  description: Skip metrics that are in STATE_UNKNOWN to prevent exporting values that could be wrong.
+  required: false
+  default: false
 component_config:
   type: string
   required: false
@@ -137,6 +142,7 @@ Advanced configuration example:
 # Advanced configuration.yaml entry
 prometheus:
   namespace: hass
+  skip_unknown: true
   component_config_glob:
     sensor.*_hum:
       override_metric: humidity_percent
