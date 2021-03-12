@@ -45,7 +45,10 @@ alarm_control_panel:
           target:
             entity_id: alarm_control_panel.real_alarm
           data:
+            # assigning a value to 'code' will disregard any input from the UI, suitable for arming without manually entering the code
             code: !secret alarm_code
+            # assigning the correct template to 'code' will use the UI input, suitable for arming only after entering the correct code
+            #code: '{{code}}'
         disarm:
           - condition: state
             entity_id: device_tracker.paulus
