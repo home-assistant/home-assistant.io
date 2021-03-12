@@ -34,17 +34,17 @@ blueprint that automatically sends you a notification when a sensor exceeds your
     </a>
 </div>
 
-Also take a look at the [Blueprint Exchange][blueprints] for more inspiration!
+Also, take a look at the [Blueprint Exchange][blueprints] for more inspiration!
 
 ## Birthday cake
 
 Happy birthday to [adlawton](https://www.reddit.com/user/adlawton/)! 🥳 For his birthday,
-his wife baked this great Home Assistant cake and also gave him a [Home Assistant Blue][blue].
+his wife baked this great Home Assistant cake and also gave him a [Home Assistant Blue](/blue).
 
 <blockquote class="reddit-card" data-card-created="1615556016"><a href="https://www.reddit.com/r/homeassistant/comments/lz5s6s/my_wife_decided_to_bake_me_a_cake_to_go_along/">My wife decided to bake me a cake to go along with my birthday present this year. Can't wait to fire this thing up!</a> from <a href="http://www.reddit.com/r/homeassistant">r/homeassistant</a></blockquote>
 <script async src="//embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
 
-Hopefully the cake tasted delicious and have fun with your Blue!
+Hopefully, the cake tasted delicious and have fun with your Blue!
 
 ## ePaper display
 
@@ -119,5 +119,4 @@ See you next edition!
 [reddit]: https://www.reddit.com/r/homeassistant
 [twitter]: https://www.twitter.com/home_assistant
 [blueprints]: https://community.home-assistant.io/c/blueprints-exchange
-[blue]: https://www.home-assistant.io/blue
 [companion]: https://companion.home-assistant.io
