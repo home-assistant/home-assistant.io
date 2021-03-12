@@ -481,6 +481,36 @@ The following integrations are now available via the Home Assistant UI:
 [template docs]: /integrations/template/
 [zwave docs]: /integrations/zwave/
 [zwave_js docs]: /integrations/zwave_js/
+## Release 2021.3.4 - March 12
+
+- Write SimpliSafe alarm control panel state after arming/disarming ([@bachya] - [#47649]) ([simplisafe docs])
+- Cover Tilt Position Bugfix ([@mtl010957] - [#47682]) ([mqtt docs])
+- Fix zwave_js target_temp_low ([@firstof9] - [#47762]) ([zwave_js docs])
+- Adjust insteon fan speed range to valid upper bound ([@bdraco] - [#47765]) ([insteon docs])
+- Bump plexapi to 4.4.1 ([@jjlawren] - [#47766]) ([plex docs])
+- Ensure homekit reset accessory service can target any entity ([@bdraco] - [#47787]) ([homekit docs])
+- Fix Netatmo event handling ([@cgtobi] - [#47792]) ([netatmo docs])
+
+[#47649]: https://github.com/home-assistant/core/pull/47649
+[#47682]: https://github.com/home-assistant/core/pull/47682
+[#47762]: https://github.com/home-assistant/core/pull/47762
+[#47765]: https://github.com/home-assistant/core/pull/47765
+[#47766]: https://github.com/home-assistant/core/pull/47766
+[#47787]: https://github.com/home-assistant/core/pull/47787
+[#47792]: https://github.com/home-assistant/core/pull/47792
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@cgtobi]: https://github.com/cgtobi
+[@firstof9]: https://github.com/firstof9
+[@jjlawren]: https://github.com/jjlawren
+[@mtl010957]: https://github.com/mtl010957
+[homekit docs]: /integrations/homekit/
+[insteon docs]: /integrations/insteon/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[plex docs]: /integrations/plex/
+[simplisafe docs]: /integrations/simplisafe/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
