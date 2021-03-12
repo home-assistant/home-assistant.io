@@ -611,11 +611,15 @@ automation:
 {% endraw %}
 
 
-More `choose` can be used together. This is the case of an IF-IF.
+More `choose` can be used together. This is the case of an IF-IF. 
+The following example shows how a single automation can control entities that aren't related to each other but have in common the same trigger.
+When the sun goes below the horizon; the `porch` and `garden` lights must turn on. If someone is watching the tv in the living room, there is a high chance that someone is in that room, therefore the living room lights have to turn on too. Same concept applies for the `studio` room.
+
 
 {% raw %}
 
 ```yaml
+# Example with "if" and "if"
 automation:
   - alias: "Turn lights on when the sun gets dim and if some room is occupied"
       trigger:
@@ -624,6 +628,7 @@ automation:
           value_template: "{{ state.attributes.elevation }}"
           below: 4
       action:
+        # This must always apply
         - service: light.turn_on
           data:
             brightness: 255
@@ -632,14 +637,12 @@ automation:
             entity_id:
               - light.porch
               - light.garden
+        # IF a entity is ON
         - choose:
             - conditions:
                 - condition: state
                   entity_id: binary_sensor.livingroom_tv
                   state: on
-                - condition: state
-                  entity_id: light.livingroom
-                  state: off
               sequence:
                 - service: light.turn_on
                   data:
@@ -647,14 +650,12 @@ automation:
                     color_temp: 366
                   target:
                     entity_id: light.livingroom
+         # IF another entity not related to the previous, is ON
         - choose:
             - conditions:
                 - condition: state
                   entity_id: binary_sensor.studio_pc
                   state: on
-                - condition: state
-                  entity_id: light.studio
-                  state: off
               sequence:
                 - service: light.turn_on
                   data:
