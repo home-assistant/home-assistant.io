@@ -610,6 +610,63 @@ automation:
 
 {% endraw %}
 
+
+More `choose` can be used together. This is the case of an IF-IF.
+
+{% raw %}
+
+```yaml
+automation:
+- alias: "Turn lights on when the sun gets dim and if some room is occupied"
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 4
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      brightness: 255
+      color_temp: 366
+      transition: 200
+    entity_id:
+      - light.porch
+      - light.garden
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.livingroom_tv
+        state: 'on'
+      - condition: state
+        entity_id: light.livingroom
+        state: 'off'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 255
+          color_temp: 366
+          transition: 200
+          entity_id: light.livingroom
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.studio_pc
+        state: 'on'
+      - condition: state
+        entity_id: light.studio
+        state: 'off'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 255
+          color_temp: 366
+          transition: 200
+          entity_id: light.studio
+```
+
+{% endraw %}
+
 [Script component]: /integrations/script/
 [automations]: /getting-started/automation-action/
 [Alexa/Amazon Echo]: /integrations/alexa/
