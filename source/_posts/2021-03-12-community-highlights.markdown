@@ -1,6 +1,6 @@
 ---
 title: "Community Highlights: 12th edition"
-description: ""
+description: "Create your own smart pet feeder, show values of your house on an ePaper display and a delicious Home Assistant cake."
 date: 2021-03-12 00:00:00
 date_formatted: "March 12, 2021"
 author: Klaas Schoute
