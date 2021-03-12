@@ -119,7 +119,7 @@ fan:
         required: false
         type: action
       preset_modes:
-        description: List of preset modes the fan is capable of.
+        description: List of preset modes the fan is capable of. This is an arbitrary list of str and should not contain any speeds.
         required: false
         type: [string, list]
         default: []
@@ -129,3 +129,12 @@ fan:
         type: integer
         default: 100
 {% endconfiguration %}
+
+## Converting from speeds to percentage
+
+When converting a fan with 3 speeds from the old fan entity model, the following percentages can be used:
+ 
+0 - `off`
+33 - `low`
+66 - `medium`
+100 - `high`
