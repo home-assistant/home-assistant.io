@@ -18,8 +18,8 @@ ha_platforms:
   - switch
 ---
 
-[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).
-It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
+[Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable Logic Controller).
+It supports various types of devices which can be controlled over serial, TCP, and UDP connections.
 
 ## Configuration
 
