@@ -1411,7 +1411,7 @@ automation:
         segments: 1
 ```
 
-Single-segment with repetition:
+The original app for Xiaomi vacuum has a nice feature of room cleaning with repetition, you can achieve the same result with repeating segments:
 
 ```yaml
 automation:
