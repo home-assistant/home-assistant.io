@@ -613,8 +613,7 @@ automation:
 
 More `choose` can be used together. This is the case of an IF-IF. 
 The following example shows how a single automation can control entities that aren't related to each other but have in common the same trigger.
-When the sun goes below the horizon; the `porch` and `garden` lights must turn on. If someone is watching the tv in the living room, there is a high chance that someone is in that room, therefore the living room lights have to turn on too. Same concept applies for the `studio` room.
-
+When the sun goes below the horizon, the `porch` and `garden` lights must turn on. If someone is watching the TV in the living room, there is a high chance that someone is in that room, therefore the living room lights have to turn on too. Same concept applies for the `studio` room.
 
 {% raw %}
 
