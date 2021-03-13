@@ -231,6 +231,7 @@ tilt_from_position:
   description: Calculate the tilt value  from the change of the position and vice versa. This is useful for Venetian blinds, that don't have a topic for the tilt. It takes the value from `tilt_max` as the percentage that it takes for a full turn of the slats. It cannot be used together with `tilt_command_topic`.
   required: false
   type: boolean
+  default: false
 tilt_max:
   description: The maximum tilt value.
   required: false
