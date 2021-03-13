@@ -54,7 +54,7 @@ port:
 name:
   description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
   required: false
-  default: default
+  default: modbus_hub
   type: string
 timeout:
   description: Timeout for slave response in seconds.
