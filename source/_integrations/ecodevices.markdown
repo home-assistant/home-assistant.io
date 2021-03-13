@@ -1,7 +1,7 @@
 ---
 title: GCE Eco-Devices
 description: Instructions on how to integrate GCE Eco-Devices within Home Assistant.
-ha_release: 0.89
+ha_release: 2021.4
 ha_iot_class: Local Polling
 ha_category:
   - Sensor
