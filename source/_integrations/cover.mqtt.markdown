@@ -228,7 +228,7 @@ tilt_command_topic:
   required: false
   type: string
 tilt_from_position:
-  description: Calculate the tilt valio from the change of the position and fis versa. This is usefull for venetian blinds, that dont have a topic for the tilt. It takes the value from `tilt_max` as percentage that it takes for a full turn of the slats. It cannot be used together with `tilt_command_topic`.
+  description: Calculate the tilt value  from the change of the position and vice versa. This is useful for Venetian blinds, that don't have a topic for the tilt. It takes the value from `tilt_max` as the percentage that it takes for a full turn of the slats. It cannot be used together with `tilt_command_topic`.
   required: false
   type: boolean
 tilt_max:
@@ -420,7 +420,7 @@ cover:
 
 ### Full configuration using tilt calculated from position
 
-The example below shows a full configuration for a cover using stopped state.
+The example below shows a full example how to setup a blind with moveable slats, that does not have a topic for tilt.
 
 {% raw %}
 
