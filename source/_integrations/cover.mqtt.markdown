@@ -227,8 +227,12 @@ tilt_command_topic:
   description: The MQTT topic to publish commands to control the cover tilt.
   required: false
   type: string
+tilt_from_position:
+  description: Calculate the tilt valio from the change of the position and fis versa. This is usefull for venetian blinds, that dont have a topic for the tilt. It takes the value from `tilt_max` as percentage that it takes for a full turn of the slats. It cannot be used together with `tilt_command_topic`.
+  required: false
+  type: boolean
 tilt_max:
-  description: The maximum tilt value
+  description: The maximum tilt value.
   required: false
   type: integer
   default: 100
@@ -414,6 +418,40 @@ cover:
 
 {% endraw %}
 
+### Full configuration using tilt calculated from position
+
+The example below shows a full configuration for a cover using stopped state.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: mqtt
+    name: "MQTT Cover"
+    command_topic: "home-assistant/cover/set"
+    state_topic: "home-assistant/cover/state"
+    position_topic: "home-assistant/cover/position"
+    set_position_topic: "home-assistant/cover/position/set"
+    qos: 1
+    retain: false
+    payload_open:  "open"
+    payload_close: "close"
+    payload_stop:  "stop"
+    state_opening: "open"
+    state_closing: "close"
+    state_stopped: "stop"
+    position_open: 100
+    position_closed: 0
+    tilt_min: 0
+    tilt_max: 6
+    tilt_from_position: True
+    tilt_opened_value: 3
+    tilt_closed_value: 0
+    optimistic: false
+```
+
+{% endraw %}
 To test, you can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages. This allows you to operate your cover manually:
 
 ```bash
