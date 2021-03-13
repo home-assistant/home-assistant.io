@@ -1411,7 +1411,7 @@ automation:
         segments: 1
 ```
 
-Single segment with repetition:
+Single-segment with repetition:
 
 ```yaml
 automation:
@@ -1419,7 +1419,6 @@ automation:
     trigger:
     - event: start
       platform: homeassistant
-    condition: []
     action:
     - service: xiaomi_miio.vacuum_clean_segment
       target:
