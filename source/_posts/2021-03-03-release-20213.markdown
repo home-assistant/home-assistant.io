@@ -30,8 +30,8 @@ My oh my, enjoy this release!
 
 - [My Home Assistant](#my-home-assistant)
 - [New UI for service calls](#new-ui-for-service-calls)
-- [Fan speeds: 100%](#fan-speeds-100)
 - [Suggested areas](#suggested-areas)
+- [Fan speeds: 100%](#fan-speeds-100)
 - [Z-Wave JS update](#z-wave-js-update)
 - [Flexible & variable automation triggers](#flexible--variable-automation-triggers)
 - [Oversettelser i Supervisor panelet](#oversettelser-i-supervisor-panelet)
@@ -39,6 +39,9 @@ My oh my, enjoy this release!
 - [New Integrations](#new-integrations)
 - [New Platforms](#new-platforms)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2021.3.1 - March 5](#release-202131---march-5)
+- [Release 2021.3.2 - March 5](#release-202132---march-5)
+- [Release 2021.3.3 - March 8](#release-202133---march-8)
 - [If you need help...](#if-you-need-help)
 - [Breaking Changes](#breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -160,7 +163,7 @@ We've introduced a protocol schema version in the Z-Wave JS server to allow
 older clients to connect and talk to a newer server. This prevents compatibility
 issues for the future!
 
-Home Assistant Core 2021.3.0 will require Z-Wave JS server version 1.10.
+Home Assistant Core 2021.3.0 will require Z-Wave JS server version 1.1.0.
 If you're using the official Home Assistant add-on, the integration will
 automatically update the add-on if an older add-on and server version is
 encountered. Magic! If you're not using the Home Assistant add-on to run the
@@ -258,7 +261,7 @@ Screenshot of disabling an integration entry.
 - Thanks to [@Nixon506E], you can now set a transition time when activate Hue
   scenes.
 - In the {% my developer_states %} tab of the Developer Tools, there is now
-  a small copy to clipboard button with each entity. Thanks, [@KTibow]!  
+  a small copy to clipboard button with each entity. Thanks, [@KTibow]!
 - [@postlund] added support for repeat, shuffle and volume stepping to the
   media player integration of the Apple TV integration.
 - [@larena1] reduced the amount of rendering history charts cause, so that
@@ -312,6 +315,202 @@ The following integrations are now available via the Home Assistant UI:
 - [Nuki][nuki docs], done by [@pree]
 - [Philips TV][philips_js docs], done by [@elupus]
 - [Xiaomi Miio][xiaomi_miio docs] (partially), done by [@starkillerOG]
+
+## Release 2021.3.1 - March 5
+
+- Fix Xiaomi Miio setup of switch entity for lumi.acpartner.v3 ([@starkillerOG] - [#47345]) ([xiaomi_miio docs])
+- Make zwave_js add-on manager more flexible ([@MartinHjelmare] - [#47356]) ([zwave_js docs])
+- Catch ConditionError in generic_thermostat climate ([@amelchio] - [#47359]) ([generic_thermostat docs])
+- Fix zwave_js manual reconfiguration of add-on managed entry ([@MartinHjelmare] - [#47364]) ([zwave_js docs])
+- Don't raise on known non-matching states in numeric state condition ([@frenck] - [#47378])
+- Fix access of missing zwave_js climate unit value ([@MartinHjelmare] - [#47380]) ([zwave_js docs])
+- Update frontend to 20210302.4 ([@bramkragten] - [#47383]) ([frontend docs])
+- Revert "Speed-up wemo discovery (#46821)" ([@esev] - [#47392]) ([wemo docs])
+- Fix RFLink TCP KeepAlive error log ([@cpainchaud] - [#47395]) ([rflink docs])
+- Map silent as a preset mode for fan backcompat ([@bdraco] - [#47396]) ([fan docs])
+- Fix measurement unit (Closes: #47390) ([@syssi] - [#47398]) ([xiaomi_miio docs])
+- Fix Climacell timezone issue with daily forecasts ([@raman325] - [#47402]) ([climacell docs])
+- Fix AirVisual exception when config entry contains old integration type ([@bachya] - [#47405]) ([airvisual docs])
+- Don't convert Climacell forecast temperatures to celsius because platform does it automatically ([@raman325] - [#47406]) ([climacell docs])
+- Bump zwave-js-server-python to 0.21.0 ([@raman325] - [#47408]) ([zwave_js docs])
+- Fix older Roborock models ([@frenck] - [#47412]) ([xiaomi_miio docs])
+- Only create snapshot if add-on update will be done ([@MartinHjelmare] - [#47424]) ([zwave_js docs])
+
+[#47345]: https://github.com/home-assistant/core/pull/47345
+[#47356]: https://github.com/home-assistant/core/pull/47356
+[#47359]: https://github.com/home-assistant/core/pull/47359
+[#47364]: https://github.com/home-assistant/core/pull/47364
+[#47378]: https://github.com/home-assistant/core/pull/47378
+[#47380]: https://github.com/home-assistant/core/pull/47380
+[#47383]: https://github.com/home-assistant/core/pull/47383
+[#47392]: https://github.com/home-assistant/core/pull/47392
+[#47395]: https://github.com/home-assistant/core/pull/47395
+[#47396]: https://github.com/home-assistant/core/pull/47396
+[#47398]: https://github.com/home-assistant/core/pull/47398
+[#47402]: https://github.com/home-assistant/core/pull/47402
+[#47405]: https://github.com/home-assistant/core/pull/47405
+[#47406]: https://github.com/home-assistant/core/pull/47406
+[#47408]: https://github.com/home-assistant/core/pull/47408
+[#47412]: https://github.com/home-assistant/core/pull/47412
+[#47424]: https://github.com/home-assistant/core/pull/47424
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@amelchio]: https://github.com/amelchio
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cpainchaud]: https://github.com/cpainchaud
+[@esev]: https://github.com/esev
+[@frenck]: https://github.com/frenck
+[@raman325]: https://github.com/raman325
+[@starkillerOG]: https://github.com/starkillerOG
+[@syssi]: https://github.com/syssi
+[airvisual docs]: /integrations/airvisual/
+[climacell docs]: /integrations/climacell/
+[fan docs]: /integrations/fan/
+[frontend docs]: /integrations/frontend/
+[generic_thermostat docs]: /integrations/generic_thermostat/
+[rflink docs]: /integrations/rflink/
+[wemo docs]: /integrations/wemo/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.3.2 - March 5
+
+- Update pyotgw to 1.1b1 ([@mvn23] - [#47446]) ([opentherm_gw docs])
+- Fix issue at Netatmo startup ([@cgtobi] - [#47452]) ([netatmo docs])
+- Fix Hue scene overriding Hue default transition times ([@frenck] - [#47454]) ([hue docs])
+- Bump version with fix for v1 ([@elupus] - [#47458]) ([philips_js docs])
+- Update frontend to 20210302.5 ([@bramkragten] - [#47462]) ([frontend docs])
+- Use conn_made callback in MySensors ([@functionpointer] - [#47463]) ([mysensors docs])
+- Bump zwave-js-server-python to 0.21.1 ([@raman325] - [#47464]) ([zwave_js docs])
+- Raise error instead of crashing when template passed to call service target ([@balloob] - [#47467]) ([websocket_api docs])
+- Update zwave_js.refresh_value service description ([@raman325] - [#47469]) ([zwave_js docs])
+- Bump amcrest package version to 1.7.1 ([@pnbruckner] - [#47483]) ([amcrest docs])
+
+[#47446]: https://github.com/home-assistant/core/pull/47446
+[#47452]: https://github.com/home-assistant/core/pull/47452
+[#47454]: https://github.com/home-assistant/core/pull/47454
+[#47458]: https://github.com/home-assistant/core/pull/47458
+[#47462]: https://github.com/home-assistant/core/pull/47462
+[#47463]: https://github.com/home-assistant/core/pull/47463
+[#47464]: https://github.com/home-assistant/core/pull/47464
+[#47467]: https://github.com/home-assistant/core/pull/47467
+[#47469]: https://github.com/home-assistant/core/pull/47469
+[#47483]: https://github.com/home-assistant/core/pull/47483
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@cgtobi]: https://github.com/cgtobi
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@functionpointer]: https://github.com/functionpointer
+[@mvn23]: https://github.com/mvn23
+[@pnbruckner]: https://github.com/pnbruckner
+[@raman325]: https://github.com/raman325
+[amcrest docs]: /integrations/amcrest/
+[frontend docs]: /integrations/frontend/
+[hue docs]: /integrations/hue/
+[mysensors docs]: /integrations/mysensors/
+[netatmo docs]: /integrations/netatmo/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[philips_js docs]: /integrations/philips_js/
+[websocket_api docs]: /integrations/websocket_api/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Release 2021.3.3 - March 8
+
+- Adjust litterrobot tests and code to match guidelines ([@natekspencer] - [#47060]) ([litterrobot docs])
+- Bump HAP-python to 3.4.0 ([@bdraco] - [#47476]) ([homekit docs])
+- Fix Sonos polling mode ([@amelchio] - [#47498]) ([sonos docs])
+- Fix mysensors notify platform ([@MartinHjelmare] - [#47517]) ([mysensors docs])
+- Fix AsusWRT wrong api call ([@ollo69] - [#47522]) ([asuswrt docs])
+- Bump pymysensors to 0.21.0 ([@MartinHjelmare] - [#47530]) ([mysensors docs])
+- Fix mysensors device tracker ([@MartinHjelmare] - [#47536]) ([mysensors docs])
+- Fix mysensors unload clean up ([@MartinHjelmare] - [#47541]) ([mysensors docs])
+- Correct weather entities forecast time ([@dgomes] - [#47565])
+- Allow running and restarting with both ozw and zwave active ([@ronytomen] - [#47566]) ([ozw docs]) ([zwave docs])
+- Add fallback zwave_js entity name using node ID ([@raman325] - [#47582]) ([zwave_js docs])
+- Ensure bond devices recover when wifi disconnects and reconnects ([@bdraco] - [#47591]) ([bond docs])
+- Update frontend to 20210302.6 ([@bramkragten] - [#47592]) ([frontend docs])
+- Fix turn on without speed in homekit controller ([@bdraco] - [#47597]) ([homekit_controller docs])
+- Ensure template fan value_template always determines on state ([@bdraco] - [#47598]) ([template docs])
+- Fix insteon fan speeds ([@bdraco] - [#47603]) ([insteon docs])
+- Fix turning off scene in homekit ([@bdraco] - [#47604]) ([homekit docs])
+- Fix Shelly logbook exception when missing COAP ([@thecode] - [#47620]) ([shelly docs])
+- Update zwave_js supported features list to be static ([@raman325] - [#47623]) ([zwave_js docs])
+
+[#47060]: https://github.com/home-assistant/core/pull/47060
+[#47476]: https://github.com/home-assistant/core/pull/47476
+[#47498]: https://github.com/home-assistant/core/pull/47498
+[#47517]: https://github.com/home-assistant/core/pull/47517
+[#47522]: https://github.com/home-assistant/core/pull/47522
+[#47530]: https://github.com/home-assistant/core/pull/47530
+[#47536]: https://github.com/home-assistant/core/pull/47536
+[#47541]: https://github.com/home-assistant/core/pull/47541
+[#47565]: https://github.com/home-assistant/core/pull/47565
+[#47566]: https://github.com/home-assistant/core/pull/47566
+[#47582]: https://github.com/home-assistant/core/pull/47582
+[#47591]: https://github.com/home-assistant/core/pull/47591
+[#47592]: https://github.com/home-assistant/core/pull/47592
+[#47597]: https://github.com/home-assistant/core/pull/47597
+[#47598]: https://github.com/home-assistant/core/pull/47598
+[#47603]: https://github.com/home-assistant/core/pull/47603
+[#47604]: https://github.com/home-assistant/core/pull/47604
+[#47620]: https://github.com/home-assistant/core/pull/47620
+[#47623]: https://github.com/home-assistant/core/pull/47623
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@amelchio]: https://github.com/amelchio
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@dgomes]: https://github.com/dgomes
+[@natekspencer]: https://github.com/natekspencer
+[@ollo69]: https://github.com/ollo69
+[@raman325]: https://github.com/raman325
+[@ronytomen]: https://github.com/ronytomen
+[@thecode]: https://github.com/thecode
+[asuswrt docs]: /integrations/asuswrt/
+[bond docs]: /integrations/bond/
+[frontend docs]: /integrations/frontend/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[insteon docs]: /integrations/insteon/
+[litterrobot docs]: /integrations/litterrobot/
+[mysensors docs]: /integrations/mysensors/
+[ozw docs]: /integrations/ozw/
+[shelly docs]: /integrations/shelly/
+[sonos docs]: /integrations/sonos/
+[template docs]: /integrations/template/
+[zwave docs]: /integrations/zwave/
+[zwave_js docs]: /integrations/zwave_js/
+## Release 2021.3.4 - March 12
+
+- Write SimpliSafe alarm control panel state after arming/disarming ([@bachya] - [#47649]) ([simplisafe docs])
+- Cover Tilt Position Bugfix ([@mtl010957] - [#47682]) ([mqtt docs])
+- Fix zwave_js target_temp_low ([@firstof9] - [#47762]) ([zwave_js docs])
+- Adjust insteon fan speed range to valid upper bound ([@bdraco] - [#47765]) ([insteon docs])
+- Bump plexapi to 4.4.1 ([@jjlawren] - [#47766]) ([plex docs])
+- Ensure homekit reset accessory service can target any entity ([@bdraco] - [#47787]) ([homekit docs])
+- Fix Netatmo event handling ([@cgtobi] - [#47792]) ([netatmo docs])
+
+[#47649]: https://github.com/home-assistant/core/pull/47649
+[#47682]: https://github.com/home-assistant/core/pull/47682
+[#47762]: https://github.com/home-assistant/core/pull/47762
+[#47765]: https://github.com/home-assistant/core/pull/47765
+[#47766]: https://github.com/home-assistant/core/pull/47766
+[#47787]: https://github.com/home-assistant/core/pull/47787
+[#47792]: https://github.com/home-assistant/core/pull/47792
+[@bachya]: https://github.com/bachya
+[@bdraco]: https://github.com/bdraco
+[@cgtobi]: https://github.com/cgtobi
+[@firstof9]: https://github.com/firstof9
+[@jjlawren]: https://github.com/jjlawren
+[@mtl010957]: https://github.com/mtl010957
+[homekit docs]: /integrations/homekit/
+[insteon docs]: /integrations/insteon/
+[mqtt docs]: /integrations/mqtt/
+[netatmo docs]: /integrations/netatmo/
+[plex docs]: /integrations/plex/
+[simplisafe docs]: /integrations/simplisafe/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## If you need help...
 
@@ -670,7 +869,7 @@ Everything was still discovered in testing on a server with multiple interfaces.
 
 {% details "Z-Wave JS" %}
 
-Minimum required zwave-js-server version is now 1.0.0.
+Minimum required zwave-js-server version is now 1.1.0.
 You need to run this server version at mimimum for the integration to work.
 
 ([@marcelveldt] - [#46983]) ([zwave_js docs])
