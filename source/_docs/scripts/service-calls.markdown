@@ -3,7 +3,7 @@ title: "Service Calls"
 description: "Instructions on how to call services in Home Assistant."
 ---
 
-Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script or via the Amazon Echo.
+Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script, a Lovelace dashboard or via voice command devices such as Amazon Echo.
 
 The configuration options to call a configuration are the same between all integrations and are described on this page.
 
@@ -27,10 +27,10 @@ entity_id: group.living_room
 Instead of targeting an entity, you can also target an area or device. Or a combination of these.
 This is done with the `target` key.
 
-A `target` is a map thats contains atleast one of the following: `area_id`, `device_id`, `entity_id`.
+A `target` is a map that contains at least one of the following: `area_id`, `device_id`, `entity_id`.
 Each of these can be a list.
 
-When the service is called, the area's and devices will be resolved to entities.
+When the service is called, the areas and devices will be resolved to entities.
 
 ```yaml
 service: homeassistant.turn_on
@@ -46,7 +46,7 @@ target:
 
 ### Passing data to the service call
 
-You can also specify other parameters beside the entity to target. For example, the light turn on service allows specifying the brightness.
+You can also specify other parameters beside the entity to target. For example, the `light.turn_on` service allows specifying the brightness.
 
 ```yaml
 service: light.turn_on
@@ -111,8 +111,8 @@ data:
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:
 
-- `homeassistant.turn_on` - Turns on an entity (that supports being turned on), for example an `automation`, `switch`, etc
-- `homeassistant.turn_off` - Turns off an entity (that supports being turned off), for example an `automation`, `switch`, etc
+- `homeassistant.turn_on` - Turns on an entity (that supports being turned on), for example an `automation`, `switch`, etc.
+- `homeassistant.turn_off` - Turns off an entity (that supports being turned off), for example an `automation`, `switch`, etc.
 - `homeassistant.toggle` - Turns off an entity that is on, or turns on an entity that is off (that supports being turned on and off)
 - `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [Google travel time] sensor, a [template sensor], or a [light]
 
