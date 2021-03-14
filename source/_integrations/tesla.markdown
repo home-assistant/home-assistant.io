@@ -28,7 +28,7 @@ ha_platforms:
 
 The `Tesla` integration offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
 
-At this moment, this integration can only handle one account. If you want to handle more than one car from different accounts, use the additional driver access function in the Tesla portal to make the additional car available in the account you use in Home Assistant.
+This integration can only handle one account. If you want to handle more than one car from different accounts, use the additional driver access function in the Tesla portal to make the additional car available in the account you use in Home Assistant.
 
 This integration provides the following platforms:
 
