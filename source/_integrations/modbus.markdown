@@ -115,7 +115,7 @@ method:
 name:
   description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
   required: false
-  default: default
+  default: modbus_hub
   type: string
 parity:
   description: "The parity for the serial connection; can be `E`, `O` or `N`."
