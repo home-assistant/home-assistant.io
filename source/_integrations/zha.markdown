@@ -191,7 +191,7 @@ Note that the `otau_directory` setting is optional and can be used for any firmw
 ```yaml
 service: zha.issue_zigbee_cluster_command
 data:
-  ieee: 'xx:xx:xx:xx:xx:xx:xx:xx'
+  ieee: "xx:xx:xx:xx:xx:xx:xx:xx"
   endpoint_id: 11
   cluster_id: 25
   cluster_type: out
