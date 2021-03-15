@@ -1,13 +1,13 @@
 ## Enable I2C
 
-Home Assistant using the Home Assistant Operating System is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi. In order to enable I2C devices you will have to 
+Home Assistant using the Home Assistant Operating System which is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi. In order to use I2C devices you will have to 
 - Enable I2C for the Home Assistant Operating System 
-- Enable Raspberry Hats including the I2C integration
-- Setup I2C sensors
+- Configur the Raspberry Hats binary sensor integration to enable the I2C integration
+- Setup I2C devices e.g. sensors
 
-### Step by step instructions to enable I2C for the Home Assistant Operating System
+### Step by step instructions to enable I2C via SD card
 
-#### Use SD Card/Step 1 - Access the Home Assistant Operating System boot partition
+#### Access the boot partition
 
 You will need:
 - SD card reader
@@ -19,7 +19,7 @@ Plug the SD card into an SD card reader and find a drive/file system named
 use your operating systems disk management utility to find the SD card reader
 and make sure the first partition is available.
 
-#### Use SD Card/Step 2 - Add files to enable I2C
+#### Add files to enable I2C
 
 - In the root of the `hassos-boot` partition, add a new folder called `CONFIG`.
 - In the `CONFIG` folder, add another new folder called `modules`.
@@ -34,7 +34,7 @@ and make sure the first partition is available.
   dtparam=i2c_arm=on
   ```
 
-#### Use SD Card/Step 3 - Start with the new OS configuration
+#### Start with the new OS configuration
 
 - Insert the SD card back into your Raspberry Pi.
 - On startup, the `hassos-config.service` will automatically pickup the new
@@ -64,26 +64,7 @@ You can enable i2c via this terminal:
   ```
 #### Check I2C activation on OS level
 
-After the reboot of the host, the I2C activation should now be visible under /dev. You may check by using the add-on `Terminal & SSH` and list the directory `/dev`. If `ls` shows an entry `i2c-1` or similar, your I2C config might work. You can check the status of I2C kernel modules by entering `lsmod | grep i2c`. If they are loaded, you should find at least the entry `i2c_dev`. Active usage of the modules is indicated by a number, e.g. `i2c_dev 20480 2` would indicate two active I2C data sources (e.g. a BMP280 temperature & pressure sensor) 
+After the reboot of the host, the I2C activation should now be visible under /dev.  If the folder contains an entry `i2c-1` or similar, your I2C config might work. You can check the status of I2C kernel modules by entering `lsmod | grep i2c`. If they are loaded, you should find at least the entry `i2c_dev`. Active usage of the modules is indicated by a number, e.g. `i2c_dev 20480 2` would indicate two active I2C data sources (e.g. a BMP280 temperature & pressure sensor) 
 
 An active I2C can also be check with a multi meter showing 3.3 V on the I2C pins GPIO2 and GPIO3. 
-
-#### Configuration of the Home Assistant to enable a BME280 sensor 
-  
-Connect a I2C device to the GPIO2 (SDA1), GPIO3 (SCL) and VCC/GND as needed. Ensure that this wiring is working (e.g by using a Raspberry OS with configured I2C) and note the I2C address of the  device. For a BMP280 this might be 0x76.  
-
-Edit the `configuration.yaml` e.g. via the add-on `File Editor`. You need to activate the  binary sensor plattform `raspihats` to enable I2C for the Home Assistant core. The I2C sensor needs and additional entry. A working entry may look like this:
-
-```shell
-# Enable Raspihats
-binary_sensor:
-  - platform: raspihats
-
-# Enable BMP 280 sensor
-sensor:
-  - platform: bmp280
-    i2c_address: 0x76
-```
-
-After a reboot of host, you can find the sensor listed in `Developer Tools` in the tab `States`as `sensor.bmp280_temperature`and `sensor.bmp280_pressure`. 
   
