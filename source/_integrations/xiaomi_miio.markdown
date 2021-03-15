@@ -1371,6 +1371,22 @@ automation:
         segments: 1
 ```
 
+The original app for Xiaomi vacuum has a nice feature of room cleaning with repetition, you can achieve the same result with repeating segments:
+
+```yaml
+automation:
+  - alias: "Vacuum kitchen"
+    trigger:
+      - event: start
+        platform: homeassistant
+    action:
+      - service: xiaomi_miio.vacuum_clean_segment
+        target:
+          entity_id: vacuum.xiaomi_vacuum
+        data:
+          segments: [1, 1]
+```
+
 ### Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/integrations/vacuum/#attributes),
