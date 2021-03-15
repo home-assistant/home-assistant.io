@@ -138,3 +138,16 @@ automation:
 | disable_autolock | Disables autolock function for a specific lock. |
 | enable_autolock | Enables autolock function for a specific lock. |
 | smartcam_capture | Capture a new image from a specific smartcam. |
+
+## 2 Factor Authentication Workaround
+
+In March 2021 Verisure added new 2fa rules that aren't fully support through their third party API integration. If you have 2FA enabled (which is forced as default) You might not be able to use this integration. Here are some steps for a work around.
+
+1. Create a specific home assistant user. (not necessary but it's not recommended to turn of 2fa for your admin user).
+2. Make sure that user is admin, you've logged in & setup 2fa
+3. Login as the home assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2fa
+
+   **Note this will only be available if the user is admin and has logged in once with 2fa, logged out and in again**
+4. Login as your administrator again and change the home assistant user to a restricted user
+5. Change home assistant verisure config to the new user credentials in home assistant
+6. Restart home assistant
