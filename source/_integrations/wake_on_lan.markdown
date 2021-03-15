@@ -83,7 +83,7 @@ name:
   default: Wake on LAN
   type: string
 host:
-  description: The IP address or hostname to check the state of the device (on/off).
+  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
   required: false
   type: string
 turn_off:
