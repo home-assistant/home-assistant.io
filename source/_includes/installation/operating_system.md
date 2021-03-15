@@ -100,6 +100,7 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
 1. Put the SD card in your card reader.
 2. Open balenaEtcher, select the Home Assistant image and flash it to the SD card.
 3. Unmount the SD card and remove it from your card reader.
+4. Once completed you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
 {% else %}
 
 ### Create the Virtual Machine
