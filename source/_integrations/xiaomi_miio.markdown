@@ -36,8 +36,7 @@ The `xiaomi_miio` integration supports the following devices:
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2))
 - [Xiaomi Air Purifier and Humidifier](#xiaomi-air-purifier-and-humidifier)
-- [Xiaomi Air Quality Index Monitor](#xiaomi-air-quality-index-monitor)
-- [Xiaomi Mi Air Quality Monitor](#xiaomi-mi-air-quality-monitor)
+- [Xiaomi Air Quality Monitor](#xiaomi-air-quality-monitor)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
 - [Xiaomi Mi Robot Vacuum](#xiaomi-mi-robot-vacuum)
 - [Xiaomi Philips Light](#xiaomi-philips-light)
@@ -869,91 +868,29 @@ Check if the device is in the same subnet as the Home Assistant instance. Otherw
 
 If it's not possible to use VLANs for some reason, your last resort may be using NAT translation, between the IPs.
 
-## Xiaomi Air Quality Index Monitor
+## Xiaomi Air Quality Monitor
 
-The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index.
+The `xiaomi_miio` Air Quality Monitor is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index and other values.
 
 Currently, the supported features are:
 
 - Air Quality Index (AQI)
+- Particulate matter 2.5
 - Attributes
   - power
   - charging
   - battery
   - time_stat
-
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
-
-### Configuration
-
-To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: xiaomi_miio
-    host: IP_ADDRESS
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio device.
-  required: true
-  type: string
-token:
-  description: The API token of your miio device.
-  required: true
-  type: string
-name:
-  description: The name of your miio device.
-  required: false
-  type: string
-  default: Xiaomi Miio Sensor
-{% endconfiguration %}
-
-## Xiaomi Mi Air Quality Monitor
-
-The `xiaomi_miio` sensor platform is observing your Xiaomi Mi Air Quality Monitor and reporting the air quality values.
-
-Currently, the supported features are:
-
-- Particulate matter 2.5
-- Attributes
   - carbon_dioxide_equivalent
   - total_volatile_organic_compounds
   - temperature
   - humidity
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
-
 ### Configuration
 
-To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
 
-```yaml
-# Example configuration.yaml entry
-air_quality:
-  - platform: xiaomi_miio
-    host: IP_ADDRESS
-    token: YOUR_TOKEN
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio device.
-  required: true
-  type: string
-token:
-  description: The API token of your miio device.
-  required: true
-  type: string
-name:
-  description: The name of your miio device.
-  required: false
-  type: string
-  default: Xiaomi Miio Air Quality Monitor
-{% endconfiguration %}
+To add a Xiaomi Mi Air Quality Monitor to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
 
 ## Xiaomi IR Remote
 
