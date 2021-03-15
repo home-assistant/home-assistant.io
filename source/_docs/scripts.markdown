@@ -626,7 +626,7 @@ automation:
       trigger:
         - platform: numeric_state
           entity_id: sun.sun
-          value_template: "{{ state.attributes.elevation }}"
+          attribute: elevation
           below: 4
       action:
         # This must always apply
