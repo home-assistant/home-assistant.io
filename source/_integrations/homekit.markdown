@@ -83,11 +83,6 @@ homekit:
   required: true
   type: map
   keys:
-    auto_start:
-      description: Flag if the HomeKit Server should start automatically after the Home Assistant Core Setup is done. ([Disable Auto Start](#disable-auto-start))
-      required: false
-      type: boolean
-      default: true
     port:
       description: Port for the HomeKit extension. If you are adding more than one instance they need to have different values for port.
       required: false
@@ -304,12 +299,6 @@ Currently, this integration uses the `entity_id` to generate a unique `accessory
 
 The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s). If you plan on exceeding the 150 devices limit, it is possible to create multiple bridges. If you need specific configuration for some entities via `entity_config` be sure to add them to a bridge configured via `YAML`.
 
-### Persistence Storage
-
-Unfortunately, `HomeKit` doesn't support any persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems, it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If, for some reason, some entities are not set up, their configuration will be deleted. (State unknown or similar will not cause any issues.)
-
-A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
-
 ### Multiple HomeKit instances
 
 If you create a HomeKit integration via the UI (i.e., **Configuration** >> **Integrations**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
@@ -337,10 +326,6 @@ To add a single entity in accessory mode:
 4. Select the entity.
 5. Complete the options flow
 6. [Pair the accessory](#setup).
-
-## Disable Auto Start
-
-It is not needed (anymore) to disable `Auto Start` for all accessories to be available for `HomeKit` as Home Assistant restores all entities on start instantly.
 
 ## Configure Filter
 
@@ -536,10 +521,6 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook up to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 ### Issues during normal use
-
-#### Some of my devices don't show up - Z-Wave / Discovery
-
-See [disable auto start](#disable-auto-start)
 
 #### My entity doesn't show up
 
