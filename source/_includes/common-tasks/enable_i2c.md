@@ -42,9 +42,9 @@ and make sure the first partition is available.
 - Another reboot might be necessary to make sure the just imported `rpi-i2c.conf` is
   present at boot time.
 
-### Alternative to SD Card via Home Assistant Operating System Terminal
+### Via Home Assistant Operating System Terminal
 
-By attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant Operating System.
+Alternatively, by attaching a keyboard and screen to your device, you can access the physical terminal to the Home Assistant Operating System.
 
 You can enable i2c via this terminal:
 
@@ -62,7 +62,7 @@ You can enable i2c via this terminal:
   sync
   reboot
   ```
-### Check I2C activation on OS level
+#### Check I2C activation on OS level
 
 After the reboot of the host, the I2C activation should now be visible under /dev.  If the folder contains an entry `i2c-1` or similar, your I2C config might work. You can check the status of I2C kernel modules by entering `lsmod | grep i2c`. If they are loaded, you should find at least the entry `i2c_dev`. Active usage of the modules is indicated by a number, e.g. `i2c_dev 20480 2` would indicate two active I2C data sources (e.g. a BMP280 temperature & pressure sensor) 
 
