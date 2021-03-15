@@ -656,7 +656,7 @@ automation:
             - conditions:
                 - condition: state
                   entity_id: binary_sensor.studio_pc
-                  state: on
+                  state: "on"
               sequence:
                 - service: light.turn_on
                   data:
