@@ -108,6 +108,8 @@ giid:
 
 Verisure added 2FA rules to Verisure mypages that aren't supported through their third party API integration. If you have 2FA enabled (which is forced as default) You might not be able to use this integration. Here is the suggested way to use deactivate 2FA if it's allowed in your region.
 
+You can deactivate 2FA for your admin account and use that for Home Assistant but this isn't recommended. The steps below sets up a specific Home Assistant user and gives it restricted access.
+
 1. Create a specific Home Assistant user. (not necessary but it's not recommended to turn of 2FA for your admin user).
 2. Make sure that user is admin, you've logged in & setup 2FA.
 3. Login as the Home Assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2FA.
@@ -152,4 +154,3 @@ automation:
 | disable_autolock | Disables autolock function for a specific lock. |
 | enable_autolock | Enables autolock function for a specific lock. |
 | smartcam_capture | Capture a new image from a specific smartcam. |
-
