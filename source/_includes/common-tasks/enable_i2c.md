@@ -2,7 +2,7 @@
 
 Home Assistant using the Home Assistant Operating System which is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi. In order to use I2C devices you will have to 
 - Enable I2C for the Home Assistant Operating System 
-- Configur the Raspberry Hats binary sensor integration to enable the I2C integration
+- Configure the Raspberry Hats binary sensor integration to enable the I2C integration
 - Setup I2C devices e.g. sensors
 
 ### Step by step instructions to enable I2C via SD card
