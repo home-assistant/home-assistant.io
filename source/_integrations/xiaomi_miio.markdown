@@ -34,7 +34,7 @@ ha_platforms:
 The `xiaomi_miio` integration supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
-- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2))
+- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
 - [Xiaomi Air Purifier and Humidifier](#xiaomi-air-purifier-and-humidifier)
 - [Xiaomi Air Quality Index Monitor](#xiaomi-air-quality-index-monitor)
 - [Xiaomi Mi Air Quality Monitor](#xiaomi-mi-air-quality-monitor)
