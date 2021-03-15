@@ -188,7 +188,7 @@ You can choose if the IKEA or LEDVANCE provider should be set to enabled (`true`
 
 Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself, for any device type and manufacturer. For example, Philips Hue firmwares manually downloaded from [here](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/OTA-Image-Types---Firmware-versions) and/or [here](https://github.com/Koenkk/zigbee-OTA/blob/a02a4cb33f7c46b4d2916805bfcad582124ec975/index.json) added to the `otau_directory` can be flashed, although a manual `zha.issue_zigbee_cluster_command` command currently (as of 2021.3.3) must be issued against the IEEE of the Philips Hue device under Developer Tools->Services, e.g.:
 
-```
+```yaml
 service: zha.issue_zigbee_cluster_command
 data:
   ieee: 'xx:xx:xx:xx:xx:xx:xx:xx'
