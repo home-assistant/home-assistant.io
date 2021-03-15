@@ -139,9 +139,9 @@ automation:
 | enable_autolock | Enables autolock function for a specific lock. |
 | smartcam_capture | Capture a new image from a specific smartcam. |
 
-## 2 Factor Authentication Workaround
+## 2 Factor Authentication
 
-In March 2021 Verisure added new 2FA rules that aren't fully support through their third party API integration. If you have 2FA enabled (which is forced as default) You might not be able to use this integration. Here are some steps for a work around.
+Verisure added 2FA rules to Verisure mypages that aren't supported through their third party API integration. If you have 2FA enabled (which is forced as default) You might not be able to use this integration. Here is the suggested way to use deactivate 2FA if it's allowed in your region.
 
 1. Create a specific Home Assistant user. (not necessary but it's not recommended to turn of 2FA for your admin user).
 2. Make sure that user is admin, you've logged in & setup 2FA.
