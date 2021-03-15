@@ -147,11 +147,11 @@ To access a camera that requires secured access for still image or live stream (
 ```yaml
 camera: 
   - platform: generic
-    still_image_url: http://192.168.1.100/ISAPI/Streaming/Channels/101/picture
-    stream_source: rtsp://[LOGIN]:[PASS]@192.168.1.100:554/Streaming/Channels/102
-    name: My Camera
+    still_image_url: "http://192.168.1.100/ISAPI/Streaming/Channels/101/picture"
+    stream_source: "rtsp://USERNAME:PASSWORD@192.168.1.100:554/Streaming/Channels/102"
+    name: "My Camera"
     verify_ssl: false
-    username: [LOGIN]
-    password: [PASS]
+    username: "USERNAME"
+    password: "PASSWORD"
     authentication: digest
 ```
