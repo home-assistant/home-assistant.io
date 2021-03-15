@@ -1410,6 +1410,12 @@ It seems to be the case that Numbers 1..15 are used to number the intitial segme
 
 The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp, Xiaomi Philips Zhirui LED Bulb E14 Candle Lamp, Xiaomi Philips Zhirui Downlight, Xiaomi Philips LED Ceiling Lamp, Xiaomi Philips Eyecare Lamp 2, Xiaomi Philips Moonlight Bedside Lamp and Philips Zhirui Desk Lamp.
 
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use during configuration flow setup.
+
+### Configuration
+
+To add a Xiaomi Philips Light to your installation, click Configuration in the sidebar, then click Integrations and then click the + icon in the lower right and find xiaomi_miio. You will then be presented with a form in which you will need to fill in the “IP address” and 32 characters “token”. After you click submit, you will have the opportunity to select the area that your devices are located.
+
 ### Features
 
 ### Philips LED Ball Lamp, Philips Zhirui LED Candle Lamp and Philips Zhirui Downlight
@@ -1493,40 +1499,6 @@ Supported models: `philips.light.moonlight`
   - total_assistant_sleep_time
   - brand_sleep
   - brand
-
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
-
-To add a Xiaomi Philips Light to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entries
-light:
-  - platform: xiaomi_miio
-    name: Xiaomi Philips Smart LED Ball
-    host: 192.168.130.67
-    token: YOUR_TOKEN
-    model: philips.light.bulb
-```
-
-{% configuration %}
-host:
-  description: The IP address of your miio light.
-  required: true
-  type: string
-token:
-  description: The API token of your miio light.
-  required: true
-  type: string
-name:
-  description: The name of your miio light.
-  required: false
-  type: string
-  default: Xiaomi Philips Light
-model:
-  description: The model of your light. Valid values are `philips.light.sread1`, `philips.light.ceiling`, `philips.light.zyceiling`, `philips.light.moonlight`, `philips.light.bulb`, `philips.light.candle`, `philips.light.candle2`, `philips.light.mono1` and `philips.light.downlight`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
-  required: false
-  type: string
-{% endconfiguration %}
 
 ### Platform Services
 
