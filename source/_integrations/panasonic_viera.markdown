@@ -19,11 +19,7 @@ There is currently support for the following device types within Home Assistant:
 - Media Player
 - [Remote](#remote)
 
-## Configuration
-
-To configure your Panasonic Viera TV, head to the **Configuration > Integrations** page. Click on the plus (+) button to add a new integration.
-
-Once the integration is loaded, with your TV turned on and connected to your local network, enter the IP address of your TV and a name of your choice.
+{% include integrations/config_flow.md %}
 
 If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
@@ -106,14 +102,14 @@ When the integration is configured, two entities will be created: a `media_playe
 
 Some of the known valid key values are:
 
-- up
-- down
-- left
-- right
-- select
-- home
-- back
-- power
+- `up`
+- `down`
+- `left`
+- `right`
+- `select`
+- `home`
+- `back`
+- `power`
 
 The list with all known valid keys can be found [here](https://github.com/florianholzapfel/panasonic-viera/blob/521cefadc8e1543514ce41d3d49e9218d1c2302d/panasonic_viera/__init__.py#L35). Additionally, you can also send custom commands, such as `"NRC_HOME-ONOFF"` (which is the same as `home`).
 
