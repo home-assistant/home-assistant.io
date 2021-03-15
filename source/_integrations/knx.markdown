@@ -80,18 +80,7 @@ knx:
 
 Please see the dedicated platform sections below about how to configure them correctly.
 
-Alternatively, if you want to use the [XKNX](https://xknx.io/) library abstraction (e.g., to re-use the configuration also for other scripted tools outside of Home Assistant):
-
-```yaml
-knx:
-  config_file: "/path/to/xknx.yaml"
-```
-
 {% configuration %}
-config_file:
-  description: The path for XKNX configuration file. See [xknx.io](https://xknx.io/configuration) for details.
-  required: false
-  type: string
 individual_address:
   description: The KNX individual address (IA) that shall be used for routing or if a tunneling server doesn't assign an IA at connection.
   required: false
