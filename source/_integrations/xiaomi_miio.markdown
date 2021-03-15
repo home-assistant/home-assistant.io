@@ -238,6 +238,14 @@ These subdevices are fully implemented in HomeAssistant:
 | -------------------------------- | ----------------------- | --------------- | ------------------------------------------------ |
 | Weather sensor                   | lumi.sensor_ht          | WSDCGQ01LM      | readout `temperature` and `humidity`             |
 | Weather sensor                   | lumi.weather.v1         | WSDCGQ11LM      | readout `temperature`, `humidity` and `pressure` |
+| Smart bulb E27                   | lumi.light.aqcn02       | ZNLDP12LM       | on/off, brightness, color temperature            |
+| IKEA smart bulb E27 white        | ikea.light.led1545g12   | LED1545G12      | on/off, brightness, color temperature            |
+| IKEA smart bulb E27 white        | ikea.light.led1546g12   | LED1546G12      | on/off, brightness, color temperature            |
+| IKEA smart bulb E12 white        | ikea.light.led1536g5    | LED1536G5       | on/off, brightness, color temperature            |
+| IKEA smart bulb GU10 white       | ikea.light.led1537r6    | LED1537R6       | on/off, brightness, color temperature            |
+| IKEA smart bulb E27 white        | ikea.light.led1623g12   | LED1623G12      | on/off, brightness, color temperature            |
+| IKEA smart bulb GU10 white       | ikea.light.led1650r5    | LED1650R5       | on/off, brightness, color temperature            |
+| IKEA smart bulb E12 white        | ikea.light.led1649c5    | LED1649C5       | on/off, brightness, color temperature            |
 
 ### Recognized subdevices (not yet implemented)
 
@@ -284,14 +292,6 @@ These subdevices are recognized by the python-miio code but are still being work
 | Door lock S2                     | lumi.lock.acn02         | ZNMS12LM        |
 | Door lock S2 pro                 | lumi.lock.acn03         | ZNMS13LM        |
 | Vima cylinder lock               | lumi.lock.v1            | A6121           |
-| Smart bulb E27                   | lumi.light.aqcn02       | ZNLDP12LM       |
-| IKEA smart bulb E27 white        | ikea.light.led1545g12   | LED1545G12      |
-| IKEA smart bulb E27 white        | ikea.light.led1546g12   | LED1546G12      |
-| IKEA smart bulb E12 white        | ikea.light.led1536g5    | LED1536G5       |
-| IKEA smart bulb GU10 white       | ikea.light.led1537r6    | LED1537R6       |
-| IKEA smart bulb E27 white        | ikea.light.led1623g12   | LED1623G12      |
-| IKEA smart bulb GU10 white       | ikea.light.led1650r5    | LED1650R5       |
-| IKEA smart bulb E12 white        | ikea.light.led1649c5    | LED1649C5       |
 | Thermostat S2                    | lumi.airrtc.tcpecn02    | KTWKQ03ES       |
 
 ## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
