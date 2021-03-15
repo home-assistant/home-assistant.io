@@ -26,7 +26,9 @@ notify:
     platform: xmpp
     sender: YOUR_JID
     password: YOUR_JABBER_ACCOUNT_PASSWORD
-    recipient: YOUR_RECIPIENT
+    recipient:
+      - YOUR_RECIPIENT 1
+      - YOUR_RECIPIENT 2
 ```
 
 {% configuration %}
@@ -49,9 +51,9 @@ password:
   required: true
   type: string
 recipient:
-  description: The Jabber ID (JID) that will receive the messages.
+  description: The Jabber IDs (JID) that will receive the messages.
   required: true
-  type: string
+  type: [string, list]
 tls:
   description: Force TLS.
   required: false

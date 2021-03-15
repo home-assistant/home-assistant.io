@@ -24,11 +24,12 @@ Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.
 
 We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/master/templates/).
 
-The frontend has a template editor tool to help develop and debug templates. Navigate to Developer Tools > Template, create your template in the _Template editor_ and check the results on the right.
+The frontend has a {% my developer_templates title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_templates title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
 {% raw %}
+
 ```yaml
 script:
   msg_who_is_home:
@@ -42,6 +43,7 @@ script:
               Paulus is at {{ states('device_tracker.paulus') }}.
             {% endif %}
 ```
+
 {% endraw %}
 
 ### Important Template Rules
@@ -87,20 +89,24 @@ Besides the normal [state object methods and properties](/topics/state_object/),
 The next two statements result in the same value if the state exists. The second one will result in an error if the state does not exist.
 
 {% raw %}
+
 ```text
 {{ states('device_tracker.paulus') }}
 {{ states.device_tracker.paulus.state }}
 ```
+
 {% endraw %}
 
 Print out a list of all the sensor states:
 
 {% raw %}
+
 ```text
 {% for state in states.sensor %}
   {{ state.entity_id }}={{ state.state }},
 {% endfor %}
 ```
+
 {% endraw %}
 
 Other state examples:
@@ -128,8 +134,8 @@ Other state examples:
 {{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
 
 {{ as_local(states.sensor.time.last_changed) }}
-
 ```
+
 {% endraw %}
 
 ### Attributes
@@ -141,6 +147,7 @@ You can print an attribute with `state_attr` if state is defined.
 #### Attributes examples
 
 {% raw %}
+
 ```text
 {% if states.device_tracker.paulus %}
   {{ state_attr('device_tracker.paulus', 'battery') }}
@@ -148,11 +155,13 @@ You can print an attribute with `state_attr` if state is defined.
   ??
 {% endif %}
 ```
+
 {% endraw %}
 
 With strings:
 
 {% raw %}
+
 ```text
 {% set tracker_name = "paulus"%}
 
@@ -162,6 +171,7 @@ With strings:
   ??
 {% endif %}
 ```
+
 {% endraw %}
 
 ### Working with Groups
@@ -173,22 +183,26 @@ The `expand` function and filter can be used to sort entities and expand groups.
 #### Expand examples
 
 {% raw %}
+
 ```text
 {% for tracker in expand('device_tracker.paulus', 'group.child_trackers') %}
   {{ state_attr(tracker, 'battery') }}
   {%- if not loop.last %}, {% endif -%}
 {% endfor %}
 ```
+
 {% endraw %}
 
 The same thing can also be expressed as a filter:
 
 {% raw %}
+
 ```text
 {{ expand(['device_tracker.paulus', 'group.child_trackers']) 
   | selectattr("attributes.battery", 'defined')
   | join(', ', attribute="attributes.battery") }}
 ```
+
 {% endraw %}
 
 ### Time
@@ -208,10 +222,12 @@ The same thing can also be expressed as a filter:
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
    {% raw %}
+
    ```yaml
    # 77 minutes before curret time. 
    {{ now() - timedelta( hours = 1, minutes = 17 ) }} 
    ```
+
    {% endraw %}
 
 - Filter `timestamp_local` converts an UNIX timestamp to its string representation as date/time in your local timezone.
@@ -219,13 +235,13 @@ The same thing can also be expressed as a filter:
 - Filter `timestamp_custom(format_string, local_time=True)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).  
 
 <div class='note'>
-	
+
 [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
 
 </div>
 
 <div class='note warning'>
-	
+
 If your template is returning a timestamp that should be displayed in the frontend (e.g., as a sensor entity with `device_class: timestamp`), you have to ensure that it is the ISO 8601 format (meaning it has the "T" separator between the date and time portion). Otherwise, frontend rendering on macOS and iOS devices will show an error. The following value template would result in such an error:
 
 {% raw %}
@@ -245,9 +261,11 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 </div>
 
 {% raw %}
+
 ```yaml
 {{ 120 | timestamp_local }}
 ```
+
 {% endraw %}
 
 ### To/From JSON
@@ -263,20 +281,24 @@ In this example, the special character '°' will be automatically escaped in ord
 *Template*
 
 {% raw %}
+
 ```text
 {% set temp = {'temperature': 25, 'unit': '°C'} %}
 stringified object: {{ temp }}
 object|to_json: {{ temp|to_json }}
 ```
+
 {% endraw %}
 
 *Output*
 
 {% raw %}
+
 ```text
 stringified object: {'temperature': 25, 'unit': '°C'}
 object|to_json: {"temperature": 25, "unit": "\u00b0C"}
 ```
+
 {% endraw %}
 
 Conversely, `from_json` can be used to de-serialize a JSON string back into an object to make it possible to easily extract usable data.
@@ -284,18 +306,22 @@ Conversely, `from_json` can be used to de-serialize a JSON string back into an o
 *Template*
 
 {% raw %}
+
 ```text
 {% set temp = '{"temperature": 25, "unit": "\u00b0C"}'|from_json %}
 The temperature is {{ temp.temperature }}{{ temp.unit }}
 ```
+
 {% endraw %}
 
 *Output*
 
 {% raw %}
+
 ```text
 The temperature is 25°C
 ```
+
 {% endraw %}
 
 ### Distance
@@ -311,6 +337,7 @@ If only one location is passed in, Home Assistant will measure the distance from
 
 {% raw %}
 ```text
+
 Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
 
 Using State: {{ distance(states.device_tracker.paulus) }}
@@ -319,6 +346,7 @@ These can also be combined in any combination:
 {{ distance(123.45, 123.45, 'device_tracker.paulus') }}
 {{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}
 ```
+
 {% endraw %}
 
 #### Closest examples
@@ -326,35 +354,42 @@ These can also be combined in any combination:
 The closest function and filter will find the closest entity to the Home Assisant location:
 
 {% raw %}
+
 ```text
 Query all entities: {{ closest(states) }}
 Query all entities of a specific domain: {{ closest(states.device_tracker) }}
 Query all entities in group.children: {{ closest('group.children') }}
 Query all entities in group.children: {{ closest(states.group.children) }}
 ```
+
 {% endraw %}
 
 Find entities closest to a coordinate or another entity. All previous arguments still apply for second argument.
 
 {% raw %}
+
 ```text
 Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
 Closest to an entity: {{ closest('zone.school', 'group.children') }}
 Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
 ```
+
 {% endraw %}
 
 Since closest returns a state, we can combine it with distance too.
 
 {% raw %}
+
 ```text
 {{ closest(states).name }} is {{ distance(closest(states)) }} kilometers away.
 ```
+
 {% endraw %}
 
 The last argument of the closest function has an implicit `expand`, and can take any iterable sequence of states or entity IDs, and will expand groups:
 
 {% raw %}
+
 ```text
 Closest out of given entities: 
     {{ closest(['group.children', states.device_tracker]) }}
@@ -364,7 +399,11 @@ Closest to some entity:
     {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
 ```
 
+{% endraw %}
+
 It will also work as a filter over an iterable group of entities or groups:
+
+{% raw %}
 
 ```text
 Closest out of given entities: 
@@ -441,9 +480,11 @@ This means that if the incoming values looks like the sample below:
 The template for `on` would be:
 
 {% raw %}
+
 ```yaml
 '{{value_json.on}}'
 ```
+
 {% endraw %}
 
 Nested JSON in a response is supported as well:
@@ -464,42 +505,49 @@ Nested JSON in a response is supported as well:
 Just use the "Square bracket notation" to get the value.
 
 {% raw %}
+
 ```yaml
 "{{ value_json['values']['temp'] }}"
 ```
+
 {% endraw %}
 
 The following overview contains a couple of options to get the needed values:
+
+{% raw %}
 
 ```text
 # Incoming value:
 {"primes": [2, 3, 5, 7, 11, 13]}
 
 # Extract third prime number
-{% raw %}{{ value_json.primes[2] }}{% endraw %}
+{{ value_json.primes[2] }}
 
 # Format output
-{% raw %}{{ "%+.1f" | value_json }}{% endraw %}
+{{ "%+.1f" | value_json }}
 
 # Math
-{% raw %}{{ value_json | float * 1024 }}{% endraw %}
-{% raw %}{{ float(value_json) * (2**10) }}{% endraw %}
-{% raw %}{{ value_json | log }}{% endraw %}
-{% raw %}{{ log(1000, 10) }}{% endraw %}
-{% raw %}{{ sin(pi / 2) }}{% endraw %}
-{% raw %}{{ cos(tau) }}{% endraw %}
-{% raw %}{{ tan(pi) }}{% endraw %}
-{% raw %}{{ sqrt(e) }}{% endraw %}
+{{ value_json | float * 1024 }}
+{{ float(value_json) * (2**10) }}
+{{ value_json | log }}
+{{ log(1000, 10) }}
+{{ sin(pi / 2) }}
+{{ cos(tau) }}
+{{ tan(pi) }}
+{{ sqrt(e) }}
 
 # Timestamps
-{% raw %}{{ value_json.tst | timestamp_local }}{% endraw %}
-{% raw %}{{ value_json.tst | timestamp_utc }}{% endraw %}
-{% raw %}{{ value_json.tst | timestamp_custom('%Y' True) }}{% endraw %}
+{{ value_json.tst | timestamp_local }}
+{{ value_json.tst | timestamp_utc }}
+{{ value_json.tst | timestamp_custom('%Y' True) }}
 ```
 
-To evaluate a response, go to **Developer Tools** -> **Template**, create your output in "Template editor", and check the result.
+{% endraw %}
+
+To evaluate a response, go to **{% my developer_templates title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
 
 {% raw %}
+
 ```yaml
 {% set value_json=
     {"name":"Outside",
@@ -511,6 +559,7 @@ To evaluate a response, go to **Developer Tools** -> **Template**, create your o
 
 {{value_json.data.hum[:-1]}}
 ```
+
 {% endraw %}
 
 ## Some more things to keep in mind
@@ -524,9 +573,11 @@ If your template uses an `entity_id` that begins with a number (example: `states
 The default priority of operators is that the filter (`|`) has priority over everything except brackets. This means that:
 
 {% raw %}
+
 ```yaml
 {{ states('sensor.temperature') | float / 10 | round(2) }}
 ```
+
 {% endraw %}
 
 Would round `10` to 2 decimal places, then divide `states('sensor.temperature')` by `10` (rounded to 2 decimal places so 10.00). This behavior is maybe not the one expected, but priority rules imply that.

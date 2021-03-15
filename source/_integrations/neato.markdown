@@ -37,7 +37,7 @@ There is support for the following platform types within Home Assistant:
 
 You will have to enter a name, a description and your redirect URL.
 
-If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`. 
+If Home Assistant runs on `https://hass.example.com` your redirect URL would be `https://hass.example.com/auth/external/callback`.
 
 Please note that your instance must be accessible via HTTPS. However, your instance does not need to be exposed to the Internet.
 
@@ -132,3 +132,7 @@ Please check your logs if there are any warnings. When there is a message about 
 ### There is a warning about a bad response but everything works as expected
 
 Do you have a stale robot in your configuration? Try to [look into your account](https://neatorobotics.com) and delete any stale robots. If these warnings are about actively used robots, please report an issue to help us solving this problem.
+
+### Server got itself in trouble
+
+If you see this message after trying to set up Neato, please check if the setup still worked or not. If not, try again and make sure you start the process only once. Do not click the "Open External Page" button if a page has already opened by itself. Be patient and wait for the setup to complete.

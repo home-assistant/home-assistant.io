@@ -50,8 +50,6 @@ To use SSL to connect to the API (via `api-ssl` instead of `api` service) furthe
 /ip service enable api-ssl
 ```
 
-Then add `verify_ssl: true` to `mikrotik` device tracker entry in your `configuration.yaml` file.
-
 If everything is working fine you can disable the pure `api` service in RouterOS:
 
 ```bash

@@ -109,7 +109,7 @@ automation:
         to: "None"
     action:
       service: media_player.turn_off
-      data:
+      target:
         entity_id: >
             {% if is_state("input_select.radio_player", "Mansarda") %}
               media_player.bed_2
@@ -133,7 +133,7 @@ automation:
         entity_id: input_select.radio_station
     action:
       - service: media_player.play_media
-        data:
+        target:
           entity_id: >
             {% if is_state("input_select.radio_player", "Mansarda") %}
               media_player.bed_2
@@ -150,6 +150,7 @@ automation:
             {% else %}
               none
             {% endif %}
+        data:
           media_content_id: >
             {% if is_state("input_select.radio_station", "Z88.3") %}
               http://ice.zradio.org/z/high.mp3

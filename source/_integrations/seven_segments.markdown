@@ -13,9 +13,7 @@ ha_codeowners:
 
 The `seven_segments` image processing platform allows you to read physical seven segments displays through Home Assistant. [`ssocr`](https://www.unix-ag.uni-kl.de/~auerswal/ssocr/) is used to extract the value shown on the display which is observed by a [camera](/integrations/camera/).
 
-## Home Assistant Core Requirements
-
-If you are running Home Assistant Core in a Python virtual environment, you need to ensure the following requirements are met.
+{% details "Notes for Home Assistant Core Installations" %}
 
 `ssocr` needs to be available on your system. Check the installation instruction below:
 
@@ -29,6 +27,8 @@ make
 sudo make PREFIX=/usr install # On most systems
 make deb # (Optional) This allows you to make a deb so that you apt is aware of ssocr
 ```
+
+{% enddetails %}
 
 ## Configuration
 

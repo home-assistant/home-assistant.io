@@ -20,6 +20,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
+  - weather
 ---
 
 The `template` platform supports sensors which get their values from other entities.

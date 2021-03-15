@@ -13,9 +13,17 @@ This integration allows you to track and control various light bulbs. Read the i
 
 ### Default turn-on values
 
-To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv` (as described below in the `profile` attribute of `light.turn_on`).
+To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find `configuration.yaml`. 
 
-The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `id` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
+The `light_profiles.csv` has to have a header. The format of the header is:
+
+```txt
+profile,color_x,color_y,brightness,transition
+```
+
+The field transition is optional and can be omitted.
+
+The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `profile` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
 
 ### Service `light.turn_on`
 
@@ -59,8 +67,9 @@ automation:
       to: "on"
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.living_room
+      data:
         brightness: 255
         kelvin: 2700
 ```
@@ -73,8 +82,9 @@ automation:
     platform: time
   action:
     - service: light.turn_on
-      data:
+      target:
         entity_id: light.ledliststair
+      data:
         brightness: 130
         rgb_color: [255,0,0]
 ```

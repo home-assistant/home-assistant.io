@@ -173,6 +173,6 @@ For example:
       to: "on"
   action:
       service: input_boolean.turn_on
-      data:
+      target:
         entity_id: input_boolean.movement_detected
 ```

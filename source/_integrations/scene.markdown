@@ -116,8 +116,9 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    data:
+    target:
       entity_id: scene.romantic
+    data:
       transition: 2.5
 ```
 
@@ -176,11 +177,12 @@ The following example turns off some entities as soon as a window opens. The sta
       - climate.ecobee
       - light.ceiling_lights
   - service: light.turn_off
-    data:
+    target:
       entity_id: light.ceiling_lights
   - service: climate.set_hvac_mode
-    data:
+    target:
       entity_id: climate.ecobee
+    data:
       hvac_mode: "off"
 - alias: "Window closed"
   trigger:
@@ -191,6 +193,6 @@ The following example turns off some entities as soon as a window opens. The sta
   condition: []
   action:
   - service: scene.turn_on
-    data:
+    target:
       entity_id: scene.before
 ```

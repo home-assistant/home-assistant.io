@@ -16,7 +16,7 @@ ha_platforms:
   - sensor
 ---
 
-The `asuswrt` integration is the main integration to connect to a [ASUSWRT](https://www.asus.com/ASUSWRT/) based router.
+The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -57,7 +57,7 @@ It is possible to change some behaviors through the integration options. These c
 - **Dnsmasq**: The location in the router of the dnsmasq.leases files
 - **Require IP**: If devices must have IP (this option is available only for access point mode)
 
-**Note**: if you don't want to automatically track new detected device, disable the integration system option `Enable new added entities` 
+**Note**: if you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
 
 ## Padavan custom firmware (The rt-n56u project)
 

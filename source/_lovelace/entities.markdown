@@ -139,12 +139,12 @@ name:
 format:
   required: false
   description: "How the attribute value should be formatted. Currently only supported for timestamp attributes. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
-  type: string  
+  type: string
 {% endconfiguration %}
 
 ### Button
 
-Row with an (optional) icon, label and a single text button at the end of the row that can trigger a defined action. 
+Row with an (optional) icon, label and a single text button at the end of the row that can trigger a defined action.
 
 {% configuration %}
 type:
@@ -356,6 +356,16 @@ icon:
   description: "Icon to display (e.g., `mdi:home`)."
   type: string
   default: "`mdi:link`"
+new_tab:
+  required: false
+  description: Open link in new tab. If link is external URL or a download link, this will automatically be true. Use if internal URL should be opened in new tab.
+  type: boolean
+  default: false
+download:
+  required: false
+  description: Is link a download?
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Examples
@@ -417,7 +427,7 @@ entities:
     name: Bed light transition
     action_name: Toggle light
     tap_action:
-      type: call-service
+      action: call-service
       service: light.toggle
       service_data:
         entity_id: light.bed_light
@@ -433,7 +443,7 @@ entities:
     conditions:
       - entity: sun.sun
         state: above_horizon
-    row: 
+    row:
       entity: sun.sun
       type: attribute
       attribute: azimuth

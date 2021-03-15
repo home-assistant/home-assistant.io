@@ -4,6 +4,7 @@ description: Instructions on how to set up VeSync switches, outlets, and fans wi
 ha_category:
   - Switch
   - Fan
+  - Light
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: vesync
 ha_platforms:
   - fan
+  - light
   - switch
 ---
 
@@ -25,6 +27,7 @@ The following platforms are supported:
 
 - **switch**
 - **fan**
+- **light**
 
 ## Supported Devices
 
@@ -41,6 +44,8 @@ This integration supports devices controllable by the VeSync App.  The following
 ### Switches
 
 - Etekcity In Wall Smart Switch (EWSL01-USA)
+- Etekcity Wifi Dimmer Switch (ESD16)
+- Etekcity Wifi Dimmer Switch (ESWD16)
 
 ### Fans
 

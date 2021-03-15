@@ -6,6 +6,10 @@
     {%- else -%}
       <img src='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo.png' srcset='https://brands.home-assistant.io/_/{{ page.ha_domain }}/logo@2x.png 2x' />
     {%- endif -%}
+
+    {%- if page.ha_config_flow and page.ha_domain -%}
+      {% my config_flow_start badge domain=page.ha_domain %}
+    {%- endif -%}
   </div>
 
   {%- if page.ha_domain -%}
@@ -39,12 +43,6 @@
   {%- if page.ha_release -%}
     <div class='section'>
       Introduced in release: {{ page.ha_release }}
-    </div>
-  {%- endif -%}
-
-  {%- if page.ha_config_flow -%}
-    <div class='section'>
-      This integration is configurable via UI
     </div>
   {%- endif -%}
 

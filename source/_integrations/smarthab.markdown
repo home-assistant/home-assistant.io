@@ -29,4 +29,3 @@ Assistant.
   access to your home. You can then configure the integration using this account's
   credentials. This is also more secure, as this user should be less priviledged.
 </div>
-

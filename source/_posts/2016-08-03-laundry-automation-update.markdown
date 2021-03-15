@@ -105,7 +105,7 @@ script:
           message: "The washing machine has finished its cycle, please empty it!"
       - alias: "Living Room Lights Blue"
         service: scene.turn_on
-        data:
+        target:
           entity_id: scene.blue
 ```
 

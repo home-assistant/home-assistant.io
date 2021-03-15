@@ -10,6 +10,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: lyric
+ha_quality_scale: silver
+ha_platforms:
+  - climate
+  - sensor
+ha_dhcp: true
 ---
 
 The Honeywell Lyric component integrates the Lyric thermostat platform into Home Assistant.
@@ -34,12 +39,7 @@ lyric:
 
 You can then add the integration in the frontend.
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Honeywell Lyric**.
-Log in with your Honeywell Lyric account and agree to the terms. The Honeywell Lyric integration will then be available.
+{% include integrations/config_flow.md %}
 
 ## Sensors
 

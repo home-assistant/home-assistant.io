@@ -10,6 +10,7 @@ ha_codeowners:
   - '@JohNan'
 ha_domain: plaato
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 

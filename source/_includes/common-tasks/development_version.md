@@ -51,7 +51,7 @@ ha os update --version {{current_version}}
 3. Download and install the version you want
 
     ```bash
-    pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
+    pip3 install --upgrade git+git://github.com/home-assistant/core.git@dev
     ```
 
 4. When that is complete restart the service for it to use the new files.

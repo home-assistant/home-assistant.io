@@ -1541,7 +1541,7 @@ is automatically imported after upgrading and can be safely removed afterward.
 - Improve handling of ignored entries ([@balloob] - [#42148]) ([hue docs]) ([progettihwsw docs]) ([tradfri docs])
 - Use the beautiful ambient light icon ([@dermotduffy] - [#42153]) ([hyperion docs])
 - Upgrade sentry-sdk to 0.19.1 ([@frenck] - [#42132]) ([sentry docs])
-- Handle Fritz exception and log warning ([@JPHutchins] - [#42145]) ([fritz docs]) ([open_energy_view docs])
+- Handle Fritz exception and log warning ([@JPHutchins] - [#42145]) ([fritz docs])
 - Fix pico tts errors ([@KevinCathcart] - [#41619]) ([tts docs])
 - Add async_setup_entry to calendar platform ([@Olen] - [#42075]) ([calendar docs])
 - Bump aioshelly library to 0.4.0 ([@bieniu] - [#41905]) ([shelly docs])
@@ -2738,7 +2738,6 @@ is automatically imported after upgrading and can be safely removed afterward.
 [omnilogic docs]: /integrations/omnilogic/
 [onewire docs]: /integrations/onewire/
 [onvif docs]: /integrations/onvif/
-[open_energy_view docs]: /integrations/open_energy_view/
 [openhardwaremonitor docs]: /integrations/openhardwaremonitor/
 [openhome docs]: /integrations/openhome/
 [openuv docs]: /integrations/openuv/

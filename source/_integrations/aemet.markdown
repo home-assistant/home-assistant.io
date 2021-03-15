@@ -10,6 +10,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@noltari'
 ha_domain: aemet
+ha_platforms:
+  - sensor
+  - weather
 ---
 
 The AEMET weather platform uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.

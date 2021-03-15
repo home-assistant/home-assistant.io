@@ -47,8 +47,9 @@ For example, the following action in an automation would take a recording from `
 ```yaml
 action:
   service: camera.record
-  data:
+  target:
     entity_id: camera.quintal
+  data:
     filename: "/config/www/my_stream.mp4"
     duration: 30
 ```

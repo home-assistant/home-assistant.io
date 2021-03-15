@@ -116,15 +116,17 @@ script:
     alias: "Radio Paradise Porch"
     sequence:
       - service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
       - service: media_player.volume_set
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
+        data:
           volume_level: 0.48
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.living_room_stereo_zone_2
+        data:
           media_content_type: "NET RADIO"
           media_content_id: "Bookmarks>Internet>Radio Paradise"
 

@@ -6,7 +6,6 @@ div.details-block {
     background-color: white;
     padding: 4px 16px;
     margin: 8px;
-    cursor: pointer;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
 
@@ -14,6 +13,7 @@ div.details-block {
       font-weight: bold;
       font-size: 18px;
       line-height: 21px;
+      cursor: pointer;
       height: 54px;
       justify-content: space-between;
       display: flex;

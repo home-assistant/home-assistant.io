@@ -952,6 +952,20 @@ the quality of matches.
   </p>
 </details>
 
+<details>
+  <summary><b>Obihai</b></summary>
+  <p>
+
+The `last_caller_info` sensor now has the leading `'' ` (quotes and space) removed
+as those were not needed and were randomly provided by the Obihai device.
+
+So previously the state would be `'' 8185551212` now it is `8185551212`
+
+([@dshokouhi] - [#44768])
+
+  </p>
+</details>
+
 ## Farewell to the following
 
 The following integrations have been removed:
@@ -2034,7 +2048,7 @@ The following integrations have been removed:
 [frontend docs]: /integrations/frontend/
 [generic_thermostat docs]: /integrations/generic_thermostat/
 [gogogate2 docs]: /integrations/gogogate2/
-[google docs]: /integrations/google/
+[google docs]: /integrations/calendar.google/
 [google_assistant docs]: /integrations/google_assistant/
 [google_cloud docs]: /integrations/google_cloud/
 [google_maps docs]: /integrations/google_maps/

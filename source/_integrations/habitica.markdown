@@ -9,26 +9,38 @@ ha_iot_class: Cloud Polling
 ha_domain: habitica
 ha_platforms:
   - sensor
+ha_codeowners:
+  - '@ASMfreaK'
+  - '@leikoilja'
+ha_config_flow: true
 ---
 
 This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- Sensor - Allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant.
+Player data: allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
-The sensors will automatically appear, after setup the Habitica component.
+- Player's name
+- Player's health points
+- Player's max health
+- Player's manna points
+- Player's max manna points
+- Player's experience
+- Player's experience to the next level
+- Player's level
+- Player's gold pieces
+- Player's class
 
-To use the integration you should use this example configuration:
+Tasks: allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
-```yaml
-# Minimum viable configuration.yaml entry
-habitica:
-  - api_user: YOUR_USER_ID
-    api_key: YOUR_API_KEY
-```
+- Habits
+- Daily tasks
+- Todo tasks
+- Rewards
 
-You can specify several users, providing `api_user` and `api_key` for each.
+{% include integrations/config_flow.md %}
+
 At runtime you will be able to use API for each respective user by their Habitica's username.
 You can override this by passing `name` key, this value will be used instead of the username.
 If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
@@ -52,11 +64,6 @@ url:
   required: false
   type: string
   default: https://habitica.com
-sensors:
-  description: List of sensors to generate for this user. If you don't specify this entry then the default (all sensors) will be generated. If you specify this entry empty then no sensors will be generated.
-  required: false
-  type: list
-  default: all (`name`, `hp`, `maxHealth`, `mp`, `maxMP`, `exp`, `toNextLevel`, `lvl`, `gp`, `class`)
 {% endconfiguration %}
 
 ### API Service Parameters

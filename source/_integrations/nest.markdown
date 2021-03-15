@@ -85,17 +85,19 @@ Project**. Note: This is a different type of project from the Device Access proj
 1. Give your API Project a name then click **Create**. Note: You can ignore the *Project ID* here as Home Assistant does not need it.
 
 1. Click *OAuth consent screen* and make sure you have that configured, otherwise you can do that now...
-   - Ensure that the ***Publishing status*** is **In Production** and not **Testing**!
     ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
 
-1. Select **External** (the only choice if you are not a G-Suite user) then click **Create**.  While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
+1. Select **External** (the only choice if you are not a G-Suite user) then click **Create**. While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
 
-1. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**.
+1. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**. Omit unnecessary information (e.g. logo) to avoid additional review by Google.
 
 1. On the *Scopes* step click **Save and Continue**.
 
 1. On the *Test Users* step, you need to add your Google Account (e.g., your @gmail.com address) to the list. Click *Save* on your test account then **Save and Continue** to finish the consent flow.
     ![Screenshot of OAuth consent screen test users](/images/integrations/nest/oauth_consent_test_users.png)
+
+1. Navigate back to the *OAuth consent screen* and click **Publish App** to set the *Publishing status* is *In Production* and not *Testing*. The warning says your *app will be available to any user with a Google Account* which refers to the fields you entered on the *App Information* screen if someone finds the URL. This does not expose your Google Account or Nest data.
+    ![Screenshot of OAuth consent screen production status](/images/integrations/nest/oauth_consent_production_status.png)
 
 1. Navigate to the **Credentials** page and click **Create Credentials**.
     ![Screenshot of APIs and Services Cloud Console](/images/integrations/nest/create_credentials.png)
@@ -219,6 +221,17 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - For general trouble with the SDM API OAuth authorization flow with Google, see [Troubleshooting](https://developers.google.com/nest/device-access/authorize#troubleshooting).
 
+- Check **Configuration** then **Logs** to see if there are any error messages or misconfigurations then see the error messages below.
+
+- *Reauthentication required often*: If you are frequently getting logged out, this means your authentication token was revoked by Google. This most likely reason is the *OAuth Consent Screen* is set to *Testing* by default which expires the token after 7 days. Follow the steps above to set it to *Production* to resolve this and reauthorize your integration one more time to get a new token. You may also see this as the error message *invalid_grant: Token has been expired or revoked*.  See [Google Identity: Refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration) for more reasons on why your token may have expired. 
+
+- *Thermostat does not appear or is unavailable* happens due to a bug where the SDM API does return the devices. A common fix get the API to work again is to:
+    - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
+    - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
+    - Reload the integration in Home Assistant:  Navigate to **Configuration** then **Integrations**, click `...` next to *Nest* and choose **Reload**.
+
+- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
+
 - *Error 400: redirect_uri_mismatch* means that your OAuth Client ID is not configured to match your Home Assistant URL.
 
     - To resolve this, copy and paste the redirect URI in the error message (`https://<your_home_assistant_url>:<port>/auth/external/callback`).
@@ -243,17 +256,11 @@ everything, however, you can leave out any feature you do not wish to use with H
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
-- *No devices or entities are created* if the SDM API is not returning any devices for the authorized account. Double-check that GCP is configured correctly to [Enable the API](https://developers.google.com/nest/device-access/get-started#set_up_google_cloud_platform) and authorize at least one device in the OAuth setup flow. If you have trouble here, then you may want to walk through the Google instructions and issue commands directly against the API until you successfully get back the devices.
-
-- *Thermostat not created* may be resolved by restarting the *Nest Thermostat*. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
-
 - *Subscriber error: Subscription misconfigured. Expected subscriber_id to match...* means that the `configuration.yaml` has an incorrect `subscriber_id` field. Re-enter the the *Subscription Name* which looks like `projects/project-label-22ee1/subscriptions/SUBSCRIBER_ID`. Make sure this is not the *Topic name*.
 
 - *Subscriber error: Subscription misconfigured. Expected topic name to match ...* means that the topic name in the Google Cloud Console was entered incorrectly. The topic name comes from the Device Console and must start with `projects/sdm-prod/topics/`. It is easy to make the mistake of creating a new topic rather than manually entering the right topic name.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant susbcriber when everything is configured correctly.
-
-- *invalid_grant: Token has been expired or revoked* can mean the OAuth token was revoked by Google due to account changes like resetting a password. In addition, if the app is marked as "testing" and not "production" mode, the token may automatically expire after 7 days. Go to the project page to publish it to production mode.
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receivng the messages and working properly or not connected at all. Double check the `subscriber_id` matches the `Subscription Name`
 

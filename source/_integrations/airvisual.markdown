@@ -40,62 +40,15 @@ The integration can communicate to Node/Pro units over the local network. You wi
 
 {% include integrations/config_flow.md %}
 
-## Example Configurations
-
-No explicit configuration (using the cloud API and the `latitude` and `longitude` defined within `configuration.yaml`):
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-```
-
-Configuration using the cloud API and a single custom latitude and longitude:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        latitude: 42.81212
-        longitude: 108.12422
-```
-
-Configuration using the cloud API and multiple custom latitude and longitude pairs:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        - latitude: 42.81212
-          longitude: 108.12422
-        - latitude: 32.87336
-          longitude: -117.22743
-```
-
-Configuration using the cloud API and a single city, state, and country:
-
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        city: Los Angeles
-        state: California
-        country: USA
-```
-
 ## Determining the City/State/Country
 
-To easily determine the proper values for a particular location, use the [AirVisual region directory](https://www.iqair.com/world-air-quality). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`. Use this information to fill out `configuration.yaml`.
+In addition to using latitude and longitude, the AirVisual integration may be configured to use a city/state/country combination. To easily determine the proper values for a particular location, use the [AirVisual region directory](https://www.iqair.com/world-air-quality). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`.
 
-For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the proper configuration would look like this:
+For example, Sao Paulo, Brazil shows a breadcrumb title of `Brazil > Sao Paulo > Sao Paulo`. Thus, the values to use in the UI would be:
 
-```yaml
-airvisual:
-    api_key: YOUR_AIRVISUAL_API_KEY
-    geographies:
-        city: sao-paulo
-        state: sao-paulo
-        country: brazil
-```
+* City: `Sao Paulo`
+* State: `Sao Paulo`
+* Country: `Brazil`
 
 ## Sensor Types
 

@@ -2,38 +2,6 @@
   <body {% if page.body_id %} id="{{ page.body_id }}"{% endif %}>
 
     <header class='site-header'>
-
-      <div class="alert-banner" style="background: #FF9800;color: white;text-align: center;display: flex;justify-content: space-around;">
-        <div style="
-            display: flex;
-            align-items: center;
-            padding: 0 8px;
-        ">
-          Make sure you run at least Home Assistant Core 2021.1.5
-          <a href="/latest-security-alert" style="
-              background: white;
-              padding: 6px;
-              color: #FF9800;
-              margin-left: 8px;
-              font-size: .8em;
-              font-weight: 400;
-              border-radius: 4px;
-              letter-spacing: 0.05em;
-              display: flex;
-              align-items: center;
-              ">
-              MORE INFO 
-              <svg viewBox="0 0 24 24" style="
-                height: 20px;
-                fill: currentcolor;
-                flex-shrink: 0;
-                ">
-                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path>
-              </svg>
-          </a>
-        </div>
-     </div>
-
       {% include site/header.html %}
     </header>
     <div class="page-content">

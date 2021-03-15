@@ -14,6 +14,8 @@ by a
 of a device, an application, or a web service.
 The binary sensor has support for GET and POST requests.
 
+_Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
+
 The JSON messages can contain different values like `1`, `"1"`,
 `TRUE`, `true`, `on`, or `open`. If the value is nested then use a
 [template](/docs/configuration/templating/#processing-incoming-data).

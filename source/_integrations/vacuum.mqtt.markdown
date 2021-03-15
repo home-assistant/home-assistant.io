@@ -526,8 +526,9 @@ Service trigger example:
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
-      data:
+      target:
         entity_id: vacuum.vacuum_entity
+      data:
         command: "custom_command"
         params:
           - key: value
@@ -601,8 +602,9 @@ Service trigger example:
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
-      data:
+      target:
         entity_id: vacuum.vacuum_entity
+      data:
         command: "custom_command"
         params:
           - key: value

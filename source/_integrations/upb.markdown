@@ -218,8 +218,9 @@ kitchen_fade_on:
   description: "Turn on kitchen light to 75% over a period of 10 seconds"
   sequence:
     - service: upb.light_fade_start
-      data:
+      target:
         entity_id: light.kitchen
+      data:
         brightness_pct: 75
         rate: 10
 ```

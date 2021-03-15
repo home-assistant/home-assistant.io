@@ -191,24 +191,24 @@ blueprint:
             domain: light
 
 trigger:
-  platform: state
-  entity_id: !input motion_sensor
+  - platform: state
+    entity_id: !input motion_sensor
 
 action:
-  service: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target: !input target_light
+  - service: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: !input target_light
 ```
 
 {% endraw %}
 
 ## Use it via the UI
 
-To configure it via the UI, go to **Configuration** and then **Blueprints**. Find the "Motion Light Tutorial" blueprint and click on "Create Automation".
+To configure it via the UI, go to **{% my config %}** and then **{% my blueprints %}**. Find the "Motion Light Tutorial" blueprint and click on "Create Automation".
 
 <div class='note'>
 Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation integration pick up the latest blueprint changes.

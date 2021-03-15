@@ -85,8 +85,9 @@ Say to the `media_player.living_room` device entity:
 
 ```yaml
 - service: tts.watson_tts_say
-  data:
+  target:
     entity_id: media_player.living_room
+  data:
     message: >
       <speak>
           Hello from Watson

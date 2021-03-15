@@ -99,8 +99,9 @@ automation:
         media_content_id: "{{ tags[trigger.event.data.tag_id].media_content_id }}"
         media_content_type: "{{ tags[trigger.event.data.tag_id].media_content_type }}"
     - service: media_player.play_media
-      data:
+      target:
         entity_id: "{{ media_player_entity_id }}"
+      data:
         media_content_id: "{{ media_content_id }}"
         media_content_type: "{{ media_content_type }}"
     - delay: 2 # timeout before we allow processing next scan

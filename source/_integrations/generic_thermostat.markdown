@@ -88,7 +88,7 @@ precision:
   description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`. This value is also used as the step size for setting the target temperature."
   required: false
   type: float
-  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
+  default: "`0.1` for Celsius and `1.0` for Fahrenheit."
 {% endconfiguration %}
 
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.

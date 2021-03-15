@@ -13,11 +13,11 @@ Quick links:
 
 Automations based on a blueprint only need to be configured to be used. What needs to be configured differs on each blueprint.
 
-To create your first automation based on a blueprint, go to **Configuration** and then **Blueprints**. Find the blueprint that you want to use and click on "Create Automation".
+To create your first automation based on a blueprint, go to **{% my config %}** and then **{% my blueprints %}**. Find the blueprint that you want to use and click on "Create Automation".
 
 This will open the automation editor with the blueprint selected. Give it a name and configure the blueprint and click on the blue button "Save Automation" in the bottom right.
 
-Done! If you want to revisit the configuration values, you can find it by going to **Configuration** and then **Automations**.
+Done! If you want to revisit the configuration values, you can find it by going to **{% my config %}** and then **{% my automations %}**.
 
 ## Importing blueprints
 
@@ -29,7 +29,7 @@ To do this, first [find a blueprint you want to import][blueprint-forums]. If yo
 https://github.com/home-assistant/core/blob/dev/homeassistant/components/automation/blueprints/motion_light.yaml
 ```
 
-Go to **Configuration** and then **Blueprints**. Click on the blue "Import Blueprint" button in the bottom right.
+Go to **{% my config %}** and then **{% my blueprints %}**. Click on the blue "{% my blueprint_import blueprint="https://github.com/home-assistant/core/blob/master/homeassistant/components/automation/blueprints/motion_light.yaml" %} button in the bottom right.
 
 A new dialog will pop-up asking you for the URL. Enter the URL and click on "preview blueprint".
 

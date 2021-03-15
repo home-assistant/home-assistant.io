@@ -459,12 +459,16 @@ div.note {
 
   .brand-logo-container {
     text-align: center;
-    height: 87px;
     margin-top: 50px;
-    margin-bottom: 25px;
+    display: grid;
+    justify-items: center;
 
     img {
       max-height: 67px;
+    }
+
+    a.my img {
+      margin-top: 20px;
     }
   }
 }
@@ -635,15 +639,13 @@ code {
   padding: 0.1em 0.4em;
 }
 
-
 @media only screen and (max-width: $menu-collapse) {
   #not_found {
     .page {
       text-align: center;
-    
+
       .search404-container {
         margin-bottom: 32px;
-
       }
     }
   }
@@ -654,10 +656,10 @@ code {
     .page {
       text-align: center;
       margin-bottom: 300px;
-    
+
       .search404-container {
         margin-bottom: 32px;
-    
+
         #search404 {
           width: 420px;
         }
@@ -668,5 +670,11 @@ code {
       bottom: 0;
       width: 100%;
     }
+  }
+}
+
+a.my {
+  img {
+    border: 0px;
   }
 }

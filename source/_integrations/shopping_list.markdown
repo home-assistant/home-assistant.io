@@ -22,15 +22,35 @@ You can add or remove items from your shopping list by using the following servi
 
 ### Service `shopping_list.add_item`
 
+Adds an item to the shopping list.
+
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to add. Example: "Milk"               |
 
 ### Service `shopping_list.complete_item`
 
+Marks an item as completed in the shopping list. It does not remove the item.
+
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `name`                 |       no | Name of the item to mark as completed. Example: "Milk" |
+
+### Service `shopping_list.incomplete_item`
+
+Marks an item as incomplete in the shopping list.
+
+| Service data attribute | Optional | Description                                            |
+|------------------------|----------|--------------------------------------------------------|
+| `name`                 |       no | Name of the item to mark as incomplete. Example: "Milk" |
+
+### Service `shopping_list.complete_all`
+
+Marks all items as completed in the shopping list. It does not remove the items.
+
+### Service `shopping_list.incomplete_all`
+
+Marks all items as incomplete in the shopping list.
 
 ## Using in Automations
 

@@ -250,8 +250,9 @@ play_plex_on_tv:
       timeout: "00:00:10"
       continue_on_timeout: false
     - service: media_player.play_media
-      data:
+      target:
         entity_id: media_player.plex_smart_tv
+      data:
         media_content_id: "{"library_name": "Movies", "title": "Zoolander"}"
         media_content_type: movie
 ```

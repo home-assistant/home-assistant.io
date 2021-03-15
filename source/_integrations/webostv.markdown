@@ -149,15 +149,17 @@ The `play_media` service can be used in a script to switch to the specified TV c
 ```yaml
 # Example action entry in script to switch to channel number 1
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.lg_webos_smart_tv
+data:
   media_content_id: 1
   media_content_type: "channel"
 
 # Example action entry in script to switch to channel including 'TF1' in its name
 service: media_player.play_media
-data:
+target:
   entity_id: media_player.lg_webos_smart_tv
+data:
   media_content_id: "TF1"
   media_content_type: "channel"
 ```
@@ -207,15 +209,17 @@ script:
   home_button:
     sequence:
       - service: webostv.button
-        data:
+        target:
           entity_id:  media_player.lg_webos_smart_tv
+        data:
           button: "HOME"
 
   open_google_command:
     sequence:
       - service: webostv.command
-        data:
+        target:
           entity_id:  media_player.lg_webos_smart_tv
+        data:
           command: "system.launcher/open"
           payload:
             target: https://www.google.com

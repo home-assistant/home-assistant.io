@@ -105,9 +105,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2021
-current_minor_version: 2
-current_patch_version: 3
-date_released: 2021-02-11
+current_minor_version: 3
+current_patch_version: 4
+date_released: 2021-03-12
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -162,7 +162,6 @@ defaults:
     values:
       toc: true
 
-
 # Support for files Jekyll will normally exclude
 include:
   - "_headers"
@@ -175,11 +174,10 @@ toc:
   min_level: 2 # default: 1
   max_level: 3 # default: 6
 
-
 # Configuration for installation pages
 installation:
   versions:
-    os: "5.11"
+    os: "5.12"
     python: "3.8"
   types:
     odroid:

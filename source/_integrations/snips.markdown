@@ -153,8 +153,9 @@ intent_script:
   ActivateLightColor:
     action:
       - service: light.turn_on
-        data:
+        target:
           entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
+        data:
           color_name: "{{ objectColor }}"
 ```
 
@@ -236,7 +237,7 @@ intent_script:
       text: "OK, opening the garage door"
     action:
       - service: cover.open_cover
-        data:
+        target:
           entity_id: garage_door
 ```
 

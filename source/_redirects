@@ -2190,6 +2190,8 @@
 /docs/installation/raspberry-pi-all-in-one /getting-started
 /getting-started/hassbian /getting-started
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
+/docs/tools/keyring/ /docs/configuration/secrets
+/docs/tools/credstash/ /docs/configuration/secrets
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
@@ -2283,3 +2285,4 @@
 /components/sensor.coinmarketcap /more-info/removed-integration 301
 /components/coinmarketcap /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
+/integrations/griddy /more-info/removed-integration 301

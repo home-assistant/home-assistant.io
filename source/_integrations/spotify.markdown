@@ -83,7 +83,7 @@ modification to the `configuration.yaml` file is needed. Multiple Spotify
 accounts can be linked to a _single_ Spotify application.
 
 To add an additional Spotify account to Home Assistant, go to the Spotify website and log out, then repeat _only_ the steps
-in the [Activating the Spotify integration](#activating-the-spotify-integration) section. 
+in the [Configuration](#configuration) section. 
 
 ## Playing Spotify playlists
 
@@ -96,8 +96,9 @@ script:
   play_jazz_guitar:
     sequence:
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.spotify
+        data:
           media_content_id: "https://open.spotify.com/playlist/5xddIVAtLrZKtt4YGLM1SQ?si=YcvRqaKNTxOi043Qn4LYkg"
           media_content_type: playlist
 ```

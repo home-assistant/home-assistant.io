@@ -9,7 +9,7 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@snoof85'
+  - '@hacf-fr'
   - '@Quentame'
 ha_config_flow: true
 ha_domain: freebox

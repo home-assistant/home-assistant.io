@@ -24,35 +24,20 @@ ha_platforms:
   - water_heater
 ---
 
-The `hive` integration is the main integration to set up and integrate all supported Hive devices. Once configured with the minimum required details it will detect and add all Hive devices into Home Assistant, including support for multi-zone heating.
+The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
+[hivehome.com](https://www.hivehome.com)
 
-This integration uses the  Hive website [https://my.hivehome.com](https://my.hivehome.com) credentials, you will need to use the same username and password you use on the Hive website to configure this Hive integration in Home Assistant.
+This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2FA authentication is also supported. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
 
-To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-hive:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
 
-{% configuration %}
-username:
-  description: Your username from [https://my.hivehome.com](https://my.hivehome.com).
-  required: true
-  type: string
-password:
-  description: Your password from [https://my.hivehome.com](https://my.hivehome.com).
-  required: true
-  type: string
-scan_interval:
-  description: The time in minutes between Hive API calls
-  required: false
-  type: integer
-  default: 2
-{% endconfiguration %}
+## Options
 
+Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
+
+- **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 30 seconds).
+  
 ## Services
 
 ### Service `hive.boost_heating`

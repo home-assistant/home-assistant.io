@@ -14,6 +14,7 @@ ha_domain: wilight
 ha_quality_scale: silver
 ha_ssdp: true
 ha_platforms:
+  - cover
   - fan
   - light
 ---

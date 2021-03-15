@@ -1,6 +1,6 @@
 ---
 title: Flux
-description: Instructions on how to have switches call command line commands.
+description: Instructions on how to automate the color temperature of your lights based on the time of day with Home Assistant
 ha_category:
   - Automation
 ha_release: 0.21
@@ -17,7 +17,7 @@ The integration will update your lights based on the time of day. It will only a
 
 During the day (in between `start time` and `sunset time`), it will fade the lights from the `start_colortemp` to the `sunset_colortemp`.  After sunset (between `sunset_time` and `stop_time`), the lights will fade from the `sunset_colortemp` to the `stop_colortemp`. If the lights are still on after the `stop_time` it will continue to change the light to the `stop_colortemp` until the light is turned off. The fade effect is created by updating the lights periodically.
 
-The color temperature is specified kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
+The color temperature is specified in kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
 
 If you want to update at variable intervals, you can leave the switch turned off and use automation rules that call the service `switch.<name>_update` whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
 

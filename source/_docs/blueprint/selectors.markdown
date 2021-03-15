@@ -16,6 +16,7 @@ blueprint easier to use from the UI.
 The following selectors are currently available:
 
 - [Action selector](#action-selector)
+- [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
 - [Boolean selector](#boolean-selector)
 - [Device selector](#device-selector)
@@ -41,6 +42,23 @@ This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
 action:
+```
+
+## Add-on selector
+
+This can only be used on an installation with a Supervisor. For installations
+that do not have that, an error will be displayed.
+
+The add-on selector allows the user to input an add-on slug.
+On the user interface, it will list all installed add-ons and use the slug of the
+selected add-on.
+
+![Screenshot of an Add-on selector](/images/blueprints/selector-addon.png)
+
+This selector does not have any other options; therefore, it only has its key.
+
+```yaml
+addon:
 ```
 
 ## Area selector
@@ -225,9 +243,9 @@ entity:
 
 An example entity selector that, will only show devices that are:
 
-- Provided by the [deCONZ](/integration/deconz) integration.
+- Provided by the [deCONZ](/integrations/deconz) integration.
 - Are a Philips Hue Remote of Model RWL021.
-- Provide a battery [sensor](/integration/sensor).
+- Provide a battery [sensor](/integrations/sensor).
 
 And this is what is looks like in YAML:
 
@@ -286,8 +304,8 @@ device_class:
 
 An example entity selector that, will only show entities that are:
 
-- Provided by the [ZHA](/integration/zha) integration.
-- From the [Binary Sensor](/integration/binary_sensor) domain.
+- Provided by the [ZHA](/integrations/zha) integration.
+- From the [Binary Sensor](/integrations/binary_sensor) domain.
 - Have presented themselves as devices of a motion device class.
 
 And this is what it looks like in YAML:

@@ -6,6 +6,8 @@ ha_category:
 ha_release: 2021.3
 ha_domain: my
 ha_iot_class:
+ha_codeowners:
+  - '@home-assistant/core'
 ---
 
 This integration handles redirects from the [My Home Assistant](https://my.home-assistant.io) service.

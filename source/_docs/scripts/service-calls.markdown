@@ -95,13 +95,14 @@ Templates can also be used for the data that you pass to the service call.
 
 ```yaml
 service: thermostat.set_temperature
-data:
+target:
   entity_id: >
     {% if is_state('device_tracker.paulus', 'home') %}
       thermostat.upstairs
     {% else %}
       thermostat.downstairs
     {% endif %}
+data:
   temperature: {{ 22 - distance(states.device_tracker.paulus) }}
 ```
 

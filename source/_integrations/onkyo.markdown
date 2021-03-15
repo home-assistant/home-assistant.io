@@ -123,11 +123,12 @@ script:
     alias: "Radio 1"
     sequence:
       - service: media_player.turn_on
-        data:
+        target:
           entity_id: media_player.onkyo
       - service: media_player.play_media
-        data:
+        target:
           entity_id: media_player.onkyo
+        data:
           media_content_type: "radio"
           media_content_id: "1"
 ```

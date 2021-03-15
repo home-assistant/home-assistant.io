@@ -68,7 +68,7 @@ No settings are required in the `configuration.yaml` other than `wink:`.
 After adding `wink:` to your `configuration.yaml` and restarting Home Assistant you will see a persistent notification on the frontend with a `CONFIGURE` button that will guide you through the setup via the frontend configurator.
 
 <div class='note'>
-When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
+When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant instance, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
 </div>
 
 ```yaml
@@ -349,8 +349,9 @@ script:
   set_dial_1_value:
     sequence:
       - service: wink.set_nimbus_dial_state
-        data:
+        target:
           entity_id: wink.nimbus_dial_1
+        data:
           value: 150
           labels:
             - "Dial 1"
@@ -379,8 +380,9 @@ script:
   set_dial_1_value:
     sequence:
       - service: wink.set_nimbus_dial_state
-        data:
+        target:
           entity_id: wink.nimbus_dial_1
+        data:
           rotation: "ccw"
 ```
 

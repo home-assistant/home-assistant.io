@@ -53,7 +53,8 @@ script:
     alias: "Kitchen lights on"
     sequence:
       service: light.turn_on
-      data:
+      target:
         entity_id: light.kitchen_lights
+      data:
         brightness: 100
 ```

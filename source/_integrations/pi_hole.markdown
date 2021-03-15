@@ -19,15 +19,18 @@ ha_platforms:
   - switch
 ---
 
-The `pi_hole` integration allows you to retrieve statistics and interact with a [Pi-hole](https://pi-hole.net/) system.
+The Pi-hole integration allows you to retrieve statistics and interact with a
+[Pi-hole](https://pi-hole.net/) system.
 
 {% include integrations/config_flow.md %}
+
+Please note, that during the integration set up, an API key can be provided.
+Providing one, gives access to the Pi-Hole `disable` service and a switch
+to enable/disable Pi-Hole from Home Assistant.
 
 ## Services
 
 The platform provides the following services to interact with your Pi-hole. Use switch entities when calling the services.
-
-_Note: Switch entity requires `api_key` to be configured._
 
 ### Service `pi_hole.disable`
 

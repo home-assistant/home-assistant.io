@@ -1,7 +1,6 @@
 ---
 title: Pencom
 description: How to use Pencom Designs 8 channel relay boards.
-logo: pencom.png
 ha_category:
   - Switch
 ha_release: 0.85

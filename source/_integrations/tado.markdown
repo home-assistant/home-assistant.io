@@ -8,11 +8,13 @@ ha_category:
   - Water Heater
   - Presence Detection
   - Sensor
+  - Weather
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@michaelarnauts'
   - '@bdraco'
+  - '@noltari'
 ha_domain: tado
 ha_config_flow: true
 ha_homekit: true
@@ -33,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Water Heater - for water heater zones.
 - [Presence Detection](#presence-detection)
 - Sensor - for some additional information of the zones.
+- Weather - for information about the current weather at the location of your Tado home.
 
 {% include integrations/config_flow.md %}
 
@@ -152,13 +155,15 @@ script:
   boost_heating:
     sequence:
       - service: tado.set_climate_timer
-        data:
+        target:
           entity_id: climate.heating
+        data:
           time_period: "01:30:00"
           temperature: 25
       - service: tado.set_water_heater_timer
-        data:
+        target:
           entity_id: water_heater.hot_water
+        data:
           time_period: "01:30:00"
 ```
 
@@ -184,8 +189,9 @@ automation:
     # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
     action:
     - service: tado.set_climate_temperature_offset
-      data:
+      target:
         entity_id: climate.tado
+      data:
         offset: >
           {% set tado_temp = states('sensor.tado_temperature')|float %}
           {% set room_temp = states('sensor.temp_sensor_room')|float %}
