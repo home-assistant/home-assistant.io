@@ -144,10 +144,10 @@ automation:
 In March 2021 Verisure added new 2FA rules that aren't fully support through their third party API integration. If you have 2FA enabled (which is forced as default) You might not be able to use this integration. Here are some steps for a work around.
 
 1. Create a specific Home Assistant user. (not necessary but it's not recommended to turn of 2FA for your admin user).
-2. Make sure that user is admin, you've logged in & setup 2FA
-3. Login as the Home Assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2FA
+2. Make sure that user is admin, you've logged in & setup 2FA.
+3. Login as the Home Assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2FA.
 
    **Note this will only be available if the user is admin and has logged in once with 2FA, logged out and in again**
-4. Login as your administrator again and change the Home Assistant user to a restricted user
-5. Change Home Assistant Verisure config to the new user credentials in Home Assistant
-6. Restart Home Assistant
+4. Login as your administrator again and change the Home Assistant user to a restricted user.
+5. Change Home Assistant Verisure config to the new user credentials in Home Assistant.
+6. Restart Home Assistant.
