@@ -12,8 +12,6 @@ ha_config_flow: true
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
 
-{% include integrations/config_flow.md %}
-
 There is currently support for the following device types within Home Assistant:
 
 - Media Player
