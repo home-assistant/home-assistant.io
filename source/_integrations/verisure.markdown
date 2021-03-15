@@ -112,13 +112,10 @@ You can deactivate 2FA for your admin account and use that for Home Assistant bu
 
 1. Login to Verisure mypages as your admin user and create a new admin user for Home Assistant
 2. Login in as your newly created Home Assistant user, you'll be prompted to set up 2DA, do that and then log out. This will make sure the options below are available.
-3. Login as the Home Assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2FA.
-
-   **Note this will only be available if the user is admin and has logged in once with 2FA, logged out and in again**
+3. Login as the Home Assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2FA.<div class='note warning'>This will only be available if the user is admin and has logged in once with 2FA, logged out and in again.</div>
 4. Login as your administrator again and change the Home Assistant user to a restricted user.
 5. Change Home Assistant Verisure config to the new user credentials in Home Assistant.
 6. Restart Home Assistant.
-
 
 ## Alarm Control Panel
 
