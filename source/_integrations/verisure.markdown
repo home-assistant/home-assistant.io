@@ -104,6 +104,20 @@ giid:
   type: string
 {% endconfiguration %}
 
+## 2 Factor Authentication Prerequisite
+
+Verisure added 2FA rules to Verisure mypages that aren't supported through their third party API integration. If you have 2FA enabled (which is forced as default) You might not be able to use this integration. Here is the suggested way to use deactivate 2FA if it's allowed in your region.
+
+1. Create a specific Home Assistant user. (not necessary but it's not recommended to turn of 2FA for your admin user).
+2. Make sure that user is admin, you've logged in & setup 2FA.
+3. Login as the Home Assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2FA.
+
+   **Note this will only be available if the user is admin and has logged in once with 2FA, logged out and in again**
+4. Login as your administrator again and change the Home Assistant user to a restricted user.
+5. Change Home Assistant Verisure config to the new user credentials in Home Assistant.
+6. Restart Home Assistant.
+
+
 ## Alarm Control Panel
 
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
@@ -139,15 +153,3 @@ automation:
 | enable_autolock | Enables autolock function for a specific lock. |
 | smartcam_capture | Capture a new image from a specific smartcam. |
 
-## 2 Factor Authentication
-
-Verisure added 2FA rules to Verisure mypages that aren't supported through their third party API integration. If you have 2FA enabled (which is forced as default) You might not be able to use this integration. Here is the suggested way to use deactivate 2FA if it's allowed in your region.
-
-1. Create a specific Home Assistant user. (not necessary but it's not recommended to turn of 2FA for your admin user).
-2. Make sure that user is admin, you've logged in & setup 2FA.
-3. Login as the Home Assistant user, browse to Account and subscription -> Account -> Login Credentials -> Disable 2FA.
-
-   **Note this will only be available if the user is admin and has logged in once with 2FA, logged out and in again**
-4. Login as your administrator again and change the Home Assistant user to a restricted user.
-5. Change Home Assistant Verisure config to the new user credentials in Home Assistant.
-6. Restart Home Assistant.
