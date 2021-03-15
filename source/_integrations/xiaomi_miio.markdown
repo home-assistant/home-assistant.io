@@ -238,6 +238,18 @@ These subdevices are fully implemented in HomeAssistant:
 | -------------------------------- | ----------------------- | --------------- | ------------------------------------------------ |
 | Weather sensor                   | lumi.sensor_ht          | WSDCGQ01LM      | readout `temperature` and `humidity`             |
 | Weather sensor                   | lumi.weather.v1         | WSDCGQ11LM      | readout `temperature`, `humidity` and `pressure` |
+| Wall switch single               | lumi.ctrl_ln1           | QBKG11LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall switch single               | lumi.ctrl_ln1.aq1       | QBKG11LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall switch no neutral           | lumi.ctrl_neutral1.v1   | QBKG04LM        | status, turn_on, turn_off, toggle                |
+| Wall switch double               | lumi.ctrl_ln2           | QBKG12LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall switch double               | lumi.ctrl_ln2.aq1       | QBKG12LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall switch double no neutral    | lumi.ctrl_neutral2      | QBKG03LM        | status, turn_on, turn_off, toggle                |
+| D1 wall switch triple            | lumi.switch.n3acn3      | QBKG26LM        | load_power, status, turn_on, turn_off, toggle    |
+| D1 wall switch triple no neutral | lumi.switch.l3acn3      | QBKG25LM        | load_power, status, turn_on, turn_off, toggle    |
+| Wall outlet                      | lumi.ctrl_86plug.v1     | QBCZ11LM        | status, turn_on, turn_off, toggle                |
+| Wall outlet                      | lumi.ctrl_86plug.aq1    | QBCZ11LM        | load_power, status, turn_on, turn_off, toggle    |
+| Plug                             | lumi.plug               | ZNCZ02LM        | load_power, status, turn_on, turn_off, toggle    |
+| Relay                            | lumi.relay.c2acn01      | LLKZMK11LM      | load_power, status, turn_on, turn_off, toggle    |
 | Smart bulb E27                   | lumi.light.aqcn02       | ZNLDP12LM       | on/off, brightness, color temperature            |
 | IKEA smart bulb E27 white        | ikea.light.led1545g12   | LED1545G12      | on/off, brightness, color temperature            |
 | IKEA smart bulb E27 white        | ikea.light.led1546g12   | LED1546G12      | on/off, brightness, color temperature            |
@@ -273,18 +285,6 @@ These subdevices are recognized by the python-miio code but are still being work
 | Remote switch double             | lumi.sensor_86sw2.v1    | WXKG02LM 2016   |
 | Remote switch double             | lumi.remote.b286acn01   | WXKG02LM 2018   |
 | D1 remote switch double          | lumi.remote.b286acn02   | WXKG07LM        |
-| Wall switch single               | lumi.ctrl_ln1           | QBKG11LM        |
-| Wall switch single               | lumi.ctrl_ln1.aq1       | QBKG11LM        |
-| Wall switch no neutral           | lumi.ctrl_neutral1.v1   | QBKG04LM        |
-| Wall switch double               | lumi.ctrl_ln2           | QBKG12LM        |
-| Wall switch double               | lumi.ctrl_ln2.aq1       | QBKG12LM        |
-| Wall switch double no neutral    | lumi.ctrl_neutral2      | QBKG03LM        |
-| D1 wall switch triple            | lumi.switch.n3acn3      | QBKG26LM        |
-| D1 wall switch triple no neutral | lumi.switch.l3acn3      | QBKG25LM        |
-| Wall outlet                      | lumi.ctrl_86plug.v1     | QBCZ11LM        |
-| Wall outlet                      | lumi.ctrl_86plug.aq1    | QBCZ11LM        |
-| Plug                             | lumi.plug               | ZNCZ02LM        |
-| Relay                            | lumi.relay.c2acn01      | LLKZMK11LM      |
 | Curtain                          | lumi.curtain            | ZNCLDJ11LM      |
 | Curtain                          | lumi.curtain.aq2        | ZNGZDJ11LM      |
 | Curtain B1                       | lumi.curtain.hagl04     | ZNCLDJ12LM      |
