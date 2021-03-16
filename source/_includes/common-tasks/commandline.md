@@ -67,21 +67,30 @@ Usage:
 
 Available Commands:
   addons         Install, update, remove and configure Home Assistant add-ons
+  audio          Audio device handling.
   authentication Authentication for Home Assistant users.
+  banner         Prints the CLI Home Assistant banner along with some useful information
+  cli            Get information, update or configure the Home Assistant cli backend
   core           Provides control of the Home Assistant Core
   dns            Get information, update or configure the Home Assistant DNS server
+  docker         Docker backend specific for info and OCI configuration
   hardware       Provides hardware information about your system
   help           Help about any command
   host           Control the host/system that Home Assistant is running on
   info           Provides a general Home Assistant information overview
+  jobs           Get information and manage running jobs
+  multicast      Get information, update or configure the Home Assistant Multicast
+  network        Network specific for updating, info and configuration imports
+  observer       Get information, update or configure the Home Assistant observer
   os             Operating System specific for updating, info and configuration imports
+  resolution     Resolution center of Supervisor, show issues and suggest solutions
   snapshots      Create, restore and remove snapshot backups
   supervisor     Monitor, control and configure the Home Assistant Supervisor
 
 Flags:
       --api-token string   Home Assistant Supervisor API token
       --config string      Optional config file (default is $HOME/.homeassistant.yaml)
-      --endpoint string    Endpoint for Home Assistant Supervisor ( default is 'supervisor' )
+      --endpoint string    Endpoint for Home Assistant Supervisor (default is 'supervisor')
   -h, --help               help for ha
       --log-level string   Log level (defaults to Warn)
       --no-progress        Disable the progress spinner
