@@ -212,12 +212,14 @@ To set up the Xiaomi gateway, click Configuration in the sidebar, then click Int
 | Gateway name       | Zigbee id           | model                    | supported                                 |
 | ------------------ | ------------------- | ------------------------ |------------------------------------------ |
 | Chinese version    | lumi.gateway.v3     | DGNWG02LM                | yes                                       |
-| European version   | lumi.gateway.mieu01 | ZHWG11LM-763 / DGNWQ05LM | only gateway features (no subdevices yet) |
+| European version   | lumi.gateway.mieu01 | ZHWG11LM-763 / DGNWQ05LM | yes (cloud credentials needed)            |
 | Aqara hub          | lumi.gateway.aqhm01 | ZHWG11LM                 | untested                                  |
-| Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM               | untested                                  |
+| Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM               | yes                                       |
 | Aqara AC Companion | lumi.acpartner.v1   | KTBL01LM                 | untested                                  |
 | Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                                  |
 | Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM                 | yes                                       |
+
+Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified in the options flow (after setting up the integration, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway integration). Fill in the cloud username, password and server country and check the "Use cloud to get connected subdevices" option. The connected subdevices will then be retrieved from the xiaomi miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection.
 
 ### Gateway Features
 
