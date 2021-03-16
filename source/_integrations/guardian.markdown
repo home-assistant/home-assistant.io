@@ -11,6 +11,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@bachya'
 ha_domain: guardian
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - sensor
+  - switch
 ---
 
 The `guardian` integration integrates
@@ -22,12 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - **Sensor**: reports on the device's detected temperature and uptime
 - **Switch**: allows the user to open and close the valve
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**. If you have the `zeroconf` integration enabled,
-Home Assistant will automatically discover any Guardian devices already connected to the
-network.
+{% include integrations/config_flow.md %}
 
 ## Services
 

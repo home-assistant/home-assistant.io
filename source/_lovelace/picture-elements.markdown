@@ -591,9 +591,9 @@ elements:
   - type: conditional
     conditions:
       - entity: sensor.presence_daughter
-        state: 'home'
+        state: "home"
       - entity: sensor.presence_dad
-        state: 'not_home'
+        state: "not_home"
     elements:
       - type: state-icon
         entity: switch.tv

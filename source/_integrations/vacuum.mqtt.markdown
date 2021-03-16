@@ -48,6 +48,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -240,7 +245,7 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
 
 {% endraw %}
@@ -305,6 +310,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -336,6 +346,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
       required: false
       type: string
     sw_version:
@@ -468,7 +482,7 @@ vacuum:
       - medium
       - high
       - max
-    send_command_topic: 'vacuum/send_command'
+    send_command_topic: "vacuum/send_command"
 ```
 
 ### State MQTT Protocol
@@ -510,15 +524,16 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
+      target:
+        entity_id: vacuum.vacuum_entity
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        command: "custom_command"
         params:
           - key: value
 ```
@@ -585,15 +600,16 @@ If params are provided service sends JSON as payload with such structure:
 Service trigger example:
 
 ```yaml
-- alias: Push command based on sensor
+- alias: "Push command based on sensor"
     trigger:
       - platform: state
         entity_id: sensor.sensor
     action:
       service: vacuum.send_command
+      target:
+        entity_id: vacuum.vacuum_entity
       data:
-        entity_id: 'vacuum.vacuum_entity'
-        command: 'custom_command'
+        command: "custom_command"
         params:
           - key: value
 ```

@@ -297,11 +297,11 @@ trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/ping'
+    command: "/ping"
 action:
   - service: notify.notify
     data:
-      message: 'pong'
+      message: "pong"
 ```
 
 An example that shows keyboard interaction with `notify.telegram`
@@ -311,11 +311,11 @@ trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/start'
+    command: "/start"
 action:
   - service: notify.telegram
     data:
-      message: 'commands'
+      message: "commands"
       data:
         keyboard:
           - '/ping, /alarm'
@@ -329,14 +329,16 @@ trigger:
   platform: event
   event_type: telegram_command
   event_data:
-    command: '/siren'
+    command: "/siren"
 action:
   - service: homeassistant.turn_on
-    entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
+    target:
+      entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
   - delay:
       seconds: 10
   - service: homeassistant.turn_off
-    entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
+    target:
+      entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
 ```
 
 An example to show the use of event_data in action:
@@ -349,7 +351,7 @@ An example to show the use of event_data in action:
     platform: event
     event_type: telegram_command
     event_data:
-      command: '/speak'
+      command: "/speak"
   action:
     - service: notify.kitchen_echo
       data:
@@ -379,9 +381,9 @@ Text repeater:
   action:
     - service: telegram_bot.send_message
       data:
-        title: '*Dumb automation*'
-        target: '{{ trigger.event.data.user_id }}'
-        message: 'You said: {{ trigger.event.data.text }}'
+        title: "*Dumb automation*"
+        target: "{{ trigger.event.data.user_id }}"
+        message: "You said: {{ trigger.event.data.text }}"
         disable_notification: true
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
@@ -400,18 +402,18 @@ Message editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      command: '/edit_msg'
+      command: "/edit_msg"
   action:
     - service: telegram_bot.answer_callback_query
       data:
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: 'Editing the message!'
+        callback_query_id: "{{ trigger.event.data.id }}"
+        message: "Editing the message!"
         show_alert: true
     - service: telegram_bot.edit_message
       data:
-        message_id: '{{ trigger.event.data.message.message_id }}'
-        chat_id: '{{ trigger.event.data.chat_id }}'
-        title: '*Message edit*'
+        message_id: "{{ trigger.event.data.message.message_id }}"
+        chat_id: "{{ trigger.event.data.chat_id }}"
+        title: "*Message edit*"
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
           - "Remove this button:/remove_button"
@@ -433,16 +435,16 @@ Keyboard editor:
     platform: event
     event_type: telegram_callback
     event_data:
-      command: '/remove_button'
+      command: "/remove_button"
   action:
     - service: telegram_bot.answer_callback_query
       data:
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: 'Callback received for editing the inline keyboard!'
+        callback_query_id: "{{ trigger.event.data.id }}"
+        message: "Callback received for editing the inline keyboard!"
     - service: telegram_bot.edit_replymarkup
       data:
-        message_id: 'last'
-        chat_id: '{{ trigger.event.data.chat_id }}'
+        message_id: "last"
+        chat_id: "{{ trigger.event.data.chat_id }}"
         inline_keyboard:
           - "Edit message:/edit_msg, Don't:/do_nothing"
 ```
@@ -459,12 +461,12 @@ Only acknowledges the 'NO' answer:
     platform: event
     event_type: telegram_callback
     event_data:
-      command: '/do_nothing'
+      command: "/do_nothing"
   action:
     - service: telegram_bot.answer_callback_query
       data:
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: 'OK, you said no!'
+        callback_query_id: "{{ trigger.event.data.id }}"
+        message: "OK, you said no!"
 ```
 
 {% endraw %}
@@ -479,13 +481,13 @@ Telegram callbacks also support arguments and commands the same way as normal me
     platform: event
     event_type: telegram_callback
     event_data:
-      command: '/repeat'
+      command: "/repeat"
   action:
     - service: telegram_bot.answer_callback_query
       data:
         show_alert: true
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: 'I repeat: {{trigger.event.data["args"]}}'
+        callback_query_id: "{{ trigger.event.data.id }}"
+        message: "I repeat: {{trigger.event.data["args"]}}"
 ```
 
 {% endraw %}
@@ -507,11 +509,11 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
     - service: input_number.set_value
       data_template:
         entity_id: input_number.chat_id
-        value: '{{ trigger.event.data.chat_id }}'
+        value: "{{ trigger.event.data.chat_id }}"
     - service: input_number.set_value
       data_template:
         entity_id: input_number.message_id
-        value: '{{ trigger.event.data.message_id }}'
+        value: "{{ trigger.event.data.message_id }}"
 ```
 
 {% endraw %}

@@ -1,6 +1,7 @@
 ---
 title: "Documentation"
 description: "Documentation for Home Assistant"
+feedback: false
 ---
 
 The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.

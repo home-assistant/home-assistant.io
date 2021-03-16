@@ -16,6 +16,12 @@ ha_codeowners:
   - '@elupus'
   - '@RobBie1221'
 ha_domain: rfxtrx
+ha_platforms:
+  - binary_sensor
+  - cover
+  - light
+  - sensor
+  - switch
 ---
 
 The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
@@ -28,9 +34,9 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensors)
 - [Binary Sensor](#binary-sensors)
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add RFXtrx integration go to **Configuration** >> **Integrations** and find the integration in the list. Choose between **Serial** or **Network**. For network configure host and port. For serial, a list of detected devices is presented. Choose the RFXCOM device or select **Enter Manually** to fill in the USB path manually.
+## Debug logging
 
 To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
 
@@ -145,6 +151,16 @@ Binary sensors have only two states - "on" and "off". Many door or window openin
 
 For those devices, use the *off_delay* parameter. It defines a delay after, which a device will go back to an "Off" state. That "Off" state will be fired internally by Home Assistant, just as if the device fired it by itself. If a motion sensor can only send signals once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.
 
+#### Venetian blind mode
+
+Available only for RFY cover devices. Enables tilt control of venetian blind slats.
+
+Venetian blind motors that control slats tilt can be configured in one of two modes - US (short press of up/down buttons opens/closes the blind, long-press controls tilt angle), or European (short press of up/down buttons controls tilt angle, long-press opens/closes the blind). You can select one of the following settings depending on your blinds:
+
+- **Unknown** - default, tilt control is not enabled. Leave if the cover is not a venetian blind.
+- **US** - tilt control enabled for blinds in US tilt mode.
+- **EU** - tilt control enabled for blinds in European tilt mode.
+
 #### Options for PT-2262 devices under the Lighting4 protocol
 
 When a data packet is transmitted by a PT-2262 device using the Lighting4 protocol, there is no way to automatically extract the device identifier and the command from the packet. Each device has its own id/command length combination and the field lengths are not included in the data. One device that sends 2 different commands will be seen as 2 devices on Home Assistant. For such cases, the following options are available in order to circumvent the problem:
@@ -230,7 +246,7 @@ type_string: 'ARC'
 id_string': 'C3'
 data: '0710010143030170'
 values': 
-  Command: 'On'
+  Command: "On"
   Rssi numeric': 7
 ```
 
@@ -264,7 +280,7 @@ scene:
     light.ceiling_lights: off
 
 automation:
-  - alias: Use doorbell button to trigger scene
+  - alias: "Use doorbell button to trigger scene"
     trigger:
     - platform: event
       event_type: rfxtrx_event
@@ -276,7 +292,8 @@ automation:
           Sound: 9
     action:
       service: scene.turn_on
-      entity_id: scene.welcomescene
+      target:
+        entity_id: scene.welcomescene
 ```
 
 ## Services

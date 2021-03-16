@@ -1,5 +1,5 @@
 ---
-title: Tasmota (beta)
+title: Tasmota
 description: Instructions on how to integrate Tasmota with Home Assistant.
 ha_category:
   - Binary Sensor
@@ -14,6 +14,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
 ha_domain: tasmota
+ha_platforms:
+  - binary_sensor
+  - cover
+  - fan
+  - light
+  - sensor
+  - switch
 ---
 
 This integration allows you to control [Tasmota](https://tasmota.github.io/docs/) devices over MQTT.
@@ -34,18 +41,8 @@ Tasmota Buttons, Fans, Lights, relays, Sensors, Shutters and Switches are suppor
 - Tasmota Sensors will be added as Home Assistant `sensor` entities.
 - Tasmota Shutters will be added as Home Assistant `cover` entities. Currently only Shutter modes 1 to 4 are supported. Shutter mode 5 and Tuya shutters are not supported.
 - Tasmota Switches will be added as Home Assistant `binary_sensor` entities or `automation triggers` depending by the `switchmode` used when `SetOption114` is enabled.
-- The integration will also create up to eight Status Sensors, each one with a different information. Please note all the Status Sensors are disabled by default.
 - The fan functionality in Tasmota devices with module configured as iFan02 or iFan03 will be added as Home Assistant `fan` entities. Tuya fans are not supported.
+- The integration will also create up to eight Status Sensors, each one with a different information. Please note all the Status Sensors are disabled by default.
+  ![iot](https://user-images.githubusercontent.com/7702766/99080146-a1d43980-259f-11eb-856b-addb53695381.png)
 
-![iot](https://user-images.githubusercontent.com/7702766/99080146-a1d43980-259f-11eb-856b-addb53695381.png)
-
-## Configuration
-
-This integration can be configured using the integrations in the
-Home Assistant frontend.
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Tasmota (beta)**.
-After completing the configuration flow, the Tasmota integration will be
-available.
+{% include integrations/config_flow.md %}

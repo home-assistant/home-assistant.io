@@ -12,36 +12,20 @@ ha_config_flow: true
 ha_quality_scale: silver
 ha_codeowners:
   - '@ctalkington'
+ha_ssdp: true
+ha_homekit: true
+ha_platforms:
+  - remote
 ---
 
 The Roku integration allows you to control a [Roku](https://www.roku.com/) device.
 
-### Configuration
-
-Go to the integrations page in your configuration and click on new integration -> Roku.
-If your Roku device is on, it has likely been discovered already and you just have to confirm the detected device.
+{% include integrations/config_flow.md %}
 
 There is currently support for the following device types within Home Assistant:
 
 - Media Player
 - Remote
-
-### YAML Configuration
-
-Manual configuration of your Roku device is also possible, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-roku:
-  - host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: Set the IP address of the Roku device.
-  required: true
-  type: string
-{% endconfiguration %}
 
 ## Remote
 
@@ -83,8 +67,9 @@ A typical service call for pressing several buttons looks like this.
 
 ```yaml
 service: remote.send_command
-data:
+target:
   entity_id: remote.roku
+data:
   command:
     - left
     - left
@@ -96,8 +81,9 @@ data:
 When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated. Channels can be launched by `name` using a configuration similar to the one below:
 ```yaml
 action:
-- data:
-    entity_id: media_player.roku
+- target:
+    entity_id: media_player.
+  data:
     source: "Prime Video"
   service: media_player.select_source
 ```
@@ -122,21 +108,23 @@ To use this information in Home Assistant, the format is as follows. Note that `
 
 ```yaml
 action:
-- data:
-    entity_id: media_player.roku
-    source: 20197
-  service: media_player.select_source
+  - service: media_player.select_source
+    target:
+      entity_id: media_player.roku
+    data:
+      source: 20197
 ```
 
 It is also possible to tune directly to specific channels if you have a Roku TV and use an OTA antenna. This service only supports `media_channel_type` of 'channel'. `media_content_id` corresponds to the TV channel, which you should see when navigating to these on your TV UI. 
 
 ```yaml
 action:
-- data:
-    entity_id: media_player.roku
-    media_content_id: 5.1
-    media_content_type: channel
-  service: media_player.play_media
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.roku
+    data:
+      media_content_id: 5.1
+      media_content_type: channel
 ```
 
 ## Remote

@@ -7,6 +7,8 @@ ha_iot_class: Local Push
 ha_release: 0.7.4
 ha_config_flow: true
 ha_domain: owntracks
+ha_platforms:
+  - device_tracker
 ---
 
 [OwnTracks](https://owntracks.org/) (and its Android fork [NextTracks](https://codeberg.org/nexttracks/android)) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.

@@ -199,6 +199,8 @@ recorder:
       - sensor.weather_*
 ```
 
+## Services
+
 ### Service `purge`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
@@ -208,6 +210,15 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
+| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size. |
+
+### Service `disable`
+
+Call the service `recorder.disable` to stop saving events and states to the database.
+
+### Service `enable`
+
+Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
 ## Custom database engines
 
@@ -318,6 +329,14 @@ After installing the dependencies, it is required to create the database manuall
 Once Home Assistant finds the database, with the right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 
 ### PostgreSQL
+
+Create the PostgreSQL database with `utf8` encoding. The PostgreSQL default encoding is `SQL_ASCII`. From the `postgres` user account;
+```bash
+createdb -E utf8 DB_NAME
+```
+Where `DB_NAME` is the name of your database
+
+If the Database in use is not `utf8`, adding `?client_encoding=utf8` to the `db_url` may solve any issue.
 
 For PostgreSQL you may have to install a few dependencies:
 

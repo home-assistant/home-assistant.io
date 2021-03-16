@@ -183,7 +183,7 @@ influxdb:
 - Remove path whitelisting for hassio ([@balloob] - [#7399])
 - Add Eight sleep component ([@mezz64] - [#7275]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs]) (new-platform)
 - OpenGarage support ([@swbradshaw] - [#7338]) ([cover.opengarage docs]) (new-platform)
-- Clean up requirements ([@andrey-git] - [#7391]) ([nuimo_controller docs]) ([sensor.dht docs]) ([sensor.thinkingcleaner docs]) ([switch.thinkingcleaner docs])
+- Clean up requirements ([@andrey-git] - [#7391]) ([sensor.dht docs]) ([sensor.thinkingcleaner docs]) ([switch.thinkingcleaner docs])
 - correct MQTT subscription filter ([@amigian74] - [#7269]) ([mqtt docs])
 - Update docstrings ([@fabaff] - [#7374])
 - light.blinkt: update brightness control logic ([@imrehg] - [#7389])
@@ -462,7 +462,6 @@ influxdb:
 [notify.smtp docs]: /integrations/smtp
 [notify.telegram docs]: /integrations/telegram
 [notify.webostv docs]: /integrations/webostv
-[nuimo_controller docs]: /integrations/nuimo_controller/
 [octoprint docs]: /integrations/octoprint/
 [opencv docs]: /integrations/opencv/
 [plant docs]: /integrations/plant/

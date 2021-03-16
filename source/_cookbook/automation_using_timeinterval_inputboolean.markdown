@@ -17,17 +17,18 @@ input_boolean:
 
 automation:
 # Changes Hue light every two minutes to random color if input boolean is set to on
-- alias: 'Set LivingColors to random color'
+- alias: "Set LivingColors to random color"
   trigger:
     platform: time_pattern
-    minutes: '/2'
+    minutes: "/2"
   condition:
     condition: state
     entity_id: input_boolean.loop_livingcolors
-    state: 'on'
+    state: "on"
   action:
     service: light.turn_on
-    entity_id: light.woonkamer_livingcolors
+    target:
+      entity_id: light.woonkamer_livingcolors
     data:
       effect: random
       transition: 5

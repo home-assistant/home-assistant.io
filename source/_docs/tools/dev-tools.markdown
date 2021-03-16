@@ -65,7 +65,7 @@ state: on
 If there is an automation that handles that event, it will be automatically triggered. See below:
 
 ```yaml
-- alias: Capture Event
+- alias: "Capture Event"
   trigger:
     platform: event
     event_type: event_light_state_changed

@@ -19,7 +19,7 @@ To use this component, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 rest_command:
   example_request:
-    url: 'http://example.com/'
+    url: "http://example.com/"
 ```
 
 {% configuration %}
@@ -105,7 +105,7 @@ rest_command:
     method: POST
     headers:
       authorization: !secret rest_headers_secret
-      accept: 'application/json, text/html'
+      accept: "application/json, text/html"
       user-agent: 'Mozilla/5.0 {{ useragent }}'
     payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
     content_type:  'application/json; charset=utf-8'
@@ -129,7 +129,7 @@ Call the new service from [developer tools](/docs/tools/dev-tools/) in the sideb
 
 ```yaml
 automation:
-- alias: 'Arrive at Work'
+- alias: "Arrive at Work"
   trigger:
     platform: zone
     entity_id: device_tracker.my_device

@@ -12,6 +12,10 @@ ha_codeowners:
   - '@felipediel'
 ha_domain: broadlink
 ha_config_flow: true
+ha_platforms:
+  - remote
+  - sensor
+  - switch
 ---
 
 The Broadlink integration allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
@@ -22,9 +26,7 @@ The Broadlink integration allows you to control and monitor Broadlink universal 
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro` and `RM4C mini`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
 
-## Configuration
-
-To set up a Broadlink device, click _Configuration_ in the sidebar and click _Integrations_. If you see your device there, click _Configure_. If not, click the + icon in the lower right, select Broadlink from the list, enter the hostname or IP address of the device and follow the instructions to complete the setup.
+{% include integrations/config_flow.md %}
 
 ### Entities and subdomains
 
@@ -65,8 +67,9 @@ script:
   learn_tv_power:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
 ```
@@ -85,8 +88,9 @@ script:
   learn_car_unlock:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.garage
+        data:
           device: car
           command: unlock
           command_type: rf
@@ -108,8 +112,9 @@ script:
   learn_tv_commands:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - turn on
@@ -134,8 +139,9 @@ script:
   learn_tv_power_button:
     sequence:
       - service: remote.learn_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
           alternative: true
@@ -169,8 +175,9 @@ script:
   tv_power:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: power
 ```
@@ -185,8 +192,9 @@ script:
   turn_up_tv_volume_20:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command: volume up
           num_repeats: 20
@@ -202,8 +210,9 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: air conditioner
           command:
             - turn on
@@ -220,8 +229,9 @@ script:
   turn_on_tv:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command: b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
 ```
 
@@ -235,8 +245,9 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           command:
             - b64:JgAcAB0dHB44HhweGx4cHR06HB0cHhwdHB8bHhwADQUAAAAAAAAAAAAAAAA=
             - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
@@ -252,12 +263,60 @@ script:
   turn_on_ac:
     sequence:
       - service: remote.send_command
-        data:
+        target:
           entity_id: remote.bedroom
+        data:
           device: television
           command:
             - turn on
             - b64:JgAaABweOR4bHhwdHB4dHRw6HhsdHR0dOTocAA0FAAAAAAAAAAAAAAAAAAA=
+```
+
+### Deleting commands
+
+You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` service.
+
+| Service data attribute | Optional | Description                           |
+| ---------------------- | -------- | ------------------------------------- |
+| `entity_id`            | no       | ID of the remote.                     |
+| `device`               | no       | Name of the device.                   |
+| `command`              | no       | Names of the commands to be deleted.  |
+
+#### Deleting a command
+
+To delete a command, call `remote.delete_command` with the device name and the command to be deleted:
+
+```yaml
+# Example configuration.yaml entry
+script:
+  delete_tv_power:
+    sequence:
+      - service: remote.delete_command
+        target:
+          entity_id: remote.bedroom
+        data:
+          device: television
+          command: power
+```
+
+#### Deleting multiple commands
+
+You can provide a list of commands to be deleted:
+
+```yaml
+# Example configuration.yaml entry
+script:
+  delete_tv_commands:
+    sequence:
+      - service: remote.delete_command
+        target:
+          entity_id: remote.bedroom
+        data:
+          device: television
+          command:
+            - power
+            - source
+            - menu
 ```
 
 ## Sensor
@@ -454,12 +513,16 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
 7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
 8. Double click the Template node to edit it, select:
 
+   {% raw %}
+
    ```bash
    Property: msg.payload
    Format: Mustache template
-   Template field: enter '{% raw %}{{payload.data}}{% endraw %}'.
+   Template field: enter '{{payload.data}}'.
    Output as: Plain text
    ```
+
+   {% endraw %}
 
 9. Drag a Debug node to the right of the Template node and link them.
 10. Show the debug messages, deploy the flow and click on the inject button.

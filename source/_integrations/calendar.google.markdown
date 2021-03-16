@@ -210,7 +210,7 @@ Trigger as soon as an event starts:
     trigger:
       platform: state
       entity_id: calendar.calendar_name
-      to: 'on'
+      to: "on"
 ```
 
 By using specific text in the event title, you can set conditions to initiate particular automation flows on designated events while other events will be ignored.

@@ -157,7 +157,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
 
 ```yaml
 # Example Prometheus scrape_configs entry
-  - job_name: 'hass'
+  - job_name: "hass"
     scrape_interval: 60s
     metrics_path: /api/prometheus
 
@@ -166,7 +166,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       api_password: ['PASSWORD']
 
     # Long-Lived Access Token
-    bearer_token: 'your.longlived.token'
+    bearer_token: "your.longlived.token"
 
     scheme: https
     static_configs:

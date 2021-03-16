@@ -62,6 +62,11 @@ availability:
       description: An MQTT topic subscribed to receive availability (online/offline) updates.
       required: true
       type: string
+availability_mode:
+  description: When `availability` is configured, this controls the conditions needed to set the entity to `available`. Valid entries are `all`, `any`, and `latest`. If set to `all`, `payload_available` must be received on all configured availability topics before the entity is marked as online. If set to `any`, `payload_available` must be received on at least one configured availability topic before the entity is marked as online. If set to `latest`, the last `payload_available` or `payload_not_available` received on any configured availability topic controls the availability.
+  required: false
+  type: string
+  default: latest
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
@@ -111,6 +116,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    suggested_area:
+      description: 'Suggest an area if the device isn’t in one yet.'
+      required: false
+      type: string
     sw_version:
       description: 'The firmware version of the device.'
       required: false
@@ -119,6 +128,10 @@ device:
       description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
       required: false
       type: string
+fan_mode_command_template:
+  description: A template to render the value sent to the `fan_mode_command_topic` with.
+  required: false
+  type: template
 fan_mode_command_topic:
   description: The MQTT topic to publish commands to change the fan mode.
   required: false
@@ -136,6 +149,10 @@ fan_modes:
   required: false
   default: ['auto', 'low', 'medium', 'high']
   type: list
+hold_command_template:
+  description: A template to render the value sent to the `hold_command_topic` with.
+  required: false
+  type: template
 hold_command_topic:
   description: The MQTT topic to publish commands to change the hold mode.
   required: false
@@ -173,6 +190,10 @@ min_temp:
   description: Minimum set point available.
   type: float
   required: false
+mode_command_template:
+  description: A template to render the value sent to the `mode_command_topic` with.
+  required: false
+  type: template
 mode_command_topic:
   description: The MQTT topic to publish commands to change the HVAC operation mode.
   required: false
@@ -239,6 +260,10 @@ send_if_off:
   required: false
   type: boolean
   default: true
+swing_mode_command_template:
+  description: A template to render the value sent to the `swing_mode_command_topic` with.
+  required: false
+  type: template
 swing_mode_command_topic:
   description: The MQTT topic to publish commands to change the swing mode.
   required: false
@@ -256,10 +281,18 @@ swing_modes:
   required: false
   default: ['on', 'off']
   type: list
+temperature_command_template:
+  description: A template to render the value sent to the `temperature_command_topic` with.
+  required: false
+  type: template
 temperature_command_topic:
   description: The MQTT topic to publish commands to change the target temperature.
   required: false
   type: string
+temperature_high_command_template:
+  description: A template to render the value sent to the `temperature_high_command_topic` with.
+  required: false
+  type: template
 temperature_high_command_topic:
   description: The MQTT topic to publish commands to change the high target temperature.
   required: false
@@ -272,6 +305,10 @@ temperature_high_state_topic:
   description: The MQTT topic to subscribe for changes in the target high temperature. If this is not set, the target high temperature works in optimistic mode (see below).
   required: false
   type: string
+temperature_low_command_template:
+  description: A template to render the value sent to the `temperature_low_command_topic` with.
+  required: false
+  type: template
 temperature_low_command_topic:
   description: The MQTT topic to publish commands to change the target low temperature.
   required: false
@@ -339,6 +376,8 @@ climate:
 {% endraw %}
 
 This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
+
+Similarly for `*_command_topic`s, a template can be specified to render the outgoing payloads on these topics. 
 
 ### Example
 

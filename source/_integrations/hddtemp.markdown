@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: hddtemp
+ha_platforms:
+  - sensor
 ---
 
 The `hddtemp` sensor platform is using the data provided by [HDDTemp](https://savannah.nongnu.org/projects/hddtemp).

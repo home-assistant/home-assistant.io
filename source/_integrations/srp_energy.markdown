@@ -9,14 +9,12 @@ ha_domain: srp_energy
 ha_codeowners:
   - '@briglx'
 ha_config_flow: true
+ha_platforms:
+  - sensor
 ---
 
 The SRP Energy integration shows information from SRP hourly energy usage report for their customers.
 
 You need a username, password, and account ID which you can create at [SRP](https://www.srpnet.com).
 
-## Configuration
-
-Add SRP Energy to your installation from the configuration integration.
-
-Navigate to "Configuration", then "Integrations" and click `+` button in the bottom right. Select `SRP Energy` to start the configuration. After completing the configuration procedure, the SRP Energy integration will be available.
+{% include integrations/config_flow.md %}

@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@alemuro'
 ha_domain: beewi_smartclim
+ha_platforms:
+  - sensor
 ---
 
 The `beewi_smartclim` sensor platform allows one to monitor room or external temperature and humidity. The [BeeWi SmartClim BLE](http://www.bee-wi.com/produits/capteurs/capteur-de-temperature/) is a Bluetooth Low Energy sensor device that monitors temperature from a room or a garden from your smartphone by using an APP. Use this integration to track these metrics from any location thanks to Home Assistant, as well as to create some automation scripts based on your room's temperature.
@@ -51,7 +53,7 @@ To use your Mi Temperature and Humidity sensor in your installation, add the fol
 # Example configuration.yaml entry
 sensor:
   - platform: beewi_smartclim
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
 ```
 
 {% configuration %}
@@ -73,6 +75,6 @@ A full configuration example could look like the one below:
 # Example configuration.yaml entry
 sensor:
   - platform: beewi_smartclim
-    mac: 'xx:xx:xx:xx:xx:xx'
+    mac: "xx:xx:xx:xx:xx:xx"
     name: Garden
 ```

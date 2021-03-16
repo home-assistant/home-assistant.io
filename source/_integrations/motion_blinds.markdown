@@ -9,13 +9,14 @@ ha_domain: motion_blinds
 ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
+ha_platforms:
+  - cover
+  - sensor
 ---
 
 The integration allows you to control [Motion Blinds](https://motion-blinds.com) from [Coulisse B.V.](https://coulisse.com/products/motion).
 
-To add a Motion Bridge to your installation, click Configuration in the sidebar, then click Integrations. Click the + icon in the lower right. Then search for "Motion Blinds" and enter the setup.
-
-You will be asked for the IP address of the Motion Bridge, e.g., 192.168.1.100. Note that a static IP address is required in order for this integration to keep working properly.
+{% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
 
@@ -84,3 +85,17 @@ The `cover.set_cover_position` will set the scaled position relative to the spac
 | `entity_id`            |      yes | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
 | `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
 | `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
+
+## Troubleshooting
+
+Home Assistant uses the following UDP multicast addresses/ports for communication with the gateway:
+
+- Motion hub receive UDP multicast `238.0.0.18:32100`
+- Motion hub sending UDP multicast `238.0.0.18:32101`
+
+This communication needs to be allowed on your local network. If the blinds are unavailable and you see error messages like:
+
+`Timeout of 5.0 sec occurred on 5 attempts while waiting on multicast push from update request, communication between gateway and blind might be bad.`
+
+Please make sure the motion gateway and the device running Home Assistant are on the same VLAN and multicasting is enabled/allowed by your router.
+If using separate VLANs, make sure the 238.0.0.18:32100 and 238.0.0.18:32101 ports are open for communication between those VLANs (not tested or confirmed to work).

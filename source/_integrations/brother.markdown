@@ -10,6 +10,9 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: brother
 ha_quality_scale: platinum
+ha_zeroconf: true
+ha_platforms:
+  - sensor
 ---
 
 The `Brother Printer` integration allows you to read current data from your local Brother printer.
@@ -17,9 +20,7 @@ The `Brother Printer` integration allows you to read current data from your loca
 It usually provides information about the device's state, the left amount of ink or toner and the remaining life of the drum or other parts of the printer.
 The integration monitors every supported part.
 
-## Configuration
-
-To add `Brother Printer` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Brother Printer**.
+{% include integrations/config_flow.md %}
 
 <div class="note warning">
 
@@ -29,7 +30,51 @@ Some very old Brother printers use different data format and these models are no
 
 ## Configuring the printer
 
-To set SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under Network / Protocol / SNMP.
+To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under Network / Protocol / SNMP.
 For some Brother devices, `SNMPv3 read-write access and v1/v2c read-only access` is the option required (under advanced settings).
 
 ![SNMP settings on Brother Printer web interface](/images/integrations/brother/brother-printer-webui.png)
+
+## Sensor Example
+
+You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to `configuration.yaml` under the `binary_sensor:` section (replace `sensor.hl_l2340d_status` with the actual name of your sensor):
+
+{% raw %}
+
+```yaml
+  - platform: template
+    sensors:
+      laser_out_of_paper:
+        value_template: "{{ is_state('sensor.hl_l2340d_status', 'no paper') }}"
+        friendly_name: "Laser Printer Out of Paper"
+  - platform: template
+    sensors:
+      laser_paper_jam:
+        value_template: "{{ is_state('sensor.hl_l2340d_status', 'paper jam') }}"
+        friendly_name: "Laser Printer Paper Jam"
+```
+
+{% endraw %}
+
+Then, add this under the `alert:` section:
+
+```yaml
+  laser_out_of_paper:
+    name: Laser Printer is Out of Paper
+    done_message: Laser Printer Has Paper
+    entity_id: binary_sensor.laser_out_of_paper
+    can_acknowledge: true
+    notifiers:
+      - my_phone_notify
+  laser_paper_jam:
+    name: Laser Printer has a Paper Jam
+    done_message: Laser Printer Paper Jam Cleared
+    entity_id: binary_sensor.laser_paper_jam
+    can_acknowledge: true
+    notifiers:
+      - my_phone_notify
+```
+
+The above will send an alert for paper jam or out of paper whenever the condition is detected, assuming you have the Home Assistant app configured on your phone so that alerts can be sent directly to it. If you don't use the Home Assistant app, you will need to set up a different notifier.
+
+Change `my_phone_notify` to the actual notifier you are using.

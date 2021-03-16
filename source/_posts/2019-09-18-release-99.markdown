@@ -107,7 +107,7 @@ Home Assistant had a booth this year at the [CEDIA home tech trade show](https:/
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hanging out at <a href="https://twitter.com/CEDIAExpo?ref_src=twsrc%5Etfw">@CEDIAExpo</a> in innovation alley <a href="https://t.co/9SnUXo11oA">pic.twitter.com/9SnUXo11oA</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1172559987979292673?ref_src=twsrc%5Etfw">September 13, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-We also had some great drinks in the evenings with companies that integrate with Home Assistant. In this picture [Konnected.io](/integrations/konnected) and [Senic](/integrations/nuimo_controller/).
+We also had some great drinks in the evenings with companies that integrate with Home Assistant. In this picture [Konnected.io](/integrations/konnected) and Senic.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Beers after CEDIA with <a href="https://twitter.com/balloob?ref_src=twsrc%5Etfw">@balloob</a> from Home Assistant and teams from Senic and Neeo. <a href="https://t.co/c6Ag4DeEtU">pic.twitter.com/c6Ag4DeEtU</a></p>&mdash; Konnected.io (@Konnected_io) <a href="https://twitter.com/Konnected_io/status/1172689994059661318?ref_src=twsrc%5Etfw">September 14, 2019</a>
 </blockquote>

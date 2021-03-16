@@ -9,6 +9,8 @@ ha_release: 0.77
 ha_codeowners:
   - '@OverloadUT'
 ha_domain: ecovacs
+ha_platforms:
+  - vacuum
 ---
 
 The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
@@ -90,7 +92,7 @@ sensor:
     sensors:
       vacuum_filter:
         friendly_name: "Vacuum Filter Remaining Lifespan"
-        unit_of_measurement: '%'
+        unit_of_measurement: "%"
         value_template: "{{ state_attr('vacuum.my_vacuum_id', 'component_filter') }}"
 ```
 

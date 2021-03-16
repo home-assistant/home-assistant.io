@@ -10,11 +10,11 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v2
       - name: Setting up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.1.5
         with:
           node-version: 12.x
       - name: Setup NPM cache
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.4
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -33,11 +33,11 @@ jobs:
       - name: Check out files from GitHub
         uses: actions/checkout@v2
       - name: Setting up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.4
+        uses: actions/setup-node@v2.1.5
         with:
           node-version: 12.x
       - name: Setup NPM cache
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.4
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -51,17 +51,17 @@ jobs:
         run: npm run textlint
   build:
     name: Jekyll build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     needs: [markdown-lint]
     steps:
       - name: Check out files from GitHub
         uses: actions/checkout@v2
       - name: Setting up Ruby 2.6
-        uses: actions/setup-ruby@v1.1.2
+        uses: ruby/setup-ruby@v1.66.0
         with:
           ruby-version: 2.6
       - name: Setup Ruby Gems cache
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.4
         with:
           path: vendor/bundle
           key: gems-${{ hashFiles('**/Gemfile.lock') }}
@@ -73,10 +73,12 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
       - name: Setting up Jekyll cache
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.4
         with:
           path: source/.jekyll-cache
-          key: jekyll-${{ hashFiles('**/Gemfile.lock') }}-${{ hashFiles('**/_config.yml') }}
+          key:
+            jekyll-${{ hashFiles('**/Gemfile.lock') }}-${{
+            hashFiles('**/_config.yml') }}
           restore-keys: |
             jekyll-${{ hashFiles('**/Gemfile.lock') }}-
             jekyll-

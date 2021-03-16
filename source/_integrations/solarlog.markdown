@@ -8,6 +8,8 @@ ha_config_flow: true
 ha_codeowners:
   - '@Ernst79'
 ha_domain: solarlog
+ha_platforms:
+  - sensor
 ---
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
@@ -21,11 +23,9 @@ The `solarlog` integration uses the default host address "http://solar-log" if y
 The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
 </div>
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-This integration can be configured via the Home Assistant UI by navigating to
-**Configuration** -> **Integrations**.
-You will have to enter a name that is used as prefix for your sensors and a host to connect to your Solar-Log device.
+## Additional template sensor
 
 In case you would like to convert the values, for example, to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
 

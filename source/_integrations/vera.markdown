@@ -17,6 +17,14 @@ ha_config_flow: true
 ha_domain: vera
 ha_codeowners:
   - '@vangorra'
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - light
+  - lock
+  - sensor
+  - switch
 ---
 
 The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices.
@@ -34,16 +42,13 @@ There is currently support for the following device types within Home Assistant:
 
 and will be automatically added when HA connects to your Vera controller.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
 <div class='note'>
 
   It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
 
 </div>
-
-1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'Vera' and click 'Configure'.
-2. Enter the URL for the controller and click 'Submit'.
 
 ## Options
 Once the Vera integration is configured, you can set additional options in the integration, click the gear icon.

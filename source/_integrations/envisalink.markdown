@@ -8,6 +8,10 @@ ha_category:
 ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: envisalink
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+  - sensor
 ---
 
 The `envisalink` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
@@ -33,7 +37,7 @@ envisalink:
   panel_type: HONEYWELL or DSC
   user_name: YOUR_USERNAME
   password: YOUR_PASSWORD
-  code: '1234'
+  code: "1234"
   port: 4025
   evl_version: 3
   keepalive_interval: 60
@@ -42,14 +46,14 @@ envisalink:
   panic_type: Police
   zones:
     11:
-      name: 'Back Door'
-      type: 'opening'
+      name: "Back Door"
+      type: "opening"
     21:
-      name: 'First Floor Motion'
-      type: 'motion'
+      name: "First Floor Motion"
+      type: "motion"
   partitions:
     1:
-      name: 'Home Alarm'
+      name: "Home Alarm"
 ```
 
 {% configuration %}

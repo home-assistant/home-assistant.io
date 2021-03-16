@@ -9,6 +9,8 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
 ha_domain: dweet
+ha_platforms:
+  - sensor
 ---
 
 The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
@@ -66,7 +68,7 @@ To use Dweet.io sensors in your installation, add the following to your `configu
 sensor:
   - platform: dweet
     device: THING_NAME
-    value_template: '{{ value_json.VARIABLE }}'
+    value_template: "{{ value_json.VARIABLE }}"
 ```
 
 {% endraw %}
@@ -103,7 +105,7 @@ sensor:
   - platform: dweet
     name: Temperature
     device: THING_NAME
-    value_template: '{{ value_json.VARIABLE }}'
+    value_template: "{{ value_json.VARIABLE }}"
     unit_of_measurement: "°C"
 ```
 

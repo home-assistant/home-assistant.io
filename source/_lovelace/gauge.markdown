@@ -7,7 +7,7 @@ description: "The Gauge card is a basic card that allows visually seeing sensor 
 The Gauge card is a basic card that allows visually seeing sensor data.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_gauge_card.gif' alt='Screenshot of the gauge card'>
+<img src='/images/lovelace/lovelace_gauge_card.gif' alt='Screenshot of the Gauge card'>
 Screenshot of the Gauge card.
 </p>
 
@@ -38,7 +38,12 @@ unit:
   required: false
   description: Unit of measurement given to data.
   type: string
-  default: Unit of measurement given by entity.
+  default: Unit of measurement given by entity
+icon:
+  required: false
+  description: Overwrites icon.
+  type: string
+  default: Entity domain icon
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).

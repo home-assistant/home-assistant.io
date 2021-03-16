@@ -22,6 +22,8 @@ add the following to your `configuration.yaml` file:
 logger:
 ```
 
+The log severity level is `warning` if the logger integration is not enabled in `configuration.yaml`.
+
 To log all messages and ignore events lower than critical for specified
 components:
 

@@ -6,6 +6,8 @@ ha_category:
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_domain: uvc
+ha_platforms:
+  - camera
 ---
 
 The `uvc` camera platform allows you to integrate [UniFi Video Camera (UVC)](https://www.ui.com/products/#unifivideo) into Home Assistant.

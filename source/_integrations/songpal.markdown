@@ -11,6 +11,7 @@ ha_codeowners:
   - '@rytilahti'
   - '@shenxn'
 ha_domain: songpal
+ha_ssdp: true
 ---
 
 The `songpal` platform allows you to control Sony's Songpal ("[Audio Control API](https://developer.sony.com/develop/audio-control-api/)") compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.
@@ -26,26 +27,7 @@ A few notes:
 - Some devices, e.g., HT-XT3, do not support decreasing the volume step-by-step correctly.
 - Feel free to improve the available services!
 
-## Configuration
-
-Supported devices will be automatically discovered and can be set up through UI. If you want to manually configure it in YAML configuration, add the following to your `configuration.yaml` file:
-
-```yaml
-songpal:
-  - name: my soundbar
-    endpoint: http://IP_ADDRESS:10000/sony
-```
-
-{% configuration %}
-name:
-  description: The name to display for this device.
-  required: false
-  type: string
-endpoint:
-  description: API endpoint of the device.
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
 

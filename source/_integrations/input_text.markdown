@@ -32,7 +32,7 @@ input_text:
     max: 40
   text3:
     name: Text 3
-    pattern: '[a-fA-F0-9]*'
+    pattern: "[a-fA-F0-9]*"
   text4:
     name: Text 4
     mode: password
@@ -121,20 +121,21 @@ input_select:
       - Reading
       - Relax
       - 'OFF'
-    initial: 'Select'
+    initial: "Select"
 input_text:
   bedroom:
     name: Brightness
     
 automation:
-  - alias: Bedroom Light - Custom
+  - alias: "Bedroom Light - Custom"
     trigger:
       platform: state
       entity_id: input_select.scene_bedroom
     action:
       - service: input_text.set_value
-        data:
+        target:
           entity_id: input_text.bedroom
+        data:
           value: "{{ states('input_select.scene_bedroom') }}"
 ```
 

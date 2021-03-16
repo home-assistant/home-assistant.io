@@ -106,7 +106,7 @@ multiple time values.
 
 ```yaml
 automation:
-  - alias: Example with multiple time values in a single time trigger
+  - alias: "Example with multiple time values in a single time trigger"
     trigger:
       - platform: time
         at:

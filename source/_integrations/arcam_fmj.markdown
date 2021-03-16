@@ -8,6 +8,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@elupus'
 ha_domain: arcam_fmj
+ha_ssdp: true
 ---
 
 The `arcam_fmj` integration allows you to control [Arcam FMJ Receivers](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
@@ -19,12 +20,7 @@ Supported devices:
 - AVR 750
 - Likely other AVRs
 
-## Configuration
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **Arcam FMJ**.
-Follow the configuration flow, after finishing, the receivers will be available.
+{% include integrations/config_flow.md %}
 
 ## Power state
 

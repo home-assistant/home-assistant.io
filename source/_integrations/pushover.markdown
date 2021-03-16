@@ -6,6 +6,8 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Cloud Push
 ha_domain: pushover
+ha_platforms:
+  - notify
 ---
 
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.

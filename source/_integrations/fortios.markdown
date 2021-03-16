@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@kimfrellsen'
 ha_domain: fortios
+ha_platforms:
+  - device_tracker
 ---
 
 This integration enables Home Assistant to do device tracking of devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).

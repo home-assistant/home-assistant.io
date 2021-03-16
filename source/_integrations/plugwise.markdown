@@ -14,6 +14,12 @@ ha_codeowners:
   - '@brefra'
 ha_config_flow: true
 ha_domain: plugwise
+ha_zeroconf: true
+ha_platforms:
+  - binary_sensor
+  - climate
+  - sensor
+  - switch
 ---
 
 This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
@@ -26,7 +32,7 @@ Platforms available - depending on your Smile and setup include:
  - `binary_sensor` (for domestic hot water and secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
 
-The password can be found on the bottom of your Smile or Stretch, it should consist of 6 characters. To find your IP address use the Plugwise App: 
+The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
  - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
  - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
@@ -64,7 +70,7 @@ script:
   force_adam_update:
     sequence:
       - service: homeassistant.update_entity
-        data:
+        target:
           entity_id: climate.anna
 ```
 
@@ -83,8 +89,9 @@ script:
   lisa_reactive_last_schedule:
     sequence:
       - service: climate.set_hvac_mode
-        data:
+        target:
           entity_id: climate.lisa_bios
+        data:
           hvac_mode: auto
 ```
 
@@ -107,8 +114,9 @@ script:
   anna_set_predefined_temperature:
     sequence:
       - service: climate.set_temperature
-        data:
+        target:
           entity_id: climate.anna
+        data:
           temperature: 19.5
 ```
 

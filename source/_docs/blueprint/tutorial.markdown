@@ -54,7 +54,7 @@ blueprint:
 
 Now we have to decide what steps we want to make configurable. We want to make it as re-usable as possible, without losing its original intent of turning on a light-based on a motion sensor.
 
-Configurable parts in blueprints are called inputs. To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
+Configurable parts in blueprints are called [inputs](/docs/blueprint/schema/#blueprint-inputs). To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
 
 ```yaml
 trigger:
@@ -191,24 +191,24 @@ blueprint:
             domain: light
 
 trigger:
-  platform: state
-  entity_id: !input motion_sensor
+  - platform: state
+    entity_id: !input motion_sensor
 
 action:
-  service: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target: !input target_light
+  - service: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: !input target_light
 ```
 
 {% endraw %}
 
 ## Use it via the UI
 
-To configure it via the UI, go to **Configuration** and then **Blueprints**. Find the "Motion Light Tutorial" blueprint and click on "Create Automation".
+To configure it via the UI, go to **{% my config %}** and then **{% my blueprints %}**. Find the "Motion Light Tutorial" blueprint and click on "Create Automation".
 
 <div class='note'>
 Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation integration pick up the latest blueprint changes.

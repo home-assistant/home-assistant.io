@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_domain: cast
 ha_codeowners:
   - '@emontnemery'
+ha_zeroconf: true
 ---
 
 You can enable the Cast integration by going to the Integrations page inside the configuration panel.
@@ -24,7 +25,7 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
 
 ```yaml
 cast_downstairs_on_kitchen:
-  alias: Show Downstairs on kitchen
+  alias: "Show Downstairs on kitchen"
   sequence:
     - data:
         dashboard_path: lovelace
@@ -51,10 +52,11 @@ Optional:
 
 ```yaml
 'cast_youtube_to_my_chromecast':
-  alias: Cast YouTube to My Chromecast
+  alias: "Cast YouTube to My Chromecast"
   sequence:
-    - data:
+    - target:
         entity_id: media_player.my_chromecast
+      data:
         media_content_type: cast
         media_content_id: '
           {
@@ -76,10 +78,11 @@ Optional:
 
 ```yaml
 'cast_supla_to_my_chromecast':
-  alias: Cast supla to My Chromecast
+  alias: "Cast supla to My Chromecast"
   sequence:
-    - data:
+    - target:
         entity_id: media_player.my_chromecast
+      data:
         media_content_type: cast
         media_content_id: '
           {
@@ -95,13 +98,79 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 ```yaml
 'cast_plex_to_chromecast':
-  alias: Cast Plex to Chromecast
+  alias: "Cast Plex to Chromecast"
   sequence:
   - service: media_player.play_media
-    data:
+    target:
       entity_id: media_player.chromecast
+    data:
       media_content_type: movie
       media_content_id: 'plex://{"library_name": "Movies", "title": "Groundhog Day"}'
+```
+
+### Play (almost) any kind of media
+
+Chromecasts can play many kinds of modern [media (image/audio/video) formats](https://developers.google.com/cast/docs/media). As a rule of thumb, if a Chrome browser can play a media file a Chromecast will be able to handle that too.
+
+The media needs to be accessible via HTTP(S). Chromecast devices do not support other protocols like DLNA or playback from an SMB file share.
+
+You can play MP3 streams like net radios, FLAC files or videos from your local network with the `media_player.play_media` service, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a matching content type.
+
+```yaml
+# Play a video file from the local network:
+service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
+data:
+  media_content_type: "video"
+  media_content_id: "http://192.168.0.100/movies/sample-video.mkv"
+```
+
+```yaml
+# Show a jpeg image:
+service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
+data:
+  media_content_type: "image/jpeg"
+  media_content_id: "http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!"
+```
+
+Extra media metadata (for example title, subtitle, artist or album name) can be passed into the service and that will be shown on the Chromecast display.
+For the possible metadata types and values check [Google cast documentation > MediaInformation > metadata field](https://developers.google.com/cast/docs/reference/messages#MediaInformation).
+
+```yaml
+# Play a movie from the internet, with extra metadata provided:
+service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
+data:
+  media_content_type: "video/mp4"
+  media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  extra: 
+    metadata: 
+      metadataType: 1
+      title: "Big Buck Bunny"
+      subtitle: "By Blender Foundation, Licensed under the Creative Commons Attribution license"
+      images:
+        - url: "https://peach.blender.org/wp-content/uploads/watchtrailer.gif"
+```
+
+```yaml
+# Play a netradio, with extra metadata provided:
+service: media_player.play_media
+target:
+  entity_id: media_player.chromecast
+data:
+  media_content_type: "audio/mp3"
+  media_content_id: "http://stream.tilos.hu:8000/tilos" 
+  extra: 
+    metadata: 
+      metadataType: 3
+      title: "Radio TILOS"
+      artist: "LIVE"
+      images:
+        - url: "https://tilos.hu/images/kockalogo.png"
 ```
 
 ## Advanced use

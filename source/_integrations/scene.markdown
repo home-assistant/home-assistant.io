@@ -69,7 +69,8 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    entity_id: scene.romantic
+    target:
+      entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -115,8 +116,9 @@ automation:
     to: "home"
   action:
     service: scene.turn_on
-    data:
+    target:
       entity_id: scene.romantic
+    data:
       transition: 2.5
 ```
 
@@ -160,12 +162,12 @@ The following example turns off some entities as soon as a window opens. The sta
 
 ```yaml
 # Example automation using snapshot
-- alias: Window opened
+- alias: "Window opened"
   trigger:
   - platform: state
     entity_id: binary_sensor.window
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
   condition: []
   action:
   - service: scene.create
@@ -175,21 +177,22 @@ The following example turns off some entities as soon as a window opens. The sta
       - climate.ecobee
       - light.ceiling_lights
   - service: light.turn_off
-    data:
+    target:
       entity_id: light.ceiling_lights
   - service: climate.set_hvac_mode
-    data:
+    target:
       entity_id: climate.ecobee
-      hvac_mode: 'off'
-- alias: Window closed
+    data:
+      hvac_mode: "off"
+- alias: "Window closed"
   trigger:
   - platform: state
     entity_id: binary_sensor.window
-    from: 'on'
-    to: 'off'
+    from: "on"
+    to: "off"
   condition: []
   action:
   - service: scene.turn_on
-    data:
+    target:
       entity_id: scene.before
 ```

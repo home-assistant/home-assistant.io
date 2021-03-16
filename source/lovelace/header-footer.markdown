@@ -16,7 +16,7 @@ Widget to show a picture as a header or a footer. A picture can have touch actio
 ```yaml
 header:
   type: picture
-  image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+  image: "https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png"
 ```
 
 {% configuration header-footer %}
@@ -52,9 +52,9 @@ footer:
   entities:
     - script.launch_confetti
     - entity: script.swirl_lights
-      icon: 'mdi:track-light'
+      icon: "mdi:track-light"
     - entity: script.run_siren
-      icon: 'mdi:alarm-light'
+      icon: "mdi:alarm-light"
 ```
 
 {% configuration header-footer %}

@@ -110,7 +110,7 @@ intent_script:
       content: I have turned on the lights.
     action:
       service: light.turn_on
-      data:
+      target:
         entity_id: light.kitchen
 
 conversation:
