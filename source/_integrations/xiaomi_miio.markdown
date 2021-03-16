@@ -219,7 +219,7 @@ To set up the Xiaomi gateway, click Configuration in the sidebar, then click Int
 | Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                                  |
 | Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM                 | yes                                       |
 
-Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified in the options flow (after setting up the integration, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway integration). Fill in the cloud username, password and server country and check the "Use cloud to get connected subdevices" option. The connected subdevices will then be retrieved from the xiaomi miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection.
+Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified in the options flow (after setting up the integration, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway integration). Fill in the cloud username, password and server country and check the "Use cloud to get connected subdevices" option. The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection.
 
 ### Gateway Features
 
