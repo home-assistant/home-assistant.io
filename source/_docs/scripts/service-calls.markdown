@@ -103,7 +103,7 @@ target:
       thermostat.downstairs
     {% endif %}
 data:
-  temperature: {{ 22 - distance(states.device_tracker.paulus) }}
+  temperature: "{{ 22 - distance(states.device_tracker.paulus) }}"
 ```
 
 {% endraw %}
