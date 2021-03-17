@@ -328,6 +328,13 @@ The lower level Pub/Sub subscriber receives events in real time and internally f
 | Sound detected | [CameraSound](https://developers.google.com/nest/device-access/traits/device/camera-sound#events) | `sound_detected` |
 | Doorbell pressed | [DoorbellChime](https://developers.google.com/nest/device-access/traits/device/doorbell-chime#events) | `doorbell_chime` |
 
+### Finding Your Device ID
+
+The `device_id` is usually hidden by the GUI. If you need it for any reason, it's easy to find it through the GUI.
+1. Create a new automation with your device using the friendly name as the trigger
+2. In the extended menu &#8942; choose 'Edit in YAML'
+3. Your `device_id` will be visible
+
 ### Example
 
 This automation will trigger when a `nest_event` event type with a type of `camera_motion` is received from the specified `device_id`.
