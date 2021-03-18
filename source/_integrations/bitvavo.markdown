@@ -19,7 +19,7 @@ Setup requires an API Key and Secret Key from Bitvavo with at least 'Read' permi
 
 <div class='note warning'>
 
-A word of caution: It is highly recommended to use the IP whitelist, and specify the lowest level of permissions you need. Using an API will bypass 2FA, keep your keys safe!
+A word of caution: It is highly recommended to use the IP whitelist, and always specify the lowest level of permissions you need ('Read-Only' for this integration). Using an API will bypass 2FA, keep your keys safe!
 
 </div>
 
