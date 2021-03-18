@@ -215,12 +215,9 @@ Supported abbreviations:
     'set_pos_t':           'set_position_topic',
     'pos_t':               'position_topic',
     'pos_tpl':             'position_template',
-    'spd_cmd_t':           'speed_command_topic',
-    'spd_stat_t':          'speed_state_topic',
     'spd_rng_min':         'speed_range_min',
     'spd_rng_max':         'speed_range_max',
     'spd_val_tpl':         'speed_value_template',
-    'spds':                'speeds',
     'src_type':            'source_type',
     'stat_clsd':           'state_closed',
     'stat_closing':        'state_closing',
@@ -285,7 +282,6 @@ Supported abbreviations for device registry configuration:
     'mf':                  'manufacturer',
     'mdl':                 'model',
     'sw':                  'sw_version',
-    'sa':                  'suggested_area',
 ```
 
 ## Support by third-party tools
