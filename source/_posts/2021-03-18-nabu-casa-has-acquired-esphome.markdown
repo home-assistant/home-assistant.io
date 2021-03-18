@@ -12,6 +12,9 @@ og_image: /images/blog/2021-03-18-nabu-casa-acquired-esphome/social.png
 feedback: true
 ---
 
+<img alt="Nabu Casa heart ESPHome" src="/images/blog/2021-03-18-nabu-casa-acquired-esphome/social.png" />
+
+
 Today I'm happy to announce that [ESPHome](https://esphome.io) is from now on under the [Nabu Casa](https://www.nabucasa.com) umbrella. ESPHome is the easiest way to program ESP8266 and ESP32 devices and integrate them into Home Assistant. It has become an important piece of the Home Assistant ecosystem, so much so that we want to ensure that the project can continue to flourish as a free and open source project. This week Nabu Casa came to an agreement to acquire the ESPHome project from [Otto Winter](https://github.com/ottowinter), the founder of ESPHome.
 
 Otto started ESPHome three years ago to make programming ESP devices as easy as possible. With ESPHome, users write simple YAML files in which you describe what components are attached to what pins of the ESP device. ESPHome will then make this available in Home Assistant. No extra work necessary. Super simple.
