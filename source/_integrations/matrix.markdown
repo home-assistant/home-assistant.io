@@ -173,7 +173,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ### Images in notification
 
-It is possible to send images with the notifications. To do so, add a list of path in the notification `data` bloc.
+It is possible to send images with notifications. To do so, add a list of paths in the notification `data`.
 
 ```yaml
 # Example of notification with images
