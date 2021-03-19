@@ -3,7 +3,7 @@ title: Salus
 description: Instructions on how to integrate your IT500 Salus thermostats within Home Assistant.
 ha_category:
   - Climate
-ha_release: 2021.3.4
+ha_release: 2021.4
 ha_iot_class: Cloud Polling
 ha_domain: salus
 ha_config_flow: true
@@ -17,7 +17,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Climate
 
-To add `Salus` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **Salus**.
+{% include integrations/config_flow.md %}
 
 As a first step you will need to enter your credentials to login into the [Salus account](https://salus-it500.com/public/login.php), and on the second step you will be able to select the device you want to configure from a list of all devices in that account.
 
@@ -119,7 +119,7 @@ Returns the list of available HVAC modes.
 
 The following services are provided by the Salus Thermostat: `set_temperature`.
 
-### Service `climate.set_temperature` ([Climate integration](/integrations/climate/))
+### Service `climate.set_temperature`
 
 If the thermostat is in auto mode, it overrides the current target temperature. This will be reset at the next schedule checkpoint.
 
