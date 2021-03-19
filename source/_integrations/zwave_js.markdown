@@ -218,7 +218,7 @@ Events are fired when you press a button on a remote (aka Central Scene support)
 
 ### Node events (Notification)
 
-Check the [Z-Wave JS notification event docs](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data.
+Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data.
 
 #### Notification Command Class
 
