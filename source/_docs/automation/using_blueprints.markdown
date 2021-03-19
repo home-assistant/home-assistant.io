@@ -47,4 +47,4 @@ The Home Assistant Community forums have a specific tag for blueprints. This tag
 
 ## Troubleshooting missing automations
 
-When creating automations using blueprints, you may find they appear to be created but never show in the automations page. When creating automations using the GUI, they are written to `automations.yaml` make sure you have `automation: !include automations.yaml` in `configuration.yaml`.
+When creating automations using blueprints, you may find they appear to be created but never show in the automations page. When creating automations using the GUI, they are written to `automations.yaml`; make sure you have `automation: !include automations.yaml` in `configuration.yaml`.
