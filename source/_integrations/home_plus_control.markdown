@@ -71,50 +71,6 @@ At this point, you are now ready to add the Home+ Control integration to your Ho
 {% include integrations/config_flow.md %}
 
 
-## Polling Intervals
-
-The Legrand Home+ Control API is a cloud-based polling interface. This Home Assistant integration presents 3 different polling intervals:
-
-- Plant information request
-- Plant topology request
-- Module status request
-
-Refer to the [nomenclature](#api-nomenclature) section for details of what these names mean.
-Refer to the [API limitations](#api-limitations) section to better understand the reason for these polling intervals.
-
-The polling intervals can be [configured](#polling-interval-configuration) via the integration's `OPTIONS` in the Home Assistant UI.
-
-### Plant Information Request
-
-This call retrieves the information of the plants that are associated with a user. It is assumed that this information does not change very often. For the most part, a user will have a single *Legrand Home+ Control* gateway in their home, i.e., a single *plant*, and this will not change frequently.
-
-For this reason, the default polling interval for the plant information is set to a large value: 7200 seconds (2 hours).
-
-### Plant Topology Request
-
-This call retrieves the *layout* of the devices that make up a *plant*. This provides the list of devices, their names and some additional information about the devices (but not their status).
-
-It is assumed that plant topology is not changing very often, so the default polling interval for this information is set to a default value of 3600 seconds (1 hour).
-
-### Module Status Request
-
-This call retrieves the current operating status of the devices that make up the plant's topology - this includes the *reachability* of the device and its on/off status. 
-
-This information is expected to change frequently, so the polling interval is set to a lower default value of 300 seconds (5 minutes). This is still not as frequent as would be ideal, but is still reasonable considering the API calls-per-day limitation.
-
-### Polling Interval Configuration
-
-The polling intervals can be configured via the integration's `OPTIONS` in the Home Assistant UI.
-
-{% configuration_basic %}
-Plant Information:
-  description: Number of seconds between polling intervals of the plant information.
-Plant Topology:
-  description: Number of seconds between polling intervals of the plant topology data.
-Module Status:
-  description: Number of seconds between polling intervals of the module status information.
-{% endconfiguration_basic %}
-
 ## API Nomenclature
 
 Within the context of the Home+ Control API you may come across the following terms:
@@ -128,8 +84,6 @@ Other devices that are mentioned in the API, but that are not currently supporte
 
 ## API Limitations
 
-As mentioned in the [authentication](#authentication) section, this integration requires you to set up a subscription in the *Works with Legrand* platform. 
+As described in the [authentication](#authentication) section, this integration requires you to set up a subscription in the *Works with Legrand* platform. 
 
-Currently, end-users only have access to the *Starter Kit* subscription which has a major limitation in the number of allowed API requests that are allowed - only 500 API calls per day (counter is reset at 00:00 every day).
-
-This means that the integration has to set default polling intervals that are considerably larger than one would want for a Home Assistant integration. These intervals are [configurable](#polling-interval-configuration), but take care not to exceed the daily quota to prevent the integration from failing with `403 Forbidden` HTTP responses.
+Currently, end-users only have access to the *Starter Kit* subscription which has a major limitation in the number of allowed API requests that are allowed - only 500 API calls per day (counter is reset at 00:00 every day). If this daily quota is ever exceeded, the API will report `403 Forbidden` HTTP responses.
