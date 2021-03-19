@@ -222,7 +222,7 @@ Check the [Z-Wave JS notification event docs](https://zwave-js.github.io/node-zw
 
 #### Notification Command Class
 
-These are notification events fired by the device using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
+These are notification events fired by devices using the Notification command class. The `parameters` attribute in the example below is optional, and when it is included, the keys in the attribute will vary depending on the event.
 
 ```json
 {
@@ -243,7 +243,7 @@ These are notification events fired by the device using the Notification command
 
 #### Entry Control Command Class
 
-These are notification events fired by the device using the Entry Control command class.
+These are notification events fired by devices using the Entry Control command class.
 
 ```json
 {
