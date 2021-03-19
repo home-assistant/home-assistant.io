@@ -34,4 +34,4 @@ after save the automation.
 
 ## Troubleshooting missing automations
 
-When creating automations using the GUI, you may find they appear to be created but never show in the automations page. When creating automations using the GUI, they are written to `automations.yaml` even if you have a [split configuration](/docs/configuration/splitting_configuration/#example-combine-include_dir_merge_list-with-automationsyaml). Make sure you are correctly including the base `automations.yaml` file to ensure they are loaded.
+When you're creating automations using the GUI and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your `configuration.yaml`.
