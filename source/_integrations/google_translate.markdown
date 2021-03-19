@@ -10,7 +10,7 @@ ha_platforms:
   - tts
 ---
 
-The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
+The `google_translate` text-to-speech platform uses the unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.  Contrary to what the name suggests, ths integration only does text-to-speech and does not translate messages sent to it.
 
 ## Configuration
 
@@ -24,7 +24,7 @@ tts:
 
 {% configuration %}
 language:
-  description: "The language to use."
+  description: "The default speech language to use."
   required: false
   type: string
   default: "`en`"
@@ -32,6 +32,7 @@ language:
 
 Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
 Use the 2 digit language code which you can find at the end of URL when you click on Language name.
+Check the [tts platform documentation](https://www.home-assistant.io/integrations/tts/) for general text-to-speech options.
 
 ## Full configuration example
 
